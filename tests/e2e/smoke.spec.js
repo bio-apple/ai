@@ -98,4 +98,31 @@ test.describe('Bio AI Lab 冒烟测试', () => {
     await expect(page.locator('.ai-picker-tool-group[data-picker-result="coding"]')).toHaveClass(/active/);
     await expect(page.locator('.ai-picker-tool-group[data-picker-result="coding"] .ai-picker-tool')).toHaveCount(3);
   });
+
+  test('Prompt 库与数据', async ({ page }) => {
+    const res = await page.request.get(`${BASE}/prompts.json`);
+    expect(res.ok()).toBeTruthy();
+    const data = await res.json();
+    expect((data.prompts || []).length).toBeGreaterThan(5);
+    await page.goto(`${BASE}/index.html#section-prompts`);
+    await expect(page.locator('#section-prompts')).toHaveClass(/active/);
+    await expect(page.locator('#prompts-list .prompt-card').first()).toBeVisible({ timeout: 10000 });
+    await page.locator('#prompts-toolbar [data-prompt-cat="coding"]').click();
+    await expect(page.locator('#prompts-list .prompt-card').first()).toBeVisible();
+  });
+
+  test('案例库与教程索引', async ({ page }) => {
+    const res = await page.request.get(`${BASE}/tutorials.json`);
+    expect(res.ok()).toBeTruthy();
+    await page.goto(`${BASE}/cases/index.html`);
+    await expect(page.locator('h1')).toContainText('案例');
+    await expect(page.locator('.case-library-card').first()).toBeVisible();
+  });
+
+  test('视频筛选工具栏', async ({ page }) => {
+    await page.goto(`${BASE}/index.html#section-videos`);
+    await expect(page.locator('#video-toolbar')).toBeVisible();
+    await page.click('[data-video-sort="recent"]');
+    await expect(page.locator('#daily-video-list .video-card, #daily-video-list .loading-hint').first()).toBeVisible();
+  });
 });

@@ -91,7 +91,7 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
 }
 
 function resolveGoto(target) {
-  if (target === 'cases' || target === 'videos' || target === 'news' || target === 'create') {
+  if (target === 'cases' || target === 'videos' || target === 'news' || target === 'create' || target === 'prompts') {
     return `section-${target}`;
   }
   if (target === 'all' || target === 'home') return 'section-home';
@@ -205,6 +205,11 @@ function initHashRouting() {
   const anchor = new URLSearchParams(location.search).get('anchor');
   if (hash && document.getElementById(hash)) {
     showSection(hash, { updateHash: false, anchor });
+  } else if (anchor) {
+    const section = document.getElementById(anchor)?.closest('.section')?.id
+      || (anchor.startsWith('case-') ? 'section-cases' : null)
+      || (document.getElementById(anchor) ? null : 'section-cases');
+    if (section) showSection(section, { updateHash: false, anchor });
   }
 }
 
@@ -279,6 +284,32 @@ document.querySelectorAll('.case-tag').forEach(tag => {
     trackEvent('case-tag-click', { scenario });
   });
 });
+
+document.querySelectorAll('[data-goto-case]').forEach(card => {
+  card.addEventListener('click', () => {
+    const anchor = card.dataset.gotoCase;
+    showSection('section-cases', { anchor });
+    const el = document.getElementById(anchor);
+    if (el) el.classList.add('open');
+    trackEvent('case-preview-click', { anchor });
+  });
+});
+
+function initCasesLibraryFilter() {
+  const toolbar = document.getElementById('cases-toolbar');
+  if (!toolbar) return;
+  toolbar.querySelectorAll('[data-case-tool]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      toolbar.querySelectorAll('[data-case-tool]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tool = btn.dataset.caseTool;
+      document.querySelectorAll('.case-library-card').forEach(card => {
+        const match = tool === 'all' || card.dataset.tool === tool;
+        card.style.display = match ? '' : 'none';
+      });
+    });
+  });
+}
 
 /* Copy prompt */
 document.querySelectorAll('.prompt-block').forEach(block => {
@@ -407,5 +438,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initAiPicker();
   initScrollAnimations();
+  initCasesLibraryFilter();
   loadSearchIndex().finally(initSiteSearch);
 });

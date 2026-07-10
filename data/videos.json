@@ -1,0 +1,15 @@
+{
+  "header": {
+    "title": "每日 AI 视频",
+    "description": "运行时视频列表来自 daily-videos.json；本文件定义分类与排序选项。"
+  },
+  "sort_options": [
+    { "id": "views", "label": "热门排序" },
+    { "id": "recent", "label": "最新排序" }
+  ],
+  "platform_filters": [
+    { "id": "all", "label": "全部平台" },
+    { "id": "youtube", "label": "YouTube" },
+    { "id": "bilibili", "label": "B站" }
+  ]
+}

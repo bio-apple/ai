@@ -121,6 +121,12 @@
       
         
           
+          <button type="button" class="nav-tab" data-tool="prompts">Prompt库</button>
+          
+        
+      
+        
+          
           <button type="button" class="nav-tab" data-tool="news">AI 新闻</button>
           
         
@@ -1525,6 +1531,57 @@
       </div>
     </div>
 
+    <div class="cases-stats-bar">
+      <div class="cases-stat"><strong>11</strong><span>实战案例</span></div>
+      <div class="cases-stat"><strong>10</strong><span>覆盖工具</span></div>
+      <div class="cases-stat"><strong>5</strong><span>应用场景</span></div>
+    </div>
+
+    <div class="cases-preview-grid">
+      
+      <article class="case-preview-card reveal" data-goto-case="case-1" data-tool="chatgpt">
+        <span class="case-badge chatgpt">ChatGPT</span>
+        <h4>用 ChatGPT 写一份专业周报</h4>
+        <p>不只会聊天——用结构化提示词让 ChatGPT 生成高质量的工作周报。</p>
+      </article>
+      
+      <article class="case-preview-card reveal" data-goto-case="case-2" data-tool="gemini">
+        <span class="case-badge gemini">Google Gemini</span>
+        <h4>用 Gemini Deep Research 做行业调研</h4>
+        <p>让 Gemini 自动搜索多个来源，生成带引用链接的深度研究报告。</p>
+      </article>
+      
+      <article class="case-preview-card reveal" data-goto-case="case-3" data-tool="kimi">
+        <span class="case-badge kimi">Kimi</span>
+        <h4>用 Kimi 速读 50 页合同并提取关键条款</h4>
+        <p>上传长篇 PDF，让 Kimi 在几分钟内总结核心条款、风险点和待确认事项。</p>
+      </article>
+      
+      <article class="case-preview-card reveal" data-goto-case="case-4" data-tool="qwen">
+        <span class="case-badge qwen">通义千问</span>
+        <h4>用通义听悟整理 1 小时会议纪要</h4>
+        <p>上传会议录音，自动转写、分段摘要并提取待办事项。</p>
+      </article>
+      
+      <article class="case-preview-card reveal" data-goto-case="case-5" data-tool="copilot">
+        <span class="case-badge copilot">Microsoft Copilot</span>
+        <h4>用 GitHub Copilot 为函数自动生成单元测试</h4>
+        <p>在 VS Code 中选中业务函数，让 Copilot Chat 生成 pytest 测试并运行验证。</p>
+      </article>
+      
+      <article class="case-preview-card reveal" data-goto-case="case-6" data-tool="cursor">
+        <span class="case-badge cursor">Cursor</span>
+        <h4>从零搭建待办事项 Web App</h4>
+        <p>用 Cursor Agent + Plan 模式，从空文件夹到可运行的 HTML/CSS/JS 应用。</p>
+      </article>
+      
+    </div>
+
+    <div class="section-cta" style="margin-bottom:24px">
+      <a href="cases/index.html" class="cta-btn cta-btn-outline">查看完整案例库 →</a>
+      <button class="cta-btn" data-goto="prompts">浏览 Prompt 库 →</button>
+    </div>
+
     <div class="case-filters">
       
       <button class="case-filter active" data-filter="all">全部</button>
@@ -1569,7 +1626,7 @@
     </div>
 
     
-    <article class="case-card" id="case-1" data-tool="chatgpt" data-scenario="writing beginner">
+    <article class="case-card reveal" id="case-1" data-tool="chatgpt" data-scenario="writing beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge chatgpt">ChatGPT</span>
@@ -1628,7 +1685,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-2" data-tool="gemini" data-scenario="research beginner">
+    <article class="case-card reveal" id="case-2" data-tool="gemini" data-scenario="research beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge gemini">Google Gemini</span>
@@ -1683,7 +1740,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-3" data-tool="kimi" data-scenario="research beginner">
+    <article class="case-card reveal" id="case-3" data-tool="kimi" data-scenario="research beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge kimi">Kimi</span>
@@ -1745,7 +1802,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-4" data-tool="qwen" data-scenario="productivity beginner">
+    <article class="case-card reveal" id="case-4" data-tool="qwen" data-scenario="productivity beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge qwen">通义千问</span>
@@ -1803,7 +1860,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-5" data-tool="copilot" data-scenario="coding beginner">
+    <article class="case-card reveal" id="case-5" data-tool="copilot" data-scenario="coding beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge copilot">Microsoft Copilot</span>
@@ -1862,7 +1919,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-6" data-tool="cursor" data-scenario="coding beginner">
+    <article class="case-card reveal" id="case-6" data-tool="cursor" data-scenario="coding beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge cursor">Cursor</span>
@@ -1945,7 +2002,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-7" data-tool="cursor" data-scenario="coding">
+    <article class="case-card reveal" id="case-7" data-tool="cursor" data-scenario="coding">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge cursor">Cursor</span>
@@ -2009,7 +2066,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-8" data-tool="claude" data-scenario="writing beginner">
+    <article class="case-card reveal" id="case-8" data-tool="claude" data-scenario="writing beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge claude">Claude</span>
@@ -2086,7 +2143,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-9" data-tool="claude" data-scenario="coding">
+    <article class="case-card reveal" id="case-9" data-tool="claude" data-scenario="coding">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge claude">Claude</span>
@@ -2160,7 +2217,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-10" data-tool="codex" data-scenario="coding beginner">
+    <article class="case-card reveal" id="case-10" data-tool="codex" data-scenario="coding beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge codex">OpenAI Codex</span>
@@ -2235,7 +2292,7 @@
       </div>
     </article>
     
-    <article class="case-card" id="case-11" data-tool="codex" data-scenario="coding">
+    <article class="case-card reveal" id="case-11" data-tool="codex" data-scenario="coding">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge codex">OpenAI Codex</span>
@@ -2329,7 +2386,7 @@ Internet: off</div>
     
 
     
-    <div class="case-tips-card">
+    <div class="case-tips-card reveal">
       <h3>通用实战技巧</h3>
       <div class="grid-2">
         
@@ -2344,6 +2401,42 @@ Internet: off</div>
       </div>
     </div>
     
+  </main>
+</section>
+
+<section id="section-prompts" class="section prompts-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon" style="background:rgba(99,102,241,0.12);color:var(--accent)">📝</div>
+      <div>
+        <h2>Prompt 提示词库</h2>
+        <p class="desc">从实战案例提炼的可复制提示词，按科研、编程、数据分析、写作、办公、市场分析分类。</p>
+        <p class="library-meta" id="prompts-count-meta"></p>
+      </div>
+    </div>
+    <div class="library-toolbar" id="prompts-toolbar">
+      <button type="button" class="library-filter active" data-prompt-cat="all">全部</button>
+      
+      <button type="button" class="library-filter" data-prompt-cat="research">🔬 科研</button>
+      
+      <button type="button" class="library-filter" data-prompt-cat="coding">💻 编程</button>
+      
+      <button type="button" class="library-filter" data-prompt-cat="data">📈 数据分析</button>
+      
+      <button type="button" class="library-filter" data-prompt-cat="writing">✍ 写作</button>
+      
+      <button type="button" class="library-filter" data-prompt-cat="productivity">⚙ 办公</button>
+      
+      <button type="button" class="library-filter" data-prompt-cat="market">📊 市场分析</button>
+      
+    </div>
+    <div id="prompts-list" class="prompts-grid">
+      <p class="loading-hint">加载 Prompt 库…</p>
+    </div>
+    <div class="section-cta">
+      <a href="prompts/library.html" class="cta-btn cta-btn-outline">查看 Prompt 归档页 →</a>
+      <button class="cta-btn" data-goto="cases">查看完整实战案例 →</button>
+    </div>
   </main>
 </section>
 
@@ -2459,6 +2552,19 @@ Internet: off</div>
         <p class="video-update-meta" id="video-update-meta"></p>
       </div>
     </div>
+    <div class="video-toolbar" id="video-toolbar">
+      <div class="video-toolbar-group">
+        <span class="video-toolbar-label">平台</span>
+        <button type="button" class="video-filter active" data-video-platform="all">全部</button>
+        <button type="button" class="video-filter" data-video-platform="youtube">YouTube</button>
+        <button type="button" class="video-filter" data-video-platform="bilibili">B站</button>
+      </div>
+      <div class="video-toolbar-group">
+        <span class="video-toolbar-label">排序</span>
+        <button type="button" class="video-sort active" data-video-sort="views">热门</button>
+        <button type="button" class="video-sort" data-video-sort="recent">最新</button>
+      </div>
+    </div>
     <div id="daily-video-list" class="daily-video-list">
       <p class="loading-hint">加载视频推荐…</p>
     </div>
@@ -2473,6 +2579,7 @@ Internet: off</div>
 <script src="analytics.js"></script>
 <script src="ux.js"></script>
 <script src="app.js"></script>
+<script src="prompts.js"></script>
 <script src="news.js"></script>
 <script src="videos.js"></script>
 </body>

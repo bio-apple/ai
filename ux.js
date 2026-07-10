@@ -95,6 +95,7 @@ const TOC_PRIMARY = [
   { id: 'section-copilot', label: 'Copilot' },
   { id: 'section-create', label: 'AI 创作' },
   { id: 'section-cases', label: '案例库' },
+  { id: 'section-prompts', label: 'Prompt库' },
   { id: 'section-news', label: 'AI 新闻' },
   { id: 'section-videos', label: 'AI 视频' },
 ];
@@ -226,6 +227,27 @@ document.addEventListener('DOMContentLoaded', () => {
   initReadingProgress();
   initBackToTop();
   initPageToc();
+  initScrollReveal();
 });
+
+function initScrollReveal(root = document) {
+  const targets = root.querySelectorAll('.reveal:not(.visible)');
+  if (!targets.length) return;
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('visible'));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  targets.forEach(el => observer.observe(el));
+}
+
+window.refreshScrollReveal = initScrollReveal;
 
 window.updatePageToc = updatePageToc;

@@ -4,7 +4,7 @@
 
 ---
 
-## P0（优先级最高）
+## P0（优先级最高）✅
 
 | # | 功能 | 状态 |
 |---|------|------|
@@ -14,24 +14,28 @@
 | 4 | 返回顶部按钮（滚动 >500px 显示） | ✅ 已完成 |
 | 5 | 阅读进度条（顶部固定 0%~100%） | ✅ 已完成 |
 
-### 实现说明
-
-- **搜索**：`vendor/fuse.min.js` + `search-index.json`（构建时索引工具、案例、Prompt）
-- **TOC**：`ux.js` + `#page-toc`（桌面端 ≥1024px 固定左侧）
-- **主题**：`html[data-theme]` + 导航栏 ☾/☀ 切换
-- **UX 组件**：`templates/partials/ux_widgets.j2` 全站复用
-
 ---
 
-## P1（近期优化）
+## P1（近期优化）✅
 
 | # | 功能 | 状态 |
 |---|------|------|
-| 6 | 数据驱动改造（tools/tutorials/prompts/videos JSON） | 🔶 部分完成（已有 `data/*.json`） |
-| 7 | Prompt 库独立模块 | 🔜 规划中 |
-| 8 | AI 实战案例库增强 | 🔜 规划中 |
-| 9 | 视频列表增强（排序/筛选/字段扩展） | 🔜 规划中 |
-| 10 | 页面动画优化（Scroll Reveal） | 🔶 部分完成（已有 fade-in） |
+| 6 | 数据驱动改造（`data/*.json` → 运行时 JSON） | ✅ 已完成 |
+| 7 | Prompt 库独立模块 | ✅ 已完成 |
+| 8 | AI 实战案例库增强 | ✅ 已完成 |
+| 9 | 视频列表增强（排序/筛选/字段扩展） | ✅ 已完成 |
+| 10 | 页面动画优化（Scroll Reveal） | ✅ 已完成 |
+
+### P1 实现说明
+
+| 模块 | 路径 |
+|------|------|
+| 数据配置 | `data/prompts.json` · `data/tutorials.json` · `data/videos.json` |
+| 运行时数据 | `prompts.json` · `tutorials.json`（构建时从 `cases.json` 生成） |
+| Prompt 库 | 站内 `#section-prompts` + `/prompts/library.html` |
+| 案例库 | 增强 `#section-cases` + `/cases/index.html` |
+| 视频增强 | `#video-toolbar` 平台筛选 + 热门/最新排序 |
+| 动画 | `.reveal` + `ux.js` IntersectionObserver |
 
 ---
 
@@ -47,31 +51,24 @@
 
 ---
 
-## 建议开发顺序
+## 开发阶段
 
-### 第一阶段 ✅
+### 第一阶段 ✅ P0
 
-- [x] 全站搜索
-- [x] 左侧导航
-- [x] 深色模式
-- [x] 返回顶部
-- [x] 阅读进度条
+- [x] 全站搜索 · 左侧导航 · 深色模式 · 返回顶部 · 阅读进度条
 
-### 第二阶段
+### 第二阶段 ✅ P1
 
-- [ ] Prompt 库
-- [ ] 案例库
-- [ ] 数据驱动改造
-- [ ] 视频增强
+- [x] Prompt 库
+- [x] 案例库
+- [x] 数据驱动改造
+- [x] 视频增强
+- [x] Scroll Reveal 动画
 
-### 第三阶段
+### 第三阶段 🔜 P2 分析/后端
 
-- [ ] Clarity
-- [ ] GA4
-- [ ] FastAPI
+- [ ] Clarity · GA4 · FastAPI
 
-### 第四阶段
+### 第四阶段 🔜 AI 知识库
 
-- [ ] AI 知识库
-- [ ] RAG 问答
-- [ ] 推荐系统
+- [ ] RAG 问答 · 推荐系统

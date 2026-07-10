@@ -12,6 +12,7 @@ const CATEGORY_ORDER = [
 ];
 
 let videoDataPromise = null;
+let videoState = { platform: 'all', sort: 'views', rawData: null };
 
 function getCategoryKeys(batch) {
   if (!batch.categories) return [];
@@ -41,15 +42,20 @@ function formatSummary(v) {
   return base;
 }
 
+function formatPublishDate(iso) {
+  if (!iso) return '';
+  try {
+    return new Date(iso).toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' });
+  } catch {
+    return iso.slice(0, 10);
+  }
+}
+
 function getBatchVideos(batch) {
   if (batch.categories) {
     return getCategoryKeys(batch).flatMap(key => batch.categories[key]?.videos || []);
   }
   return batch.videos || [];
-}
-
-function getBatchVideoCount(batch) {
-  return getBatchVideos(batch).length;
 }
 
 function platformLabel(v) {
@@ -62,14 +68,20 @@ function isBilibiliVideo(v) {
   return v.platform === 'bilibili' || String(v.id || '').startsWith('bilibili:');
 }
 
+function videoPlatform(v) {
+  return isBilibiliVideo(v) ? 'bilibili' : 'youtube';
+}
+
 function renderVideoCard(v, { compact = false } = {}) {
   const hot = v.views >= HOT_VIEWS_THRESHOLD;
   const track = compact ? 'home-video-click' : 'video-click';
   const platform = platformLabel(v);
   const thumbPolicy = isBilibiliVideo(v) ? ' referrerpolicy="no-referrer"' : '';
   const thumbSrc = v.thumbnail || '';
+  const author = v.author || v.channel || '未知作者';
+  const published = formatPublishDate(v.published_at);
   return `
-    <article class="video-card${compact ? ' video-card-compact' : ''}">
+    <article class="video-card reveal${compact ? ' video-card-compact' : ''}">
       <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">
         <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(v.title)}" loading="lazy"${thumbPolicy}>
         <span class="video-play-btn" aria-hidden="true">▶ 观看</span>
@@ -82,13 +94,48 @@ function renderVideoCard(v, { compact = false } = {}) {
         <h4><a href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">${escapeHtml(v.title)}</a></h4>
         <p class="video-summary">${escapeHtml(formatSummary(v))}</p>
         <div class="video-meta">
-          <span>${escapeHtml(v.channel)}</span>
-          <span>订阅 ${formatNumber(v.subscribers)}</span>
+          <span>${escapeHtml(author)}</span>
+          ${published ? `<span>${escapeHtml(published)}</span>` : ''}
           <span>播放 ${formatNumber(v.views)}</span>
         </div>
       </div>
     </article>
   `;
+}
+
+function flattenLatestVideos(batch) {
+  const seen = new Set();
+  const items = [];
+  for (const v of getBatchVideos(batch)) {
+    if (seen.has(v.id)) continue;
+    seen.add(v.id);
+    items.push(v);
+  }
+  return items;
+}
+
+function filterAndSortVideos(videos, { platform, sort }) {
+  let list = [...videos];
+  if (platform !== 'all') {
+    list = list.filter(v => videoPlatform(v) === platform);
+  }
+  if (sort === 'recent') {
+    list.sort((a, b) => {
+      const ta = a.published_at ? Date.parse(a.published_at) : 0;
+      const tb = b.published_at ? Date.parse(b.published_at) : 0;
+      return tb - ta;
+    });
+  } else {
+    list.sort((a, b) => (b.views || 0) - (a.views || 0));
+  }
+  return list;
+}
+
+function renderFilteredGrid(videos) {
+  if (!videos.length) {
+    return '<p class="loading-hint">当前筛选条件下暂无视频。</p>';
+  }
+  return `<div class="video-grid">${videos.map(v => renderVideoCard(v)).join('')}</div>`;
 }
 
 function renderCategory(cat) {
@@ -104,10 +151,24 @@ function renderCategory(cat) {
   `;
 }
 
-function renderBatch(batch) {
-  const count = getBatchVideoCount(batch);
-  if (!count && !batch.categories) return '';
+function renderBatch(batch, state) {
+  const flat = flattenLatestVideos(batch);
+  const filtered = filterAndSortVideos(flat, state);
 
+  if (state.platform !== 'all' || state.sort !== 'views') {
+    const label = state.sort === 'recent' ? '最新排序' : '热门排序';
+    const platformLabelText = state.platform === 'all' ? '全部平台' : (state.platform === 'bilibili' ? 'B站' : 'YouTube');
+    return `
+      <section class="video-day">
+        <h3 class="video-day-title">${escapeHtml(batch.date)} · ${platformLabelText} · ${label}
+          <span class="video-day-count">${filtered.length} 条</span>
+        </h3>
+        ${renderFilteredGrid(filtered)}
+      </section>
+    `;
+  }
+
+  const count = getBatchVideos(batch).length;
   if (batch.categories) {
     const categories = getCategoryKeys(batch).map(key => batch.categories[key]);
     return `
@@ -143,22 +204,46 @@ function fetchVideoData() {
 }
 
 function pickHomePreviewVideos(batch, limit = 3) {
-  if (batch.categories) {
-    const recent = [
-      ...(batch.categories.youtube_recent_24h?.videos || []),
-      ...(batch.categories.bilibili_recent_24h?.videos || []),
-      ...(batch.categories.recent_24h?.videos || []),
-      ...(batch.categories.recent_7d?.videos || []),
-    ];
-    const top = [
-      ...(batch.categories.youtube_top_views?.videos || []),
-      ...(batch.categories.bilibili_top_views?.videos || []),
-      ...(batch.categories.top_views?.videos || []),
-      ...(batch.categories.last_6m?.videos || []),
-    ];
-    return [...recent.slice(0, 2), ...top.slice(0, 1)].slice(0, limit);
+  const flat = flattenLatestVideos(batch);
+  const sorted = filterAndSortVideos(flat, { platform: 'all', sort: 'recent' });
+  return sorted.slice(0, limit);
+}
+
+function paintVideoList() {
+  const root = document.getElementById('daily-video-list');
+  if (!root || !videoState.rawData) return;
+  const batches = videoState.rawData.batches || [];
+  if (!batches.length) {
+    root.innerHTML = '<p class="loading-hint">暂无视频数据，每日北京时间 0:00 自动更新。</p>';
+    return;
   }
-  return (batch.videos || []).slice(0, limit);
+  root.innerHTML = batches.map(batch => renderBatch(batch, videoState)).join('');
+  if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
+}
+
+function initVideoToolbar() {
+  const toolbar = document.getElementById('video-toolbar');
+  if (!toolbar) return;
+
+  toolbar.querySelectorAll('[data-video-platform]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      toolbar.querySelectorAll('[data-video-platform]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      videoState.platform = btn.dataset.videoPlatform;
+      paintVideoList();
+      if (typeof trackEvent === 'function') trackEvent('video-filter-platform', { platform: videoState.platform });
+    });
+  });
+
+  toolbar.querySelectorAll('[data-video-sort]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      toolbar.querySelectorAll('[data-video-sort]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      videoState.sort = btn.dataset.videoSort;
+      paintVideoList();
+      if (typeof trackEvent === 'function') trackEvent('video-filter-sort', { sort: videoState.sort });
+    });
+  });
 }
 
 async function loadHomeVideoPreview() {
@@ -174,6 +259,7 @@ async function loadHomeVideoPreview() {
       return;
     }
     root.innerHTML = `<div class="video-grid video-grid-preview">${videos.map(v => renderVideoCard(v, { compact: true })).join('')}</div>`;
+    if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
   } catch {
     root.innerHTML = '<p class="loading-hint">视频加载失败，请稍后刷新。</p>';
   }
@@ -188,6 +274,7 @@ async function loadDailyVideos() {
 
   try {
     const data = await fetchVideoData();
+    videoState.rawData = data;
     const batches = data.batches || [];
 
     if (!batches.length) {
@@ -197,10 +284,11 @@ async function loadDailyVideos() {
 
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 更新：YouTube / B站 各 2 类 Top 10（全网播放 + 24h 上新）`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 支持平台筛选与热门/最新排序`;
     }
 
-    root.innerHTML = batches.map(renderBatch).join('');
+    paintVideoList();
+    initVideoToolbar();
   } catch (err) {
     root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
   }

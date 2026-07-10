@@ -76,6 +76,19 @@ def validate_ai_news() -> None:
     print(f"✓ ai-news.json ({len(data['items'])} 条)")
 
 
+def validate_runtime_json() -> None:
+    for name in ("prompts.json", "tutorials.json"):
+        path = ROOT / name
+        if not path.exists():
+            raise FileNotFoundError(f"{name} 缺失，请先运行 scripts/build_site.py")
+        data = json.loads(path.read_text(encoding="utf-8"))
+        if name == "prompts.json" and not data.get("prompts"):
+            raise ValueError("prompts.json prompts 为空")
+        if name == "tutorials.json" and not data.get("tutorials"):
+            raise ValueError("tutorials.json tutorials 为空")
+    print("✓ prompts.json + tutorials.json")
+
+
 def validate_html_links() -> None:
     html_files = [
         ROOT / "index.html",
@@ -85,6 +98,8 @@ def validate_html_links() -> None:
         *ROOT.glob("compare/*.html"),
         *ROOT.glob("news/*.html"),
         *ROOT.glob("guides/*.html"),
+        *ROOT.glob("prompts/*.html"),
+        *ROOT.glob("cases/*.html"),
     ]
     missing = []
     for fp in html_files:
@@ -95,6 +110,10 @@ def validate_html_links() -> None:
                 continue
             if "#" in href:
                 href = href.split("#", 1)[0]
+                if not href:
+                    continue
+            if "?" in href:
+                href = href.split("?", 1)[0]
                 if not href:
                     continue
             target = (fp.parent / href).resolve()
@@ -108,7 +127,7 @@ def validate_html_links() -> None:
 
 
 def validate_data_json() -> None:
-    for name in ("site.json", "tools.json", "cases.json", "compares.json"):
+    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json"):
         path = ROOT / "data" / name
         if not path.exists():
             raise FileNotFoundError(path)
@@ -120,6 +139,7 @@ def main() -> int:
     validate_data_json()
     validate_daily_videos()
     validate_ai_news()
+    validate_runtime_json()
     validate_sitemap_robots()
     validate_search_index()
     validate_html_links()

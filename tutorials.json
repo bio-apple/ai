@@ -1,0 +1,160 @@
+{
+  "header": {
+    "title": "AI 实战教程索引",
+    "description": "Step-by-Step 实战案例元数据，由 cases.json 在构建时同步生成 tutorials.json。"
+  },
+  "count": 11,
+  "tutorials": [
+    {
+      "id": "case-1",
+      "tool": "chatgpt",
+      "tool_name": "ChatGPT",
+      "title": "用 ChatGPT 写一份专业周报",
+      "summary": "不只会聊天——用结构化提示词让 ChatGPT 生成高质量的工作周报。",
+      "level": "入门",
+      "duration": "约 15 分钟",
+      "scenarios": [
+        "writing",
+        "beginner"
+      ],
+      "prompt_count": 2
+    },
+    {
+      "id": "case-2",
+      "tool": "gemini",
+      "tool_name": "Google Gemini",
+      "title": "用 Gemini Deep Research 做行业调研",
+      "summary": "让 Gemini 自动搜索多个来源，生成带引用链接的深度研究报告。",
+      "level": "入门",
+      "duration": "约 20 分钟",
+      "scenarios": [
+        "research",
+        "beginner"
+      ],
+      "prompt_count": 1
+    },
+    {
+      "id": "case-3",
+      "tool": "kimi",
+      "tool_name": "Kimi",
+      "title": "用 Kimi 速读 50 页合同并提取关键条款",
+      "summary": "上传长篇 PDF，让 Kimi 在几分钟内总结核心条款、风险点和待确认事项。",
+      "level": "入门",
+      "duration": "约 20 分钟",
+      "scenarios": [
+        "research",
+        "beginner"
+      ],
+      "prompt_count": 2
+    },
+    {
+      "id": "case-4",
+      "tool": "qwen",
+      "tool_name": "通义千问",
+      "title": "用通义听悟整理 1 小时会议纪要",
+      "summary": "上传会议录音，自动转写、分段摘要并提取待办事项。",
+      "level": "入门",
+      "duration": "约 15 分钟",
+      "scenarios": [
+        "productivity",
+        "beginner"
+      ],
+      "prompt_count": 1
+    },
+    {
+      "id": "case-5",
+      "tool": "copilot",
+      "tool_name": "Microsoft Copilot",
+      "title": "用 GitHub Copilot 为函数自动生成单元测试",
+      "summary": "在 VS Code 中选中业务函数，让 Copilot Chat 生成 pytest 测试并运行验证。",
+      "level": "入门",
+      "duration": "约 25 分钟",
+      "scenarios": [
+        "coding",
+        "beginner"
+      ],
+      "prompt_count": 2
+    },
+    {
+      "id": "case-6",
+      "tool": "cursor",
+      "tool_name": "Cursor",
+      "title": "从零搭建待办事项 Web App",
+      "summary": "用 Cursor Agent + Plan 模式，从空文件夹到可运行的 HTML/CSS/JS 应用。",
+      "level": "入门",
+      "duration": "约 30 分钟",
+      "scenarios": [
+        "coding",
+        "beginner"
+      ],
+      "prompt_count": 4
+    },
+    {
+      "id": "case-7",
+      "tool": "cursor",
+      "tool_name": "Cursor",
+      "title": "给现有项目添加用户登录功能",
+      "summary": "在已有代码库上用 Agent 模式实现 JWT 认证，涵盖前后端多文件修改。",
+      "level": "中级",
+      "duration": "约 45 分钟",
+      "scenarios": [
+        "coding"
+      ],
+      "prompt_count": 5
+    },
+    {
+      "id": "case-8",
+      "tool": "claude",
+      "tool_name": "Claude",
+      "title": "用 Claude Projects 生成项目技术文档",
+      "summary": "上传代码仓库，让 Claude 自动分析并输出架构文档和 API 说明。",
+      "level": "入门",
+      "duration": "约 20 分钟",
+      "scenarios": [
+        "writing",
+        "beginner"
+      ],
+      "prompt_count": 4
+    },
+    {
+      "id": "case-9",
+      "tool": "claude",
+      "tool_name": "Claude",
+      "title": "用 Claude Code 终端修复 Bug",
+      "summary": "在终端用 Claude Code 定位、修复 bug 并提交 git commit，完整开发闭环。",
+      "level": "中级",
+      "duration": "约 25 分钟",
+      "scenarios": [
+        "coding"
+      ],
+      "prompt_count": 5
+    },
+    {
+      "id": "case-10",
+      "tool": "codex",
+      "tool_name": "OpenAI Codex",
+      "title": "用 Codex CLI 快速搭建 REST API",
+      "summary": "从空目录开始，用 Codex 终端代理生成完整的 CRUD API 项目。",
+      "level": "入门",
+      "duration": "约 20 分钟",
+      "scenarios": [
+        "coding",
+        "beginner"
+      ],
+      "prompt_count": 6
+    },
+    {
+      "id": "case-11",
+      "tool": "codex",
+      "tool_name": "OpenAI Codex",
+      "title": "用 Codex Cloud 自动处理 GitHub Issue",
+      "summary": "在 GitHub Issue 中 @codex，让云端 Agent 自动修复并提交 PR。",
+      "level": "中级",
+      "duration": "约 15 分钟（异步）",
+      "scenarios": [
+        "coding"
+      ],
+      "prompt_count": 3
+    }
+  ]
+}

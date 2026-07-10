@@ -35,6 +35,7 @@
       },
       { "type": "tab", "id": "create", "label": "AI 创作" },
       { "type": "tab", "id": "cases", "label": "AI 教程" },
+      { "type": "tab", "id": "prompts", "label": "Prompt库" },
       { "type": "tab", "id": "news", "label": "AI 新闻" },
       { "type": "tab", "id": "videos", "label": "AI 视频" }
     ]
@@ -254,6 +255,16 @@
     "title": "今日 AI 热点 | Bio AI Lab",
     "h1": "今日 AI 热点",
     "lead": "每日汇总 OpenAI、Anthropic、Google DeepMind、Hugging Face 等官方动态与行业资讯。"
+  },
+  "prompts_page": {
+    "title": "Prompt 提示词库 | Bio AI Lab",
+    "h1": "Prompt 提示词库",
+    "lead": "精选可复制提示词模板，覆盖写作、编程、科研、办公与市场调研等场景。"
+  },
+  "cases_page": {
+    "title": "AI 实战案例库 | Bio AI Lab",
+    "h1": "AI 实战案例库",
+    "lead": "从对话助手到编程自动化，跟着真实任务流程掌握 AI 工具。"
   },
   "guides": {
     "beginner": {

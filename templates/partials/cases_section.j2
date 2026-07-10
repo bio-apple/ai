@@ -8,6 +8,27 @@
       </div>
     </div>
 
+    <div class="cases-stats-bar">
+      <div class="cases-stat"><strong>{{ cases.cases|length }}</strong><span>实战案例</span></div>
+      <div class="cases-stat"><strong>{{ cases.tool_filters|length - 1 }}</strong><span>覆盖工具</span></div>
+      <div class="cases-stat"><strong>{{ cases.scenario_filters|length - 1 }}</strong><span>应用场景</span></div>
+    </div>
+
+    <div class="cases-preview-grid">
+      {% for case in cases.cases[:6] %}
+      <article class="case-preview-card reveal" data-goto-case="case-{{ loop.index }}" data-tool="{{ case.tool }}">
+        <span class="case-badge {{ case.tool }}">{{ tool_names.get(case.tool, case.tool) }}</span>
+        <h4>{{ case.title }}</h4>
+        <p>{{ case.summary }}</p>
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="section-cta" style="margin-bottom:24px">
+      <a href="cases/index.html" class="cta-btn cta-btn-outline">查看完整案例库 →</a>
+      <button class="cta-btn" data-goto="prompts">浏览 Prompt 库 →</button>
+    </div>
+
     <div class="case-filters">
       {% for f in cases.tool_filters %}
       <button class="case-filter{% if f == 'all' %} active{% endif %}" data-filter="{{ f }}">{{ nav_labels.get(f, f) if f != 'all' else '全部' }}</button>
@@ -22,7 +43,7 @@
     </div>
 
     {% for case in cases.cases %}
-    <article class="case-card" id="case-{{ loop.index }}" data-tool="{{ case.tool }}" data-scenario="{{ case.scenarios | join(' ') }}">
+    <article class="case-card reveal" id="case-{{ loop.index }}" data-tool="{{ case.tool }}" data-scenario="{{ case.scenarios | join(' ') }}">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge {{ case.tool }}">{{ tool_names.get(case.tool, case.tool) }}</span>
@@ -57,7 +78,7 @@
     {% endfor %}
 
     {% if cases.general_tips %}
-    <div class="case-tips-card">
+    <div class="case-tips-card reveal">
       <h3>{{ cases.general_tips.title }}</h3>
       <div class="grid-2">
         {% for col in cases.general_tips.columns %}

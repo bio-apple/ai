@@ -1,0 +1,25 @@
+<section id="section-prompts" class="section prompts-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon" style="background:rgba(99,102,241,0.12);color:var(--accent)">📝</div>
+      <div>
+        <h2>{{ prompts.header.title }}</h2>
+        <p class="desc">{{ prompts.header.description }}</p>
+        <p class="library-meta" id="prompts-count-meta"></p>
+      </div>
+    </div>
+    <div class="library-toolbar" id="prompts-toolbar">
+      <button type="button" class="library-filter active" data-prompt-cat="all">全部</button>
+      {% for cat in prompts.categories %}
+      <button type="button" class="library-filter" data-prompt-cat="{{ cat.id }}">{{ cat.icon }} {{ cat.label }}</button>
+      {% endfor %}
+    </div>
+    <div id="prompts-list" class="prompts-grid">
+      <p class="loading-hint">加载 Prompt 库…</p>
+    </div>
+    <div class="section-cta">
+      <a href="prompts/library.html" class="cta-btn cta-btn-outline">查看 Prompt 归档页 →</a>
+      <button class="cta-btn" data-goto="cases">查看完整实战案例 →</button>
+    </div>
+  </main>
+</section>

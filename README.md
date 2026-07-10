@@ -29,6 +29,8 @@ Discover, learn, and create with AI — covering ChatGPT, Claude, Gemini, DeepSe
 | AI 工具排行榜 | ✅ |
 | AI 选择助手 | ✅ |
 | AI 新闻资讯 | ✅ |
+| Prompt 提示词库 | ✅ |
+| AI 实战案例库 | ✅ |
 | AI 创作工具 | ✅ |
 | 实战案例 | ✅ |
 | 每日视频推荐 | ✅ |

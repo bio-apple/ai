@@ -1,0 +1,11 @@
+{
+  "header": {
+    "title": "AI 实战教程索引",
+    "description": "Step-by-Step 实战案例元数据，由 cases.json 在构建时同步生成 tutorials.json。"
+  },
+  "page": {
+    "title": "AI 实战案例库 | Bio AI Lab",
+    "h1": "AI 实战案例库",
+    "lead": "从对话助手到编程自动化，跟着真实任务流程掌握 AI 工具。"
+  }
+}

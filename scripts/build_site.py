@@ -127,7 +127,80 @@ def build_page_schema(title: str, description: str, url: str) -> str:
     return json.dumps(data, ensure_ascii=False)
 
 
-def build_search_index(site: dict, tools: list, cases: dict, compares: list) -> list:
+def classify_prompt_category(scenarios: list, title: str, content: str) -> str:
+    blob = f"{title}\n{content}"
+    if any(k in blob for k in ("论文", "科研", "文献", "研究方法论", "学术")):
+        return "research"
+    if any(k in blob for k in ("市场", "调研", "行业", "竞品", "Deep Research")):
+        return "market"
+    if any(k in blob for k in ("数据", "Excel", "表格", "图表", "SQL", "分析")):
+        return "data"
+    if "coding" in scenarios:
+        return "coding"
+    if "productivity" in scenarios:
+        return "productivity"
+    if "writing" in scenarios:
+        return "writing"
+    if "research" in scenarios:
+        return "market"
+    return "writing"
+
+
+def build_prompts_payload(cases: dict, prompts_meta: dict) -> dict:
+    prompts: list[dict] = []
+    for idx, case in enumerate(cases.get("cases", []), start=1):
+        case_anchor = f"case-{idx}"
+        step_no = 0
+        for step in case.get("steps", []):
+            for block in step.get("blocks", []):
+                if block.get("type") != "prompt":
+                    continue
+                step_no += 1
+                content = (block.get("content") or "").strip()
+                prompts.append(
+                    {
+                        "id": f"{case['tool']}-{idx}-{step_no}",
+                        "title": step.get("title") or case["title"],
+                        "category": classify_prompt_category(
+                            case.get("scenarios", []), case["title"], content
+                        ),
+                        "tool": case["tool"],
+                        "case_title": case["title"],
+                        "content": content,
+                        "case_anchor": case_anchor,
+                        "tags": list(dict.fromkeys(case.get("tags", []) + case.get("scenarios", []))),
+                    }
+                )
+    return {**prompts_meta, "count": len(prompts), "prompts": prompts}
+
+
+def build_tutorials_payload(cases: dict, tools: list) -> dict:
+    tool_names = {t["id"]: t["name"] for t in tools}
+    tutorials: list[dict] = []
+    for idx, case in enumerate(cases.get("cases", []), start=1):
+        prompt_count = sum(
+            1
+            for step in case.get("steps", [])
+            for block in step.get("blocks", [])
+            if block.get("type") == "prompt"
+        )
+        tutorials.append(
+            {
+                "id": f"case-{idx}",
+                "tool": case["tool"],
+                "tool_name": tool_names.get(case["tool"], case["tool"]),
+                "title": case["title"],
+                "summary": case.get("summary", ""),
+                "level": case.get("level", ""),
+                "duration": case.get("duration", ""),
+                "scenarios": case.get("scenarios", []),
+                "prompt_count": prompt_count,
+            }
+        )
+    return {"header": load_json("tutorials.json")["header"], "count": len(tutorials), "tutorials": tutorials}
+
+
+def build_search_index(site: dict, tools: list, cases: dict, compares: list, prompts_payload: dict) -> list:
     items = []
     for t in tools:
         kw = " ".join(
@@ -188,11 +261,48 @@ def build_search_index(site: dict, tools: list, cases: dict, compares: list) -> 
     items.append(
         {
             "label": "Prompt 提示词库",
-            "section": "section-cases",
-            "keywords": "prompt 提示词 模板 案例 写作 编程",
+            "section": "section-prompts",
+            "keywords": "prompt 提示词 模板 写作 编程 科研 办公 市场",
             "type": "Prompt",
         }
     )
+    items.append(
+        {
+            "label": "AI 实战案例库",
+            "url": "cases/index.html",
+            "keywords": "实战 案例 教程 步骤",
+            "type": "案例",
+        }
+    )
+    items.append(
+        {
+            "label": "Prompt 归档页",
+            "url": "prompts/library.html",
+            "keywords": "prompt 提示词 模板",
+            "type": "Prompt",
+        }
+    )
+    for prompt in prompts_payload.get("prompts", []):
+        items.append(
+            {
+                "label": f"Prompt · {prompt['case_title']}",
+                "section": "section-prompts",
+                "keywords": " ".join(
+                    filter(
+                        None,
+                        [
+                            prompt.get("tool", ""),
+                            prompt.get("case_title", ""),
+                            prompt.get("content", "")[:160],
+                            prompt.get("category", ""),
+                            "prompt",
+                        ],
+                    )
+                ),
+                "anchor": prompt.get("id"),
+                "type": "Prompt",
+            }
+        )
     items.append(
         {
             "label": "实战案例库",
@@ -251,7 +361,13 @@ def build_search_index(site: dict, tools: list, cases: dict, compares: list) -> 
 
 def build_sitemap(base_url: str, tools: list, compares: list) -> str:
     urls = [f"  <url><loc>{base_url}</loc><changefreq>daily</changefreq><priority>1.0</priority></url>"]
-    for page in ("ai-tools-ranking.html", "ai-learning-roadmap.html", "news/daily-ai-news.html"):
+    for page in (
+        "ai-tools-ranking.html",
+        "ai-learning-roadmap.html",
+        "news/daily-ai-news.html",
+        "prompts/library.html",
+        "cases/index.html",
+    ):
         urls.append(
             f"  <url><loc>{base_url}{page}</loc><changefreq>daily</changefreq><priority>0.9</priority></url>"
         )
@@ -280,6 +396,9 @@ def main() -> int:
     tools = load_json("tools.json")
     cases = load_json("cases.json")
     compares = load_json("compares.json")
+    prompts_meta = load_json("prompts.json")
+    prompts_payload = build_prompts_payload(cases, prompts_meta)
+    tutorials_payload = build_tutorials_payload(cases, tools)
     meta = site["meta"]
     tool_names = {t["id"]: t["name"] for t in tools}
     nav_labels = flatten_nav_labels(site["nav"]["menu"])
@@ -305,6 +424,7 @@ def main() -> int:
         footer=site["footer"],
         tools=tools,
         cases=cases,
+        prompts=prompts_meta,
         tool_names=tool_names,
         nav_labels=nav_labels,
         schema_json=schema_json,
@@ -418,7 +538,59 @@ def main() -> int:
             encoding="utf-8",
         )
 
-    search_index = build_search_index(site, tools, cases, compares)
+    prompts_dir = ROOT / "prompts"
+    prompts_dir.mkdir(exist_ok=True)
+    prompts_tpl = env.get_template("prompts_page.html.j2")
+    prompts_page = site["prompts_page"]
+    (prompts_dir / "library.html").write_text(
+        prompts_tpl.render(
+            page=prompts_page,
+            prompts=prompts_meta,
+            meta=meta,
+            nav=site["nav"],
+            footer=site["footer"],
+            schema_json=build_page_schema(
+                prompts_page["title"],
+                prompts_page["lead"],
+                f"{meta['base_url']}prompts/library.html",
+            ),
+        ),
+        encoding="utf-8",
+    )
+
+    cases_dir = ROOT / "cases"
+    cases_dir.mkdir(exist_ok=True)
+    cases_tpl = env.get_template("cases_page.html.j2")
+    cases_page = site["cases_page"]
+    (cases_dir / "index.html").write_text(
+        cases_tpl.render(
+            page=cases_page,
+            cases=cases,
+            tutorials=tutorials_payload,
+            prompts_count=prompts_payload["count"],
+            tool_names=tool_names,
+            meta=meta,
+            nav=site["nav"],
+            footer=site["footer"],
+            schema_json=build_page_schema(
+                cases_page["title"],
+                cases_page["lead"],
+                f"{meta['base_url']}cases/index.html",
+            ),
+        ),
+        encoding="utf-8",
+    )
+
+    (ROOT / "prompts.json").write_text(
+        json.dumps(prompts_payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    (ROOT / "tutorials.json").write_text(
+        json.dumps(tutorials_payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
+    search_index = build_search_index(site, tools, cases, compares, prompts_payload)
     (ROOT / "search-index.json").write_text(
         json.dumps(search_index, ensure_ascii=False, indent=2) + "\n",
         encoding="utf-8",
@@ -429,7 +601,8 @@ def main() -> int:
     print(f"✓ index.html")
     print(f"✓ tools/ ({len(tools)} 页)")
     print(f"✓ compare/ ({len(compares)} 页)")
-    print(f"✓ news/daily-ai-news.html + guides/ (2 页)")
+    print(f"✓ prompts/library.html + cases/index.html")
+    print(f"✓ prompts.json ({prompts_payload['count']} 条) + tutorials.json ({tutorials_payload['count']} 条)")
     print(f"✓ ai-tools-ranking.html + ai-learning-roadmap.html")
     print(f"✓ search-index.json ({len(search_index)} 条)")
     print(f"✓ sitemap.xml")
