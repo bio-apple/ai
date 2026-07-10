@@ -13,7 +13,7 @@
           "repo": "langchain-ai/langgraph",
           "name": "LangGraph",
           "description": "低层级 Agent 编排框架，支持有状态、可循环的多步工作流。",
-          "stars": 36959,
+          "stars": 36963,
           "url": "https://github.com/langchain-ai/langgraph",
           "language": "Python"
         },
@@ -22,7 +22,7 @@
           "repo": "crewAIInc/crewAI",
           "name": "crewAI",
           "description": "多 Agent 协作框架，适合角色分工与任务流水线。",
-          "stars": 55284,
+          "stars": 55291,
           "url": "https://github.com/crewAIInc/crewAI",
           "language": "Python"
         }
@@ -38,7 +38,7 @@
           "repo": "langgenius/dify",
           "name": "Dify",
           "description": "开源 LLM 应用开发平台，支持 RAG、Agent 与工作流编排。",
-          "stars": 148392,
+          "stars": 148400,
           "url": "https://github.com/langgenius/dify",
           "language": "TypeScript"
         },
@@ -47,7 +47,7 @@
           "repo": "run-llama/llama_index",
           "name": "LlamaIndex",
           "description": "数据连接与 RAG 框架，快速构建知识库问答应用。",
-          "stars": 50761,
+          "stars": 50763,
           "url": "https://github.com/run-llama/llama_index",
           "language": "Python"
         }
@@ -63,7 +63,7 @@
           "repo": "ollama/ollama",
           "name": "Ollama",
           "description": "一键在本地运行 Llama、Qwen、DeepSeek 等开源模型。",
-          "stars": 175848,
+          "stars": 175858,
           "url": "https://github.com/ollama/ollama",
           "language": "Go"
         },
@@ -72,7 +72,7 @@
           "repo": "ggml-org/llama.cpp",
           "name": "llama.cpp",
           "description": "高性能 C/C++ 推理引擎，支持 CPU/GPU 量化部署。",
-          "stars": 119866,
+          "stars": 119886,
           "url": "https://github.com/ggml-org/llama.cpp",
           "language": "C++"
         }
@@ -88,7 +88,7 @@
           "repo": "comfyanonymous/ComfyUI",
           "name": "ComfyUI",
           "description": "节点式 Stable Diffusion 工作流，灵活组合 ControlNet 与 LoRA。",
-          "stars": 120157,
+          "stars": 120177,
           "url": "https://github.com/comfyanonymous/ComfyUI",
           "language": "Python"
         },
@@ -122,7 +122,7 @@
           "repo": "huggingface/transformers",
           "name": "Transformers",
           "description": "Hugging Face 多模态模型库，覆盖 VLM、ASR 与视觉任务。",
-          "stars": 162436,
+          "stars": 162445,
           "url": "https://github.com/huggingface/transformers",
           "language": "Python"
         }
@@ -138,7 +138,7 @@
           "repo": "pytorch/pytorch",
           "name": "PyTorch",
           "description": "主流深度学习框架，研究与生产部署首选。",
-          "stars": 101712,
+          "stars": 101713,
           "url": "https://github.com/pytorch/pytorch",
           "language": "Python"
         },
@@ -147,7 +147,7 @@
           "repo": "google/jax",
           "name": "JAX",
           "description": "Google 高性能数值计算与自动微分框架。",
-          "stars": 35996,
+          "stars": 35997,
           "url": "https://github.com/google/jax",
           "language": "Python"
         }
