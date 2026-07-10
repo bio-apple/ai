@@ -41,6 +41,21 @@
 <div class="reading-progress-label" aria-live="polite">阅读进度 0%</div>
 <aside id="page-toc" class="page-toc" aria-label="页面目录"></aside>
 <button type="button" class="back-to-top" aria-label="返回顶部">↑</button>
+<button type="button" class="knowledge-fab" id="knowledge-fab" aria-label="打开 AI 知识库助手" title="AI 知识库">💡</button>
+<div class="knowledge-panel" id="knowledge-panel" role="dialog" aria-label="AI 知识库助手" aria-hidden="true">
+  <div class="knowledge-header">
+    <h3>AI 知识库助手</h3>
+    <button type="button" class="knowledge-close" id="knowledge-close" aria-label="关闭">×</button>
+  </div>
+  <div class="knowledge-messages" id="knowledge-messages">
+    <div class="knowledge-msg bot">你好！可问我站内工具、Prompt、案例或视频，例如「Cursor 怎么写代码」「科研 Prompt」。</div>
+  </div>
+  <p class="knowledge-hint">基于站内索引检索 · 本地优先，FastAPI 环境下可调用 /api/ask</p>
+  <form class="knowledge-form" id="knowledge-form">
+    <input type="search" class="knowledge-input" id="knowledge-input" placeholder="输入问题…" autocomplete="off" maxlength="300" aria-label="知识库问题">
+    <button type="submit" class="knowledge-submit" id="knowledge-submit">提问</button>
+  </form>
+</div>
 
 
 <header>
@@ -2582,5 +2597,6 @@ Internet: off</div>
 <script src="prompts.js"></script>
 <script src="news.js"></script>
 <script src="videos.js"></script>
+<script src="knowledge.js"></script>
 </body>
 </html>

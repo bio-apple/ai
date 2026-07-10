@@ -126,8 +126,19 @@ def validate_html_links() -> None:
     print(f"✓ HTML 链接检查 ({len(html_files)} 个文件)")
 
 
+def validate_analytics_config() -> None:
+    path = ROOT / "analytics-config.json"
+    if not path.exists():
+        raise FileNotFoundError("analytics-config.json 缺失，请先运行 scripts/build_site.py")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    for key in ("ga_measurement_id", "clarity_project_id", "track_engagement"):
+        if key not in data:
+            raise ValueError(f"analytics-config.json 缺少 {key}")
+    print("✓ analytics-config.json")
+
+
 def validate_data_json() -> None:
-    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json"):
+    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json"):
         path = ROOT / "data" / name
         if not path.exists():
             raise FileNotFoundError(path)
@@ -142,6 +153,7 @@ def main() -> int:
     validate_runtime_json()
     validate_sitemap_robots()
     validate_search_index()
+    validate_analytics_config()
     validate_html_links()
     print("全部 CI 校验通过")
     return 0

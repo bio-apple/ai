@@ -125,4 +125,20 @@ test.describe('Bio AI Lab 冒烟测试', () => {
     await page.click('[data-video-sort="recent"]');
     await expect(page.locator('#daily-video-list .video-card, #daily-video-list .loading-hint').first()).toBeVisible();
   });
+
+  test('P2：知识库助手与 analytics 配置', async ({ page }) => {
+    const cfg = await page.request.get(`${BASE}/analytics-config.json`);
+    expect(cfg.ok()).toBeTruthy();
+    const analytics = await cfg.json();
+    expect(analytics).toHaveProperty('track_engagement');
+
+    await page.goto(`${BASE}/index.html`);
+    await expect(page.locator('#knowledge-fab')).toBeVisible();
+    await page.click('#knowledge-fab');
+    await expect(page.locator('#knowledge-panel')).toHaveClass(/open/);
+    await page.fill('#knowledge-input', 'Cursor');
+    await page.click('#knowledge-submit');
+    await expect(page.locator('.knowledge-msg.user').last()).toContainText('Cursor');
+    await expect(page.locator('.knowledge-msg.bot').last()).toBeVisible();
+  });
 });

@@ -1,0 +1,6 @@
+{
+  "ga_measurement_id": "",
+  "clarity_project_id": "",
+  "track_engagement": true,
+  "note": "填入 GA4 Measurement ID 与 Microsoft Clarity Project ID 后重新构建站点即可启用"
+}

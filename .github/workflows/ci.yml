@@ -26,6 +26,9 @@ jobs:
       - name: Validate JSON / sitemap / links
         run: python scripts/validate_ci.py
 
+      - name: FastAPI API smoke
+        run: PYTHONPATH=. python scripts/smoke_api.py
+
       - uses: actions/setup-node@v4
         with:
           node-version: "20"

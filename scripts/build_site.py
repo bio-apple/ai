@@ -391,6 +391,22 @@ def build_sitemap(base_url: str, tools: list, compares: list) -> str:
     )
 
 
+def build_analytics_config() -> dict:
+    path = DATA / "analytics.json"
+    if not path.exists():
+        return {
+            "ga_measurement_id": "",
+            "clarity_project_id": "",
+            "track_engagement": True,
+        }
+    raw = load_json("analytics.json")
+    return {
+        "ga_measurement_id": (raw.get("ga_measurement_id") or "").strip(),
+        "clarity_project_id": (raw.get("clarity_project_id") or "").strip(),
+        "track_engagement": bool(raw.get("track_engagement", True)),
+    }
+
+
 def main() -> int:
     site = load_json("site.json")
     tools = load_json("tools.json")
@@ -598,6 +614,12 @@ def main() -> int:
 
     (ROOT / "sitemap.xml").write_text(build_sitemap(meta["base_url"], tools, compares), encoding="utf-8")
 
+    analytics_cfg = build_analytics_config()
+    (ROOT / "analytics-config.json").write_text(
+        json.dumps(analytics_cfg, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+
     print(f"✓ index.html")
     print(f"✓ tools/ ({len(tools)} 页)")
     print(f"✓ compare/ ({len(compares)} 页)")
@@ -606,6 +628,7 @@ def main() -> int:
     print(f"✓ ai-tools-ranking.html + ai-learning-roadmap.html")
     print(f"✓ search-index.json ({len(search_index)} 条)")
     print(f"✓ sitemap.xml")
+    print(f"✓ analytics-config.json")
     return 0
 
 

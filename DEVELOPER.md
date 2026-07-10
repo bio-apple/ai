@@ -56,8 +56,7 @@
 
 - **内容源**在 `data/*.json`，不直接维护巨型 `index.html`。
 - `index.html`、`tools/`、`compare/`、`search-index.json`、`sitemap.xml` 由 **`scripts/build_site.py`** 从数据 + Jinja2 模板生成。
-- 生产环境以 **GitHub Pages 静态托管** 为主，无后端 API、无数据库。
-- `backend/` 仅用于 **本地预览**（FastAPI 静态文件服务）。
+- 生产环境以 **GitHub Pages 静态托管** 为主；`backend/` 提供本地预览与可选 **内容 API**（`/api/*`）。
 - 动态内容（每日视频）通过提交 `daily-videos.json` 实现，由 GitHub Actions 定时写入。
 - 部署前必须通过 **CI 校验**（JSON Schema、链接检查、Playwright 冒烟测试）。
 
@@ -72,7 +71,9 @@
 | 页面 | HTML5、语义化区块 |
 | 样式 | 原生 CSS 模块化（`css/*.css` + `style.css` 入口） |
 | 交互 | 原生 JavaScript（无框架） |
-| 搜索 | `search-index.json`（构建时自动生成） |
+| 搜索 | `search-index.json`（构建时自动生成）+ Fuse.js |
+| 知识库 | `knowledge.js`（客户端检索）+ `/api/ask`（FastAPI BM25） |
+| 分析 | GA4 + Microsoft Clarity（`data/analytics.json`） |
 | 视频数据 | `daily-videos.json` + `fetch` 加载（Promise 缓存） |
 | 视频抓取 | Python 3.12 + [yt-dlp](https://github.com/yt-dlp/yt-dlp) |
 | 校验 | jsonschema + BeautifulSoup + [Playwright](https://playwright.dev/) |
@@ -128,14 +129,20 @@ ai/
 ├── style.css                   # @import 入口
 ├── app.js                      # 导航、搜索、案例筛选、hash 路由
 ├── videos.js                   # 视频列表（共享 fetch 缓存）
-├── analytics.js                # 点击追踪（可配置 GA4）
+├── analytics.js                # GA4 / Clarity / 点击与停留追踪
+├── analytics-config.json         # 【构建产物】分析 ID 配置
+├── knowledge.js                  # AI 知识库浮层助手
 ├── daily-videos.json           # 视频数据（Actions 每日追加）
 │
-├── backend/                    # 可选本地静态服务器
+├── backend/                    # 本地静态服务 + 内容 API
+│   ├── main.py
+│   ├── api/routes.py
+│   └── services/knowledge.py
 ├── .github/workflows/
 │   ├── ci.yml                  # push/PR 校验
 │   ├── pages.yml               # 校验通过后部署 Pages
-│   └── daily-videos.yml        # 定时抓取视频
+│   ├── daily-videos.yml        # 定时抓取视频
+│   └── weekly-link-check.yml   # 每周外链检测
 │
 ├── build.sh                    # 快捷构建入口
 ├── package.json                # Playwright 测试依赖
@@ -528,11 +535,35 @@ server:
 
 环境变量：`HOST`、`PORT`（见 `backend/config.py`）。
 
+### `data/analytics.json` / `analytics-config.json`
+
+在 `data/analytics.json` 填入 GA4 与 Clarity ID 后运行 `./build.sh`，会生成根目录 `analytics-config.json`，`analytics.js` 启动时自动加载。
+
+```json
+{
+  "ga_measurement_id": "G-XXXXXXXX",
+  "clarity_project_id": "xxxxxxxx",
+  "track_engagement": true
+}
+```
+
+### FastAPI 内容 API（本地 `./start.sh`）
+
+| 端点 | 说明 |
+|------|------|
+| `GET /api/health` | 健康检查 |
+| `GET /api/tools` | 工具列表（`data/tools.json`） |
+| `GET /api/prompts` | Prompt 库（`prompts.json`） |
+| `GET /api/tutorials` | 教程索引（`tutorials.json`） |
+| `GET /api/videos` | 最新视频批次 |
+| `POST /api/ask` | 知识库问答（BM25 + `search-index.json`） |
+| `GET /api/search?q=` | 关键词检索 |
+
+CI 运行 `python scripts/smoke_api.py` 做 API 冒烟测试。
+
 ### `analytics.js`
 
-```javascript
-const GA_MEASUREMENT_ID = '';  // 填入 GA4 ID 启用统计
-```
+运行时从 `analytics-config.json` 读取配置；未配置 ID 时仅记录 `window.__clickStats`。
 
 ### `.gitignore`
 

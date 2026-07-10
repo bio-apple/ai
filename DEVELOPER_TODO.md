@@ -39,15 +39,27 @@
 
 ---
 
-## P2（长期规划）
+## P2（长期规划）✅
 
 | # | 功能 | 状态 |
 |---|------|------|
-| 11 | Microsoft Clarity | 🔜 规划中 |
-| 12 | Google Analytics 4 | 🔜 规划中 |
-| 13 | FastAPI 后端 API | 🔜 规划中 |
-| 14 | AI 知识库（RAG） | 🔜 规划中 |
-| 15 | 自动死链检测 Action | 🔜 规划中 |
+| 11 | Microsoft Clarity | ✅ 已完成 |
+| 12 | Google Analytics 4 | ✅ 已完成 |
+| 13 | FastAPI 后端 API | ✅ 已完成 |
+| 14 | AI 知识库（RAG） | ✅ 已完成 |
+| 15 | 自动死链检测 Action | ✅ 已完成 |
+
+### P2 实现说明
+
+| 模块 | 路径 |
+|------|------|
+| 分析配置 | `data/analytics.json` → 构建 `analytics-config.json` |
+| 埋点脚本 | `analytics.js`（GA4 + Clarity + 停留时长） |
+| 内容 API | `backend/api/routes.py`：`/api/tools` · `/api/prompts` · `/api/tutorials` · `/api/videos` · `/api/ask` |
+| RAG 检索 | `backend/services/knowledge.py`（BM25 + `search-index.json`） |
+| 知识库 UI | `knowledge.js` + `#knowledge-fab` 浮层（客户端 Fuse，本地 API 优先） |
+| 外链检测 | `scripts/check_external_links.py` + `.github/workflows/weekly-link-check.yml` |
+| API 冒烟 | `scripts/smoke_api.py`（CI 集成） |
 
 ---
 
@@ -65,10 +77,11 @@
 - [x] 视频增强
 - [x] Scroll Reveal 动画
 
-### 第三阶段 🔜 P2 分析/后端
+### 第三阶段 ✅ P2 分析/后端
 
-- [ ] Clarity · GA4 · FastAPI
+- [x] Clarity · GA4 · FastAPI
 
-### 第四阶段 🔜 AI 知识库
+### 第四阶段 ✅ AI 知识库
 
-- [ ] RAG 问答 · 推荐系统
+- [x] RAG 问答（BM25 检索 MVP）
+- [ ] 推荐系统（后续）

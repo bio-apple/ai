@@ -1,0 +1,154 @@
+/* AI 知识库助手浮层 */
+.knowledge-fab {
+  position: fixed;
+  right: 20px;
+  bottom: 88px;
+  z-index: 150;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: linear-gradient(135deg, var(--accent), var(--secondary, #7c3aed));
+  color: #fff;
+  font-size: 1.35rem;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.knowledge-fab:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.45);
+}
+
+.knowledge-panel {
+  position: fixed;
+  right: 20px;
+  bottom: 152px;
+  z-index: 151;
+  width: min(380px, calc(100vw - 32px));
+  max-height: min(520px, calc(100vh - 180px));
+  display: none;
+  flex-direction: column;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.18);
+  overflow: hidden;
+}
+
+.knowledge-panel.open {
+  display: flex;
+}
+
+.knowledge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-subtle, var(--bg));
+}
+
+.knowledge-header h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.knowledge-close {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.knowledge-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.knowledge-msg {
+  max-width: 92%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.knowledge-msg.bot {
+  align-self: flex-start;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+.knowledge-msg.user {
+  align-self: flex-end;
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--text);
+}
+
+.knowledge-source {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.knowledge-source:hover {
+  text-decoration: underline;
+}
+
+.knowledge-form {
+  display: flex;
+  gap: 8px;
+  padding: 12px 14px;
+  border-top: 1px solid var(--border);
+}
+
+.knowledge-input {
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.knowledge-submit {
+  border: none;
+  border-radius: 10px;
+  padding: 0 14px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.82rem;
+}
+
+.knowledge-hint {
+  padding: 0 14px 10px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .knowledge-fab {
+    right: 14px;
+    bottom: 76px;
+  }
+  .knowledge-panel {
+    right: 14px;
+    bottom: 138px;
+  }
+}
