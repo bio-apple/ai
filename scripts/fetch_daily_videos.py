@@ -86,9 +86,11 @@ def score_video(views: int, subscribers: int) -> float:
 
 
 def make_summary(title: str, description: str | None, channel: str) -> str:
-    desc = re.sub(r"\s+", " ", (description or "")).strip()
+    desc = re.sub(r"https?://\S+", "", description or "")
+    desc = re.sub(r"\s+", " ", desc).strip()
+    desc = re.sub(r"(?i)^(sponsored|ad|广告)\s*", "", desc)
     sentence = re.split(r"[.!?\n|｜]", desc)[0].strip() if desc else ""
-    if len(sentence) < 24:
+    if len(sentence) < 24 or "http" in sentence.lower():
         sentence = (
             f"【{channel}】讲解 AI 工具实战应用，围绕「{title[:48]}」展示操作步骤与使用技巧。"
         )
