@@ -1,6 +1,15 @@
 const VIDEO_DATA_URL = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
-const CATEGORY_ORDER = ['top_views', 'recent_7d', 'recent_24h', 'last_6m'];
+const CATEGORY_ORDER = [
+  'youtube_top_views',
+  'youtube_recent_24h',
+  'bilibili_top_views',
+  'bilibili_recent_24h',
+  'top_views',
+  'recent_7d',
+  'recent_24h',
+  'last_6m',
+];
 
 let videoDataPromise = null;
 
@@ -129,12 +138,18 @@ function fetchVideoData() {
 
 function pickHomePreviewVideos(batch, limit = 3) {
   if (batch.categories) {
-    const recent = batch.categories.recent_7d?.videos
-      || batch.categories.recent_24h?.videos
-      || [];
-    const top = batch.categories.top_views?.videos
-      || batch.categories.last_6m?.videos
-      || [];
+    const recent = [
+      ...(batch.categories.youtube_recent_24h?.videos || []),
+      ...(batch.categories.bilibili_recent_24h?.videos || []),
+      ...(batch.categories.recent_24h?.videos || []),
+      ...(batch.categories.recent_7d?.videos || []),
+    ];
+    const top = [
+      ...(batch.categories.youtube_top_views?.videos || []),
+      ...(batch.categories.bilibili_top_views?.videos || []),
+      ...(batch.categories.top_views?.videos || []),
+      ...(batch.categories.last_6m?.videos || []),
+    ];
     return [...recent.slice(0, 2), ...top.slice(0, 1)].slice(0, limit);
   }
   return (batch.videos || []).slice(0, limit);
@@ -176,7 +191,7 @@ async function loadDailyVideos() {
 
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 更新：YouTube + B站 播放量 Top 10`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 更新：YouTube / B站 各 2 类 Top 10（全网播放 + 24h 上新）`;
     }
 
     root.innerHTML = batches.map(renderBatch).join('');

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关视频（YouTube + B站，按播放量 Top10 分两类推荐）。"""
+"""每日抓取 AI 应用相关视频（YouTube + B站，按平台分四类 Top10 推荐）。"""
 
 from __future__ import annotations
 
@@ -18,7 +18,12 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 TZ_NAME = "Asia/Shanghai"
-CATEGORY_ORDER = ("top_views", "recent_7d")
+CATEGORY_ORDER = (
+    "youtube_top_views",
+    "youtube_recent_24h",
+    "bilibili_top_views",
+    "bilibili_recent_24h",
+)
 PLATFORM_ORDER = ("youtube", "bilibili")
 
 try:
@@ -325,6 +330,22 @@ def search_source_candidates(
     return found
 
 
+def search_platform_candidates(
+    cfg: dict,
+    platform: str,
+    *,
+    sort_by_date: bool = False,
+    min_views: int | None = None,
+) -> dict[str, dict]:
+    source_cfg = cfg.get("search_sources", {}).get(platform, {})
+    if not source_cfg.get("enabled", True):
+        return {}
+    platform_min = min_views
+    if platform_min is None:
+        platform_min = source_cfg.get("recent_min_views" if sort_by_date else "min_views")
+    return search_source_candidates(cfg, platform, source_cfg, sort_by_date=sort_by_date, min_views=platform_min)
+
+
 def search_all_candidates(cfg: dict, *, sort_by_date: bool = False, min_views: int | None = None) -> dict[str, dict]:
     found: dict[str, dict] = {}
     for platform in PLATFORM_ORDER:
@@ -492,40 +513,34 @@ def collect_top_videos(
 def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
     limits = bucket_limits(cfg)
     now = now_local()
-    max_checks = cfg.get("max_detail_checks", 240)
+    max_checks = cfg.get("max_detail_checks", 320)
     detail_cache: dict[str, dict | None] = {}
     checked = 0
     buckets: dict[str, list[dict]] = {key: [] for key in CATEGORY_ORDER}
 
-    popular_candidates = search_all_candidates(cfg)
-    ranked_popular = sorted(popular_candidates.values(), key=lambda x: int(x.get("view_count") or 0), reverse=True)
-    buckets["top_views"], checked = collect_top_videos(
-        ranked_popular,
-        cfg,
-        now,
-        limit=limits["top_views"],
-        require_hours=None,
-        min_views=None,
-        detail_cache=detail_cache,
-        checked=checked,
-        max_checks=max_checks,
-    )
+    for key in CATEGORY_ORDER:
+        cat = cfg["video_categories"][key]
+        platform = cat["platform"]
+        require_hours = category_window_hours(cat)
 
-    recent_candidates = search_all_candidates(cfg, sort_by_date=True)
-    recent_candidates.update(popular_candidates)
-    ranked_recent = sorted(recent_candidates.values(), key=lambda x: int(x.get("view_count") or 0), reverse=True)
-    recent_hours = category_window_hours(cfg["video_categories"]["recent_7d"])
-    buckets["recent_7d"], checked = collect_top_videos(
-        ranked_recent,
-        cfg,
-        now,
-        limit=limits["recent_7d"],
-        require_hours=recent_hours,
-        min_views=None,
-        detail_cache=detail_cache,
-        checked=checked,
-        max_checks=max_checks,
-    )
+        if require_hours is None:
+            candidates = search_platform_candidates(cfg, platform)
+        else:
+            candidates = search_platform_candidates(cfg, platform, sort_by_date=True)
+            candidates.update(search_platform_candidates(cfg, platform))
+
+        ranked = sorted(candidates.values(), key=lambda x: int(x.get("view_count") or 0), reverse=True)
+        buckets[key], checked = collect_top_videos(
+            ranked,
+            cfg,
+            now,
+            limit=limits[key],
+            require_hours=require_hours,
+            min_views=None,
+            detail_cache=detail_cache,
+            checked=checked,
+            max_checks=max_checks,
+        )
 
     return buckets
 
@@ -627,10 +642,14 @@ def main() -> int:
 
     store["batches"] = store["batches"][:60]
     save_store(store)
-    bili_count = sum(1 for key in CATEGORY_ORDER for v in buckets[key] if v.get("platform") == "bilibili")
+    yt_top = len(buckets["youtube_top_views"])
+    yt_recent = len(buckets["youtube_recent_24h"])
+    bili_top = len(buckets["bilibili_top_views"])
+    bili_recent = len(buckets["bilibili_recent_24h"])
     print(
         f"已写入 {today} 视频 {total} 条"
-        f"（全网 Top: {len(buckets['top_views'])}, 一周 Top: {len(buckets['recent_7d'])}, B站: {bili_count}）"
+        f"（YouTube Top: {yt_top}, YouTube 24h: {yt_recent},"
+        f" B站 Top: {bili_top}, B站 24h: {bili_recent}）"
         f" → {DATA_FILE}"
     )
     return 0

@@ -1,14 +1,26 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# 两类推荐（可重叠）：全网播放量 Top10 + 过去一周上新播放量 Top10
+# 四类推荐（可重叠）：YouTube / B站 各「全网播放量 Top10」+「24 小时内上新 Top10」
 video_categories:
-  top_views:
-    label: "全网播放量 Top 10"
+  youtube_top_views:
+    label: "YouTube：全网播放量 Top 10"
+    platform: youtube
     all_time: true
     top_count: 10
-  recent_7d:
-    label: "过去一周上新 Top 10"
-    days: 7
+  youtube_recent_24h:
+    label: "YouTube：24 小时内上新 Top 10"
+    platform: youtube
+    hours: 24
+    top_count: 10
+  bilibili_top_views:
+    label: "B站：全网播放量 Top 10"
+    platform: bilibili
+    all_time: true
+    top_count: 10
+  bilibili_recent_24h:
+    label: "B站：24 小时内上新 Top 10"
+    platform: bilibili
+    hours: 24
     top_count: 10
 
 # 多平台搜索源
@@ -17,7 +29,6 @@ search_sources:
     enabled: true
     label: YouTube
     search_prefix: ytsearch
-    recent_search_prefix: ytsearchdate
     min_height: 1080
     min_views: 8000
     recent_min_views: 500
@@ -25,14 +36,13 @@ search_sources:
   bilibili:
     enabled: true
     label: B站
-    search_prefix: bilisearch
     min_height: 720
     min_views: 500
     recent_min_views: 200
     min_subscribers: 0
 
 search_per_query: 20
-max_detail_checks: 240
+max_detail_checks: 320
 
 search_queries:
   - "ChatGPT tutorial 2026"

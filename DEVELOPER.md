@@ -234,20 +234,22 @@ npm run test:e2e
         "min_views": 8000,
         "min_subscribers": 1000,
         "video_categories": {
-          "top_views": { "label": "全网播放量 Top 10", "window": { "all_time": true }, "top_count": 10 },
-          "recent_7d": { "label": "过去一周上新 Top 10", "window": { "days": 7 }, "top_count": 10 }
+          "youtube_top_views": { "label": "YouTube：全网播放量 Top 10", "window": { "all_time": true }, "top_count": 10 },
+          "youtube_recent_24h": { "label": "YouTube：24 小时内上新 Top 10", "window": { "hours": 24 }, "top_count": 10 },
+          "bilibili_top_views": { "label": "B站：全网播放量 Top 10", "window": { "all_time": true }, "top_count": 10 },
+          "bilibili_recent_24h": { "label": "B站：24 小时内上新 Top 10", "window": { "hours": 24 }, "top_count": 10 }
         }
       },
       "categories": {
-        "top_views": {
-          "label": "全网播放量 Top 10",
+        "youtube_top_views": {
+          "label": "YouTube：全网播放量 Top 10",
           "window": { "all_time": true },
           "top_count": 10,
-          "videos": [{ "id": "...", "title": "...", "views": 61235029, "published_at": "2025-10-11T12:00:00+08:00" }]
+          "videos": [{ "id": "youtube:...", "platform": "youtube", "title": "...", "views": 61235029 }]
         },
-        "recent_7d": {
-          "label": "过去一周上新 Top 10",
-          "window": { "days": 7 },
+        "bilibili_recent_24h": {
+          "label": "B站：24 小时内上新 Top 10",
+          "window": { "hours": 24 },
           "top_count": 10,
           "videos": [{ "id": "bilibili:BV1xx", "platform": "bilibili", "title": "...", "views": 12000 }]
         }
@@ -257,7 +259,7 @@ npm run test:e2e
 }
 ```
 
-- `categories`：两类推荐可重叠；按播放量降序取 Top N；旧版分类 key 仍兼容。
+- `categories`：四类推荐可重叠；按平台分别取播放量 Top N；旧版分类 key 仍兼容。
 - `batches`：新日期插入头部；`seen_ids` 全局去重；历史最多 **60 天**。
 - CI 会校验 Schema，并拒绝摘要中含 URL/广告残留。
 
@@ -362,12 +364,12 @@ npm run test:e2e
 
 ```
 1. 读取 config/video-fetch.yaml
-2. 多平台搜索（YouTube `ytsearch` / B站 `bilisearch`）
+2. 多平台搜索（YouTube `ytsearch` / B站搜索 API）
 3. 预筛：播放量、AI 关键词；被拒记录 reject [reason] 日志
 4. 拉取完整元数据：分辨率、订阅数、发布时间（B站阈值单独配置）
-5. 分两类取播放量 Top N（可重叠，跨平台合并排序）：
-   - top_views：时间不限，全网候选按播放量取 Top 10
-   - recent_7d：仅过去 7 天内上传，按播放量取 Top 10
+5. 分四类取播放量 Top N（可重叠，按平台独立排序）：
+   - youtube_top_views / bilibili_top_views：时间不限，各平台按播放量取 Top 10
+   - youtube_recent_24h / bilibili_recent_24h：仅 24 小时内上传，各平台按播放量取 Top 10
 6. 生成摘要（过滤 URL/赞助/广告文案）
 7. 写入 daily-videos.json → push → 触发 CI + Pages
 ```
@@ -387,8 +389,10 @@ python3 scripts/fetch_daily_videos.py
 
 | 键 | 默认值 | 含义 |
 |----|--------|------|
-| `video_categories.top_views` | `all_time, top_count: 10` | 全网播放量 Top 10 |
-| `video_categories.recent_7d` | `days: 7, top_count: 10` | 过去一周上新播放量 Top 10 |
+| `video_categories.youtube_top_views` | `platform: youtube, all_time, top_count: 10` | YouTube 全网播放量 Top 10 |
+| `video_categories.youtube_recent_24h` | `platform: youtube, hours: 24, top_count: 10` | YouTube 24h 上新 Top 10 |
+| `video_categories.bilibili_top_views` | `platform: bilibili, all_time, top_count: 10` | B站全网播放量 Top 10 |
+| `video_categories.bilibili_recent_24h` | `platform: bilibili, hours: 24, top_count: 10` | B站 24h 上新 Top 10 |
 | `search_sources.youtube` | `min_height: 1080` | YouTube 搜索与筛选 |
 | `search_sources.bilibili` | `min_height: 720` | B站搜索与筛选 |
 | `bilibili_search_queries` | 见文件 | B站中文搜索关键词 |

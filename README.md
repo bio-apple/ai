@@ -77,7 +77,7 @@ cd ai
 
 - **更新时间**：北京时间每日 `00:00`（GitHub Actions 定时任务）
 - **来源**：YouTube + B站
-- **分类**：全网播放量 Top 10 + 过去一周上新 Top 10
+- **分类**：YouTube / B站 各 2 类 — 全网播放量 Top 10 + 24 小时内上新 Top 10
 - **手动触发**：GitHub → Actions → `Daily AI Video Update` → Run workflow
 
 ```bash
