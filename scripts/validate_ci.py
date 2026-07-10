@@ -15,12 +15,22 @@ from bs4 import BeautifulSoup
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def iter_batch_videos(batch: dict):
+    if batch.get("categories"):
+        for cat in batch["categories"].values():
+            for v in cat.get("videos", []):
+                yield v
+    else:
+        for v in batch.get("videos", []):
+            yield v
+
+
 def validate_daily_videos() -> None:
     schema = json.loads((ROOT / "schemas/daily-videos.schema.json").read_text())
     data = json.loads((ROOT / "daily-videos.json").read_text(encoding="utf-8"))
     jsonschema.validate(data, schema)
     for batch in data.get("batches", []):
-        for v in batch.get("videos", []):
+        for v in iter_batch_videos(batch):
             summary = v.get("summary", "")
             if re.search(r"https?://", summary, re.I):
                 raise ValueError(f"摘要含 URL: {v.get('id')} -> {summary[:80]}")

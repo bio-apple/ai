@@ -19,9 +19,31 @@
         "min_height": 1080,
         "min_views": 8000,
         "min_subscribers": 1000,
-        "min_daily": 10
+        "time_windows": {
+          "recent_24h": {
+            "label": "过去 24 小时",
+            "window": { "hours": 24 },
+            "min_count": 3
+          },
+          "last_6m": {
+            "label": "近 6 个月",
+            "window": { "days": 180 },
+            "min_count": 7
+          }
+        }
       },
-      "videos": [
+      "categories": {
+        "recent_24h": {
+          "label": "过去 24 小时",
+          "window": { "hours": 24 },
+          "min_count": 3,
+          "videos": []
+        },
+        "last_6m": {
+          "label": "近 6 个月",
+          "window": { "days": 180 },
+          "min_count": 7,
+          "videos": [
         {
           "id": "WVeYLlKOWc0",
           "title": "Cursor Agent: 10 Pro Tips!",
@@ -152,7 +174,9 @@
           "max_height": 1080,
           "score": 12519130.27
         }
-      ]
+          ]
+        }
+      }
     }
   ],
   "updated_at": "2026-07-10T11:54:19.810130+08:00"

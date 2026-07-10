@@ -228,27 +228,35 @@ npm run test:e2e
     {
       "date": "2026-07-10",
       "timezone": "Asia/Shanghai",
-      "criteria": { "min_height": 1080, "min_views": 8000, "min_subscribers": 1000, "min_daily": 10 },
-      "videos": [
-        {
-          "id": "WVeYLlKOWc0",
-          "title": "视频标题",
-          "summary": "简要中文说明（无 URL/广告）",
-          "url": "https://www.youtube.com/watch?v=...",
-          "thumbnail": "https://i.ytimg.com/vi/.../maxresdefault.jpg",
-          "channel": "频道名",
-          "subscribers": 72500,
-          "views": 61235029,
-          "duration": "12:32",
-          "max_height": 1080,
-          "score": 358857967.78
+      "criteria": {
+        "min_height": 1080,
+        "min_views": 8000,
+        "min_subscribers": 1000,
+        "time_windows": {
+          "recent_24h": { "label": "过去 24 小时", "window": { "hours": 24 }, "min_count": 3 },
+          "last_6m": { "label": "近 6 个月", "window": { "days": 180 }, "min_count": 7 }
         }
-      ]
+      },
+      "categories": {
+        "recent_24h": {
+          "label": "过去 24 小时",
+          "window": { "hours": 24 },
+          "min_count": 3,
+          "videos": [{ "id": "...", "title": "...", "published_at": "2026-07-10T08:00:00+08:00" }]
+        },
+        "last_6m": {
+          "label": "近 6 个月",
+          "window": { "days": 180 },
+          "min_count": 7,
+          "videos": [{ "id": "...", "title": "...", "published_at": "2026-03-01T12:00:00+08:00" }]
+        }
+      }
     }
   ]
 }
 ```
 
+- `categories`：按发布时间分两类，互斥不重复；旧版 `videos` 数组仍兼容。
 - `batches`：新日期插入头部；`seen_ids` 全局去重；历史最多 **60 天**。
 - CI 会校验 Schema，并拒绝摘要中含 URL/广告残留。
 
@@ -355,10 +363,13 @@ npm run test:e2e
 1. 读取 config/video-fetch.yaml
 2. yt-dlp 多关键词搜索
 3. 预筛：播放量、AI 关键词；被拒记录 reject [reason] 日志
-4. 拉取完整元数据：分辨率、订阅数
-5. 综合评分：views × (1 + log10(subscribers))
-6. 生成摘要（过滤 URL/赞助/广告文案）
-7. 写入 daily-videos.json → push → 触发 CI + Pages
+4. 拉取完整元数据：分辨率、订阅数、发布时间
+5. 按发布时间分桶（互斥）：
+   - recent_24h：过去 24 小时内发布
+   - last_6m：24 小时～180 天内发布（超过 6 个月 reject [too_old]）
+6. 综合评分：views × (1 + log10(subscribers))
+7. 生成摘要（过滤 URL/赞助/广告文案）
+8. 写入 daily-videos.json → push → 触发 CI + Pages
 ```
 
 ### 本地手动运行
@@ -376,7 +387,8 @@ python3 scripts/fetch_daily_videos.py
 
 | 键 | 默认值 | 含义 |
 |----|--------|------|
-| `min_daily` | `10` | 每日最少条数 |
+| `time_windows.recent_24h` | `hours: 24, min_count: 3` | 过去 24 小时最新教程 |
+| `time_windows.last_6m` | `days: 180, min_count: 7` | 近 6 个月优质教程 |
 | `min_views` | `8000` | 最低播放量 |
 | `min_subscribers` | `1000` | 最低订阅数 |
 | `min_height` | `1080` | 最低分辨率 |

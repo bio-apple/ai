@@ -1,6 +1,16 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-min_daily: 10
+# 按发布时间分两类（互斥）：过去 24 小时 / 近 6 个月（24h～180 天）
+time_windows:
+  recent_24h:
+    label: "过去 24 小时"
+    hours: 24
+    min_count: 3
+  last_6m:
+    label: "近 6 个月"
+    days: 180
+    min_count: 7
+
 min_views: 8000
 min_subscribers: 1000
 min_height: 1080

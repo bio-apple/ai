@@ -26,6 +26,29 @@
   border-radius: 20px;
 }
 
+.video-category {
+  margin-bottom: 28px;
+}
+
+.video-category:last-child {
+  margin-bottom: 0;
+}
+
+.video-category-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+
+.video-category-empty .loading-hint {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
 .video-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

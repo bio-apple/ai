@@ -8,7 +8,7 @@ import math
 import re
 import subprocess
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
 
@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 TZ_NAME = "Asia/Shanghai"
+CATEGORY_ORDER = ("recent_24h", "last_6m")
 
 try:
     from zoneinfo import ZoneInfo
@@ -108,6 +109,37 @@ def format_duration(seconds: int | float | None) -> str:
     return f"{h}:{m:02d}:{s:02d}" if h else f"{m}:{s:02d}"
 
 
+def now_local() -> datetime:
+    if TZ:
+        return datetime.now(TZ)
+    return datetime.utcnow()
+
+
+def parse_upload_datetime(detail: dict) -> datetime | None:
+    ts = detail.get("timestamp")
+    if ts:
+        dt = datetime.fromtimestamp(ts, tz=TZ) if TZ else datetime.utcfromtimestamp(ts)
+        return dt
+    upload_date = detail.get("upload_date")
+    if upload_date and re.fullmatch(r"\d{8}", str(upload_date)):
+        dt = datetime.strptime(str(upload_date), "%Y%m%d")
+        if TZ:
+            dt = dt.replace(tzinfo=TZ)
+        return dt
+    return None
+
+
+def classify_video(upload_dt: datetime, cfg: dict, now: datetime) -> str | None:
+    age = now - upload_dt
+    hours = age.total_seconds() / 3600
+    windows = cfg["time_windows"]
+    if hours <= windows["recent_24h"]["hours"]:
+        return "recent_24h"
+    if age.days <= windows["last_6m"]["days"]:
+        return "last_6m"
+    return None
+
+
 def load_store() -> dict:
     if DATA_FILE.exists():
         return json.loads(DATA_FILE.read_text(encoding="utf-8"))
@@ -115,10 +147,7 @@ def load_store() -> dict:
 
 
 def save_store(store: dict) -> None:
-    if TZ:
-        store["updated_at"] = datetime.now(TZ).isoformat()
-    else:
-        store["updated_at"] = datetime.utcnow().isoformat() + "Z"
+    store["updated_at"] = now_local().isoformat()
     DATA_FILE.write_text(json.dumps(store, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
@@ -176,15 +205,25 @@ def fetch_video_detail(video_id: str) -> dict | None:
         return None
 
 
-def pick_today_videos(store: dict, cfg: dict) -> list[dict]:
+def bucket_limits(cfg: dict) -> dict[str, int]:
+    return {key: cfg["time_windows"][key]["min_count"] for key in CATEGORY_ORDER}
+
+
+def buckets_full(buckets: dict[str, list], limits: dict[str, int]) -> bool:
+    return all(len(buckets[key]) >= limits[key] for key in CATEGORY_ORDER)
+
+
+def pick_today_videos(store: dict, cfg: dict) -> dict[str, list[dict]]:
     seen = set(store.get("seen_ids") or [])
     candidates = search_candidates(cfg)
     ranked = sorted(candidates.values(), key=lambda x: int(x.get("view_count") or 0), reverse=True)
+    limits = bucket_limits(cfg)
+    buckets: dict[str, list[dict]] = {key: [] for key in CATEGORY_ORDER}
+    now = now_local()
 
-    selected: list[dict] = []
     checked = 0
     for item in ranked:
-        if len(selected) >= cfg["min_daily"]:
+        if buckets_full(buckets, limits):
             break
         vid = item["id"]
         if vid in seen:
@@ -196,6 +235,19 @@ def pick_today_videos(store: dict, cfg: dict) -> list[dict]:
 
         detail = fetch_video_detail(vid)
         if not detail:
+            continue
+
+        upload_dt = parse_upload_datetime(detail)
+        if not upload_dt:
+            log_reject("no_upload_date", vid)
+            continue
+
+        category = classify_video(upload_dt, cfg, now)
+        if not category:
+            log_reject("too_old", vid, upload_dt.date().isoformat())
+            continue
+        if len(buckets[category]) >= limits[category]:
+            log_reject("bucket_full", vid, category)
             continue
 
         height = max_height(detail)
@@ -223,7 +275,7 @@ def pick_today_videos(store: dict, cfg: dict) -> list[dict]:
             thumbs = detail.get("thumbnails") or []
             thumb = thumbs[-1]["url"] if thumbs else ""
 
-        selected.append(
+        buckets[category].append(
             {
                 "id": vid,
                 "title": title,
@@ -236,30 +288,64 @@ def pick_today_videos(store: dict, cfg: dict) -> list[dict]:
                 "duration": format_duration(detail.get("duration")),
                 "max_height": height,
                 "score": round(score_video(views, subs), 2),
+                "published_at": upload_dt.isoformat(),
             }
         )
 
-    selected.sort(key=lambda v: v["score"], reverse=True)
-    return selected
+    for key in CATEGORY_ORDER:
+        buckets[key].sort(key=lambda v: v["score"], reverse=True)
+    return buckets
+
+
+def build_categories_payload(buckets: dict[str, list[dict]], cfg: dict) -> dict[str, dict]:
+    payload: dict[str, dict] = {}
+    for key in CATEGORY_ORDER:
+        win = cfg["time_windows"][key]
+        window = {"hours": win["hours"]} if "hours" in win else {"days": win["days"]}
+        payload[key] = {
+            "label": win["label"],
+            "window": window,
+            "min_count": win["min_count"],
+            "videos": buckets[key],
+        }
+    return payload
+
+
+def total_video_count(buckets: dict[str, list[dict]]) -> int:
+    return sum(len(buckets[key]) for key in CATEGORY_ORDER)
 
 
 def main() -> int:
     cfg = load_config()
     store = load_store()
-    today = datetime.now(TZ).strftime("%Y-%m-%d") if TZ else datetime.utcnow().strftime("%Y-%m-%d")
+    today = now_local().strftime("%Y-%m-%d")
 
     for batch in store.get("batches", []):
         if batch.get("date") == today:
-            print(f"今日 ({today}) 已更新，共 {len(batch.get('videos', []))} 条")
+            count = total_video_count(
+                {key: (batch.get("categories") or {}).get(key, {}).get("videos", []) for key in CATEGORY_ORDER}
+            ) if batch.get("categories") else len(batch.get("videos", []))
+            print(f"今日 ({today}) 已更新，共 {count} 条")
             return 0
 
-    videos = pick_today_videos(store, cfg)
-    if len(videos) < cfg["min_daily"]:
-        print(f"警告：仅筛选到 {len(videos)} 条（目标 {cfg['min_daily']}）", file=sys.stderr)
+    buckets = pick_today_videos(store, cfg)
+    limits = bucket_limits(cfg)
+    total = total_video_count(buckets)
+    min_total = sum(limits.values())
 
-    if not videos:
+    for key in CATEGORY_ORDER:
+        got = len(buckets[key])
+        need = limits[key]
+        if got < need:
+            label = cfg["time_windows"][key]["label"]
+            print(f"警告：{label} 仅 {got} 条（目标 {need}）", file=sys.stderr)
+
+    if total == 0:
         print("未找到符合条件的新视频", file=sys.stderr)
         return 1
+
+    if total < min_total:
+        print(f"警告：合计仅 {total} 条（目标 {min_total}）", file=sys.stderr)
 
     store.setdefault("seen_ids", [])
     store.setdefault("batches", [])
@@ -272,18 +358,34 @@ def main() -> int:
                 "min_height": cfg["min_height"],
                 "min_views": cfg["min_views"],
                 "min_subscribers": cfg["min_subscribers"],
-                "min_daily": cfg["min_daily"],
+                "time_windows": {
+                    key: {
+                        "label": cfg["time_windows"][key]["label"],
+                        "window": (
+                            {"hours": cfg["time_windows"][key]["hours"]}
+                            if "hours" in cfg["time_windows"][key]
+                            else {"days": cfg["time_windows"][key]["days"]}
+                        ),
+                        "min_count": limits[key],
+                    }
+                    for key in CATEGORY_ORDER
+                },
             },
-            "videos": videos,
+            "categories": build_categories_payload(buckets, cfg),
         },
     )
-    for v in videos:
-        if v["id"] not in store["seen_ids"]:
-            store["seen_ids"].append(v["id"])
+    for key in CATEGORY_ORDER:
+        for v in buckets[key]:
+            if v["id"] not in store["seen_ids"]:
+                store["seen_ids"].append(v["id"])
 
     store["batches"] = store["batches"][:60]
     save_store(store)
-    print(f"已写入 {today} 视频 {len(videos)} 条 → {DATA_FILE}")
+    print(
+        f"已写入 {today} 视频 {total} 条"
+        f"（24h: {len(buckets['recent_24h'])}, 6m: {len(buckets['last_6m'])})"
+        f" → {DATA_FILE}"
+    )
     return 0
 
 
