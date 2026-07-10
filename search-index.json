@@ -102,62 +102,336 @@
   {
     "label": "用 ChatGPT 写一份专业周报",
     "section": "section-cases",
-    "keywords": "chatgpt 用 ChatGPT 写一份专业周报 不只会聊天——用结构化提示词让 ChatGPT 生成高质量的工作周报。 writing beginner"
+    "keywords": "chatgpt 用 ChatGPT 写一份专业周报 不只会聊天——用结构化提示词让 ChatGPT 生成高质量的工作周报。 writing beginner",
+    "anchor": "case-1",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 用 ChatGPT 写一份专业周报",
+    "section": "section-cases",
+    "keywords": "chatgpt 用 ChatGPT 写一份专业周报 我要写本周工作周报，请帮我整理成邮件格式。本周完成：\n- 完成了 XX 功能开发和测试\n- 参加了 XX 项目评审会议\n- 修复了 3 个线上 Bug\n- 下周计划：开始 YY 模块开发\n\n要求：语气专业简洁，分「本周完成」「遇到的问题」「下周计划」三节，每节用 bullet points。 prompt 提示词",
+    "anchor": "case-1",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 ChatGPT 写一份专业周报",
+    "section": "section-cases",
+    "keywords": "chatgpt 用 ChatGPT 写一份专业周报 语气再正式一些，「遇到的问题」部分帮我补充一个合理的技术挑战描述，并写上解决方案。 prompt 提示词",
+    "anchor": "case-1",
+    "type": "Prompt"
   },
   {
     "label": "用 Gemini Deep Research 做行业调研",
     "section": "section-cases",
-    "keywords": "gemini 用 Gemini Deep Research 做行业调研 让 Gemini 自动搜索多个来源，生成带引用链接的深度研究报告。 research beginner"
+    "keywords": "gemini 用 Gemini Deep Research 做行业调研 让 Gemini 自动搜索多个来源，生成带引用链接的深度研究报告。 research beginner",
+    "anchor": "case-2",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 用 Gemini Deep Research 做行业调研",
+    "section": "section-cases",
+    "keywords": "gemini 用 Gemini Deep Research 做行业调研 请深入研究：2026年 AI 编程工具市场格局\n需要涵盖：主要玩家（Cursor、Copilot、Codex、Claude Code）、市场规模、用户画像、未来趋势\n输出格式：执行摘要 + 分章节正文 + 参考来源列表 prompt 提示词",
+    "anchor": "case-2",
+    "type": "Prompt"
   },
   {
     "label": "用 Kimi 速读 50 页合同并提取关键条款",
     "section": "section-cases",
-    "keywords": "kimi 用 Kimi 速读 50 页合同并提取关键条款 上传长篇 PDF，让 Kimi 在几分钟内总结核心条款、风险点和待确认事项。 research beginner"
+    "keywords": "kimi 用 Kimi 速读 50 页合同并提取关键条款 上传长篇 PDF，让 Kimi 在几分钟内总结核心条款、风险点和待确认事项。 research beginner",
+    "anchor": "case-3",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 用 Kimi 速读 50 页合同并提取关键条款",
+    "section": "section-cases",
+    "keywords": "kimi 用 Kimi 速读 50 页合同并提取关键条款 请阅读这份合同，输出：\n1. 合同双方与标的\n2. 付款条款与时间节点\n3. 违约责任与赔偿上限\n4. 保密与知识产权条款\n5. 终止与争议解决方式\n用表格呈现，标注页码出处。 prompt 提示词",
+    "anchor": "case-3",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Kimi 速读 50 页合同并提取关键条款",
+    "section": "section-cases",
+    "keywords": "kimi 用 Kimi 速读 50 页合同并提取关键条款 站在乙方角度，列出 5 个对我方不利的条款，并给出修改建议措辞。 prompt 提示词",
+    "anchor": "case-3",
+    "type": "Prompt"
   },
   {
     "label": "用通义听悟整理 1 小时会议纪要",
     "section": "section-cases",
-    "keywords": "qwen 用通义听悟整理 1 小时会议纪要 上传会议录音，自动转写、分段摘要并提取待办事项。 productivity beginner"
+    "keywords": "qwen 用通义听悟整理 1 小时会议纪要 上传会议录音，自动转写、分段摘要并提取待办事项。 productivity beginner",
+    "anchor": "case-4",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 用通义听悟整理 1 小时会议纪要",
+    "section": "section-cases",
+    "keywords": "qwen 用通义听悟整理 1 小时会议纪要 基于转写内容，生成会议纪要：\n- 会议主题与参会人\n- 讨论要点（分议题）\n- 已达成共识的决策\n- 待办事项（负责人 + 截止日期）\n语气简洁专业，适合直接发邮件。 prompt 提示词",
+    "anchor": "case-4",
+    "type": "Prompt"
   },
   {
     "label": "用 GitHub Copilot 为函数自动生成单元测试",
     "section": "section-cases",
-    "keywords": "copilot 用 GitHub Copilot 为函数自动生成单元测试 在 VS Code 中选中业务函数，让 Copilot Chat 生成 pytest 测试并运行验证。 coding beginner"
+    "keywords": "copilot 用 GitHub Copilot 为函数自动生成单元测试 在 VS Code 中选中业务函数，让 Copilot Chat 生成 pytest 测试并运行验证。 coding beginner",
+    "anchor": "case-5",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 用 GitHub Copilot 为函数自动生成单元测试",
+    "section": "section-cases",
+    "keywords": "copilot 用 GitHub Copilot 为函数自动生成单元测试 为选中的函数生成 pytest 单元测试，放到 tests/test_parse_date.py。覆盖：正常输入、空值、非法格式、时区边界。使用 parametrize。 prompt 提示词",
+    "anchor": "case-5",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 GitHub Copilot 为函数自动生成单元测试",
+    "section": "section-cases",
+    "keywords": "copilot 用 GitHub Copilot 为函数自动生成单元测试 运行 pytest tests/test_parse_date.py -v，如果有失败请修复测试或函数实现。 prompt 提示词",
+    "anchor": "case-5",
+    "type": "Prompt"
   },
   {
     "label": "从零搭建待办事项 Web App",
     "section": "section-cases",
-    "keywords": "cursor 从零搭建待办事项 Web App 用 Cursor Agent + Plan 模式，从空文件夹到可运行的 HTML/CSS/JS 应用。 coding beginner"
+    "keywords": "cursor 从零搭建待办事项 Web App 用 Cursor Agent + Plan 模式，从空文件夹到可运行的 HTML/CSS/JS 应用。 coding beginner",
+    "anchor": "case-6",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 从零搭建待办事项 Web App",
+    "section": "section-cases",
+    "keywords": "cursor 从零搭建待办事项 Web App 我想做一个待办事项 Web App。功能：添加任务、标记完成、删除任务、数据持久化到 localStorage。技术栈：纯 HTML + CSS + JS，不要框架。请先分析需求，列出文件结构和实现计划，不要写代码。 prompt 提示词",
+    "anchor": "case-6",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 从零搭建待办事项 Web App",
+    "section": "section-cases",
+    "keywords": "cursor 从零搭建待办事项 Web App 计划没问题，请按方案创建 index.html、style.css、app.js。要求：界面简洁现代、深色主题、移动端适配。 prompt 提示词",
+    "anchor": "case-6",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 从零搭建待办事项 Web App",
+    "section": "section-cases",
+    "keywords": "cursor 从零搭建待办事项 Web App 运行 python3 -m http.server 8080 启动预览，然后检查页面是否正常工作。 prompt 提示词",
+    "anchor": "case-6",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 从零搭建待办事项 Web App",
+    "section": "section-cases",
+    "keywords": "cursor 从零搭建待办事项 Web App 请创建 .cursor/rules/web.mdc，内容：使用纯 HTML/CSS/JS；CSS 变量管理颜色；函数加简短注释；中文 UI 文案。 prompt 提示词",
+    "anchor": "case-6",
+    "type": "Prompt"
   },
   {
     "label": "给现有项目添加用户登录功能",
     "section": "section-cases",
-    "keywords": "cursor 给现有项目添加用户登录功能 在已有代码库上用 Agent 模式实现 JWT 认证，涵盖前后端多文件修改。 coding"
+    "keywords": "cursor 给现有项目添加用户登录功能 在已有代码库上用 Agent 模式实现 JWT 认证，涵盖前后端多文件修改。 coding",
+    "anchor": "case-7",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 给现有项目添加用户登录功能",
+    "section": "section-cases",
+    "keywords": "cursor 给现有项目添加用户登录功能 @src/ @backend/ 请分析这个项目的架构：用的什么框架、数据库、路由结构、前端如何调 API。不要改代码，只输出分析结果。 prompt 提示词",
+    "anchor": "case-7",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 给现有项目添加用户登录功能",
+    "section": "section-cases",
+    "keywords": "cursor 给现有项目添加用户登录功能 基于刚才的分析，设计用户认证方案：注册/登录/登出 API、JWT 签发与验证中间件、前端登录页和路由守卫。列出要改的文件清单和实施顺序。 prompt 提示词",
+    "anchor": "case-7",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 给现有项目添加用户登录功能",
+    "section": "section-cases",
+    "keywords": "cursor 给现有项目添加用户登录功能 先只做后端：创建 User 模型、注册和登录 API、JWT 中间件。写完后运行现有测试，确保没有破坏原有功能。 prompt 提示词",
+    "anchor": "case-7",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 给现有项目添加用户登录功能",
+    "section": "section-cases",
+    "keywords": "cursor 给现有项目添加用户登录功能 实现前端登录/注册页面，登录成功后将 token 存 localStorage，API 请求自动带 Authorization header。未登录用户跳转登录页。 prompt 提示词",
+    "anchor": "case-7",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 给现有项目添加用户登录功能",
+    "section": "section-cases",
+    "keywords": "cursor 给现有项目添加用户登录功能 运行项目的测试命令，修复所有失败用例。然后手动测试：注册新用户 → 登录 → 访问受保护页面 → 登出。 prompt 提示词",
+    "anchor": "case-7",
+    "type": "Prompt"
   },
   {
     "label": "用 Claude Projects 生成项目技术文档",
     "section": "section-cases",
-    "keywords": "claude 用 Claude Projects 生成项目技术文档 上传代码仓库，让 Claude 自动分析并输出架构文档和 API 说明。 writing beginner"
+    "keywords": "claude 用 Claude Projects 生成项目技术文档 上传代码仓库，让 Claude 自动分析并输出架构文档和 API 说明。 writing beginner",
+    "anchor": "case-8",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 用 Claude Projects 生成项目技术文档",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Projects 生成项目技术文档 你是一个技术文档工程师。输出使用中文 Markdown。代码示例保留原始语言。文档结构：概述 → 架构 → 目录结构 → API 列表 → 部署说明。 prompt 提示词",
+    "anchor": "case-8",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Claude Projects 生成项目技术文档",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Projects 生成项目技术文档 根据知识库中的代码，生成项目概述：这个项目做什么、技术栈、核心模块关系。用 Mermaid 画架构图。 prompt 提示词",
+    "anchor": "case-8",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Claude Projects 生成项目技术文档",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Projects 生成项目技术文档 列出所有 API 端点，格式：方法 | 路径 | 功能 | 请求参数 | 响应示例。用表格呈现。 prompt 提示词",
+    "anchor": "case-8",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Claude Projects 生成项目技术文档",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Projects 生成项目技术文档 生成部署指南：环境要求、安装步骤、环境变量配置、启动命令。 prompt 提示词",
+    "anchor": "case-8",
+    "type": "Prompt"
   },
   {
     "label": "用 Claude Code 终端修复 Bug",
     "section": "section-cases",
-    "keywords": "claude 用 Claude Code 终端修复 Bug 在终端用 Claude Code 定位、修复 bug 并提交 git commit，完整开发闭环。 coding"
+    "keywords": "claude 用 Claude Code 终端修复 Bug 在终端用 Claude Code 定位、修复 bug 并提交 git commit，完整开发闭环。 coding",
+    "anchor": "case-9",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 用 Claude Code 终端修复 Bug",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Code 终端修复 Bug # 项目规范\n- 语言：Python 3.11 + FastAPI\n- 测试：pytest，运行命令 pytest tests/\n- 提交格式：fix: 描述 / feat: 描述\n- 不要修改数据库 migration 文件 prompt 提示词",
+    "anchor": "case-9",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Claude Code 终端修复 Bug",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Code 终端修复 Bug cd your-project && claude prompt 提示词",
+    "anchor": "case-9",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Claude Code 终端修复 Bug",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Code 终端修复 Bug Bug 报告：GET /api/users?page=2 返回空数组，但数据库有 50 条记录，每页 20 条。page=1 正常。请先找到分页相关代码，分析根因，不要急着改。 prompt 提示词",
+    "anchor": "case-9",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Claude Code 终端修复 Bug",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Code 终端修复 Bug 分析合理。请修复这个 bug，然后运行 pytest 确认测试通过。如果有分页相关测试一并更新。 prompt 提示词",
+    "anchor": "case-9",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Claude Code 终端修复 Bug",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Code 终端修复 Bug 测试通过了。请 git add 相关文件并 commit，message 用 fix: pagination offset calculation for page > 1 prompt 提示词",
+    "anchor": "case-9",
+    "type": "Prompt"
   },
   {
     "label": "用 Codex CLI 快速搭建 REST API",
     "section": "section-cases",
-    "keywords": "codex 用 Codex CLI 快速搭建 REST API 从空目录开始，用 Codex 终端代理生成完整的 CRUD API 项目。 coding beginner"
+    "keywords": "codex 用 Codex CLI 快速搭建 REST API 从空目录开始，用 Codex 终端代理生成完整的 CRUD API 项目。 coding beginner",
+    "anchor": "case-10",
+    "type": "实战案例"
+  },
+  {
+    "label": "Prompt · 用 Codex CLI 快速搭建 REST API",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex CLI 快速搭建 REST API mkdir book-api && cd book-api && codex prompt 提示词",
+    "anchor": "case-10",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Codex CLI 快速搭建 REST API",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex CLI 快速搭建 REST API # Book API\n- Python 3.11 + FastAPI + SQLite\n- 测试框架：pytest\n- 运行：uvicorn main:app --reload\n- 测试：pytest -v\n- 代码风格：type hints，函数加 docstring prompt 提示词",
+    "anchor": "case-10",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Codex CLI 快速搭建 REST API",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex CLI 快速搭建 REST API 创建一个图书管理 REST API。数据模型：id, title, author, isbn, created_at。端点：GET/POST /books, GET/PUT/DELETE /books/{id}。包含 pytest 测试。完成后运行测试验证。 prompt 提示词",
+    "anchor": "case-10",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Codex CLI 快速搭建 REST API",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex CLI 快速搭建 REST API /review — 让 Codex 自查代码质量 prompt 提示词",
+    "anchor": "case-10",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Codex CLI 快速搭建 REST API",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex CLI 快速搭建 REST API 给 DELETE 端点加上确认逻辑，删除前检查图书是否存在，不存在返回 404。 prompt 提示词",
+    "anchor": "case-10",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Codex CLI 快速搭建 REST API",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex CLI 快速搭建 REST API 启动服务器，用 curl 测试所有端点：创建一本书 → 查询列表 → 更新 → 删除。把测试结果贴给我。 prompt 提示词",
+    "anchor": "case-10",
+    "type": "Prompt"
   },
   {
     "label": "用 Codex Cloud 自动处理 GitHub Issue",
     "section": "section-cases",
-    "keywords": "codex 用 Codex Cloud 自动处理 GitHub Issue 在 GitHub Issue 中 @codex，让云端 Agent 自动修复并提交 PR。 coding"
+    "keywords": "codex 用 Codex Cloud 自动处理 GitHub Issue 在 GitHub Issue 中 @codex，让云端 Agent 自动修复并提交 PR。 coding",
+    "anchor": "case-11",
+    "type": "实战案例"
   },
   {
-    "label": "实战案例",
+    "label": "Prompt · 用 Codex Cloud 自动处理 GitHub Issue",
     "section": "section-cases",
-    "keywords": "实战 案例 提示词 prompt"
+    "keywords": "codex 用 Codex Cloud 自动处理 GitHub Issue Setup: pip install -r requirements.txt\nTest: pytest tests/ -v\nInternet: off prompt 提示词",
+    "anchor": "case-11",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Codex Cloud 自动处理 GitHub Issue",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex Cloud 自动处理 GitHub Issue # 项目说明\n- Python FastAPI 项目\n- 所有修改必须通过 pytest\n- PR 标题格式：fix: 或 feat: 开头\n- 不要修改 alembic/ 目录 prompt 提示词",
+    "anchor": "case-11",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt · 用 Codex Cloud 自动处理 GitHub Issue",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex Cloud 自动处理 GitHub Issue ## Bug: 搜索功能大小写敏感\n\n**复现步骤**\n1. 访问 /api/search?q=hello\n2. 数据库有标题 \"Hello World\" 的记录\n3. 返回空结果\n\n**期望**：搜索应不区分大小写\n\n@codex 请修复此问题并提交 PR prompt 提示词",
+    "anchor": "case-11",
+    "type": "Prompt"
+  },
+  {
+    "label": "Prompt 提示词库",
+    "section": "section-cases",
+    "keywords": "prompt 提示词 模板 案例 写作 编程",
+    "type": "Prompt"
+  },
+  {
+    "label": "实战案例库",
+    "section": "section-cases",
+    "keywords": "实战 案例 教程 步骤",
+    "type": "案例"
   },
   {
     "label": "每日视频",

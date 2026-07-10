@@ -149,10 +149,58 @@ def build_search_index(site: dict, tools: list, cases: dict, compares: list) -> 
                 "keywords": kw,
             }
         )
-    for c in cases.get("cases", []):
+    for idx, c in enumerate(cases.get("cases", []), start=1):
         kw = " ".join([c.get("tool", ""), c.get("title", ""), c.get("summary", ""), *c.get("scenarios", [])])
-        items.append({"label": c["title"], "section": "section-cases", "keywords": kw})
-    items.append({"label": "实战案例", "section": "section-cases", "keywords": "实战 案例 提示词 prompt"})
+        anchor = f"case-{idx}"
+        items.append(
+            {
+                "label": c["title"],
+                "section": "section-cases",
+                "keywords": kw,
+                "anchor": anchor,
+                "type": "实战案例",
+            }
+        )
+        for step in c.get("steps", []):
+            for block in step.get("blocks", []):
+                if block.get("type") != "prompt":
+                    continue
+                prompt_kw = " ".join(
+                    filter(
+                        None,
+                        [
+                            c.get("tool", ""),
+                            c.get("title", ""),
+                            block.get("content", "")[:180],
+                            "prompt 提示词",
+                        ],
+                    )
+                )
+                items.append(
+                    {
+                        "label": f"Prompt · {c['title']}",
+                        "section": "section-cases",
+                        "keywords": prompt_kw,
+                        "anchor": anchor,
+                        "type": "Prompt",
+                    }
+                )
+    items.append(
+        {
+            "label": "Prompt 提示词库",
+            "section": "section-cases",
+            "keywords": "prompt 提示词 模板 案例 写作 编程",
+            "type": "Prompt",
+        }
+    )
+    items.append(
+        {
+            "label": "实战案例库",
+            "section": "section-cases",
+            "keywords": "实战 案例 教程 步骤",
+            "type": "案例",
+        }
+    )
     items.append({"label": "每日视频", "section": "section-videos", "keywords": "视频 youtube bilibili 教程 每日"})
     items.append({"label": "AI 新闻", "section": "section-news", "keywords": "AI新闻 OpenAI Anthropic DeepMind"})
     items.append({"label": "AI 创作", "section": "section-create", "keywords": "创作 绘图 视频 写作"})

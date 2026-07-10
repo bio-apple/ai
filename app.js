@@ -3,11 +3,37 @@ const navItems = document.querySelectorAll('.nav-tab, .nav-dropdown-item');
 const sections = document.querySelectorAll('.section');
 
 let searchIndex = [];
+let fuseSearch = null;
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function highlightMatch(text, query) {
+  if (!query) return escapeHtml(text);
+  const idx = text.toLowerCase().indexOf(query.toLowerCase());
+  if (idx < 0) return escapeHtml(text);
+  const before = text.slice(0, idx);
+  const match = text.slice(idx, idx + query.length);
+  const after = text.slice(idx + query.length);
+  return `${escapeHtml(before)}<strong>${escapeHtml(match)}</strong>${escapeHtml(after)}`;
+}
+
+function gotoSearchHit(item) {
+  if (item.url) {
+    window.location.href = item.url;
+    return;
+  }
+  showSection(item.section, { anchor: item.anchor || null });
+  trackEvent('search-goto', { section: item.section, anchor: item.anchor || '' });
+}
 
 let activeToolFilter = 'all';
 let activeScenarioFilter = 'all';
 
-function showSection(id, { updateHash = true } = {}) {
+function showSection(id, { updateHash = true, anchor = null } = {}) {
   if (!document.getElementById(id)) return;
   sections.forEach(s => s.classList.toggle('active', s.id === id));
   const toolId = id === 'section-home' ? 'all' : id.replace('section-', '');
@@ -29,15 +55,39 @@ function showSection(id, { updateHash = true } = {}) {
     drop.classList.toggle('has-active', hasActive);
   });
 
-  if (updateHash && id !== 'section-home') {
-    history.replaceState(null, '', `#${id}`);
-  } else if (updateHash && id === 'section-home') {
-    history.replaceState(null, '', location.pathname + location.search);
+  if (updateHash) {
+    const url = new URL(location.href);
+    if (id !== 'section-home') {
+      url.hash = id;
+      if (anchor) url.searchParams.set('anchor', anchor);
+      else url.searchParams.delete('anchor');
+      history.replaceState(null, '', url);
+    } else {
+      url.hash = '';
+      url.searchParams.delete('anchor');
+      history.replaceState(null, '', url.pathname + url.search);
+    }
   }
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+
+  if (anchor) {
+    requestAnimationFrame(() => {
+      const el = document.getElementById(anchor);
+      if (el) {
+        if (el.classList.contains('case-card')) el.classList.add('open');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return;
+      }
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  } else {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   document.querySelector('.nav-menu')?.classList.remove('open');
   document.querySelector('.nav-toggle')?.setAttribute('aria-expanded', 'false');
+
+  window.dispatchEvent(new CustomEvent('bioai:section-change', { detail: { sectionId: id, anchor } }));
+  if (typeof window.updatePageToc === 'function') window.updatePageToc(id);
 }
 
 function resolveGoto(target) {
@@ -152,14 +202,16 @@ function initScrollAnimations() {
 
 function initHashRouting() {
   const hash = location.hash.replace('#', '');
+  const anchor = new URLSearchParams(location.search).get('anchor');
   if (hash && document.getElementById(hash)) {
-    showSection(hash, { updateHash: false });
+    showSection(hash, { updateHash: false, anchor });
   }
 }
 
 window.addEventListener('hashchange', () => {
   const hash = location.hash.replace('#', '');
-  if (hash && document.getElementById(hash)) showSection(hash, { updateHash: false });
+  const anchor = new URLSearchParams(location.search).get('anchor');
+  if (hash && document.getElementById(hash)) showSection(hash, { updateHash: false, anchor });
 });
 
 /* Case accordion */
@@ -248,10 +300,37 @@ async function loadSearchIndex() {
     const res = await fetch('search-index.json', { cache: 'no-store' });
     if (!res.ok) throw new Error('search index unavailable');
     const data = await res.json();
-    if (Array.isArray(data) && data.length) searchIndex = data;
+    if (Array.isArray(data) && data.length) {
+      searchIndex = data;
+      if (typeof Fuse !== 'undefined') {
+        fuseSearch = new Fuse(searchIndex, {
+          keys: [
+            { name: 'label', weight: 0.55 },
+            { name: 'keywords', weight: 0.45 },
+          ],
+          threshold: 0.38,
+          ignoreLocation: true,
+          minMatchCharLength: 2,
+        });
+      }
+    }
   } catch {
     searchIndex = [];
+    fuseSearch = null;
   }
+}
+
+function runSearch(query) {
+  const q = query.trim();
+  if (!q) return [];
+  if (fuseSearch) {
+    return fuseSearch.search(q, { limit: 10 }).map(r => r.item);
+  }
+  const lower = q.toLowerCase();
+  return searchIndex.filter(item =>
+    item.label.toLowerCase().includes(lower) ||
+    item.keywords.toLowerCase().includes(lower)
+  ).slice(0, 10);
 }
 
 function initSiteSearch() {
@@ -260,16 +339,13 @@ function initSiteSearch() {
   if (!input || !results) return;
 
   function renderResults(q) {
-    const query = q.trim().toLowerCase();
+    const query = q.trim();
     if (!query) {
       results.hidden = true;
       results.innerHTML = '';
       return;
     }
-    const hits = searchIndex.filter(item =>
-      item.label.toLowerCase().includes(query) ||
-      item.keywords.toLowerCase().includes(query)
-    ).slice(0, 8);
+    const hits = runSearch(query);
 
     if (!hits.length) {
       results.innerHTML = '<p class="search-empty">未找到匹配内容</p>';
@@ -278,19 +354,23 @@ function initSiteSearch() {
     }
 
     results.innerHTML = hits.map(item => {
+      const label = highlightMatch(item.label, query);
+      const meta = item.type ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>` : '';
       if (item.url) {
-        return `<a href="${item.url}" class="search-hit" data-track="search-external">${item.label}</a>`;
+        return `<a href="${escapeHtml(item.url)}" class="search-hit" data-track="search-external">${label}${meta}</a>`;
       }
-      return `<button type="button" class="search-hit" data-section="${item.section}">${item.label}</button>`;
+      return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}">${label}${meta}</button>`;
     }).join('');
     results.hidden = false;
 
-    results.querySelectorAll('[data-section]').forEach(btn => {
+    results.querySelectorAll('button.search-hit').forEach(btn => {
       btn.addEventListener('click', () => {
-        showSection(btn.dataset.section);
+        gotoSearchHit({
+          section: btn.dataset.section,
+          anchor: btn.dataset.anchor || null,
+        });
         input.value = '';
         results.hidden = true;
-        trackEvent('search-goto', { section: btn.dataset.section });
       });
     });
   }
@@ -300,6 +380,13 @@ function initSiteSearch() {
     if (e.key === 'Escape') {
       input.value = '';
       results.hidden = true;
+    }
+    if (e.key === 'Enter') {
+      const first = results.querySelector('.search-hit');
+      if (first && !results.hidden) {
+        e.preventDefault();
+        first.click();
+      }
     }
   });
   document.addEventListener('click', (e) => {

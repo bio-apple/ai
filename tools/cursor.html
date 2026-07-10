@@ -15,9 +15,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <script>
+(function () {
+  try {
+    var key = 'bioai-theme';
+    var stored = localStorage.getItem(key);
+    var theme = stored === 'dark' || stored === 'light'
+      ? stored
+      : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    document.documentElement.dataset.theme = theme;
+  } catch (e) {}
+})();
+</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "TechArticle", "headline": "Cursor 教程 2026", "description": "基于 VS Code 的 AI 原生代码编辑器，将大语言模型深度集成到编辑体验的每一层。支持 Tab 补全、内联编辑、Agent 自主编程和 MCP 扩展。", "author": {"@type": "Organization", "name": "Bio AI Lab"}, "mainEntityOfPage": "https://bio-apple.github.io/ai/tools/cursor.html"}</script>
 </head>
 <body>
+<div class="reading-progress" aria-hidden="true"><div class="reading-progress-bar"></div></div>
+<div class="reading-progress-label" aria-live="polite">阅读进度 0%</div>
+<aside id="page-toc" class="page-toc" aria-label="页面目录"></aside>
+<button type="button" class="back-to-top" aria-label="返回顶部">↑</button>
 
 <header>
   <nav class="nav">
@@ -107,6 +123,7 @@
           
         
       
+      <button type="button" class="theme-toggle" aria-label="切换主题">☾</button>
     </div>
   </nav>
 </header>
@@ -179,6 +196,7 @@
   <p>Bio AI Lab · Discover. Learn. Create with AI. · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 <script src="../analytics.js"></script>
+<script src="../ux.js"></script>
 <script src="../app.js"></script>
 </body>
 </html>

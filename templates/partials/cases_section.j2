@@ -22,7 +22,7 @@
     </div>
 
     {% for case in cases.cases %}
-    <article class="case-card" data-tool="{{ case.tool }}" data-scenario="{{ case.scenarios | join(' ') }}">
+    <article class="case-card" id="case-{{ loop.index }}" data-tool="{{ case.tool }}" data-scenario="{{ case.scenarios | join(' ') }}">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge {{ case.tool }}">{{ tool_names.get(case.tool, case.tool) }}</span>

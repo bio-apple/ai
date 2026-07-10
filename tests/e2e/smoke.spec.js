@@ -25,6 +25,26 @@ test.describe('Bio AI Lab 冒烟测试', () => {
     expect(data.length).toBeGreaterThan(10);
     await page.fill('#site-search', 'Cursor');
     await expect(page.locator('.search-hit').first()).toBeVisible();
+    await page.fill('#site-search', 'Prompt');
+    await expect(page.locator('.search-hit').first()).toContainText(/Prompt|案例/i);
+  });
+
+  test('P0 UX：主题切换与返回顶部', async ({ page }) => {
+    await page.goto(`${BASE}/index.html`);
+    await expect(page.locator('.theme-toggle')).toBeVisible();
+    await page.locator('.theme-toggle').click();
+    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+    await page.evaluate(() => window.scrollTo(0, 1200));
+    await expect(page.locator('.back-to-top')).toHaveClass(/visible/);
+    await expect(page.locator('.reading-progress-bar')).toBeVisible();
+  });
+
+  test('左侧 TOC 桌面导航', async ({ page }) => {
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto(`${BASE}/index.html`);
+    await expect(page.locator('#page-toc')).toBeVisible();
+    await page.locator('#page-toc .page-toc-link[data-section="section-chatgpt"]').click();
+    await expect(page.locator('#section-chatgpt')).toHaveClass(/active/);
   });
 
   test('视频区与 JSON 数据', async ({ page }) => {
