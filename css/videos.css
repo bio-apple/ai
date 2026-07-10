@@ -97,6 +97,21 @@
 .video-duration { left: 8px; }
 .video-quality { right: 8px; background: rgba(37, 99, 235, 0.85); }
 
+.video-platform {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.video-platform-bilibili { background: rgba(251, 114, 153, 0.92); }
+.video-platform-youtube { background: rgba(220, 38, 38, 0.9); }
+
 .video-body { padding: 14px 16px 16px; }
 
 .video-body h4 {

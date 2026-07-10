@@ -68,7 +68,11 @@
         "id": { "type": "string" },
         "title": { "type": "string", "minLength": 1 },
         "summary": { "type": "string", "minLength": 8 },
-        "url": { "type": "string", "pattern": "^https://www\\.youtube\\.com/watch\\?v=" },
+        "url": {
+          "type": "string",
+          "pattern": "^https://(www\\.youtube\\.com/watch\\?v=|www\\.bilibili\\.com/video/)"
+        },
+        "platform": { "type": "string", "enum": ["youtube", "bilibili"] },
         "thumbnail": { "type": "string" },
         "channel": { "type": "string" },
         "subscribers": { "type": "number" },

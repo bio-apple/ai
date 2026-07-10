@@ -11,12 +11,28 @@ video_categories:
     days: 7
     top_count: 10
 
-min_views: 8000
-recent_min_views: 500
-min_subscribers: 1000
-min_height: 1080
-search_per_query: 25
-max_detail_checks: 200
+# 多平台搜索源
+search_sources:
+  youtube:
+    enabled: true
+    label: YouTube
+    search_prefix: ytsearch
+    recent_search_prefix: ytsearchdate
+    min_height: 1080
+    min_views: 8000
+    recent_min_views: 500
+    min_subscribers: 1000
+  bilibili:
+    enabled: true
+    label: B站
+    search_prefix: bilisearch
+    min_height: 720
+    min_views: 500
+    recent_min_views: 200
+    min_subscribers: 0
+
+search_per_query: 20
+max_detail_checks: 240
 
 search_queries:
   - "ChatGPT tutorial 2026"
@@ -27,15 +43,20 @@ search_queries:
   - "GitHub Copilot tutorial"
   - "OpenAI Codex tutorial"
   - "AI prompt engineering tutorial"
+
+bilibili_search_queries:
   - "ChatGPT 教程"
   - "Claude 教程"
   - "Cursor 编程 教程"
+  - "DeepSeek 教程"
   - "Kimi AI 教程"
   - "通义千问 教程"
   - "豆包 AI 教程"
+  - "GitHub Copilot 教程"
+  - "AI 提示词 教程"
   - "大模型 应用 教程"
 
-ai_keyword_pattern: "(ai|chatgpt|claude|gemini|deepseek|cursor|copilot|codex|kimi|qwen|通义|豆包|prompt|llm|gpt|openai|anthropic|大模型|人工智能|智能体|agent)"
+ai_keyword_pattern: "(ai|chatgpt|claude|gemini|deepseek|cursor|copilot|codex|kimi|qwen|通义|豆包|prompt|llm|gpt|openai|anthropic|大模型|人工智能|智能体|agent|bilibili|哔哩)"
 
 summary:
   min_length: 24

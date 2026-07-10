@@ -248,7 +248,7 @@ npm run test:e2e
           "label": "过去一周上新 Top 10",
           "window": { "days": 7 },
           "top_count": 10,
-          "videos": [{ "id": "...", "title": "...", "views": 12000, "published_at": "2026-07-08T08:00:00+08:00" }]
+          "videos": [{ "id": "bilibili:BV1xx", "platform": "bilibili", "title": "...", "views": 12000 }]
         }
       }
     }
@@ -361,10 +361,10 @@ npm run test:e2e
 
 ```
 1. 读取 config/video-fetch.yaml
-2. yt-dlp 多关键词搜索
+2. 多平台搜索（YouTube `ytsearch` / B站 `bilisearch`）
 3. 预筛：播放量、AI 关键词；被拒记录 reject [reason] 日志
-4. 拉取完整元数据：分辨率、订阅数、发布时间
-5. 分两类取播放量 Top N（可重叠）：
+4. 拉取完整元数据：分辨率、订阅数、发布时间（B站阈值单独配置）
+5. 分两类取播放量 Top N（可重叠，跨平台合并排序）：
    - top_views：时间不限，全网候选按播放量取 Top 10
    - recent_7d：仅过去 7 天内上传，按播放量取 Top 10
 6. 生成摘要（过滤 URL/赞助/广告文案）
@@ -388,12 +388,11 @@ python3 scripts/fetch_daily_videos.py
 |----|--------|------|
 | `video_categories.top_views` | `all_time, top_count: 10` | 全网播放量 Top 10 |
 | `video_categories.recent_7d` | `days: 7, top_count: 10` | 过去一周上新播放量 Top 10 |
-| `recent_min_views` | `500` | 一周上新类最低播放量（新视频阈值更低） |
-| `min_views` | `8000` | 最低播放量 |
-| `min_subscribers` | `1000` | 最低订阅数 |
-| `min_height` | `1080` | 最低分辨率 |
-| `search_per_query` | `18` | 每关键词搜索条数 |
-| `search_queries` | 见文件 | 搜索关键词列表 |
+| `search_sources.youtube` | `min_height: 1080` | YouTube 搜索与筛选 |
+| `search_sources.bilibili` | `min_height: 720` | B站搜索与筛选 |
+| `bilibili_search_queries` | 见文件 | B站中文搜索关键词 |
+| `search_per_query` | `20` | 每关键词搜索条数 |
+| `search_queries` | 见文件 | YouTube 搜索关键词 |
 | `summary.strip_patterns` | 见文件 | 摘要广告/URL 过滤正则 |
 
 ---

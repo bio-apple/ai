@@ -43,9 +43,16 @@ function getBatchVideoCount(batch) {
   return getBatchVideos(batch).length;
 }
 
+function platformLabel(v) {
+  if (v.platform === 'bilibili') return 'B站';
+  if ((v.id || '').startsWith('bilibili:')) return 'B站';
+  return 'YouTube';
+}
+
 function renderVideoCard(v, { compact = false } = {}) {
   const hot = v.views >= HOT_VIEWS_THRESHOLD;
   const track = compact ? 'home-video-click' : 'video-click';
+  const platform = platformLabel(v);
   return `
     <article class="video-card${compact ? ' video-card-compact' : ''}">
       <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">
@@ -53,6 +60,7 @@ function renderVideoCard(v, { compact = false } = {}) {
         <span class="video-play-btn" aria-hidden="true">▶ 观看</span>
         ${v.duration ? `<span class="video-duration">${escapeHtml(v.duration)}</span>` : ''}
         <span class="video-quality">${v.max_height}p</span>
+        <span class="video-platform video-platform-${v.platform || 'youtube'}">${escapeHtml(platform)}</span>
         ${hot ? '<span class="video-hot">热门</span>' : ''}
       </a>
       <div class="video-body">
@@ -168,7 +176,7 @@ async function loadDailyVideos() {
 
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 更新：全网播放量 Top 10 + 过去一周上新 Top 10`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 更新：YouTube + B站 播放量 Top 10`;
     }
 
     root.innerHTML = batches.map(renderBatch).join('');
