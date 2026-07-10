@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 TZ_NAME = "Asia/Shanghai"
-CATEGORY_ORDER = ("top_views", "recent_24h")
+CATEGORY_ORDER = ("top_views", "recent_7d")
 
 try:
     from zoneinfo import ZoneInfo
@@ -337,12 +337,12 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
         key=lambda x: int(x.get("view_count") or 0),
         reverse=True,
     )
-    recent_hours = cfg["video_categories"]["recent_24h"]["hours"]
-    buckets["recent_24h"], checked = collect_top_videos(
+    recent_hours = category_window_hours(cfg["video_categories"]["recent_7d"])
+    buckets["recent_7d"], checked = collect_top_videos(
         ranked_recent,
         cfg,
         now,
-        limit=limits["recent_24h"],
+        limit=limits["recent_7d"],
         require_hours=recent_hours,
         min_views=cfg.get("recent_min_views", cfg["min_views"]),
         detail_cache=detail_cache,
@@ -351,6 +351,16 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
     )
 
     return buckets
+
+
+def category_window_hours(cat: dict) -> float | None:
+    if cat.get("all_time"):
+        return None
+    if "hours" in cat:
+        return float(cat["hours"])
+    if "days" in cat:
+        return float(cat["days"]) * 24
+    return None
 
 
 def category_window(cat: dict) -> dict:
@@ -445,7 +455,7 @@ def main() -> int:
     save_store(store)
     print(
         f"已写入 {today} 视频 {total} 条"
-        f"（全网 Top: {len(buckets['top_views'])}, 24h Top: {len(buckets['recent_24h'])})"
+        f"（全网 Top: {len(buckets['top_views'])}, 一周 Top: {len(buckets['recent_7d'])})"
         f" → {DATA_FILE}"
     )
     return 0

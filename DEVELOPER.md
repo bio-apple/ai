@@ -234,7 +234,7 @@ npm run test:e2e
         "min_subscribers": 1000,
         "video_categories": {
           "top_views": { "label": "全网播放量 Top 10", "window": { "all_time": true }, "top_count": 10 },
-          "recent_24h": { "label": "24 小时内上新 Top 10", "window": { "hours": 24 }, "top_count": 10 }
+          "recent_7d": { "label": "过去一周上新 Top 10", "window": { "days": 7 }, "top_count": 10 }
         }
       },
       "categories": {
@@ -244,11 +244,11 @@ npm run test:e2e
           "top_count": 10,
           "videos": [{ "id": "...", "title": "...", "views": 61235029, "published_at": "2025-10-11T12:00:00+08:00" }]
         },
-        "recent_24h": {
-          "label": "24 小时内上新 Top 10",
-          "window": { "hours": 24 },
+        "recent_7d": {
+          "label": "过去一周上新 Top 10",
+          "window": { "days": 7 },
           "top_count": 10,
-          "videos": [{ "id": "...", "title": "...", "views": 12000, "published_at": "2026-07-10T08:00:00+08:00" }]
+          "videos": [{ "id": "...", "title": "...", "views": 12000, "published_at": "2026-07-08T08:00:00+08:00" }]
         }
       }
     }
@@ -366,7 +366,7 @@ npm run test:e2e
 4. 拉取完整元数据：分辨率、订阅数、发布时间
 5. 分两类取播放量 Top N（可重叠）：
    - top_views：时间不限，全网候选按播放量取 Top 10
-   - recent_24h：仅 24 小时内上传，按播放量取 Top 10
+   - recent_7d：仅过去 7 天内上传，按播放量取 Top 10
 6. 生成摘要（过滤 URL/赞助/广告文案）
 7. 写入 daily-videos.json → push → 触发 CI + Pages
 ```
@@ -387,8 +387,8 @@ python3 scripts/fetch_daily_videos.py
 | 键 | 默认值 | 含义 |
 |----|--------|------|
 | `video_categories.top_views` | `all_time, top_count: 10` | 全网播放量 Top 10 |
-| `video_categories.recent_24h` | `hours: 24, top_count: 10` | 24 小时内上新播放量 Top 10 |
-| `recent_min_views` | `500` | 24h 类最低播放量（新视频阈值更低） |
+| `video_categories.recent_7d` | `days: 7, top_count: 10` | 过去一周上新播放量 Top 10 |
+| `recent_min_views` | `500` | 一周上新类最低播放量（新视频阈值更低） |
 | `min_views` | `8000` | 最低播放量 |
 | `min_subscribers` | `1000` | 最低订阅数 |
 | `min_height` | `1080` | 最低分辨率 |

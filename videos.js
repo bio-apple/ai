@@ -1,6 +1,6 @@
 const VIDEO_DATA_URL = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
-const CATEGORY_ORDER = ['top_views', 'recent_24h', 'recent_7d', 'last_6m'];
+const CATEGORY_ORDER = ['top_views', 'recent_7d', 'recent_24h', 'last_6m'];
 
 let videoDataPromise = null;
 
@@ -121,8 +121,8 @@ function fetchVideoData() {
 
 function pickHomePreviewVideos(batch, limit = 3) {
   if (batch.categories) {
-    const recent = batch.categories.recent_24h?.videos
-      || batch.categories.recent_7d?.videos
+    const recent = batch.categories.recent_7d?.videos
+      || batch.categories.recent_24h?.videos
       || [];
     const top = batch.categories.top_views?.videos
       || batch.categories.last_6m?.videos
@@ -168,7 +168,7 @@ async function loadDailyVideos() {
 
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 更新：全网播放量 Top 10 + 24 小时内上新 Top 10`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 更新：全网播放量 Top 10 + 过去一周上新 Top 10`;
     }
 
     root.innerHTML = batches.map(renderBatch).join('');

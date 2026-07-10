@@ -1,16 +1,17 @@
 {
   "seen_ids": [
-    "QoQBzR1NIqI",
-    "wZeOwqmSw84",
-    "zNRvAMJOfAI",
-    "WVeYLlKOWc0",
-    "p09yRj47kNM",
-    "0vZ_UVLhSQQ",
-    "7TR-FLWNVHY",
-    "_ZvnD73m40o",
-    "jC4v5AS4RIM",
     "Gaf_jCnA6mc",
-    "-MPGU2a67Ls"
+    "loujaeBy8p0",
+    "p09yRj47kNM",
+    "_ZvnD73m40o",
+    "WizoCwjEKsg",
+    "-MPGU2a67Ls",
+    "p80OV6kjIO8",
+    "wZeOwqmSw84",
+    "QoQBzR1NIqI",
+    "zNRvAMJOfAI",
+    "d-CuF6dlqLg",
+    "jC4v5AS4RIM"
   ],
   "batches": [
     {
@@ -29,10 +30,10 @@
             },
             "top_count": 10
           },
-          "recent_24h": {
-            "label": "24 小时内上新 Top 10",
+          "recent_7d": {
+            "label": "过去一周上新 Top 10",
             "window": {
-              "hours": 24
+              "days": 7
             },
             "top_count": 10
           }
@@ -47,19 +48,6 @@
           "top_count": 10,
           "videos": [
             {
-              "id": "WVeYLlKOWc0",
-              "title": "Cursor Agent: 10 Pro Tips!",
-              "summary": "【Cursor】讲解 AI 工具实战应用，围绕「Cursor Agent: 10 Pro Tips!」展示操作步骤与使用技巧。",
-              "url": "https://www.youtube.com/watch?v=WVeYLlKOWc0",
-              "thumbnail": "https://i.ytimg.com/vi/WVeYLlKOWc0/maxresdefault.jpg",
-              "channel": "Cursor",
-              "subscribers": 72500,
-              "views": 61235046,
-              "duration": "12:32",
-              "max_height": 1080,
-              "published_at": "2025-10-11T21:06:31+08:00"
-            },
-            {
               "id": "Gaf_jCnA6mc",
               "title": "ChatGPT Tutorial: How to Use Chat GPT For Beginners",
               "summary": "^If you want to use the paid versions of all the AI models, get this",
@@ -67,7 +55,7 @@
               "thumbnail": "https://i.ytimg.com/vi/Gaf_jCnA6mc/maxresdefault.jpg",
               "channel": "Charlie Chang",
               "subscribers": 1440000,
-              "views": 4775711,
+              "views": 4775722,
               "duration": "27:51",
               "max_height": 2160,
               "published_at": "2023-04-05T02:09:53+08:00"
@@ -80,10 +68,23 @@
               "thumbnail": "https://i.ytimg.com/vi/jC4v5AS4RIM/maxresdefault.jpg",
               "channel": "Jeff Su",
               "subscribers": 1800000,
-              "views": 3644913,
+              "views": 3644922,
               "duration": "8:30",
               "max_height": 2160,
               "published_at": "2023-08-01T21:00:26+08:00"
+            },
+            {
+              "id": "WizoCwjEKsg",
+              "title": "超簡單！一次上手ChatGPT使用教學 文案 報告 論文",
+              "summary": "【必看續集】最新ChatGPT教學影片 ！完整版 〖訂閱頻道按鈕〗 ＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝＝ 相關鏈接： 【AI繪圖必看！超完整教學Midjourney】 AI繪圖2 角色連續Midjourney創作 圖片參考 教學 免費…",
+              "url": "https://www.youtube.com/watch?v=WizoCwjEKsg",
+              "thumbnail": "https://i.ytimg.com/vi/WizoCwjEKsg/maxresdefault.jpg",
+              "channel": "Apple Mei",
+              "subscribers": 654000,
+              "views": 2826426,
+              "duration": "8:34",
+              "max_height": 2160,
+              "published_at": "2023-01-31T21:30:11+08:00"
             },
             {
               "id": "_ZvnD73m40o",
@@ -93,7 +94,7 @@
               "thumbnail": "https://i.ytimg.com/vi/_ZvnD73m40o/maxresdefault.jpg",
               "channel": "freeCodeCamp.org",
               "subscribers": 11800000,
-              "views": 2723262,
+              "views": 2723269,
               "duration": "41:36",
               "max_height": 1080,
               "published_at": "2023-09-05T22:36:07+08:00"
@@ -119,10 +120,23 @@
               "thumbnail": "https://i.ytimg.com/vi/QoQBzR1NIqI/maxresdefault.jpg",
               "channel": "Nick Saraev",
               "subscribers": 467000,
-              "views": 2083749,
+              "views": 2083813,
               "duration": "4:10:43",
               "max_height": 2160,
               "published_at": "2026-02-13T01:14:59+08:00"
+            },
+            {
+              "id": "loujaeBy8p0",
+              "title": "5 Hacks To Use ChatGPT So Well It’s Almost Unfair",
+              "summary": "Subscribe to my newsletter → In this video, I break down how I use ChatGPT, not as a chatbot or a junior assistant, but as a syst…",
+              "url": "https://www.youtube.com/watch?v=loujaeBy8p0",
+              "thumbnail": "https://i.ytimg.com/vi/loujaeBy8p0/maxresdefault.jpg",
+              "channel": "Sandeep Swadia",
+              "subscribers": 1230000,
+              "views": 2045358,
+              "duration": "16:23",
+              "max_height": 2160,
+              "published_at": "2026-02-18T22:30:45+08:00"
             },
             {
               "id": "p09yRj47kNM",
@@ -132,23 +146,10 @@
               "thumbnail": "https://i.ytimg.com/vi/p09yRj47kNM/maxresdefault.jpg",
               "channel": "Tina Huang",
               "subscribers": 1250000,
-              "views": 1907553,
+              "views": 1907555,
               "duration": "20:17",
               "max_height": 2160,
               "published_at": "2024-12-09T21:30:33+08:00"
-            },
-            {
-              "id": "0vZ_UVLhSQQ",
-              "title": "Getting started with Claude.ai",
-              "summary": "Learn how to get the most out of chatting with Claude",
-              "url": "https://www.youtube.com/watch?v=0vZ_UVLhSQQ",
-              "thumbnail": "https://i.ytimg.com/vi/0vZ_UVLhSQQ/maxresdefault.jpg",
-              "channel": "Anthropic",
-              "subscribers": 727000,
-              "views": 1824935,
-              "duration": "5:19",
-              "max_height": 1080,
-              "published_at": "2025-12-02T23:55:00+08:00"
             },
             {
               "id": "wZeOwqmSw84",
@@ -158,30 +159,30 @@
               "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
               "channel": "Dan Martell",
               "subscribers": 2900000,
-              "views": 1817026,
+              "views": 1817166,
               "duration": "15:12",
               "max_height": 2160,
               "published_at": "2026-05-21T21:01:30+08:00"
             },
             {
-              "id": "7TR-FLWNVHY",
-              "title": "the ONLY way to run Deepseek...",
-              "summary": "☕Because everything in I",
-              "url": "https://www.youtube.com/watch?v=7TR-FLWNVHY",
-              "thumbnail": "https://i.ytimg.com/vi/7TR-FLWNVHY/maxresdefault.jpg",
-              "channel": "NetworkChuck",
-              "subscribers": 5320000,
-              "views": 1228474,
-              "duration": "11:59",
+              "id": "d-CuF6dlqLg",
+              "title": "Microsoft Copilot Tutorial",
+              "summary": "In this step-by-step tutorial, learn how to use Microsoft Copilot",
+              "url": "https://www.youtube.com/watch?v=d-CuF6dlqLg",
+              "thumbnail": "https://i.ytimg.com/vi/d-CuF6dlqLg/maxresdefault.jpg",
+              "channel": "Kevin Stratvert",
+              "subscribers": 4330000,
+              "views": 1656977,
+              "duration": "14:10",
               "max_height": 2160,
-              "published_at": "2025-02-01T01:34:25+08:00"
+              "published_at": "2024-07-29T15:00:19+08:00"
             }
           ]
         },
-        "recent_24h": {
-          "label": "24 小时内上新 Top 10",
+        "recent_7d": {
+          "label": "过去一周上新 Top 10",
           "window": {
-            "hours": 24
+            "days": 7
           },
           "top_count": 10,
           "videos": [
@@ -193,15 +194,28 @@
               "thumbnail": "https://i.ytimg.com/vi/-MPGU2a67Ls/maxresdefault.jpg",
               "channel": "OpenAI",
               "subscribers": 1980000,
-              "views": 47374,
+              "views": 48458,
               "duration": "1:59",
               "max_height": 2160,
               "published_at": "2026-07-10T01:55:26+08:00"
+            },
+            {
+              "id": "p80OV6kjIO8",
+              "title": "The Ultimate Claude Code Tutorial for Mobile Apps - FULL COURSE",
+              "summary": "💫 Try Sentry for FREE: (Get $80 FREE Credits) 🚀 Try Inngest for FREE: 🐰 Try CodeRabbit for FREE: 🔐 Try Clerk for FREE: 🐘 Try Neon…",
+              "url": "https://www.youtube.com/watch?v=p80OV6kjIO8",
+              "thumbnail": "https://i.ytimg.com/vi/p80OV6kjIO8/maxresdefault.jpg",
+              "channel": "Codesistency",
+              "subscribers": 151000,
+              "views": 33059,
+              "duration": "3:33:06",
+              "max_height": 1080,
+              "published_at": "2026-07-04T19:50:25+08:00"
             }
           ]
         }
       }
     }
   ],
-  "updated_at": "2026-07-10T13:29:38.985093+08:00"
+  "updated_at": "2026-07-10T13:50:16.970270+08:00"
 }

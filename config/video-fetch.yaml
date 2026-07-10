@@ -1,14 +1,14 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# 两类推荐（可重叠）：全网播放量 Top10 + 24 小时内上新播放量 Top10
+# 两类推荐（可重叠）：全网播放量 Top10 + 过去一周上新播放量 Top10
 video_categories:
   top_views:
     label: "全网播放量 Top 10"
     all_time: true
     top_count: 10
-  recent_24h:
-    label: "24 小时内上新 Top 10"
-    hours: 24
+  recent_7d:
+    label: "过去一周上新 Top 10"
+    days: 7
     top_count: 10
 
 min_views: 8000
