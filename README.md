@@ -103,6 +103,7 @@ python scripts/fetch_ai_news.py
 |------|------|------|
 | Phase 1 | 首页重构、新导航、工具卡片、UI 升级 | ✅ 已完成 |
 | Phase 2 | AI 排行榜、选择助手、AI 新闻、创作区、指南页 | ✅ 已完成 |
+| Phase 2.5 | Prompt 库、案例库、视频筛选、数据 JSON 导出 | ✅ 已完成 |
 | Phase 3 | 用户收藏、站内搜索增强、GitHub Trending / arXiv 采集 | 🔜 规划中 |
 
 ## 部署
