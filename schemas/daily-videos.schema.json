@@ -19,12 +19,8 @@
           "criteria": { "type": "object" },
           "categories": {
             "type": "object",
-            "required": ["recent_7d", "last_6m"],
-            "properties": {
-              "recent_7d": { "$ref": "#/$defs/videoCategory" },
-              "last_6m": { "$ref": "#/$defs/videoCategory" }
-            },
-            "additionalProperties": false
+            "minProperties": 1,
+            "additionalProperties": { "$ref": "#/$defs/videoCategory" }
           },
           "videos": {
             "type": "array",
@@ -42,23 +38,28 @@
   "$defs": {
     "videoCategory": {
       "type": "object",
-      "required": ["label", "window", "min_count", "videos"],
+      "required": ["label", "window", "videos"],
       "properties": {
         "label": { "type": "string", "minLength": 1 },
         "window": {
           "type": "object",
-          "minProperties": 1,
           "properties": {
+            "all_time": { "type": "boolean" },
             "hours": { "type": "number", "minimum": 1 },
             "days": { "type": "number", "minimum": 1 }
           }
         },
+        "top_count": { "type": "number", "minimum": 0 },
         "min_count": { "type": "number", "minimum": 0 },
         "videos": {
           "type": "array",
           "items": { "$ref": "#/$defs/videoItem" }
         }
-      }
+      },
+      "anyOf": [
+        { "required": ["top_count"] },
+        { "required": ["min_count"] }
+      ]
     },
     "videoItem": {
       "type": "object",

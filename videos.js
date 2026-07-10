@@ -1,14 +1,15 @@
 const VIDEO_DATA_URL = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
-const CATEGORY_ORDER = ['recent_7d', 'recent_24h', 'last_6m'];
+const CATEGORY_ORDER = ['top_views', 'recent_24h', 'recent_7d', 'last_6m'];
+
+let videoDataPromise = null;
 
 function getCategoryKeys(batch) {
   if (!batch.categories) return [];
-  const keys = CATEGORY_ORDER.filter(key => batch.categories[key]);
-  return keys.length ? keys : CATEGORY_ORDER.slice(0, 2);
+  const preferred = CATEGORY_ORDER.filter(key => batch.categories[key]);
+  if (preferred.length) return preferred;
+  return Object.keys(batch.categories);
 }
-
-let videoDataPromise = null;
 
 function escapeHtml(s) {
   const d = document.createElement('div');
@@ -70,7 +71,7 @@ function renderVideoCard(v, { compact = false } = {}) {
 function renderCategory(cat) {
   const videos = cat.videos || [];
   if (!videos.length) {
-    return `<div class="video-category video-category-empty"><h4 class="video-category-title">${escapeHtml(cat.label)}</h4><p class="loading-hint">暂无符合该时间范围的推荐</p></div>`;
+    return `<div class="video-category video-category-empty"><h4 class="video-category-title">${escapeHtml(cat.label)}</h4><p class="loading-hint">暂无符合该分类的推荐</p></div>`;
   }
   return `
     <div class="video-category">
@@ -120,12 +121,13 @@ function fetchVideoData() {
 
 function pickHomePreviewVideos(batch, limit = 3) {
   if (batch.categories) {
-    const recent = batch.categories.recent_7d?.videos
-      || batch.categories.recent_24h?.videos
+    const recent = batch.categories.recent_24h?.videos
+      || batch.categories.recent_7d?.videos
       || [];
-    const semi = batch.categories.last_6m?.videos || [];
-    const picked = [...recent.slice(0, 2), ...semi.slice(0, limit)];
-    return picked.slice(0, limit);
+    const top = batch.categories.top_views?.videos
+      || batch.categories.last_6m?.videos
+      || [];
+    return [...recent.slice(0, 2), ...top.slice(0, 1)].slice(0, limit);
   }
   return (batch.videos || []).slice(0, limit);
 }
@@ -166,7 +168,7 @@ async function loadDailyVideos() {
 
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 自动追加：过去一周 + 近 6 个月 1080p AI 教程`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 更新：全网播放量 Top 10 + 24 小时内上新 Top 10`;
     }
 
     root.innerHTML = batches.map(renderBatch).join('');

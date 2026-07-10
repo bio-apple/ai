@@ -1,14 +1,13 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关 YouTube 视频（1080p+，按播放量与订阅数筛选）。"""
+"""每日抓取 AI 应用相关 YouTube 视频（1080p+，按播放量 Top10 分两类推荐）。"""
 
 from __future__ import annotations
 
 import json
-import math
 import re
 import subprocess
 import sys
-from datetime import datetime, timedelta
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -18,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 TZ_NAME = "Asia/Shanghai"
-CATEGORY_ORDER = ("recent_7d", "last_6m")
+CATEGORY_ORDER = ("top_views", "recent_24h")
 
 try:
     from zoneinfo import ZoneInfo
@@ -68,10 +67,6 @@ def max_height(info: dict) -> int:
     return max(heights) if heights else 0
 
 
-def score_video(views: int, subscribers: int) -> float:
-    return views * (1 + math.log10(max(subscribers, 1)))
-
-
 def clean_description(description: str | None, cfg: dict) -> str:
     desc = description or ""
     desc = re.sub(r"https?://\S+", "", desc)
@@ -118,8 +113,7 @@ def now_local() -> datetime:
 def parse_upload_datetime(detail: dict) -> datetime | None:
     ts = detail.get("timestamp")
     if ts:
-        dt = datetime.fromtimestamp(ts, tz=TZ) if TZ else datetime.utcfromtimestamp(ts)
-        return dt
+        return datetime.fromtimestamp(ts, tz=TZ) if TZ else datetime.utcfromtimestamp(ts)
     upload_date = detail.get("upload_date")
     if upload_date and re.fullmatch(r"\d{8}", str(upload_date)):
         dt = datetime.strptime(str(upload_date), "%Y%m%d")
@@ -129,21 +123,8 @@ def parse_upload_datetime(detail: dict) -> datetime | None:
     return None
 
 
-def window_days(win: dict) -> float:
-    if "hours" in win:
-        return win["hours"] / 24
-    return float(win["days"])
-
-
-def classify_video(upload_dt: datetime, cfg: dict, now: datetime) -> str | None:
-    age = now - upload_dt
-    age_days = age.total_seconds() / 86400
-    windows = cfg["time_windows"]
-    if age_days <= window_days(windows["recent_7d"]):
-        return "recent_7d"
-    if age_days <= window_days(windows["last_6m"]):
-        return "last_6m"
-    return None
+def is_within_hours(upload_dt: datetime, now: datetime, hours: float) -> bool:
+    return (now - upload_dt).total_seconds() <= hours * 3600
 
 
 def load_store() -> dict:
@@ -164,9 +145,15 @@ def log_reject(reason: str, video_id: str, extra: str = "") -> None:
     print(msg, file=sys.stderr)
 
 
-def search_candidates(cfg: dict) -> dict[str, dict]:
+def search_candidates(
+    cfg: dict,
+    *,
+    sort_by_date: bool = False,
+    min_views: int | None = None,
+) -> dict[str, dict]:
     found: dict[str, dict] = {}
-    min_views = cfg["min_views"]
+    threshold = min_views if min_views is not None else cfg["min_views"]
+    search_prefix = "ytsearchdate" if sort_by_date else "ytsearch"
     for query in cfg["search_queries"]:
         try:
             raw = run_ytdlp(
@@ -174,7 +161,7 @@ def search_candidates(cfg: dict) -> dict[str, dict]:
                     "--dump-json",
                     "--flat-playlist",
                     "--no-download",
-                    f"ytsearch{cfg['search_per_query']}:{query}",
+                    f"{search_prefix}{cfg['search_per_query']}:{query}",
                 ],
                 timeout=90,
             )
@@ -189,7 +176,7 @@ def search_candidates(cfg: dict) -> dict[str, dict]:
             title = item.get("title") or ""
             desc = item.get("description") or ""
             views = int(item.get("view_count") or 0)
-            if views < min_views:
+            if views < threshold:
                 log_reject("low_views_search", vid, f"views={views}")
                 continue
             if not is_relevant(title, desc, cfg):
@@ -201,117 +188,189 @@ def search_candidates(cfg: dict) -> dict[str, dict]:
     return found
 
 
-def fetch_video_detail(video_id: str) -> dict | None:
+def fetch_video_detail(video_id: str, cache: dict[str, dict | None]) -> dict | None:
+    if video_id in cache:
+        return cache[video_id]
     url = f"https://www.youtube.com/watch?v={video_id}"
     try:
         raw = run_ytdlp(["--dump-json", "--no-download", url], timeout=90)
-        return json.loads(raw)
+        detail = json.loads(raw)
     except Exception as exc:
         log_reject("detail_fetch_failed", video_id, str(exc))
-        return None
+        detail = None
+    cache[video_id] = detail
+    return detail
 
 
 def bucket_limits(cfg: dict) -> dict[str, int]:
-    return {key: cfg["time_windows"][key]["min_count"] for key in CATEGORY_ORDER}
+    return {key: cfg["video_categories"][key]["top_count"] for key in CATEGORY_ORDER}
 
 
-def buckets_full(buckets: dict[str, list], limits: dict[str, int]) -> bool:
-    return all(len(buckets[key]) >= limits[key] for key in CATEGORY_ORDER)
+def validate_and_build_record(
+    item: dict,
+    detail: dict,
+    cfg: dict,
+    now: datetime,
+    *,
+    require_hours: float | None,
+    min_views: int,
+) -> dict | None:
+    upload_dt = parse_upload_datetime(detail)
+    if not upload_dt:
+        log_reject("no_upload_date", item["id"])
+        return None
+    if require_hours is not None and not is_within_hours(upload_dt, now, require_hours):
+        log_reject("outside_window", item["id"], upload_dt.isoformat())
+        return None
+
+    height = max_height(detail)
+    if height < cfg["min_height"]:
+        log_reject("low_resolution", item["id"], f"height={height}")
+        return None
+
+    views = int(detail.get("view_count") or 0)
+    subs = int(detail.get("channel_follower_count") or 0)
+    if views < min_views:
+        log_reject("low_views_detail", item["id"], f"views={views}")
+        return None
+    if subs < cfg["min_subscribers"]:
+        log_reject("low_subscribers", item["id"], f"subs={subs}")
+        return None
+
+    title = detail.get("title") or item.get("title") or ""
+    channel = detail.get("channel") or detail.get("uploader") or "未知频道"
+    if not is_relevant(title, detail.get("description") or "", cfg):
+        log_reject("not_relevant_detail", item["id"], title[:60])
+        return None
+
+    thumb = detail.get("thumbnail") or ""
+    if not thumb:
+        thumbs = detail.get("thumbnails") or []
+        thumb = thumbs[-1]["url"] if thumbs else ""
+
+    return {
+        "id": item["id"],
+        "title": title,
+        "summary": make_summary(title, detail.get("description"), channel, cfg),
+        "url": f"https://www.youtube.com/watch?v={item['id']}",
+        "thumbnail": thumb,
+        "channel": channel,
+        "subscribers": subs,
+        "views": views,
+        "duration": format_duration(detail.get("duration")),
+        "max_height": height,
+        "published_at": upload_dt.isoformat(),
+    }
 
 
-def pick_today_videos(store: dict, cfg: dict) -> dict[str, list[dict]]:
-    seen = set(store.get("seen_ids") or [])
-    candidates = search_candidates(cfg)
-    ranked = sorted(candidates.values(), key=lambda x: int(x.get("view_count") or 0), reverse=True)
-    limits = bucket_limits(cfg)
-    buckets: dict[str, list[dict]] = {key: [] for key in CATEGORY_ORDER}
-    now = now_local()
-
-    checked = 0
+def collect_top_videos(
+    ranked: list[dict],
+    cfg: dict,
+    now: datetime,
+    *,
+    limit: int,
+    require_hours: float | None,
+    min_views: int,
+    detail_cache: dict[str, dict | None],
+    checked: int,
+    max_checks: int,
+) -> tuple[list[dict], int]:
+    picked: list[dict] = []
     for item in ranked:
-        if buckets_full(buckets, limits):
+        if len(picked) >= limit:
             break
-        vid = item["id"]
-        if vid in seen:
-            log_reject("already_seen", vid)
-            continue
+        if checked >= max_checks:
+            break
         checked += 1
-        if checked > cfg.get("max_detail_checks", 120):
-            break
-
-        detail = fetch_video_detail(vid)
+        detail = fetch_video_detail(item["id"], detail_cache)
         if not detail:
             continue
-
-        upload_dt = parse_upload_datetime(detail)
-        if not upload_dt:
-            log_reject("no_upload_date", vid)
-            continue
-
-        category = classify_video(upload_dt, cfg, now)
-        if not category:
-            log_reject("too_old", vid, upload_dt.date().isoformat())
-            continue
-        if len(buckets[category]) >= limits[category]:
-            log_reject("bucket_full", vid, category)
-            continue
-
-        height = max_height(detail)
-        if height < cfg["min_height"]:
-            log_reject("low_resolution", vid, f"height={height}")
-            continue
-
-        views = int(detail.get("view_count") or 0)
-        subs = int(detail.get("channel_follower_count") or 0)
-        if views < cfg["min_views"]:
-            log_reject("low_views_detail", vid, f"views={views}")
-            continue
-        if subs < cfg["min_subscribers"]:
-            log_reject("low_subscribers", vid, f"subs={subs}")
-            continue
-
-        title = detail.get("title") or item.get("title") or ""
-        channel = detail.get("channel") or detail.get("uploader") or "未知频道"
-        if not is_relevant(title, detail.get("description") or "", cfg):
-            log_reject("not_relevant_detail", vid, title[:60])
-            continue
-
-        thumb = detail.get("thumbnail") or ""
-        if not thumb:
-            thumbs = detail.get("thumbnails") or []
-            thumb = thumbs[-1]["url"] if thumbs else ""
-
-        buckets[category].append(
-            {
-                "id": vid,
-                "title": title,
-                "summary": make_summary(title, detail.get("description"), channel, cfg),
-                "url": f"https://www.youtube.com/watch?v={vid}",
-                "thumbnail": thumb,
-                "channel": channel,
-                "subscribers": subs,
-                "views": views,
-                "duration": format_duration(detail.get("duration")),
-                "max_height": height,
-                "score": round(score_video(views, subs), 2),
-                "published_at": upload_dt.isoformat(),
-            }
+        record = validate_and_build_record(
+            item,
+            detail,
+            cfg,
+            now,
+            require_hours=require_hours,
+            min_views=min_views,
         )
+        if record:
+            picked.append(record)
 
-    for key in CATEGORY_ORDER:
-        buckets[key].sort(key=lambda v: v["score"], reverse=True)
+    picked.sort(key=lambda v: v["views"], reverse=True)
+    return picked[:limit], checked
+
+
+def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
+    limits = bucket_limits(cfg)
+    now = now_local()
+    max_checks = cfg.get("max_detail_checks", 200)
+    detail_cache: dict[str, dict | None] = {}
+    checked = 0
+    buckets: dict[str, list[dict]] = {key: [] for key in CATEGORY_ORDER}
+
+    popular_candidates = search_candidates(cfg)
+    ranked_popular = sorted(
+        popular_candidates.values(),
+        key=lambda x: int(x.get("view_count") or 0),
+        reverse=True,
+    )
+    buckets["top_views"], checked = collect_top_videos(
+        ranked_popular,
+        cfg,
+        now,
+        limit=limits["top_views"],
+        require_hours=None,
+        min_views=cfg["min_views"],
+        detail_cache=detail_cache,
+        checked=checked,
+        max_checks=max_checks,
+    )
+
+    recent_candidates = search_candidates(
+        cfg,
+        sort_by_date=True,
+        min_views=cfg.get("recent_min_views", cfg["min_views"]),
+    )
+    recent_candidates.update(popular_candidates)
+    ranked_recent = sorted(
+        recent_candidates.values(),
+        key=lambda x: int(x.get("view_count") or 0),
+        reverse=True,
+    )
+    recent_hours = cfg["video_categories"]["recent_24h"]["hours"]
+    buckets["recent_24h"], checked = collect_top_videos(
+        ranked_recent,
+        cfg,
+        now,
+        limit=limits["recent_24h"],
+        require_hours=recent_hours,
+        min_views=cfg.get("recent_min_views", cfg["min_views"]),
+        detail_cache=detail_cache,
+        checked=checked,
+        max_checks=max_checks,
+    )
+
     return buckets
+
+
+def category_window(cat: dict) -> dict:
+    if cat.get("all_time"):
+        return {"all_time": True}
+    if "hours" in cat:
+        return {"hours": cat["hours"]}
+    if "days" in cat:
+        return {"days": cat["days"]}
+    return {}
 
 
 def build_categories_payload(buckets: dict[str, list[dict]], cfg: dict) -> dict[str, dict]:
     payload: dict[str, dict] = {}
     for key in CATEGORY_ORDER:
-        win = cfg["time_windows"][key]
-        window = {"hours": win["hours"]} if "hours" in win else {"days": win["days"]}
+        cat = cfg["video_categories"][key]
         payload[key] = {
-            "label": win["label"],
-            "window": window,
-            "min_count": win["min_count"],
+            "label": cat["label"],
+            "window": category_window(cat),
+            "top_count": cat["top_count"],
             "videos": buckets[key],
         }
     return payload
@@ -334,7 +393,7 @@ def main() -> int:
             print(f"今日 ({today}) 已更新，共 {count} 条")
             return 0
 
-    buckets = pick_today_videos(store, cfg)
+    buckets = pick_today_videos(cfg)
     limits = bucket_limits(cfg)
     total = total_video_count(buckets)
     min_total = sum(limits.values())
@@ -343,7 +402,7 @@ def main() -> int:
         got = len(buckets[key])
         need = limits[key]
         if got < need:
-            label = cfg["time_windows"][key]["label"]
+            label = cfg["video_categories"][key]["label"]
             print(f"警告：{label} 仅 {got} 条（目标 {need}）", file=sys.stderr)
 
     if total == 0:
@@ -363,16 +422,13 @@ def main() -> int:
             "criteria": {
                 "min_height": cfg["min_height"],
                 "min_views": cfg["min_views"],
+                "recent_min_views": cfg.get("recent_min_views", cfg["min_views"]),
                 "min_subscribers": cfg["min_subscribers"],
-                "time_windows": {
+                "video_categories": {
                     key: {
-                        "label": cfg["time_windows"][key]["label"],
-                        "window": (
-                            {"hours": cfg["time_windows"][key]["hours"]}
-                            if "hours" in cfg["time_windows"][key]
-                            else {"days": cfg["time_windows"][key]["days"]}
-                        ),
-                        "min_count": limits[key],
+                        "label": cfg["video_categories"][key]["label"],
+                        "window": category_window(cfg["video_categories"][key]),
+                        "top_count": limits[key],
                     }
                     for key in CATEGORY_ORDER
                 },
@@ -380,16 +436,16 @@ def main() -> int:
             "categories": build_categories_payload(buckets, cfg),
         },
     )
-    for key in CATEGORY_ORDER:
-        for v in buckets[key]:
-            if v["id"] not in store["seen_ids"]:
-                store["seen_ids"].append(v["id"])
+    picked_ids = {v["id"] for key in CATEGORY_ORDER for v in buckets[key]}
+    for vid in picked_ids:
+        if vid not in store["seen_ids"]:
+            store["seen_ids"].append(vid)
 
     store["batches"] = store["batches"][:60]
     save_store(store)
     print(
         f"已写入 {today} 视频 {total} 条"
-        f"（7d: {len(buckets['recent_7d'])}, 6m: {len(buckets['last_6m'])})"
+        f"（全网 Top: {len(buckets['top_views'])}, 24h Top: {len(buckets['recent_24h'])})"
         f" → {DATA_FILE}"
     )
     return 0

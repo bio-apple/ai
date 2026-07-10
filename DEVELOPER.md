@@ -232,23 +232,23 @@ npm run test:e2e
         "min_height": 1080,
         "min_views": 8000,
         "min_subscribers": 1000,
-        "time_windows": {
-          "recent_7d": { "label": "过去一周", "window": { "days": 7 }, "min_count": 3 },
-          "last_6m": { "label": "近 6 个月", "window": { "days": 180 }, "min_count": 7 }
+        "video_categories": {
+          "top_views": { "label": "全网播放量 Top 10", "window": { "all_time": true }, "top_count": 10 },
+          "recent_24h": { "label": "24 小时内上新 Top 10", "window": { "hours": 24 }, "top_count": 10 }
         }
       },
       "categories": {
-        "recent_7d": {
-          "label": "过去一周",
-          "window": { "days": 7 },
-          "min_count": 3,
-          "videos": [{ "id": "...", "title": "...", "published_at": "2026-07-08T08:00:00+08:00" }]
+        "top_views": {
+          "label": "全网播放量 Top 10",
+          "window": { "all_time": true },
+          "top_count": 10,
+          "videos": [{ "id": "...", "title": "...", "views": 61235029, "published_at": "2025-10-11T12:00:00+08:00" }]
         },
-        "last_6m": {
-          "label": "近 6 个月",
-          "window": { "days": 180 },
-          "min_count": 7,
-          "videos": [{ "id": "...", "title": "...", "published_at": "2026-03-01T12:00:00+08:00" }]
+        "recent_24h": {
+          "label": "24 小时内上新 Top 10",
+          "window": { "hours": 24 },
+          "top_count": 10,
+          "videos": [{ "id": "...", "title": "...", "views": 12000, "published_at": "2026-07-10T08:00:00+08:00" }]
         }
       }
     }
@@ -256,7 +256,7 @@ npm run test:e2e
 }
 ```
 
-- `categories`：按发布时间分两类，互斥不重复；旧版 `videos` 数组仍兼容。
+- `categories`：两类推荐可重叠；按播放量降序取 Top N；旧版分类 key 仍兼容。
 - `batches`：新日期插入头部；`seen_ids` 全局去重；历史最多 **60 天**。
 - CI 会校验 Schema，并拒绝摘要中含 URL/广告残留。
 
@@ -364,12 +364,11 @@ npm run test:e2e
 2. yt-dlp 多关键词搜索
 3. 预筛：播放量、AI 关键词；被拒记录 reject [reason] 日志
 4. 拉取完整元数据：分辨率、订阅数、发布时间
-5. 按发布时间分桶（互斥）：
-   - recent_7d：过去 7 天内发布
-   - last_6m：1 周～180 天内发布（超过 6 个月 reject [too_old]）
-6. 综合评分：views × (1 + log10(subscribers))
-7. 生成摘要（过滤 URL/赞助/广告文案）
-8. 写入 daily-videos.json → push → 触发 CI + Pages
+5. 分两类取播放量 Top N（可重叠）：
+   - top_views：时间不限，全网候选按播放量取 Top 10
+   - recent_24h：仅 24 小时内上传，按播放量取 Top 10
+6. 生成摘要（过滤 URL/赞助/广告文案）
+7. 写入 daily-videos.json → push → 触发 CI + Pages
 ```
 
 ### 本地手动运行
@@ -387,8 +386,9 @@ python3 scripts/fetch_daily_videos.py
 
 | 键 | 默认值 | 含义 |
 |----|--------|------|
-| `time_windows.recent_7d` | `days: 7, min_count: 3` | 过去一周最新教程 |
-| `time_windows.last_6m` | `days: 180, min_count: 7` | 近 6 个月优质教程 |
+| `video_categories.top_views` | `all_time, top_count: 10` | 全网播放量 Top 10 |
+| `video_categories.recent_24h` | `hours: 24, top_count: 10` | 24 小时内上新播放量 Top 10 |
+| `recent_min_views` | `500` | 24h 类最低播放量（新视频阈值更低） |
 | `min_views` | `8000` | 最低播放量 |
 | `min_subscribers` | `1000` | 最低订阅数 |
 | `min_height` | `1080` | 最低分辨率 |

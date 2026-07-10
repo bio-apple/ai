@@ -1,21 +1,22 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# 按发布时间分两类（互斥）：过去一周 / 近 6 个月（1 周～180 天）
-time_windows:
-  recent_7d:
-    label: "过去一周"
-    days: 7
-    min_count: 3
-  last_6m:
-    label: "近 6 个月"
-    days: 180
-    min_count: 7
+# 两类推荐（可重叠）：全网播放量 Top10 + 24 小时内上新播放量 Top10
+video_categories:
+  top_views:
+    label: "全网播放量 Top 10"
+    all_time: true
+    top_count: 10
+  recent_24h:
+    label: "24 小时内上新 Top 10"
+    hours: 24
+    top_count: 10
 
 min_views: 8000
+recent_min_views: 500
 min_subscribers: 1000
 min_height: 1080
-search_per_query: 18
-max_detail_checks: 120
+search_per_query: 25
+max_detail_checks: 200
 
 search_queries:
   - "ChatGPT tutorial 2026"
