@@ -21,6 +21,11 @@
       <button class="nav-tab" data-tool="codex">Codex</button>
       <button class="nav-tab" data-tool="cursor">Cursor</button>
       <button class="nav-tab" data-tool="cases">实战</button>
+      <button class="nav-tab" data-tool="community">社区</button>
+    </div>
+    <div class="user-area" id="user-area">
+      <button class="auth-btn" id="btn-login">登录</button>
+      <button class="auth-btn primary" id="btn-register">注册</button>
     </div>
   </nav>
 </header>
@@ -797,10 +802,93 @@ Internet: off</div>
   </main>
 </section>
 
+<!-- 社区资料 -->
+<section id="section-community" class="section community-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon" style="background:rgba(16,163,127,0.12);color:var(--codex)">📚</div>
+      <div>
+        <h2>社区资料库</h2>
+        <p class="desc">注册登录后上传你的学习笔记与教程，支持 Markdown、Word 文档和视频。所有人可浏览社区资料。</p>
+      </div>
+    </div>
+
+    <div id="upload-panel" class="upload-panel hidden">
+      <h3>上传资料</h3>
+      <form id="upload-form" class="upload-form">
+        <div class="form-row">
+          <label>标题 <input type="text" name="title" required placeholder="例：Cursor Agent 模式使用心得" maxlength="120"></label>
+          <label>简介 <input type="text" name="description" placeholder="简短描述（可选）" maxlength="300"></label>
+        </div>
+        <div class="form-row">
+          <label class="file-label">
+            选择文件
+            <input type="file" name="file" required accept=".md,.markdown,.docx,.mp4,.webm,.mov,.avi,.mkv">
+            <span class="file-hint">支持 .md · .docx · .mp4/.webm/.mov（文档 ≤20MB，视频 ≤200MB）</span>
+          </label>
+        </div>
+        <button type="submit" class="cta-btn">上传资料</button>
+        <span id="upload-status" class="form-status"></span>
+      </form>
+    </div>
+
+    <div class="community-tabs">
+      <button class="community-tab active" data-tab="all">全部资料</button>
+      <button class="community-tab" data-tab="mine" id="tab-mine">我的上传</button>
+    </div>
+
+    <div id="resource-list" class="resource-list">
+      <p class="loading-hint">加载中…</p>
+    </div>
+  </main>
+</section>
+
+<!-- 登录弹窗 -->
+<div class="modal hidden" id="modal-login">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <h3>登录</h3>
+    <form id="form-login" class="auth-form">
+      <label>用户名 <input type="text" name="username" required autocomplete="username"></label>
+      <label>密码 <input type="password" name="password" required autocomplete="current-password"></label>
+      <button type="submit" class="cta-btn">登录</button>
+      <p class="form-error" id="login-error"></p>
+    </form>
+  </div>
+</div>
+
+<!-- 注册弹窗 -->
+<div class="modal hidden" id="modal-register">
+  <div class="modal-box">
+    <button class="modal-close" data-close>&times;</button>
+    <h3>注册账号</h3>
+    <form id="form-register" class="auth-form">
+      <label>用户名 <input type="text" name="username" required pattern="[a-zA-Z0-9_]{3,32}" title="3-32位字母、数字或下划线" autocomplete="username"></label>
+      <label>邮箱 <input type="email" name="email" required autocomplete="email"></label>
+      <label>密码 <input type="password" name="password" required minlength="6" autocomplete="new-password"></label>
+      <button type="submit" class="cta-btn">注册</button>
+      <p class="form-error" id="register-error"></p>
+    </form>
+  </div>
+</div>
+
+<!-- 预览弹窗 -->
+<div class="modal hidden" id="modal-preview">
+  <div class="modal-box modal-wide">
+    <button class="modal-close" data-close>&times;</button>
+    <h3 id="preview-title">资料预览</h3>
+    <p class="preview-meta" id="preview-meta"></p>
+    <div id="preview-body" class="preview-body"></div>
+    <a id="preview-download" class="cta-btn" href="#" download style="display:inline-block;margin-top:16px;text-align:center">下载原文件</a>
+  </div>
+</div>
+
 <footer>
   <p>AI 编程工具指南 · 持续更新中 · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="app.js"></script>
+<script src="auth.js"></script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+server:
+  host: "127.0.0.1"
+  port: 8765
+
+auth:
+  jwt_secret: "change-me-in-production-use-long-random-string"
+  jwt_expire_hours: 168
+
+paths:
+  data_dir: data
+  upload_dir: uploads
+
+upload:
+  max_doc_mb: 20
+  max_video_mb: 200
+  allowed_extensions:
+    markdown: [".md", ".markdown"]
+    word: [".docx"]
+    video: [".mp4", ".webm", ".mov", ".avi", ".mkv"]

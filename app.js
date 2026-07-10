@@ -12,6 +12,8 @@ function showSection(id) {
     t.classList.toggle('active', match);
   });
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  const toolName = id.replace('section-', '');
+  window.dispatchEvent(new CustomEvent('section-change', { detail: toolName }));
 }
 
 tabs.forEach(tab => {
