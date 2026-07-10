@@ -3,6 +3,8 @@ const TOKEN_KEY = 'ai_guide_token';
 const USER_KEY = 'ai_guide_user';
 
 let communityTab = 'all';
+let authEmail = '';
+let authIsLogin = false;
 
 function getToken() {
   return localStorage.getItem(TOKEN_KEY);
@@ -37,8 +39,44 @@ async function api(path, options = {}) {
   }
   const res = await fetch(`${API}${path}`, { ...options, headers });
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.detail || data.message || '请求失败');
+  if (!res.ok) {
+    const detail = data.detail;
+    throw new Error(typeof detail === 'string' ? detail : '请求失败');
+  }
   return data;
+}
+
+/* ── Claude 风格认证 UI ── */
+
+function openAuth() {
+  resetAuthFlow();
+  document.getElementById('modal-auth')?.classList.remove('hidden');
+}
+
+function closeAuth() {
+  document.getElementById('modal-auth')?.classList.add('hidden');
+  resetAuthFlow();
+}
+
+function resetAuthFlow() {
+  authEmail = '';
+  authIsLogin = false;
+  showAuthStep('welcome');
+  document.getElementById('form-email')?.reset();
+  document.getElementById('form-password')?.reset();
+  clearAuthErrors();
+}
+
+function showAuthStep(step) {
+  document.querySelectorAll('.auth-step').forEach(el => el.classList.remove('active'));
+  document.getElementById(`auth-step-${step}`)?.classList.add('active');
+}
+
+function clearAuthErrors() {
+  ['email-error', 'password-error'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = '';
+  });
 }
 
 function renderUserArea() {
@@ -49,7 +87,7 @@ function renderUserArea() {
 
   if (user) {
     area.innerHTML = `
-      <span class="user-name">👤 ${escapeHtml(user.username)}</span>
+      <span class="user-name">${escapeHtml(user.email)}</span>
       <button class="auth-btn" id="btn-logout">退出</button>
     `;
     document.getElementById('btn-logout')?.addEventListener('click', () => {
@@ -58,26 +96,10 @@ function renderUserArea() {
     });
     uploadPanel?.classList.remove('hidden');
   } else {
-    area.innerHTML = `
-      <button class="auth-btn" id="btn-login">登录</button>
-      <button class="auth-btn primary" id="btn-register">注册</button>
-    `;
-    bindAuthButtons();
+    area.innerHTML = `<button class="auth-btn claude-login-btn" id="btn-auth">登录</button>`;
+    document.getElementById('btn-auth')?.addEventListener('click', openAuth);
     uploadPanel?.classList.add('hidden');
   }
-}
-
-function bindAuthButtons() {
-  document.getElementById('btn-login')?.addEventListener('click', () => openModal('modal-login'));
-  document.getElementById('btn-register')?.addEventListener('click', () => openModal('modal-register'));
-}
-
-function openModal(id) {
-  document.getElementById(id)?.classList.remove('hidden');
-}
-
-function closeModal(id) {
-  document.getElementById(id)?.classList.add('hidden');
 }
 
 function escapeHtml(s) {
@@ -96,7 +118,7 @@ const TYPE_LABEL = { markdown: 'Markdown', word: 'Word', video: '视频' };
 
 function renderResourceCard(r) {
   const user = getUser();
-  const canDelete = user && user.username === r.username;
+  const canDelete = user && user.id === r.user_id;
   return `
     <article class="res-card" data-id="${r.id}">
       <div class="res-type ${r.file_type}">${TYPE_LABEL[r.file_type] || r.file_type}</div>
@@ -173,67 +195,84 @@ async function previewResource(id) {
     } else {
       body.innerHTML = '<p>无法预览，请下载原文件。</p>';
     }
-    openModal('modal-preview');
+    document.getElementById('modal-preview')?.classList.remove('hidden');
   } catch (err) {
     alert(err.message);
   }
 }
 
-/* Modals */
+/* Auth event listeners */
+document.getElementById('btn-auth')?.addEventListener('click', openAuth);
+
+document.querySelectorAll('[data-close-auth]').forEach(btn => {
+  btn.addEventListener('click', closeAuth);
+});
+
+document.getElementById('modal-auth')?.addEventListener('click', e => {
+  if (e.target.id === 'modal-auth') closeAuth();
+});
+
+document.getElementById('btn-email-continue')?.addEventListener('click', () => {
+  showAuthStep('email');
+  document.querySelector('#form-email input[name=email]')?.focus();
+});
+
+document.getElementById('btn-back-email')?.addEventListener('click', () => showAuthStep('welcome'));
+document.getElementById('btn-back-password')?.addEventListener('click', () => showAuthStep('email'));
+
+document.getElementById('btn-google')?.addEventListener('click', () => {
+  alert('Google 登录需要配置 OAuth，请使用电子邮件继续');
+});
+
+document.getElementById('form-email')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  clearAuthErrors();
+  const email = new FormData(e.target).get('email').trim();
+  const errEl = document.getElementById('email-error');
+  try {
+    const { exists } = await api('/api/auth/check-email', {
+      method: 'POST',
+      body: JSON.stringify({ email }),
+    });
+    authEmail = email;
+    authIsLogin = exists;
+    document.getElementById('password-title').textContent = exists ? '欢迎回来' : '创建密码';
+    document.getElementById('password-submit').textContent = exists ? '登录' : '创建账户';
+    document.getElementById('auth-email-display').textContent = email;
+    document.querySelector('#form-password input').autocomplete = exists ? 'current-password' : 'new-password';
+    showAuthStep('password');
+    document.querySelector('#form-password input[name=password]')?.focus();
+  } catch (err) {
+    errEl.textContent = err.message;
+  }
+});
+
+document.getElementById('form-password')?.addEventListener('submit', async e => {
+  e.preventDefault();
+  clearAuthErrors();
+  const password = new FormData(e.target).get('password');
+  const errEl = document.getElementById('password-error');
+  const endpoint = authIsLogin ? '/api/auth/login' : '/api/auth/register';
+  try {
+    const data = await api(endpoint, {
+      method: 'POST',
+      body: JSON.stringify({ email: authEmail, password }),
+    });
+    setAuth(data.token, data.user);
+    closeAuth();
+    loadResources();
+  } catch (err) {
+    errEl.textContent = err.message;
+  }
+});
+
+/* Preview modal close */
 document.querySelectorAll('[data-close]').forEach(btn => {
-  btn.addEventListener('click', () => {
-    btn.closest('.modal')?.classList.add('hidden');
-  });
+  btn.addEventListener('click', () => btn.closest('.modal')?.classList.add('hidden'));
 });
 
-document.querySelectorAll('.modal').forEach(modal => {
-  modal.addEventListener('click', e => {
-    if (e.target === modal) modal.classList.add('hidden');
-  });
-});
-
-/* Login */
-document.getElementById('form-login')?.addEventListener('submit', async e => {
-  e.preventDefault();
-  const errEl = document.getElementById('login-error');
-  errEl.textContent = '';
-  const fd = new FormData(e.target);
-  try {
-    const data = await api('/api/auth/login', {
-      method: 'POST',
-      body: JSON.stringify({ username: fd.get('username'), password: fd.get('password') }),
-    });
-    setAuth(data.token, data.user);
-    closeModal('modal-login');
-    e.target.reset();
-    loadResources();
-  } catch (err) {
-    errEl.textContent = err.message;
-  }
-});
-
-/* Register */
-document.getElementById('form-register')?.addEventListener('submit', async e => {
-  e.preventDefault();
-  const errEl = document.getElementById('register-error');
-  errEl.textContent = '';
-  const fd = new FormData(e.target);
-  try {
-    const data = await api('/api/auth/register', {
-      method: 'POST',
-      body: JSON.stringify({
-        username: fd.get('username'),
-        email: fd.get('email'),
-        password: fd.get('password'),
-      }),
-    });
-    setAuth(data.token, data.user);
-    closeModal('modal-register');
-    e.target.reset();
-    loadResources();
-  } catch (err) {
-    errEl.textContent = err.message;
-  }
+document.getElementById('modal-preview')?.addEventListener('click', e => {
+  if (e.target.id === 'modal-preview') e.target.classList.add('hidden');
 });
 
 /* Upload */
@@ -263,7 +302,7 @@ document.getElementById('upload-form')?.addEventListener('submit', async e => {
 document.querySelectorAll('.community-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     if (tab.dataset.tab === 'mine' && !getToken()) {
-      openModal('modal-login');
+      openAuth();
       return;
     }
     document.querySelectorAll('.community-tab').forEach(t => t.classList.remove('active'));
@@ -273,18 +312,10 @@ document.querySelectorAll('.community-tab').forEach(tab => {
   });
 });
 
-/* Init */
 document.addEventListener('DOMContentLoaded', () => {
   renderUserArea();
-  const observer = new MutationObserver(() => {
-    const section = document.getElementById('section-community');
-    if (section?.classList.contains('active')) loadResources();
-  });
   const section = document.getElementById('section-community');
-  if (section) {
-    observer.observe(section, { attributes: true, attributeFilter: ['class'] });
-    if (section.classList.contains('active')) loadResources();
-  }
+  if (section?.classList.contains('active')) loadResources();
 });
 
 window.addEventListener('section-change', (e) => {

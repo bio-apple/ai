@@ -22,11 +22,11 @@ def verify_password(plain: str, hashed: str) -> bool:
     return pwd_context.verify(plain, hashed)
 
 
-def create_token(user_id: int, username: str) -> str:
+def create_token(user_id: int, email: str) -> str:
     expire_hours = CFG["auth"]["jwt_expire_hours"]
     payload = {
         "sub": str(user_id),
-        "username": username,
+        "email": email,
         "exp": datetime.now(timezone.utc) + timedelta(hours=expire_hours),
     }
     return jwt.encode(payload, CFG["auth"]["jwt_secret"], algorithm="HS256")

@@ -23,12 +23,10 @@ from backend.database import (
     delete_resource,
     get_resource,
     get_user_by_email,
-    get_user_by_username,
     init_db,
     list_resources,
     list_user_resources,
     validate_email,
-    validate_username,
 )
 
 init_db()
@@ -46,14 +44,17 @@ ALLOWED = CFG["upload"]["allowed_extensions"]
 
 
 class RegisterBody(BaseModel):
-    username: str = Field(min_length=3, max_length=32)
     email: str
-    password: str = Field(min_length=6, max_length=128)
+    password: str = Field(min_length=8, max_length=128)
 
 
 class LoginBody(BaseModel):
-    username: str
+    email: str
     password: str
+
+
+class CheckEmailBody(BaseModel):
+    email: str
 
 
 def _detect_file_type(filename: str) -> str | None:
@@ -71,7 +72,11 @@ def _max_size_mb(file_type: str) -> int:
 
 
 def _user_public(user: dict) -> dict:
-    return {"id": user["id"], "username": user["username"], "email": user["email"]}
+    return {
+        "id": user["id"],
+        "email": user["email"],
+        "name": user["email"].split("@")[0],
+    }
 
 
 def _resource_public(row: dict) -> dict:
@@ -84,31 +89,38 @@ def _resource_public(row: dict) -> dict:
         "file_size": row["file_size"],
         "created_at": row["created_at"],
         "username": row["username"],
+        "user_id": row["user_id"],
     }
+
+
+@app.post("/api/auth/check-email")
+def check_email(body: CheckEmailBody):
+    if err := validate_email(body.email):
+        raise HTTPException(400, err)
+    user = get_user_by_email(body.email)
+    return {"exists": user is not None, "email": body.email.lower()}
 
 
 @app.post("/api/auth/register")
 def register(body: RegisterBody):
-    if err := validate_username(body.username):
-        raise HTTPException(400, err)
     if err := validate_email(body.email):
         raise HTTPException(400, err)
-    if get_user_by_username(body.username):
-        raise HTTPException(400, "用户名已被占用")
     if get_user_by_email(body.email):
-        raise HTTPException(400, "邮箱已被注册")
+        raise HTTPException(400, "该邮箱已注册，请直接登录")
 
-    user = create_user(body.username, body.email, hash_password(body.password))
-    token = create_token(user["id"], user["username"])
+    user = create_user(body.email, hash_password(body.password))
+    token = create_token(user["id"], user["email"])
     return {"token": token, "user": _user_public(user)}
 
 
 @app.post("/api/auth/login")
 def login(body: LoginBody):
-    user = get_user_by_username(body.username)
+    if err := validate_email(body.email):
+        raise HTTPException(400, err)
+    user = get_user_by_email(body.email)
     if not user or not verify_password(body.password, user["password_hash"]):
-        raise HTTPException(401, "用户名或密码错误")
-    token = create_token(user["id"], user["username"])
+        raise HTTPException(401, "邮箱或密码错误")
+    token = create_token(user["id"], user["email"])
     return {"token": token, "user": _user_public(user)}
 
 

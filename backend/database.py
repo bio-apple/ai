@@ -56,11 +56,25 @@ def get_conn():
         conn.close()
 
 
-def create_user(username: str, email: str, password_hash: str) -> dict:
+def _unique_username(conn, email: str) -> str:
+    base = re.sub(r"[^a-zA-Z0-9_]", "_", email.split("@")[0])[:24] or "user"
+    candidate = base
+    n = 1
+    while conn.execute(
+        "SELECT 1 FROM users WHERE username = ? COLLATE NOCASE", (candidate,)
+    ).fetchone():
+        candidate = f"{base}_{n}"
+        n += 1
+    return candidate
+
+
+def create_user(email: str, password_hash: str) -> dict:
+    email = email.lower()
     with get_conn() as conn:
+        username = _unique_username(conn, email)
         cur = conn.execute(
             "INSERT INTO users (username, email, password_hash, created_at) VALUES (?, ?, ?, ?)",
-            (username, email.lower(), password_hash, _now()),
+            (username, email, password_hash, _now()),
         )
         user_id = cur.lastrowid
         row = conn.execute("SELECT * FROM users WHERE id = ?", (user_id,)).fetchone()
@@ -161,13 +175,7 @@ USERNAME_RE = re.compile(r"^[a-zA-Z0-9_]{3,32}$")
 EMAIL_RE = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
 
 
-def validate_username(username: str) -> str | None:
-    if not USERNAME_RE.match(username):
-        return "用户名须为 3-32 位字母、数字或下划线"
-    return None
-
-
 def validate_email(email: str) -> str | None:
     if not EMAIL_RE.match(email):
-        return "邮箱格式不正确"
+        return "请输入有效的邮箱地址"
     return None

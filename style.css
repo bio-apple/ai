@@ -885,6 +885,183 @@ code {
 
 .video-preview { width: 100%; border-radius: 8px; }
 
+/* Claude 风格认证 */
+.modal:has(.auth-claude) {
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.auth-claude {
+  background: #FAF9F5;
+  color: #1a1a1a;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 36px 32px 32px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  border: none;
+}
+
+.auth-close {
+  color: #888;
+  font-size: 1.4rem;
+}
+
+.auth-step { display: none; }
+.auth-step.active { display: block; }
+
+.auth-logo {
+  font-size: 2rem;
+  color: var(--claude);
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.auth-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.auth-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 28px;
+}
+
+.auth-google-btn {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.2s;
+  margin-bottom: 16px;
+}
+
+.auth-google-btn:hover { background: #f5f5f5; }
+
+.auth-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 16px 0;
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: #e0e0e0;
+}
+
+.auth-email-btn {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background: #fff;
+  color: #1a1a1a;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-email-btn:hover { background: #f5f5f5; }
+
+.auth-legal {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #999;
+  margin-top: 24px;
+  line-height: 1.6;
+}
+
+.auth-legal a { color: var(--claude); text-decoration: underline; }
+
+.auth-back {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.auth-back:hover { color: #1a1a1a; }
+
+.auth-form-claude { margin-top: 8px; }
+
+.auth-input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+  background: #fff;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.auth-input:focus { border-color: var(--claude); }
+
+.auth-primary-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--claude);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.auth-primary-btn:hover { background: #c45c3e; }
+
+.auth-email-display {
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.auth-claude .form-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.claude-login-btn {
+  background: var(--claude) !important;
+  color: #fff !important;
+  border-color: var(--claude) !important;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.claude-login-btn:hover {
+  background: #c45c3e !important;
+}
+
 /* Footer */
 footer {
   border-top: 1px solid var(--border);
