@@ -2,6 +2,14 @@
 
 学习如何使用与应用人工智能——覆盖 ChatGPT、Claude、Gemini、DeepSeek、Kimi、通义千问、豆包、Copilot、Cursor、Codex 等主流工具。
 
+## 项目路径
+
+| 环境 | 路径 |
+|------|------|
+| GitHub 仓库 | https://github.com/bio-apple/ai |
+| 本地目录 | `/Users/yfan/Desktop/bio-apple/ai` |
+| 线上地址 | https://bio-apple.github.io/ai/ |
+
 ## 功能
 
 - 📖 十大 AI 工具教程：使用方法、核心功能、官方文档

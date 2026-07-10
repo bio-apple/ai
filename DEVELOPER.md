@@ -4,6 +4,7 @@
 
 - **线上地址**：https://bio-apple.github.io/ai/
 - **仓库**：https://github.com/bio-apple/ai
+- **本地目录**：`/Users/yfan/Desktop/bio-apple/ai`
 - **类型**：纯静态前端 + 可选本地静态服务 + GitHub Actions 自动化
 
 ---
