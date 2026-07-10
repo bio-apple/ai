@@ -29,6 +29,8 @@ cd ai
 
 访问 http://127.0.0.1:8765
 
+**开发者文档**：[DEVELOPER.md](./DEVELOPER.md)（架构、数据格式、CI/CD、内容维护）
+
 ## 每日视频自动更新
 
 - **更新时间**：北京时间每日 `00:00`（GitHub Actions 定时任务）
