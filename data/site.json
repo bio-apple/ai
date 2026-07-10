@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Bio AI Lab | ChatGPT/Cursor/DeepSeek 教程 2026 — AI 学习与工具导航",
-    "description": "Bio AI Lab 是集 AI 工具导航、AI 学习、AI 新闻资讯于一体的中文平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，实战案例与每日资讯。",
+    "description": "Bio AI Lab 是集 AI 工具导航、分类排行、选型对比、开源精选、AI 学习与每周资讯于一体的中文平台：ChatGPT、Claude、Cursor、DeepSeek 等工具教程与 GitHub Stars 开源项目榜。",
     "keywords": "Bio AI Lab,AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI新闻,AI实战,AI工具排行",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.png",
@@ -36,6 +36,7 @@
       { "type": "tab", "id": "create", "label": "AI 创作" },
       { "type": "tab", "id": "cases", "label": "AI 教程" },
       { "type": "tab", "id": "prompts", "label": "Prompt库" },
+      { "type": "tab", "id": "oss", "label": "开源精选" },
       { "type": "tab", "id": "news", "label": "AI 新闻" },
       { "type": "tab", "id": "videos", "label": "AI 视频" }
     ]
@@ -43,7 +44,7 @@
   "hero": {
     "eyebrow": "AI",
     "title": "掌握 AI，让效率提升 10 倍",
-    "subtitle": "ChatGPT、Claude、Gemini、DeepSeek、Cursor 全平台 AI 实战指南",
+    "subtitle": "国内国际热门 AI 工具分类、排行对比与 GitHub 开源精选",
     "cta_primary": { "label": "开始学习 AI", "goto": "cases" },
     "cta_secondary": { "label": "查看 AI 工具排行", "href": "ai-tools-ranking.html" },
     "search_placeholder": "搜索工具、案例或教程…"
@@ -252,9 +253,9 @@
     }
   ],
   "news_page": {
-    "title": "今日 AI 热点 | Bio AI Lab",
-    "h1": "今日 AI 热点",
-    "lead": "每日汇总 OpenAI、Anthropic、Google DeepMind、Hugging Face 等官方动态与行业资讯。"
+    "title": "本周 AI 热点 | Bio AI Lab",
+    "h1": "本周 AI 热点",
+    "lead": "每周汇总 OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、Meta、Hugging Face、arXiv、GitHub Trending 与机器之心、量子位等中文渠道动态。"
   },
   "prompts_page": {
     "title": "Prompt 提示词库 | Bio AI Lab",
@@ -328,7 +329,11 @@
     },
     {
       "question": "本站每日视频如何更新？",
-      "answer": "北京时间每日 0:00 自动抓取 YouTube 与 B站 AI 应用相关 1080p 教程，分四类推荐：各平台全网播放量 Top 10 与 24 小时内上新 Top 10。"
+      "answer": "北京时间每日 0:00 自动抓取 YouTube 与 B站 AI 应用相关教程，分六类推荐：各平台全网播放量 Top 10、30 天内上新 Top 5、24 小时内上新 Top 3。"
+    },
+    {
+      "question": "AI 新闻多久更新一次？",
+      "answer": "每周一北京时间 6:00 自动汇总官方博客 RSS、arXiv 论文、GitHub Trending 与机器之心、量子位等中文媒体；同时关注 OpenAI、Anthropic、Meta、Hugging Face 等公司公告与 X 账号。"
     }
   ],
   "general_tips": {

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关视频（YouTube + B站，按平台分四类 Top10 推荐）。"""
+"""每日抓取 AI 应用相关视频（YouTube + B站，六类播放量/上新推荐）。"""
 
 from __future__ import annotations
 
@@ -21,8 +21,10 @@ BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
 CATEGORY_ORDER = (
     "youtube_top_views",
+    "youtube_recent_30d",
     "youtube_recent_24h",
     "bilibili_top_views",
+    "bilibili_recent_30d",
     "bilibili_recent_24h",
 )
 PLATFORM_ORDER = ("youtube", "bilibili")
@@ -694,14 +696,12 @@ def main() -> int:
 
     store["batches"] = store["batches"][:60]
     save_store(store)
-    yt_top = len(buckets["youtube_top_views"])
-    yt_recent = len(buckets["youtube_recent_24h"])
-    bili_top = len(buckets["bilibili_top_views"])
-    bili_recent = len(buckets["bilibili_recent_24h"])
+    counts = {key: len(buckets[key]) for key in CATEGORY_ORDER}
     print(
         f"已写入 {today} 视频 {total} 条"
-        f"（YouTube Top: {yt_top}, YouTube 24h: {yt_recent},"
-        f" B站 Top: {bili_top}, B站 24h: {bili_recent}）"
+        f"（YT Top {counts['youtube_top_views']}, YT 30d {counts['youtube_recent_30d']},"
+        f" YT 24h {counts['youtube_recent_24h']}, B站 Top {counts['bilibili_top_views']},"
+        f" B站 30d {counts['bilibili_recent_30d']}, B站 24h {counts['bilibili_recent_24h']}）"
         f" → {DATA_FILE}"
     )
     return 0

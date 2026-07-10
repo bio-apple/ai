@@ -91,7 +91,7 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
 }
 
 function resolveGoto(target) {
-  if (target === 'cases' || target === 'videos' || target === 'news' || target === 'create' || target === 'prompts') {
+  if (target === 'cases' || target === 'videos' || target === 'news' || target === 'create' || target === 'prompts' || target === 'oss') {
     return `section-${target}`;
   }
   if (target === 'all' || target === 'home') return 'section-home';

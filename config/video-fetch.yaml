@@ -1,27 +1,37 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# 四类推荐（可重叠）：YouTube / B站 各「全网播放量 Top10」+「24 小时内上新 Top10」
+# 六类推荐（可重叠）：YouTube / B站 各「全网播放量 Top10」+「30 天上新 Top5」+「24h 上新 Top3」
 video_categories:
   youtube_top_views:
     label: "YouTube：全网播放量 Top 10"
     platform: youtube
     all_time: true
     top_count: 10
+  youtube_recent_30d:
+    label: "YouTube：30 天内上新 Top 5"
+    platform: youtube
+    days: 30
+    top_count: 5
   youtube_recent_24h:
-    label: "YouTube：24 小时内上新 Top 10"
+    label: "YouTube：24 小时内上新 Top 3"
     platform: youtube
     hours: 24
-    top_count: 10
+    top_count: 3
   bilibili_top_views:
     label: "B站：全网播放量 Top 10"
     platform: bilibili
     all_time: true
     top_count: 10
+  bilibili_recent_30d:
+    label: "B站：30 天内上新 Top 5"
+    platform: bilibili
+    days: 30
+    top_count: 5
   bilibili_recent_24h:
-    label: "B站：24 小时内上新 Top 10"
+    label: "B站：24 小时内上新 Top 3"
     platform: bilibili
     hours: 24
-    top_count: 10
+    top_count: 3
 
 # 多平台搜索源
 search_sources:

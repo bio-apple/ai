@@ -1,0 +1,157 @@
+{
+  "updated_at": "2026-07-10",
+  "title": "GitHub Stars 开源精选",
+  "lead": "按 AI 应用领域筛选 GitHub 上最受欢迎的开源项目，每周更新 Star 数。",
+  "domains": [
+    {
+      "id": "ai-agent",
+      "label": "AI Agent",
+      "description": "自主规划、工具调用与多步任务编排",
+      "projects": [
+        {
+          "id": "langgraph",
+          "repo": "langchain-ai/langgraph",
+          "name": "LangGraph",
+          "description": "低层级 Agent 编排框架，支持有状态、可循环的多步工作流。",
+          "stars": 36959,
+          "url": "https://github.com/langchain-ai/langgraph",
+          "language": "Python"
+        },
+        {
+          "id": "crewai",
+          "repo": "crewAIInc/crewAI",
+          "name": "crewAI",
+          "description": "多 Agent 协作框架，适合角色分工与任务流水线。",
+          "stars": 55284,
+          "url": "https://github.com/crewAIInc/crewAI",
+          "language": "Python"
+        }
+      ]
+    },
+    {
+      "id": "llm-apps",
+      "label": "LLM 应用开发",
+      "description": "RAG、工作流与可视化 LLM 应用搭建",
+      "projects": [
+        {
+          "id": "dify",
+          "repo": "langgenius/dify",
+          "name": "Dify",
+          "description": "开源 LLM 应用开发平台，支持 RAG、Agent 与工作流编排。",
+          "stars": 148392,
+          "url": "https://github.com/langgenius/dify",
+          "language": "TypeScript"
+        },
+        {
+          "id": "llamaindex",
+          "repo": "run-llama/llama_index",
+          "name": "LlamaIndex",
+          "description": "数据连接与 RAG 框架，快速构建知识库问答应用。",
+          "stars": 50761,
+          "url": "https://github.com/run-llama/llama_index",
+          "language": "Python"
+        }
+      ]
+    },
+    {
+      "id": "local-llm",
+      "label": "本地大模型",
+      "description": "端侧推理、模型量化与本地部署",
+      "projects": [
+        {
+          "id": "ollama",
+          "repo": "ollama/ollama",
+          "name": "Ollama",
+          "description": "一键在本地运行 Llama、Qwen、DeepSeek 等开源模型。",
+          "stars": 175848,
+          "url": "https://github.com/ollama/ollama",
+          "language": "Go"
+        },
+        {
+          "id": "llamacpp",
+          "repo": "ggml-org/llama.cpp",
+          "name": "llama.cpp",
+          "description": "高性能 C/C++ 推理引擎，支持 CPU/GPU 量化部署。",
+          "stars": 119866,
+          "url": "https://github.com/ggml-org/llama.cpp",
+          "language": "C++"
+        }
+      ]
+    },
+    {
+      "id": "ai-art",
+      "label": "AI 绘画",
+      "description": "Stable Diffusion 工作流与图像生成",
+      "projects": [
+        {
+          "id": "comfyui",
+          "repo": "comfyanonymous/ComfyUI",
+          "name": "ComfyUI",
+          "description": "节点式 Stable Diffusion 工作流，灵活组合 ControlNet 与 LoRA。",
+          "stars": 120157,
+          "url": "https://github.com/comfyanonymous/ComfyUI",
+          "language": "Python"
+        },
+        {
+          "id": "sd-webui",
+          "repo": "AUTOMATIC1111/stable-diffusion-webui",
+          "name": "Stable Diffusion WebUI",
+          "description": "最流行的 SD 图形界面，插件生态丰富。",
+          "stars": 164160,
+          "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+          "language": "Python"
+        }
+      ]
+    },
+    {
+      "id": "multimodal",
+      "label": "多模态",
+      "description": "视觉-语言理解与跨模态推理",
+      "projects": [
+        {
+          "id": "llava",
+          "repo": "haotian-liu/LLaVA",
+          "name": "LLaVA",
+          "description": "视觉指令微调大模型，图像理解与对话问答。",
+          "stars": 24924,
+          "url": "https://github.com/haotian-liu/LLaVA",
+          "language": "Python"
+        },
+        {
+          "id": "transformers-vision",
+          "repo": "huggingface/transformers",
+          "name": "Transformers",
+          "description": "Hugging Face 多模态模型库，覆盖 VLM、ASR 与视觉任务。",
+          "stars": 162436,
+          "url": "https://github.com/huggingface/transformers",
+          "language": "Python"
+        }
+      ]
+    },
+    {
+      "id": "ml-framework",
+      "label": "机器学习框架",
+      "description": "深度学习训练与推理基础设施",
+      "projects": [
+        {
+          "id": "pytorch",
+          "repo": "pytorch/pytorch",
+          "name": "PyTorch",
+          "description": "主流深度学习框架，研究与生产部署首选。",
+          "stars": 101712,
+          "url": "https://github.com/pytorch/pytorch",
+          "language": "Python"
+        },
+        {
+          "id": "jax",
+          "repo": "google/jax",
+          "name": "JAX",
+          "description": "Google 高性能数值计算与自动微分框架。",
+          "stars": 35996,
+          "url": "https://github.com/google/jax",
+          "language": "Python"
+        }
+      ]
+    }
+  ]
+}

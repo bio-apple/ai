@@ -17,7 +17,7 @@ const schema = buildHomeSchema(site);
   description={site.meta.description}
   canonical={site.meta.canonical}
   schema={schema}
-  scripts={['vendor/fuse.min.js', 'analytics.js', 'ux.js', 'app.js', 'prompts.js', 'news.js', 'videos.js', 'knowledge.js']}
+  scripts={['vendor/fuse.min.js', 'analytics.js', 'ux.js', 'app.js', 'prompts.js', 'news.js', 'videos.js', 'oss.js', 'knowledge.js']}
   includeKnowledge={true}
 >
   <section id="section-home" class="section active">
@@ -45,7 +45,7 @@ const schema = buildHomeSchema(site);
       <section class="home-section fade-in">
         <div class="section-head">
           <h2 class="section-title">热门 AI 工具</h2>
-          <p class="section-desc">30 秒内找到最适合你的 AI 助手</p>
+          <p class="section-desc">国内国际热门 AI 工具分类、排行与选型对比</p>
         </div>
         <div class="tool-cards-scroll">
           <div class="tool-cards tool-cards-hot">
@@ -139,10 +139,23 @@ const schema = buildHomeSchema(site);
         </div>
       </section>
 
+      <section class="home-section fade-in" id="home-oss">
+        <div class="section-head">
+          <h2 class="section-title">GitHub Stars 开源精选</h2>
+          <p class="section-desc">AI Agent、LLM 应用、本地大模型、AI 绘画、多模态与机器学习框架</p>
+        </div>
+        <div id="home-oss-preview" class="home-oss-preview">
+          <p class="loading-hint">加载开源项目…</p>
+        </div>
+        <div class="section-cta">
+          <button class="cta-btn cta-btn-outline" data-goto="oss" data-track="home-all-oss">查看全部开源项目 →</button>
+        </div>
+      </section>
+
       <section class="home-section fade-in" id="home-news">
         <div class="section-head">
-          <h2 class="section-title">今日 AI 热点</h2>
-          <p class="section-desc">OpenAI · Anthropic · DeepMind · Hugging Face 官方动态</p>
+          <h2 class="section-title">本周 AI 热点</h2>
+          <p class="section-desc">OpenAI · Anthropic · DeepMind · NVIDIA · arXiv · GitHub Trending · 机器之心 · 量子位</p>
         </div>
         <div id="home-news-preview" class="home-news-preview">
           <p class="loading-hint">加载今日热点…</p>
@@ -184,7 +197,7 @@ const schema = buildHomeSchema(site);
       <section class="home-section fade-in">
         <div class="section-head">
           <h2 class="section-title">精选教程与视频</h2>
-          <p class="section-desc">选型对比、实战案例与每日教程视频</p>
+          <p class="section-desc">选型对比、实战案例与每日六类 AI 教程视频推荐</p>
         </div>
         <div class="compare-guide-grid">
           {site.compare_guides.map((g) => (
@@ -270,19 +283,36 @@ const schema = buildHomeSchema(site);
     </main>
   </section>
 
+  <section id="section-oss" class="section oss-section">
+    <main>
+      <div class="tool-header">
+        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">⭐</div>
+        <div>
+          <h2>GitHub Stars 开源精选</h2>
+          <p class="desc">按 AI 应用领域筛选 GitHub 最受欢迎的开源项目：AI Agent、LLM 应用开发、本地大模型、AI 绘画、多模态、机器学习框架。</p>
+          <p class="video-update-meta" id="oss-update-meta"></p>
+        </div>
+      </div>
+      <div id="oss-project-list" class="oss-project-list">
+        <p class="loading-hint">加载 GitHub 开源精选…</p>
+      </div>
+    </main>
+  </section>
+
   <section id="section-news" class="section">
     <main>
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📰</div>
         <div>
-          <h2>今日 AI 热点</h2>
-          <p class="desc">每日汇总 OpenAI、Anthropic、Google DeepMind、Hugging Face 等官方 RSS 与行业资讯。</p>
+          <h2>本周 AI 热点</h2>
+          <p class="desc">每周汇总 OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、arXiv、GitHub Trending 与机器之心、量子位等中文渠道；同时关注 Meta AI、Hugging Face 等公司公告与 X 账号。</p>
           <p class="video-update-meta" id="news-update-meta"></p>
         </div>
       </div>
       <div id="daily-news-list" class="news-list">
         <p class="loading-hint">加载 AI 新闻…</p>
       </div>
+      <div id="news-watch-sources" class="news-watch-sources"></div>
       <div class="section-cta">
         <a href="news/daily-ai-news.html" class="cta-btn cta-btn-outline">查看新闻归档页 →</a>
       </div>
@@ -295,7 +325,7 @@ const schema = buildHomeSchema(site);
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
         <div>
           <h2>每日 AI 视频推荐</h2>
-          <p class="desc">每日北京时间 0:00 自动更新，从 YouTube 与 B站 抓取 AI 教程，分四类推荐：YouTube 全网播放量 Top 10、YouTube 24 小时内上新 Top 10、B站 全网播放量 Top 10、B站 24 小时内上新 Top 10。</p>
+          <p class="desc">每日北京时间 0:00 自动更新，从 YouTube 与 B站 抓取 AI 教程，分六类推荐：各平台全网播放量 Top 10、30 天内上新 Top 5、24 小时内上新 Top 3。</p>
           <p class="video-update-meta" id="video-update-meta"></p>
         </div>
       </div>

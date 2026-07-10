@@ -2,8 +2,10 @@ const VIDEO_DATA_URL = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
 const CATEGORY_ORDER = [
   'youtube_top_views',
+  'youtube_recent_30d',
   'youtube_recent_24h',
   'bilibili_top_views',
+  'bilibili_recent_30d',
   'bilibili_recent_24h',
   'top_views',
   'recent_7d',

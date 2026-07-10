@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从官方 RSS 抓取 AI 新闻，写入 ai-news.json 与 content/news/daily-ai-news.md。"""
+"""从 RSS / 官方页面 / GitHub API 抓取 AI 新闻，写入 ai-news.json 与 content/news/daily-ai-news.md。"""
 
 from __future__ import annotations
 
@@ -14,6 +14,7 @@ from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any
+from urllib.parse import urljoin
 from urllib.request import Request, urlopen
 
 import yaml
@@ -63,6 +64,13 @@ def fetch_bytes(url: str) -> bytes | None:
     return None
 
 
+def fetch_text(url: str) -> str | None:
+    raw = fetch_bytes(url)
+    if raw is None:
+        return None
+    return raw.decode("utf-8", errors="replace")
+
+
 def load_config() -> dict[str, Any]:
     return yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8"))
 
@@ -108,7 +116,123 @@ def item_id(url: str) -> str:
     return hashlib.sha1(url.encode()).hexdigest()[:12]
 
 
+def slug_to_title(slug: str) -> str:
+    slug = slug.strip("/").split("/")[-1]
+    return re.sub(r"[-_]+", " ", slug).strip().title()
+
+
+def fetch_og_title(url: str) -> str | None:
+    html = fetch_text(url)
+    if not html:
+        return None
+    match = re.search(r'<meta[^>]+property=["\']og:title["\'][^>]+content=["\']([^"\']+)', html, re.I)
+    if not match:
+        match = re.search(r'<meta[^>]+content=["\']([^"\']+)["\'][^>]+property=["\']og:title', html, re.I)
+    if match:
+        return strip_html(match.group(1))
+    title_match = re.search(r"<title>([^<]+)</title>", html, re.I)
+    if title_match:
+        return strip_html(title_match.group(1))
+    return None
+
+
+def parse_html_links_feed(feed_cfg: dict, cfg: dict) -> list[dict]:
+    html = fetch_text(feed_cfg["url"])
+    if not html:
+        return []
+
+    pattern = feed_cfg.get("link_pattern", r'href="(/news/[a-z0-9-]+)"')
+    base_url = feed_cfg.get("base_url", feed_cfg["url"])
+    max_items = feed_cfg.get("max_items", cfg.get("max_per_feed", 5))
+    seen: set[str] = set()
+    items: list[dict] = []
+
+    for match in re.finditer(pattern, html):
+        path = match.group(1)
+        if path in seen:
+            continue
+        seen.add(path)
+        link = urljoin(base_url, path)
+        title = fetch_og_title(link) or slug_to_title(path)
+        summary = title
+        smax = cfg.get("summary_max_length", 160)
+        if len(summary) > smax:
+            summary = summary[: smax - 1] + "…"
+        items.append(
+            {
+                "id": item_id(link),
+                "title": title,
+                "summary": summary,
+                "url": link,
+                "source": feed_cfg["source"],
+                "category": feed_cfg.get("category", "行业新闻"),
+                "published_at": datetime.now(TZ).isoformat(),
+            }
+        )
+        if len(items) >= max_items:
+            break
+    return items
+
+
+def parse_github_trending(cfg: dict) -> list[dict]:
+    trending_cfg = cfg.get("github_trending") or {}
+    if not trending_cfg.get("enabled"):
+        return []
+
+    query = trending_cfg.get("query", "topic:artificial-intelligence stars:>500")
+    sort = trending_cfg.get("sort", "stars")
+    per_page = trending_cfg.get("per_page", 6)
+    source = trending_cfg.get("source", "GitHub Trending")
+    category = trending_cfg.get("category", "开源项目")
+    url = (
+        "https://api.github.com/search/repositories?"
+        f"q={urllib_parse_quote(query)}&sort={sort}&order=desc&per_page={per_page}"
+    )
+
+    raw = fetch_bytes(url)
+    if raw is None:
+        return []
+
+    try:
+        payload = json.loads(raw.decode())
+    except json.JSONDecodeError:
+        return []
+
+    items: list[dict] = []
+    for repo in payload.get("items", []):
+        full_name = repo.get("full_name") or ""
+        link = repo.get("html_url") or f"https://github.com/{full_name}"
+        stars = repo.get("stargazers_count", 0)
+        description = strip_html(repo.get("description") or full_name)
+        smax = cfg.get("summary_max_length", 160)
+        if len(description) > smax:
+            description = description[: smax - 1] + "…"
+        pushed = repo.get("pushed_at")
+        items.append(
+            {
+                "id": item_id(link),
+                "title": f"{full_name} · ★ {stars:,}",
+                "summary": description or full_name,
+                "url": link,
+                "source": source,
+                "category": category,
+                "published_at": pushed,
+            }
+        )
+    return items
+
+
+def urllib_parse_quote(text: str) -> str:
+    from urllib.parse import quote
+
+    return quote(text, safe=":>+")
+
+
 def parse_feed(feed_cfg: dict, cfg: dict) -> list[dict]:
+    feed_type = feed_cfg.get("type", "rss")
+    if feed_type == "html_links":
+        return parse_html_links_feed(feed_cfg, cfg)
+
     root = fetch_xml(feed_cfg["url"])
     if root is None:
         return []
@@ -169,8 +293,10 @@ def filter_recent(items: list[dict], cfg: dict) -> list[dict]:
             kept.append(item)
             continue
         try:
-            dt = datetime.fromisoformat(pub)
-            if dt >= cutoff:
+            dt = datetime.fromisoformat(pub.replace("Z", "+00:00"))
+            if dt.tzinfo is None:
+                dt = dt.replace(tzinfo=TZ)
+            if dt.astimezone(TZ) >= cutoff:
                 kept.append(item)
         except ValueError:
             kept.append(item)
@@ -195,9 +321,9 @@ def dedupe_sort(items: list[dict]) -> list[dict]:
 def write_markdown(items: list[dict], today: str) -> None:
     MD_FILE.parent.mkdir(parents=True, exist_ok=True)
     lines = [
-        f"# 今日 AI 热点 — {today}",
+        f"# 本周 AI 热点 — {today}",
         "",
-        "> 自动汇总 OpenAI、Anthropic、Google DeepMind、Hugging Face 等官方动态。",
+        "> 每周汇总 OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、arXiv、GitHub Trending 与中文 AI 媒体动态。",
         "",
     ]
     for i, item in enumerate(items[:12], 1):
@@ -221,6 +347,8 @@ def main() -> int:
         parsed = parse_feed(feed, cfg)
         collected.extend(parsed[: cfg.get("max_per_feed", 6)])
 
+    collected.extend(parse_github_trending(cfg))
+
     items = dedupe_sort(filter_recent(collected, cfg))[: cfg.get("max_items", 24)]
     if not items:
         print("未抓取到 AI 新闻", file=sys.stderr)
@@ -230,7 +358,9 @@ def main() -> int:
     payload = {
         "updated_at": datetime.now(TZ).isoformat(),
         "date": today,
+        "cadence": "weekly",
         "items": items,
+        "watch_sources": cfg.get("watch_sources", []),
     }
     DATA_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     write_markdown(items, today)

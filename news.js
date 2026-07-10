@@ -58,7 +58,7 @@ async function loadHomeNewsPreview() {
     const data = await fetchNewsData();
     const items = (data.items || []).slice(0, 4);
     if (!items.length) {
-      root.innerHTML = '<p class="loading-hint">暂无新闻，每日自动更新。</p>';
+      root.innerHTML = '<p class="loading-hint">暂无新闻，每周一自动更新。</p>';
       return;
     }
     root.innerHTML = `<div class="news-grid news-grid-preview">${items.map(renderNewsCard).join('')}</div>`;
@@ -67,9 +67,26 @@ async function loadHomeNewsPreview() {
   }
 }
 
+function renderWatchSources(sources) {
+  if (!sources?.length) return '';
+  const links = sources.map(src => {
+    const parts = [];
+    if (src.blog) parts.push(`<a href="${escapeHtml(src.blog)}" target="_blank" rel="noopener">博客</a>`);
+    if (src.x) parts.push(`<a href="${escapeHtml(src.x)}" target="_blank" rel="noopener">X</a>`);
+    return `<li><strong>${escapeHtml(src.name)}</strong> ${parts.join(' · ')}</li>`;
+  }).join('');
+  return `
+    <div class="news-watch-panel">
+      <h4>持续关注（官方公告与社交账号）</h4>
+      <ul class="news-watch-list">${links}</ul>
+    </div>
+  `;
+}
+
 async function loadDailyNews() {
   const root = document.getElementById('daily-news-list');
   const meta = document.getElementById('news-update-meta') || document.getElementById('news-page-meta');
+  const watchRoot = document.getElementById('news-watch-sources');
   if (!root) return;
 
   root.innerHTML = '<p class="loading-hint">加载 AI 新闻…</p>';
@@ -83,9 +100,13 @@ async function loadDailyNews() {
     }
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）`;
+      const cadence = data.cadence === 'weekly' ? '每周一' : '最近';
+      meta.textContent = `${cadence}更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）`;
     }
     root.innerHTML = `<div class="news-grid">${items.map(renderNewsCard).join('')}</div>`;
+    if (watchRoot && data.watch_sources?.length) {
+      watchRoot.innerHTML = renderWatchSources(data.watch_sources);
+    }
   } catch (err) {
     root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
   }

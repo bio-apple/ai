@@ -1,30 +1,84 @@
 # AI 新闻抓取配置（scripts/fetch_ai_news.py）
+# 更新频次：每周一次（见 .github/workflows/weekly-news.yml）
 
-max_items: 24
-max_per_feed: 6
-max_age_days: 14
+max_items: 40
+max_per_feed: 5
+max_age_days: 7
 
 feeds:
   - source: OpenAI
     url: https://openai.com/blog/rss.xml
     category: 新模型发布
+  - source: Anthropic
+    type: html_links
+    url: https://www.anthropic.com/news
+    base_url: https://www.anthropic.com
+    link_pattern: 'href="(/news/[a-z0-9-]+)"'
+    category: 新模型发布
+    max_items: 4
   - source: Google DeepMind
     url: https://deepmind.google/blog/rss.xml
     category: 新模型发布
   - source: Google AI
     url: https://blog.google/technology/ai/rss/
     category: 行业新闻
-  - source: arXiv AI
+  - source: NVIDIA AI
+    url: https://blogs.nvidia.com/feed/
+    category: 行业新闻
+  - source: Microsoft AI
+    url: https://www.microsoft.com/en-us/research/feed/
+    category: 行业新闻
+  - source: arXiv cs.AI
     url: https://arxiv.org/rss/cs.AI
-    category: 开源项目
+    category: 学术论文
+  - source: arXiv cs.LG
+    url: https://arxiv.org/rss/cs.LG
+    category: 学术论文
+  - source: arXiv cs.CL
+    url: https://arxiv.org/rss/cs.CL
+    category: 学术论文
+  - source: arXiv cs.CV
+    url: https://arxiv.org/rss/cs.CV
+    category: 学术论文
+  - source: 量子位
+    url: https://www.qbitai.com/feed
+    category: 中文资讯
   - source: MIT Tech Review
     url: https://www.technologyreview.com/feed/
     category: 行业新闻
 
+github_trending:
+  enabled: true
+  source: GitHub Trending
+  category: 开源项目
+  per_page: 6
+  query: "topic:artificial-intelligence stars:>500"
+  sort: stars
+
+# 暂无稳定 RSS 的官方渠道，在输出 JSON 的 watch_sources 中展示博客与 X 账号
+watch_sources:
+  - name: 机器之心
+    blog: https://www.jiqizhixin.com/
+    x: https://x.com/SyncedTech
+  - name: Meta AI
+    blog: https://ai.meta.com/blog/
+    x: https://x.com/AIatMeta
+  - name: Hugging Face
+    blog: https://huggingface.co/blog
+    x: https://x.com/huggingface
+  - name: 新智元
+    blog: https://www.ainews.com/
+    x: https://x.com/AI_era
+  - name: 智源社区
+    blog: https://hub.baai.ac.cn/
+    x: https://x.com/baai_ac
+
 category_keywords:
   新工具上线: "(launch|release|introducing|available now|上线|发布)"
-  开源项目: "(open[- ]source|github|hugging\\s*face|repository|开源|arxiv)"
+  开源项目: "(open[- ]source|github|hugging\\s*face|repository|开源|arxiv|trending)"
   新模型发布: "(model|gpt|claude|gemini|llm|推理|大模型)"
   行业新闻: "(partnership|acquisition|policy|regulation|融资|合作)"
+  学术论文: "(arxiv|paper|preprint|论文)"
+  中文资讯: "(人工智能|大模型|开源|发布)"
 
 summary_max_length: 160

@@ -110,12 +110,13 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     });
   }
   items.push({ label: '实战案例库', section: 'section-cases', keywords: '实战 案例 教程 步骤', type: '案例' });
-  items.push({ label: '每日视频', section: 'section-videos', keywords: '视频 youtube bilibili 教程 每日' });
-  items.push({ label: 'AI 新闻', section: 'section-news', keywords: 'AI新闻 OpenAI Anthropic DeepMind' });
+  items.push({ label: '每日视频', section: 'section-videos', keywords: '视频 youtube bilibili 教程 每日 Top10 30天 24小时' });
+  items.push({ label: 'AI 新闻', section: 'section-news', keywords: 'AI新闻 OpenAI Anthropic DeepMind arXiv GitHub Trending 机器之心 量子位 每周' });
+  items.push({ label: 'GitHub 开源精选', section: 'section-oss', keywords: '开源 GitHub Stars Agent LLM 本地大模型 AI绘画 多模态 机器学习框架' });
   items.push({ label: 'AI 创作', section: 'section-create', keywords: '创作 绘图 视频 写作' });
   items.push({ label: 'AI 工具排行榜', url: 'ai-tools-ranking.html', keywords: '排行榜 ranking ChatGPT Claude Cursor DeepSeek' });
   items.push({ label: 'AI 学习路线', url: 'ai-learning-roadmap.html', keywords: '学习路线 roadmap 入门 进阶' });
-  items.push({ label: '今日 AI 热点', url: 'news/daily-ai-news.html', keywords: 'AI新闻 热点 OpenAI Anthropic' });
+  items.push({ label: '本周 AI 热点', url: 'news/daily-ai-news.html', keywords: 'AI新闻 热点 OpenAI Anthropic arXiv 每周' });
   for (const slug of ['beginner', 'advanced']) {
     const guide = site.guides?.[slug];
     if (guide) items.push({ label: guide.h1 || slug, url: `guides/${slug}.html`, keywords: guide.lead || slug });
@@ -158,6 +159,11 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   writeOut(outDir, 'tutorials.json', tutorialsPayload);
   writeOut(outDir, 'search-index.json', searchIndex);
   writeOut(outDir, 'analytics-config.json', analyticsCfg);
+
+  const ossSrc = path.join(DATA, 'oss-projects.json');
+  if (fs.existsSync(ossSrc)) {
+    fs.copyFileSync(ossSrc, path.join(outDir, 'oss-projects.json'));
+  }
 
   console.log(`✓ artifacts → ${outDir}`);
   console.log(`  prompts.json (${promptsPayload.count}) · tutorials.json (${tutorialsPayload.count}) · search-index.json (${searchIndex.length})`);

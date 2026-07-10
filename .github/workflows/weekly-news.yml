@@ -1,16 +1,16 @@
-name: Daily AI News Update
+name: Weekly AI News Update
 
 on:
   schedule:
-    # 北京时间每日 06:00（UTC 22:00 前一日）
-    - cron: "0 22 * * *"
+    # 北京时间每周一 06:00（UTC 周日 22:00）
+    - cron: "0 22 * * 0"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: daily-news
+  group: weekly-news
   cancel-in-progress: false
 
 jobs:
@@ -26,18 +26,21 @@ jobs:
       - name: Install Python deps
         run: pip install pyyaml
 
-      - name: Fetch AI news from RSS
+      - name: Fetch AI news
         run: python scripts/fetch_ai_news.py
+
+      - name: Refresh GitHub Stars for OSS projects
+        run: python scripts/fetch_oss_stars.py
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ai-news.json content/news/daily-ai-news.md
+          git add ai-news.json content/news/daily-ai-news.md data/oss-projects.json oss-projects.json
           if git diff --staged --quiet; then
-            echo "No news updates today"
+            echo "No news updates this week"
             exit 0
           fi
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
-          git commit -m "chore: daily AI news $DATE"
+          git commit -m "chore: weekly AI news and OSS stars $DATE"
           git push

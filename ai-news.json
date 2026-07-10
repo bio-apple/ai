@@ -1,13 +1,113 @@
 {
-  "updated_at": "2026-07-10T16:26:24.812636+08:00",
+  "updated_at": "2026-07-10T18:56:21.083273+08:00",
   "date": "2026-07-10",
+  "cadence": "weekly",
   "items": [
+    {
+      "id": "d5f7bd1f6df8",
+      "title": "Claude Science, an AI workbench for scientists",
+      "summary": "Claude Science, an AI workbench for scientists",
+      "url": "https://www.anthropic.com/news/claude-science-ai-workbench",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T18:55:40.506325+08:00"
+    },
+    {
+      "id": "0f764e9bc764",
+      "title": "Introducing Claude Sonnet 5",
+      "summary": "Introducing Claude Sonnet 5",
+      "url": "https://www.anthropic.com/news/claude-sonnet-5",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T18:55:34.105704+08:00"
+    },
+    {
+      "id": "ff1300aa6cce",
+      "title": "Redeploying Claude Fable 5",
+      "summary": "Redeploying Claude Fable 5",
+      "url": "https://www.anthropic.com/news/redeploying-fable-5",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T18:55:30.067483+08:00"
+    },
+    {
+      "id": "5e689a649359",
+      "title": "Inviting hard questions",
+      "summary": "Inviting hard questions",
+      "url": "https://www.anthropic.com/news/hard-questions",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T18:55:26.748733+08:00"
+    },
+    {
+      "id": "23e934b2612f",
+      "title": "一群做自动驾驶的人，盯上了睡眠这件事",
+      "summary": "把数据闭环搬进卧室",
+      "url": "https://www.qbitai.com/2026/07/447796.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-10T17:45:01+08:00"
+    },
+    {
+      "id": "42fbe0bebbf9",
+      "title": "GPT-5.6一发布，Claude终于舍得重置Fable 5额度了",
+      "summary": "GPT-5.6一发布，Claude终于舍得重置Fable 5额度了",
+      "url": "https://www.qbitai.com/2026/07/447691.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-10T17:41:25+08:00"
+    },
+    {
+      "id": "cb21adcbe057",
+      "title": "AI聪明够了，行动呢？WAIC首夜，来聊点下一步的真实判断｜活动报名",
+      "summary": "AI聪明够了，行动呢？WAIC首夜，来聊点下一步的真实判断｜活动报名",
+      "url": "https://www.qbitai.com/2026/07/447682.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-10T17:32:09+08:00"
+    },
+    {
+      "id": "6ea93f65b952",
+      "title": "日均提问次数暴增 20 倍！百度搭子宣布重磅升级，企业版同步发布",
+      "summary": "agent时代来了",
+      "url": "https://www.qbitai.com/2026/07/447681.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-10T17:27:52+08:00"
+    },
+    {
+      "id": "4f92d76f801d",
+      "title": "Sperm donors need limits, says a European fertility group",
+      "summary": "Ties van der Meer doesn’t know how many siblings he has. The 47-year-old was conceived at a private fertility clinic in the Netherlands using sperm provided by…",
+      "url": "https://www.technologyreview.com/2026/07/10/1140289/sperm-donors-need-limits-says-a-european-fertility-group/",
+      "source": "MIT Tech Review",
+      "category": "行业新闻",
+      "published_at": "2026-07-10T17:00:00+08:00"
+    },
+    {
+      "id": "40fe5762a34a",
+      "title": "全球首个「具身原生」预训练模型发布，从物理世界出发为机器人造大脑！",
+      "summary": "开源第四弹：LingBot-VA 2.0",
+      "url": "https://www.qbitai.com/2026/07/447627.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-10T16:01:00+08:00"
+    },
+    {
+      "id": "027b05f9d0fa",
+      "title": "How Deutsche Telekom is rewiring telecommunications with AI",
+      "summary": "How Deutsche Telekom is becoming an AI-native telco with OpenAI-transforming customer service, employee workflows, network operations, and the future of voice.",
+      "url": "https://openai.com/index/deutsche-telekom",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T15:00:00+08:00"
+    },
     {
       "id": "a494e292a2d7",
       "title": "Context Graphs for Proactive Enterprise Agents",
       "summary": "arXiv:2607.07721v1 Announce Type: new Abstract: Retrieval-Augmented Generation (RAG) and agentic frameworks have advanced enterprise AI considerably, yet agent…",
       "url": "https://arxiv.org/abs/2607.07721",
-      "source": "arXiv AI",
+      "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-07-10T12:00:00+08:00"
     },
@@ -16,7 +116,7 @@
       "title": "AI-integrated models for assessing agricultural resilience",
       "summary": "arXiv:2607.07759v1 Announce Type: new Abstract: Agricultural supply chains are vulnerable to disruptions through linked biophysical and economic systems. We de…",
       "url": "https://arxiv.org/abs/2607.07759",
-      "source": "arXiv AI",
+      "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-07-10T12:00:00+08:00"
     },
@@ -25,7 +125,7 @@
       "title": "Adversarial Social Epistemology for Assemblies of Humans and Large Language Models",
       "summary": "arXiv:2607.07760v1 Announce Type: new Abstract: We outline an adversarial social epistemology (ASE) for densely interactive communicative landscapes in which p…",
       "url": "https://arxiv.org/abs/2607.07760",
-      "source": "arXiv AI",
+      "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-07-10T12:00:00+08:00"
     },
@@ -34,7 +134,7 @@
       "title": "Aligning Clinical Needs and AI Capabilities: A Survey on LLMs for Medical Reasoning",
       "summary": "arXiv:2607.07761v1 Announce Type: new Abstract: Large language models (LLMs) have emerged as important tools in healthcare, showing growing potential for clini…",
       "url": "https://arxiv.org/abs/2607.07761",
-      "source": "arXiv AI",
+      "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-07-10T12:00:00+08:00"
     },
@@ -43,18 +143,171 @@
       "title": "Alignment Plausibility: A New Standard for Assuring AI in Healthcare",
       "summary": "arXiv:2607.07766v1 Announce Type: new Abstract: Large language models (LLMs) have become significant providers of mental health support, yet they remain produc…",
       "url": "https://arxiv.org/abs/2607.07766",
-      "source": "arXiv AI",
+      "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-07-10T12:00:00+08:00"
     },
     {
-      "id": "2e6a5e7799df",
-      "title": "Idiobionics: The Unification of Privacy and Intelligent Robotic Prostheses",
-      "summary": "arXiv:2607.07775v1 Announce Type: new Abstract: The human body is at the center of a growing family of technologies designed to tightly and persistently couple…",
-      "url": "https://arxiv.org/abs/2607.07775",
-      "source": "arXiv AI",
+      "id": "ee05055f90be",
+      "title": "Towards the Explainability of Temporal Graph Networks via Memory Backtracking and Topological Attribution",
+      "summary": "arXiv:2607.07716v1 Announce Type: new Abstract: Temporal graphs are ubiquitous in real-world applications and Temporal Graph Networks (TGNs) have achieved supe…",
+      "url": "https://arxiv.org/abs/2607.07716",
+      "source": "arXiv cs.LG",
       "category": "开源项目",
       "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "9d309b2f2b87",
+      "title": "Who Gets Missed in the Tail? Thresholded Subgroup Underdiagnosis in Long-Tailed Chest X-ray Classification",
+      "summary": "arXiv:2607.07717v1 Announce Type: new Abstract: In chest X-ray (CXR) classification, acceptable ranking performance can still leave rare-positive patients belo…",
+      "url": "https://arxiv.org/abs/2607.07717",
+      "source": "arXiv cs.LG",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "60b16aac00d1",
+      "title": "LLT: Local Linear Transformer for PDE Operator Learning",
+      "summary": "arXiv:2607.07718v1 Announce Type: new Abstract: Neural operators have become a common approach for learning PDE solution maps and accelerating numerical simula…",
+      "url": "https://arxiv.org/abs/2607.07718",
+      "source": "arXiv cs.LG",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "f6f94ac29e0e",
+      "title": "ReCoLoRA: Spectrum-Aware Recursive Consolidation for Continual LLM Fine-Tuning",
+      "summary": "arXiv:2607.07719v1 Announce Type: new Abstract: Parameter-efficient fine-tuning adapts a large language model to one task cheaply, but across a task sequence L…",
+      "url": "https://arxiv.org/abs/2607.07719",
+      "source": "arXiv cs.LG",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "572cce8067f8",
+      "title": "Omni-Sleep: A Sleep Foundation Model via Hierarchical Contrastive Learning of CNS--ANS Dynamic",
+      "summary": "arXiv:2607.07720v1 Announce Type: new Abstract: Sleep physiology arises from the coordinated dynamics of the central nervous system (CNS) and autonomic nervous…",
+      "url": "https://arxiv.org/abs/2607.07720",
+      "source": "arXiv cs.LG",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "458232b6a4a3",
+      "title": "Unveiling Public Opinion: A Study of Sentiment Analysis Using LSTM and Traditional Models",
+      "summary": "arXiv:2607.07772v1 Announce Type: new Abstract: In this age of social media, sites like Twitter have become meeting places for people to share their views and …",
+      "url": "https://arxiv.org/abs/2607.07772",
+      "source": "arXiv cs.CL",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "80691becfe21",
+      "title": "From Solvers to Research: Large Language Model-Driven Formal Mathematics at the Research Frontier",
+      "summary": "arXiv:2607.07779v1 Announce Type: new Abstract: Recent developments in AI for Mathematics (AI4Math), especially Large Language Model (LLM)-driven theorem prove…",
+      "url": "https://arxiv.org/abs/2607.07779",
+      "source": "arXiv cs.CL",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "6c928192e7d7",
+      "title": "DeepSearch-World: Self-Distillation for Deep Search Agents in a Verifiable Environment",
+      "summary": "arXiv:2607.07820v1 Announce Type: new Abstract: Training tool-use agents to improve from their own experience remains challenging, as supervised fine-tuning re…",
+      "url": "https://arxiv.org/abs/2607.07820",
+      "source": "arXiv cs.CL",
+      "category": "新工具上线",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "76a0a727ccc0",
+      "title": "How Do I Know What to Say Next? Barenholtz's Autogenerative Theory as an Enrichment of Harrisean Integrationism",
+      "summary": "arXiv:2607.07891v1 Announce Type: new Abstract: Roy Harris's Integrationist linguistics offers a compelling critique of the referentialist tradition embedded d…",
+      "url": "https://arxiv.org/abs/2607.07891",
+      "source": "arXiv cs.CL",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "aba60f21c16e",
+      "title": "Scalable and Culturally Specific Stereotype Dataset Construction via Human-LLM Collaboration",
+      "summary": "arXiv:2607.07895v1 Announce Type: new Abstract: Research on stereotypes in large language models (LLMs) has largely focused on English-speaking contexts, due t…",
+      "url": "https://arxiv.org/abs/2607.07895",
+      "source": "arXiv cs.CL",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "75cef9e9ff40",
+      "title": "DreamCharacter-1: From 3D Generative Foundation Models to Product-Ready Character Generation",
+      "summary": "arXiv:2607.07817v1 Announce Type: new Abstract: We present DreamCharacter-1, a lightweight post-adaptation framework that calibrates pretrained 3D foundation m…",
+      "url": "https://arxiv.org/abs/2607.07817",
+      "source": "arXiv cs.CV",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "a2e250135ec3",
+      "title": "GIRAF: Towards Generalizable Human Interactions with Articulated Objects",
+      "summary": "arXiv:2607.07880v1 Announce Type: new Abstract: Synthesizing realistic full-body human interactions with articulated objects is a fundamental challenge for emb…",
+      "url": "https://arxiv.org/abs/2607.07880",
+      "source": "arXiv cs.CV",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "dc161f2cc7bf",
+      "title": "3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies",
+      "summary": "arXiv:2607.07905v1 Announce Type: new Abstract: Tree growth determines how much CO2 is sequestered from the atmosphere and temporarily stored in woody biomass.…",
+      "url": "https://arxiv.org/abs/2607.07905",
+      "source": "arXiv cs.CV",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "be5b65327f0d",
+      "title": "Adversarial Decoys: Misdirecting Attention-Based Defenses in ViT",
+      "summary": "arXiv:2607.07922v1 Announce Type: new Abstract: Vision Transformers (ViTs) remain vulnerable to localized adversarial attacks, e.g., adversarial patches, while…",
+      "url": "https://arxiv.org/abs/2607.07922",
+      "source": "arXiv cs.CV",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "6fe74c3d2e8f",
+      "title": "Beyond Thermal Imaging: Inferring Thermophysical Properties from Time-Resolved Thermal Observations",
+      "summary": "arXiv:2607.07962v1 Announce Type: new Abstract: Inferring latent physical properties from sensory observations is a fundamental challenge in machine perception…",
+      "url": "https://arxiv.org/abs/2607.07962",
+      "source": "arXiv cs.CV",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,447",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-10T10:48:53Z"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 80,314",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-10T10:45:28Z"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 165,242",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-10T04:25:00Z"
     },
     {
       "id": "ffdf99aeb53c",
@@ -64,6 +317,33 @@
       "source": "MIT Tech Review",
       "category": "新模型发布",
       "published_at": "2026-07-10T04:22:28+08:00"
+    },
+    {
+      "id": "6647cb6f53c6",
+      "title": "Aurora 1.5: Extending open foundation models for weather and Earth-system applications",
+      "summary": "Aurora 1.5 adds 22 more variables, hourly temporal resolution, and probabilistic ensemble forecasting to the Aurora foundation model, making it more useful for…",
+      "url": "https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/",
+      "source": "Microsoft AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T00:46:22+08:00"
+    },
+    {
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 86,698",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-09T23:56:37Z"
+    },
+    {
+      "id": "5bb297bb60d9",
+      "title": "GeForce NOW Turns Up the Heat With New GeForce RTX 5080-Powered Toronto Server",
+      "summary": "This GFN Thursday brings more games, more power and more ways to play on GeForce NOW. The cloud gaming service is expanding with a new GeForce RTX 5080-powered…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-toronto-expansion/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-09T21:00:55+08:00"
     },
     {
       "id": "e799563c0958",
@@ -82,141 +362,28 @@
       "source": "MIT Tech Review",
       "category": "行业新闻",
       "published_at": "2026-07-09T20:10:00+08:00"
+    }
+  ],
+  "watch_sources": [
+    {
+      "name": "Meta AI",
+      "blog": "https://ai.meta.com/blog/",
+      "x": "https://x.com/AIatMeta"
     },
     {
-      "id": "5941cef110c0",
-      "title": "ChatGPT is now a partner for your most ambitious work",
-      "summary": "ChatGPT Work is an agent that can take action across your apps and files, stay with a project for hours if needed, and turn a goal into finished work.",
-      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-09T18:00:00+08:00"
+      "name": "Hugging Face",
+      "blog": "https://huggingface.co/blog",
+      "x": "https://x.com/huggingface"
     },
     {
-      "id": "8fd74bd3f519",
-      "title": "GPT-5.5 Bio Bug Bounty",
-      "summary": "Details about the OpenAI Bio Bounty program",
-      "url": "https://openai.com/index/bio-bug-bounty",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-09T18:00:00+08:00"
+      "name": "新智元",
+      "blog": "https://www.ainews.com/",
+      "x": "https://x.com/AI_era"
     },
     {
-      "id": "54ee76ae9206",
-      "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
-      "summary": "More intelligence from every token, stronger performance per dollar, and more capability on demand for your hardest work.",
-      "url": "https://openai.com/index/gpt-5-6",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-09T18:00:00+08:00"
-    },
-    {
-      "id": "2abdc6f86826",
-      "title": "Four nuclear reactors hit a big milestone in the US",
-      "summary": "I was really looking forward to July 4, and not just because I love a poolside barbecue. This year the American holiday also marked a big symbolic deadline for…",
-      "url": "https://www.technologyreview.com/2026/07/09/1140235/nuclear-reactor-milestone-criticality/",
-      "source": "MIT Tech Review",
-      "category": "行业新闻",
-      "published_at": "2026-07-09T16:00:00+08:00"
-    },
-    {
-      "id": "23ec088b632f",
-      "title": "EmTech AI 2026: The Rise of the AI Platform",
-      "summary": "EmTech AI 2026: The Rise of the AI Platform",
-      "url": "https://www.technologyreview.com/2026/07/08/1140223/emtech-ai-2026-the-rise-of-the-ai-platform/",
-      "source": "MIT Tech Review",
-      "category": "行业新闻",
-      "published_at": "2026-07-09T00:26:10+08:00"
-    },
-    {
-      "id": "41b85c9cdb7a",
-      "title": "Our approach to government and national security partnerships",
-      "summary": "Learn how OpenAI approaches government and national security partnerships, with principles for responsible AI use, democratic accountability, and public safety.",
-      "url": "https://openai.com/index/government-national-security-partnerships",
-      "source": "OpenAI",
-      "category": "行业新闻",
-      "published_at": "2026-07-08T21:30:00+08:00"
-    },
-    {
-      "id": "eaad4cbcfa7f",
-      "title": "Separating signal from noise in coding evaluations",
-      "summary": "A new analysis from OpenAI reveals issues in SWE-Bench Pro, a popular coding benchmark, raising concerns about reliability and accuracy in evaluating AI models.",
-      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-08T21:00:00+08:00"
-    },
-    {
-      "id": "a8a2b098c664",
-      "title": "The Download: worms fight pollution, and geoengineering faces reality",
-      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Why worms…",
-      "url": "https://www.technologyreview.com/2026/07/08/1140216/the-download-worms-manure-pollution-geoengineering-reality-check/",
-      "source": "MIT Tech Review",
-      "category": "行业新闻",
-      "published_at": "2026-07-08T20:10:00+08:00"
-    },
-    {
-      "id": "241f07948341",
-      "title": "The Download: your stake in OpenAI, and the Treasury’s AI warning",
-      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Your fami…",
-      "url": "https://www.technologyreview.com/2026/07/07/1140197/the-download-your-openai-stake-treasury-ai-warning/",
-      "source": "MIT Tech Review",
-      "category": "行业新闻",
-      "published_at": "2026-07-07T20:10:00+08:00"
-    },
-    {
-      "id": "73fd78c4847c",
-      "title": "Expanding Managed Agents in Gemini API: background tasks, remote MCP and more",
-      "summary": "We’re announcing new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
-      "source": "Google AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-07T16:54:00+08:00"
-    },
-    {
-      "id": "e29a8bbb0a77",
-      "title": "Google DeepMind and A24 announce first-of-its-kind research partnership",
-      "summary": "Google DeepMind and A24 announce first-of-its-kind research partnership",
-      "url": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
-      "source": "Google DeepMind",
-      "category": "行业新闻",
-      "published_at": "2026-07-03T22:25:43+08:00"
-    },
-    {
-      "id": "23883e915ab2",
-      "title": "The latest AI news we announced in June 2026",
-      "summary": "Here are Google’s latest AI updates from June 2026.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-02T02:15:00+08:00"
-    },
-    {
-      "id": "6fdddf52a2a9",
-      "title": "New York City educators and industry leaders gathered at Google’s offices to shape the future of AI in classrooms.",
-      "summary": "Google, the New York Jobs CEO Council and Urban Assembly hosted an AI summit for 150 education and industry leaders.",
-      "url": "https://blog.google/products-and-platforms/products/education/nyc-ai-summit/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-02T00:00:00+08:00"
-    },
-    {
-      "id": "adbaffb551ff",
-      "title": "Start building with Nano Banana 2 Lite and Gemini Omni Flash",
-      "summary": "Start building with Nano Banana 2 Lite and Gemini Omni Flash",
-      "url": "https://deepmind.google/blog/start-building-with-nano-banana-2-lite-and-gemini-omni-flash/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-07-01T00:02:40+08:00"
-    },
-    {
-      "id": "5f09b3919a81",
-      "title": "Unlocking Britain’s next era of productivity: Building a nation of AI trailblazers",
-      "summary": "Google UK shares its latest Economic Impact Report and how to enable more people to unlock the benefits of AI-powered technologies.",
-      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/unlocking-britains-next-era-of-productivity-building-a-nation-of-ai-trailblazers/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-06-30T14:00:00+08:00"
+      "name": "智源社区",
+      "blog": "https://hub.baai.ac.cn/",
+      "x": "https://x.com/baai_ac"
     }
   ]
 }

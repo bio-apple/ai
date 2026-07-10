@@ -14,11 +14,13 @@ const COPY_FILES = [
   'ux.js',
   'videos.js',
   'news.js',
+  'oss.js',
   'prompts.js',
   'knowledge.js',
   'robots.txt',
   'daily-videos.json',
   'ai-news.json',
+  'oss-projects.json',
 ];
 
 function copyRecursive(src, dest) {
