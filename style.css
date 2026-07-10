@@ -1,16 +1,16 @@
 :root {
-  --bg: #0b0f19;
-  --bg-card: #121826;
-  --bg-hover: #1a2234;
-  --border: #243049;
-  --text: #e8edf7;
-  --text-muted: #8b9bb8;
-  --claude: #d97757;
-  --codex: #10a37f;
-  --cursor: #7c6cf0;
-  --accent: #3b82f6;
+  --bg: #f0f3fa;
+  --bg-card: #ffffff;
+  --bg-hover: #e8edf6;
+  --border: #d5ddea;
+  --text: #1a2234;
+  --text-muted: #5a6b85;
+  --claude: #c45c3e;
+  --codex: #0d8c6d;
+  --cursor: #6b5ce7;
+  --accent: #2563eb;
   --radius: 14px;
-  --shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  --shadow: 0 4px 20px rgba(30, 50, 100, 0.08);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -19,7 +19,7 @@ html { scroll-behavior: smooth; }
 
 body {
   font-family: "SF Pro Display", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-  background: var(--bg);
+  background: linear-gradient(160deg, #f0f3fa 0%, #e8edf6 50%, #f5f0fa 100%);
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
@@ -32,7 +32,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(11, 15, 25, 0.85);
+  background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
@@ -110,7 +110,7 @@ header {
   font-weight: 800;
   letter-spacing: -0.02em;
   margin-bottom: 16px;
-  background: linear-gradient(135deg, #fff 30%, var(--text-muted));
+  background: linear-gradient(135deg, var(--text) 30%, var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -382,7 +382,7 @@ code {
 
 .cta-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.25);
 }
 
 /* Cases */
@@ -525,13 +525,13 @@ code {
 }
 
 .prompt-block {
-  background: #0a0e17;
+  background: #f5f7fc;
   border: 1px solid var(--border);
   border-left: 3px solid var(--accent);
   border-radius: 8px;
   padding: 14px 16px;
   font-size: 0.85rem;
-  color: #c4d0e8;
+  color: #2d3a52;
   line-height: 1.6;
   margin: 10px 0;
   white-space: pre-wrap;
