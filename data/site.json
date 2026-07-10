@@ -239,7 +239,7 @@
   "learning_paths": [
     {
       "title": "零基础入门",
-      "dot_color": "var(--primary)",
+      "dot_color": "var(--accent)",
       "steps": [
         "从 ChatGPT、豆包或 DeepSeek 开始，学会基本对话和提示词",
         "用 Kimi 或通义千问处理长文档与中文场景任务",
@@ -249,7 +249,7 @@
     },
     {
       "title": "进阶应用",
-      "dot_color": "var(--secondary)",
+      "dot_color": "var(--codex)",
       "steps": [
         "编程方向：安装 Cursor 或 GitHub Copilot，配置 Rules 工作流",
         "自动化方向：用 Codex 连接 GitHub 实现 PR 自动化",
