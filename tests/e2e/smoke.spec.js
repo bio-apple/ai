@@ -2,11 +2,12 @@ import { test, expect } from '@playwright/test';
 
 const BASE = process.env.BASE_URL || 'http://127.0.0.1:8766';
 
-test.describe('AI 应用指南冒烟测试', () => {
-  test('首页加载与快速入口', async ({ page }) => {
+test.describe('Bio AI 冒烟测试', () => {
+  test('首页加载与 Hero', async ({ page }) => {
     await page.goto(`${BASE}/index.html`);
-    await expect(page.locator('h1')).toContainText('学会使用 AI');
-    await expect(page.locator('.quick-find-card')).toHaveCount(4);
+    await expect(page.locator('h1')).toContainText('掌握 AI');
+    await expect(page.locator('.tool-card-v2')).toHaveCount(16, { timeout: 10000 });
+    await expect(page.locator('.ai-picker-option')).toHaveCount(5);
   });
 
   test('hash 路由跳转 Cursor 教程', async ({ page }) => {
@@ -42,5 +43,20 @@ test.describe('AI 应用指南冒烟测试', () => {
   test('独立工具页可访问', async ({ page }) => {
     await page.goto(`${BASE}/tools/cursor.html`);
     await expect(page.locator('h1')).toContainText('Cursor');
+    await expect(page.locator('.logo-brand')).toContainText('Bio AI');
+  });
+
+  test('排行榜与学习路线 SEO 页', async ({ page }) => {
+    await page.goto(`${BASE}/ai-tools-ranking.html`);
+    await expect(page.locator('h1')).toContainText('排行榜');
+    await page.goto(`${BASE}/ai-learning-roadmap.html`);
+    await expect(page.locator('h1')).toContainText('学习路线');
+  });
+
+  test('AI 选择助手交互', async ({ page }) => {
+    await page.goto(`${BASE}/index.html`);
+    await page.click('.ai-picker-option[data-picker="coding"]');
+    await expect(page.locator('.ai-picker-tool-group[data-picker-result="coding"]')).toHaveClass(/active/);
+    await expect(page.locator('.ai-picker-tool-group[data-picker-result="coding"] .ai-picker-tool')).toHaveCount(3);
   });
 });

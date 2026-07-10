@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ tool.name }} 教程 2026 | AI 应用指南</title>
+  <title>{{ tool.name }} 教程 2026 | Bio AI</title>
   <meta name="description" content="{{ tool.description }}">
   <link rel="canonical" href="{{ meta.base_url }}tools/{{ tool.id }}.html">
-  <meta property="og:title" content="{{ tool.name }} 教程 2026 | AI 应用指南">
+  <meta property="og:title" content="{{ tool.name }} 教程 2026 | Bio AI">
   <meta property="og:description" content="{{ tool.description }}">
   <meta property="og:image" content="{{ meta.og_image }}">
   <meta property="og:url" content="{{ meta.base_url }}tools/{{ tool.id }}.html">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
   <script type="application/ld+json">{{ schema_json | safe }}</script>
 </head>
 <body>
-<header><nav class="nav"><a href="../index.html" class="logo"><div class="logo-icon">AI</div><span>AI 应用指南</span></a></nav></header>
+{% with standalone=true, home_href='../index.html', nav_prefix='../' %}
+{% include 'partials/nav.j2' %}
+{% endwith %}
 <main class="standalone-page">
   <nav class="breadcrumb"><a href="../index.html">首页</a> / {{ tool.name }} 教程</nav>
   <div class="tool-header">
@@ -46,7 +51,7 @@
   {% endif %}
 
   {% if tool.video_resources %}
-  <h3 class="resources-title">📹 视频教程</h3>
+  <h3 class="resources-title">视频教程</h3>
   <div class="resource-grid">
     {% for r in tool.video_resources %}
     <div class="resource-item"><a href="{{ r.href }}" target="_blank" rel="noopener"><div class="resource-type {{ r.type_class }}">{{ r.type }}</div><h4>{{ r.title }}</h4><div class="resource-meta">{{ r.meta }}</div></a></div>
@@ -55,7 +60,7 @@
   {% endif %}
 
   {% if tool.text_resources %}
-  <h3 class="resources-title">📄 文字资料</h3>
+  <h3 class="resources-title">文字资料</h3>
   <div class="resource-grid">
     {% for r in tool.text_resources %}
     <div class="resource-item"><a href="{{ r.href }}" target="_blank" rel="noopener"><div class="resource-type {{ r.type_class }}">{{ r.type }}</div><h4>{{ r.title }}</h4><div class="resource-meta">{{ r.meta }}</div></a></div>
@@ -65,9 +70,13 @@
 
   <div class="standalone-cta">
     <a href="../index.html#{{ tool.section_id }}" class="cta-btn" data-track="tool-goto-spa-{{ tool.id }}">在站内交互式教程中查看 →</a>
+    <a href="../ai-tools-ranking.html" class="cta-btn cta-btn-outline">查看工具排行</a>
   </div>
 </main>
-<footer><p>AI 应用指南 · <a href="../index.html">返回首页</a></p></footer>
+<footer>
+  <p>{{ footer.text }} · <a href="{{ footer.github }}" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
 <script src="../analytics.js"></script>
+<script src="../app.js"></script>
 </body>
 </html>

@@ -1,0 +1,50 @@
+<header>
+  <nav class="nav">
+    {% if standalone %}
+    <a href="{{ home_href }}" class="logo">
+      <div class="logo-icon">{{ nav.logo.icon }}</div>
+      <div class="logo-text">
+        <span class="logo-brand">{{ nav.logo.brand }}</span>
+        <span class="logo-tagline">{{ nav.logo.tagline }}</span>
+      </div>
+    </a>
+    {% else %}
+    <div class="logo" role="banner">
+      <div class="logo-icon">{{ nav.logo.icon }}</div>
+      <div class="logo-text">
+        <span class="logo-brand">{{ nav.logo.brand }}</span>
+        <span class="logo-tagline">{{ nav.logo.tagline }}</span>
+      </div>
+    </div>
+    {% endif %}
+    <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu">
+      {% for item in nav.menu %}
+        {% if item.type == 'dropdown' %}
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true">{{ item.label }} <span class="nav-chevron">▾</span></button>
+          <div class="nav-dropdown-menu" role="menu">
+            {% for sub in item.children %}
+              {% if standalone %}
+              <a href="{{ home_href }}#section-{{ sub.id }}" class="nav-dropdown-item" role="menuitem">{{ sub.label }}</a>
+              {% else %}
+              <button type="button" class="nav-dropdown-item" data-tool="{{ sub.id }}" role="menuitem">{{ sub.label }}</button>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% elif item.type == 'page' %}
+        <a href="{{ nav_prefix }}{{ item.href }}" class="nav-link-page">{{ item.label }}</a>
+        {% else %}
+          {% if standalone %}
+          <a href="{{ home_href }}{% if item.id != 'all' %}#section-{{ item.id }}{% endif %}" class="nav-tab{% if item.id == 'all' %} active{% endif %}">{{ item.label }}</a>
+          {% else %}
+          <button type="button" class="nav-tab{% if item.id == 'all' %} active{% endif %}" data-tool="{{ item.id }}">{{ item.label }}</button>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    </div>
+  </nav>
+</header>

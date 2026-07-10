@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从 data/*.json 生成 index.html、tools/、compare/、search-index.json、sitemap.xml。"""
+"""从 data/*.json 生成 index.html、tools/、compare/、SEO 页、search-index.json、sitemap.xml。"""
 
 from __future__ import annotations
 
@@ -12,10 +12,35 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 TEMPLATES = ROOT / "templates"
+BRAND = "Bio AI"
 
 
 def load_json(name: str):
     return json.loads((DATA / name).read_text(encoding="utf-8"))
+
+
+def tool_lookup(site: dict) -> dict[str, dict]:
+    found: dict[str, dict] = {}
+    for cat in site.get("home_tool_categories", []):
+        for tool in cat.get("tools", []):
+            found[tool["id"]] = tool
+    return found
+
+
+def build_hot_tool_cards(site: dict) -> list[dict]:
+    lookup = tool_lookup(site)
+    return [lookup[tid] for tid in site.get("hot_tools", []) if tid in lookup]
+
+
+def flatten_nav_labels(menu: list) -> dict[str, str]:
+    labels: dict[str, str] = {}
+    for item in menu:
+        if item.get("type") == "tab":
+            labels[item["id"]] = item["label"]
+        elif item.get("type") == "dropdown":
+            for sub in item.get("children", []):
+                labels[sub["id"]] = sub["label"]
+    return labels
 
 
 def build_schema(site: dict, tools: list) -> str:
@@ -23,9 +48,9 @@ def build_schema(site: dict, tools: list) -> str:
     graph = [
         {
             "@type": "WebSite",
-            "name": "AI 应用指南",
+            "name": BRAND,
             "url": meta["canonical"],
-            "description": "中文用户的一站式 AI 工具实战指南",
+            "description": meta["description"],
             "inLanguage": "zh-CN",
             "potentialAction": {
                 "@type": "SearchAction",
@@ -46,15 +71,15 @@ def build_schema(site: dict, tools: list) -> str:
         },
         {
             "@type": "ItemList",
-            "name": "AI 工具选型速查",
+            "name": "2026 AI 工具排行榜",
             "itemListElement": [
                 {
                     "@type": "ListItem",
                     "position": i + 1,
-                    "name": row["tool"],
-                    "description": row["strength"],
+                    "name": row["name"],
+                    "description": row["dimension"],
                 }
-                for i, row in enumerate(site.get("compare_table", {}).get("rows", [])[:5])
+                for i, row in enumerate(site.get("rankings", []))
             ],
         },
     ]
@@ -67,7 +92,7 @@ def build_tool_schema(tool: dict, base_url: str) -> str:
         "@type": "TechArticle",
         "headline": f"{tool['name']} 教程 2026",
         "description": tool["description"],
-        "author": {"@type": "Organization", "name": "AI 应用指南"},
+        "author": {"@type": "Organization", "name": BRAND},
         "mainEntityOfPage": f"{base_url}tools/{tool['id']}.html",
     }
     return json.dumps(data, ensure_ascii=False)
@@ -79,8 +104,20 @@ def build_compare_schema(compare: dict, base_url: str) -> str:
         "@type": "Article",
         "headline": compare["title"],
         "description": compare["meta_description"],
-        "author": {"@type": "Organization", "name": "AI 应用指南"},
+        "author": {"@type": "Organization", "name": BRAND},
         "mainEntityOfPage": f"{base_url}compare/{compare['slug']}.html",
+    }
+    return json.dumps(data, ensure_ascii=False)
+
+
+def build_page_schema(title: str, description: str, url: str) -> str:
+    data = {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": title,
+        "description": description,
+        "url": url,
+        "author": {"@type": "Organization", "name": BRAND},
     }
     return json.dumps(data, ensure_ascii=False)
 
@@ -111,7 +148,21 @@ def build_search_index(site: dict, tools: list, cases: dict, compares: list) -> 
         kw = " ".join([c.get("tool", ""), c.get("title", ""), c.get("summary", ""), *c.get("scenarios", [])])
         items.append({"label": c["title"], "section": "section-cases", "keywords": kw})
     items.append({"label": "实战案例", "section": "section-cases", "keywords": "实战 案例 提示词 prompt"})
-    items.append({"label": "每日视频", "section": "section-videos", "keywords": "视频 youtube 教程 每日"})
+    items.append({"label": "每日视频", "section": "section-videos", "keywords": "视频 youtube bilibili 教程 每日"})
+    items.append(
+        {
+            "label": "AI 工具排行榜",
+            "url": "ai-tools-ranking.html",
+            "keywords": "排行榜 ranking ChatGPT Claude Cursor DeepSeek",
+        }
+    )
+    items.append(
+        {
+            "label": "AI 学习路线",
+            "url": "ai-learning-roadmap.html",
+            "keywords": "学习路线 roadmap 入门 进阶",
+        }
+    )
     for cmp in compares:
         items.append(
             {
@@ -128,6 +179,10 @@ def build_search_index(site: dict, tools: list, cases: dict, compares: list) -> 
 
 def build_sitemap(base_url: str, tools: list, compares: list) -> str:
     urls = [f"  <url><loc>{base_url}</loc><changefreq>daily</changefreq><priority>1.0</priority></url>"]
+    for page in ("ai-tools-ranking.html", "ai-learning-roadmap.html"):
+        urls.append(
+            f"  <url><loc>{base_url}{page}</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>"
+        )
     for t in tools:
         urls.append(
             f"  <url><loc>{base_url}tools/{t['id']}.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>"
@@ -150,6 +205,8 @@ def main() -> int:
     cases = load_json("cases.json")
     compares = load_json("compares.json")
     meta = site["meta"]
+    tool_names = {t["id"]: t["name"] for t in tools}
+    nav_labels = flatten_nav_labels(site["nav"]["menu"])
 
     env = Environment(
         loader=FileSystemLoader(str(TEMPLATES)),
@@ -161,17 +218,18 @@ def main() -> int:
         meta=meta,
         nav=site["nav"],
         hero=site["hero"],
-        quick_find=site["quick_find"],
+        hot_tool_cards=build_hot_tool_cards(site),
         home_tool_categories=site["home_tool_categories"],
+        rankings=site["rankings"],
+        ai_picker=site["ai_picker"],
         scenarios=site["scenarios"],
         compare_guides=site["compare_guides"],
-        compare_table=site["compare_table"],
         learning_paths=site["learning_paths"],
         footer=site["footer"],
         tools=tools,
         cases=cases,
-        tool_names={t["id"]: t["name"] for t in tools},
-        nav_labels={t["id"]: t["label"] for t in site["nav"]["tabs"]},
+        tool_names=tool_names,
+        nav_labels=nav_labels,
         schema_json=schema_json,
     )
     (ROOT / "index.html").write_text(index_html, encoding="utf-8")
@@ -183,6 +241,8 @@ def main() -> int:
         html = tool_tpl.render(
             tool=tool,
             meta=meta,
+            nav=site["nav"],
+            footer=site["footer"],
             schema_json=build_tool_schema(tool, meta["base_url"]),
         )
         (tools_dir / f"{tool['id']}.html").write_text(html, encoding="utf-8")
@@ -194,9 +254,49 @@ def main() -> int:
         html = cmp_tpl.render(
             compare=compare,
             meta=meta,
+            nav=site["nav"],
+            footer=site["footer"],
             schema_json=build_compare_schema(compare, meta["base_url"]),
         )
         (compare_dir / f"{compare['slug']}.html").write_text(html, encoding="utf-8")
+
+    ranking_tpl = env.get_template("ranking_page.html.j2")
+    ranking_page = site["ranking_page"]
+    (ROOT / "ai-tools-ranking.html").write_text(
+        ranking_tpl.render(
+            page=ranking_page,
+            meta=meta,
+            nav=site["nav"],
+            footer=site["footer"],
+            rankings=site["rankings"],
+            compare_table=site["compare_table"],
+            schema_json=build_page_schema(
+                ranking_page["title"],
+                ranking_page["lead"],
+                f"{meta['base_url']}ai-tools-ranking.html",
+            ),
+        ),
+        encoding="utf-8",
+    )
+
+    roadmap_tpl = env.get_template("roadmap_page.html.j2")
+    roadmap_page = site["roadmap_page"]
+    (ROOT / "ai-learning-roadmap.html").write_text(
+        roadmap_tpl.render(
+            page=roadmap_page,
+            meta=meta,
+            nav=site["nav"],
+            footer=site["footer"],
+            learning_paths=site["learning_paths"],
+            tool_names=tool_names,
+            schema_json=build_page_schema(
+                roadmap_page["title"],
+                roadmap_page["lead"],
+                f"{meta['base_url']}ai-learning-roadmap.html",
+            ),
+        ),
+        encoding="utf-8",
+    )
 
     search_index = build_search_index(site, tools, cases, compares)
     (ROOT / "search-index.json").write_text(
@@ -209,6 +309,7 @@ def main() -> int:
     print(f"✓ index.html")
     print(f"✓ tools/ ({len(tools)} 页)")
     print(f"✓ compare/ ({len(compares)} 页)")
+    print(f"✓ ai-tools-ranking.html + ai-learning-roadmap.html")
     print(f"✓ search-index.json ({len(search_index)} 条)")
     print(f"✓ sitemap.xml")
     return 0

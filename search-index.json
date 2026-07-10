@@ -162,7 +162,17 @@
   {
     "label": "每日视频",
     "section": "section-videos",
-    "keywords": "视频 youtube 教程 每日"
+    "keywords": "视频 youtube bilibili 教程 每日"
+  },
+  {
+    "label": "AI 工具排行榜",
+    "url": "ai-tools-ranking.html",
+    "keywords": "排行榜 ranking ChatGPT Claude Cursor DeepSeek"
+  },
+  {
+    "label": "AI 学习路线",
+    "url": "ai-learning-roadmap.html",
+    "keywords": "学习路线 roadmap 入门 进阶"
   },
   {
     "label": "Cursor vs Copilot：2026 编程 AI 怎么选？",

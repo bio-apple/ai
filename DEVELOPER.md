@@ -1,4 +1,4 @@
-# AI 应用指南 — 开发者文档
+# Bio AI — 开发者文档
 
 本文档面向维护与二次开发本项目的开发者，说明架构、目录结构、数据格式、构建流程、自动化与常见改动方式。
 
@@ -34,6 +34,7 @@
 ├──────────────────────────────────────────────────────────────────────┤
 │  【源数据】data/*.json + templates/*.j2                               │
 │  【构建产物】index.html · tools/*.html · compare/*.html               │
+│              ai-tools-ranking.html · ai-learning-roadmap.html         │
 │              search-index.json · sitemap.xml                          │
 │  【运行时】app.js · videos.js · analytics.js · daily-videos.json      │
 └───────────────┬────────────────────────────┬────────────────────────┘
@@ -190,7 +191,7 @@ npm run test:e2e
 
 ### `data/site.json`
 
-站点级配置：meta（title/description/OG）、nav tabs、hero、quick_find、home_tool_categories、scenarios、compare_guides、compare_table、learning_paths、faq、footer。
+站点级配置：meta、nav.menu（分类下拉导航）、hero、hot_tools、home_tool_categories、rankings、ai_picker、scenarios、compare_guides、learning_paths、roadmap_page、ranking_page、faq、footer。
 
 ### `data/tools.json`
 
@@ -441,8 +442,8 @@ docker run -p 8765:8765 ai-guide
 
 1. 在 `data/tools.json` 追加工具对象。
 2. 在 `data/site.json` 中更新：
-   - `nav.tabs`
-   - `home_tool_categories`（总览卡片）
+   - `nav.menu`（含 dropdown children）
+   - `home_tool_categories`（总览卡片，含 tagline/stars/tags）
    - `compare_table.rows`（可选）
 3. 在 `css/base.css` + `css/components.css` 添加品牌色与 class。
 4. 运行 `./build.sh`。

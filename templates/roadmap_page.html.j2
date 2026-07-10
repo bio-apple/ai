@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <meta name="description" content="{{ page.lead }}">
+  <link rel="canonical" href="{{ meta.base_url }}ai-learning-roadmap.html">
+  <meta property="og:title" content="{{ page.title }}">
+  <meta property="og:description" content="{{ page.lead }}">
+  <meta property="og:image" content="{{ meta.og_image }}">
+  <meta property="og:url" content="{{ meta.base_url }}ai-learning-roadmap.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">{{ schema_json | safe }}</script>
+</head>
+<body>
+{% with standalone=true, home_href='index.html', nav_prefix='' %}
+{% include 'partials/nav.j2' %}
+{% endwith %}
+<main class="standalone-page">
+  <nav class="breadcrumb"><a href="index.html">首页</a> / AI 学习路线</nav>
+  <div class="standalone-hero">
+    <h1>{{ page.h1 }}</h1>
+    <p class="standalone-lead">{{ page.lead }}</p>
+  </div>
+
+  <div class="roadmap-timeline">
+    {% for phase in page.phases %}
+    <article class="roadmap-phase card">
+      <div class="roadmap-phase-head">
+        <span class="roadmap-phase-label">{{ phase.phase }}</span>
+        <h2>{{ phase.title }}</h2>
+      </div>
+      <div class="roadmap-tools">
+        {% for tid in phase.tools %}
+        <a href="tools/{{ tid }}.html" class="roadmap-tool-chip {{ tid }}">{{ tool_names[tid] }}</a>
+        {% endfor %}
+      </div>
+      <ul class="roadmap-tasks">
+        {% for task in phase.tasks %}<li>{{ task }}</li>{% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+
+  <h2 class="resources-title">学习路径速览</h2>
+  <div class="grid-2">
+    {% for path in learning_paths %}
+    <div class="card">
+      <h3><span class="dot" style="background:{{ path.dot_color }}"></span> {{ path.title }}</h3>
+      <ol class="steps">
+        {% for step in path.steps %}<li>{{ step }}</li>{% endfor %}
+      </ol>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="standalone-cta">
+    <a href="index.html#section-cases" class="cta-btn">开始实战案例</a>
+    <a href="ai-tools-ranking.html" class="cta-btn cta-btn-outline">查看工具排行</a>
+  </div>
+</main>
+<footer>
+  <p>{{ footer.text }} · <a href="{{ footer.github }}" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+<script src="analytics.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

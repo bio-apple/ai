@@ -1,128 +1,95 @@
 {
   "meta": {
-    "title": "ChatGPT/Cursor/DeepSeek 教程 2026 | AI 应用指南（含实战案例）",
-    "description": "中文用户的一站式 AI 工具实战指南：ChatGPT、Claude、Cursor、DeepSeek、Kimi、通义、豆包等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。",
-    "keywords": "AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI实战,提示词,AI视频",
+    "title": "Bio AI | ChatGPT/Cursor/DeepSeek 教程 2026 — AI 学习与工具导航",
+    "description": "Bio AI 是中文用户的 AI 学习与工具导航平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。",
+    "keywords": "Bio AI,AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI实战,提示词,AI视频,AI工具排行",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.png",
     "base_url": "https://bio-apple.github.io/ai/"
   },
   "nav": {
     "logo": {
-      "icon": "AI",
-      "text": "AI 应用指南"
+      "icon": "✦",
+      "brand": "Bio AI",
+      "tagline": "AI 学习与工具导航中心"
     },
-    "tabs": [
+    "menu": [
+      { "type": "tab", "id": "all", "label": "首页" },
       {
-        "id": "all",
-        "label": "总览"
+        "type": "dropdown",
+        "label": "AI 助手",
+        "children": [
+          { "id": "chatgpt", "label": "ChatGPT" },
+          { "id": "claude", "label": "Claude" },
+          { "id": "gemini", "label": "Gemini" },
+          { "id": "deepseek", "label": "DeepSeek" }
+        ]
       },
       {
-        "id": "chatgpt",
-        "label": "ChatGPT"
+        "type": "dropdown",
+        "label": "AI 编程",
+        "children": [
+          { "id": "cursor", "label": "Cursor" },
+          { "id": "copilot", "label": "Copilot" },
+          { "id": "codex", "label": "Codex" }
+        ]
       },
       {
-        "id": "claude",
-        "label": "Claude"
+        "type": "dropdown",
+        "label": "国内 AI",
+        "children": [
+          { "id": "kimi", "label": "Kimi" },
+          { "id": "qwen", "label": "通义" },
+          { "id": "doubao", "label": "豆包" }
+        ]
       },
-      {
-        "id": "gemini",
-        "label": "Gemini"
-      },
-      {
-        "id": "deepseek",
-        "label": "DeepSeek"
-      },
-      {
-        "id": "kimi",
-        "label": "Kimi"
-      },
-      {
-        "id": "qwen",
-        "label": "通义"
-      },
-      {
-        "id": "doubao",
-        "label": "豆包"
-      },
-      {
-        "id": "cursor",
-        "label": "Cursor"
-      },
-      {
-        "id": "codex",
-        "label": "Codex"
-      },
-      {
-        "id": "copilot",
-        "label": "Copilot"
-      },
-      {
-        "id": "cases",
-        "label": "实战"
-      },
-      {
-        "id": "videos",
-        "label": "视频"
-      }
+      { "type": "tab", "id": "cases", "label": "AI 教程" },
+      { "type": "tab", "id": "videos", "label": "AI 视频" },
+      { "type": "page", "href": "ai-tools-ranking.html", "label": "排行榜" }
     ]
   },
   "hero": {
-    "title": "学会使用 AI，让 AI 为你工作",
-    "subtitle": "中文用户的一站式 AI 工具实战指南 — 教程、可复制提示词案例、每日 1080p 视频推荐。",
+    "eyebrow": "AI",
+    "title": "掌握 AI，让效率提升 10 倍",
+    "subtitle": "ChatGPT、Claude、Gemini、DeepSeek、Cursor 全平台 AI 实战指南",
+    "cta_primary": { "label": "开始学习 AI", "goto": "cases" },
+    "cta_secondary": { "label": "查看 AI 工具排行", "href": "ai-tools-ranking.html" },
     "search_placeholder": "搜索工具、案例或教程…"
   },
-  "quick_find": [
-    {
-      "icon": "💻",
-      "title": "写代码 / 做项目",
-      "subtitle": "Cursor · Copilot · Codex",
-      "goto": "cursor",
-      "track": "quick-find-coding"
-    },
-    {
-      "icon": "📄",
-      "title": "读长文档 / 合同",
-      "subtitle": "Kimi · 通义 · Claude",
-      "goto": "kimi",
-      "track": "quick-find-docs"
-    },
-    {
-      "icon": "🆓",
-      "title": "免费好用的中文助手",
-      "subtitle": "豆包 · DeepSeek · 通义",
-      "goto": "deepseek",
-      "track": "quick-find-free"
-    },
-    {
-      "icon": "▶",
-      "title": "看最新 AI 教程视频",
-      "subtitle": "每日自动更新 ≥10 条",
-      "goto": "videos",
-      "track": "quick-find-videos"
-    }
-  ],
+  "hot_tools": ["chatgpt", "claude", "cursor", "deepseek", "gemini", "kimi"],
   "home_tool_categories": [
     {
       "label": "国际对话 AI",
       "tools": [
         {
           "id": "chatgpt",
+          "icon": "G",
           "badge": "OpenAI",
           "name": "ChatGPT",
-          "summary": "最普及的 AI 助手，写作、学习、编程、图像生成全能。"
+          "tagline": "通用 AI 助手",
+          "summary": "最普及的 AI 助手，写作、学习、编程、图像生成全能。",
+          "stars": 5,
+          "tags": ["写作", "编程", "图片"]
         },
         {
           "id": "claude",
+          "icon": "C",
           "badge": "Anthropic",
           "name": "Claude",
-          "summary": "深度推理与长文档分析，Projects 知识库与 Claude Code。"
+          "tagline": "深度推理专家",
+          "summary": "深度推理与长文档分析，Projects 知识库与 Claude Code。",
+          "stars": 5,
+          "tags": ["长文档", "写作", "编程"]
         },
         {
           "id": "gemini",
+          "icon": "✦",
           "badge": "Google",
           "name": "Gemini",
-          "summary": "深度整合 Google 生态，多模态、Deep Research、Gems。"
+          "tagline": "Google 生态 AI",
+          "summary": "深度整合 Google 生态，多模态、Deep Research、Gems。",
+          "stars": 4,
+          "tags": ["搜索", "多模态", "研究"]
         }
       ]
     },
@@ -131,27 +98,43 @@
       "tools": [
         {
           "id": "kimi",
+          "icon": "K",
           "badge": "月之暗面",
           "name": "Kimi",
-          "summary": "超长上下文与文件解析，联网搜索，国产长文档分析首选。"
+          "tagline": "长文档分析",
+          "summary": "超长上下文与文件解析，联网搜索，国产长文档分析首选。",
+          "stars": 5,
+          "tags": ["长文档", "联网", "中文"]
         },
         {
           "id": "qwen",
+          "icon": "通",
           "badge": "阿里巴巴",
           "name": "通义千问",
-          "summary": "Qwen 大模型全家桶，网页/App/API 与阿里云生态深度整合。"
+          "tagline": "企业级大模型",
+          "summary": "Qwen 大模型全家桶，网页/App/API 与阿里云生态深度整合。",
+          "stars": 4,
+          "tags": ["API", "多模态", "企业"]
         },
         {
           "id": "doubao",
+          "icon": "豆",
           "badge": "字节跳动",
           "name": "豆包",
-          "summary": "免费好用的多模态助手，联动扣子 Coze 搭建 AI 应用。"
+          "tagline": "免费多模态助手",
+          "summary": "免费好用的多模态助手，联动扣子 Coze 搭建 AI 应用。",
+          "stars": 4,
+          "tags": ["免费", "创作", "Coze"]
         },
         {
           "id": "deepseek",
+          "icon": "D",
           "badge": "DeepSeek",
           "name": "DeepSeek",
-          "summary": "高性价比推理模型，免费网页版 + 开发者友好 API。"
+          "tagline": "高性价比推理",
+          "summary": "高性价比推理模型，免费网页版 + 开发者友好 API。",
+          "stars": 5,
+          "tags": ["编程", "推理", "免费"]
         }
       ]
     },
@@ -160,56 +143,61 @@
       "tools": [
         {
           "id": "cursor",
+          "icon": "⌘",
           "badge": "Anysphere",
           "name": "Cursor",
-          "summary": "AI 原生代码编辑器，Agent 模式与 Tab 智能补全。"
+          "tagline": "AI 原生 IDE",
+          "summary": "AI 原生代码编辑器，Agent 模式与 Tab 智能补全。",
+          "stars": 5,
+          "tags": ["编程", "Agent", "补全"]
         },
         {
           "id": "codex",
+          "icon": "◇",
           "badge": "OpenAI",
           "name": "Codex",
-          "summary": "端到端编程代理，CLI、IDE 扩展与 GitHub 自动化。"
+          "tagline": "编程代理",
+          "summary": "端到端编程代理，CLI、IDE 扩展与 GitHub 自动化。",
+          "stars": 4,
+          "tags": ["自动化", "PR", "CLI"]
         },
         {
           "id": "copilot",
+          "icon": "P",
           "badge": "Microsoft",
           "name": "Copilot",
-          "summary": "GitHub Copilot 代码补全 + Microsoft 365 办公 AI 助手。"
+          "tagline": "IDE 智能补全",
+          "summary": "GitHub Copilot 代码补全 + Microsoft 365 办公 AI 助手。",
+          "stars": 4,
+          "tags": ["编程", "Office", "GitHub"]
         }
       ]
     }
   ],
+  "rankings": [
+    { "medal": "🥇", "id": "chatgpt", "name": "ChatGPT", "dimension": "综合能力", "stars": 5 },
+    { "medal": "🥈", "id": "claude", "name": "Claude", "dimension": "长文本能力", "stars": 5 },
+    { "medal": "🥉", "id": "deepseek", "name": "DeepSeek", "dimension": "性价比", "stars": 5 },
+    { "medal": "💻", "id": "cursor", "name": "Cursor", "dimension": "AI 编程", "stars": 5 }
+  ],
+  "ai_picker": {
+    "title": "你想使用 AI 做什么？",
+    "options": [
+      { "id": "writing", "label": "写文章", "icon": "✍", "tools": ["chatgpt", "claude", "kimi"] },
+      { "id": "coding", "label": "写代码", "icon": "💻", "tools": ["cursor", "copilot", "codex"] },
+      { "id": "ppt", "label": "制作 PPT", "icon": "📊", "tools": ["chatgpt", "gemini", "doubao"] },
+      { "id": "video", "label": "做视频", "icon": "🎬", "tools": ["gemini", "doubao", "chatgpt"] },
+      { "id": "data", "label": "数据分析", "icon": "📈", "tools": ["chatgpt", "claude", "qwen"] }
+    ]
+  },
   "scenarios": [
-    {
-      "icon": "✍️",
-      "title": "写作创作",
-      "description": "文章、邮件、文案、翻译"
-    },
-    {
-      "icon": "📚",
-      "title": "学习研究",
-      "description": "知识问答、论文总结、辅导"
-    },
-    {
-      "icon": "💻",
-      "title": "编程开发",
-      "description": "写代码、调试、代码审查"
-    },
-    {
-      "icon": "📊",
-      "title": "数据分析",
-      "description": "表格处理、图表、报告生成"
-    },
-    {
-      "icon": "🎨",
-      "title": "图像视频",
-      "description": "AI 绘图、视频生成与编辑"
-    },
-    {
-      "icon": "⚡",
-      "title": "工作效率",
-      "description": "自动化任务、会议纪要、规划"
-    }
+    { "icon": "✍", "title": "写作", "description": "文章、邮件、文案、翻译" },
+    { "icon": "💻", "title": "编程", "description": "写代码、调试、代码审查" },
+    { "icon": "🎨", "title": "图片设计", "description": "AI 绘图、海报、视觉素材" },
+    { "icon": "🎬", "title": "视频制作", "description": "脚本、剪辑、字幕生成" },
+    { "icon": "📊", "title": "数据分析", "description": "表格处理、图表、报告" },
+    { "icon": "📚", "title": "学习研究", "description": "知识问答、论文总结" },
+    { "icon": "⚙", "title": "自动化办公", "description": "会议纪要、流程自动化" }
   ],
   "compare_guides": [
     {
@@ -236,100 +224,77 @@
   ],
   "compare_table": {
     "rows": [
-      {
-        "tool": "ChatGPT",
-        "type": "对话助手",
-        "strength": "生态最全、GPTs、多模态",
-        "scenario": "日常问答、创作、通用任务",
-        "pricing": "免费 / Plus $20"
-      },
-      {
-        "tool": "Claude",
-        "type": "对话 + 编程",
-        "strength": "深度推理、长文本、Artifacts",
-        "scenario": "文档分析、写作、代码审查",
-        "pricing": "免费 / Pro $20"
-      },
-      {
-        "tool": "Gemini",
-        "type": "对话助手",
-        "strength": "Google 整合、Deep Research",
-        "scenario": "搜索研究、Gmail/Drive 联动",
-        "pricing": "免费 / Advanced"
-      },
-      {
-        "tool": "DeepSeek",
-        "type": "对话 + API",
-        "strength": "免费好用、推理强、API 便宜",
-        "scenario": "学习、编程、低成本开发",
-        "pricing": "网页免费 / API 按量"
-      },
-      {
-        "tool": "Kimi",
-        "type": "对话助手",
-        "strength": "超长上下文、文件解析、联网",
-        "scenario": "长文档、合同、论文速读",
-        "pricing": "免费 / 会员"
-      },
-      {
-        "tool": "通义千问",
-        "type": "对话 + API",
-        "strength": "Qwen 模型、阿里云生态",
-        "scenario": "企业应用、多模态、国内部署",
-        "pricing": "免费 / 按量 API"
-      },
-      {
-        "tool": "豆包",
-        "type": "对话助手",
-        "strength": "免费多模态、扣子 Coze",
-        "scenario": "日常问答、轻量 AI 应用搭建",
-        "pricing": "免费"
-      },
-      {
-        "tool": "Cursor",
-        "type": "编程 IDE",
-        "strength": "编辑器深度集成、Agent",
-        "scenario": "日常编码、快速迭代",
-        "pricing": "免费 / Pro $20"
-      },
-      {
-        "tool": "Codex",
-        "type": "编程代理",
-        "strength": "自主任务、PR 自动化",
-        "scenario": "大型重构、云端开发",
-        "pricing": "含在 ChatGPT 订阅"
-      },
-      {
-        "tool": "Copilot",
-        "type": "编程 + 办公",
-        "strength": "IDE 补全、GitHub 集成、M365",
-        "scenario": "VS Code 编码、Office 办公",
-        "pricing": "免费 / Pro $10"
-      }
+      { "tool": "ChatGPT", "type": "对话助手", "strength": "生态最全、GPTs、多模态", "scenario": "日常问答、创作、通用任务", "pricing": "免费 / Plus $20" },
+      { "tool": "Claude", "type": "对话 + 编程", "strength": "深度推理、长文本、Artifacts", "scenario": "文档分析、写作、代码审查", "pricing": "免费 / Pro $20" },
+      { "tool": "Gemini", "type": "对话助手", "strength": "Google 整合、Deep Research", "scenario": "搜索研究、Gmail/Drive 联动", "pricing": "免费 / Advanced" },
+      { "tool": "DeepSeek", "type": "对话 + API", "strength": "免费好用、推理强、API 便宜", "scenario": "学习、编程、低成本开发", "pricing": "网页免费 / API 按量" },
+      { "tool": "Kimi", "type": "对话助手", "strength": "超长上下文、文件解析、联网", "scenario": "长文档、合同、论文速读", "pricing": "免费 / 会员" },
+      { "tool": "通义千问", "type": "对话 + API", "strength": "Qwen 模型、阿里云生态", "scenario": "企业应用、多模态、国内部署", "pricing": "免费 / 按量 API" },
+      { "tool": "豆包", "type": "对话助手", "strength": "免费多模态、扣子 Coze", "scenario": "日常问答、轻量 AI 应用搭建", "pricing": "免费" },
+      { "tool": "Cursor", "type": "编程 IDE", "strength": "编辑器深度集成、Agent", "scenario": "日常编码、快速迭代", "pricing": "免费 / Pro $20" },
+      { "tool": "Codex", "type": "编程代理", "strength": "自主任务、PR 自动化", "scenario": "大型重构、云端开发", "pricing": "含在 ChatGPT 订阅" },
+      { "tool": "Copilot", "type": "编程 + 办公", "strength": "IDE 补全、GitHub 集成、M365", "scenario": "VS Code 编码、Office 办公", "pricing": "免费 / Pro $10" }
     ]
   },
   "learning_paths": [
     {
       "title": "零基础入门",
-      "dot_color": "var(--accent)",
+      "dot_color": "var(--primary)",
       "steps": [
-        "从 ChatGPT 、 豆包 或 DeepSeek 开始，学会基本对话和提示词",
-        "用 Kimi 或 通义千问 处理长文档与中文场景任务",
+        "从 ChatGPT、豆包或 DeepSeek 开始，学会基本对话和提示词",
+        "用 Kimi 或通义千问处理长文档与中文场景任务",
         "尝试 Gemini 的文件上传和 Deep Research 功能",
         "用 Claude 处理复杂分析和高质量写作"
       ]
     },
     {
       "title": "进阶应用",
-      "dot_color": "var(--codex)",
+      "dot_color": "var(--secondary)",
       "steps": [
-        "编程方向：安装 Cursor 或 GitHub Copilot ，配置 Rules 工作流",
+        "编程方向：安装 Cursor 或 GitHub Copilot，配置 Rules 工作流",
         "自动化方向：用 Codex 连接 GitHub 实现 PR 自动化",
-        "国内开发：用 通义 API 或 DeepSeek API 低成本接入产品",
-        "无代码方向：用 扣子 Coze 基于豆包搭建 AI 工作流"
+        "国内开发：用通义 API 或 DeepSeek API 低成本接入产品",
+        "无代码方向：用扣子 Coze 基于豆包搭建 AI 工作流"
       ]
     }
   ],
+  "roadmap_page": {
+    "title": "AI 学习路线 2026 | Bio AI",
+    "h1": "AI 学习路线",
+    "lead": "从零基础到进阶应用，按阶段掌握主流 AI 工具与实战技能。",
+    "phases": [
+      {
+        "phase": "第 1 周",
+        "title": "建立 AI 基础认知",
+        "tools": ["chatgpt", "doubao", "deepseek"],
+        "tasks": ["注册并体验 2 个对话 AI", "学会写清晰的提示词", "完成 3 个日常任务（邮件/总结/翻译）"]
+      },
+      {
+        "phase": "第 2-3 周",
+        "title": "掌握长文档与深度分析",
+        "tools": ["kimi", "claude", "qwen"],
+        "tasks": ["上传 PDF 并生成摘要", "用 AI 分析合同或论文", "建立个人知识库（Projects）"]
+      },
+      {
+        "phase": "第 4-6 周",
+        "title": "编程与自动化",
+        "tools": ["cursor", "copilot", "codex"],
+        "tasks": ["配置 Cursor Rules", "用 Agent 完成一个小功能", "尝试 Codex PR 自动化"]
+      },
+      {
+        "phase": "持续进阶",
+        "title": "多工具协同工作流",
+        "tools": ["gemini", "doubao"],
+        "tasks": ["按场景选择最优工具组合", "保存并复用高效提示词", "跟进本站每日视频与案例"]
+      }
+    ]
+  },
+  "ranking_page": {
+    "title": "2026 AI 工具排行榜 | Bio AI",
+    "h1": "2026 AI 工具排行榜",
+    "lead": "综合综合能力、长文本、性价比、编程体验等维度，为中文用户精选 Top 工具。",
+    "updated": "2026-07"
+  },
   "faq": [
     {
       "question": "零基础应该先学哪个 AI 工具？",
@@ -341,7 +306,7 @@
     },
     {
       "question": "本站每日视频如何更新？",
-      "answer": "北京时间每日 0:00 自动抓取 YouTube 上 AI 应用相关 1080p 教程，按播放量与频道订阅数综合排序，每天至少 10 条。"
+      "answer": "北京时间每日 0:00 自动抓取 YouTube 与 B站 AI 应用相关 1080p 教程，分全网 Top 10 与一周上新 Top 10 两类推荐。"
     }
   ],
   "general_tips": {
@@ -362,7 +327,7 @@
     ]
   },
   "footer": {
-    "text": "AI 应用指南 · 学习如何使用与应用人工智能",
+    "text": "Bio AI · Discover. Learn. Create with AI.",
     "github": "https://github.com/bio-apple/ai"
   }
 }

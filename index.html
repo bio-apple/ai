@@ -3,303 +3,603 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatGPT/Cursor/DeepSeek 教程 2026 | AI 应用指南（含实战案例）</title>
-  <meta name="description" content="中文用户的一站式 AI 工具实战指南：ChatGPT、Claude、Cursor、DeepSeek、Kimi、通义、豆包等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。">
-  <meta name="keywords" content="AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI实战,提示词,AI视频">
+  <title>Bio AI | ChatGPT/Cursor/DeepSeek 教程 2026 — AI 学习与工具导航</title>
+  <meta name="description" content="Bio AI 是中文用户的 AI 学习与工具导航平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。">
+  <meta name="keywords" content="Bio AI,AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI实战,提示词,AI视频,AI工具排行">
   <link rel="canonical" href="https://bio-apple.github.io/ai/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bio-apple.github.io/ai/">
-  <meta property="og:title" content="AI 应用指南 2026 — 教程 · 实战案例 · 每日视频">
-  <meta property="og:description" content="中文用户的一站式 AI 工具实战指南：ChatGPT、Claude、Cursor、DeepSeek、Kimi、通义、豆包等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。">
+  <meta property="og:title" content="Bio AI 2026 — AI 学习与工具导航平台">
+  <meta property="og:description" content="Bio AI 是中文用户的 AI 学习与工具导航平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。">
   <meta property="og:image" content="https://bio-apple.github.io/ai/og-image.png">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI 应用指南 2026 — 教程 · 实战案例 · 每日视频">
-  <meta name="twitter:description" content="中文用户的一站式 AI 工具实战指南：ChatGPT、Claude、Cursor、DeepSeek、Kimi、通义、豆包等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。">
+  <meta name="twitter:title" content="Bio AI 2026 — AI 学习与工具导航平台">
+  <meta name="twitter:description" content="Bio AI 是中文用户的 AI 学习与工具导航平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。">
   <meta name="twitter:image" content="https://bio-apple.github.io/ai/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "AI 应用指南", "url": "https://bio-apple.github.io/ai/", "description": "中文用户的一站式 AI 工具实战指南", "inLanguage": "zh-CN", "potentialAction": {"@type": "SearchAction", "target": "https://bio-apple.github.io/ai/?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "零基础应该先学哪个 AI 工具？", "acceptedAnswer": {"@type": "Answer", "text": "建议从 ChatGPT、豆包或 DeepSeek 开始学会基本对话和提示词，编程方向选 Cursor 或 GitHub Copilot，长文档分析选 Kimi 或 Claude。"}}, {"@type": "Question", "name": "Cursor 和 GitHub Copilot 哪个更适合日常编码？", "acceptedAnswer": {"@type": "Answer", "text": "Cursor 适合需要 Agent 跨文件改动的快速迭代；Copilot 适合已在 VS Code 生态、预算较低的场景。详见选型对比页。"}}, {"@type": "Question", "name": "本站每日视频如何更新？", "acceptedAnswer": {"@type": "Answer", "text": "北京时间每日 0:00 自动抓取 YouTube 上 AI 应用相关 1080p 教程，按播放量与频道订阅数综合排序，每天至少 10 条。"}}]}, {"@type": "ItemList", "name": "AI 工具选型速查", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ChatGPT", "description": "生态最全、GPTs、多模态"}, {"@type": "ListItem", "position": 2, "name": "Claude", "description": "深度推理、长文本、Artifacts"}, {"@type": "ListItem", "position": 3, "name": "Gemini", "description": "Google 整合、Deep Research"}, {"@type": "ListItem", "position": 4, "name": "DeepSeek", "description": "免费好用、推理强、API 便宜"}, {"@type": "ListItem", "position": 5, "name": "Kimi", "description": "超长上下文、文件解析、联网"}]}]}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebSite", "name": "Bio AI", "url": "https://bio-apple.github.io/ai/", "description": "Bio AI 是中文用户的 AI 学习与工具导航平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。", "inLanguage": "zh-CN", "potentialAction": {"@type": "SearchAction", "target": "https://bio-apple.github.io/ai/?q={search_term_string}", "query-input": "required name=search_term_string"}}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "零基础应该先学哪个 AI 工具？", "acceptedAnswer": {"@type": "Answer", "text": "建议从 ChatGPT、豆包或 DeepSeek 开始学会基本对话和提示词，编程方向选 Cursor 或 GitHub Copilot，长文档分析选 Kimi 或 Claude。"}}, {"@type": "Question", "name": "Cursor 和 GitHub Copilot 哪个更适合日常编码？", "acceptedAnswer": {"@type": "Answer", "text": "Cursor 适合需要 Agent 跨文件改动的快速迭代；Copilot 适合已在 VS Code 生态、预算较低的场景。详见选型对比页。"}}, {"@type": "Question", "name": "本站每日视频如何更新？", "acceptedAnswer": {"@type": "Answer", "text": "北京时间每日 0:00 自动抓取 YouTube 与 B站 AI 应用相关 1080p 教程，分全网 Top 10 与一周上新 Top 10 两类推荐。"}}]}, {"@type": "ItemList", "name": "2026 AI 工具排行榜", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "ChatGPT", "description": "综合能力"}, {"@type": "ListItem", "position": 2, "name": "Claude", "description": "长文本能力"}, {"@type": "ListItem", "position": 3, "name": "DeepSeek", "description": "性价比"}, {"@type": "ListItem", "position": 4, "name": "Cursor", "description": "AI 编程"}]}]}</script>
 </head>
 <body>
 
+
 <header>
   <nav class="nav">
-    <div class="logo">
-      <div class="logo-icon">AI</div>
-      <span>AI 应用指南</span>
+    
+    <div class="logo" role="banner">
+      <div class="logo-icon">✦</div>
+      <div class="logo-text">
+        <span class="logo-brand">Bio AI</span>
+        <span class="logo-tagline">AI 学习与工具导航中心</span>
+      </div>
     </div>
-    <div class="nav-tabs">
+    
+    <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-menu">
       
-      <button class="nav-tab active" data-tool="all">总览</button>
+        
+          
+          <button type="button" class="nav-tab active" data-tool="all">首页</button>
+          
+        
       
-      <button class="nav-tab" data-tool="chatgpt">ChatGPT</button>
+        
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true">AI 助手 <span class="nav-chevron">▾</span></button>
+          <div class="nav-dropdown-menu" role="menu">
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="chatgpt" role="menuitem">ChatGPT</button>
+              
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="claude" role="menuitem">Claude</button>
+              
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="gemini" role="menuitem">Gemini</button>
+              
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="deepseek" role="menuitem">DeepSeek</button>
+              
+            
+          </div>
+        </div>
+        
       
-      <button class="nav-tab" data-tool="claude">Claude</button>
+        
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true">AI 编程 <span class="nav-chevron">▾</span></button>
+          <div class="nav-dropdown-menu" role="menu">
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="cursor" role="menuitem">Cursor</button>
+              
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="copilot" role="menuitem">Copilot</button>
+              
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="codex" role="menuitem">Codex</button>
+              
+            
+          </div>
+        </div>
+        
       
-      <button class="nav-tab" data-tool="gemini">Gemini</button>
+        
+        <div class="nav-dropdown">
+          <button type="button" class="nav-dropdown-trigger" aria-haspopup="true">国内 AI <span class="nav-chevron">▾</span></button>
+          <div class="nav-dropdown-menu" role="menu">
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="kimi" role="menuitem">Kimi</button>
+              
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="qwen" role="menuitem">通义</button>
+              
+            
+              
+              <button type="button" class="nav-dropdown-item" data-tool="doubao" role="menuitem">豆包</button>
+              
+            
+          </div>
+        </div>
+        
       
-      <button class="nav-tab" data-tool="deepseek">DeepSeek</button>
+        
+          
+          <button type="button" class="nav-tab" data-tool="cases">AI 教程</button>
+          
+        
       
-      <button class="nav-tab" data-tool="kimi">Kimi</button>
+        
+          
+          <button type="button" class="nav-tab" data-tool="videos">AI 视频</button>
+          
+        
       
-      <button class="nav-tab" data-tool="qwen">通义</button>
-      
-      <button class="nav-tab" data-tool="doubao">豆包</button>
-      
-      <button class="nav-tab" data-tool="cursor">Cursor</button>
-      
-      <button class="nav-tab" data-tool="codex">Codex</button>
-      
-      <button class="nav-tab" data-tool="copilot">Copilot</button>
-      
-      <button class="nav-tab" data-tool="cases">实战</button>
-      
-      <button class="nav-tab" data-tool="videos">视频</button>
+        
+        <a href="ai-tools-ranking.html" class="nav-link-page">排行榜</a>
+        
       
     </div>
   </nav>
 </header>
 
+
 <section id="section-home" class="section active">
   <div class="hero">
-    <h1>学会使用 AI，让 AI 为你工作</h1>
-    <p>中文用户的一站式 AI 工具实战指南 — 教程、可复制提示词案例、每日 1080p 视频推荐。</p>
-
-    <div class="site-search-wrap">
-      <input type="search" id="site-search" class="site-search" placeholder="搜索工具、案例或教程…" aria-label="站内搜索">
-      <div id="site-search-results" class="site-search-results" hidden></div>
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-content fade-in">
+      <div class="hero-brand-mark">
+        <span class="hero-eyebrow">AI</span>
+        <span class="hero-logo-icon">✦</span>
+      </div>
+      <h1>掌握 AI，让效率提升 10 倍</h1>
+      <p class="hero-subtitle">ChatGPT、Claude、Gemini、DeepSeek、Cursor 全平台 AI 实战指南</p>
+      <div class="hero-cta">
+        <button class="cta-btn" data-goto="cases" data-track="hero-cta-primary">开始学习 AI</button>
+        <a href="ai-tools-ranking.html" class="cta-btn cta-btn-outline" data-track="hero-cta-ranking">查看 AI 工具排行</a>
+      </div>
+      <div class="site-search-wrap">
+        <input type="search" id="site-search" class="site-search" placeholder="搜索工具、案例或教程…" aria-label="站内搜索">
+        <div id="site-search-results" class="site-search-results" hidden></div>
+      </div>
     </div>
-
-    <h3 class="resources-title" style="margin-top:28px">快速找到你需要的</h3>
-    <div class="quick-find-grid">
-      
-      <button class="quick-find-card" data-goto="cursor" data-track="quick-find-coding">
-        <span class="quick-find-icon">💻</span>
-        <strong>写代码 / 做项目</strong>
-        <span>Cursor · Copilot · Codex</span>
-      </button>
-      
-      <button class="quick-find-card" data-goto="kimi" data-track="quick-find-docs">
-        <span class="quick-find-icon">📄</span>
-        <strong>读长文档 / 合同</strong>
-        <span>Kimi · 通义 · Claude</span>
-      </button>
-      
-      <button class="quick-find-card" data-goto="deepseek" data-track="quick-find-free">
-        <span class="quick-find-icon">🆓</span>
-        <strong>免费好用的中文助手</strong>
-        <span>豆包 · DeepSeek · 通义</span>
-      </button>
-      
-      <button class="quick-find-card" data-goto="videos" data-track="quick-find-videos">
-        <span class="quick-find-icon">▶</span>
-        <strong>看最新 AI 教程视频</strong>
-        <span>每日自动更新 ≥10 条</span>
-      </button>
-      
-    </div>
-
-    <h3 class="resources-title">今日精选视频</h3>
-    <div id="home-video-preview" class="home-video-preview">
-      <p class="loading-hint">加载今日精选…</p>
-    </div>
-    <div style="text-align:center;margin-bottom:8px">
-      <button class="cta-btn cta-btn-sm" data-goto="videos" data-track="home-all-videos">查看全部每日视频 →</button>
-    </div>
-
-    
-    <p class="category-label" style="margin-top:0">国际对话 AI</p>
-    <div class="tool-cards">
-      
-      <div class="tool-card chatgpt" data-tool="chatgpt">
-        <span class="badge">OpenAI</span>
-        <h3>ChatGPT</h3>
-        <p>最普及的 AI 助手，写作、学习、编程、图像生成全能。</p>
-      </div>
-      
-      <div class="tool-card claude" data-tool="claude">
-        <span class="badge">Anthropic</span>
-        <h3>Claude</h3>
-        <p>深度推理与长文档分析，Projects 知识库与 Claude Code。</p>
-      </div>
-      
-      <div class="tool-card gemini" data-tool="gemini">
-        <span class="badge">Google</span>
-        <h3>Gemini</h3>
-        <p>深度整合 Google 生态，多模态、Deep Research、Gems。</p>
-      </div>
-      
-    </div>
-    
-    <p class="category-label">国内对话 AI</p>
-    <div class="tool-cards">
-      
-      <div class="tool-card kimi" data-tool="kimi">
-        <span class="badge">月之暗面</span>
-        <h3>Kimi</h3>
-        <p>超长上下文与文件解析，联网搜索，国产长文档分析首选。</p>
-      </div>
-      
-      <div class="tool-card qwen" data-tool="qwen">
-        <span class="badge">阿里巴巴</span>
-        <h3>通义千问</h3>
-        <p>Qwen 大模型全家桶，网页/App/API 与阿里云生态深度整合。</p>
-      </div>
-      
-      <div class="tool-card doubao" data-tool="doubao">
-        <span class="badge">字节跳动</span>
-        <h3>豆包</h3>
-        <p>免费好用的多模态助手，联动扣子 Coze 搭建 AI 应用。</p>
-      </div>
-      
-      <div class="tool-card deepseek" data-tool="deepseek">
-        <span class="badge">DeepSeek</span>
-        <h3>DeepSeek</h3>
-        <p>高性价比推理模型，免费网页版 + 开发者友好 API。</p>
-      </div>
-      
-    </div>
-    
-    <p class="category-label">编程与开发 AI</p>
-    <div class="tool-cards">
-      
-      <div class="tool-card cursor" data-tool="cursor">
-        <span class="badge">Anysphere</span>
-        <h3>Cursor</h3>
-        <p>AI 原生代码编辑器，Agent 模式与 Tab 智能补全。</p>
-      </div>
-      
-      <div class="tool-card codex" data-tool="codex">
-        <span class="badge">OpenAI</span>
-        <h3>Codex</h3>
-        <p>端到端编程代理，CLI、IDE 扩展与 GitHub 自动化。</p>
-      </div>
-      
-      <div class="tool-card copilot" data-tool="copilot">
-        <span class="badge">Microsoft</span>
-        <h3>Copilot</h3>
-        <p>GitHub Copilot 代码补全 + Microsoft 365 办公 AI 助手。</p>
-      </div>
-      
-    </div>
-    
   </div>
 
-  <main>
-    <h3 class="resources-title">AI 能帮你做什么</h3>
-    <div class="scenario-grid">
-      
-      <div class="scenario-card"><div class="icon">✍️</div><h4>写作创作</h4><p>文章、邮件、文案、翻译</p></div>
-      
-      <div class="scenario-card"><div class="icon">📚</div><h4>学习研究</h4><p>知识问答、论文总结、辅导</p></div>
-      
-      <div class="scenario-card"><div class="icon">💻</div><h4>编程开发</h4><p>写代码、调试、代码审查</p></div>
-      
-      <div class="scenario-card"><div class="icon">📊</div><h4>数据分析</h4><p>表格处理、图表、报告生成</p></div>
-      
-      <div class="scenario-card"><div class="icon">🎨</div><h4>图像视频</h4><p>AI 绘图、视频生成与编辑</p></div>
-      
-      <div class="scenario-card"><div class="icon">⚡</div><h4>工作效率</h4><p>自动化任务、会议纪要、规划</p></div>
-      
-    </div>
+  <main class="home-main">
+    <section class="home-section fade-in">
+      <div class="section-head">
+        <h2 class="section-title">热门 AI 工具</h2>
+        <p class="section-desc">30 秒内找到最适合你的 AI 助手</p>
+      </div>
+      <div class="tool-cards-scroll">
+        <div class="tool-cards tool-cards-hot">
+          
+          <article class="tool-card-v2 chatgpt" data-tool="chatgpt">
+            <div class="tool-card-logo chatgpt">G</div>
+            <span class="badge">OpenAI</span>
+            <h3>ChatGPT</h3>
+            <p class="tool-tagline">通用 AI 助手</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>写作</li><li>编程</li><li>图片</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="chatgpt">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 claude" data-tool="claude">
+            <div class="tool-card-logo claude">C</div>
+            <span class="badge">Anthropic</span>
+            <h3>Claude</h3>
+            <p class="tool-tagline">深度推理专家</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>长文档</li><li>写作</li><li>编程</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="claude">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 cursor" data-tool="cursor">
+            <div class="tool-card-logo cursor">⌘</div>
+            <span class="badge">Anysphere</span>
+            <h3>Cursor</h3>
+            <p class="tool-tagline">AI 原生 IDE</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>编程</li><li>Agent</li><li>补全</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="cursor">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 deepseek" data-tool="deepseek">
+            <div class="tool-card-logo deepseek">D</div>
+            <span class="badge">DeepSeek</span>
+            <h3>DeepSeek</h3>
+            <p class="tool-tagline">高性价比推理</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>编程</li><li>推理</li><li>免费</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="deepseek">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 gemini" data-tool="gemini">
+            <div class="tool-card-logo gemini">✦</div>
+            <span class="badge">Google</span>
+            <h3>Gemini</h3>
+            <p class="tool-tagline">Google 生态 AI</p>
+            <div class="tool-stars" aria-label="推荐指数 4 星">★★★★<span class="star-empty">★</span></div>
+            <ul class="tool-tags"><li>搜索</li><li>多模态</li><li>研究</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="gemini">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 kimi" data-tool="kimi">
+            <div class="tool-card-logo kimi">K</div>
+            <span class="badge">月之暗面</span>
+            <h3>Kimi</h3>
+            <p class="tool-tagline">长文档分析</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>长文档</li><li>联网</li><li>中文</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="kimi">开始学习</button>
+          </article>
+          
+        </div>
+      </div>
+    </section>
 
-    <h3 class="resources-title">选型指南</h3>
-    <div class="compare-guide-grid">
-      
-      <a href="compare/cursor-vs-copilot.html" class="compare-guide-card" data-track="compare-cursor-copilot">
-        <span class="compare-guide-tag">编程 AI</span>
-        <h4>Cursor vs Copilot 怎么选？</h4>
-        <p>Agent 跨文件开发 vs IDE 补全，按场景选型</p>
-      </a>
-      
-      <a href="compare/chatgpt-vs-deepseek-vs-doubao.html" class="compare-guide-card" data-track="compare-chatgpt-deepseek">
-        <span class="compare-guide-tag">对话 AI</span>
-        <h4>ChatGPT vs DeepSeek vs 豆包</h4>
-        <p>零基础入门，哪个免费好用、中文体验好</p>
-      </a>
-      
-      <a href="compare/kimi-vs-claude-vs-qwen.html" class="compare-guide-card" data-track="compare-kimi-claude">
-        <span class="compare-guide-tag">长文档</span>
-        <h4>Kimi vs Claude vs 通义</h4>
-        <p>合同、论文、报告速读与深度分析对比</p>
-      </a>
-      
-    </div>
-
-    <h3 class="resources-title">工具选型速查</h3>
-    <div class="compare-wrap">
-    <table class="compare-table">
-      <thead>
-        <tr><th>工具</th><th>类型</th><th>核心优势</th><th>适合场景</th><th>入门</th></tr>
-      </thead>
-      <tbody>
-        
-        <tr>
-          <td>ChatGPT</td><td>对话助手</td><td>生态最全、GPTs、多模态</td><td>日常问答、创作、通用任务</td><td>免费 / Plus $20</td>
-        </tr>
-        
-        <tr>
-          <td>Claude</td><td>对话 + 编程</td><td>深度推理、长文本、Artifacts</td><td>文档分析、写作、代码审查</td><td>免费 / Pro $20</td>
-        </tr>
-        
-        <tr>
-          <td>Gemini</td><td>对话助手</td><td>Google 整合、Deep Research</td><td>搜索研究、Gmail/Drive 联动</td><td>免费 / Advanced</td>
-        </tr>
-        
-        <tr>
-          <td>DeepSeek</td><td>对话 + API</td><td>免费好用、推理强、API 便宜</td><td>学习、编程、低成本开发</td><td>网页免费 / API 按量</td>
-        </tr>
-        
-        <tr>
-          <td>Kimi</td><td>对话助手</td><td>超长上下文、文件解析、联网</td><td>长文档、合同、论文速读</td><td>免费 / 会员</td>
-        </tr>
-        
-        <tr>
-          <td>通义千问</td><td>对话 + API</td><td>Qwen 模型、阿里云生态</td><td>企业应用、多模态、国内部署</td><td>免费 / 按量 API</td>
-        </tr>
-        
-        <tr>
-          <td>豆包</td><td>对话助手</td><td>免费多模态、扣子 Coze</td><td>日常问答、轻量 AI 应用搭建</td><td>免费</td>
-        </tr>
-        
-        <tr>
-          <td>Cursor</td><td>编程 IDE</td><td>编辑器深度集成、Agent</td><td>日常编码、快速迭代</td><td>免费 / Pro $20</td>
-        </tr>
-        
-        <tr>
-          <td>Codex</td><td>编程代理</td><td>自主任务、PR 自动化</td><td>大型重构、云端开发</td><td>含在 ChatGPT 订阅</td>
-        </tr>
-        
-        <tr>
-          <td>Copilot</td><td>编程 + 办公</td><td>IDE 补全、GitHub 集成、M365</td><td>VS Code 编码、Office 办公</td><td>免费 / Pro $10</td>
-        </tr>
-        
-      </tbody>
-    </table>
-    </div>
-
-    <h3 class="resources-title">学习路径建议</h3>
-    <div class="grid-2">
-      
-      <div class="card">
-        <h3><span class="dot" style="background:var(--accent)"></span> 零基础入门</h3>
-        <ol class="steps">
-          <li>从 ChatGPT 、 豆包 或 DeepSeek 开始，学会基本对话和提示词</li><li>用 Kimi 或 通义千问 处理长文档与中文场景任务</li><li>尝试 Gemini 的文件上传和 Deep Research 功能</li><li>用 Claude 处理复杂分析和高质量写作</li>
-        </ol>
+    <section class="home-section fade-in">
+      <div class="section-head">
+        <h2 class="section-title">AI 能力分类</h2>
+        <p class="section-desc">按场景浏览全部工具</p>
       </div>
       
-      <div class="card">
-        <h3><span class="dot" style="background:var(--codex)"></span> 进阶应用</h3>
-        <ol class="steps">
-          <li>编程方向：安装 Cursor 或 GitHub Copilot ，配置 Rules 工作流</li><li>自动化方向：用 Codex 连接 GitHub 实现 PR 自动化</li><li>国内开发：用 通义 API 或 DeepSeek API 低成本接入产品</li><li>无代码方向：用 扣子 Coze 基于豆包搭建 AI 工作流</li>
-        </ol>
+      <p class="category-label">国际对话 AI</p>
+      <div class="tool-cards-scroll">
+        <div class="tool-cards">
+          
+          <article class="tool-card-v2 chatgpt" data-tool="chatgpt">
+            <div class="tool-card-logo chatgpt">G</div>
+            <span class="badge">OpenAI</span>
+            <h3>ChatGPT</h3>
+            <p class="tool-tagline">通用 AI 助手</p>
+            <p class="tool-summary">最普及的 AI 助手，写作、学习、编程、图像生成全能。</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>写作</li><li>编程</li><li>图片</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="chatgpt">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 claude" data-tool="claude">
+            <div class="tool-card-logo claude">C</div>
+            <span class="badge">Anthropic</span>
+            <h3>Claude</h3>
+            <p class="tool-tagline">深度推理专家</p>
+            <p class="tool-summary">深度推理与长文档分析，Projects 知识库与 Claude Code。</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>长文档</li><li>写作</li><li>编程</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="claude">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 gemini" data-tool="gemini">
+            <div class="tool-card-logo gemini">✦</div>
+            <span class="badge">Google</span>
+            <h3>Gemini</h3>
+            <p class="tool-tagline">Google 生态 AI</p>
+            <p class="tool-summary">深度整合 Google 生态，多模态、Deep Research、Gems。</p>
+            <div class="tool-stars" aria-label="推荐指数 4 星">★★★★<span class="star-empty">★</span></div>
+            <ul class="tool-tags"><li>搜索</li><li>多模态</li><li>研究</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="gemini">开始学习</button>
+          </article>
+          
+        </div>
       </div>
       
-    </div>
+      <p class="category-label">国内对话 AI</p>
+      <div class="tool-cards-scroll">
+        <div class="tool-cards">
+          
+          <article class="tool-card-v2 kimi" data-tool="kimi">
+            <div class="tool-card-logo kimi">K</div>
+            <span class="badge">月之暗面</span>
+            <h3>Kimi</h3>
+            <p class="tool-tagline">长文档分析</p>
+            <p class="tool-summary">超长上下文与文件解析，联网搜索，国产长文档分析首选。</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>长文档</li><li>联网</li><li>中文</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="kimi">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 qwen" data-tool="qwen">
+            <div class="tool-card-logo qwen">通</div>
+            <span class="badge">阿里巴巴</span>
+            <h3>通义千问</h3>
+            <p class="tool-tagline">企业级大模型</p>
+            <p class="tool-summary">Qwen 大模型全家桶，网页/App/API 与阿里云生态深度整合。</p>
+            <div class="tool-stars" aria-label="推荐指数 4 星">★★★★<span class="star-empty">★</span></div>
+            <ul class="tool-tags"><li>API</li><li>多模态</li><li>企业</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="qwen">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 doubao" data-tool="doubao">
+            <div class="tool-card-logo doubao">豆</div>
+            <span class="badge">字节跳动</span>
+            <h3>豆包</h3>
+            <p class="tool-tagline">免费多模态助手</p>
+            <p class="tool-summary">免费好用的多模态助手，联动扣子 Coze 搭建 AI 应用。</p>
+            <div class="tool-stars" aria-label="推荐指数 4 星">★★★★<span class="star-empty">★</span></div>
+            <ul class="tool-tags"><li>免费</li><li>创作</li><li>Coze</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="doubao">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 deepseek" data-tool="deepseek">
+            <div class="tool-card-logo deepseek">D</div>
+            <span class="badge">DeepSeek</span>
+            <h3>DeepSeek</h3>
+            <p class="tool-tagline">高性价比推理</p>
+            <p class="tool-summary">高性价比推理模型，免费网页版 + 开发者友好 API。</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>编程</li><li>推理</li><li>免费</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="deepseek">开始学习</button>
+          </article>
+          
+        </div>
+      </div>
+      
+      <p class="category-label">编程与开发 AI</p>
+      <div class="tool-cards-scroll">
+        <div class="tool-cards">
+          
+          <article class="tool-card-v2 cursor" data-tool="cursor">
+            <div class="tool-card-logo cursor">⌘</div>
+            <span class="badge">Anysphere</span>
+            <h3>Cursor</h3>
+            <p class="tool-tagline">AI 原生 IDE</p>
+            <p class="tool-summary">AI 原生代码编辑器，Agent 模式与 Tab 智能补全。</p>
+            <div class="tool-stars" aria-label="推荐指数 5 星">★★★★★</div>
+            <ul class="tool-tags"><li>编程</li><li>Agent</li><li>补全</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="cursor">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 codex" data-tool="codex">
+            <div class="tool-card-logo codex">◇</div>
+            <span class="badge">OpenAI</span>
+            <h3>Codex</h3>
+            <p class="tool-tagline">编程代理</p>
+            <p class="tool-summary">端到端编程代理，CLI、IDE 扩展与 GitHub 自动化。</p>
+            <div class="tool-stars" aria-label="推荐指数 4 星">★★★★<span class="star-empty">★</span></div>
+            <ul class="tool-tags"><li>自动化</li><li>PR</li><li>CLI</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="codex">开始学习</button>
+          </article>
+          
+          <article class="tool-card-v2 copilot" data-tool="copilot">
+            <div class="tool-card-logo copilot">P</div>
+            <span class="badge">Microsoft</span>
+            <h3>Copilot</h3>
+            <p class="tool-tagline">IDE 智能补全</p>
+            <p class="tool-summary">GitHub Copilot 代码补全 + Microsoft 365 办公 AI 助手。</p>
+            <div class="tool-stars" aria-label="推荐指数 4 星">★★★★<span class="star-empty">★</span></div>
+            <ul class="tool-tags"><li>编程</li><li>Office</li><li>GitHub</li></ul>
+            <button type="button" class="tool-card-btn" data-tool="copilot">开始学习</button>
+          </article>
+          
+        </div>
+      </div>
+      
+    </section>
 
-    <div style="text-align:center;margin-top:8px">
-      <button class="cta-btn" data-goto="cases">查看实战案例 →</button>
-    </div>
+    <section class="home-section fade-in" id="home-rankings">
+      <div class="section-head">
+        <h2 class="section-title">2026 AI 工具排行榜</h2>
+        <p class="section-desc">综合能力、长文本、性价比、编程体验</p>
+      </div>
+      <div class="ranking-grid">
+        
+        <article class="ranking-card" data-tool="chatgpt">
+          <span class="ranking-medal">🥇</span>
+          <h3>ChatGPT</h3>
+          <p class="ranking-dimension">综合能力</p>
+          <div class="tool-stars">★★★★★</div>
+          <button type="button" class="tool-card-btn tool-card-btn-sm" data-tool="chatgpt">查看教程</button>
+        </article>
+        
+        <article class="ranking-card" data-tool="claude">
+          <span class="ranking-medal">🥈</span>
+          <h3>Claude</h3>
+          <p class="ranking-dimension">长文本能力</p>
+          <div class="tool-stars">★★★★★</div>
+          <button type="button" class="tool-card-btn tool-card-btn-sm" data-tool="claude">查看教程</button>
+        </article>
+        
+        <article class="ranking-card" data-tool="deepseek">
+          <span class="ranking-medal">🥉</span>
+          <h3>DeepSeek</h3>
+          <p class="ranking-dimension">性价比</p>
+          <div class="tool-stars">★★★★★</div>
+          <button type="button" class="tool-card-btn tool-card-btn-sm" data-tool="deepseek">查看教程</button>
+        </article>
+        
+        <article class="ranking-card" data-tool="cursor">
+          <span class="ranking-medal">💻</span>
+          <h3>Cursor</h3>
+          <p class="ranking-dimension">AI 编程</p>
+          <div class="tool-stars">★★★★★</div>
+          <button type="button" class="tool-card-btn tool-card-btn-sm" data-tool="cursor">查看教程</button>
+        </article>
+        
+      </div>
+      <div class="section-cta">
+        <a href="ai-tools-ranking.html" class="cta-btn cta-btn-outline" data-track="home-full-ranking">查看完整排行榜 →</a>
+      </div>
+    </section>
+
+    <section class="home-section fade-in">
+      <div class="section-head">
+        <h2 class="section-title">AI 可以帮助你</h2>
+      </div>
+      <div class="scenario-grid scenario-scroll">
+        
+        <div class="scenario-card"><div class="icon">✍</div><h4>写作</h4><p>文章、邮件、文案、翻译</p></div>
+        
+        <div class="scenario-card"><div class="icon">💻</div><h4>编程</h4><p>写代码、调试、代码审查</p></div>
+        
+        <div class="scenario-card"><div class="icon">🎨</div><h4>图片设计</h4><p>AI 绘图、海报、视觉素材</p></div>
+        
+        <div class="scenario-card"><div class="icon">🎬</div><h4>视频制作</h4><p>脚本、剪辑、字幕生成</p></div>
+        
+        <div class="scenario-card"><div class="icon">📊</div><h4>数据分析</h4><p>表格处理、图表、报告</p></div>
+        
+        <div class="scenario-card"><div class="icon">📚</div><h4>学习研究</h4><p>知识问答、论文总结</p></div>
+        
+        <div class="scenario-card"><div class="icon">⚙</div><h4>自动化办公</h4><p>会议纪要、流程自动化</p></div>
+        
+      </div>
+    </section>
+
+    <section class="home-section fade-in" id="ai-picker">
+      <div class="section-head">
+        <h2 class="section-title">你想使用 AI 做什么？</h2>
+        <p class="section-desc">选择你的目标，获取工具推荐</p>
+      </div>
+      <div class="ai-picker">
+        <div class="ai-picker-options" role="radiogroup" aria-label="你想使用 AI 做什么？">
+          
+          <button type="button" class="ai-picker-option active" data-picker="writing" aria-pressed="true">
+            <span class="ai-picker-icon">✍</span>
+            <span>写文章</span>
+          </button>
+          
+          <button type="button" class="ai-picker-option" data-picker="coding" aria-pressed="false">
+            <span class="ai-picker-icon">💻</span>
+            <span>写代码</span>
+          </button>
+          
+          <button type="button" class="ai-picker-option" data-picker="ppt" aria-pressed="false">
+            <span class="ai-picker-icon">📊</span>
+            <span>制作 PPT</span>
+          </button>
+          
+          <button type="button" class="ai-picker-option" data-picker="video" aria-pressed="false">
+            <span class="ai-picker-icon">🎬</span>
+            <span>做视频</span>
+          </button>
+          
+          <button type="button" class="ai-picker-option" data-picker="data" aria-pressed="false">
+            <span class="ai-picker-icon">📈</span>
+            <span>数据分析</span>
+          </button>
+          
+        </div>
+        <div class="ai-picker-result">
+          <p class="ai-picker-label">推荐工具</p>
+          <div class="ai-picker-tools">
+            
+            <div class="ai-picker-tool-group active" data-picker-result="writing">
+              
+              <button type="button" class="ai-picker-tool chatgpt" data-tool="chatgpt">ChatGPT</button>
+              
+              <button type="button" class="ai-picker-tool claude" data-tool="claude">Claude</button>
+              
+              <button type="button" class="ai-picker-tool kimi" data-tool="kimi">Kimi</button>
+              
+            </div>
+            
+            <div class="ai-picker-tool-group" data-picker-result="coding">
+              
+              <button type="button" class="ai-picker-tool cursor" data-tool="cursor">Cursor</button>
+              
+              <button type="button" class="ai-picker-tool copilot" data-tool="copilot">Microsoft Copilot</button>
+              
+              <button type="button" class="ai-picker-tool codex" data-tool="codex">OpenAI Codex</button>
+              
+            </div>
+            
+            <div class="ai-picker-tool-group" data-picker-result="ppt">
+              
+              <button type="button" class="ai-picker-tool chatgpt" data-tool="chatgpt">ChatGPT</button>
+              
+              <button type="button" class="ai-picker-tool gemini" data-tool="gemini">Google Gemini</button>
+              
+              <button type="button" class="ai-picker-tool doubao" data-tool="doubao">豆包</button>
+              
+            </div>
+            
+            <div class="ai-picker-tool-group" data-picker-result="video">
+              
+              <button type="button" class="ai-picker-tool gemini" data-tool="gemini">Google Gemini</button>
+              
+              <button type="button" class="ai-picker-tool doubao" data-tool="doubao">豆包</button>
+              
+              <button type="button" class="ai-picker-tool chatgpt" data-tool="chatgpt">ChatGPT</button>
+              
+            </div>
+            
+            <div class="ai-picker-tool-group" data-picker-result="data">
+              
+              <button type="button" class="ai-picker-tool chatgpt" data-tool="chatgpt">ChatGPT</button>
+              
+              <button type="button" class="ai-picker-tool claude" data-tool="claude">Claude</button>
+              
+              <button type="button" class="ai-picker-tool qwen" data-tool="qwen">通义千问</button>
+              
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-section fade-in">
+      <div class="section-head">
+        <h2 class="section-title">AI 学习路线</h2>
+        <p class="section-desc">从零基础到进阶应用的系统路径</p>
+      </div>
+      <div class="grid-2">
+        
+        <div class="card">
+          <h3><span class="dot" style="background:var(--primary)"></span> 零基础入门</h3>
+          <ol class="steps">
+            <li>从 ChatGPT、豆包或 DeepSeek 开始，学会基本对话和提示词</li><li>用 Kimi 或通义千问处理长文档与中文场景任务</li><li>尝试 Gemini 的文件上传和 Deep Research 功能</li><li>用 Claude 处理复杂分析和高质量写作</li>
+          </ol>
+        </div>
+        
+        <div class="card">
+          <h3><span class="dot" style="background:var(--secondary)"></span> 进阶应用</h3>
+          <ol class="steps">
+            <li>编程方向：安装 Cursor 或 GitHub Copilot，配置 Rules 工作流</li><li>自动化方向：用 Codex 连接 GitHub 实现 PR 自动化</li><li>国内开发：用通义 API 或 DeepSeek API 低成本接入产品</li><li>无代码方向：用扣子 Coze 基于豆包搭建 AI 工作流</li>
+          </ol>
+        </div>
+        
+      </div>
+      <div class="section-cta">
+        <a href="ai-learning-roadmap.html" class="cta-btn cta-btn-outline" data-track="home-roadmap">查看完整学习路线 →</a>
+      </div>
+    </section>
+
+    <section class="home-section fade-in">
+      <div class="section-head">
+        <h2 class="section-title">精选教程</h2>
+        <p class="section-desc">选型对比与实战指南</p>
+      </div>
+      <div class="compare-guide-grid">
+        
+        <a href="compare/cursor-vs-copilot.html" class="compare-guide-card" data-track="compare-cursor-copilot">
+          <span class="compare-guide-tag">编程 AI</span>
+          <h4>Cursor vs Copilot 怎么选？</h4>
+          <p>Agent 跨文件开发 vs IDE 补全，按场景选型</p>
+        </a>
+        
+        <a href="compare/chatgpt-vs-deepseek-vs-doubao.html" class="compare-guide-card" data-track="compare-chatgpt-deepseek">
+          <span class="compare-guide-tag">对话 AI</span>
+          <h4>ChatGPT vs DeepSeek vs 豆包</h4>
+          <p>零基础入门，哪个免费好用、中文体验好</p>
+        </a>
+        
+        <a href="compare/kimi-vs-claude-vs-qwen.html" class="compare-guide-card" data-track="compare-kimi-claude">
+          <span class="compare-guide-tag">长文档</span>
+          <h4>Kimi vs Claude vs 通义</h4>
+          <p>合同、论文、报告速读与深度分析对比</p>
+        </a>
+        
+      </div>
+      <div class="section-cta">
+        <button class="cta-btn" data-goto="cases" data-track="home-cases">查看实战案例 →</button>
+      </div>
+    </section>
+
+    <section class="home-section fade-in">
+      <div class="section-head">
+        <h2 class="section-title">视频资源</h2>
+        <p class="section-desc">每日自动更新 AI 教程视频</p>
+      </div>
+      <div id="home-video-preview" class="home-video-preview">
+        <p class="loading-hint">加载今日精选…</p>
+      </div>
+      <div class="section-cta">
+        <button class="cta-btn cta-btn-outline" data-goto="videos" data-track="home-all-videos">查看全部每日视频 →</button>
+      </div>
+    </section>
   </main>
 </section>
 
@@ -2063,7 +2363,7 @@ Internet: off</div>
 <section id="section-videos" class="section videos-section">
   <main>
     <div class="tool-header">
-      <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
+      <div class="tool-icon" style="background:rgba(99,102,241,0.15);color:var(--primary)">▶</div>
       <div>
         <h2>每日 AI 视频推荐</h2>
         <p class="desc">每日北京时间 0:00 自动更新，从 YouTube 与 B站 抓取 AI 教程，分两类推荐：全网播放量 Top 10、过去一周新上传播放量 Top 10。</p>
@@ -2077,7 +2377,7 @@ Internet: off</div>
 </section>
 
 <footer>
-  <p>AI 应用指南 · 学习如何使用与应用人工智能 · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
+  <p>Bio AI · Discover. Learn. Create with AI. · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
 <script src="analytics.js"></script>
