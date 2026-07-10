@@ -3,22 +3,457 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hello World</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: system-ui, -apple-system, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-    }
-    h1 { font-size: 3rem; font-weight: 600; }
-  </style>
+  <title>AI 编程工具指南 — Claude · Codex · Cursor</title>
+  <meta name="description" content="学习如何使用 Claude、OpenAI Codex 和 Cursor 等 AI 编程工具，包含官方文档、教程视频和入门指南。">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Hello World</h1>
+
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-icon">AI</div>
+      <span>AI 编程工具指南</span>
+    </div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" data-tool="all">总览</button>
+      <button class="nav-tab" data-tool="claude">Claude</button>
+      <button class="nav-tab" data-tool="codex">Codex</button>
+      <button class="nav-tab" data-tool="cursor">Cursor</button>
+    </div>
+  </nav>
+</header>
+
+<!-- 总览 -->
+<section id="section-home" class="section active">
+  <div class="hero">
+    <h1>掌握 AI 编程工具</h1>
+    <p>从零开始学习 Claude、OpenAI Codex 和 Cursor，提升你的编程效率与创造力。</p>
+    <div class="tool-cards">
+      <div class="tool-card claude" data-tool="claude">
+        <span class="badge">Anthropic</span>
+        <h3>Claude</h3>
+        <p>强大的对话 AI 与编程代理，擅长推理、写作和代码理解。</p>
+      </div>
+      <div class="tool-card codex" data-tool="codex">
+        <span class="badge">OpenAI</span>
+        <h3>Codex</h3>
+        <p>端到端编程代理，支持 CLI、IDE 扩展和云端自动化任务。</p>
+      </div>
+      <div class="tool-card cursor" data-tool="cursor">
+        <span class="badge">Anysphere</span>
+        <h3>Cursor</h3>
+        <p>AI 原生代码编辑器，集成 Agent、Tab 补全和多文件编辑。</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <h3 class="resources-title">三大工具对比</h3>
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>特性</th>
+          <th>Claude</th>
+          <th>Codex</th>
+          <th>Cursor</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>开发商</td>
+          <td>Anthropic</td>
+          <td>OpenAI</td>
+          <td>Anysphere</td>
+        </tr>
+        <tr>
+          <td>主要形态</td>
+          <td>网页对话 / Claude Code CLI</td>
+          <td>CLI / IDE 扩展 / 桌面 App / 云端</td>
+          <td>AI 代码编辑器（VS Code 分支）</td>
+        </tr>
+        <tr>
+          <td>核心优势</td>
+          <td>深度推理、长文本、Projects 知识库</td>
+          <td>自主完成任务、GitHub PR 自动化</td>
+          <td>编辑器深度集成、Tab 补全、Agent 模式</td>
+        </tr>
+        <tr>
+          <td>配置文件</td>
+          <td>CLAUDE.md / Projects 指令</td>
+          <td>AGENTS.md / config.toml</td>
+          <td>.cursor/rules / Rules</td>
+        </tr>
+        <tr>
+          <td>适合场景</td>
+          <td>研究分析、文档写作、代码审查</td>
+          <td>大型重构、自动化 PR、云端任务</td>
+          <td>日常编码、快速迭代、多文件编辑</td>
+        </tr>
+        <tr>
+          <td>定价</td>
+          <td>Free / Pro $20/月</td>
+          <td>包含在 ChatGPT 订阅中</td>
+          <td>Free / Pro $20/月</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 class="resources-title">学习路径建议</h3>
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="dot" style="background:var(--accent)"></span> 初学者</h3>
+        <ol class="steps">
+          <li>先用 <strong>Claude.ai</strong> 熟悉 AI 对话和提示词技巧</li>
+          <li>安装 <strong>Cursor</strong>，体验 Tab 补全和 Agent 模式</li>
+          <li>了解 <strong>Codex</strong> 的 AGENTS.md 配置和云端任务</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3><span class="dot" style="background:var(--codex)"></span> 进阶用户</h3>
+        <ol class="steps">
+          <li>用 Claude Projects 建立项目专属知识库</li>
+          <li>配置 Cursor Rules 和 MCP 服务器扩展能力</li>
+          <li>用 Codex Cloud 连接 GitHub 实现 PR 自动化</li>
+        </ol>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- Claude -->
+<section id="section-claude" class="section claude-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon claude">C</div>
+      <div>
+        <h2>Claude</h2>
+        <p class="desc">Anthropic 出品的 AI 助手，包含网页版 Claude.ai 和终端编程工具 Claude Code。擅长复杂推理、长文档分析和高质量代码生成。</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="dot"></span> 快速入门</h3>
+        <ol class="steps">
+          <li>访问 <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> 注册账号（支持 Google 登录）</li>
+          <li>下载桌面版 App（macOS / Windows），体验更快的响应速度</li>
+          <li>安装 Claude Code：<code>curl -fsSL https://claude.ai/install.sh | bash</code></li>
+          <li>在项目目录运行 <code>claude</code>，按提示完成浏览器登录</li>
+          <li>创建 CLAUDE.md 文件，写入项目规范和编码约定</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span> 核心功能</h3>
+        <ul class="features">
+          <li><strong>Projects</strong> — 为每个项目创建独立工作区，上传知识库文件</li>
+          <li><strong>Artifacts</strong> — 实时预览代码、文档和网页原型</li>
+          <li><strong>Skills</strong> — 将重复工作流封装为可复用技能包</li>
+          <li><strong>Connectors</strong> — 连接 Google Drive、Slack、Notion 等工具</li>
+          <li><strong>Claude Code</strong> — 终端中自主读写文件、运行命令、提交代码</li>
+          <li><strong>Extended Thinking</strong> — 深度思考模式，适合复杂问题</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="resources-title">📹 视频教程</h3>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <a href="https://www.youtube.com/watch?v=WSPChlfxJyA" target="_blank" rel="noopener">
+          <div class="resource-type video">YouTube · 19 分钟</div>
+          <h4>Full Claude Tutorial: Beginner to Advanced</h4>
+          <div class="resource-meta">涵盖 ICC 提示框架、Projects、Skills、Connectors 完整体系</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.youtube.com/watch?v=rRrBbyv3ChM" target="_blank" rel="noopener">
+          <div class="resource-type video">YouTube · 长教程</div>
+          <h4>FULL Claude Tutorial for Beginners in 2026</h4>
+          <div class="resource-meta">从注册到高级自动化，构建你的 AI 操作系统</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.youtube.com/watch?v=-xEF5WrdIWs" target="_blank" rel="noopener">
+          <div class="resource-type video">YouTube · 入门</div>
+          <h4>How to Use Claude AI Step by Step (2026)</h4>
+          <div class="resource-meta">桌面版 vs 浏览器版对比，提示词技巧，建站实战</div>
+        </a>
+      </div>
+    </div>
+
+    <h3 class="resources-title">📄 文字资料</h3>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <a href="https://claude.com/resources/tutorials/getting-started-with-claude-ai" target="_blank" rel="noopener">
+          <div class="resource-type official">官方教程</div>
+          <h4>Getting Started with Claude.ai</h4>
+          <div class="resource-meta">Anthropic 官方入门指南：提示词、文档上传、搜索功能</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://code.claude.com/docs" target="_blank" rel="noopener">
+          <div class="resource-type official">官方文档</div>
+          <h4>Claude Code 官方文档</h4>
+          <div class="resource-meta">安装、Quickstart、CLAUDE.md、工作流最佳实践</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://claude.com/product/claude-code" target="_blank" rel="noopener">
+          <div class="resource-type official">产品介绍</div>
+          <h4>Claude Code 产品页</h4>
+          <div class="resource-meta">终端、IDE、桌面 App、浏览器多平台编程代理</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://code.claude.com/docs/en/terminal-guide" target="_blank" rel="noopener">
+          <div class="resource-type article">终端指南</div>
+          <h4>Terminal Guide for New Users</h4>
+          <div class="resource-meta">从未用过终端的用户也能跟着完成的安装教程</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview" target="_blank" rel="noopener">
+          <div class="resource-type official">官方文档</div>
+          <h4>Prompt Engineering 指南</h4>
+          <div class="resource-meta">XML 标签结构化提示、示例引导、长上下文排列技巧</div>
+        </a>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- Codex -->
+<section id="section-codex" class="section codex-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon codex">X</div>
+      <div>
+        <h2>OpenAI Codex</h2>
+        <p class="desc">OpenAI 的编程代理系统，不再是早期的 API 模型，而是完整的自主编程平台。支持 CLI、IDE 扩展、桌面 App 和云端 GitHub 集成。</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="dot"></span> 快速入门</h3>
+        <ol class="steps">
+          <li>确保有 ChatGPT 账号（Plus / Pro / Business 计划）</li>
+          <li>安装 CLI：<code>npm install -g @openai/codex</code>，运行 <code>codex</code> 登录</li>
+          <li>或下载桌面 App：访问 <a href="https://chatgpt.com/codex" target="_blank" rel="noopener">chatgpt.com/codex</a></li>
+          <li>在 VS Code / Cursor 中安装 OpenAI Codex 扩展</li>
+          <li>运行 <code>/init</code> 生成 AGENTS.md 项目配置文件</li>
+          <li>连接 GitHub，在云端分配任务并自动生成 PR</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span> 核心功能</h3>
+        <ul class="features">
+          <li><strong>四大入口</strong> — CLI、IDE 扩展、桌面 App、Codex Cloud</li>
+          <li><strong>AGENTS.md</strong> — 项目级 AI 指令手册，定义编码规范</li>
+          <li><strong>Worktrees</strong> — Git 工作树隔离，并行执行多个任务</li>
+          <li><strong>Skills</strong> — 将重复工作流封装为可复用技能</li>
+          <li><strong>MCP 集成</strong> — 连接 Jira、Linear 等外部工具</li>
+          <li><strong>PR 自动化</strong> — 在 GitHub Issue/PR 中 @codex 自动处理</li>
+          <li><strong>沙箱模式</strong> — 安全审批机制，控制 Agent 权限</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="resources-title">📹 视频教程</h3>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <a href="https://www.youtube.com/watch?v=nQFtsehu7h0" target="_blank" rel="noopener">
+          <div class="resource-type video">YouTube · 33 分钟</div>
+          <h4>Complete Beginner's Guide to OpenAI's Codex App</h4>
+          <div class="resource-meta">John Kim · 从零学习 Codex App，对比 Claude Code 差异</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.youtube.com/watch?v=XRu3e7qHHt8" target="_blank" rel="noopener">
+          <div class="resource-type video">YouTube · 15 分钟</div>
+          <h4>How to Use OpenAI Codex for Beginners</h4>
+          <div class="resource-meta">OOP Coders · 15 分钟快速上手，无需编程经验</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.youtube.com/watch?v=T-JYfV95JO0" target="_blank" rel="noopener">
+          <div class="resource-type video">YouTube · 12 分钟</div>
+          <h4>OpenAI Codex Tutorial 2026 — Getting Started</h4>
+          <div class="resource-meta">CLI 安装、云端使用、GitHub 连接完整流程</div>
+        </a>
+      </div>
+    </div>
+
+    <h3 class="resources-title">📄 文字资料</h3>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <a href="https://developers.openai.com/codex" target="_blank" rel="noopener">
+          <div class="resource-type official">官方文档</div>
+          <h4>Codex 官方开发者文档</h4>
+          <div class="resource-meta">Quickstart、CLI、IDE 扩展、Cloud、最佳实践</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" target="_blank" rel="noopener">
+          <div class="resource-type official">官方帮助</div>
+          <h4>Using Codex with Your ChatGPT Plan</h4>
+          <div class="resource-meta">各订阅计划的 Codex 访问权限和入门步骤</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://developers.openai.com/codex/learn/best-practices" target="_blank" rel="noopener">
+          <div class="resource-type official">最佳实践</div>
+          <h4>Codex Best Practices</h4>
+          <div class="resource-meta">AGENTS.md、MCP、Skills、计划先行、测试验证</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.freecodecamp.org/news/the-codex-handbook-a-practical-guide-to-openai-s-coding-platform/" target="_blank" rel="noopener">
+          <div class="resource-type article">FreeCodeCamp</div>
+          <h4>The Codex Handbook — 实用指南</h4>
+          <div class="resource-meta">安装配置、定价对比、企业治理、安全清单</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.datacamp.com/tutorial/openai-codex" target="_blank" rel="noopener">
+          <div class="resource-type article">DataCamp</div>
+          <h4>OpenAI Codex Tutorial — 3 个实战案例</h4>
+          <div class="resource-meta">连接 GitHub、修复 Bug、生成测试的完整教程</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://eastondev.com/blog/en/posts/ai/20260624-codex-complete-beginner-guide/" target="_blank" rel="noopener">
+          <div class="resource-type article">入门指南</div>
+          <h4>Codex 完整新手指南（CLI / IDE / Cloud / App）</h4>
+          <div class="resource-meta">四大入口对比，选择适合你的工作方式</div>
+        </a>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- Cursor -->
+<section id="section-cursor" class="section cursor-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon cursor">↗</div>
+      <div>
+        <h2>Cursor</h2>
+        <p class="desc">基于 VS Code 的 AI 原生代码编辑器，将大语言模型深度集成到编辑体验的每一层。支持 Tab 补全、内联编辑、Agent 自主编程和 MCP 扩展。</p>
+      </div>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="dot"></span> 快速入门</h3>
+        <ol class="steps">
+          <li>访问 <a href="https://cursor.com/download" target="_blank" rel="noopener">cursor.com/download</a> 下载安装包</li>
+          <li>首次启动时导入 VS Code 扩展和设置</li>
+          <li>打开项目文件夹：File → Open Folder</li>
+          <li>按 <code>Cmd+I</code>（Mac）或 <code>Ctrl+I</code>（Win）打开 Agent 面板</li>
+          <li>用 <code>@</code> 引用文件，给 Agent 更多上下文</li>
+          <li>在 <code>.cursor/rules/</code> 中创建项目规则文件</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span> 核心功能</h3>
+        <ul class="features">
+          <li><strong>Tab 补全</strong> — 预测式 AI 自动补全，支持多行代码</li>
+          <li><strong>Cmd+K</strong> — 选中代码后内联 AI 编辑</li>
+          <li><strong>Agent 模式</strong> — 自主搜索代码库、编辑文件、运行终端</li>
+          <li><strong>Plan 模式</strong> — Shift+Tab 先制定计划再执行</li>
+          <li><strong>Rules</strong> — .cursor/rules/ 定义项目编码规范</li>
+          <li><strong>MCP 服务器</strong> — 连接数据库、GitHub 等外部系统</li>
+          <li><strong>Cloud Agents</strong> — 浏览器/手机远程启动编程任务</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="resources-title">⌨️ 快捷键速查</h3>
+    <table class="compare-table">
+      <thead>
+        <tr><th>快捷键</th><th>功能</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>Tab</code></td><td>接受 AI 补全建议</td></tr>
+        <tr><td><code>Cmd+K</code> / <code>Ctrl+K</code></td><td>内联 AI 编辑选中代码</td></tr>
+        <tr><td><code>Cmd+I</code> / <code>Ctrl+I</code></td><td>打开 Agent 面板</td></tr>
+        <tr><td><code>Cmd+L</code> / <code>Ctrl+L</code></td><td>打开 Chat 对话</td></tr>
+        <tr><td><code>Shift+Tab</code></td><td>在 Agent 中切换到 Plan 模式</td></tr>
+        <tr><td><code>@</code></td><td>在对话中引用文件、文件夹或文档</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="resources-title">📹 视频教程</h3>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <a href="https://www.youtube.com/watch?v=l30Eb76Tk5s" target="_blank" rel="noopener">
+          <div class="resource-type video">YouTube · 27 分钟</div>
+          <h4>Cursor 2.0 — Full Tutorial for Beginners</h4>
+          <div class="resource-meta">Tech With Tim · UI 概览、Plan 模式、Agent、Rules、MCP 完整教程</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.youtube.com/watch?v=2Wn0_mz0X4g" target="_blank" rel="noopener">
+          <div class="resource-type video">YouTube · 教程</div>
+          <h4>Cursor AI Tutorial for Beginners</h4>
+          <div class="resource-meta">从零安装到实际项目开发的完整流程</div>
+        </a>
+      </div>
+    </div>
+
+    <h3 class="resources-title">📄 文字资料</h3>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <a href="https://cursor.com/docs/get-started/quickstart" target="_blank" rel="noopener">
+          <div class="resource-type official">官方文档</div>
+          <h4>Cursor Quickstart</h4>
+          <div class="resource-meta">从安装到第一次代码修改的完整引导</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://cursor.com/help/getting-started/first-project" target="_blank" rel="noopener">
+          <div class="resource-type official">官方帮助</div>
+          <h4>Your First Project</h4>
+          <div class="resource-meta">打开项目、使用 Agent、审查代码变更</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://josenobile.co/guides/cursor/" target="_blank" rel="noopener">
+          <div class="resource-type article">完整指南</div>
+          <h4>Cursor IDE: The Complete Guide (2026)</h4>
+          <div class="resource-meta">25 分钟阅读 · Tab、Cmd+K、Agent、MCP、模型选择全涵盖</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://tech-insider.org/cursor-tutorial-ai-code-editor-2026/" target="_blank" rel="noopener">
+          <div class="resource-type article">12 步教程</div>
+          <h4>How to Master Cursor AI in 12 Steps</h4>
+          <div class="resource-meta">安装配置、核心功能、定价、故障排除</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://developertoolkit.ai/en/cursor-ide/" target="_blank" rel="noopener">
+          <div class="resource-type article">开发者工具包</div>
+          <h4>Cursor IDE Developer Toolkit</h4>
+          <div class="resource-meta">20+ 实战场景、Agent 深度指南、企业模式</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://cursor.com/docs/context/rules" target="_blank" rel="noopener">
+          <div class="resource-type official">官方文档</div>
+          <h4>Cursor Rules 文档</h4>
+          <div class="resource-meta">如何用 .cursor/rules 定制 Agent 行为</div>
+        </a>
+      </div>
+    </div>
+  </main>
+</section>
+
+<footer>
+  <p>AI 编程工具指南 · 持续更新中 · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
