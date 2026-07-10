@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI 编程工具指南 — Claude · Codex · Cursor</title>
-  <meta name="description" content="学习如何使用 Claude、OpenAI Codex 和 Cursor 等 AI 编程工具，包含官方文档、教程视频和 6 个 Step-by-Step 实战案例。">
+  <title>AI 应用指南 — 学习如何使用与应用人工智能</title>
+  <meta name="description" content="全面学习 ChatGPT、Claude、Gemini、DeepSeek、Cursor、Codex 等 AI 工具的使用方法与应用场景，含教程、实战案例与社区资料。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,13 +13,16 @@
   <nav class="nav">
     <div class="logo">
       <div class="logo-icon">AI</div>
-      <span>AI 编程工具指南</span>
+      <span>AI 应用指南</span>
     </div>
     <div class="nav-tabs">
       <button class="nav-tab active" data-tool="all">总览</button>
+      <button class="nav-tab" data-tool="chatgpt">ChatGPT</button>
       <button class="nav-tab" data-tool="claude">Claude</button>
-      <button class="nav-tab" data-tool="codex">Codex</button>
+      <button class="nav-tab" data-tool="gemini">Gemini</button>
+      <button class="nav-tab" data-tool="deepseek">DeepSeek</button>
       <button class="nav-tab" data-tool="cursor">Cursor</button>
+      <button class="nav-tab" data-tool="codex">Codex</button>
       <button class="nav-tab" data-tool="cases">实战</button>
       <button class="nav-tab" data-tool="community">社区</button>
     </div>
@@ -33,100 +36,325 @@
 <!-- 总览 -->
 <section id="section-home" class="section active">
   <div class="hero">
-    <h1>掌握 AI 编程工具</h1>
-    <p>从零开始学习 Claude、OpenAI Codex 和 Cursor，提升你的编程效率与创造力。</p>
+    <h1>学会使用 AI，让 AI 为你工作</h1>
+    <p>从对话助手到编程开发，覆盖 ChatGPT、Claude、Gemini、DeepSeek 等主流工具的使用方法、应用场景与实战技巧。</p>
+    <p class="category-label" style="margin-top:0">对话与通用 AI</p>
     <div class="tool-cards">
+      <div class="tool-card chatgpt" data-tool="chatgpt">
+        <span class="badge">OpenAI</span>
+        <h3>ChatGPT</h3>
+        <p>最普及的 AI 助手，写作、学习、编程、图像生成全能。</p>
+      </div>
       <div class="tool-card claude" data-tool="claude">
         <span class="badge">Anthropic</span>
         <h3>Claude</h3>
-        <p>强大的对话 AI 与编程代理，擅长推理、写作和代码理解。</p>
+        <p>深度推理与长文档分析，Projects 知识库与 Claude Code。</p>
+      </div>
+      <div class="tool-card gemini" data-tool="gemini">
+        <span class="badge">Google</span>
+        <h3>Gemini</h3>
+        <p>深度整合 Google 生态，多模态、Deep Research、Gems。</p>
+      </div>
+      <div class="tool-card deepseek" data-tool="deepseek">
+        <span class="badge">DeepSeek</span>
+        <h3>DeepSeek</h3>
+        <p>高性价比推理模型，免费网页版 + 开发者友好 API。</p>
+      </div>
+    </div>
+    <p class="category-label">编程与开发 AI</p>
+    <div class="tool-cards">
+      <div class="tool-card cursor" data-tool="cursor">
+        <span class="badge">Anysphere</span>
+        <h3>Cursor</h3>
+        <p>AI 原生代码编辑器，Agent 模式与 Tab 智能补全。</p>
       </div>
       <div class="tool-card codex" data-tool="codex">
         <span class="badge">OpenAI</span>
         <h3>Codex</h3>
-        <p>端到端编程代理，支持 CLI、IDE 扩展和云端自动化任务。</p>
-      </div>
-      <div class="tool-card cursor" data-tool="cursor">
-        <span class="badge">Anysphere</span>
-        <h3>Cursor</h3>
-        <p>AI 原生代码编辑器，集成 Agent、Tab 补全和多文件编辑。</p>
+        <p>端到端编程代理，CLI、IDE 扩展与 GitHub 自动化。</p>
       </div>
     </div>
   </div>
 
   <main>
-    <h3 class="resources-title">三大工具对比</h3>
+    <h3 class="resources-title">AI 能帮你做什么</h3>
+    <div class="scenario-grid">
+      <div class="scenario-card"><div class="icon">✍️</div><h4>写作创作</h4><p>文章、邮件、文案、翻译</p></div>
+      <div class="scenario-card"><div class="icon">📚</div><h4>学习研究</h4><p>知识问答、论文总结、辅导</p></div>
+      <div class="scenario-card"><div class="icon">💻</div><h4>编程开发</h4><p>写代码、调试、代码审查</p></div>
+      <div class="scenario-card"><div class="icon">📊</div><h4>数据分析</h4><p>表格处理、图表、报告生成</p></div>
+      <div class="scenario-card"><div class="icon">🎨</div><h4>图像视频</h4><p>AI 绘图、视频生成与编辑</p></div>
+      <div class="scenario-card"><div class="icon">⚡</div><h4>工作效率</h4><p>自动化任务、会议纪要、规划</p></div>
+    </div>
+
+    <h3 class="resources-title">工具选型速查</h3>
+    <div class="compare-wrap">
     <table class="compare-table">
       <thead>
         <tr>
-          <th>特性</th>
-          <th>Claude</th>
-          <th>Codex</th>
-          <th>Cursor</th>
+          <th>工具</th>
+          <th>类型</th>
+          <th>核心优势</th>
+          <th>适合场景</th>
+          <th>入门</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>开发商</td>
-          <td>Anthropic</td>
-          <td>OpenAI</td>
-          <td>Anysphere</td>
+          <td>ChatGPT</td>
+          <td>对话助手</td>
+          <td>生态最全、GPTs、多模态</td>
+          <td>日常问答、创作、通用任务</td>
+          <td>免费 / Plus $20</td>
         </tr>
         <tr>
-          <td>主要形态</td>
-          <td>网页对话 / Claude Code CLI</td>
-          <td>CLI / IDE 扩展 / 桌面 App / 云端</td>
-          <td>AI 代码编辑器（VS Code 分支）</td>
+          <td>Claude</td>
+          <td>对话 + 编程</td>
+          <td>深度推理、长文本、Artifacts</td>
+          <td>文档分析、写作、代码审查</td>
+          <td>免费 / Pro $20</td>
         </tr>
         <tr>
-          <td>核心优势</td>
-          <td>深度推理、长文本、Projects 知识库</td>
-          <td>自主完成任务、GitHub PR 自动化</td>
-          <td>编辑器深度集成、Tab 补全、Agent 模式</td>
+          <td>Gemini</td>
+          <td>对话助手</td>
+          <td>Google 整合、Deep Research</td>
+          <td>搜索研究、Gmail/Drive 联动</td>
+          <td>免费 / Advanced</td>
         </tr>
         <tr>
-          <td>配置文件</td>
-          <td>CLAUDE.md / Projects 指令</td>
-          <td>AGENTS.md / config.toml</td>
-          <td>.cursor/rules / Rules</td>
+          <td>DeepSeek</td>
+          <td>对话 + API</td>
+          <td>免费好用、推理强、API 便宜</td>
+          <td>学习、编程、低成本开发</td>
+          <td>网页免费 / API 按量</td>
         </tr>
         <tr>
-          <td>适合场景</td>
-          <td>研究分析、文档写作、代码审查</td>
-          <td>大型重构、自动化 PR、云端任务</td>
-          <td>日常编码、快速迭代、多文件编辑</td>
+          <td>Cursor</td>
+          <td>编程 IDE</td>
+          <td>编辑器深度集成、Agent</td>
+          <td>日常编码、快速迭代</td>
+          <td>免费 / Pro $20</td>
         </tr>
         <tr>
-          <td>定价</td>
-          <td>Free / Pro $20/月</td>
-          <td>包含在 ChatGPT 订阅中</td>
-          <td>Free / Pro $20/月</td>
+          <td>Codex</td>
+          <td>编程代理</td>
+          <td>自主任务、PR 自动化</td>
+          <td>大型重构、云端开发</td>
+          <td>含在 ChatGPT 订阅</td>
         </tr>
       </tbody>
     </table>
+    </div>
 
     <h3 class="resources-title">学习路径建议</h3>
     <div class="grid-2">
       <div class="card">
-        <h3><span class="dot" style="background:var(--accent)"></span> 初学者</h3>
+        <h3><span class="dot" style="background:var(--accent)"></span> 零基础入门</h3>
         <ol class="steps">
-          <li>先用 <strong>Claude.ai</strong> 熟悉 AI 对话和提示词技巧</li>
-          <li>安装 <strong>Cursor</strong>，体验 Tab 补全和 Agent 模式</li>
-          <li>了解 <strong>Codex</strong> 的 AGENTS.md 配置和云端任务</li>
+          <li>从 <strong>ChatGPT</strong> 或 <strong>DeepSeek</strong> 开始，学会基本对话和提示词</li>
+          <li>尝试 <strong>Gemini</strong> 的文件上传和 Deep Research 功能</li>
+          <li>用 <strong>Claude</strong> 处理长文档和复杂分析任务</li>
         </ol>
       </div>
       <div class="card">
-        <h3><span class="dot" style="background:var(--codex)"></span> 进阶用户</h3>
+        <h3><span class="dot" style="background:var(--codex)"></span> 进阶应用</h3>
         <ol class="steps">
-          <li>用 Claude Projects 建立项目专属知识库</li>
-          <li>配置 Cursor Rules 和 MCP 服务器扩展能力</li>
-          <li>用 Codex Cloud 连接 GitHub 实现 PR 自动化</li>
+          <li>编程方向：安装 <strong>Cursor</strong>，配置 Rules 和 Agent 工作流</li>
+          <li>自动化方向：用 <strong>Codex</strong> 连接 GitHub 实现 PR 自动化</li>
+          <li>开发集成：用 <strong>DeepSeek API</strong> 低成本接入自有产品</li>
         </ol>
       </div>
     </div>
 
     <div style="text-align:center;margin-top:8px">
-      <button class="cta-btn" data-goto="cases">查看 6 个实战案例 →</button>
+      <button class="cta-btn" data-goto="cases">查看实战案例 →</button>
+    </div>
+  </main>
+</section>
+
+<!-- ChatGPT -->
+<section id="section-chatgpt" class="section chatgpt-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon chatgpt">G</div>
+      <div>
+        <h2>ChatGPT</h2>
+        <p class="desc">OpenAI 出品的通用 AI 助手，用户量最大、功能最全。支持对话、图像生成、文件分析、代码编写、自定义 GPTs 和语音交互。</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="dot"></span> 快速入门</h3>
+        <ol class="steps">
+          <li>访问 <a href="https://chatgpt.com" target="_blank" rel="noopener">chatgpt.com</a> 注册（支持 Google/Apple 登录）</li>
+          <li>下载 iOS / Android App，开启语音对话模式</li>
+          <li>在输入框下方选择模型：<strong>Instant</strong>（快速）/ <strong>Thinking</strong>（深度推理）/ <strong>Pro</strong>（最强）</li>
+          <li>设置 → 个性化指令，告诉 ChatGPT 你的背景和偏好</li>
+          <li>上传 PDF、图片、表格让 AI 分析处理</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span> 核心功能</h3>
+        <ul class="features">
+          <li><strong>多模型模式</strong> — Instant 日常快速，Thinking 复杂推理，Pro 高难度任务</li>
+          <li><strong>自定义 GPTs</strong> — 创建专属 AI 助手，分享给他人使用</li>
+          <li><strong>文件与图像</strong> — 上传文档分析、DALL·E 图像生成与编辑</li>
+          <li><strong>记忆功能</strong> — 跨对话记住你的偏好和背景信息</li>
+          <li><strong>语音模式</strong> — 实时语音对话，移动端体验优秀</li>
+          <li><strong>Deep Research</strong> — 自动搜索多个来源，生成研究报告</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="resources-title">📄 文字资料</h3>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <a href="https://help.openai.com/en/articles/6783457-what-is-chatgpt" target="_blank" rel="noopener">
+          <div class="resource-type official">官方帮助</div>
+          <h4>What is ChatGPT?</h4>
+          <div class="resource-meta">OpenAI 官方介绍：功能、定价、API 接入</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://openai.com/chatgpt/pricing" target="_blank" rel="noopener">
+          <div class="resource-type official">定价</div>
+          <h4>ChatGPT 定价方案</h4>
+          <div class="resource-meta">Free / Plus / Pro / Team / Enterprise 对比</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://platform.openai.com/docs/guides/prompt-engineering" target="_blank" rel="noopener">
+          <div class="resource-type official">官方文档</div>
+          <h4>Prompt Engineering 指南</h4>
+          <div class="resource-meta">OpenAI 官方提示词工程最佳实践</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.techcompanynews.com/how-to-use-chatgpt-in-2026-step-by-step-guide/" target="_blank" rel="noopener">
+          <div class="resource-type article">分步教程</div>
+          <h4>How to Use ChatGPT in 2026</h4>
+          <div class="resource-meta">从注册到高级技巧的完整指南</div>
+        </a>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- Gemini -->
+<section id="section-gemini" class="section gemini-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon gemini">✦</div>
+      <div>
+        <h2>Google Gemini</h2>
+        <p class="desc">Google 的 AI 助手，深度整合 Gmail、Drive、YouTube 等 Google 服务。支持多模态输入、Deep Research、Gems 自定义工具和实时语音对话。</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="dot"></span> 快速入门</h3>
+        <ol class="steps">
+          <li>访问 <a href="https://gemini.google.com" target="_blank" rel="noopener">gemini.google.com</a>，用 Google 账号登录</li>
+          <li>Android 用户可下载 Gemini App 或设为默认 AI 助手</li>
+          <li>设置 → Instructions for Gemini，配置个性化指令</li>
+          <li>连接 Google 应用：Gmail、Drive、YouTube、Google 地图</li>
+          <li>在输入框切换模型：Flash（快速）/ Pro（强力）/ Ultra</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span> 核心功能</h3>
+        <ul class="features">
+          <li><strong>Gems</strong> — 创建可复用的专属 AI 工具（如写作助手、代码审查员）</li>
+          <li><strong>Deep Research</strong> — 自动浏览网页，生成带引用的深度研究报告</li>
+          <li><strong>Gemini Live</strong> — 实时语音对话，支持摄像头和屏幕共享</li>
+          <li><strong>Canvas</strong> — 协作编辑文档、代码和图表的工作区</li>
+          <li><strong>图像与视频</strong> — Imagen 图像生成、Veo 视频创作</li>
+          <li><strong>Scheduled Actions</strong> — 定时自动执行重复性 AI 任务</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="resources-title">📄 文字资料</h3>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <a href="https://support.google.com/gemini/answer/13275745" target="_blank" rel="noopener">
+          <div class="resource-type official">官方帮助</div>
+          <h4>Use Gemini Apps — 官方指南</h4>
+          <div class="resource-meta">Google 官方：功能介绍、模型切换、文件上传</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://ai.google.dev/gemini-api/docs" target="_blank" rel="noopener">
+          <div class="resource-type official">开发者文档</div>
+          <h4>Gemini API 文档</h4>
+          <div class="resource-meta">Google AI Studio、API Key、SDK 接入指南</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://www.android.com/intl/en_uk/articles/gemini-android-app/" target="_blank" rel="noopener">
+          <div class="resource-type official">Android 指南</div>
+          <h4>Gemini Android App 使用教程</h4>
+          <div class="resource-meta">语音、截图分析、屏幕上下文等移动端功能</div>
+        </a>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- DeepSeek -->
+<section id="section-deepseek" class="section deepseek-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon deepseek">D</div>
+      <div>
+        <h2>DeepSeek</h2>
+        <p class="desc">国产高性能 AI 模型，以极强的推理能力和极具竞争力的 API 价格著称。网页版免费使用，API 兼容 OpenAI 格式，开发者可零成本迁移。</p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="dot"></span> 快速入门</h3>
+        <ol class="steps">
+          <li>访问 <a href="https://chat.deepseek.com" target="_blank" rel="noopener">chat.deepseek.com</a> 免费注册使用</li>
+          <li>切换「深度思考」模式处理复杂推理和数学问题</li>
+          <li>开发者：访问 <a href="https://platform.deepseek.com" target="_blank" rel="noopener">platform.deepseek.com</a> 获取 API Key</li>
+          <li>API 调用只需改 OpenAI SDK 的 <code>base_url</code> 为 <code>https://api.deepseek.com</code></li>
+          <li>模型选择：<code>deepseek-v4-flash</code>（快速）/ <code>deepseek-v4-pro</code>（强力）</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span> 核心功能</h3>
+        <ul class="features">
+          <li><strong>深度思考模式</strong> — 展示推理过程，数学和逻辑题表现突出</li>
+          <li><strong>免费网页版</strong> — chat.deepseek.com 无需付费即可使用</li>
+          <li><strong>OpenAI 兼容 API</strong> — 现有 OpenAI 代码几乎零改动接入</li>
+          <li><strong>超长上下文</strong> — V4 支持最高 1M token 上下文窗口</li>
+          <li><strong>极低 API 价格</strong> — 约为 GPT-4 的 1/10，适合大规模部署</li>
+          <li><strong>Agent 工具集成</strong> — 支持 Claude Code、Copilot 等作为后端模型</li>
+        </ul>
+      </div>
+    </div>
+    <h3 class="resources-title">📄 文字资料</h3>
+    <div class="resource-grid">
+      <div class="resource-item">
+        <a href="https://api-docs.deepseek.com/" target="_blank" rel="noopener">
+          <div class="resource-type official">官方文档</div>
+          <h4>DeepSeek API 官方文档</h4>
+          <div class="resource-meta">API 调用、模型列表、Agent 集成指南</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://deepseekai.guide/tutorials/how-to-use-deepseek/" target="_blank" rel="noopener">
+          <div class="resource-type article">实用教程</div>
+          <h4>How to Use DeepSeek: 2026 Walkthrough</h4>
+          <div class="resource-meta">网页版、App、API 三角度完整入门</div>
+        </a>
+      </div>
+      <div class="resource-item">
+        <a href="https://chat-deep.ai/docs/openai-sdk-to-deepseek/" target="_blank" rel="noopener">
+          <div class="resource-type article">开发者指南</div>
+          <h4>用 OpenAI SDK 调用 DeepSeek</h4>
+          <div class="resource-meta">Python/Node.js 示例、流式输出、JSON 模式</div>
+        </a>
+      </div>
     </div>
   </main>
 </section>
@@ -467,16 +695,97 @@
       <div class="tool-icon" style="background:rgba(59,130,246,0.15);color:var(--accent)">⚡</div>
       <div>
         <h2>实战案例</h2>
-        <p class="desc">跟着 Step-by-Step 流程，用 AI 工具完成真实项目。每个案例包含完整提示词、操作步骤和验收标准。</p>
+        <p class="desc">从通用 AI 应用到编程开发，跟着 Step-by-Step 流程完成真实任务。涵盖对话助手、文档生成、编程自动化等场景。</p>
       </div>
     </div>
 
     <div class="case-filters">
       <button class="case-filter active" data-filter="all">全部</button>
+      <button class="case-filter" data-filter="chatgpt">ChatGPT</button>
+      <button class="case-filter" data-filter="gemini">Gemini</button>
+      <button class="case-filter" data-filter="deepseek">DeepSeek</button>
       <button class="case-filter" data-filter="cursor">Cursor</button>
       <button class="case-filter" data-filter="claude">Claude</button>
       <button class="case-filter" data-filter="codex">Codex</button>
     </div>
+
+    <!-- 案例 0 - ChatGPT 写作 -->
+    <article class="case-card" data-tool="chatgpt">
+      <div class="case-header" role="button" tabindex="0">
+        <div class="case-meta">
+          <span class="case-badge chatgpt">ChatGPT</span>
+          <span class="case-level">入门</span>
+          <span class="case-time">约 15 分钟</span>
+        </div>
+        <h3>用 ChatGPT 写一份专业周报</h3>
+        <p class="case-summary">不只会聊天——用结构化提示词让 ChatGPT 生成高质量的工作周报。</p>
+        <span class="case-toggle">展开步骤</span>
+      </div>
+      <div class="case-body">
+        <div class="case-goal"><strong>目标：</strong>输入本周工作要点，输出格式规范、语言专业的周报邮件。</div>
+        <ol class="case-steps">
+          <li>
+            <div class="step-title">Step 1 — 设置个性化指令</div>
+            <p>ChatGPT → 设置 → 个性化 → 填入你的职位、团队、汇报对象，后续对话自动带入上下文。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 2 — 提供本周素材</div>
+            <div class="prompt-block">我要写本周工作周报，请帮我整理成邮件格式。本周完成：
+- 完成了 XX 功能开发和测试
+- 参加了 XX 项目评审会议
+- 修复了 3 个线上 Bug
+- 下周计划：开始 YY 模块开发
+
+要求：语气专业简洁，分「本周完成」「遇到的问题」「下周计划」三节，每节用 bullet points。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 3 — 迭代优化</div>
+            <div class="prompt-block">语气再正式一些，「遇到的问题」部分帮我补充一个合理的技术挑战描述，并写上解决方案。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 4 — 保存为 GPT（可选）</div>
+            <p>如果每周都写周报，可创建自定义 GPT「周报助手」，预设好格式和风格，以后只需粘贴要点即可。</p>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- 案例 Gemini -->
+    <article class="case-card" data-tool="gemini">
+      <div class="case-header" role="button" tabindex="0">
+        <div class="case-meta">
+          <span class="case-badge gemini">Gemini</span>
+          <span class="case-level">入门</span>
+          <span class="case-time">约 20 分钟</span>
+        </div>
+        <h3>用 Gemini Deep Research 做行业调研</h3>
+        <p class="case-summary">让 Gemini 自动搜索多个来源，生成带引用链接的深度研究报告。</p>
+        <span class="case-toggle">展开步骤</span>
+      </div>
+      <div class="case-body">
+        <div class="case-goal"><strong>目标：</strong>调研一个行业话题，获得结构化的研究报告和参考来源。</div>
+        <ol class="case-steps">
+          <li>
+            <div class="step-title">Step 1 — 开启 Deep Research</div>
+            <p>访问 gemini.google.com，在工具栏选择 <strong>Deep Research</strong>（需 Gemini Advanced 订阅）。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 2 — 提出研究问题</div>
+            <div class="prompt-block">请深入研究：2026年 AI 编程工具市场格局
+需要涵盖：主要玩家（Cursor、Copilot、Codex、Claude Code）、市场规模、用户画像、未来趋势
+输出格式：执行摘要 + 分章节正文 + 参考来源列表</div>
+          </li>
+          <li>
+            <div class="step-title">Step 3 — 审阅与追问</div>
+            <p>Gemini 会花几分钟自动浏览网页并撰写报告。完成后可追问：「请补充中国市场的数据」或「对比各工具定价」。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 4 — 导出使用</div>
+            <p>点击导出到 Google Docs，或直接复制到 Notion / 飞书文档中分享给团队。</p>
+          </li>
+        </ol>
+      </div>
+    </article>
 
     <!-- 案例 1 -->
     <article class="case-card" data-tool="cursor">
@@ -809,7 +1118,7 @@ Internet: off</div>
       <div class="tool-icon" style="background:rgba(16,163,127,0.12);color:var(--codex)">📚</div>
       <div>
         <h2>社区资料库</h2>
-        <p class="desc">注册登录后上传你的学习笔记与教程，支持 Markdown、Word 文档和视频。所有人可浏览社区资料。</p>
+        <p class="desc">注册登录后上传你的 AI 学习笔记与教程，支持 Markdown、Word 文档和视频。与社区分享你的 AI 应用经验。</p>
       </div>
     </div>
 
@@ -884,7 +1193,7 @@ Internet: off</div>
 </div>
 
 <footer>
-  <p>AI 编程工具指南 · 持续更新中 · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
+  <p>AI 应用指南 · 学习如何使用与应用人工智能 · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>

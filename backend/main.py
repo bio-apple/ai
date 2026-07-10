@@ -33,7 +33,7 @@ from backend.database import (
 
 init_db()
 
-app = FastAPI(title="AI 编程工具指南", version="1.0.0")
+app = FastAPI(title="AI 应用指南", version="1.1.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

@@ -1,33 +1,28 @@
-# AI 编程工具指南
+# AI 应用指南
 
-学习 Claude、Codex、Cursor 的教程网站，支持用户注册与社区资料上传。
+学习如何使用与应用人工智能——覆盖 ChatGPT、Claude、Gemini、DeepSeek、Cursor、Codex 等主流工具。
 
 ## 功能
 
-- 📖 AI 工具教程、视频链接、实战案例
-- 👤 用户注册 / 登录
-- 📤 上传资料：Markdown（`.md`）、Word（`.docx`）、视频（`.mp4` 等）
-- 👀 在线预览与下载社区资料
+- 📖 六大 AI 工具教程：使用方法、核心功能、官方文档
+- 🎯 应用场景：写作、学习、编程、数据分析、图像视频、工作效率
+- ⚡ Step-by-Step 实战案例
+- 👤 用户注册 / 登录与社区资料上传（Markdown、Word、视频）
 
-## 启动（含注册与上传功能）
+## 涵盖工具
 
-GitHub Pages 仅托管静态页面，**用户系统需本地或服务器运行后端**：
+| 类型 | 工具 |
+|------|------|
+| 对话与通用 AI | ChatGPT、Claude、Gemini、DeepSeek |
+| 编程与开发 AI | Cursor、Codex |
+
+## 启动
 
 ```bash
 cd ai
 ./start.sh
 ```
 
-浏览器访问 http://127.0.0.1:8765 ，点击顶部「社区」注册并上传。
+访问 http://127.0.0.1:8765
 
-## 配置
-
-编辑 `config.yaml` 可修改端口、JWT 密钥、上传大小限制等。
-
-生产环境请务必修改 `auth.jwt_secret`。
-
-## 技术栈
-
-- 前端：HTML / CSS / JavaScript
-- 后端：FastAPI + SQLite
-- 认证：JWT + bcrypt
+GitHub Pages（https://bio-apple.github.io/ai/）仅托管静态教程页面；注册上传功能需运行本地/服务器后端。
