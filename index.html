@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI 编程工具指南 — Claude · Codex · Cursor</title>
-  <meta name="description" content="学习如何使用 Claude、OpenAI Codex 和 Cursor 等 AI 编程工具，包含官方文档、教程视频和入门指南。">
+  <meta name="description" content="学习如何使用 Claude、OpenAI Codex 和 Cursor 等 AI 编程工具，包含官方文档、教程视频和 6 个 Step-by-Step 实战案例。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,6 +20,7 @@
       <button class="nav-tab" data-tool="claude">Claude</button>
       <button class="nav-tab" data-tool="codex">Codex</button>
       <button class="nav-tab" data-tool="cursor">Cursor</button>
+      <button class="nav-tab" data-tool="cases">实战</button>
     </div>
   </nav>
 </header>
@@ -117,6 +118,10 @@
           <li>用 Codex Cloud 连接 GitHub 实现 PR 自动化</li>
         </ol>
       </div>
+    </div>
+
+    <div style="text-align:center;margin-top:8px">
+      <button class="cta-btn" data-goto="cases">查看 6 个实战案例 →</button>
     </div>
   </main>
 </section>
@@ -445,6 +450,348 @@
           <h4>Cursor Rules 文档</h4>
           <div class="resource-meta">如何用 .cursor/rules 定制 Agent 行为</div>
         </a>
+      </div>
+    </div>
+  </main>
+</section>
+
+<!-- 实战案例 -->
+<section id="section-cases" class="section cases-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon" style="background:rgba(59,130,246,0.15);color:var(--accent)">⚡</div>
+      <div>
+        <h2>实战案例</h2>
+        <p class="desc">跟着 Step-by-Step 流程，用 AI 工具完成真实项目。每个案例包含完整提示词、操作步骤和验收标准。</p>
+      </div>
+    </div>
+
+    <div class="case-filters">
+      <button class="case-filter active" data-filter="all">全部</button>
+      <button class="case-filter" data-filter="cursor">Cursor</button>
+      <button class="case-filter" data-filter="claude">Claude</button>
+      <button class="case-filter" data-filter="codex">Codex</button>
+    </div>
+
+    <!-- 案例 1 -->
+    <article class="case-card" data-tool="cursor">
+      <div class="case-header" role="button" tabindex="0">
+        <div class="case-meta">
+          <span class="case-badge cursor">Cursor</span>
+          <span class="case-level">入门</span>
+          <span class="case-time">约 30 分钟</span>
+        </div>
+        <h3>从零搭建待办事项 Web App</h3>
+        <p class="case-summary">用 Cursor Agent + Plan 模式，从空文件夹到可运行的 HTML/CSS/JS 应用。</p>
+        <span class="case-toggle">展开步骤</span>
+      </div>
+      <div class="case-body">
+        <div class="case-goal"><strong>目标：</strong>创建一个支持添加、完成、删除任务的待办清单，数据保存在 localStorage。</div>
+        <div class="case-prereq"><strong>准备：</strong>安装 Cursor · 新建空文件夹并打开</div>
+        <ol class="case-steps">
+          <li>
+            <div class="step-title">Step 1 — 用 Plan 模式制定方案</div>
+            <p>按 <code>Cmd+I</code> 打开 Agent，按 <code>Shift+Tab</code> 切换到 Plan 模式，输入：</p>
+            <div class="prompt-block">我想做一个待办事项 Web App。功能：添加任务、标记完成、删除任务、数据持久化到 localStorage。技术栈：纯 HTML + CSS + JS，不要框架。请先分析需求，列出文件结构和实现计划，不要写代码。</div>
+            <p class="step-tip">💡 Plan 模式会先出方案，你确认后再让它写代码，避免返工。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 2 — 切换到 Agent 模式实现</div>
+            <p>确认计划后，切换到 Agent 模式，发送：</p>
+            <div class="prompt-block">计划没问题，请按方案创建 index.html、style.css、app.js。要求：界面简洁现代、深色主题、移动端适配。</div>
+            <p class="step-tip">💡 Agent 会自动创建多个文件。在 diff 面板逐块审查，不满意的直接说「把删除按钮改成红色」。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 3 — 本地预览和迭代</div>
+            <p>让 Agent 启动本地服务器：</p>
+            <div class="prompt-block">运行 python3 -m http.server 8080 启动预览，然后检查页面是否正常工作。</div>
+            <p>浏览器打开 <code>http://localhost:8080</code>，测试添加/完成/删除功能。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 4 — 添加 Rules 固化规范</div>
+            <p>创建 <code>.cursor/rules/web.mdc</code>，写入项目约定，后续 Agent 会自动遵守：</p>
+            <div class="prompt-block">请创建 .cursor/rules/web.mdc，内容：使用纯 HTML/CSS/JS；CSS 变量管理颜色；函数加简短注释；中文 UI 文案。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 5 — 验收清单</div>
+            <ul class="checklist">
+              <li>能添加新任务并显示在列表中</li>
+              <li>点击可标记完成（划线样式）</li>
+              <li>可删除任务</li>
+              <li>刷新页面后数据仍在</li>
+              <li>手机浏览器布局正常</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- 案例 2 -->
+    <article class="case-card" data-tool="cursor">
+      <div class="case-header" role="button" tabindex="0">
+        <div class="case-meta">
+          <span class="case-badge cursor">Cursor</span>
+          <span class="case-level">中级</span>
+          <span class="case-time">约 45 分钟</span>
+        </div>
+        <h3>给现有项目添加用户登录功能</h3>
+        <p class="case-summary">在已有代码库上用 Agent 模式实现 JWT 认证，涵盖前后端多文件修改。</p>
+        <span class="case-toggle">展开步骤</span>
+      </div>
+      <div class="case-body">
+        <div class="case-goal"><strong>目标：</strong>为现有 Web 项目添加注册、登录、登出功能，用 JWT 做会话管理。</div>
+        <div class="case-prereq"><strong>准备：</strong>一个已有的前后端项目 · Cursor 打开项目根目录</div>
+        <ol class="case-steps">
+          <li>
+            <div class="step-title">Step 1 — 让 Agent 理解现有代码</div>
+            <div class="prompt-block">@src/ @backend/ 请分析这个项目的架构：用的什么框架、数据库、路由结构、前端如何调 API。不要改代码，只输出分析结果。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 2 — Plan 模式设计认证方案</div>
+            <div class="prompt-block">基于刚才的分析，设计用户认证方案：注册/登录/登出 API、JWT 签发与验证中间件、前端登录页和路由守卫。列出要改的文件清单和实施顺序。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 3 — 分步实现后端</div>
+            <div class="prompt-block">先只做后端：创建 User 模型、注册和登录 API、JWT 中间件。写完后运行现有测试，确保没有破坏原有功能。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 4 — 实现前端页面</div>
+            <div class="prompt-block">实现前端登录/注册页面，登录成功后将 token 存 localStorage，API 请求自动带 Authorization header。未登录用户跳转登录页。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 5 — 测试与修复</div>
+            <div class="prompt-block">运行项目的测试命令，修复所有失败用例。然后手动测试：注册新用户 → 登录 → 访问受保护页面 → 登出。</div>
+            <p class="step-tip">💡 大功能一定要分步做。一次让 Agent 改太多文件容易出错，每步验证后再继续。</p>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- 案例 3 -->
+    <article class="case-card" data-tool="claude">
+      <div class="case-header" role="button" tabindex="0">
+        <div class="case-meta">
+          <span class="case-badge claude">Claude</span>
+          <span class="case-level">入门</span>
+          <span class="case-time">约 20 分钟</span>
+        </div>
+        <h3>用 Claude Projects 生成项目技术文档</h3>
+        <p class="case-summary">上传代码仓库，让 Claude 自动分析并输出架构文档和 API 说明。</p>
+        <span class="case-toggle">展开步骤</span>
+      </div>
+      <div class="case-body">
+        <div class="case-goal"><strong>目标：</strong>为一个陌生代码库生成 README、架构图说明和 API 文档。</div>
+        <div class="case-prereq"><strong>准备：</strong>Claude Pro 账号 · 项目核心源码文件（可脱敏）</div>
+        <ol class="case-steps">
+          <li>
+            <div class="step-title">Step 1 — 创建 Project</div>
+            <p>在 <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> 左侧点击「Projects」→「New Project」，命名如「MyApp 文档」。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 2 — 上传知识库</div>
+            <p>将以下文件上传到 Project 知识库：</p>
+            <ul class="checklist">
+              <li>package.json / requirements.txt（依赖信息）</li>
+              <li>主要入口文件（如 main.py、index.ts）</li>
+              <li>路由/控制器文件</li>
+              <li>数据库模型文件</li>
+            </ul>
+          </li>
+          <li>
+            <div class="step-title">Step 3 — 设置 Project 指令</div>
+            <div class="prompt-block">你是一个技术文档工程师。输出使用中文 Markdown。代码示例保留原始语言。文档结构：概述 → 架构 → 目录结构 → API 列表 → 部署说明。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 4 — 分步生成文档</div>
+            <p>依次发送以下提示词（不要一次全发）：</p>
+            <div class="prompt-block">根据知识库中的代码，生成项目概述：这个项目做什么、技术栈、核心模块关系。用 Mermaid 画架构图。</div>
+            <div class="prompt-block">列出所有 API 端点，格式：方法 | 路径 | 功能 | 请求参数 | 响应示例。用表格呈现。</div>
+            <div class="prompt-block">生成部署指南：环境要求、安装步骤、环境变量配置、启动命令。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 5 — 导出为 Artifact</div>
+            <p>让 Claude 将三份文档合并为一个完整 README，在 Artifacts 面板预览后复制到项目仓库。</p>
+            <p class="step-tip">💡 Projects 的知识库是持久的，后续代码更新后重新上传，Claude 能基于新代码增量更新文档。</p>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- 案例 4 -->
+    <article class="case-card" data-tool="claude">
+      <div class="case-header" role="button" tabindex="0">
+        <div class="case-meta">
+          <span class="case-badge claude">Claude</span>
+          <span class="case-level">中级</span>
+          <span class="case-time">约 25 分钟</span>
+        </div>
+        <h3>用 Claude Code 终端修复 Bug</h3>
+        <p class="case-summary">在终端用 Claude Code 定位、修复 bug 并提交 git commit，完整开发闭环。</p>
+        <span class="case-toggle">展开步骤</span>
+      </div>
+      <div class="case-body">
+        <div class="case-goal"><strong>目标：</strong>修复一个已知 bug：「用户列表分页到第 2 页时返回空数据」。</div>
+        <div class="case-prereq"><strong>准备：</strong>安装 Claude Code · 克隆项目到本地 · 创建 CLAUDE.md</div>
+        <ol class="case-steps">
+          <li>
+            <div class="step-title">Step 1 — 编写 CLAUDE.md</div>
+            <p>在项目根目录创建 <code>CLAUDE.md</code>：</p>
+            <div class="prompt-block"># 项目规范
+- 语言：Python 3.11 + FastAPI
+- 测试：pytest，运行命令 pytest tests/
+- 提交格式：fix: 描述 / feat: 描述
+- 不要修改数据库 migration 文件</div>
+          </li>
+          <li>
+            <div class="step-title">Step 2 — 启动 Claude Code</div>
+            <div class="prompt-block">cd your-project && claude</div>
+            <p>首次使用会打开浏览器完成登录。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 3 — 描述 Bug 让 AI 调查</div>
+            <div class="prompt-block">Bug 报告：GET /api/users?page=2 返回空数组，但数据库有 50 条记录，每页 20 条。page=1 正常。请先找到分页相关代码，分析根因，不要急着改。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 4 — 确认方案后修复</div>
+            <div class="prompt-block">分析合理。请修复这个 bug，然后运行 pytest 确认测试通过。如果有分页相关测试一并更新。</div>
+            <p class="step-tip">💡 Claude Code 会自动搜索代码、编辑文件、运行测试。每一步你都可以审查。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 5 — 提交代码</div>
+            <div class="prompt-block">测试通过了。请 git add 相关文件并 commit，message 用 fix: pagination offset calculation for page > 1</div>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- 案例 5 -->
+    <article class="case-card" data-tool="codex">
+      <div class="case-header" role="button" tabindex="0">
+        <div class="case-meta">
+          <span class="case-badge codex">Codex</span>
+          <span class="case-level">入门</span>
+          <span class="case-time">约 20 分钟</span>
+        </div>
+        <h3>用 Codex CLI 快速搭建 REST API</h3>
+        <p class="case-summary">从空目录开始，用 Codex 终端代理生成完整的 CRUD API 项目。</p>
+        <span class="case-toggle">展开步骤</span>
+      </div>
+      <div class="case-body">
+        <div class="case-goal"><strong>目标：</strong>创建一个图书管理 REST API，支持增删改查，含测试。</div>
+        <div class="case-prereq"><strong>准备：</strong>ChatGPT 账号 · 安装 Codex CLI · Python 3.10+</div>
+        <ol class="case-steps">
+          <li>
+            <div class="step-title">Step 1 — 初始化项目</div>
+            <div class="prompt-block">mkdir book-api && cd book-api && codex</div>
+            <p>登录后运行 <code>/init</code> 生成 AGENTS.md 模板。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 2 — 编辑 AGENTS.md</div>
+            <div class="prompt-block"># Book API
+- Python 3.11 + FastAPI + SQLite
+- 测试框架：pytest
+- 运行：uvicorn main:app --reload
+- 测试：pytest -v
+- 代码风格：type hints，函数加 docstring</div>
+          </li>
+          <li>
+            <div class="step-title">Step 3 — 下达任务</div>
+            <div class="prompt-block">创建一个图书管理 REST API。数据模型：id, title, author, isbn, created_at。端点：GET/POST /books, GET/PUT/DELETE /books/{id}。包含 pytest 测试。完成后运行测试验证。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 4 — 审查与迭代</div>
+            <p>Codex 会自主创建文件、安装依赖、运行测试。审查 diff 后，如需调整：</p>
+            <div class="prompt-block">/review — 让 Codex 自查代码质量</div>
+            <div class="prompt-block">给 DELETE 端点加上确认逻辑，删除前检查图书是否存在，不存在返回 404。</div>
+          </li>
+          <li>
+            <div class="step-title">Step 5 — 验收</div>
+            <div class="prompt-block">启动服务器，用 curl 测试所有端点：创建一本书 → 查询列表 → 更新 → 删除。把测试结果贴给我。</div>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <!-- 案例 6 -->
+    <article class="case-card" data-tool="codex">
+      <div class="case-header" role="button" tabindex="0">
+        <div class="case-meta">
+          <span class="case-badge codex">Codex</span>
+          <span class="case-level">中级</span>
+          <span class="case-time">约 15 分钟（异步）</span>
+        </div>
+        <h3>用 Codex Cloud 自动处理 GitHub Issue</h3>
+        <p class="case-summary">在 GitHub Issue 中 @codex，让云端 Agent 自动修复并提交 PR。</p>
+        <span class="case-toggle">展开步骤</span>
+      </div>
+      <div class="case-body">
+        <div class="case-goal"><strong>目标：</strong>将 GitHub Issue 中的 bug 报告自动转化为修复 PR。</div>
+        <div class="case-prereq"><strong>准备：</strong>ChatGPT Pro · GitHub 仓库 · Codex Cloud 已连接 GitHub</div>
+        <ol class="case-steps">
+          <li>
+            <div class="step-title">Step 1 — 配置 Codex Cloud 环境</div>
+            <p>访问 <a href="https://chatgpt.com/codex" target="_blank" rel="noopener">chatgpt.com/codex</a> → Settings → 连接 GitHub → 选择仓库 → Create environment。</p>
+            <p>环境配置示例：</p>
+            <div class="prompt-block">Setup: pip install -r requirements.txt
+Test: pytest tests/ -v
+Internet: off</div>
+          </li>
+          <li>
+            <div class="step-title">Step 2 — 在仓库添加 AGENTS.md</div>
+            <p>确保仓库根目录有 AGENTS.md，Codex Cloud 会自动读取：</p>
+            <div class="prompt-block"># 项目说明
+- Python FastAPI 项目
+- 所有修改必须通过 pytest
+- PR 标题格式：fix: 或 feat: 开头
+- 不要修改 alembic/ 目录</div>
+          </li>
+          <li>
+            <div class="step-title">Step 3 — 创建 Issue 并 @codex</div>
+            <p>在 GitHub 创建 Issue，描述清晰：</p>
+            <div class="prompt-block">## Bug: 搜索功能大小写敏感
+
+**复现步骤**
+1. 访问 /api/search?q=hello
+2. 数据库有标题 "Hello World" 的记录
+3. 返回空结果
+
+**期望**：搜索应不区分大小写
+
+@codex 请修复此问题并提交 PR</div>
+          </li>
+          <li>
+            <div class="step-title">Step 4 — 等待 Codex 完成</div>
+            <p>Codex 在云端沙箱中：拉取代码 → 分析 Issue → 修改代码 → 运行测试 → 创建 PR。通常 5–15 分钟。</p>
+            <p class="step-tip">💡 你可以在 Codex Cloud 面板实时查看进度，也可以去做别的事，完成后会通知你。</p>
+          </li>
+          <li>
+            <div class="step-title">Step 5 — Review PR 并合并</div>
+            <ul class="checklist">
+              <li>检查 PR 的 diff，确认修改范围合理</li>
+              <li>查看 CI 测试是否通过</li>
+              <li>本地 checkout 分支手动验证</li>
+              <li>确认后 merge PR</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </article>
+
+    <div class="case-tips-card">
+      <h3>通用实战技巧</h3>
+      <div class="grid-2">
+        <ul class="features">
+          <li><strong>先 Plan 后 Agent</strong> — 复杂任务先让 AI 出方案，确认后再写代码</li>
+          <li><strong>小步迭代</strong> — 每次只做一个功能点，验证通过再继续</li>
+          <li><strong>写好配置文件</strong> — CLAUDE.md / AGENTS.md / .cursor/rules 是 AI 的「员工手册」</li>
+          <li><strong>明确验收标准</strong> — 告诉 AI「做完后运行 xxx 测试」而不是「做好就行」</li>
+        </ul>
+        <ul class="features">
+          <li><strong>审查每一行 diff</strong> — AI 会犯错，你的审查是最关键的质量关卡</li>
+          <li><strong>用 @ 引用文件</strong> — 给 AI 精确的上下文，比笼统描述效果好 10 倍</li>
+          <li><strong>分角色使用工具</strong> — Cursor 日常编码、Claude 分析文档、Codex 自动化 PR</li>
+          <li><strong>保存好用的提示词</strong> — 把验证有效的 prompt 存到项目文档中复用</li>
+        </ul>
       </div>
     </div>
   </main>
