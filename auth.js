@@ -1,10 +1,37 @@
-const API = window.location.origin;
+const IS_STATIC = window.APP_CONFIG?.staticOnly === true;
+const API = IS_STATIC ? null : (window.APP_CONFIG?.apiBase || window.location.origin);
+
 const TOKEN_KEY = 'ai_guide_token';
 const USER_KEY = 'ai_guide_user';
 
 let communityTab = 'all';
 let authEmail = '';
 let authIsLogin = false;
+
+function backendHint() {
+  return window.APP_CONFIG?.hint
+    || '登录与上传需运行后端：本地执行 ./start.sh，访问 http://127.0.0.1:8765';
+}
+
+function showStaticNotices() {
+  const msg = backendHint();
+  const authNotice = document.getElementById('auth-static-notice');
+  const communityBanner = document.getElementById('community-static-banner');
+  if (!IS_STATIC) {
+    authNotice?.classList.remove('visible');
+    communityBanner?.classList.add('hidden');
+    return;
+  }
+  if (authNotice) {
+    authNotice.innerHTML = `<p>${escapeHtml(msg)}</p>`;
+    authNotice.classList.add('visible');
+  }
+  communityBanner?.classList.remove('hidden');
+}
+
+function requireBackend() {
+  alert(backendHint());
+}
 
 function getToken() {
   return localStorage.getItem(TOKEN_KEY);
@@ -31,6 +58,7 @@ function clearAuth() {
 }
 
 async function api(path, options = {}) {
+  if (!API) throw new Error(backendHint());
   const headers = { ...(options.headers || {}) };
   const token = getToken();
   if (token) headers.Authorization = `Bearer ${token}`;
@@ -50,6 +78,7 @@ async function api(path, options = {}) {
 
 function openAuth() {
   resetAuthFlow();
+  showStaticNotices();
   document.getElementById('modal-auth')?.classList.remove('hidden');
 }
 
@@ -83,6 +112,12 @@ function renderUserArea() {
   const area = document.getElementById('user-area');
   const uploadPanel = document.getElementById('upload-panel');
   const user = getUser();
+
+  if (IS_STATIC && user) {
+    clearAuth();
+    return;
+  }
+
   if (!area) return;
 
   if (user) {
@@ -119,6 +154,7 @@ const TYPE_LABEL = { markdown: 'Markdown', word: 'Word', video: '视频' };
 function renderResourceCard(r) {
   const user = getUser();
   const canDelete = user && user.id === r.user_id;
+  const fileUrl = API ? `${API}/api/resources/${r.id}/file` : '#';
   return `
     <article class="res-card" data-id="${r.id}">
       <div class="res-type ${r.file_type}">${TYPE_LABEL[r.file_type] || r.file_type}</div>
@@ -131,7 +167,7 @@ function renderResourceCard(r) {
       </div>
       <div class="res-actions">
         <button class="res-btn preview-btn" data-id="${r.id}">预览</button>
-        <a class="res-btn" href="${API}/api/resources/${r.id}/file" download>下载</a>
+        <a class="res-btn" href="${fileUrl}" download>下载</a>
         ${canDelete ? `<button class="res-btn danger delete-btn" data-id="${r.id}">删除</button>` : ''}
       </div>
     </article>
@@ -141,6 +177,12 @@ function renderResourceCard(r) {
 async function loadResources() {
   const list = document.getElementById('resource-list');
   if (!list) return;
+
+  if (IS_STATIC) {
+    list.innerHTML = `<p class="loading-hint">${escapeHtml(backendHint())}</p>`;
+    return;
+  }
+
   list.innerHTML = '<p class="loading-hint">加载中…</p>';
 
   try {
@@ -154,7 +196,7 @@ async function loadResources() {
     list.innerHTML = data.map(renderResourceCard).join('');
     bindResourceActions();
   } catch (err) {
-    list.innerHTML = `<p class="loading-hint error-hint">无法加载资料。请通过 <code>./start.sh</code> 启动本地服务后访问。<br><small>${escapeHtml(err.message)}</small></p>`;
+    list.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
   }
 }
 
@@ -176,6 +218,7 @@ function bindResourceActions() {
 }
 
 async function previewResource(id) {
+  if (!API) return requireBackend();
   try {
     const detail = await api(`/api/resources/${id}`);
     const preview = await api(`/api/resources/${id}/preview`);
@@ -201,7 +244,6 @@ async function previewResource(id) {
   }
 }
 
-/* Auth event listeners */
 document.getElementById('btn-auth')?.addEventListener('click', openAuth);
 
 document.querySelectorAll('[data-close-auth]').forEach(btn => {
@@ -213,6 +255,7 @@ document.getElementById('modal-auth')?.addEventListener('click', e => {
 });
 
 document.getElementById('btn-email-continue')?.addEventListener('click', () => {
+  if (IS_STATIC) return requireBackend();
   showAuthStep('email');
   document.querySelector('#form-email input[name=email]')?.focus();
 });
@@ -220,21 +263,14 @@ document.getElementById('btn-email-continue')?.addEventListener('click', () => {
 document.getElementById('btn-back-email')?.addEventListener('click', () => showAuthStep('welcome'));
 document.getElementById('btn-back-password')?.addEventListener('click', () => showAuthStep('email'));
 
-document.getElementById('btn-google')?.addEventListener('click', async () => {
-  try {
-    const { enabled } = await api('/api/auth/google/status');
-    if (!enabled) {
-      alert('Google 登录尚未配置。\n\n请在 config.yaml 中填写 google_oauth.client_id 和 client_secret，详见 README。');
-      return;
-    }
-    window.location.href = `${API}/api/auth/google/login`;
-  } catch {
-    window.location.href = `${API}/api/auth/google/login`;
-  }
+document.getElementById('btn-google')?.addEventListener('click', () => {
+  if (IS_STATIC) return requireBackend();
+  window.location.href = `${API}/api/auth/google/login`;
 });
 
 document.getElementById('form-email')?.addEventListener('submit', async e => {
   e.preventDefault();
+  if (IS_STATIC) return requireBackend();
   clearAuthErrors();
   const email = new FormData(e.target).get('email').trim();
   const errEl = document.getElementById('email-error');
@@ -258,6 +294,7 @@ document.getElementById('form-email')?.addEventListener('submit', async e => {
 
 document.getElementById('form-password')?.addEventListener('submit', async e => {
   e.preventDefault();
+  if (IS_STATIC) return requireBackend();
   clearAuthErrors();
   const password = new FormData(e.target).get('password');
   const errEl = document.getElementById('password-error');
@@ -275,7 +312,6 @@ document.getElementById('form-password')?.addEventListener('submit', async e => 
   }
 });
 
-/* Preview modal close */
 document.querySelectorAll('[data-close]').forEach(btn => {
   btn.addEventListener('click', () => btn.closest('.modal')?.classList.add('hidden'));
 });
@@ -284,9 +320,9 @@ document.getElementById('modal-preview')?.addEventListener('click', e => {
   if (e.target.id === 'modal-preview') e.target.classList.add('hidden');
 });
 
-/* Upload */
 document.getElementById('upload-form')?.addEventListener('submit', async e => {
   e.preventDefault();
+  if (IS_STATIC) return requireBackend();
   const status = document.getElementById('upload-status');
   status.textContent = '上传中…';
   status.className = 'form-status';
@@ -307,7 +343,6 @@ document.getElementById('upload-form')?.addEventListener('submit', async e => {
   }
 });
 
-/* Community tabs */
 document.querySelectorAll('.community-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     if (tab.dataset.tab === 'mine' && !getToken()) {
@@ -322,6 +357,7 @@ document.querySelectorAll('.community-tab').forEach(tab => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  showStaticNotices();
   handleAuthCallback();
   renderUserArea();
   const section = document.getElementById('section-community');
@@ -329,6 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function handleAuthCallback() {
+  if (IS_STATIC) return;
   const params = new URLSearchParams(window.location.search);
   const token = params.get('auth_token');
   const error = params.get('auth_error');

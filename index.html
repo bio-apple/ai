@@ -1121,6 +1121,12 @@ Internet: off</div>
       </div>
     </div>
 
+    <div class="static-banner hidden" id="community-static-banner">
+      <strong>📌 当前为静态预览页</strong>
+      <p>GitHub Pages 仅展示教程内容。登录、Google 授权与资料上传需在本地或云端后端运行。</p>
+      <p>本地启动：<code>cd ai && ./start.sh</code>，然后访问 <code>http://127.0.0.1:8765</code></p>
+    </div>
+
     <div id="upload-panel" class="upload-panel hidden">
       <h3>上传资料</h3>
       <form id="upload-form" class="upload-form">
@@ -1168,6 +1174,7 @@ Internet: off</div>
       <div class="auth-divider"><span>或</span></div>
       <button type="button" class="auth-email-btn" id="btn-email-continue">使用电子邮件继续</button>
       <p class="auth-legal">继续即表示您同意我们的<a href="#">服务条款</a>和<a href="#">隐私政策</a></p>
+      <div class="static-notice" id="auth-static-notice"></div>
     </div>
 
     <!-- Step 2: 输入邮箱 -->
@@ -1210,6 +1217,7 @@ Internet: off</div>
   <p>AI 应用指南 · 学习如何使用与应用人工智能 · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
+<script src="config.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="app.js"></script>
 <script src="auth.js"></script>

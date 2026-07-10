@@ -7,7 +7,7 @@ from pathlib import Path
 from docx import Document
 from fastapi import Depends, FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, RedirectResponse
+from fastapi.responses import FileResponse, PlainTextResponse, RedirectResponse
 from pydantic import BaseModel, Field
 from starlette.middleware.sessions import SessionMiddleware
 
@@ -280,6 +280,14 @@ def remove_resource(resource_id: int, user: dict = Depends(get_current_user)):
 SAFE_STATIC = {".html", ".css", ".js", ".ico", ".png", ".svg", ".woff2"}
 
 
+@app.get("/config.js")
+def serve_runtime_config():
+    return PlainTextResponse(
+        "window.APP_CONFIG = { staticOnly: false };",
+        media_type="application/javascript",
+    )
+
+
 @app.get("/")
 def serve_index():
     return FileResponse(ROOT / "index.html")
@@ -294,5 +302,7 @@ def serve_static(filepath: str):
     if not str(path).startswith(str(root)) or not path.is_file():
         raise HTTPException(404)
     if path.suffix.lower() not in SAFE_STATIC and path.name not in SAFE_STATIC:
+        raise HTTPException(404)
+    if path.name == "config.js":
         raise HTTPException(404)
     return FileResponse(path)
