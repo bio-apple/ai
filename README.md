@@ -1,10 +1,10 @@
 # AI 应用指南
 
-学习如何使用与应用人工智能——覆盖 ChatGPT、Claude、Gemini、DeepSeek、Cursor、Codex 等主流工具。
+学习如何使用与应用人工智能——覆盖 ChatGPT、Claude、Gemini、DeepSeek、Kimi、通义千问、豆包、Copilot、Cursor、Codex 等主流工具。
 
 ## 功能
 
-- 📖 六大 AI 工具教程：使用方法、核心功能、官方文档
+- 📖 十大 AI 工具教程：使用方法、核心功能、官方文档
 - 🎯 应用场景：写作、学习、编程、数据分析、图像视频、工作效率
 - ⚡ Step-by-Step 实战案例
 - 👤 Claude 风格注册 / 登录（邮箱优先、Google 按钮、分步流程）
@@ -13,8 +13,9 @@
 
 | 类型 | 工具 |
 |------|------|
-| 对话与通用 AI | ChatGPT、Claude、Gemini、DeepSeek |
-| 编程与开发 AI | Cursor、Codex |
+| 国际对话 AI | ChatGPT、Claude、Gemini |
+| 国内对话 AI | Kimi、通义千问、豆包、DeepSeek |
+| 编程与开发 AI | Cursor、Codex、Copilot |
 
 ## 启动
 

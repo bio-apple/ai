@@ -11,6 +11,10 @@
   --chatgpt: #0d8f6f;
   --gemini: #4285f4;
   --deepseek: #4d6bfe;
+  --kimi: #5b21b6;
+  --qwen: #624aff;
+  --doubao: #ff6b35;
+  --copilot: #0078d4;
   --accent: #2563eb;
   --radius: 14px;
   --shadow: 0 4px 20px rgba(30, 50, 100, 0.08);
@@ -78,7 +82,7 @@ header {
   border-radius: 10px;
   border: 1px solid var(--border);
   overflow-x: auto;
-  max-width: min(680px, 55vw);
+  max-width: min(820px, 62vw);
   scrollbar-width: none;
 }
 
@@ -108,6 +112,10 @@ header {
 .nav-tab[data-tool="claude"].active { box-shadow: inset 0 -2px 0 var(--claude); }
 .nav-tab[data-tool="codex"].active { box-shadow: inset 0 -2px 0 var(--codex); }
 .nav-tab[data-tool="cursor"].active { box-shadow: inset 0 -2px 0 var(--cursor); }
+.nav-tab[data-tool="kimi"].active { box-shadow: inset 0 -2px 0 var(--kimi); }
+.nav-tab[data-tool="qwen"].active { box-shadow: inset 0 -2px 0 var(--qwen); }
+.nav-tab[data-tool="doubao"].active { box-shadow: inset 0 -2px 0 var(--doubao); }
+.nav-tab[data-tool="copilot"].active { box-shadow: inset 0 -2px 0 var(--copilot); }
 .nav-tab[data-tool="all"].active { box-shadow: inset 0 -2px 0 var(--accent); }
 
 /* Hero */
@@ -177,6 +185,10 @@ header {
 .tool-card.claude:hover { border-color: var(--claude); }
 .tool-card.codex:hover { border-color: var(--codex); }
 .tool-card.cursor:hover { border-color: var(--cursor); }
+.tool-card.kimi:hover { border-color: var(--kimi); }
+.tool-card.qwen:hover { border-color: var(--qwen); }
+.tool-card.doubao:hover { border-color: var(--doubao); }
+.tool-card.copilot:hover { border-color: var(--copilot); }
 
 .tool-card.chatgpt .badge { background: rgba(13, 143, 111, 0.12); color: var(--chatgpt); }
 .tool-card.gemini .badge { background: rgba(66, 133, 244, 0.12); color: var(--gemini); }
@@ -184,6 +196,10 @@ header {
 .tool-card.claude .badge { background: rgba(196, 92, 62, 0.12); color: var(--claude); }
 .tool-card.codex .badge { background: rgba(13, 140, 109, 0.12); color: var(--codex); }
 .tool-card.cursor .badge { background: rgba(107, 92, 231, 0.12); color: var(--cursor); }
+.tool-card.kimi .badge { background: rgba(91, 33, 182, 0.12); color: var(--kimi); }
+.tool-card.qwen .badge { background: rgba(98, 74, 255, 0.12); color: var(--qwen); }
+.tool-card.doubao .badge { background: rgba(255, 107, 53, 0.12); color: var(--doubao); }
+.tool-card.copilot .badge { background: rgba(0, 120, 212, 0.12); color: var(--copilot); }
 
 .category-label {
   font-size: 0.75rem;
@@ -217,10 +233,18 @@ header {
 .tool-icon.chatgpt { background: rgba(13, 143, 111, 0.12); color: var(--chatgpt); }
 .tool-icon.gemini { background: rgba(66, 133, 244, 0.12); color: var(--gemini); }
 .tool-icon.deepseek { background: rgba(77, 107, 254, 0.12); color: var(--deepseek); }
+.tool-icon.kimi { background: rgba(91, 33, 182, 0.12); color: var(--kimi); }
+.tool-icon.qwen { background: rgba(98, 74, 255, 0.12); color: var(--qwen); }
+.tool-icon.doubao { background: rgba(255, 107, 53, 0.12); color: var(--doubao); }
+.tool-icon.copilot { background: rgba(0, 120, 212, 0.12); color: var(--copilot); }
 
 .chatgpt-section .dot { background: var(--chatgpt); }
 .gemini-section .dot { background: var(--gemini); }
 .deepseek-section .dot { background: var(--deepseek); }
+.kimi-section .dot { background: var(--kimi); }
+.qwen-section .dot { background: var(--qwen); }
+.doubao-section .dot { background: var(--doubao); }
+.copilot-section .dot { background: var(--copilot); }
 
 .compare-wrap { overflow-x: auto; margin-bottom: 40px; }
 .compare-table { min-width: 720px; }
@@ -506,6 +530,10 @@ code {
 .case-badge.cursor { background: rgba(107, 92, 231, 0.12); color: var(--cursor); }
 .case-badge.claude { background: rgba(217, 119, 87, 0.15); color: var(--claude); }
 .case-badge.codex { background: rgba(16, 163, 127, 0.15); color: var(--codex); }
+.case-badge.kimi { background: rgba(91, 33, 182, 0.12); color: var(--kimi); }
+.case-badge.qwen { background: rgba(98, 74, 255, 0.12); color: var(--qwen); }
+.case-badge.doubao { background: rgba(255, 107, 53, 0.12); color: var(--doubao); }
+.case-badge.copilot { background: rgba(0, 120, 212, 0.12); color: var(--copilot); }
 
 .case-level, .case-time {
   padding: 3px 10px;
