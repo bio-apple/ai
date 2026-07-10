@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-10T21:23:34.475544+08:00",
+  "updated_at": "2026-07-10T21:31:02.945717+08:00",
   "date": "2026-07-10",
   "cadence": "weekly",
   "items": [
@@ -10,7 +10,7 @@
       "url": "https://www.anthropic.com/news/claude-science-ai-workbench",
       "source": "Anthropic",
       "category": "新模型发布",
-      "published_at": "2026-07-10T21:21:31.479268+08:00"
+      "published_at": "2026-07-10T21:30:07.889064+08:00"
     },
     {
       "id": "0f764e9bc764",
@@ -19,7 +19,7 @@
       "url": "https://www.anthropic.com/news/claude-sonnet-5",
       "source": "Anthropic",
       "category": "新模型发布",
-      "published_at": "2026-07-10T21:21:25.974760+08:00"
+      "published_at": "2026-07-10T21:30:00.248303+08:00"
     },
     {
       "id": "ff1300aa6cce",
@@ -28,7 +28,7 @@
       "url": "https://www.anthropic.com/news/redeploying-fable-5",
       "source": "Anthropic",
       "category": "新模型发布",
-      "published_at": "2026-07-10T21:21:22.816316+08:00"
+      "published_at": "2026-07-10T21:29:53.123409+08:00"
     },
     {
       "id": "5e689a649359",
@@ -37,7 +37,7 @@
       "url": "https://www.anthropic.com/news/hard-questions",
       "source": "Anthropic",
       "category": "新模型发布",
-      "published_at": "2026-07-10T21:21:15.884471+08:00"
+      "published_at": "2026-07-10T21:29:47.179103+08:00"
     },
     {
       "id": "a3538fdfdde0",
@@ -113,7 +113,7 @@
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 80,323",
+      "title": "OpenHands/OpenHands · ★ 80,324",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
@@ -311,7 +311,7 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 165,277",
+      "title": "f/prompts.chat · ★ 165,278",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -366,9 +366,19 @@
   ],
   "watch_sources": [
     {
-      "name": "机器之心",
-      "blog": "https://www.jiqizhixin.com/",
-      "x": "https://x.com/SyncedTech"
+      "name": "OpenAI",
+      "blog": "https://openai.com/news/",
+      "x": "https://x.com/OpenAI"
+    },
+    {
+      "name": "Anthropic (Claude)",
+      "blog": "https://www.anthropic.com/news",
+      "x": "https://x.com/AnthropicAI"
+    },
+    {
+      "name": "Google DeepMind",
+      "blog": "https://deepmind.google/blog/",
+      "x": "https://x.com/DeepMind"
     },
     {
       "name": "Meta AI",
@@ -376,9 +386,29 @@
       "x": "https://x.com/AIatMeta"
     },
     {
+      "name": "Microsoft AI",
+      "blog": "https://blogs.microsoft.com/ai/",
+      "x": "https://x.com/Microsoft"
+    },
+    {
+      "name": "NVIDIA AI",
+      "blog": "https://blogs.nvidia.com/",
+      "x": "https://x.com/nvidia"
+    },
+    {
       "name": "Hugging Face",
       "blog": "https://huggingface.co/blog",
       "x": "https://x.com/huggingface"
+    },
+    {
+      "name": "机器之心",
+      "blog": "https://www.jiqizhixin.com/",
+      "x": "https://x.com/SyncedTech"
+    },
+    {
+      "name": "量子位",
+      "blog": "https://www.qbitai.com/",
+      "x": "https://x.com/QbitAI_"
     },
     {
       "name": "新智元",

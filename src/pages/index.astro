@@ -120,6 +120,26 @@ const schema = buildHomeSchema(site);
         </div>
       </section>
 
+      <section class="home-section fade-in" id="home-compare">
+        <div class="section-head">
+          <h2 class="section-title">AI 工具选型对比</h2>
+          <p class="section-desc">国内国际主流工具能力、场景与定价一览</p>
+        </div>
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <thead><tr><th>工具</th><th>类型</th><th>核心优势</th><th>适合场景</th><th>入门</th></tr></thead>
+            <tbody>
+              {site.compare_table.rows.slice(0, 6).map((row) => (
+                <tr><td>{row.tool}</td><td>{row.type}</td><td>{row.strength}</td><td>{row.scenario}</td><td>{row.pricing}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div class="section-cta">
+          <a href="ai-tools-ranking.html" class="cta-btn cta-btn-outline" data-track="home-compare-table">查看完整对比表 →</a>
+        </div>
+      </section>
+
       <section class="home-section fade-in">
         <div class="section-head">
           <h2 class="section-title">AI 学习路线</h2>

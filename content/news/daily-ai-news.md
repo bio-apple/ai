@@ -6,7 +6,7 @@
 
 - **来源**：Anthropic
 - **分类**：新模型发布
-- **时间**：2026-07-10T21:21:31.479268+08:00
+- **时间**：2026-07-10T21:30:07.889064+08:00
 - **链接**：https://www.anthropic.com/news/claude-science-ai-workbench
 
 Claude Science, an AI workbench for scientists
@@ -15,7 +15,7 @@ Claude Science, an AI workbench for scientists
 
 - **来源**：Anthropic
 - **分类**：新模型发布
-- **时间**：2026-07-10T21:21:25.974760+08:00
+- **时间**：2026-07-10T21:30:00.248303+08:00
 - **链接**：https://www.anthropic.com/news/claude-sonnet-5
 
 Introducing Claude Sonnet 5
@@ -24,7 +24,7 @@ Introducing Claude Sonnet 5
 
 - **来源**：Anthropic
 - **分类**：新模型发布
-- **时间**：2026-07-10T21:21:22.816316+08:00
+- **时间**：2026-07-10T21:29:53.123409+08:00
 - **链接**：https://www.anthropic.com/news/redeploying-fable-5
 
 Redeploying Claude Fable 5
@@ -33,7 +33,7 @@ Redeploying Claude Fable 5
 
 - **来源**：Anthropic
 - **分类**：新模型发布
-- **时间**：2026-07-10T21:21:15.884471+08:00
+- **时间**：2026-07-10T21:29:47.179103+08:00
 - **链接**：https://www.anthropic.com/news/hard-questions
 
 Inviting hard questions

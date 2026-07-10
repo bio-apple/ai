@@ -55,17 +55,35 @@ github_trending:
   query: "topic:artificial-intelligence stars:>500"
   sort: stars
 
-# 暂无稳定 RSS 的官方渠道，在输出 JSON 的 watch_sources 中展示博客与 X 账号
+# 官方公告与 X 账号（无稳定 RSS 或作为补充关注）
 watch_sources:
-  - name: 机器之心
-    blog: https://www.jiqizhixin.com/
-    x: https://x.com/SyncedTech
+  - name: OpenAI
+    blog: https://openai.com/news/
+    x: https://x.com/OpenAI
+  - name: Anthropic (Claude)
+    blog: https://www.anthropic.com/news
+    x: https://x.com/AnthropicAI
+  - name: Google DeepMind
+    blog: https://deepmind.google/blog/
+    x: https://x.com/DeepMind
   - name: Meta AI
     blog: https://ai.meta.com/blog/
     x: https://x.com/AIatMeta
+  - name: Microsoft AI
+    blog: https://blogs.microsoft.com/ai/
+    x: https://x.com/Microsoft
+  - name: NVIDIA AI
+    blog: https://blogs.nvidia.com/
+    x: https://x.com/nvidia
   - name: Hugging Face
     blog: https://huggingface.co/blog
     x: https://x.com/huggingface
+  - name: 机器之心
+    blog: https://www.jiqizhixin.com/
+    x: https://x.com/SyncedTech
+  - name: 量子位
+    blog: https://www.qbitai.com/
+    x: https://x.com/QbitAI_
   - name: 新智元
     blog: https://www.ainews.com/
     x: https://x.com/AI_era
