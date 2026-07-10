@@ -10,41 +10,28 @@ import subprocess
 import sys
 from datetime import datetime
 from pathlib import Path
-from zoneinfo import ZoneInfo
+from typing import Any
+
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "daily-videos.json"
-TZ = ZoneInfo("Asia/Shanghai")
+CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
+TZ_NAME = "Asia/Shanghai"
 
-MIN_DAILY = 10
-MIN_VIEWS = 8_000
-MIN_SUBSCRIBERS = 1_000
-MIN_HEIGHT = 1080
-SEARCH_PER_QUERY = 18
+try:
+    from zoneinfo import ZoneInfo
 
-SEARCH_QUERIES = [
-    "ChatGPT tutorial 2026",
-    "Claude AI tutorial",
-    "Cursor AI editor tutorial",
-    "Gemini AI tutorial",
-    "DeepSeek AI tutorial",
-    "GitHub Copilot tutorial",
-    "OpenAI Codex tutorial",
-    "AI prompt engineering tutorial",
-    "ChatGPT 教程",
-    "Claude 教程",
-    "Cursor 编程 教程",
-    "Kimi AI 教程",
-    "通义千问 教程",
-    "豆包 AI 教程",
-    "大模型 应用 教程",
-]
+    TZ = ZoneInfo(TZ_NAME)
+except Exception:  # pragma: no cover
+    TZ = None
 
-AI_KEYWORDS = re.compile(
-    r"(ai|chatgpt|claude|gemini|deepseek|cursor|copilot|codex|kimi|qwen|通义|豆包|"
-    r"prompt|llm|gpt|openai|anthropic|大模型|人工智能|智能体|agent)",
-    re.I,
-)
+
+def load_config() -> dict[str, Any]:
+    cfg = yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8"))
+    cfg["ai_keyword_re"] = re.compile(cfg.pop("ai_keyword_pattern"), re.I)
+    cfg["summary_strip_res"] = [re.compile(p, re.I) for p in cfg.get("summary", {}).get("strip_patterns", [])]
+    return cfg
 
 
 def run_ytdlp(args: list[str], timeout: int = 120) -> str:
@@ -68,9 +55,8 @@ def parse_json_lines(raw: str) -> list[dict]:
     return items
 
 
-def is_relevant(title: str, description: str) -> bool:
-    text = f"{title} {description or ''}"
-    return bool(AI_KEYWORDS.search(text))
+def is_relevant(title: str, description: str, cfg: dict) -> bool:
+    return bool(cfg["ai_keyword_re"].search(f"{title} {description or ''}"))
 
 
 def max_height(info: dict) -> int:
@@ -85,17 +71,31 @@ def score_video(views: int, subscribers: int) -> float:
     return views * (1 + math.log10(max(subscribers, 1)))
 
 
-def make_summary(title: str, description: str | None, channel: str) -> str:
-    desc = re.sub(r"https?://\S+", "", description or "")
+def clean_description(description: str | None, cfg: dict) -> str:
+    desc = description or ""
+    desc = re.sub(r"https?://\S+", "", desc)
+    desc = re.sub(r"www\.\S+", "", desc)
+    for pat in cfg.get("summary_strip_res", []):
+        desc = pat.sub("", desc)
     desc = re.sub(r"\s+", " ", desc).strip()
-    desc = re.sub(r"(?i)^(sponsored|ad|广告)\s*", "", desc)
+    return desc
+
+
+def make_summary(title: str, description: str | None, channel: str, cfg: dict) -> str:
+    desc = clean_description(description, cfg)
     sentence = re.split(r"[.!?\n|｜]", desc)[0].strip() if desc else ""
-    if len(sentence) < 24 or "http" in sentence.lower():
-        sentence = (
-            f"【{channel}】讲解 AI 工具实战应用，围绕「{title[:48]}」展示操作步骤与使用技巧。"
-        )
-    if len(sentence) > 130:
-        sentence = sentence[:127] + "…"
+    smin = cfg.get("summary", {}).get("min_length", 24)
+    smax = cfg.get("summary", {}).get("max_length", 130)
+
+    bad = (
+        len(sentence) < smin
+        or re.search(r"https?://|www\.", sentence, re.I)
+        or re.search(r"(?i)get chatgpt|bit\.ly|use code|sponsored|discount", sentence)
+    )
+    if bad:
+        sentence = f"【{channel}】讲解 AI 工具实战应用，围绕「{title[:48]}」展示操作步骤与使用技巧。"
+    if len(sentence) > smax:
+        sentence = sentence[: smax - 1] + "…"
     return sentence
 
 
@@ -115,23 +115,31 @@ def load_store() -> dict:
 
 
 def save_store(store: dict) -> None:
-    store["updated_at"] = datetime.now(TZ).isoformat()
-    DATA_FILE.write_text(
-        json.dumps(store, ensure_ascii=False, indent=2) + "\n",
-        encoding="utf-8",
-    )
+    if TZ:
+        store["updated_at"] = datetime.now(TZ).isoformat()
+    else:
+        store["updated_at"] = datetime.utcnow().isoformat() + "Z"
+    DATA_FILE.write_text(json.dumps(store, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def search_candidates() -> dict[str, dict]:
+def log_reject(reason: str, video_id: str, extra: str = "") -> None:
+    msg = f"reject [{reason}] {video_id}"
+    if extra:
+        msg += f" — {extra}"
+    print(msg, file=sys.stderr)
+
+
+def search_candidates(cfg: dict) -> dict[str, dict]:
     found: dict[str, dict] = {}
-    for query in SEARCH_QUERIES:
+    min_views = cfg["min_views"]
+    for query in cfg["search_queries"]:
         try:
             raw = run_ytdlp(
                 [
                     "--dump-json",
                     "--flat-playlist",
                     "--no-download",
-                    f"ytsearch{SEARCH_PER_QUERY}:{query}",
+                    f"ytsearch{cfg['search_per_query']}:{query}",
                 ],
                 timeout=90,
             )
@@ -146,7 +154,11 @@ def search_candidates() -> dict[str, dict]:
             title = item.get("title") or ""
             desc = item.get("description") or ""
             views = int(item.get("view_count") or 0)
-            if views < MIN_VIEWS or not is_relevant(title, desc):
+            if views < min_views:
+                log_reject("low_views_search", vid, f"views={views}")
+                continue
+            if not is_relevant(title, desc, cfg):
+                log_reject("not_relevant_search", vid, title[:60])
                 continue
             prev = found.get(vid)
             if not prev or views > prev.get("view_count", 0):
@@ -160,29 +172,26 @@ def fetch_video_detail(video_id: str) -> dict | None:
         raw = run_ytdlp(["--dump-json", "--no-download", url], timeout=90)
         return json.loads(raw)
     except Exception as exc:
-        print(f"detail skip ({video_id}): {exc}", file=sys.stderr)
+        log_reject("detail_fetch_failed", video_id, str(exc))
         return None
 
 
-def pick_today_videos(store: dict) -> list[dict]:
+def pick_today_videos(store: dict, cfg: dict) -> list[dict]:
     seen = set(store.get("seen_ids") or [])
-    candidates = search_candidates()
-    ranked = sorted(
-        candidates.values(),
-        key=lambda x: int(x.get("view_count") or 0),
-        reverse=True,
-    )
+    candidates = search_candidates(cfg)
+    ranked = sorted(candidates.values(), key=lambda x: int(x.get("view_count") or 0), reverse=True)
 
     selected: list[dict] = []
     checked = 0
     for item in ranked:
-        if len(selected) >= MIN_DAILY:
+        if len(selected) >= cfg["min_daily"]:
             break
         vid = item["id"]
         if vid in seen:
+            log_reject("already_seen", vid)
             continue
         checked += 1
-        if checked > 120:
+        if checked > cfg.get("max_detail_checks", 120):
             break
 
         detail = fetch_video_detail(vid)
@@ -190,17 +199,23 @@ def pick_today_videos(store: dict) -> list[dict]:
             continue
 
         height = max_height(detail)
-        if height < MIN_HEIGHT:
+        if height < cfg["min_height"]:
+            log_reject("low_resolution", vid, f"height={height}")
             continue
 
         views = int(detail.get("view_count") or 0)
         subs = int(detail.get("channel_follower_count") or 0)
-        if views < MIN_VIEWS or subs < MIN_SUBSCRIBERS:
+        if views < cfg["min_views"]:
+            log_reject("low_views_detail", vid, f"views={views}")
+            continue
+        if subs < cfg["min_subscribers"]:
+            log_reject("low_subscribers", vid, f"subs={subs}")
             continue
 
         title = detail.get("title") or item.get("title") or ""
         channel = detail.get("channel") or detail.get("uploader") or "未知频道"
-        if not is_relevant(title, detail.get("description") or ""):
+        if not is_relevant(title, detail.get("description") or "", cfg):
+            log_reject("not_relevant_detail", vid, title[:60])
             continue
 
         thumb = detail.get("thumbnail") or ""
@@ -212,7 +227,7 @@ def pick_today_videos(store: dict) -> list[dict]:
             {
                 "id": vid,
                 "title": title,
-                "summary": make_summary(title, detail.get("description"), channel),
+                "summary": make_summary(title, detail.get("description"), channel, cfg),
                 "url": f"https://www.youtube.com/watch?v={vid}",
                 "thumbnail": thumb,
                 "channel": channel,
@@ -229,20 +244,18 @@ def pick_today_videos(store: dict) -> list[dict]:
 
 
 def main() -> int:
+    cfg = load_config()
     store = load_store()
-    today = datetime.now(TZ).strftime("%Y-%m-%d")
+    today = datetime.now(TZ).strftime("%Y-%m-%d") if TZ else datetime.utcnow().strftime("%Y-%m-%d")
 
     for batch in store.get("batches", []):
         if batch.get("date") == today:
             print(f"今日 ({today}) 已更新，共 {len(batch.get('videos', []))} 条")
             return 0
 
-    videos = pick_today_videos(store)
-    if len(videos) < MIN_DAILY:
-        print(
-            f"警告：仅筛选到 {len(videos)} 条（目标 {MIN_DAILY}），仍将写入今日批次",
-            file=sys.stderr,
-        )
+    videos = pick_today_videos(store, cfg)
+    if len(videos) < cfg["min_daily"]:
+        print(f"警告：仅筛选到 {len(videos)} 条（目标 {cfg['min_daily']}）", file=sys.stderr)
 
     if not videos:
         print("未找到符合条件的新视频", file=sys.stderr)
@@ -254,12 +267,12 @@ def main() -> int:
         0,
         {
             "date": today,
-            "timezone": "Asia/Shanghai",
+            "timezone": TZ_NAME,
             "criteria": {
-                "min_height": MIN_HEIGHT,
-                "min_views": MIN_VIEWS,
-                "min_subscribers": MIN_SUBSCRIBERS,
-                "min_daily": MIN_DAILY,
+                "min_height": cfg["min_height"],
+                "min_views": cfg["min_views"],
+                "min_subscribers": cfg["min_subscribers"],
+                "min_daily": cfg["min_daily"],
             },
             "videos": videos,
         },
@@ -268,7 +281,6 @@ def main() -> int:
         if v["id"] not in store["seen_ids"]:
             store["seen_ids"].append(v["id"])
 
-    # 保留最近 60 天
     store["batches"] = store["batches"][:60]
     save_store(store)
     print(f"已写入 {today} 视频 {len(videos)} 条 → {DATA_FILE}")

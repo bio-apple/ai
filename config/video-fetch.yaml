@@ -1,0 +1,38 @@
+# 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
+
+min_daily: 10
+min_views: 8000
+min_subscribers: 1000
+min_height: 1080
+search_per_query: 18
+max_detail_checks: 120
+
+search_queries:
+  - "ChatGPT tutorial 2026"
+  - "Claude AI tutorial"
+  - "Cursor AI editor tutorial"
+  - "Gemini AI tutorial"
+  - "DeepSeek AI tutorial"
+  - "GitHub Copilot tutorial"
+  - "OpenAI Codex tutorial"
+  - "AI prompt engineering tutorial"
+  - "ChatGPT 教程"
+  - "Claude 教程"
+  - "Cursor 编程 教程"
+  - "Kimi AI 教程"
+  - "通义千问 教程"
+  - "豆包 AI 教程"
+  - "大模型 应用 教程"
+
+ai_keyword_pattern: "(ai|chatgpt|claude|gemini|deepseek|cursor|copilot|codex|kimi|qwen|通义|豆包|prompt|llm|gpt|openai|anthropic|大模型|人工智能|智能体|agent)"
+
+summary:
+  min_length: 24
+  max_length: 130
+  strip_patterns:
+    - "(?i)get\\s+chatgpt[^\\n]{0,120}"
+    - "(?i)sponsored[^\\n]*"
+    - "(?i)use\\s+code[^\\n]*"
+    - "(?i)discount[^\\n]*"
+    - "(?i)bit\\.ly/\\S+"
+    - "(?i)link\\s+in\\s+(bio|description)[^\\n]*"

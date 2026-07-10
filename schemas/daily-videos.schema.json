@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["batches"],
+  "properties": {
+    "updated_at": { "type": "string" },
+    "seen_ids": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "batches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "videos"],
+        "properties": {
+          "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "timezone": { "type": "string" },
+          "criteria": { "type": "object" },
+          "videos": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "title", "summary", "url", "thumbnail", "channel", "views", "max_height"],
+              "properties": {
+                "id": { "type": "string" },
+                "title": { "type": "string", "minLength": 1 },
+                "summary": { "type": "string", "minLength": 8 },
+                "url": { "type": "string", "pattern": "^https://www\\.youtube\\.com/watch\\?v=" },
+                "thumbnail": { "type": "string" },
+                "channel": { "type": "string" },
+                "subscribers": { "type": "number" },
+                "views": { "type": "number" },
+                "duration": { "type": "string" },
+                "max_height": { "type": "number", "minimum": 720 },
+                "score": { "type": "number" }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

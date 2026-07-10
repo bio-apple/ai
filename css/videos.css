@@ -1,0 +1,114 @@
+/* Daily videos */
+.video-update-meta {
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.daily-video-list { margin-top: 8px; }
+
+.video-day { margin-bottom: 40px; }
+
+.video-day-title {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.video-day-count {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(37, 99, 235, 0.1);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.video-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.video-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow);
+}
+
+.video-thumb {
+  display: block;
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--bg-hover);
+  overflow: hidden;
+}
+
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-duration,
+.video-quality {
+  position: absolute;
+  bottom: 8px;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.video-duration { left: 8px; }
+.video-quality { right: 8px; background: rgba(37, 99, 235, 0.85); }
+
+.video-body { padding: 14px 16px 16px; }
+
+.video-body h4 {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.video-body h4 a:hover { color: var(--accent); }
+
+.video-summary {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.video-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.video-meta span {
+  background: var(--bg-hover);
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+
+.tool-page-link { margin-top: 8px; font-size: 0.82rem; }
+.tool-page-link a { color: var(--accent); }

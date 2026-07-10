@@ -1,0 +1,182 @@
+[
+  {
+    "label": "ChatGPT 教程",
+    "section": "section-chatgpt",
+    "keywords": "chatgpt ChatGPT OpenAI 出品的通用 AI 助手，用户量最大、功能最全。支持对话、图像生成、文件分析、代码编写、自定义 GPTs 和语音交互。 多模型模式 自定义 GPTs 文件与图像 记忆功能 语音模式 Deep Research"
+  },
+  {
+    "label": "ChatGPT 独立页",
+    "url": "tools/chatgpt.html",
+    "keywords": "chatgpt ChatGPT OpenAI 出品的通用 AI 助手，用户量最大、功能最全。支持对话、图像生成、文件分析、代码编写、自定义 GPTs 和语音交互。 多模型模式 自定义 GPTs 文件与图像 记忆功能 语音模式 Deep Research"
+  },
+  {
+    "label": "Google Gemini 教程",
+    "section": "section-gemini",
+    "keywords": "gemini Google Gemini Google 的 AI 助手，深度整合 Gmail、Drive、YouTube 等 Google 服务。支持多模态输入、Deep Research、Gems 自定义工具和实时语音对话。 Gems Deep Research Gemini Live Canvas 图像与视频 Scheduled Actions"
+  },
+  {
+    "label": "Google Gemini 独立页",
+    "url": "tools/gemini.html",
+    "keywords": "gemini Google Gemini Google 的 AI 助手，深度整合 Gmail、Drive、YouTube 等 Google 服务。支持多模态输入、Deep Research、Gems 自定义工具和实时语音对话。 Gems Deep Research Gemini Live Canvas 图像与视频 Scheduled Actions"
+  },
+  {
+    "label": "DeepSeek 教程",
+    "section": "section-deepseek",
+    "keywords": "deepseek DeepSeek 国产高性能 AI 模型，以极强的推理能力和极具竞争力的 API 价格著称。网页版免费使用，API 兼容 OpenAI 格式，开发者可零成本迁移。 深度思考模式 免费网页版 OpenAI 兼容 API 超长上下文 极低 API 价格 Agent 工具集成"
+  },
+  {
+    "label": "DeepSeek 独立页",
+    "url": "tools/deepseek.html",
+    "keywords": "deepseek DeepSeek 国产高性能 AI 模型，以极强的推理能力和极具竞争力的 API 价格著称。网页版免费使用，API 兼容 OpenAI 格式，开发者可零成本迁移。 深度思考模式 免费网页版 OpenAI 兼容 API 超长上下文 极低 API 价格 Agent 工具集成"
+  },
+  {
+    "label": "Kimi 教程",
+    "section": "section-kimi",
+    "keywords": "kimi Kimi 月之暗面（Moonshot AI）出品的国产 AI 助手，以超长上下文窗口和强大的文件解析能力著称。支持 PDF、Word、Excel 等格式上传，适合处理合同、论文、报告等长文档。 超长上下文 文件解析 联网搜索 K2 模型 多轮对话 开放平台 API"
+  },
+  {
+    "label": "Kimi 独立页",
+    "url": "tools/kimi.html",
+    "keywords": "kimi Kimi 月之暗面（Moonshot AI）出品的国产 AI 助手，以超长上下文窗口和强大的文件解析能力著称。支持 PDF、Word、Excel 等格式上传，适合处理合同、论文、报告等长文档。 超长上下文 文件解析 联网搜索 K2 模型 多轮对话 开放平台 API"
+  },
+  {
+    "label": "通义千问 教程",
+    "section": "section-qwen",
+    "keywords": "qwen 通义千问 阿里巴巴达摩院推出的 Qwen 大模型系列，涵盖对话、代码、多模态、语音等能力。通过通义 App、网页版和阿里云 DashScope API 提供服务，适合个人与企业场景。 Qwen 模型矩阵 通义万相 通义听悟 多模态理解 DashScope API 百炼平台"
+  },
+  {
+    "label": "通义千问 独立页",
+    "url": "tools/qwen.html",
+    "keywords": "qwen 通义千问 阿里巴巴达摩院推出的 Qwen 大模型系列，涵盖对话、代码、多模态、语音等能力。通过通义 App、网页版和阿里云 DashScope API 提供服务，适合个人与企业场景。 Qwen 模型矩阵 通义万相 通义听悟 多模态理解 DashScope API 百炼平台"
+  },
+  {
+    "label": "豆包 教程",
+    "section": "section-doubao",
+    "keywords": "doubao 豆包 字节跳动推出的免费 AI 助手，基于豆包大模型，支持对话、图像生成、文档解读和语音交互。与「扣子 Coze」平台联动，可零代码搭建 AI Bot 和工作流。 免费使用 多模态交互 豆包大模型 扣子 Coze 抖音生态 火山引擎 API"
+  },
+  {
+    "label": "豆包 独立页",
+    "url": "tools/doubao.html",
+    "keywords": "doubao 豆包 字节跳动推出的免费 AI 助手，基于豆包大模型，支持对话、图像生成、文档解读和语音交互。与「扣子 Coze」平台联动，可零代码搭建 AI Bot 和工作流。 免费使用 多模态交互 豆包大模型 扣子 Coze 抖音生态 火山引擎 API"
+  },
+  {
+    "label": "Claude 教程",
+    "section": "section-claude",
+    "keywords": "claude Claude Anthropic 出品的 AI 助手，包含网页版 Claude.ai 和终端编程工具 Claude Code。擅长复杂推理、长文档分析和高质量代码生成。 Projects Artifacts Skills Connectors Claude Code Extended Thinking"
+  },
+  {
+    "label": "Claude 独立页",
+    "url": "tools/claude.html",
+    "keywords": "claude Claude Anthropic 出品的 AI 助手，包含网页版 Claude.ai 和终端编程工具 Claude Code。擅长复杂推理、长文档分析和高质量代码生成。 Projects Artifacts Skills Connectors Claude Code Extended Thinking"
+  },
+  {
+    "label": "OpenAI Codex 教程",
+    "section": "section-codex",
+    "keywords": "codex OpenAI Codex OpenAI 的编程代理系统，不再是早期的 API 模型，而是完整的自主编程平台。支持 CLI、IDE 扩展、桌面 App 和云端 GitHub 集成。 四大入口 AGENTS.md Worktrees Skills MCP 集成 PR 自动化 沙箱模式"
+  },
+  {
+    "label": "OpenAI Codex 独立页",
+    "url": "tools/codex.html",
+    "keywords": "codex OpenAI Codex OpenAI 的编程代理系统，不再是早期的 API 模型，而是完整的自主编程平台。支持 CLI、IDE 扩展、桌面 App 和云端 GitHub 集成。 四大入口 AGENTS.md Worktrees Skills MCP 集成 PR 自动化 沙箱模式"
+  },
+  {
+    "label": "Microsoft Copilot 教程",
+    "section": "section-copilot",
+    "keywords": "copilot Microsoft Copilot 微软 AI 产品家族，包含 GitHub Copilot（代码补全与 Agent）和 Microsoft 365 Copilot（Word、Excel、PPT、Outlook 办公助手）。深度整合 VS Code、Visual Studio 和 Microsoft 生态。 代码补全 Copilot Chat Copilot Agent Copilot Workspace M365 Copilot 企业合规"
+  },
+  {
+    "label": "Microsoft Copilot 独立页",
+    "url": "tools/copilot.html",
+    "keywords": "copilot Microsoft Copilot 微软 AI 产品家族，包含 GitHub Copilot（代码补全与 Agent）和 Microsoft 365 Copilot（Word、Excel、PPT、Outlook 办公助手）。深度整合 VS Code、Visual Studio 和 Microsoft 生态。 代码补全 Copilot Chat Copilot Agent Copilot Workspace M365 Copilot 企业合规"
+  },
+  {
+    "label": "Cursor 教程",
+    "section": "section-cursor",
+    "keywords": "cursor Cursor 基于 VS Code 的 AI 原生代码编辑器，将大语言模型深度集成到编辑体验的每一层。支持 Tab 补全、内联编辑、Agent 自主编程和 MCP 扩展。 Tab 补全 Cmd+K Agent 模式 Plan 模式 Rules MCP 服务器 Cloud Agents"
+  },
+  {
+    "label": "Cursor 独立页",
+    "url": "tools/cursor.html",
+    "keywords": "cursor Cursor 基于 VS Code 的 AI 原生代码编辑器，将大语言模型深度集成到编辑体验的每一层。支持 Tab 补全、内联编辑、Agent 自主编程和 MCP 扩展。 Tab 补全 Cmd+K Agent 模式 Plan 模式 Rules MCP 服务器 Cloud Agents"
+  },
+  {
+    "label": "用 ChatGPT 写一份专业周报",
+    "section": "section-cases",
+    "keywords": "chatgpt 用 ChatGPT 写一份专业周报 不只会聊天——用结构化提示词让 ChatGPT 生成高质量的工作周报。 writing beginner"
+  },
+  {
+    "label": "用 Gemini Deep Research 做行业调研",
+    "section": "section-cases",
+    "keywords": "gemini 用 Gemini Deep Research 做行业调研 让 Gemini 自动搜索多个来源，生成带引用链接的深度研究报告。 research beginner"
+  },
+  {
+    "label": "用 Kimi 速读 50 页合同并提取关键条款",
+    "section": "section-cases",
+    "keywords": "kimi 用 Kimi 速读 50 页合同并提取关键条款 上传长篇 PDF，让 Kimi 在几分钟内总结核心条款、风险点和待确认事项。 research beginner"
+  },
+  {
+    "label": "用通义听悟整理 1 小时会议纪要",
+    "section": "section-cases",
+    "keywords": "qwen 用通义听悟整理 1 小时会议纪要 上传会议录音，自动转写、分段摘要并提取待办事项。 productivity beginner"
+  },
+  {
+    "label": "用 GitHub Copilot 为函数自动生成单元测试",
+    "section": "section-cases",
+    "keywords": "copilot 用 GitHub Copilot 为函数自动生成单元测试 在 VS Code 中选中业务函数，让 Copilot Chat 生成 pytest 测试并运行验证。 coding beginner"
+  },
+  {
+    "label": "从零搭建待办事项 Web App",
+    "section": "section-cases",
+    "keywords": "cursor 从零搭建待办事项 Web App 用 Cursor Agent + Plan 模式，从空文件夹到可运行的 HTML/CSS/JS 应用。 coding beginner"
+  },
+  {
+    "label": "给现有项目添加用户登录功能",
+    "section": "section-cases",
+    "keywords": "cursor 给现有项目添加用户登录功能 在已有代码库上用 Agent 模式实现 JWT 认证，涵盖前后端多文件修改。 coding"
+  },
+  {
+    "label": "用 Claude Projects 生成项目技术文档",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Projects 生成项目技术文档 上传代码仓库，让 Claude 自动分析并输出架构文档和 API 说明。 writing beginner"
+  },
+  {
+    "label": "用 Claude Code 终端修复 Bug",
+    "section": "section-cases",
+    "keywords": "claude 用 Claude Code 终端修复 Bug 在终端用 Claude Code 定位、修复 bug 并提交 git commit，完整开发闭环。 coding"
+  },
+  {
+    "label": "用 Codex CLI 快速搭建 REST API",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex CLI 快速搭建 REST API 从空目录开始，用 Codex 终端代理生成完整的 CRUD API 项目。 coding beginner"
+  },
+  {
+    "label": "用 Codex Cloud 自动处理 GitHub Issue",
+    "section": "section-cases",
+    "keywords": "codex 用 Codex Cloud 自动处理 GitHub Issue 在 GitHub Issue 中 @codex，让云端 Agent 自动修复并提交 PR。 coding"
+  },
+  {
+    "label": "实战案例",
+    "section": "section-cases",
+    "keywords": "实战 案例 提示词 prompt"
+  },
+  {
+    "label": "每日视频",
+    "section": "section-videos",
+    "keywords": "视频 youtube 教程 每日"
+  },
+  {
+    "label": "Cursor vs Copilot：2026 编程 AI 怎么选？",
+    "url": "compare/cursor-vs-copilot.html",
+    "keywords": "cursor copilot 对比 选型 编程"
+  },
+  {
+    "label": "ChatGPT vs DeepSeek vs 豆包：零基础怎么选？",
+    "url": "compare/chatgpt-vs-deepseek-vs-doubao.html",
+    "keywords": "chatgpt deepseek 豆包 对比 入门"
+  },
+  {
+    "label": "Kimi vs Claude vs 通义：长文档 AI 怎么选？",
+    "url": "compare/kimi-vs-claude-vs-qwen.html",
+    "keywords": "kimi claude 通义 长文档 对比"
+  }
+]

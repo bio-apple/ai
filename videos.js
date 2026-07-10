@@ -1,6 +1,8 @@
 const VIDEO_DATA_URL = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
 
+let videoDataPromise = null;
+
 function escapeHtml(s) {
   const d = document.createElement('div');
   d.textContent = s;
@@ -58,10 +60,19 @@ function renderBatch(batch) {
   `;
 }
 
-async function fetchVideoData() {
-  const res = await fetch(VIDEO_DATA_URL, { cache: 'no-store' });
-  if (!res.ok) throw new Error('无法加载视频数据');
-  return res.json();
+function fetchVideoData() {
+  if (!videoDataPromise) {
+    videoDataPromise = fetch(VIDEO_DATA_URL, { cache: 'no-store' })
+      .then(res => {
+        if (!res.ok) throw new Error('无法加载视频数据');
+        return res.json();
+      })
+      .catch(err => {
+        videoDataPromise = null;
+        throw err;
+      });
+  }
+  return videoDataPromise;
 }
 
 async function loadHomeVideoPreview() {

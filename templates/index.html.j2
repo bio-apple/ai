@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ meta.title }}</title>
+  <meta name="description" content="{{ meta.description }}">
+  <meta name="keywords" content="{{ meta.keywords }}">
+  <link rel="canonical" href="{{ meta.canonical }}">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ meta.canonical }}">
+  <meta property="og:title" content="AI 应用指南 2026 — 教程 · 实战案例 · 每日视频">
+  <meta property="og:description" content="{{ meta.description }}">
+  <meta property="og:image" content="{{ meta.og_image }}">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 应用指南 2026 — 教程 · 实战案例 · 每日视频">
+  <meta name="twitter:description" content="{{ meta.description }}">
+  <meta name="twitter:image" content="{{ meta.og_image }}">
+  <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">{{ schema_json | safe }}</script>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-icon">{{ nav.logo.icon }}</div>
+      <span>{{ nav.logo.text }}</span>
+    </div>
+    <div class="nav-tabs">
+      {% for tab in nav.tabs %}
+      <button class="nav-tab{% if tab.id == 'all' %} active{% endif %}" data-tool="{{ tab.id }}">{{ tab.label }}</button>
+      {% endfor %}
+    </div>
+  </nav>
+</header>
+
+<section id="section-home" class="section active">
+  <div class="hero">
+    <h1>{{ hero.title }}</h1>
+    <p>{{ hero.subtitle }}</p>
+
+    <div class="site-search-wrap">
+      <input type="search" id="site-search" class="site-search" placeholder="{{ hero.search_placeholder }}" aria-label="站内搜索">
+      <div id="site-search-results" class="site-search-results" hidden></div>
+    </div>
+
+    <h3 class="resources-title" style="margin-top:28px">快速找到你需要的</h3>
+    <div class="quick-find-grid">
+      {% for item in quick_find %}
+      <button class="quick-find-card" data-goto="{{ item.goto }}" data-track="{{ item.track }}">
+        <span class="quick-find-icon">{{ item.icon }}</span>
+        <strong>{{ item.title }}</strong>
+        <span>{{ item.subtitle }}</span>
+      </button>
+      {% endfor %}
+    </div>
+
+    <h3 class="resources-title">今日精选视频</h3>
+    <div id="home-video-preview" class="home-video-preview">
+      <p class="loading-hint">加载今日精选…</p>
+    </div>
+    <div style="text-align:center;margin-bottom:8px">
+      <button class="cta-btn cta-btn-sm" data-goto="videos" data-track="home-all-videos">查看全部每日视频 →</button>
+    </div>
+
+    {% for cat in home_tool_categories %}
+    <p class="category-label"{% if loop.first %} style="margin-top:0"{% endif %}>{{ cat.label }}</p>
+    <div class="tool-cards">
+      {% for tool in cat.tools %}
+      <div class="tool-card {{ tool.id }}" data-tool="{{ tool.id }}">
+        <span class="badge">{{ tool.badge }}</span>
+        <h3>{{ tool.name }}</h3>
+        <p>{{ tool.summary }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+
+  <main>
+    <h3 class="resources-title">AI 能帮你做什么</h3>
+    <div class="scenario-grid">
+      {% for s in scenarios %}
+      <div class="scenario-card"><div class="icon">{{ s.icon }}</div><h4>{{ s.title }}</h4><p>{{ s.description }}</p></div>
+      {% endfor %}
+    </div>
+
+    <h3 class="resources-title">选型指南</h3>
+    <div class="compare-guide-grid">
+      {% for g in compare_guides %}
+      <a href="{{ g.href }}" class="compare-guide-card" data-track="{{ g.track }}">
+        <span class="compare-guide-tag">{{ g.tag }}</span>
+        <h4>{{ g.title }}</h4>
+        <p>{{ g.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+
+    <h3 class="resources-title">工具选型速查</h3>
+    <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr><th>工具</th><th>类型</th><th>核心优势</th><th>适合场景</th><th>入门</th></tr>
+      </thead>
+      <tbody>
+        {% for row in compare_table.rows %}
+        <tr>
+          <td>{{ row.tool }}</td><td>{{ row.type }}</td><td>{{ row.strength }}</td><td>{{ row.scenario }}</td><td>{{ row.pricing }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    </div>
+
+    <h3 class="resources-title">学习路径建议</h3>
+    <div class="grid-2">
+      {% for path in learning_paths %}
+      <div class="card">
+        <h3><span class="dot" style="background:{{ path.dot_color }}"></span> {{ path.title }}</h3>
+        <ol class="steps">
+          {% for step in path.steps %}<li>{{ step }}</li>{% endfor %}
+        </ol>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div style="text-align:center;margin-top:8px">
+      <button class="cta-btn" data-goto="cases">查看实战案例 →</button>
+    </div>
+  </main>
+</section>
+
+{% for tool in tools %}
+{% include 'partials/tool_section.j2' %}
+{% endfor %}
+
+{% include 'partials/cases_section.j2' %}
+
+<section id="section-videos" class="section videos-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
+      <div>
+        <h2>每日 AI 视频推荐</h2>
+        <p class="desc">每日北京时间 0:00 自动更新，筛选 1080p 及以上、与 AI 应用相关的教程视频，按频道订阅数与播放量综合排序，每天至少 10 条。</p>
+        <p class="video-update-meta" id="video-update-meta"></p>
+      </div>
+    </div>
+    <div id="daily-video-list" class="daily-video-list">
+      <p class="loading-hint">加载视频推荐…</p>
+    </div>
+  </main>
+</section>
+
+<footer>
+  <p>{{ footer.text }} · <a href="{{ footer.github }}" target="_blank" rel="noopener">GitHub</a></p>
+</footer>
+
+<script src="analytics.js"></script>
+<script src="app.js"></script>
+<script src="videos.js"></script>
+</body>
+</html>

@@ -28,7 +28,11 @@ def serve_static(filepath: str):
         raise HTTPException(404)
     path = (ROOT / filepath).resolve()
     root = ROOT.resolve()
-    if not str(path).startswith(str(root)) or not path.is_file():
+    try:
+        path.relative_to(root)
+    except ValueError:
+        raise HTTPException(404)
+    if not path.is_file():
         raise HTTPException(404)
     if path.suffix.lower() not in SAFE_STATIC and path.name not in SAFE_STATIC:
         raise HTTPException(404)

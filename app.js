@@ -2,23 +2,7 @@ const tabs = document.querySelectorAll('.nav-tab');
 const sections = document.querySelectorAll('.section');
 const toolCards = document.querySelectorAll('.tool-card');
 
-const SEARCH_INDEX = [
-  { label: 'ChatGPT 教程', section: 'section-chatgpt', keywords: 'chatgpt openai 写作 对话' },
-  { label: 'Claude 教程', section: 'section-claude', keywords: 'claude anthropic 文档 推理' },
-  { label: 'Gemini 教程', section: 'section-gemini', keywords: 'gemini google 搜索 研究' },
-  { label: 'DeepSeek 教程', section: 'section-deepseek', keywords: 'deepseek 深度求索 api 免费' },
-  { label: 'Kimi 教程', section: 'section-kimi', keywords: 'kimi 月之暗面 长文档 pdf' },
-  { label: '通义千问教程', section: 'section-qwen', keywords: '通义 qwen 阿里云 听悟' },
-  { label: '豆包教程', section: 'section-doubao', keywords: '豆包 doubao 扣子 coze 字节' },
-  { label: 'Cursor 教程', section: 'section-cursor', keywords: 'cursor 编程 ide agent' },
-  { label: 'Codex 教程', section: 'section-codex', keywords: 'codex openai 编程 代理' },
-  { label: 'Copilot 教程', section: 'section-copilot', keywords: 'copilot github 补全 vscode' },
-  { label: '实战案例', section: 'section-cases', keywords: '实战 案例 提示词 prompt' },
-  { label: '每日视频', section: 'section-videos', keywords: '视频 youtube 教程 每日' },
-  { label: 'Cursor vs Copilot', url: 'compare/cursor-vs-copilot.html', keywords: 'cursor copilot 对比 选型' },
-  { label: 'ChatGPT vs DeepSeek vs 豆包', url: 'compare/chatgpt-vs-deepseek-vs-doubao.html', keywords: 'chatgpt deepseek 豆包 对比 入门' },
-  { label: 'Kimi vs Claude vs 通义', url: 'compare/kimi-vs-claude-vs-qwen.html', keywords: 'kimi claude 通义 长文档 对比' },
-];
+let searchIndex = [];
 
 let activeToolFilter = 'all';
 let activeScenarioFilter = 'all';
@@ -158,6 +142,17 @@ document.querySelectorAll('.prompt-block').forEach(block => {
 });
 
 /* Site search */
+async function loadSearchIndex() {
+  try {
+    const res = await fetch('search-index.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('search index unavailable');
+    const data = await res.json();
+    if (Array.isArray(data) && data.length) searchIndex = data;
+  } catch {
+    searchIndex = [];
+  }
+}
+
 function initSiteSearch() {
   const input = document.getElementById('site-search');
   const results = document.getElementById('site-search-results');
@@ -170,7 +165,7 @@ function initSiteSearch() {
       results.innerHTML = '';
       return;
     }
-    const hits = SEARCH_INDEX.filter(item =>
+    const hits = searchIndex.filter(item =>
       item.label.toLowerCase().includes(query) ||
       item.keywords.toLowerCase().includes(query)
     ).slice(0, 8);
@@ -220,5 +215,5 @@ function initSiteSearch() {
 
 document.addEventListener('DOMContentLoaded', () => {
   initHashRouting();
-  initSiteSearch();
+  loadSearchIndex().finally(initSiteSearch);
 });

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ compare.title }}</title>
+  <meta name="description" content="{{ compare.meta_description }}">
+  <link rel="canonical" href="{{ meta.base_url }}compare/{{ compare.slug }}.html">
+  <meta property="og:title" content="{{ compare.title }}">
+  <meta property="og:description" content="{{ compare.meta_description }}">
+  <meta property="og:image" content="{{ meta.og_image }}">
+  <meta property="og:url" content="{{ meta.base_url }}compare/{{ compare.slug }}.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="../style.css">
+  <script type="application/ld+json">{{ schema_json | safe }}</script>
+</head>
+<body>
+<header><nav class="nav"><a href="../index.html" class="logo"><div class="logo-icon">AI</div><span>AI 应用指南</span></a></nav></header>
+<main class="standalone-page">
+  <nav class="breadcrumb"><a href="../index.html">首页</a> / 选型指南 / {{ compare.breadcrumb }}</nav>
+  <h1>{{ compare.h1 }}</h1>
+  <p class="standalone-lead">{{ compare.lead }}</p>
+  <div class="answer-box"><strong>一句话结论：</strong>{{ compare.conclusion | safe }}</div>
+
+  <table class="compare-table">
+    <thead><tr>{% for h in compare.table.headers %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+    <tbody>{% for row in compare.table.rows %}<tr>{% for cell in row %}<td>{{ cell }}</td>{% endfor %}</tr>{% endfor %}</tbody>
+  </table>
+
+  {% for sec in compare.sections %}
+  <h2>{{ sec.heading }}</h2>
+  {% if sec.get('ordered') %}
+  <ol class="steps">{% for item in sec['items'] %}<li>{{ item | safe }}</li>{% endfor %}</ol>
+  {% else %}
+  <ul class="features">{% for item in sec['items'] %}<li>{{ item | safe }}</li>{% endfor %}</ul>
+  {% endif %}
+  {% endfor %}
+
+  <div class="standalone-cta">
+    {% for btn in compare.cta %}
+    <a href="{{ btn.href }}" class="cta-btn{% if btn.get('outline') %} cta-btn-outline{% endif %}" data-track="{{ btn.track }}">{{ btn.label }}</a>
+    {% endfor %}
+  </div>
+</main>
+<footer><p>AI 应用指南 · <a href="../index.html">返回首页</a></p></footer>
+<script src="../analytics.js"></script>
+</body>
+</html>

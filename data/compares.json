@@ -1,0 +1,87 @@
+[
+  {
+    "slug": "cursor-vs-copilot",
+    "breadcrumb": "Cursor vs Copilot",
+    "title": "Cursor vs Copilot 怎么选？2026 编程 AI 对比指南",
+    "meta_description": "Cursor 与 GitHub Copilot 深度对比：Agent 跨文件开发、IDE 补全、定价、适合场景。帮你 3 分钟选对编程 AI 工具。",
+    "h1": "Cursor vs Copilot：2026 编程 AI 怎么选？",
+    "lead": "Cursor 是 AI 原生编辑器，擅长 Agent 跨文件改动；GitHub Copilot 是 VS Code 生态里最成熟的补全助手。选对工具能直接提升编码效率。",
+    "conclusion": "需要 Agent 自主改多文件、快速搭项目 → 选 <strong>Cursor</strong>；已在 VS Code 深度使用、主要需要补全和 Chat → 选 <strong>Copilot</strong>。",
+    "table": {
+      "headers": ["维度", "Cursor", "GitHub Copilot"],
+      "rows": [
+        ["定位", "AI 原生 IDE（VS Code 分支）", "IDE 插件 + Chat"],
+        ["核心优势", "Agent 跨文件、Plan 模式、Rules", "行级补全成熟、GitHub 生态"],
+        ["适合场景", "新项目、大功能、快速迭代", "日常编码、团队已有 VS Code"],
+        ["定价", "免费 / Pro $20/月", "免费 / Pro $10/月"],
+        ["学习曲线", "中等（需理解 Agent/Rules）", "低（装好就能用）"]
+      ]
+    },
+    "sections": [
+      {"heading": "什么时候选 Cursor？", "items": ["从零搭建 Web App、需要 AI 自动创建多个文件", "大功能重构，希望 Agent 自主搜索代码库并改代码", "愿意用 .cursor/rules 固化项目规范"]},
+      {"heading": "什么时候选 Copilot？", "items": ["团队统一用 VS Code，不想换编辑器", "主要需求是 Tab 补全和内联 Chat", "学生或开源维护者可申请免费 Pro"]}
+    ],
+    "cta": [
+      {"label": "查看 Cursor 完整教程 →", "href": "../tools/cursor.html", "track": "compare-goto-cursor"},
+      {"label": "查看 Copilot 完整教程 →", "href": "../index.html#section-copilot", "track": "compare-goto-copilot", "outline": true},
+      {"label": "看编程实战案例 →", "href": "../index.html#section-cases", "track": "compare-goto-cases", "outline": true}
+    ],
+    "search_keywords": "cursor copilot 对比 选型 编程"
+  },
+  {
+    "slug": "chatgpt-vs-deepseek-vs-doubao",
+    "breadcrumb": "ChatGPT vs DeepSeek vs 豆包",
+    "title": "ChatGPT vs DeepSeek vs 豆包：零基础 AI 入门怎么选 2026",
+    "meta_description": "ChatGPT、DeepSeek、豆包三款 AI 助手对比：免费额度、中文体验、推理能力、API 价格。帮你快速选对入门工具。",
+    "h1": "ChatGPT vs DeepSeek vs 豆包：零基础怎么选？",
+    "lead": "三款都是优秀的 AI 对话助手，但侧重点不同。按你的网络环境、预算和使用场景选择，比盲目追新模型更重要。",
+    "conclusion": "要最全生态和国际内容 → <strong>ChatGPT</strong>；要免费强推理和便宜 API → <strong>DeepSeek</strong>；要纯中文免费多模态 → <strong>豆包</strong>。",
+    "table": {
+      "headers": ["维度", "ChatGPT", "DeepSeek", "豆包"],
+      "rows": [
+        ["网页免费", "有额度限制", "完全免费", "完全免费"],
+        ["中文体验", "良好", "优秀", "优秀（本土化）"],
+        ["核心优势", "GPTs、多模态、生态最全", "深度思考、极低 API 价", "多模态、扣子 Coze 联动"],
+        ["适合场景", "通用任务、图像、国际化", "学习、编程、低成本开发", "日常问答、内容创作"],
+        ["API", "OpenAI 官方", "约为 GPT-4 的 1/10", "火山方舟"]
+      ]
+    },
+    "sections": [
+      {"heading": "推荐学习路径", "items": ["国内用户先用 豆包 或 DeepSeek 学会提示词基础", "需要图像生成、GPTs、Deep Research 时升级 ChatGPT", "开发者用 DeepSeek API 低成本接入产品"], "ordered": true}
+    ],
+    "cta": [
+      {"label": "ChatGPT 教程 →", "href": "../tools/chatgpt.html", "track": "compare-goto-chatgpt"},
+      {"label": "DeepSeek 教程 →", "href": "../tools/deepseek.html", "track": "compare-goto-deepseek", "outline": true},
+      {"label": "豆包教程 →", "href": "../index.html#section-doubao", "track": "compare-goto-doubao", "outline": true}
+    ],
+    "search_keywords": "chatgpt deepseek 豆包 对比 入门"
+  },
+  {
+    "slug": "kimi-vs-claude-vs-qwen",
+    "breadcrumb": "Kimi vs Claude vs 通义",
+    "title": "Kimi vs Claude vs 通义：长文档 AI 怎么选 2026",
+    "meta_description": "Kimi、Claude、通义千问长文档处理对比：上下文长度、PDF 解析、合同审查、会议纪要。帮你选对文档分析 AI。",
+    "h1": "Kimi vs Claude vs 通义：长文档 AI 怎么选？",
+    "lead": "处理合同、论文、报告时，上下文长度和文件解析能力是关键。三款工具各有所长。",
+    "conclusion": "国产长 PDF 速读首选 <strong>Kimi</strong>；高质量写作与深度分析选 <strong>Claude</strong>；会议录音转写与企业部署选 <strong>通义听悟</strong>。",
+    "table": {
+      "headers": ["维度", "Kimi", "Claude", "通义千问"],
+      "rows": [
+        ["上下文", "百万字级", "长文本优秀", "Qwen 长上下文"],
+        ["文件支持", "PDF/Word/Excel/PPT", "PDF/图片/文档", "文档+音视频"],
+        ["特色功能", "联网搜索、文件问答", "Projects 知识库、Artifacts", "通义听悟会议转写"],
+        ["适合场景", "合同审查、论文速读", "技术文档、高质量写作", "会议纪要、企业应用"],
+        ["访问", "国内直连", "需国际网络", "国内直连"]
+      ]
+    },
+    "sections": [
+      {"heading": "实战案例推荐", "items": ["用 Kimi 速读 50 页合同 — 提取关键条款与风险点", "用 Claude Projects 生成技术文档 — 上传代码库自动分析", "用通义听悟整理会议纪要 — 1 小时录音转结构化纪要"]}
+    ],
+    "cta": [
+      {"label": "Kimi 教程 →", "href": "../index.html#section-kimi", "track": "compare-goto-kimi"},
+      {"label": "Claude 教程 →", "href": "../index.html#section-claude", "track": "compare-goto-claude", "outline": true},
+      {"label": "通义教程 →", "href": "../index.html#section-qwen", "track": "compare-goto-qwen", "outline": true}
+    ],
+    "search_keywords": "kimi claude 通义 长文档 对比"
+  }
+]

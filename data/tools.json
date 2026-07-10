@@ -1,0 +1,826 @@
+[
+  {
+    "id": "chatgpt",
+    "section_id": "section-chatgpt",
+    "icon": "G",
+    "name": "ChatGPT",
+    "description": "OpenAI 出品的通用 AI 助手，用户量最大、功能最全。支持对话、图像生成、文件分析、代码编写、自定义 GPTs 和语音交互。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://chatgpt.com\" rel=\"noopener\" target=\"_blank\">chatgpt.com</a> 注册（支持 Google/Apple 登录）",
+      "下载 iOS / Android App，开启语音对话模式",
+      "在输入框下方选择模型：<strong>Instant</strong>（快速）/ <strong>Thinking</strong>（深度推理）/ <strong>Pro</strong>（最强）",
+      "设置 → 个性化指令，告诉 ChatGPT 你的背景和偏好",
+      "上传 PDF、图片、表格让 AI 分析处理"
+    ],
+    "features": [
+      {
+        "title": "多模型模式",
+        "description": "Instant 日常快速，Thinking 复杂推理，Pro 高难度任务"
+      },
+      {
+        "title": "自定义 GPTs",
+        "description": "创建专属 AI 助手，分享给他人使用"
+      },
+      {
+        "title": "文件与图像",
+        "description": "上传文档分析、DALL·E 图像生成与编辑"
+      },
+      {
+        "title": "记忆功能",
+        "description": "跨对话记住你的偏好和背景信息"
+      },
+      {
+        "title": "语音模式",
+        "description": "实时语音对话，移动端体验优秀"
+      },
+      {
+        "title": "Deep Research",
+        "description": "自动搜索多个来源，生成研究报告"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "官方帮助",
+        "type_class": "official",
+        "href": "https://help.openai.com/en/articles/6783457-what-is-chatgpt",
+        "title": "What is ChatGPT?",
+        "meta": "OpenAI 官方介绍：功能、定价、API 接入"
+      },
+      {
+        "type": "定价",
+        "type_class": "official",
+        "href": "https://openai.com/chatgpt/pricing",
+        "title": "ChatGPT 定价方案",
+        "meta": "Free / Plus / Pro / Team / Enterprise 对比"
+      },
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://platform.openai.com/docs/guides/prompt-engineering",
+        "title": "Prompt Engineering 指南",
+        "meta": "OpenAI 官方提示词工程最佳实践"
+      },
+      {
+        "type": "分步教程",
+        "type_class": "article",
+        "href": "https://www.techcompanynews.com/how-to-use-chatgpt-in-2026-step-by-step-guide/",
+        "title": "How to Use ChatGPT in 2026",
+        "meta": "从注册到高级技巧的完整指南"
+      }
+    ],
+    "shortcuts": null
+  },
+  {
+    "id": "gemini",
+    "section_id": "section-gemini",
+    "icon": "✦",
+    "name": "Google Gemini",
+    "description": "Google 的 AI 助手，深度整合 Gmail、Drive、YouTube 等 Google 服务。支持多模态输入、Deep Research、Gems 自定义工具和实时语音对话。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://gemini.google.com\" rel=\"noopener\" target=\"_blank\">gemini.google.com</a>，用 Google 账号登录",
+      "Android 用户可下载 Gemini App 或设为默认 AI 助手",
+      "设置 → Instructions for Gemini，配置个性化指令",
+      "连接 Google 应用：Gmail、Drive、YouTube、Google 地图",
+      "在输入框切换模型：Flash（快速）/ Pro（强力）/ Ultra"
+    ],
+    "features": [
+      {
+        "title": "Gems",
+        "description": "创建可复用的专属 AI 工具（如写作助手、代码审查员）"
+      },
+      {
+        "title": "Deep Research",
+        "description": "自动浏览网页，生成带引用的深度研究报告"
+      },
+      {
+        "title": "Gemini Live",
+        "description": "实时语音对话，支持摄像头和屏幕共享"
+      },
+      {
+        "title": "Canvas",
+        "description": "协作编辑文档、代码和图表的工作区"
+      },
+      {
+        "title": "图像与视频",
+        "description": "Imagen 图像生成、Veo 视频创作"
+      },
+      {
+        "title": "Scheduled Actions",
+        "description": "定时自动执行重复性 AI 任务"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "官方帮助",
+        "type_class": "official",
+        "href": "https://support.google.com/gemini/answer/13275745",
+        "title": "Use Gemini Apps — 官方指南",
+        "meta": "Google 官方：功能介绍、模型切换、文件上传"
+      },
+      {
+        "type": "开发者文档",
+        "type_class": "official",
+        "href": "https://ai.google.dev/gemini-api/docs",
+        "title": "Gemini API 文档",
+        "meta": "Google AI Studio、API Key、SDK 接入指南"
+      },
+      {
+        "type": "Android 指南",
+        "type_class": "official",
+        "href": "https://www.android.com/intl/en_uk/articles/gemini-android-app/",
+        "title": "Gemini Android App 使用教程",
+        "meta": "语音、截图分析、屏幕上下文等移动端功能"
+      }
+    ],
+    "shortcuts": null
+  },
+  {
+    "id": "deepseek",
+    "section_id": "section-deepseek",
+    "icon": "D",
+    "name": "DeepSeek",
+    "description": "国产高性能 AI 模型，以极强的推理能力和极具竞争力的 API 价格著称。网页版免费使用，API 兼容 OpenAI 格式，开发者可零成本迁移。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://chat.deepseek.com\" rel=\"noopener\" target=\"_blank\">chat.deepseek.com</a> 免费注册使用",
+      "切换「深度思考」模式处理复杂推理和数学问题",
+      "开发者：访问 <a href=\"https://platform.deepseek.com\" rel=\"noopener\" target=\"_blank\">platform.deepseek.com</a> 获取 API Key",
+      "API 调用只需改 OpenAI SDK 的 <code>base_url</code> 为 <code>https://api.deepseek.com</code>",
+      "模型选择：<code>deepseek-v4-flash</code>（快速）/ <code>deepseek-v4-pro</code>（强力）"
+    ],
+    "features": [
+      {
+        "title": "深度思考模式",
+        "description": "展示推理过程，数学和逻辑题表现突出"
+      },
+      {
+        "title": "免费网页版",
+        "description": "chat.deepseek.com 无需付费即可使用"
+      },
+      {
+        "title": "OpenAI 兼容 API",
+        "description": "现有 OpenAI 代码几乎零改动接入"
+      },
+      {
+        "title": "超长上下文",
+        "description": "V4 支持最高 1M token 上下文窗口"
+      },
+      {
+        "title": "极低 API 价格",
+        "description": "约为 GPT-4 的 1/10，适合大规模部署"
+      },
+      {
+        "title": "Agent 工具集成",
+        "description": "支持 Claude Code、Copilot 等作为后端模型"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://api-docs.deepseek.com/",
+        "title": "DeepSeek API 官方文档",
+        "meta": "API 调用、模型列表、Agent 集成指南"
+      },
+      {
+        "type": "实用教程",
+        "type_class": "article",
+        "href": "https://deepseekai.guide/tutorials/how-to-use-deepseek/",
+        "title": "How to Use DeepSeek: 2026 Walkthrough",
+        "meta": "网页版、App、API 三角度完整入门"
+      },
+      {
+        "type": "开发者指南",
+        "type_class": "article",
+        "href": "https://chat-deep.ai/docs/openai-sdk-to-deepseek/",
+        "title": "用 OpenAI SDK 调用 DeepSeek",
+        "meta": "Python/Node.js 示例、流式输出、JSON 模式"
+      }
+    ],
+    "shortcuts": null
+  },
+  {
+    "id": "kimi",
+    "section_id": "section-kimi",
+    "icon": "K",
+    "name": "Kimi",
+    "description": "月之暗面（Moonshot AI）出品的国产 AI 助手，以超长上下文窗口和强大的文件解析能力著称。支持 PDF、Word、Excel 等格式上传，适合处理合同、论文、报告等长文档。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://kimi.moonshot.cn\" rel=\"noopener\" target=\"_blank\">kimi.moonshot.cn</a> 或下载 Kimi App",
+      "手机号 / 微信登录，新用户有免费额度",
+      "点击「上传文件」导入 PDF、Word、PPT 等文档",
+      "开启「联网搜索」获取最新信息",
+      "开发者：访问 <a href=\"https://platform.moonshot.cn\" rel=\"noopener\" target=\"_blank\">platform.moonshot.cn</a> 获取 API Key"
+    ],
+    "features": [
+      {
+        "title": "超长上下文",
+        "description": "支持百万字级文档一次性分析"
+      },
+      {
+        "title": "文件解析",
+        "description": "PDF、Word、Excel、PPT 智能提取与问答"
+      },
+      {
+        "title": "联网搜索",
+        "description": "实时检索互联网信息并整合回答"
+      },
+      {
+        "title": "K2 模型",
+        "description": "强化推理与代码能力，适合技术文档"
+      },
+      {
+        "title": "多轮对话",
+        "description": "基于已上传文件持续追问"
+      },
+      {
+        "title": "开放平台 API",
+        "description": "兼容 OpenAI 格式，便于接入应用"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://platform.moonshot.cn/docs",
+        "title": "Moonshot API 文档",
+        "meta": "模型列表、API 调用、定价与接入指南"
+      },
+      {
+        "type": "产品页",
+        "type_class": "official",
+        "href": "https://kimi.moonshot.cn",
+        "title": "Kimi 智能助手",
+        "meta": "网页版与 App 下载入口"
+      }
+    ],
+    "shortcuts": null
+  },
+  {
+    "id": "qwen",
+    "section_id": "section-qwen",
+    "icon": "通",
+    "name": "通义千问",
+    "description": "阿里巴巴达摩院推出的 Qwen 大模型系列，涵盖对话、代码、多模态、语音等能力。通过通义 App、网页版和阿里云 DashScope API 提供服务，适合个人与企业场景。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://tongyi.aliyun.com\" rel=\"noopener\" target=\"_blank\">tongyi.aliyun.com</a> 或下载「通义」App",
+      "阿里云账号登录，免费使用基础功能",
+      "尝试「通义万相」生成图片、「通义听悟」转写会议录音",
+      "开发者：登录 <a href=\"https://dashscope.aliyun.com\" rel=\"noopener\" target=\"_blank\">DashScope</a> 开通 API",
+      "模型选择：<code>qwen-max</code>（强力）/ <code>qwen-plus</code>（均衡）/ <code>qwen-turbo</code>（快速）"
+    ],
+    "features": [
+      {
+        "title": "Qwen 模型矩阵",
+        "description": "Max / Plus / Turbo 按场景选型"
+      },
+      {
+        "title": "通义万相",
+        "description": "文生图、图像编辑与风格迁移"
+      },
+      {
+        "title": "通义听悟",
+        "description": "会议录音转写、摘要与待办提取"
+      },
+      {
+        "title": "多模态理解",
+        "description": "图片、文档、视频内容分析"
+      },
+      {
+        "title": "DashScope API",
+        "description": "企业级部署，支持私有化"
+      },
+      {
+        "title": "百炼平台",
+        "description": "低代码搭建 AI 应用与 Agent"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://help.aliyun.com/zh/dashscope/",
+        "title": "DashScope 模型服务文档",
+        "meta": "API 接入、模型参数、计费说明"
+      },
+      {
+        "type": "产品页",
+        "type_class": "official",
+        "href": "https://tongyi.aliyun.com",
+        "title": "通义千问官网",
+        "meta": "网页版入口、App 下载、功能介绍"
+      },
+      {
+        "type": "开源仓库",
+        "type_class": "official",
+        "href": "https://github.com/QwenLM/Qwen",
+        "title": "Qwen GitHub",
+        "meta": "开源模型、微调指南与技术报告"
+      }
+    ],
+    "shortcuts": null
+  },
+  {
+    "id": "doubao",
+    "section_id": "section-doubao",
+    "icon": "豆",
+    "name": "豆包",
+    "description": "字节跳动推出的免费 AI 助手，基于豆包大模型，支持对话、图像生成、文档解读和语音交互。与「扣子 Coze」平台联动，可零代码搭建 AI Bot 和工作流。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://www.doubao.com\" rel=\"noopener\" target=\"_blank\">doubao.com</a> 或下载豆包 App",
+      "手机号 / 抖音账号登录，基础功能免费",
+      "尝试「AI 创作」生成图片、文案和短视频脚本",
+      "上传文档或截图，让豆包解读内容",
+      "进阶：访问 <a href=\"https://www.coze.cn\" rel=\"noopener\" target=\"_blank\">coze.cn</a> 用扣子搭建自定义 Bot"
+    ],
+    "features": [
+      {
+        "title": "免费使用",
+        "description": "对话、绘图、文档解读无门槛"
+      },
+      {
+        "title": "多模态交互",
+        "description": "文字、图片、语音多方式输入"
+      },
+      {
+        "title": "豆包大模型",
+        "description": "中文理解与创作表现优秀"
+      },
+      {
+        "title": "扣子 Coze",
+        "description": "可视化搭建 AI 应用，支持插件与工作流"
+      },
+      {
+        "title": "抖音生态",
+        "description": "与字节系产品联动，适合内容创作"
+      },
+      {
+        "title": "火山引擎 API",
+        "description": "企业可通过火山方舟接入豆包模型"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "产品页",
+        "type_class": "official",
+        "href": "https://www.doubao.com",
+        "title": "豆包官网",
+        "meta": "网页版、App 下载与功能介绍"
+      },
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://www.coze.cn/docs/guides",
+        "title": "扣子 Coze 开发指南",
+        "meta": "Bot 创建、插件、工作流与发布教程"
+      },
+      {
+        "type": "企业 API",
+        "type_class": "official",
+        "href": "https://www.volcengine.com/product/ark",
+        "title": "火山方舟大模型服务",
+        "meta": "豆包模型 API 接入与企业部署"
+      }
+    ],
+    "shortcuts": null
+  },
+  {
+    "id": "claude",
+    "section_id": "section-claude",
+    "icon": "C",
+    "name": "Claude",
+    "description": "Anthropic 出品的 AI 助手，包含网页版 Claude.ai 和终端编程工具 Claude Code。擅长复杂推理、长文档分析和高质量代码生成。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://claude.ai\" rel=\"noopener\" target=\"_blank\">claude.ai</a> 注册账号（支持 Google 登录）",
+      "下载桌面版 App（macOS / Windows），体验更快的响应速度",
+      "安装 Claude Code：<code>curl -fsSL https://claude.ai/install.sh | bash</code>",
+      "在项目目录运行 <code>claude</code>，按提示完成浏览器登录",
+      "创建 CLAUDE.md 文件，写入项目规范和编码约定"
+    ],
+    "features": [
+      {
+        "title": "Projects",
+        "description": "为每个项目创建独立工作区，上传知识库文件"
+      },
+      {
+        "title": "Artifacts",
+        "description": "实时预览代码、文档和网页原型"
+      },
+      {
+        "title": "Skills",
+        "description": "将重复工作流封装为可复用技能包"
+      },
+      {
+        "title": "Connectors",
+        "description": "连接 Google Drive、Slack、Notion 等工具"
+      },
+      {
+        "title": "Claude Code",
+        "description": "终端中自主读写文件、运行命令、提交代码"
+      },
+      {
+        "title": "Extended Thinking",
+        "description": "深度思考模式，适合复杂问题"
+      }
+    ],
+    "video_resources": [
+      {
+        "type": "YouTube · 19 分钟",
+        "type_class": "video",
+        "href": "https://www.youtube.com/watch?v=WSPChlfxJyA",
+        "title": "Full Claude Tutorial: Beginner to Advanced",
+        "meta": "涵盖 ICC 提示框架、Projects、Skills、Connectors 完整体系"
+      },
+      {
+        "type": "YouTube · 长教程",
+        "type_class": "video",
+        "href": "https://www.youtube.com/watch?v=rRrBbyv3ChM",
+        "title": "FULL Claude Tutorial for Beginners in 2026",
+        "meta": "从注册到高级自动化，构建你的 AI 操作系统"
+      },
+      {
+        "type": "YouTube · 入门",
+        "type_class": "video",
+        "href": "https://www.youtube.com/watch?v=-xEF5WrdIWs",
+        "title": "How to Use Claude AI Step by Step (2026)",
+        "meta": "桌面版 vs 浏览器版对比，提示词技巧，建站实战"
+      }
+    ],
+    "text_resources": [
+      {
+        "type": "官方教程",
+        "type_class": "official",
+        "href": "https://claude.com/resources/tutorials/getting-started-with-claude-ai",
+        "title": "Getting Started with Claude.ai",
+        "meta": "Anthropic 官方入门指南：提示词、文档上传、搜索功能"
+      },
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://code.claude.com/docs",
+        "title": "Claude Code 官方文档",
+        "meta": "安装、Quickstart、CLAUDE.md、工作流最佳实践"
+      },
+      {
+        "type": "产品介绍",
+        "type_class": "official",
+        "href": "https://claude.com/product/claude-code",
+        "title": "Claude Code 产品页",
+        "meta": "终端、IDE、桌面 App、浏览器多平台编程代理"
+      },
+      {
+        "type": "终端指南",
+        "type_class": "article",
+        "href": "https://code.claude.com/docs/en/terminal-guide",
+        "title": "Terminal Guide for New Users",
+        "meta": "从未用过终端的用户也能跟着完成的安装教程"
+      },
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/overview",
+        "title": "Prompt Engineering 指南",
+        "meta": "XML 标签结构化提示、示例引导、长上下文排列技巧"
+      }
+    ],
+    "shortcuts": null
+  },
+  {
+    "id": "codex",
+    "section_id": "section-codex",
+    "icon": "X",
+    "name": "OpenAI Codex",
+    "description": "OpenAI 的编程代理系统，不再是早期的 API 模型，而是完整的自主编程平台。支持 CLI、IDE 扩展、桌面 App 和云端 GitHub 集成。",
+    "getting_started_steps": [
+      "确保有 ChatGPT 账号（Plus / Pro / Business 计划）",
+      "安装 CLI：<code>npm install -g @openai/codex</code>，运行 <code>codex</code> 登录",
+      "或下载桌面 App：访问 <a href=\"https://chatgpt.com/codex\" rel=\"noopener\" target=\"_blank\">chatgpt.com/codex</a>",
+      "在 VS Code / Cursor 中安装 OpenAI Codex 扩展",
+      "运行 <code>/init</code> 生成 AGENTS.md 项目配置文件",
+      "连接 GitHub，在云端分配任务并自动生成 PR"
+    ],
+    "features": [
+      {
+        "title": "四大入口",
+        "description": "CLI、IDE 扩展、桌面 App、Codex Cloud"
+      },
+      {
+        "title": "AGENTS.md",
+        "description": "项目级 AI 指令手册，定义编码规范"
+      },
+      {
+        "title": "Worktrees",
+        "description": "Git 工作树隔离，并行执行多个任务"
+      },
+      {
+        "title": "Skills",
+        "description": "将重复工作流封装为可复用技能"
+      },
+      {
+        "title": "MCP 集成",
+        "description": "连接 Jira、Linear 等外部工具"
+      },
+      {
+        "title": "PR 自动化",
+        "description": "在 GitHub Issue/PR 中 @codex 自动处理"
+      },
+      {
+        "title": "沙箱模式",
+        "description": "安全审批机制，控制 Agent 权限"
+      }
+    ],
+    "video_resources": [
+      {
+        "type": "YouTube · 33 分钟",
+        "type_class": "video",
+        "href": "https://www.youtube.com/watch?v=nQFtsehu7h0",
+        "title": "Complete Beginner's Guide to OpenAI's Codex App",
+        "meta": "John Kim · 从零学习 Codex App，对比 Claude Code 差异"
+      },
+      {
+        "type": "YouTube · 15 分钟",
+        "type_class": "video",
+        "href": "https://www.youtube.com/watch?v=XRu3e7qHHt8",
+        "title": "How to Use OpenAI Codex for Beginners",
+        "meta": "OOP Coders · 15 分钟快速上手，无需编程经验"
+      },
+      {
+        "type": "YouTube · 12 分钟",
+        "type_class": "video",
+        "href": "https://www.youtube.com/watch?v=T-JYfV95JO0",
+        "title": "OpenAI Codex Tutorial 2026 — Getting Started",
+        "meta": "CLI 安装、云端使用、GitHub 连接完整流程"
+      }
+    ],
+    "text_resources": [
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://developers.openai.com/codex",
+        "title": "Codex 官方开发者文档",
+        "meta": "Quickstart、CLI、IDE 扩展、Cloud、最佳实践"
+      },
+      {
+        "type": "官方帮助",
+        "type_class": "official",
+        "href": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+        "title": "Using Codex with Your ChatGPT Plan",
+        "meta": "各订阅计划的 Codex 访问权限和入门步骤"
+      },
+      {
+        "type": "最佳实践",
+        "type_class": "official",
+        "href": "https://developers.openai.com/codex/learn/best-practices",
+        "title": "Codex Best Practices",
+        "meta": "AGENTS.md、MCP、Skills、计划先行、测试验证"
+      },
+      {
+        "type": "FreeCodeCamp",
+        "type_class": "article",
+        "href": "https://www.freecodecamp.org/news/the-codex-handbook-a-practical-guide-to-openai-s-coding-platform/",
+        "title": "The Codex Handbook — 实用指南",
+        "meta": "安装配置、定价对比、企业治理、安全清单"
+      },
+      {
+        "type": "DataCamp",
+        "type_class": "article",
+        "href": "https://www.datacamp.com/tutorial/openai-codex",
+        "title": "OpenAI Codex Tutorial — 3 个实战案例",
+        "meta": "连接 GitHub、修复 Bug、生成测试的完整教程"
+      },
+      {
+        "type": "入门指南",
+        "type_class": "article",
+        "href": "https://eastondev.com/blog/en/posts/ai/20260624-codex-complete-beginner-guide/",
+        "title": "Codex 完整新手指南（CLI / IDE / Cloud / App）",
+        "meta": "四大入口对比，选择适合你的工作方式"
+      }
+    ],
+    "shortcuts": null
+  },
+  {
+    "id": "copilot",
+    "section_id": "section-copilot",
+    "icon": "⊕",
+    "name": "Microsoft Copilot",
+    "description": "微软 AI 产品家族，包含 GitHub Copilot（代码补全与 Agent）和 Microsoft 365 Copilot（Word、Excel、PPT、Outlook 办公助手）。深度整合 VS Code、Visual Studio 和 Microsoft 生态。",
+    "getting_started_steps": [
+      "<strong>GitHub Copilot</strong>：访问 <a href=\"https://github.com/features/copilot\" rel=\"noopener\" target=\"_blank\">github.com/features/copilot</a> 订阅（学生/开源维护者免费）",
+      "在 VS Code 安装「GitHub Copilot」和「GitHub Copilot Chat」扩展",
+      "登录 GitHub 账号，编码时 Tab 接受补全建议",
+      "按 <code>Ctrl+I</code>（Win）/ <code>Cmd+I</code> 打开 Copilot Chat 对话",
+      "<strong>M365 Copilot</strong>：通过 Microsoft 365 企业订阅使用 Word/Excel/PPT AI 功能",
+      "通用助手：访问 <a href=\"https://copilot.microsoft.com\" rel=\"noopener\" target=\"_blank\">copilot.microsoft.com</a>"
+    ],
+    "features": [
+      {
+        "title": "代码补全",
+        "description": "行级/块级智能补全，支持 30+ 编程语言"
+      },
+      {
+        "title": "Copilot Chat",
+        "description": "IDE 内对话，解释代码、生成测试、修复 Bug"
+      },
+      {
+        "title": "Copilot Agent",
+        "description": "自主执行多步编程任务（VS Code 预览）"
+      },
+      {
+        "title": "Copilot Workspace",
+        "description": "从 Issue 到 PR 的端到端开发流程"
+      },
+      {
+        "title": "M365 Copilot",
+        "description": "Word 起草、Excel 分析、PPT 生成、Outlook 邮件"
+      },
+      {
+        "title": "企业合规",
+        "description": "代码建议不用于模型训练（Business 计划）"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://docs.github.com/en/copilot",
+        "title": "GitHub Copilot 文档",
+        "meta": "安装、Chat、Agent、企业策略与最佳实践"
+      },
+      {
+        "type": "定价",
+        "type_class": "official",
+        "href": "https://github.com/features/copilot/plans",
+        "title": "GitHub Copilot 订阅方案",
+        "meta": "Free / Pro / Business / Enterprise 对比"
+      },
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://learn.microsoft.com/en-us/copilot/",
+        "title": "Microsoft Copilot 文档",
+        "meta": "M365 Copilot、Windows Copilot 使用指南"
+      }
+    ],
+    "shortcuts": {
+      "title": "⌨️ 快捷键速查（VS Code）",
+      "rows": [
+        {
+          "key": "<code>Tab</code>",
+          "action": "接受 Copilot 补全建议"
+        },
+        {
+          "key": "<code>Alt + ]</code> / <code>Alt + [</code>",
+          "action": "切换下一个/上一个建议"
+        },
+        {
+          "key": "<code>Ctrl+I</code> / <code>Cmd+I</code>",
+          "action": "打开 Copilot Chat 内联对话"
+        },
+        {
+          "key": "<code>Ctrl+Shift+I</code>",
+          "action": "打开 Copilot Chat 侧边栏"
+        }
+      ]
+    }
+  },
+  {
+    "id": "cursor",
+    "section_id": "section-cursor",
+    "icon": "↗",
+    "name": "Cursor",
+    "description": "基于 VS Code 的 AI 原生代码编辑器，将大语言模型深度集成到编辑体验的每一层。支持 Tab 补全、内联编辑、Agent 自主编程和 MCP 扩展。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://cursor.com/download\" rel=\"noopener\" target=\"_blank\">cursor.com/download</a> 下载安装包",
+      "首次启动时导入 VS Code 扩展和设置",
+      "打开项目文件夹：File → Open Folder",
+      "按 <code>Cmd+I</code>（Mac）或 <code>Ctrl+I</code>（Win）打开 Agent 面板",
+      "用 <code>@</code> 引用文件，给 Agent 更多上下文",
+      "在 <code>.cursor/rules/</code> 中创建项目规则文件"
+    ],
+    "features": [
+      {
+        "title": "Tab 补全",
+        "description": "预测式 AI 自动补全，支持多行代码"
+      },
+      {
+        "title": "Cmd+K",
+        "description": "选中代码后内联 AI 编辑"
+      },
+      {
+        "title": "Agent 模式",
+        "description": "自主搜索代码库、编辑文件、运行终端"
+      },
+      {
+        "title": "Plan 模式",
+        "description": "Shift+Tab 先制定计划再执行"
+      },
+      {
+        "title": "Rules",
+        "description": ".cursor/rules/ 定义项目编码规范"
+      },
+      {
+        "title": "MCP 服务器",
+        "description": "连接数据库、GitHub 等外部系统"
+      },
+      {
+        "title": "Cloud Agents",
+        "description": "浏览器/手机远程启动编程任务"
+      }
+    ],
+    "video_resources": [
+      {
+        "type": "YouTube · 27 分钟",
+        "type_class": "video",
+        "href": "https://www.youtube.com/watch?v=l30Eb76Tk5s",
+        "title": "Cursor 2.0 — Full Tutorial for Beginners",
+        "meta": "Tech With Tim · UI 概览、Plan 模式、Agent、Rules、MCP 完整教程"
+      },
+      {
+        "type": "YouTube · 教程",
+        "type_class": "video",
+        "href": "https://www.youtube.com/watch?v=2Wn0_mz0X4g",
+        "title": "Cursor AI Tutorial for Beginners",
+        "meta": "从零安装到实际项目开发的完整流程"
+      }
+    ],
+    "text_resources": [
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://cursor.com/docs/get-started/quickstart",
+        "title": "Cursor Quickstart",
+        "meta": "从安装到第一次代码修改的完整引导"
+      },
+      {
+        "type": "官方帮助",
+        "type_class": "official",
+        "href": "https://cursor.com/help/getting-started/first-project",
+        "title": "Your First Project",
+        "meta": "打开项目、使用 Agent、审查代码变更"
+      },
+      {
+        "type": "完整指南",
+        "type_class": "article",
+        "href": "https://josenobile.co/guides/cursor/",
+        "title": "Cursor IDE: The Complete Guide (2026)",
+        "meta": "25 分钟阅读 · Tab、Cmd+K、Agent、MCP、模型选择全涵盖"
+      },
+      {
+        "type": "12 步教程",
+        "type_class": "article",
+        "href": "https://tech-insider.org/cursor-tutorial-ai-code-editor-2026/",
+        "title": "How to Master Cursor AI in 12 Steps",
+        "meta": "安装配置、核心功能、定价、故障排除"
+      },
+      {
+        "type": "开发者工具包",
+        "type_class": "article",
+        "href": "https://developertoolkit.ai/en/cursor-ide/",
+        "title": "Cursor IDE Developer Toolkit",
+        "meta": "20+ 实战场景、Agent 深度指南、企业模式"
+      },
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://cursor.com/docs/context/rules",
+        "title": "Cursor Rules 文档",
+        "meta": "如何用 .cursor/rules 定制 Agent 行为"
+      }
+    ],
+    "shortcuts": {
+      "title": "⌨️ 快捷键速查",
+      "rows": [
+        {
+          "key": "<code>Tab</code>",
+          "action": "接受 AI 补全建议"
+        },
+        {
+          "key": "<code>Cmd+K</code> / <code>Ctrl+K</code>",
+          "action": "内联 AI 编辑选中代码"
+        },
+        {
+          "key": "<code>Cmd+I</code> / <code>Ctrl+I</code>",
+          "action": "打开 Agent 面板"
+        },
+        {
+          "key": "<code>Cmd+L</code> / <code>Ctrl+L</code>",
+          "action": "打开 Chat 对话"
+        },
+        {
+          "key": "<code>Shift+Tab</code>",
+          "action": "在 Agent 中切换到 Plan 模式"
+        },
+        {
+          "key": "<code>@</code>",
+          "action": "在对话中引用文件、文件夹或文档"
+        }
+      ]
+    }
+  }
+]
