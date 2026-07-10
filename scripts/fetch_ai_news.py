@@ -121,6 +121,144 @@ def slug_to_title(slug: str) -> str:
     return re.sub(r"[-_]+", " ", slug).strip().title()
 
 
+def decode_js_string(raw: str) -> str:
+    def repl(match: re.Match[str]) -> str:
+        return chr(int(match.group(1), 16))
+
+    text = re.sub(r"\\u([0-9a-fA-F]{4})", repl, raw)
+    return text.replace("\\/", "/").replace('\\"', '"').replace("\\n", "\n")
+
+
+def parse_js_nuxt_var_map(html: str) -> dict[str, str]:
+    start = html.find("window.__NUXT__=")
+    if start < 0:
+        return {}
+    chunk = html[start : start + 120000]
+    sig = re.search(r"function\(([^)]*)\)\{return", chunk)
+    args = re.search(r"\}\)\((.*)\)\);</script>", chunk, re.S)
+    if not sig or not args:
+        return {}
+    names = [n.strip() for n in sig.group(1).split(",") if n.strip()]
+    values = _split_js_args(args.group(1))
+    return {name: value for name, value in zip(names, values) if isinstance(value, str)}
+
+
+def _split_js_args(raw: str) -> list[Any]:
+    values: list[Any] = []
+    i = 0
+    n = len(raw)
+    while i < n:
+        while i < n and raw[i] in " \t\n\r,":
+            i += 1
+        if i >= n:
+            break
+        ch = raw[i]
+        if ch == '"':
+            i += 1
+            buf: list[str] = []
+            while i < n:
+                c = raw[i]
+                if c == "\\" and i + 1 < n:
+                    buf.append(raw[i : i + 2])
+                    i += 2
+                    continue
+                if c == '"':
+                    i += 1
+                    break
+                buf.append(c)
+                i += 1
+            values.append(decode_js_string("".join(buf)))
+            continue
+        if ch in "-0123456789":
+            j = i
+            while j < n and raw[j] not in ",)":
+                j += 1
+            token = raw[i:j].strip()
+            values.append(int(token) if token.isdigit() else token)
+            i = j
+            continue
+        j = i
+        while j < n and raw[j] not in ",)":
+            j += 1
+        token = raw[i:j].strip()
+        if token == "true":
+            values.append(True)
+        elif token == "false":
+            values.append(False)
+        elif token in ("null", "void", "0") or token.startswith("void"):
+            values.append(None)
+        else:
+            values.append(token)
+        i = j
+    return values
+
+
+def parse_nuxt_hub_feed(feed_cfg: dict, cfg: dict) -> list[dict]:
+    html = fetch_text(feed_cfg["url"])
+    if not html:
+        return []
+
+    var_map = parse_js_nuxt_var_map(html)
+    max_items = feed_cfg.get("max_items", cfg.get("max_per_feed", 5))
+    items: list[dict] = []
+    start = html.find("window.__NUXT__=")
+    if start < 0:
+        return []
+    chunk = html[start : start + 120000]
+    for block in re.split(r"\{story_info:\{", chunk)[1:]:
+        title_m = re.search(r'title:"((?:\\.|[^"\\])*)"', block)
+        url_m = re.search(r'url:"((?:\\.|[^"\\])*)"', block)
+        summary_m = re.search(r'summary:"((?:\\.|[^"\\])*)"', block)
+        user_m = re.search(r"story_show_user_name:([^,}]+)", block)
+        created_m = re.search(r"created_at:([^,}]+)", block)
+        if not title_m or not url_m:
+            continue
+        title = decode_js_string(title_m.group(1))
+        link = decode_js_string(url_m.group(1))
+        summary = decode_js_string(summary_m.group(1)) if summary_m else title
+        smax = cfg.get("summary_max_length", 160)
+        if len(summary) > smax:
+            summary = summary[: smax - 1] + "…"
+
+        source = feed_cfg["source"]
+        if user_m:
+            raw_user = user_m.group(1).strip()
+            if raw_user.startswith('"'):
+                source = decode_js_string(raw_user.strip('"'))
+            elif len(raw_user) == 1 and raw_user in var_map:
+                source = var_map[raw_user]
+        content_m = re.search(r'content:"((?:\\.|[^"\\])*)"', block)
+        if content_m:
+            content = decode_js_string(content_m.group(1))
+            for name in ("新智元", "机器之心", "量子位"):
+                if name in content:
+                    source = name
+                    break
+
+        published = None
+        if created_m:
+            raw_created = created_m.group(1).strip()
+            if raw_created.startswith('"'):
+                published = decode_js_string(raw_created.strip('"'))
+            elif len(raw_created) == 1 and raw_created in var_map:
+                published = var_map[raw_created]
+
+        items.append(
+            {
+                "id": item_id(link),
+                "title": title,
+                "summary": summary,
+                "url": link,
+                "source": source,
+                "category": feed_cfg.get("category", "中文资讯"),
+                "published_at": published,
+            }
+        )
+        if len(items) >= max_items:
+            break
+    return items
+
+
 def fetch_og_title(url: str) -> str | None:
     html = fetch_text(url)
     if not html:
@@ -166,7 +304,7 @@ def parse_html_links_feed(feed_cfg: dict, cfg: dict) -> list[dict]:
                 "url": link,
                 "source": feed_cfg["source"],
                 "category": feed_cfg.get("category", "行业新闻"),
-                "published_at": datetime.now(TZ).isoformat(),
+                "published_at": None,
             }
         )
         if len(items) >= max_items:
@@ -232,6 +370,8 @@ def parse_feed(feed_cfg: dict, cfg: dict) -> list[dict]:
     feed_type = feed_cfg.get("type", "rss")
     if feed_type == "html_links":
         return parse_html_links_feed(feed_cfg, cfg)
+    if feed_type == "nuxt_hub":
+        return parse_nuxt_hub_feed(feed_cfg, cfg)
 
     root = fetch_xml(feed_cfg["url"])
     if root is None:
@@ -318,6 +458,34 @@ def dedupe_sort(items: list[dict]) -> list[dict]:
     return unique
 
 
+def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
+    max_items = cfg.get("max_items", 40)
+    min_per_source = cfg.get("min_per_source", 1)
+    by_source: dict[str, list[dict]] = {}
+    for item in items:
+        by_source.setdefault(item["source"], []).append(item)
+    for src_items in by_source.values():
+        src_items.sort(key=lambda x: x.get("published_at") or "", reverse=True)
+
+    picked: list[dict] = []
+    seen: set[str] = set()
+    for src in sorted(by_source):
+        for item in by_source[src][:min_per_source]:
+            if item["url"] in seen:
+                continue
+            picked.append(item)
+            seen.add(item["url"])
+
+    for item in sorted(items, key=lambda x: x.get("published_at") or "", reverse=True):
+        if len(picked) >= max_items:
+            break
+        if item["url"] in seen:
+            continue
+        picked.append(item)
+        seen.add(item["url"])
+    return picked[:max_items]
+
+
 def write_markdown(items: list[dict], today: str) -> None:
     MD_FILE.parent.mkdir(parents=True, exist_ok=True)
     lines = [
@@ -349,7 +517,8 @@ def main() -> int:
 
     collected.extend(parse_github_trending(cfg))
 
-    items = dedupe_sort(filter_recent(collected, cfg))[: cfg.get("max_items", 24)]
+    recent = filter_recent(collected, cfg)
+    items = select_diverse_items(dedupe_sort(recent), cfg)
     if not items:
         print("未抓取到 AI 新闻", file=sys.stderr)
         return 1

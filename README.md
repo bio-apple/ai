@@ -168,7 +168,7 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 | Phase 2 | 排行榜、选择助手、新闻、创作区、指南页 | ✅ 已完成 |
 | Phase 2.5 | Prompt 库、案例库、视频筛选、JSON 导出 | ✅ 已完成 |
 | Phase 3 | Astro SSG、六类视频、开源精选、每周新闻扩展信源 | ✅ 已完成 |
-| Phase 4 | 用户收藏、搜索增强、更多中文 RSS 自动抓取 | 🔜 规划中 |
+| Phase 4 | 用户收藏、搜索增强 | 🔜 规划中 |
 
 ## License
 

@@ -1,9 +1,10 @@
 # AI 新闻抓取配置（scripts/fetch_ai_news.py）
 # 更新频次：每周一次（见 .github/workflows/weekly-news.yml）
 
-max_items: 40
+max_items: 48
 max_per_feed: 5
 max_age_days: 7
+min_per_source: 1
 
 feeds:
   - source: OpenAI
@@ -43,6 +44,11 @@ feeds:
   - source: 量子位
     url: https://www.qbitai.com/feed
     category: 中文资讯
+  - source: 智源社区
+    type: nuxt_hub
+    url: https://hub.baai.ac.cn/
+    category: 中文资讯
+    max_items: 6
   - source: MIT Tech Review
     url: https://www.technologyreview.com/feed/
     category: 行业新闻

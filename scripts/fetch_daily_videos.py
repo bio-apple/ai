@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import re
 import subprocess
@@ -637,17 +638,31 @@ def total_video_count(buckets: dict[str, list[dict]]) -> int:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description="抓取每日 AI 视频推荐")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="删除今日已有批次并重新抓取（用于升级分类结构后回填）",
+    )
+    args = parser.parse_args()
+
     cfg = load_config()
     store = load_store()
     today = now_local().strftime("%Y-%m-%d")
 
-    for batch in store.get("batches", []):
-        if batch.get("date") == today:
-            count = total_video_count(
-                {key: (batch.get("categories") or {}).get(key, {}).get("videos", []) for key in CATEGORY_ORDER}
-            ) if batch.get("categories") else len(batch.get("videos", []))
-            print(f"今日 ({today}) 已更新，共 {count} 条")
-            return 0
+    if args.force:
+        before = len(store.get("batches", []))
+        store["batches"] = [b for b in store.get("batches", []) if b.get("date") != today]
+        if before != len(store["batches"]):
+            print(f"已移除今日 ({today}) 旧批次，准备重新抓取", file=sys.stderr)
+    else:
+        for batch in store.get("batches", []):
+            if batch.get("date") == today:
+                count = total_video_count(
+                    {key: (batch.get("categories") or {}).get(key, {}).get("videos", []) for key in CATEGORY_ORDER}
+                ) if batch.get("categories") else len(batch.get("videos", []))
+                print(f"今日 ({today}) 已更新，共 {count} 条（使用 --force 可强制重抓）")
+                return 0
 
     buckets = pick_today_videos(cfg)
     limits = bucket_limits(cfg)
@@ -708,4 +723,4 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(main())  # e.g. python scripts/fetch_daily_videos.py --force

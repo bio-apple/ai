@@ -124,6 +124,26 @@ test.describe('Bio AI Lab 冒烟测试', () => {
     await expect(page.locator('#daily-video-list .video-card, #daily-video-list .loading-hint').first()).toBeVisible();
   });
 
+  test('开源精选与工具对比表', async ({ page }) => {
+    const res = await page.request.get('/oss-projects.json');
+    expect(res.ok()).toBeTruthy();
+    const data = await res.json();
+    expect((data.domains || []).length).toBeGreaterThanOrEqual(6);
+
+    await page.goto('/index.html');
+    await expect(page.locator('#home-compare')).toBeVisible();
+    await expect(page.locator('#home-compare .compare-table tbody tr')).toHaveCount(6);
+    await expect(page.locator('#home-oss')).toBeVisible();
+
+    await page.click('[data-tool="oss"]');
+    await expect(page.locator('#section-oss')).toHaveClass(/active/);
+    await expect(page.locator('#oss-project-list .oss-card').first()).toBeVisible({ timeout: 10000 });
+
+    await page.click('[data-tool="news"]');
+    await expect(page.locator('#section-news')).toHaveClass(/active/);
+    await expect(page.locator('#news-watch-sources .news-watch-panel')).toBeVisible({ timeout: 10000 });
+  });
+
   test('P2：知识库助手与 analytics 配置', async ({ page }) => {
     const cfg = await page.request.get('/analytics-config.json');
     expect(cfg.ok()).toBeTruthy();

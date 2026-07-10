@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-const COPY_DIRS = ['css', 'vendor'];
+const COPY_DIRS = ['css', 'vendor', 'video-thumbs'];
 const COPY_FILES = [
   'style.css',
   'analytics.js',

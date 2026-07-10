@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 import jsonschema
+import yaml
 from bs4 import BeautifulSoup
 
 REPO = Path(__file__).resolve().parents[1]
@@ -42,6 +43,13 @@ def validate_daily_videos() -> None:
                 raise ValueError(f"摘要含 URL: {v.get('id')} -> {summary[:80]}")
             if re.search(r"(?i)get chatgpt|bit\.ly|use code", summary):
                 raise ValueError(f"摘要含广告残留: {v.get('id')}")
+    latest = (data.get("batches") or [None])[0]
+    if latest and latest.get("categories"):
+        cfg = yaml.safe_load((REPO / "config" / "video-fetch.yaml").read_text(encoding="utf-8"))
+        expected = set(cfg.get("video_categories", {}).keys())
+        got = set(latest["categories"].keys())
+        if expected - got:
+            raise ValueError(f"最新视频批次缺少分类: {sorted(expected - got)}")
     print("✓ daily-videos.json schema + summary")
 
 
@@ -151,8 +159,25 @@ def validate_analytics_config() -> None:
     print("✓ analytics-config.json")
 
 
+def validate_oss_projects() -> None:
+    path = REPO / "data" / "oss-projects.json"
+    if not path.exists():
+        raise FileNotFoundError("data/oss-projects.json 缺失")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    domains = data.get("domains") or []
+    if len(domains) < 6:
+        raise ValueError("oss-projects.json 领域不足 6 个")
+    for domain in domains:
+        if not domain.get("projects"):
+            raise ValueError(f"开源领域无项目: {domain.get('id')}")
+    runtime = ROOT / "oss-projects.json"
+    if not runtime.exists() and not (REPO / "oss-projects.json").exists():
+        raise FileNotFoundError("oss-projects.json 运行时副本缺失")
+    print(f"✓ oss-projects.json ({len(domains)} 领域)")
+
+
 def validate_data_json() -> None:
-    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json"):
+    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json", "oss-projects.json"):
         path = REPO / "data" / name
         if not path.exists():
             raise FileNotFoundError(path)
@@ -162,6 +187,7 @@ def validate_data_json() -> None:
 
 def main() -> int:
     validate_data_json()
+    validate_oss_projects()
     validate_daily_videos()
     validate_ai_news()
     validate_runtime_json()

@@ -107,8 +107,7 @@ ai/
 │   ├── fetch_daily_videos.py   # 每日六类视频抓取
 │   ├── fetch_ai_news.py        # 每周新闻抓取
 │   ├── fetch_oss_stars.py      # 刷新 oss-projects Star 数
-│   ├── validate_ci.py          # 校验 dist/
-│   └── build_site.py           # 【已弃用】旧 Jinja2 构建
+│   └── validate_ci.py          # 校验 dist/
 ├── daily-videos.json           # 每日视频数据（Actions 写入）
 ├── ai-news.json                # 每周新闻数据（Actions 写入）
 ├── oss-projects.json           # 开源精选运行时副本（与 data/ 同步）
@@ -167,7 +166,6 @@ npm run test:e2e
 - **不要手改** `dist/`；改 `data/` 或 `src/` 后重新 `npm run build`。
 - 旧根目录 `index.html`、`tools/` 等已 gitignore，不再提交。
 - 调整页面结构改 `src/pages/` 或 `src/components/`；调整文案改 `data/*.json`。
-- `templates/`、`scripts/build_site.py` 为遗留 Jinja2 方案，**已弃用**。
 
 ### 搜索索引
 
@@ -437,6 +435,7 @@ npm run test:e2e
 ```bash
 pip install yt-dlp pyyaml
 python3 scripts/fetch_daily_videos.py
+python3 scripts/fetch_daily_videos.py --force   # 升级分类后强制重抓今日批次
 ```
 
 **幂等性**：当日 batch 已存在则跳过。
@@ -464,6 +463,7 @@ python3 scripts/fetch_daily_videos.py
 |------|------|
 | RSS | OpenAI、Google DeepMind、Google AI、NVIDIA、Microsoft Research、arXiv（cs.AI/LG/CL/CV）、量子位、MIT Tech Review |
 | HTML 抓取 | Anthropic 官网 `/news`（提取 og:title） |
+| 智源社区聚合 | `hub.baai.ac.cn` NUXT 数据（新智元、量子位等） |
 | GitHub API | GitHub Trending AI 仓库 |
 | 持续关注面板 | OpenAI、Anthropic、DeepMind、Meta AI、Microsoft、NVIDIA、Hugging Face、机器之心、量子位、新智元、智源社区（博客 + X） |
 
@@ -554,7 +554,7 @@ weekly-news.yml  → commit ai-news.json + oss-projects.json → push → ci.yml
 
 ### 修改页面结构
 
-改 `src/pages/` 或 `src/components/`，然后 `npm run build`。**不要**改 `dist/` 或已弃用的 `templates/`。
+改 `src/pages/` 或 `src/components/`，然后 `npm run build`。**不要**手改 `dist/`。
 
 ---
 

@@ -5,6 +5,15 @@ on:
     # 北京时间每日 00:00（UTC 16:00）
     - cron: "0 16 * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: "强制重抓今日批次（升级六类结构时使用）"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
 
 permissions:
   contents: write
@@ -24,10 +33,15 @@ jobs:
           python-version: "3.12"
 
       - name: Install yt-dlp
-        run: pip install yt-dlp
+        run: pip install yt-dlp pyyaml
 
       - name: Fetch daily AI videos
-        run: python scripts/fetch_daily_videos.py
+        run: |
+          FORCE_FLAG=""
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            FORCE_FLAG="--force"
+          fi
+          python scripts/fetch_daily_videos.py $FORCE_FLAG
 
       - name: Commit and push
         run: |
