@@ -144,7 +144,8 @@ async def google_login(request: Request):
             503,
             "Google OAuth 未配置。请在 config.yaml 填写 google_oauth.client_id 和 client_secret",
         )
-    redirect_uri = str(request.url_for("google_callback"))
+    base = CFG.get("base_url") or str(request.base_url).rstrip("/")
+    redirect_uri = f"{base}/api/auth/google/callback"
     return await oauth.google.authorize_redirect(request, redirect_uri)
 
 

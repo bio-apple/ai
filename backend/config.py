@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Any
 
@@ -17,6 +18,13 @@ def load_config() -> dict[str, Any]:
         p = ROOT / cfg["paths"][key]
         p.mkdir(parents=True, exist_ok=True)
         cfg["paths"][key] = str(p)
+
+    if os.getenv("PORT"):
+        cfg.setdefault("server", {})["port"] = int(os.getenv("PORT", "8765"))
+    if os.getenv("HOST"):
+        cfg.setdefault("server", {})["host"] = os.getenv("HOST")
+    if os.getenv("BASE_URL"):
+        cfg["base_url"] = os.getenv("BASE_URL").rstrip("/")
 
     return cfg
 
