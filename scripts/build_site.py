@@ -12,7 +12,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 TEMPLATES = ROOT / "templates"
-BRAND = "Bio AI"
+BRAND = "AI Lab"
 
 
 def load_json(name: str):

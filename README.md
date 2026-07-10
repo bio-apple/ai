@@ -1,4 +1,4 @@
-# Bio AI
+# AI Lab
 
 **Your AI learning and tools navigation platform.**
 

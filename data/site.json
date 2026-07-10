@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Bio AI | ChatGPT/Cursor/DeepSeek 教程 2026 — AI 学习与工具导航",
-    "description": "Bio AI 是中文用户的 AI 学习与工具导航平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。",
-    "keywords": "Bio AI,AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI实战,提示词,AI视频,AI工具排行",
+    "title": "AI Lab | ChatGPT/Cursor/DeepSeek 教程 2026 — AI 学习与工具导航",
+    "description": "AI Lab 是中文用户的 AI 学习与工具导航平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。",
+    "keywords": "AI Lab,AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI实战,提示词,AI视频,AI工具排行",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.png",
     "base_url": "https://bio-apple.github.io/ai/"
@@ -10,7 +10,7 @@
   "nav": {
     "logo": {
       "icon": "✦",
-      "brand": "Bio AI",
+      "brand": "AI Lab",
       "tagline": "AI 学习与工具导航中心"
     },
     "menu": [
@@ -259,7 +259,7 @@
     }
   ],
   "roadmap_page": {
-    "title": "AI 学习路线 2026 | Bio AI",
+    "title": "AI 学习路线 2026 | AI Lab",
     "h1": "AI 学习路线",
     "lead": "从零基础到进阶应用，按阶段掌握主流 AI 工具与实战技能。",
     "phases": [
@@ -290,7 +290,7 @@
     ]
   },
   "ranking_page": {
-    "title": "2026 AI 工具排行榜 | Bio AI",
+    "title": "2026 AI 工具排行榜 | AI Lab",
     "h1": "2026 AI 工具排行榜",
     "lead": "综合综合能力、长文本、性价比、编程体验等维度，为中文用户精选 Top 工具。",
     "updated": "2026-07"
@@ -327,7 +327,7 @@
     ]
   },
   "footer": {
-    "text": "Bio AI · Discover. Learn. Create with AI.",
+    "text": "AI Lab · Discover. Learn. Create with AI.",
     "github": "https://github.com/bio-apple/ai"
   }
 }

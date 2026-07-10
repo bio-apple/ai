@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 const BASE = process.env.BASE_URL || 'http://127.0.0.1:8766';
 
-test.describe('Bio AI 冒烟测试', () => {
+test.describe('AI Lab 冒烟测试', () => {
   test('首页加载与 Hero', async ({ page }) => {
     await page.goto(`${BASE}/index.html`);
     await expect(page.locator('h1')).toContainText('掌握 AI');
@@ -43,7 +43,7 @@ test.describe('Bio AI 冒烟测试', () => {
   test('独立工具页可访问', async ({ page }) => {
     await page.goto(`${BASE}/tools/cursor.html`);
     await expect(page.locator('h1')).toContainText('Cursor');
-    await expect(page.locator('.logo-brand')).toContainText('Bio AI');
+    await expect(page.locator('.logo-brand')).toContainText('AI Lab');
   });
 
   test('排行榜与学习路线 SEO 页', async ({ page }) => {
