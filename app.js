@@ -41,7 +41,9 @@ function showSection(id, { updateHash = true } = {}) {
 }
 
 function resolveGoto(target) {
-  if (target === 'cases' || target === 'videos') return `section-${target}`;
+  if (target === 'cases' || target === 'videos' || target === 'news' || target === 'create') {
+    return `section-${target}`;
+  }
   if (target === 'all' || target === 'home') return 'section-home';
   return `section-${target}`;
 }

@@ -1,0 +1,36 @@
+<section id="section-create" class="section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon" style="background:rgba(255,107,53,0.12);color:var(--doubao)">🎨</div>
+      <div>
+        <h2>AI 创作工具</h2>
+        <p class="desc">写作、绘图、视频脚本与多模态创作 — 选择适合你的 AI 创作助手。</p>
+      </div>
+    </div>
+    <div class="scenario-grid scenario-scroll">
+      {% for s in scenarios %}
+      {% if s.title in ['写作', '图片设计', '视频制作'] %}
+      <div class="scenario-card"><div class="icon">{{ s.icon }}</div><h4>{{ s.title }}</h4><p>{{ s.description }}</p></div>
+      {% endif %}
+      {% endfor %}
+    </div>
+    <div class="tool-cards-scroll">
+      <div class="tool-cards">
+        {% for tool in create_tool_cards %}
+        <article class="tool-card-v2 {{ tool.id }}" data-tool="{{ tool.id }}">
+          <div class="tool-card-logo {{ tool.id }}">{{ tool.icon }}</div>
+          <span class="badge">{{ tool.badge }}</span>
+          <h3>{{ tool.name }}</h3>
+          <p class="tool-tagline">{{ tool.tagline }}</p>
+          <p class="tool-summary">{{ tool.summary }}</p>
+          <ul class="tool-tags">{% for tag in tool.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
+          <button type="button" class="tool-card-btn" data-tool="{{ tool.id }}">查看详情</button>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="section-cta" style="margin-top:24px">
+      <button class="cta-btn" data-goto="cases">查看创作实战案例 →</button>
+    </div>
+  </main>
+</section>

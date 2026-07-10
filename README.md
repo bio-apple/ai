@@ -1,8 +1,10 @@
-# AI Lab
+# Bio AI Lab
 
-**Your AI learning and tools navigation platform.**
+**AI learning and tools navigation platform.**
 
 Discover, learn, and create with AI — covering ChatGPT, Claude, Gemini, DeepSeek, Kimi, Cursor, Copilot, and more.
+
+**Website:** https://bio-apple.github.io/ai/
 
 [![Website](https://img.shields.io/badge/Website-bio--apple.github.io%2Fai-6366F1?style=for-the-badge)](https://bio-apple.github.io/ai/)
 [![Documentation](https://img.shields.io/badge/Documentation-DEVELOPER.md-06B6D4?style=for-the-badge)](./DEVELOPER.md)
@@ -26,6 +28,8 @@ Discover, learn, and create with AI — covering ChatGPT, Claude, Gemini, DeepSe
 | 学习路线 | ✅ |
 | AI 工具排行榜 | ✅ |
 | AI 选择助手 | ✅ |
+| AI 新闻资讯 | ✅ |
+| AI 创作工具 | ✅ |
 | 实战案例 | ✅ |
 | 每日视频推荐 | ✅ |
 
@@ -45,16 +49,21 @@ Discover, learn, and create with AI — covering ChatGPT, Claude, Gemini, DeepSe
 ├── 热门 AI 工具
 ├── AI 能力分类
 ├── AI 工具排行榜
-├── AI 使用场景
-├── AI 选择助手
 ├── AI 学习路线
-├── 精选教程
+├── 今日 AI 热点
+├── AI 选择助手
+├── AI 创作
+├── AI 教程
+├── AI 新闻
 └── 视频资源
 
 独立 SEO 页
 ├── /tools/{tool}.html
 ├── /ai-tools-ranking.html
 ├── /ai-learning-roadmap.html
+├── /guides/beginner.html
+├── /guides/advanced.html
+├── /news/daily-ai-news.html
 └── /compare/*.html
 ```
 
@@ -73,21 +82,30 @@ cd ai
 
 **开发者文档**：[DEVELOPER.md](./DEVELOPER.md)
 
-## 每日视频自动更新
+## 每日自动更新
 
-- **更新时间**：北京时间每日 `00:00`（GitHub Actions 定时任务）
-- **来源**：YouTube + B站
-- **分类**：YouTube / B站 各 2 类 — 全网播放量 Top 10 + 24 小时内上新 Top 10
-- **手动触发**：GitHub → Actions → `Daily AI Video Update` → Run workflow
+| 内容 | 时间（北京时间） | 工作流 |
+|------|------------------|--------|
+| AI 视频 | 每日 00:00 | `Daily AI Video Update` |
+| AI 新闻 | 每日 06:00 | `Daily AI News Update` |
 
 ```bash
-pip install yt-dlp
+pip install yt-dlp pyyaml
 python scripts/fetch_daily_videos.py
+python scripts/fetch_ai_news.py
 ```
+
+## Roadmap
+
+| 阶段 | 内容 | 状态 |
+|------|------|------|
+| Phase 1 | 首页重构、新导航、工具卡片、UI 升级 | ✅ 已完成 |
+| Phase 2 | AI 排行榜、选择助手、AI 新闻、创作区、指南页 | ✅ 已完成 |
+| Phase 3 | 用户收藏、站内搜索增强、GitHub Trending / arXiv 采集 | 🔜 规划中 |
 
 ## 部署
 
-推送到 `main` 分支后，GitHub Actions 自动更新 GitHub Pages 静态站点。
+推送到 `main` 分支后，GitHub Actions 自动构建并更新 GitHub Pages 静态站点。
 
 ## License
 

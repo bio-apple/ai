@@ -1,4 +1,4 @@
-# AI Lab — 开发者文档
+# Bio AI Lab — 开发者文档
 
 本文档面向维护与二次开发本项目的开发者，说明架构、目录结构、数据格式、构建流程、自动化与常见改动方式。
 
@@ -19,10 +19,11 @@
 6. [前端设计](#前端设计)
 7. [本地开发](#本地开发)
 8. [每日视频流水线](#每日视频流水线)
-9. [CI/CD 与部署](#cicd-与部署)
-10. [内容维护指南](#内容维护指南)
-11. [配置参考](#配置参考)
-12. [故障排查](#故障排查)
+9. [每日新闻流水线](#每日新闻流水线)
+10. [CI/CD 与部署](#cicd-与部署)
+11. [内容维护指南](#内容维护指南)
+12. [配置参考](#配置参考)
+13. [故障排查](#故障排查)
 
 ---
 
@@ -35,8 +36,10 @@
 │  【源数据】data/*.json + templates/*.j2                               │
 │  【构建产物】index.html · tools/*.html · compare/*.html               │
 │              ai-tools-ranking.html · ai-learning-roadmap.html         │
+│              guides/*.html · news/daily-ai-news.html                  │
 │              search-index.json · sitemap.xml                          │
-│  【运行时】app.js · videos.js · analytics.js · daily-videos.json      │
+│  【运行时】app.js · videos.js · news.js · analytics.js                │
+│              daily-videos.json · ai-news.json                         │
 └───────────────┬────────────────────────────┬────────────────────────┘
                 │ push                         │ cron 00:00 北京时间
                 ▼                              ▼
@@ -402,6 +405,40 @@ python3 scripts/fetch_daily_videos.py
 
 ---
 
+## 每日新闻流水线
+
+### 触发时机
+
+| 触发器 | 说明 |
+|--------|------|
+| `cron: "0 22 * * *"` | UTC 22:00 = 北京时间次日 06:00 |
+| `workflow_dispatch` | 手动运行 |
+
+工作流：`.github/workflows/daily-news.yml`
+
+### 抓取流程
+
+```
+1. 读取 config/news-fetch.yaml
+2. 从 OpenAI / Google DeepMind / Google AI / arXiv / MIT Tech Review 拉取 RSS
+3. 按关键词分类（新模型发布、新工具上线、开源项目、行业新闻）
+4. 去重、按时间排序，保留近 14 天内条目（最多 24 条）
+5. 写入 ai-news.json + content/news/daily-ai-news.md → push → 触发 CI + Pages
+```
+
+前端通过 `news.js` 加载 `ai-news.json`，渲染首页预览与 `news/daily-ai-news.html` 归档页。
+
+### 本地手动运行
+
+```bash
+pip install pyyaml
+python3 scripts/fetch_ai_news.py
+```
+
+macOS 若遇 Python SSL 证书问题，脚本会自动回退到 `curl` 抓取。
+
+---
+
 ## CI/CD 与部署
 
 ### 工作流关系
@@ -415,6 +452,12 @@ daily-videos.yml commit JSON
    push to main
         ↓
    ci.yml + pages.yml
+
+daily-news.yml commit ai-news.json
+        ↓
+   push to main
+        ↓
+   ci.yml + pages.yml
 ```
 
 ### `ci.yml` 检查项
@@ -422,8 +465,8 @@ daily-videos.yml commit JSON
 | 步骤 | 说明 |
 |------|------|
 | `python scripts/build_site.py` | 确保 data 可构建 |
-| `python scripts/validate_ci.py` | data JSON、daily-videos Schema、死链、sitemap |
-| `npm run test:e2e` | 首页、hash、搜索、视频、复制、工具页 |
+| `python scripts/validate_ci.py` | data JSON、daily-videos/ai-news Schema、死链、sitemap |
+| `npm run test:e2e` | 首页、hash、搜索、视频、新闻、复制、工具页、指南页 |
 
 ### GitHub Pages
 

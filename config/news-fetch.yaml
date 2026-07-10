@@ -1,0 +1,30 @@
+# AI 新闻抓取配置（scripts/fetch_ai_news.py）
+
+max_items: 24
+max_per_feed: 6
+max_age_days: 14
+
+feeds:
+  - source: OpenAI
+    url: https://openai.com/blog/rss.xml
+    category: 新模型发布
+  - source: Google DeepMind
+    url: https://deepmind.google/blog/rss.xml
+    category: 新模型发布
+  - source: Google AI
+    url: https://blog.google/technology/ai/rss/
+    category: 行业新闻
+  - source: arXiv AI
+    url: https://arxiv.org/rss/cs.AI
+    category: 开源项目
+  - source: MIT Tech Review
+    url: https://www.technologyreview.com/feed/
+    category: 行业新闻
+
+category_keywords:
+  新工具上线: "(launch|release|introducing|available now|上线|发布)"
+  开源项目: "(open[- ]source|github|hugging\\s*face|repository|开源|arxiv)"
+  新模型发布: "(model|gpt|claude|gemini|llm|推理|大模型)"
+  行业新闻: "(partnership|acquisition|policy|regulation|融资|合作)"
+
+summary_max_length: 160

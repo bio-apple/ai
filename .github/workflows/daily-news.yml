@@ -1,0 +1,43 @@
+name: Daily AI News Update
+
+on:
+  schedule:
+    # 北京时间每日 06:00（UTC 22:00 前一日）
+    - cron: "0 22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-news
+  cancel-in-progress: false
+
+jobs:
+  update-news:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Python deps
+        run: pip install pyyaml
+
+      - name: Fetch AI news from RSS
+        run: python scripts/fetch_ai_news.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ai-news.json content/news/daily-ai-news.md
+          if git diff --staged --quiet; then
+            echo "No news updates today"
+            exit 0
+          fi
+          DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
+          git commit -m "chore: daily AI news $DATE"
+          git push

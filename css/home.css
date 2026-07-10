@@ -201,7 +201,110 @@
 .ranking-dimension {
   font-size: 0.82rem;
   color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.ranking-score {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+}
+
+.ranking-score::after {
+  content: " 分";
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* AI News */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.news-grid-preview {
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+
+.news-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.news-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.news-card-head {
+  display: flex;
+  gap: 8px;
   margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.news-category,
+.news-source {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.news-category {
+  color: var(--accent);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.news-source {
+  color: var(--text-muted);
+  background: var(--bg-hover);
+}
+
+.news-card h4 {
+  font-size: 0.95rem;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.news-card h4 a:hover {
+  color: var(--accent);
+}
+
+.news-summary {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  flex-wrap: wrap;
+}
+
+.news-read {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.news-list {
+  margin-bottom: 24px;
+}
+
+.home-news-preview {
+  margin-bottom: 8px;
 }
 
 .ranking-card .tool-stars {

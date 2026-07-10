@@ -2,12 +2,13 @@ import { test, expect } from '@playwright/test';
 
 const BASE = process.env.BASE_URL || 'http://127.0.0.1:8766';
 
-test.describe('AI Lab 冒烟测试', () => {
+test.describe('Bio AI Lab 冒烟测试', () => {
   test('首页加载与 Hero', async ({ page }) => {
     await page.goto(`${BASE}/index.html`);
     await expect(page.locator('h1')).toContainText('掌握 AI');
-    await expect(page.locator('.tool-card-v2')).toHaveCount(16, { timeout: 10000 });
+    await expect(page.locator('.tool-card-v2')).toHaveCount(20, { timeout: 10000 });
     await expect(page.locator('.ai-picker-option')).toHaveCount(5);
+    await expect(page.locator('#home-news')).toBeVisible();
   });
 
   test('hash 路由跳转 Cursor 教程', async ({ page }) => {
@@ -34,6 +35,16 @@ test.describe('AI Lab 冒烟测试', () => {
     await expect(page.locator('#daily-video-list .video-card, #daily-video-list .loading-hint').first()).toBeVisible();
   });
 
+  test('AI 新闻数据与区块', async ({ page }) => {
+    const res = await page.request.get(`${BASE}/ai-news.json`);
+    expect(res.ok()).toBeTruthy();
+    const data = await res.json();
+    expect((data.items || []).length).toBeGreaterThan(0);
+    await page.goto(`${BASE}/index.html#section-news`);
+    await expect(page.locator('#section-news')).toHaveClass(/active/);
+    await expect(page.locator('#daily-news-list .news-card').first()).toBeVisible({ timeout: 10000 });
+  });
+
   test('提示词复制按钮存在', async ({ page }) => {
     await page.goto(`${BASE}/index.html#section-cases`);
     await page.locator('.case-header').first().click();
@@ -41,9 +52,9 @@ test.describe('AI Lab 冒烟测试', () => {
   });
 
   test('独立工具页可访问', async ({ page }) => {
-    await page.goto(`${BASE}/tools/cursor.html`);
+    await page.goto(`${BASE}/tools/cursor.html`, { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('Cursor');
-    await expect(page.locator('.logo-brand')).toContainText('AI Lab');
+    await expect(page.locator('.logo-brand')).toContainText('Bio AI Lab');
   });
 
   test('排行榜与学习路线 SEO 页', async ({ page }) => {
@@ -51,6 +62,14 @@ test.describe('AI Lab 冒烟测试', () => {
     await expect(page.locator('h1')).toContainText('排行榜');
     await page.goto(`${BASE}/ai-learning-roadmap.html`);
     await expect(page.locator('h1')).toContainText('学习路线');
+  });
+
+  test('指南与新闻独立页', async ({ page }) => {
+    await page.goto(`${BASE}/guides/beginner.html`);
+    await expect(page.locator('h1')).toContainText('入门');
+    await page.goto(`${BASE}/news/daily-ai-news.html`);
+    await expect(page.locator('h1')).toContainText('热点');
+    await expect(page.locator('#daily-news-list .news-card').first()).toBeVisible({ timeout: 10000 });
   });
 
   test('AI 选择助手交互', async ({ page }) => {

@@ -35,6 +35,7 @@
       <span class="ranking-medal">{{ item.medal }}</span>
       <h2>{{ item.name }}</h2>
       <p class="ranking-dimension">{{ item.dimension }}</p>
+      <p class="ranking-score">{{ item.score }}</p>
       <div class="tool-stars">{% for i in range(item.stars) %}★{% endfor %}</div>
       <a href="tools/{{ item.id }}.html" class="cta-btn cta-btn-sm">查看 {{ item.name }} 教程</a>
     </article>

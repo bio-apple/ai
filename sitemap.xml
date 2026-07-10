@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://bio-apple.github.io/ai/</loc><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://bio-apple.github.io/ai/ai-tools-ranking.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://bio-apple.github.io/ai/ai-learning-roadmap.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bio-apple.github.io/ai/ai-tools-ranking.html</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bio-apple.github.io/ai/ai-learning-roadmap.html</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bio-apple.github.io/ai/news/daily-ai-news.html</loc><changefreq>daily</changefreq><priority>0.9</priority></url>
+  <url><loc>https://bio-apple.github.io/ai/guides/beginner.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://bio-apple.github.io/ai/guides/advanced.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
   <url><loc>https://bio-apple.github.io/ai/tools/chatgpt.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://bio-apple.github.io/ai/tools/gemini.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://bio-apple.github.io/ai/tools/deepseek.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

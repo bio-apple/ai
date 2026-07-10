@@ -9,12 +9,12 @@
   <link rel="canonical" href="{{ meta.canonical }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ meta.canonical }}">
-  <meta property="og:title" content="AI Lab 2026 — AI 学习与工具导航平台">
+  <meta property="og:title" content="Bio AI Lab 2026 — AI 学习与工具导航平台">
   <meta property="og:description" content="{{ meta.description }}">
   <meta property="og:image" content="{{ meta.og_image }}">
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI Lab 2026 — AI 学习与工具导航平台">
+  <meta name="twitter:title" content="Bio AI Lab 2026 — AI 学习与工具导航平台">
   <meta name="twitter:description" content="{{ meta.description }}">
   <meta name="twitter:image" content="{{ meta.og_image }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +66,7 @@
             <p class="tool-tagline">{{ tool.tagline }}</p>
             <div class="tool-stars" aria-label="推荐指数 {{ tool.stars }} 星">{% for i in range(tool.stars) %}★{% endfor %}{% for i in range(5 - tool.stars) %}<span class="star-empty">★</span>{% endfor %}</div>
             <ul class="tool-tags">{% for tag in tool.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
-            <button type="button" class="tool-card-btn" data-tool="{{ tool.id }}">开始学习</button>
+            <button type="button" class="tool-card-btn" data-tool="{{ tool.id }}">查看详情</button>
           </article>
           {% endfor %}
         </div>
@@ -91,7 +91,7 @@
             <p class="tool-summary">{{ tool.summary }}</p>
             <div class="tool-stars" aria-label="推荐指数 {{ tool.stars }} 星">{% for i in range(tool.stars) %}★{% endfor %}{% for i in range(5 - tool.stars) %}<span class="star-empty">★</span>{% endfor %}</div>
             <ul class="tool-tags">{% for tag in tool.tags %}<li>{{ tag }}</li>{% endfor %}</ul>
-            <button type="button" class="tool-card-btn" data-tool="{{ tool.id }}">开始学习</button>
+            <button type="button" class="tool-card-btn" data-tool="{{ tool.id }}">查看详情</button>
           </article>
           {% endfor %}
         </div>
@@ -110,6 +110,7 @@
           <span class="ranking-medal">{{ item.medal }}</span>
           <h3>{{ item.name }}</h3>
           <p class="ranking-dimension">{{ item.dimension }}</p>
+          <p class="ranking-score">{{ item.score }}</p>
           <div class="tool-stars">{% for i in range(item.stars) %}★{% endfor %}</div>
           <button type="button" class="tool-card-btn tool-card-btn-sm" data-tool="{{ item.id }}">查看教程</button>
         </article>
@@ -122,12 +123,35 @@
 
     <section class="home-section fade-in">
       <div class="section-head">
-        <h2 class="section-title">AI 可以帮助你</h2>
+        <h2 class="section-title">AI 学习路线</h2>
+        <p class="section-desc">从零基础到进阶应用的系统路径</p>
       </div>
-      <div class="scenario-grid scenario-scroll">
-        {% for s in scenarios %}
-        <div class="scenario-card"><div class="icon">{{ s.icon }}</div><h4>{{ s.title }}</h4><p>{{ s.description }}</p></div>
+      <div class="grid-2">
+        {% for path in learning_paths %}
+        <div class="card">
+          <h3><span class="dot" style="background:{{ path.dot_color }}"></span> {{ path.title }}</h3>
+          <ol class="steps">
+            {% for step in path.steps %}<li>{{ step }}</li>{% endfor %}
+          </ol>
+        </div>
         {% endfor %}
+      </div>
+      <div class="section-cta">
+        <a href="guides/beginner.html" class="cta-btn cta-btn-outline">入门指南</a>
+        <a href="ai-learning-roadmap.html" class="cta-btn cta-btn-outline" data-track="home-roadmap">完整学习路线 →</a>
+      </div>
+    </section>
+
+    <section class="home-section fade-in" id="home-news">
+      <div class="section-head">
+        <h2 class="section-title">今日 AI 热点</h2>
+        <p class="section-desc">OpenAI · Anthropic · DeepMind · Hugging Face 官方动态</p>
+      </div>
+      <div id="home-news-preview" class="home-news-preview">
+        <p class="loading-hint">加载今日热点…</p>
+      </div>
+      <div class="section-cta">
+        <button class="cta-btn cta-btn-outline" data-goto="news" data-track="home-all-news">查看全部 AI 新闻 →</button>
       </div>
     </section>
 
@@ -162,28 +186,8 @@
 
     <section class="home-section fade-in">
       <div class="section-head">
-        <h2 class="section-title">AI 学习路线</h2>
-        <p class="section-desc">从零基础到进阶应用的系统路径</p>
-      </div>
-      <div class="grid-2">
-        {% for path in learning_paths %}
-        <div class="card">
-          <h3><span class="dot" style="background:{{ path.dot_color }}"></span> {{ path.title }}</h3>
-          <ol class="steps">
-            {% for step in path.steps %}<li>{{ step }}</li>{% endfor %}
-          </ol>
-        </div>
-        {% endfor %}
-      </div>
-      <div class="section-cta">
-        <a href="ai-learning-roadmap.html" class="cta-btn cta-btn-outline" data-track="home-roadmap">查看完整学习路线 →</a>
-      </div>
-    </section>
-
-    <section class="home-section fade-in">
-      <div class="section-head">
-        <h2 class="section-title">精选教程</h2>
-        <p class="section-desc">选型对比与实战指南</p>
+        <h2 class="section-title">精选教程与视频</h2>
+        <p class="section-desc">选型对比、实战案例与每日教程视频</p>
       </div>
       <div class="compare-guide-grid">
         {% for g in compare_guides %}
@@ -194,21 +198,12 @@
         </a>
         {% endfor %}
       </div>
-      <div class="section-cta">
-        <button class="cta-btn" data-goto="cases" data-track="home-cases">查看实战案例 →</button>
-      </div>
-    </section>
-
-    <section class="home-section fade-in">
-      <div class="section-head">
-        <h2 class="section-title">视频资源</h2>
-        <p class="section-desc">每日自动更新 AI 教程视频</p>
-      </div>
       <div id="home-video-preview" class="home-video-preview">
         <p class="loading-hint">加载今日精选…</p>
       </div>
       <div class="section-cta">
-        <button class="cta-btn cta-btn-outline" data-goto="videos" data-track="home-all-videos">查看全部每日视频 →</button>
+        <button class="cta-btn" data-goto="cases" data-track="home-cases">查看实战案例 →</button>
+        <button class="cta-btn cta-btn-outline" data-goto="videos" data-track="home-all-videos">每日视频 →</button>
       </div>
     </section>
   </main>
@@ -219,6 +214,10 @@
 {% endfor %}
 
 {% include 'partials/cases_section.j2' %}
+
+{% include 'partials/create_section.j2' %}
+
+{% include 'partials/news_section.j2' %}
 
 <section id="section-videos" class="section videos-section">
   <main>
@@ -242,6 +241,7 @@
 
 <script src="analytics.js"></script>
 <script src="app.js"></script>
+<script src="news.js"></script>
 <script src="videos.js"></script>
 </body>
 </html>

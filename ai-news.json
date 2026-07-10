@@ -1,0 +1,222 @@
+{
+  "updated_at": "2026-07-10T16:26:24.812636+08:00",
+  "date": "2026-07-10",
+  "items": [
+    {
+      "id": "a494e292a2d7",
+      "title": "Context Graphs for Proactive Enterprise Agents",
+      "summary": "arXiv:2607.07721v1 Announce Type: new Abstract: Retrieval-Augmented Generation (RAG) and agentic frameworks have advanced enterprise AI considerably, yet agent…",
+      "url": "https://arxiv.org/abs/2607.07721",
+      "source": "arXiv AI",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "fbf5ff06dc28",
+      "title": "AI-integrated models for assessing agricultural resilience",
+      "summary": "arXiv:2607.07759v1 Announce Type: new Abstract: Agricultural supply chains are vulnerable to disruptions through linked biophysical and economic systems. We de…",
+      "url": "https://arxiv.org/abs/2607.07759",
+      "source": "arXiv AI",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "5f37f9a5f063",
+      "title": "Adversarial Social Epistemology for Assemblies of Humans and Large Language Models",
+      "summary": "arXiv:2607.07760v1 Announce Type: new Abstract: We outline an adversarial social epistemology (ASE) for densely interactive communicative landscapes in which p…",
+      "url": "https://arxiv.org/abs/2607.07760",
+      "source": "arXiv AI",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "cc5534545045",
+      "title": "Aligning Clinical Needs and AI Capabilities: A Survey on LLMs for Medical Reasoning",
+      "summary": "arXiv:2607.07761v1 Announce Type: new Abstract: Large language models (LLMs) have emerged as important tools in healthcare, showing growing potential for clini…",
+      "url": "https://arxiv.org/abs/2607.07761",
+      "source": "arXiv AI",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "48f3840259c6",
+      "title": "Alignment Plausibility: A New Standard for Assuring AI in Healthcare",
+      "summary": "arXiv:2607.07766v1 Announce Type: new Abstract: Large language models (LLMs) have become significant providers of mental health support, yet they remain produc…",
+      "url": "https://arxiv.org/abs/2607.07766",
+      "source": "arXiv AI",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "2e6a5e7799df",
+      "title": "Idiobionics: The Unification of Privacy and Intelligent Robotic Prostheses",
+      "summary": "arXiv:2607.07775v1 Announce Type: new Abstract: The human body is at the center of a growing family of technologies designed to tightly and persistently couple…",
+      "url": "https://arxiv.org/abs/2607.07775",
+      "source": "arXiv AI",
+      "category": "开源项目",
+      "published_at": "2026-07-10T12:00:00+08:00"
+    },
+    {
+      "id": "ffdf99aeb53c",
+      "title": "Anthropic found a hidden space where Claude puzzles over concepts",
+      "summary": "The AI firm Anthropic has developed a technique that has given it the clearest glimpse yet at what’s really going on inside large language models as they answe…",
+      "url": "https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/",
+      "source": "MIT Tech Review",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T04:22:28+08:00"
+    },
+    {
+      "id": "e799563c0958",
+      "title": "GPT-5.6 is now the preferred model in Microsoft 365 Copilot",
+      "summary": "Learn how GPT-5.6 powers Microsoft 365 Copilot with stronger AI capabilities across Word, Excel, PowerPoint, Chat, and Cowork for faster, higher-quality work.",
+      "url": "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-09T21:00:00+08:00"
+    },
+    {
+      "id": "701f122b3334",
+      "title": "The Download: a nuclear landmark, and China eyes Nvidia chips",
+      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Four nucl…",
+      "url": "https://www.technologyreview.com/2026/07/09/1140283/the-download-nuclear-power-milestone-nvidia-china-ai-chips/",
+      "source": "MIT Tech Review",
+      "category": "行业新闻",
+      "published_at": "2026-07-09T20:10:00+08:00"
+    },
+    {
+      "id": "5941cef110c0",
+      "title": "ChatGPT is now a partner for your most ambitious work",
+      "summary": "ChatGPT Work is an agent that can take action across your apps and files, stay with a project for hours if needed, and turn a goal into finished work.",
+      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-09T18:00:00+08:00"
+    },
+    {
+      "id": "8fd74bd3f519",
+      "title": "GPT-5.5 Bio Bug Bounty",
+      "summary": "Details about the OpenAI Bio Bounty program",
+      "url": "https://openai.com/index/bio-bug-bounty",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-09T18:00:00+08:00"
+    },
+    {
+      "id": "54ee76ae9206",
+      "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
+      "summary": "More intelligence from every token, stronger performance per dollar, and more capability on demand for your hardest work.",
+      "url": "https://openai.com/index/gpt-5-6",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-09T18:00:00+08:00"
+    },
+    {
+      "id": "2abdc6f86826",
+      "title": "Four nuclear reactors hit a big milestone in the US",
+      "summary": "I was really looking forward to July 4, and not just because I love a poolside barbecue. This year the American holiday also marked a big symbolic deadline for…",
+      "url": "https://www.technologyreview.com/2026/07/09/1140235/nuclear-reactor-milestone-criticality/",
+      "source": "MIT Tech Review",
+      "category": "行业新闻",
+      "published_at": "2026-07-09T16:00:00+08:00"
+    },
+    {
+      "id": "23ec088b632f",
+      "title": "EmTech AI 2026: The Rise of the AI Platform",
+      "summary": "EmTech AI 2026: The Rise of the AI Platform",
+      "url": "https://www.technologyreview.com/2026/07/08/1140223/emtech-ai-2026-the-rise-of-the-ai-platform/",
+      "source": "MIT Tech Review",
+      "category": "行业新闻",
+      "published_at": "2026-07-09T00:26:10+08:00"
+    },
+    {
+      "id": "41b85c9cdb7a",
+      "title": "Our approach to government and national security partnerships",
+      "summary": "Learn how OpenAI approaches government and national security partnerships, with principles for responsible AI use, democratic accountability, and public safety.",
+      "url": "https://openai.com/index/government-national-security-partnerships",
+      "source": "OpenAI",
+      "category": "行业新闻",
+      "published_at": "2026-07-08T21:30:00+08:00"
+    },
+    {
+      "id": "eaad4cbcfa7f",
+      "title": "Separating signal from noise in coding evaluations",
+      "summary": "A new analysis from OpenAI reveals issues in SWE-Bench Pro, a popular coding benchmark, raising concerns about reliability and accuracy in evaluating AI models.",
+      "url": "https://openai.com/index/separating-signal-from-noise-coding-evaluations",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-08T21:00:00+08:00"
+    },
+    {
+      "id": "a8a2b098c664",
+      "title": "The Download: worms fight pollution, and geoengineering faces reality",
+      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Why worms…",
+      "url": "https://www.technologyreview.com/2026/07/08/1140216/the-download-worms-manure-pollution-geoengineering-reality-check/",
+      "source": "MIT Tech Review",
+      "category": "行业新闻",
+      "published_at": "2026-07-08T20:10:00+08:00"
+    },
+    {
+      "id": "241f07948341",
+      "title": "The Download: your stake in OpenAI, and the Treasury’s AI warning",
+      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Your fami…",
+      "url": "https://www.technologyreview.com/2026/07/07/1140197/the-download-your-openai-stake-treasury-ai-warning/",
+      "source": "MIT Tech Review",
+      "category": "行业新闻",
+      "published_at": "2026-07-07T20:10:00+08:00"
+    },
+    {
+      "id": "73fd78c4847c",
+      "title": "Expanding Managed Agents in Gemini API: background tasks, remote MCP and more",
+      "summary": "We’re announcing new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-07T16:54:00+08:00"
+    },
+    {
+      "id": "e29a8bbb0a77",
+      "title": "Google DeepMind and A24 announce first-of-its-kind research partnership",
+      "summary": "Google DeepMind and A24 announce first-of-its-kind research partnership",
+      "url": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
+      "source": "Google DeepMind",
+      "category": "行业新闻",
+      "published_at": "2026-07-03T22:25:43+08:00"
+    },
+    {
+      "id": "23883e915ab2",
+      "title": "The latest AI news we announced in June 2026",
+      "summary": "Here are Google’s latest AI updates from June 2026.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-june-2026/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-02T02:15:00+08:00"
+    },
+    {
+      "id": "6fdddf52a2a9",
+      "title": "New York City educators and industry leaders gathered at Google’s offices to shape the future of AI in classrooms.",
+      "summary": "Google, the New York Jobs CEO Council and Urban Assembly hosted an AI summit for 150 education and industry leaders.",
+      "url": "https://blog.google/products-and-platforms/products/education/nyc-ai-summit/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-02T00:00:00+08:00"
+    },
+    {
+      "id": "adbaffb551ff",
+      "title": "Start building with Nano Banana 2 Lite and Gemini Omni Flash",
+      "summary": "Start building with Nano Banana 2 Lite and Gemini Omni Flash",
+      "url": "https://deepmind.google/blog/start-building-with-nano-banana-2-lite-and-gemini-omni-flash/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-07-01T00:02:40+08:00"
+    },
+    {
+      "id": "5f09b3919a81",
+      "title": "Unlocking Britain’s next era of productivity: Building a nation of AI trailblazers",
+      "summary": "Google UK shares its latest Economic Impact Report and how to enable more people to unlock the benefits of AI-powered technologies.",
+      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/unlocking-britains-next-era-of-productivity-building-a-nation-of-ai-trailblazers/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-06-30T14:00:00+08:00"
+    }
+  ]
+}

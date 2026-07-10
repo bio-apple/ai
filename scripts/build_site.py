@@ -12,7 +12,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
 TEMPLATES = ROOT / "templates"
-BRAND = "AI Lab"
+BRAND = "Bio AI Lab"
 
 
 def load_json(name: str):
@@ -30,6 +30,11 @@ def tool_lookup(site: dict) -> dict[str, dict]:
 def build_hot_tool_cards(site: dict) -> list[dict]:
     lookup = tool_lookup(site)
     return [lookup[tid] for tid in site.get("hot_tools", []) if tid in lookup]
+
+
+def build_create_tool_cards(site: dict) -> list[dict]:
+    lookup = tool_lookup(site)
+    return [lookup[tid] for tid in site.get("create_tools", []) if tid in lookup]
 
 
 def flatten_nav_labels(menu: list) -> dict[str, str]:
@@ -149,6 +154,8 @@ def build_search_index(site: dict, tools: list, cases: dict, compares: list) -> 
         items.append({"label": c["title"], "section": "section-cases", "keywords": kw})
     items.append({"label": "实战案例", "section": "section-cases", "keywords": "实战 案例 提示词 prompt"})
     items.append({"label": "每日视频", "section": "section-videos", "keywords": "视频 youtube bilibili 教程 每日"})
+    items.append({"label": "AI 新闻", "section": "section-news", "keywords": "AI新闻 OpenAI Anthropic DeepMind"})
+    items.append({"label": "AI 创作", "section": "section-create", "keywords": "创作 绘图 视频 写作"})
     items.append(
         {
             "label": "AI 工具排行榜",
@@ -163,6 +170,23 @@ def build_search_index(site: dict, tools: list, cases: dict, compares: list) -> 
             "keywords": "学习路线 roadmap 入门 进阶",
         }
     )
+    items.append(
+        {
+            "label": "今日 AI 热点",
+            "url": "news/daily-ai-news.html",
+            "keywords": "AI新闻 热点 OpenAI Anthropic",
+        }
+    )
+    for slug in ("beginner", "advanced"):
+        guide = site.get("guides", {}).get(slug, {})
+        if guide:
+            items.append(
+                {
+                    "label": guide.get("h1", slug),
+                    "url": f"guides/{slug}.html",
+                    "keywords": guide.get("lead", slug),
+                }
+            )
     for cmp in compares:
         items.append(
             {
@@ -179,9 +203,13 @@ def build_search_index(site: dict, tools: list, cases: dict, compares: list) -> 
 
 def build_sitemap(base_url: str, tools: list, compares: list) -> str:
     urls = [f"  <url><loc>{base_url}</loc><changefreq>daily</changefreq><priority>1.0</priority></url>"]
-    for page in ("ai-tools-ranking.html", "ai-learning-roadmap.html"):
+    for page in ("ai-tools-ranking.html", "ai-learning-roadmap.html", "news/daily-ai-news.html"):
         urls.append(
-            f"  <url><loc>{base_url}{page}</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>"
+            f"  <url><loc>{base_url}{page}</loc><changefreq>daily</changefreq><priority>0.9</priority></url>"
+        )
+    for slug in ("beginner", "advanced"):
+        urls.append(
+            f"  <url><loc>{base_url}guides/{slug}.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>"
         )
     for t in tools:
         urls.append(
@@ -219,6 +247,7 @@ def main() -> int:
         nav=site["nav"],
         hero=site["hero"],
         hot_tool_cards=build_hot_tool_cards(site),
+        create_tool_cards=build_create_tool_cards(site),
         home_tool_categories=site["home_tool_categories"],
         rankings=site["rankings"],
         ai_picker=site["ai_picker"],
@@ -298,6 +327,49 @@ def main() -> int:
         encoding="utf-8",
     )
 
+    news_dir = ROOT / "news"
+    news_dir.mkdir(exist_ok=True)
+    news_tpl = env.get_template("news_page.html.j2")
+    news_page = site["news_page"]
+    (news_dir / "daily-ai-news.html").write_text(
+        news_tpl.render(
+            page=news_page,
+            meta=meta,
+            nav=site["nav"],
+            footer=site["footer"],
+            schema_json=build_page_schema(
+                news_page["title"],
+                news_page["lead"],
+                f"{meta['base_url']}news/daily-ai-news.html",
+            ),
+        ),
+        encoding="utf-8",
+    )
+
+    guides_dir = ROOT / "guides"
+    guides_dir.mkdir(exist_ok=True)
+    guide_tpl = env.get_template("guide_page.html.j2")
+    paths = site.get("learning_paths", [])
+    for slug, guide in site.get("guides", {}).items():
+        path = paths[0] if slug == "beginner" and paths else (paths[1] if len(paths) > 1 else paths[0])
+        if slug == "advanced" and len(paths) > 1:
+            path = paths[1]
+        (guides_dir / f"{guide['slug']}.html").write_text(
+            guide_tpl.render(
+                guide=guide,
+                path=path,
+                meta=meta,
+                nav=site["nav"],
+                footer=site["footer"],
+                schema_json=build_page_schema(
+                    guide["title"],
+                    guide["lead"],
+                    f"{meta['base_url']}guides/{guide['slug']}.html",
+                ),
+            ),
+            encoding="utf-8",
+        )
+
     search_index = build_search_index(site, tools, cases, compares)
     (ROOT / "search-index.json").write_text(
         json.dumps(search_index, ensure_ascii=False, indent=2) + "\n",
@@ -309,6 +381,7 @@ def main() -> int:
     print(f"✓ index.html")
     print(f"✓ tools/ ({len(tools)} 页)")
     print(f"✓ compare/ ({len(compares)} 页)")
+    print(f"✓ news/daily-ai-news.html + guides/ (2 页)")
     print(f"✓ ai-tools-ranking.html + ai-learning-roadmap.html")
     print(f"✓ search-index.json ({len(search_index)} 条)")
     print(f"✓ sitemap.xml")

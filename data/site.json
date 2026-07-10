@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "AI Lab | ChatGPT/Cursor/DeepSeek 教程 2026 — AI 学习与工具导航",
-    "description": "AI Lab 是中文用户的 AI 学习与工具导航平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。",
-    "keywords": "AI Lab,AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI实战,提示词,AI视频,AI工具排行",
+    "title": "Bio AI Lab | ChatGPT/Cursor/DeepSeek 教程 2026 — AI 学习与工具导航",
+    "description": "Bio AI Lab 是集 AI 工具导航、AI 学习、AI 新闻资讯于一体的中文平台：ChatGPT、Claude、Cursor、DeepSeek 等 10 大工具教程，实战案例与每日资讯。",
+    "keywords": "Bio AI Lab,AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI新闻,AI实战,AI工具排行",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.png",
     "base_url": "https://bio-apple.github.io/ai/"
@@ -10,7 +10,7 @@
   "nav": {
     "logo": {
       "icon": "✦",
-      "brand": "AI Lab",
+      "brand": "Bio AI Lab",
       "tagline": "AI 学习与工具导航中心"
     },
     "menu": [
@@ -30,22 +30,13 @@
         "label": "AI 编程",
         "children": [
           { "id": "cursor", "label": "Cursor" },
-          { "id": "copilot", "label": "Copilot" },
-          { "id": "codex", "label": "Codex" }
+          { "id": "copilot", "label": "Copilot" }
         ]
       },
-      {
-        "type": "dropdown",
-        "label": "国内 AI",
-        "children": [
-          { "id": "kimi", "label": "Kimi" },
-          { "id": "qwen", "label": "通义" },
-          { "id": "doubao", "label": "豆包" }
-        ]
-      },
+      { "type": "tab", "id": "create", "label": "AI 创作" },
       { "type": "tab", "id": "cases", "label": "AI 教程" },
-      { "type": "tab", "id": "videos", "label": "AI 视频" },
-      { "type": "page", "href": "ai-tools-ranking.html", "label": "排行榜" }
+      { "type": "tab", "id": "news", "label": "AI 新闻" },
+      { "type": "tab", "id": "videos", "label": "AI 视频" }
     ]
   },
   "hero": {
@@ -174,11 +165,12 @@
       ]
     }
   ],
+  "create_tools": ["doubao", "kimi", "gemini", "chatgpt"],
   "rankings": [
-    { "medal": "🥇", "id": "chatgpt", "name": "ChatGPT", "dimension": "综合能力", "stars": 5 },
-    { "medal": "🥈", "id": "claude", "name": "Claude", "dimension": "长文本能力", "stars": 5 },
-    { "medal": "🥉", "id": "deepseek", "name": "DeepSeek", "dimension": "性价比", "stars": 5 },
-    { "medal": "💻", "id": "cursor", "name": "Cursor", "dimension": "AI 编程", "stars": 5 }
+    { "medal": "🥇", "id": "chatgpt", "name": "ChatGPT", "dimension": "综合能力", "score": 9.8, "stars": 5 },
+    { "medal": "🥈", "id": "claude", "name": "Claude", "dimension": "长文本", "score": 9.5, "stars": 5 },
+    { "medal": "🥉", "id": "deepseek", "name": "DeepSeek", "dimension": "性价比", "score": 9.4, "stars": 5 },
+    { "medal": "💻", "id": "cursor", "name": "Cursor", "dimension": "AI 编程", "score": 9.6, "stars": 5 }
   ],
   "ai_picker": {
     "title": "你想使用 AI 做什么？",
@@ -258,8 +250,27 @@
       ]
     }
   ],
+  "news_page": {
+    "title": "今日 AI 热点 | Bio AI Lab",
+    "h1": "今日 AI 热点",
+    "lead": "每日汇总 OpenAI、Anthropic、Google DeepMind、Hugging Face 等官方动态与行业资讯。"
+  },
+  "guides": {
+    "beginner": {
+      "slug": "beginner",
+      "title": "零基础 AI 入门指南 | Bio AI Lab",
+      "h1": "零基础 AI 入门指南",
+      "lead": "从对话、提示词到长文档与多模态，按步骤掌握第一个 AI 工具。"
+    },
+    "advanced": {
+      "slug": "advanced",
+      "title": "进阶 AI 应用指南 | Bio AI Lab",
+      "h1": "进阶 AI 应用指南",
+      "lead": "编程自动化、API 接入与多工具协同，构建你的 AI 工作流。"
+    }
+  },
   "roadmap_page": {
-    "title": "AI 学习路线 2026 | AI Lab",
+    "title": "AI 学习路线 2026 | Bio AI Lab",
     "h1": "AI 学习路线",
     "lead": "从零基础到进阶应用，按阶段掌握主流 AI 工具与实战技能。",
     "phases": [
@@ -290,7 +301,7 @@
     ]
   },
   "ranking_page": {
-    "title": "2026 AI 工具排行榜 | AI Lab",
+    "title": "2026 AI 工具排行榜 | Bio AI Lab",
     "h1": "2026 AI 工具排行榜",
     "lead": "综合综合能力、长文本、性价比、编程体验等维度，为中文用户精选 Top 工具。",
     "updated": "2026-07"
@@ -327,7 +338,7 @@
     ]
   },
   "footer": {
-    "text": "AI Lab · Discover. Learn. Create with AI.",
+    "text": "Bio AI Lab · Discover. Learn. Create with AI.",
     "github": "https://github.com/bio-apple/ai"
   }
 }

@@ -63,8 +63,29 @@ def validate_search_index() -> None:
     print(f"✓ search-index.json ({len(data)} 条)")
 
 
+def validate_ai_news() -> None:
+    path = ROOT / "ai-news.json"
+    if not path.exists():
+        raise FileNotFoundError("ai-news.json 缺失，请先运行 scripts/fetch_ai_news.py")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(data.get("items"), list) or not data["items"]:
+        raise ValueError("ai-news.json items 为空")
+    for item in data["items"][:3]:
+        if not item.get("title") or not item.get("url"):
+            raise ValueError(f"ai-news 条目不完整: {item}")
+    print(f"✓ ai-news.json ({len(data['items'])} 条)")
+
+
 def validate_html_links() -> None:
-    html_files = [ROOT / "index.html", *ROOT.glob("tools/*.html"), *ROOT.glob("compare/*.html")]
+    html_files = [
+        ROOT / "index.html",
+        ROOT / "ai-tools-ranking.html",
+        ROOT / "ai-learning-roadmap.html",
+        *ROOT.glob("tools/*.html"),
+        *ROOT.glob("compare/*.html"),
+        *ROOT.glob("news/*.html"),
+        *ROOT.glob("guides/*.html"),
+    ]
     missing = []
     for fp in html_files:
         soup = BeautifulSoup(fp.read_text(encoding="utf-8"), "html.parser")
@@ -98,6 +119,7 @@ def validate_data_json() -> None:
 def main() -> int:
     validate_data_json()
     validate_daily_videos()
+    validate_ai_news()
     validate_sitemap_robots()
     validate_search_index()
     validate_html_links()
