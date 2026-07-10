@@ -1,4 +1,5 @@
 const VIDEO_DATA_URL = 'daily-videos.json';
+const HOT_VIEWS_THRESHOLD = 1_000_000;
 
 function escapeHtml(s) {
   const d = document.createElement('div');
@@ -13,17 +14,29 @@ function formatNumber(n) {
   return String(n);
 }
 
-function renderVideoCard(v) {
+function formatSummary(v) {
+  const base = v.summary || '';
+  if (v.views >= HOT_VIEWS_THRESHOLD) {
+    return `热门推荐 · ${base}`;
+  }
+  return base;
+}
+
+function renderVideoCard(v, { compact = false } = {}) {
+  const hot = v.views >= HOT_VIEWS_THRESHOLD;
+  const track = compact ? 'home-video-click' : 'video-click';
   return `
-    <article class="video-card">
-      <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="noopener">
-        <img src="${escapeHtml(v.thumbnail)}" alt="" loading="lazy">
+    <article class="video-card${compact ? ' video-card-compact' : ''}">
+      <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">
+        <img src="${escapeHtml(v.thumbnail)}" alt="${escapeHtml(v.title)}" loading="lazy">
+        <span class="video-play-btn" aria-hidden="true">▶ 观看</span>
         ${v.duration ? `<span class="video-duration">${escapeHtml(v.duration)}</span>` : ''}
         <span class="video-quality">${v.max_height}p</span>
+        ${hot ? '<span class="video-hot">热门</span>' : ''}
       </a>
       <div class="video-body">
-        <h4><a href="${escapeHtml(v.url)}" target="_blank" rel="noopener">${escapeHtml(v.title)}</a></h4>
-        <p class="video-summary">${escapeHtml(v.summary)}</p>
+        <h4><a href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">${escapeHtml(v.title)}</a></h4>
+        <p class="video-summary">${escapeHtml(formatSummary(v))}</p>
         <div class="video-meta">
           <span>${escapeHtml(v.channel)}</span>
           <span>订阅 ${formatNumber(v.subscribers)}</span>
@@ -40,9 +53,33 @@ function renderBatch(batch) {
   return `
     <section class="video-day">
       <h3 class="video-day-title">${escapeHtml(batch.date)} <span class="video-day-count">${videos.length} 条</span></h3>
-      <div class="video-grid">${videos.map(renderVideoCard).join('')}</div>
+      <div class="video-grid">${videos.map(v => renderVideoCard(v)).join('')}</div>
     </section>
   `;
+}
+
+async function fetchVideoData() {
+  const res = await fetch(VIDEO_DATA_URL, { cache: 'no-store' });
+  if (!res.ok) throw new Error('无法加载视频数据');
+  return res.json();
+}
+
+async function loadHomeVideoPreview() {
+  const root = document.getElementById('home-video-preview');
+  if (!root) return;
+
+  try {
+    const data = await fetchVideoData();
+    const latest = (data.batches || [])[0];
+    const videos = (latest?.videos || []).slice(0, 3);
+    if (!videos.length) {
+      root.innerHTML = '<p class="loading-hint">暂无视频，每日北京时间 0:00 自动更新。</p>';
+      return;
+    }
+    root.innerHTML = `<div class="video-grid video-grid-preview">${videos.map(v => renderVideoCard(v, { compact: true })).join('')}</div>`;
+  } catch {
+    root.innerHTML = '<p class="loading-hint">视频加载失败，请稍后刷新。</p>';
+  }
 }
 
 async function loadDailyVideos() {
@@ -53,9 +90,7 @@ async function loadDailyVideos() {
   root.innerHTML = '<p class="loading-hint">加载视频推荐…</p>';
 
   try {
-    const res = await fetch(VIDEO_DATA_URL, { cache: 'no-store' });
-    if (!res.ok) throw new Error('无法加载视频数据');
-    const data = await res.json();
+    const data = await fetchVideoData();
     const batches = data.batches || [];
 
     if (!batches.length) {
@@ -74,4 +109,7 @@ async function loadDailyVideos() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadDailyVideos);
+document.addEventListener('DOMContentLoaded', () => {
+  loadHomeVideoPreview();
+  loadDailyVideos();
+});

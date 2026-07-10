@@ -3,9 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI 应用指南 — 学习如何使用与应用人工智能</title>
-  <meta name="description" content="全面学习 ChatGPT、Claude、Gemini、DeepSeek、Kimi、通义千问、豆包、Copilot、Cursor、Codex 等 AI 工具的使用方法与应用场景，含教程与实战案例。">
+  <title>ChatGPT/Cursor/DeepSeek 教程 2026 | AI 应用指南（含实战案例）</title>
+  <meta name="description" content="中文用户的一站式 AI 工具实战指南：ChatGPT、Claude、Cursor、DeepSeek、Kimi、通义、豆包等 10 大工具教程，可复制提示词实战案例，每日自动更新 1080p 视频。">
+  <meta name="keywords" content="AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI实战,提示词,AI视频">
+  <link rel="canonical" href="https://bio-apple.github.io/ai/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bio-apple.github.io/ai/">
+  <meta property="og:title" content="AI 应用指南 2026 — 教程 · 实战案例 · 每日视频">
+  <meta property="og:description" content="覆盖 ChatGPT、Cursor、DeepSeek 等 10 大 AI 工具的中文实战指南，含可复制提示词与每日视频推荐。">
+  <meta property="og:image" content="https://bio-apple.github.io/ai/og-image.png">
+  <meta property="og:locale" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 应用指南 2026 — 教程 · 实战案例 · 每日视频">
+  <meta name="twitter:description" content="覆盖 ChatGPT、Cursor、DeepSeek 等 10 大 AI 工具的中文实战指南。">
+  <meta name="twitter:image" content="https://bio-apple.github.io/ai/og-image.png">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "AI 应用指南",
+        "url": "https://bio-apple.github.io/ai/",
+        "description": "中文用户的一站式 AI 工具实战指南",
+        "inLanguage": "zh-CN",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://bio-apple.github.io/ai/?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "零基础应该先学哪个 AI 工具？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "建议从 ChatGPT、豆包或 DeepSeek 开始学会基本对话和提示词，编程方向选 Cursor 或 GitHub Copilot，长文档分析选 Kimi 或 Claude。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Cursor 和 GitHub Copilot 哪个更适合日常编码？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cursor 适合需要 Agent 跨文件改动的快速迭代；Copilot 适合已在 VS Code 生态、预算较低的场景。详见选型对比页。"
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "本站每日视频如何更新？",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "北京时间每日 0:00 自动抓取 YouTube 上 AI 应用相关 1080p 教程，按播放量与频道订阅数综合排序，每天至少 10 条。"
+            }
+          }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "AI 工具选型速查",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "ChatGPT", "description": "生态最全，日常问答与创作"},
+          {"@type": "ListItem", "position": 2, "name": "Claude", "description": "深度推理与长文档分析"},
+          {"@type": "ListItem", "position": 3, "name": "Cursor", "description": "AI 原生代码编辑器"},
+          {"@type": "ListItem", "position": 4, "name": "DeepSeek", "description": "高性价比推理与 API"},
+          {"@type": "ListItem", "position": 5, "name": "Kimi", "description": "超长上下文与文件解析"}
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -37,7 +108,45 @@
 <section id="section-home" class="section active">
   <div class="hero">
     <h1>学会使用 AI，让 AI 为你工作</h1>
-    <p>从对话助手到编程开发，覆盖国际与国内主流 AI 工具的使用方法、应用场景与实战技巧。</p>
+    <p>中文用户的一站式 AI 工具实战指南 — 教程、可复制提示词案例、每日 1080p 视频推荐。</p>
+
+    <div class="site-search-wrap">
+      <input type="search" id="site-search" class="site-search" placeholder="搜索工具、案例或教程…" aria-label="站内搜索">
+      <div id="site-search-results" class="site-search-results" hidden></div>
+    </div>
+
+    <h3 class="resources-title" style="margin-top:28px">快速找到你需要的</h3>
+    <div class="quick-find-grid">
+      <button class="quick-find-card" data-goto="cursor" data-track="quick-find-coding">
+        <span class="quick-find-icon">💻</span>
+        <strong>写代码 / 做项目</strong>
+        <span>Cursor · Copilot · Codex</span>
+      </button>
+      <button class="quick-find-card" data-goto="kimi" data-track="quick-find-docs">
+        <span class="quick-find-icon">📄</span>
+        <strong>读长文档 / 合同</strong>
+        <span>Kimi · 通义 · Claude</span>
+      </button>
+      <button class="quick-find-card" data-goto="deepseek" data-track="quick-find-free">
+        <span class="quick-find-icon">🆓</span>
+        <strong>免费好用的中文助手</strong>
+        <span>豆包 · DeepSeek · 通义</span>
+      </button>
+      <button class="quick-find-card" data-goto="videos" data-track="quick-find-videos">
+        <span class="quick-find-icon">▶</span>
+        <strong>看最新 AI 教程视频</strong>
+        <span>每日自动更新 ≥10 条</span>
+      </button>
+    </div>
+
+    <h3 class="resources-title">今日精选视频</h3>
+    <div id="home-video-preview" class="home-video-preview">
+      <p class="loading-hint">加载今日精选…</p>
+    </div>
+    <div style="text-align:center;margin-bottom:8px">
+      <button class="cta-btn cta-btn-sm" data-goto="videos" data-track="home-all-videos">查看全部每日视频 →</button>
+    </div>
+
     <p class="category-label" style="margin-top:0">国际对话 AI</p>
     <div class="tool-cards">
       <div class="tool-card chatgpt" data-tool="chatgpt">
@@ -108,6 +217,25 @@
       <div class="scenario-card"><div class="icon">📊</div><h4>数据分析</h4><p>表格处理、图表、报告生成</p></div>
       <div class="scenario-card"><div class="icon">🎨</div><h4>图像视频</h4><p>AI 绘图、视频生成与编辑</p></div>
       <div class="scenario-card"><div class="icon">⚡</div><h4>工作效率</h4><p>自动化任务、会议纪要、规划</p></div>
+    </div>
+
+    <h3 class="resources-title">选型指南</h3>
+    <div class="compare-guide-grid">
+      <a href="compare/cursor-vs-copilot.html" class="compare-guide-card" data-track="compare-cursor-copilot">
+        <span class="compare-guide-tag">编程 AI</span>
+        <h4>Cursor vs Copilot 怎么选？</h4>
+        <p>Agent 跨文件开发 vs IDE 补全，按场景选型</p>
+      </a>
+      <a href="compare/chatgpt-vs-deepseek-vs-doubao.html" class="compare-guide-card" data-track="compare-chatgpt-deepseek">
+        <span class="compare-guide-tag">对话 AI</span>
+        <h4>ChatGPT vs DeepSeek vs 豆包</h4>
+        <p>零基础入门，哪个免费好用、中文体验好</p>
+      </a>
+      <a href="compare/kimi-vs-claude-vs-qwen.html" class="compare-guide-card" data-track="compare-kimi-claude">
+        <span class="compare-guide-tag">长文档</span>
+        <h4>Kimi vs Claude vs 通义</h4>
+        <p>合同、论文、报告速读与深度分析对比</p>
+      </a>
     </div>
 
     <h3 class="resources-title">工具选型速查</h3>
@@ -1014,8 +1142,18 @@
       <button class="case-filter" data-filter="copilot">Copilot</button>
     </div>
 
+    <div class="case-scenario-filters">
+      <span class="case-scenario-label">按场景：</span>
+      <button class="case-scenario active" data-scenario="all">全部</button>
+      <button class="case-scenario" data-scenario="writing">写作</button>
+      <button class="case-scenario" data-scenario="coding">编程</button>
+      <button class="case-scenario" data-scenario="research">调研</button>
+      <button class="case-scenario" data-scenario="productivity">效率</button>
+      <button class="case-scenario" data-scenario="beginner">入门</button>
+    </div>
+
     <!-- 案例 0 - ChatGPT 写作 -->
-    <article class="case-card" data-tool="chatgpt">
+    <article class="case-card" data-tool="chatgpt" data-scenario="writing beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge chatgpt">ChatGPT</span>
@@ -1056,7 +1194,7 @@
     </article>
 
     <!-- 案例 Gemini -->
-    <article class="case-card" data-tool="gemini">
+    <article class="case-card" data-tool="gemini" data-scenario="research beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge gemini">Gemini</span>
@@ -1093,7 +1231,7 @@
     </article>
 
     <!-- 案例 Kimi -->
-    <article class="case-card" data-tool="kimi">
+    <article class="case-card" data-tool="kimi" data-scenario="research beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge kimi">Kimi</span>
@@ -1135,7 +1273,7 @@
     </article>
 
     <!-- 案例 通义 -->
-    <article class="case-card" data-tool="qwen">
+    <article class="case-card" data-tool="qwen" data-scenario="productivity beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge qwen">通义</span>
@@ -1175,7 +1313,7 @@
     </article>
 
     <!-- 案例 Copilot -->
-    <article class="case-card" data-tool="copilot">
+    <article class="case-card" data-tool="copilot" data-scenario="coding beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge copilot">Copilot</span>
@@ -1213,12 +1351,14 @@
     </article>
 
     <!-- 案例 1 -->
-    <article class="case-card" data-tool="cursor">
+    <article class="case-card" data-tool="cursor" data-scenario="coding beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge cursor">Cursor</span>
           <span class="case-level">入门</span>
           <span class="case-time">约 30 分钟</span>
+          <span class="case-tag">编程</span>
+          <span class="case-tag">入门</span>
         </div>
         <h3>从零搭建待办事项 Web App</h3>
         <p class="case-summary">用 Cursor Agent + Plan 模式，从空文件夹到可运行的 HTML/CSS/JS 应用。</p>
@@ -1266,12 +1406,13 @@
     </article>
 
     <!-- 案例 2 -->
-    <article class="case-card" data-tool="cursor">
+    <article class="case-card" data-tool="cursor" data-scenario="coding">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge cursor">Cursor</span>
           <span class="case-level">中级</span>
           <span class="case-time">约 45 分钟</span>
+          <span class="case-tag">编程</span>
         </div>
         <h3>给现有项目添加用户登录功能</h3>
         <p class="case-summary">在已有代码库上用 Agent 模式实现 JWT 认证，涵盖前后端多文件修改。</p>
@@ -1307,12 +1448,14 @@
     </article>
 
     <!-- 案例 3 -->
-    <article class="case-card" data-tool="claude">
+    <article class="case-card" data-tool="claude" data-scenario="writing beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge claude">Claude</span>
           <span class="case-level">入门</span>
           <span class="case-time">约 20 分钟</span>
+          <span class="case-tag">写作</span>
+          <span class="case-tag">入门</span>
         </div>
         <h3>用 Claude Projects 生成项目技术文档</h3>
         <p class="case-summary">上传代码仓库，让 Claude 自动分析并输出架构文档和 API 说明。</p>
@@ -1357,12 +1500,13 @@
     </article>
 
     <!-- 案例 4 -->
-    <article class="case-card" data-tool="claude">
+    <article class="case-card" data-tool="claude" data-scenario="coding">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge claude">Claude</span>
           <span class="case-level">中级</span>
           <span class="case-time">约 25 分钟</span>
+          <span class="case-tag">编程</span>
         </div>
         <h3>用 Claude Code 终端修复 Bug</h3>
         <p class="case-summary">在终端用 Claude Code 定位、修复 bug 并提交 git commit，完整开发闭环。</p>
@@ -1404,12 +1548,14 @@
     </article>
 
     <!-- 案例 5 -->
-    <article class="case-card" data-tool="codex">
+    <article class="case-card" data-tool="codex" data-scenario="coding beginner">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge codex">Codex</span>
           <span class="case-level">入门</span>
           <span class="case-time">约 20 分钟</span>
+          <span class="case-tag">编程</span>
+          <span class="case-tag">入门</span>
         </div>
         <h3>用 Codex CLI 快速搭建 REST API</h3>
         <p class="case-summary">从空目录开始，用 Codex 终端代理生成完整的 CRUD API 项目。</p>
@@ -1452,12 +1598,13 @@
     </article>
 
     <!-- 案例 6 -->
-    <article class="case-card" data-tool="codex">
+    <article class="case-card" data-tool="codex" data-scenario="coding">
       <div class="case-header" role="button" tabindex="0">
         <div class="case-meta">
           <span class="case-badge codex">Codex</span>
           <span class="case-level">中级</span>
           <span class="case-time">约 15 分钟（异步）</span>
+          <span class="case-tag">编程</span>
         </div>
         <h3>用 Codex Cloud 自动处理 GitHub Issue</h3>
         <p class="case-summary">在 GitHub Issue 中 @codex，让云端 Agent 自动修复并提交 PR。</p>
@@ -1557,6 +1704,7 @@ Internet: off</div>
   <p>AI 应用指南 · 学习如何使用与应用人工智能 · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
+<script src="analytics.js"></script>
 <script src="app.js"></script>
 <script src="videos.js"></script>
 </body>

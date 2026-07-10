@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bio-apple.github.io/ai/sitemap.xml

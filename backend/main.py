@@ -14,7 +14,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-SAFE_STATIC = {".html", ".css", ".js", ".ico", ".png", ".svg", ".woff2"}
+SAFE_STATIC = {".html", ".css", ".js", ".ico", ".png", ".svg", ".woff2", ".json", ".xml", ".txt"}
 
 
 @app.get("/")
