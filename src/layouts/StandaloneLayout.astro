@@ -1,0 +1,58 @@
+---
+import ThemeBoot from '../components/ThemeBoot.astro';
+import UxWidgets from '../components/UxWidgets.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../lib/data';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  schema?: object;
+  assetPrefix?: string;
+  homeHref?: string;
+  scripts?: string[];
+}
+
+const {
+  title,
+  description,
+  canonical,
+  schema,
+  assetPrefix = import.meta.env.BASE_URL,
+  homeHref = `${import.meta.env.BASE_URL}index.html`,
+  scripts = ['analytics.js', 'ux.js', 'app.js'],
+} = Astro.props;
+
+const styleHref = `${assetPrefix}style.css`.replace('//', '/');
+const navPrefix = assetPrefix;
+---
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="canonical" href={canonical}>
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content={site.meta.og_image}>
+  <meta property="og:url" content={canonical}>
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href={styleHref}>
+  <ThemeBoot />
+  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+</head>
+<body>
+  <UxWidgets />
+  <Nav nav={site.nav} standalone={true} homeHref={homeHref} navPrefix={navPrefix} />
+  <slot />
+  <Footer text={site.footer.text} github={site.footer.github} />
+  {scripts.map((src) => <script src={`${assetPrefix}${src}`}></script>)}
+</body>
+</html>

@@ -7,7 +7,9 @@ from fastapi.responses import FileResponse
 from backend.api.routes import router as api_router
 from backend.config import ROOT
 
-app = FastAPI(title="Bio AI Lab", version="1.6.0", description="静态站本地预览 + 内容 API")
+SITE_ROOT = ROOT / "dist" if (ROOT / "dist" / "index.html").exists() else ROOT
+
+app = FastAPI(title="Bio AI Lab", version="1.7.0", description="Astro 静态站本地预览 + 内容 API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -21,15 +23,15 @@ SAFE_STATIC = {".html", ".css", ".js", ".ico", ".png", ".svg", ".woff2", ".json"
 
 @app.get("/")
 def serve_index():
-    return FileResponse(ROOT / "index.html")
+    return FileResponse(SITE_ROOT / "index.html")
 
 
 @app.get("/{filepath:path}")
 def serve_static(filepath: str):
-    if filepath.startswith(("backend/", "data/", "uploads/")):
+    if filepath.startswith(("backend/", "data/", "uploads/", "src/")):
         raise HTTPException(404)
-    path = (ROOT / filepath).resolve()
-    root = ROOT.resolve()
+    path = (SITE_ROOT / filepath).resolve()
+    root = SITE_ROOT.resolve()
     try:
         path.relative_to(root)
     except ValueError:

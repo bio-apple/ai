@@ -1,0 +1,24 @@
+---
+import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
+import ToolDetail from '../../components/ToolDetail.astro';
+import { tools, site } from '../../lib/data';
+import { buildToolSchema } from '../../lib/schema';
+
+export function getStaticPaths() {
+  return tools.map((tool) => ({ params: { id: tool.id }, props: { tool } }));
+}
+
+const { tool } = Astro.props;
+const base = site.meta.base_url;
+const schema = buildToolSchema(tool, base);
+---
+<StandaloneLayout
+  title={`${tool.name} 使用指南 - Bio AI Lab`}
+  description={tool.description}
+  canonical={`${base}tools/${tool.id}.html`}
+  schema={schema}
+  assetPrefix="../../"
+  homeHref="../../index.html"
+>
+  <ToolDetail tool={tool} />
+</StandaloneLayout>

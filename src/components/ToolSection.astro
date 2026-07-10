@@ -1,0 +1,75 @@
+---
+import type { Tool } from '../lib/data';
+
+interface Props { tool: Tool }
+const { tool } = Astro.props;
+---
+<section id={tool.section_id} class={`section ${tool.id}-section`}>
+  <main>
+    <div class="tool-header">
+      <div class={`tool-icon ${tool.id}`}>{tool.icon}</div>
+      <div>
+        <h2>{tool.name}</h2>
+        <p class="desc">{tool.description}</p>
+        <p class="tool-page-link"><a href={`tools/${tool.id}.html`} data-track={`tool-standalone-${tool.id}`}>查看独立教程页（SEO）→</a></p>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="dot"></span> 快速入门</h3>
+        <ol class="steps">
+          {tool.getting_started_steps.map((step) => <li set:html={step} />)}
+        </ol>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span> 核心功能</h3>
+        <ul class="features">
+          {tool.features.map((f) => <li><strong>{f.title}</strong> — {f.description}</li>)}
+        </ul>
+      </div>
+    </div>
+    {tool.shortcuts && (
+      <>
+        <h3 class="resources-title">{tool.shortcuts.title}</h3>
+        <table class="compare-table">
+          <thead><tr><th>快捷键</th><th>功能</th></tr></thead>
+          <tbody>
+            {tool.shortcuts.rows.map((row) => <tr><td set:html={row.key} /><td>{row.action}</td></tr>)}
+          </tbody>
+        </table>
+      </>
+    )}
+    {tool.video_resources?.length > 0 && (
+      <>
+        <h3 class="resources-title">📹 视频教程</h3>
+        <div class="resource-grid">
+          {tool.video_resources.map((r) => (
+            <div class="resource-item">
+              <a href={r.href} target="_blank" rel="noopener">
+                <div class={`resource-type ${r.type_class}`}>{r.type}</div>
+                <h4>{r.title}</h4>
+                <div class="resource-meta">{r.meta}</div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+    {tool.text_resources?.length > 0 && (
+      <>
+        <h3 class="resources-title">📄 文字资料</h3>
+        <div class="resource-grid">
+          {tool.text_resources.map((r) => (
+            <div class="resource-item">
+              <a href={r.href} target="_blank" rel="noopener">
+                <div class={`resource-type ${r.type_class}`}>{r.type}</div>
+                <h4>{r.title}</h4>
+                <div class="resource-meta">{r.meta}</div>
+              </a>
+            </div>
+          ))}
+        </div>
+      </>
+    )}
+  </main>
+</section>

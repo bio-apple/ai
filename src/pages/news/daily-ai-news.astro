@@ -1,0 +1,34 @@
+---
+import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
+import { site } from '../../lib/data';
+import { buildPageSchema } from '../../lib/schema';
+
+const page = site.news_page;
+const base = site.meta.base_url;
+const schema = buildPageSchema(page.title, page.lead, `${base}news/daily-ai-news.html`);
+---
+<StandaloneLayout
+  title={page.title}
+  description={page.lead}
+  canonical={`${base}news/daily-ai-news.html`}
+  schema={schema}
+  assetPrefix="../../"
+  homeHref="../../index.html"
+  scripts={['analytics.js', 'ux.js', 'app.js', 'news.js']}
+>
+  <main class="standalone-page">
+    <nav class="breadcrumb"><a href="../index.html">首页</a> / AI 新闻</nav>
+    <div class="standalone-hero">
+      <h1>{page.h1}</h1>
+      <p class="standalone-lead">{page.lead}</p>
+      <p class="standalone-meta" id="news-page-meta"></p>
+    </div>
+    <div id="daily-news-list" class="news-list">
+      <p class="loading-hint">加载 AI 新闻…</p>
+    </div>
+    <div class="standalone-cta">
+      <a href="../index.html#section-news" class="cta-btn">返回站内新闻</a>
+      <a href="../index.html" class="cta-btn cta-btn-outline">返回首页</a>
+    </div>
+  </main>
+</StandaloneLayout>

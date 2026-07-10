@@ -6,3 +6,21 @@ __pycache__/
 node_modules/
 playwright-report/
 test-results/
+public/
+dist/
+.astro/
+# 旧 Jinja2 构建产物（现由 Astro 输出到 dist/，不再提交）
+/index.html
+/tools/
+/compare/
+/guides/
+/news/
+/prompts/
+/cases/
+/ai-tools-ranking.html
+/ai-learning-roadmap.html
+/search-index.json
+/sitemap.xml
+/analytics-config.json
+/prompts.json
+/tutorials.json

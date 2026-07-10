@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""从 data/*.json 生成 index.html、tools/、compare/、SEO 页、search-index.json、sitemap.xml。"""
+"""【已弃用】请使用 Astro SSG：`npm run build`（输出 dist/）。
+
+保留本脚本仅供对照迁移或紧急回滚。从 data/*.json 生成 index.html、tools/、compare/、SEO 页、search-index.json、sitemap.xml。
+"""
 
 from __future__ import annotations
 

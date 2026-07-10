@@ -3,16 +3,17 @@
 
 from __future__ import annotations
 
+import os
 import json
 import re
 import sys
 from pathlib import Path
-from urllib.parse import urlparse
 
 import jsonschema
 from bs4 import BeautifulSoup
 
-ROOT = Path(__file__).resolve().parents[1]
+REPO = Path(__file__).resolve().parents[1]
+ROOT = Path(os.environ.get("DIST", REPO / "dist"))
 
 
 def iter_batch_videos(batch: dict):
@@ -26,8 +27,13 @@ def iter_batch_videos(batch: dict):
 
 
 def validate_daily_videos() -> None:
-    schema = json.loads((ROOT / "schemas/daily-videos.schema.json").read_text())
-    data = json.loads((ROOT / "daily-videos.json").read_text(encoding="utf-8"))
+    schema = json.loads((REPO / "schemas/daily-videos.schema.json").read_text())
+    for candidate in (ROOT / "daily-videos.json", REPO / "daily-videos.json"):
+        if candidate.exists():
+            data = json.loads(candidate.read_text(encoding="utf-8"))
+            break
+    else:
+        raise FileNotFoundError("daily-videos.json 缺失")
     jsonschema.validate(data, schema)
     for batch in data.get("batches", []):
         for v in iter_batch_videos(batch):
@@ -40,15 +46,21 @@ def validate_daily_videos() -> None:
 
 
 def validate_sitemap_robots() -> None:
-    robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
-    sitemap = (ROOT / "sitemap.xml").read_text(encoding="utf-8")
+    robots_path = ROOT / "robots.txt"
+    if not robots_path.exists():
+        raise FileNotFoundError(f"robots.txt 缺失: {robots_path}")
+    robots = robots_path.read_text(encoding="utf-8")
+    sitemap_files = sorted(ROOT.glob("sitemap*.xml"))
+    if not sitemap_files:
+        raise FileNotFoundError("dist 中未找到 sitemap*.xml")
+    sitemap = sitemap_files[0].read_text(encoding="utf-8")
     if "Sitemap:" not in robots:
         raise ValueError("robots.txt 缺少 Sitemap 声明")
-    if "<urlset" not in sitemap or "<loc>" not in sitemap:
-        raise ValueError("sitemap.xml 格式无效")
+    if ("<urlset" not in sitemap and "<sitemapindex" not in sitemap) or "<loc>" not in sitemap:
+        raise ValueError("sitemap 格式无效")
     if "https://bio-apple.github.io/ai/" not in sitemap:
         raise ValueError("sitemap 缺少首页 URL")
-    print("✓ robots.txt + sitemap.xml")
+    print(f"✓ robots.txt + {sitemap_files[0].name}")
 
 
 def validate_search_index() -> None:
@@ -66,6 +78,8 @@ def validate_search_index() -> None:
 def validate_ai_news() -> None:
     path = ROOT / "ai-news.json"
     if not path.exists():
+        path = REPO / "ai-news.json"
+    if not path.exists():
         raise FileNotFoundError("ai-news.json 缺失，请先运行 scripts/fetch_ai_news.py")
     data = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(data.get("items"), list) or not data["items"]:
@@ -80,7 +94,7 @@ def validate_runtime_json() -> None:
     for name in ("prompts.json", "tutorials.json"):
         path = ROOT / name
         if not path.exists():
-            raise FileNotFoundError(f"{name} 缺失，请先运行 scripts/build_site.py")
+            raise FileNotFoundError(f"{name} 缺失，请先运行 npm run build")
         data = json.loads(path.read_text(encoding="utf-8"))
         if name == "prompts.json" and not data.get("prompts"):
             raise ValueError("prompts.json prompts 为空")
@@ -99,7 +113,7 @@ def validate_html_links() -> None:
         *ROOT.glob("news/*.html"),
         *ROOT.glob("guides/*.html"),
         *ROOT.glob("prompts/*.html"),
-        *ROOT.glob("cases/*.html"),
+        *ROOT.glob("cases/**/*.html"),
     ]
     missing = []
     for fp in html_files:
@@ -129,7 +143,7 @@ def validate_html_links() -> None:
 def validate_analytics_config() -> None:
     path = ROOT / "analytics-config.json"
     if not path.exists():
-        raise FileNotFoundError("analytics-config.json 缺失，请先运行 scripts/build_site.py")
+        raise FileNotFoundError("analytics-config.json 缺失，请先运行 npm run build")
     data = json.loads(path.read_text(encoding="utf-8"))
     for key in ("ga_measurement_id", "clarity_project_id", "track_engagement"):
         if key not in data:
@@ -139,7 +153,7 @@ def validate_analytics_config() -> None:
 
 def validate_data_json() -> None:
     for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json"):
-        path = ROOT / "data" / name
+        path = REPO / "data" / name
         if not path.exists():
             raise FileNotFoundError(path)
         json.loads(path.read_text(encoding="utf-8"))

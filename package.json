@@ -1,11 +1,20 @@
 {
   "name": "ai-guide",
   "private": true,
+  "type": "module",
   "scripts": {
+    "prebuild": "node scripts/prebuild.mjs",
+    "build": "astro build",
+    "dev": "node scripts/prebuild.mjs && astro dev",
+    "preview": "astro preview --host 127.0.0.1 --port 8766",
     "test:e2e": "playwright test",
     "test:e2e:install": "playwright install chromium"
   },
+  "dependencies": {
+    "astro": "^5.7.10"
+  },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.3.1",
     "@playwright/test": "^1.51.0"
   }
 }

@@ -33,30 +33,25 @@
 ┌──────────────────────────────────────────────────────────────────────┐
 │                        GitHub 仓库 (main)                             │
 ├──────────────────────────────────────────────────────────────────────┤
-│  【源数据】data/*.json + templates/*.j2                               │
-│  【构建产物】index.html · tools/*.html · compare/*.html               │
-│              ai-tools-ranking.html · ai-learning-roadmap.html         │
-│              guides/*.html · news/daily-ai-news.html                  │
-│              search-index.json · sitemap.xml                          │
-│  【运行时】app.js · videos.js · news.js · analytics.js                │
-│              daily-videos.json · ai-news.json                         │
+│  【源数据】data/*.json                                                │
+│  【SSG 源】src/pages · src/components · src/layouts (Astro)           │
+│  【构建产物】dist/（CI 生成，部署到 Pages，不提交仓库）                  │
+│  【运行时静态资源】public/（prebuild 从根目录 css/js 同步）             │
 └───────────────┬────────────────────────────┬────────────────────────┘
-                │ push                         │ cron 00:00 北京时间
+                │ push                         │ cron
                 ▼                              ▼
      ┌────────────────────┐         ┌──────────────────────────┐
-     │ CI + Deploy Pages  │         │ Daily AI Video Update    │
-     │ validate → build   │         │ + fetch_daily_videos.py  │
-     │ → playwright → deploy│        └────────────┬─────────────┘
-     └─────────┬──────────┘                      │ commit JSON
-               ▼                                 ▼
-     https://bio-apple.github.io/ai/  ←── 再次触发 CI + Pages
+     │ npm run build      │         │ Daily Video / News       │
+     │ → dist/ → Pages    │         │ → commit JSON 到仓库根目录 │
+     └────────────────────┘         └──────────────────────────┘
 ```
 
 **设计原则**
 
-- **内容源**在 `data/*.json`，不直接维护巨型 `index.html`。
-- `index.html`、`tools/`、`compare/`、`search-index.json`、`sitemap.xml` 由 **`scripts/build_site.py`** 从数据 + Jinja2 模板生成。
-- 生产环境以 **GitHub Pages 静态托管** 为主；`backend/` 提供本地预览与可选 **内容 API**（`/api/*`）。
+- **内容源**在 `data/*.json`；**页面模板**在 `src/`（Astro 组件化）。
+- `npm run build`（`prebuild` → `astro build`）生成 `dist/`，含 21 个 HTML + JSON 索引。
+- 10 个 AI 工具详情页由 `src/pages/tools/[id].astro` + `getStaticPaths` **自动生成**。
+- 生产环境以 **GitHub Pages** 部署 `dist/`；`backend/` 本地预览优先读 `dist/`。
 - 动态内容（每日视频）通过提交 `daily-videos.json` 实现，由 GitHub Actions 定时写入。
 - 部署前必须通过 **CI 校验**（JSON Schema、链接检查、Playwright 冒烟测试）。
 
@@ -67,8 +62,8 @@
 | 层级 | 技术 |
 |------|------|
 | 内容源 | JSON（`data/`） |
-| 构建 | Python 3.12 + [Jinja2](https://jinja.palletsprojects.com/) |
-| 页面 | HTML5、语义化区块 |
+| 构建 | **Astro 5** SSG + `scripts/build-artifacts.mjs` |
+| 页面 | Astro 组件（`src/pages` · `src/components`） |
 | 样式 | 原生 CSS 模块化（`css/*.css` + `style.css` 入口） |
 | 交互 | 原生 JavaScript（无框架） |
 | 搜索 | `search-index.json`（构建时自动生成）+ Fuse.js |
@@ -86,102 +81,65 @@
 
 ```
 ai/
-├── data/                       # ★ 内容源（版本控制，勿忽略）
-│   ├── site.json               # 站点 meta、导航、FAQ、首页区块
-│   ├── tools.json              # 10 个工具教程
-│   ├── cases.json              # 实战案例
-│   └── compares.json           # 对比专题页
-│
-├── templates/                  # Jinja2 模板
-│   ├── index.html.j2
-│   ├── tool_page.html.j2
-│   ├── compare_page.html.j2
-│   └── partials/
-│       ├── tool_section.j2
-│       └── cases_section.j2
-│
+├── data/                       # ★ 内容源（版本控制）
+├── src/                        # ★ Astro SSG 源
+│   ├── pages/                  # 路由（含 tools/[id].astro 自动生成 10 页）
+│   ├── components/             # 可复用区块（Nav、ToolSection、CasesSection…）
+│   ├── layouts/                # HomeLayout · StandaloneLayout
+│   └── lib/                    # data.ts · schema.ts
+├── public/                     # prebuild 同步的 css/js/json（gitignore）
+├── dist/                       # Astro 构建产物（gitignore，CI 部署）
 ├── scripts/
-│   ├── build_site.py           # ★ 主构建脚本
-│   ├── extract_from_html.py    # 一次性从旧 HTML 提取到 data/
-│   ├── validate_ci.py          # CI 校验
-│   └── fetch_daily_videos.py   # 视频抓取
-│
-├── config/
-│   └── video-fetch.yaml        # 视频抓取参数与摘要过滤规则
-│
-├── schemas/
-│   └── daily-videos.schema.json
-│
-├── css/                        # 样式模块
-│   ├── base.css
-│   ├── layout.css
-│   ├── components.css
-│   └── videos.css
-│
-├── tests/e2e/
-│   └── smoke.spec.js           # Playwright 冒烟测试
-│
-├── index.html                  # 【构建产物】主 SPA 页面
-├── tools/*.html                # 【构建产物】10 个 SEO 独立工具页
-├── compare/*.html              # 【构建产物】对比专题页
-├── search-index.json           # 【构建产物】站内搜索索引
-├── sitemap.xml                 # 【构建产物】
-├── style.css                   # @import 入口
-├── app.js                      # 导航、搜索、案例筛选、hash 路由
-├── videos.js                   # 视频列表（共享 fetch 缓存）
-├── analytics.js                # GA4 / Clarity / 点击与停留追踪
-├── analytics-config.json         # 【构建产物】分析 ID 配置
-├── knowledge.js                  # AI 知识库浮层助手
-├── daily-videos.json           # 视频数据（Actions 每日追加）
-│
-├── backend/                    # 本地静态服务 + 内容 API
-│   ├── main.py
-│   ├── api/routes.py
-│   └── services/knowledge.py
-├── .github/workflows/
-│   ├── ci.yml                  # push/PR 校验
-│   ├── pages.yml               # 校验通过后部署 Pages
-│   ├── daily-videos.yml        # 定时抓取视频
-│   └── weekly-link-check.yml   # 每周外链检测
-│
-├── build.sh                    # 快捷构建入口
-├── package.json                # Playwright 测试依赖
-├── playwright.config.js
-├── requirements.txt
-└── DEVELOPER.md                # 本文档
+│   ├── prebuild.mjs            # 同步静态资源 + build-artifacts
+│   ├── build-artifacts.mjs     # prompts/search-index/analytics-config
+│   ├── validate_ci.py          # 校验 dist/
+│   └── build_site.py           # 【已弃用】旧 Jinja2 构建
+├── templates/                  # 【遗留】旧 Jinja2，迁移完成后可删除
+├── astro.config.mjs
+├── package.json
+├── css/ · app.js · style.css   # 静态资源（prebuild 复制到 public/）
+├── backend/                    # 本地预览 dist/ + 内容 API
+├── tests/e2e/smoke.spec.js
+├── build.sh                    # npm run build
+└── DEVELOPER.md
 ```
 
 ---
 
-## 构建流程（核心）
+## 构建流程（Astro SSG）
 
 ### 日常命令
 
 ```bash
-# 1. 编辑 data/*.json（或 templates/）
-# 2. 构建
-./build.sh
-# 等价于
-python3 scripts/build_site.py
+# 1. 编辑 data/*.json 或 src/
+vim data/tools.json
 
-# 3. 本地校验
-python3 scripts/validate_ci.py
+# 2. 构建 → dist/
+./build.sh
+
+# 3. 本地预览
+npm run dev       # 开发模式
+npm run preview   # 预览 dist（Playwright 使用 /ai/ 基路径）
+
+# 4. 校验
+DIST=dist python3 scripts/validate_ci.py
 npm run test:e2e
 ```
 
-### 构建产物
+### 构建产物（dist/）
 
 | 输入 | 输出 |
 |------|------|
 | `data/site.json` + `tools.json` + `cases.json` | `index.html` |
-| `data/tools.json` | `tools/{id}.html`（每个工具独立 SEO 页） |
+| `data/tools.json` | `tools/{id}.html`（**getStaticPaths 自动生成**） |
 | `data/compares.json` | `compare/{slug}.html` |
-| 全部内容数据 | `search-index.json`（36+ 条，自动推导） |
-| 全部页面 URL | `sitemap.xml` |
+| 全部内容数据 | `search-index.json`（build-artifacts.mjs） |
+| Astro sitemap 集成 | `sitemap-index.xml` |
 
 ### 重要约定
 
-- **不要手改** `index.html`、`tools/`、`compare/`、`search-index.json`、`sitemap.xml`，改 `data/` 后重新构建。
+- **不要手改** `dist/`；改 `data/` 或 `src/` 后重新 `npm run build`。
+- 旧根目录 `index.html`、`tools/` 等已 gitignore，不再提交。
 - 首次从旧 HTML 迁移内容：`python3 scripts/extract_from_html.py`（一次性）。
 - 模板在 `templates/`；调整 HTML 结构改模板，调整文案改 JSON。
 

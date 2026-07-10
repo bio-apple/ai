@@ -1,0 +1,320 @@
+---
+import HomeLayout from '../layouts/HomeLayout.astro';
+import ToolSection from '../components/ToolSection.astro';
+import CasesSection from '../components/CasesSection.astro';
+import {
+  site, tools, promptsMeta, buildHotToolCards, buildCreateToolCards, toolNamesMap, stars,
+} from '../lib/data';
+import { buildHomeSchema } from '../lib/schema';
+
+const hotToolCards = buildHotToolCards();
+const createToolCards = buildCreateToolCards();
+const toolNames = toolNamesMap();
+const schema = buildHomeSchema(site);
+---
+<HomeLayout
+  title={site.meta.title}
+  description={site.meta.description}
+  canonical={site.meta.canonical}
+  schema={schema}
+  scripts={['vendor/fuse.min.js', 'analytics.js', 'ux.js', 'app.js', 'prompts.js', 'news.js', 'videos.js', 'knowledge.js']}
+  includeKnowledge={true}
+>
+  <section id="section-home" class="section active">
+    <div class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-content fade-in">
+        <div class="hero-brand-mark">
+          <span class="hero-eyebrow">{site.hero.eyebrow}</span>
+          <span class="hero-logo-icon">{site.nav.logo.icon}</span>
+        </div>
+        <h1>{site.hero.title}</h1>
+        <p class="hero-subtitle">{site.hero.subtitle}</p>
+        <div class="hero-cta">
+          <button class="cta-btn" data-goto={site.hero.cta_primary.goto} data-track="hero-cta-primary">{site.hero.cta_primary.label}</button>
+          <a href={site.hero.cta_secondary.href} class="cta-btn cta-btn-outline" data-track="hero-cta-ranking">{site.hero.cta_secondary.label}</a>
+        </div>
+        <div class="site-search-wrap">
+          <input type="search" id="site-search" class="site-search" placeholder={site.hero.search_placeholder} aria-label="站内搜索">
+          <div id="site-search-results" class="site-search-results" hidden></div>
+        </div>
+      </div>
+    </div>
+
+    <main class="home-main">
+      <section class="home-section fade-in">
+        <div class="section-head">
+          <h2 class="section-title">热门 AI 工具</h2>
+          <p class="section-desc">30 秒内找到最适合你的 AI 助手</p>
+        </div>
+        <div class="tool-cards-scroll">
+          <div class="tool-cards tool-cards-hot">
+            {hotToolCards.map((tool) => (
+              <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
+                <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
+                <span class="badge">{tool.badge}</span>
+                <h3>{tool.name}</h3>
+                <p class="tool-tagline">{tool.tagline}</p>
+                <div class="tool-stars" aria-label={`推荐指数 ${tool.stars} 星`}>
+                  {Array.from({ length: stars(tool.stars).filled }, () => '★').join('')}
+                  {Array.from({ length: stars(tool.stars).empty }, () => <span class="star-empty">★</span>)}
+                </div>
+                <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
+                <button type="button" class="tool-card-btn" data-tool={tool.id}>查看详情</button>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section fade-in">
+        <div class="section-head">
+          <h2 class="section-title">AI 能力分类</h2>
+          <p class="section-desc">按场景浏览全部工具</p>
+        </div>
+        {site.home_tool_categories.map((cat) => (
+          <>
+            <p class="category-label">{cat.label}</p>
+            <div class="tool-cards-scroll">
+              <div class="tool-cards">
+                {cat.tools.map((tool) => (
+                  <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
+                    <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
+                    <span class="badge">{tool.badge}</span>
+                    <h3>{tool.name}</h3>
+                    <p class="tool-tagline">{tool.tagline}</p>
+                    <p class="tool-summary">{tool.summary}</p>
+                    <div class="tool-stars" aria-label={`推荐指数 ${tool.stars} 星`}>
+                      {Array.from({ length: stars(tool.stars).filled }, () => '★').join('')}
+                      {Array.from({ length: stars(tool.stars).empty }, () => <span class="star-empty">★</span>)}
+                    </div>
+                    <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
+                    <button type="button" class="tool-card-btn" data-tool={tool.id}>查看详情</button>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </>
+        ))}
+      </section>
+
+      <section class="home-section fade-in" id="home-rankings">
+        <div class="section-head">
+          <h2 class="section-title">2026 AI 工具排行榜</h2>
+          <p class="section-desc">综合能力、长文本、性价比、编程体验</p>
+        </div>
+        <div class="ranking-grid">
+          {site.rankings.map((item) => (
+            <article class="ranking-card" data-tool={item.id}>
+              <span class="ranking-medal">{item.medal}</span>
+              <h3>{item.name}</h3>
+              <p class="ranking-dimension">{item.dimension}</p>
+              <p class="ranking-score">{item.score}</p>
+              <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
+              <button type="button" class="tool-card-btn tool-card-btn-sm" data-tool={item.id}>查看教程</button>
+            </article>
+          ))}
+        </div>
+        <div class="section-cta">
+          <a href="ai-tools-ranking.html" class="cta-btn cta-btn-outline" data-track="home-full-ranking">查看完整排行榜 →</a>
+        </div>
+      </section>
+
+      <section class="home-section fade-in">
+        <div class="section-head">
+          <h2 class="section-title">AI 学习路线</h2>
+          <p class="section-desc">从零基础到进阶应用的系统路径</p>
+        </div>
+        <div class="grid-2">
+          {site.learning_paths.map((path) => (
+            <div class="card">
+              <h3><span class="dot" style={`background:${path.dot_color}`}></span> {path.title}</h3>
+              <ol class="steps">{path.steps.map((step) => <li>{step}</li>)}</ol>
+            </div>
+          ))}
+        </div>
+        <div class="section-cta">
+          <a href="guides/beginner.html" class="cta-btn cta-btn-outline">入门指南</a>
+          <a href="ai-learning-roadmap.html" class="cta-btn cta-btn-outline" data-track="home-roadmap">完整学习路线 →</a>
+        </div>
+      </section>
+
+      <section class="home-section fade-in" id="home-news">
+        <div class="section-head">
+          <h2 class="section-title">今日 AI 热点</h2>
+          <p class="section-desc">OpenAI · Anthropic · DeepMind · Hugging Face 官方动态</p>
+        </div>
+        <div id="home-news-preview" class="home-news-preview">
+          <p class="loading-hint">加载今日热点…</p>
+        </div>
+        <div class="section-cta">
+          <button class="cta-btn cta-btn-outline" data-goto="news" data-track="home-all-news">查看全部 AI 新闻 →</button>
+        </div>
+      </section>
+
+      <section class="home-section fade-in" id="ai-picker">
+        <div class="section-head">
+          <h2 class="section-title">{site.ai_picker.title}</h2>
+          <p class="section-desc">选择你的目标，获取工具推荐</p>
+        </div>
+        <div class="ai-picker">
+          <div class="ai-picker-options" role="radiogroup" aria-label={site.ai_picker.title}>
+            {site.ai_picker.options.map((opt, i) => (
+              <button type="button" class:list={['ai-picker-option', { active: i === 0 }]} data-picker={opt.id} aria-pressed={i === 0 ? 'true' : 'false'}>
+                <span class="ai-picker-icon">{opt.icon}</span>
+                <span>{opt.label}</span>
+              </button>
+            ))}
+          </div>
+          <div class="ai-picker-result">
+            <p class="ai-picker-label">推荐工具</p>
+            <div class="ai-picker-tools">
+              {site.ai_picker.options.map((opt, i) => (
+                <div class:list={['ai-picker-tool-group', { active: i === 0 }]} data-picker-result={opt.id}>
+                  {opt.tools.map((tid) => (
+                    <button type="button" class={`ai-picker-tool ${tid}`} data-tool={tid}>{toolNames[tid]}</button>
+                  ))}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="home-section fade-in">
+        <div class="section-head">
+          <h2 class="section-title">精选教程与视频</h2>
+          <p class="section-desc">选型对比、实战案例与每日教程视频</p>
+        </div>
+        <div class="compare-guide-grid">
+          {site.compare_guides.map((g) => (
+            <a href={g.href} class="compare-guide-card" data-track={g.track}>
+              <span class="compare-guide-tag">{g.tag}</span>
+              <h4>{g.title}</h4>
+              <p>{g.description}</p>
+            </a>
+          ))}
+        </div>
+        <div id="home-video-preview" class="home-video-preview">
+          <p class="loading-hint">加载今日精选…</p>
+        </div>
+        <div class="section-cta">
+          <button class="cta-btn" data-goto="cases" data-track="home-cases">查看实战案例 →</button>
+          <button class="cta-btn cta-btn-outline" data-goto="videos" data-track="home-all-videos">每日视频 →</button>
+        </div>
+      </section>
+    </main>
+  </section>
+
+  {tools.map((tool) => <ToolSection tool={tool} />)}
+  <CasesSection />
+
+  <section id="section-prompts" class="section prompts-section">
+    <main>
+      <div class="tool-header">
+        <div class="tool-icon" style="background:rgba(99,102,241,0.12);color:var(--accent)">📝</div>
+        <div>
+          <h2>{promptsMeta.header.title}</h2>
+          <p class="desc">{promptsMeta.header.description}</p>
+          <p class="library-meta" id="prompts-count-meta"></p>
+        </div>
+      </div>
+      <div class="library-toolbar" id="prompts-toolbar">
+        <button type="button" class="library-filter active" data-prompt-cat="all">全部</button>
+        {promptsMeta.categories.map((cat) => (
+          <button type="button" class="library-filter" data-prompt-cat={cat.id}>{cat.icon} {cat.label}</button>
+        ))}
+      </div>
+      <div id="prompts-list" class="prompts-grid">
+        <p class="loading-hint">加载 Prompt 库…</p>
+      </div>
+      <div class="section-cta">
+        <a href="prompts/library.html" class="cta-btn cta-btn-outline">查看 Prompt 归档页 →</a>
+        <button class="cta-btn" data-goto="cases">查看完整实战案例 →</button>
+      </div>
+    </main>
+  </section>
+
+  <section id="section-create" class="section">
+    <main>
+      <div class="tool-header">
+        <div class="tool-icon" style="background:rgba(255,107,53,0.12);color:var(--doubao)">🎨</div>
+        <div>
+          <h2>AI 创作工具</h2>
+          <p class="desc">写作、绘图、视频脚本与多模态创作 — 选择适合你的 AI 创作助手。</p>
+        </div>
+      </div>
+      <div class="scenario-grid scenario-scroll">
+        {site.scenarios.filter((s) => ['写作', '图片设计', '视频制作'].includes(s.title)).map((s) => (
+          <div class="scenario-card"><div class="icon">{s.icon}</div><h4>{s.title}</h4><p>{s.description}</p></div>
+        ))}
+      </div>
+      <div class="tool-cards-scroll">
+        <div class="tool-cards">
+          {createToolCards.map((tool) => (
+            <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
+              <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
+              <span class="badge">{tool.badge}</span>
+              <h3>{tool.name}</h3>
+              <p class="tool-tagline">{tool.tagline}</p>
+              <p class="tool-summary">{tool.summary}</p>
+              <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
+              <button type="button" class="tool-card-btn" data-tool={tool.id}>查看详情</button>
+            </article>
+          ))}
+        </div>
+      </div>
+      <div class="section-cta" style="margin-top:24px">
+        <button class="cta-btn" data-goto="cases">查看创作实战案例 →</button>
+      </div>
+    </main>
+  </section>
+
+  <section id="section-news" class="section">
+    <main>
+      <div class="tool-header">
+        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📰</div>
+        <div>
+          <h2>今日 AI 热点</h2>
+          <p class="desc">每日汇总 OpenAI、Anthropic、Google DeepMind、Hugging Face 等官方 RSS 与行业资讯。</p>
+          <p class="video-update-meta" id="news-update-meta"></p>
+        </div>
+      </div>
+      <div id="daily-news-list" class="news-list">
+        <p class="loading-hint">加载 AI 新闻…</p>
+      </div>
+      <div class="section-cta">
+        <a href="news/daily-ai-news.html" class="cta-btn cta-btn-outline">查看新闻归档页 →</a>
+      </div>
+    </main>
+  </section>
+
+  <section id="section-videos" class="section videos-section">
+    <main>
+      <div class="tool-header">
+        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
+        <div>
+          <h2>每日 AI 视频推荐</h2>
+          <p class="desc">每日北京时间 0:00 自动更新，从 YouTube 与 B站 抓取 AI 教程，分四类推荐：YouTube 全网播放量 Top 10、YouTube 24 小时内上新 Top 10、B站 全网播放量 Top 10、B站 24 小时内上新 Top 10。</p>
+          <p class="video-update-meta" id="video-update-meta"></p>
+        </div>
+      </div>
+      <div class="video-toolbar" id="video-toolbar">
+        <div class="video-toolbar-group">
+          <span class="video-toolbar-label">平台</span>
+          <button type="button" class="video-filter active" data-video-platform="all">全部</button>
+          <button type="button" class="video-filter" data-video-platform="youtube">YouTube</button>
+          <button type="button" class="video-filter" data-video-platform="bilibili">B站</button>
+        </div>
+        <div class="video-toolbar-group">
+          <span class="video-toolbar-label">排序</span>
+          <button type="button" class="video-sort active" data-video-sort="views">热门</button>
+          <button type="button" class="video-sort" data-video-sort="recent">最新</button>
+        </div>
+      </div>
+      <div id="daily-video-list" class="daily-video-list">
+        <p class="loading-hint">加载视频推荐…</p>
+      </div>
+    </main>
+  </section>
+</HomeLayout>

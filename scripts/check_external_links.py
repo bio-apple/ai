@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 
-import json
+import os
 import re
 import ssl
 import sys
@@ -13,6 +13,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+BUILD = Path(os.environ.get("DIST", ROOT / "dist"))
+SITE = BUILD if (BUILD / "index.html").exists() else ROOT
 URL_RE = re.compile(r"https?://[^\s\"'<>]+")
 SKIP_HOSTS = {"localhost", "127.0.0.1", "bio-apple.github.io"}
 USER_AGENT = "BioAILab-LinkChecker/1.0 (+https://bio-apple.github.io/ai/)"
@@ -23,14 +25,14 @@ MAX_URLS = 80
 def collect_urls() -> set[str]:
     urls: set[str] = set()
     patterns = [
-        ROOT / "index.html",
-        ROOT / "ai-tools-ranking.html",
-        *ROOT.glob("tools/*.html"),
-        *ROOT.glob("compare/*.html"),
+        SITE / "index.html",
+        SITE / "ai-tools-ranking.html",
+        *SITE.glob("tools/*.html"),
+        *SITE.glob("compare/*.html"),
         ROOT / "data" / "compares.json",
         ROOT / "data" / "tools.json",
-        ROOT / "daily-videos.json",
-        ROOT / "ai-news.json",
+        SITE / "daily-videos.json",
+        SITE / "ai-news.json",
     ]
     for path in patterns:
         if not path.exists():

@@ -1,0 +1,55 @@
+---
+import StandaloneLayout from '../layouts/StandaloneLayout.astro';
+import { site, toolNamesMap } from '../lib/data';
+import { buildPageSchema } from '../lib/schema';
+
+const page = site.roadmap_page;
+const toolNames = toolNamesMap();
+const base = site.meta.base_url;
+const schema = buildPageSchema(page.title, page.lead, `${base}ai-learning-roadmap.html`);
+---
+<StandaloneLayout
+  title={page.title}
+  description={page.lead}
+  canonical={`${base}ai-learning-roadmap.html`}
+  schema={schema}
+  assetPrefix="./"
+  homeHref="index.html"
+>
+  <main class="standalone-page">
+    <nav class="breadcrumb"><a href="index.html">首页</a> / AI 学习路线</nav>
+    <div class="standalone-hero">
+      <h1>{page.h1}</h1>
+      <p class="standalone-lead">{page.lead}</p>
+    </div>
+    <div class="roadmap-timeline">
+      {page.phases.map((phase) => (
+        <article class="roadmap-phase card">
+          <div class="roadmap-phase-head">
+            <span class="roadmap-phase-label">{phase.phase}</span>
+            <h2>{phase.title}</h2>
+          </div>
+          <div class="roadmap-tools">
+            {phase.tools.map((tid) => (
+              <a href={`tools/${tid}.html`} class={`roadmap-tool-chip ${tid}`}>{toolNames[tid]}</a>
+            ))}
+          </div>
+          <ul class="roadmap-tasks">{phase.tasks.map((task) => <li>{task}</li>)}</ul>
+        </article>
+      ))}
+    </div>
+    <h2 class="resources-title">学习路径速览</h2>
+    <div class="grid-2">
+      {site.learning_paths.map((path) => (
+        <div class="card">
+          <h3><span class="dot" style={`background:${path.dot_color}`}></span> {path.title}</h3>
+          <ol class="steps">{path.steps.map((step) => <li>{step}</li>)}</ol>
+        </div>
+      ))}
+    </div>
+    <div class="standalone-cta">
+      <a href="index.html#section-cases" class="cta-btn">开始实战案例</a>
+      <a href="ai-tools-ranking.html" class="cta-btn cta-btn-outline">查看工具排行</a>
+    </div>
+  </main>
+</StandaloneLayout>

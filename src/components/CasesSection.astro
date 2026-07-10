@@ -1,0 +1,93 @@
+---
+import { cases, flattenNavLabels, toolNamesMap } from '../lib/data';
+
+const navLabels = flattenNavLabels();
+const toolNames = toolNamesMap();
+---
+<section id="section-cases" class="section cases-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon" style="background:rgba(59,130,246,0.15);color:var(--accent)">⚡</div>
+      <div>
+        <h2>{cases.header.title}</h2>
+        <p class="desc">{cases.header.description}</p>
+      </div>
+    </div>
+    <div class="cases-stats-bar">
+      <div class="cases-stat"><strong>{cases.cases.length}</strong><span>实战案例</span></div>
+      <div class="cases-stat"><strong>{cases.tool_filters.length - 1}</strong><span>覆盖工具</span></div>
+      <div class="cases-stat"><strong>{cases.scenario_filters.length - 1}</strong><span>应用场景</span></div>
+    </div>
+    <div class="cases-preview-grid">
+      {cases.cases.slice(0, 6).map((caseItem, i) => (
+        <article class="case-preview-card reveal" data-goto-case={`case-${i + 1}`} data-tool={caseItem.tool}>
+          <span class={`case-badge ${caseItem.tool}`}>{toolNames[caseItem.tool] || caseItem.tool}</span>
+          <h4>{caseItem.title}</h4>
+          <p>{caseItem.summary}</p>
+        </article>
+      ))}
+    </div>
+    <div class="section-cta" style="margin-bottom:24px">
+      <a href="cases/index.html" class="cta-btn cta-btn-outline">查看完整案例库 →</a>
+      <button class="cta-btn" data-goto="prompts">浏览 Prompt 库 →</button>
+    </div>
+    <div class="case-filters">
+      {cases.tool_filters.map((f) => (
+        <button class:list={['case-filter', { active: f === 'all' }]} data-filter={f}>
+          {f === 'all' ? '全部' : (navLabels[f] || f)}
+        </button>
+      ))}
+    </div>
+    <div class="case-scenario-filters">
+      <span class="case-scenario-label">按场景：</span>
+      {cases.scenario_filters.map((s) => (
+        <button class:list={['case-scenario', { active: s.id === 'all' }]} data-scenario={s.id}>{s.label}</button>
+      ))}
+    </div>
+    {cases.cases.map((caseItem, i) => (
+      <article class="case-card reveal" id={`case-${i + 1}`} data-tool={caseItem.tool} data-scenario={caseItem.scenarios?.join(' ')}>
+        <div class="case-header" role="button" tabindex="0">
+          <div class="case-meta">
+            <span class={`case-badge ${caseItem.tool}`}>{toolNames[caseItem.tool] || caseItem.tool}</span>
+            <span class="case-level">{caseItem.level}</span>
+            <span class="case-time">{caseItem.duration}</span>
+            {caseItem.tags?.map((tag) => <span class="case-tag">{tag}</span>)}
+          </div>
+          <h3>{caseItem.title}</h3>
+          <p class="case-summary">{caseItem.summary}</p>
+          <span class="case-toggle">展开步骤</span>
+        </div>
+        <div class="case-body">
+          {caseItem.goal && <div class="case-goal"><strong>目标：</strong>{caseItem.goal}</div>}
+          {caseItem.prereq && <div class="case-prereq"><strong>准备：</strong>{caseItem.prereq}</div>}
+          <ol class="case-steps">
+            {caseItem.steps?.map((step) => (
+              <li>
+                {step.title && <div class="step-title">{step.title}</div>}
+                {step.blocks?.map((block) => {
+                  if (block.type === 'paragraph') return <p set:html={block.content} />;
+                  if (block.type === 'prompt') return <div class="prompt-block">{block.content}</div>;
+                  if (block.type === 'tip') return <p class="step-tip" set:html={block.content} />;
+                  if (block.type === 'checklist') return (
+                    <ul class="checklist">{block.content.map((item) => <li>{item}</li>)}</ul>
+                  );
+                  return null;
+                })}
+              </li>
+            ))}
+          </ol>
+        </div>
+      </article>
+    ))}
+    {cases.general_tips && (
+      <div class="case-tips-card reveal">
+        <h3>{cases.general_tips.title}</h3>
+        <div class="grid-2">
+          {cases.general_tips.columns.map((col) => (
+            <ul class="features">{col.map((item) => <li set:html={item} />)}</ul>
+          ))}
+        </div>
+      </div>
+    )}
+  </main>
+</section>

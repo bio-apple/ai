@@ -1,0 +1,53 @@
+---
+import StandaloneLayout from '../layouts/StandaloneLayout.astro';
+import { site, toolNamesMap } from '../lib/data';
+import { buildPageSchema } from '../lib/schema';
+
+const page = site.ranking_page;
+const base = site.meta.base_url;
+const schema = buildPageSchema(page.title, page.lead, `${base}ai-tools-ranking.html`);
+---
+<StandaloneLayout
+  title={page.title}
+  description={page.lead}
+  canonical={`${base}ai-tools-ranking.html`}
+  schema={schema}
+  assetPrefix="./"
+  homeHref="index.html"
+>
+  <main class="standalone-page">
+    <nav class="breadcrumb"><a href="index.html">首页</a> / AI 工具排行榜</nav>
+    <div class="standalone-hero">
+      <h1>{page.h1}</h1>
+      <p class="standalone-lead">{page.lead}</p>
+      <p class="standalone-meta">更新于 {page.updated}</p>
+    </div>
+    <div class="ranking-grid ranking-grid-full">
+      {site.rankings.map((item) => (
+        <article class="ranking-card ranking-card-lg">
+          <span class="ranking-medal">{item.medal}</span>
+          <h2>{item.name}</h2>
+          <p class="ranking-dimension">{item.dimension}</p>
+          <p class="ranking-score">{item.score}</p>
+          <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
+          <a href={`tools/${item.id}.html`} class="cta-btn cta-btn-sm">查看 {item.name} 教程</a>
+        </article>
+      ))}
+    </div>
+    <h2 class="resources-title">完整工具对比表</h2>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead><tr><th>工具</th><th>类型</th><th>核心优势</th><th>适合场景</th><th>入门</th></tr></thead>
+        <tbody>
+          {site.compare_table.rows.map((row) => (
+            <tr><td>{row.tool}</td><td>{row.type}</td><td>{row.strength}</td><td>{row.scenario}</td><td>{row.pricing}</td></tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div class="standalone-cta">
+      <a href="index.html" class="cta-btn">返回首页</a>
+      <a href="ai-learning-roadmap.html" class="cta-btn cta-btn-outline">查看学习路线</a>
+    </div>
+  </main>
+</StandaloneLayout>
