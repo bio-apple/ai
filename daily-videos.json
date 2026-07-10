@@ -17,10 +17,10 @@
         "min_views": 8000,
         "min_subscribers": 1000,
         "time_windows": {
-          "recent_24h": {
-            "label": "过去 24 小时",
+          "recent_7d": {
+            "label": "过去一周",
             "window": {
-              "hours": 24
+              "days": 7
             },
             "min_count": 3
           },
@@ -34,10 +34,10 @@
         }
       },
       "categories": {
-        "recent_24h": {
-          "label": "过去 24 小时",
+        "recent_7d": {
+          "label": "过去一周",
           "window": {
-            "hours": 24
+            "days": 7
           },
           "min_count": 3,
           "videos": []

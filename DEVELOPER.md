@@ -233,16 +233,16 @@ npm run test:e2e
         "min_views": 8000,
         "min_subscribers": 1000,
         "time_windows": {
-          "recent_24h": { "label": "过去 24 小时", "window": { "hours": 24 }, "min_count": 3 },
+          "recent_7d": { "label": "过去一周", "window": { "days": 7 }, "min_count": 3 },
           "last_6m": { "label": "近 6 个月", "window": { "days": 180 }, "min_count": 7 }
         }
       },
       "categories": {
-        "recent_24h": {
-          "label": "过去 24 小时",
-          "window": { "hours": 24 },
+        "recent_7d": {
+          "label": "过去一周",
+          "window": { "days": 7 },
           "min_count": 3,
-          "videos": [{ "id": "...", "title": "...", "published_at": "2026-07-10T08:00:00+08:00" }]
+          "videos": [{ "id": "...", "title": "...", "published_at": "2026-07-08T08:00:00+08:00" }]
         },
         "last_6m": {
           "label": "近 6 个月",
@@ -365,8 +365,8 @@ npm run test:e2e
 3. 预筛：播放量、AI 关键词；被拒记录 reject [reason] 日志
 4. 拉取完整元数据：分辨率、订阅数、发布时间
 5. 按发布时间分桶（互斥）：
-   - recent_24h：过去 24 小时内发布
-   - last_6m：24 小时～180 天内发布（超过 6 个月 reject [too_old]）
+   - recent_7d：过去 7 天内发布
+   - last_6m：1 周～180 天内发布（超过 6 个月 reject [too_old]）
 6. 综合评分：views × (1 + log10(subscribers))
 7. 生成摘要（过滤 URL/赞助/广告文案）
 8. 写入 daily-videos.json → push → 触发 CI + Pages
@@ -387,7 +387,7 @@ python3 scripts/fetch_daily_videos.py
 
 | 键 | 默认值 | 含义 |
 |----|--------|------|
-| `time_windows.recent_24h` | `hours: 24, min_count: 3` | 过去 24 小时最新教程 |
+| `time_windows.recent_7d` | `days: 7, min_count: 3` | 过去一周最新教程 |
 | `time_windows.last_6m` | `days: 180, min_count: 7` | 近 6 个月优质教程 |
 | `min_views` | `8000` | 最低播放量 |
 | `min_subscribers` | `1000` | 最低订阅数 |

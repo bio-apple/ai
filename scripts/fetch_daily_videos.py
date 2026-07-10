@@ -18,7 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 TZ_NAME = "Asia/Shanghai"
-CATEGORY_ORDER = ("recent_24h", "last_6m")
+CATEGORY_ORDER = ("recent_7d", "last_6m")
 
 try:
     from zoneinfo import ZoneInfo
@@ -129,13 +129,19 @@ def parse_upload_datetime(detail: dict) -> datetime | None:
     return None
 
 
+def window_days(win: dict) -> float:
+    if "hours" in win:
+        return win["hours"] / 24
+    return float(win["days"])
+
+
 def classify_video(upload_dt: datetime, cfg: dict, now: datetime) -> str | None:
     age = now - upload_dt
-    hours = age.total_seconds() / 3600
+    age_days = age.total_seconds() / 86400
     windows = cfg["time_windows"]
-    if hours <= windows["recent_24h"]["hours"]:
-        return "recent_24h"
-    if age.days <= windows["last_6m"]["days"]:
+    if age_days <= window_days(windows["recent_7d"]):
+        return "recent_7d"
+    if age_days <= window_days(windows["last_6m"]):
         return "last_6m"
     return None
 
@@ -383,7 +389,7 @@ def main() -> int:
     save_store(store)
     print(
         f"已写入 {today} 视频 {total} 条"
-        f"（24h: {len(buckets['recent_24h'])}, 6m: {len(buckets['last_6m'])})"
+        f"（7d: {len(buckets['recent_7d'])}, 6m: {len(buckets['last_6m'])})"
         f" → {DATA_FILE}"
     )
     return 0

@@ -1,10 +1,10 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# 按发布时间分两类（互斥）：过去 24 小时 / 近 6 个月（24h～180 天）
+# 按发布时间分两类（互斥）：过去一周 / 近 6 个月（1 周～180 天）
 time_windows:
-  recent_24h:
-    label: "过去 24 小时"
-    hours: 24
+  recent_7d:
+    label: "过去一周"
+    days: 7
     min_count: 3
   last_6m:
     label: "近 6 个月"

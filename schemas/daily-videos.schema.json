@@ -19,9 +19,9 @@
           "criteria": { "type": "object" },
           "categories": {
             "type": "object",
-            "required": ["recent_24h", "last_6m"],
+            "required": ["recent_7d", "last_6m"],
             "properties": {
-              "recent_24h": { "$ref": "#/$defs/videoCategory" },
+              "recent_7d": { "$ref": "#/$defs/videoCategory" },
               "last_6m": { "$ref": "#/$defs/videoCategory" }
             },
             "additionalProperties": false

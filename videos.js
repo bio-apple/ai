@@ -1,6 +1,12 @@
 const VIDEO_DATA_URL = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
-const CATEGORY_ORDER = ['recent_24h', 'last_6m'];
+const CATEGORY_ORDER = ['recent_7d', 'recent_24h', 'last_6m'];
+
+function getCategoryKeys(batch) {
+  if (!batch.categories) return [];
+  const keys = CATEGORY_ORDER.filter(key => batch.categories[key]);
+  return keys.length ? keys : CATEGORY_ORDER.slice(0, 2);
+}
 
 let videoDataPromise = null;
 
@@ -27,7 +33,7 @@ function formatSummary(v) {
 
 function getBatchVideos(batch) {
   if (batch.categories) {
-    return CATEGORY_ORDER.flatMap(key => batch.categories[key]?.videos || []);
+    return getCategoryKeys(batch).flatMap(key => batch.categories[key]?.videos || []);
   }
   return batch.videos || [];
 }
@@ -79,7 +85,7 @@ function renderBatch(batch) {
   if (!count && !batch.categories) return '';
 
   if (batch.categories) {
-    const categories = CATEGORY_ORDER.map(key => batch.categories[key]).filter(Boolean);
+    const categories = getCategoryKeys(batch).map(key => batch.categories[key]);
     return `
       <section class="video-day">
         <h3 class="video-day-title">${escapeHtml(batch.date)} <span class="video-day-count">${count} 条</span></h3>
@@ -114,7 +120,9 @@ function fetchVideoData() {
 
 function pickHomePreviewVideos(batch, limit = 3) {
   if (batch.categories) {
-    const recent = batch.categories.recent_24h?.videos || [];
+    const recent = batch.categories.recent_7d?.videos
+      || batch.categories.recent_24h?.videos
+      || [];
     const semi = batch.categories.last_6m?.videos || [];
     const picked = [...recent.slice(0, 2), ...semi.slice(0, limit)];
     return picked.slice(0, limit);
@@ -158,7 +166,7 @@ async function loadDailyVideos() {
 
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 自动追加：过去 24 小时 + 近 6 个月 1080p AI 教程`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 每日 0:00 自动追加：过去一周 + 近 6 个月 1080p AI 教程`;
     }
 
     root.innerHTML = batches.map(renderBatch).join('');
