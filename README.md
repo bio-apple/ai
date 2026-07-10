@@ -29,6 +29,20 @@ cd ai
 
 访问 http://127.0.0.1:8765
 
+## 每日视频自动更新
+
+- **更新时间**：北京时间每日 `00:00`（GitHub Actions 定时任务）
+- **数量**：每天至少 10 条新视频
+- **标准**：AI 应用相关 · 1080p 及以上 · 按播放量与频道订阅数综合排序
+- **手动触发**：GitHub → Actions → `Daily AI Video Update` → Run workflow
+
+本地手动抓取：
+
+```bash
+pip install yt-dlp
+python scripts/fetch_daily_videos.py
+```
+
 ## 部署
 
 推送到 `main` 分支后，GitHub Actions 会自动更新 GitHub Pages 静态站点。

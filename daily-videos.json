@@ -1,0 +1,159 @@
+{
+  "seen_ids": [
+    "WVeYLlKOWc0",
+    "Gaf_jCnA6mc",
+    "_ZvnD73m40o",
+    "WizoCwjEKsg",
+    "zNRvAMJOfAI",
+    "loujaeBy8p0",
+    "QoQBzR1NIqI",
+    "wZeOwqmSw84",
+    "p09yRj47kNM",
+    "0vZ_UVLhSQQ"
+  ],
+  "batches": [
+    {
+      "date": "2026-07-10",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "min_height": 1080,
+        "min_views": 8000,
+        "min_subscribers": 1000,
+        "min_daily": 10
+      },
+      "videos": [
+        {
+          "id": "WVeYLlKOWc0",
+          "title": "Cursor Agent: 10 Pro Tips!",
+          "summary": "【Cursor】讲解 AI 工具实战应用，围绕「Cursor Agent: 10 Pro Tips!」展示操作步骤与使用技巧。",
+          "url": "https://www.youtube.com/watch?v=WVeYLlKOWc0",
+          "thumbnail": "https://i.ytimg.com/vi/WVeYLlKOWc0/maxresdefault.jpg",
+          "channel": "Cursor",
+          "subscribers": 72500,
+          "views": 61235029,
+          "duration": "12:32",
+          "max_height": 1080,
+          "score": 358857967.78
+        },
+        {
+          "id": "Gaf_jCnA6mc",
+          "title": "ChatGPT Tutorial: How to Use Chat GPT For Beginners",
+          "summary": "Get ChatGPT Plus, Claude Pro, Gemini & Grok for $20/month ($80 value): https://bit",
+          "url": "https://www.youtube.com/watch?v=Gaf_jCnA6mc",
+          "thumbnail": "https://i.ytimg.com/vi/Gaf_jCnA6mc/maxresdefault.jpg",
+          "channel": "Charlie Chang",
+          "subscribers": 1440000,
+          "views": 4775621,
+          "duration": "27:51",
+          "max_height": 2160,
+          "score": 34185626.24
+        },
+        {
+          "id": "_ZvnD73m40o",
+          "title": "Prompt Engineering Tutorial – Master ChatGPT and LLM Responses",
+          "summary": "Learn prompt engineering techniques to get better results from ChatGPT and other LLMs",
+          "url": "https://www.youtube.com/watch?v=_ZvnD73m40o",
+          "thumbnail": "https://i.ytimg.com/vi/_ZvnD73m40o/maxresdefault.jpg",
+          "channel": "freeCodeCamp.org",
+          "subscribers": 11800000,
+          "views": 2723231,
+          "duration": "41:36",
+          "max_height": 1080,
+          "score": 21981599.31
+        },
+        {
+          "id": "WizoCwjEKsg",
+          "title": "超簡單！一次上手ChatGPT使用教學 文案 報告 論文",
+          "summary": "【必看續集】最新ChatGPT教學影片 ！完整版 https://youtu",
+          "url": "https://www.youtube.com/watch?v=WizoCwjEKsg",
+          "thumbnail": "https://i.ytimg.com/vi/WizoCwjEKsg/maxresdefault.jpg",
+          "channel": "Apple Mei",
+          "subscribers": 654000,
+          "views": 2826408,
+          "duration": "8:34",
+          "max_height": 2160,
+          "score": 19263603.47
+        },
+        {
+          "id": "zNRvAMJOfAI",
+          "title": "一口气搞清楚ChatGPT",
+          "summary": "ChatGPT呼声实在是太高了，大家最近肯定也被各种新闻轰炸，今天小Lin就把ChatGPT穿成串儿，一个视频，看懂ChatGPT~ 感谢富途moomoo对本期视频的支持，小Lin海外粉丝moomoo专属福利领取链接：https://j",
+          "url": "https://www.youtube.com/watch?v=zNRvAMJOfAI",
+          "thumbnail": "https://i.ytimg.com/vi/zNRvAMJOfAI/maxresdefault.jpg",
+          "channel": "小Lin说",
+          "subscribers": 2790000,
+          "views": 2161745,
+          "duration": "29:02",
+          "max_height": 1080,
+          "score": 16095497.66
+        },
+        {
+          "id": "loujaeBy8p0",
+          "title": "5 Hacks To Use ChatGPT So Well It’s Almost Unfair",
+          "summary": "Subscribe to my newsletter → https://www",
+          "url": "https://www.youtube.com/watch?v=loujaeBy8p0",
+          "thumbnail": "https://i.ytimg.com/vi/loujaeBy8p0/maxresdefault.jpg",
+          "channel": "Sandeep Swadia",
+          "subscribers": 1230000,
+          "views": 2044559,
+          "duration": "16:23",
+          "max_height": 2160,
+          "score": 14495729.3
+        },
+        {
+          "id": "QoQBzR1NIqI",
+          "title": "CLAUDE CODE FULL COURSE 4 HOURS: Build & Sell (2026)",
+          "summary": "🔥 Join Maker School & get customer #1 guaranteed: https://skool",
+          "url": "https://www.youtube.com/watch?v=QoQBzR1NIqI",
+          "thumbnail": "https://i.ytimg.com/vi/QoQBzR1NIqI/maxresdefault.jpg",
+          "channel": "Nick Saraev",
+          "subscribers": 467000,
+          "views": 2083470,
+          "duration": "4:10:43",
+          "max_height": 2160,
+          "score": 13895321.64
+        },
+        {
+          "id": "wZeOwqmSw84",
+          "title": "Learn 97% of Claude in Under 16 Minutes",
+          "summary": "✅ Get Your FREE AI Company Operating System here: https://go",
+          "url": "https://www.youtube.com/watch?v=wZeOwqmSw84",
+          "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
+          "channel": "Dan Martell",
+          "subscribers": 2900000,
+          "views": 1816524,
+          "duration": "15:12",
+          "max_height": 2160,
+          "score": 13555625.06
+        },
+        {
+          "id": "p09yRj47kNM",
+          "title": "Google's 9 Hour AI Prompt Engineering Course In 20 Minutes",
+          "summary": "Try out a free trial with StraighterLine to save thousands on tuition: https://www",
+          "url": "https://www.youtube.com/watch?v=p09yRj47kNM",
+          "thumbnail": "https://i.ytimg.com/vi/p09yRj47kNM/maxresdefault.jpg",
+          "channel": "Tina Huang",
+          "subscribers": 1250000,
+          "views": 1907480,
+          "duration": "20:17",
+          "max_height": 2160,
+          "score": 13537213.91
+        },
+        {
+          "id": "0vZ_UVLhSQQ",
+          "title": "Getting started with Claude.ai",
+          "summary": "Learn how to get the most out of chatting with Claude",
+          "url": "https://www.youtube.com/watch?v=0vZ_UVLhSQQ",
+          "thumbnail": "https://i.ytimg.com/vi/0vZ_UVLhSQQ/maxresdefault.jpg",
+          "channel": "Anthropic",
+          "subscribers": 727000,
+          "views": 1824538,
+          "duration": "5:19",
+          "max_height": 1080,
+          "score": 12519130.27
+        }
+      ]
+    }
+  ],
+  "updated_at": "2026-07-10T11:54:19.810130+08:00"
+}

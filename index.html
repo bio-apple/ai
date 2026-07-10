@@ -28,6 +28,7 @@
       <button class="nav-tab" data-tool="codex">Codex</button>
       <button class="nav-tab" data-tool="copilot">Copilot</button>
       <button class="nav-tab" data-tool="cases">实战</button>
+      <button class="nav-tab" data-tool="videos">视频</button>
     </div>
   </nav>
 </header>
@@ -1535,10 +1536,28 @@ Internet: off</div>
   </main>
 </section>
 
+<!-- 每日视频 -->
+<section id="section-videos" class="section videos-section">
+  <main>
+    <div class="tool-header">
+      <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
+      <div>
+        <h2>每日 AI 视频推荐</h2>
+        <p class="desc">每日北京时间 0:00 自动更新，筛选 1080p 及以上、与 AI 应用相关的教程视频，按频道订阅数与播放量综合排序，每天至少 10 条。</p>
+        <p class="video-update-meta" id="video-update-meta"></p>
+      </div>
+    </div>
+    <div id="daily-video-list" class="daily-video-list">
+      <p class="loading-hint">加载视频推荐…</p>
+    </div>
+  </main>
+</section>
+
 <footer>
   <p>AI 应用指南 · 学习如何使用与应用人工智能 · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
 <script src="app.js"></script>
+<script src="videos.js"></script>
 </body>
 </html>
