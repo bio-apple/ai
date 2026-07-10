@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 云端冒烟测试：静态站 + API 健康检查
+# 云端冒烟测试：静态站 + 可选本地服务
 set -euo pipefail
 
 STATIC_URL="${STATIC_URL:-https://bio-apple.github.io/ai/}"
@@ -19,22 +19,19 @@ echo "$BODY" | grep -q "AI 应用指南" && echo "  ✅ 页面标题正确" || e
 
 if [ -z "$API_URL" ]; then
   echo ""
-  echo "=== 2. 后端 API（跳过）==="
-  echo "  未设置 API_URL。云端完整功能需部署后端，例如："
-  echo "    API_URL=https://你的服务.onrender.com ./cloud-test.sh"
+  echo "=== 2. 本地服务（跳过）==="
+  echo "  未设置 API_URL。如需测试本地预览服务："
+  echo "    API_URL=http://127.0.0.1:8765 ./cloud-test.sh"
   exit 0
 fi
 
 echo ""
-echo "=== 2. 测试云端后端 API ==="
+echo "=== 2. 测试本地/云端预览服务 ==="
 CODE=$(curl -s -o /dev/null -w "%{http_code}" --connect-timeout 15 "$API_URL/")
 echo "  $API_URL/ → HTTP $CODE"
-
-STATUS=$(curl -s --connect-timeout 15 "$API_URL/api/auth/google/status")
-echo "  Google OAuth: $STATUS"
-
-RES=$(curl -s --connect-timeout 15 "$API_URL/api/resources")
-echo "  社区资料 API: ${RES:0:80}..."
-
-echo ""
-echo "  ✅ 云端 API 可达。请在浏览器打开 $API_URL 测试登录与上传。"
+if [ "$CODE" = "200" ]; then
+  echo "  ✅ 预览服务正常"
+else
+  echo "  ❌ 预览服务不可访问"
+  exit 1
+fi

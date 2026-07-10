@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI 应用指南 — 学习如何使用与应用人工智能</title>
-  <meta name="description" content="全面学习 ChatGPT、Claude、Gemini、DeepSeek、Kimi、通义千问、豆包、Copilot、Cursor、Codex 等 AI 工具的使用方法与应用场景，含教程、实战案例与社区资料。">
+  <meta name="description" content="全面学习 ChatGPT、Claude、Gemini、DeepSeek、Kimi、通义千问、豆包、Copilot、Cursor、Codex 等 AI 工具的使用方法与应用场景，含教程与实战案例。">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -28,10 +28,6 @@
       <button class="nav-tab" data-tool="codex">Codex</button>
       <button class="nav-tab" data-tool="copilot">Copilot</button>
       <button class="nav-tab" data-tool="cases">实战</button>
-      <button class="nav-tab" data-tool="community">社区</button>
-    </div>
-    <div class="user-area" id="user-area">
-      <button class="auth-btn claude-login-btn" id="btn-auth">登录</button>
     </div>
   </nav>
 </header>
@@ -1539,116 +1535,10 @@ Internet: off</div>
   </main>
 </section>
 
-<!-- 社区资料 -->
-<section id="section-community" class="section community-section">
-  <main>
-    <div class="tool-header">
-      <div class="tool-icon" style="background:rgba(16,163,127,0.12);color:var(--codex)">📚</div>
-      <div>
-        <h2>社区资料库</h2>
-        <p class="desc">注册登录后上传你的 AI 学习笔记与教程，支持 Markdown、Word 文档和视频。与社区分享你的 AI 应用经验。</p>
-      </div>
-    </div>
-
-    <div class="static-banner hidden" id="community-static-banner">
-      <strong>📌 当前为静态预览页</strong>
-      <p>GitHub Pages 仅展示教程内容。登录、Google 授权与资料上传需在本地或云端后端运行。</p>
-      <p>本地启动：<code>cd ai && ./start.sh</code>，然后访问 <code>http://127.0.0.1:8765</code></p>
-    </div>
-
-    <div id="upload-panel" class="upload-panel hidden">
-      <h3>上传资料</h3>
-      <form id="upload-form" class="upload-form">
-        <div class="form-row">
-          <label>标题 <input type="text" name="title" required placeholder="例：Cursor Agent 模式使用心得" maxlength="120"></label>
-          <label>简介 <input type="text" name="description" placeholder="简短描述（可选）" maxlength="300"></label>
-        </div>
-        <div class="form-row">
-          <label class="file-label">
-            选择文件
-            <input type="file" name="file" required accept=".md,.markdown,.docx,.mp4,.webm,.mov,.avi,.mkv">
-            <span class="file-hint">支持 .md · .docx · .mp4/.webm/.mov（文档 ≤20MB，视频 ≤200MB）</span>
-          </label>
-        </div>
-        <button type="submit" class="cta-btn">上传资料</button>
-        <span id="upload-status" class="form-status"></span>
-      </form>
-    </div>
-
-    <div class="community-tabs">
-      <button class="community-tab active" data-tab="all">全部资料</button>
-      <button class="community-tab" data-tab="mine" id="tab-mine">我的上传</button>
-    </div>
-
-    <div id="resource-list" class="resource-list">
-      <p class="loading-hint">加载中…</p>
-    </div>
-  </main>
-</section>
-
-<!-- Claude 风格登录 -->
-<div class="modal hidden" id="modal-auth">
-  <div class="modal-box auth-claude">
-    <button class="modal-close auth-close" data-close-auth>&times;</button>
-
-    <!-- Step 1: 欢迎 -->
-    <div class="auth-step active" id="auth-step-welcome">
-      <div class="auth-logo">✳</div>
-      <h2 class="auth-title">欢迎使用 AI 应用指南</h2>
-      <p class="auth-subtitle">登录或注册以分享你的学习资料</p>
-      <button type="button" class="auth-google-btn" id="btn-google">
-        <svg width="18" height="18" viewBox="0 0 18 18"><path fill="#4285F4" d="M17.64 9.2c0-.637-.057-1.251-.164-1.84H9v3.481h4.844a4.14 4.14 0 0 1-1.796 2.716v2.259h2.908c1.702-1.567 2.684-3.875 2.684-6.615z"/><path fill="#34A853" d="M9 18c2.43 0 4.467-.806 5.956-2.18l-2.908-2.259c-.806.54-1.837.86-3.048.86-2.344 0-4.328-1.584-5.036-3.711H.957v2.332A8.997 8.997 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.964 10.71A5.41 5.41 0 0 1 3.682 9c0-.593.102-1.17.282-1.71V4.958H.957A8.996 8.996 0 0 0 0 9c0 1.452.348 2.827.957 4.042l3.007-2.332z"/><path fill="#EA4335" d="M9 3.58c1.321 0 2.508.454 3.44 1.345l2.582-2.58C13.463.891 11.426 0 9 0A8.997 8.997 0 0 0 .957 4.958L3.964 7.29C4.672 5.163 6.656 3.58 9 3.58z"/></svg>
-        使用 Google 账号继续
-      </button>
-      <div class="auth-divider"><span>或</span></div>
-      <button type="button" class="auth-email-btn" id="btn-email-continue">使用电子邮件继续</button>
-      <p class="auth-legal">继续即表示您同意我们的<a href="#">服务条款</a>和<a href="#">隐私政策</a></p>
-      <div class="static-notice" id="auth-static-notice"></div>
-    </div>
-
-    <!-- Step 2: 输入邮箱 -->
-    <div class="auth-step" id="auth-step-email">
-      <button type="button" class="auth-back" id="btn-back-email">← 返回</button>
-      <h2 class="auth-title">输入您的电子邮件</h2>
-      <form id="form-email" class="auth-form-claude">
-        <input type="email" name="email" required placeholder="name@example.com" autocomplete="email" class="auth-input">
-        <button type="submit" class="auth-primary-btn">继续</button>
-        <p class="form-error" id="email-error"></p>
-      </form>
-    </div>
-
-    <!-- Step 3: 密码 -->
-    <div class="auth-step" id="auth-step-password">
-      <button type="button" class="auth-back" id="btn-back-password">← 返回</button>
-      <h2 class="auth-title" id="password-title">创建密码</h2>
-      <p class="auth-email-display" id="auth-email-display"></p>
-      <form id="form-password" class="auth-form-claude">
-        <input type="password" name="password" required minlength="8" placeholder="至少 8 位字符" autocomplete="current-password" class="auth-input">
-        <button type="submit" class="auth-primary-btn" id="password-submit">继续</button>
-        <p class="form-error" id="password-error"></p>
-      </form>
-    </div>
-  </div>
-</div>
-
-<!-- 预览弹窗 -->
-<div class="modal hidden" id="modal-preview">
-  <div class="modal-box modal-wide">
-    <button class="modal-close" data-close>&times;</button>
-    <h3 id="preview-title">资料预览</h3>
-    <p class="preview-meta" id="preview-meta"></p>
-    <div id="preview-body" class="preview-body"></div>
-    <a id="preview-download" class="cta-btn" href="#" download style="display:inline-block;margin-top:16px;text-align:center">下载原文件</a>
-  </div>
-</div>
-
 <footer>
   <p>AI 应用指南 · 学习如何使用与应用人工智能 · <a href="https://github.com/bio-apple/ai" target="_blank" rel="noopener">GitHub</a></p>
 </footer>
 
-<script src="config.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="app.js"></script>
-<script src="auth.js"></script>
 </body>
 </html>

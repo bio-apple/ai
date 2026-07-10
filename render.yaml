@@ -10,11 +10,3 @@ services:
         value: .
       - key: HOST
         value: 0.0.0.0
-      - key: BASE_URL
-        sync: false
-      - key: GOOGLE_CLIENT_ID
-        sync: false
-      - key: GOOGLE_CLIENT_SECRET
-        sync: false
-      - key: JWT_SECRET
-        generateValue: true
