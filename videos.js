@@ -58,14 +58,20 @@ function platformLabel(v) {
   return 'YouTube';
 }
 
+function isBilibiliVideo(v) {
+  return v.platform === 'bilibili' || String(v.id || '').startsWith('bilibili:');
+}
+
 function renderVideoCard(v, { compact = false } = {}) {
   const hot = v.views >= HOT_VIEWS_THRESHOLD;
   const track = compact ? 'home-video-click' : 'video-click';
   const platform = platformLabel(v);
+  const thumbPolicy = isBilibiliVideo(v) ? ' referrerpolicy="no-referrer"' : '';
+  const thumbSrc = v.thumbnail || '';
   return `
     <article class="video-card${compact ? ' video-card-compact' : ''}">
       <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">
-        <img src="${escapeHtml(v.thumbnail)}" alt="${escapeHtml(v.title)}" loading="lazy">
+        <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(v.title)}" loading="lazy"${thumbPolicy}>
         <span class="video-play-btn" aria-hidden="true">▶ 观看</span>
         ${v.duration ? `<span class="video-duration">${escapeHtml(v.duration)}</span>` : ''}
         <span class="video-quality">${v.max_height}p</span>

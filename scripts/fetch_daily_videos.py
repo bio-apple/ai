@@ -17,6 +17,7 @@ import yaml
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
+BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
 CATEGORY_ORDER = (
     "youtube_top_views",
@@ -398,6 +399,55 @@ def fetch_video_detail(candidate: dict, cache: dict[str, dict | None]) -> dict |
     return detail
 
 
+def normalize_remote_url(url: str) -> str:
+    if url.startswith("//"):
+        return f"https:{url}"
+    return url
+
+
+def thumb_extension(url: str) -> str:
+    path = url.split("?", 1)[0].lower()
+    for ext in (".webp", ".png", ".jpeg", ".jpg"):
+        if path.endswith(ext):
+            return ".jpg" if ext == ".jpeg" else ext
+    return ".jpg"
+
+
+def mirror_bilibili_thumbnail(bvid: str, url: str) -> str:
+    url = normalize_remote_url(url)
+    if not url:
+        return url
+    BILIBILI_THUMB_DIR.mkdir(parents=True, exist_ok=True)
+    ext = thumb_extension(url)
+    dest = BILIBILI_THUMB_DIR / f"{bvid}{ext}"
+    rel = f"video-thumbs/bilibili/{bvid}{ext}"
+    if dest.exists() and dest.stat().st_size > 1024:
+        return rel
+    try:
+        proc = subprocess.run(
+            [
+                "curl",
+                "-sSL",
+                url,
+                "-H",
+                "Referer: https://www.bilibili.com/",
+                "-H",
+                "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                "-o",
+                str(dest),
+            ],
+            timeout=30,
+            capture_output=True,
+        )
+        if proc.returncode == 0 and dest.exists() and dest.stat().st_size > 1024:
+            return rel
+        if dest.exists():
+            dest.unlink(missing_ok=True)
+    except Exception as exc:
+        print(f"thumb mirror skip [{bvid}]: {exc}", file=sys.stderr)
+    return url
+
+
 def bucket_limits(cfg: dict) -> dict[str, int]:
     return {key: cfg["video_categories"][key]["top_count"] for key in CATEGORY_ORDER}
 
@@ -450,6 +500,8 @@ def validate_and_build_record(
     if not thumb:
         thumbs = detail.get("thumbnails") or []
         thumb = thumbs[-1]["url"] if thumbs else ""
+    if platform == "bilibili" and thumb:
+        thumb = mirror_bilibili_thumbnail(candidate["id"], thumb)
 
     return {
         "id": key,

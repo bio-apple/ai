@@ -371,7 +371,7 @@ npm run test:e2e
    - youtube_top_views / bilibili_top_views：时间不限，各平台按播放量取 Top 10
    - youtube_recent_24h / bilibili_recent_24h：仅 24 小时内上传，各平台按播放量取 Top 10
 6. 生成摘要（过滤 URL/赞助/广告文案）
-7. 写入 daily-videos.json → push → 触发 CI + Pages
+7. 写入 daily-videos.json（B站封面镜像到 `video-thumbs/bilibili/`）→ push → 触发 CI + Pages
 ```
 
 ### 本地手动运行
