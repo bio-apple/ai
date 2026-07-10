@@ -5,10 +5,11 @@ import uuid
 from pathlib import Path
 
 from docx import Document
-from fastapi import Depends, FastAPI, File, Form, HTTPException, UploadFile
+from fastapi import Depends, FastAPI, File, Form, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 from pydantic import BaseModel, Field
+from starlette.middleware.sessions import SessionMiddleware
 
 from backend.auth import (
     create_token,
@@ -17,6 +18,7 @@ from backend.auth import (
     verify_password,
 )
 from backend.config import CFG, ROOT
+from backend.google_oauth import google_oauth_enabled, handle_google_callback, oauth
 from backend.database import (
     create_resource,
     create_user,
@@ -38,6 +40,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+app.add_middleware(SessionMiddleware, secret_key=CFG["auth"]["jwt_secret"])
 
 UPLOAD_DIR = Path(CFG["paths"]["upload_dir"])
 ALLOWED = CFG["upload"]["allowed_extensions"]
@@ -127,6 +130,35 @@ def login(body: LoginBody):
 @app.get("/api/auth/me")
 def me(user: dict = Depends(get_current_user)):
     return _user_public(user)
+
+
+@app.get("/api/auth/google/status")
+def google_status():
+    return {"enabled": google_oauth_enabled()}
+
+
+@app.get("/api/auth/google/login")
+async def google_login(request: Request):
+    if not google_oauth_enabled():
+        raise HTTPException(
+            503,
+            "Google OAuth 未配置。请在 config.yaml 填写 google_oauth.client_id 和 client_secret",
+        )
+    redirect_uri = str(request.url_for("google_callback"))
+    return await oauth.google.authorize_redirect(request, redirect_uri)
+
+
+@app.get("/api/auth/google/callback", name="google_callback")
+async def google_callback(request: Request):
+    from urllib.parse import quote
+
+    if not google_oauth_enabled():
+        return RedirectResponse("/?auth_error=Google+OAuth+未配置")
+    try:
+        jwt_token, _user = await handle_google_callback(request)
+        return RedirectResponse(f"/?auth_token={jwt_token}")
+    except Exception as exc:
+        return RedirectResponse(f"/?auth_error={quote(str(exc))}")
 
 
 @app.get("/api/resources")

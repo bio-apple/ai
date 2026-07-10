@@ -220,8 +220,17 @@ document.getElementById('btn-email-continue')?.addEventListener('click', () => {
 document.getElementById('btn-back-email')?.addEventListener('click', () => showAuthStep('welcome'));
 document.getElementById('btn-back-password')?.addEventListener('click', () => showAuthStep('email'));
 
-document.getElementById('btn-google')?.addEventListener('click', () => {
-  alert('Google 登录需要配置 OAuth，请使用电子邮件继续');
+document.getElementById('btn-google')?.addEventListener('click', async () => {
+  try {
+    const { enabled } = await api('/api/auth/google/status');
+    if (!enabled) {
+      alert('Google 登录尚未配置。\n\n请在 config.yaml 中填写 google_oauth.client_id 和 client_secret，详见 README。');
+      return;
+    }
+    window.location.href = `${API}/api/auth/google/login`;
+  } catch {
+    window.location.href = `${API}/api/auth/google/login`;
+  }
 });
 
 document.getElementById('form-email')?.addEventListener('submit', async e => {
@@ -313,10 +322,37 @@ document.querySelectorAll('.community-tab').forEach(tab => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
+  handleAuthCallback();
   renderUserArea();
   const section = document.getElementById('section-community');
   if (section?.classList.contains('active')) loadResources();
 });
+
+async function handleAuthCallback() {
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('auth_token');
+  const error = params.get('auth_error');
+  const cleanUrl = () => history.replaceState({}, '', window.location.pathname);
+
+  if (error) {
+    alert(decodeURIComponent(error.replace(/\+/g, ' ')));
+    cleanUrl();
+    return;
+  }
+  if (!token) return;
+
+  try {
+    const user = await api('/api/auth/me', {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    setAuth(token, user);
+    cleanUrl();
+    loadResources();
+  } catch {
+    alert('Google 登录失败，请重试');
+    cleanUrl();
+  }
+}
 
 window.addEventListener('section-change', (e) => {
   if (e.detail === 'community') loadResources();

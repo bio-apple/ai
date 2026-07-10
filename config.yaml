@@ -6,6 +6,12 @@ auth:
   jwt_secret: "change-me-in-production-use-long-random-string"
   jwt_expire_hours: 168
 
+google_oauth:
+  client_id: ""
+  client_secret: ""
+  # 在 Google Cloud Console → 凭据 → OAuth 客户端 中配置
+  # 已授权重定向 URI: http://127.0.0.1:8765/api/auth/google/callback
+
 paths:
   data_dir: data
   upload_dir: uploads
