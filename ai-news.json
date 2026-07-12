@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-10T22:10:33.393428+08:00",
-  "date": "2026-07-10",
+  "updated_at": "2026-07-13T06:37:00.578106+08:00",
+  "date": "2026-07-13",
   "cadence": "weekly",
   "items": [
     {
@@ -13,13 +13,13 @@
       "published_at": null
     },
     {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 80,326",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 86,969",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-10T13:58:37Z"
+      "published_at": "2026-07-12T21:50:31Z"
     },
     {
       "id": "73fd78c4847c",
@@ -29,15 +29,6 @@
       "source": "Google AI",
       "category": "新模型发布",
       "published_at": "2026-07-07T16:54:00+08:00"
-    },
-    {
-      "id": "e29a8bbb0a77",
-      "title": "Google DeepMind and A24 announce first-of-its-kind research partnership",
-      "summary": "Google DeepMind and A24 announce first-of-its-kind research partnership",
-      "url": "https://deepmind.google/blog/google-deepmind-and-a24-announce-first-of-its-kind-research-partnership/",
-      "source": "Google DeepMind",
-      "category": "行业新闻",
-      "published_at": "2026-07-03T22:25:43+08:00"
     },
     {
       "id": "a3538fdfdde0",
@@ -76,94 +67,103 @@
       "published_at": "2026-07-10T15:00:00+08:00"
     },
     {
-      "id": "a494e292a2d7",
-      "title": "Context Graphs for Proactive Enterprise Agents",
-      "summary": "arXiv:2607.07721v1 Announce Type: new Abstract: Retrieval-Augmented Generation (RAG) and agentic frameworks have advanced enterprise AI considerably, yet agent…",
-      "url": "https://arxiv.org/abs/2607.07721",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "458232b6a4a3",
-      "title": "Unveiling Public Opinion: A Study of Sentiment Analysis Using LSTM and Traditional Models",
-      "summary": "arXiv:2607.07772v1 Announce Type: new Abstract: In this age of social media, sites like Twitter have become meeting places for people to share their views and …",
-      "url": "https://arxiv.org/abs/2607.07772",
-      "source": "arXiv cs.CL",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "75cef9e9ff40",
-      "title": "DreamCharacter-1: From 3D Generative Foundation Models to Product-Ready Character Generation",
-      "summary": "arXiv:2607.07817v1 Announce Type: new Abstract: We present DreamCharacter-1, a lightweight post-adaptation framework that calibrates pretrained 3D foundation m…",
-      "url": "https://arxiv.org/abs/2607.07817",
-      "source": "arXiv cs.CV",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "ee05055f90be",
-      "title": "Towards the Explainability of Temporal Graph Networks via Memory Backtracking and Topological Attribution",
-      "summary": "arXiv:2607.07716v1 Announce Type: new Abstract: Temporal graphs are ubiquitous in real-world applications and Temporal Graph Networks (TGNs) have achieved supe…",
-      "url": "https://arxiv.org/abs/2607.07716",
-      "source": "arXiv cs.LG",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "e9d861f78885",
-      "title": "GPT-5.6即将上线，推理狂飙750 Tokens/s！疑似横跨100张晶圆",
-      "summary": "GPT-5.6推理速度达750 tokens/秒，据传将部署于横跨100张晶圆的超大规模硬件平台，标志AI从“思考”迈向“闪现”式实时智能。OpenAI已于6月26日正式发布GPT-5.6系列，并预告本月内联合芯片巨头Cerebras向公众开放。该模型引发X平台热议，被视为AI算力与推理效率的重大跃升，或加速推动实时…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652711990&idx=1&sn=a435923175c1b3ab9514fafee89ddef5&chksm=f0f98c416d0f0e687362b22584a43c3c39ce72d728e2631637157a6afd6d24512260510c00cf&scene=0&xtrack=1#rd",
+      "id": "92fa243f768f",
+      "title": "Claude出了个「防沉迷」，却可能让你更离不开它",
+      "summary": "Anthropic为Claude上线Reflect功能Beta版，旨在提醒用户适度使用AI，避免过度依赖。该功能藏于设置中，帮助用户复盘与Claude的交互频率与场景，反思何时该启用、何时应关闭。虽初衷是“防沉迷”，但实际使用中用户反而更频繁依赖其辅助。目前面向Free、Pro、Max三类用户开放测试，体现AI厂商对…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652712421&idx=2&sn=6e68954e988a9b4fce89e1e60c21233d&chksm=f04fb3bbe367661e6a586cca03ddd0bf827f6ffe08ce23063c123a326b410b2898d9304aa263&scene=0&xtrack=1#rd",
       "source": "新智元",
       "category": "中文资讯",
-      "published_at": null
+      "published_at": "2026-07-13 00:20 分享"
     },
     {
-      "id": "2584e1e011ea",
-      "title": "“前沿人工智能治理：安全、包容与全球协调”闭门研讨会成功举办",
-      "summary": "2026年7月8日，清华大学人工智能国际治理研究院与国际人工智能治理协会（IAGA）在瑞士日内瓦联合举办闭门研讨会，主题为“前沿人工智能治理：安全、包容与全球协调”。会议聚焦前沿AI发展带来的系统性风险，探讨技术安全边界、多元主体参与的包容性治理路径，以及跨国协作机制建设。与会专家强调需平衡创新激励与风险防控，推动建…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524383&idx=1&sn=872c710d2ca0e3acaebd4719bbab21d2&chksm=fcf280cb90f184a2bac76bcf64756c2659c7c1b7f172d0fedc95b5474fa386e46fadca5a3d08&scene=0&xtrack=1#rd",
+      "id": "8f1dfb1cac28",
+      "title": "港科大Scientific AGI团队招生｜AI4Science、智能体与具身智能",
+      "summary": "香港科技大学Scientific AGI团队全球招募博士生、博士后、研究助理、访问学生及科研实习生。团队负责人张载熙博士将于2026年7月入职港科大化学与生物工程系任助理教授，并兼聘于计算机科学与工程系及医学院。他本科毕业于中国科大少年班，博士阶段在哈佛医学院联合培养，后于普林斯顿大学AI Lab从事博士后研究，研究…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513958&idx=1&sn=d8cb5e6f965a6788e6c07cfcf68eef37&chksm=fdef237a0db6c20df0b5a29807d690d128747cca08ceab7401a42641d2bbdab5af4678d2bf04&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
-      "published_at": null
+      "published_at": "2026-07-12 15:20 分享"
     },
     {
-      "id": "23e934b2612f",
-      "title": "一群做自动驾驶的人，盯上了睡眠这件事",
-      "summary": "把数据闭环搬进卧室",
-      "url": "https://www.qbitai.com/2026/07/447796.html",
+      "id": "b74df5447e35",
+      "title": "98年哈工大教授创业，要做人形灵巧操作世界模型",
+      "summary": "从采集触觉，到对齐触觉，再到使用触觉",
+      "url": "https://www.qbitai.com/2026/07/448034.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-07-10T17:45:01+08:00"
+      "published_at": "2026-07-12T16:29:46+08:00"
     },
     {
-      "id": "42fbe0bebbf9",
-      "title": "GPT-5.6一发布，Claude终于舍得重置Fable 5额度了",
-      "summary": "GPT-5.6一发布，Claude终于舍得重置Fable 5额度了",
-      "url": "https://www.qbitai.com/2026/07/447691.html",
+      "id": "b59cd7af77a9",
+      "title": "老黄RTX Spark真机现身Bilibili World！CPU和GPU直接焊在一起，笔记本跑120B大模型",
+      "summary": "老黄在ComputeX发布的“超级芯片”，已经在真机中落地了",
+      "url": "https://www.qbitai.com/2026/07/447981.html",
       "source": "量子位",
       "category": "新工具上线",
-      "published_at": "2026-07-10T17:41:25+08:00"
+      "published_at": "2026-07-12T09:37:11+08:00"
     },
     {
-      "id": "cb21adcbe057",
-      "title": "AI聪明够了，行动呢？WAIC首夜，来聊点下一步的真实判断｜活动报名",
-      "summary": "AI聪明够了，行动呢？WAIC首夜，来聊点下一步的真实判断｜活动报名",
-      "url": "https://www.qbitai.com/2026/07/447682.html",
+      "id": "c874780932d6",
+      "title": "近百名玩家涌入具身数据：一年融资44.7亿，谁能真靠“卖数据”赚钱？",
+      "summary": "为了帮你看清具身数据行业，我们总结了以下十个行业现状",
+      "url": "https://www.qbitai.com/2026/07/447914.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-07-12T09:14:50+08:00"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 165,562",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-12T04:15:09Z"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 80,570",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-12T02:15:08Z"
+    },
+    {
+      "id": "1f1bc03a707a",
+      "title": "rasbt/LLMs-from-scratch · ★ 98,979",
+      "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
+      "url": "https://github.com/rasbt/LLMs-from-scratch",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-11T20:45:39Z"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,496",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-11T20:00:23Z"
+    },
+    {
+      "id": "1b89591e8184",
+      "title": "中国首个十万卡集群落成！全国产算力支撑“十万卡时代”",
+      "summary": "已跑通300余项应用",
+      "url": "https://www.qbitai.com/2026/07/447902.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-07-10T17:32:09+08:00"
+      "published_at": "2026-07-11T18:07:17+08:00"
     },
     {
-      "id": "6ea93f65b952",
-      "title": "日均提问次数暴增 20 倍！百度搭子宣布重磅升级，企业版同步发布",
-      "summary": "agent时代来了",
-      "url": "https://www.qbitai.com/2026/07/447681.html",
+      "id": "0cfeb65a5957",
+      "title": "中国首个十万卡集群落成！全国产算力支撑“十万卡时代”",
+      "summary": "从FP64到INT8，全精度覆盖。",
+      "url": "https://www.qbitai.com/2026/07/447891.html",
       "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-10T17:27:52+08:00"
+      "category": "中文资讯",
+      "published_at": "2026-07-11T14:26:46+08:00"
     },
     {
       "id": "4f92d76f801d",
@@ -175,177 +175,6 @@
       "published_at": "2026-07-10T17:00:00+08:00"
     },
     {
-      "id": "40fe5762a34a",
-      "title": "全球首个「具身原生」预训练模型发布，从物理世界出发为机器人造大脑！",
-      "summary": "开源第四弹：LingBot-VA 2.0",
-      "url": "https://www.qbitai.com/2026/07/447627.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-10T16:01:00+08:00"
-    },
-    {
-      "id": "fbf5ff06dc28",
-      "title": "AI-integrated models for assessing agricultural resilience",
-      "summary": "arXiv:2607.07759v1 Announce Type: new Abstract: Agricultural supply chains are vulnerable to disruptions through linked biophysical and economic systems. We de…",
-      "url": "https://arxiv.org/abs/2607.07759",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "5f37f9a5f063",
-      "title": "Adversarial Social Epistemology for Assemblies of Humans and Large Language Models",
-      "summary": "arXiv:2607.07760v1 Announce Type: new Abstract: We outline an adversarial social epistemology (ASE) for densely interactive communicative landscapes in which p…",
-      "url": "https://arxiv.org/abs/2607.07760",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "cc5534545045",
-      "title": "Aligning Clinical Needs and AI Capabilities: A Survey on LLMs for Medical Reasoning",
-      "summary": "arXiv:2607.07761v1 Announce Type: new Abstract: Large language models (LLMs) have emerged as important tools in healthcare, showing growing potential for clini…",
-      "url": "https://arxiv.org/abs/2607.07761",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "48f3840259c6",
-      "title": "Alignment Plausibility: A New Standard for Assuring AI in Healthcare",
-      "summary": "arXiv:2607.07766v1 Announce Type: new Abstract: Large language models (LLMs) have become significant providers of mental health support, yet they remain produc…",
-      "url": "https://arxiv.org/abs/2607.07766",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "9d309b2f2b87",
-      "title": "Who Gets Missed in the Tail? Thresholded Subgroup Underdiagnosis in Long-Tailed Chest X-ray Classification",
-      "summary": "arXiv:2607.07717v1 Announce Type: new Abstract: In chest X-ray (CXR) classification, acceptable ranking performance can still leave rare-positive patients belo…",
-      "url": "https://arxiv.org/abs/2607.07717",
-      "source": "arXiv cs.LG",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "60b16aac00d1",
-      "title": "LLT: Local Linear Transformer for PDE Operator Learning",
-      "summary": "arXiv:2607.07718v1 Announce Type: new Abstract: Neural operators have become a common approach for learning PDE solution maps and accelerating numerical simula…",
-      "url": "https://arxiv.org/abs/2607.07718",
-      "source": "arXiv cs.LG",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "f6f94ac29e0e",
-      "title": "ReCoLoRA: Spectrum-Aware Recursive Consolidation for Continual LLM Fine-Tuning",
-      "summary": "arXiv:2607.07719v1 Announce Type: new Abstract: Parameter-efficient fine-tuning adapts a large language model to one task cheaply, but across a task sequence L…",
-      "url": "https://arxiv.org/abs/2607.07719",
-      "source": "arXiv cs.LG",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "572cce8067f8",
-      "title": "Omni-Sleep: A Sleep Foundation Model via Hierarchical Contrastive Learning of CNS--ANS Dynamic",
-      "summary": "arXiv:2607.07720v1 Announce Type: new Abstract: Sleep physiology arises from the coordinated dynamics of the central nervous system (CNS) and autonomic nervous…",
-      "url": "https://arxiv.org/abs/2607.07720",
-      "source": "arXiv cs.LG",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "80691becfe21",
-      "title": "From Solvers to Research: Large Language Model-Driven Formal Mathematics at the Research Frontier",
-      "summary": "arXiv:2607.07779v1 Announce Type: new Abstract: Recent developments in AI for Mathematics (AI4Math), especially Large Language Model (LLM)-driven theorem prove…",
-      "url": "https://arxiv.org/abs/2607.07779",
-      "source": "arXiv cs.CL",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "6c928192e7d7",
-      "title": "DeepSearch-World: Self-Distillation for Deep Search Agents in a Verifiable Environment",
-      "summary": "arXiv:2607.07820v1 Announce Type: new Abstract: Training tool-use agents to improve from their own experience remains challenging, as supervised fine-tuning re…",
-      "url": "https://arxiv.org/abs/2607.07820",
-      "source": "arXiv cs.CL",
-      "category": "新工具上线",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "76a0a727ccc0",
-      "title": "How Do I Know What to Say Next? Barenholtz's Autogenerative Theory as an Enrichment of Harrisean Integrationism",
-      "summary": "arXiv:2607.07891v1 Announce Type: new Abstract: Roy Harris's Integrationist linguistics offers a compelling critique of the referentialist tradition embedded d…",
-      "url": "https://arxiv.org/abs/2607.07891",
-      "source": "arXiv cs.CL",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "aba60f21c16e",
-      "title": "Scalable and Culturally Specific Stereotype Dataset Construction via Human-LLM Collaboration",
-      "summary": "arXiv:2607.07895v1 Announce Type: new Abstract: Research on stereotypes in large language models (LLMs) has largely focused on English-speaking contexts, due t…",
-      "url": "https://arxiv.org/abs/2607.07895",
-      "source": "arXiv cs.CL",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "a2e250135ec3",
-      "title": "GIRAF: Towards Generalizable Human Interactions with Articulated Objects",
-      "summary": "arXiv:2607.07880v1 Announce Type: new Abstract: Synthesizing realistic full-body human interactions with articulated objects is a fundamental challenge for emb…",
-      "url": "https://arxiv.org/abs/2607.07880",
-      "source": "arXiv cs.CV",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "dc161f2cc7bf",
-      "title": "3D Reconstruction of deciduous Trees using low-cost UAV- and Crane-based Photogrammetry for Monitoring Shoot Elongation across entire Canopies",
-      "summary": "arXiv:2607.07905v1 Announce Type: new Abstract: Tree growth determines how much CO2 is sequestered from the atmosphere and temporarily stored in woody biomass.…",
-      "url": "https://arxiv.org/abs/2607.07905",
-      "source": "arXiv cs.CV",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "be5b65327f0d",
-      "title": "Adversarial Decoys: Misdirecting Attention-Based Defenses in ViT",
-      "summary": "arXiv:2607.07922v1 Announce Type: new Abstract: Vision Transformers (ViTs) remain vulnerable to localized adversarial attacks, e.g., adversarial patches, while…",
-      "url": "https://arxiv.org/abs/2607.07922",
-      "source": "arXiv cs.CV",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "6fe74c3d2e8f",
-      "title": "Beyond Thermal Imaging: Inferring Thermophysical Properties from Time-Resolved Thermal Observations",
-      "summary": "arXiv:2607.07962v1 Announce Type: new Abstract: Inferring latent physical properties from sensory observations is a fundamental challenge in machine perception…",
-      "url": "https://arxiv.org/abs/2607.07962",
-      "source": "arXiv cs.CV",
-      "category": "开源项目",
-      "published_at": "2026-07-10T12:00:00+08:00"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,451",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-10T11:37:41Z"
-    },
-    {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 165,282",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-10T04:25:00Z"
-    },
-    {
       "id": "ffdf99aeb53c",
       "title": "Anthropic found a hidden space where Claude puzzles over concepts",
       "summary": "The AI firm Anthropic has developed a technique that has given it the clearest glimpse yet at what’s really going on inside large language models as they answe…",
@@ -353,24 +182,6 @@
       "source": "MIT Tech Review",
       "category": "新模型发布",
       "published_at": "2026-07-10T04:22:28+08:00"
-    },
-    {
-      "id": "b9ad1daaa381",
-      "title": "大三本科生一作，交出7.92倍加速的投机解码新答卷！DeepSeek和阶跃星辰双双引用",
-      "summary": "DeepSeek提出的DSpark投机解码框架引发大模型推理加速新热潮。其核心理念与上海交通大学等机构此前发布的Domino算法高度相似，尤其在CausalEncoder设计上；Domino亦被阶跃星辰JetSpec引用。DSpark论文提及Domino作为重要参考，凸显该技术路径的延续性与影响力。论文第一作者黄佳诺…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247902587&idx=3&sn=879066ecce663ab9daba5d73fe2dc27b&chksm=e9f4636ae14776d11196f5d0999be832a6afab20c46fc824f18082ee66f7226359700a7ab248&scene=0&xtrack=1#rd",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-10 21:40 分享"
-    },
-    {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 86,715",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-09T23:56:37Z"
     },
     {
       "id": "e799563c0958",
@@ -434,6 +245,105 @@
       "source": "Microsoft AI",
       "category": "开源项目",
       "published_at": "2026-07-09T00:00:00+08:00"
+    },
+    {
+      "id": "cecc787bcc8b",
+      "title": "NVIDIA Nemotron Achieves Benchmark-Leading Performance With LangChain Deep Agents Harness",
+      "summary": "NVIDIA Nemotron 3 Ultra is offering leading performance at lower cost than top closed models with the largest and most widely adopted AI agent orchestration pl…",
+      "url": "https://blogs.nvidia.com/blog/nemotron-langchain-agents-open-stack/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-08T23:00:27+08:00"
+    },
+    {
+      "id": "90857c29ae6e",
+      "title": "AI Innovators Adopt NVIDIA Vera — Why Max Single-Threaded CPU at Scale Matters",
+      "summary": "Max single-threaded CPUs at scale are a new category of CPUs built for the agentic AI era. Across the creation and deployment of an agentic system, the CPU is …",
+      "url": "https://blogs.nvidia.com/blog/nvidia-vera-max-single-threaded-cpu-at-scale/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-07T23:00:52+08:00"
+    },
+    {
+      "id": "fbe5464e4eef",
+      "title": "NVIDIA and Hugging Face Bring New Models and Frameworks to LeRobot for the Open Robotics Community",
+      "summary": "Open source AI has shown how quickly developers can innovate when models, data and tools are shared. Robotics has the same opportunity, but advancements in phy…",
+      "url": "https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics/",
+      "source": "NVIDIA AI",
+      "category": "开源项目",
+      "published_at": "2026-07-07T14:00:26+08:00"
+    },
+    {
+      "id": "0c57e47a6db2",
+      "title": "How Open Models Are Driving AI Research",
+      "summary": "Every year, the International Conference on Machine Learning (ICML) reveals where thousands of AI researchers have decided to put their work. This year’s accep…",
+      "url": "https://blogs.nvidia.com/blog/open-models-icml-2026/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-07T00:00:00+08:00"
+    },
+    {
+      "id": "b33be8909763",
+      "title": "hacksider/Deep-Live-Cam · ★ 94,837",
+      "summary": "real time face swap and one-click video deepfake with only a single image",
+      "url": "https://github.com/hacksider/Deep-Live-Cam",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-06T20:55:43Z"
+    },
+    {
+      "id": "ff1300aa6cce",
+      "title": "Redeploying Claude Fable 5",
+      "summary": "Redeploying Claude Fable 5",
+      "url": "https://www.anthropic.com/news/redeploying-fable-5",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": null
+    },
+    {
+      "id": "0f764e9bc764",
+      "title": "Introducing Claude Sonnet 5",
+      "summary": "Introducing Claude Sonnet 5",
+      "url": "https://www.anthropic.com/news/claude-sonnet-5",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": null
+    },
+    {
+      "id": "d5f7bd1f6df8",
+      "title": "Claude Science, an AI workbench for scientists",
+      "summary": "Claude Science, an AI workbench for scientists",
+      "url": "https://www.anthropic.com/news/claude-science-ai-workbench",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": null
+    },
+    {
+      "id": "aae5bb7414e2",
+      "title": "开营周将至｜一次看见AI4S全景，DeeCamp开营日重磅开启",
+      "summary": "本次开营日聚焦AI for Science（AI4S）多元前沿场景，涵盖AI脑机、AI量子、AI生命科学、AI核聚变及AI地球物理五大关键领域。吕宝粮、龙桂鲁、韩敬东、吴泰霖、李伟昌等各领域权威专家将分享实践案例与技术突破，展现人工智能深度赋能基础科研的真实路径。活动旨在帮助学员系统理解AI如何实质性介入科学研究全流…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513959&idx=1&sn=6c580989fd5323ae808ef3bbb2472653&chksm=fded1e8299f4c5ba3732f1d27cfc18c5e4c0d283b2d79d15dcceac333ac606f1c5a07fba86e4&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "554f4f52d685",
+      "title": "上线几小时，马斯克Grok 4.5被攻破！1.5万亿参数防线全失守",
+      "summary": "马斯克刚发布的Grok-4.5大模型上线数小时内即遭黑客攻破，其号称拥有1.5万亿参数、基于V9新架构的“顶级”模型暴露出严重安全漏洞：不仅被诱导生成制毒、造爆、提取致命毒素等违法有害内容，还被植入远程木马。尽管马斯克宣称其在代码与推理能力上已超越Opus 4.8，但实际防护能力形同虚设，引发对AI模型安全审核与内容…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652712296&idx=1&sn=0ab12a94e7ee16e4147ea6f6f2c6317c&chksm=f0f3f5290c09e26f9da0f23e363f6da1af836e4354774b654a36916da62d32749fed358fe93c&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "82b46c55b648",
+      "title": "Nature | 通用细胞嵌入构建细胞生物学基础模型",
+      "summary": "随着单细胞RNA测序技术发展，大规模多组织、多发育阶段、多物种细胞图谱为构建统一细胞表示空间奠定基础。但因实验平台、组织来源及物种间存在显著批次效应和基因组成差异，现有方法需为每个新数据集重新训练模型，通用性差。为此，研究者提出Universal Cell Embedding（UCE），旨在建立跨平台、跨组织、跨物种…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513959&idx=2&sn=209afcb709fad89534d26b8347f93af5&chksm=fd35c7ed4daffe0991b0079fbce731074a3d3c1b8beb0101ed59c20ba021b2adec55fb69843d&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
     }
   ],
   "watch_sources": [
