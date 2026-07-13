@@ -10,6 +10,7 @@ import sys
 from pathlib import Path
 
 import jsonschema
+from jsonschema import Draft202012Validator
 import yaml
 from bs4 import BeautifulSoup
 
@@ -36,6 +37,7 @@ def validate_daily_videos() -> None:
     else:
         raise FileNotFoundError("daily-videos.json 缺失")
     jsonschema.validate(data, schema)
+    Draft202012Validator(schema).validate(data)
     for batch in data.get("batches", []):
         for v in iter_batch_videos(batch):
             summary = v.get("summary", "")
@@ -186,15 +188,20 @@ def validate_data_json() -> None:
 
 
 def main() -> int:
-    validate_data_json()
-    validate_oss_projects()
-    validate_daily_videos()
-    validate_ai_news()
-    validate_runtime_json()
-    validate_sitemap_robots()
-    validate_search_index()
-    validate_analytics_config()
-    validate_html_links()
+    steps = (
+        ("data/*.json", validate_data_json),
+        ("oss-projects.json", validate_oss_projects),
+        ("daily-videos.json", validate_daily_videos),
+        ("ai-news.json", validate_ai_news),
+        ("runtime JSON", validate_runtime_json),
+        ("sitemap/robots", validate_sitemap_robots),
+        ("search-index.json", validate_search_index),
+        ("analytics-config.json", validate_analytics_config),
+        ("HTML 链接", validate_html_links),
+    )
+    for label, fn in steps:
+        print(f"→ 检查 {label}…", flush=True)
+        fn()
     print("全部 CI 校验通过")
     return 0
 
