@@ -1,10 +1,11 @@
 # Bio AI Lab — 开发者文档
 
-本文档面向维护与二次开发本项目的开发者，说明架构、目录结构、数据格式、构建流程、自动化与常见改动方式。
+本文档面向维护与二次开发本项目的开发者，说明**当前线上实现**（1.x）的架构、目录结构、数据格式、构建流程、自动化与常见改动方式。
 
 - **线上地址**：https://bio-apple.github.io/ai/
 - **仓库**：https://github.com/bio-apple/ai
 - **类型**：数据驱动静态站（Astro SSG）+ 可选本地 FastAPI 预览 + GitHub Actions 自动化
+- **2.0 产品愿景与目标架构**：[docs/VISION-2.0.md](./docs/VISION-2.0.md)（Roadmap，非当前生产栈）
 
 ---
 

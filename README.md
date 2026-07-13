@@ -6,6 +6,7 @@
 
 [![Website](https://img.shields.io/badge/Website-bio--apple.github.io%2Fai-6366F1?style=for-the-badge)](https://bio-apple.github.io/ai/)
 [![Documentation](https://img.shields.io/badge/Documentation-DEVELOPER.md-06B6D4?style=for-the-badge)](./DEVELOPER.md)
+[![Vision 2.0](https://img.shields.io/badge/Vision-2.0-8B5CF6?style=for-the-badge)](./docs/VISION-2.0.md)
 [![GitHub](https://img.shields.io/badge/GitHub-bio--apple%2Fai-111827?style=for-the-badge)](https://github.com/bio-apple/ai)
 
 ## Screenshot
