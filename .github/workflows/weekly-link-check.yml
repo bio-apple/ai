@@ -23,7 +23,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install Python deps
-        run: pip install -r requirements.txt
+        run: python -m pip install -r requirements.txt
 
       - name: Build site (Astro)
         run: ASTRO_TELEMETRY_DISABLED=1 npm run build

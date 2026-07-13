@@ -33,7 +33,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install yt-dlp
-        run: pip install yt-dlp pyyaml
+        run: python -m pip install yt-dlp pyyaml
 
       - name: Fetch daily AI videos
         run: |
