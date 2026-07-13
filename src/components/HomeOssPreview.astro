@@ -1,0 +1,29 @@
+---
+import { pickHomeOss, formatStars } from '../lib/runtime';
+
+const items = pickHomeOss(6);
+---
+<div id="home-oss-preview" class="home-oss-preview" data-ssg="1">
+  {items.length === 0 ? (
+    <p class="loading-hint">暂无开源项目数据。</p>
+  ) : (
+    <div class="oss-grid">
+      {items.map(({ project, domainLabel }) => (
+        <article class="oss-card">
+          <div class="oss-card-head">
+            <span class="oss-domain-badge">{domainLabel}</span>
+            <span class="oss-stars">★ {formatStars(project.stars)}</span>
+          </div>
+          <h4>
+            <a href={project.url} target="_blank" rel="noopener" data-track="oss-click">{project.name}</a>
+          </h4>
+          <p class="oss-repo">
+            {project.repo}{project.language ? ` · ${project.language}` : ''}
+          </p>
+          <p class="oss-summary">{project.description || ''}</p>
+          <a href={project.url} target="_blank" rel="noopener" class="oss-read" data-track="oss-read">查看仓库 →</a>
+        </article>
+      ))}
+    </div>
+  )}
+</div>

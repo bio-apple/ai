@@ -53,7 +53,7 @@ function fetchNewsData() {
 
 async function loadHomeNewsPreview() {
   const root = document.getElementById('home-news-preview');
-  if (!root) return;
+  if (!root || root.dataset.ssg === '1') return;
   try {
     const data = await fetchNewsData();
     const items = (data.items || []).slice(0, 4);

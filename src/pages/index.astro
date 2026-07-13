@@ -2,10 +2,14 @@
 import HomeLayout from '../layouts/HomeLayout.astro';
 import ToolSection from '../components/ToolSection.astro';
 import CasesSection from '../components/CasesSection.astro';
+import HomeNewsPreview from '../components/HomeNewsPreview.astro';
+import HomeOssPreview from '../components/HomeOssPreview.astro';
+import HomeVideoPreview from '../components/HomeVideoPreview.astro';
 import {
   site, tools, promptsMeta, buildHotToolCards, buildCreateToolCards, toolNamesMap, stars,
 } from '../lib/data';
 import { buildHomeSchema } from '../lib/schema';
+import { asset } from '../lib/paths';
 
 const hotToolCards = buildHotToolCards();
 const createToolCards = buildCreateToolCards();
@@ -45,7 +49,7 @@ const schema = buildHomeSchema(site);
       <section class="home-section fade-in">
         <div class="section-head">
           <h2 class="section-title">热门 AI 工具</h2>
-          <p class="section-desc">国内国际热门 AI 工具分类、排行与选型对比</p>
+          <p class="section-desc">国内国际热门 AI 工具，点进教程或用顶部导航按场景浏览</p>
         </div>
         <div class="tool-cards-scroll">
           <div class="tool-cards tool-cards-hot">
@@ -67,37 +71,6 @@ const schema = buildHomeSchema(site);
         </div>
       </section>
 
-      <section class="home-section fade-in">
-        <div class="section-head">
-          <h2 class="section-title">AI 能力分类</h2>
-          <p class="section-desc">按场景浏览全部工具</p>
-        </div>
-        {site.home_tool_categories.map((cat) => (
-          <>
-            <p class="category-label">{cat.label}</p>
-            <div class="tool-cards-scroll">
-              <div class="tool-cards">
-                {cat.tools.map((tool) => (
-                  <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
-                    <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
-                    <span class="badge">{tool.badge}</span>
-                    <h3>{tool.name}</h3>
-                    <p class="tool-tagline">{tool.tagline}</p>
-                    <p class="tool-summary">{tool.summary}</p>
-                    <div class="tool-stars" aria-label={`推荐指数 ${tool.stars} 星`}>
-                      {Array.from({ length: stars(tool.stars).filled }, () => '★').join('')}
-                      {Array.from({ length: stars(tool.stars).empty }, () => <span class="star-empty">★</span>)}
-                    </div>
-                    <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
-                    <button type="button" class="tool-card-btn" data-tool={tool.id}>查看详情</button>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </>
-        ))}
-      </section>
-
       <section class="home-section fade-in" id="home-rankings">
         <div class="section-head">
           <h2 class="section-title">2026 AI 工具排行榜</h2>
@@ -116,7 +89,7 @@ const schema = buildHomeSchema(site);
           ))}
         </div>
         <div class="section-cta">
-          <a href="ai-tools-ranking.html" class="cta-btn cta-btn-outline" data-track="home-full-ranking">查看完整排行榜 →</a>
+          <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline" data-track="home-full-ranking">查看完整排行榜 →</a>
         </div>
       </section>
 
@@ -136,52 +109,7 @@ const schema = buildHomeSchema(site);
           </table>
         </div>
         <div class="section-cta">
-          <a href="ai-tools-ranking.html" class="cta-btn cta-btn-outline" data-track="home-compare-table">查看完整对比表 →</a>
-        </div>
-      </section>
-
-      <section class="home-section fade-in">
-        <div class="section-head">
-          <h2 class="section-title">AI 学习路线</h2>
-          <p class="section-desc">从零基础到进阶应用的系统路径</p>
-        </div>
-        <div class="grid-2">
-          {site.learning_paths.map((path) => (
-            <div class="card">
-              <h3><span class="dot" style={`background:${path.dot_color}`}></span> {path.title}</h3>
-              <ol class="steps">{path.steps.map((step) => <li>{step}</li>)}</ol>
-            </div>
-          ))}
-        </div>
-        <div class="section-cta">
-          <a href="guides/beginner.html" class="cta-btn cta-btn-outline">入门指南</a>
-          <a href="ai-learning-roadmap.html" class="cta-btn cta-btn-outline" data-track="home-roadmap">完整学习路线 →</a>
-        </div>
-      </section>
-
-      <section class="home-section fade-in" id="home-oss">
-        <div class="section-head">
-          <h2 class="section-title">GitHub Stars 开源精选</h2>
-          <p class="section-desc">AI Agent、LLM 应用、本地大模型、AI 绘画、多模态与机器学习框架</p>
-        </div>
-        <div id="home-oss-preview" class="home-oss-preview">
-          <p class="loading-hint">加载开源项目…</p>
-        </div>
-        <div class="section-cta">
-          <button class="cta-btn cta-btn-outline" data-goto="oss" data-track="home-all-oss">查看全部开源项目 →</button>
-        </div>
-      </section>
-
-      <section class="home-section fade-in" id="home-news">
-        <div class="section-head">
-          <h2 class="section-title">本周 AI 热点</h2>
-          <p class="section-desc">OpenAI · Anthropic · DeepMind · NVIDIA · arXiv · GitHub Trending · 机器之心 · 量子位</p>
-        </div>
-        <div id="home-news-preview" class="home-news-preview">
-          <p class="loading-hint">加载今日热点…</p>
-        </div>
-        <div class="section-cta">
-          <button class="cta-btn cta-btn-outline" data-goto="news" data-track="home-all-news">查看全部 AI 新闻 →</button>
+          <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline" data-track="home-compare-table">查看完整对比表 →</a>
         </div>
       </section>
 
@@ -216,8 +144,50 @@ const schema = buildHomeSchema(site);
 
       <section class="home-section fade-in">
         <div class="section-head">
+          <h2 class="section-title">继续探索</h2>
+          <p class="section-desc">学习路线、开源、新闻与每日视频 — 预览已内联，完整列表在对应分区</p>
+        </div>
+        <div class="grid-2 home-explore-paths">
+          {site.learning_paths.map((path) => (
+            <div class="card">
+              <h3><span class="dot" style={`background:${path.dot_color}`}></span> {path.title}</h3>
+              <ol class="steps">{path.steps.slice(0, 3).map((step) => <li>{step}</li>)}</ol>
+            </div>
+          ))}
+        </div>
+        <div class="section-cta">
+          <a href={asset('guides/beginner.html')} class="cta-btn cta-btn-outline">入门指南</a>
+          <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline" data-track="home-roadmap">完整学习路线 →</a>
+        </div>
+      </section>
+
+      <section class="home-section fade-in" id="home-oss">
+        <div class="section-head">
+          <h2 class="section-title">GitHub Stars 开源精选</h2>
+          <p class="section-desc">按 Star 预览热门项目（构建时内联）</p>
+        </div>
+        <HomeOssPreview />
+        <div class="section-cta">
+          <button class="cta-btn cta-btn-outline" data-goto="oss" data-track="home-all-oss">查看全部开源项目 →</button>
+        </div>
+      </section>
+
+      <section class="home-section fade-in" id="home-news">
+        <div class="section-head">
+          <h2 class="section-title">本周 AI 热点</h2>
+          <p class="section-desc">构建时内联最新条目，无需首屏等待 JSON</p>
+        </div>
+        <HomeNewsPreview />
+        <div class="section-cta">
+          <button class="cta-btn cta-btn-outline" data-goto="news" data-track="home-all-news">查看全部 AI 新闻 →</button>
+          <a href={asset('news/daily-ai-news.html')} class="cta-btn cta-btn-outline" data-track="home-news-archive">新闻归档页 →</a>
+        </div>
+      </section>
+
+      <section class="home-section fade-in" id="home-videos">
+        <div class="section-head">
           <h2 class="section-title">精选教程与视频</h2>
-          <p class="section-desc">选型对比、实战案例与每日六类 AI 教程视频推荐</p>
+          <p class="section-desc">选型对比 + 每日视频预览（SSG 内联）</p>
         </div>
         <div class="compare-guide-grid">
           {site.compare_guides.map((g) => (
@@ -228,9 +198,7 @@ const schema = buildHomeSchema(site);
             </a>
           ))}
         </div>
-        <div id="home-video-preview" class="home-video-preview">
-          <p class="loading-hint">加载今日精选…</p>
-        </div>
+        <HomeVideoPreview />
         <div class="section-cta">
           <button class="cta-btn" data-goto="cases" data-track="home-cases">查看实战案例 →</button>
           <button class="cta-btn cta-btn-outline" data-goto="videos" data-track="home-all-videos">每日视频 →</button>
@@ -262,7 +230,7 @@ const schema = buildHomeSchema(site);
         <p class="loading-hint">加载 Prompt 库…</p>
       </div>
       <div class="section-cta">
-        <a href="prompts/library.html" class="cta-btn cta-btn-outline">查看 Prompt 归档页 →</a>
+        <a href={asset('prompts/library.html')} class="cta-btn cta-btn-outline">查看 Prompt 归档页 →</a>
         <button class="cta-btn" data-goto="cases">查看完整实战案例 →</button>
       </div>
     </main>
@@ -334,7 +302,7 @@ const schema = buildHomeSchema(site);
       </div>
       <div id="news-watch-sources" class="news-watch-sources"></div>
       <div class="section-cta">
-        <a href="news/daily-ai-news.html" class="cta-btn cta-btn-outline">查看新闻归档页 →</a>
+        <a href={asset('news/daily-ai-news.html')} class="cta-btn cta-btn-outline">查看新闻归档页 →</a>
       </div>
     </main>
   </section>

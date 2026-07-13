@@ -252,7 +252,7 @@ function initVideoToolbar() {
 
 async function loadHomeVideoPreview() {
   const root = document.getElementById('home-video-preview');
-  if (!root) return;
+  if (!root || root.dataset.ssg === '1') return;
 
   try {
     const data = await fetchVideoData();

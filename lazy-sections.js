@@ -1,13 +1,11 @@
 /**
- * 按首页 section / 预览区块懒加载业务脚本，减轻首屏与 networkidle 压力。
- * 依赖 <html data-base="/ai/">；业务脚本须支持「已过 DOMContentLoaded 时立即 init」。
+ * 按 Tab section 懒加载业务脚本。首页预览已由 Astro SSG 内联，无需为 section-home 拉 JSON。
  */
 (function () {
   const base = (document.documentElement.dataset.base || '/ai/').replace(/\/?$/, '/');
   const loaded = new Set();
 
   const SECTION_SCRIPTS = {
-    'section-home': ['news.js', 'videos.js', 'oss.js'],
     'section-videos': ['videos.js'],
     'section-news': ['news.js'],
     'section-oss': ['oss.js'],
@@ -44,22 +42,6 @@
   function boot() {
     const active = document.querySelector('.section.active');
     if (active && active.id) loadForSection(active.id);
-
-    const observeIds = ['home-news', 'home-oss', 'home-video-preview', 'home-news-preview', 'home-oss-preview'];
-    if (!('IntersectionObserver' in window)) {
-      loadForSection('section-home');
-      return;
-    }
-    const io = new IntersectionObserver((entries) => {
-      if (entries.some((en) => en.isIntersecting)) {
-        loadForSection('section-home');
-        io.disconnect();
-      }
-    }, { rootMargin: '200px' });
-    observeIds.forEach((id) => {
-      const node = document.getElementById(id);
-      if (node) io.observe(node);
-    });
   }
 
   if (document.readyState === 'loading') {

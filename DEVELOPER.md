@@ -168,7 +168,7 @@ npm run test:e2e
 - 旧根目录 `index.html`、`tools/` 等已 gitignore，不再提交；**本地若残留这些文件，可能掩盖问题**（校验仅看 `dist/`）。
 - 调整页面结构改 `src/pages/` 或 `src/components/`；调整文案改 `data/*.json`。
 - **路径统一**：布局通过 `src/lib/paths.ts` 的 `asset()` / `homeHref()` 生成 `/ai/...`；页面勿再传 `assetPrefix="../"`。
-- 首页业务脚本（videos/news/oss/prompts）由 `lazy-sections.js` 按 section / 可视区域懒加载。
+- 首页业务脚本（videos/news/oss/prompts）由 `lazy-sections.js` **仅在进入对应 Tab** 时加载；首页预览由 Astro 构建期 SSG 内联（`Home*Preview.astro` + `src/lib/runtime.ts`），首屏不再等待 JSON。
 
 ### 搜索索引
 

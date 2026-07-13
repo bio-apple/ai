@@ -200,6 +200,7 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 | Phase 3.5 | 智源社区聚合、新闻信源多样性、CI 九步校验 + API smoke + Playwright E2E | ✅ 已完成 |
 | Phase 3.6 | Pages/E2E 解耦、`/ai` 本地对齐、资源路径统一、懒加载与缓存 | ✅ 已完成 |
 | Phase 3.7 | 运维健康探针、抓取告警、Dependabot、CI 信号治理 | ✅ 已完成 |
+| Phase 3.8 | 首页瘦身 + 新闻/开源/视频预览 SSG 内联 | ✅ 已完成 |
 | Phase 4 | 用户收藏、搜索增强 | 🔜 规划中 |
 
 ## License

@@ -1,0 +1,29 @@
+---
+import { pickHomeNews, formatNewsDate } from '../lib/runtime';
+
+const items = pickHomeNews(4);
+---
+<div id="home-news-preview" class="home-news-preview" data-ssg="1">
+  {items.length === 0 ? (
+    <p class="loading-hint">暂无新闻，每周一自动更新。</p>
+  ) : (
+    <div class="news-grid news-grid-preview">
+      {items.map((item) => (
+        <article class="news-card">
+          <div class="news-card-head">
+            <span class="news-category">{item.category || '资讯'}</span>
+            <span class="news-source">{item.source || ''}</span>
+          </div>
+          <h4>
+            <a href={item.url} target="_blank" rel="noopener" data-track="news-click">{item.title}</a>
+          </h4>
+          <p class="news-summary">{item.summary || ''}</p>
+          <div class="news-meta">
+            {item.published_at && <span>{formatNewsDate(item.published_at)}</span>}
+            <a href={item.url} target="_blank" rel="noopener" class="news-read" data-track="news-read">阅读原文 →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  )}
+</div>

@@ -118,7 +118,7 @@ function bindOssToolbar(data) {
 
 async function loadHomeOssPreview() {
   const root = document.getElementById('home-oss-preview');
-  if (!root) return;
+  if (!root || root.dataset.ssg === '1') return;
   try {
     const data = await fetchOssData();
     const items = flattenProjects(data);
