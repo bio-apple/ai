@@ -15,10 +15,17 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
 
       - name: Install deps and build (Astro SSG)
         run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
+
+      - name: Check dist artifacts
+        run: |
+          ls -la dist/
+          test -f dist/prompts.json
+          test -f dist/daily-videos.json
+          test -f dist/robots.txt
 
       - uses: actions/setup-python@v5
         id: setup-python
