@@ -55,7 +55,8 @@
 - 生产环境以 **GitHub Pages** 部署 `dist/`；`backend/` 本地预览优先读 `dist/`。
 - **每日视频**通过 `daily-videos.json` + `daily-videos.yml` 定时写入（六类推荐）。
 - **每周新闻**与 **GitHub Stars** 通过 `weekly-news.yml` 定时刷新 `ai-news.json` 与 `oss-projects.json`。
-- 部署前必须通过 **CI 校验**（JSON Schema、链接检查、Playwright 冒烟测试）。
+- 部署前必须通过 **CI 校验**（9 步 `validate_ci.py`、FastAPI smoke、Playwright E2E）。
+- 子目录页返回首页链接统一为 **`../index.html`**；`validate_ci.py links` 会拒绝逃出 `dist/` 的相对路径。
 
 ---
 
@@ -164,8 +165,11 @@ npm run test:e2e
 ### 重要约定
 
 - **不要手改** `dist/`；改 `data/` 或 `src/` 后重新 `npm run build`。
-- 旧根目录 `index.html`、`tools/` 等已 gitignore，不再提交。
+- 旧根目录 `index.html`、`tools/` 等已 gitignore，不再提交；**本地若残留这些文件，可能掩盖 CI 死链**（CI 仅校验 `dist/`）。
 - 调整页面结构改 `src/pages/` 或 `src/components/`；调整文案改 `data/*.json`。
+- **子目录页链接**：`tools/`、`compare/`、`guides/`、`news/`、`prompts/`、`cases/` 下页面通过 `StandaloneLayout` 的 `homeHref="../index.html"` 与面包屑 `../index.html` 回首页；**禁止** `../../index.html`（`validate_ci.py` 的 `links` 步骤会报「越界」）。
+
+涉及文件示例：`src/pages/tools/[id].astro`、`compare/[slug].astro`、`guides/[slug].astro`、`news/daily-ai-news.astro`、`prompts/library.astro`、`cases/index/index.astro`。
 
 ### 搜索索引
 
@@ -385,15 +389,36 @@ npm run dev     # 热更新，适合改 src/
 
 ### 方式二：FastAPI（预览 dist/）
 
-`backend/main.py` 提供静态文件与内容 API；优先读取 `dist/`。
+`backend/main.py` 提供静态文件与内容 API。`backend/services/data_store.py` 的 `runtime_path()` 按 **`dist/` → `public/` → 仓库根目录** 顺序查找 `prompts.json`、`daily-videos.json`、`search-index.json` 等运行时 JSON，与 CI smoke 行为一致。
 
 ### 测试
 
 ```bash
+# 全量校验（默认 9 步，与 CI 一致）
 DIST=dist python3 scripts/validate_ci.py
+
+# 单步校验（CI 中逐步执行，便于定位失败）
+DIST=dist python3 scripts/validate_ci.py data
+DIST=dist python3 scripts/validate_ci.py oss
+DIST=dist python3 scripts/validate_ci.py videos    # 含六类分类完整性
+DIST=dist python3 scripts/validate_ci.py news
+DIST=dist python3 scripts/validate_ci.py runtime
+DIST=dist python3 scripts/validate_ci.py sitemap
+DIST=dist python3 scripts/validate_ci.py search
+DIST=dist python3 scripts/validate_ci.py analytics
+DIST=dist python3 scripts/validate_ci.py links     # HTML 内部链接，禁止逃出 dist/
+
+# API 冒烟（运行时 JSON 优先 dist/）
+PYTHONPATH=. python3 scripts/smoke_api.py
+
+# E2E（需先 build；首次安装 Chromium）
+npx playwright install chromium
 npm run test:e2e
+
 ./cloud-test.sh    # 线上 Pages 探测
 ```
+
+**Playwright 配置**（`playwright.config.js`）：本地/CI 均以 `astro preview` 在 `http://127.0.0.1:8766/ai` 起服；CI 下 `workers: 1`、`retries: 2`、`timeout: 60s`，首页等重资源页使用 `waitUntil: 'networkidle'`。
 
 ---
 
@@ -506,12 +531,25 @@ weekly-news.yml  → commit ai-news.json + oss-projects.json → push → ci.yml
 
 ### `ci.yml` 检查项
 
-| 步骤 | 说明 |
-|------|------|
-| `npm ci && npm run build` | Astro SSG 构建 dist/ |
-| `DIST=dist python scripts/validate_ci.py` | data JSON、视频/新闻 Schema、死链、sitemap |
-| `python scripts/smoke_api.py` | FastAPI 内容 API 冒烟 |
-| `npm run test:e2e` | 首页、hash、搜索、视频、新闻、工具页 |
+运行环境：**ubuntu-latest**，**Node 22**，**Python 3.12**（`setup-python` 的 `python-path` + `python -m pip install`）。
+
+| 步骤 | 命令 / 说明 |
+|------|-------------|
+| 构建 | `npm ci && npm run build` → `dist/` |
+| Validate data JSON | `validate_ci.py data` — `data/*.json` 可解析 |
+| Validate OSS projects | `validate_ci.py oss` — 六大领域结构 |
+| Validate daily videos | `validate_ci.py videos` — Schema、摘要无 URL/广告、**六类分类齐全** |
+| Validate AI news | `validate_ci.py news` — `items` 非空 |
+| Validate runtime JSON | `validate_ci.py runtime` — `prompts.json`、`tutorials.json` |
+| Validate sitemap and robots | `validate_ci.py sitemap` |
+| Validate search index | `validate_ci.py search` |
+| Validate analytics config | `validate_ci.py analytics` |
+| Validate HTML links | `validate_ci.py links` — 内部链接不得逃出 `dist/` |
+| FastAPI API smoke | `PYTHONPATH=. python scripts/smoke_api.py` |
+| Install Playwright | `npx playwright install chromium --with-deps` |
+| E2E smoke tests | `npm run test:e2e` — 17 项（见 `tests/e2e/smoke.spec.js`） |
+
+本地一次性全量校验：`DIST=dist python3 scripts/validate_ci.py`（无参数时顺序执行上述 9 步）。
 
 ### GitHub Pages
 
@@ -607,13 +645,18 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 现象 | 可能原因 | 处理 |
 |------|----------|------|
 | CI 构建失败 | `data/*.json` 格式错误 | 检查 JSON；`npm run build` 看报错 |
+| CI `links` 死链 / 越界 | 子目录页用了 `../../index.html` | 改为 `../index.html`；重跑 `validate_ci.py links` |
+| 本地 validate 通过、CI 失败 | 根目录遗留 gitignore 的 `index.html` 等 | 删除根目录遗留 HTML/JSON，仅以 `dist/` 为准 |
 | CI 摘要校验失败 | `daily-videos.json` 含 URL/广告 | 重跑抓取或清洗摘要 |
-| Playwright 失败 | 未构建或端口占用 | 先 `npm run build`；检查 8766 |
+| CI 视频分类失败 | 最新批次缺少六类 key | 手动触发 `daily-videos.yml` 或 `--force` 重抓 |
+| API smoke 读不到数据 | 未 build 或读错路径 | 先 `npm run build`；确认 `dist/` 含运行时 JSON |
+| Playwright 失败 | 未构建、未装浏览器或超时 | `npm run build`；`npx playwright install chromium`；CI 以 Actions 日志为准 |
 | 搜索无结果 | 未生成 `search-index.json` | `npm run build` |
 | 视频仍为四类 | 配置已改但 Actions 未跑 | 手动触发 `daily-videos.yml` |
 | 新闻关注源为空 | 未刷新 `ai-news.json` | 运行 `fetch_ai_news.py` |
 | OSS Star 为 0 | 未跑 `fetch_oss_stars.py` | 本地或等 weekly workflow |
 | 机器之心无 RSS 条目 | 站点无稳定 RSS | 正常；通过 `watch_sources` 面板关注 |
+| B 站 30d/24h 条数不足 | 平台搜索/抓取限制 | 预期行为；Top 10 通常可满足 |
 
 ### GitHub Actions 权限
 
@@ -633,6 +676,7 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 1.5 | 数据驱动 Jinja2 构建 + CI |
 | 1.6 | Astro SSG 迁移；工具页自动生成 |
 | 1.7 | 六类视频；GitHub 开源精选；每周新闻；扩展信源与关注面板；首页对比表 |
+| 1.8 | Phase 3.5：智源社区聚合；CI 九步分步校验 + 链接越界检测；API 优先读 `dist/`；Playwright E2E 扩展至 17 项 |
 
 ---
 
