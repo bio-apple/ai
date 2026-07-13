@@ -1,5 +1,6 @@
 ---
 import { cases, flattenNavLabels, toolNamesMap } from '../lib/data';
+import { asset } from '../lib/paths';
 
 const navLabels = flattenNavLabels();
 const toolNames = toolNamesMap();
@@ -28,8 +29,8 @@ const toolNames = toolNamesMap();
       ))}
     </div>
     <div class="section-cta" style="margin-bottom:24px">
-      <a href="cases/index.html" class="cta-btn cta-btn-outline">查看完整案例库 →</a>
-      <button class="cta-btn" data-goto="prompts">浏览 Prompt 库 →</button>
+      <a href={asset('cases/index.html')} class="cta-btn cta-btn-outline">查看完整案例库 →</a>
+      <a href={asset('prompts/library.html')} class="cta-btn">浏览 Prompt 库 →</a>
     </div>
     <div class="case-filters">
       {cases.tool_filters.map((f) => (

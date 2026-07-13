@@ -191,7 +191,8 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 | Phase 3.7 | 运维健康探针、抓取告警、Dependabot、CI 信号治理 | ✅ 已完成 |
 | Phase 3.8 | 首页瘦身 + 新闻/开源/视频预览 SSG 内联 | ✅ 已完成 |
 | Phase 3.9 | 主路径精简为工具/开源/新闻/视频四块 | ✅ 已完成 |
-| Phase 4 | 用户收藏、搜索增强 | 🔜 规划中 |
+| Phase 4 | 本地收藏、搜索增强、对话式推荐、AI Labs、工具中心 | ✅ 已完成 |
+| Phase 5 | 云端账户 / 向量 RAG / 真 LLM Agent（需独立托管） | 🔜 规划中 |
 
 ## License
 

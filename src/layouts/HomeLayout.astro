@@ -25,6 +25,12 @@ const {
   includeKnowledge = false,
 } = Astro.props;
 
+const scriptList = [...scripts];
+if (includeKnowledge) {
+  if (!scriptList.includes('vendor/fuse.min.js')) scriptList.unshift('vendor/fuse.min.js');
+  if (!scriptList.includes('knowledge.js')) scriptList.push('knowledge.js');
+}
+
 const styleHref = asset('style.css');
 ---
 <!DOCTYPE html>
@@ -59,6 +65,6 @@ const styleHref = asset('style.css');
   <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
   <slot />
   <Footer text={site.footer.text} github={site.footer.github} />
-  {scripts.map((src) => <script src={asset(src)}></script>)}
+  {scriptList.map((src) => <script src={asset(src)}></script>)}
 </body>
 </html>

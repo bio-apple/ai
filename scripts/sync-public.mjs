@@ -18,6 +18,8 @@ const COPY_FILES = [
   'oss.js',
   'prompts.js',
   'knowledge.js',
+  'recommend.js',
+  'favorites.js',
   'robots.txt',
   'daily-videos.json',
   'ai-news.json',

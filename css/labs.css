@@ -1,0 +1,264 @@
+/* AI Labs / 工具中心 / 收藏 / 推荐查询 */
+
+.recommend-query {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.recommend-input {
+  flex: 1 1 280px;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.recommend-input:focus {
+  outline: 2px solid rgba(37, 99, 235, 0.35);
+  border-color: var(--accent);
+}
+
+.recommend-result {
+  margin-bottom: 20px;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.recommend-result-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+}
+
+.recommend-path-steps {
+  margin: 0 0 14px;
+  padding-left: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.fav-star {
+  margin-left: auto;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 8px;
+}
+
+.fav-star:hover,
+.fav-star.is-active {
+  color: #d97706;
+  background: rgba(217, 119, 6, 0.08);
+}
+
+.favorites-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.favorites-list li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg-card);
+  padding: 4px 4px 4px 4px;
+}
+
+.favorite-chip {
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.favorite-remove {
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.favorite-remove:hover {
+  background: var(--bg-hover);
+  color: var(--text);
+}
+
+.favorites-empty {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.community-links {
+  /* columns set in home.css / labs.css */
+}
+
+.labs-page .labs-block,
+.tools-hub-page .hub-category {
+  margin-bottom: 48px;
+}
+
+.labs-desc {
+  color: var(--text-muted);
+  margin: 0 0 16px;
+  max-width: 52rem;
+}
+
+.labs-model-grid,
+.hub-tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.labs-model-card,
+.hub-tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.labs-model-card:hover,
+.hub-tool-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.labs-model-card strong,
+.hub-tool-card h3 {
+  font-size: 0.98rem;
+  margin: 0;
+}
+
+.labs-model-card span,
+.hub-tool-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.45;
+}
+
+.hub-tool-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hub-tool-top .tool-card-logo {
+  width: 36px;
+  height: 36px;
+  font-size: 0.9rem;
+}
+
+.hub-tool-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.hub-external {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+}
+
+.hub-external ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.workflow-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 40rem;
+}
+
+.workflow-editor label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.workflow-input,
+.workflow-textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text);
+  font: inherit;
+}
+
+.workflow-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.workflow-status {
+  min-height: 1.2em;
+  font-size: 0.85rem;
+  color: var(--accent);
+  margin: 4px 0 0;
+}
+
+@media (max-width: 900px) {
+  .labs-model-grid,
+  .hub-tool-grid,
+  .community-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .labs-model-grid,
+  .hub-tool-grid,
+  .community-links {
+    grid-template-columns: 1fr;
+  }
+}

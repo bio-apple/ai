@@ -3,453 +3,97 @@
 > AI 时代的个人智能入口  
 > Discover · Learn · Build with AI
 
-> **文档性质**：产品愿景与目标架构（Roadmap），**不是**当前线上实现说明。  
-> **当前生产栈**（Astro SSG + GitHub Pages + 可选 FastAPI）：见根目录 [`DEVELOPER.md`](../DEVELOPER.md)。  
+> **文档性质**：产品愿景 + **当前可落地能力说明**。  
+> **生产栈**：Astro SSG + GitHub Pages + 可选 FastAPI（见根目录 [`DEVELOPER.md`](../DEVELOPER.md)）。  
 > **线上地址**：https://bio-apple.github.io/ai/
 
 ------------------------------------------------------------------------
 
 # 1. 项目介绍
 
-## 1.1 项目定位
-
-Bio AI Lab 不只是一个 AI 工具导航网站，而是一个面向个人用户的 AI
-智能入口平台。
-
-帮助用户：
-
--   发现 AI 工具
--   学习 AI 技术
--   使用 AI 提升效率
--   构建个人 AI 工作流
-
-## 1.2 产品目标
-
-打造：
-
-    AI 工具发现
-    +
-    AI 学习平台
-    +
-    AI 趋势中心
-    +
-    AI 工作助手
-
-的一站式 AI 门户。
+Bio AI Lab 是面向个人用户的 AI 智能入口：发现工具、学习用法、跟踪趋势、构建个人工作流。
 
 ------------------------------------------------------------------------
 
-# 2. 产品架构
+# 2. 用户路径（已实现）
 
-## 2.1 用户路径
-
-    用户进入网站
-            ↓
-    了解 AI 趋势
-            ↓
-    AI 推荐助手分析需求
-            ↓
-    推荐最佳工具
-            ↓
-    学习使用方法
-            ↓
-    创建个人 AI 工作流
-
-------------------------------------------------------------------------
-
-# 3. 产品模块设计
-
-## 3.1 首页 Home
-
-页面结构：
-
-    Home
-
-    ├── Hero 区
-    ├── AI 推荐助手
-    ├── 今日 AI 简报
-    ├── 热门 AI 工具
-    ├── AI 学习路线
-    ├── 开源项目精选
-    └── 社区动态
-
-------------------------------------------------------------------------
-
-# 3.2 Hero 区
-
-目标：
-
-第一屏建立品牌认知。
-
-文案：
-
-    让每个人拥有自己的 AI 工作流
-
-    发现、学习并使用下一代 AI 工具
-
-CTA：
-
-    探索 AI 工具
-
-    开始 AI 学习
-
-------------------------------------------------------------------------
-
-# 3.3 AI 推荐助手
-
-功能目标：
-
-通过用户需求推荐 AI 工具。
-
-示例：
-
-用户输入：
-
-    我想开发一个网站
-
-系统输出：
-
-    推荐工具：
-
-    1. Cursor
-    2. Claude
-    3. ChatGPT
-
-    学习路线：
-
-    HTML
-     ↓
-    React
-     ↓
-    AI Coding
-     ↓
-    部署上线
-
-------------------------------------------------------------------------
-
-# 3.4 AI 工具中心
-
-分类：
-
-    AI 工具
-
-    ├── AI 助手
-    ├── AI 编程
-    ├── AI 写作
-    ├── AI 图片
-    ├── AI 视频
-    ├── AI 音频
-    ├── AI 办公
-    └── AI Agent
-
-工具数据模型：
-
-```json
-{
-  "name": "ChatGPT",
-  "company": "OpenAI",
-  "category": ["assistant", "coding"],
-  "description": "通用AI助手",
-  "rating": 5,
-  "tags": ["写作", "编程", "图片"],
-  "url": "",
-  "price": "free"
-}
+```
+进入网站 → AI Daily / 趋势
+        → AI 推荐助手（文本或场景）
+        → 工具中心 / 教程
+        → 学习路线 / 案例 / Prompt
+        → Labs 工作流草稿（本地）
 ```
 
 ------------------------------------------------------------------------
 
-# 3.5 AI Daily
+# 3. 产品模块落地状态
 
-每日 AI 简报：
+| 模块 | 状态 | 实现 |
+|------|------|------|
+| Hero | ✅ | `index.astro` + `site.hero` |
+| AI 推荐助手 | ✅ | 场景点选 + 自由文本规则匹配（`HomeRecommend` / `recommend.js`）；本地 API `POST /api/recommend` |
+| 今日 AI 简报 | ✅ | `HomeAiDaily` + `pickAiDailyBrief()` |
+| 热门工具 / 分类导航 | ✅ | 首页卡片 + `tools/hub.html` 八大分类 |
+| 学习路线 | ✅ | 首页 + guides + roadmap |
+| 开源精选 | ✅ | `oss-projects.json` |
+| 社区动态 | ✅ | 入口卡片（非 UGC） |
+| AI Labs | ✅ | `labs/index.html`：Prompt Lab 入口、模型体验外链、工作流草稿（localStorage） |
+| 本地收藏 | ✅ | `favorites.js`（无账户） |
+| 知识库助手 | ✅ | 首页 FAB + Fuse；本地 FastAPI 时走 `/api/ask` |
+| 搜索 | ✅ | Fuse + 含案例/Prompt/Labs/工具中心的 `search-index.json` |
 
-    今日模型更新
+## 3.1 仍属远期（需新基建）
 
-    GitHub热门项目
-
-    AI行业新闻
-
-    推荐工具
-
-    学习内容
-
-数据来源：
-
--   官方 Blog
--   GitHub Trending
--   HuggingFace
--   arXiv
-
-------------------------------------------------------------------------
-
-# 3.6 AI Labs
-
-AI 实验空间：
-
-    Prompt Lab
-
-    Agent Playground
-
-    模型体验
-
-    AI Demo
+| 能力 | 原因 |
+|------|------|
+| 用户账户 / 云端同步收藏 | 需 Auth + DB |
+| 向量 RAG（Chroma / pgvector） | 需 Embedding 与托管 |
+| 真 LLM Agent / Tool Router | 需模型 API 与密钥 |
+| Next.js 全站重写 | 与当前 Pages 流水线正交 |
+| 真实社区 UGC | 需存储与审核 |
 
 ------------------------------------------------------------------------
 
-# 4. 技术架构
+# 4. 技术架构（生产）
 
-## 4.1 前端架构
-
-目标栈（2.0）：
-
-    React
-    +
-    Next.js
-    +
-    TypeScript
-    +
-    Tailwind CSS
-
-目录：
-
-    src
-
-    ├── app
-    ├── components
-    ├── features
-    ├── data
-    ├── hooks
-    └── utils
-
-> **现状对照**：1.x 为 Astro SSG + 原生 CSS 模块（`css/*.css`），部署于 GitHub Pages；2.0 迁移需单独评估 SSR/托管与现有 Actions 流水线。
-
-------------------------------------------------------------------------
-
-# 4.2 UI设计规范
-
-Design System（目标稿）：
-
-颜色：
-
-```css
-Primary: #6366F1
-Secondary: #22D3EE
-Background: #050816
+```
+data/*.json + src/ (Astro)
+        ↓ npm run build
+      dist/ → GitHub Pages (/ai/)
+可选：FastAPI 预览 dist + /api/ask · /api/recommend · /api/search
 ```
 
-风格：
+目标栈（React/Next/Postgres）仍可作为未来选项，**不阻塞**当前产品迭代。
 
-    Dark Mode
-    Glass UI
-    Gradient
-    AI Neon
-
-> **落地注意**：实现 UI 时应与现有站点视觉语言协调；避免默认堆叠「紫渐变 + 全站暗色 + 霓虹光效」的同质化外观，优先保留品牌辨识度与可读性。
+UI：延续现有蓝/青品牌与浅色主界面；不以「紫霓虹暗色」为目标默认皮肤。
 
 ------------------------------------------------------------------------
 
-# 4.3 后端架构
+# 5. AI 能力（当前）
 
-    Frontend
-    ↓
-    API Gateway
-    ↓
-    Backend Service
-    ↓
-    Database
-    ↓
-    AI Service
-
-技术：
-
-    Node.js / Python
-    FastAPI
-    PostgreSQL
-    Redis
-    Vector Database
-
-> **现状对照**：1.x 可选本地 FastAPI 仅用于预览 `dist/`；无账户体系与持久化业务库。
+- **规则推荐**：关键词 → `ai_picker` 场景 → 工具 + 学习步骤  
+- **BM25 / Fuse 问答**：站内索引检索（非向量库）  
+- **工作流草稿**：浏览器 localStorage，可导出 JSON  
 
 ------------------------------------------------------------------------
 
-# 5. AI 能力架构
+# 6. Roadmap
 
-## 5.1 AI Agent
+## 已交付（2.0 / 2.1 静态切片）
 
-    User
-     ↓
-    AI Agent
-     ↓
-    Tool Router
-     ↓
-    Knowledge Base
-     ↓
-    LLM
-     ↓
-    Response
+- 新首页结构  
+- AI 工具中心（八类）  
+- 分类系统 + 搜索增强  
+- AI 推荐助手（文本 + 场景）  
+- 本地收藏  
+- AI Labs 薄版  
 
-支持：
+## 后续（需托管）
 
--   工具推荐
--   问答
--   学习规划
--   工作流生成
-
-------------------------------------------------------------------------
-
-## 5.2 RAG 知识库
-
-数据：
-
-    AI工具介绍
-    教程
-    新闻
-    论文
-    Github项目
-
-流程：
-
-    Documents
-     ↓
-    Embedding
-     ↓
-    Vector Database
-     ↓
-    Retriever
-     ↓
-    LLM
-
-推荐：
-
--   Chroma
--   Milvus
--   pgvector
-
-------------------------------------------------------------------------
-
-# 6. 数据结构
-
-## Tool
-
-```typescript
-interface Tool {
-  id: string;
-  name: string;
-  logo: string;
-  category: string[];
-  description: string;
-  rating: number;
-  url: string;
-  tags: string[];
-}
-```
-
-------------------------------------------------------------------------
-
-# 7. GitHub 项目结构
-
-目标单体/多包结构：
-
-    bio-ai-lab
-    ├── README.md
-    ├── docs
-    │   ├── architecture.md
-    │   ├── api.md
-    │   └── design.md
-    ├── frontend
-    ├── backend
-    ├── database
-    ├── ai
-    │   ├── agents
-    │   ├── rag
-    │   └── prompts
-    └── deploy
-        ├── docker
-        └── nginx
-
-> **现状对照**：当前仓库为单仓静态站（`src/` + `data/` + `scripts/`），2.0 拆分可渐进进行。
-
-------------------------------------------------------------------------
-
-# 8. 开发规范
-
-## Git 分支
-
-    main
-    develop
-    feature/*
-    bugfix/*
-
-## Commit规范
-
-格式：
-
-    type(scope): message
-
-示例：
-
-    feat(tool): add AI ranking
-    fix(ui): improve mobile layout
-    docs(readme): update docs
-
-------------------------------------------------------------------------
-
-# 9. Roadmap
-
-## Version 2.0
-
--   新首页
--   AI工具中心
--   分类系统
--   搜索
-
-## Version 2.1
-
--   AI推荐助手
--   收藏系统
--   用户账户
-
-## Version 3.0
-
-目标：
-
-    个人AI工作台
-    +
-    AI Agent
-    +
-    AI Workflow
-
-------------------------------------------------------------------------
-
-# 10. 未来愿景
-
-Bio AI Lab:
-
-不是：
-
-    AI工具列表
-
-而是：
-
-    每个人进入AI时代的入口
-
-    发现AI
-    学习AI
-    使用AI
-    创造AI
-
-------------------------------------------------------------------------
-
-# 与 1.x 能力映射（便于渐进迁移）
-
-| 2.0 模块 | 1.x 现状（可复用） |
-|----------|-------------------|
-| Hero / 搜索 / 热门工具 | 首页 Hero、站内搜索、工具卡片与推荐标签 |
-| AI Daily | 首页四栏简报（`HomeAiDaily`）+ `ai-news.json` / `daily-videos.json` |
-| 开源精选 | `oss-projects.json` + Star 刷新 |
-| 工具中心 | `data/tools.json`、分类卡片、独立工具页 |
-| AI 推荐助手 | 首页场景推荐（`HomeRecommend` + `site.ai_picker`）；完整对话助手仍属 2.1 |
-| RAG / Agent | 本地可选 BM25 `/api/ask`（非向量库） |
+- 云端账户  
+- 向量 RAG  
+- 可执行 Agent / 工作流引擎  
 
 ------------------------------------------------------------------------
 

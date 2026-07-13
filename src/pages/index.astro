@@ -1,9 +1,11 @@
 ---
 import HomeLayout from '../layouts/HomeLayout.astro';
 import ToolSection from '../components/ToolSection.astro';
+import CasesSection from '../components/CasesSection.astro';
 import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
+import HomeFavorites from '../components/HomeFavorites.astro';
 import {
   site, tools, buildHotToolCards,
 } from '../lib/data';
@@ -26,8 +28,8 @@ const recommendKind: Record<string, string> = {
   description={site.meta.description}
   canonical={site.meta.canonical}
   schema={schema}
-  scripts={['vendor/fuse.min.js', 'analytics.js', 'ux.js', 'app.js', 'lazy-sections.js']}
-  includeKnowledge={false}
+  scripts={['vendor/fuse.min.js', 'analytics.js', 'ux.js', 'app.js', 'recommend.js', 'favorites.js', 'lazy-sections.js']}
+  includeKnowledge={true}
 >
   <section id="section-home" class="section active">
     <div class="hero">
@@ -58,6 +60,7 @@ const recommendKind: Record<string, string> = {
     <main class="home-main">
       <HomeRecommend />
       <HomeAiDaily />
+      <HomeFavorites />
 
       <section class="home-section fade-in" id="home-tools">
         <div class="section-head">
@@ -162,13 +165,21 @@ const recommendKind: Record<string, string> = {
           <p class="section-desc">排行榜、选型对比、完整新闻与视频推荐</p>
         </div>
         <div class="community-links">
+          <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
+            <strong>AI 工具中心</strong>
+            <span>助手 · 编程 · 写作 · 图片 · Agent</span>
+          </a>
+          <a href={asset('labs/index.html')} class="community-card" data-track="home-community-labs">
+            <strong>AI Labs</strong>
+            <span>Prompt · 模型体验 · 工作流草稿</span>
+          </a>
           <a href={asset('ai-tools-ranking.html')} class="community-card" data-track="home-community-rank">
             <strong>2026 工具排行榜</strong>
             <span>综合能力 · 长文本 · 性价比 · 编程</span>
           </a>
-          <a href={asset('ai-tools-ranking.html')} class="community-card" data-track="home-community-compare">
-            <strong>工具选型对比</strong>
-            <span>场景、优势与定价一览</span>
+          <a href={asset('cases/index.html')} class="community-card" data-track="home-community-cases">
+            <strong>实战案例 & Prompt</strong>
+            <span>跟着任务流程掌握工具</span>
           </a>
           <button type="button" class="community-card" data-goto="news" data-track="home-community-news">
             <strong>本周 AI 热点</strong>
@@ -193,6 +204,8 @@ const recommendKind: Record<string, string> = {
   </section>
 
   {tools.map((tool) => <ToolSection tool={tool} />)}
+
+  <CasesSection />
 
   <section id="section-oss" class="section oss-section">
     <main>

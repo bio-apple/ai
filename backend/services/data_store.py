@@ -55,3 +55,7 @@ def load_search_index() -> list[dict]:
     path = runtime_path("search-index.json")
     data = _load_cached("search", path, [])
     return data if isinstance(data, list) else []
+
+
+def load_site() -> dict:
+    return _load_cached("site", DATA / "site.json", {})

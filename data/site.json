@@ -11,7 +11,7 @@
     "logo": {
       "icon": "✦",
       "brand": "Bio AI Lab",
-      "tagline": "工具 · 开源 · 新闻 · 视频"
+      "tagline": "发现 · 学习 · 构建"
     },
     "menu": [
       {
@@ -54,6 +54,21 @@
             "label": "Copilot"
           }
         ]
+      },
+      {
+        "type": "page",
+        "label": "工具中心",
+        "href": "tools/hub.html"
+      },
+      {
+        "type": "page",
+        "label": "AI Labs",
+        "href": "labs/index.html"
+      },
+      {
+        "type": "page",
+        "label": "案例",
+        "href": "cases/index.html"
       },
       {
         "type": "tab",
@@ -337,6 +352,23 @@
           "chatgpt",
           "claude",
           "kimi"
+        ],
+        "keywords": [
+          "写文章",
+          "写作",
+          "文案",
+          "翻译",
+          "博客",
+          "邮件",
+          "稿件"
+        ],
+        "guide": "guides/beginner.html",
+        "path_title": "零基础入门",
+        "steps": [
+          "学会基本对话与提示词",
+          "用 Claude / ChatGPT 起草与改写",
+          "长文档交给 Kimi",
+          "沉淀个人写作模板"
         ]
       },
       {
@@ -347,6 +379,26 @@
           "cursor",
           "copilot",
           "codex"
+        ],
+        "keywords": [
+          "写代码",
+          "编程",
+          "开发",
+          "网站",
+          "前端",
+          "后端",
+          "react",
+          "调试",
+          "cursor",
+          "代码"
+        ],
+        "guide": "guides/advanced.html",
+        "path_title": "进阶应用",
+        "steps": [
+          "HTML / CSS 基础",
+          "React 或现有技术栈",
+          "AI Coding（Cursor / Copilot）",
+          "部署上线"
         ]
       },
       {
@@ -357,6 +409,21 @@
           "chatgpt",
           "gemini",
           "doubao"
+        ],
+        "keywords": [
+          "ppt",
+          "幻灯片",
+          "演示",
+          "汇报",
+          "presentation"
+        ],
+        "guide": "guides/beginner.html",
+        "path_title": "零基础入门",
+        "steps": [
+          "用对话 AI 生成大纲",
+          "润色讲稿与视觉建议",
+          "导出到 PPT / 文档",
+          "彩排与压缩时长"
         ]
       },
       {
@@ -367,6 +434,22 @@
           "gemini",
           "doubao",
           "chatgpt"
+        ],
+        "keywords": [
+          "视频",
+          "短视频",
+          "脚本",
+          "剪辑",
+          "漫剧",
+          "字幕"
+        ],
+        "guide": "guides/beginner.html",
+        "path_title": "零基础入门",
+        "steps": [
+          "写脚本与分镜",
+          "用多模态工具出图/出片",
+          "剪辑与字幕",
+          "发布复盘"
         ]
       },
       {
@@ -377,6 +460,23 @@
           "chatgpt",
           "claude",
           "qwen"
+        ],
+        "keywords": [
+          "数据",
+          "分析",
+          "表格",
+          "excel",
+          "报表",
+          "sql",
+          "图表"
+        ],
+        "guide": "guides/advanced.html",
+        "path_title": "进阶应用",
+        "steps": [
+          "理清分析问题",
+          "清洗与探索数据",
+          "让 AI 生成图表解读",
+          "写成可交付报告"
         ]
       }
     ]
@@ -672,5 +772,170 @@
   "footer": {
     "text": "Bio AI Lab · Discover. Learn. Create with AI.",
     "github": "https://github.com/bio-apple/ai"
+  },
+  "recommend_fallback": {
+    "tools": [
+      "chatgpt",
+      "claude",
+      "cursor"
+    ],
+    "guide": "guides/beginner.html",
+    "path_title": "零基础入门",
+    "steps": [
+      "先描述你的目标与约束",
+      "选一个主力工具深入",
+      "用案例与 Prompt 库练手",
+      "沉淀可复用工作流"
+    ]
+  },
+  "tool_urls": {
+    "chatgpt": "https://chatgpt.com",
+    "claude": "https://claude.ai",
+    "gemini": "https://gemini.google.com",
+    "deepseek": "https://chat.deepseek.com",
+    "kimi": "https://kimi.moonshot.cn",
+    "qwen": "https://tongyi.aliyun.com",
+    "doubao": "https://www.doubao.com",
+    "cursor": "https://cursor.com",
+    "codex": "https://chatgpt.com/codex",
+    "copilot": "https://github.com/features/copilot"
+  },
+  "tool_hub": [
+    {
+      "id": "assistant",
+      "label": "AI 助手",
+      "description": "通用对话、问答与多模态助手",
+      "tools": [
+        "chatgpt",
+        "claude",
+        "gemini",
+        "deepseek",
+        "kimi",
+        "qwen",
+        "doubao"
+      ]
+    },
+    {
+      "id": "coding",
+      "label": "AI 编程",
+      "description": "IDE、补全与编程代理",
+      "tools": [
+        "cursor",
+        "copilot",
+        "codex",
+        "claude",
+        "deepseek"
+      ]
+    },
+    {
+      "id": "writing",
+      "label": "AI 写作",
+      "description": "文章、文案、翻译与长文档",
+      "tools": [
+        "chatgpt",
+        "claude",
+        "kimi",
+        "qwen"
+      ]
+    },
+    {
+      "id": "image",
+      "label": "AI 图片",
+      "description": "文生图与视觉创作",
+      "tools": [
+        "chatgpt",
+        "gemini",
+        "doubao"
+      ],
+      "external": [
+        {
+          "name": "Midjourney",
+          "url": "https://www.midjourney.com",
+          "note": "社区文生图"
+        },
+        {
+          "name": "Stable Diffusion WebUI",
+          "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+          "note": "开源绘画"
+        }
+      ]
+    },
+    {
+      "id": "video",
+      "label": "AI 视频",
+      "description": "脚本、生成与剪辑辅助",
+      "tools": [
+        "gemini",
+        "doubao",
+        "chatgpt"
+      ],
+      "external": [
+        {
+          "name": "Runway",
+          "url": "https://runwayml.com",
+          "note": "生成式视频"
+        }
+      ]
+    },
+    {
+      "id": "audio",
+      "label": "AI 音频",
+      "description": "语音、配音与转写",
+      "tools": [
+        "chatgpt",
+        "doubao",
+        "qwen"
+      ],
+      "external": [
+        {
+          "name": "ElevenLabs",
+          "url": "https://elevenlabs.io",
+          "note": "语音合成"
+        }
+      ]
+    },
+    {
+      "id": "office",
+      "label": "AI 办公",
+      "description": "文档、表格与会议效率",
+      "tools": [
+        "copilot",
+        "chatgpt",
+        "gemini",
+        "kimi"
+      ]
+    },
+    {
+      "id": "agent",
+      "label": "AI Agent",
+      "description": "多步任务、工具调用与工作流",
+      "tools": [
+        "cursor",
+        "codex",
+        "claude"
+      ],
+      "external": [
+        {
+          "name": "Dify",
+          "url": "https://github.com/langgenius/dify",
+          "note": "开源 LLM 应用平台"
+        },
+        {
+          "name": "扣子 Coze",
+          "url": "https://www.coze.cn",
+          "note": "无代码 Agent"
+        }
+      ]
+    }
+  ],
+  "labs_page": {
+    "title": "AI Labs | Bio AI Lab",
+    "h1": "AI Labs",
+    "lead": "Prompt 实验、模型体验入口与个人工作流草稿——在浏览器里动手试。"
+  },
+  "tools_hub_page": {
+    "title": "AI 工具中心 | Bio AI Lab",
+    "h1": "AI 工具中心",
+    "lead": "按助手、编程、写作、图片、视频、音频、办公与 Agent 分类发现工具。"
   }
 }

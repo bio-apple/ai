@@ -8,6 +8,7 @@ from pydantic import BaseModel, Field
 from backend.services.data_store import (
     load_daily_videos,
     load_prompts_runtime,
+    load_site,
     load_tools,
     load_tutorials_runtime,
 )
@@ -77,6 +78,42 @@ def api_ask(body: AskRequest) -> dict[str, Any]:
     if not query:
         raise HTTPException(400, "query 不能为空")
     return get_knowledge_index().answer(query, limit=body.limit)
+
+
+class RecommendRequest(BaseModel):
+    query: str = Field(..., min_length=1, max_length=500)
+
+
+@router.post("/recommend")
+def api_recommend(body: RecommendRequest) -> dict[str, Any]:
+    """基于 site.ai_picker 关键词规则的工具推荐（无 LLM）。"""
+    query = body.query.strip().lower()
+    site = load_site()
+    options = (site.get("ai_picker") or {}).get("options") or []
+    fallback = site.get("recommend_fallback") or {}
+    best = None
+    best_score = 0
+    for opt in options:
+        keys = list(opt.get("keywords") or []) + [opt.get("label") or "", opt.get("id") or ""]
+        score = 0
+        for k in keys:
+            key = str(k).lower()
+            if key and (key in query or query in key):
+                score += len(key)
+        if score > best_score:
+            best_score = score
+            best = opt
+    chosen = best if best_score > 0 else None
+    tools = (chosen or {}).get("tools") or fallback.get("tools") or []
+    return {
+        "query": body.query.strip(),
+        "matched": (chosen or {}).get("id"),
+        "label": (chosen or {}).get("label") or "通用推荐",
+        "tools": tools[:5],
+        "path_title": (chosen or {}).get("path_title") or fallback.get("path_title"),
+        "steps": (chosen or {}).get("steps") or fallback.get("steps") or [],
+        "guide": (chosen or {}).get("guide") or fallback.get("guide"),
+    }
 
 
 @router.get("/search")

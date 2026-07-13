@@ -4,17 +4,43 @@ import { asset } from '../lib/paths';
 
 const picker = site.ai_picker;
 const lookup = toolLookup();
+const toolsMeta = Object.fromEntries(
+  Object.entries(lookup).map(([id, t]) => [
+    id,
+    { name: (t as { name?: string }).name || id, tagline: (t as { tagline?: string }).tagline || '' },
+  ]),
+);
+const recommendConfig = {
+  options: picker.options,
+  fallback: site.recommend_fallback,
+  tools: toolsMeta,
+};
 ---
 <section class="home-section fade-in" id="home-recommend">
   <div class="section-head">
     <p class="section-kicker">AI 推荐助手</p>
     <h2 class="section-title">{picker.title}</h2>
-    <p class="section-desc">选择场景，立即看到推荐工具与学习入口</p>
+    <p class="section-desc">描述需求或点选场景，立即得到工具与学习路线</p>
   </div>
+
+  <form class="recommend-query" id="recommend-form">
+    <label class="visually-hidden" for="recommend-input">描述你想用 AI 做什么</label>
+    <input
+      type="search"
+      id="recommend-input"
+      class="recommend-input"
+      placeholder="例如：我想开发一个网站 / 写调研报告 / 做短视频脚本"
+      maxlength="200"
+      autocomplete="off"
+    />
+    <button type="submit" class="cta-btn" data-track="recommend-submit">获取推荐</button>
+  </form>
+
+  <div class="recommend-result" id="recommend-result" hidden></div>
 
   <div class="recommend-grid" id="recommend-grid">
     {picker.options.map((opt) => (
-      <details class="recommend-card">
+      <details class="recommend-card" data-picker={opt.id}>
         <summary>
           <span class="recommend-card-label">{opt.label}</span>
           <span class="recommend-card-hint">查看推荐</span>
@@ -37,9 +63,17 @@ const lookup = toolLookup();
               );
             })}
           </ul>
+          {(opt.steps || []).length > 0 && (
+            <>
+              <p class="recommend-card-lead">{opt.path_title || '学习路线'}</p>
+              <ol class="recommend-path-steps">
+                {opt.steps.map((s) => <li>{s}</li>)}
+              </ol>
+            </>
+          )}
           <div class="recommend-links">
             <a
-              href={asset(opt.id === 'coding' ? 'guides/advanced.html' : 'guides/beginner.html')}
+              href={asset(opt.guide || (opt.id === 'coding' ? 'guides/advanced.html' : 'guides/beginner.html'))}
               class="recommend-link"
               data-track={`recommend-guide-${opt.id}`}
             >
@@ -50,4 +84,6 @@ const lookup = toolLookup();
       </details>
     ))}
   </div>
+
+  <script type="application/json" id="recommend-config" set:html={JSON.stringify(recommendConfig)} />
 </section>

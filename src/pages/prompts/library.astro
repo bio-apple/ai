@@ -2,7 +2,7 @@
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import { site, promptsMeta } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
-import { homeHref } from '../../lib/paths';
+import { homeHref, asset } from '../../lib/paths';
 
 const page = site.prompts_page;
 const base = site.meta.base_url;
@@ -33,8 +33,8 @@ const home = homeHref();
       <p class="loading-hint">加载 Prompt 库…</p>
     </div>
     <div class="standalone-cta">
-      <a href={homeHref('#section-prompts')} class="cta-btn">返回站内 Prompt 库</a>
-      <a href={homeHref('#section-cases')} class="cta-btn cta-btn-outline">查看实战案例</a>
+      <a href={asset('cases/index.html')} class="cta-btn">实战案例库</a>
+      <a href={homeHref('#section-cases')} class="cta-btn cta-btn-outline">站内案例区</a>
     </div>
   </main>
 </StandaloneLayout>

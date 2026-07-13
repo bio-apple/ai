@@ -51,7 +51,7 @@
 **设计原则**
 
 - **内容源**在 `data/*.json`；**页面模板**在 `src/`（Astro 组件化）。
-- `npm run build`（`prebuild` → `astro build`）生成 `dist/`，含 21 个 HTML + JSON 索引。
+- `npm run build`（`prebuild` → `astro build`）生成 `dist/`，含首页、工具页、Labs、工具中心等 HTML + JSON 索引。
 - 10 个 AI 工具详情页由 `src/pages/tools/[id].astro` + `getStaticPaths` **自动生成**。
 - 生产环境以 **GitHub Pages** 部署 `dist/`；`backend/` 本地预览挂载 **`/ai/`**（与 Astro `base` 一致），`/` 重定向到 `/ai/`。
 - **每日视频**通过 `daily-videos.json` + `daily-videos.yml` 定时写入（六类推荐）。
@@ -179,7 +179,7 @@ npm run test:e2e
 - 对比专题页、对比指南
 - 每日视频、每周新闻、开源精选、排行榜
 
-> Prompt / 案例 / 创作 / 学习路线 **不再写入主搜索索引**（构建仍可能生成 `prompts.json` / `tutorials.json` 供遗留 API，但不作为站内搜索入口）。
+> Prompt / 案例 / 学习路线 / Labs / 工具中心 **已写入**主搜索索引（`build-artifacts.mjs`）。
 
 `app.js` 启动时 `fetch('search-index.json')`，**不要手写**搜索条目。
 
@@ -665,6 +665,7 @@ watch_sources: [...]     # 官方博客 + X 账号
 | `GET /api/tutorials` | 教程索引 |
 | `GET /api/videos` | 最新视频批次 |
 | `POST /api/ask` | 知识库问答（BM25） |
+| `POST /api/recommend` | 基于 `ai_picker` 关键词的工具推荐 |
 | `GET /api/search?q=` | 关键词检索 |
 
 ### 纳入版本控制

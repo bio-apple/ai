@@ -90,6 +90,8 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
   if (typeof window.updatePageToc === 'function') window.updatePageToc(id);
 }
 
+window.showSection = showSection;
+
 function resolveGoto(target) {
   if (target === 'cases' || target === 'videos' || target === 'news' || target === 'create' || target === 'prompts' || target === 'oss') {
     return `section-${target}`;
@@ -130,7 +132,14 @@ document.querySelectorAll('.tool-card-btn[data-tool]').forEach(btn => {
 });
 
 document.querySelectorAll('[data-goto]').forEach(btn => {
-  btn.addEventListener('click', () => showSection(resolveGoto(btn.dataset.goto)));
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.goto;
+    if (target === 'prompts') {
+      window.location.href = 'prompts/library.html';
+      return;
+    }
+    showSection(resolveGoto(target));
+  });
 });
 
 function initNavDropdowns() {
