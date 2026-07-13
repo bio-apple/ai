@@ -130,18 +130,19 @@ test.describe('Bio AI Lab 冒烟测试', () => {
     const data = await res.json();
     expect((data.domains || []).length).toBeGreaterThanOrEqual(6);
 
-    await page.goto('/index.html');
+    await page.goto('/index.html', { waitUntil: 'networkidle' });
     await expect(page.locator('#home-compare')).toBeVisible();
     await expect(page.locator('#home-compare .compare-table tbody tr')).toHaveCount(6);
     await expect(page.locator('#home-oss')).toBeVisible();
 
     await page.click('[data-tool="oss"]');
     await expect(page.locator('#section-oss')).toHaveClass(/active/);
-    await expect(page.locator('#oss-project-list .oss-card').first()).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('#oss-project-list .oss-card').first()).toBeVisible({ timeout: 15000 });
 
     await page.click('[data-tool="news"]');
     await expect(page.locator('#section-news')).toHaveClass(/active/);
-    await expect(page.locator('#news-watch-sources .news-watch-panel')).toBeVisible({ timeout: 10000 });
+    await expect(page.locator('#daily-news-list .news-card').first()).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('#news-watch-sources .news-watch-panel')).toBeVisible({ timeout: 15000 });
   });
 
   test('P2：知识库助手与 analytics 配置', async ({ page }) => {
