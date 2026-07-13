@@ -59,7 +59,8 @@ search_sources:
     min_subscribers: 0
 
 search_per_query: 20
-max_detail_checks: 320
+# YouTube 无发布时间时会消耗 detail 配额；过低会导致 B 站分类被饿死
+max_detail_checks: 640
 
 search_queries:
   - "ChatGPT tutorial 2026"
