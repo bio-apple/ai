@@ -85,42 +85,14 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     items.push({ label: `${t.name} 教程`, section: t.section_id, keywords: kw });
     items.push({ label: `${t.name} 独立页`, url: `tools/${t.id}.html`, keywords: kw });
   }
-  for (const [idx, c] of (cases.cases || []).entries()) {
-    const kw = [c.tool, c.title, c.summary, ...(c.scenarios || [])].filter(Boolean).join(' ');
-    const anchor = `case-${idx + 1}`;
-    items.push({ label: c.title, section: 'section-cases', keywords: kw, anchor, type: '实战案例' });
-    for (const step of c.steps || []) {
-      for (const block of step.blocks || []) {
-        if (block.type !== 'prompt') continue;
-        const promptKw = [c.tool, c.title, (block.content || '').slice(0, 180), 'prompt 提示词'].filter(Boolean).join(' ');
-        items.push({ label: `Prompt · ${c.title}`, section: 'section-cases', keywords: promptKw, anchor, type: 'Prompt' });
-      }
-    }
-  }
-  items.push({ label: 'Prompt 提示词库', section: 'section-prompts', keywords: 'prompt 提示词 模板 写作 编程 科研 办公 市场', type: 'Prompt' });
-  items.push({ label: 'AI 实战案例库', url: 'cases/index.html', keywords: '实战 案例 教程 步骤', type: '案例' });
-  items.push({ label: 'Prompt 归档页', url: 'prompts/library.html', keywords: 'prompt 提示词 模板', type: 'Prompt' });
-  for (const prompt of promptsPayload.prompts || []) {
-    items.push({
-      label: `Prompt · ${prompt.case_title}`,
-      section: 'section-prompts',
-      keywords: [prompt.tool, prompt.case_title, (prompt.content || '').slice(0, 160), prompt.category, 'prompt'].filter(Boolean).join(' '),
-      anchor: prompt.id,
-      type: 'Prompt',
-    });
-  }
-  items.push({ label: '实战案例库', section: 'section-cases', keywords: '实战 案例 教程 步骤', type: '案例' });
-  items.push({ label: '每日视频', section: 'section-videos', keywords: '视频 youtube bilibili 教程 每日 Top10 30天 24小时' });
-  items.push({ label: 'AI 新闻', section: 'section-news', keywords: 'AI新闻 OpenAI Anthropic DeepMind arXiv GitHub Trending 机器之心 量子位 每周' });
+  // 主路径仅四块：工具 / 开源 / 新闻 / 视频（+ 排行对比）；不再索引 Prompt/案例/创作/学习路线
+  void cases;
+  void promptsPayload;
+  items.push({ label: '每日视频', section: 'section-videos', keywords: '视频 youtube bilibili 教程 每日 Top10 30天 24小时 六类' });
+  items.push({ label: 'AI 新闻', section: 'section-news', keywords: 'AI新闻 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace arXiv GitHub Trending 机器之心 量子位 新智元 智源 每周' });
   items.push({ label: 'GitHub 开源精选', section: 'section-oss', keywords: '开源 GitHub Stars Agent LLM 本地大模型 AI绘画 多模态 机器学习框架' });
-  items.push({ label: 'AI 创作', section: 'section-create', keywords: '创作 绘图 视频 写作' });
   items.push({ label: 'AI 工具排行榜', url: 'ai-tools-ranking.html', keywords: '排行榜 ranking ChatGPT Claude Cursor DeepSeek' });
-  items.push({ label: 'AI 学习路线', url: 'ai-learning-roadmap.html', keywords: '学习路线 roadmap 入门 进阶' });
   items.push({ label: '本周 AI 热点', url: 'news/daily-ai-news.html', keywords: 'AI新闻 热点 OpenAI Anthropic arXiv 每周' });
-  for (const slug of ['beginner', 'advanced']) {
-    const guide = site.guides?.[slug];
-    if (guide) items.push({ label: guide.h1 || slug, url: `guides/${slug}.html`, keywords: guide.lead || slug });
-  }
   for (const cmp of compares) {
     items.push({ label: cmp.h1 || cmp.title, url: `compare/${cmp.slug}.html`, keywords: cmp.search_keywords || cmp.title });
   }

@@ -707,6 +707,7 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 1.8 | Phase 3.5：智源社区聚合；CI 九步分步校验 + 链接越界检测；API 优先读 `dist/`；Playwright E2E 扩展至 17 项 |
 | 1.9 | Pages 与 E2E 解耦；FastAPI `/ai/` 基路径；`paths.ts` 统一链接；首页脚本懒加载；JSON 默认缓存；data_store mtime；Docker 多阶段 build |
 | 1.10 | 运维探针与抓取失败开 Issue；E2E 非阻塞；Dependabot；钉依赖；OG 压缩；PR dist artifact |
+| 1.11 | 主路径精简为工具/开源/新闻/视频四块；导航与搜索入口对齐清单 |
 
 ---
 

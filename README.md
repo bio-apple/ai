@@ -1,8 +1,6 @@
 # Bio AI Lab
 
-**AI 学习与工具导航平台** — 国内国际热门 AI 工具分类、排行对比、开源精选与每周资讯。
-
-Discover, learn, and create with AI — covering ChatGPT, Claude, Gemini, DeepSeek, Kimi, Cursor, Copilot, and more.
+**AI 工具 · 开源 · 新闻 · 视频** — 国内国际热门工具分类/排行/对比、GitHub Stars 六领域、每周资讯与六类每日视频。
 
 **Website:** https://bio-apple.github.io/ai/
 
@@ -12,9 +10,9 @@ Discover, learn, and create with AI — covering ChatGPT, Claude, Gemini, DeepSe
 
 ## Screenshot
 
-| 首页 Hero | 工具卡片 | 学习流程 |
-|-----------|----------|----------|
-| ![首页](og-image.png) | 国内/国际热门工具 + 排行对比 | [AI 学习路线](https://bio-apple.github.io/ai/ai-learning-roadmap.html) |
+| 首页 Hero | 工具与排行 | 视频 / 开源 / 新闻 |
+|-----------|------------|-------------------|
+| ![首页](og-image.jpg) | 国内国际分类 + 排行对比 | 六类视频 · Stars · 每周热点 |
 
 > 线上预览：[https://bio-apple.github.io/ai/](https://bio-apple.github.io/ai/)
 
@@ -22,17 +20,15 @@ Discover, learn, and create with AI — covering ChatGPT, Claude, Gemini, DeepSe
 
 | 功能 | 支持 |
 |------|------|
-| 国内/国际 AI 工具导航与分类 | ✅ |
-| 工具排行榜与选型对比表 | ✅ |
-| 使用教程与实战案例 | ✅ |
-| AI 学习路线与选择助手 | ✅ |
-| GitHub Stars 开源精选（6 大领域） | ✅ |
-| 每周 AI 新闻（官方 RSS + arXiv + Trending） | ✅ |
-| Prompt 提示词库 | ✅ |
-| AI 创作工具区 | ✅ |
-| 每日六类视频推荐（YouTube + B站） | ✅ |
-| 站内搜索（Fuse.js）+ 知识库问答 | ✅ |
-| Astro SSG 构建 + GitHub Pages 自动部署 | ✅ |
+| 国内/国际 AI 工具分类、排行与对比 | ✅ |
+| 工具详情教程页 | ✅ |
+| GitHub Stars 开源精选（6 大领域，每领域 ≥1） | ✅ |
+| 每周 AI 新闻（清单信源 + 关注面板） | ✅ |
+| 每日六类视频（YouTube + B站 Top/30d/24h） | ✅ |
+| 站内搜索（Fuse.js） | ✅ |
+| Astro SSG + GitHub Pages | ✅ |
+
+> Prompt 库 / 案例库 / 学习路线等旧页若仍存在于仓库，**已不进入主导航与首页**（遗留 SEO 页）。
 
 ## 涵盖工具
 
@@ -80,39 +76,31 @@ Discover, learn, and create with AI — covering ChatGPT, Claude, Gemini, DeepSe
 
 北京时间每周一 6:00 自动汇总：
 
-- **公司动态**：OpenAI、Anthropic、Google DeepMind、Google AI、NVIDIA、Microsoft（RSS / 官网抓取）
-- **中文媒体**：智源社区聚合（新智元、量子位）、量子位 RSS
-- **关注面板**：Meta AI、Hugging Face、机器之心（博客 + X，暂无稳定 RSS）
+- **公司动态**：OpenAI、Anthropic、Google DeepMind、Google AI、NVIDIA、Microsoft（RSS / 官网）
+- **中文媒体**：智源社区聚合、量子位 RSS；关注面板含机器之心、新智元
+- **关注面板**：Meta AI、Hugging Face 等（博客 + X）
 - **技术源**：GitHub Trending、arXiv（cs.AI / cs.LG / cs.CL / cs.CV）
 
 ## 页面结构
 
 ```
-首页（SPA 多 Tab）
-├── Hero 首屏 + 站内搜索
-├── 热门 AI 工具（国内/国际分类）
-├── AI 能力分类
-├── AI 工具排行榜
-├── AI 工具选型对比表
-├── AI 学习路线
-├── GitHub Stars 开源精选
-├── 本周 AI 热点
-├── AI 选择助手
-├── 精选教程与视频
-├── AI 创作 / 教程 / Prompt库
-├── 开源精选（完整列表）
-├── AI 新闻 + 持续关注源
-└── 每日六类视频推荐
+首页
+├── Hero + 站内搜索
+├── 热门工具 + 分类 + 排行 + 对比
+├── GitHub Stars 开源预览（六领域）
+├── 本周 AI 热点预览（每周）
+└── 每日六类视频预览
 
-独立 SEO 页
-├── /tools/{tool}.html        （10 个工具，自动生成）
+Tab / 分区
+├── 各工具详情教程
+├── 开源精选完整列表
+├── AI 新闻 + 持续关注源
+└── 六类视频完整列表
+
+独立页（主推）
+├── /tools/{tool}.html
 ├── /ai-tools-ranking.html
-├── /ai-learning-roadmap.html
-├── /guides/beginner.html
-├── /guides/advanced.html
 ├── /news/daily-ai-news.html
-├── /prompts/library.html
-├── /cases/index.html
 └── /compare/*.html
 ```
 
@@ -201,6 +189,7 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 | Phase 3.6 | Pages/E2E 解耦、`/ai` 本地对齐、资源路径统一、懒加载与缓存 | ✅ 已完成 |
 | Phase 3.7 | 运维健康探针、抓取告警、Dependabot、CI 信号治理 | ✅ 已完成 |
 | Phase 3.8 | 首页瘦身 + 新闻/开源/视频预览 SSG 内联 | ✅ 已完成 |
+| Phase 3.9 | 主路径精简为工具/开源/新闻/视频四块 | ✅ 已完成 |
 | Phase 4 | 用户收藏、搜索增强 | 🔜 规划中 |
 
 ## License

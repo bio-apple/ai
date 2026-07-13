@@ -1,5 +1,5 @@
 /**
- * 按 Tab section 懒加载业务脚本。首页预览已由 Astro SSG 内联，无需为 section-home 拉 JSON。
+ * 按 Tab section 懒加载业务脚本。首页四块预览已 SSG 内联。
  */
 (function () {
   const base = (document.documentElement.dataset.base || '/ai/').replace(/\/?$/, '/');
@@ -9,7 +9,6 @@
     'section-videos': ['videos.js'],
     'section-news': ['news.js'],
     'section-oss': ['oss.js'],
-    'section-prompts': ['prompts.js'],
   };
 
   function ensureScript(name) {

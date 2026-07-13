@@ -49,9 +49,6 @@ feeds:
     url: https://hub.baai.ac.cn/
     category: 中文资讯
     max_items: 6
-  - source: MIT Tech Review
-    url: https://www.technologyreview.com/feed/
-    category: 行业新闻
 
 github_trending:
   enabled: true

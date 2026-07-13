@@ -1,11 +1,12 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('Bio AI Lab 冒烟测试', () => {
-  test('首页加载与 Hero', async ({ page }) => {
+  test('首页四块：工具 · 开源 · 新闻 · 视频', async ({ page }) => {
     await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('掌握 AI');
     await expect(page.locator('#section-home .tool-cards-hot .tool-card-v2')).toHaveCount(6, { timeout: 10000 });
-    await expect(page.locator('.ai-picker-option')).toHaveCount(5);
+    await expect(page.locator('#home-categories .tool-card-v2').first()).toBeVisible();
+    await expect(page.locator('#home-compare .compare-table tbody tr')).toHaveCount(6);
     await expect(page.locator('#home-news .news-card').first()).toBeVisible({ timeout: 5000 });
     await expect(page.locator('#home-oss .oss-card').first()).toBeVisible({ timeout: 5000 });
     await expect(page.locator('#home-video-preview .video-card').first()).toBeVisible({ timeout: 5000 });
@@ -25,8 +26,8 @@ test.describe('Bio AI Lab 冒烟测试', () => {
     expect(data.length).toBeGreaterThan(10);
     await page.fill('#site-search', 'Cursor');
     await expect(page.locator('.search-hit').first()).toBeVisible();
-    await page.fill('#site-search', 'Prompt');
-    await expect(page.locator('.search-hit').first()).toContainText(/Prompt|案例/i);
+    await page.fill('#site-search', '开源');
+    await expect(page.locator('.search-hit').first()).toBeVisible();
   });
 
   test('P0 UX：主题切换与返回顶部', async ({ page }) => {
@@ -65,58 +66,21 @@ test.describe('Bio AI Lab 冒烟测试', () => {
     await expect(page.locator('#daily-news-list .news-card').first()).toBeVisible({ timeout: 10000 });
   });
 
-  test('提示词复制按钮存在', async ({ page }) => {
-    await page.goto('/index.html#section-cases');
-    await page.locator('.case-header').first().click();
-    await expect(page.locator('.prompt-block').first()).toBeVisible();
-  });
-
   test('独立工具页可访问', async ({ page }) => {
     await page.goto('/tools/cursor.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('Cursor');
     await expect(page.locator('.logo-brand')).toContainText('Bio AI Lab');
   });
 
-  test('排行榜与学习路线 SEO 页', async ({ page }) => {
+  test('排行榜 SEO 页', async ({ page }) => {
     await page.goto('/ai-tools-ranking.html');
     await expect(page.locator('h1')).toContainText('排行榜');
-    await page.goto('/ai-learning-roadmap.html');
-    await expect(page.locator('h1')).toContainText('学习路线');
   });
 
-  test('指南与新闻独立页', async ({ page }) => {
-    await page.goto('/guides/beginner.html');
-    await expect(page.locator('h1')).toContainText('入门');
+  test('新闻独立页', async ({ page }) => {
     await page.goto('/news/daily-ai-news.html');
     await expect(page.locator('h1')).toContainText('热点');
     await expect(page.locator('#daily-news-list .news-card').first()).toBeVisible({ timeout: 10000 });
-  });
-
-  test('AI 选择助手交互', async ({ page }) => {
-    await page.goto('/index.html');
-    await page.click('.ai-picker-option[data-picker="coding"]');
-    await expect(page.locator('.ai-picker-tool-group[data-picker-result="coding"]')).toHaveClass(/active/);
-    await expect(page.locator('.ai-picker-tool-group[data-picker-result="coding"] .ai-picker-tool')).toHaveCount(3);
-  });
-
-  test('Prompt 库与数据', async ({ page }) => {
-    const res = await page.request.get('/prompts.json');
-    expect(res.ok()).toBeTruthy();
-    const data = await res.json();
-    expect((data.prompts || []).length).toBeGreaterThan(5);
-    await page.goto('/index.html#section-prompts');
-    await expect(page.locator('#section-prompts')).toHaveClass(/active/);
-    await expect(page.locator('#prompts-list .prompt-card').first()).toBeVisible({ timeout: 10000 });
-    await page.locator('#prompts-toolbar [data-prompt-cat="coding"]').click();
-    await expect(page.locator('#prompts-list .prompt-card').first()).toBeVisible();
-  });
-
-  test('案例库与教程索引', async ({ page }) => {
-    const res = await page.request.get('/tutorials.json');
-    expect(res.ok()).toBeTruthy();
-    await page.goto('/cases/index.html');
-    await expect(page.locator('h1')).toContainText('案例');
-    await expect(page.locator('.case-library-card').first()).toBeVisible();
   });
 
   test('视频筛选工具栏', async ({ page }) => {
@@ -134,8 +98,7 @@ test.describe('Bio AI Lab 冒烟测试', () => {
 
     await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#home-compare')).toBeVisible();
-    await expect(page.locator('#home-compare .compare-table tbody tr')).toHaveCount(6);
-    await expect(page.locator('#home-oss')).toBeVisible({ timeout: 15000 });
+    await expect(page.locator('#home-oss')).toBeVisible();
 
     await page.click('[data-tool="oss"]');
     await expect(page.locator('#section-oss')).toHaveClass(/active/);
@@ -147,19 +110,12 @@ test.describe('Bio AI Lab 冒烟测试', () => {
     await expect(page.locator('#news-watch-sources .news-watch-panel')).toBeVisible({ timeout: 15000 });
   });
 
-  test('P2：知识库助手与 analytics 配置', async ({ page }) => {
+  test('analytics 配置可访问', async ({ page }) => {
     const cfg = await page.request.get('/analytics-config.json');
     expect(cfg.ok()).toBeTruthy();
     const analytics = await cfg.json();
     expect(analytics).toHaveProperty('track_engagement');
-
     await page.goto('/index.html');
-    await expect(page.locator('#knowledge-fab')).toBeVisible();
-    await page.click('#knowledge-fab');
-    await expect(page.locator('#knowledge-panel')).toHaveClass(/open/);
-    await page.fill('#knowledge-input', 'Cursor');
-    await page.click('#knowledge-submit');
-    await expect(page.locator('.knowledge-msg.user').last()).toContainText('Cursor');
-    await expect(page.locator('.knowledge-msg.bot').last()).toBeVisible();
+    await expect(page.locator('#knowledge-fab')).toHaveCount(0);
   });
 });

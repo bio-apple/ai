@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Bio AI Lab | ChatGPT/Cursor/DeepSeek 教程 2026 — AI 学习与工具导航",
-    "description": "Bio AI Lab 是集 AI 工具导航、分类排行、选型对比、开源精选、AI 学习与每周资讯于一体的中文平台：ChatGPT、Claude、Cursor、DeepSeek 等工具教程与 GitHub Stars 开源项目榜。",
-    "keywords": "Bio AI Lab,AI教程,ChatGPT教程,Cursor教程,DeepSeek,AI新闻,AI实战,AI工具排行",
+    "title": "Bio AI Lab | AI 工具 · 开源 · 新闻 · 视频",
+    "description": "Bio AI Lab：国内国际热门 AI 工具分类/排行/对比、GitHub Stars 六领域开源精选、每周 AI 新闻，以及 YouTube/B站六类每日视频推荐。",
+    "keywords": "Bio AI Lab,AI工具,AI排行,GitHub Stars,AI新闻,AI视频,ChatGPT,Cursor,DeepSeek",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
     "base_url": "https://bio-apple.github.io/ai/"
@@ -11,7 +11,7 @@
     "logo": {
       "icon": "✦",
       "brand": "Bio AI Lab",
-      "tagline": "AI 学习与工具导航中心"
+      "tagline": "工具 · 开源 · 新闻 · 视频"
     },
     "menu": [
       {
@@ -57,21 +57,6 @@
       },
       {
         "type": "tab",
-        "id": "create",
-        "label": "AI 创作"
-      },
-      {
-        "type": "tab",
-        "id": "cases",
-        "label": "AI 教程"
-      },
-      {
-        "type": "tab",
-        "id": "prompts",
-        "label": "Prompt库"
-      },
-      {
-        "type": "tab",
         "id": "oss",
         "label": "开源精选"
       },
@@ -90,16 +75,16 @@
   "hero": {
     "eyebrow": "AI",
     "title": "掌握 AI，让效率提升 10 倍",
-    "subtitle": "国内国际热门 AI 工具分类、排行对比与 GitHub 开源精选",
+    "subtitle": "热门工具分类排行 · GitHub 开源精选 · 每周新闻 · 六类每日视频",
     "cta_primary": {
-      "label": "开始学习 AI",
-      "goto": "cases"
+      "label": "浏览热门工具",
+      "goto": "chatgpt"
     },
     "cta_secondary": {
       "label": "查看 AI 工具排行",
       "href": "ai-tools-ranking.html"
     },
-    "search_placeholder": "搜索工具、案例或教程…"
+    "search_placeholder": "搜索工具、开源、新闻、视频…"
   },
   "hot_tools": [
     "chatgpt",

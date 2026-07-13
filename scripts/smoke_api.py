@@ -41,7 +41,7 @@ def main() -> int:
     assert isinstance(body.get("sources"), list)
     print("✓ /api/ask")
 
-    search = client.get("/api/search?q=Prompt")
+    search = client.get("/api/search?q=Cursor")
     assert search.status_code == 200, search.text
     assert search.json()["count"] >= 1, search.text
     print("✓ /api/search")
