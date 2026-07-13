@@ -13,21 +13,21 @@ const toolLookup = Object.fromEntries(
   <div class="section-head section-head-row">
     <div>
       <p class="section-kicker">AI Daily</p>
-      <h2 class="section-title">今日 AI 简报</h2>
-      <p class="section-desc">模型动态 · GitHub 热门 · 行业资讯 · 学习推荐</p>
+      <h2 class="section-title">AI 简报</h2>
+      <p class="section-desc">视频日更 · 资讯周更 · 开源与学习入口一屏汇总</p>
     </div>
     {brief.updatedAt && (
-      <p class="daily-updated">更新于 {formatNewsDate(brief.updatedAt)}</p>
+      <p class="daily-updated">资讯更新于 {formatNewsDate(brief.updatedAt)} · 周更</p>
     )}
   </div>
 
   <div class="daily-grid">
     <article class="daily-panel">
-      <h3 class="daily-panel-title">模型与发布</h3>
+      <h3 class="daily-panel-title">本周 · 模型与发布 <span class="daily-cadence">周更</span></h3>
       <ul class="daily-list">
         {brief.models.map((item) => (
           <li>
-            <a href={item.url} target="_blank" rel="noopener" data-track="daily-model">
+            <a href={item.url} target="_blank" rel="noopener" data-track="daily_panel_click" data-track-panel="models">
               <span class="daily-item-title">{item.title}</span>
               <span class="daily-item-meta">{item.source || item.category || ''}</span>
             </a>
@@ -38,11 +38,11 @@ const toolLookup = Object.fromEntries(
     </article>
 
     <article class="daily-panel">
-      <h3 class="daily-panel-title">GitHub 热门</h3>
+      <h3 class="daily-panel-title">GitHub 热门 <span class="daily-cadence">周更</span></h3>
       <ul class="daily-list">
         {brief.github.map((item) => (
           <li>
-            <a href={item.url} target="_blank" rel="noopener" data-track="daily-github">
+            <a href={item.url} target="_blank" rel="noopener" data-track="daily_panel_click" data-track-panel="github">
               <span class="daily-item-title">{item.title}</span>
               <span class="daily-item-meta">{item.category || item.source || 'GitHub'}</span>
             </a>
@@ -53,11 +53,11 @@ const toolLookup = Object.fromEntries(
     </article>
 
     <article class="daily-panel">
-      <h3 class="daily-panel-title">行业资讯</h3>
+      <h3 class="daily-panel-title">本周 · 行业资讯 <span class="daily-cadence">周更</span></h3>
       <ul class="daily-list">
         {brief.industry.map((item) => (
           <li>
-            <a href={item.url} target="_blank" rel="noopener" data-track="daily-news">
+            <a href={item.url} target="_blank" rel="noopener" data-track="daily_panel_click" data-track-panel="industry">
               <span class="daily-item-title">{item.title}</span>
               <span class="daily-item-meta">{item.source || ''}</span>
             </a>
@@ -65,15 +65,15 @@ const toolLookup = Object.fromEntries(
         ))}
         {brief.industry.length === 0 && <li class="daily-empty">暂无行业资讯</li>}
       </ul>
-      <a class="daily-more" href={asset('news/daily-ai-news.html')} data-track="daily-news-more">全部新闻 →</a>
+      <a class="daily-more" href={asset('news/daily-ai-news.html')} data-track="daily_news_more">全部新闻 →</a>
     </article>
 
     <article class="daily-panel">
-      <h3 class="daily-panel-title">学习与工具</h3>
+      <h3 class="daily-panel-title">今日 · 学习与工具 <span class="daily-cadence">日更</span></h3>
       <ul class="daily-list">
         {brief.learn.map((v) => (
           <li>
-            <a href={v.url} target="_blank" rel="noopener" data-track="daily-learn">
+            <a href={v.url} target="_blank" rel="noopener" data-track="daily_panel_click" data-track-panel="learn">
               <span class="daily-item-title">{v.title}</span>
               <span class="daily-item-meta">
                 {[v.platform === 'bilibili' ? 'B站' : 'YouTube', formatPublishDate(v.published_at)].filter(Boolean).join(' · ')}
@@ -83,14 +83,14 @@ const toolLookup = Object.fromEntries(
         ))}
         {hotNames.map((id) => (
           <li>
-            <button type="button" class="daily-tool-btn" data-tool={id} data-track="daily-tool">
+            <button type="button" class="daily-tool-btn" data-tool={id} data-track="daily_tool">
               <span class="daily-item-title">推荐工具 · {toolLookup[id] || id}</span>
               <span class="daily-item-meta">查看教程</span>
             </button>
           </li>
         ))}
       </ul>
-      <button type="button" class="daily-more" data-goto="videos" data-track="daily-videos-more">每日视频 →</button>
+      <button type="button" class="daily-more" data-goto="videos" data-track="daily_videos_more">每日视频 →</button>
     </article>
   </div>
 </section>

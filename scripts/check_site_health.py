@@ -92,6 +92,12 @@ def main() -> int:
         notes.append("style.css OK")
         check_http("/index.html", expect_substr=b"html")
         notes.append("index.html OK")
+        check_http("/tools/hub.html", expect_substr=b"工具中心")
+        notes.append("tools hub OK")
+        check_http("/labs/index.html", expect_substr=b"AI Labs")
+        notes.append("labs OK")
+        check_http("/recommend-rules.json", expect_substr=b"schema_version")
+        notes.append("recommend-rules OK")
         check_json_freshness(
             "/daily-videos.json",
             ["updated_at", "batches.0.date"],

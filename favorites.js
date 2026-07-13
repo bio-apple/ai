@@ -1,4 +1,4 @@
-/* 本地收藏：工具 ID 存 localStorage，首页区块 + 卡片星标 */
+/* 本地收藏：工具 ID 存 localStorage，首页区块 + 卡片星标 + 导入导出 */
 (function initFavorites() {
   const KEY = 'bioai.favorites.v1';
 
@@ -44,6 +44,39 @@
     return map[id] || id;
   }
 
+  function exportJson() {
+    const payload = {
+      schema_version: 1,
+      exported_at: new Date().toISOString(),
+      tools: load(),
+    };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'bioai-favorites.json';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    if (typeof trackEvent === 'function') trackEvent('favorite_export', { count: payload.tools.length });
+  }
+
+  function importJson(file) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      try {
+        const data = JSON.parse(String(reader.result || ''));
+        const list = Array.isArray(data) ? data : data.tools;
+        if (!Array.isArray(list)) throw new Error('invalid');
+        const ids = list.filter((x) => typeof x === 'string' && x.trim());
+        save([...new Set([...load(), ...ids])]);
+        syncAll();
+        if (typeof trackEvent === 'function') trackEvent('favorite_import', { count: ids.length });
+      } catch {
+        alert('导入失败：请使用本站导出的 JSON 文件');
+      }
+    };
+    reader.readAsText(file);
+  }
+
   function renderHomeList() {
     const wrap = document.getElementById('home-favorites');
     const list = document.getElementById('favorites-list');
@@ -79,7 +112,7 @@
       btn.addEventListener('click', () => {
         toggle(btn.dataset.favRemove);
         syncAll();
-        if (typeof trackEvent === 'function') trackEvent('favorite-remove', { tool: btn.dataset.favRemove });
+        if (typeof trackEvent === 'function') trackEvent('favorite_remove', { tool: btn.dataset.favRemove });
       });
     });
   }
@@ -109,7 +142,7 @@
         const on = toggle(id);
         btn.textContent = on ? '★' : '☆';
         syncAll();
-        if (typeof trackEvent === 'function') trackEvent(on ? 'favorite-add' : 'favorite-remove', { tool: id });
+        if (typeof trackEvent === 'function') trackEvent(on ? 'favorite_add' : 'favorite_remove', { tool: id });
       });
       const top = card.querySelector('.tool-card-top');
       if (top) top.appendChild(btn);
@@ -126,6 +159,13 @@
     renderHomeList();
   }
 
+  document.getElementById('favorites-export')?.addEventListener('click', exportJson);
+  document.getElementById('favorites-import')?.addEventListener('change', (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) importJson(file);
+    e.target.value = '';
+  });
+
   syncAll();
-  window.bioFavorites = { load, toggle, sync: syncAll };
+  window.bioFavorites = { load, toggle, sync: syncAll, exportJson, importJson };
 })();

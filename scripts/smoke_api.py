@@ -24,8 +24,11 @@ client = TestClient(app)
 def main() -> int:
     health = client.get("/api/health")
     assert health.status_code == 200, health.text
-    assert health.json()["status"] == "ok"
-    print("✓ /api/health")
+    hbody = health.json()
+    assert hbody["status"] in ("ok", "degraded")
+    assert "checks" in hbody
+    assert hbody["checks"].get("search-index.json", {}).get("ok") is True
+    print("✓ /api/health (deep)")
 
     tools = client.get("/api/tools")
     assert tools.status_code == 200, tools.text

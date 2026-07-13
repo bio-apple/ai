@@ -402,5 +402,6 @@
       "blog": "https://hub.baai.ac.cn/",
       "x": "https://x.com/baai_ac"
     }
-  ]
+  ],
+  "schema_version": 1
 }

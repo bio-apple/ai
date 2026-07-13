@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bio-apple.github.io/ai/schemas/search-index.schema.json",
+  "title": "Site search index",
+  "type": "array",
+  "minItems": 10,
+  "items": {
+    "type": "object",
+    "required": ["label", "keywords"],
+    "properties": {
+      "label": { "type": "string", "minLength": 1 },
+      "keywords": { "type": "string", "minLength": 1 },
+      "section": { "type": "string" },
+      "url": { "type": "string" },
+      "anchor": { "type": "string" },
+      "type": { "type": "string" }
+    },
+    "anyOf": [
+      { "required": ["section"] },
+      { "required": ["url"] }
+    ]
+  }
+}

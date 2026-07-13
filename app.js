@@ -212,6 +212,16 @@ function initScrollAnimations() {
 function initHashRouting() {
   const hash = location.hash.replace('#', '');
   const anchor = new URLSearchParams(location.search).get('anchor');
+  const homeAnchors = new Set(['home-daily', 'home-recommend', 'home-favorites', 'home-tools', 'home-learning', 'home-community']);
+
+  if (hash && homeAnchors.has(hash)) {
+    showSection('section-home', { updateHash: false });
+    requestAnimationFrame(() => {
+      document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    return;
+  }
+
   if (hash && document.getElementById(hash)) {
     showSection(hash, { updateHash: false, anchor });
   } else if (anchor) {

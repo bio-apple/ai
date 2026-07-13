@@ -138,6 +138,29 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
   return items;
 }
 
+function buildRecommendRules(site) {
+  const options = (site.ai_picker?.options || []).map((opt) => ({
+    id: opt.id,
+    label: opt.label,
+    tools: opt.tools || [],
+    keywords: opt.keywords || [],
+    guide: opt.guide || null,
+    path_title: opt.path_title || null,
+    steps: opt.steps || [],
+  }));
+  return {
+    schema_version: 1,
+    updated_from: 'data/site.json',
+    options,
+    fallback: site.recommend_fallback || {
+      tools: ['chatgpt', 'claude', 'cursor'],
+      guide: 'guides/beginner.html',
+      path_title: '零基础入门',
+      steps: [],
+    },
+  };
+}
+
 function buildAnalyticsConfig() {
   const raw = fs.existsSync(path.join(DATA, 'analytics.json'))
     ? readJson('analytics.json')
@@ -159,11 +182,13 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const promptsPayload = buildPromptsPayload(cases, promptsMeta);
   const tutorialsPayload = buildTutorialsPayload(cases, tools);
   const searchIndex = buildSearchIndex(site, tools, cases, compares, promptsPayload);
+  const recommendRules = buildRecommendRules(site);
   const analyticsCfg = buildAnalyticsConfig();
 
   writeOut(outDir, 'prompts.json', promptsPayload);
   writeOut(outDir, 'tutorials.json', tutorialsPayload);
   writeOut(outDir, 'search-index.json', searchIndex);
+  writeOut(outDir, 'recommend-rules.json', recommendRules);
   writeOut(outDir, 'analytics-config.json', analyticsCfg);
 
   const ossSrc = path.join(DATA, 'oss-projects.json');
@@ -172,8 +197,8 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   }
 
   console.log(`✓ artifacts → ${outDir}`);
-  console.log(`  prompts.json (${promptsPayload.count}) · tutorials.json (${tutorialsPayload.count}) · search-index.json (${searchIndex.length})`);
-  return { promptsPayload, tutorialsPayload, searchIndex };
+  console.log(`  prompts.json (${promptsPayload.count}) · tutorials.json (${tutorialsPayload.count}) · search-index.json (${searchIndex.length}) · recommend-rules.json (${recommendRules.options.length})`);
+  return { promptsPayload, tutorialsPayload, searchIndex, recommendRules };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

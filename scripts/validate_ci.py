@@ -86,16 +86,10 @@ def validate_sitemap_robots() -> None:
     print(f"✓ robots.txt + {sitemap_files[0].name}")
 
 
-def validate_search_index() -> None:
-    data = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
-    if not isinstance(data, list) or len(data) < 10:
-        raise ValueError("search-index.json 条目过少")
-    for item in data:
-        if not item.get("label") or not item.get("keywords"):
-            raise ValueError(f"search-index 条目不完整: {item}")
-        if not item.get("section") and not item.get("url"):
-            raise ValueError(f"search-index 缺少 section/url: {item}")
-    print(f"✓ search-index.json ({len(data)} 条)")
+def _load_schema(name: str) -> dict:
+    schema = json.loads((REPO / "schemas" / name).read_text(encoding="utf-8"))
+    schema.pop("$schema", None)
+    return schema
 
 
 def validate_ai_news() -> None:
@@ -105,16 +99,27 @@ def validate_ai_news() -> None:
     if not path.exists():
         raise FileNotFoundError("ai-news.json 缺失，请先运行 scripts/fetch_ai_news.py")
     data = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(data.get("items"), list) or not data["items"]:
-        raise ValueError("ai-news.json items 为空")
-    for item in data["items"][:3]:
-        if not item.get("title") or not item.get("url"):
-            raise ValueError(f"ai-news 条目不完整: {item}")
-    print(f"✓ ai-news.json ({len(data['items'])} 条)")
+    Draft202012Validator(_load_schema("ai-news.schema.json")).validate(data)
+    print(f"✓ ai-news.json schema ({len(data['items'])} 条)")
+
+
+def validate_search_index() -> None:
+    data = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("search-index.schema.json")).validate(data)
+    print(f"✓ search-index.json schema ({len(data)} 条)")
+
+
+def validate_recommend_rules() -> None:
+    path = ROOT / "recommend-rules.json"
+    if not path.exists():
+        raise FileNotFoundError("recommend-rules.json 缺失，请先运行 npm run build")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("recommend-rules.schema.json")).validate(data)
+    print(f"✓ recommend-rules.json schema ({len(data.get('options') or [])} 场景)")
 
 
 def validate_runtime_json() -> None:
-    for name in ("prompts.json", "tutorials.json"):
+    for name in ("prompts.json", "tutorials.json", "recommend-rules.json"):
         path = ROOT / name
         if not path.exists():
             raise FileNotFoundError(f"{name} 缺失，请先运行 npm run build")
@@ -123,7 +128,9 @@ def validate_runtime_json() -> None:
             raise ValueError("prompts.json prompts 为空")
         if name == "tutorials.json" and not data.get("tutorials"):
             raise ValueError("tutorials.json tutorials 为空")
-    print("✓ prompts.json + tutorials.json")
+        if name == "recommend-rules.json" and not data.get("options"):
+            raise ValueError("recommend-rules.json options 为空")
+    print("✓ prompts.json + tutorials.json + recommend-rules.json")
 
 
 SITE_BASE = "/ai/"
@@ -145,7 +152,6 @@ def _resolve_dist_target(fp: Path, href: str) -> Path | None:
     if href.startswith(SITE_BASE):
         return (ROOT / href[len(SITE_BASE) :]).resolve()
     if href.startswith("/"):
-        # 非站点 base 的绝对路径不在本仓库校验范围
         return None
     return (fp.parent / href).resolve()
 
@@ -161,6 +167,7 @@ def validate_html_links() -> None:
         *ROOT.glob("guides/*.html"),
         *ROOT.glob("prompts/*.html"),
         *ROOT.glob("cases/**/*.html"),
+        *ROOT.glob("labs/**/*.html"),
     ]
     missing = []
     checked = 0
@@ -185,7 +192,7 @@ def validate_html_links() -> None:
                 continue
             if not target.exists():
                 missing.append(f"{fp.relative_to(ROOT)} -> {href}")
-    for asset in ("style.css", "app.js", "search-index.json"):
+    for asset in ("style.css", "app.js", "search-index.json", "recommend-rules.json", "recommend.js", "favorites.js"):
         if not (ROOT / asset).exists():
             missing.append(f"(dist root) -> {asset}")
     if missing:
@@ -209,16 +216,11 @@ def validate_oss_projects() -> None:
     if not path.exists():
         raise FileNotFoundError("data/oss-projects.json 缺失")
     data = json.loads(path.read_text(encoding="utf-8"))
-    domains = data.get("domains") or []
-    if len(domains) < 6:
-        raise ValueError("oss-projects.json 领域不足 6 个")
-    for domain in domains:
-        if not domain.get("projects"):
-            raise ValueError(f"开源领域无项目: {domain.get('id')}")
+    Draft202012Validator(_load_schema("oss-projects.schema.json")).validate(data)
     runtime = ROOT / "oss-projects.json"
     if not runtime.exists() and not (REPO / "oss-projects.json").exists():
         raise FileNotFoundError("oss-projects.json 运行时副本缺失")
-    print(f"✓ oss-projects.json ({len(domains)} 领域)")
+    print(f"✓ oss-projects.json schema ({len(data.get('domains') or [])} 领域)")
 
 
 def validate_data_json() -> None:
@@ -236,6 +238,7 @@ STEPS = (
     ("videos", validate_daily_videos),
     ("news", validate_ai_news),
     ("runtime", validate_runtime_json),
+    ("recommend", validate_recommend_rules),
     ("sitemap", validate_sitemap_robots),
     ("search", validate_search_index),
     ("analytics", validate_analytics_config),

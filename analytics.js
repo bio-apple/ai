@@ -87,10 +87,13 @@ function bindClickTracking() {
   document.addEventListener('click', (e) => {
     const el = e.target.closest('[data-track]');
     if (!el) return;
-    trackEvent(el.dataset.track, {
+    const params = {
       element: el.tagName,
       text: (el.textContent || '').trim().slice(0, 80),
-    });
+    };
+    if (el.dataset.trackPanel) params.panel = el.dataset.trackPanel;
+    if (el.dataset.tool) params.tool = el.dataset.tool;
+    trackEvent(el.dataset.track, params);
   });
 }
 

@@ -53,6 +53,9 @@ jobs:
       - name: Validate runtime JSON
         run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py runtime
 
+      - name: Validate recommend rules
+        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py recommend
+
       - name: Validate sitemap and robots
         run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py sitemap
 
@@ -78,13 +81,4 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: E2E smoke tests
-        id: e2e
-        continue-on-error: true
         run: npm run test:e2e
-
-      - name: E2E status notice
-        if: steps.e2e.outcome == 'failure'
-        run: |
-          echo "::warning::Playwright E2E 失败（不阻塞合并/发版）。必绿项：validate + API smoke + Pages。"
-          echo "### E2E 未通过（非阻塞）" >> "$GITHUB_STEP_SUMMARY"
-          echo "Pages 部署不依赖本步骤。请在 Actions 日志中排查 flaky 用例。" >> "$GITHUB_STEP_SUMMARY"

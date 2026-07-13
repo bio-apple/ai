@@ -1,11 +1,20 @@
 ---
 ---
 <section class="home-section fade-in" id="home-favorites">
-  <div class="section-head">
-    <p class="section-kicker">我的收藏</p>
-    <h2 class="section-title">本地收藏的工具</h2>
-    <p class="section-desc">收藏保存在本浏览器，无需登录；点卡片上的星标即可添加</p>
+  <div class="section-head section-head-row">
+    <div>
+      <p class="section-kicker">我的收藏</p>
+      <h2 class="section-title">本地收藏的工具</h2>
+      <p class="section-desc">保存在本浏览器，无需登录；可导出备份或导入到其他设备</p>
+    </div>
+    <div class="favorites-actions">
+      <button type="button" class="cta-btn cta-btn-outline" id="favorites-export" data-track="favorite_export">导出 JSON</button>
+      <label class="cta-btn cta-btn-outline favorites-import-label">
+        导入
+        <input type="file" id="favorites-import" accept="application/json,.json" hidden />
+      </label>
+    </div>
   </div>
-  <p class="favorites-empty" id="favorites-empty">还没有收藏。浏览热门工具，点 ☆ 即可加入。</p>
+  <p class="favorites-empty" id="favorites-empty">还没有收藏。浏览热门工具，点 ☆ 即可加入学习清单。</p>
   <ul class="favorites-list" id="favorites-list"></ul>
 </section>

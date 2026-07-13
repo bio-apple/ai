@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bio-apple.github.io/ai/schemas/ai-news.schema.json",
+  "title": "AI news weekly payload",
+  "type": "object",
+  "required": ["items"],
+  "properties": {
+    "schema_version": { "type": "integer", "minimum": 1 },
+    "updated_at": { "type": "string" },
+    "date": { "type": "string" },
+    "cadence": { "type": "string" },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string", "minLength": 1 },
+          "url": { "type": "string", "minLength": 1 },
+          "summary": { "type": "string" },
+          "source": { "type": "string" },
+          "category": { "type": "string" },
+          "published_at": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

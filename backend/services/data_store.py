@@ -10,6 +10,14 @@ DATA = ROOT / "data"
 _CACHE: dict[str, tuple[float, Any]] = {}
 
 
+class DataLoadError(Exception):
+    """运行时 JSON 不可读或格式错误。"""
+
+    def __init__(self, path: Path, message: str) -> None:
+        self.path = path
+        super().__init__(f"{path}: {message}")
+
+
 def runtime_path(name: str) -> Path:
     for candidate in (ROOT / "dist" / name, ROOT / "public" / name, ROOT / name):
         if candidate.exists():
@@ -18,7 +26,12 @@ def runtime_path(name: str) -> Path:
 
 
 def read_json(path: Path) -> Any:
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except FileNotFoundError as exc:
+        raise DataLoadError(path, "文件不存在") from exc
+    except json.JSONDecodeError as exc:
+        raise DataLoadError(path, f"JSON 解析失败: {exc.msg}") from exc
 
 
 def _load_cached(key: str, path: Path, default: Any = None) -> Any:
@@ -59,3 +72,18 @@ def load_search_index() -> list[dict]:
 
 def load_site() -> dict:
     return _load_cached("site", DATA / "site.json", {})
+
+
+def load_recommend_rules() -> dict:
+    path = runtime_path("recommend-rules.json")
+    data = _load_cached("recommend_rules", path, None)
+    if isinstance(data, dict) and data.get("options"):
+        return data
+    # 回退：从 site.json 现场组装，避免旧 dist 无产物时 500
+    site = load_site()
+    options = (site.get("ai_picker") or {}).get("options") or []
+    return {
+        "schema_version": 1,
+        "options": options,
+        "fallback": site.get("recommend_fallback") or {},
+    }

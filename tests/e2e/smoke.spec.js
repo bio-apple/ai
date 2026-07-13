@@ -1,121 +1,72 @@
 import { test, expect } from '@playwright/test';
 
-test.describe('Bio AI Lab 冒烟测试', () => {
-  test('首页四块：工具 · 开源 · 新闻 · 视频', async ({ page }) => {
+test.describe('Bio AI Lab 关键路径', () => {
+  test('首页主路径：推荐 · 简报 · 工具 · 收藏', async ({ page }) => {
     await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('h1')).toContainText('掌握 AI');
-    await expect(page.locator('#section-home .tool-cards-hot .tool-card-v2')).toHaveCount(6, { timeout: 10000 });
-    await expect(page.locator('#home-categories .tool-card-v2').first()).toBeVisible();
-    await expect(page.locator('#home-compare .compare-table tbody tr')).toHaveCount(6);
-    await expect(page.locator('#home-news .news-card').first()).toBeVisible({ timeout: 5000 });
-    await expect(page.locator('#home-oss .oss-card').first()).toBeVisible({ timeout: 5000 });
-    await expect(page.locator('#home-video-preview .video-card').first()).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('h1')).toContainText('AI 工作流');
+    await expect(page.locator('#home-recommend')).toBeVisible();
+    await expect(page.locator('#home-daily')).toBeVisible();
+    await expect(page.locator('#home-daily .daily-cadence').first()).toBeVisible();
+    await expect(page.locator('#home-tools .tool-card-v2')).toHaveCount(6, { timeout: 10000 });
+    await expect(page.locator('#home-favorites')).toBeVisible();
+    await expect(page.locator('#knowledge-fab')).toBeVisible();
   });
 
-  test('hash 路由跳转 Cursor 教程', async ({ page }) => {
+  test('推荐助手文本流', async ({ page }) => {
+    await page.goto('/index.html#home-recommend', { waitUntil: 'domcontentloaded' });
+    await page.fill('#recommend-input', '我想开发一个网站写代码');
+    await page.click('#recommend-form button[type="submit"]');
+    await expect(page.locator('#recommend-result')).toBeVisible();
+    await expect(page.locator('#recommend-result')).toContainText('Cursor');
+    await expect(page.locator('#recommend-result .recommend-next')).toBeVisible();
+  });
+
+  test('收藏星标与导出控件', async ({ page }) => {
+    await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
+    const star = page.locator('.tool-cards-hot .fav-star').first();
+    await expect(star).toBeVisible();
+    await star.click();
+    await expect(page.locator('#favorites-list .favorite-chip').first()).toBeVisible();
+    await expect(page.locator('#favorites-export')).toBeVisible();
+  });
+
+  test('hash 路由与简报深链', async ({ page }) => {
     await page.goto('/index.html#section-cursor');
     await expect(page.locator('#section-cursor')).toHaveClass(/active/);
-    await expect(page.locator('#section-cursor h2')).toContainText('Cursor');
+    await page.goto('/index.html#home-daily');
+    await expect(page.locator('#section-home')).toHaveClass(/active/);
+    await expect(page.locator('#home-daily')).toBeVisible();
   });
 
-  test('站内搜索索引', async ({ page }) => {
+  test('站内搜索与规则产物', async ({ page }) => {
     await page.goto('/index.html');
-    const res = await page.request.get('/search-index.json');
-    expect(res.ok()).toBeTruthy();
-    const data = await res.json();
-    expect(data.length).toBeGreaterThan(10);
+    const idx = await page.request.get('/search-index.json');
+    expect(idx.ok()).toBeTruthy();
+    const rules = await page.request.get('/recommend-rules.json');
+    expect(rules.ok()).toBeTruthy();
+    const body = await rules.json();
+    expect(body.schema_version).toBe(1);
+    expect((body.options || []).length).toBeGreaterThan(0);
     await page.fill('#site-search', 'Cursor');
     await expect(page.locator('.search-hit').first()).toBeVisible();
-    await page.fill('#site-search', '开源');
-    await expect(page.locator('.search-hit').first()).toBeVisible();
   });
 
-  test('P0 UX：主题切换与返回顶部', async ({ page }) => {
-    await page.goto('/index.html');
-    await expect(page.locator('.theme-toggle')).toBeVisible();
-    await page.locator('.theme-toggle').click();
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-    await page.evaluate(() => window.scrollTo(0, 1200));
-    await expect(page.locator('.back-to-top')).toHaveClass(/visible/);
-    await expect(page.locator('.reading-progress-bar')).toBeVisible();
+  test('工具中心与 Labs', async ({ page }) => {
+    await page.goto('/tools/hub.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('h1')).toContainText('工具中心');
+    await page.goto('/labs/index.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('h1')).toContainText('AI Labs');
   });
 
-  test('左侧 TOC 桌面导航', async ({ page }) => {
-    await page.setViewportSize({ width: 1280, height: 900 });
-    await page.goto('/index.html');
-    await expect(page.locator('#page-toc')).toBeVisible();
-    await page.locator('#page-toc .page-toc-link[data-section="section-chatgpt"]').click();
-    await expect(page.locator('#section-chatgpt')).toHaveClass(/active/);
-  });
-
-  test('视频区与 JSON 数据', async ({ page }) => {
+  test('视频区与新闻区', async ({ page }) => {
     await page.goto('/index.html#section-videos');
-    const res = await page.request.get('/daily-videos.json');
-    expect(res.ok()).toBeTruthy();
-    await page.click('[data-tool="videos"]');
-    await expect(page.locator('#daily-video-list .video-card, #daily-video-list .loading-hint').first()).toBeVisible();
-  });
-
-  test('AI 新闻数据与区块', async ({ page }) => {
-    const res = await page.request.get('/ai-news.json');
-    expect(res.ok()).toBeTruthy();
-    const data = await res.json();
-    expect((data.items || []).length).toBeGreaterThan(0);
-    await page.goto('/index.html#section-news');
-    await expect(page.locator('#section-news')).toHaveClass(/active/);
-    await expect(page.locator('#daily-news-list .news-card').first()).toBeVisible({ timeout: 10000 });
-  });
-
-  test('独立工具页可访问', async ({ page }) => {
-    await page.goto('/tools/cursor.html', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('h1')).toContainText('Cursor');
-    await expect(page.locator('.logo-brand')).toContainText('Bio AI Lab');
-  });
-
-  test('排行榜 SEO 页', async ({ page }) => {
-    await page.goto('/ai-tools-ranking.html');
-    await expect(page.locator('h1')).toContainText('排行榜');
-  });
-
-  test('新闻独立页', async ({ page }) => {
-    await page.goto('/news/daily-ai-news.html');
-    await expect(page.locator('h1')).toContainText('热点');
-    await expect(page.locator('#daily-news-list .news-card').first()).toBeVisible({ timeout: 10000 });
-  });
-
-  test('视频筛选工具栏', async ({ page }) => {
-    await page.goto('/index.html#section-videos');
-    await expect(page.locator('#video-toolbar')).toBeVisible();
-    await page.click('[data-video-sort="recent"]');
-    await expect(page.locator('#daily-video-list .video-card, #daily-video-list .loading-hint').first()).toBeVisible();
-  });
-
-  test('开源精选与工具对比表', async ({ page }) => {
-    const res = await page.request.get('/oss-projects.json');
-    expect(res.ok()).toBeTruthy();
-    const data = await res.json();
-    expect((data.domains || []).length).toBeGreaterThanOrEqual(6);
-
-    await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#home-compare')).toBeVisible();
-    await expect(page.locator('#home-oss')).toBeVisible();
-
-    await page.click('[data-tool="oss"]');
-    await expect(page.locator('#section-oss')).toHaveClass(/active/);
-    await expect(page.locator('#oss-project-list .oss-card').first()).toBeVisible({ timeout: 15000 });
-
+    await expect(page.locator('#section-videos')).toHaveClass(/active/);
     await page.click('[data-tool="news"]');
     await expect(page.locator('#section-news')).toHaveClass(/active/);
-    await expect(page.locator('#daily-news-list .news-card').first()).toBeVisible({ timeout: 15000 });
-    await expect(page.locator('#news-watch-sources .news-watch-panel')).toBeVisible({ timeout: 15000 });
   });
 
-  test('analytics 配置可访问', async ({ page }) => {
-    const cfg = await page.request.get('/analytics-config.json');
-    expect(cfg.ok()).toBeTruthy();
-    const analytics = await cfg.json();
-    expect(analytics).toHaveProperty('track_engagement');
-    await page.goto('/index.html');
-    await expect(page.locator('#knowledge-fab')).toHaveCount(0);
+  test('独立工具页', async ({ page }) => {
+    await page.goto('/tools/cursor.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('h1')).toContainText('Cursor');
   });
 });

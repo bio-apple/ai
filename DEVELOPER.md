@@ -5,7 +5,10 @@
 - **线上地址**：https://bio-apple.github.io/ai/
 - **仓库**：https://github.com/bio-apple/ai
 - **类型**：数据驱动静态站（Astro SSG）+ 可选本地 FastAPI 预览 + GitHub Actions 自动化
-- **2.0 产品愿景与目标架构**：[docs/VISION-2.0.md](./docs/VISION-2.0.md)（Roadmap，非当前生产栈）
+- **2.0 产品愿景与目标架构**：[docs/VISION-2.0.md](./docs/VISION-2.0.md)
+- **运维 Runbook**：[docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)
+- **分析事件**：[docs/ANALYTICS-EVENTS.md](./docs/ANALYTICS-EVENTS.md)
+- **内容运营**：[docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)
 
 ---
 
