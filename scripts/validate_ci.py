@@ -30,13 +30,13 @@ def iter_batch_videos(batch: dict):
 
 def validate_daily_videos() -> None:
     schema = json.loads((REPO / "schemas/daily-videos.schema.json").read_text())
+    schema.pop("$schema", None)
     for candidate in (ROOT / "daily-videos.json", REPO / "daily-videos.json"):
         if candidate.exists():
             data = json.loads(candidate.read_text(encoding="utf-8"))
             break
     else:
         raise FileNotFoundError("daily-videos.json 缺失")
-    jsonschema.validate(data, schema)
     Draft202012Validator(schema).validate(data)
     for batch in data.get("batches", []):
         for v in iter_batch_videos(batch):
@@ -213,4 +213,8 @@ if __name__ == "__main__":
         import traceback
         print(f"CI 校验失败: {exc}", file=sys.stderr)
         traceback.print_exc()
+        summary = os.environ.get("GITHUB_STEP_SUMMARY")
+        if summary:
+            with open(summary, "a", encoding="utf-8") as fh:
+                fh.write(f"### CI 校验失败\n\n```\n{exc}\n```\n")
         raise SystemExit(1)
