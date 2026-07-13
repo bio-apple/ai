@@ -88,7 +88,7 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
   // 主路径仅四块：工具 / 开源 / 新闻 / 视频（+ 排行对比）；不再索引 Prompt/案例/创作/学习路线
   void cases;
   void promptsPayload;
-  items.push({ label: '每日视频', section: 'section-videos', keywords: '视频 youtube bilibili 教程 每日 Top10 30天 24小时 六类' });
+  items.push({ label: '每日视频', section: 'section-videos', keywords: '视频 youtube bilibili 教程 每日 100天 Top10 30天 24小时 六类' });
   items.push({ label: 'AI 新闻', section: 'section-news', keywords: 'AI新闻 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace arXiv GitHub Trending 机器之心 量子位 新智元 智源 每周' });
   items.push({ label: 'GitHub 开源精选', section: 'section-oss', keywords: '开源 GitHub Stars Agent LLM 本地大模型 AI绘画 多模态 机器学习框架' });
   items.push({ label: 'AI 工具排行榜', url: 'ai-tools-ranking.html', keywords: '排行榜 ranking ChatGPT Claude Cursor DeepSeek' });

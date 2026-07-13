@@ -168,15 +168,17 @@ npm run test:e2e
 - 旧根目录 `index.html`、`tools/` 等已 gitignore，不再提交；**本地若残留这些文件，可能掩盖问题**（校验仅看 `dist/`）。
 - 调整页面结构改 `src/pages/` 或 `src/components/`；调整文案改 `data/*.json`。
 - **路径统一**：布局通过 `src/lib/paths.ts` 的 `asset()` / `homeHref()` 生成 `/ai/...`；页面勿再传 `assetPrefix="../"`。
-- 首页业务脚本（videos/news/oss/prompts）由 `lazy-sections.js` **仅在进入对应 Tab** 时加载；首页预览由 Astro 构建期 SSG 内联（`Home*Preview.astro` + `src/lib/runtime.ts`），首屏不再等待 JSON。
+- 首页业务脚本（videos / news / oss）由 `lazy-sections.js` **仅在进入对应 Tab** 时加载；首页预览由 Astro 构建期 SSG 内联（`Home*Preview.astro` + `src/lib/runtime.ts`），首屏不再等待 JSON。
 
 ### 搜索索引
 
-`search-index.json` 由 `build-artifacts.mjs` 自动生成，包含：
+`search-index.json` 由 `build-artifacts.mjs` 自动生成，**主路径**包含：
 
 - 每个工具的 SPA section + 独立页 URL
-- 每个实战案例、Prompt、对比专题页
-- 每日视频、每周新闻、开源精选、排行榜、学习路线
+- 对比专题页、对比指南
+- 每日视频、每周新闻、开源精选、排行榜
+
+> Prompt / 案例 / 创作 / 学习路线 **不再写入主搜索索引**（构建仍可能生成 `prompts.json` / `tutorials.json` 供遗留 API，但不作为站内搜索入口）。
 
 `app.js` 启动时 `fetch('search-index.json')`，**不要手写**搜索条目。
 
@@ -258,18 +260,18 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
       "timezone": "Asia/Shanghai",
       "criteria": {
         "video_categories": {
-          "youtube_top_views": { "label": "YouTube：全网播放量 Top 10", "window": { "all_time": true }, "top_count": 10 },
-          "youtube_recent_30d": { "label": "YouTube：30 天内上新 Top 5", "window": { "days": 30 }, "top_count": 5 },
-          "youtube_recent_24h": { "label": "YouTube：24 小时内上新 Top 3", "window": { "hours": 24 }, "top_count": 3 },
-          "bilibili_top_views": { "label": "B站：全网播放量 Top 10", "window": { "all_time": true }, "top_count": 10 },
-          "bilibili_recent_30d": { "label": "B站：30 天内上新 Top 5", "window": { "days": 30 }, "top_count": 5 },
-          "bilibili_recent_24h": { "label": "B站：24 小时内上新 Top 3", "window": { "hours": 24 }, "top_count": 3 }
+          "youtube_top_views": { "label": "YouTube：100 天全网播放量 Top 10", "window": { "days": 100 }, "top_count": 10, "min_views": 100000 },
+          "youtube_recent_30d": { "label": "YouTube：30 天内上新 Top 5", "window": { "days": 30 }, "top_count": 5, "min_views": 10000 },
+          "youtube_recent_24h": { "label": "YouTube：24 小时内上新 Top 3", "window": { "hours": 24 }, "top_count": 3, "min_views": 1000 },
+          "bilibili_top_views": { "label": "B站：100 天全网播放量 Top 10", "window": { "days": 100 }, "top_count": 10, "min_views": 100000 },
+          "bilibili_recent_30d": { "label": "B站：30 天内上新 Top 5", "window": { "days": 30 }, "top_count": 5, "min_views": 10000 },
+          "bilibili_recent_24h": { "label": "B站：24 小时内上新 Top 3", "window": { "hours": 24 }, "top_count": 3, "min_views": 1000 }
         }
       },
       "categories": {
         "youtube_top_views": {
-          "label": "YouTube：全网播放量 Top 10",
-          "window": { "all_time": true },
+          "label": "YouTube：100 天全网播放量 Top 10",
+          "window": { "days": 100 },
           "top_count": 10,
           "videos": [{ "id": "youtube:...", "platform": "youtube", "title": "...", "views": 61235029 }]
         }
@@ -279,10 +281,11 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 }
 ```
 
-- **六类推荐**同平台跨分类去重（先填 24h → 30d → Top）；`window` 支持 `all_time`、`hours`、`days`。
+- **六类推荐**同平台跨分类去重：抓取按 `PICK_ORDER`（24h → 30d → 100d）占坑；页面按 `CATEGORY_ORDER`（**100d → 30d → 24h**）展示。
+- 分类级播放量门槛：**24h≥1000 / 30d≥10000 / 100d≥100000**（见 `config/video-fetch.yaml`）；`window` 支持 `hours`、`days`（旧 `all_time` 仍可解析）。
 - `batches` 新日期插入头部；`seen_ids` 全局去重；历史最多 **60 天**（前端视频页**只渲染最新一批**，不展示历史日期）。
 - 旧版四类 key（`top_views`、`recent_24h` 等）在 `videos.js` 中仍向后兼容。
-- CI 校验 Schema，并拒绝摘要中含 URL/广告残留。
+- CI 校验 Schema、最新批次六类 key 完整、**跨分类 video id 唯一**，并拒绝摘要中含 URL/广告残留。
 
 ### `ai-news.json`
 
@@ -320,14 +323,13 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 
 | `data-tool` / `data-goto` | Section ID | 内容 |
 |---------------------------|------------|------|
-| `all` | `section-home` | 总览、工具分类、排行、对比表、开源精选、新闻、视频 |
+| `all` | `section-home` | 总览：热门工具、分类、排行、对比、开源、新闻、视频 |
 | `chatgpt` … `copilot` | `section-{tool}` | 各 AI 工具教程 |
-| `cases` | `section-cases` | 实战案例 |
-| `prompts` | `section-prompts` | Prompt 库 |
-| `create` | `section-create` | AI 创作工具 |
 | `oss` | `section-oss` | GitHub Stars 开源精选 |
 | `news` | `section-news` | 每周 AI 新闻 |
-| `videos` | `section-videos` | 每日六类视频推荐 |
+| `videos` | `section-videos` | 每日六类视频推荐（仅最新一批） |
+
+> 旧 hash（`cases` / `prompts` / `create`）若仍可跳转，属于**遗留兼容**；对应区块已不在 `index.astro` 主路径与导航中。
 
 支持 **hash 深链接**：`index.html#section-cursor`。
 
@@ -337,14 +339,13 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 
 | 区块 ID | 说明 |
 |---------|------|
-| 热门 AI 工具 | 国内/国际分类卡片 |
-| AI 能力分类 | 按场景浏览 |
-| `home-rankings` | 2026 工具排行榜 Top 4 |
-| `home-compare` | 选型对比表预览（前 6 行） |
-| AI 学习路线 | 入门 / 进阶路径 |
-| `home-oss` | 开源精选预览（6 项） |
-| `home-news` | 本周新闻预览（4 条） |
-| 精选教程与视频 | 对比指南 + 视频预览 |
+| 热门 AI 工具 | 国内/国际热门卡片 |
+| AI 工具分类 | 国内 / 国际 / 编程场景 |
+| `home-rankings` | 2026 工具排行榜预览 |
+| `home-compare` | 选型对比表预览 |
+| `home-oss` | 开源精选预览 |
+| `home-news` | 本周新闻预览 |
+| `home-videos` | 每日视频预览（最新一批） |
 
 ### 样式模块
 
@@ -360,7 +361,7 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 
 | 文件 | 数据 URL | 说明 |
 |------|----------|------|
-| `videos.js` | `daily-videos.json` | 六类分类展示；平台/排序筛选 |
+| `videos.js` | `daily-videos.json` | 仅最新一批；六类按 100d→30d→24h；跨分类去重；平台/排序筛选 |
 | `news.js` | `ai-news.json` | 新闻卡片 + `watch_sources` 关注面板 |
 | `oss.js` | `oss-projects.json` | 按领域筛选；首页预览 + 完整列表 |
 
@@ -401,7 +402,7 @@ DIST=dist python3 scripts/validate_ci.py
 # 单步校验（CI 中逐步执行，便于定位失败）
 DIST=dist python3 scripts/validate_ci.py data
 DIST=dist python3 scripts/validate_ci.py oss
-DIST=dist python3 scripts/validate_ci.py videos    # 含六类分类完整性
+DIST=dist python3 scripts/validate_ci.py videos    # 六类 key + 跨分类唯一 id + 摘要清洗
 DIST=dist python3 scripts/validate_ci.py news
 DIST=dist python3 scripts/validate_ci.py runtime
 DIST=dist python3 scripts/validate_ci.py sitemap
@@ -436,24 +437,29 @@ npm run test:e2e
 
 ### 六类推荐结构
 
-| 分类 key | 平台 | 窗口 | 数量 |
-|----------|------|------|------|
-| `youtube_top_views` | YouTube | 全网 | Top 10 |
-| `youtube_recent_30d` | YouTube | 30 天 | Top 5 |
-| `youtube_recent_24h` | YouTube | 24 小时 | Top 3 |
-| `bilibili_top_views` | B站 | 全网 | Top 10 |
-| `bilibili_recent_30d` | B站 | 30 天 | Top 5 |
-| `bilibili_recent_24h` | B站 | 24 小时 | Top 3 |
+| 分类 key | 平台 | 窗口 | 数量 | 最低播放量 |
+|----------|------|------|------|------------|
+| `youtube_top_views` | YouTube | 100 天 | Top 10 | 100000 |
+| `youtube_recent_30d` | YouTube | 30 天 | Top 5 | 10000 |
+| `youtube_recent_24h` | YouTube | 24 小时 | Top 3 | 1000 |
+| `bilibili_top_views` | B站 | 100 天 | Top 10 | 100000 |
+| `bilibili_recent_30d` | B站 | 30 天 | Top 5 | 10000 |
+| `bilibili_recent_24h` | B站 | 24 小时 | Top 3 | 1000 |
+
+- **展示 / 写入顺序** `CATEGORY_ORDER`：各平台 **100d → 30d → 24h**
+- **抓取 / 去重顺序** `PICK_ORDER`：**24h → 30d → 100d**（窄窗口优先占坑）
 
 ### 抓取流程
 
 ```
 1. 读取 config/video-fetch.yaml
 2. 多平台搜索（YouTube ytsearch / B站搜索 API）
-3. 预筛：播放量、AI 关键词、分辨率、订阅数
-4. 按六类分别取 Top N（同平台去重：窄窗口优先占坑；时间窗只按发布时间搜索，避免老热门占满校验配额）
+3. 预筛：分类 min_views、AI 关键词、分辨率、订阅数
+4. 按 PICK_ORDER 取 Top N（同平台 used_ids 去重）
+   - 24h/30d：按发布时间搜索（B站 order=pubdate）；YouTube 仍为 ytsearch，再滤时间窗
+   - 100d Top：按热度搜索（B站 order=click）并滤 100 天窗，可补充日期搜索候选
 5. 生成摘要（过滤 URL/赞助/广告文案）
-6. 写入 daily-videos.json → push → 触发 CI + Pages
+6. 写入 daily-videos.json（categories 按 CATEGORY_ORDER）→ push → 触发 CI + Pages
 ```
 
 ### 本地手动运行
@@ -468,7 +474,7 @@ python3 scripts/fetch_daily_videos.py --force   # 升级分类后强制重抓今
 
 ### 可调参数
 
-编辑 `config/video-fetch.yaml` 中 `video_categories.*.top_count`、`days`、`hours` 及 `search_sources`、`search_queries`。
+编辑 `config/video-fetch.yaml` 中 `video_categories.*.top_count` / `days` / `hours` / `min_views`，以及 `search_sources`、`search_queries`。
 
 ---
 
@@ -487,9 +493,9 @@ python3 scripts/fetch_daily_videos.py --force   # 升级分类后强制重抓今
 
 | 类型 | 来源 |
 |------|------|
-| RSS | OpenAI、Google DeepMind、Google AI、NVIDIA、Microsoft Research、arXiv（cs.AI/LG/CL/CV）、量子位、MIT Tech Review |
-| HTML 抓取 | Anthropic 官网 `/news`（提取 og:title） |
-| 智源社区聚合 | `hub.baai.ac.cn` NUXT 数据（新智元、量子位等） |
+| RSS | OpenAI、Google DeepMind、Google AI、NVIDIA、Microsoft Research、arXiv（cs.AI/LG/CL/CV）、量子位 |
+| HTML 抓取 | Anthropic 官网 `/news` |
+| 智源社区聚合 | `hub.baai.ac.cn` NUXT 数据 |
 | GitHub API | GitHub Trending AI 仓库 |
 | 持续关注面板 | OpenAI、Anthropic、DeepMind、Meta AI、Microsoft、NVIDIA、Hugging Face、机器之心、量子位、新智元、智源社区（博客 + X） |
 
@@ -677,14 +683,15 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 本地 validate 通过、CI 失败 | 根目录遗留 gitignore 的 `index.html` 等 | 删除根目录遗留 HTML/JSON，仅以 `dist/` 为准 |
 | CI 摘要校验失败 | `daily-videos.json` 含 URL/广告 | 重跑抓取或清洗摘要 |
 | CI 视频分类失败 | 最新批次缺少六类 key | 手动触发 `daily-videos.yml` 或 `--force` 重抓 |
+| CI 跨分类重复 | 同一 video id 出现在多个分类 | 确认 `PICK_ORDER` 去重；`--force` 重抓 |
 | API smoke 读不到数据 | 未 build 或读错路径 | 先 `npm run build`；确认 `dist/` 含运行时 JSON |
 | Playwright 失败 | 未构建、未装浏览器或超时 | `npm run build`；`npx playwright install chromium`；CI 以 Actions 日志为准 |
 | 搜索无结果 | 未生成 `search-index.json` | `npm run build` |
-| 视频仍为四类 | 配置已改但 Actions 未跑 | 手动触发 `daily-videos.yml` |
+| 视频文案仍写「全网」 | 页面/数据未跟新 yaml | 更新 `index.astro` / FAQ；`--force` 重抓以刷新 batch label |
 | 新闻关注源为空 | 未刷新 `ai-news.json` | 运行 `fetch_ai_news.py` |
 | OSS Star 为 0 | 未跑 `fetch_oss_stars.py` | 本地或等 weekly workflow |
 | 机器之心无 RSS 条目 | 站点无稳定 RSS | 正常；通过 `watch_sources` 面板关注 |
-| B 站 30d/24h 条数不足 | 平台搜索/抓取限制 | 预期行为；Top 10 通常可满足 |
+| B 站 30d/24h 条数不足 | 门槛过高或搜索候选不足 | 检查 `min_views`；100d Top 通常较易满足 |
 
 ### GitHub Actions 权限
 
@@ -708,6 +715,7 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 1.9 | Pages 与 E2E 解耦；FastAPI `/ai/` 基路径；`paths.ts` 统一链接；首页脚本懒加载；JSON 默认缓存；data_store mtime；Docker 多阶段 build |
 | 1.10 | 运维探针与抓取失败开 Issue；E2E 非阻塞；Dependabot；钉依赖；OG 压缩；PR dist artifact |
 | 1.11 | 主路径精简为工具/开源/新闻/视频四块；导航与搜索入口对齐清单 |
+| 1.12 | 视频：100 天 Top + 分类 min_views；跨分类去重；页面仅最新批次；展示序 100d→30d→24h |
 
 ---
 

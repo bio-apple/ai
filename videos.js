@@ -2,6 +2,7 @@ const VIDEO_DATA_URL = (typeof document !== 'undefined' && document.documentElem
   ? document.documentElement.dataset.base.replace(/\/?$/, '/')
   : '') + 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
+/** 页面展示顺序：各平台 100d → 30d → 24h */
 const CATEGORY_ORDER = [
   'youtube_top_views',
   'youtube_recent_30d',
@@ -35,7 +36,7 @@ function getCategoryKeys(batch) {
   return Object.keys(batch.categories);
 }
 
-/** 同一视频只保留在优先级最高的分类中（24h > 30d > Top） */
+/** 同一视频只保留在优先级最高的分类中（24h > 30d > 100d） */
 function dedupeBatchCategories(batch) {
   if (!batch?.categories) return batch;
   const claim = new Map();

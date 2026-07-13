@@ -1,39 +1,46 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# 六类推荐（同平台跨分类去重：先填 24h → 30d → 全网 Top，避免同一视频重复出现）
+# 六类推荐（同平台跨分类去重：先填 24h → 30d → 100d Top，避免同一视频重复出现）
+# 播放量门槛：24h≥1000 · 30d≥10000 · 100d≥100000
 video_categories:
   youtube_top_views:
-    label: "YouTube：全网播放量 Top 10"
+    label: "YouTube：100 天全网播放量 Top 10"
     platform: youtube
-    all_time: true
+    days: 100
     top_count: 10
+    min_views: 100000
   youtube_recent_30d:
     label: "YouTube：30 天内上新 Top 5"
     platform: youtube
     days: 30
     top_count: 5
+    min_views: 10000
   youtube_recent_24h:
     label: "YouTube：24 小时内上新 Top 3"
     platform: youtube
     hours: 24
     top_count: 3
+    min_views: 1000
   bilibili_top_views:
-    label: "B站：全网播放量 Top 10"
+    label: "B站：100 天全网播放量 Top 10"
     platform: bilibili
-    all_time: true
+    days: 100
     top_count: 10
+    min_views: 100000
   bilibili_recent_30d:
     label: "B站：30 天内上新 Top 5"
     platform: bilibili
     days: 30
     top_count: 5
+    min_views: 10000
   bilibili_recent_24h:
     label: "B站：24 小时内上新 Top 3"
     platform: bilibili
     hours: 24
     top_count: 3
+    min_views: 1000
 
-# 多平台搜索源
+# 多平台搜索源（分类未写 min_views 时的回退值）
 search_sources:
   youtube:
     enabled: true
@@ -41,15 +48,14 @@ search_sources:
     search_prefix: ytsearch
     min_height: 1080
     min_views: 8000
-    recent_min_views: 500
+    recent_min_views: 1000
     min_subscribers: 1000
   bilibili:
     enabled: true
     label: B站
     min_height: 720
     min_views: 500
-    # 24h/30d 上新播放量往往很低；过高会导致近期分类长期为空
-    recent_min_views: 50
+    recent_min_views: 1000
     min_subscribers: 0
 
 search_per_query: 20

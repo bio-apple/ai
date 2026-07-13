@@ -20,6 +20,7 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
+# 页面/写入顺序：各平台 100d → 30d → 24h
 CATEGORY_ORDER = (
     "youtube_top_views",
     "youtube_recent_30d",
@@ -29,7 +30,7 @@ CATEGORY_ORDER = (
     "bilibili_recent_24h",
 )
 
-# 抓取填充顺序：先窄窗口再全网，避免热门片同时占满 Top / 30d / 24h
+# 抓取填充顺序：先窄窗口再 100d Top，避免热门片同时占满多类
 PICK_ORDER = (
     "youtube_recent_24h",
     "youtube_recent_30d",
@@ -39,6 +40,9 @@ PICK_ORDER = (
     "bilibili_top_views",
 )
 PLATFORM_ORDER = ("youtube", "bilibili")
+
+# ≤30 天视为「上新」窄窗口：按发布时间搜索
+NARROW_WINDOW_HOURS = 30 * 24
 
 try:
     from zoneinfo import ZoneInfo
@@ -598,7 +602,7 @@ def collect_top_videos(
         source_cfg = cfg.get("search_sources", {}).get(platform, {})
         threshold = min_views
         if threshold is None:
-            threshold = source_cfg.get("recent_min_views" if require_hours else "min_views", 0)
+            threshold = source_cfg.get("min_views", 0)
 
         detail = fetch_video_detail(candidate, detail_cache)
         if not detail:
@@ -619,6 +623,20 @@ def collect_top_videos(
     return picked[:limit], checked
 
 
+def is_narrow_window(require_hours: float | None) -> bool:
+    """24h / 30d 上新为窄窗口；100d Top 等为宽窗口。"""
+    return require_hours is not None and require_hours <= NARROW_WINDOW_HOURS
+
+
+def category_min_views(cat: dict, source_cfg: dict) -> int:
+    if "min_views" in cat:
+        return int(cat["min_views"])
+    require_hours = category_window_hours(cat)
+    if is_narrow_window(require_hours):
+        return int(source_cfg.get("recent_min_views") or source_cfg.get("min_views") or 0)
+    return int(source_cfg.get("min_views") or 0)
+
+
 def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
     limits = bucket_limits(cfg)
     now = now_local()
@@ -631,14 +649,25 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
     for key in PICK_ORDER:
         cat = cfg["video_categories"][key]
         platform = cat["platform"]
+        source_cfg = cfg.get("search_sources", {}).get(platform, {})
         require_hours = category_window_hours(cat)
+        min_views = category_min_views(cat, source_cfg)
 
         if require_hours is None:
-            # 全网 Top：按热度搜索
-            candidates = search_platform_candidates(cfg, platform)
+            candidates = search_platform_candidates(cfg, platform, min_views=min_views)
+        elif is_narrow_window(require_hours):
+            # 上新：只按发布时间搜索，避免老热门占满校验配额
+            candidates = search_platform_candidates(
+                cfg, platform, sort_by_date=True, min_views=min_views
+            )
         else:
-            # 时间窗：只按发布时间搜索，避免并入「全站热门」后被老片占满
-            candidates = search_platform_candidates(cfg, platform, sort_by_date=True)
+            # 100d Top：按热度搜索，再按时间窗过滤；并补充日期搜索以防候选不足
+            candidates = search_platform_candidates(cfg, platform, min_views=min_views)
+            for cid, item in search_platform_candidates(
+                cfg, platform, sort_by_date=True, min_views=min_views
+            ).items():
+                if cid not in candidates:
+                    candidates[cid] = item
 
         ranked = rank_candidates_for_bucket(candidates, now, require_hours)
         buckets[key], checked = collect_top_videos(
@@ -647,7 +676,7 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
             now,
             limit=limits[key],
             require_hours=require_hours,
-            min_views=None,
+            min_views=min_views,
             detail_cache=detail_cache,
             checked=checked,
             max_checks=max_checks,
