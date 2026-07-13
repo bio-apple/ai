@@ -46,9 +46,23 @@ def main() -> int:
     assert search.json()["count"] >= 1, search.text
     print("✓ /api/search")
 
-    static = client.get("/index.html")
-    assert static.status_code == 200, static.text
-    print("✓ /index.html")
+    root = client.get("/", follow_redirects=False)
+    assert root.status_code in (301, 302, 307, 308), root.status_code
+    assert "/ai" in root.headers.get("location", "")
+    print("✓ / → /ai/")
+
+    ai_index = client.get("/ai/")
+    assert ai_index.status_code == 200, ai_index.text
+    assert b"Bio AI Lab" in ai_index.content or b"html" in ai_index.content.lower()
+    print("✓ /ai/")
+
+    style = client.get("/ai/style.css")
+    assert style.status_code == 200, style.text
+    print("✓ /ai/style.css")
+
+    legacy = client.get("/index.html")
+    assert legacy.status_code == 200, legacy.text
+    print("✓ /index.html (legacy)")
 
     print("✓ FastAPI API 冒烟测试通过")
     return 0

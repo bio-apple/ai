@@ -1,12 +1,13 @@
 from __future__ import annotations
 
 import json
-from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[2]
 DATA = ROOT / "data"
+
+_CACHE: dict[str, tuple[float, Any]] = {}
 
 
 def runtime_path(name: str) -> Path:
@@ -20,33 +21,37 @@ def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-@lru_cache(maxsize=1)
+def _load_cached(key: str, path: Path, default: Any = None) -> Any:
+    """按文件 mtime 失效的轻量缓存，避免本地改 JSON 后 API 仍返回旧数据。"""
+    if not path.exists():
+        return default
+    mtime = path.stat().st_mtime
+    hit = _CACHE.get(key)
+    if hit and hit[0] == mtime:
+        return hit[1]
+    data = read_json(path)
+    _CACHE[key] = (mtime, data)
+    return data
+
+
 def load_tools() -> list[dict]:
-    return read_json(DATA / "tools.json")
+    return _load_cached("tools", DATA / "tools.json", [])
 
 
-@lru_cache(maxsize=1)
 def load_prompts_runtime() -> dict:
-    return read_json(runtime_path("prompts.json"))
+    return _load_cached("prompts", runtime_path("prompts.json"), {"prompts": []})
 
 
-@lru_cache(maxsize=1)
 def load_tutorials_runtime() -> dict:
-    return read_json(runtime_path("tutorials.json"))
+    return _load_cached("tutorials", runtime_path("tutorials.json"), {"tutorials": []})
 
 
-@lru_cache(maxsize=1)
 def load_daily_videos() -> dict:
     path = runtime_path("daily-videos.json")
-    if not path.exists():
-        return {"batches": []}
-    return read_json(path)
+    return _load_cached("videos", path, {"batches": []})
 
 
-@lru_cache(maxsize=1)
 def load_search_index() -> list[dict]:
     path = runtime_path("search-index.json")
-    if not path.exists():
-        return []
-    data = read_json(path)
+    data = _load_cached("search", path, [])
     return data if isinstance(data, list) else []

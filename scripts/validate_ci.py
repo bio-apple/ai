@@ -113,6 +113,30 @@ def validate_runtime_json() -> None:
     print("✓ prompts.json + tutorials.json")
 
 
+SITE_BASE = "/ai/"
+
+
+def _normalize_local_href(href: str) -> str | None:
+    href = href.strip()
+    if not href or href.startswith(("#", "http://", "https://", "mailto:", "data:", "javascript:")):
+        return None
+    if "#" in href:
+        href = href.split("#", 1)[0]
+    if "?" in href:
+        href = href.split("?", 1)[0]
+    return href or None
+
+
+def _resolve_dist_target(fp: Path, href: str) -> Path | None:
+    """相对路径或 `/ai/...` 绝对路径 → dist 内目标文件。"""
+    if href.startswith(SITE_BASE):
+        return (ROOT / href[len(SITE_BASE) :]).resolve()
+    if href.startswith("/"):
+        # 非站点 base 的绝对路径不在本仓库校验范围
+        return None
+    return (fp.parent / href).resolve()
+
+
 def validate_html_links() -> None:
     html_files = [
         ROOT / "index.html",
@@ -126,23 +150,21 @@ def validate_html_links() -> None:
         *ROOT.glob("cases/**/*.html"),
     ]
     missing = []
+    checked = 0
     for fp in html_files:
+        if not fp.exists():
+            continue
         soup = BeautifulSoup(fp.read_text(encoding="utf-8"), "html.parser")
-        for a in soup.select("a[href]"):
-            href = a["href"].strip()
-            if not href or href.startswith(("#", "http://", "https://", "mailto:")):
+        refs = [a.get("href", "") for a in soup.select("[href]")]
+        refs += [t.get("src", "") for t in soup.select("[src]")]
+        for raw in refs:
+            href = _normalize_local_href(raw)
+            if href is None:
                 continue
-            if "#" in href:
-                href = href.split("#", 1)[0]
-                if not href:
-                    continue
-            if "?" in href:
-                href = href.split("?", 1)[0]
-                if not href:
-                    continue
-            target = (fp.parent / href).resolve()
-            if href.startswith("/"):
+            target = _resolve_dist_target(fp, href)
+            if target is None:
                 continue
+            checked += 1
             try:
                 target.relative_to(ROOT)
             except ValueError:
@@ -150,9 +172,12 @@ def validate_html_links() -> None:
                 continue
             if not target.exists():
                 missing.append(f"{fp.relative_to(ROOT)} -> {href}")
+    for asset in ("style.css", "app.js", "search-index.json"):
+        if not (ROOT / asset).exists():
+            missing.append(f"(dist root) -> {asset}")
     if missing:
-        raise ValueError("死链:\n" + "\n".join(missing[:20]))
-    print(f"✓ HTML 链接检查 ({len(html_files)} 个文件)")
+        raise ValueError("死链:\n" + "\n".join(missing[:30]))
+    print(f"✓ HTML 链接检查 ({len(html_files)} 个文件, {checked} 条本地引用)")
 
 
 def validate_analytics_config() -> None:

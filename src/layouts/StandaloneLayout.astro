@@ -4,14 +4,13 @@ import UxWidgets from '../components/UxWidgets.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/data';
+import { BASE, asset, homeHref } from '../lib/paths';
 
 interface Props {
   title: string;
   description: string;
   canonical: string;
   schema?: object;
-  assetPrefix?: string;
-  homeHref?: string;
   scripts?: string[];
 }
 
@@ -20,16 +19,14 @@ const {
   description,
   canonical,
   schema,
-  assetPrefix = import.meta.env.BASE_URL,
-  homeHref = `${import.meta.env.BASE_URL}index.html`,
   scripts = ['analytics.js', 'ux.js', 'app.js'],
 } = Astro.props;
 
-const styleHref = `${assetPrefix}style.css`.replace('//', '/');
-const navPrefix = assetPrefix;
+const styleHref = asset('style.css');
+const home = homeHref();
 ---
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-base={BASE}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,14 +42,14 @@ const navPrefix = assetPrefix;
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href={styleHref}>
-  <ThemeBoot />
+  <ThemeBoot assetPrefix={BASE} />
   {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 </head>
 <body>
   <UxWidgets />
-  <Nav nav={site.nav} standalone={true} homeHref={homeHref} navPrefix={navPrefix} />
+  <Nav nav={site.nav} standalone={true} homeHref={home} navPrefix={BASE} />
   <slot />
   <Footer text={site.footer.text} github={site.footer.github} />
-  {scripts.map((src) => <script src={`${assetPrefix}${src}`}></script>)}
+  {scripts.map((src) => <script src={asset(src)}></script>)}
 </body>
 </html>

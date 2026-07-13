@@ -2,11 +2,11 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Bio AI Lab 冒烟测试', () => {
   test('首页加载与 Hero', async ({ page }) => {
-    await page.goto('/index.html', { waitUntil: 'networkidle' });
+    await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('掌握 AI');
     await expect(page.locator('.tool-card-v2')).toHaveCount(20, { timeout: 10000 });
     await expect(page.locator('.ai-picker-option')).toHaveCount(5);
-    await expect(page.locator('#home-news')).toBeVisible();
+    await expect(page.locator('#home-news')).toBeVisible({ timeout: 15000 });
   });
 
   test('hash 路由跳转 Cursor 教程', async ({ page }) => {
@@ -130,10 +130,10 @@ test.describe('Bio AI Lab 冒烟测试', () => {
     const data = await res.json();
     expect((data.domains || []).length).toBeGreaterThanOrEqual(6);
 
-    await page.goto('/index.html', { waitUntil: 'networkidle' });
+    await page.goto('/index.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#home-compare')).toBeVisible();
     await expect(page.locator('#home-compare .compare-table tbody tr')).toHaveCount(6);
-    await expect(page.locator('#home-oss')).toBeVisible();
+    await expect(page.locator('#home-oss')).toBeVisible({ timeout: 15000 });
 
     await page.click('[data-tool="oss"]');
     await expect(page.locator('#section-oss')).toHaveClass(/active/);

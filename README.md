@@ -128,19 +128,19 @@ pip install -r requirements.txt
 ./start.sh          # FastAPI 预览 dist/
 ```
 
-访问 http://127.0.0.1:8765
+访问 http://127.0.0.1:8765/ai/（`/` 会重定向到 `/ai/`）
 
 ### 本地校验与 E2E
 
 ```bash
 npm run build
 DIST=dist python3 scripts/validate_ci.py          # 全量校验（与 CI 一致）
-DIST=dist python3 scripts/validate_ci.py links    # 单步：HTML 内部链接
+DIST=dist python3 scripts/validate_ci.py links    # 单步：HTML 内部链接（含 /ai/ 绝对路径）
 npx playwright install chromium                   # 首次运行 E2E 需安装浏览器
-npm run test:e2e                                  # Playwright 冒烟（17 项）
+npm run test:e2e                                  # Playwright 冒烟（17 项，不挡 Pages 部署）
 ```
 
-> **CI 环境**：Node 22 + Python 3.12。`validate_ci.py` 分 9 步校验 + FastAPI smoke 均已通过；E2E 在 CI 中持续加固（单 worker、`networkidle` 等待、2 次重试）。本地 E2E 需先 `npm run build`，以 `astro preview` 在 `http://127.0.0.1:8766/ai` 提供页面。
+> **CI 环境**：Node 22 + Python 3.12。`validate_ci.py` + FastAPI smoke 在 CI 中强制通过；E2E 仅在 `ci.yml` 运行。**Pages 部署**只依赖 build + validate，不再被 Playwright flake 挡住。
 
 ### 手动刷新动态数据
 
@@ -169,13 +169,13 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 | 阶段 | 说明 |
 |------|------|
 | Astro 构建 | `npm ci && npm run build` → `dist/` |
-| 数据校验（9 步） | `validate_ci.py`：data · oss · videos · news · runtime · sitemap · search · analytics · **links** |
-| API 冒烟 | `scripts/smoke_api.py`（运行时 JSON 优先读 `dist/`） |
-| E2E | Playwright 17 项冒烟（首页、搜索、视频、新闻、工具页等） |
+| 数据校验（9 步） | `validate_ci.py`：data · oss · videos · news · runtime · sitemap · search · analytics · **links**（含 `/ai/`） |
+| API 冒烟 | `scripts/smoke_api.py`（`/` → `/ai/`，运行时 JSON 优先读 `dist/`） |
+| E2E | Playwright 冒烟（仅质量门禁，**不阻塞 Pages**） |
 
-`main` 合并后 [`.github/workflows/pages.yml`](.github/workflows/pages.yml) 将 `dist/` 部署到 GitHub Pages。
+`main` 推送触发 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)：`build + validate` → 上传 `dist` artifact → 部署。**不再运行 E2E**，避免浏览器不稳定挡住内容上线。
 
-**链接约定**：子目录独立页（`tools/`、`compare/`、`guides/` 等）返回首页须用 `../index.html`，勿用 `../../index.html`（后者会逃出 `dist/` 导致 CI 死链）。
+**链接约定**：站内资源与回首页统一使用 Astro `base`（`/ai/...`），由 `src/lib/paths.ts` 生成；勿再硬编码 `../` / `../../`。
 
 ## 技术栈
 
@@ -196,7 +196,8 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 | Phase 2 | 排行榜、选择助手、新闻、创作区、指南页 | ✅ 已完成 |
 | Phase 2.5 | Prompt 库、案例库、视频筛选、JSON 导出 | ✅ 已完成 |
 | Phase 3 | Astro SSG、六类视频、开源精选、每周新闻扩展信源 | ✅ 已完成 |
-| Phase 3.5 | 智源社区聚合、新闻信源多样性、CI 九步校验 + API smoke + Playwright E2E | ✅ 已完成（E2E 稳定性持续优化） |
+| Phase 3.5 | 智源社区聚合、新闻信源多样性、CI 九步校验 + API smoke + Playwright E2E | ✅ 已完成 |
+| Phase 3.6 | Pages/E2E 解耦、`/ai` 本地对齐、资源路径统一、懒加载与缓存 | ✅ 已完成 |
 | Phase 4 | 用户收藏、搜索增强 | 🔜 规划中 |
 
 ## License

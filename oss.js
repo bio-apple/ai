@@ -1,4 +1,6 @@
-const OSS_DATA_URL = 'oss-projects.json';
+const OSS_DATA_URL = (typeof document !== 'undefined' && document.documentElement.dataset.base
+  ? document.documentElement.dataset.base.replace(/\/?$/, '/')
+  : '') + 'oss-projects.json';
 
 let ossDataPromise = null;
 
@@ -33,7 +35,7 @@ function renderOssCard(project, domainLabel) {
 
 function fetchOssData() {
   if (!ossDataPromise) {
-    ossDataPromise = fetch(OSS_DATA_URL, { cache: 'no-store' })
+    ossDataPromise = fetch(OSS_DATA_URL, { cache: 'default' })
       .then(res => {
         if (!res.ok) throw new Error('无法加载开源项目数据');
         return res.json();
@@ -147,7 +149,12 @@ async function loadOssSection() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function bootOss() {
   loadHomeOssPreview();
   loadOssSection();
-});
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootOss);
+} else {
+  bootOss();
+}

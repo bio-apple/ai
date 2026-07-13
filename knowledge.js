@@ -45,7 +45,7 @@
 
   async function loadIndex() {
     try {
-      const res = await fetch('search-index.json', { cache: 'no-store' });
+      const res = await fetch('search-index.json', { cache: 'default' });
       if (!res.ok) return;
       index = await res.json();
       if (typeof Fuse !== 'undefined' && Array.isArray(index) && index.length) {

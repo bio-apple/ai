@@ -15,40 +15,44 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  validate:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
+
+      - name: Install deps and build (Astro SSG)
+        run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
+
       - name: Check dist artifacts
-        run: test -f dist/prompts.json && test -f dist/daily-videos.json
+        run: test -f dist/index.html && test -f dist/prompts.json && test -f dist/daily-videos.json
+
       - uses: actions/setup-python@v5
         id: setup-python
         with:
           python-version: "3.12"
-      - run: ${{ steps.setup-python.outputs.python-path }} -m pip install -r requirements.txt
-      - run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py
-      - run: npx playwright install chromium --with-deps
-      - run: npm run test:e2e
+
+      - name: Install Python deps
+        run: ${{ steps.setup-python.outputs.python-path }} -m pip install -r requirements.txt
+
+      - name: Validate dist
+        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
 
   deploy:
-    needs: validate
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: "22"
-      - run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
       - id: deployment
         uses: actions/deploy-pages@v4

@@ -1,11 +1,13 @@
 ---
 import type { Tool } from '../lib/data';
+import { asset, homeHref } from '../lib/paths';
 
 interface Props { tool: Tool }
 const { tool } = Astro.props;
+const home = homeHref();
 ---
 <main class="standalone-page">
-  <nav class="breadcrumb"><a href="../index.html">首页</a> / {tool.name} 教程</nav>
+  <nav class="breadcrumb"><a href={home}>首页</a> / {tool.name} 教程</nav>
   <div class="tool-header">
     <div class={`tool-icon ${tool.id}`}>{tool.icon}</div>
     <div>
@@ -53,7 +55,7 @@ const { tool } = Astro.props;
     </>
   )}
   <div class="standalone-cta">
-    <a href={`../index.html#${tool.section_id}`} class="cta-btn" data-track={`tool-goto-spa-${tool.id}`}>在站内交互式教程中查看 →</a>
-    <a href="../ai-tools-ranking.html" class="cta-btn cta-btn-outline">查看工具排行</a>
+    <a href={homeHref(`#${tool.section_id}`)} class="cta-btn" data-track={`tool-goto-spa-${tool.id}`}>在站内交互式教程中查看 →</a>
+    <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline">查看工具排行</a>
   </div>
 </main>

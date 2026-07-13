@@ -1,6 +1,6 @@
-const NEWS_DATA_URL = window.location.pathname.includes('/news/')
-  ? '../ai-news.json'
-  : 'ai-news.json';
+const NEWS_DATA_URL = (typeof document !== 'undefined' && document.documentElement.dataset.base
+  ? document.documentElement.dataset.base.replace(/\/?$/, '/')
+  : (window.location.pathname.includes('/news/') ? '../' : '')) + 'ai-news.json';
 
 let newsDataPromise = null;
 
@@ -38,7 +38,7 @@ function renderNewsCard(item) {
 
 function fetchNewsData() {
   if (!newsDataPromise) {
-    newsDataPromise = fetch(NEWS_DATA_URL, { cache: 'no-store' })
+    newsDataPromise = fetch(NEWS_DATA_URL, { cache: 'default' })
       .then(res => {
         if (!res.ok) throw new Error('无法加载新闻数据');
         return res.json();
@@ -112,7 +112,12 @@ async function loadDailyNews() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function bootNews() {
   loadHomeNewsPreview();
   loadDailyNews();
-});
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootNews);
+} else {
+  bootNews();
+}

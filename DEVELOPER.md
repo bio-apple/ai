@@ -52,11 +52,11 @@
 - **内容源**在 `data/*.json`；**页面模板**在 `src/`（Astro 组件化）。
 - `npm run build`（`prebuild` → `astro build`）生成 `dist/`，含 21 个 HTML + JSON 索引。
 - 10 个 AI 工具详情页由 `src/pages/tools/[id].astro` + `getStaticPaths` **自动生成**。
-- 生产环境以 **GitHub Pages** 部署 `dist/`；`backend/` 本地预览优先读 `dist/`。
+- 生产环境以 **GitHub Pages** 部署 `dist/`；`backend/` 本地预览挂载 **`/ai/`**（与 Astro `base` 一致），`/` 重定向到 `/ai/`。
 - **每日视频**通过 `daily-videos.json` + `daily-videos.yml` 定时写入（六类推荐）。
 - **每周新闻**与 **GitHub Stars** 通过 `weekly-news.yml` 定时刷新 `ai-news.json` 与 `oss-projects.json`。
-- 部署前必须通过 **CI 校验**（9 步 `validate_ci.py`、FastAPI smoke、Playwright E2E）。
-- 子目录页返回首页链接统一为 **`../index.html`**；`validate_ci.py links` 会拒绝逃出 `dist/` 的相对路径。
+- 部署前必须通过 **Pages 校验**（`validate_ci.py`）；完整 CI 另含 FastAPI smoke 与 Playwright E2E（E2E **不挡** Pages）。
+- 站内链接与静态资源统一走 **`src/lib/paths.ts`**（`/ai/...`）；`validate_ci.py links` 会解析 `/ai/` 绝对路径并拒绝逃出 `dist/` 的相对路径。
 
 ---
 
@@ -165,11 +165,10 @@ npm run test:e2e
 ### 重要约定
 
 - **不要手改** `dist/`；改 `data/` 或 `src/` 后重新 `npm run build`。
-- 旧根目录 `index.html`、`tools/` 等已 gitignore，不再提交；**本地若残留这些文件，可能掩盖 CI 死链**（CI 仅校验 `dist/`）。
+- 旧根目录 `index.html`、`tools/` 等已 gitignore，不再提交；**本地若残留这些文件，可能掩盖问题**（校验仅看 `dist/`）。
 - 调整页面结构改 `src/pages/` 或 `src/components/`；调整文案改 `data/*.json`。
-- **子目录页链接**：`tools/`、`compare/`、`guides/`、`news/`、`prompts/`、`cases/` 下页面通过 `StandaloneLayout` 的 `homeHref="../index.html"` 与面包屑 `../index.html` 回首页；**禁止** `../../index.html`（`validate_ci.py` 的 `links` 步骤会报「越界」）。
-
-涉及文件示例：`src/pages/tools/[id].astro`、`compare/[slug].astro`、`guides/[slug].astro`、`news/daily-ai-news.astro`、`prompts/library.astro`、`cases/index/index.astro`。
+- **路径统一**：布局通过 `src/lib/paths.ts` 的 `asset()` / `homeHref()` 生成 `/ai/...`；页面勿再传 `assetPrefix="../"`。
+- 首页业务脚本（videos/news/oss/prompts）由 `lazy-sections.js` 按 section / 可视区域懒加载。
 
 ### 搜索索引
 
@@ -389,7 +388,9 @@ npm run dev     # 热更新，适合改 src/
 
 ### 方式二：FastAPI（预览 dist/）
 
-`backend/main.py` 提供静态文件与内容 API。`backend/services/data_store.py` 的 `runtime_path()` 按 **`dist/` → `public/` → 仓库根目录** 顺序查找 `prompts.json`、`daily-videos.json`、`search-index.json` 等运行时 JSON，与 CI smoke 行为一致。
+`backend/main.py` 提供 `/api/*` 与静态站。静态资源在 **`/ai/`**（与 Astro `base` 一致），`/` 307 到 `/ai/`；仍兼容无前缀的旧路径。`data_store` 按文件 **mtime** 失效缓存；`runtime_path()` 顺序为 **`dist/` → `public/` → 仓库根目录**。
+
+本地入口：`./start.sh`（始终用 `.venv` 安装依赖并启动，默认 http://127.0.0.1:8765/ai/）。
 
 ### 测试
 
@@ -418,7 +419,7 @@ npm run test:e2e
 ./cloud-test.sh    # 线上 Pages 探测
 ```
 
-**Playwright 配置**（`playwright.config.js`）：本地/CI 均以 `astro preview` 在 `http://127.0.0.1:8766/ai` 起服；CI 下 `workers: 1`、`retries: 2`、`timeout: 60s`，首页等重资源页使用 `waitUntil: 'networkidle'`。
+**Playwright 配置**（`playwright.config.js`）：本地/CI 均以 `astro preview` 在 `http://127.0.0.1:8766/ai` 起服；CI 下 `workers: 1`、`retries: 2`、`timeout: 60s`。冒烟用例优先 `domcontentloaded` + 显式 selector，避免依赖 `networkidle`。
 
 ---
 
@@ -522,12 +523,21 @@ macOS 若遇 Python SSL 证书问题，脚本会自动回退到 `curl` 抓取。
 ### 工作流关系
 
 ```
-push/PR → ci.yml（npm run build + validate + playwright + API smoke）
-push main → pages.yml（构建 dist/ → 部署 GitHub Pages）
+push/PR → ci.yml（build + validate 分步 + API smoke + Playwright）
+push main → pages.yml（build + validate → artifact → deploy；无 E2E）
 
 daily-videos.yml → commit daily-videos.json → push → ci.yml + pages.yml
 weekly-news.yml  → commit ai-news.json + oss-projects.json → push → ci.yml + pages.yml
 ```
+
+### `pages.yml`（发版）
+
+| 步骤 | 说明 |
+|------|------|
+| build | `npm ci && npm run build` |
+| validate | 全量 `validate_ci.py` |
+| upload artifact | `dist/` → Pages artifact（避免 deploy 再 build） |
+| deploy | `actions/deploy-pages` |
 
 ### `ci.yml` 检查项
 
@@ -544,10 +554,10 @@ weekly-news.yml  → commit ai-news.json + oss-projects.json → push → ci.yml
 | Validate sitemap and robots | `validate_ci.py sitemap` |
 | Validate search index | `validate_ci.py search` |
 | Validate analytics config | `validate_ci.py analytics` |
-| Validate HTML links | `validate_ci.py links` — 内部链接不得逃出 `dist/` |
-| FastAPI API smoke | `PYTHONPATH=. python scripts/smoke_api.py` |
+| Validate HTML links | `validate_ci.py links` — 相对路径 + `/ai/` 绝对路径，不得逃出 `dist/` |
+| FastAPI API smoke | `PYTHONPATH=. python scripts/smoke_api.py`（含 `/`→`/ai/`） |
 | Install Playwright | `npx playwright install chromium --with-deps` |
-| E2E smoke tests | `npm run test:e2e` — 17 项（见 `tests/e2e/smoke.spec.js`） |
+| E2E smoke tests | `npm run test:e2e` — 质量门禁，失败不挡 Pages |
 
 本地一次性全量校验：`DIST=dist python3 scripts/validate_ci.py`（无参数时顺序执行上述 9 步）。
 
@@ -677,6 +687,7 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 1.6 | Astro SSG 迁移；工具页自动生成 |
 | 1.7 | 六类视频；GitHub 开源精选；每周新闻；扩展信源与关注面板；首页对比表 |
 | 1.8 | Phase 3.5：智源社区聚合；CI 九步分步校验 + 链接越界检测；API 优先读 `dist/`；Playwright E2E 扩展至 17 项 |
+| 1.9 | Pages 与 E2E 解耦；FastAPI `/ai/` 基路径；`paths.ts` 统一链接；首页脚本懒加载；JSON 默认缓存；data_store mtime；Docker 多阶段 build |
 
 ---
 

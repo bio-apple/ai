@@ -2,22 +2,22 @@
 import StandaloneLayout from '../layouts/StandaloneLayout.astro';
 import { site, toolNamesMap } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
+import { asset, homeHref } from '../lib/paths';
 
 const page = site.roadmap_page;
 const toolNames = toolNamesMap();
 const base = site.meta.base_url;
 const schema = buildPageSchema(page.title, page.lead, `${base}ai-learning-roadmap.html`);
+const home = homeHref();
 ---
 <StandaloneLayout
   title={page.title}
   description={page.lead}
   canonical={`${base}ai-learning-roadmap.html`}
   schema={schema}
-  assetPrefix="./"
-  homeHref="index.html"
 >
   <main class="standalone-page">
-    <nav class="breadcrumb"><a href="index.html">首页</a> / AI 学习路线</nav>
+    <nav class="breadcrumb"><a href={home}>首页</a> / AI 学习路线</nav>
     <div class="standalone-hero">
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
@@ -31,7 +31,7 @@ const schema = buildPageSchema(page.title, page.lead, `${base}ai-learning-roadma
           </div>
           <div class="roadmap-tools">
             {phase.tools.map((tid) => (
-              <a href={`tools/${tid}.html`} class={`roadmap-tool-chip ${tid}`}>{toolNames[tid]}</a>
+              <a href={asset(`tools/${tid}.html`)} class={`roadmap-tool-chip ${tid}`}>{toolNames[tid]}</a>
             ))}
           </div>
           <ul class="roadmap-tasks">{phase.tasks.map((task) => <li>{task}</li>)}</ul>
@@ -48,8 +48,8 @@ const schema = buildPageSchema(page.title, page.lead, `${base}ai-learning-roadma
       ))}
     </div>
     <div class="standalone-cta">
-      <a href="index.html#section-cases" class="cta-btn">开始实战案例</a>
-      <a href="ai-tools-ranking.html" class="cta-btn cta-btn-outline">查看工具排行</a>
+      <a href={homeHref('#section-cases')} class="cta-btn">开始实战案例</a>
+      <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline">查看工具排行</a>
     </div>
   </main>
 </StandaloneLayout>

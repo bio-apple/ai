@@ -1,4 +1,6 @@
-const VIDEO_DATA_URL = 'daily-videos.json';
+const VIDEO_DATA_URL = (typeof document !== 'undefined' && document.documentElement.dataset.base
+  ? document.documentElement.dataset.base.replace(/\/?$/, '/')
+  : '') + 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
 const CATEGORY_ORDER = [
   'youtube_top_views',
@@ -192,7 +194,7 @@ function renderBatch(batch, state) {
 
 function fetchVideoData() {
   if (!videoDataPromise) {
-    videoDataPromise = fetch(VIDEO_DATA_URL, { cache: 'no-store' })
+    videoDataPromise = fetch(VIDEO_DATA_URL, { cache: 'default' })
       .then(res => {
         if (!res.ok) throw new Error('无法加载视频数据');
         return res.json();
@@ -296,7 +298,12 @@ async function loadDailyVideos() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+function bootVideos() {
   loadHomeVideoPreview();
   loadDailyVideos();
-});
+}
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', bootVideos);
+} else {
+  bootVideos();
+}

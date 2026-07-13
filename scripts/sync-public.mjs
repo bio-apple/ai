@@ -12,6 +12,7 @@ const COPY_FILES = [
   'analytics.js',
   'app.js',
   'ux.js',
+  'lazy-sections.js',
   'videos.js',
   'news.js',
   'oss.js',
@@ -21,6 +22,7 @@ const COPY_FILES = [
   'daily-videos.json',
   'ai-news.json',
   'oss-projects.json',
+  'og-image.png',
 ];
 
 function copyRecursive(src, dest) {

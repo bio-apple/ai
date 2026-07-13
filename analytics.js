@@ -73,7 +73,7 @@ function initEngagementTracking() {
 async function loadAnalyticsConfig() {
   const base = document.body?.dataset?.assetBase || '';
   try {
-    const res = await fetch(`${base}analytics-config.json`, { cache: 'no-store' });
+    const res = await fetch(`${base}analytics-config.json`, { cache: 'default' });
     if (res.ok) {
       const data = await res.json();
       analyticsConfig = { ...analyticsConfig, ...data };

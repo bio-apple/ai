@@ -2,6 +2,7 @@
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import { site } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
+import { asset, homeHref } from '../../lib/paths';
 
 export function getStaticPaths() {
   return Object.entries(site.guides).map(([slug, guide]) => {
@@ -14,17 +15,16 @@ export function getStaticPaths() {
 const { guide, path } = Astro.props;
 const base = site.meta.base_url;
 const schema = buildPageSchema(guide.title, guide.lead, `${base}guides/${guide.slug}.html`);
+const home = homeHref();
 ---
 <StandaloneLayout
   title={guide.title}
   description={guide.lead}
   canonical={`${base}guides/${guide.slug}.html`}
   schema={schema}
-  assetPrefix="../"
-  homeHref="../index.html"
 >
   <main class="standalone-page">
-    <nav class="breadcrumb"><a href="../index.html">首页</a> / 学习指南 / {guide.h1}</nav>
+    <nav class="breadcrumb"><a href={home}>首页</a> / 学习指南 / {guide.h1}</nav>
     <div class="standalone-hero">
       <h1>{guide.h1}</h1>
       <p class="standalone-lead">{guide.lead}</p>
@@ -34,8 +34,8 @@ const schema = buildPageSchema(guide.title, guide.lead, `${base}guides/${guide.s
       <ol class="steps">{path.steps.map((step) => <li>{step}</li>)}</ol>
     </div>
     <div class="standalone-cta">
-      <a href="../index.html#section-cases" class="cta-btn">开始实战</a>
-      <a href="../ai-learning-roadmap.html" class="cta-btn cta-btn-outline">完整学习路线</a>
+      <a href={homeHref('#section-cases')} class="cta-btn">开始实战</a>
+      <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline">完整学习路线</a>
     </div>
   </main>
 </StandaloneLayout>

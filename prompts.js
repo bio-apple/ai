@@ -1,8 +1,6 @@
-const PROMPTS_DATA_URL = (() => {
-  const path = window.location.pathname;
-  if (path.includes('/prompts/')) return '../prompts.json';
-  return 'prompts.json';
-})();
+const PROMPTS_DATA_URL = (typeof document !== 'undefined' && document.documentElement.dataset.base
+  ? document.documentElement.dataset.base.replace(/\/?$/, '/')
+  : (window.location.pathname.includes('/prompts/') ? '../' : '')) + 'prompts.json';
 
 const CATEGORY_LABELS = {
   research: '科研',
@@ -24,7 +22,7 @@ function escapeHtml(s) {
 
 function fetchPromptsData() {
   if (!promptsDataPromise) {
-    promptsDataPromise = fetch(PROMPTS_DATA_URL, { cache: 'no-store' })
+    promptsDataPromise = fetch(PROMPTS_DATA_URL, { cache: 'default' })
       .then(res => {
         if (!res.ok) throw new Error('无法加载 Prompt 数据');
         return res.json();
@@ -137,4 +135,8 @@ async function loadPromptLibrary() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', loadPromptLibrary);
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', loadPromptLibrary);
+} else {
+  loadPromptLibrary();
+}

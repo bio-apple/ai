@@ -2,22 +2,22 @@
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import { site, promptsMeta } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
+import { homeHref } from '../../lib/paths';
 
 const page = site.prompts_page;
 const base = site.meta.base_url;
 const schema = buildPageSchema(page.title, page.lead, `${base}prompts/library.html`);
+const home = homeHref();
 ---
 <StandaloneLayout
   title={page.title}
   description={page.lead}
   canonical={`${base}prompts/library.html`}
   schema={schema}
-  assetPrefix="../"
-  homeHref="../index.html"
   scripts={['analytics.js', 'ux.js', 'app.js', 'prompts.js']}
 >
   <main class="standalone-page">
-    <nav class="breadcrumb"><a href="../index.html">首页</a> / Prompt 库</nav>
+    <nav class="breadcrumb"><a href={home}>首页</a> / Prompt 库</nav>
     <div class="standalone-hero">
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
@@ -33,8 +33,8 @@ const schema = buildPageSchema(page.title, page.lead, `${base}prompts/library.ht
       <p class="loading-hint">加载 Prompt 库…</p>
     </div>
     <div class="standalone-cta">
-      <a href="../index.html#section-prompts" class="cta-btn">返回站内 Prompt 库</a>
-      <a href="../index.html#section-cases" class="cta-btn cta-btn-outline">查看实战案例</a>
+      <a href={homeHref('#section-prompts')} class="cta-btn">返回站内 Prompt 库</a>
+      <a href={homeHref('#section-cases')} class="cta-btn cta-btn-outline">查看实战案例</a>
     </div>
   </main>
 </StandaloneLayout>

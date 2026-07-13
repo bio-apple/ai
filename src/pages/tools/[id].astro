@@ -17,8 +17,6 @@ const schema = buildToolSchema(tool, base);
   description={tool.description}
   canonical={`${base}tools/${tool.id}.html`}
   schema={schema}
-  assetPrefix="../"
-  homeHref="../index.html"
 >
   <ToolDetail tool={tool} />
 </StandaloneLayout>

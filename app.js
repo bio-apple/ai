@@ -328,7 +328,7 @@ document.querySelectorAll('.prompt-block').forEach(block => {
 /* Site search */
 async function loadSearchIndex() {
   try {
-    const res = await fetch('search-index.json', { cache: 'no-store' });
+    const res = await fetch('search-index.json', { cache: 'default' });
     if (!res.ok) throw new Error('search index unavailable');
     const data = await res.json();
     if (Array.isArray(data) && data.length) {

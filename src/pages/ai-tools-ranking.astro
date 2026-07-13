@@ -1,22 +1,22 @@
 ---
 import StandaloneLayout from '../layouts/StandaloneLayout.astro';
-import { site, toolNamesMap } from '../lib/data';
+import { site } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
+import { asset, homeHref } from '../lib/paths';
 
 const page = site.ranking_page;
 const base = site.meta.base_url;
 const schema = buildPageSchema(page.title, page.lead, `${base}ai-tools-ranking.html`);
+const home = homeHref();
 ---
 <StandaloneLayout
   title={page.title}
   description={page.lead}
   canonical={`${base}ai-tools-ranking.html`}
   schema={schema}
-  assetPrefix="./"
-  homeHref="index.html"
 >
   <main class="standalone-page">
-    <nav class="breadcrumb"><a href="index.html">首页</a> / AI 工具排行榜</nav>
+    <nav class="breadcrumb"><a href={home}>首页</a> / AI 工具排行榜</nav>
     <div class="standalone-hero">
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
@@ -30,7 +30,7 @@ const schema = buildPageSchema(page.title, page.lead, `${base}ai-tools-ranking.h
           <p class="ranking-dimension">{item.dimension}</p>
           <p class="ranking-score">{item.score}</p>
           <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
-          <a href={`tools/${item.id}.html`} class="cta-btn cta-btn-sm">查看 {item.name} 教程</a>
+          <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm">查看 {item.name} 教程</a>
         </article>
       ))}
     </div>
@@ -46,8 +46,8 @@ const schema = buildPageSchema(page.title, page.lead, `${base}ai-tools-ranking.h
       </table>
     </div>
     <div class="standalone-cta">
-      <a href="index.html" class="cta-btn">返回首页</a>
-      <a href="ai-learning-roadmap.html" class="cta-btn cta-btn-outline">查看学习路线</a>
+      <a href={home} class="cta-btn">返回首页</a>
+      <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline">查看学习路线</a>
     </div>
   </main>
 </StandaloneLayout>
