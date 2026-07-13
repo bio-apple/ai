@@ -80,9 +80,10 @@ Discover, learn, and create with AI — covering ChatGPT, Claude, Gemini, DeepSe
 
 北京时间每周一 6:00 自动汇总：
 
-- **公司动态**：OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft（RSS / 官网抓取）
-- **关注面板**：Meta AI、Hugging Face、机器之心、量子位、新智元、智源社区（博客 + X）
-- **技术源**：GitHub Trending、arXiv（cs.AI / cs.LG / cs.CL / cs.CV）、量子位 RSS
+- **公司动态**：OpenAI、Anthropic、Google DeepMind、Google AI、NVIDIA、Microsoft（RSS / 官网抓取）
+- **中文媒体**：智源社区聚合（新智元、量子位）、量子位 RSS
+- **关注面板**：Meta AI、Hugging Face、机器之心（博客 + X，暂无稳定 RSS）
+- **技术源**：GitHub Trending、arXiv（cs.AI / cs.LG / cs.CL / cs.CV）
 
 ## 页面结构
 
@@ -168,6 +169,7 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 | Phase 2 | 排行榜、选择助手、新闻、创作区、指南页 | ✅ 已完成 |
 | Phase 2.5 | Prompt 库、案例库、视频筛选、JSON 导出 | ✅ 已完成 |
 | Phase 3 | Astro SSG、六类视频、开源精选、每周新闻扩展信源 | ✅ 已完成 |
+| Phase 3.5 | 智源社区聚合、新闻信源多样性、CI 六类校验与 E2E | ✅ 已完成 |
 | Phase 4 | 用户收藏、搜索增强 | 🔜 规划中 |
 
 ## License

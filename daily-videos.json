@@ -33,9 +33,499 @@
     "youtube:z9rdrNrkvDY",
     "youtube:GphgJjaKKhw",
     "youtube:7GkIWPPC9i0",
-    "youtube:0vZ_UVLhSQQ"
+    "youtube:0vZ_UVLhSQQ",
+    "youtube:MkeyOv0P7TY",
+    "youtube:loujaeBy8p0",
+    "youtube:OhRHDjHMuJU",
+    "youtube:WVeYLlKOWc0",
+    "bilibili:BV1NvRyBzEhq",
+    "bilibili:BV1Ax4y1b7ac",
+    "bilibili:BV1nc31zzEa3",
+    "bilibili:BV17P411m7Ma",
+    "youtube:waKGeoeM6HU",
+    "bilibili:BV1UZFfeMEvd",
+    "bilibili:BV1zfcoeXEQR",
+    "bilibili:BV1cwVG6qEEW",
+    "bilibili:BV1nDMJzbEGm",
+    "bilibili:BV1Kk9kBAEJv",
+    "bilibili:BV16YRLB7Exd",
+    "youtube:6cRiP9g90PY",
+    "youtube:Ez8F0nW6S-w",
+    "youtube:Wq45rvPGNHs"
   ],
   "batches": [
+    {
+      "date": "2026-07-11",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "video_categories": {
+          "youtube_top_views": {
+            "label": "YouTube：全网播放量 Top 10",
+            "window": {
+              "all_time": true
+            },
+            "top_count": 10
+          },
+          "youtube_recent_30d": {
+            "label": "YouTube：30 天内上新 Top 5",
+            "window": {
+              "days": 30
+            },
+            "top_count": 5
+          },
+          "youtube_recent_24h": {
+            "label": "YouTube：24 小时内上新 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3
+          },
+          "bilibili_top_views": {
+            "label": "B站：全网播放量 Top 10",
+            "window": {
+              "all_time": true
+            },
+            "top_count": 10
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：30 天内上新 Top 5",
+            "window": {
+              "days": 30
+            },
+            "top_count": 5
+          },
+          "bilibili_recent_24h": {
+            "label": "B站：24 小时内上新 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3
+          }
+        }
+      },
+      "categories": {
+        "youtube_top_views": {
+          "label": "YouTube：全网播放量 Top 10",
+          "window": {
+            "all_time": true
+          },
+          "top_count": 10,
+          "videos": [
+            {
+              "id": "youtube:Ez8F0nW6S-w",
+              "platform": "youtube",
+              "title": "Complete Git and GitHub Tutorial for Beginners",
+              "summary": "Link for GitHub Notes : Want to study for Tech Placements/Internships from us : Our Latest Placement Batches : Share your progres…",
+              "url": "https://www.youtube.com/watch?v=Ez8F0nW6S-w",
+              "thumbnail": "https://i.ytimg.com/vi/Ez8F0nW6S-w/maxresdefault.jpg",
+              "channel": "Apna College",
+              "subscribers": 7730000,
+              "views": 7543068,
+              "duration": "1:14:17",
+              "max_height": 1080,
+              "published_at": "2023-08-25T00:49:21+08:00"
+            },
+            {
+              "id": "youtube:Gaf_jCnA6mc",
+              "platform": "youtube",
+              "title": "ChatGPT Tutorial: How to Use Chat GPT For Beginners",
+              "summary": "^If you want to use the paid versions of all the AI models, get this",
+              "url": "https://www.youtube.com/watch?v=Gaf_jCnA6mc",
+              "thumbnail": "https://i.ytimg.com/vi/Gaf_jCnA6mc/maxresdefault.jpg",
+              "channel": "Charlie Chang",
+              "subscribers": 1440000,
+              "views": 4776524,
+              "duration": "27:51",
+              "max_height": 2160,
+              "published_at": "2023-04-05T02:09:53+08:00"
+            },
+            {
+              "id": "youtube:jC4v5AS4RIM",
+              "platform": "youtube",
+              "title": "Master the Perfect ChatGPT Prompt Formula (in just 8 minutes)!",
+              "summary": "Grab my AI Toolkit for free: Download my favorite prompts for productivity: Here are the 6 key components that make up the perfec…",
+              "url": "https://www.youtube.com/watch?v=jC4v5AS4RIM",
+              "thumbnail": "https://i.ytimg.com/vi/jC4v5AS4RIM/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 1800000,
+              "views": 3645824,
+              "duration": "8:30",
+              "max_height": 2160,
+              "published_at": "2023-08-01T21:00:26+08:00"
+            },
+            {
+              "id": "youtube:_ZvnD73m40o",
+              "platform": "youtube",
+              "title": "Prompt Engineering Tutorial – Master ChatGPT and LLM Responses",
+              "summary": "Learn prompt engineering techniques to get better results from ChatGPT and other LLMs",
+              "url": "https://www.youtube.com/watch?v=_ZvnD73m40o",
+              "thumbnail": "https://i.ytimg.com/vi/_ZvnD73m40o/maxresdefault.jpg",
+              "channel": "freeCodeCamp.org",
+              "subscribers": 11800000,
+              "views": 2723944,
+              "duration": "41:36",
+              "max_height": 1080,
+              "published_at": "2023-09-05T22:36:07+08:00"
+            },
+            {
+              "id": "youtube:loujaeBy8p0",
+              "platform": "youtube",
+              "title": "5 Hacks To Use ChatGPT So Well It’s Almost Unfair",
+              "summary": "Subscribe to my newsletter → In this video, I break down how I use ChatGPT, not as a chatbot or a junior assistant, but as a syst…",
+              "url": "https://www.youtube.com/watch?v=loujaeBy8p0",
+              "thumbnail": "https://i.ytimg.com/vi/loujaeBy8p0/maxresdefault.jpg",
+              "channel": "Sandeep Swadia",
+              "subscribers": 1240000,
+              "views": 2049337,
+              "duration": "16:23",
+              "max_height": 2160,
+              "published_at": "2026-02-18T22:30:45+08:00"
+            },
+            {
+              "id": "youtube:p09yRj47kNM",
+              "platform": "youtube",
+              "title": "Google's 9 Hour AI Prompt Engineering Course In 20 Minutes",
+              "summary": "Try out a free trial with StraighterLine to save thousands on tuition: Want to get ahead in your career using AI",
+              "url": "https://www.youtube.com/watch?v=p09yRj47kNM",
+              "thumbnail": "https://i.ytimg.com/vi/p09yRj47kNM/maxresdefault.jpg",
+              "channel": "Tina Huang",
+              "subscribers": 1250000,
+              "views": 1908873,
+              "duration": "20:17",
+              "max_height": 2160,
+              "published_at": "2024-12-09T21:30:33+08:00"
+            },
+            {
+              "id": "youtube:0vZ_UVLhSQQ",
+              "platform": "youtube",
+              "title": "Getting started with Claude.ai",
+              "summary": "Learn how to get the most out of chatting with Claude",
+              "url": "https://www.youtube.com/watch?v=0vZ_UVLhSQQ",
+              "thumbnail": "https://i.ytimg.com/vi/0vZ_UVLhSQQ/maxresdefault.jpg",
+              "channel": "Anthropic",
+              "subscribers": 728000,
+              "views": 1831916,
+              "duration": "5:19",
+              "max_height": 1080,
+              "published_at": "2025-12-02T23:55:00+08:00"
+            },
+            {
+              "id": "youtube:wZeOwqmSw84",
+              "platform": "youtube",
+              "title": "Learn 97% of Claude in Under 16 Minutes",
+              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
+              "url": "https://www.youtube.com/watch?v=wZeOwqmSw84",
+              "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
+              "channel": "Dan Martell",
+              "subscribers": 2900000,
+              "views": 1825118,
+              "duration": "15:12",
+              "max_height": 2160,
+              "published_at": "2026-05-21T21:01:30+08:00"
+            },
+            {
+              "id": "youtube:7TR-FLWNVHY",
+              "platform": "youtube",
+              "title": "the ONLY way to run Deepseek...",
+              "summary": "☕Because everything in I",
+              "url": "https://www.youtube.com/watch?v=7TR-FLWNVHY",
+              "thumbnail": "https://i.ytimg.com/vi/7TR-FLWNVHY/maxresdefault.jpg",
+              "channel": "NetworkChuck",
+              "subscribers": 5320000,
+              "views": 1228520,
+              "duration": "11:59",
+              "max_height": 2160,
+              "published_at": "2025-02-01T01:34:25+08:00"
+            },
+            {
+              "id": "youtube:z9rdrNrkvDY",
+              "platform": "youtube",
+              "title": "Learn 80% of Claude Cowork in Under 20 Minutes",
+              "summary": "🌟 Grab my free AI Toolkit: Claude #Cowork is Anthropic's desktop app that turns Claude from a chatbot into a full productivity sy…",
+              "url": "https://www.youtube.com/watch?v=z9rdrNrkvDY",
+              "thumbnail": "https://i.ytimg.com/vi/z9rdrNrkvDY/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 1800000,
+              "views": 1148973,
+              "duration": "18:54",
+              "max_height": 2160,
+              "published_at": "2026-04-07T21:02:24+08:00"
+            }
+          ]
+        },
+        "youtube_recent_30d": {
+          "label": "YouTube：30 天内上新 Top 5",
+          "window": {
+            "days": 30
+          },
+          "top_count": 5,
+          "videos": [
+            {
+              "id": "youtube:sL5hPovH1vU",
+              "platform": "youtube",
+              "title": "1000+ hours of Learning Claude in 15 Minutes (Beginner to Pro)",
+              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
+              "url": "https://www.youtube.com/watch?v=sL5hPovH1vU",
+              "thumbnail": "https://i.ytimg.com/vi/sL5hPovH1vU/maxresdefault.jpg",
+              "channel": "Dan Martell",
+              "subscribers": 2900000,
+              "views": 662319,
+              "duration": "14:57",
+              "max_height": 2160,
+              "published_at": "2026-06-15T21:00:05+08:00"
+            },
+            {
+              "id": "youtube:Wq45rvPGNHs",
+              "platform": "youtube",
+              "title": "Introducing ChatGPT Work, powered by Codex and GPT-5.6",
+              "summary": "Andrew Ambrosino, Jessica Liang, Ed Bayes, Lauren Gordon, Tejal Patwardhan, and Katy Shi with host Thibault Sottiaux introduce an…",
+              "url": "https://www.youtube.com/watch?v=Wq45rvPGNHs",
+              "thumbnail": "https://i.ytimg.com/vi/Wq45rvPGNHs/maxresdefault.jpg",
+              "channel": "OpenAI",
+              "subscribers": 1980000,
+              "views": 306369,
+              "duration": "35:08",
+              "max_height": 1080,
+              "published_at": "2026-07-10T02:17:42+08:00"
+            },
+            {
+              "id": "youtube:9vsg5kSYeEg",
+              "platform": "youtube",
+              "title": "Claude AI Full Course | Basic To Advance",
+              "summary": "【Tube Sensei】讲解 AI 工具实战应用，围绕「Claude AI Full Course | Basic To Advance」展示操作步骤与使用技巧。",
+              "url": "https://www.youtube.com/watch?v=9vsg5kSYeEg",
+              "thumbnail": "https://i.ytimg.com/vi/9vsg5kSYeEg/maxresdefault.jpg",
+              "channel": "Tube Sensei",
+              "subscribers": 901000,
+              "views": 137594,
+              "duration": "52:57",
+              "max_height": 2160,
+              "published_at": "2026-06-21T23:30:34+08:00"
+            },
+            {
+              "id": "youtube:-MPGU2a67Ls",
+              "platform": "youtube",
+              "title": "Meet GPT-5.6",
+              "summary": "【OpenAI】讲解 AI 工具实战应用，围绕「Meet GPT-5.6」展示操作步骤与使用技巧。",
+              "url": "https://www.youtube.com/watch?v=-MPGU2a67Ls",
+              "thumbnail": "https://i.ytimg.com/vi/-MPGU2a67Ls/maxresdefault.jpg",
+              "channel": "OpenAI",
+              "subscribers": 1980000,
+              "views": 86562,
+              "duration": "1:59",
+              "max_height": 2160,
+              "published_at": "2026-07-10T01:55:26+08:00"
+            },
+            {
+              "id": "youtube:7GkIWPPC9i0",
+              "platform": "youtube",
+              "title": "Learn 90% of Google's Gemini Spark in 15 Minutes!",
+              "summary": "✅ Try Wispr Flow Pro free - Gemini Spark is Google's new always-on AI agent, and this beginner's guide breaks down what it actual…",
+              "url": "https://www.youtube.com/watch?v=7GkIWPPC9i0",
+              "thumbnail": "https://i.ytimg.com/vi/7GkIWPPC9i0/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 1800000,
+              "views": 85577,
+              "duration": "15:42",
+              "max_height": 2160,
+              "published_at": "2026-06-30T21:00:21+08:00"
+            }
+          ]
+        },
+        "youtube_recent_24h": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:6cRiP9g90PY",
+              "platform": "youtube",
+              "title": "ChatGPT 5.6 & Codex Tutorial with Real Use Cases Explained",
+              "summary": "#ChatGPTWork #Sol #Codex ChatGPT just released one of its biggest updates yet with the launch of ChatGPT Work and the GPT-5",
+              "url": "https://www.youtube.com/watch?v=6cRiP9g90PY",
+              "thumbnail": "https://i.ytimg.com/vi/6cRiP9g90PY/maxresdefault.jpg",
+              "channel": "The Cutting Edge School",
+              "subscribers": 712000,
+              "views": 7603,
+              "duration": "10:24",
+              "max_height": 1080,
+              "published_at": "2026-07-10T21:21:13+08:00"
+            }
+          ]
+        },
+        "bilibili_top_views": {
+          "label": "B站：全网播放量 Top 10",
+          "window": {
+            "all_time": true
+          },
+          "top_count": 10,
+          "videos": [
+            {
+              "id": "bilibili:BV1fV41117NX",
+              "platform": "bilibili",
+              "title": "【AI视频生成入门教程】即梦+豆包+剪映，制作AI漫剧+AI短剧+AI动态漫+AI动画+ComfyUI全集AI漫剧零基础入门教程，AI教程零基础入门到精通",
+              "summary": "最新更新版~ AI视频生成入门教程，喜欢的小伙伴三连支持下，持续更新中哦！ 本套教程从AI视频零基础入门到案例实战，让作为新手的你也能快速入门掌握AI视频制作",
+              "url": "https://www.bilibili.com/video/BV1fV41117NX",
+              "thumbnail": "video-thumbs/bilibili/BV1fV41117NX.jpg",
+              "channel": "AI视频生成入门教程",
+              "subscribers": 0,
+              "views": 18716352,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2020-10-01T20:06:22+08:00"
+            },
+            {
+              "id": "bilibili:BV1QN41127xC",
+              "platform": "bilibili",
+              "title": "AI绘画教程新手入门【ai绘画教程|ai绘画软件|AI绘画教程新手入门|ai绘画网站|ai绘画提示词|ai绘画培训课程|ai绘画无限制无审核|ai绘画模型】",
+              "summary": "AI高级人才培训课：戳👉 📚学完即接单，稿费合同保障💰 🏆获国家网信办算法备案✅ 💼服务华为/科大讯飞等2000+企业🌟 🚀技术稳居国内头部阵营💪 🤝真乙方公司，实战派教学📚 👉AI高薪赛道，转型趁现在！",
+              "url": "https://www.bilibili.com/video/BV1QN41127xC",
+              "thumbnail": "video-thumbs/bilibili/BV1QN41127xC.jpg",
+              "channel": "梨子格格",
+              "subscribers": 0,
+              "views": 6860282,
+              "duration": "13:45",
+              "max_height": 720,
+              "published_at": "2023-07-21T19:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV11NHJzTEbE",
+              "platform": "bilibili",
+              "title": "【全30集】即梦+豆包+剪映，2小时快速掌握AI视频制作技巧，手把手教你从0到1制作AI短片！小白适用！学完即接单，带你玩转AI视频赛道！",
+              "summary": "【AI视频教程_】讲解 AI 工具实战应用，围绕「【全30集】即梦+豆包+剪映，2小时快速掌握AI视频制作技巧，手把手教你从0到1制作AI短片！小」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV11NHJzTEbE",
+              "thumbnail": "video-thumbs/bilibili/BV11NHJzTEbE.jpg",
+              "channel": "AI视频教程_",
+              "subscribers": 0,
+              "views": 4864489,
+              "duration": "134:41",
+              "max_height": 720,
+              "published_at": "2025-10-01T13:12:41+08:00"
+            },
+            {
+              "id": "bilibili:BV1hy5YzaErV",
+              "platform": "bilibili",
+              "title": "【全网炸裂的大模型教程】3天速通大模型，轻松搞定大模型原理、Prompt、langchain、RAG、agent、大模型微调等，从入门到精通一口气学完！",
+              "summary": "在科技浪潮奔涌向前的当下，大模型已毋庸置疑地成为领航未来的关键力量，学习大模型不仅是顺应时代趋势，更是在为自己解锁通往无限可能未来的钥匙，希望本套视频对大家有所帮助",
+              "url": "https://www.bilibili.com/video/BV1hy5YzaErV",
+              "thumbnail": "video-thumbs/bilibili/BV1hy5YzaErV.jpg",
+              "channel": "大模型--",
+              "subscribers": 0,
+              "views": 4859091,
+              "duration": "673:48",
+              "max_height": 720,
+              "published_at": "2025-04-17T16:20:40+08:00"
+            },
+            {
+              "id": "bilibili:BV1uNk1YxEJQ",
+              "platform": "bilibili",
+              "title": "【全748集】目前B站最全最细的AI大模型零基础全套教程，2025最新版，包含所有干货！七天就能从小白到大神！少走99%的弯路！存下吧！很难找全的！",
+              "summary": "【视频配套籽料、学习路线、GitHub项目、实战案例集、电子书+问题解答请看 ”置顶平论” 自取哦】 本套教程从零开始讲解，手把手教学，包含Python快速入门、AI开发环境搭建及提示词工程、Transformer架构和预训练、SFT、RLHF等一些基础概念…",
+              "url": "https://www.bilibili.com/video/BV1uNk1YxEJQ",
+              "thumbnail": "video-thumbs/bilibili/BV1uNk1YxEJQ.png",
+              "channel": "大模型官方课程",
+              "subscribers": 0,
+              "views": 3733822,
+              "duration": "931:47",
+              "max_height": 720,
+              "published_at": "2024-12-20T15:56:52+08:00"
+            },
+            {
+              "id": "bilibili:BV1uN411y7My",
+              "platform": "bilibili",
+              "title": "【DeepSeek教程】清华大学带你从入门到精通，全程干货无废话！少走99%的弯路！存下吧！很难找全的！",
+              "summary": "【账号已注销】讲解 AI 工具实战应用，围绕「【DeepSeek教程】清华大学带你从入门到精通，全程干货无废话！少走99%的弯路！存下吧！很难」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1uN411y7My",
+              "thumbnail": "video-thumbs/bilibili/BV1uN411y7My.jpg",
+              "channel": "账号已注销",
+              "subscribers": 0,
+              "views": 3110238,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2023-06-05T15:09:10+08:00"
+            },
+            {
+              "id": "bilibili:BV1AQoTYrELS",
+              "platform": "bilibili",
+              "title": "什么是AI的圣杯？加入deepseek？？",
+              "summary": "【杏也AI玩具】讲解 AI 工具实战应用，围绕「什么是AI的圣杯？加入deepseek？？」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1AQoTYrELS",
+              "thumbnail": "video-thumbs/bilibili/BV1AQoTYrELS.jpg",
+              "channel": "杏也AI玩具",
+              "subscribers": 0,
+              "views": 2580523,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2025-04-16T19:45:27+08:00"
+            },
+            {
+              "id": "bilibili:BV12QPme7EN9",
+              "platform": "bilibili",
+              "title": "【摆脱卡顿】DeepSeek全网最全的实战技巧！建议收藏～",
+              "summary": "被DeepSeek官网卡到爆？ 全部使用渠道+本地知识库+使用技巧+进阶玩法，这条全搞定！ 感谢朋友们关注 ～",
+              "url": "https://www.bilibili.com/video/BV12QPme7EN9",
+              "thumbnail": "video-thumbs/bilibili/BV12QPme7EN9.jpg",
+              "channel": "秋芝2046",
+              "subscribers": 0,
+              "views": 2527059,
+              "duration": "18:27",
+              "max_height": 720,
+              "published_at": "2025-02-06T00:28:42+08:00"
+            },
+            {
+              "id": "bilibili:BV1NGf2YtE8r",
+              "platform": "bilibili",
+              "title": "DeepSeek R1 推理模型 完全本地部署 保姆级教程 断网运行 无惧隐私威胁 大语言模型推理时调参 CPU GPU 混合推理 32B 轻松本地部署",
+              "summary": "DeepSeek R1 推理模型的蒸馏模型通过LM Studio完全断网地本地部署，并使用Windows防火墙禁用入站出站规则，完全禁用网络，本地运行。使用Huggingface和LM Studio下载更多模型和Q4 Q8量化精度，使用LM Studio进行…",
+              "url": "https://www.bilibili.com/video/BV1NGf2YtE8r",
+              "thumbnail": "video-thumbs/bilibili/BV1NGf2YtE8r.jpg",
+              "channel": "NathMath",
+              "subscribers": 0,
+              "views": 2252837,
+              "duration": "18:15",
+              "max_height": 720,
+              "published_at": "2025-01-27T14:33:33+08:00"
+            },
+            {
+              "id": "bilibili:BV1Z6PHefEpn",
+              "platform": "bilibili",
+              "title": "豆包电脑版的4个隐藏技巧，一定要偷偷收藏...",
+              "summary": "【大老湿gg】讲解 AI 工具实战应用，围绕「豆包电脑版的4个隐藏技巧，一定要偷偷收藏...」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1Z6PHefEpn",
+              "thumbnail": "video-thumbs/bilibili/BV1Z6PHefEpn.jpg",
+              "channel": "大老湿gg",
+              "subscribers": 0,
+              "views": 2101845,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2025-02-27T18:12:52+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：30 天内上新 Top 5",
+          "window": {
+            "days": 30
+          },
+          "top_count": 5,
+          "videos": []
+        },
+        "bilibili_recent_24h": {
+          "label": "B站：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        }
+      }
+    },
     {
       "date": "2026-07-10",
       "timezone": "Asia/Shanghai",
@@ -106,7 +596,7 @@
               "thumbnail": "https://i.ytimg.com/vi/Gaf_jCnA6mc/maxresdefault.jpg",
               "channel": "Charlie Chang",
               "subscribers": 1440000,
-              "views": 4776105,
+              "views": 4776193,
               "duration": "27:51",
               "max_height": 2160,
               "published_at": "2023-04-05T02:09:53+08:00"
@@ -120,7 +610,7 @@
               "thumbnail": "https://i.ytimg.com/vi/jC4v5AS4RIM/maxresdefault.jpg",
               "channel": "Jeff Su",
               "subscribers": 1800000,
-              "views": 3645377,
+              "views": 3645459,
               "duration": "8:30",
               "max_height": 2160,
               "published_at": "2023-08-01T21:00:26+08:00"
@@ -134,24 +624,24 @@
               "thumbnail": "https://i.ytimg.com/vi/_ZvnD73m40o/maxresdefault.jpg",
               "channel": "freeCodeCamp.org",
               "subscribers": 11800000,
-              "views": 2723574,
+              "views": 2723634,
               "duration": "41:36",
               "max_height": 1080,
               "published_at": "2023-09-05T22:36:07+08:00"
             },
             {
-              "id": "youtube:QoQBzR1NIqI",
+              "id": "youtube:loujaeBy8p0",
               "platform": "youtube",
-              "title": "CLAUDE CODE FULL COURSE 4 HOURS: Build & Sell (2026)",
-              "summary": "🔥 Join Maker School & get customer #1 guaranteed: 📁 Get all Claude course resources 100% free: ➡️ If this is your first video: I'…",
-              "url": "https://www.youtube.com/watch?v=QoQBzR1NIqI",
-              "thumbnail": "https://i.ytimg.com/vi/QoQBzR1NIqI/maxresdefault.jpg",
-              "channel": "Nick Saraev",
-              "subscribers": 467000,
-              "views": 2086088,
-              "duration": "4:10:43",
+              "title": "5 Hacks To Use ChatGPT So Well It’s Almost Unfair",
+              "summary": "Subscribe to my newsletter → In this video, I break down how I use ChatGPT, not as a chatbot or a junior assistant, but as a syst…",
+              "url": "https://www.youtube.com/watch?v=loujaeBy8p0",
+              "thumbnail": "https://i.ytimg.com/vi/loujaeBy8p0/maxresdefault.jpg",
+              "channel": "Sandeep Swadia",
+              "subscribers": 1230000,
+              "views": 2047780,
+              "duration": "16:23",
               "max_height": 2160,
-              "published_at": "2026-02-13T01:14:59+08:00"
+              "published_at": "2026-02-18T22:30:45+08:00"
             },
             {
               "id": "youtube:p09yRj47kNM",
@@ -162,7 +652,7 @@
               "thumbnail": "https://i.ytimg.com/vi/p09yRj47kNM/maxresdefault.jpg",
               "channel": "Tina Huang",
               "subscribers": 1250000,
-              "views": 1908220,
+              "views": 1908320,
               "duration": "20:17",
               "max_height": 2160,
               "published_at": "2024-12-09T21:30:33+08:00"
@@ -175,8 +665,8 @@
               "url": "https://www.youtube.com/watch?v=0vZ_UVLhSQQ",
               "thumbnail": "https://i.ytimg.com/vi/0vZ_UVLhSQQ/maxresdefault.jpg",
               "channel": "Anthropic",
-              "subscribers": 727000,
-              "views": 1828068,
+              "subscribers": 728000,
+              "views": 1828732,
               "duration": "5:19",
               "max_height": 1080,
               "published_at": "2025-12-02T23:55:00+08:00"
@@ -190,7 +680,7 @@
               "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
               "channel": "Dan Martell",
               "subscribers": 2900000,
-              "views": 1821058,
+              "views": 1821826,
               "duration": "15:12",
               "max_height": 2160,
               "published_at": "2026-05-21T21:01:30+08:00"
@@ -204,7 +694,7 @@
               "thumbnail": "https://i.ytimg.com/vi/7TR-FLWNVHY/maxresdefault.jpg",
               "channel": "NetworkChuck",
               "subscribers": 5320000,
-              "views": 1228503,
+              "views": 1228511,
               "duration": "11:59",
               "max_height": 2160,
               "published_at": "2025-02-01T01:34:25+08:00"
@@ -218,24 +708,24 @@
               "thumbnail": "https://i.ytimg.com/vi/z9rdrNrkvDY/maxresdefault.jpg",
               "channel": "Jeff Su",
               "subscribers": 1800000,
-              "views": 1147425,
+              "views": 1147675,
               "duration": "18:54",
               "max_height": 2160,
               "published_at": "2026-04-07T21:02:24+08:00"
             },
             {
-              "id": "youtube:28TGfTZweqw",
+              "id": "youtube:waKGeoeM6HU",
               "platform": "youtube",
-              "title": "How To Use Claude Better Than 99% Of People",
-              "summary": "Subscribe to my newsletter → Generate Video Ads right in Claude using Higgsfield MCP → Give Claude to two people and you’ll see t…",
-              "url": "https://www.youtube.com/watch?v=28TGfTZweqw",
-              "thumbnail": "https://i.ytimg.com/vi/28TGfTZweqw/maxresdefault.jpg",
-              "channel": "Sandeep Swadia",
-              "subscribers": 1230000,
-              "views": 1087239,
-              "duration": "19:30",
-              "max_height": 2160,
-              "published_at": "2026-05-22T20:00:02+08:00"
+              "title": "NEW Deepseek AI Good For Creating Trading Strategies in TradingView and PineScript? (FREE AI)",
+              "summary": "Is this NEW and FREE AI called \"deekseek R1\" any good for creating trading strategies in Pine Script",
+              "url": "https://www.youtube.com/watch?v=waKGeoeM6HU",
+              "thumbnail": "https://i.ytimg.com/vi/waKGeoeM6HU/maxresdefault.jpg",
+              "channel": "Michael Automates",
+              "subscribers": 287000,
+              "views": 1103514,
+              "duration": "29:58",
+              "max_height": 1080,
+              "published_at": "2025-01-24T03:19:10+08:00"
             }
           ]
         },
@@ -255,7 +745,7 @@
               "thumbnail": "https://i.ytimg.com/vi/sL5hPovH1vU/maxresdefault.jpg",
               "channel": "Dan Martell",
               "subscribers": 2900000,
-              "views": 656189,
+              "views": 657197,
               "duration": "14:57",
               "max_height": 2160,
               "published_at": "2026-06-15T21:00:05+08:00"
@@ -269,7 +759,7 @@
               "thumbnail": "https://i.ytimg.com/vi/9vsg5kSYeEg/maxresdefault.jpg",
               "channel": "Tube Sensei",
               "subscribers": 901000,
-              "views": 135971,
+              "views": 136239,
               "duration": "52:57",
               "max_height": 2160,
               "published_at": "2026-06-21T23:30:34+08:00"
@@ -283,7 +773,7 @@
               "thumbnail": "https://i.ytimg.com/vi/7GkIWPPC9i0/maxresdefault.jpg",
               "channel": "Jeff Su",
               "subscribers": 1800000,
-              "views": 84931,
+              "views": 85004,
               "duration": "15:42",
               "max_height": 2160,
               "published_at": "2026-06-30T21:00:21+08:00"
@@ -297,7 +787,7 @@
               "thumbnail": "https://i.ytimg.com/vi/-MPGU2a67Ls/maxresdefault.jpg",
               "channel": "OpenAI",
               "subscribers": 1980000,
-              "views": 68903,
+              "views": 71308,
               "duration": "1:59",
               "max_height": 2160,
               "published_at": "2026-07-10T01:55:26+08:00"
@@ -310,8 +800,8 @@
               "url": "https://www.youtube.com/watch?v=bkuq0gGOEmY",
               "thumbnail": "https://i.ytimg.com/vi/bkuq0gGOEmY/maxresdefault.jpg",
               "channel": "Doji Creates",
-              "subscribers": 77400,
-              "views": 56224,
+              "subscribers": 77500,
+              "views": 56330,
               "duration": "55:43",
               "max_height": 2160,
               "published_at": "2026-06-14T20:25:50+08:00"
@@ -334,38 +824,10 @@
               "thumbnail": "https://i.ytimg.com/vi/-MPGU2a67Ls/maxresdefault.jpg",
               "channel": "OpenAI",
               "subscribers": 1980000,
-              "views": 68903,
+              "views": 71308,
               "duration": "1:59",
               "max_height": 2160,
               "published_at": "2026-07-10T01:55:26+08:00"
-            },
-            {
-              "id": "youtube:GphgJjaKKhw",
-              "platform": "youtube",
-              "title": "Get started with ChatGPT Work",
-              "summary": "ChatGPT Work gives you one place to delegate real work across your apps, files, local projects, browser, and computer",
-              "url": "https://www.youtube.com/watch?v=GphgJjaKKhw",
-              "thumbnail": "https://i.ytimg.com/vi/GphgJjaKKhw/maxresdefault.jpg",
-              "channel": "OpenAI",
-              "subscribers": 1980000,
-              "views": 59970,
-              "duration": "5:53",
-              "max_height": 2160,
-              "published_at": "2026-07-10T05:00:03+08:00"
-            },
-            {
-              "id": "youtube:7pVTQSA4s5I",
-              "platform": "youtube",
-              "title": "GPT 5.6 SOL IS HERE! How to use it.",
-              "summary": "In this episode I sit down with Dan Shipper to see how he runs his work and personal life on OpenAI's Codex Desktop with the 5",
-              "url": "https://www.youtube.com/watch?v=7pVTQSA4s5I",
-              "thumbnail": "https://i.ytimg.com/vi/7pVTQSA4s5I/maxresdefault.jpg",
-              "channel": "Greg Isenberg",
-              "subscribers": 669000,
-              "views": 20091,
-              "duration": "49:16",
-              "max_height": 1080,
-              "published_at": "2026-07-10T01:30:15+08:00"
             }
           ]
         },
@@ -377,144 +839,144 @@
           "top_count": 10,
           "videos": [
             {
-              "id": "bilibili:BV1fV41117NX",
+              "id": "bilibili:BV1cwVG6qEEW",
               "platform": "bilibili",
-              "title": "【AI视频生成入门教程】即梦+豆包+剪映，制作AI漫剧+AI短剧+AI动态漫+AI动画+ComfyUI全集AI漫剧零基础入门教程，AI教程零基础入门到精通",
-              "summary": "最新更新版~ AI视频生成入门教程，喜欢的小伙伴三连支持下，持续更新中哦！ 本套教程从AI视频零基础入门到案例实战，让作为新手的你也能快速入门掌握AI视频制作",
-              "url": "https://www.bilibili.com/video/BV1fV41117NX",
-              "thumbnail": "video-thumbs/bilibili/BV1fV41117NX.jpg",
-              "channel": "AI视频生成入门教程",
+              "title": "【硬核教程】如何让一个J人红温？只需要给他做这份“发疯版NBTI”...",
+              "summary": "NBTI测试链接： 还在因为MBTI不是J人被面试官拒绝？别再掉进这个当代职场大坑了！ 本期视频，我用 Claude Code手搓了一个专属打工人的“NBTI”发疯测试！同时找来三位不同岗位的小伙伴，记录他们一周的工作实况，来验证测验的准确性。 还有满满干货…",
+              "url": "https://www.bilibili.com/video/BV1cwVG6qEEW",
+              "thumbnail": "video-thumbs/bilibili/BV1cwVG6qEEW.jpg",
+              "channel": "GenJi是真想教会你",
               "subscribers": 0,
-              "views": 18716172,
+              "views": 1895986,
               "duration": "",
               "max_height": 720,
-              "published_at": "2020-10-01T20:06:22+08:00"
+              "published_at": "2026-05-30T18:00:00+08:00"
             },
             {
-              "id": "bilibili:BV1QN41127xC",
+              "id": "bilibili:BV17P411m7Ma",
               "platform": "bilibili",
-              "title": "AI绘画教程新手入门【ai绘画教程|ai绘画软件|AI绘画教程新手入门|ai绘画网站|ai绘画提示词|ai绘画培训课程|ai绘画无限制无审核|ai绘画模型】",
-              "summary": "AI高级人才培训课：戳👉 📚学完即接单，稿费合同保障💰 🏆获国家网信办算法备案✅ 💼服务华为/科大讯飞等2000+企业🌟 🚀技术稳居国内头部阵营💪 🤝真乙方公司，实战派教学📚 👉AI高薪赛道，转型趁现在！",
-              "url": "https://www.bilibili.com/video/BV1QN41127xC",
-              "thumbnail": "video-thumbs/bilibili/BV1QN41127xC.jpg",
-              "channel": "梨子格格",
+              "title": "【B站最全】RAG与Agent开发实战+Claude code与Harness 原理 / 优化 / 项目 / 架构全链路精讲，13节课吃透AI大模型应用开发！",
+              "summary": "📚 教程内容总览（列表版） 一、RAG 模块（原理 + 优化 + 实战） 【原理篇】从第一性原理理解 RAG 【实战篇】基于百万语料的医疗 RAG 项目完整讲解 【优化篇】30 分钟手撸刑法大模型（RAG 优化实战） 【优化篇】RAG 优化的 16 种新方法…",
+              "url": "https://www.bilibili.com/video/BV17P411m7Ma",
+              "thumbnail": "video-thumbs/bilibili/BV17P411m7Ma.jpg",
+              "channel": "AI大模型课堂-卢菁老师",
               "subscribers": 0,
-              "views": 6860281,
-              "duration": "13:45",
+              "views": 1667380,
+              "duration": "589:42",
               "max_height": 720,
-              "published_at": "2023-07-21T19:00:00+08:00"
+              "published_at": "2023-05-09T16:00:00+08:00"
             },
             {
-              "id": "bilibili:BV11NHJzTEbE",
+              "id": "bilibili:BV1UZFfeMEvd",
               "platform": "bilibili",
-              "title": "【全30集】即梦+豆包+剪映，2小时快速掌握AI视频制作技巧，手把手教你从0到1制作AI短片！小白适用！学完即接单，带你玩转AI视频赛道！",
-              "summary": "【AI视频教程_】讲解 AI 工具实战应用，围绕「【全30集】即梦+豆包+剪映，2小时快速掌握AI视频制作技巧，手把手教你从0到1制作AI短片！小」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV11NHJzTEbE",
-              "thumbnail": "video-thumbs/bilibili/BV11NHJzTEbE.jpg",
-              "channel": "AI视频教程_",
+              "title": "DeepSeek 19大使用技巧，从入门到精通",
+              "summary": "DeepSeek R1：一个免费且超越预期的AI模型。 这期期视频为你详解： 1",
+              "url": "https://www.bilibili.com/video/BV1UZFfeMEvd",
+              "thumbnail": "video-thumbs/bilibili/BV1UZFfeMEvd.jpg",
+              "channel": "花叔v",
               "subscribers": 0,
-              "views": 4859813,
-              "duration": "134:41",
-              "max_height": 720,
-              "published_at": "2025-10-01T13:12:41+08:00"
-            },
-            {
-              "id": "bilibili:BV1hy5YzaErV",
-              "platform": "bilibili",
-              "title": "【全网炸裂的大模型教程】3天速通大模型，轻松搞定大模型原理、Prompt、langchain、RAG、agent、大模型微调等，从入门到精通一口气学完！",
-              "summary": "在科技浪潮奔涌向前的当下，大模型已毋庸置疑地成为领航未来的关键力量，学习大模型不仅是顺应时代趋势，更是在为自己解锁通往无限可能未来的钥匙，希望本套视频对大家有所帮助",
-              "url": "https://www.bilibili.com/video/BV1hy5YzaErV",
-              "thumbnail": "video-thumbs/bilibili/BV1hy5YzaErV.jpg",
-              "channel": "大模型--",
-              "subscribers": 0,
-              "views": 4859037,
-              "duration": "673:48",
-              "max_height": 720,
-              "published_at": "2025-04-17T16:20:40+08:00"
-            },
-            {
-              "id": "bilibili:BV1uNk1YxEJQ",
-              "platform": "bilibili",
-              "title": "【全748集】目前B站最全最细的AI大模型零基础全套教程，2025最新版，包含所有干货！七天就能从小白到大神！少走99%的弯路！存下吧！很难找全的！",
-              "summary": "【视频配套籽料、学习路线、GitHub项目、实战案例集、电子书+问题解答请看 ”置顶平论” 自取哦】 本套教程从零开始讲解，手把手教学，包含Python快速入门、AI开发环境搭建及提示词工程、Transformer架构和预训练、SFT、RLHF等一些基础概念…",
-              "url": "https://www.bilibili.com/video/BV1uNk1YxEJQ",
-              "thumbnail": "video-thumbs/bilibili/BV1uNk1YxEJQ.png",
-              "channel": "大模型官方课程",
-              "subscribers": 0,
-              "views": 3733517,
-              "duration": "931:47",
-              "max_height": 720,
-              "published_at": "2024-12-20T15:56:52+08:00"
-            },
-            {
-              "id": "bilibili:BV1uN411y7My",
-              "platform": "bilibili",
-              "title": "【DeepSeek教程】清华大学带你从入门到精通，全程干货无废话！少走99%的弯路！存下吧！很难找全的！",
-              "summary": "【账号已注销】讲解 AI 工具实战应用，围绕「【DeepSeek教程】清华大学带你从入门到精通，全程干货无废话！少走99%的弯路！存下吧！很难」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1uN411y7My",
-              "thumbnail": "video-thumbs/bilibili/BV1uN411y7My.jpg",
-              "channel": "账号已注销",
-              "subscribers": 0,
-              "views": 3110231,
+              "views": 1591180,
               "duration": "",
               "max_height": 720,
-              "published_at": "2023-06-05T15:09:10+08:00"
+              "published_at": "2025-02-01T16:16:38+08:00"
             },
             {
-              "id": "bilibili:BV1AQoTYrELS",
+              "id": "bilibili:BV1NvRyBzEhq",
               "platform": "bilibili",
-              "title": "什么是AI的圣杯？加入deepseek？？",
-              "summary": "【杏也AI玩具】讲解 AI 工具实战应用，围绕「什么是AI的圣杯？加入deepseek？？」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1AQoTYrELS",
-              "thumbnail": "video-thumbs/bilibili/BV1AQoTYrELS.jpg",
-              "channel": "杏也AI玩具",
-              "subscribers": 0,
-              "views": 2580519,
-              "duration": "",
-              "max_height": 720,
-              "published_at": "2025-04-16T19:45:27+08:00"
-            },
-            {
-              "id": "bilibili:BV12QPme7EN9",
-              "platform": "bilibili",
-              "title": "【摆脱卡顿】DeepSeek全网最全的实战技巧！建议收藏～",
-              "summary": "被DeepSeek官网卡到爆？ 全部使用渠道+本地知识库+使用技巧+进阶玩法，这条全搞定！ 感谢朋友们关注 ～",
-              "url": "https://www.bilibili.com/video/BV12QPme7EN9",
-              "thumbnail": "video-thumbs/bilibili/BV12QPme7EN9.jpg",
+              "title": "全网最全！60分钟全面掌握Claude Code～【附完整文档】",
+              "summary": "Claude Code保姆级教学【收藏起来不会错！】 从上手安装，到高级用法，这期一次讲全～ 花了三周做教程，希望能帮到你嘻嘻，感谢朋友们的三连+关注啦～",
+              "url": "https://www.bilibili.com/video/BV1NvRyBzEhq",
+              "thumbnail": "video-thumbs/bilibili/BV1NvRyBzEhq.jpg",
               "channel": "秋芝2046",
               "subscribers": 0,
-              "views": 2527026,
-              "duration": "18:27",
-              "max_height": 720,
-              "published_at": "2025-02-06T00:28:42+08:00"
-            },
-            {
-              "id": "bilibili:BV1NGf2YtE8r",
-              "platform": "bilibili",
-              "title": "DeepSeek R1 推理模型 完全本地部署 保姆级教程 断网运行 无惧隐私威胁 大语言模型推理时调参 CPU GPU 混合推理 32B 轻松本地部署",
-              "summary": "DeepSeek R1 推理模型的蒸馏模型通过LM Studio完全断网地本地部署，并使用Windows防火墙禁用入站出站规则，完全禁用网络，本地运行。使用Huggingface和LM Studio下载更多模型和Q4 Q8量化精度，使用LM Studio进行…",
-              "url": "https://www.bilibili.com/video/BV1NGf2YtE8r",
-              "thumbnail": "video-thumbs/bilibili/BV1NGf2YtE8r.jpg",
-              "channel": "NathMath",
-              "subscribers": 0,
-              "views": 2252827,
-              "duration": "18:15",
-              "max_height": 720,
-              "published_at": "2025-01-27T14:33:33+08:00"
-            },
-            {
-              "id": "bilibili:BV1Z6PHefEpn",
-              "platform": "bilibili",
-              "title": "豆包电脑版的4个隐藏技巧，一定要偷偷收藏...",
-              "summary": "【大老湿gg】讲解 AI 工具实战应用，围绕「豆包电脑版的4个隐藏技巧，一定要偷偷收藏...」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1Z6PHefEpn",
-              "thumbnail": "video-thumbs/bilibili/BV1Z6PHefEpn.jpg",
-              "channel": "大老湿gg",
-              "subscribers": 0,
-              "views": 2101845,
+              "views": 1368296,
               "duration": "",
               "max_height": 720,
-              "published_at": "2025-02-27T18:12:52+08:00"
+              "published_at": "2026-05-05T22:08:25+08:00"
+            },
+            {
+              "id": "bilibili:BV1Kk9kBAEJv",
+              "platform": "bilibili",
+              "title": "Codex (APP) 保姆级全攻略，海量实战教程， 一期精通Codex",
+              "summary": "最近Codex APP的能力越来越全面，变成了Codex四大形态里最强一个。 Codex APP 比起 Claude Code，额度更高，功能更全，免费账户也能用。而且不会出现限速、封号、降智等问题，用过的小伙伴直呼真香。本期视频带来一个Codex APP的…",
+              "url": "https://www.bilibili.com/video/BV1Kk9kBAEJv",
+              "thumbnail": "video-thumbs/bilibili/BV1Kk9kBAEJv.jpg",
+              "channel": "技术爬爬虾",
+              "subscribers": 0,
+              "views": 1257956,
+              "duration": "38:13",
+              "max_height": 720,
+              "published_at": "2026-04-28T19:04:05+08:00"
+            },
+            {
+              "id": "bilibili:BV16YRLB7Exd",
+              "platform": "bilibili",
+              "title": "5分钟安装ClaudeCode并接入DeepSeek",
+              "summary": "5分钟教你安装ClaudeCode并接入DeepSeekV4 用到的命令： node版本检查：node -v npm版本检查：npm -v npm国内镜像：npm config set registry git版本检查：git -v ClaudeCode安装…",
+              "url": "https://www.bilibili.com/video/BV16YRLB7Exd",
+              "thumbnail": "video-thumbs/bilibili/BV16YRLB7Exd.jpg",
+              "channel": "Yin_Code",
+              "subscribers": 0,
+              "views": 1184968,
+              "duration": "5:27",
+              "max_height": 720,
+              "published_at": "2026-05-02T16:14:12+08:00"
+            },
+            {
+              "id": "bilibili:BV1nc31zzEa3",
+              "platform": "bilibili",
+              "title": "【2026最新】吴恩达大模型大合集！爆肝整理！吴恩达联手各路大神，从Prompt到Agent实战，AI工程师必备大模型全套教程！【整整70集！】",
+              "summary": "大模型不是工具，而是文明的新器官——它延伸人类智能，也倒逼我们重新定义‘人何以为人’。",
+              "url": "https://www.bilibili.com/video/BV1nc31zzEa3",
+              "thumbnail": "video-thumbs/bilibili/BV1nc31zzEa3.jpg",
+              "channel": "吴恩达大模型课程",
+              "subscribers": 0,
+              "views": 1104050,
+              "duration": "760:32",
+              "max_height": 720,
+              "published_at": "2025-07-07T18:02:22+08:00"
+            },
+            {
+              "id": "bilibili:BV1Ax4y1b7ac",
+              "platform": "bilibili",
+              "title": "【国内免费制作PPT神器】全网最全AI生成PPT使用教程，1分钟搞定一个PPT！",
+              "summary": "这个视频主要讲解了3款PPT制作神器，可自动生成PPT大纲，一键创建PPT排版和内容，整个过程只需要几分钟就可以完成。",
+              "url": "https://www.bilibili.com/video/BV1Ax4y1b7ac",
+              "thumbnail": "video-thumbs/bilibili/BV1Ax4y1b7ac.jpg",
+              "channel": "阿绿学姐",
+              "subscribers": 0,
+              "views": 1054156,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2024-06-07T19:23:55+08:00"
+            },
+            {
+              "id": "bilibili:BV1nDMJzbEGm",
+              "platform": "bilibili",
+              "title": "【LangChain全讲】从入门到实战全套教程，从底层原理出发，到项目实战全面解析【大模型|大模型应用|大模型应用开发】",
+              "summary": "LangChain 是一个开源框架，专为简化大语言模型（LLM）应用开发而设计，提供模块化组件（如模型集成、数据检索、记忆管理和链式调用），让开发者能快速构建复杂AI应用（如智能问答、自主代理和RAG系统），而无需重复处理底层细节。",
+              "url": "https://www.bilibili.com/video/BV1nDMJzbEGm",
+              "thumbnail": "video-thumbs/bilibili/BV1nDMJzbEGm.jpg",
+              "channel": "langchain教程-",
+              "subscribers": 0,
+              "views": 1041466,
+              "duration": "203:56",
+              "max_height": 720,
+              "published_at": "2025-06-11T18:05:58+08:00"
+            },
+            {
+              "id": "bilibili:BV1zfcoeXEQR",
+              "platform": "bilibili",
+              "title": "【免费】不用魔法！DeepSeek 保姆级新手教程！国产大模型超越 OpenAI ？",
+              "summary": "最近，有一款爆火海外的 AI 工具，传闻超越 GPT 4？不用魔法，还对国内免费！我参考国内外大神的视频，结合自己对 DeepSeek 的深度使用和实践，肝了三天做出一期保姆级的 DeepSeek 使用教程，在这里免费分享给大家。 即使你是一个完全零基础的 …",
+              "url": "https://www.bilibili.com/video/BV1zfcoeXEQR",
+              "thumbnail": "video-thumbs/bilibili/BV1zfcoeXEQR.jpg",
+              "channel": "AfterShip",
+              "subscribers": 0,
+              "views": 1037132,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2025-01-18T12:00:00+08:00"
             }
           ]
         },
@@ -524,22 +986,7 @@
             "days": 30
           },
           "top_count": 5,
-          "videos": [
-            {
-              "id": "bilibili:BV1j9MP6wEV9",
-              "platform": "bilibili",
-              "title": "从零开始，学会让桌面Agent帮你干活！【小白教程】",
-              "summary": "用不上codex的朋友们！新的国产Agent直接上手，来跑通8大用法～ 感谢朋友们的三连+关注～",
-              "url": "https://www.bilibili.com/video/BV1j9MP6wEV9",
-              "thumbnail": "video-thumbs/bilibili/BV1j9MP6wEV9.jpg",
-              "channel": "秋芝2046",
-              "subscribers": 0,
-              "views": 1205191,
-              "duration": "13:13",
-              "max_height": 720,
-              "published_at": "2026-07-05T10:00:00+08:00"
-            }
-          ]
+          "videos": []
         },
         "bilibili_recent_24h": {
           "label": "B站：24 小时内上新 Top 3",
@@ -552,5 +999,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-10T22:28:10.466546+08:00"
+  "updated_at": "2026-07-11T12:14:32.596971+08:00"
 }
