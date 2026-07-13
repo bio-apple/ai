@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import json
+import os
 import ssl
 import subprocess
 import sys
@@ -27,17 +28,43 @@ def ssl_context() -> ssl.SSLContext:
         return ssl.create_default_context()
 
 
+def github_headers() -> dict[str, str]:
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "User-Agent": USER_AGENT,
+        "X-GitHub-Api-Version": "2022-11-28",
+    }
+    token = (os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or "").strip()
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    return headers
+
+
 def fetch_repo_stars(repo: str) -> int | None:
     url = f"https://api.github.com/repos/{repo}"
+    headers = github_headers()
     try:
-        req = Request(url, headers={"Accept": "application/vnd.github+json", "User-Agent": USER_AGENT})
+        req = Request(url, headers=headers)
         with urlopen(req, timeout=20, context=ssl_context()) as resp:
             data = json.loads(resp.read().decode())
         return int(data.get("stargazers_count", 0))
     except Exception as err:
         try:
+            curl_cmd = [
+                "curl",
+                "-sL",
+                "--max-time",
+                "20",
+                "-H",
+                f"User-Agent: {USER_AGENT}",
+                "-H",
+                "Accept: application/vnd.github+json",
+            ]
+            if "Authorization" in headers:
+                curl_cmd.extend(["-H", f"Authorization: {headers['Authorization']}"])
+            curl_cmd.append(url)
             proc = subprocess.run(
-                ["curl", "-sL", "--max-time", "20", "-H", f"User-Agent: {USER_AGENT}", url],
+                curl_cmd,
                 capture_output=True,
                 check=True,
                 text=True,
@@ -50,8 +77,15 @@ def fetch_repo_stars(repo: str) -> int | None:
 
 
 def main() -> int:
+    token = (os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or "").strip()
+    if not token:
+        print("⚠ GITHUB_TOKEN/GH_TOKEN 未设置，使用匿名 GitHub API（易触发限流）", file=sys.stderr)
+    else:
+        print("✓ 使用 GITHUB_TOKEN 调用 GitHub API")
+
     payload = json.loads(DATA_FILE.read_text(encoding="utf-8"))
     updated = 0
+    skipped = 0
     for domain in payload.get("domains", []):
         for project in domain.get("projects", []):
             repo = project.get("repo")
@@ -59,6 +93,7 @@ def main() -> int:
                 continue
             stars = fetch_repo_stars(repo)
             if stars is None:
+                skipped += 1
                 continue
             project["stars"] = stars
             updated += 1
@@ -67,7 +102,10 @@ def main() -> int:
     text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     DATA_FILE.write_text(text, encoding="utf-8")
     PUBLIC_FILE.write_text(text, encoding="utf-8")
-    print(f"✓ oss-projects.json ({updated} repos) → {DATA_FILE}")
+    print(f"✓ oss-projects.json ({updated} repos, {skipped} skipped) → {DATA_FILE}")
+    if updated == 0 and skipped > 0:
+        print("✗ 全部仓库刷新失败，保留原文件但以非零退出", file=sys.stderr)
+        return 1
     return 0
 
 

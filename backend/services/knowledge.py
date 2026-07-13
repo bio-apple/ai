@@ -4,7 +4,7 @@ import math
 import re
 from typing import Any
 
-from backend.services.data_store import load_search_index
+from backend.services.data_store import load_search_index, runtime_path
 
 TOKEN_RE = re.compile(r"[\w\u4e00-\u9fff]+", re.UNICODE)
 
@@ -115,10 +115,15 @@ class KnowledgeIndex:
 
 
 _index: KnowledgeIndex | None = None
+_index_mtime: float | None = None
 
 
 def get_knowledge_index() -> KnowledgeIndex:
-    global _index
-    if _index is None:
-        _index = KnowledgeIndex()
+    """按 search-index.json mtime 失效重建，与 data_store 缓存对齐。"""
+    global _index, _index_mtime
+    path = runtime_path("search-index.json")
+    mtime = path.stat().st_mtime if path.exists() else 0.0
+    if _index is None or _index_mtime != mtime:
+        _index = KnowledgeIndex(load_search_index())
+        _index_mtime = mtime
     return _index

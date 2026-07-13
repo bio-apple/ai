@@ -19,7 +19,22 @@ app.add_middleware(
 )
 app.include_router(api_router)
 
-SAFE_STATIC = {".html", ".css", ".js", ".ico", ".png", ".svg", ".woff2", ".json", ".xml", ".txt"}
+SAFE_STATIC = {
+    ".html",
+    ".css",
+    ".js",
+    ".ico",
+    ".png",
+    ".svg",
+    ".jpg",
+    ".jpeg",
+    ".webp",
+    ".gif",
+    ".woff2",
+    ".json",
+    ".xml",
+    ".txt",
+}
 
 
 def _safe_file(filepath: str):

@@ -247,7 +247,7 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 
 **六大领域**（每领域至少 1 个项目）：`ai-agent`、`llm-apps`、`local-llm`、`ai-art`、`multimodal`、`ml-framework`。
 
-维护：编辑 `data/oss-projects.json` 后运行 `python3 scripts/fetch_oss_stars.py` 刷新 Star 数；脚本会同步写入根目录 `oss-projects.json`。
+维护：编辑 `data/oss-projects.json` 后运行 `python3 scripts/fetch_oss_stars.py` 刷新 Star 数；脚本会同步写入根目录 `oss-projects.json`。优先读取环境变量 `GITHUB_TOKEN` / `GH_TOKEN`（Actions 已注入），避免匿名 API 限流。
 
 ### `daily-videos.json`
 
@@ -460,7 +460,7 @@ npm run test:e2e
    - 24h/30d：按发布时间搜索（B站 order=pubdate）；YouTube 仍为 ytsearch，再滤时间窗
    - 100d Top：按热度搜索（B站 order=click）并滤 100 天窗，可补充日期搜索候选
 5. 生成摘要（过滤 URL/赞助/广告文案）
-6. 写入 daily-videos.json（categories 按 CATEGORY_ORDER）→ push → 触发 CI + Pages
+6. 写入 daily-videos.json，并提交 `video-thumbs/`（B 站封面镜像）→ push → 触发 CI + Pages
 ```
 
 ### 本地手动运行
