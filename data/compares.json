@@ -22,9 +22,9 @@
       {"heading": "什么时候选 Copilot？", "items": ["团队统一用 VS Code，不想换编辑器", "主要需求是 Tab 补全和内联 Chat", "学生或开源维护者可申请免费 Pro"]}
     ],
     "cta": [
-      {"label": "查看 Cursor 完整教程 →", "href": "../tools/cursor.html", "track": "compare-goto-cursor"},
-      {"label": "查看 Copilot 完整教程 →", "href": "../index.html#section-copilot", "track": "compare-goto-copilot", "outline": true},
-      {"label": "看编程实战案例 →", "href": "../index.html#section-cases", "track": "compare-goto-cases", "outline": true}
+      {"label": "查看 Cursor 完整教程 →", "href": "/ai/tools/cursor.html", "track": "compare-goto-cursor"},
+      {"label": "查看 Copilot 完整教程 →", "href": "/ai/index.html#section-copilot", "track": "compare-goto-copilot", "outline": true},
+      {"label": "看编程实战案例 →", "href": "/ai/index.html#section-cases", "track": "compare-goto-cases", "outline": true}
     ],
     "search_keywords": "cursor copilot 对比 选型 编程"
   },
@@ -50,9 +50,9 @@
       {"heading": "推荐学习路径", "items": ["国内用户先用 豆包 或 DeepSeek 学会提示词基础", "需要图像生成、GPTs、Deep Research 时升级 ChatGPT", "开发者用 DeepSeek API 低成本接入产品"], "ordered": true}
     ],
     "cta": [
-      {"label": "ChatGPT 教程 →", "href": "../tools/chatgpt.html", "track": "compare-goto-chatgpt"},
-      {"label": "DeepSeek 教程 →", "href": "../tools/deepseek.html", "track": "compare-goto-deepseek", "outline": true},
-      {"label": "豆包教程 →", "href": "../index.html#section-doubao", "track": "compare-goto-doubao", "outline": true}
+      {"label": "ChatGPT 教程 →", "href": "/ai/tools/chatgpt.html", "track": "compare-goto-chatgpt"},
+      {"label": "DeepSeek 教程 →", "href": "/ai/tools/deepseek.html", "track": "compare-goto-deepseek", "outline": true},
+      {"label": "豆包教程 →", "href": "/ai/index.html#section-doubao", "track": "compare-goto-doubao", "outline": true}
     ],
     "search_keywords": "chatgpt deepseek 豆包 对比 入门"
   },
@@ -78,9 +78,9 @@
       {"heading": "实战案例推荐", "items": ["用 Kimi 速读 50 页合同 — 提取关键条款与风险点", "用 Claude Projects 生成技术文档 — 上传代码库自动分析", "用通义听悟整理会议纪要 — 1 小时录音转结构化纪要"]}
     ],
     "cta": [
-      {"label": "Kimi 教程 →", "href": "../index.html#section-kimi", "track": "compare-goto-kimi"},
-      {"label": "Claude 教程 →", "href": "../index.html#section-claude", "track": "compare-goto-claude", "outline": true},
-      {"label": "通义教程 →", "href": "../index.html#section-qwen", "track": "compare-goto-qwen", "outline": true}
+      {"label": "Kimi 教程 →", "href": "/ai/index.html#section-kimi", "track": "compare-goto-kimi"},
+      {"label": "Claude 教程 →", "href": "/ai/index.html#section-claude", "track": "compare-goto-claude", "outline": true},
+      {"label": "通义教程 →", "href": "/ai/index.html#section-qwen", "track": "compare-goto-qwen", "outline": true}
     ],
     "search_keywords": "kimi claude 通义 长文档 对比"
   }

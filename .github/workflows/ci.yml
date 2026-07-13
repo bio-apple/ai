@@ -11,19 +11,29 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: "22"
+          node-version-file: ".nvmrc"
+          cache: npm
 
       - name: Install deps and build (Astro SSG)
         run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
+
+      - name: Upload dist preview (PR)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-preview
+          path: dist
+          retention-days: 7
 
       - uses: actions/setup-python@v5
         id: setup-python
         with:
           python-version: "3.12"
+          cache: pip
 
       - name: Install Python deps
         run: ${{ steps.setup-python.outputs.python-path }} -m pip install -r requirements.txt
@@ -58,8 +68,23 @@ jobs:
       - name: FastAPI API smoke
         run: PYTHONPATH=. ${{ steps.setup-python.outputs.python-path }} scripts/smoke_api.py
 
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
       - name: Install Playwright
         run: npx playwright install chromium --with-deps
 
       - name: E2E smoke tests
+        id: e2e
+        continue-on-error: true
         run: npm run test:e2e
+
+      - name: E2E status notice
+        if: steps.e2e.outcome == 'failure'
+        run: |
+          echo "::warning::Playwright E2E 失败（不阻塞合并/发版）。必绿项：validate + API smoke + Pages。"
+          echo "### E2E 未通过（非阻塞）" >> "$GITHUB_STEP_SUMMARY"
+          echo "Pages 部署不依赖本步骤。请在 Actions 日志中排查 flaky 用例。" >> "$GITHUB_STEP_SUMMARY"

@@ -1,0 +1,70 @@
+name: Site Health Probe
+
+# 检查线上 Pages 可访问性与动态内容新鲜度（内容过期可发现）
+on:
+  schedule:
+    # 北京时间每天 08:00 / 20:00
+    - cron: "0 0 * * *"
+    - cron: "0 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Probe live site
+        id: health
+        run: python scripts/check_site_health.py
+        env:
+          SITE_BASE: https://bio-apple.github.io/ai
+          VIDEO_MAX_AGE_DAYS: "2"
+          NEWS_MAX_AGE_DAYS: "10"
+
+      - name: Open or update issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '[ops] Site health probe failed';
+            const body = [
+              '自动健康检查失败。',
+              '',
+              `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
+              `- Time (UTC): ${new Date().toISOString()}`,
+              '',
+              '请检查 GitHub Pages 是否可访问，以及 `daily-videos.json` / `ai-news.json` 是否过期。',
+              '',
+              '<!-- site-health-probe -->',
+            ].join('\n');
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 30,
+            });
+            const existing = issues.data.find(i => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }

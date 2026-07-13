@@ -18,11 +18,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: "22"
+          node-version-file: ".nvmrc"
+          cache: npm
 
       - name: Install deps and build (Astro SSG)
         run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
@@ -34,6 +35,7 @@ jobs:
         id: setup-python
         with:
           python-version: "3.12"
+          cache: pip
 
       - name: Install Python deps
         run: ${{ steps.setup-python.outputs.python-path }} -m pip install -r requirements.txt

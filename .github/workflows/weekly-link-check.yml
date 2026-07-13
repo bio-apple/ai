@@ -9,11 +9,12 @@ jobs:
   external-links:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         with:
-          node-version: "20"
+          node-version-file: ".nvmrc"
+          cache: npm
 
       - name: Install deps and build (Astro)
         run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
@@ -21,12 +22,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
 
       - name: Install Python deps
         run: python -m pip install -r requirements.txt
-
-      - name: Build site (Astro)
-        run: ASTRO_TELEMETRY_DISABLED=1 npm run build
 
       - name: Check external links
         run: DIST=dist python scripts/check_external_links.py

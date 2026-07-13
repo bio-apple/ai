@@ -23,6 +23,7 @@ const COPY_FILES = [
   'ai-news.json',
   'oss-projects.json',
   'og-image.png',
+  'og-image.jpg',
 ];
 
 function copyRecursive(src, dest) {
@@ -40,6 +41,10 @@ export function syncPublic(outDir = path.join(ROOT, 'public')) {
   for (const dir of COPY_DIRS) {
     const src = path.join(ROOT, dir);
     if (fs.existsSync(src)) copyRecursive(src, path.join(outDir, dir));
+  }
+  const wellKnown = path.join(ROOT, 'well-known');
+  if (fs.existsSync(wellKnown)) {
+    copyRecursive(wellKnown, path.join(outDir, '.well-known'));
   }
   for (const file of COPY_FILES) {
     const src = path.join(ROOT, file);

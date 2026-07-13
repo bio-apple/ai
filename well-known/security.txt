@@ -1,0 +1,3 @@
+Contact: https://github.com/bio-apple/ai/issues
+Preferred-Languages: zh-CN, en
+Canonical: https://bio-apple.github.io/ai/.well-known/security.txt

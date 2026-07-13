@@ -2,7 +2,6 @@ name: Daily AI Video Update
 
 on:
   schedule:
-    # 北京时间每日 00:00（UTC 16:00）
     - cron: "0 16 * * *"
   workflow_dispatch:
     inputs:
@@ -17,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: daily-videos
@@ -26,16 +26,18 @@ jobs:
   update-videos:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
 
       - name: Install yt-dlp
-        run: python -m pip install yt-dlp pyyaml
+        run: python -m pip install "yt-dlp>=2024.8.0" pyyaml==6.0.3
 
       - name: Fetch daily AI videos
+        id: fetch
         run: |
           FORCE_FLAG=""
           if [ "${{ github.event.inputs.force }}" = "true" ]; then
@@ -43,7 +45,13 @@ jobs:
           fi
           python scripts/fetch_daily_videos.py $FORCE_FLAG
 
+      - name: Report metrics
+        id: metrics
+        if: always() && steps.fetch.outcome == 'success'
+        run: python scripts/report_fetch_metrics.py videos
+
       - name: Commit and push
+        if: success()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -55,3 +63,41 @@ jobs:
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
           git commit -m "chore: daily AI videos $DATE"
           git push
+
+      - name: Open issue on fetch failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = '[ops] Daily video fetch failed';
+            const body = [
+              '每日视频抓取失败或核心分类为空。',
+              '',
+              `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
+              '',
+              'B 站短窗口条数不足通常为警告；YouTube/B 站 Top 同时为空才视为严重。',
+              '',
+              '<!-- daily-videos-fetch -->',
+            ].join('\n');
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 30,
+            });
+            const existing = issues.find(i => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }

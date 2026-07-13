@@ -266,6 +266,7 @@ async function loadHomeVideoPreview() {
     if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
   } catch {
     root.innerHTML = '<p class="loading-hint">视频加载失败，请稍后刷新。</p>';
+    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'videos-home' });
   }
 }
 
@@ -295,6 +296,7 @@ async function loadDailyVideos() {
     initVideoToolbar();
   } catch (err) {
     root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'videos-section' });
   }
 }
 

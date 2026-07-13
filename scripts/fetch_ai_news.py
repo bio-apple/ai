@@ -36,31 +36,37 @@ def ssl_context() -> ssl.SSLContext:
         return ssl.create_default_context()
 
 
-def fetch_bytes(url: str) -> bytes | None:
-    try:
-        req = Request(url, headers={"User-Agent": USER_AGENT})
-        with urlopen(req, timeout=25, context=ssl_context()) as resp:
-            return resp.read()
-    except Exception as urllib_err:
+def fetch_bytes(url: str, retries: int = 3) -> bytes | None:
+    last_err: Exception | None = None
+    for attempt in range(1, retries + 1):
         try:
-            proc = subprocess.run(
-                [
-                    "curl",
-                    "-sL",
-                    "--max-time",
-                    "25",
-                    "-A",
-                    USER_AGENT,
-                    url,
-                ],
-                capture_output=True,
-                check=True,
-            )
-            if proc.stdout:
-                return proc.stdout
-        except Exception as curl_err:
-            print(f"feed skip [{url}]: {urllib_err}; curl: {curl_err}", file=sys.stderr)
-            return None
+            req = Request(url, headers={"User-Agent": USER_AGENT})
+            with urlopen(req, timeout=25, context=ssl_context()) as resp:
+                return resp.read()
+        except Exception as urllib_err:
+            last_err = urllib_err
+            try:
+                proc = subprocess.run(
+                    [
+                        "curl",
+                        "-sL",
+                        "--max-time",
+                        "25",
+                        "-A",
+                        USER_AGENT,
+                        url,
+                    ],
+                    capture_output=True,
+                    timeout=30,
+                )
+                if proc.returncode == 0 and proc.stdout:
+                    return proc.stdout
+            except Exception as curl_err:
+                last_err = curl_err
+            if attempt < retries:
+                continue
+    if last_err:
+        print(f"fetch failed ({retries}x): {url} → {last_err}", file=sys.stderr)
     return None
 
 

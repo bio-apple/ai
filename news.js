@@ -64,6 +64,7 @@ async function loadHomeNewsPreview() {
     root.innerHTML = `<div class="news-grid news-grid-preview">${items.map(renderNewsCard).join('')}</div>`;
   } catch {
     root.innerHTML = '<p class="loading-hint">新闻加载失败，请稍后刷新。</p>';
+    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'news-home' });
   }
 }
 
@@ -109,6 +110,7 @@ async function loadDailyNews() {
     }
   } catch (err) {
     root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'news-section' });
   }
 }
 

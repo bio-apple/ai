@@ -523,50 +523,68 @@ macOS 若遇 Python SSL 证书问题，脚本会自动回退到 `curl` 抓取。
 ### 工作流关系
 
 ```
-push/PR → ci.yml（build + validate 分步 + API smoke + Playwright）
+push/PR → ci.yml（build + validate + API smoke；E2E continue-on-error）
+         PR 额外上传 dist-preview artifact
 push main → pages.yml（build + validate → artifact → deploy；无 E2E）
 
-daily-videos.yml → commit daily-videos.json → push → ci.yml + pages.yml
-weekly-news.yml  → commit ai-news.json + oss-projects.json → push → ci.yml + pages.yml
+daily-videos.yml → metrics summary → commit → 失败开 Issue(ops,fetch)
+weekly-news.yml  → metrics summary → commit → 失败开 Issue(ops,fetch)
+site-health.yml  → 探测线上新鲜度 → 失败开 Issue(ops,site-health)
 ```
+
+**必绿（发版相关）**：Pages 的 build + `validate_ci.py`。  
+**参考信号（不挡发版）**：CI 中的 Playwright E2E。
+
+### 运维探针
+
+```bash
+# 本地对线上跑新鲜度检查
+npm run health:live
+# 或
+./cloud-test.sh
+```
+
+| 检查 | 阈值（可环境变量覆盖） |
+|------|------------------------|
+| 首页 / style.css | HTTP 200 |
+| `daily-videos.json` | ≤ `VIDEO_MAX_AGE_DAYS`（默认 2 天） |
+| `ai-news.json` | ≤ `NEWS_MAX_AGE_DAYS`（默认 10 天） |
 
 ### `pages.yml`（发版）
 
 | 步骤 | 说明 |
 |------|------|
-| build | `npm ci && npm run build` |
+| build | `npm ci && npm run build`（Node 读 `.nvmrc`，npm cache） |
 | validate | 全量 `validate_ci.py` |
-| upload artifact | `dist/` → Pages artifact（避免 deploy 再 build） |
+| upload artifact | `dist/` → Pages artifact（deploy 不再二次 build） |
 | deploy | `actions/deploy-pages` |
 
 ### `ci.yml` 检查项
 
-运行环境：**ubuntu-latest**，**Node 22**，**Python 3.12**（`setup-python` 的 `python-path` + `python -m pip install`）。
+运行环境：**ubuntu-latest**，**Node 22**（`.nvmrc`），**Python 3.12**。
 
 | 步骤 | 命令 / 说明 |
 |------|-------------|
 | 构建 | `npm ci && npm run build` → `dist/` |
-| Validate data JSON | `validate_ci.py data` — `data/*.json` 可解析 |
-| Validate OSS projects | `validate_ci.py oss` — 六大领域结构 |
-| Validate daily videos | `validate_ci.py videos` — Schema、摘要无 URL/广告、**六类分类齐全** |
-| Validate AI news | `validate_ci.py news` — `items` 非空 |
-| Validate runtime JSON | `validate_ci.py runtime` — `prompts.json`、`tutorials.json` |
-| Validate sitemap and robots | `validate_ci.py sitemap` |
-| Validate search index | `validate_ci.py search` |
-| Validate analytics config | `validate_ci.py analytics` |
-| Validate HTML links | `validate_ci.py links` — 相对路径 + `/ai/` 绝对路径，不得逃出 `dist/` |
-| FastAPI API smoke | `PYTHONPATH=. python scripts/smoke_api.py`（含 `/`→`/ai/`） |
-| Install Playwright | `npx playwright install chromium --with-deps` |
-| E2E smoke tests | `npm run test:e2e` — 质量门禁，失败不挡 Pages |
+| PR preview | 上传 `dist-preview` artifact（保留 7 天） |
+| Validate（9 步） | `validate_ci.py` 分步 |
+| FastAPI API smoke | `scripts/smoke_api.py` |
+| E2E | `continue-on-error: true` — 失败仅 warning，**不失败 job** |
 
-本地一次性全量校验：`DIST=dist python3 scripts/validate_ci.py`（无参数时顺序执行上述 9 步）。
+本地全量校验：`DIST=dist python3 scripts/validate_ci.py`。
+
+### FastAPI 角色边界
+
+- **生产（GitHub Pages）**：纯静态 `dist/`，无后端问答。
+- **本地 / Docker**：`./start.sh` 或镜像提供 `/ai/` 静态 + `/api/*` 增强；勿假设线上存在 `/api/ask`。
+- GitHub Pages **不支持**自定义响应头；安全联系见 `/.well-known/security.txt`。
 
 ### GitHub Pages
 
 - 工作流：`.github/workflows/pages.yml`
 - 部署目录：`dist/`
 - Settings → Pages → Source：**GitHub Actions**
-
+- Dependabot：`.github/dependabot.yml`（npm / pip / actions 周更）
 ---
 
 ## 内容维护指南
@@ -688,6 +706,7 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 1.7 | 六类视频；GitHub 开源精选；每周新闻；扩展信源与关注面板；首页对比表 |
 | 1.8 | Phase 3.5：智源社区聚合；CI 九步分步校验 + 链接越界检测；API 优先读 `dist/`；Playwright E2E 扩展至 17 项 |
 | 1.9 | Pages 与 E2E 解耦；FastAPI `/ai/` 基路径；`paths.ts` 统一链接；首页脚本懒加载；JSON 默认缓存；data_store mtime；Docker 多阶段 build |
+| 1.10 | 运维探针与抓取失败开 Issue；E2E 非阻塞；Dependabot；钉依赖；OG 压缩；PR dist artifact |
 
 ---
 

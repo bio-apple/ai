@@ -126,6 +126,7 @@ async function loadHomeOssPreview() {
     if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
   } catch {
     root.innerHTML = '<p class="loading-hint">开源项目加载失败，请稍后刷新。</p>';
+    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'oss-home' });
   }
 }
 
