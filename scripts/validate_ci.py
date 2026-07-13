@@ -187,22 +187,30 @@ def validate_data_json() -> None:
     print("✓ data/*.json 可解析")
 
 
+STEPS = (
+    ("data", validate_data_json),
+    ("oss", validate_oss_projects),
+    ("videos", validate_daily_videos),
+    ("news", validate_ai_news),
+    ("runtime", validate_runtime_json),
+    ("sitemap", validate_sitemap_robots),
+    ("search", validate_search_index),
+    ("analytics", validate_analytics_config),
+    ("links", validate_html_links),
+)
+
+
 def main() -> int:
-    steps = (
-        ("data/*.json", validate_data_json),
-        ("oss-projects.json", validate_oss_projects),
-        ("daily-videos.json", validate_daily_videos),
-        ("ai-news.json", validate_ai_news),
-        ("runtime JSON", validate_runtime_json),
-        ("sitemap/robots", validate_sitemap_robots),
-        ("search-index.json", validate_search_index),
-        ("analytics-config.json", validate_analytics_config),
-        ("HTML 链接", validate_html_links),
-    )
-    for label, fn in steps:
+    only = sys.argv[1] if len(sys.argv) > 1 else None
+    for label, fn in STEPS:
+        if only and label != only:
+            continue
         print(f"→ 检查 {label}…", flush=True)
         fn()
-    print("全部 CI 校验通过")
+    if only:
+        print(f"✓ {only} 校验通过")
+    else:
+        print("全部 CI 校验通过")
     return 0
 
 
