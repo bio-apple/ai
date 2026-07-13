@@ -37,11 +37,11 @@ for (const caseItem of cases.cases) {
   description={page.lead}
   canonical={`${base}cases/index.html`}
   schema={schema}
-  assetPrefix="../../"
-  homeHref="../../index.html"
+  assetPrefix="../"
+  homeHref="../index.html"
 >
   <main class="standalone-page">
-    <nav class="breadcrumb"><a href="../../index.html">首页</a> / 实战案例库</nav>
+    <nav class="breadcrumb"><a href="../index.html">首页</a> / 实战案例库</nav>
     <div class="standalone-hero">
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
@@ -66,13 +66,13 @@ for (const caseItem of cases.cases) {
             <span>{t.duration}</span>
             <span>{t.prompt_count} 条 Prompt</span>
           </div>
-          <a href={`../../index.html?anchor=${t.id}#section-cases`} class="case-library-link">查看完整步骤 →</a>
+          <a href={`../index.html?anchor=${t.id}#section-cases`} class="case-library-link">查看完整步骤 →</a>
         </article>
       ))}
     </div>
     <div class="standalone-cta">
-      <a href="../../index.html#section-cases" class="cta-btn">站内案例区</a>
-      <a href="../../prompts/library.html" class="cta-btn cta-btn-outline">Prompt 库</a>
+      <a href="../index.html#section-cases" class="cta-btn">站内案例区</a>
+      <a href="../prompts/library.html" class="cta-btn cta-btn-outline">Prompt 库</a>
     </div>
   </main>
 </StandaloneLayout>

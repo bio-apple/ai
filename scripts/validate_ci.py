@@ -15,7 +15,7 @@ import yaml
 from bs4 import BeautifulSoup
 
 REPO = Path(__file__).resolve().parents[1]
-ROOT = Path(os.environ.get("DIST", REPO / "dist"))
+ROOT = Path(os.environ.get("DIST", REPO / "dist")).resolve()
 
 
 def iter_batch_videos(batch: dict):
@@ -142,6 +142,11 @@ def validate_html_links() -> None:
                     continue
             target = (fp.parent / href).resolve()
             if href.startswith("/"):
+                continue
+            try:
+                target.relative_to(ROOT)
+            except ValueError:
+                missing.append(f"{fp.relative_to(ROOT)} -> {href} (越界)")
                 continue
             if not target.exists():
                 missing.append(f"{fp.relative_to(ROOT)} -> {href}")

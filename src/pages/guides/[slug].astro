@@ -20,8 +20,8 @@ const schema = buildPageSchema(guide.title, guide.lead, `${base}guides/${guide.s
   description={guide.lead}
   canonical={`${base}guides/${guide.slug}.html`}
   schema={schema}
-  assetPrefix="../../"
-  homeHref="../../index.html"
+  assetPrefix="../"
+  homeHref="../index.html"
 >
   <main class="standalone-page">
     <nav class="breadcrumb"><a href="../index.html">首页</a> / 学习指南 / {guide.h1}</nav>
