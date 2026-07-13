@@ -93,6 +93,9 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
   items.push({ label: 'GitHub 开源精选', section: 'section-oss', keywords: '开源 GitHub Stars Agent LLM 本地大模型 AI绘画 多模态 机器学习框架' });
   items.push({ label: 'AI 工具排行榜', url: 'ai-tools-ranking.html', keywords: '排行榜 ranking ChatGPT Claude Cursor DeepSeek' });
   items.push({ label: '本周 AI 热点', url: 'news/daily-ai-news.html', keywords: 'AI新闻 热点 OpenAI Anthropic arXiv 每周' });
+  items.push({ label: '编程 AI 工具', section: 'section-home', keywords: '编程 写代码 开发 Cursor Copilot Codex' });
+  items.push({ label: '写作翻译办公', section: 'section-home', keywords: '写作 翻译 办公 科研 视频生成 ChatGPT Claude 豆包' });
+  items.push({ label: '免费 AI 工具', section: 'section-home', keywords: '免费 DeepSeek 豆包 Kimi' });
   for (const cmp of compares) {
     items.push({ label: cmp.h1 || cmp.title, url: `compare/${cmp.slug}.html`, keywords: cmp.search_keywords || cmp.title });
   }

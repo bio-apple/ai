@@ -32,8 +32,8 @@
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: "Inter", "SF Pro Display", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
-  background: linear-gradient(160deg, #f0f3fa 0%, #e8edf6 50%, #f5f0fa 100%);
+  font-family: "Outfit", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: linear-gradient(160deg, #eef3fb 0%, #f3f6fb 50%, #eef2f7 100%);
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;

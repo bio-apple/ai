@@ -5,13 +5,21 @@ import HomeNewsPreview from '../components/HomeNewsPreview.astro';
 import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeVideoPreview from '../components/HomeVideoPreview.astro';
 import {
-  site, tools, buildHotToolCards, stars,
+  site, tools, buildHotToolCards,
 } from '../lib/data';
 import { buildHomeSchema } from '../lib/schema';
 import { asset } from '../lib/paths';
 
 const hotToolCards = buildHotToolCards();
 const schema = buildHomeSchema(site);
+
+const recommendKind: Record<string, string> = {
+  '最推荐': 'top',
+  '新手必学': 'beginner',
+  '开发者': 'dev',
+  '企业版': 'enterprise',
+  '免费': 'free',
+};
 ---
 <HomeLayout
   title={site.meta.title}
@@ -23,19 +31,24 @@ const schema = buildHomeSchema(site);
 >
   <section id="section-home" class="section active">
     <div class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-grid"></div>
+        <div class="hero-orb hero-orb-a"></div>
+        <div class="hero-orb hero-orb-b"></div>
+      </div>
       <div class="hero-content fade-in">
         <div class="hero-brand-mark">
-          <span class="hero-eyebrow">{site.hero.eyebrow}</span>
-          <span class="hero-logo-icon">{site.nav.logo.icon}</span>
+          <span class="hero-logo-icon" aria-hidden="true">{site.nav.logo.icon}</span>
+          <p class="hero-brand">{site.hero.eyebrow}</p>
         </div>
         <h1>{site.hero.title}</h1>
         <p class="hero-subtitle">{site.hero.subtitle}</p>
         <div class="hero-cta">
           <button class="cta-btn" data-goto={site.hero.cta_primary.goto} data-track="hero-cta-primary">{site.hero.cta_primary.label}</button>
-          <a href={site.hero.cta_secondary.href} class="cta-btn cta-btn-outline" data-track="hero-cta-ranking">{site.hero.cta_secondary.label}</a>
+          <a href={site.hero.cta_secondary.href} class="cta-btn cta-btn-outline" data-track="hero-cta-nav">{site.hero.cta_secondary.label}</a>
         </div>
-        <div class="site-search-wrap">
+        <div class="site-search-wrap hero-search">
+          <label class="hero-search-label" for="site-search">全站搜索</label>
           <input type="search" id="site-search" class="site-search" placeholder={site.hero.search_placeholder} aria-label="站内搜索">
           <div id="site-search-results" class="site-search-results" hidden></div>
         </div>
@@ -46,25 +59,28 @@ const schema = buildHomeSchema(site);
       <section class="home-section fade-in">
         <div class="section-head">
           <h2 class="section-title">热门 AI 工具</h2>
-          <p class="section-desc">国内国际热门 AI 工具，点进教程详情</p>
+          <p class="section-desc">优先推荐 · 三秒定位你要学的工具</p>
         </div>
-        <div class="tool-cards-scroll">
-          <div class="tool-cards tool-cards-hot">
-            {hotToolCards.map((tool) => (
-              <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
+        <div class="tool-cards tool-cards-grid tool-cards-hot">
+          {hotToolCards.map((tool) => (
+            <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
+              <div class="tool-card-top">
                 <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
                 <span class="badge">{tool.badge}</span>
-                <h3>{tool.name}</h3>
-                <p class="tool-tagline">{tool.tagline}</p>
-                <div class="tool-stars" aria-label={`推荐指数 ${tool.stars} 星`}>
-                  {Array.from({ length: stars(tool.stars).filled }, () => '★').join('')}
-                  {Array.from({ length: stars(tool.stars).empty }, () => <span class="star-empty">★</span>)}
-                </div>
-                <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
-                <button type="button" class="tool-card-btn" data-tool={tool.id}>查看详情</button>
-              </article>
-            ))}
-          </div>
+              </div>
+              {(tool.recommend || []).length > 0 && (
+                <ul class="recommend-badges">
+                  {tool.recommend.map((r) => (
+                    <li class="recommend-badge" data-kind={recommendKind[r] || 'top'}>{r}</li>
+                  ))}
+                </ul>
+              )}
+              <h3>{tool.name}</h3>
+              <p class="tool-tagline">{tool.tagline}</p>
+              <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
+              <button type="button" class="tool-card-btn" data-tool={tool.id}>查看教程 →</button>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -76,24 +92,27 @@ const schema = buildHomeSchema(site);
         {site.home_tool_categories.map((cat) => (
           <>
             <p class="category-label">{cat.label}</p>
-            <div class="tool-cards-scroll">
-              <div class="tool-cards">
-                {cat.tools.map((tool) => (
-                  <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
+            <div class="tool-cards tool-cards-grid">
+              {cat.tools.map((tool) => (
+                <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
+                  <div class="tool-card-top">
                     <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
                     <span class="badge">{tool.badge}</span>
-                    <h3>{tool.name}</h3>
-                    <p class="tool-tagline">{tool.tagline}</p>
-                    <p class="tool-summary">{tool.summary}</p>
-                    <div class="tool-stars" aria-label={`推荐指数 ${tool.stars} 星`}>
-                      {Array.from({ length: stars(tool.stars).filled }, () => '★').join('')}
-                      {Array.from({ length: stars(tool.stars).empty }, () => <span class="star-empty">★</span>)}
-                    </div>
-                    <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
-                    <button type="button" class="tool-card-btn" data-tool={tool.id}>查看详情</button>
-                  </article>
-                ))}
-              </div>
+                  </div>
+                  {(tool.recommend || []).length > 0 && (
+                    <ul class="recommend-badges">
+                      {tool.recommend.map((r) => (
+                        <li class="recommend-badge" data-kind={recommendKind[r] || 'top'}>{r}</li>
+                      ))}
+                    </ul>
+                  )}
+                  <h3>{tool.name}</h3>
+                  <p class="tool-tagline">{tool.tagline}</p>
+                  <p class="tool-summary">{tool.summary}</p>
+                  <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
+                  <button type="button" class="tool-card-btn" data-tool={tool.id}>查看教程 →</button>
+                </article>
+              ))}
             </div>
           </>
         ))}
