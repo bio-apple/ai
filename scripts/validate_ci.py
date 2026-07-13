@@ -210,5 +210,7 @@ if __name__ == "__main__":
     try:
         raise SystemExit(main())
     except Exception as exc:
+        import traceback
         print(f"CI 校验失败: {exc}", file=sys.stderr)
+        traceback.print_exc()
         raise SystemExit(1)
