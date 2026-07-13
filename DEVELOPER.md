@@ -279,8 +279,8 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 }
 ```
 
-- **六类推荐**可重叠；`window` 支持 `all_time`、`hours`、`days`。
-- `batches` 新日期插入头部；`seen_ids` 全局去重；历史最多 **60 天**。
+- **六类推荐**同平台跨分类去重（先填 24h → 30d → Top）；`window` 支持 `all_time`、`hours`、`days`。
+- `batches` 新日期插入头部；`seen_ids` 全局去重；历史最多 **60 天**（前端视频页**只渲染最新一批**，不展示历史日期）。
 - 旧版四类 key（`top_views`、`recent_24h` 等）在 `videos.js` 中仍向后兼容。
 - CI 校验 Schema，并拒绝摘要中含 URL/广告残留。
 
@@ -451,7 +451,7 @@ npm run test:e2e
 1. 读取 config/video-fetch.yaml
 2. 多平台搜索（YouTube ytsearch / B站搜索 API）
 3. 预筛：播放量、AI 关键词、分辨率、订阅数
-4. 按六类分别取 Top N（可重叠，各平台独立排序）
+4. 按六类分别取 Top N（同平台去重：窄窗口优先占坑，各平台独立排序）
 5. 生成摘要（过滤 URL/赞助/广告文案）
 6. 写入 daily-videos.json → push → 触发 CI + Pages
 ```

@@ -28,6 +28,16 @@ CATEGORY_ORDER = (
     "bilibili_recent_30d",
     "bilibili_recent_24h",
 )
+
+# 抓取填充顺序：先窄窗口再全网，避免热门片同时占满 Top / 30d / 24h
+PICK_ORDER = (
+    "youtube_recent_24h",
+    "youtube_recent_30d",
+    "youtube_top_views",
+    "bilibili_recent_24h",
+    "bilibili_recent_30d",
+    "bilibili_top_views",
+)
 PLATFORM_ORDER = ("youtube", "bilibili")
 
 try:
@@ -533,13 +543,19 @@ def collect_top_videos(
     detail_cache: dict[str, dict | None],
     checked: int,
     max_checks: int,
+    exclude_ids: set[str] | None = None,
 ) -> tuple[list[dict], int]:
+    exclude_ids = exclude_ids or set()
     picked: list[dict] = []
+    picked_ids: set[str] = set()
     for candidate in ranked:
         if len(picked) >= limit:
             break
         if checked >= max_checks:
             break
+        key = composite_id(candidate["platform"], candidate["id"])
+        if key in exclude_ids or key in picked_ids:
+            continue
         checked += 1
         platform = candidate["platform"]
         source_cfg = cfg.get("search_sources", {}).get(platform, {})
@@ -560,6 +576,7 @@ def collect_top_videos(
         )
         if record:
             picked.append(record)
+            picked_ids.add(record["id"])
 
     picked.sort(key=lambda v: v["views"], reverse=True)
     return picked[:limit], checked
@@ -572,8 +589,9 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
     detail_cache: dict[str, dict | None] = {}
     checked = 0
     buckets: dict[str, list[dict]] = {key: [] for key in CATEGORY_ORDER}
+    used_ids: set[str] = set()
 
-    for key in CATEGORY_ORDER:
+    for key in PICK_ORDER:
         cat = cfg["video_categories"][key]
         platform = cat["platform"]
         require_hours = category_window_hours(cat)
@@ -595,7 +613,10 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
             detail_cache=detail_cache,
             checked=checked,
             max_checks=max_checks,
+            exclude_ids=used_ids,
         )
+        for video in buckets[key]:
+            used_ids.add(video["id"])
 
     return buckets
 

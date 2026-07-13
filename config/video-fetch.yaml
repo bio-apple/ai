@@ -1,6 +1,6 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# 六类推荐（可重叠）：YouTube / B站 各「全网播放量 Top10」+「30 天上新 Top5」+「24h 上新 Top3」
+# 六类推荐（同平台跨分类去重：先填 24h → 30d → 全网 Top，避免同一视频重复出现）
 video_categories:
   youtube_top_views:
     label: "YouTube：全网播放量 Top 10"

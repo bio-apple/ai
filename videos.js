@@ -15,6 +15,16 @@ const CATEGORY_ORDER = [
   'last_6m',
 ];
 
+/** 与抓取脚本一致：窄窗口优先占坑，展示时去掉跨分类重复 */
+const DEDUPE_PICK_ORDER = [
+  'youtube_recent_24h',
+  'youtube_recent_30d',
+  'youtube_top_views',
+  'bilibili_recent_24h',
+  'bilibili_recent_30d',
+  'bilibili_top_views',
+];
+
 let videoDataPromise = null;
 let videoState = { platform: 'all', sort: 'views', rawData: null };
 
@@ -23,6 +33,30 @@ function getCategoryKeys(batch) {
   const preferred = CATEGORY_ORDER.filter(key => batch.categories[key]);
   if (preferred.length) return preferred;
   return Object.keys(batch.categories);
+}
+
+/** 同一视频只保留在优先级最高的分类中（24h > 30d > Top） */
+function dedupeBatchCategories(batch) {
+  if (!batch?.categories) return batch;
+  const claim = new Map();
+  const pickOrder = [
+    ...DEDUPE_PICK_ORDER.filter((k) => batch.categories[k]),
+    ...Object.keys(batch.categories).filter((k) => !DEDUPE_PICK_ORDER.includes(k)),
+  ];
+  for (const key of pickOrder) {
+    for (const v of batch.categories[key]?.videos || []) {
+      if (v?.id && !claim.has(v.id)) claim.set(v.id, key);
+    }
+  }
+  const categories = {};
+  for (const key of getCategoryKeys(batch)) {
+    const cat = batch.categories[key];
+    categories[key] = {
+      ...cat,
+      videos: (cat.videos || []).filter((v) => v?.id && claim.get(v.id) === key),
+    };
+  }
+  return { ...batch, categories };
 }
 
 function escapeHtml(s) {
@@ -56,10 +90,11 @@ function formatPublishDate(iso) {
 }
 
 function getBatchVideos(batch) {
-  if (batch.categories) {
-    return getCategoryKeys(batch).flatMap(key => batch.categories[key]?.videos || []);
+  const unique = dedupeBatchCategories(batch);
+  if (unique.categories) {
+    return getCategoryKeys(unique).flatMap(key => unique.categories[key]?.videos || []);
   }
-  return batch.videos || [];
+  return unique.videos || [];
 }
 
 function platformLabel(v) {
@@ -172,12 +207,13 @@ function renderBatch(batch, state) {
     `;
   }
 
-  const count = getBatchVideos(batch).length;
-  if (batch.categories) {
-    const categories = getCategoryKeys(batch).map(key => batch.categories[key]);
+  const unique = dedupeBatchCategories(batch);
+  const count = getBatchVideos(unique).length;
+  if (unique.categories) {
+    const categories = getCategoryKeys(unique).map(key => unique.categories[key]);
     return `
       <section class="video-day">
-        <h3 class="video-day-title">${escapeHtml(batch.date)} <span class="video-day-count">${count} 条</span></h3>
+        <h3 class="video-day-title">${escapeHtml(unique.date)} <span class="video-day-count">${count} 条</span></h3>
         ${categories.map(renderCategory).join('')}
       </section>
     `;
@@ -216,12 +252,13 @@ function pickHomePreviewVideos(batch, limit = 3) {
 function paintVideoList() {
   const root = document.getElementById('daily-video-list');
   if (!root || !videoState.rawData) return;
-  const batches = videoState.rawData.batches || [];
-  if (!batches.length) {
+  const latest = (videoState.rawData.batches || [])[0];
+  if (!latest) {
     root.innerHTML = '<p class="loading-hint">暂无视频数据，每日北京时间 0:00 自动更新。</p>';
     return;
   }
-  root.innerHTML = batches.map(batch => renderBatch(batch, videoState)).join('');
+  // 只展示最新一批推荐，不渲染历史日期
+  root.innerHTML = renderBatch(latest, videoState);
   if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
 }
 
@@ -289,7 +326,8 @@ async function loadDailyVideos() {
 
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）· 支持平台筛选与热门/最新排序`;
+      const day = batches[0]?.date ? ` · 推荐日期 ${batches[0].date}` : '';
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · 仅展示最新一批`;
     }
 
     paintVideoList();

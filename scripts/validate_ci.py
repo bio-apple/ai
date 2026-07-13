@@ -52,6 +52,19 @@ def validate_daily_videos() -> None:
         got = set(latest["categories"].keys())
         if expected - got:
             raise ValueError(f"最新视频批次缺少分类: {sorted(expected - got)}")
+        seen_ids: set[str] = set()
+        dupes: list[str] = []
+        for key in sorted(latest["categories"].keys()):
+            for v in latest["categories"][key].get("videos") or []:
+                vid = v.get("id")
+                if not vid:
+                    continue
+                if vid in seen_ids:
+                    dupes.append(vid)
+                else:
+                    seen_ids.add(vid)
+        if dupes:
+            raise ValueError(f"最新视频批次存在跨分类重复推荐: {dupes[:8]}")
     print("✓ daily-videos.json schema + summary")
 
 
