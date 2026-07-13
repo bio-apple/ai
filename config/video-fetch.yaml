@@ -48,7 +48,8 @@ search_sources:
     label: B站
     min_height: 720
     min_views: 500
-    recent_min_views: 200
+    # 24h/30d 上新播放量往往很低；过高会导致近期分类长期为空
+    recent_min_views: 50
     min_subscribers: 0
 
 search_per_query: 20

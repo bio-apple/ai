@@ -451,7 +451,7 @@ npm run test:e2e
 1. 读取 config/video-fetch.yaml
 2. 多平台搜索（YouTube ytsearch / B站搜索 API）
 3. 预筛：播放量、AI 关键词、分辨率、订阅数
-4. 按六类分别取 Top N（同平台去重：窄窗口优先占坑，各平台独立排序）
+4. 按六类分别取 Top N（同平台去重：窄窗口优先占坑；时间窗只按发布时间搜索，避免老热门占满校验配额）
 5. 生成摘要（过滤 URL/赞助/广告文案）
 6. 写入 daily-videos.json → push → 触发 CI + Pages
 ```

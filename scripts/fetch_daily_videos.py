@@ -532,6 +532,38 @@ def validate_and_build_record(
     }
 
 
+def candidate_within_hours(candidate: dict, now: datetime, hours: float) -> bool | None:
+    """若候选已带发布时间则判断是否在窗口内；未知则返回 None。"""
+    detail = candidate.get("detail") or {}
+    upload_dt = parse_upload_datetime(detail)
+    if not upload_dt:
+        return None
+    return is_within_hours(upload_dt, now, hours)
+
+
+def rank_candidates_for_bucket(
+    candidates: dict[str, dict],
+    now: datetime,
+    require_hours: float | None,
+) -> list[dict]:
+    """全网按播放量；时间窗优先只保留已知在窗内的候选，避免老热门占满校验配额。"""
+    items = list(candidates.values())
+    if require_hours is None:
+        return sorted(items, key=lambda x: int(x.get("view_count") or 0), reverse=True)
+
+    in_window: list[dict] = []
+    unknown: list[dict] = []
+    for item in items:
+        ok = candidate_within_hours(item, now, require_hours)
+        if ok is True:
+            in_window.append(item)
+        elif ok is None:
+            unknown.append(item)
+        # 已知超窗外的直接丢弃，不占用 detail 配额
+    by_views = lambda x: int(x.get("view_count") or 0)
+    return sorted(in_window, key=by_views, reverse=True) + sorted(unknown, key=by_views, reverse=True)
+
+
 def collect_top_videos(
     ranked: list[dict],
     cfg: dict,
@@ -556,6 +588,11 @@ def collect_top_videos(
         key = composite_id(candidate["platform"], candidate["id"])
         if key in exclude_ids or key in picked_ids:
             continue
+        # 搜索结果已带 pubdate 时，超窗外直接跳过且不计入 checked
+        if require_hours is not None:
+            known = candidate_within_hours(candidate, now, require_hours)
+            if known is False:
+                continue
         checked += 1
         platform = candidate["platform"]
         source_cfg = cfg.get("search_sources", {}).get(platform, {})
@@ -597,12 +634,13 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
         require_hours = category_window_hours(cat)
 
         if require_hours is None:
+            # 全网 Top：按热度搜索
             candidates = search_platform_candidates(cfg, platform)
         else:
+            # 时间窗：只按发布时间搜索，避免并入「全站热门」后被老片占满
             candidates = search_platform_candidates(cfg, platform, sort_by_date=True)
-            candidates.update(search_platform_candidates(cfg, platform))
 
-        ranked = sorted(candidates.values(), key=lambda x: int(x.get("view_count") or 0), reverse=True)
+        ranked = rank_candidates_for_bucket(candidates, now, require_hours)
         buckets[key], checked = collect_top_videos(
             ranked,
             cfg,
