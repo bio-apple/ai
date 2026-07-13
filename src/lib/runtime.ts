@@ -154,3 +154,59 @@ export function pickHomeVideos(limit = 3): VideoItem[] {
     })
     .slice(0, limit);
 }
+
+export type AiDailyBrief = {
+  updatedAt?: string;
+  models: NewsItem[];
+  industry: NewsItem[];
+  github: NewsItem[];
+  oss: Array<{ project: OssProject; domainLabel: string }>;
+  learn: VideoItem[];
+};
+
+function pickNewsBy(
+  items: NewsItem[],
+  pred: (item: NewsItem) => boolean,
+  limit: number,
+): NewsItem[] {
+  return items.filter(pred).slice(0, limit);
+}
+
+/** 首页 AI Daily：聚合新闻 / Trending / 开源 / 视频学习 */
+export function pickAiDailyBrief(limits = { models: 3, industry: 2, github: 3, oss: 2, learn: 2 }): AiDailyBrief {
+  const news = loadRuntimeJson<NewsPayload>('ai-news.json');
+  const items = news?.items || [];
+  const models = pickNewsBy(
+    items,
+    (i) => /新模型|模型|发布/.test(`${i.category || ''}${i.title || ''}`),
+    limits.models,
+  );
+  const industry = pickNewsBy(
+    items,
+    (i) => /行业|中文|工具/.test(i.category || '') && !models.includes(i),
+    limits.industry,
+  );
+  let github = pickNewsBy(items, (i) => /GitHub/i.test(i.source || ''), limits.github);
+  const oss = pickHomeOss(limits.oss + limits.github);
+  if (github.length < limits.github) {
+    // 用开源精选补足 GitHub 热门
+    const extra = oss
+      .slice(0, limits.github - github.length)
+      .map(({ project, domainLabel }) => ({
+        title: `${project.name} · ★ ${formatStars(project.stars)}`,
+        url: project.url,
+        summary: project.description || '',
+        source: 'GitHub',
+        category: domainLabel,
+      }));
+    github = [...github, ...extra];
+  }
+  return {
+    updatedAt: news?.updated_at,
+    models: models.length ? models : items.slice(0, limits.models),
+    industry: industry.length ? industry : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
+    github,
+    oss: oss.slice(0, limits.oss),
+    learn: pickHomeVideos(limits.learn),
+  };
+}

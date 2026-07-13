@@ -1,0 +1,96 @@
+---
+import { pickAiDailyBrief, formatNewsDate, formatPublishDate } from '../lib/runtime';
+import { asset } from '../lib/paths';
+import { site } from '../lib/data';
+
+const brief = pickAiDailyBrief();
+const hotNames = (site.hot_tools || []).slice(0, 4);
+const toolLookup = Object.fromEntries(
+  site.home_tool_categories.flatMap((c) => c.tools.map((t) => [t.id, t.name])),
+);
+---
+<section class="home-section fade-in" id="home-daily">
+  <div class="section-head section-head-row">
+    <div>
+      <p class="section-kicker">AI Daily</p>
+      <h2 class="section-title">今日 AI 简报</h2>
+      <p class="section-desc">模型动态 · GitHub 热门 · 行业资讯 · 学习推荐</p>
+    </div>
+    {brief.updatedAt && (
+      <p class="daily-updated">更新于 {formatNewsDate(brief.updatedAt)}</p>
+    )}
+  </div>
+
+  <div class="daily-grid">
+    <article class="daily-panel">
+      <h3 class="daily-panel-title">模型与发布</h3>
+      <ul class="daily-list">
+        {brief.models.map((item) => (
+          <li>
+            <a href={item.url} target="_blank" rel="noopener" data-track="daily-model">
+              <span class="daily-item-title">{item.title}</span>
+              <span class="daily-item-meta">{item.source || item.category || ''}</span>
+            </a>
+          </li>
+        ))}
+        {brief.models.length === 0 && <li class="daily-empty">暂无模型动态</li>}
+      </ul>
+    </article>
+
+    <article class="daily-panel">
+      <h3 class="daily-panel-title">GitHub 热门</h3>
+      <ul class="daily-list">
+        {brief.github.map((item) => (
+          <li>
+            <a href={item.url} target="_blank" rel="noopener" data-track="daily-github">
+              <span class="daily-item-title">{item.title}</span>
+              <span class="daily-item-meta">{item.category || item.source || 'GitHub'}</span>
+            </a>
+          </li>
+        ))}
+        {brief.github.length === 0 && <li class="daily-empty">暂无开源动态</li>}
+      </ul>
+    </article>
+
+    <article class="daily-panel">
+      <h3 class="daily-panel-title">行业资讯</h3>
+      <ul class="daily-list">
+        {brief.industry.map((item) => (
+          <li>
+            <a href={item.url} target="_blank" rel="noopener" data-track="daily-news">
+              <span class="daily-item-title">{item.title}</span>
+              <span class="daily-item-meta">{item.source || ''}</span>
+            </a>
+          </li>
+        ))}
+        {brief.industry.length === 0 && <li class="daily-empty">暂无行业资讯</li>}
+      </ul>
+      <a class="daily-more" href={asset('news/daily-ai-news.html')} data-track="daily-news-more">全部新闻 →</a>
+    </article>
+
+    <article class="daily-panel">
+      <h3 class="daily-panel-title">学习与工具</h3>
+      <ul class="daily-list">
+        {brief.learn.map((v) => (
+          <li>
+            <a href={v.url} target="_blank" rel="noopener" data-track="daily-learn">
+              <span class="daily-item-title">{v.title}</span>
+              <span class="daily-item-meta">
+                {[v.platform === 'bilibili' ? 'B站' : 'YouTube', formatPublishDate(v.published_at)].filter(Boolean).join(' · ')}
+              </span>
+            </a>
+          </li>
+        ))}
+        {hotNames.map((id) => (
+          <li>
+            <button type="button" class="daily-tool-btn" data-tool={id} data-track="daily-tool">
+              <span class="daily-item-title">推荐工具 · {toolLookup[id] || id}</span>
+              <span class="daily-item-meta">查看教程</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+      <button type="button" class="daily-more" data-goto="videos" data-track="daily-videos-more">每日视频 →</button>
+    </article>
+  </div>
+</section>

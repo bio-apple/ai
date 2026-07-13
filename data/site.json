@@ -74,15 +74,15 @@
   },
   "hero": {
     "eyebrow": "Bio AI Lab",
-    "title": "学习 AI · 使用 AI · 创造价值",
-    "subtitle": "热门工具导航、开源精选、每周资讯与每日视频，帮你更快找到合适的 AI。",
+    "title": "让每个人拥有自己的 AI 工作流",
+    "subtitle": "发现、学习并使用下一代 AI 工具，从趋势到实践一步到位。",
     "cta_primary": {
-      "label": "开始学习",
+      "label": "探索 AI 工具",
       "goto": "chatgpt"
     },
     "cta_secondary": {
-      "label": "查看工具导航",
-      "href": "#home-categories"
+      "label": "开始 AI 学习",
+      "href": "#home-learning"
     },
     "search_placeholder": "搜索 AI 工具、教程、关键词…"
   },

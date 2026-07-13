@@ -1,0 +1,53 @@
+---
+import { site, toolLookup } from '../lib/data';
+import { asset } from '../lib/paths';
+
+const picker = site.ai_picker;
+const lookup = toolLookup();
+---
+<section class="home-section fade-in" id="home-recommend">
+  <div class="section-head">
+    <p class="section-kicker">AI 推荐助手</p>
+    <h2 class="section-title">{picker.title}</h2>
+    <p class="section-desc">选择场景，立即看到推荐工具与学习入口</p>
+  </div>
+
+  <div class="recommend-grid" id="recommend-grid">
+    {picker.options.map((opt) => (
+      <details class="recommend-card">
+        <summary>
+          <span class="recommend-card-label">{opt.label}</span>
+          <span class="recommend-card-hint">查看推荐</span>
+        </summary>
+        <div class="recommend-card-body">
+          <p class="recommend-card-lead">推荐工具</p>
+          <ul class="recommend-tools">
+            {opt.tools.map((id, idx) => {
+              const tool = lookup[id] as { name?: string; tagline?: string } | undefined;
+              return (
+                <li>
+                  <button type="button" class="recommend-tool-btn" data-tool={id} data-track={`recommend-${opt.id}`}>
+                    <span class="recommend-rank">{idx + 1}</span>
+                    <span>
+                      <strong>{tool?.name || id}</strong>
+                      {tool?.tagline && <small>{tool.tagline}</small>}
+                    </span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+          <div class="recommend-links">
+            <a
+              href={asset(opt.id === 'coding' ? 'guides/advanced.html' : 'guides/beginner.html')}
+              class="recommend-link"
+              data-track={`recommend-guide-${opt.id}`}
+            >
+              学习路线 →
+            </a>
+          </div>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>

@@ -1,9 +1,9 @@
 ---
 import HomeLayout from '../layouts/HomeLayout.astro';
 import ToolSection from '../components/ToolSection.astro';
-import HomeNewsPreview from '../components/HomeNewsPreview.astro';
 import HomeOssPreview from '../components/HomeOssPreview.astro';
-import HomeVideoPreview from '../components/HomeVideoPreview.astro';
+import HomeRecommend from '../components/HomeRecommend.astro';
+import HomeAiDaily from '../components/HomeAiDaily.astro';
 import {
   site, tools, buildHotToolCards,
 } from '../lib/data';
@@ -56,7 +56,10 @@ const recommendKind: Record<string, string> = {
     </div>
 
     <main class="home-main">
-      <section class="home-section fade-in">
+      <HomeRecommend />
+      <HomeAiDaily />
+
+      <section class="home-section fade-in" id="home-tools">
         <div class="section-head">
           <h2 class="section-title">热门 AI 工具</h2>
           <p class="section-desc">优先推荐 · 三秒定位你要学的工具</p>
@@ -84,10 +87,33 @@ const recommendKind: Record<string, string> = {
         </div>
       </section>
 
+      <section class="home-section fade-in" id="home-learning">
+        <div class="section-head">
+          <p class="section-kicker">学习路线</p>
+          <h2 class="section-title">AI 学习路线</h2>
+          <p class="section-desc">从入门对话到进阶工作流，按阶段推进</p>
+        </div>
+        <div class="learning-grid">
+          {site.learning_paths.map((pathItem) => (
+            <article class="learning-card">
+              <h3 style={`border-color:${pathItem.dot_color}`}>{pathItem.title}</h3>
+              <ol>
+                {pathItem.steps.map((step) => <li>{step}</li>)}
+              </ol>
+            </article>
+          ))}
+        </div>
+        <div class="section-cta">
+          <a href={asset('guides/beginner.html')} class="cta-btn cta-btn-outline" data-track="home-guide-beginner">零基础指南 →</a>
+          <a href={asset('guides/advanced.html')} class="cta-btn cta-btn-outline" data-track="home-guide-advanced">进阶指南 →</a>
+          <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline" data-track="home-roadmap">完整路线图 →</a>
+        </div>
+      </section>
+
       <section class="home-section fade-in" id="home-categories">
         <div class="section-head">
-          <h2 class="section-title">AI 工具分类</h2>
-          <p class="section-desc">按国内 / 国际与编程场景浏览</p>
+          <h2 class="section-title">AI 工具导航</h2>
+          <p class="section-desc">按国内 / 国际与编程场景浏览全部工具</p>
         </div>
         {site.home_tool_categories.map((cat) => (
           <>
@@ -118,61 +144,10 @@ const recommendKind: Record<string, string> = {
         ))}
       </section>
 
-      <section class="home-section fade-in" id="home-rankings">
-        <div class="section-head">
-          <h2 class="section-title">2026 AI 工具排行榜</h2>
-          <p class="section-desc">综合能力、长文本、性价比、编程体验</p>
-        </div>
-        <div class="ranking-grid">
-          {site.rankings.map((item) => (
-            <article class="ranking-card" data-tool={item.id}>
-              <span class="ranking-medal">{item.medal}</span>
-              <h3>{item.name}</h3>
-              <p class="ranking-dimension">{item.dimension}</p>
-              <p class="ranking-score">{item.score}</p>
-              <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
-              <button type="button" class="tool-card-btn tool-card-btn-sm" data-tool={item.id}>查看教程</button>
-            </article>
-          ))}
-        </div>
-        <div class="section-cta">
-          <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline" data-track="home-full-ranking">查看完整排行榜 →</a>
-        </div>
-      </section>
-
-      <section class="home-section fade-in" id="home-compare">
-        <div class="section-head">
-          <h2 class="section-title">AI 工具选型对比</h2>
-          <p class="section-desc">国内国际主流工具能力、场景与定价一览</p>
-        </div>
-        <div class="compare-wrap">
-          <table class="compare-table">
-            <thead><tr><th>工具</th><th>类型</th><th>核心优势</th><th>适合场景</th><th>入门</th></tr></thead>
-            <tbody>
-              {site.compare_table.rows.slice(0, 6).map((row) => (
-                <tr><td>{row.tool}</td><td>{row.type}</td><td>{row.strength}</td><td>{row.scenario}</td><td>{row.pricing}</td></tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <div class="section-cta compare-guide-grid" style="margin-top:1rem">
-          {site.compare_guides.map((g) => (
-            <a href={g.href} class="compare-guide-card" data-track={g.track}>
-              <span class="compare-guide-tag">{g.tag}</span>
-              <h4>{g.title}</h4>
-              <p>{g.description}</p>
-            </a>
-          ))}
-        </div>
-        <div class="section-cta">
-          <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline" data-track="home-compare-table">查看完整对比表 →</a>
-        </div>
-      </section>
-
       <section class="home-section fade-in" id="home-oss">
         <div class="section-head">
-          <h2 class="section-title">GitHub Stars 开源精选</h2>
-          <p class="section-desc">六大领域各至少 1 个代表项目：AI Agent、LLM 应用、本地大模型、AI 绘画、多模态、机器学习框架</p>
+          <h2 class="section-title">开源项目精选</h2>
+          <p class="section-desc">六大领域代表项目，Star 数每周刷新</p>
         </div>
         <HomeOssPreview />
         <div class="section-cta">
@@ -180,26 +155,38 @@ const recommendKind: Record<string, string> = {
         </div>
       </section>
 
-      <section class="home-section fade-in" id="home-news">
+      <section class="home-section fade-in" id="home-community">
         <div class="section-head">
-          <h2 class="section-title">本周 AI 热点</h2>
-          <p class="section-desc">每周更新：OpenAI / Anthropic / DeepMind / Meta / Microsoft / NVIDIA / Hugging Face · GitHub Trending · arXiv · 机器之心 / 量子位 / 新智元 / 智源社区</p>
+          <p class="section-kicker">社区动态</p>
+          <h2 class="section-title">继续深入</h2>
+          <p class="section-desc">排行榜、选型对比、完整新闻与视频推荐</p>
         </div>
-        <HomeNewsPreview />
-        <div class="section-cta">
-          <button class="cta-btn cta-btn-outline" data-goto="news" data-track="home-all-news">查看全部 AI 新闻 →</button>
-          <a href={asset('news/daily-ai-news.html')} class="cta-btn cta-btn-outline" data-track="home-news-archive">新闻归档页 →</a>
+        <div class="community-links">
+          <a href={asset('ai-tools-ranking.html')} class="community-card" data-track="home-community-rank">
+            <strong>2026 工具排行榜</strong>
+            <span>综合能力 · 长文本 · 性价比 · 编程</span>
+          </a>
+          <a href={asset('ai-tools-ranking.html')} class="community-card" data-track="home-community-compare">
+            <strong>工具选型对比</strong>
+            <span>场景、优势与定价一览</span>
+          </a>
+          <button type="button" class="community-card" data-goto="news" data-track="home-community-news">
+            <strong>本周 AI 热点</strong>
+            <span>官方博客 · Trending · 中文媒体</span>
+          </button>
+          <button type="button" class="community-card" data-goto="videos" data-track="home-community-videos">
+            <strong>每日 AI 视频</strong>
+            <span>YouTube / B站 六类推荐</span>
+          </button>
         </div>
-      </section>
-
-      <section class="home-section fade-in" id="home-videos">
-        <div class="section-head">
-          <h2 class="section-title">每日 AI 视频</h2>
-          <p class="section-desc">YouTube / B站 · 100 天 Top 10 · 30 天上新 Top 5 · 24h 上新 Top 3</p>
-        </div>
-        <HomeVideoPreview />
-        <div class="section-cta">
-          <button class="cta-btn cta-btn-outline" data-goto="videos" data-track="home-all-videos">查看六类完整推荐 →</button>
+        <div class="section-cta compare-guide-grid" style="margin-top:1.25rem">
+          {site.compare_guides.map((g) => (
+            <a href={g.href} class="compare-guide-card" data-track={g.track}>
+              <span class="compare-guide-tag">{g.tag}</span>
+              <h4>{g.title}</h4>
+              <p>{g.description}</p>
+            </a>
+          ))}
         </div>
       </section>
     </main>

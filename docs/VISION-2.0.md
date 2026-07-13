@@ -445,10 +445,10 @@ Bio AI Lab:
 | 2.0 模块 | 1.x 现状（可复用） |
 |----------|-------------------|
 | Hero / 搜索 / 热门工具 | 首页 Hero、站内搜索、工具卡片与推荐标签 |
-| AI Daily | `ai-news.json` + 每周抓取；`daily-videos.json` 每日视频 |
+| AI Daily | 首页四栏简报（`HomeAiDaily`）+ `ai-news.json` / `daily-videos.json` |
 | 开源精选 | `oss-projects.json` + Star 刷新 |
 | 工具中心 | `data/tools.json`、分类卡片、独立工具页 |
-| AI 推荐助手 | 尚未上线（2.1） |
+| AI 推荐助手 | 首页场景推荐（`HomeRecommend` + `site.ai_picker`）；完整对话助手仍属 2.1 |
 | RAG / Agent | 本地可选 BM25 `/api/ask`（非向量库） |
 
 ------------------------------------------------------------------------
