@@ -2,13 +2,14 @@ import { defineConfig } from '@playwright/test';
 
 const isCI = !!process.env.CI;
 const port = process.env.E2E_PORT || '8766';
-const baseURL = process.env.BASE_URL || `http://127.0.0.1:${port}/ai`;
+// 末尾斜杠必须有：goto('index.html') 才会落在 /ai/ 下；goto('/index.html') 会打到主机根路径 404
+const baseURL = process.env.BASE_URL || `http://127.0.0.1:${port}/ai/`;
 
 export default defineConfig({
   testDir: 'tests/e2e',
   timeout: isCI ? 45000 : 30000,
   expect: { timeout: isCI ? 12000 : 8000 },
-  retries: isCI ? 2 : 0,
+  retries: isCI ? 1 : 0,
   workers: 1,
   fullyParallel: false,
   forbidOnly: isCI,
@@ -31,7 +32,7 @@ export default defineConfig({
     ? undefined
     : {
         command: `node scripts/e2e-static-server.mjs ${port}`,
-        url: `${baseURL}/index.html`,
+        url: `${baseURL}index.html`,
         reuseExistingServer: !isCI,
         timeout: 60000,
       },

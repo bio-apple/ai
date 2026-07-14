@@ -1,10 +1,11 @@
 import { test, expect } from '@playwright/test';
 
+/** 相对 baseURL(/ai/)，不要用以 / 开头的绝对 path，否则会丢掉 /ai 前缀 */
 async function gotoHome(page, hash = '') {
   await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
   await page.route('**/*fonts.gstatic.com/**', (route) => route.abort());
   await page.route('**/googletagmanager.com/**', (route) => route.abort());
-  await page.goto(`/index.html${hash}`, { waitUntil: 'domcontentloaded' });
+  await page.goto(`index.html${hash}`, { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#section-home, .section.active').first()).toBeVisible();
 }
 
@@ -55,17 +56,17 @@ test.describe('Bio AI Lab 关键路径', () => {
   test('hash 路由与简报深链', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.route('**/*fonts.gstatic.com/**', (route) => route.abort());
-    await page.goto('/index.html#section-cursor', { waitUntil: 'domcontentloaded' });
+    await page.goto('index.html#section-cursor', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#section-cursor')).toHaveClass(/active/);
-    await page.goto('/index.html#home-daily', { waitUntil: 'domcontentloaded' });
+    await page.goto('index.html#home-daily', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#section-home')).toHaveClass(/active/);
     await expect(page.locator('#home-daily')).toBeVisible();
   });
 
   test('站内搜索与规则产物', async ({ page }) => {
     await gotoHome(page);
-    await expect.poll(async () => (await page.request.get('/search-index.json')).ok()).toBeTruthy();
-    const rules = await page.request.get('/recommend-rules.json');
+    await expect.poll(async () => (await page.request.get('search-index.json')).ok()).toBeTruthy();
+    const rules = await page.request.get('recommend-rules.json');
     expect(rules.ok()).toBeTruthy();
     const body = await rules.json();
     expect(body.schema_version).toBe(1);
@@ -85,15 +86,15 @@ test.describe('Bio AI Lab 关键路径', () => {
 
   test('工具中心与 Labs', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
-    await page.goto('/tools/hub.html', { waitUntil: 'domcontentloaded' });
+    await page.goto('tools/hub.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('工具中心');
-    await page.goto('/labs/index.html', { waitUntil: 'domcontentloaded' });
+    await page.goto('labs/index.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('AI Labs');
   });
 
   test('视频区与新闻区切换', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
-    await page.goto('/index.html#section-videos', { waitUntil: 'domcontentloaded' });
+    await page.goto('index.html#section-videos', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#section-videos')).toHaveClass(/active/);
     await page.locator('.nav-tab[data-tool="news"]').click();
     await expect(page.locator('#section-news')).toHaveClass(/active/);
@@ -101,7 +102,7 @@ test.describe('Bio AI Lab 关键路径', () => {
 
   test('独立工具页', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
-    await page.goto('/tools/cursor.html', { waitUntil: 'domcontentloaded' });
+    await page.goto('tools/cursor.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('Cursor');
   });
 });
