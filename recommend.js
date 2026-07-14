@@ -53,8 +53,6 @@
 
   function render(opt, query) {
     const tools = (opt?.tools || fallback.tools || []).slice(0, 5);
-    const pathTitle = opt?.path_title || fallback.path_title || '学习路线';
-    const steps = opt?.steps || fallback.steps || [];
     const guide = opt?.guide || fallback.guide || 'guides/beginner.html';
     const why = opt
       ? `因为你的需求匹配场景「${opt.label}」：优先这些工具上手更快。`
@@ -72,21 +70,18 @@
       })
       .join('');
 
-    const stepsHtml = steps.map((s) => `<li>${escape(s)}</li>`).join('');
-
+    // 学习步骤只在 #home-learning / 指南页出现，结果区不再复读 steps
     out.hidden = false;
     out.innerHTML = `
       <p class="recommend-result-meta">${escape(why)}${query ? ` · 「${escape(query)}」` : ''}</p>
       <p class="recommend-card-lead">推荐工具</p>
       <ul class="recommend-tools">${toolHtml}</ul>
-      <p class="recommend-card-lead">${escape(pathTitle)}</p>
-      <ol class="recommend-path-steps">${stepsHtml}</ol>
       <div class="recommend-next">
         <p class="recommend-card-lead">下一步</p>
         <div class="recommend-links">
-          <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">打开学习路线 →</a>
+          <a class="recommend-link" href="#home-learning" data-track="recommend_goto_learning">查看学习路线 →</a>
+          <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">打开完整指南 →</a>
           <a class="recommend-link" href="#home-favorites" data-track="recommend_goto_favorites">加入收藏清单 →</a>
-          <a class="recommend-link" href="cases/index.html" data-track="recommend_goto_cases">看实战案例 →</a>
         </div>
       </div>
     `;

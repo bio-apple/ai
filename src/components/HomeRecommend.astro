@@ -20,7 +20,7 @@ const recommendConfig = {
   <div class="section-head">
     <p class="section-kicker">AI 推荐助手</p>
     <h2 class="section-title">{picker.title}</h2>
-    <p class="section-desc">描述需求或点选场景，立即得到工具、学习路线与下一步行动</p>
+    <p class="section-desc">描述需求或点选场景，先拿到工具选型；学习步骤见下方路线</p>
   </div>
 
   <form class="recommend-query" id="recommend-form">
@@ -43,7 +43,7 @@ const recommendConfig = {
       <details class="recommend-card" data-picker={opt.id}>
         <summary>
           <span class="recommend-card-label">{opt.label}</span>
-          <span class="recommend-card-hint">查看推荐</span>
+          <span class="recommend-card-hint">查看工具</span>
         </summary>
         <div class="recommend-card-body">
           <p class="recommend-card-lead">推荐工具</p>
@@ -63,21 +63,16 @@ const recommendConfig = {
               );
             })}
           </ul>
-          {(opt.steps || []).length > 0 && (
-            <>
-              <p class="recommend-card-lead">{opt.path_title || '学习路线'}</p>
-              <ol class="recommend-path-steps">
-                {opt.steps.map((s) => <li>{s}</li>)}
-              </ol>
-            </>
-          )}
           <div class="recommend-links">
+            <a href="#home-learning" class="recommend-link" data-track={`recommend-learning-${opt.id}`}>
+              学习路线 →
+            </a>
             <a
               href={asset(opt.guide || (opt.id === 'coding' ? 'guides/advanced.html' : 'guides/beginner.html'))}
               class="recommend-link"
               data-track={`recommend-guide-${opt.id}`}
             >
-              学习路线 →
+              完整指南 →
             </a>
           </div>
         </div>

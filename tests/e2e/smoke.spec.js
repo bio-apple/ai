@@ -40,8 +40,9 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.click('#recommend-form button[type="submit"]');
     const result = page.locator('#recommend-result');
     await expect(result).toBeVisible();
-    await expect(result).toContainText(/Cursor|编程|学习/);
+    await expect(result).toContainText(/Cursor|Copilot|Codex/);
     await expect(result.locator('.recommend-next')).toBeVisible();
+    await expect(result.locator('.recommend-next')).toContainText('学习路线');
   });
 
   test('收藏星标与导出控件', async ({ page }) => {

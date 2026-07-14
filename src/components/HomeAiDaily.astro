@@ -1,20 +1,15 @@
 ---
 import { pickAiDailyBrief, formatNewsDate, formatPublishDate } from '../lib/runtime';
 import { asset } from '../lib/paths';
-import { site } from '../lib/data';
 
 const brief = pickAiDailyBrief();
-const hotNames = (site.hot_tools || []).slice(0, 4);
-const toolLookup = Object.fromEntries(
-  site.home_tool_categories.flatMap((c) => c.tools.map((t) => [t.id, t.name])),
-);
 ---
 <section class="home-section fade-in" id="home-daily">
   <div class="section-head section-head-row">
     <div>
       <p class="section-kicker">AI Daily</p>
       <h2 class="section-title">AI 简报</h2>
-      <p class="section-desc">视频日更 · 资讯周更 · 开源与学习入口一屏汇总</p>
+      <p class="section-desc">标题速览 · 详情进新闻与视频专区</p>
     </div>
     {brief.updatedAt && (
       <p class="daily-updated">资讯更新于 {formatNewsDate(brief.updatedAt)} · 周更</p>
@@ -48,7 +43,9 @@ const toolLookup = Object.fromEntries(
             </a>
           </li>
         ))}
-        {brief.github.length === 0 && <li class="daily-empty">暂无开源动态</li>}
+        {brief.github.length === 0 && (
+          <li class="daily-empty">暂无 GitHub 动态 · <a href="#home-oss" data-track="daily_empty_oss">看开源精选</a></li>
+        )}
       </ul>
     </article>
 
@@ -69,7 +66,7 @@ const toolLookup = Object.fromEntries(
     </article>
 
     <article class="daily-panel">
-      <h3 class="daily-panel-title">今日 · 学习与工具 <span class="daily-cadence">日更</span></h3>
+      <h3 class="daily-panel-title">今日 · 学习视频 <span class="daily-cadence">日更</span></h3>
       <ul class="daily-list">
         {brief.learn.map((v) => (
           <li>
@@ -81,14 +78,7 @@ const toolLookup = Object.fromEntries(
             </a>
           </li>
         ))}
-        {hotNames.map((id) => (
-          <li>
-            <button type="button" class="daily-tool-btn" data-tool={id} data-track="daily_tool">
-              <span class="daily-item-title">推荐工具 · {toolLookup[id] || id}</span>
-              <span class="daily-item-meta">查看教程</span>
-            </button>
-          </li>
-        ))}
+        {brief.learn.length === 0 && <li class="daily-empty">暂无视频条目</li>}
       </ul>
       <button type="button" class="daily-more" data-goto="videos" data-track="daily_videos_more">每日视频 →</button>
     </article>

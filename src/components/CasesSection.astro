@@ -19,17 +19,8 @@ const toolNames = toolNamesMap();
       <div class="cases-stat"><strong>{cases.tool_filters.length - 1}</strong><span>覆盖工具</span></div>
       <div class="cases-stat"><strong>{cases.scenario_filters.length - 1}</strong><span>应用场景</span></div>
     </div>
-    <div class="cases-preview-grid">
-      {cases.cases.slice(0, 6).map((caseItem, i) => (
-        <article class="case-preview-card reveal" data-goto-case={`case-${i + 1}`} data-tool={caseItem.tool}>
-          <span class={`case-badge ${caseItem.tool}`}>{toolNames[caseItem.tool] || caseItem.tool}</span>
-          <h4>{caseItem.title}</h4>
-          <p>{caseItem.summary}</p>
-        </article>
-      ))}
-    </div>
     <div class="section-cta" style="margin-bottom:24px">
-      <a href={asset('cases/index.html')} class="cta-btn cta-btn-outline">查看完整案例库 →</a>
+      <a href={asset('cases/index.html')} class="cta-btn cta-btn-outline">独立案例库页 →</a>
       <a href={asset('prompts/library.html')} class="cta-btn">浏览 Prompt 库 →</a>
     </div>
     <div class="case-filters">

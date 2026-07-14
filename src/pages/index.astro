@@ -13,6 +13,13 @@ import { buildHomeSchema } from '../lib/schema';
 import { asset } from '../lib/paths';
 
 const hotToolCards = buildHotToolCards();
+const hotToolIds = new Set(site.hot_tools || []);
+const categoryBlocks = site.home_tool_categories
+  .map((cat) => ({
+    ...cat,
+    tools: cat.tools.filter((t) => !hotToolIds.has(t.id)),
+  }))
+  .filter((cat) => cat.tools.length > 0);
 const schema = buildHomeSchema(site);
 
 const recommendKind: Record<string, string> = {
@@ -46,8 +53,8 @@ const recommendKind: Record<string, string> = {
         <h1>{site.hero.title}</h1>
         <p class="hero-subtitle">{site.hero.subtitle}</p>
         <div class="hero-cta">
-          <button class="cta-btn" data-goto={site.hero.cta_primary.goto} data-track="hero-cta-primary">{site.hero.cta_primary.label}</button>
-          <a href={site.hero.cta_secondary.href} class="cta-btn cta-btn-outline" data-track="hero-cta-nav">{site.hero.cta_secondary.label}</a>
+          <a href="#home-recommend" class="cta-btn" data-track="hero-cta-primary">获取 AI 推荐</a>
+          <a href="#home-tools" class="cta-btn cta-btn-outline" data-track="hero-cta-nav">浏览热门工具</a>
         </div>
         <div class="site-search-wrap hero-search">
           <label class="hero-search-label" for="site-search">全站搜索</label>
@@ -116,10 +123,10 @@ const recommendKind: Record<string, string> = {
 
       <section class="home-section fade-in" id="home-categories">
         <div class="section-head">
-          <h2 class="section-title">AI 工具导航</h2>
-          <p class="section-desc">按国内 / 国际与编程场景浏览全部工具</p>
+          <h2 class="section-title">更多工具</h2>
+          <p class="section-desc">热门工具已在上方；此处按场景补充其余入口</p>
         </div>
-        {site.home_tool_categories.map((cat) => (
+        {categoryBlocks.map((cat) => (
           <>
             <p class="category-label">{cat.label}</p>
             <div class="tool-cards tool-cards-grid">
@@ -128,30 +135,25 @@ const recommendKind: Record<string, string> = {
                   <div class="tool-card-top">
                     <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
                     <span class="badge">{tool.badge}</span>
+                    <button type="button" class="fav-star" data-fav-toggle={tool.id} aria-label="收藏工具" aria-pressed="false" title="收藏工具">☆</button>
                   </div>
-                  {(tool.recommend || []).length > 0 && (
-                    <ul class="recommend-badges">
-                      {tool.recommend.map((r) => (
-                        <li class="recommend-badge" data-kind={recommendKind[r] || 'top'}>{r}</li>
-                      ))}
-                    </ul>
-                  )}
                   <h3>{tool.name}</h3>
                   <p class="tool-tagline">{tool.tagline}</p>
-                  <p class="tool-summary">{tool.summary}</p>
-                  <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
                   <button type="button" class="tool-card-btn" data-tool={tool.id}>查看教程 →</button>
                 </article>
               ))}
             </div>
           </>
         ))}
+        <div class="section-cta">
+          <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline" data-track="home-categories-hub">完整工具中心 →</a>
+        </div>
       </section>
 
       <section class="home-section fade-in" id="home-oss">
         <div class="section-head">
           <h2 class="section-title">开源项目精选</h2>
-          <p class="section-desc">六大领域代表项目，Star 数每周刷新</p>
+          <p class="section-desc">每领域代表项目 · 完整列表在开源专区</p>
         </div>
         <HomeOssPreview />
         <div class="section-cta">
@@ -161,35 +163,27 @@ const recommendKind: Record<string, string> = {
 
       <section class="home-section fade-in" id="home-community">
         <div class="section-head">
-          <p class="section-kicker">社区动态</p>
-          <h2 class="section-title">继续深入</h2>
-          <p class="section-desc">排行榜、选型对比、完整新闻与视频推荐</p>
+          <p class="section-kicker">继续深入</p>
+          <h2 class="section-title">排行 · 案例 · Labs</h2>
+          <p class="section-desc">新闻与视频已在上方简报；这里放决策与实践入口</p>
         </div>
         <div class="community-links">
           <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
             <strong>AI 工具中心</strong>
-            <span>助手 · 编程 · 写作 · 图片 · Agent</span>
+            <span>分类目录与工作流入口</span>
           </a>
           <a href={asset('labs/index.html')} class="community-card" data-track="home-community-labs">
             <strong>AI Labs</strong>
-            <span>Prompt · 模型体验 · 工作流草稿</span>
+            <span>Prompt · 模型体验 · 草稿</span>
           </a>
           <a href={asset('ai-tools-ranking.html')} class="community-card" data-track="home-community-rank">
             <strong>2026 工具排行榜</strong>
-            <span>综合能力 · 长文本 · 性价比 · 编程</span>
+            <span>综合 · 长文本 · 性价比 · 编程</span>
           </a>
           <a href={asset('cases/index.html')} class="community-card" data-track="home-community-cases">
             <strong>实战案例 & Prompt</strong>
-            <span>跟着任务流程掌握工具</span>
+            <span>任务流程与可复制提示词</span>
           </a>
-          <button type="button" class="community-card" data-goto="news" data-track="home-community-news">
-            <strong>本周 AI 热点</strong>
-            <span>官方博客 · Trending · 中文媒体</span>
-          </button>
-          <button type="button" class="community-card" data-goto="videos" data-track="home-community-videos">
-            <strong>每日 AI 视频</strong>
-            <span>YouTube / B站 六类推荐</span>
-          </button>
         </div>
         <div class="section-cta compare-guide-grid" style="margin-top:1.25rem">
           {site.compare_guides.map((g) => (
@@ -214,7 +208,7 @@ const recommendKind: Record<string, string> = {
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">⭐</div>
         <div>
           <h2>GitHub Stars 开源精选</h2>
-          <p class="desc">六大 AI 应用领域各至少收录 1 个代表项目：AI Agent、LLM 应用开发、本地大模型、AI 绘画、多模态、机器学习框架。Star 数每周刷新。</p>
+          <p class="desc">六领域代表仓库，Star 数每周刷新。首页仅展示抽样。</p>
           <p class="video-update-meta" id="oss-update-meta"></p>
         </div>
       </div>
@@ -230,7 +224,7 @@ const recommendKind: Record<string, string> = {
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📰</div>
         <div>
           <h2>本周 AI 热点</h2>
-          <p class="desc">每周更新一次。关注 OpenAI、Anthropic、Google DeepMind、Meta AI、Microsoft AI、NVIDIA AI、Hugging Face（公告 + X）；GitHub Trending；arXiv cs.AI / cs.LG / cs.CL / cs.CV；中文渠道机器之心、量子位、新智元、智源社区。</p>
+          <p class="desc">周更完整列表。上方简报为标题摘要；归档页含历史批次。</p>
           <p class="video-update-meta" id="news-update-meta"></p>
         </div>
       </div>
@@ -250,7 +244,7 @@ const recommendKind: Record<string, string> = {
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
         <div>
           <h2>每日 AI 视频推荐</h2>
-          <p class="desc">每日北京时间 0:00 更新六类（展示 100d → 30d → 24h）：YouTube / B站 100 天全网播放量 Top 10、30 天内上新 Top 5、24 小时内上新 Top 3。</p>
+          <p class="desc">日更完整列表（六类 · 100d → 30d → 24h）。上方简报仅摘 2 条。</p>
           <p class="video-update-meta" id="video-update-meta"></p>
         </div>
       </div>

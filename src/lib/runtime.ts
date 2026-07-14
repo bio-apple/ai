@@ -186,27 +186,15 @@ export function pickAiDailyBrief(limits = { models: 3, industry: 2, github: 3, o
     (i) => /行业|中文|工具/.test(i.category || '') && !models.includes(i),
     limits.industry,
   );
-  let github = pickNewsBy(items, (i) => /GitHub/i.test(i.source || ''), limits.github);
-  const oss = pickHomeOss(limits.oss + limits.github);
-  if (github.length < limits.github) {
-    // 用开源精选补足 GitHub 热门
-    const extra = oss
-      .slice(0, limits.github - github.length)
-      .map(({ project, domainLabel }) => ({
-        title: `${project.name} · ★ ${formatStars(project.stars)}`,
-        url: project.url,
-        summary: project.description || '',
-        source: 'GitHub',
-        category: domainLabel,
-      }));
-    github = [...github, ...extra];
-  }
+  // 不把 OSS 精选回填进 GitHub 面板，避免与首页「开源项目精选」重复
+  const github = pickNewsBy(items, (i) => /GitHub/i.test(i.source || ''), limits.github);
+  const oss = pickHomeOss(limits.oss);
   return {
     updatedAt: news?.updated_at,
     models: models.length ? models : items.slice(0, limits.models),
     industry: industry.length ? industry : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
     github,
-    oss: oss.slice(0, limits.oss),
+    oss,
     learn: pickHomeVideos(limits.learn),
   };
 }
