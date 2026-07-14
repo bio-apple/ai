@@ -29,6 +29,7 @@ jobs:
           SITE_BASE: https://bio-apple.github.io/ai
           VIDEO_MAX_AGE_DAYS: "2"
           NEWS_MAX_AGE_DAYS: "10"
+          REPO_ACTIONS_URL: https://github.com/bio-apple/ai/actions
 
       - name: Open or update issue on failure
         if: failure()
@@ -36,13 +37,20 @@ jobs:
         with:
           script: |
             const title = '[ops] Site health probe failed';
+            const rem = process.env.REMEDIATION || '';
             const body = [
               '自动健康检查失败。',
               '',
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
               `- Time (UTC): ${new Date().toISOString()}`,
+              `- Fail: ${{ steps.health.outputs.fail_code }}`,
               '',
-              '请检查 GitHub Pages 是否可访问，以及 `daily-videos.json` / `ai-news.json` 是否过期。',
+              rem || '请打开 run 日志中的「建议处置」段落，或查阅 docs/OPS-RUNBOOK.md。',
+              '',
+              '快捷入口：',
+              `- [Daily videos](${{ github.server_url }}/${{ github.repository }}/actions/workflows/daily-videos.yml)`,
+              `- [Weekly news](${{ github.server_url }}/${{ github.repository }}/actions/workflows/weekly-news.yml)`,
+              `- [Pages](${{ github.server_url }}/${{ github.repository }}/actions/workflows/pages.yml)`,
               '',
               '<!-- site-health-probe -->',
             ].join('\n');
@@ -68,3 +76,5 @@ jobs:
                 body,
               });
             }
+        env:
+          REMEDIATION: ${{ steps.health.outputs.remediation }}

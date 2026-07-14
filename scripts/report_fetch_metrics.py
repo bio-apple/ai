@@ -73,6 +73,15 @@ def main() -> int:
     else:
         print("用法: report_fetch_metrics.py [videos|news]", file=sys.stderr)
         return 2
+    if code >= 2:
+        append_summary(
+            "\n**严重不足 · 建议处置**\n\n"
+            "1. 打开本 workflow 日志确认分类为空原因（配额 / 网络 / 解析）\n"
+            "2. `workflow_dispatch` 重跑；视频可勾选 force\n"
+            "3. 仍失败：按 `docs/OPS-RUNBOOK.md` 回滚上一好批次\n"
+        )
+    elif code == 1:
+        append_summary("\n**有警告**：非阻断；关注 B 站短窗口或新闻条数偏低。\n")
     # 0=健康 1=有警告但仍成功 2=严重（workflow 可据此开 Issue）
     print(f"metrics_level={code}")
     return 0 if code < 2 else 1

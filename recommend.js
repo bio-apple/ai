@@ -95,7 +95,7 @@
         const tool = btn.dataset.tool;
         if (typeof window.showSection === 'function') window.showSection(`section-${tool}`);
         else location.hash = `section-${tool}`;
-        if (typeof trackEvent === 'function') trackEvent('recommend_query_tool', { tool });
+        if (typeof trackEvent === 'function') trackEvent('recommend_query_tool', { tool, funnel_step: 2 });
       });
     });
   }
@@ -110,13 +110,20 @@
     e.preventDefault();
     const q = input.value.trim();
     if (!q) {
+      out.hidden = false;
+      out.innerHTML = `
+        <p class="recommend-result-meta">请先描述你想用 AI 做什么，例如「写周报」或「开发网站」。</p>
+        <div class="recommend-links">
+          <a class="recommend-link" href="#home-daily" data-track="recommend_empty_daily">先看 AI 简报 →</a>
+        </div>`;
       input.focus();
+      if (typeof trackEvent === 'function') trackEvent('recommend_empty_submit', { funnel_step: 0 });
       return;
     }
     const opt = matchOption(q);
     render(opt, q);
     if (typeof trackEvent === 'function') {
-      trackEvent('recommend_submit', { matched: opt?.id || 'fallback' });
+      trackEvent('recommend_submit', { matched: opt?.id || 'fallback', funnel_step: 1 });
     }
     const url = new URL(location.href);
     url.hash = 'home-recommend';

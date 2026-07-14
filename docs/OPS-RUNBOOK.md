@@ -10,6 +10,27 @@
 
 线上用户路径**不要假设**存在 `/api/ask`；知识库助手在 Pages 走客户端 Fuse。
 
+## 告警 → 动作（决策树）
+
+```
+Site Health / Issue 打开
+        │
+        ├─ 首页或 style/JSON 404 ──────────────► P0：查 Pages/CI 部署 → 本地 build+validate → 重部署
+        ├─ daily-videos 过期 ──────────────────► P1：workflow_dispatch daily-videos（可 force）
+        │                                         确认 thumbs 一并提交 → 仍挂则回滚 JSON+thumbs
+        ├─ ai-news 过期 ───────────────────────► P1：workflow_dispatch weekly-news → 回滚新闻产物
+        └─ 抓取 metrics 严重不足 ──────────────► 看 Step Summary → 修源/配额 → 重跑 → 必要时回滚
+```
+
+快捷链接（替换为你的仓库若 fork）：
+
+- [Daily videos](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)
+- [Weekly news](https://github.com/bio-apple/ai/actions/workflows/weekly-news.yml)
+- [Site health](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)
+- [CI](https://github.com/bio-apple/ai/actions/workflows/ci.yml)
+
+探针脚本失败时会在日志与 Step Summary 打印「建议处置」；Issue 正文会带上同一段落。
+
 ## 坏批次回滚
 
 ### 视频 `daily-videos.json`
@@ -38,7 +59,7 @@ git push
 | 级别 | 条件 | 动作 |
 |------|------|------|
 | P0 | 首页 / 关键 JSON 404 | 立刻查 Pages 部署与 `validate_ci` |
-| P1 | 视频 >2 天未更新 / 新闻 >10 天 | `site-health` Issue；可手动 `workflow_dispatch` |
+| P1 | 视频 >2 天未更新 / 新闻 >10 天 | Issue + 手动 `workflow_dispatch` |
 | P2 | 单平台短窗口为空 | metrics 警告，不阻断 |
 
 ## 抓取门禁
@@ -46,3 +67,9 @@ git push
 - `daily-videos.yml` 必须提交 `daily-videos.json` **与** `video-thumbs/`
 - `fetch_oss_stars.py` 全失败 → 非零退出；需 `GITHUB_TOKEN`
 - E2E 与 API smoke **阻断** CI `validate` job
+
+## 本地复现健康检查
+
+```bash
+SITE_BASE=https://bio-apple.github.io/ai python3 scripts/check_site_health.py
+```

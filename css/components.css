@@ -228,6 +228,32 @@ code {
   color: var(--text-muted);
 }
 
+.search-empty p {
+  margin: 0 0 10px;
+}
+
+.search-empty-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.search-empty-link {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.search-empty-link:hover {
+  text-decoration: underline;
+}
+
+.search-loading,
+.search-error {
+  margin: 0;
+}
+
 /* Compare guide cards */
 .compare-guide-grid {
   display: grid;

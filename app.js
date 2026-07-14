@@ -345,7 +345,10 @@ document.querySelectorAll('.prompt-block').forEach(block => {
 });
 
 /* Site search */
+let searchIndexStatus = 'loading'; // loading | ready | error
+
 async function loadSearchIndex() {
+  searchIndexStatus = 'loading';
   try {
     const res = await fetch('search-index.json', { cache: 'default' });
     if (!res.ok) throw new Error('search index unavailable');
@@ -363,10 +366,14 @@ async function loadSearchIndex() {
           minMatchCharLength: 2,
         });
       }
+      searchIndexStatus = 'ready';
+    } else {
+      searchIndexStatus = 'error';
     }
   } catch {
     searchIndex = [];
     fuseSearch = null;
+    searchIndexStatus = 'error';
   }
 }
 
@@ -388,6 +395,12 @@ function initSiteSearch() {
   const results = document.getElementById('site-search-results');
   if (!input || !results) return;
 
+  function markReady() {
+    input.dataset.searchReady = searchIndexStatus === 'ready' ? '1' : '0';
+    input.dataset.searchStatus = searchIndexStatus;
+  }
+  markReady();
+
   function renderResults(q) {
     const query = q.trim();
     if (!query) {
@@ -395,11 +408,33 @@ function initSiteSearch() {
       results.innerHTML = '';
       return;
     }
+
+    if (searchIndexStatus === 'loading') {
+      results.innerHTML = '<p class="search-empty search-loading">搜索索引加载中…</p>';
+      results.hidden = false;
+      return;
+    }
+
+    if (searchIndexStatus === 'error') {
+      results.innerHTML = '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
+      results.hidden = false;
+      if (typeof trackEvent === 'function') trackEvent('search_error', { q: query.slice(0, 40) });
+      return;
+    }
+
     const hits = runSearch(query);
 
     if (!hits.length) {
-      results.innerHTML = '<p class="search-empty">未找到匹配内容</p>';
+      results.innerHTML = `
+        <div class="search-empty">
+          <p>未找到「${escapeHtml(query)}」相关内容</p>
+          <div class="search-empty-actions">
+            <a href="#home-recommend" class="search-empty-link" data-track="search_empty_recommend">试试 AI 推荐助手</a>
+            <a href="tools/hub.html" class="search-empty-link" data-track="search_empty_hub">浏览工具中心</a>
+          </div>
+        </div>`;
       results.hidden = false;
+      if (typeof trackEvent === 'function') trackEvent('search_empty', { q: query.slice(0, 40) });
       return;
     }
 
@@ -407,9 +442,9 @@ function initSiteSearch() {
       const label = highlightMatch(item.label, query);
       const meta = item.type ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>` : '';
       if (item.url) {
-        return `<a href="${escapeHtml(item.url)}" class="search-hit" data-track="search-external">${label}${meta}</a>`;
+        return `<a href="${escapeHtml(item.url)}" class="search-hit" data-track="search_hit">${label}${meta}</a>`;
       }
-      return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}">${label}${meta}</button>`;
+      return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit">${label}${meta}</button>`;
     }).join('');
     results.hidden = false;
 
@@ -449,6 +484,16 @@ function initSiteSearch() {
     input.value = q;
     renderResults(q);
   }
+
+  // 索引异步完成后刷新就绪标记与当前查询
+  const _origMark = markReady;
+  const poll = setInterval(() => {
+    _origMark();
+    if (searchIndexStatus !== 'loading') {
+      clearInterval(poll);
+      if (input.value.trim()) renderResults(input.value);
+    }
+  }, 50);
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -458,5 +503,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initAiPicker();
   initScrollAnimations();
   initCasesLibraryFilter();
-  loadSearchIndex().finally(initSiteSearch);
+  loadSearchIndex().finally(() => {
+    const input = document.getElementById('site-search');
+    if (input) {
+      input.dataset.searchReady = searchIndexStatus === 'ready' ? '1' : '0';
+      input.dataset.searchStatus = searchIndexStatus;
+    }
+    initSiteSearch();
+  });
 });

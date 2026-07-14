@@ -142,7 +142,9 @@
         const on = toggle(id);
         btn.textContent = on ? '★' : '☆';
         syncAll();
-        if (typeof trackEvent === 'function') trackEvent(on ? 'favorite_add' : 'favorite_remove', { tool: id });
+        if (typeof trackEvent === 'function') {
+          trackEvent(on ? 'favorite_add' : 'favorite_remove', on ? { tool: id, funnel_step: 3 } : { tool: id });
+        }
       });
       const top = card.querySelector('.tool-card-top');
       if (top) top.appendChild(btn);
