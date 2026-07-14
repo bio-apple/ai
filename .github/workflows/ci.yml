@@ -81,7 +81,19 @@ jobs:
         run: npx playwright install chromium --with-deps
 
       - name: E2E smoke tests
-        run: npm run test:e2e
+        run: |
+          set +e
+          npx playwright test --reporter=line --reporter=json=playwright-results.json
+          code=$?
+          set -e
+          ${{ steps.setup-python.outputs.python-path }} scripts/report_e2e_annotations.py playwright-results.json || true
+          if [ -f playwright-e2e.log ]; then
+            echo '### Playwright stderr (tail)' >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+            tail -n 80 playwright-e2e.log >> "$GITHUB_STEP_SUMMARY" || true
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          exit $code
 
       - name: Upload Playwright report
         if: failure()
@@ -91,4 +103,5 @@ jobs:
           path: |
             playwright-report
             test-results
+            playwright-results.json
           retention-days: 7

@@ -9,11 +9,15 @@ async function gotoHome(page, hash = '') {
 }
 
 async function waitSearchReady(page) {
-  await expect
-    .poll(async () => page.locator('#site-search').getAttribute('data-search-ready'), {
-      timeout: 15000,
-    })
-    .toBe('1');
+  await page.waitForFunction(() => {
+    const el = document.getElementById('site-search');
+    return el && el.dataset.searchStatus && el.dataset.searchStatus !== 'loading';
+  }, null, { timeout: 15000 });
+  const ready = await page.locator('#site-search').getAttribute('data-search-ready');
+  const status = await page.locator('#site-search').getAttribute('data-search-status');
+  if (ready !== '1') {
+    throw new Error(`搜索索引未就绪: ready=${ready} status=${status}`);
+  }
 }
 
 test.describe('Bio AI Lab 关键路径', () => {

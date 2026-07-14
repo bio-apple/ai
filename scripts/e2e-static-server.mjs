@@ -63,7 +63,6 @@ const server = http.createServer((req, res) => {
     return;
   }
   if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
-    // pretty fallbacks
     const asHtml = `${filePath}.html`;
     if (fs.existsSync(asHtml)) filePath = asHtml;
     else {
@@ -73,7 +72,20 @@ const server = http.createServer((req, res) => {
   }
   const ext = path.extname(filePath).toLowerCase();
   const type = MIME[ext] || 'application/octet-stream';
-  res.writeHead(200, { 'Content-Type': type, 'Cache-Control': 'no-store' });
+  const stat = fs.statSync(filePath);
+  if (req.method === 'HEAD') {
+    send(res, 200, '', {
+      'Content-Type': type,
+      'Content-Length': String(stat.size),
+      'Cache-Control': 'no-store',
+    });
+    return;
+  }
+  res.writeHead(200, {
+    'Content-Type': type,
+    'Content-Length': String(stat.size),
+    'Cache-Control': 'no-store',
+  });
   fs.createReadStream(filePath)
     .on('error', () => {
       res.destroy();

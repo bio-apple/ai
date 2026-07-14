@@ -51,7 +51,7 @@ const recommendKind: Record<string, string> = {
         </div>
         <div class="site-search-wrap hero-search">
           <label class="hero-search-label" for="site-search">全站搜索</label>
-          <input type="search" id="site-search" class="site-search" placeholder={site.hero.search_placeholder} aria-label="站内搜索">
+          <input type="search" id="site-search" class="site-search" placeholder={site.hero.search_placeholder} aria-label="站内搜索" data-search-ready="0" data-search-status="loading">
           <div id="site-search-results" class="site-search-results" hidden></div>
         </div>
       </div>
