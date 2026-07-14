@@ -25,3 +25,4 @@ dist/
 /prompts.json
 /tutorials.json
 .DS_Store
+.pw-browsers/
