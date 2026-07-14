@@ -60,6 +60,47 @@ function dedupeBatchCategories(batch) {
   return { ...batch, categories };
 }
 
+/**
+ * 最新批次某分类为空时，向前找最近一个非空批次回填，并标记 fallback_from。
+ */
+function withCategoryFallback(batches) {
+  if (!Array.isArray(batches) || !batches.length) return null;
+  const latest = batches[0];
+  if (!latest?.categories) return latest;
+
+  const categories = {};
+  let fallbackCount = 0;
+  for (const key of Object.keys(latest.categories)) {
+    const cat = latest.categories[key] || {};
+    const videos = cat.videos || [];
+    if (videos.length) {
+      categories[key] = { ...cat, videos: [...videos] };
+      continue;
+    }
+    let filled = null;
+    let fromDate = null;
+    for (let i = 1; i < batches.length; i += 1) {
+      const prevVideos = batches[i]?.categories?.[key]?.videos || [];
+      if (prevVideos.length) {
+        filled = prevVideos;
+        fromDate = batches[i].date || null;
+        break;
+      }
+    }
+    if (filled) {
+      fallbackCount += 1;
+      categories[key] = {
+        ...cat,
+        videos: filled.map((v) => ({ ...v })),
+        fallback_from: fromDate,
+      };
+    } else {
+      categories[key] = { ...cat, videos: [] };
+    }
+  }
+  return { ...latest, categories, _fallback_count: fallbackCount };
+}
+
 function escapeHtml(s) {
   const d = document.createElement('div');
   d.textContent = s;
@@ -180,12 +221,16 @@ function renderFilteredGrid(videos) {
 
 function renderCategory(cat) {
   const videos = cat.videos || [];
+  const fallbackNote = cat.fallback_from
+    ? `<p class="video-fallback-note">今日该分类抓取为空，已回退展示 <strong>${escapeHtml(cat.fallback_from)}</strong> 批次内容（备选）。</p>`
+    : '';
   if (!videos.length) {
     return `<div class="video-category video-category-empty"><h4 class="video-category-title">${escapeHtml(cat.label)}</h4><p class="loading-hint">暂无符合该分类的推荐</p></div>`;
   }
   return `
-    <div class="video-category">
-      <h4 class="video-category-title">${escapeHtml(cat.label)} <span class="video-day-count">${videos.length} 条</span></h4>
+    <div class="video-category${cat.fallback_from ? ' video-category-fallback' : ''}">
+      <h4 class="video-category-title">${escapeHtml(cat.label)} <span class="video-day-count">${videos.length} 条</span>${cat.fallback_from ? '<span class="video-fallback-badge">回退批次</span>' : ''}</h4>
+      ${fallbackNote}
       <div class="video-grid">${videos.map(v => renderVideoCard(v)).join('')}</div>
     </div>
   `;
@@ -253,12 +298,13 @@ function pickHomePreviewVideos(batch, limit = 3) {
 function paintVideoList() {
   const root = document.getElementById('daily-video-list');
   if (!root || !videoState.rawData) return;
-  const latest = (videoState.rawData.batches || [])[0];
+  const batches = videoState.rawData.batches || [];
+  const latest = withCategoryFallback(batches);
   if (!latest) {
     root.innerHTML = '<p class="loading-hint">暂无视频数据，每日北京时间 0:00 自动更新。</p>';
     return;
   }
-  // 只展示最新一批推荐，不渲染历史日期
+  // 只展示最新一批推荐（空分类已从前序批次回填），不渲染历史日期整页
   root.innerHTML = renderBatch(latest, videoState);
   if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
 }

@@ -31,6 +31,13 @@ Site Health / Issue 打开
 
 探针脚本失败时会在日志与 Step Summary 打印「建议处置」；Issue 正文会带上同一段落。
 
+## 视频空分类展示回退
+
+前端 `videos.js`：最新批次某分类 `videos` 为空时，自动向前一个批次寻找同分类非空结果并展示，分类标题旁标注「回退批次」，文案说明来源日期。
+
+- 展示层补偿，**不改写** `daily-videos.json`
+- 仍应 `workflow_dispatch`（可 `force`）修复 YouTube/抓取空结果；长期依赖回退会掩盖数据质量问题
+
 ## 坏批次回滚
 
 ### 视频 `daily-videos.json`
