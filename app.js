@@ -34,7 +34,9 @@ let activeToolFilter = 'all';
 let activeScenarioFilter = 'all';
 
 function showSection(id, { updateHash = true, anchor = null } = {}) {
-  if (!document.getElementById(id)) return;
+  const target = document.getElementById(id);
+  // 只切换顶层 .section，避免 #home-daily 等锚点误当作整页 section
+  if (!target || !target.classList.contains('section')) return;
   sections.forEach(s => s.classList.toggle('active', s.id === id));
   const toolId = id === 'section-home' ? 'all' : id.replace('section-', '');
 
