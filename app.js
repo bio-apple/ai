@@ -211,12 +211,22 @@ function initScrollAnimations() {
   targets.forEach(el => observer.observe(el));
 }
 
-function initHashRouting() {
+const HOME_HASH_ANCHORS = new Set([
+  'home-daily',
+  'home-recommend',
+  'home-favorites',
+  'home-tools',
+  'home-learning',
+  'home-community',
+  'home-categories',
+  'home-oss',
+]);
+
+function applyLocationHash() {
   const hash = location.hash.replace('#', '');
   const anchor = new URLSearchParams(location.search).get('anchor');
-  const homeAnchors = new Set(['home-daily', 'home-recommend', 'home-favorites', 'home-tools', 'home-learning', 'home-community']);
 
-  if (hash && homeAnchors.has(hash)) {
+  if (hash && HOME_HASH_ANCHORS.has(hash)) {
     showSection('section-home', { updateHash: false });
     requestAnimationFrame(() => {
       document.getElementById(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -224,9 +234,12 @@ function initHashRouting() {
     return;
   }
 
-  if (hash && document.getElementById(hash)) {
+  if (hash && document.getElementById(hash)?.classList.contains('section')) {
     showSection(hash, { updateHash: false, anchor });
-  } else if (anchor) {
+    return;
+  }
+
+  if (anchor) {
     const section = document.getElementById(anchor)?.closest('.section')?.id
       || (anchor.startsWith('case-') ? 'section-cases' : null)
       || (document.getElementById(anchor) ? null : 'section-cases');
@@ -234,11 +247,11 @@ function initHashRouting() {
   }
 }
 
-window.addEventListener('hashchange', () => {
-  const hash = location.hash.replace('#', '');
-  const anchor = new URLSearchParams(location.search).get('anchor');
-  if (hash && document.getElementById(hash)) showSection(hash, { updateHash: false, anchor });
-});
+function initHashRouting() {
+  applyLocationHash();
+}
+
+window.addEventListener('hashchange', applyLocationHash);
 
 /* Case accordion */
 document.querySelectorAll('.case-header').forEach(header => {
