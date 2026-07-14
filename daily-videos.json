@@ -80,7 +80,7 @@
         ],
         "video_categories": {
           "youtube_top_views": {
-            "label": "YouTube：100 天全网播放量 Top 10",
+            "label": "YouTube：上传时间 100 天以内新视频全网播放量 Top 10",
             "window": {
               "days": 100
             },
@@ -101,7 +101,7 @@
             "top_count": 3
           },
           "bilibili_top_views": {
-            "label": "B站：100 天全网播放量 Top 10",
+            "label": "B站：上传时间 100 天以内新视频全网播放量 Top 10",
             "window": {
               "days": 100
             },
@@ -125,7 +125,7 @@
       },
       "categories": {
         "youtube_top_views": {
-          "label": "YouTube：100 天全网播放量 Top 10",
+          "label": "YouTube：上传时间 100 天以内新视频全网播放量 Top 10",
           "window": {
             "days": 100
           },
@@ -149,7 +149,7 @@
           "videos": []
         },
         "bilibili_top_views": {
-          "label": "B站：100 天全网播放量 Top 10",
+          "label": "B站：上传时间 100 天以内新视频全网播放量 Top 10",
           "window": {
             "days": 100
           },
@@ -419,7 +419,7 @@
       "date": "2026-07-13",
       "categories": {
         "youtube_top_views": {
-          "label": "YouTube：100 天全网播放量 Top 10",
+          "label": "YouTube：上传时间 100 天以内新视频全网播放量 Top 10",
           "window": {
             "days": 100
           },
@@ -670,7 +670,7 @@
           ]
         },
         "bilibili_top_views": {
-          "label": "B站：100 天全网播放量 Top 10",
+          "label": "B站：上传时间 100 天以内新视频全网播放量 Top 10",
           "window": {
             "days": 100
           },
@@ -960,7 +960,7 @@
         ],
         "video_categories": {
           "youtube_top_views": {
-            "label": "YouTube：100 天全网播放量 Top 10",
+            "label": "YouTube：上传时间 100 天以内新视频全网播放量 Top 10",
             "window": {
               "days": 100
             },
@@ -984,7 +984,7 @@
             "min_views": 1000
           },
           "bilibili_top_views": {
-            "label": "B站：100 天全网播放量 Top 10",
+            "label": "B站：上传时间 100 天以内新视频全网播放量 Top 10",
             "window": {
               "days": 100
             },
@@ -1011,7 +1011,7 @@
       },
       "categories": {
         "youtube_top_views": {
-          "label": "YouTube：100 天全网播放量 Top 10",
+          "label": "YouTube：上传时间 100 天以内新视频全网播放量 Top 10",
           "window": {
             "days": 100
           },
@@ -1262,7 +1262,7 @@
           ]
         },
         "bilibili_top_views": {
-          "label": "B站：100 天全网播放量 Top 10",
+          "label": "B站：上传时间 100 天以内新视频全网播放量 Top 10",
           "window": {
             "days": 100
           },
@@ -1438,7 +1438,7 @@
         ],
         "video_categories": {
           "youtube_top_views": {
-            "label": "YouTube：100 天全网播放量 Top 10",
+            "label": "YouTube：上传时间 100 天以内新视频全网播放量 Top 10",
             "window": {
               "days": 100
             },
@@ -1462,7 +1462,7 @@
             "min_views": 1000
           },
           "bilibili_top_views": {
-            "label": "B站：100 天全网播放量 Top 10",
+            "label": "B站：上传时间 100 天以内新视频全网播放量 Top 10",
             "window": {
               "days": 100
             },
@@ -1489,7 +1489,7 @@
       },
       "categories": {
         "youtube_top_views": {
-          "label": "YouTube：100 天全网播放量 Top 10",
+          "label": "YouTube：上传时间 100 天以内新视频全网播放量 Top 10",
           "window": {
             "days": 100
           },
@@ -1740,7 +1740,7 @@
           ]
         },
         "bilibili_top_views": {
-          "label": "B站：100 天全网播放量 Top 10",
+          "label": "B站：上传时间 100 天以内新视频全网播放量 Top 10",
           "window": {
             "days": 100
           },
