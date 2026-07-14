@@ -60,7 +60,7 @@ function renderNewsCard(item) {
 
 function fetchNewsData() {
   if (!newsDataPromise) {
-    newsDataPromise = fetch(NEWS_DATA_URL, { cache: 'default' })
+    newsDataPromise = fetch(NEWS_DATA_URL, { cache: 'no-store' })
       .then(res => {
         if (!res.ok) throw new Error('无法加载新闻数据');
         return res.json();
