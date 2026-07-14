@@ -73,6 +73,7 @@ const recommendKind: Record<string, string> = {
               <div class="tool-card-top">
                 <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
                 <span class="badge">{tool.badge}</span>
+                <button type="button" class="fav-star" data-fav-toggle={tool.id} aria-label="收藏工具" aria-pressed="false" title="收藏工具">☆</button>
               </div>
               {(tool.recommend || []).length > 0 && (
                 <ul class="recommend-badges">

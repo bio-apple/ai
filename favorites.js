@@ -127,28 +127,37 @@
     });
   }
 
+  function bindStar(btn) {
+    if (btn.dataset.favBound === '1') return;
+    btn.dataset.favBound = '1';
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const id = btn.dataset.favToggle;
+      const on = toggle(id);
+      btn.textContent = on ? '★' : '☆';
+      syncAll();
+      if (typeof trackEvent === 'function') {
+        trackEvent(on ? 'favorite_add' : 'favorite_remove', on ? { tool: id, funnel_step: 3 } : { tool: id });
+      }
+    });
+  }
+
   function ensureStars() {
     document.querySelectorAll('.tool-card-v2[data-tool]').forEach((card) => {
-      if (card.querySelector('[data-fav-toggle]')) return;
-      const id = card.dataset.tool;
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'fav-star';
-      btn.dataset.favToggle = id;
-      btn.setAttribute('aria-label', '收藏工具');
-      btn.innerHTML = '☆';
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const on = toggle(id);
-        btn.textContent = on ? '★' : '☆';
-        syncAll();
-        if (typeof trackEvent === 'function') {
-          trackEvent(on ? 'favorite_add' : 'favorite_remove', on ? { tool: id, funnel_step: 3 } : { tool: id });
-        }
-      });
-      const top = card.querySelector('.tool-card-top');
-      if (top) top.appendChild(btn);
-      else card.prepend(btn);
+      let btn = card.querySelector('[data-fav-toggle]');
+      if (!btn) {
+        const id = card.dataset.tool;
+        btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'fav-star';
+        btn.dataset.favToggle = id;
+        btn.setAttribute('aria-label', '收藏工具');
+        btn.innerHTML = '☆';
+        const top = card.querySelector('.tool-card-top');
+        if (top) top.appendChild(btn);
+        else card.prepend(btn);
+      }
+      bindStar(btn);
     });
   }
 

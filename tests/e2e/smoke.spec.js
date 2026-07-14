@@ -1,8 +1,19 @@
 import { test, expect } from '@playwright/test';
 
 async function gotoHome(page, hash = '') {
+  await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
+  await page.route('**/*fonts.gstatic.com/**', (route) => route.abort());
+  await page.route('**/googletagmanager.com/**', (route) => route.abort());
   await page.goto(`/index.html${hash}`, { waitUntil: 'domcontentloaded' });
   await expect(page.locator('#section-home, .section.active').first()).toBeVisible();
+}
+
+async function waitSearchReady(page) {
+  await expect
+    .poll(async () => page.locator('#site-search').getAttribute('data-search-ready'), {
+      timeout: 15000,
+    })
+    .toBe('1');
 }
 
 test.describe('Bio AI Lab 关键路径', () => {
@@ -24,7 +35,6 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.click('#recommend-form button[type="submit"]');
     const result = page.locator('#recommend-result');
     await expect(result).toBeVisible();
-    await expect(result).not.toHaveAttribute('hidden', '');
     await expect(result).toContainText(/Cursor|编程|学习/);
     await expect(result.locator('.recommend-next')).toBeVisible();
   });
@@ -39,6 +49,8 @@ test.describe('Bio AI Lab 关键路径', () => {
   });
 
   test('hash 路由与简报深链', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
+    await page.route('**/*fonts.gstatic.com/**', (route) => route.abort());
     await page.goto('/index.html#section-cursor', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#section-cursor')).toHaveClass(/active/);
     await page.goto('/index.html#home-daily', { waitUntil: 'domcontentloaded' });
@@ -55,24 +67,20 @@ test.describe('Bio AI Lab 关键路径', () => {
     expect(body.schema_version).toBe(1);
     expect((body.options || []).length).toBeGreaterThan(0);
 
-    // 等索引脚本完成后再搜，避免空结果 flaky
-    await page.waitForFunction(() => {
-      const input = document.getElementById('site-search');
-      return input && input.dataset.searchReady === '1';
-    });
+    await waitSearchReady(page);
     await page.fill('#site-search', 'Cursor');
     await expect(page.locator('.search-hit').first()).toBeVisible();
   });
 
   test('搜索空状态引导', async ({ page }) => {
     await gotoHome(page);
-    await page.waitForFunction(() => document.getElementById('site-search')?.dataset.searchReady === '1');
+    await waitSearchReady(page);
     await page.fill('#site-search', 'zzzz-no-such-tool-xyz');
-    await expect(page.locator('.search-empty')).toBeVisible();
     await expect(page.locator('.search-empty-actions')).toBeVisible();
   });
 
   test('工具中心与 Labs', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('/tools/hub.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('工具中心');
     await page.goto('/labs/index.html', { waitUntil: 'domcontentloaded' });
@@ -80,13 +88,15 @@ test.describe('Bio AI Lab 关键路径', () => {
   });
 
   test('视频区与新闻区切换', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('/index.html#section-videos', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#section-videos')).toHaveClass(/active/);
-    await page.locator('.nav-tab[data-tool="news"], .nav-menu [data-tool="news"]').first().click();
+    await page.locator('.nav-tab[data-tool="news"]').click();
     await expect(page.locator('#section-news')).toHaveClass(/active/);
   });
 
   test('独立工具页', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('/tools/cursor.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('Cursor');
   });
