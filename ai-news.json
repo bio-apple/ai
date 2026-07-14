@@ -4,69 +4,6 @@
   "cadence": "weekly",
   "items": [
     {
-      "id": "5e689a649359",
-      "title": "Inviting hard questions",
-      "summary": "Inviting hard questions",
-      "url": "https://www.anthropic.com/news/hard-questions",
-      "source": "Anthropic",
-      "category": "新模型发布",
-      "published_at": null
-    },
-    {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 86,969",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-12T21:50:31Z"
-    },
-    {
-      "id": "73fd78c4847c",
-      "title": "Expanding Managed Agents in Gemini API: background tasks, remote MCP and more",
-      "summary": "We’re announcing new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
-      "source": "Google AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-07T16:54:00+08:00"
-    },
-    {
-      "id": "a3538fdfdde0",
-      "title": "The Download: Claude’s inner workings and OpenAI’s “super app”",
-      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Anthropic…",
-      "url": "https://www.technologyreview.com/2026/07/10/1140316/the-download-anthropic-claude-hidden-space-openai-super-app/",
-      "source": "MIT Tech Review",
-      "category": "新模型发布",
-      "published_at": "2026-07-10T20:10:00+08:00"
-    },
-    {
-      "id": "6647cb6f53c6",
-      "title": "Aurora 1.5: Extending open foundation models for weather and Earth-system applications",
-      "summary": "Aurora 1.5 adds 22 more variables, hourly temporal resolution, and probabilistic ensemble forecasting to the Aurora foundation model, making it more useful for…",
-      "url": "https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/",
-      "source": "Microsoft AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-10T00:46:22+08:00"
-    },
-    {
-      "id": "5bb297bb60d9",
-      "title": "GeForce NOW Turns Up the Heat With New GeForce RTX 5080-Powered Toronto Server",
-      "summary": "This GFN Thursday brings more games, more power and more ways to play on GeForce NOW. The cloud gaming service is expanding with a new GeForce RTX 5080-powered…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-toronto-expansion/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-09T21:00:55+08:00"
-    },
-    {
-      "id": "027b05f9d0fa",
-      "title": "How Deutsche Telekom is rewiring telecommunications with AI",
-      "summary": "How Deutsche Telekom is becoming an AI-native telco with OpenAI-transforming customer service, employee workflows, network operations, and the future of voice.",
-      "url": "https://openai.com/index/deutsche-telekom",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-10T15:00:00+08:00"
-    },
-    {
       "id": "92fa243f768f",
       "title": "Claude出了个「防沉迷」，却可能让你更离不开它",
       "summary": "Anthropic为Claude上线Reflect功能Beta版，旨在提醒用户适度使用AI，避免过度依赖。该功能藏于设置中，帮助用户复盘与Claude的交互频率与场景，反思何时该启用、何时应关闭。虽初衷是“防沉迷”，但实际使用中用户反而更频繁依赖其辅助。目前面向Free、Pro、Max三类用户开放测试，体现AI厂商对…",
@@ -76,13 +13,13 @@
       "published_at": "2026-07-13 00:20 分享"
     },
     {
-      "id": "8f1dfb1cac28",
-      "title": "港科大Scientific AGI团队招生｜AI4Science、智能体与具身智能",
-      "summary": "香港科技大学Scientific AGI团队全球招募博士生、博士后、研究助理、访问学生及科研实习生。团队负责人张载熙博士将于2026年7月入职港科大化学与生物工程系任助理教授，并兼聘于计算机科学与工程系及医学院。他本科毕业于中国科大少年班，博士阶段在哈佛医学院联合培养，后于普林斯顿大学AI Lab从事博士后研究，研究…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513958&idx=1&sn=d8cb5e6f965a6788e6c07cfcf68eef37&chksm=fdef237a0db6c20df0b5a29807d690d128747cca08ceab7401a42641d2bbdab5af4678d2bf04&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-12 15:20 分享"
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 86,969",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-12T21:50:31Z"
     },
     {
       "id": "b74df5447e35",
@@ -130,6 +67,15 @@
       "published_at": "2026-07-12T02:15:08Z"
     },
     {
+      "id": "8f1dfb1cac28",
+      "title": "港科大Scientific AGI团队招生｜AI4Science、智能体与具身智能",
+      "summary": "香港科技大学Scientific AGI团队全球招募博士生、博士后、研究助理、访问学生及科研实习生。团队负责人张载熙博士将于2026年7月入职港科大化学与生物工程系任助理教授，并兼聘于计算机科学与工程系及医学院。他本科毕业于中国科大少年班，博士阶段在哈佛医学院联合培养，后于普林斯顿大学AI Lab从事博士后研究，研究…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513958&idx=1&sn=d8cb5e6f965a6788e6c07cfcf68eef37&chksm=fdef237a0db6c20df0b5a29807d690d128747cca08ceab7401a42641d2bbdab5af4678d2bf04&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-12 15:20 分享"
+    },
+    {
       "id": "1f1bc03a707a",
       "title": "rasbt/LLMs-from-scratch · ★ 98,979",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
@@ -157,13 +103,13 @@
       "published_at": "2026-07-11T18:07:17+08:00"
     },
     {
-      "id": "0cfeb65a5957",
-      "title": "中国首个十万卡集群落成！全国产算力支撑“十万卡时代”",
-      "summary": "从FP64到INT8，全精度覆盖。",
-      "url": "https://www.qbitai.com/2026/07/447891.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-11T14:26:46+08:00"
+      "id": "a3538fdfdde0",
+      "title": "The Download: Claude’s inner workings and OpenAI’s “super app”",
+      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Anthropic…",
+      "url": "https://www.technologyreview.com/2026/07/10/1140316/the-download-anthropic-claude-hidden-space-openai-super-app/",
+      "source": "MIT Tech Review",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T20:10:00+08:00"
     },
     {
       "id": "4f92d76f801d",
@@ -175,6 +121,15 @@
       "published_at": "2026-07-10T17:00:00+08:00"
     },
     {
+      "id": "027b05f9d0fa",
+      "title": "How Deutsche Telekom is rewiring telecommunications with AI",
+      "summary": "How Deutsche Telekom is becoming an AI-native telco with OpenAI-transforming customer service, employee workflows, network operations, and the future of voice.",
+      "url": "https://openai.com/index/deutsche-telekom",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T15:00:00+08:00"
+    },
+    {
       "id": "ffdf99aeb53c",
       "title": "Anthropic found a hidden space where Claude puzzles over concepts",
       "summary": "The AI firm Anthropic has developed a technique that has given it the clearest glimpse yet at what’s really going on inside large language models as they answe…",
@@ -182,6 +137,24 @@
       "source": "MIT Tech Review",
       "category": "新模型发布",
       "published_at": "2026-07-10T04:22:28+08:00"
+    },
+    {
+      "id": "6647cb6f53c6",
+      "title": "Aurora 1.5: Extending open foundation models for weather and Earth-system applications",
+      "summary": "Aurora 1.5 adds 22 more variables, hourly temporal resolution, and probabilistic ensemble forecasting to the Aurora foundation model, making it more useful for…",
+      "url": "https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/",
+      "source": "Microsoft AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-10T00:46:22+08:00"
+    },
+    {
+      "id": "5bb297bb60d9",
+      "title": "GeForce NOW Turns Up the Heat With New GeForce RTX 5080-Powered Toronto Server",
+      "summary": "This GFN Thursday brings more games, more power and more ways to play on GeForce NOW. The cloud gaming service is expanding with a new GeForce RTX 5080-powered…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-toronto-expansion/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-09T21:00:55+08:00"
     },
     {
       "id": "e799563c0958",
@@ -265,6 +238,15 @@
       "published_at": "2026-07-07T23:00:52+08:00"
     },
     {
+      "id": "73fd78c4847c",
+      "title": "Expanding Managed Agents in Gemini API: background tasks, remote MCP and more",
+      "summary": "We’re announcing new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-07T16:54:00+08:00"
+    },
+    {
       "id": "fbe5464e4eef",
       "title": "NVIDIA and Hugging Face Bring New Models and Frameworks to LeRobot for the Open Robotics Community",
       "summary": "Open source AI has shown how quickly developers can innovate when models, data and tools are shared. Robotics has the same opportunity, but advancements in phy…",
@@ -290,6 +272,15 @@
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-06T20:55:43Z"
+    },
+    {
+      "id": "5e689a649359",
+      "title": "Inviting hard questions",
+      "summary": "Inviting hard questions",
+      "url": "https://www.anthropic.com/news/hard-questions",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": null
     },
     {
       "id": "ff1300aa6cce",

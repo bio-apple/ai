@@ -19,6 +19,28 @@ function formatNewsDate(iso) {
   }
 }
 
+/** 标题或 URL 相同只保留最新 published_at */
+function dedupeNewsItems(items) {
+  const sorted = [...(items || [])].sort((a, b) => {
+    const ta = a.published_at ? Date.parse(a.published_at) : 0;
+    const tb = b.published_at ? Date.parse(b.published_at) : 0;
+    return tb - ta;
+  });
+  const seenTitle = new Set();
+  const seenUrl = new Set();
+  const out = [];
+  for (const item of sorted) {
+    const titleKey = String(item.title || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    const url = String(item.url || '').trim();
+    if (url && seenUrl.has(url)) continue;
+    if (titleKey && seenTitle.has(titleKey)) continue;
+    if (url) seenUrl.add(url);
+    if (titleKey) seenTitle.add(titleKey);
+    out.push(item);
+  }
+  return out;
+}
+
 function renderNewsCard(item) {
   return `
     <article class="news-card">
@@ -56,7 +78,7 @@ async function loadHomeNewsPreview() {
   if (!root || root.dataset.ssg === '1') return;
   try {
     const data = await fetchNewsData();
-    const items = (data.items || []).slice(0, 4);
+    const items = dedupeNewsItems(data.items || []).slice(0, 4);
     if (!items.length) {
       root.innerHTML = '<p class="loading-hint">暂无新闻，每周一自动更新。</p>';
       return;
@@ -94,7 +116,7 @@ async function loadDailyNews() {
 
   try {
     const data = await fetchNewsData();
-    const items = data.items || [];
+    const items = dedupeNewsItems(data.items || []);
     if (!items.length) {
       root.innerHTML = '<p class="loading-hint">暂无新闻数据。</p>';
       return;

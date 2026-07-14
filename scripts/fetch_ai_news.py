@@ -449,17 +449,30 @@ def filter_recent(items: list[dict], cfg: dict) -> list[dict]:
     return kept
 
 
+def normalize_title(title: str) -> str:
+    return " ".join((title or "").split()).casefold()
+
+
+def item_recency_key(item: dict) -> str:
+    return item.get("published_at") or ""
+
+
 def dedupe_sort(items: list[dict]) -> list[dict]:
-    seen: set[str] = set()
+    """同 URL 或同标题只保留最新 published_at 的一条。"""
+    seen_url: set[str] = set()
+    seen_title: set[str] = set()
     unique: list[dict] = []
-    for item in sorted(
-        items,
-        key=lambda x: x.get("published_at") or "",
-        reverse=True,
-    ):
-        if item["url"] in seen:
+    for item in sorted(items, key=item_recency_key, reverse=True):
+        url = (item.get("url") or "").strip()
+        title_key = normalize_title(item.get("title") or "")
+        if url and url in seen_url:
             continue
-        seen.add(item["url"])
+        if title_key and title_key in seen_title:
+            continue
+        if url:
+            seen_url.add(url)
+        if title_key:
+            seen_title.add(title_key)
         unique.append(item)
     return unique
 
@@ -471,24 +484,34 @@ def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
     for item in items:
         by_source.setdefault(item["source"], []).append(item)
     for src_items in by_source.values():
-        src_items.sort(key=lambda x: x.get("published_at") or "", reverse=True)
+        src_items.sort(key=item_recency_key, reverse=True)
 
     picked: list[dict] = []
-    seen: set[str] = set()
+    seen_url: set[str] = set()
+    seen_title: set[str] = set()
+
+    def try_pick(item: dict) -> bool:
+        url = (item.get("url") or "").strip()
+        title_key = normalize_title(item.get("title") or "")
+        if url and url in seen_url:
+            return False
+        if title_key and title_key in seen_title:
+            return False
+        picked.append(item)
+        if url:
+            seen_url.add(url)
+        if title_key:
+            seen_title.add(title_key)
+        return True
+
     for src in sorted(by_source):
         for item in by_source[src][:min_per_source]:
-            if item["url"] in seen:
-                continue
-            picked.append(item)
-            seen.add(item["url"])
+            try_pick(item)
 
-    for item in sorted(items, key=lambda x: x.get("published_at") or "", reverse=True):
+    for item in sorted(items, key=item_recency_key, reverse=True):
         if len(picked) >= max_items:
             break
-        if item["url"] in seen:
-            continue
-        picked.append(item)
-        seen.add(item["url"])
+        try_pick(item)
     return picked[:max_items]
 
 

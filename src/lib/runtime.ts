@@ -109,9 +109,30 @@ export function formatPublishDate(iso?: string): string {
   }
 }
 
+export function dedupeNewsItems(items: NewsItem[]): NewsItem[] {
+  const sorted = [...items].sort((a, b) => {
+    const ta = a.published_at ? Date.parse(a.published_at) : 0;
+    const tb = b.published_at ? Date.parse(b.published_at) : 0;
+    return tb - ta;
+  });
+  const seenTitle = new Set<string>();
+  const seenUrl = new Set<string>();
+  const out: NewsItem[] = [];
+  for (const item of sorted) {
+    const titleKey = (item.title || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    const url = (item.url || '').trim();
+    if (url && seenUrl.has(url)) continue;
+    if (titleKey && seenTitle.has(titleKey)) continue;
+    if (url) seenUrl.add(url);
+    if (titleKey) seenTitle.add(titleKey);
+    out.push(item);
+  }
+  return out;
+}
+
 export function pickHomeNews(limit = 4): NewsItem[] {
   const data = loadRuntimeJson<NewsPayload>('ai-news.json');
-  return (data?.items || []).slice(0, limit);
+  return dedupeNewsItems(data?.items || []).slice(0, limit);
 }
 
 export function pickHomeOss(limit = 6): Array<{ project: OssProject; domainLabel: string }> {
@@ -175,7 +196,7 @@ function pickNewsBy(
 /** 首页 AI Daily：聚合新闻 / Trending / 开源 / 视频学习 */
 export function pickAiDailyBrief(limits = { models: 3, industry: 2, github: 3, oss: 2, learn: 2 }): AiDailyBrief {
   const news = loadRuntimeJson<NewsPayload>('ai-news.json');
-  const items = news?.items || [];
+  const items = dedupeNewsItems(news?.items || []);
   const models = pickNewsBy(
     items,
     (i) => /新模型|模型|发布/.test(`${i.category || ''}${i.title || ''}`),
