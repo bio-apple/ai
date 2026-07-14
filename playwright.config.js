@@ -12,7 +12,13 @@ export default defineConfig({
   workers: 1,
   fullyParallel: false,
   forbidOnly: isCI,
-  reporter: isCI ? [['list'], ['html', { open: 'never', outputFolder: 'playwright-report' }]] : 'list',
+  reporter: isCI
+    ? [
+        ['list'],
+        ['html', { open: 'never', outputFolder: 'playwright-report' }],
+        ['json', { outputFile: 'playwright-results.json' }],
+      ]
+    : 'list',
   use: {
     headless: true,
     baseURL,
