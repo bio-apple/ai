@@ -371,10 +371,14 @@ async function loadDailyVideos() {
       return;
     }
 
+    const display = withCategoryFallback(batches);
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      const day = batches[0]?.date ? ` · 推荐日期 ${batches[0].date}` : '';
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · 仅展示最新一批`;
+      const day = display?.date ? ` · 推荐日期 ${display.date}` : '';
+      const fallbackNote = display?._fallback_count
+        ? ` · ${display._fallback_count} 个分类已回退至上一有效批次`
+        : '';
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · 仅展示最新一批${fallbackNote}`;
     }
 
     paintVideoList();
