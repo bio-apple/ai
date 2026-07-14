@@ -119,7 +119,12 @@ export function dedupeNewsItems(items: NewsItem[]): NewsItem[] {
   const seenUrl = new Set<string>();
   const out: NewsItem[] = [];
   for (const item of sorted) {
-    const titleKey = (item.title || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    const titleKey = (item.title || '')
+      .normalize('NFKC')
+      .replace(/\u3000/g, ' ')
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, ' ');
     const url = (item.url || '').trim();
     if (url && seenUrl.has(url)) continue;
     if (titleKey && seenTitle.has(titleKey)) continue;

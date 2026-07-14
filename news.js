@@ -19,7 +19,17 @@ function formatNewsDate(iso) {
   }
 }
 
-/** 标题或 URL 相同只保留最新 published_at */
+/** 标题规范化：全角/空白对齐后再比 */
+function normalizeNewsTitle(title) {
+  return String(title || '')
+    .normalize('NFKC')
+    .replace(/\u3000/g, ' ')
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, ' ');
+}
+
+/** 标题或 URL 相同只保留最新 published_at（与 scripts/news_dedupe.py 一致） */
 function dedupeNewsItems(items) {
   const sorted = [...(items || [])].sort((a, b) => {
     const ta = a.published_at ? Date.parse(a.published_at) : 0;
@@ -30,7 +40,7 @@ function dedupeNewsItems(items) {
   const seenUrl = new Set();
   const out = [];
   for (const item of sorted) {
-    const titleKey = String(item.title || '').trim().toLowerCase().replace(/\s+/g, ' ');
+    const titleKey = normalizeNewsTitle(item.title);
     const url = String(item.url || '').trim();
     if (url && seenUrl.has(url)) continue;
     if (titleKey && seenTitle.has(titleKey)) continue;

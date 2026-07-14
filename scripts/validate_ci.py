@@ -17,6 +17,8 @@ from bs4 import BeautifulSoup
 REPO = Path(__file__).resolve().parents[1]
 ROOT = Path(os.environ.get("DIST", REPO / "dist")).resolve()
 
+from news_dedupe import assert_news_unique, find_news_duplicates  # noqa: E402  # same scripts/ package style
+
 
 def iter_batch_videos(batch: dict):
     if batch.get("categories"):
@@ -100,7 +102,12 @@ def validate_ai_news() -> None:
         raise FileNotFoundError("ai-news.json 缺失，请先运行 scripts/fetch_ai_news.py")
     data = json.loads(path.read_text(encoding="utf-8"))
     Draft202012Validator(_load_schema("ai-news.schema.json")).validate(data)
-    print(f"✓ ai-news.json schema ({len(data['items'])} 条)")
+    items = data.get("items") or []
+    problems = find_news_duplicates(items)
+    if problems:
+        raise ValueError("ai-news.json 存在重复条目：\n- " + "\n- ".join(problems))
+    assert_news_unique(items)
+    print(f"✓ ai-news.json schema + 去重 ({len(items)} 条)")
 
 
 def validate_search_index() -> None:

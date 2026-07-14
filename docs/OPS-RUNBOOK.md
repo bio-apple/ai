@@ -38,6 +38,16 @@ Site Health / Issue 打开
 - 展示层补偿，**不改写** `daily-videos.json`
 - 仍应 `workflow_dispatch`（可 `force`）修复 YouTube/抓取空结果；长期依赖回退会掩盖数据质量问题
 
+## 新闻去重（程序内硬规则）
+
+规则：**同标题或同 URL → 只保留 `published_at` 最新一条**（标题经 NFKC 规范化）。
+
+| 层级 | 位置 | 作用 |
+|------|------|------|
+| 写入 | `scripts/news_dedupe.py` + `fetch_ai_news.py` | 抓取后强制去重并 `assert` |
+| 门禁 | `scripts/validate_ci.py` → `news` | CI 发现重复即失败 |
+| 展示 | `news.js` / `src/lib/runtime.ts` | 渲染前再滤一层；JSON 请求 `cache: 'no-store'` |
+
 ## 坏批次回滚
 
 ### 视频 `daily-videos.json`

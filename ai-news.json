@@ -394,5 +394,12 @@
       "x": "https://x.com/baai_ac"
     }
   ],
-  "schema_version": 1
+  "schema_version": 1,
+  "dedupe": {
+    "by": [
+      "title",
+      "url"
+    ],
+    "keep": "latest_published_at"
+  }
 }

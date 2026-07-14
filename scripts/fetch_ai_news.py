@@ -19,6 +19,8 @@ from urllib.request import Request, urlopen
 
 import yaml
 
+from news_dedupe import assert_news_unique, dedupe_news_items, normalize_news_title, news_recency_key
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_FILE = ROOT / "config" / "news-fetch.yaml"
 DATA_FILE = ROOT / "ai-news.json"
@@ -449,34 +451,6 @@ def filter_recent(items: list[dict], cfg: dict) -> list[dict]:
     return kept
 
 
-def normalize_title(title: str) -> str:
-    return " ".join((title or "").split()).casefold()
-
-
-def item_recency_key(item: dict) -> str:
-    return item.get("published_at") or ""
-
-
-def dedupe_sort(items: list[dict]) -> list[dict]:
-    """同 URL 或同标题只保留最新 published_at 的一条。"""
-    seen_url: set[str] = set()
-    seen_title: set[str] = set()
-    unique: list[dict] = []
-    for item in sorted(items, key=item_recency_key, reverse=True):
-        url = (item.get("url") or "").strip()
-        title_key = normalize_title(item.get("title") or "")
-        if url and url in seen_url:
-            continue
-        if title_key and title_key in seen_title:
-            continue
-        if url:
-            seen_url.add(url)
-        if title_key:
-            seen_title.add(title_key)
-        unique.append(item)
-    return unique
-
-
 def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
     max_items = cfg.get("max_items", 40)
     min_per_source = cfg.get("min_per_source", 1)
@@ -484,7 +458,7 @@ def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
     for item in items:
         by_source.setdefault(item["source"], []).append(item)
     for src_items in by_source.values():
-        src_items.sort(key=item_recency_key, reverse=True)
+        src_items.sort(key=news_recency_key, reverse=True)
 
     picked: list[dict] = []
     seen_url: set[str] = set()
@@ -492,7 +466,7 @@ def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
 
     def try_pick(item: dict) -> bool:
         url = (item.get("url") or "").strip()
-        title_key = normalize_title(item.get("title") or "")
+        title_key = normalize_news_title(item.get("title") or "")
         if url and url in seen_url:
             return False
         if title_key and title_key in seen_title:
@@ -508,7 +482,7 @@ def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
         for item in by_source[src][:min_per_source]:
             try_pick(item)
 
-    for item in sorted(items, key=item_recency_key, reverse=True):
+    for item in sorted(items, key=news_recency_key, reverse=True):
         if len(picked) >= max_items:
             break
         try_pick(item)
@@ -547,7 +521,9 @@ def main() -> int:
     collected.extend(parse_github_trending(cfg))
 
     recent = filter_recent(collected, cfg)
-    items = select_diverse_items(dedupe_sort(recent), cfg)
+    # 去重 → 多样性挑选 → 再次去重兜底，写入前再断言唯一
+    items = dedupe_news_items(select_diverse_items(dedupe_news_items(recent), cfg))
+    assert_news_unique(items)
     if not items:
         print("未抓取到 AI 新闻", file=sys.stderr)
         return 1
@@ -557,6 +533,8 @@ def main() -> int:
         "updated_at": datetime.now(TZ).isoformat(),
         "date": today,
         "cadence": "weekly",
+        "schema_version": 1,
+        "dedupe": {"by": ["title", "url"], "keep": "latest_published_at"},
         "items": items,
         "watch_sources": cfg.get("watch_sources", []),
     }
