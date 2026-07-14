@@ -264,17 +264,17 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
       "timezone": "Asia/Shanghai",
       "criteria": {
         "video_categories": {
-          "youtube_top_views": { "label": "YouTube：上传时间 100 天以内新视频全网播放量 Top 10", "window": { "days": 100 }, "top_count": 10, "min_views": 100000 },
+          "youtube_top_views": { "label": "YouTube：100 天内上新 Top 10", "window": { "days": 100 }, "top_count": 10, "min_views": 100000 },
           "youtube_recent_30d": { "label": "YouTube：30 天内上新 Top 5", "window": { "days": 30 }, "top_count": 5, "min_views": 10000 },
           "youtube_recent_24h": { "label": "YouTube：24 小时内上新 Top 3", "window": { "hours": 24 }, "top_count": 3, "min_views": 1000 },
-          "bilibili_top_views": { "label": "B站：上传时间 100 天以内新视频全网播放量 Top 10", "window": { "days": 100 }, "top_count": 10, "min_views": 100000 },
+          "bilibili_top_views": { "label": "B站：100 天内上新 Top 10", "window": { "days": 100 }, "top_count": 10, "min_views": 100000 },
           "bilibili_recent_30d": { "label": "B站：30 天内上新 Top 5", "window": { "days": 30 }, "top_count": 5, "min_views": 10000 },
           "bilibili_recent_24h": { "label": "B站：24 小时内上新 Top 3", "window": { "hours": 24 }, "top_count": 3, "min_views": 1000 }
         }
       },
       "categories": {
         "youtube_top_views": {
-          "label": "YouTube：上传时间 100 天以内新视频全网播放量 Top 10",
+          "label": "YouTube：100 天内上新 Top 10",
           "window": { "days": 100 },
           "top_count": 10,
           "videos": [{ "id": "youtube:...", "platform": "youtube", "title": "...", "views": 61235029 }]

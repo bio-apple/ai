@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Bio AI Lab | AI 工具 · 开源 · 新闻 · 视频",
-    "description": "Bio AI Lab：国内国际热门 AI 工具分类/排行/对比、GitHub Stars 六领域开源精选、每周 AI 新闻，以及 YouTube/B站六类每日视频（近 100 天上传热度 Top / 30 天上新 / 24h 上新）。",
+    "description": "Bio AI Lab：国内国际热门 AI 工具分类/排行/对比、GitHub Stars 六领域开源精选、每周 AI 新闻，以及 YouTube/B站六类每日视频（100 天内上新 Top / 30 天上新 / 24h 上新）。",
     "keywords": "Bio AI Lab,AI工具,AI排行,GitHub Stars,AI新闻,AI视频,ChatGPT,Cursor,DeepSeek",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
@@ -745,7 +745,7 @@
     },
     {
       "question": "本站每日视频如何更新？",
-      "answer": "北京时间每日 0:00 自动抓取 YouTube 与 B站 AI 应用相关教程，分六类推荐（展示顺序 100d → 30d → 24h）：各平台 上传时间 100 天以内新视频全网播放量 Top 10、30 天内上新 Top 5、24 小时内上新 Top 3。"
+      "answer": "北京时间每日 0:00 自动抓取 YouTube 与 B站 AI 应用相关教程，分六类推荐（展示顺序 100d → 30d → 24h）：各平台 100 天内上新 Top 10、30 天内上新 Top 5、24 小时内上新 Top 3。"
     },
     {
       "question": "AI 新闻多久更新一次？",
