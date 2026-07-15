@@ -276,7 +276,7 @@ function renderBatch(batch, state) {
 
 function fetchVideoData() {
   if (!videoDataPromise) {
-    videoDataPromise = fetch(VIDEO_DATA_URL, { cache: 'default' })
+    videoDataPromise = fetch(VIDEO_DATA_URL, { cache: 'no-store' })
       .then(res => {
         if (!res.ok) throw new Error('无法加载视频数据');
         return res.json();
@@ -287,12 +287,6 @@ function fetchVideoData() {
       });
   }
   return videoDataPromise;
-}
-
-function pickHomePreviewVideos(batch, limit = 3) {
-  const flat = flattenLatestVideos(batch);
-  const sorted = filterAndSortVideos(flat, { platform: 'all', sort: 'recent' });
-  return sorted.slice(0, limit);
 }
 
 function paintVideoList() {
@@ -334,26 +328,6 @@ function initVideoToolbar() {
   });
 }
 
-async function loadHomeVideoPreview() {
-  const root = document.getElementById('home-video-preview');
-  if (!root || root.dataset.ssg === '1') return;
-
-  try {
-    const data = await fetchVideoData();
-    const latest = (data.batches || [])[0];
-    const videos = latest ? pickHomePreviewVideos(latest) : [];
-    if (!videos.length) {
-      root.innerHTML = '<p class="loading-hint">暂无视频，每日北京时间 0:00 自动更新。</p>';
-      return;
-    }
-    root.innerHTML = `<div class="video-grid video-grid-preview">${videos.map(v => renderVideoCard(v, { compact: true })).join('')}</div>`;
-    if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
-  } catch {
-    root.innerHTML = '<p class="loading-hint">视频加载失败，请稍后刷新。</p>';
-    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'videos-home' });
-  }
-}
-
 async function loadDailyVideos() {
   const root = document.getElementById('daily-video-list');
   const meta = document.getElementById('video-update-meta');
@@ -390,11 +364,15 @@ async function loadDailyVideos() {
 }
 
 function bootVideos() {
-  loadHomeVideoPreview();
   loadDailyVideos();
 }
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', bootVideos);
 } else {
   bootVideos();
+}
+
+// 供单测 / 调试（不依赖 DOM）
+if (typeof window !== 'undefined') {
+  window.__videoHelpers = { withCategoryFallback };
 }

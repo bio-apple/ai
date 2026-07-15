@@ -33,8 +33,16 @@ jobs:
           python-version: "3.12"
           cache: pip
 
+      # yt-dlp 抓 YouTube 搜索需要 JS runtime，否则 Actions 上常整类为空
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+
       - name: Install yt-dlp
-        run: python -m pip install "yt-dlp>=2024.8.0" pyyaml==6.0.3
+        run: |
+          python -m pip install -U "yt-dlp[default]>=2024.8.0" pyyaml==6.0.3
+          yt-dlp --version
+          node -v
 
       - name: Fetch daily AI videos
         id: fetch
@@ -47,35 +55,46 @@ jobs:
 
       - name: Report metrics
         id: metrics
-        if: always() && steps.fetch.outcome == 'success'
+        if: steps.fetch.outcome == 'success'
         run: python scripts/report_fetch_metrics.py videos
 
+      # 关键：只要抓取成功就提交。勿用 success()（会被 metrics/其它步骤误伤）
       - name: Commit and push
-        if: success()
+        id: commit
+        if: steps.fetch.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add daily-videos.json video-thumbs/
           if git diff --staged --quiet; then
             echo "No video updates today"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
           git commit -m "chore: daily AI videos $DATE"
           git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
 
-      - name: Open issue on fetch failure
-        if: failure()
+      - name: Open issue on hard failure
+        if: steps.fetch.outcome == 'failure' || steps.metrics.outputs.level == '2'
         uses: actions/github-script@v8
         with:
           script: |
+            const fetchFailed = '${{ steps.fetch.outcome }}' === 'failure';
+            const level = '${{ steps.metrics.outputs.level }}';
             const title = '[ops] Daily video fetch failed';
             const body = [
-              '每日视频抓取失败或核心分类为空。',
+              fetchFailed
+                ? '每日视频抓取步骤失败（脚本异常 / 总条数为 0）。'
+                : '抓取已写入，但最新批次核心内容严重不足（metrics_level=2）。',
               '',
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
+              `- metrics_level: ${level || 'n/a'}`,
               '',
-              'B 站短窗口条数不足通常为警告；YouTube/B 站 Top 同时为空才视为严重。',
+              '处置：Actions → Daily AI Video Update → Run workflow（force=true）。',
+              'YouTube 常空时页面会「回退批次」；B 站有货时应已 commit。',
+              '详见 docs/OPS-RUNBOOK.md',
               '',
               '<!-- daily-videos-fetch -->',
             ].join('\n');

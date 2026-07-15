@@ -60,7 +60,7 @@ def load_config() -> dict[str, Any]:
 
 
 def run_ytdlp(args: list[str], timeout: int = 120) -> str:
-    cmd = ["yt-dlp", "--no-warnings", "--no-color", "--no-update", *args]
+    cmd = ["yt-dlp", "--no-warnings", "--no-color", "--no-update", "--js-runtimes", "node", *args]
     proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
     if proc.returncode != 0:
         raise RuntimeError(proc.stderr.strip() or proc.stdout.strip() or "yt-dlp failed")

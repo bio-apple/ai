@@ -31,6 +31,23 @@ Site Health / Issue 打开
 
 探针脚本失败时会在日志与 Step Summary 打印「建议处置」；Issue 正文会带上同一段落。
 
+## 视频每日更新失败（常见根因）
+
+流水线：`fetch` → `metrics` → **`commit/push`** → Pages。
+
+| 现象 | 原因 | 处置 |
+|------|------|------|
+| Fetch ✅ 但网页不更新 | 旧逻辑里 metrics 因 YouTube Top=0 **红掉**，`if: success()` 跳过 commit | 已修：有 B 站内容也会提交；metrics 不再阻断 commit |
+| YouTube 长期空 | Actions 缺 JS runtime / yt-dlp 搜索失败 | workflow 已装 Node；页面「回退批次」临时顶上 |
+| Site Health 报视频过期 | 多日未成功 push 新 `daily-videos.json` | `workflow_dispatch` + **force=true** |
+| Fetch 本身红 | 总条数 0 或脚本异常 | 看 run 日志 → force 重跑 → 仍挂再查 yt-dlp/B 站 API |
+
+手动救急：
+
+1. [Daily AI Video Update](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml) → **Run workflow** → `force=true`
+2. 确认出现 `chore: daily AI videos YYYY-MM-DD` 提交
+3. 等 Pages 部署后硬刷新站点
+
 ## 视频空分类展示回退
 
 前端 `videos.js`：最新批次某分类 `videos` 为空时，自动向前一个批次寻找同分类非空结果并展示，分类标题旁标注「回退批次」，文案说明来源日期。
