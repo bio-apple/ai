@@ -216,15 +216,30 @@ const HOME_HASH_ANCHORS = new Set([
   'home-recommend',
   'home-favorites',
   'home-tools',
-  'home-learning',
   'home-community',
   'home-categories',
   'home-oss',
 ]);
 
+function siteBase() {
+  const raw = document.documentElement.dataset.base || '/ai/';
+  return raw.endsWith('/') ? raw : `${raw}/`;
+}
+
+function casesLibraryUrl(anchor) {
+  const hash = anchor ? `#${encodeURIComponent(anchor)}` : '';
+  return `${siteBase()}cases/index.html${hash}`;
+}
+
 function applyLocationHash() {
   const hash = location.hash.replace('#', '');
   const anchor = new URLSearchParams(location.search).get('anchor');
+
+  // 案例已迁出首页 SPA → 独立页
+  if (hash === 'section-cases' || (anchor && String(anchor).startsWith('case-'))) {
+    window.location.replace(casesLibraryUrl(anchor && String(anchor).startsWith('case-') ? anchor : null));
+    return;
+  }
 
   if (hash && HOME_HASH_ANCHORS.has(hash)) {
     showSection('section-home', { updateHash: false });
@@ -240,9 +255,7 @@ function applyLocationHash() {
   }
 
   if (anchor) {
-    const section = document.getElementById(anchor)?.closest('.section')?.id
-      || (anchor.startsWith('case-') ? 'section-cases' : null)
-      || (document.getElementById(anchor) ? null : 'section-cases');
+    const section = document.getElementById(anchor)?.closest('.section')?.id;
     if (section) showSection(section, { updateHash: false, anchor });
   }
 }
@@ -314,18 +327,17 @@ document.querySelectorAll('.case-tag').forEach(tag => {
     });
     activeScenarioFilter = scenario;
     applyCaseFilters();
-    showSection('section-cases', { updateHash: true });
+    showSection('section-home', { updateHash: true });
     trackEvent('case-tag-click', { scenario });
+    window.location.href = casesLibraryUrl();
   });
 });
 
 document.querySelectorAll('[data-goto-case]').forEach(card => {
   card.addEventListener('click', () => {
     const anchor = card.dataset.gotoCase;
-    showSection('section-cases', { anchor });
-    const el = document.getElementById(anchor);
-    if (el) el.classList.add('open');
     trackEvent('case-preview-click', { anchor });
+    window.location.href = casesLibraryUrl(anchor);
   });
 });
 

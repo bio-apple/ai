@@ -2,5 +2,5 @@
   "ga_measurement_id": "",
   "clarity_project_id": "",
   "track_engagement": true,
-  "note": "填入 GA4 Measurement ID 与 Microsoft Clarity Project ID 后重新构建站点即可启用"
+  "note": "填入 GA4 Measurement ID（G-xxxxxxxx）与 Clarity Project ID 后 npm run build 即可启用；或在 CI Secrets 设 GA_MEASUREMENT_ID / CLARITY_PROJECT_ID（构建时优先于本文件）。留空时线上仅本地 __clickStats，漏斗不会进 GA。"
 }

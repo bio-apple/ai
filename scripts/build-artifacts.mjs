@@ -165,11 +165,33 @@ function buildAnalyticsConfig() {
   const raw = fs.existsSync(path.join(DATA, 'analytics.json'))
     ? readJson('analytics.json')
     : {};
-  return {
-    ga_measurement_id: (raw.ga_measurement_id || '').trim(),
-    clarity_project_id: (raw.clarity_project_id || '').trim(),
+  // Secrets / CI：优先环境变量，避免把 Measurement ID 写进仓库
+  const ga = (
+    process.env.GA_MEASUREMENT_ID
+    || process.env.PUBLIC_GA_MEASUREMENT_ID
+    || raw.ga_measurement_id
+    || ''
+  ).trim();
+  const clarity = (
+    process.env.CLARITY_PROJECT_ID
+    || process.env.PUBLIC_CLARITY_PROJECT_ID
+    || raw.clarity_project_id
+    || ''
+  ).trim();
+  const cfg = {
+    ga_measurement_id: ga,
+    clarity_project_id: clarity,
     track_engagement: raw.track_engagement !== false,
+    analytics_enabled: Boolean(ga || clarity),
   };
+  if (!cfg.analytics_enabled) {
+    console.warn(
+      '⚠ analytics: GA/Clarity 未配置（data/analytics.json 或 GA_MEASUREMENT_ID / CLARITY_PROJECT_ID）。本地仍可用 window.__clickStats。',
+    );
+  } else {
+    console.log(`✓ analytics → GA=${ga ? 'on' : 'off'} Clarity=${clarity ? 'on' : 'off'}`);
+  }
+  return cfg;
 }
 
 export function buildArtifacts(outDir = path.join(ROOT, 'public')) {

@@ -29,7 +29,11 @@
 | 站内搜索（Fuse.js） | ✅ |
 | Astro SSG + GitHub Pages | ✅ |
 
-> Prompt 库 / 案例库 / 学习路线等旧页若仍存在于仓库，**已不进入主导航与首页**（遗留 SEO 页）。
+> Prompt 库 / 案例库 / 学习路线等为 **独立页 / Labs 入口**，**不进首页主栏与主导航「案例」**（SEO 页仍保留）。
+
+## 生产说明
+
+**GitHub Pages 线上为纯静态站，没有 `/api/*`。** Docker / Render / 本地 FastAPI（`./start.sh`）仅用于本机或自建预览，勿默认当成线上能力。
 
 ## 涵盖工具
 
@@ -85,21 +89,22 @@
 ## 页面结构
 
 ```
-首页
+首页主路径
 ├── Hero + 站内搜索
-├── 热门工具 + 分类 + 排行 + 对比
-├── GitHub Stars 开源预览（六领域）
-├── 本周 AI 热点预览（每周）
-└── 每日六类视频预览
+├── 推荐助手 → AI 简报 → 收藏
+├── 热门工具 + 更多分类
+├── 开源预览
+└── 继续深入（工具中心 / Labs / 排行 / 案例 + 对比卡）
 
-Tab / 分区
+Tab / 分区（同页 SPA）
 ├── 各工具详情教程
 ├── 开源精选完整列表
 ├── AI 新闻 + 持续关注源
 └── 六类视频完整列表
 
-独立页（主推）
-├── /tools/{tool}.html
+独立页
+├── /tools/{tool}.html · /tools/hub.html
+├── /labs/ · /cases/ · /prompts/ · /ai-learning-roadmap.html
 ├── /ai-tools-ranking.html
 ├── /news/daily-ai-news.html
 └── /compare/*.html
@@ -123,13 +128,16 @@ pip install -r requirements.txt
 
 ```bash
 npm run build
-DIST=dist python3 scripts/validate_ci.py          # 全量校验（与 CI 一致）
+DIST=dist python3 scripts/validate_ci.py          # 全量校验（与 CI 一致，10 步）
 DIST=dist python3 scripts/validate_ci.py links    # 单步：HTML 内部链接（含 /ai/ 绝对路径）
+npm run test:unit                                 # Node + Python 轻量单测
 npx playwright install chromium                   # 首次运行 E2E 需安装浏览器
-npm run test:e2e                                  # Playwright 冒烟（17 项，不挡 Pages 部署）
+npm run test:e2e                                  # Playwright 冒烟（约 12 项；失败会红 CI）
 ```
 
-> **必绿**：Pages validate。**参考**：CI 中 E2E（`continue-on-error`，失败不挡合并/发版）。  
+> **必绿（合并 / Pages）**：`validate_ci.py`。  
+> **必绿（CI job）**：另含单元测 + FastAPI smoke + Playwright E2E（E2E 失败会使 CI 失败；**Pages 工作流不跑 E2E**，避免浏览器不稳挡发版）。  
+> **分析**：仓库默认可空 GA ID；在 GitHub Secrets 设 `GA_MEASUREMENT_ID` / `CLARITY_PROJECT_ID` 后构建即启用（见 `docs/ANALYTICS-EVENTS.md`）。  
 > 线上健康：`npm run health:live` 或定时 `site-health.yml`（内容过期会开 Issue）。
 
 ### 手动刷新动态数据
@@ -158,14 +166,15 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 
 | 阶段 | 说明 |
 |------|------|
-| Astro 构建 | `npm ci && npm run build` → `dist/` |
-| 数据校验（9 步） | `validate_ci.py`：data · oss · videos · news · runtime · sitemap · search · analytics · **links**（含 `/ai/`） |
-| API 冒烟 | `scripts/smoke_api.py`（`/` → `/ai/`，运行时 JSON 优先读 `dist/`） |
-| E2E | Playwright 冒烟（仅质量门禁，**不阻塞 Pages**） |
+| Astro 构建 | `npm ci && npm run build` → `dist/`（Secrets 可注入 GA/Clarity） |
+| 单元测试 | `npm run test:unit`（paths / 视频回退 / 新闻去重） |
+| 数据校验（10 步） | `validate_ci.py`：data · oss · videos · news · runtime · **recommend** · sitemap · search · analytics · **links** |
+| API 冒烟 | `scripts/smoke_api.py`（本地 FastAPI；生产 Pages **无** `/api/*`） |
+| E2E | Playwright 冒烟 ≈12 项；**失败会使 CI 红**；Pages 部署流水线不跑 E2E |
 
-`main` 推送触发 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)：`build + validate` → 上传 `dist` artifact → 部署。**不再运行 E2E**，避免浏览器不稳定挡住内容上线。
+`main` 推送触发 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)：`build + validate` → 上传 `dist` artifact → 部署。**不跑 E2E**，避免浏览器不稳定挡住内容上线。
 
-**链接约定**：站内资源与回首页统一使用 Astro `base`（`/ai/...`），由 `src/lib/paths.ts` 生成；勿再硬编码 `../` / `../../`。
+**链接约定**：站内资源与回首页统一使用 Astro `base`（`/ai/...`），由 `src/lib/paths.ts` 的 `asset()` 生成；勿再硬编码相对 `tools/...` 而不带 base。
 
 ## 技术栈
 
@@ -186,11 +195,12 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 | Phase 2 | 排行榜、选择助手、新闻、创作区、指南页 | ✅ 已完成 |
 | Phase 2.5 | Prompt 库、案例库、视频筛选、JSON 导出 | ✅ 已完成 |
 | Phase 3 | Astro SSG、六类视频、开源精选、每周新闻扩展信源 | ✅ 已完成 |
-| Phase 3.5 | 智源社区聚合、新闻信源多样性、CI 九步校验 + API smoke + Playwright E2E | ✅ 已完成 |
+| Phase 3.5 | 智源社区聚合、新闻信源多样性、CI 校验 + API smoke + Playwright E2E | ✅ 已完成 |
 | Phase 3.6 | Pages/E2E 解耦、`/ai` 本地对齐、资源路径统一、懒加载与缓存 | ✅ 已完成 |
 | Phase 3.7 | 运维健康探针、抓取告警、Dependabot、CI 信号治理 | ✅ 已完成 |
 | Phase 3.8 | 首页瘦身 + 新闻/开源/视频预览 SSG 内联 | ✅ 已完成 |
-| Phase 3.9 | 主路径精简为工具/开源/新闻/视频四块 | ✅ 已完成 |
+| Phase 3.9 | 主路径：推荐 → 简报 → 工具 → 收藏（学习/案例入 Labs·独立页） | ✅ 已完成 |
+| Phase 3.10 | GA Secrets 注入、a11y、asset() 统一、单元测 + E2E 边角 | ✅ 已完成 |
 | Phase 4 | 本地收藏、搜索增强、对话式推荐、AI Labs、工具中心 | ✅ 已完成 |
 | Phase 5 | 云端账户 / 向量 RAG / 真 LLM Agent（需独立托管） | 🔜 规划中 |
 

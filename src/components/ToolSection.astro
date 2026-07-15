@@ -1,5 +1,6 @@
 ---
 import type { Tool } from '../lib/data';
+import { asset } from '../lib/paths';
 
 interface Props { tool: Tool }
 const { tool } = Astro.props;
@@ -11,7 +12,7 @@ const { tool } = Astro.props;
       <div>
         <h2>{tool.name}</h2>
         <p class="desc">{tool.description}</p>
-        <p class="tool-page-link"><a href={`tools/${tool.id}.html`} data-track={`tool-standalone-${tool.id}`}>查看独立教程页（SEO）→</a></p>
+        <p class="tool-page-link"><a href={asset(`tools/${tool.id}.html`)} data-track={`tool-standalone-${tool.id}`}>查看独立教程页（SEO）→</a></p>
       </div>
     </div>
     <div class="grid-2">

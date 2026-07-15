@@ -1,5 +1,5 @@
 /**
- * 按 Tab section 懒加载业务脚本。首页四块预览已 SSG 内联。
+ * 按 Tab section 懒加载业务脚本。首页主路径（推荐/简报/工具/收藏）已 SSG。
  */
 (function () {
   const base = (document.documentElement.dataset.base || '/ai/').replace(/\/?$/, '/');

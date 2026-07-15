@@ -46,9 +46,12 @@ const home = homeHref();
   {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 </head>
 <body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
   <UxWidgets />
   <Nav nav={site.nav} standalone={true} homeHref={home} navPrefix={BASE} />
-  <slot />
+  <div id="main-content">
+    <slot />
+  </div>
   <Footer text={site.footer.text} github={site.footer.github} />
   {scripts.map((src) => <script src={asset(src)}></script>)}
 </body>

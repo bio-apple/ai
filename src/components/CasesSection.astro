@@ -2,10 +2,16 @@
 import { cases, flattenNavLabels, toolNamesMap } from '../lib/data';
 import { asset } from '../lib/paths';
 
+interface Props {
+  /** spa：首页旧区块样式；page：独立案例页（始终可见） */
+  mode?: 'spa' | 'page';
+}
+const { mode = 'page' } = Astro.props;
 const navLabels = flattenNavLabels();
 const toolNames = toolNamesMap();
+const wrapClass = mode === 'spa' ? 'section cases-section' : 'cases-section cases-page-body active';
 ---
-<section id="section-cases" class="section cases-section">
+<section id="section-cases" class={wrapClass}>
   <main>
     <div class="tool-header">
       <div class="tool-icon" style="background:rgba(59,130,246,0.15);color:var(--accent)">⚡</div>
@@ -19,10 +25,12 @@ const toolNames = toolNamesMap();
       <div class="cases-stat"><strong>{cases.tool_filters.length - 1}</strong><span>覆盖工具</span></div>
       <div class="cases-stat"><strong>{cases.scenario_filters.length - 1}</strong><span>应用场景</span></div>
     </div>
-    <div class="section-cta" style="margin-bottom:24px">
-      <a href={asset('cases/index.html')} class="cta-btn cta-btn-outline">独立案例库页 →</a>
-      <a href={asset('prompts/library.html')} class="cta-btn">浏览 Prompt 库 →</a>
-    </div>
+    {mode === 'spa' && (
+      <div class="section-cta" style="margin-bottom:24px">
+        <a href={asset('cases/index.html')} class="cta-btn cta-btn-outline">独立案例库页 →</a>
+        <a href={asset('prompts/library.html')} class="cta-btn">浏览 Prompt 库 →</a>
+      </div>
+    )}
     <div class="case-filters">
       {cases.tool_filters.map((f) => (
         <button class:list={['case-filter', { active: f === 'all' }]} data-filter={f}>
@@ -83,3 +91,12 @@ const toolNames = toolNamesMap();
     )}
   </main>
 </section>
+
+<style>
+  .cases-page-body {
+    display: block;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem;
+  }
+</style>

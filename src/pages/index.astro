@@ -1,7 +1,6 @@
 ---
 import HomeLayout from '../layouts/HomeLayout.astro';
 import ToolSection from '../components/ToolSection.astro';
-import CasesSection from '../components/CasesSection.astro';
 import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
@@ -98,29 +97,6 @@ const recommendKind: Record<string, string> = {
         </div>
       </section>
 
-      <section class="home-section fade-in" id="home-learning">
-        <div class="section-head">
-          <p class="section-kicker">学习路线</p>
-          <h2 class="section-title">AI 学习路线</h2>
-          <p class="section-desc">从入门对话到进阶工作流，按阶段推进</p>
-        </div>
-        <div class="learning-grid">
-          {site.learning_paths.map((pathItem) => (
-            <article class="learning-card">
-              <h3 style={`border-color:${pathItem.dot_color}`}>{pathItem.title}</h3>
-              <ol>
-                {pathItem.steps.map((step) => <li>{step}</li>)}
-              </ol>
-            </article>
-          ))}
-        </div>
-        <div class="section-cta">
-          <a href={asset('guides/beginner.html')} class="cta-btn cta-btn-outline" data-track="home-guide-beginner">零基础指南 →</a>
-          <a href={asset('guides/advanced.html')} class="cta-btn cta-btn-outline" data-track="home-guide-advanced">进阶指南 →</a>
-          <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline" data-track="home-roadmap">完整路线图 →</a>
-        </div>
-      </section>
-
       <section class="home-section fade-in" id="home-categories">
         <div class="section-head">
           <h2 class="section-title">更多工具</h2>
@@ -164,8 +140,8 @@ const recommendKind: Record<string, string> = {
       <section class="home-section fade-in" id="home-community">
         <div class="section-head">
           <p class="section-kicker">继续深入</p>
-          <h2 class="section-title">排行 · 案例 · Labs</h2>
-          <p class="section-desc">新闻与视频已在上方简报；这里放决策与实践入口</p>
+          <h2 class="section-title">工具中心 · Labs · 排行 · 案例</h2>
+          <p class="section-desc">主路径：推荐 → 简报 → 工具 → 收藏；案例详情在独立页</p>
         </div>
         <div class="community-links">
           <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
@@ -174,20 +150,20 @@ const recommendKind: Record<string, string> = {
           </a>
           <a href={asset('labs/index.html')} class="community-card" data-track="home-community-labs">
             <strong>AI Labs</strong>
-            <span>Prompt · 模型体验 · 草稿</span>
+            <span>Prompt · 案例 · 模型体验</span>
           </a>
           <a href={asset('ai-tools-ranking.html')} class="community-card" data-track="home-community-rank">
             <strong>2026 工具排行榜</strong>
             <span>综合 · 长文本 · 性价比 · 编程</span>
           </a>
           <a href={asset('cases/index.html')} class="community-card" data-track="home-community-cases">
-            <strong>实战案例 & Prompt</strong>
-            <span>任务流程与可复制提示词</span>
+            <strong>实战案例</strong>
+            <span>独立页 · Prompt 在 Labs</span>
           </a>
         </div>
         <div class="section-cta compare-guide-grid" style="margin-top:1.25rem">
           {site.compare_guides.map((g) => (
-            <a href={g.href} class="compare-guide-card" data-track={g.track}>
+            <a href={asset(g.href)} class="compare-guide-card" data-track={g.track}>
               <span class="compare-guide-tag">{g.tag}</span>
               <h4>{g.title}</h4>
               <p>{g.description}</p>
@@ -200,9 +176,8 @@ const recommendKind: Record<string, string> = {
 
   {tools.map((tool) => <ToolSection tool={tool} />)}
 
-  <CasesSection />
-
   <section id="section-oss" class="section oss-section">
+    <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载开源精选。</p></noscript>
     <main>
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">⭐</div>
@@ -229,6 +204,7 @@ const recommendKind: Record<string, string> = {
         </div>
       </div>
       <div id="daily-news-list" class="news-list">
+        <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载新闻。</p></noscript>
         <p class="loading-hint">加载 AI 新闻…</p>
       </div>
       <div id="news-watch-sources" class="news-watch-sources"></div>
@@ -262,6 +238,7 @@ const recommendKind: Record<string, string> = {
         </div>
       </div>
       <div id="daily-video-list" class="daily-video-list">
+        <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载视频。</p></noscript>
         <p class="loading-hint">加载视频推荐…</p>
       </div>
     </main>

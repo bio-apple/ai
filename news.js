@@ -175,23 +175,6 @@ function fetchNewsData() {
   return newsDataPromise;
 }
 
-async function loadHomeNewsPreview() {
-  const root = document.getElementById('home-news-preview');
-  if (!root || root.dataset.ssg === '1') return;
-  try {
-    const data = await fetchNewsData();
-    const items = dedupeNewsItems(data.items || []).slice(0, 5);
-    if (!items.length) {
-      root.innerHTML = '<p class="loading-hint">暂无新闻，每周一自动更新。</p>';
-      return;
-    }
-    root.innerHTML = `<ul class="news-feed-list news-feed-list-compact">${items.map(renderNewsRow).join('')}</ul>`;
-  } catch {
-    root.innerHTML = '<p class="loading-hint">新闻加载失败，请稍后刷新。</p>';
-    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'news-home' });
-  }
-}
-
 function renderWatchSources(sources) {
   if (!sources?.length) return '';
   const links = sources.map((src) => {
@@ -241,7 +224,6 @@ async function loadDailyNews() {
 }
 
 function bootNews() {
-  loadHomeNewsPreview();
   loadDailyNews();
 }
 if (document.readyState === 'loading') {

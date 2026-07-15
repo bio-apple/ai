@@ -59,7 +59,7 @@
 - 生产环境以 **GitHub Pages** 部署 `dist/`；`backend/` 本地预览挂载 **`/ai/`**（与 Astro `base` 一致），`/` 重定向到 `/ai/`。
 - **每日视频**通过 `daily-videos.json` + `daily-videos.yml` 定时写入（六类推荐）。
 - **每周新闻**与 **GitHub Stars** 通过 `weekly-news.yml` 定时刷新 `ai-news.json` 与 `oss-projects.json`。
-- 部署前必须通过 **Pages 校验**（`validate_ci.py`）；完整 CI 另含 FastAPI smoke 与 Playwright E2E（E2E **不挡** Pages）。
+- 部署前必须通过 **Pages 校验**（`validate_ci.py`）；完整 CI 另含单元测试、FastAPI smoke 与 Playwright E2E（E2E **失败会使 CI 红**，但 **不挡 Pages** 部署）。
 - 站内链接与静态资源统一走 **`src/lib/paths.ts`**（`/ai/...`）；`validate_ci.py links` 会解析 `/ai/` 绝对路径并拒绝逃出 `dist/` 的相对路径。
 
 ---
@@ -533,7 +533,7 @@ macOS 若遇 Python SSL 证书问题，脚本会自动回退到 `curl` 抓取。
 ### 工作流关系
 
 ```
-push/PR → ci.yml（build + validate + API smoke；E2E continue-on-error）
+push/PR → ci.yml（build + unit + validate 10 步 + API smoke；E2E 失败则 CI 红）
          PR 额外上传 dist-preview artifact
 push main → pages.yml（build + validate → artifact → deploy；无 E2E）
 
@@ -542,8 +542,8 @@ weekly-news.yml  → metrics summary → commit → 失败开 Issue(ops,fetch)
 site-health.yml  → 探测线上新鲜度 → 失败开 Issue(ops,site-health)
 ```
 
-**必绿（发版相关）**：Pages 的 build + `validate_ci.py`。  
-**参考信号（不挡发版）**：CI 中的 Playwright E2E。
+**发版必绿**：Pages 的 `validate_ci.py`。  
+**合并必绿（CI）**：单元测 + 校验 + API smoke + Playwright E2E（E2E 红则 PR/push CI 失败；Pages 工作流不跑 E2E）。
 
 ### 运维探针
 
@@ -577,9 +577,9 @@ npm run health:live
 |------|-------------|
 | 构建 | `npm ci && npm run build` → `dist/` |
 | PR preview | 上传 `dist-preview` artifact（保留 7 天） |
-| Validate（9 步） | `validate_ci.py` 分步 |
+| Validate（10 步） | `validate_ci.py` 分步（含 recommend） |
 | FastAPI API smoke | `scripts/smoke_api.py` |
-| E2E | `continue-on-error: true` — 失败仅 warning，**不失败 job** |
+| E2E | Playwright 冒烟 ≈10 项；**失败会使 CI job 失败**；Pages 部署不跑 E2E |
 
 本地全量校验：`DIST=dist python3 scripts/validate_ci.py`。
 
@@ -716,11 +716,12 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 1.5 | 数据驱动 Jinja2 构建 + CI |
 | 1.6 | Astro SSG 迁移；工具页自动生成 |
 | 1.7 | 六类视频；GitHub 开源精选；每周新闻；扩展信源与关注面板；首页对比表 |
-| 1.8 | Phase 3.5：智源社区聚合；CI 九步分步校验 + 链接越界检测；API 优先读 `dist/`；Playwright E2E 扩展至 17 项 |
+| 1.8 | Phase 3.5：智源社区聚合；CI 分步校验 + 链接越界检测；API 优先读 `dist/`；Playwright E2E |
 | 1.9 | Pages 与 E2E 解耦；FastAPI `/ai/` 基路径；`paths.ts` 统一链接；首页脚本懒加载；JSON 默认缓存；data_store mtime；Docker 多阶段 build |
-| 1.10 | 运维探针与抓取失败开 Issue；E2E 非阻塞；Dependabot；钉依赖；OG 压缩；PR dist artifact |
-| 1.11 | 主路径精简为工具/开源/新闻/视频四块；导航与搜索入口对齐清单 |
-| 1.12 | 视频：100 天 Top + 分类 min_views；跨分类去重；页面仅最新批次；展示序 100d→30d→24h |
+| 1.10 | 运维探针与抓取失败开 Issue；Dependabot；钉依赖；OG 压缩；PR dist artifact |
+| 1.11 | 主路径：推荐 → 简报 → 工具 → 收藏；学习/案例入 Labs·独立页 |
+| 1.12 | 视频：100 天 Top + 分类 min_views；跨分类去重；页面仅最新批次；展示序 100d→30d→24h；空分类回退；新闻去重 |
+| 1.13 | GA Secrets 注入、文档对齐 CI；a11y；首页卸案例 SPA→`/cases/`；asset() 防双前缀；单测 + E2E 边角 |
 
 ---
 

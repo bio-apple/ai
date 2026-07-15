@@ -38,8 +38,8 @@ function fetchPromptsData() {
 function renderPromptCard(prompt) {
   const catLabel = CATEGORY_LABELS[prompt.category] || prompt.category;
   const caseLink = prompt.case_anchor
-    ? `index.html?anchor=${encodeURIComponent(prompt.case_anchor)}#section-cases`
-    : '#section-cases';
+    ? `cases/index.html#${encodeURIComponent(prompt.case_anchor)}`
+    : 'cases/index.html';
   const prefix = window.location.pathname.includes('/prompts/') ? '../' : '';
   return `
     <article class="prompt-card reveal" id="${escapeHtml(prompt.id)}" data-category="${escapeHtml(prompt.category)}">

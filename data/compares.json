@@ -24,7 +24,7 @@
     "cta": [
       {"label": "查看 Cursor 完整教程 →", "href": "/ai/tools/cursor.html", "track": "compare-goto-cursor"},
       {"label": "查看 Copilot 完整教程 →", "href": "/ai/index.html#section-copilot", "track": "compare-goto-copilot", "outline": true},
-      {"label": "看编程实战案例 →", "href": "/ai/index.html#section-cases", "track": "compare-goto-cases", "outline": true}
+      {"label": "看编程实战案例 →", "href": "/ai/cases/index.html", "track": "compare-goto-cases", "outline": true}
     ],
     "search_keywords": "cursor copilot 对比 选型 编程"
   },

@@ -66,11 +66,6 @@
         "href": "labs/index.html"
       },
       {
-        "type": "page",
-        "label": "案例",
-        "href": "cases/index.html"
-      },
-      {
         "type": "tab",
         "id": "oss",
         "label": "开源精选"
@@ -97,7 +92,7 @@
     },
     "cta_secondary": {
       "label": "开始 AI 学习",
-      "href": "#home-learning"
+      "href": "#home-recommend"
     },
     "search_placeholder": "搜索 AI 工具、教程、关键词…"
   },

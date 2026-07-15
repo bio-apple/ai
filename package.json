@@ -10,6 +10,7 @@
     "build": "astro build",
     "dev": "node scripts/prebuild.mjs && astro dev",
     "preview": "astro preview --host 127.0.0.1 --port 8766",
+    "test:unit": "node --test tests/unit/*.test.mjs && python3 -m unittest discover -s tests/unit -p 'test_*.py'",
     "test:e2e": "playwright test",
     "test:e2e:install": "playwright install chromium",
     "health:live": "python3 scripts/check_site_health.py"

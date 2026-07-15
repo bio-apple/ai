@@ -44,12 +44,12 @@ const styleHref = asset('style.css');
   <link rel="canonical" href={canonical}>
   <meta property="og:type" content="website">
   <meta property="og:url" content={canonical}>
-  <meta property="og:title" content="Bio AI Lab 2026 — AI 学习与工具导航平台">
+  <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:image" content={site.meta.og_image}>
   <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bio AI Lab 2026 — AI 学习与工具导航平台">
+  <meta name="twitter:title" content={title}>
   <meta name="twitter:description" content={description}>
   <meta name="twitter:image" content={site.meta.og_image}>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -60,10 +60,13 @@ const styleHref = asset('style.css');
   {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 </head>
 <body>
+  <a class="skip-link" href="#main-content">跳到主要内容</a>
   <UxWidgets />
   {includeKnowledge && <KnowledgeAssistant />}
   <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
-  <slot />
+  <div id="main-content">
+    <slot />
+  </div>
   <Footer text={site.footer.text} github={site.footer.github} />
   {scriptList.map((src) => <script src={asset(src)}></script>)}
 </body>

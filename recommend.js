@@ -53,7 +53,12 @@
 
   function render(opt, query) {
     const tools = (opt?.tools || fallback.tools || []).slice(0, 5);
-    const guide = opt?.guide || fallback.guide || 'guides/beginner.html';
+    const base = (document.documentElement.dataset.base || '/').replace(/\/?$/, '/');
+    const guidePath = opt?.guide || fallback.guide || 'guides/beginner.html';
+    const guide = guidePath.startsWith('http') || guidePath.startsWith('/')
+      ? guidePath
+      : `${base}${guidePath.replace(/^\//, '')}`;
+    const roadmapHref = `${base}ai-learning-roadmap.html`;
     const why = opt
       ? `因为你的需求匹配场景「${opt.label}」：优先这些工具上手更快。`
       : '未精确匹配场景，先给出通用主力工具；你可以换个说法再试。';
@@ -70,7 +75,7 @@
       })
       .join('');
 
-    // 学习步骤只在 #home-learning / 指南页出现，结果区不再复读 steps
+    // 学习路线走独立页，结果区不再复读 steps
     out.hidden = false;
     out.innerHTML = `
       <p class="recommend-result-meta">${escape(why)}${query ? ` · 「${escape(query)}」` : ''}</p>
@@ -79,7 +84,7 @@
       <div class="recommend-next">
         <p class="recommend-card-lead">下一步</p>
         <div class="recommend-links">
-          <a class="recommend-link" href="#home-learning" data-track="recommend_goto_learning">查看学习路线 →</a>
+          <a class="recommend-link" href="${escape(roadmapHref)}" data-track="recommend_goto_learning">查看学习路线 →</a>
           <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">打开完整指南 →</a>
           <a class="recommend-link" href="#home-favorites" data-track="recommend_goto_favorites">加入收藏清单 →</a>
         </div>

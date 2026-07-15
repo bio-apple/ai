@@ -1,31 +1,14 @@
 ---
 import StandaloneLayout from '../../../layouts/StandaloneLayout.astro';
-import { cases, site, toolNamesMap } from '../../../lib/data';
+import CasesSection from '../../../components/CasesSection.astro';
+import { cases, site } from '../../../lib/data';
 import { buildPageSchema } from '../../../lib/schema';
 import { asset, homeHref } from '../../../lib/paths';
 
 const page = site.cases_page;
-const toolNames = toolNamesMap();
 const base = site.meta.base_url;
 const schema = buildPageSchema(page.title, page.lead, `${base}cases/index.html`);
 const home = homeHref();
-
-const tutorials = cases.cases.map((caseItem, idx) => {
-  const promptCount = (caseItem.steps || []).reduce(
-    (n, step) => n + (step.blocks || []).filter((b) => b.type === 'prompt').length,
-    0,
-  );
-  return {
-    id: `case-${idx + 1}`,
-    tool: caseItem.tool,
-    tool_name: toolNames[caseItem.tool] || caseItem.tool,
-    title: caseItem.title,
-    summary: caseItem.summary || '',
-    level: caseItem.level || '',
-    duration: caseItem.duration || '',
-    prompt_count: promptCount,
-  };
-});
 
 let promptsCount = 0;
 for (const caseItem of cases.cases) {
@@ -45,35 +28,24 @@ for (const caseItem of cases.cases) {
     <div class="standalone-hero">
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
-      <p class="library-meta">{tutorials.length} 个实战案例 · {promptsCount} 条 Prompt</p>
+      <p class="library-meta">{cases.cases.length} 个实战案例 · {promptsCount} 条 Prompt</p>
     </div>
-    <div class="library-toolbar" id="cases-toolbar">
-      <button type="button" class="library-filter active" data-case-tool="all">全部工具</button>
-      {cases.tool_filters.filter((tid) => tid !== 'all').map((tid) => (
-        <button type="button" class="library-filter" data-case-tool={tid}>{toolNames[tid] || tid}</button>
-      ))}
-    </div>
-    <div class="cases-library-grid">
-      {tutorials.map((t) => (
-        <article class="case-library-card reveal" data-tool={t.tool}>
-          <div class="case-library-head">
-            <span class={`case-badge ${t.tool}`}>{t.tool_name}</span>
-            <span class="case-level">{t.level}</span>
-          </div>
-          <h3>{t.title}</h3>
-          <p>{t.summary}</p>
-          <div class="case-library-meta">
-            <span>{t.duration}</span>
-            <span>{t.prompt_count} 条 Prompt</span>
-          </div>
-          <a href={`${home}?anchor=${t.id}#section-cases`} class="case-library-link">查看完整步骤 →</a>
-        </article>
-      ))}
-    </div>
+    <CasesSection mode="page" />
     <div class="standalone-cta">
-      <a href={homeHref('#section-cases')} class="cta-btn">站内案例区</a>
-      <a href={asset('prompts/library.html')} class="cta-btn cta-btn-outline">Prompt 库</a>
+      <a href={asset('prompts/library.html')} class="cta-btn">Prompt 库</a>
       <a href={asset('labs/index.html')} class="cta-btn cta-btn-outline">AI Labs</a>
+      <a href={home} class="cta-btn cta-btn-outline">回首页</a>
     </div>
   </main>
+  <script is:inline>
+    (function () {
+      const params = new URLSearchParams(location.search);
+      const anchor = params.get('anchor') || location.hash.replace(/^#/, '');
+      if (!anchor) return;
+      const el = document.getElementById(anchor);
+      if (!el) return;
+      el.classList.add('open');
+      requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    })();
+  </script>
 </StandaloneLayout>

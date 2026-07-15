@@ -215,7 +215,15 @@ def validate_analytics_config() -> None:
     for key in ("ga_measurement_id", "clarity_project_id", "track_engagement"):
         if key not in data:
             raise ValueError(f"analytics-config.json 缺少 {key}")
-    print("✓ analytics-config.json")
+    ga = str(data.get("ga_measurement_id") or "").strip()
+    clarity = str(data.get("clarity_project_id") or "").strip()
+    if ga and not ga.startswith("G-"):
+        raise ValueError(f"ga_measurement_id 格式应为 G-xxxxxxxxxx，当前：{ga!r}")
+    if not ga and not clarity:
+        print("⚠ analytics：GA/Clarity 未配置（允许；Secrets 或 data/analytics.json 可启用）")
+    print(
+        f"✓ analytics-config.json（GA={'on' if ga else 'off'} Clarity={'on' if clarity else 'off'}）"
+    )
 
 
 def validate_oss_projects() -> None:
