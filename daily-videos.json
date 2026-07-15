@@ -67,9 +67,129 @@
     "bilibili:BV1YcDEBAEXT",
     "bilibili:BV1XyTg6BE1y",
     "bilibili:BV1RPET6tEp2",
-    "bilibili:BV1jp5s6vE3P"
+    "bilibili:BV1jp5s6vE3P",
+    "youtube:NLg8LomwLC8"
   ],
   "batches": [
+    {
+      "date": "2026-07-15",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "video_categories": {
+          "youtube_top_views": {
+            "label": "YouTube：100 天内上新 Top 10",
+            "window": {
+              "days": 100
+            },
+            "top_count": 10
+          },
+          "youtube_recent_30d": {
+            "label": "YouTube：30 天内上新 Top 5",
+            "window": {
+              "days": 30
+            },
+            "top_count": 5
+          },
+          "youtube_recent_24h": {
+            "label": "YouTube：24 小时内上新 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3
+          },
+          "bilibili_top_views": {
+            "label": "B站：100 天内上新 Top 10",
+            "window": {
+              "days": 100
+            },
+            "top_count": 10
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：30 天内上新 Top 5",
+            "window": {
+              "days": 30
+            },
+            "top_count": 5
+          },
+          "bilibili_recent_24h": {
+            "label": "B站：24 小时内上新 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3
+          }
+        }
+      },
+      "categories": {
+        "youtube_top_views": {
+          "label": "YouTube：100 天内上新 Top 10",
+          "window": {
+            "days": 100
+          },
+          "top_count": 10,
+          "videos": []
+        },
+        "youtube_recent_30d": {
+          "label": "YouTube：30 天内上新 Top 5",
+          "window": {
+            "days": 30
+          },
+          "top_count": 5,
+          "videos": [
+            {
+              "id": "youtube:NLg8LomwLC8",
+              "platform": "youtube",
+              "title": "ChatGPT’s New Updates Are MIND BLOWING! (ChatGPT Work, Plugins & GPT 5.6 Upgrade)",
+              "summary": "ChatGPT just released a bunch of brand new updates that completely change everything",
+              "url": "https://www.youtube.com/watch?v=NLg8LomwLC8",
+              "thumbnail": "https://i.ytimg.com/vi/NLg8LomwLC8/maxresdefault.jpg",
+              "channel": "Rob The AI Guy",
+              "subscribers": 94100,
+              "views": 54538,
+              "duration": "15:03",
+              "max_height": 1080,
+              "published_at": "2026-07-10T06:23:01+08:00"
+            }
+          ]
+        },
+        "youtube_recent_24h": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_top_views": {
+          "label": "B站：100 天内上新 Top 10",
+          "window": {
+            "days": 100
+          },
+          "top_count": 10,
+          "videos": []
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：30 天内上新 Top 5",
+          "window": {
+            "days": 30
+          },
+          "top_count": 5,
+          "videos": []
+        },
+        "bilibili_recent_24h": {
+          "label": "B站：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        }
+      }
+    },
     {
       "date": "2026-07-14",
       "timezone": "Asia/Shanghai",
@@ -1907,5 +2027,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-14T01:59:38.660058+08:00"
+  "updated_at": "2026-07-15T12:07:21.941566+08:00"
 }
