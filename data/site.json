@@ -403,80 +403,73 @@
     "rows": [
       {
         "tool": "ChatGPT",
-        "type": "对话助手",
+        "type": "AI 助手",
         "strength": "生态最全、GPTs、多模态",
         "scenario": "日常问答、创作、通用任务",
         "pricing": "免费 / Plus $20"
       },
       {
-        "tool": "Claude",
-        "type": "对话 + 编程",
-        "strength": "深度推理、长文本、Artifacts",
-        "scenario": "文档分析、写作、代码审查",
-        "pricing": "免费 / Pro $20"
-      },
-      {
-        "tool": "Gemini",
-        "type": "对话助手",
-        "strength": "Google 整合、Deep Research",
-        "scenario": "搜索研究、Gmail/Drive 联动",
-        "pricing": "免费 / Advanced"
-      },
-      {
         "tool": "New Bing",
-        "type": "搜索助手",
+        "type": "AI 助手",
         "strength": "联网搜索、引用回答、Edge 摘要",
         "scenario": "检索式问答、网页速读、信息整理",
         "pricing": "免费 / Microsoft 订阅扩展"
       },
       {
+        "tool": "Gemini",
+        "type": "AI 助手",
+        "strength": "Google 整合、Deep Research",
+        "scenario": "搜索研究、Gmail/Drive 联动",
+        "pricing": "免费 / Advanced"
+      },
+      {
+        "tool": "Claude｜Anthropic",
+        "type": "AI 助手",
+        "strength": "深度推理、长文本、Artifacts",
+        "scenario": "文档分析、写作、代码审查",
+        "pricing": "免费 / Pro $20"
+      },
+      {
         "tool": "DeepSeek",
-        "type": "对话 + API",
+        "type": "AI 助手",
         "strength": "免费好用、推理强、API 便宜",
         "scenario": "学习、编程、低成本开发",
         "pricing": "网页免费 / API 按量"
       },
       {
-        "tool": "Kimi",
-        "type": "对话助手",
-        "strength": "超长上下文、文件解析、联网",
-        "scenario": "长文档、合同、论文速读",
-        "pricing": "免费 / 会员"
-      },
-      {
-        "tool": "通义千问",
-        "type": "对话 + API",
-        "strength": "Qwen 模型、阿里云生态",
-        "scenario": "企业应用、多模态、国内部署",
-        "pricing": "免费 / 按量 API"
-      },
-      {
-        "tool": "豆包",
-        "type": "对话助手",
+        "tool": "豆包｜抖音",
+        "type": "AI 助手",
         "strength": "免费多模态、扣子 Coze",
         "scenario": "日常问答、轻量 AI 应用搭建",
         "pricing": "免费"
       },
       {
-        "tool": "Cursor",
-        "type": "编程 IDE",
+        "tool": "Kimi｜月之暗面",
+        "type": "AI 助手",
+        "strength": "超长上下文、文件解析、联网",
+        "scenario": "长文档、合同、论文速读",
+        "pricing": "免费 / 会员"
+      },
+      {
+        "tool": "Github Copilot",
+        "type": "AI 编程",
+        "strength": "IDE 补全、GitHub 集成、M365",
+        "scenario": "VS Code 编码、Office 办公",
+        "pricing": "免费 / Pro $10"
+      },
+      {
+        "tool": "cursor",
+        "type": "AI 编程",
         "strength": "编辑器深度集成、Agent",
         "scenario": "日常编码、快速迭代",
         "pricing": "免费 / Pro $20"
       },
       {
-        "tool": "Codex",
-        "type": "编程代理",
-        "strength": "自主任务、PR 自动化",
-        "scenario": "大型重构、云端开发",
-        "pricing": "含在 ChatGPT 订阅"
-      },
-      {
-        "tool": "Copilot",
-        "type": "编程 + 办公",
-        "strength": "IDE 补全、GitHub 集成、M365",
-        "scenario": "VS Code 编码、Office 办公",
-        "pricing": "免费 / Pro $10"
+        "tool": "即梦 AI｜剪映",
+        "type": "AI 视频",
+        "strength": "文生视频、剪映生态、中文创作",
+        "scenario": "短视频脚本、分镜与成片辅助",
+        "pricing": "免费额度 / 会员"
       }
     ]
   },
@@ -726,6 +719,6 @@
   "tools_hub_page": {
     "title": "AI 工具中心 | Bio AI Lab",
     "h1": "AI 工具中心",
-    "lead": "精选介绍 ChatGPT、New Bing、Gemini、Claude、DeepSeek、豆包、Kimi、Github Copilot、cursor、即梦 AI；按 AI 助手 / 编程 / 视频分类，并附官方教程与站内详解。"
+    "lead": "用一张对比表横向比较 ChatGPT、New Bing、Gemini、Claude、DeepSeek、豆包、Kimi、Github Copilot、cursor、即梦 AI：类型、优势、场景、定价与官方教程。"
   }
 }

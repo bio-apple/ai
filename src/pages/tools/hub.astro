@@ -1,7 +1,7 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import { rankings, site } from '../../lib/data';
-import { buildHubAppCategories, hubFeaturedCount } from '../../lib/hub';
+import { buildHubCompareRows, hubFeaturedCount } from '../../lib/hub';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
@@ -12,7 +12,7 @@ const breadcrumbs = [
   { name: '工具中心', url: `${base}tools/hub.html` },
 ];
 const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`, breadcrumbs);
-const categories = buildHubAppCategories();
+const rows = buildHubCompareRows();
 const toolCount = hubFeaturedCount();
 ---
 
@@ -23,122 +23,117 @@ const toolCount = hubFeaturedCount();
   schema={schema}
   ogType="website"
 >
-  <main class="standalone-page tools-hub-page hub-app-page">
+  <main class="standalone-page tools-hub-page hub-compare-page">
     <nav class="breadcrumb"><a href={homeHref()}>首页</a> / 工具中心</nav>
     <div class="standalone-hero">
-      <p class="section-kicker">精选 {toolCount} 款 · 按应用分类 · 更新 {rankings.updated_at}</p>
+      <p class="section-kicker">表格对比 · {toolCount} 款精选 · 更新 {rankings.updated_at}</p>
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
       <p class="standalone-meta">
-        {categories.length} 类应用 · {toolCount} 个工具 · 榜单数据 {
-          rankings.month_label || rankings.month
-        }
+        横向比较类型、优势、场景、定价与教程入口 · 榜单数据 {rankings.month_label || rankings.month}
       </p>
       <div class="hub-quick-links">
-        {
-          categories.map((cat) => (
-            <a href={`#hub-${cat.id}`} class="recommend-link">
-              {cat.label}
-            </a>
-          ))
-        }
         <a
           href={asset('ai-tools-ranking.html')}
           class="recommend-link"
           data-track="hub-quick-ranking">完整排行榜 →</a
         >
+        <a
+          href={asset('prompts/library.html')}
+          class="recommend-link"
+          data-track="hub-quick-prompts">Prompt 库 →</a
+        >
       </div>
     </div>
 
-    {
-      categories.map((cat) => (
-        <section class="hub-app-category" id={`hub-${cat.id}`}>
-          <div class="section-head">
-            <h2 class="section-title">{cat.label}</h2>
-            <p class="section-desc">
-              {cat.description} · {cat.items.length} 款精选
-            </p>
-          </div>
+    <section class="hub-compare-section" aria-labelledby="hub-compare-title">
+      <div class="section-head">
+        <h2 class="section-title" id="hub-compare-title">精选 AI 工具对比</h2>
+        <p class="section-desc">同一表格并排比较，快速选型；点「官方教程 / 站内教程」继续深入。</p>
+      </div>
 
-          <div class="hub-app-grid">
-            {cat.items.map((item) => (
-              <article class="hub-app-card">
-                <div class="hub-app-card-top">
-                  <span
-                    class="hub-app-rank"
-                    aria-label={item.rank ? `AICPB 排名第 ${item.rank}` : '精选工具'}
-                  >
-                    {item.rank ? `#${item.rank}` : '★'}
-                  </span>
-                  <div>
-                    <h3 class="hub-app-name">{item.name}</h3>
-                    <p class="hub-app-meta">
-                      {item.boardLabel}
-                      {item.visits !== '—' ? ` · 访问量 ${item.visits}` : ''}
-                      {item.mom && item.mom !== '—' ? ` · 月环比 ${item.mom}` : ''}
-                    </p>
-                  </div>
-                </div>
-                <div class="hub-app-actions">
-                  {item.tutorialUrl ? (
-                    <a
-                      href={item.tutorialUrl}
-                      class="recommend-link"
-                      target="_blank"
-                      rel="noopener"
-                      data-track={`hub-tutorial-${cat.id}-${item.localId || item.name}`}
-                    >
-                      {item.tutorialLabel} →
-                    </a>
-                  ) : null}
-                  {item.siteUrl && item.siteUrl !== item.tutorialUrl ? (
-                    <a
-                      href={item.siteUrl}
-                      class="recommend-link"
-                      target="_blank"
-                      rel="noopener"
-                      data-track={`hub-site-${cat.id}-${item.localId || item.name}`}
-                    >
-                      官网 →
-                    </a>
-                  ) : null}
-                  {item.localHref ? (
-                    <a
-                      href={item.localHref}
-                      class="recommend-link"
-                      data-track={`hub-local-${item.localId}`}
-                    >
-                      站内教程 →
-                    </a>
-                  ) : null}
-                  {item.aicpbUrl ? (
-                    <a
-                      href={item.aicpbUrl}
-                      class="recommend-link"
-                      target="_blank"
-                      rel="noopener"
-                      data-track={`hub-aicpb-${cat.id}-${item.localId || item.name}`}
-                    >
-                      AICPB →
-                    </a>
-                  ) : null}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      ))
-    }
+      <div class="hub-compare-wrap" role="region" aria-label="AI 工具对比表" tabindex="0">
+        <table class="hub-compare-table">
+          <thead>
+            <tr>
+              <th scope="col">工具</th>
+              <th scope="col">类型</th>
+              <th scope="col">核心优势</th>
+              <th scope="col">适合场景</th>
+              <th scope="col">定价</th>
+              <th scope="col">AICPB</th>
+              <th scope="col">教程</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              rows.map((row) => (
+                <tr>
+                  <th scope="row">
+                    <span class="hub-compare-name">{row.name}</span>
+                  </th>
+                  <td>
+                    <span class="hub-compare-type">{row.type}</span>
+                  </td>
+                  <td>{row.strength}</td>
+                  <td>{row.scenario}</td>
+                  <td>{row.pricing}</td>
+                  <td>
+                    {row.rank ? (
+                      <span class="hub-compare-rank">
+                        {row.boardLabel} #{row.rank}
+                        {row.visits !== '—' ? ` · ${row.visits}` : ''}
+                      </span>
+                    ) : (
+                      '—'
+                    )}
+                  </td>
+                  <td>
+                    <div class="hub-compare-links">
+                      {row.tutorialUrl ? (
+                        <a
+                          href={row.tutorialUrl}
+                          target="_blank"
+                          rel="noopener"
+                          data-track={`hub-tutorial-${row.localId || row.name}`}
+                        >
+                          官方教程
+                        </a>
+                      ) : null}
+                      {row.localHref ? (
+                        <a href={row.localHref} data-track={`hub-local-${row.localId}`}>
+                          站内教程
+                        </a>
+                      ) : null}
+                      {row.siteUrl && row.siteUrl !== row.tutorialUrl ? (
+                        <a
+                          href={row.siteUrl}
+                          target="_blank"
+                          rel="noopener"
+                          data-track={`hub-site-${row.localId || row.name}`}
+                        >
+                          官网
+                        </a>
+                      ) : null}
+                    </div>
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-    <section class="ranking-method aicpb-ranking-note" aria-label="引用说明">
+    <section class="ranking-method aicpb-ranking-note" aria-label="收录说明">
       <h2 class="resources-title">收录说明</h2>
       <ul class="ranking-method-list">
         <li>
-          工具中心仅介绍：ChatGPT、New Bing、Gemini、Claude｜Anthropic、DeepSeek、豆包｜抖音、Github
+          对比表仅含：ChatGPT、New Bing、Gemini、Claude｜Anthropic、DeepSeek、豆包｜抖音、Github
           Copilot、即梦 AI｜剪映、Kimi｜月之暗面、cursor。
         </li>
-        <li>按应用分为 AI 助手、AI 编程、AI 视频；每项附官方教程，有站内详解页则额外提供。</li>
-        <li>访问量与排名引用 AICPB 对应榜单；完整榜单见站内排行榜页。</li>
+        <li>类型 / 优势 / 场景 / 定价为站内选型摘要；访问量与排名引用 AICPB。</li>
+        <li>「官方教程」跳转厂商文档或帮助中心；有站内详解页时额外提供「站内教程」。</li>
       </ul>
       <p class="aicpb-attribution">
         数据版权归 <a href="https://www.aicpb.com/" target="_blank" rel="noopener"

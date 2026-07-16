@@ -1,38 +1,21 @@
 import hubOfficial from '../../data/hub-official.json';
 import rankings from '../../data/rankings.json';
+import site from '../../data/site.json';
 import tools from '../../data/tools.json';
 import { asset } from './paths';
 
-/** AI 工具中心仅介绍这 10 个产品（展示名与 AICPB 对齐） */
+/** AI 工具中心仅比较这 10 个产品（展示名与 AICPB 对齐） */
 export const HUB_FEATURED_TOOLS = [
-  { name: 'ChatGPT', categoryId: 'assistant', localId: 'chatgpt' },
-  { name: 'New Bing', categoryId: 'assistant', localId: 'new-bing' },
-  { name: 'Gemini', categoryId: 'assistant', localId: 'gemini' },
-  { name: 'Claude｜Anthropic', categoryId: 'assistant', localId: 'claude' },
-  { name: 'DeepSeek', categoryId: 'assistant', localId: 'deepseek' },
-  { name: '豆包｜抖音', categoryId: 'assistant', localId: 'doubao' },
-  { name: 'Kimi｜月之暗面', categoryId: 'assistant', localId: 'kimi' },
-  { name: 'Github Copilot', categoryId: 'coding', localId: 'copilot' },
-  { name: 'cursor', categoryId: 'coding', localId: 'cursor' },
-  { name: '即梦 AI｜剪映', categoryId: 'video', localId: null },
-] as const;
-
-export const HUB_APP_CATEGORIES = [
-  {
-    id: 'assistant',
-    label: 'AI 助手',
-    description: '通用对话、搜索与多模态助手',
-  },
-  {
-    id: 'coding',
-    label: 'AI 编程',
-    description: '编码助手与 AI 原生 IDE',
-  },
-  {
-    id: 'video',
-    label: 'AI 视频',
-    description: '短视频与生成式创作',
-  },
+  { name: 'ChatGPT', localId: 'chatgpt' },
+  { name: 'New Bing', localId: 'new-bing' },
+  { name: 'Gemini', localId: 'gemini' },
+  { name: 'Claude｜Anthropic', localId: 'claude' },
+  { name: 'DeepSeek', localId: 'deepseek' },
+  { name: '豆包｜抖音', localId: 'doubao' },
+  { name: 'Kimi｜月之暗面', localId: 'kimi' },
+  { name: 'Github Copilot', localId: 'copilot' },
+  { name: 'cursor', localId: 'cursor' },
+  { name: '即梦 AI｜剪映', localId: null },
 ] as const;
 
 type OfficialEntry = {
@@ -53,7 +36,14 @@ type RankingItem = {
   mom: string;
   url: string;
   boardLabel: string;
-  boardId: string;
+};
+
+type CompareRow = {
+  tool: string;
+  type: string;
+  strength: string;
+  scenario: string;
+  pricing: string;
 };
 
 function normalizeName(name: string) {
@@ -70,30 +60,11 @@ function namesMatch(a: string, b: string) {
 }
 
 function catalogKey(name: string, catalog: OfficialCatalog) {
-  const n = normalizeName(name).replace(/｜/g, '|');
   const nPipe = normalizeName(name);
+  const n = nPipe.replace(/｜/g, '|');
   const baseName = nPipe.split('｜')[0].trim();
   const aliases = catalog.aliases || {};
-  return (
-    aliases[nPipe] ||
-    aliases[n] ||
-    aliases[baseName] ||
-    aliases[`${baseName}｜${nPipe.split('｜')[1] || ''}`.replace(/｜$/, '')] ||
-    nPipe
-  );
-}
-
-export function localToolId(name: string, preferred?: string | null): string | null {
-  if (preferred) return preferred;
-  const featured = HUB_FEATURED_TOOLS.find((t) => namesMatch(t.name, name));
-  if (featured?.localId) return featured.localId;
-  const n = normalizeName(name);
-  const baseName = n.split('｜')[0].trim();
-  const hit = tools.find((t) => {
-    const tn = normalizeName(t.name);
-    return tn === n || tn === baseName || t.id === n || t.id === baseName;
-  });
-  return hit?.id || null;
+  return aliases[nPipe] || aliases[n] || aliases[baseName] || nPipe;
 }
 
 function officialFor(name: string, localId: string | null): OfficialEntry {
@@ -122,7 +93,6 @@ function officialFor(name: string, localId: string | null): OfficialEntry {
   };
 }
 
-/** 在全榜中为指定工具找最佳 AICPB 条目（优先同名、排名更靠前） */
 function findRankingHit(name: string): RankingItem | null {
   let best: RankingItem | null = null;
   for (const board of rankings.boards || []) {
@@ -135,7 +105,6 @@ function findRankingHit(name: string): RankingItem | null {
         mom: item.mom,
         url: item.url,
         boardLabel: board.label,
-        boardId: board.id,
       };
       if (!best || hit.rank < best.rank) best = hit;
     }
@@ -143,13 +112,21 @@ function findRankingHit(name: string): RankingItem | null {
   return best;
 }
 
-export type HubToolCard = {
-  rank: number | null;
+function findCompareRow(name: string): CompareRow | null {
+  const rows = (site.compare_table?.rows || []) as CompareRow[];
+  return rows.find((row) => namesMatch(row.tool, name)) || null;
+}
+
+export type HubCompareRow = {
   name: string;
+  type: string;
+  strength: string;
+  scenario: string;
+  pricing: string;
+  rank: number | null;
   visits: string;
-  mom: string;
-  aicpbUrl: string | null;
   boardLabel: string;
+  aicpbUrl: string | null;
   localId: string | null;
   localHref: string | null;
   siteUrl: string | null;
@@ -157,45 +134,33 @@ export type HubToolCard = {
   tutorialLabel: string;
 };
 
-export type HubAppCategory = {
-  id: string;
-  label: string;
-  description: string;
-  items: HubToolCard[];
-};
-
-export function buildHubAppCategories(): HubAppCategory[] {
-  const cards = HUB_FEATURED_TOOLS.map((featured) => {
+export function buildHubCompareRows(): HubCompareRow[] {
+  return HUB_FEATURED_TOOLS.map((featured) => {
     const hit = findRankingHit(featured.name);
-    const displayName = hit?.name || featured.name;
-    const localId = localToolId(displayName, featured.localId);
+    const compare = findCompareRow(featured.name);
+    const displayName = hit?.name || compare?.tool || featured.name;
+    const localId = featured.localId;
     const official = officialFor(displayName, localId);
     const siteUrl = official.site || null;
     const tutorialUrl = official.tutorial || siteUrl;
+
     return {
-      categoryId: featured.categoryId,
-      card: {
-        rank: hit?.rank ?? null,
-        name: displayName,
-        visits: hit?.visits || '—',
-        mom: hit?.mom || '—',
-        aicpbUrl: hit?.url || null,
-        boardLabel: hit?.boardLabel || 'AICPB',
-        localId,
-        localHref: localId ? asset(`tools/${localId}.html`) : null,
-        siteUrl,
-        tutorialUrl,
-        tutorialLabel: official.tutorial_label || '官方教程',
-      } satisfies HubToolCard,
+      name: displayName,
+      type: compare?.type || '—',
+      strength: compare?.strength || '—',
+      scenario: compare?.scenario || '—',
+      pricing: compare?.pricing || '—',
+      rank: hit?.rank ?? null,
+      visits: hit?.visits || '—',
+      boardLabel: hit?.boardLabel || '—',
+      aicpbUrl: hit?.url || null,
+      localId,
+      localHref: localId ? asset(`tools/${localId}.html`) : null,
+      siteUrl,
+      tutorialUrl,
+      tutorialLabel: official.tutorial_label || '官方教程',
     };
   });
-
-  return HUB_APP_CATEGORIES.map((cat) => ({
-    id: cat.id,
-    label: cat.label,
-    description: cat.description,
-    items: cards.filter((c) => c.categoryId === cat.id).map((c) => c.card),
-  })).filter((cat) => cat.items.length > 0);
 }
 
 export function hubFeaturedCount() {

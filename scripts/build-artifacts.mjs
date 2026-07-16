@@ -129,7 +129,7 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     type: '导航',
     url: 'tools/hub.html',
     keywords:
-      '工具中心 ChatGPT New Bing Gemini Claude DeepSeek 豆包 Kimi Copilot cursor 即梦 官方教程',
+      '工具中心 对比表 ChatGPT New Bing Gemini Claude DeepSeek 豆包 Kimi Copilot cursor 即梦 官方教程',
   });
   items.push({
     label: 'AI 学习路线图',
@@ -243,36 +243,29 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
 
 function appendHubBoardSearchItems(items) {
   const featured = [
-    { name: 'ChatGPT', categoryId: 'assistant', label: 'AI 助手' },
-    { name: 'New Bing', categoryId: 'assistant', label: 'AI 助手' },
-    { name: 'Gemini', categoryId: 'assistant', label: 'AI 助手' },
-    { name: 'Claude｜Anthropic', categoryId: 'assistant', label: 'AI 助手' },
-    { name: 'DeepSeek', categoryId: 'assistant', label: 'AI 助手' },
-    { name: '豆包｜抖音', categoryId: 'assistant', label: 'AI 助手' },
-    { name: 'Kimi｜月之暗面', categoryId: 'assistant', label: 'AI 助手' },
-    { name: 'Github Copilot', categoryId: 'coding', label: 'AI 编程' },
-    { name: 'cursor', categoryId: 'coding', label: 'AI 编程' },
-    { name: '即梦 AI｜剪映', categoryId: 'video', label: 'AI 视频' },
+    'ChatGPT',
+    'New Bing',
+    'Gemini',
+    'Claude｜Anthropic',
+    'DeepSeek',
+    '豆包｜抖音',
+    'Kimi｜月之暗面',
+    'Github Copilot',
+    'cursor',
+    '即梦 AI｜剪映',
   ];
-  const byCat = new Map();
-  for (const tool of featured) {
-    if (!byCat.has(tool.categoryId)) {
-      byCat.set(tool.categoryId, { id: tool.categoryId, label: tool.label, names: [] });
-    }
-    byCat.get(tool.categoryId).names.push(tool.name);
+  items.push({
+    label: '工具中心：对比表',
+    type: '导航',
+    url: 'tools/hub.html',
+    keywords: ['对比表', '选型', ...featured, '官方教程'].join(' '),
+  });
+  for (const name of featured) {
     items.push({
-      label: tool.name,
+      label: name,
       type: '工具',
-      url: `tools/hub.html#hub-${tool.categoryId}`,
-      keywords: [tool.name, tool.label, '工具中心', '官方教程', 'AICPB'].join(' '),
-    });
-  }
-  for (const cat of byCat.values()) {
-    items.push({
-      label: `工具中心：${cat.label}`,
-      type: '导航',
-      url: `tools/hub.html#hub-${cat.id}`,
-      keywords: [cat.label, ...cat.names, '官方教程'].join(' '),
+      url: 'tools/hub.html',
+      keywords: [name, '工具中心', '对比表', '官方教程', 'AICPB'].join(' '),
     });
   }
 }
