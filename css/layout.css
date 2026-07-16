@@ -587,6 +587,13 @@ header {
   background: rgba(0, 120, 212, 0.12);
   color: var(--copilot);
 }
+.tool-icon.new-bing {
+  background: rgba(0, 128, 157, 0.12);
+  color: var(--new-bing);
+}
+.new-bing-section .dot {
+  background: var(--new-bing);
+}
 
 .chatgpt-section .dot {
   background: var(--chatgpt);

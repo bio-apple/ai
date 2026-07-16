@@ -104,6 +104,17 @@
           "stars": 4,
           "tags": ["搜索", "多模态", "研究"],
           "recommend": ["企业版"]
+        },
+        {
+          "id": "new-bing",
+          "icon": "B",
+          "badge": "Microsoft",
+          "name": "New Bing",
+          "tagline": "联网搜索 AI",
+          "summary": "微软 Bing AI 搜索对话入口，联网问答与网页摘要，AICPB 全球总榜前列。",
+          "stars": 4,
+          "tags": ["搜索", "联网", "免费"],
+          "recommend": ["新手必学"]
         }
       ]
     },
@@ -411,6 +422,13 @@
         "pricing": "免费 / Advanced"
       },
       {
+        "tool": "New Bing",
+        "type": "搜索助手",
+        "strength": "联网搜索、引用回答、Edge 摘要",
+        "scenario": "检索式问答、网页速读、信息整理",
+        "pricing": "免费 / Microsoft 订阅扩展"
+      },
+      {
         "tool": "DeepSeek",
         "type": "对话 + API",
         "strength": "免费好用、推理强、API 便宜",
@@ -613,14 +631,15 @@
     "doubao": "https://www.doubao.com",
     "cursor": "https://cursor.com",
     "codex": "https://chatgpt.com/codex",
-    "copilot": "https://github.com/features/copilot"
+    "copilot": "https://github.com/features/copilot",
+    "new-bing": "https://www.bing.com/chat"
   },
   "tool_hub": [
     {
       "id": "assistant",
       "label": "AI 助手",
       "description": "通用对话、问答与多模态助手",
-      "tools": ["chatgpt", "claude", "gemini", "deepseek", "kimi", "qwen", "doubao"]
+      "tools": ["chatgpt", "claude", "gemini", "new-bing", "deepseek", "kimi", "qwen", "doubao"]
     },
     {
       "id": "coding",

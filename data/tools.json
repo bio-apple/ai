@@ -822,5 +822,77 @@
         }
       ]
     }
+  },
+  {
+    "id": "new-bing",
+    "section_id": "section-new-bing",
+    "icon": "B",
+    "name": "New Bing",
+    "description": "微软 Bing 的 AI 搜索与对话入口（现多入口整合至 Microsoft Copilot）。支持联网问答、网页摘要、图片生成与侧边栏阅读辅助，适合检索式问答与信息整理。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://www.bing.com/chat\" rel=\"noopener\" target=\"_blank\">bing.com/chat</a> 或 <a href=\"https://copilot.microsoft.com\" rel=\"noopener\" target=\"_blank\">copilot.microsoft.com</a>",
+      "使用 Microsoft 账号登录（可选，登录后可同步对话）",
+      "在搜索框提问，选择「更有创意 / 更平衡 / 更精确」等对话模式",
+      "打开 Edge 侧边栏，对当前网页进行摘要与追问",
+      "需要办公联动时，继续使用 Microsoft 365 Copilot / GitHub Copilot"
+    ],
+    "features": [
+      {
+        "title": "联网搜索问答",
+        "description": "结合 Bing 索引给出带引用的回答"
+      },
+      {
+        "title": "网页摘要",
+        "description": "Edge 侧边栏快速总结当前页面"
+      },
+      {
+        "title": "多模态输入",
+        "description": "支持文字、图片相关提问与生成"
+      },
+      {
+        "title": "对话模式切换",
+        "description": "创意 / 平衡 / 精确等模式适配不同任务"
+      },
+      {
+        "title": "微软生态入口",
+        "description": "与 Edge、Windows、Microsoft 账号体验联动"
+      },
+      {
+        "title": "免费可用",
+        "description": "基础能力免费；高级能力随 Microsoft 订阅扩展"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "产品页",
+        "type_class": "official",
+        "href": "https://www.bing.com/chat",
+        "title": "Bing Chat / New Bing",
+        "meta": "官方对话与搜索入口"
+      },
+      {
+        "type": "产品页",
+        "type_class": "official",
+        "href": "https://copilot.microsoft.com",
+        "title": "Microsoft Copilot",
+        "meta": "微软统一 AI 助手入口"
+      },
+      {
+        "type": "官方帮助",
+        "type_class": "official",
+        "href": "https://support.microsoft.com/copilot",
+        "title": "Microsoft Copilot 帮助",
+        "meta": "功能介绍与使用指南"
+      },
+      {
+        "type": "数据来源",
+        "type_class": "article",
+        "href": "https://www.aicpb.com/zh/ai-rankings/products/global-ai-rankings",
+        "title": "AICPB 全球总榜",
+        "meta": "Global AI Rankings 原文引用"
+      }
+    ],
+    "shortcuts": null
   }
 ]
