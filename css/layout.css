@@ -145,7 +145,7 @@ header {
   box-shadow: var(--shadow);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-6px);
+  transform: translate3d(0, -6px, 0);
   transition:
     opacity 0.2s,
     transform 0.2s,
@@ -156,7 +156,7 @@ header {
 .nav-dropdown.open .nav-dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 .nav-dropdown-item {
@@ -293,19 +293,19 @@ header {
 
 @keyframes heroGridDrift {
   from {
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateY(24px);
+    transform: translate3d(0, 24px, 0);
   }
 }
 
 @keyframes heroOrb {
   from {
-    transform: translateY(0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   to {
-    transform: translateY(-16px) scale(1.06);
+    transform: translate3d(0, -16px, 0) scale(1.06);
   }
 }
 
@@ -325,7 +325,7 @@ header {
 }
 
 .hero-brand {
-  font-family: 'Outfit', 'Noto Sans SC', 'PingFang SC', sans-serif;
+  font-family: var(--font-sans);
   font-size: clamp(2.6rem, 8vw, 4.25rem);
   font-weight: 750;
   letter-spacing: -0.045em;
@@ -339,7 +339,7 @@ header {
 }
 
 .hero h1 {
-  font-family: 'Outfit', 'Noto Sans SC', 'PingFang SC', sans-serif;
+  font-family: var(--font-sans);
   font-size: clamp(1.35rem, 3.4vw, 2rem);
   font-weight: 650;
   letter-spacing: -0.025em;
@@ -561,11 +561,11 @@ main {
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(8px);
+    transform: translate3d(0, 8px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 

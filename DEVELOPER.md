@@ -620,6 +620,17 @@ macOS 若遇 Python SSL 证书问题，脚本会自动回退到 `curl` 抓取。
 
 ---
 
+## 首屏性能（FCP / LCP）
+
+详见 [`docs/PERFORMANCE.md`](./docs/PERFORMANCE.md)。要点：
+
+- 封面 WebP：`npm run optimize:images`；抓取脚本镜像后自动转 WebP
+- 字体：`FontLoader.astro`（`display=swap` + 非阻塞 + 字重收敛）
+- CSS：`prebuild` 将 `@import` 打成单文件；脚本 `defer`
+- 动效：`css/motion.css`（`translate3d`），Hero 不用 `.fade-in` 挡 LCP
+
+---
+
 ## CI/CD 与部署
 
 ### 工作流关系
@@ -657,14 +668,14 @@ npm run health:live
 
 ### `pages.yml`（发版）
 
-| 步骤            | 说明                                                                  |
-| --------------- | --------------------------------------------------------------------- |
-| quality         | `npm run format:check` + `npm run lint`                               |
-| build           | `npm ci && npm run build`（Node 读 `.nvmrc`，npm cache）              |
-| artifacts check | 确认 `dist/index.html`、`_headers`、`_redirects` 等存在               |
-| validate        | 全量 `validate_ci.py`                                                 |
-| upload artifact | `dist/` → Pages artifact（deploy 不再二次 build）                     |
-| deploy          | `actions/deploy-pages`                                                |
+| 步骤            | 说明                                                     |
+| --------------- | -------------------------------------------------------- |
+| quality         | `npm run format:check` + `npm run lint`                  |
+| build           | `npm ci && npm run build`（Node 读 `.nvmrc`，npm cache） |
+| artifacts check | 确认 `dist/index.html`、`_headers`、`_redirects` 等存在  |
+| validate        | 全量 `validate_ci.py`                                    |
+| upload artifact | `dist/` → Pages artifact（deploy 不再二次 build）        |
+| deploy          | `actions/deploy-pages`                                   |
 
 ### `ci.yml` 检查项
 

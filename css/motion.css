@@ -1,0 +1,112 @@
+/* 交互动效：GPU 合成（translate3d）+ 克制过渡，尊重 reduced-motion */
+
+:root {
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.33, 1, 0.68, 1);
+  --motion-fast: 160ms;
+  --motion-med: 280ms;
+  --motion-slow: 560ms;
+}
+
+/* 首屏品牌：CSS 入场，不依赖 JS，避免 LCP 被 opacity:0 卡住 */
+.hero-content {
+  animation: heroEnter var(--motion-slow) var(--ease-out) both;
+}
+
+@keyframes heroEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 14px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-cta .cta-btn:nth-child(1) {
+  animation: heroEnter calc(var(--motion-slow) + 40ms) var(--ease-out) both;
+  animation-delay: 60ms;
+}
+
+.hero-cta .cta-btn:nth-child(2) {
+  animation: heroEnter calc(var(--motion-slow) + 40ms) var(--ease-out) both;
+  animation-delay: 120ms;
+}
+
+/* 滚动显现：走合成层 */
+.fade-in {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity var(--motion-slow) var(--ease-out),
+    transform var(--motion-slow) var(--ease-out);
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translate3d(0, 18px, 0);
+  transition:
+    opacity 0.5s var(--ease-out),
+    transform 0.5s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* 轻量按压反馈 */
+.cta-btn,
+.tool-card-btn,
+.nav-tab,
+.video-filter,
+.video-sort,
+.scenario-card,
+.tool-card,
+.prompt-card,
+.compare-card,
+.video-card {
+  transition:
+    transform var(--motion-fast) var(--ease-soft),
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-med) ease,
+    background-color var(--motion-fast) ease,
+    color var(--motion-fast) ease;
+}
+
+.cta-btn:hover,
+.tool-card:hover,
+.scenario-card:hover,
+.prompt-card:hover,
+.compare-card:hover,
+.video-card:hover {
+  transform: translate3d(0, -3px, 0);
+}
+
+.cta-btn:active,
+.tool-card-btn:active,
+.nav-tab:active,
+.video-filter:active,
+.video-sort:active {
+  transform: translate3d(0, 1px, 0) scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content,
+  .hero-cta .cta-btn {
+    animation: none !important;
+  }
+
+  .fade-in,
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

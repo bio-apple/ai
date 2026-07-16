@@ -27,7 +27,6 @@ const COPY_FILES = [
   'daily-videos.json',
   'ai-news.json',
   'oss-projects.json',
-  'og-image.png',
   'og-image.jpg',
 ];
 

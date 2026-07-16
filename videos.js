@@ -165,7 +165,7 @@ function renderVideoCard(v, { compact = false } = {}) {
   return `
     <article class="video-card reveal${compact ? ' video-card-compact' : ''}">
       <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">
-        <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(v.title)}" loading="lazy"${thumbPolicy}>
+        <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(v.title)}" loading="lazy" decoding="async" width="640" height="360"${thumbPolicy}>
         <span class="video-play-btn" aria-hidden="true">▶ 观看</span>
         ${v.duration ? `<span class="video-duration">${escapeHtml(v.duration)}</span>` : ''}
         <span class="video-quality">${v.max_height}p</span>

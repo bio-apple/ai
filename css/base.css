@@ -25,6 +25,9 @@
   --radius-lg: 18px;
   --shadow: 0 4px 20px rgba(30, 50, 100, 0.08);
   --shadow-hover: 0 8px 28px rgba(30, 50, 100, 0.12);
+  /* 系统中文优先出字，Outfit / Noto 异步增强（见 layouts 字体加载） */
+  --font-sans:
+    'Outfit', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
 }
 
 * {
@@ -38,7 +41,7 @@ html {
 }
 
 body {
-  font-family: 'Outfit', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  font-family: var(--font-sans);
   background: linear-gradient(160deg, #eef3fb 0%, #f3f6fb 50%, #eef2f7 100%);
   color: var(--text);
   line-height: 1.6;

@@ -430,16 +430,46 @@ def thumb_extension(url: str) -> str:
     return ".jpg"
 
 
+def convert_thumb_to_webp(src: Path, dest: Path, max_width: int = 640, quality: int = 78) -> bool:
+    """用 ffmpeg 将封面压成 WebP；失败则返回 False。"""
+    try:
+        proc = subprocess.run(
+            [
+                "ffmpeg",
+                "-y",
+                "-loglevel",
+                "error",
+                "-i",
+                str(src),
+                "-vf",
+                f"scale='min({max_width},iw)':-2",
+                "-c:v",
+                "libwebp",
+                "-quality",
+                str(quality),
+                str(dest),
+            ],
+            timeout=60,
+            capture_output=True,
+        )
+        return proc.returncode == 0 and dest.exists() and dest.stat().st_size > 512
+    except Exception as exc:
+        print(f"thumb webp convert skip [{src.name}]: {exc}", file=sys.stderr)
+        return False
+
+
 def mirror_bilibili_thumbnail(bvid: str, url: str) -> str:
     url = normalize_remote_url(url)
     if not url:
         return url
     BILIBILI_THUMB_DIR.mkdir(parents=True, exist_ok=True)
-    ext = thumb_extension(url)
-    dest = BILIBILI_THUMB_DIR / f"{bvid}{ext}"
-    rel = f"video-thumbs/bilibili/{bvid}{ext}"
-    if dest.exists() and dest.stat().st_size > 1024:
-        return rel
+    webp_dest = BILIBILI_THUMB_DIR / f"{bvid}.webp"
+    webp_rel = f"video-thumbs/bilibili/{bvid}.webp"
+    if webp_dest.exists() and webp_dest.stat().st_size > 512:
+        return webp_rel
+
+    src_ext = thumb_extension(url)
+    raw_dest = BILIBILI_THUMB_DIR / f"{bvid}{src_ext}"
     try:
         proc = subprocess.run(
             [
@@ -451,15 +481,33 @@ def mirror_bilibili_thumbnail(bvid: str, url: str) -> str:
                 "-H",
                 "User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
                 "-o",
-                str(dest),
+                str(raw_dest),
             ],
             timeout=30,
             capture_output=True,
         )
-        if proc.returncode == 0 and dest.exists() and dest.stat().st_size > 1024:
-            return rel
-        if dest.exists():
-            dest.unlink(missing_ok=True)
+        if proc.returncode != 0 or not raw_dest.exists() or raw_dest.stat().st_size <= 1024:
+            if raw_dest.exists():
+                raw_dest.unlink(missing_ok=True)
+            return url
+
+        if src_ext == ".webp":
+            if raw_dest != webp_dest:
+                raw_dest.replace(webp_dest)
+            return webp_rel
+
+        if convert_thumb_to_webp(raw_dest, webp_dest):
+            raw_dest.unlink(missing_ok=True)
+            # 清理历史 jpg/png 副本
+            for legacy_ext in (".jpg", ".jpeg", ".png"):
+                legacy = BILIBILI_THUMB_DIR / f"{bvid}{legacy_ext}"
+                if legacy.exists():
+                    legacy.unlink(missing_ok=True)
+            return webp_rel
+
+        # ffmpeg 不可用时回退原图
+        rel = f"video-thumbs/bilibili/{bvid}{src_ext}"
+        return rel
     except Exception as exc:
         print(f"thumb mirror skip [{bvid}]: {exc}", file=sys.stderr)
     return url

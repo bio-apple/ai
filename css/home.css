@@ -880,18 +880,13 @@
   font-size: 0.75rem;
 }
 
-/* Scroll animations */
+/* Scroll animations — 具体过渡见 css/motion.css（translate3d） */
 .fade-in {
   opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
 }
 
 .fade-in.visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .scenario-scroll {

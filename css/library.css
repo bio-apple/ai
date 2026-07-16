@@ -376,16 +376,11 @@
   color: var(--accent);
 }
 
-/* Scroll reveal */
+/* Scroll reveal — 过渡见 css/motion.css */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease;
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
 }

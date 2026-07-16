@@ -1,0 +1,18 @@
+---
+/**
+ * 字体策略：
+ * - display=swap 防 FOIT/白屏
+ * - 仅 2 档字重（相对完整 Noto 多档更接近「子集」体积）
+ * - 样式表非阻塞加载，系统中文栈先出字（见 --font-sans）
+ */
+const FONT_HREF =
+  'https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Noto+Sans+SC:wght@400;600&display=swap';
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href={FONT_HREF} />
+<link rel="stylesheet" href={FONT_HREF} media="print" onload="this.media='all'" />
+<noscript>
+  <link rel="stylesheet" href={FONT_HREF} />
+</noscript>

@@ -1,6 +1,7 @@
 ---
 import ThemeBoot from '../components/ThemeBoot.astro';
 import SecurityMeta from '../components/SecurityMeta.astro';
+import FontLoader from '../components/FontLoader.astro';
 import UxWidgets from '../components/UxWidgets.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -49,12 +50,7 @@ const home = homeHref();
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={site.meta.og_image} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@450;550;650;750&display=swap"
-      rel="stylesheet"
-    />
+    <FontLoader />
     <link rel="stylesheet" href={styleHref} />
     <ThemeBoot assetPrefix={BASE} />
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
@@ -67,6 +63,6 @@ const home = homeHref();
       <slot />
     </div>
     <Footer text={site.footer.text} github={site.footer.github} />
-    {scripts.map((src) => <script src={asset(src)} />)}
+    {scripts.map((src) => <script src={asset(src)} defer />)}
   </body>
 </html>
