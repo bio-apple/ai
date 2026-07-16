@@ -62,8 +62,8 @@
       "track": "github-star-hero"
     },
     "cta_secondary": {
-      "label": "浏览热门工具",
-      "href": "#home-tools"
+      "label": "浏览工具中心",
+      "href": "tools/hub.html"
     },
     "search_placeholder": "搜索 AI 工具、教程、Bio-Apple…"
   },
