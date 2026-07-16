@@ -26,7 +26,7 @@ async function waitSearchReady(page) {
 }
 
 test.describe('Bio AI Lab 关键路径', () => {
-  test('首页主路径：推荐 · 简报 · 工具（无收藏区块）', async ({ page }) => {
+  test('首页主路径：推荐 · 简报 · 开源（无热门/更多工具）', async ({ page }) => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('AI 工作流');
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
@@ -37,9 +37,10 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-ops')).toBeVisible();
     await expect(page.locator('#ops-views')).not.toHaveText('—');
     await expect(page.locator('#ops-trend-list .ops-trend-item').first()).toContainText('今日点击');
-    await expect(page.locator('#home-tools .tool-card-v2')).toHaveCount(6);
+    await expect(page.locator('#home-tools')).toHaveCount(0);
+    await expect(page.locator('#home-categories')).toHaveCount(0);
+    await expect(page.locator('#home-oss')).toBeVisible();
     await expect(page.locator('#home-favorites')).toHaveCount(0);
-    await expect(page.locator('.fav-star')).toHaveCount(0);
     await expect(page.locator('#home-learning')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toBeVisible();
   });

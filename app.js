@@ -243,9 +243,7 @@ const HOME_HASH_ANCHORS = new Set([
   'home-daily',
   'home-recommend',
   'home-ops',
-  'home-tools',
   'home-community',
-  'home-categories',
   'home-oss',
 ]);
 
