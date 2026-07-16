@@ -30,7 +30,12 @@ export function withBreadcrumbs<T extends Record<string, unknown>>(
   };
 }
 
-export function buildPageSchema(title: string, description: string, url: string, breadcrumbs?: BreadcrumbItem[]) {
+export function buildPageSchema(
+  title: string,
+  description: string,
+  url: string,
+  breadcrumbs?: BreadcrumbItem[],
+) {
   return withBreadcrumbs(
     {
       '@context': 'https://schema.org',

@@ -9,6 +9,7 @@ const base = site.meta.base_url;
 const schema = buildPageSchema(page.title, page.lead, `${base}prompts/library.html`);
 const home = homeHref();
 ---
+
 <StandaloneLayout
   title={page.title}
   description={page.lead}
@@ -25,9 +26,13 @@ const home = homeHref();
     </div>
     <div class="library-toolbar" id="prompts-toolbar">
       <button type="button" class="library-filter active" data-prompt-cat="all">全部</button>
-      {promptsMeta.categories.map((cat) => (
-        <button type="button" class="library-filter" data-prompt-cat={cat.id}>{cat.icon} {cat.label}</button>
-      ))}
+      {
+        promptsMeta.categories.map((cat) => (
+          <button type="button" class="library-filter" data-prompt-cat={cat.id}>
+            {cat.icon} {cat.label}
+          </button>
+        ))
+      }
     </div>
     <div id="prompts-list" class="prompts-grid">
       <p class="loading-hint">加载 Prompt 库…</p>

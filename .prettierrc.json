@@ -1,0 +1,25 @@
+{
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "astroAllowShorthand": false,
+  "plugins": ["prettier-plugin-astro"],
+  "overrides": [
+    {
+      "files": "*.astro",
+      "options": { "parser": "astro" }
+    },
+    {
+      "files": ["*.yml", "*.yaml"],
+      "options": { "singleQuote": false }
+    },
+    {
+      "files": ["*.md"],
+      "options": { "proseWrap": "preserve" }
+    }
+  ]
+}

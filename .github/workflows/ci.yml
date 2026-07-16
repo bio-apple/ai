@@ -7,8 +7,34 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  quality:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Prettier check
+        run: npm run format:check
+
+      - name: ESLint
+        run: npm run lint
+
   validate:
+    name: Build · Test · Validate
+    needs: quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -46,6 +72,9 @@ jobs:
 
       - name: Validate data JSON
         run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py data
+
+      - name: Validate tool relations
+        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py tool-relations
 
       - name: Validate OSS projects
         run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py oss

@@ -1,6 +1,9 @@
-const NEWS_DATA_URL = (typeof document !== 'undefined' && document.documentElement.dataset.base
-  ? document.documentElement.dataset.base.replace(/\/?$/, '/')
-  : (window.location.pathname.includes('/news/') ? '../' : '')) + 'ai-news.json';
+const NEWS_DATA_URL =
+  (typeof document !== 'undefined' && document.documentElement.dataset.base
+    ? document.documentElement.dataset.base.replace(/\/?$/, '/')
+    : window.location.pathname.includes('/news/')
+      ? '../'
+      : '') + 'ai-news.json';
 
 const NEWS_CATEGORY_ORDER = ['新模型发布', '新工具上线', '开源项目', '行业新闻', '中文资讯'];
 
@@ -15,11 +18,16 @@ function escapeHtml(s) {
 
 function formatNewsDateShort(raw) {
   if (!raw) return '';
-  const cleaned = String(raw).replace(/\s*分享\s*$/u, '').trim();
+  const cleaned = String(raw)
+    .replace(/\s*分享\s*$/u, '')
+    .trim();
   try {
     let d = new Date(cleaned);
     if (Number.isNaN(d.getTime()) && /^\d{4}-\d{2}-\d{2}/.test(cleaned)) {
-      d = new Date(cleaned.replace(' ', 'T') + (cleaned.includes('+') || cleaned.endsWith('Z') ? '' : '+08:00'));
+      d = new Date(
+        cleaned.replace(' ', 'T') +
+          (cleaned.includes('+') || cleaned.endsWith('Z') ? '' : '+08:00'),
+      );
     }
     if (!Number.isNaN(d.getTime())) {
       return d.toLocaleDateString('zh-CN', {
@@ -35,7 +43,9 @@ function formatNewsDateShort(raw) {
 }
 
 function truncateText(text, max = 72) {
-  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  const t = String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim();
   if (t.length <= max) return t;
   return `${t.slice(0, max - 1)}…`;
 }
@@ -107,7 +117,9 @@ function renderNewsFeed(items) {
     return '<p class="loading-hint">当前分类暂无新闻。</p>';
   }
   const groups = groupNewsByCategory(items);
-  return groups.map((group) => `
+  return groups
+    .map(
+      (group) => `
     <section class="news-group">
       <h3 class="news-group-title">
         ${escapeHtml(group.category)}
@@ -117,7 +129,9 @@ function renderNewsFeed(items) {
         ${group.items.map(renderNewsRow).join('')}
       </ul>
     </section>
-  `).join('');
+  `,
+    )
+    .join('');
 }
 
 function renderNewsToolbar(items) {
@@ -131,20 +145,23 @@ function renderNewsToolbar(items) {
     ...NEWS_CATEGORY_ORDER.filter((k) => counts.has(k)),
     ...[...counts.keys()].filter((k) => k !== 'all' && !NEWS_CATEGORY_ORDER.includes(k)),
   ];
-  const buttons = cats.map((cat) => {
-    const label = cat === 'all' ? '全部' : cat;
-    const active = newsState.category === cat ? ' active' : '';
-    return `<button type="button" class="news-filter${active}" data-news-category="${escapeHtml(cat)}">${escapeHtml(label)} <span>${counts.get(cat) || 0}</span></button>`;
-  }).join('');
+  const buttons = cats
+    .map((cat) => {
+      const label = cat === 'all' ? '全部' : cat;
+      const active = newsState.category === cat ? ' active' : '';
+      return `<button type="button" class="news-filter${active}" data-news-category="${escapeHtml(cat)}">${escapeHtml(label)} <span>${counts.get(cat) || 0}</span></button>`;
+    })
+    .join('');
   return `<div class="news-toolbar" role="toolbar" aria-label="新闻分类筛选">${buttons}</div>`;
 }
 
 function paintNewsList() {
   const root = document.getElementById('daily-news-list');
   if (!root) return;
-  const filtered = newsState.category === 'all'
-    ? newsState.items
-    : newsState.items.filter((i) => (i.category || '其他') === newsState.category);
+  const filtered =
+    newsState.category === 'all'
+      ? newsState.items
+      : newsState.items.filter((i) => (i.category || '其他') === newsState.category);
   root.innerHTML = `
     ${renderNewsToolbar(newsState.items)}
     <div class="news-feed">${renderNewsFeed(filtered)}</div>
@@ -177,12 +194,15 @@ function fetchNewsData() {
 
 function renderWatchSources(sources) {
   if (!sources?.length) return '';
-  const links = sources.map((src) => {
-    const parts = [];
-    if (src.blog) parts.push(`<a href="${escapeHtml(src.blog)}" target="_blank" rel="noopener">博客</a>`);
-    if (src.x) parts.push(`<a href="${escapeHtml(src.x)}" target="_blank" rel="noopener">X</a>`);
-    return `<li><strong>${escapeHtml(src.name)}</strong> ${parts.join(' · ')}</li>`;
-  }).join('');
+  const links = sources
+    .map((src) => {
+      const parts = [];
+      if (src.blog)
+        parts.push(`<a href="${escapeHtml(src.blog)}" target="_blank" rel="noopener">博客</a>`);
+      if (src.x) parts.push(`<a href="${escapeHtml(src.x)}" target="_blank" rel="noopener">X</a>`);
+      return `<li><strong>${escapeHtml(src.name)}</strong> ${parts.join(' · ')}</li>`;
+    })
+    .join('');
   return `
     <details class="news-watch-panel">
       <summary>持续关注的来源（${sources.length}）</summary>
@@ -193,7 +213,8 @@ function renderWatchSources(sources) {
 
 async function loadDailyNews() {
   const root = document.getElementById('daily-news-list');
-  const meta = document.getElementById('news-update-meta') || document.getElementById('news-page-meta');
+  const meta =
+    document.getElementById('news-update-meta') || document.getElementById('news-page-meta');
   const watchRoot = document.getElementById('news-watch-sources');
   if (!root) return;
 

@@ -87,10 +87,15 @@ function resolveRelationEdges(
 }
 
 export function resolveToolRelations(toolId: string): ResolvedToolRelations {
-  const raw = (toolRelations as Record<string, {
-    alternatives?: Array<{ id: string; note: string }>;
-    complements?: Array<{ id: string; note: string }>;
-  }>)[toolId];
+  const raw = (
+    toolRelations as Record<
+      string,
+      {
+        alternatives?: Array<{ id: string; note: string }>;
+        complements?: Array<{ id: string; note: string }>;
+      }
+    >
+  )[toolId];
   return {
     alternatives: resolveRelationEdges(raw?.alternatives),
     complements: resolveRelationEdges(raw?.complements),

@@ -1,5 +1,6 @@
 ---
 import ThemeBoot from '../components/ThemeBoot.astro';
+import SecurityMeta from '../components/SecurityMeta.astro';
 import UxWidgets from '../components/UxWidgets.astro';
 import KnowledgeAssistant from '../components/KnowledgeAssistant.astro';
 import Nav from '../components/Nav.astro';
@@ -33,41 +34,46 @@ if (includeKnowledge) {
 
 const styleHref = asset('style.css');
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="zh-CN" data-base={BASE}>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <meta name="description" content={description}>
-  <meta name="keywords" content={site.meta.keywords}>
-  <link rel="canonical" href={canonical}>
-  <meta property="og:type" content="website">
-  <meta property="og:url" content={canonical}>
-  <meta property="og:title" content={title}>
-  <meta property="og:description" content={description}>
-  <meta property="og:image" content={site.meta.og_image}>
-  <meta property="og:locale" content="zh_CN">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content={title}>
-  <meta name="twitter:description" content={description}>
-  <meta name="twitter:image" content={site.meta.og_image}>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@450;550;650;750&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href={styleHref}>
-  <ThemeBoot assetPrefix={BASE} />
-  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
-</head>
-<body>
-  <a class="skip-link" href="#main-content">跳到主要内容</a>
-  <UxWidgets />
-  {includeKnowledge && <KnowledgeAssistant />}
-  <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
-  <div id="main-content">
-    <slot />
-  </div>
-  <Footer text={site.footer.text} github={site.footer.github} />
-  {scriptList.map((src) => <script src={asset(src)}></script>)}
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <SecurityMeta />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={site.meta.keywords} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={site.meta.og_image} />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={site.meta.og_image} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@450;550;650;750&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href={styleHref} />
+    <ThemeBoot assetPrefix={BASE} />
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <UxWidgets />
+    {includeKnowledge && <KnowledgeAssistant />}
+    <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
+    <div id="main-content">
+      <slot />
+    </div>
+    <Footer text={site.footer.text} github={site.footer.github} />
+    {scriptList.map((src) => <script src={asset(src)} />)}
+  </body>
 </html>

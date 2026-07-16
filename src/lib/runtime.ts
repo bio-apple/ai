@@ -199,7 +199,9 @@ function pickNewsBy(
 }
 
 /** 首页 AI Daily：聚合新闻 / Trending / 开源 / 视频学习 */
-export function pickAiDailyBrief(limits = { models: 3, industry: 2, github: 3, oss: 2, learn: 2 }): AiDailyBrief {
+export function pickAiDailyBrief(
+  limits = { models: 3, industry: 2, github: 3, oss: 2, learn: 2 },
+): AiDailyBrief {
   const news = loadRuntimeJson<NewsPayload>('ai-news.json');
   const items = dedupeNewsItems(news?.items || []);
   const models = pickNewsBy(
@@ -218,7 +220,9 @@ export function pickAiDailyBrief(limits = { models: 3, industry: 2, github: 3, o
   return {
     updatedAt: news?.updated_at,
     models: models.length ? models : items.slice(0, limits.models),
-    industry: industry.length ? industry : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
+    industry: industry.length
+      ? industry
+      : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
     github,
     oss,
     learn: pickHomeVideos(limits.learn),

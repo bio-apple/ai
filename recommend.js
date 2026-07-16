@@ -74,8 +74,8 @@
       const rel = relations[id];
       if (!rel) continue;
       const edges = [
-        ...((rel.alternatives || []).slice(0, 1).map((e) => ({ ...e, kind: 'alt' }))),
-        ...((rel.complements || []).slice(0, 1).map((e) => ({ ...e, kind: 'comp' }))),
+        ...(rel.alternatives || []).slice(0, 1).map((e) => ({ ...e, kind: 'alt' })),
+        ...(rel.complements || []).slice(0, 1).map((e) => ({ ...e, kind: 'comp' })),
       ];
       for (const edge of edges) {
         if (!edge?.id || seen.has(edge.id)) continue;
@@ -105,9 +105,10 @@
     const tools = (opt?.tools || fallback.tools || []).slice(0, 5);
     const base = siteBase();
     const guidePath = opt?.guide || fallback.guide || 'guides/beginner.html';
-    const guide = guidePath.startsWith('http') || guidePath.startsWith('/')
-      ? guidePath
-      : `${base}${guidePath.replace(/^\//, '')}`;
+    const guide =
+      guidePath.startsWith('http') || guidePath.startsWith('/')
+        ? guidePath
+        : `${base}${guidePath.replace(/^\//, '')}`;
     const roadmapHref = `${base}ai-learning-roadmap.html`;
     const why = opt
       ? `因为你的需求匹配场景「${opt.label}」：优先这些工具上手更快。`
@@ -130,13 +131,15 @@
       ? `<div class="recommend-related">
           <p class="recommend-card-lead">也可以看看</p>
           <div class="recommend-links">
-            ${related.map((edge) => {
-              const t = toolMeta[edge.id] || { name: edge.id };
-              const kind = edge.kind === 'comp' ? '搭配' : '替代';
-              return `<button type="button" class="recommend-link recommend-related-btn" data-tool="${escape(edge.id)}" data-track="recommend_related_${edge.kind}">
+            ${related
+              .map((edge) => {
+                const t = toolMeta[edge.id] || { name: edge.id };
+                const kind = edge.kind === 'comp' ? '搭配' : '替代';
+                return `<button type="button" class="recommend-link recommend-related-btn" data-tool="${escape(edge.id)}" data-track="recommend_related_${edge.kind}">
                 ${escape(kind)} · ${escape(t.name)}
               </button>`;
-            }).join('')}
+              })
+              .join('')}
           </div>
           <p class="recommend-related-note">${escape(related[0].note || '')}</p>
         </div>`
@@ -161,15 +164,22 @@
 
   // 统一委托：结果区 + 场景卡片里的工具按钮都能点
   root.addEventListener('click', (e) => {
-    const btn = e.target.closest('.recommend-tool-btn[data-tool], .recommend-related-btn[data-tool]');
+    const btn = e.target.closest(
+      '.recommend-tool-btn[data-tool], .recommend-related-btn[data-tool]',
+    );
     if (!btn || !root.contains(btn)) return;
     const tool = btn.dataset.tool;
     openTool(tool);
     if (typeof trackEvent === 'function') {
-      trackEvent(btn.classList.contains('recommend-related-btn') ? 'recommend_related_tool' : 'recommend_query_tool', {
-        tool,
-        funnel_step: 2,
-      });
+      trackEvent(
+        btn.classList.contains('recommend-related-btn')
+          ? 'recommend_related_tool'
+          : 'recommend_query_tool',
+        {
+          tool,
+          funnel_step: 2,
+        },
+      );
     }
   });
 
@@ -184,7 +194,8 @@
           <a class="recommend-link" href="#home-daily" data-track="recommend_empty_daily">先看 AI 简报 →</a>
         </div>`;
       input.focus();
-      if (typeof trackEvent === 'function') trackEvent('recommend_empty_submit', { funnel_step: 0 });
+      if (typeof trackEvent === 'function')
+        trackEvent('recommend_empty_submit', { funnel_step: 0 });
       return;
     }
     const opt = matchOption(q);

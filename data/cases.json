@@ -46,10 +46,7 @@
     {
       "id": "chatgpt-用 ChatGPT 写一份专业周报",
       "tool": "chatgpt",
-      "scenarios": [
-        "writing",
-        "beginner"
-      ],
+      "scenarios": ["writing", "beginner"],
       "level": "入门",
       "duration": "约 15 分钟",
       "tags": [],
@@ -99,10 +96,7 @@
     {
       "id": "gemini-用 Gemini Deep Resear",
       "tool": "gemini",
-      "scenarios": [
-        "research",
-        "beginner"
-      ],
+      "scenarios": ["research", "beginner"],
       "level": "入门",
       "duration": "约 20 分钟",
       "tags": [],
@@ -152,10 +146,7 @@
     {
       "id": "kimi-用 Kimi 速读 50 页合同并提取关",
       "tool": "kimi",
-      "scenarios": [
-        "research",
-        "beginner"
-      ],
+      "scenarios": ["research", "beginner"],
       "level": "入门",
       "duration": "约 20 分钟",
       "tags": [],
@@ -209,10 +200,7 @@
     {
       "id": "qwen-用通义听悟整理 1 小时会议纪要",
       "tool": "qwen",
-      "scenarios": [
-        "productivity",
-        "beginner"
-      ],
+      "scenarios": ["productivity", "beginner"],
       "level": "入门",
       "duration": "约 15 分钟",
       "tags": [],
@@ -262,10 +250,7 @@
     {
       "id": "copilot-用 GitHub Copilot 为函数",
       "tool": "copilot",
-      "scenarios": [
-        "coding",
-        "beginner"
-      ],
+      "scenarios": ["coding", "beginner"],
       "level": "入门",
       "duration": "约 25 分钟",
       "tags": [],
@@ -323,16 +308,10 @@
     {
       "id": "cursor-从零搭建待办事项 Web App",
       "tool": "cursor",
-      "scenarios": [
-        "coding",
-        "beginner"
-      ],
+      "scenarios": ["coding", "beginner"],
       "level": "入门",
       "duration": "约 30 分钟",
-      "tags": [
-        "编程",
-        "入门"
-      ],
+      "tags": ["编程", "入门"],
       "title": "从零搭建待办事项 Web App",
       "summary": "用 Cursor Agent + Plan 模式，从空文件夹到可运行的 HTML/CSS/JS 应用。",
       "goal": "创建一个支持添加、完成、删除任务的待办清单，数据保存在 localStorage。",
@@ -422,14 +401,10 @@
     {
       "id": "cursor-给现有项目添加用户登录功能",
       "tool": "cursor",
-      "scenarios": [
-        "coding"
-      ],
+      "scenarios": ["coding"],
       "level": "中级",
       "duration": "约 45 分钟",
-      "tags": [
-        "编程"
-      ],
+      "tags": ["编程"],
       "title": "给现有项目添加用户登录功能",
       "summary": "在已有代码库上用 Agent 模式实现 JWT 认证，涵盖前后端多文件修改。",
       "goal": "为现有 Web 项目添加注册、登录、登出功能，用 JWT 做会话管理。",
@@ -489,16 +464,10 @@
     {
       "id": "claude-用 Claude Projects 生成",
       "tool": "claude",
-      "scenarios": [
-        "writing",
-        "beginner"
-      ],
+      "scenarios": ["writing", "beginner"],
       "level": "入门",
       "duration": "约 20 分钟",
-      "tags": [
-        "写作",
-        "入门"
-      ],
+      "tags": ["写作", "入门"],
       "title": "用 Claude Projects 生成项目技术文档",
       "summary": "上传代码仓库，让 Claude 自动分析并输出架构文档和 API 说明。",
       "goal": "为一个陌生代码库生成 README、架构图说明和 API 文档。",
@@ -579,14 +548,10 @@
     {
       "id": "claude-用 Claude Code 终端修复 B",
       "tool": "claude",
-      "scenarios": [
-        "coding"
-      ],
+      "scenarios": ["coding"],
       "level": "中级",
       "duration": "约 25 分钟",
-      "tags": [
-        "编程"
-      ],
+      "tags": ["编程"],
       "title": "用 Claude Code 终端修复 Bug",
       "summary": "在终端用 Claude Code 定位、修复 bug 并提交 git commit，完整开发闭环。",
       "goal": "修复一个已知 bug：「用户列表分页到第 2 页时返回空数据」。",
@@ -654,16 +619,10 @@
     {
       "id": "codex-用 Codex CLI 快速搭建 RES",
       "tool": "codex",
-      "scenarios": [
-        "coding",
-        "beginner"
-      ],
+      "scenarios": ["coding", "beginner"],
       "level": "入门",
       "duration": "约 20 分钟",
-      "tags": [
-        "编程",
-        "入门"
-      ],
+      "tags": ["编程", "入门"],
       "title": "用 Codex CLI 快速搭建 REST API",
       "summary": "从空目录开始，用 Codex 终端代理生成完整的 CRUD API 项目。",
       "goal": "创建一个图书管理 REST API，支持增删改查，含测试。",
@@ -731,14 +690,10 @@
     {
       "id": "codex-用 Codex Cloud 自动处理 G",
       "tool": "codex",
-      "scenarios": [
-        "coding"
-      ],
+      "scenarios": ["coding"],
       "level": "中级",
       "duration": "约 15 分钟（异步）",
-      "tags": [
-        "编程"
-      ],
+      "tags": ["编程"],
       "title": "用 Codex Cloud 自动处理 GitHub Issue",
       "summary": "在 GitHub Issue 中 @codex，让云端 Agent 自动修复并提交 PR。",
       "goal": "将 GitHub Issue 中的 bug 报告自动转化为修复 PR。",

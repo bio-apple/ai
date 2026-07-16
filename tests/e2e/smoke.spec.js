@@ -10,10 +10,14 @@ async function gotoHome(page, hash = '') {
 }
 
 async function waitSearchReady(page) {
-  await page.waitForFunction(() => {
-    const el = document.getElementById('site-search');
-    return el && el.dataset.searchStatus && el.dataset.searchStatus !== 'loading';
-  }, null, { timeout: 15000 });
+  await page.waitForFunction(
+    () => {
+      const el = document.getElementById('site-search');
+      return el && el.dataset.searchStatus && el.dataset.searchStatus !== 'loading';
+    },
+    null,
+    { timeout: 15000 },
+  );
   const ready = await page.locator('#site-search').getAttribute('data-search-ready');
   const status = await page.locator('#site-search').getAttribute('data-search-status');
   if (ready !== '1') {
@@ -45,10 +49,9 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(result).toBeVisible();
     await expect(result).toContainText(/Cursor|Copilot|Codex/);
     await expect(result.locator('.recommend-next')).toBeVisible();
-    await expect(result.locator('.recommend-next a[data-track="recommend_goto_learning"]')).toHaveAttribute(
-      'href',
-      /ai-learning-roadmap\.html$/,
-    );
+    await expect(
+      result.locator('.recommend-next a[data-track="recommend_goto_learning"]'),
+    ).toHaveAttribute('href', /ai-learning-roadmap\.html$/);
   });
 
   test('收藏星标与导出控件', async ({ page }) => {
@@ -111,12 +114,15 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.goto('index.html#section-videos', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#section-videos')).toHaveClass(/active/);
     await expect
-      .poll(async () => {
-        const list = page.locator('#daily-video-list');
-        const text = (await list.innerText()).trim();
-        if (/加载视频推荐/.test(text)) return false;
-        return text.length > 0;
-      }, { timeout: 20000 })
+      .poll(
+        async () => {
+          const list = page.locator('#daily-video-list');
+          const text = (await list.innerText()).trim();
+          if (/加载视频推荐/.test(text)) return false;
+          return text.length > 0;
+        },
+        { timeout: 20000 },
+      )
       .toBeTruthy();
     const meta = page.locator('#video-update-meta');
     // 成功加载时有「最近更新」；失败时空 meta 也可接受（至少列表已离开纯 loading）
@@ -128,11 +134,14 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.locator('.nav-tab[data-tool="news"]').click();
     await expect(page.locator('#section-news')).toHaveClass(/active/);
     await expect
-      .poll(async () => {
-        const text = (await page.locator('#daily-news-list').innerText()).trim();
-        if (/加载 AI 新闻/.test(text)) return false;
-        return text.length > 0;
-      }, { timeout: 20000 })
+      .poll(
+        async () => {
+          const text = (await page.locator('#daily-news-list').innerText()).trim();
+          if (/加载 AI 新闻/.test(text)) return false;
+          return text.length > 0;
+        },
+        { timeout: 20000 },
+      )
       .toBeTruthy();
   });
 
@@ -160,24 +169,31 @@ test.describe('Bio AI Lab 关键路径', () => {
 
     await page.evaluate(() => {
       const input = document.getElementById('favorites-import');
-      const blob = new Blob([JSON.stringify({ tools: ['chatgpt', 'cursor'] })], { type: 'application/json' });
+      const blob = new Blob([JSON.stringify({ tools: ['chatgpt', 'cursor'] })], {
+        type: 'application/json',
+      });
       const file = new File([blob], 'favorites.json', { type: 'application/json' });
       const dt = new DataTransfer();
       dt.items.add(file);
       input.files = dt.files;
       input.dispatchEvent(new Event('change', { bubbles: true }));
     });
-    await expect.poll(async () => page.locator('#favorites-list .favorite-chip').count()).toBeGreaterThanOrEqual(2);
+    await expect
+      .poll(async () => page.locator('#favorites-list .favorite-chip').count())
+      .toBeGreaterThanOrEqual(2);
   });
 
   test('视频回退标注可出现或正常加载', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('index.html#section-videos', { waitUntil: 'domcontentloaded' });
     await expect
-      .poll(async () => {
-        const text = (await page.locator('#daily-video-list').innerText()).trim();
-        return text.length > 0 && !/加载视频推荐/.test(text);
-      }, { timeout: 20000 })
+      .poll(
+        async () => {
+          const text = (await page.locator('#daily-video-list').innerText()).trim();
+          return text.length > 0 && !/加载视频推荐/.test(text);
+        },
+        { timeout: 20000 },
+      )
       .toBeTruthy();
     const meta = await page.locator('#video-update-meta').innerText();
     expect(meta).toMatch(/最近更新|暂无|回退/);

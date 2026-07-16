@@ -15,6 +15,7 @@ const lookup = toolLookup();
 const hub = site.tool_hub || [];
 const urls = site.tool_urls || {};
 ---
+
 <StandaloneLayout
   title={page.title}
   description={page.lead}
@@ -29,80 +30,97 @@ const urls = site.tool_urls || {};
       <p class="standalone-lead">{page.lead}</p>
     </div>
 
-    {hub.map((cat) => (
-      <section class="hub-category" id={`hub-${cat.id}`}>
-        <div class="section-head">
-          <h2 class="section-title">{cat.label}</h2>
-          <p class="section-desc">{cat.description}</p>
-        </div>
-        <div class="hub-tool-grid">
-          {cat.tools.map((id) => {
-            const t = lookup[id] as { name?: string; tagline?: string; summary?: string; icon?: string } | undefined;
-            const relations = resolveToolRelations(id);
-            const altPreview = relations.alternatives.slice(0, 2);
-            const compPreview = relations.complements.slice(0, 1);
-            const hasPreview = altPreview.length > 0 || compPreview.length > 0;
-            return (
-              <article class="hub-tool-card">
-                <div class="hub-tool-top">
-                  <span class={`tool-card-logo ${id}`}>{t?.icon || id.slice(0, 1).toUpperCase()}</span>
-                  <h3>{t?.name || id}</h3>
-                </div>
-                <p>{t?.tagline || t?.summary || ''}</p>
-                <div class="hub-tool-actions">
-                  <a href={asset(`tools/${id}.html`)} class="recommend-link">教程页 →</a>
-                  {urls[id] && (
-                    <a href={urls[id]} class="recommend-link" target="_blank" rel="noopener">官网 →</a>
-                  )}
-                  <a href={homeHref(`#section-${id}`)} class="recommend-link">站内详解 →</a>
-                </div>
-                {hasPreview && (
-                  <div class="hub-tool-relations">
-                    {altPreview.length > 0 && (
-                      <p class="hub-tool-rel-line">
-                        <span class="hub-tool-rel-label">替代</span>
-                        {altPreview.map((rel) => (
-                          <a
-                            href={rel.href}
-                            class="recommend-link"
-                            data-track={`hub-rel-alt-${id}-${rel.id}`}
-                          >{rel.name}</a>
-                        ))}
-                      </p>
-                    )}
-                    {compPreview.length > 0 && (
-                      <p class="hub-tool-rel-line">
-                        <span class="hub-tool-rel-label">搭配</span>
-                        {compPreview.map((rel) => (
-                          <a
-                            href={rel.href}
-                            class="recommend-link"
-                            data-track={`hub-rel-comp-${id}-${rel.id}`}
-                          >{rel.name}</a>
-                        ))}
-                      </p>
-                    )}
-                  </div>
-                )}
-              </article>
-            );
-          })}
-        </div>
-        {(cat.external || []).length > 0 && (
-          <div class="hub-external">
-            <p class="recommend-card-lead">延伸推荐</p>
-            <ul>
-              {cat.external.map((ext) => (
-                <li>
-                  <a href={ext.url} target="_blank" rel="noopener">{ext.name}</a>
-                  {ext.note && <span> — {ext.note}</span>}
-                </li>
-              ))}
-            </ul>
+    {
+      hub.map((cat) => (
+        <section class="hub-category" id={`hub-${cat.id}`}>
+          <div class="section-head">
+            <h2 class="section-title">{cat.label}</h2>
+            <p class="section-desc">{cat.description}</p>
           </div>
-        )}
-      </section>
-    ))}
+          <div class="hub-tool-grid">
+            {cat.tools.map((id) => {
+              const t = lookup[id] as
+                { name?: string; tagline?: string; summary?: string; icon?: string } | undefined;
+              const relations = resolveToolRelations(id);
+              const altPreview = relations.alternatives.slice(0, 2);
+              const compPreview = relations.complements.slice(0, 1);
+              const hasPreview = altPreview.length > 0 || compPreview.length > 0;
+              return (
+                <article class="hub-tool-card">
+                  <div class="hub-tool-top">
+                    <span class={`tool-card-logo ${id}`}>
+                      {t?.icon || id.slice(0, 1).toUpperCase()}
+                    </span>
+                    <h3>{t?.name || id}</h3>
+                  </div>
+                  <p>{t?.tagline || t?.summary || ''}</p>
+                  <div class="hub-tool-actions">
+                    <a href={asset(`tools/${id}.html`)} class="recommend-link">
+                      教程页 →
+                    </a>
+                    {urls[id] && (
+                      <a href={urls[id]} class="recommend-link" target="_blank" rel="noopener">
+                        官网 →
+                      </a>
+                    )}
+                    <a href={homeHref(`#section-${id}`)} class="recommend-link">
+                      站内详解 →
+                    </a>
+                  </div>
+                  {hasPreview && (
+                    <div class="hub-tool-relations">
+                      {altPreview.length > 0 && (
+                        <p class="hub-tool-rel-line">
+                          <span class="hub-tool-rel-label">替代</span>
+                          {altPreview.map((rel) => (
+                            <a
+                              href={rel.href}
+                              class="recommend-link"
+                              data-track={`hub-rel-alt-${id}-${rel.id}`}
+                            >
+                              {rel.name}
+                            </a>
+                          ))}
+                        </p>
+                      )}
+                      {compPreview.length > 0 && (
+                        <p class="hub-tool-rel-line">
+                          <span class="hub-tool-rel-label">搭配</span>
+                          {compPreview.map((rel) => (
+                            <a
+                              href={rel.href}
+                              class="recommend-link"
+                              data-track={`hub-rel-comp-${id}-${rel.id}`}
+                            >
+                              {rel.name}
+                            </a>
+                          ))}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </article>
+              );
+            })}
+          </div>
+          {(cat.external || []).length > 0 && (
+            <div class="hub-external">
+              <p class="recommend-card-lead">延伸推荐</p>
+              <ul>
+                {cat.external.map((ext) => (
+                  <li>
+                    <a href={ext.url} target="_blank" rel="noopener">
+                      {ext.name}
+                    </a>
+                    {ext.note && <span> — {ext.note}</span>}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </section>
+      ))
+    }
 
     <div class="standalone-cta">
       <a href={asset('ai-tools-ranking.html')} class="cta-btn">查看排行榜 →</a>

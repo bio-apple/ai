@@ -104,7 +104,12 @@
     if (toolMatch) {
       const id = toolMatch[1];
       if (id === 'hub') {
-        record({ id: 'tools-hub', title: 'AI 工具中心', href: `${siteBase()}tools/hub.html`, kind: 'page' });
+        record({
+          id: 'tools-hub',
+          title: 'AI 工具中心',
+          href: `${siteBase()}tools/hub.html`,
+          kind: 'page',
+        });
       } else {
         record({
           id,

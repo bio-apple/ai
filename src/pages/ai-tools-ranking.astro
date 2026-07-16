@@ -14,6 +14,7 @@ const schema = buildPageSchema(
 const home = homeHref();
 const medals = ['🥇', '🥈', '🥉'];
 ---
+
 <StandaloneLayout
   title={`${rankings.title} | Bio AI Lab`}
   description={rankings.lead}
@@ -32,44 +33,58 @@ const medals = ['🥇', '🥈', '🥉'];
     <section class="ranking-highlights" aria-label="本月三项冠军">
       <h2 class="resources-title">本月三项冠军</h2>
       <div class="ranking-grid ranking-grid-full">
-        {rankings.highlights.map((item) => (
-          <article class="ranking-card ranking-card-lg">
-            <span class="ranking-medal">{item.medal}</span>
-            <h3>{item.name}</h3>
-            <p class="ranking-dimension">{item.dimension}</p>
-            <p class="ranking-score">{item.score}</p>
-            <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
-            <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm">查看教程</a>
-          </article>
-        ))}
+        {
+          rankings.highlights.map((item) => (
+            <article class="ranking-card ranking-card-lg">
+              <span class="ranking-medal">{item.medal}</span>
+              <h3>{item.name}</h3>
+              <p class="ranking-dimension">{item.dimension}</p>
+              <p class="ranking-score">{item.score}</p>
+              <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
+              <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm">
+                查看教程
+              </a>
+            </article>
+          ))
+        }
       </div>
     </section>
 
-    {rankings.dimensions.map((dim) => (
-      <section class="ranking-dimension-block" id={`rank-${dim.id}`} aria-labelledby={`rank-title-${dim.id}`}>
-        <div class="section-head ranking-dim-head">
-          <h2 class="resources-title" id={`rank-title-${dim.id}`}>{dim.label}</h2>
-          <p class="section-desc">{dim.description}</p>
-        </div>
-        <ol class="ranking-list">
-          {dim.items.map((item) => (
-            <li class="ranking-row">
-              <span class="ranking-rank" aria-label={`第 ${item.rank} 名`}>
-                {item.rank <= 3 ? medals[item.rank - 1] : item.rank}
-              </span>
-              <div class="ranking-row-main">
-                <div class="ranking-row-top">
-                  <a class="ranking-tool-name" href={asset(`tools/${item.id}.html`)}>{item.name}</a>
-                  <span class="ranking-score-inline">{item.score}</span>
+    {
+      rankings.dimensions.map((dim) => (
+        <section
+          class="ranking-dimension-block"
+          id={`rank-${dim.id}`}
+          aria-labelledby={`rank-title-${dim.id}`}
+        >
+          <div class="section-head ranking-dim-head">
+            <h2 class="resources-title" id={`rank-title-${dim.id}`}>
+              {dim.label}
+            </h2>
+            <p class="section-desc">{dim.description}</p>
+          </div>
+          <ol class="ranking-list">
+            {dim.items.map((item) => (
+              <li class="ranking-row">
+                <span class="ranking-rank" aria-label={`第 ${item.rank} 名`}>
+                  {item.rank <= 3 ? medals[item.rank - 1] : item.rank}
+                </span>
+                <div class="ranking-row-main">
+                  <div class="ranking-row-top">
+                    <a class="ranking-tool-name" href={asset(`tools/${item.id}.html`)}>
+                      {item.name}
+                    </a>
+                    <span class="ranking-score-inline">{item.score}</span>
+                  </div>
+                  <p class="ranking-metric">{item.metric}</p>
+                  <p class="ranking-note">{item.note}</p>
                 </div>
-                <p class="ranking-metric">{item.metric}</p>
-                <p class="ranking-note">{item.note}</p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </section>
-    ))}
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))
+    }
 
     <section class="ranking-method" aria-label="评分说明">
       <h2 class="resources-title">如何评分</h2>
@@ -81,11 +96,23 @@ const medals = ['🥇', '🥈', '🥉'];
     <h2 class="resources-title">完整工具对比表</h2>
     <div class="compare-wrap">
       <table class="compare-table">
-        <thead><tr><th>工具</th><th>类型</th><th>核心优势</th><th>适合场景</th><th>入门</th></tr></thead>
+        <thead
+          ><tr><th>工具</th><th>类型</th><th>核心优势</th><th>适合场景</th><th>入门</th></tr></thead
+        >
         <tbody>
-          {site.compare_table.rows.map((row) => (
-            <tr><td>{row.tool}</td><td>{row.type}</td><td>{row.strength}</td><td>{row.scenario}</td><td>{row.pricing}</td></tr>
-          ))}
+          {
+            site.compare_table.rows.map((row) => (
+              <tr>
+                <>
+                  <td>{row.tool}</td>
+                  <td>{row.type}</td>
+                  <td>{row.strength}</td>
+                  <td>{row.scenario}</td>
+                  <td>{row.pricing}</td>
+                </>
+              </tr>
+            ))
+          }
         </tbody>
       </table>
     </div>

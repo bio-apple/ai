@@ -56,7 +56,8 @@
     a.download = 'bioai-favorites.json';
     a.click();
     URL.revokeObjectURL(a.href);
-    if (typeof trackEvent === 'function') trackEvent('favorite_export', { count: payload.tools.length });
+    if (typeof trackEvent === 'function')
+      trackEvent('favorite_export', { count: payload.tools.length });
   }
 
   function importJson(file) {
@@ -112,7 +113,8 @@
       btn.addEventListener('click', () => {
         toggle(btn.dataset.favRemove);
         syncAll();
-        if (typeof trackEvent === 'function') trackEvent('favorite_remove', { tool: btn.dataset.favRemove });
+        if (typeof trackEvent === 'function')
+          trackEvent('favorite_remove', { tool: btn.dataset.favRemove });
       });
     });
   }
@@ -137,7 +139,10 @@
       btn.textContent = on ? '★' : '☆';
       syncAll();
       if (typeof trackEvent === 'function') {
-        trackEvent(on ? 'favorite_add' : 'favorite_remove', on ? { tool: id, funnel_step: 3 } : { tool: id });
+        trackEvent(
+          on ? 'favorite_add' : 'favorite_remove',
+          on ? { tool: id, funnel_step: 3 } : { tool: id },
+        );
       }
     });
   }

@@ -194,7 +194,9 @@
   background: var(--bg-card);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.2s, transform 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
 }
 
 .labs-model-card:hover,

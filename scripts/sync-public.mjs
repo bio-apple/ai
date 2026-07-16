@@ -22,6 +22,8 @@ const COPY_FILES = [
   'favorites.js',
   'progress.js',
   'robots.txt',
+  '_headers',
+  '_redirects',
   'daily-videos.json',
   'ai-news.json',
   'oss-projects.json',

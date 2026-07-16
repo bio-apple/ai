@@ -1,6 +1,7 @@
-const VIDEO_DATA_URL = (typeof document !== 'undefined' && document.documentElement.dataset.base
-  ? document.documentElement.dataset.base.replace(/\/?$/, '/')
-  : '') + 'daily-videos.json';
+const VIDEO_DATA_URL =
+  (typeof document !== 'undefined' && document.documentElement.dataset.base
+    ? document.documentElement.dataset.base.replace(/\/?$/, '/')
+    : '') + 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
 /** 页面展示顺序：各平台 100d → 30d → 24h */
 const CATEGORY_ORDER = [
@@ -31,7 +32,7 @@ let videoState = { platform: 'all', sort: 'views', rawData: null };
 
 function getCategoryKeys(batch) {
   if (!batch.categories) return [];
-  const preferred = CATEGORY_ORDER.filter(key => batch.categories[key]);
+  const preferred = CATEGORY_ORDER.filter((key) => batch.categories[key]);
   if (preferred.length) return preferred;
   return Object.keys(batch.categories);
 }
@@ -134,7 +135,7 @@ function formatPublishDate(iso) {
 function getBatchVideos(batch) {
   const unique = dedupeBatchCategories(batch);
   if (unique.categories) {
-    return getCategoryKeys(unique).flatMap(key => unique.categories[key]?.videos || []);
+    return getCategoryKeys(unique).flatMap((key) => unique.categories[key]?.videos || []);
   }
   return unique.videos || [];
 }
@@ -198,7 +199,7 @@ function flattenLatestVideos(batch) {
 function filterAndSortVideos(videos, { platform, sort }) {
   let list = [...videos];
   if (platform !== 'all') {
-    list = list.filter(v => videoPlatform(v) === platform);
+    list = list.filter((v) => videoPlatform(v) === platform);
   }
   if (sort === 'recent') {
     list.sort((a, b) => {
@@ -216,7 +217,7 @@ function renderFilteredGrid(videos) {
   if (!videos.length) {
     return '<p class="loading-hint">当前筛选条件下暂无视频。</p>';
   }
-  return `<div class="video-grid">${videos.map(v => renderVideoCard(v)).join('')}</div>`;
+  return `<div class="video-grid">${videos.map((v) => renderVideoCard(v)).join('')}</div>`;
 }
 
 function renderCategory(cat) {
@@ -231,7 +232,7 @@ function renderCategory(cat) {
     <div class="video-category${cat.fallback_from ? ' video-category-fallback' : ''}">
       <h4 class="video-category-title">${escapeHtml(cat.label)} <span class="video-day-count">${videos.length} 条</span>${cat.fallback_from ? '<span class="video-fallback-badge">回退批次</span>' : ''}</h4>
       ${fallbackNote}
-      <div class="video-grid">${videos.map(v => renderVideoCard(v)).join('')}</div>
+      <div class="video-grid">${videos.map((v) => renderVideoCard(v)).join('')}</div>
     </div>
   `;
 }
@@ -242,7 +243,8 @@ function renderBatch(batch, state) {
 
   if (state.platform !== 'all' || state.sort !== 'views') {
     const label = state.sort === 'recent' ? '最新排序' : '热门排序';
-    const platformLabelText = state.platform === 'all' ? '全部平台' : (state.platform === 'bilibili' ? 'B站' : 'YouTube');
+    const platformLabelText =
+      state.platform === 'all' ? '全部平台' : state.platform === 'bilibili' ? 'B站' : 'YouTube';
     return `
       <section class="video-day">
         <h3 class="video-day-title">${escapeHtml(batch.date)} · ${platformLabelText} · ${label}
@@ -256,7 +258,7 @@ function renderBatch(batch, state) {
   const unique = dedupeBatchCategories(batch);
   const count = getBatchVideos(unique).length;
   if (unique.categories) {
-    const categories = getCategoryKeys(unique).map(key => unique.categories[key]);
+    const categories = getCategoryKeys(unique).map((key) => unique.categories[key]);
     return `
       <section class="video-day">
         <h3 class="video-day-title">${escapeHtml(unique.date)} <span class="video-day-count">${count} 条</span></h3>
@@ -269,7 +271,7 @@ function renderBatch(batch, state) {
   return `
     <section class="video-day">
       <h3 class="video-day-title">${escapeHtml(batch.date)} <span class="video-day-count">${videos.length} 条</span></h3>
-      <div class="video-grid">${videos.map(v => renderVideoCard(v)).join('')}</div>
+      <div class="video-grid">${videos.map((v) => renderVideoCard(v)).join('')}</div>
     </section>
   `;
 }
@@ -277,11 +279,11 @@ function renderBatch(batch, state) {
 function fetchVideoData() {
   if (!videoDataPromise) {
     videoDataPromise = fetch(VIDEO_DATA_URL, { cache: 'no-store' })
-      .then(res => {
+      .then((res) => {
         if (!res.ok) throw new Error('无法加载视频数据');
         return res.json();
       })
-      .catch(err => {
+      .catch((err) => {
         videoDataPromise = null;
         throw err;
       });
@@ -307,23 +309,27 @@ function initVideoToolbar() {
   const toolbar = document.getElementById('video-toolbar');
   if (!toolbar) return;
 
-  toolbar.querySelectorAll('[data-video-platform]').forEach(btn => {
+  toolbar.querySelectorAll('[data-video-platform]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      toolbar.querySelectorAll('[data-video-platform]').forEach(b => b.classList.remove('active'));
+      toolbar
+        .querySelectorAll('[data-video-platform]')
+        .forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       videoState.platform = btn.dataset.videoPlatform;
       paintVideoList();
-      if (typeof trackEvent === 'function') trackEvent('video-filter-platform', { platform: videoState.platform });
+      if (typeof trackEvent === 'function')
+        trackEvent('video-filter-platform', { platform: videoState.platform });
     });
   });
 
-  toolbar.querySelectorAll('[data-video-sort]').forEach(btn => {
+  toolbar.querySelectorAll('[data-video-sort]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      toolbar.querySelectorAll('[data-video-sort]').forEach(b => b.classList.remove('active'));
+      toolbar.querySelectorAll('[data-video-sort]').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       videoState.sort = btn.dataset.videoSort;
       paintVideoList();
-      if (typeof trackEvent === 'function') trackEvent('video-filter-sort', { sort: videoState.sort });
+      if (typeof trackEvent === 'function')
+        trackEvent('video-filter-sort', { sort: videoState.sort });
     });
   });
 }
@@ -359,7 +365,8 @@ async function loadDailyVideos() {
     initVideoToolbar();
   } catch (err) {
     root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
-    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'videos-section' });
+    if (typeof trackEvent === 'function')
+      trackEvent('data_load_error', { source: 'videos-section' });
   }
 }
 

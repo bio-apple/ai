@@ -22,7 +22,9 @@ function initGA4() {
   s.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
   document.head.appendChild(s);
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag() { window.dataLayer.push(arguments); };
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
   gtag('js', new Date());
   gtag('config', gaId, { send_page_view: true });
 }
@@ -30,9 +32,11 @@ function initGA4() {
 function initClarity() {
   const clarityId = (analyticsConfig.clarity_project_id || '').trim();
   if (!clarityId) return;
-  window.clarity = window.clarity || function clarityStub() {
-    (window.clarity.q = window.clarity.q || []).push(arguments);
-  };
+  window.clarity =
+    window.clarity ||
+    function clarityStub() {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
   const s = document.createElement('script');
   s.async = true;
   s.src = `https://www.clarity.ms/tag/${clarityId}`;

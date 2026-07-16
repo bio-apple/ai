@@ -5,9 +5,7 @@ import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
 import HomeFavorites from '../components/HomeFavorites.astro';
-import {
-  site, tools, buildHotToolCards,
-} from '../lib/data';
+import { site, tools, buildHotToolCards } from '../lib/data';
 import { buildHomeSchema } from '../lib/schema';
 import { asset } from '../lib/paths';
 
@@ -22,19 +20,29 @@ const categoryBlocks = site.home_tool_categories
 const schema = buildHomeSchema(site);
 
 const recommendKind: Record<string, string> = {
-  '最推荐': 'top',
-  '新手必学': 'beginner',
-  '开发者': 'dev',
-  '企业版': 'enterprise',
-  '免费': 'free',
+  最推荐: 'top',
+  新手必学: 'beginner',
+  开发者: 'dev',
+  企业版: 'enterprise',
+  免费: 'free',
 };
 ---
+
 <HomeLayout
   title={site.meta.title}
   description={site.meta.description}
   canonical={site.meta.canonical}
   schema={schema}
-  scripts={['vendor/fuse.min.js', 'analytics.js', 'ux.js', 'app.js', 'recommend.js', 'favorites.js', 'progress.js', 'lazy-sections.js']}
+  scripts={[
+    'vendor/fuse.min.js',
+    'analytics.js',
+    'ux.js',
+    'app.js',
+    'recommend.js',
+    'favorites.js',
+    'progress.js',
+    'lazy-sections.js',
+  ]}
   includeKnowledge={true}
 >
   <section id="section-home" class="section active">
@@ -53,11 +61,21 @@ const recommendKind: Record<string, string> = {
         <p class="hero-subtitle">{site.hero.subtitle}</p>
         <div class="hero-cta">
           <a href="#home-recommend" class="cta-btn" data-track="hero-cta-primary">获取 AI 推荐</a>
-          <a href="#home-tools" class="cta-btn cta-btn-outline" data-track="hero-cta-nav">浏览热门工具</a>
+          <a href="#home-tools" class="cta-btn cta-btn-outline" data-track="hero-cta-nav"
+            >浏览热门工具</a
+          >
         </div>
         <div class="site-search-wrap hero-search">
           <label class="hero-search-label" for="site-search">全站搜索</label>
-          <input type="search" id="site-search" class="site-search" placeholder={site.hero.search_placeholder} aria-label="站内搜索" data-search-ready="0" data-search-status="loading">
+          <input
+            type="search"
+            id="site-search"
+            class="site-search"
+            placeholder={site.hero.search_placeholder}
+            aria-label="站内搜索"
+            data-search-ready="0"
+            data-search-status="loading"
+          />
           <div id="site-search-results" class="site-search-results" hidden></div>
         </div>
       </div>
@@ -74,26 +92,45 @@ const recommendKind: Record<string, string> = {
           <p class="section-desc">优先推荐 · 三秒定位你要学的工具</p>
         </div>
         <div class="tool-cards tool-cards-grid tool-cards-hot">
-          {hotToolCards.map((tool) => (
-            <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
-              <div class="tool-card-top">
-                <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
-                <span class="badge">{tool.badge}</span>
-                <button type="button" class="fav-star" data-fav-toggle={tool.id} aria-label="收藏工具" aria-pressed="false" title="收藏工具">☆</button>
-              </div>
-              {(tool.recommend || []).length > 0 && (
-                <ul class="recommend-badges">
-                  {tool.recommend.map((r) => (
-                    <li class="recommend-badge" data-kind={recommendKind[r] || 'top'}>{r}</li>
+          {
+            hotToolCards.map((tool) => (
+              <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
+                <div class="tool-card-top">
+                  <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
+                  <span class="badge">{tool.badge}</span>
+                  <button
+                    type="button"
+                    class="fav-star"
+                    data-fav-toggle={tool.id}
+                    aria-label="收藏工具"
+                    aria-pressed="false"
+                    title="收藏工具"
+                  >
+                    ☆
+                  </button>
+                </div>
+                {(tool.recommend || []).length > 0 && (
+                  <ul class="recommend-badges">
+                    {tool.recommend.map((r) => (
+                      <li class="recommend-badge" data-kind={recommendKind[r] || 'top'}>
+                        {r}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                <h3>{tool.name}</h3>
+                <p class="tool-tagline">{tool.tagline}</p>
+                <ul class="tool-tags">
+                  {tool.tags.map((tag) => (
+                    <li>{tag}</li>
                   ))}
                 </ul>
-              )}
-              <h3>{tool.name}</h3>
-              <p class="tool-tagline">{tool.tagline}</p>
-              <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
-              <button type="button" class="tool-card-btn" data-tool={tool.id}>查看教程 →</button>
-            </article>
-          ))}
+                <button type="button" class="tool-card-btn" data-tool={tool.id}>
+                  查看教程 →
+                </button>
+              </article>
+            ))
+          }
         </div>
       </section>
 
@@ -102,27 +139,44 @@ const recommendKind: Record<string, string> = {
           <h2 class="section-title">更多工具</h2>
           <p class="section-desc">热门工具已在上方；此处按场景补充其余入口</p>
         </div>
-        {categoryBlocks.map((cat) => (
-          <>
-            <p class="category-label">{cat.label}</p>
-            <div class="tool-cards tool-cards-grid">
-              {cat.tools.map((tool) => (
-                <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
-                  <div class="tool-card-top">
-                    <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
-                    <span class="badge">{tool.badge}</span>
-                    <button type="button" class="fav-star" data-fav-toggle={tool.id} aria-label="收藏工具" aria-pressed="false" title="收藏工具">☆</button>
-                  </div>
-                  <h3>{tool.name}</h3>
-                  <p class="tool-tagline">{tool.tagline}</p>
-                  <button type="button" class="tool-card-btn" data-tool={tool.id}>查看教程 →</button>
-                </article>
-              ))}
-            </div>
-          </>
-        ))}
+        {
+          categoryBlocks.map((cat) => (
+            <>
+              <p class="category-label">{cat.label}</p>
+              <div class="tool-cards tool-cards-grid">
+                {cat.tools.map((tool) => (
+                  <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
+                    <div class="tool-card-top">
+                      <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
+                      <span class="badge">{tool.badge}</span>
+                      <button
+                        type="button"
+                        class="fav-star"
+                        data-fav-toggle={tool.id}
+                        aria-label="收藏工具"
+                        aria-pressed="false"
+                        title="收藏工具"
+                      >
+                        ☆
+                      </button>
+                    </div>
+                    <h3>{tool.name}</h3>
+                    <p class="tool-tagline">{tool.tagline}</p>
+                    <button type="button" class="tool-card-btn" data-tool={tool.id}>
+                      查看教程 →
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </>
+          ))
+        }
         <div class="section-cta">
-          <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline" data-track="home-categories-hub">完整工具中心 →</a>
+          <a
+            href={asset('tools/hub.html')}
+            class="cta-btn cta-btn-outline"
+            data-track="home-categories-hub">完整工具中心 →</a
+          >
         </div>
       </section>
 
@@ -133,7 +187,9 @@ const recommendKind: Record<string, string> = {
         </div>
         <HomeOssPreview />
         <div class="section-cta">
-          <button class="cta-btn cta-btn-outline" data-goto="oss" data-track="home-all-oss">查看全部开源项目 →</button>
+          <button class="cta-btn cta-btn-outline" data-goto="oss" data-track="home-all-oss"
+            >查看全部开源项目 →</button
+          >
         </div>
       </section>
 
@@ -148,27 +204,41 @@ const recommendKind: Record<string, string> = {
             <strong>AI 工具中心</strong>
             <span>分类目录与工作流入口</span>
           </a>
-          <a href={asset('labs/index.html')} class="community-card" data-track="home-community-labs">
+          <a
+            href={asset('labs/index.html')}
+            class="community-card"
+            data-track="home-community-labs"
+          >
             <strong>AI Labs</strong>
             <span>Prompt · 案例 · 模型体验</span>
           </a>
-          <a href={asset('ai-tools-ranking.html')} class="community-card" data-track="home-community-rank">
+          <a
+            href={asset('ai-tools-ranking.html')}
+            class="community-card"
+            data-track="home-community-rank"
+          >
             <strong>2026 工具排行榜</strong>
             <span>按月 · 用户量 · 模型能力 · 价格</span>
           </a>
-          <a href={asset('cases/index.html')} class="community-card" data-track="home-community-cases">
+          <a
+            href={asset('cases/index.html')}
+            class="community-card"
+            data-track="home-community-cases"
+          >
             <strong>实战案例</strong>
             <span>独立页 · Prompt 在 Labs</span>
           </a>
         </div>
         <div class="section-cta compare-guide-grid" style="margin-top:1.25rem">
-          {site.compare_guides.map((g) => (
-            <a href={asset(g.href)} class="compare-guide-card" data-track={g.track}>
-              <span class="compare-guide-tag">{g.tag}</span>
-              <h4>{g.title}</h4>
-              <p>{g.description}</p>
-            </a>
-          ))}
+          {
+            site.compare_guides.map((g) => (
+              <a href={asset(g.href)} class="compare-guide-card" data-track={g.track}>
+                <span class="compare-guide-tag">{g.tag}</span>
+                <h4>{g.title}</h4>
+                <p>{g.description}</p>
+              </a>
+            ))
+          }
         </div>
       </section>
     </main>
@@ -209,7 +279,9 @@ const recommendKind: Record<string, string> = {
       </div>
       <div id="news-watch-sources" class="news-watch-sources"></div>
       <div class="section-cta">
-        <a href={asset('news/daily-ai-news.html')} class="cta-btn cta-btn-outline">查看新闻归档页 →</a>
+        <a href={asset('news/daily-ai-news.html')} class="cta-btn cta-btn-outline"
+          >查看新闻归档页 →</a
+        >
       </div>
     </main>
   </section>
