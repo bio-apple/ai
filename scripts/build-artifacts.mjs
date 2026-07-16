@@ -254,7 +254,9 @@ function appendHubBoardSearchItems(items, rankings) {
         label: item.name,
         type: '工具',
         url: `tools/hub.html#hub-${board.id}`,
-        keywords: [item.name, board.label, item.visits, 'AICPB', '工具中心'].filter(Boolean).join(' '),
+        keywords: [item.name, board.label, item.visits, 'AICPB', '工具中心']
+          .filter(Boolean)
+          .join(' '),
       });
     }
   }
