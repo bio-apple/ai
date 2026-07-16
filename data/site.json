@@ -1,10 +1,12 @@
 {
   "meta": {
-    "title": "Bio AI Lab | AI 工具 · 开源 · 新闻 · 视频",
-    "description": "Bio AI Lab：国内国际热门 AI 工具分类/排行/对比、GitHub Stars 六领域开源精选、每日 AI 新闻，以及 YouTube/B站六类每日视频（100 天内上新 Top / 30 天上新 / 24h 上新）。",
-    "keywords": "Bio AI Lab,AI工具,AI排行,GitHub Stars,AI新闻,AI视频,ChatGPT,Cursor,DeepSeek",
+    "title": "Bio AI Lab | Bio-Apple AI 工具导航 · 开源精选 · 每日热点与视频",
+    "description": "Bio AI Lab（Bio-Apple）一站式 AI 工具导航：ChatGPT / Claude / Cursor / DeepSeek 教程与对比、工具替代互补关系、GitHub Stars 开源精选、一周内 AI 热点与 YouTube/B站每日视频，帮你快速搭建 AI 工作流。",
+    "keywords": "Bio AI Lab,Bio-Apple,Bio Apple AI,AI工具导航,AI工具推荐,AI工具对比,ChatGPT教程,Claude教程,Cursor教程,DeepSeek教程,Copilot,Gemini,Kimi,通义千问,豆包,GitHub Stars AI,AI开源项目,一周AI热点,AI视频推荐,AI学习路线,Prompt库,AI工作流,生物信息学AI,AI agent",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
+    "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与开源精选",
+    "site_name": "Bio AI Lab",
     "base_url": "https://bio-apple.github.io/ai/"
   },
   "nav": {
@@ -85,16 +87,21 @@
   "hero": {
     "eyebrow": "Bio AI Lab",
     "title": "让每个人拥有自己的 AI 工作流",
-    "subtitle": "发现、学习并使用下一代 AI 工具，从趋势到实践一步到位。",
+    "subtitle": "Bio-Apple 出品：发现、学习并使用下一代 AI 工具，从趋势到实践一步到位。",
     "cta_primary": {
-      "label": "探索 AI 工具",
-      "goto": "chatgpt"
-    },
-    "cta_secondary": {
-      "label": "开始 AI 学习",
+      "label": "获取 AI 推荐",
       "href": "#home-recommend"
     },
-    "search_placeholder": "搜索 AI 工具、教程、关键词…"
+    "cta_github": {
+      "label": "Star on GitHub",
+      "href": "https://github.com/bio-apple/ai",
+      "track": "github-star-hero"
+    },
+    "cta_secondary": {
+      "label": "浏览热门工具",
+      "href": "#home-tools"
+    },
+    "search_placeholder": "搜索 AI 工具、教程、Bio-Apple…"
   },
   "hot_tools": ["chatgpt", "claude", "cursor", "deepseek", "gemini", "kimi"],
   "home_tool_categories": [

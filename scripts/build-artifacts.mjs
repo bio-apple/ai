@@ -299,18 +299,42 @@ function buildAnalyticsConfig() {
     raw.clarity_project_id ||
     ''
   ).trim();
+  const umamiScript = (
+    process.env.UMAMI_SCRIPT_URL ||
+    process.env.PUBLIC_UMAMI_SCRIPT_URL ||
+    raw.umami_script_url ||
+    ''
+  ).trim();
+  const umamiId = (
+    process.env.UMAMI_WEBSITE_ID ||
+    process.env.PUBLIC_UMAMI_WEBSITE_ID ||
+    raw.umami_website_id ||
+    ''
+  ).trim();
+  const cfBeacon = (
+    process.env.CLOUDFLARE_BEACON_TOKEN ||
+    process.env.PUBLIC_CLOUDFLARE_BEACON_TOKEN ||
+    raw.cloudflare_beacon_token ||
+    ''
+  ).trim();
+  const privacyOn = Boolean((umamiScript && umamiId) || cfBeacon);
   const cfg = {
     ga_measurement_id: ga,
     clarity_project_id: clarity,
+    umami_script_url: umamiScript,
+    umami_website_id: umamiId,
+    cloudflare_beacon_token: cfBeacon,
     track_engagement: raw.track_engagement !== false,
-    analytics_enabled: Boolean(ga || clarity),
+    analytics_enabled: Boolean(ga || clarity || privacyOn),
   };
   if (!cfg.analytics_enabled) {
     console.warn(
-      '⚠ analytics: GA/Clarity 未配置（data/analytics.json 或 GA_MEASUREMENT_ID / CLARITY_PROJECT_ID）。本地仍可用 window.__clickStats。',
+      '⚠ analytics: 未配置 Umami / Cloudflare / GA / Clarity（Secrets 或 data/analytics.json）。本地仍可用 window.__clickStats。',
     );
   } else {
-    console.log(`✓ analytics → GA=${ga ? 'on' : 'off'} Clarity=${clarity ? 'on' : 'off'}`);
+    console.log(
+      `✓ analytics → Umami=${umamiScript && umamiId ? 'on' : 'off'} CF=${cfBeacon ? 'on' : 'off'} GA=${ga ? 'on' : 'off'} Clarity=${clarity ? 'on' : 'off'}`,
+    );
   }
   return cfg;
 }

@@ -361,7 +361,77 @@ header {
   flex-wrap: wrap;
   gap: 12px;
   justify-content: center;
-  margin-bottom: 28px;
+  margin-bottom: 12px;
+}
+
+.hero-secondary-link {
+  margin: 0 0 28px;
+  font-size: 0.9rem;
+}
+
+.hero-secondary-link a {
+  color: var(--text-muted);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition:
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.hero-secondary-link a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Star on GitHub — 流量闭环主按钮 */
+.github-star-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 650;
+  text-decoration: none;
+  color: #f8fafc;
+  background: #111827;
+  border: 1px solid #1f2937;
+  box-shadow: 0 8px 20px rgba(17, 24, 39, 0.18);
+}
+
+.github-star-btn:hover {
+  background: #0b1220;
+  color: #fff;
+}
+
+.github-star-btn-footer {
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  box-shadow: none;
+}
+
+.nav-star {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #f8fafc;
+  background: #111827;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-star:hover {
+  background: #0b1220;
+  color: #fff;
+}
+
+.nav-star-icon {
+  color: #fbbf24;
 }
 
 .hero-search {
@@ -711,6 +781,7 @@ main {
   flex-shrink: 0;
 }
 
+.site-footer,
 footer {
   border-top: 1px solid var(--border);
   padding: 32px 24px;
@@ -719,13 +790,34 @@ footer {
   font-size: 0.85rem;
 }
 
+.site-footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-footer-copy {
+  margin: 0;
+}
+
+.site-footer a,
 footer a {
   color: var(--accent);
   transition: color 0.2s;
 }
 
+.site-footer a:hover,
 footer a:hover {
   color: var(--text);
+}
+
+.site-footer .github-star-btn {
+  color: #f8fafc;
+}
+
+.site-footer .github-star-btn:hover {
+  color: #fff;
 }
 
 @media (max-width: 900px) {
@@ -783,7 +875,7 @@ footer a:hover {
     padding: 72px 20px 56px;
   }
   .hero-cta .cta-btn,
-  .hero-cta .cta-btn-outline {
+  .hero-cta .github-star-btn {
     width: 100%;
     min-height: 48px;
   }

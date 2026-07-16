@@ -48,6 +48,9 @@ jobs:
         env:
           GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
           CLARITY_PROJECT_ID: ${{ secrets.CLARITY_PROJECT_ID }}
+          UMAMI_SCRIPT_URL: ${{ secrets.UMAMI_SCRIPT_URL }}
+          UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
+          CLOUDFLARE_BEACON_TOKEN: ${{ secrets.CLOUDFLARE_BEACON_TOKEN }}
         run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
 
       - name: Unit tests

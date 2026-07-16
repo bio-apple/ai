@@ -6,9 +6,16 @@ interface Props {
   standalone?: boolean;
   homeHref?: string;
   navPrefix?: string;
+  githubUrl?: string;
 }
 
-const { nav, standalone = false, homeHref = 'index.html', navPrefix = '' } = Astro.props;
+const {
+  nav,
+  standalone = false,
+  homeHref = 'index.html',
+  navPrefix = '',
+  githubUrl = 'https://github.com/bio-apple/ai',
+} = Astro.props;
 ---
 
 <header>
@@ -92,6 +99,17 @@ const { nav, standalone = false, homeHref = 'index.html', navPrefix = '' } = Ast
           );
         })
       }
+      <a
+        class="nav-star"
+        href={githubUrl}
+        target="_blank"
+        rel="noopener"
+        data-track="github-star-nav"
+        aria-label="在 GitHub 上 Star Bio AI Lab"
+      >
+        <span class="nav-star-icon" aria-hidden="true">★</span>
+        Star
+      </a>
       <button type="button" class="theme-toggle" aria-label="切换主题">☾</button>
     </div>
   </nav>

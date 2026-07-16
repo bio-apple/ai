@@ -1,6 +1,7 @@
 ---
 import ThemeBoot from '../components/ThemeBoot.astro';
 import SecurityMeta from '../components/SecurityMeta.astro';
+import SeoHead from '../components/SeoHead.astro';
 import FontLoader from '../components/FontLoader.astro';
 import UxWidgets from '../components/UxWidgets.astro';
 import KnowledgeAssistant from '../components/KnowledgeAssistant.astro';
@@ -42,20 +43,16 @@ const styleHref = asset('style.css');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <SecurityMeta />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={site.meta.keywords} />
-    <link rel="canonical" href={canonical} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={site.meta.og_image} />
-    <meta property="og:locale" content="zh_CN" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={site.meta.og_image} />
+    <SeoHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      keywords={site.meta.keywords}
+      ogType="website"
+      ogImage={site.meta.og_image}
+      ogImageAlt={site.meta.og_image_alt || title}
+      siteName={site.meta.site_name || 'Bio AI Lab'}
+    />
     <FontLoader />
     <link rel="stylesheet" href={styleHref} />
     <ThemeBoot assetPrefix={BASE} />
@@ -65,7 +62,13 @@ const styleHref = asset('style.css');
     <a class="skip-link" href="#main-content">跳到主要内容</a>
     <UxWidgets />
     {includeKnowledge && <KnowledgeAssistant />}
-    <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
+    <Nav
+      nav={site.nav}
+      standalone={false}
+      homeHref={asset('index.html')}
+      navPrefix={BASE}
+      githubUrl={site.footer.github}
+    />
     <div id="main-content">
       <slot />
     </div>

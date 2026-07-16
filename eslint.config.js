@@ -28,6 +28,7 @@ export default [
         Fuse: 'readonly',
         gtag: 'readonly',
         dataLayer: 'writable',
+        umami: 'writable',
         showSection: 'readonly',
         bioFavorites: 'writable',
         bioProgress: 'writable',

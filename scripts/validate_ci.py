@@ -233,17 +233,40 @@ def validate_analytics_config() -> None:
     if not path.exists():
         raise FileNotFoundError("analytics-config.json 缺失，请先运行 npm run build")
     data = json.loads(path.read_text(encoding="utf-8"))
-    for key in ("ga_measurement_id", "clarity_project_id", "track_engagement"):
+    for key in (
+        "ga_measurement_id",
+        "clarity_project_id",
+        "umami_script_url",
+        "umami_website_id",
+        "cloudflare_beacon_token",
+        "track_engagement",
+    ):
         if key not in data:
             raise ValueError(f"analytics-config.json 缺少 {key}")
     ga = str(data.get("ga_measurement_id") or "").strip()
     clarity = str(data.get("clarity_project_id") or "").strip()
+    umami_script = str(data.get("umami_script_url") or "").strip()
+    umami_id = str(data.get("umami_website_id") or "").strip()
+    cf_beacon = str(data.get("cloudflare_beacon_token") or "").strip()
     if ga and not ga.startswith("G-"):
         raise ValueError(f"ga_measurement_id 格式应为 G-xxxxxxxxxx，当前：{ga!r}")
-    if not ga and not clarity:
-        print("⚠ analytics：GA/Clarity 未配置（允许；Secrets 或 data/analytics.json 可启用）")
+    if (umami_script and not umami_id) or (umami_id and not umami_script):
+        raise ValueError("Umami 需同时配置 umami_script_url 与 umami_website_id")
+    if umami_script and not (
+        umami_script.startswith("https://") or umami_script.startswith("http://")
+    ):
+        raise ValueError(f"umami_script_url 应为 http(s) URL，当前：{umami_script!r}")
+    privacy_on = bool((umami_script and umami_id) or cf_beacon)
+    if not ga and not clarity and not privacy_on:
+        print(
+            "⚠ analytics：Umami/CF/GA/Clarity 未配置（允许；Secrets 或 data/analytics.json 可启用）"
+        )
     print(
-        f"✓ analytics-config.json（GA={'on' if ga else 'off'} Clarity={'on' if clarity else 'off'}）"
+        "✓ analytics-config.json（"
+        f"Umami={'on' if umami_script and umami_id else 'off'} "
+        f"CF={'on' if cf_beacon else 'off'} "
+        f"GA={'on' if ga else 'off'} "
+        f"Clarity={'on' if clarity else 'off'}）"
     )
 
 

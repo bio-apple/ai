@@ -1,16 +1,30 @@
-# 分析事件字典 + GA4 漏斗配置
+# 分析事件字典 + 隐私分析配置
 
 统一使用 `trackEvent(name, params)` / `[data-track]`。命名：`snake_case`。
 
 ## 当前状态
 
-| 项                         | 现状                                                                                       |
-| -------------------------- | ------------------------------------------------------------------------------------------ |
-| 仓库 `data/analytics.json` | ID **默认为空**（不提交密钥）                                                              |
-| CI / Pages 构建            | 读取 Secrets `GA_MEASUREMENT_ID`、`CLARITY_PROJECT_ID`（有则写入 `analytics-config.json`） |
-| 未配置时                   | 仅 `window.__clickStats` 本地计数；**不会**向 GA/Clarity 发事件                            |
+| 项                         | 现状                                           |
+| -------------------------- | ---------------------------------------------- |
+| 仓库 `data/analytics.json` | ID **默认为空**（不提交密钥）                  |
+| **推荐（隐私优先）**       | Umami 或 Cloudflare Web Analytics（无 cookie） |
+| 可选                       | GA4、Microsoft Clarity（热力图 / 会话回放）    |
+| CI / Pages 构建            | 读取下表 Secrets，写入 `analytics-config.json` |
+| 未配置时                   | 仅 `window.__clickStats` 本地计数              |
 
-**要启用线上分析**：在 GitHub → Settings → Secrets 填入上述两项，或本地编辑 `data/analytics.json` 后重新 `npm run build`（勿把真实 ID 推到公开 fork 若不希望暴露）。
+### Secrets / 环境变量
+
+| Secret / Env              | 作用                                                    |
+| ------------------------- | ------------------------------------------------------- |
+| `UMAMI_SCRIPT_URL`        | Umami 脚本地址（如 `https://cloud.umami.is/script.js`） |
+| `UMAMI_WEBSITE_ID`        | Umami 站点 ID                                           |
+| `CLOUDFLARE_BEACON_TOKEN` | Cloudflare Web Analytics token                          |
+| `GA_MEASUREMENT_ID`       | 可选 GA4 `G-xxxxxxxx`                                   |
+| `CLARITY_PROJECT_ID`      | 可选 Clarity（点击热力图 / 录屏）                       |
+
+**推荐组合**：Umami（PV/UV、来源、自定义事件）± Cloudflare Web Analytics；需要热力图时再开 Clarity。
+
+自托管 Umami 时，请把域名加入 CSP（`SecurityMeta.astro` / `_headers`）。
 
 ## 核心漏斗（P0）
 
@@ -20,6 +34,8 @@ page_view
     → recommend_query_tool      (funnel_step=2)
       → favorite_add              (funnel_step=3)
 ```
+
+GitHub 闭环：`github-star-hero` / `github-star-nav` / `github-star-footer`。
 
 可选旁路：`recommend_guide_query`、`recommend_related_tool`、`search_empty` → `#home-recommend`、`learning_continue`。
 
@@ -37,26 +53,23 @@ page_view
 | `favorite_export` / `favorite_import` | 导入导出                         | `count`                           |
 | `learning_continue`                   | 首页「继续学习」芯片             | —                                 |
 | `roadmap_phase_toggle`                | 学习路线阶段勾选                 | `phase`, `done`                   |
+| `github-star-hero` / `nav` / `footer` | Star on GitHub 按钮              | —                                 |
 | `tool-rel-alt-*` / `tool-rel-comp-*`  | 工具详情关系链接（`data-track`） | —                                 |
 | `hub-rel-alt-*` / `hub-rel-comp-*`    | Hub 关系链接（`data-track`）     | —                                 |
 | `search_empty`                        | 搜索无结果                       | `q`                               |
 | `search_hit`                          | 点搜索结果                       | —                                 |
 | `search_error`                        | 索引失败                         | `q`                               |
 | `daily_panel_click`                   | 简报条目                         | `panel`                           |
-| `page_engagement`                     | 可见时长 ≥5s（需已启用 GA）      | `engagement_time_sec`             |
+| `page_engagement`                     | 可见时长 ≥5s（GA 或 Umami）      | `engagement_time_sec`             |
 
-## GA4 看板落地步骤（Explore 漏斗）
+## 看板建议
 
-1. 配置 Measurement ID 并部署（见上）。
-2. GA4 → **Explore** → 模板 **Funnel exploration**。
-3. Steps（按顺序）：
-   - Step 1: Event name = `recommend_submit`
-   - Step 2: Event name = `recommend_query_tool`
-   - Step 3: Event name = `favorite_add`
-4. 时间范围：过去 7 / 28 天；维度可加 `matched` / `tool`。
-5. 另建报表：事件 `search_empty` 次数（发现内容缺口）。
+1. **Umami**：Pages → 来源 / 设备；Events → `recommend_submit`、`github-star-*`
+2. **Cloudflare Web Analytics**：PV/UV、国家/地区、热门路径（无自定义事件）
+3. **Clarity（可选）**：热力图与愤怒点击；与隐私优先方案并存时请在隐私声明中说明
+4. **GA4 Explore 漏斗（可选）**：`recommend_submit` → `recommend_query_tool` → `favorite_add`
 
-## 本地校验（无 GA ID 时）
+## 本地校验（无远端 ID 时）
 
 浏览器控制台：
 
@@ -64,6 +77,6 @@ page_view
 window.__clickStats;
 ```
 
-操作推荐→工具→收藏后，应看到 `recommend_submit` / `recommend_query_tool` / `favorite_add` 计数增加。
+操作推荐→工具→收藏 / 点击 Star 后，应看到对应事件计数增加。
 
 配置源：`data/analytics.json` + 环境变量 → 构建产物 `analytics-config.json`。

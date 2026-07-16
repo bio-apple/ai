@@ -1,21 +1,67 @@
 # Bio AI Lab
 
-**AI 工具 · 开源 · 新闻 · 视频** — 国内国际热门工具分类/排行/对比、工具关系导航、GitHub Stars 六领域、一周内 AI 热点与六类每日视频。
+<p align="center">
+  <strong>Bio-Apple · AI 工具导航 · 开源精选 · 每日热点与视频</strong><br/>
+  发现、学习并搭建属于你的 AI 工作流
+</p>
 
-**Website:** https://bio-apple.github.io/ai/
+<p align="center">
+  <a href="https://bio-apple.github.io/ai/"><img src="https://img.shields.io/badge/Website-Live-2563eb?style=for-the-badge&logo=githubpages&logoColor=white" alt="Website" /></a>
+  <a href="https://github.com/bio-apple/ai/stargazers"><img src="https://img.shields.io/github/stars/bio-apple/ai?style=for-the-badge&logo=github&color=111827" alt="GitHub Stars" /></a>
+  <a href="https://github.com/bio-apple/ai/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=for-the-badge&label=CI" alt="CI" /></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/License-MIT-0d8c6d?style=for-the-badge" alt="MIT" /></a>
+  <a href="https://astro.build"><img src="https://img.shields.io/badge/Astro-5-FF5D01?style=for-the-badge&logo=astro&logoColor=white" alt="Astro" /></a>
+</p>
 
-[![Website](https://img.shields.io/badge/Website-bio--apple.github.io%2Fai-6366F1?style=for-the-badge)](https://bio-apple.github.io/ai/)
-[![Documentation](https://img.shields.io/badge/Documentation-DEVELOPER.md-06B6D4?style=for-the-badge)](./DEVELOPER.md)
-[![Vision 2.0](https://img.shields.io/badge/Vision-2.0-8B5CF6?style=for-the-badge)](./docs/VISION-2.0.md)
-[![GitHub](https://img.shields.io/badge/GitHub-bio--apple%2Fai-111827?style=for-the-badge)](https://github.com/bio-apple/ai)
+<p align="center">
+  <a href="https://bio-apple.github.io/ai/">🌐 在线站点</a> ·
+  <a href="https://github.com/bio-apple/ai">⭐ Star on GitHub</a> ·
+  <a href="./DEVELOPER.md">📘 开发者文档</a> ·
+  <a href="./docs/VISION-2.0.md">🔭 Vision 2.0</a>
+</p>
 
-## Screenshot
+![Bio AI Lab 首页预览](og-image.jpg)
 
-| 首页 Hero             | 工具与排行              | 视频 / 开源 / 新闻            |
-| --------------------- | ----------------------- | ----------------------------- |
-| ![首页](og-image.jpg) | 国内国际分类 + 排行对比 | 六类视频 · Stars · 一周内热点 |
+## Quick Start
 
-> 线上预览：[https://bio-apple.github.io/ai/](https://bio-apple.github.io/ai/)
+```bash
+git clone https://github.com/bio-apple/ai.git
+cd ai
+npm ci
+pip install -r requirements.txt
+./build.sh          # Astro SSG → dist/
+./start.sh          # 本地预览 dist/（FastAPI）
+```
+
+打开 http://127.0.0.1:8765/ai/  
+常用校验：`npm run quality && npm run build && DIST=dist python3 scripts/validate_ci.py`
+
+## 架构一览
+
+```mermaid
+flowchart LR
+  subgraph Content["内容源 data/*.json"]
+    T[tools / relations]
+    N[news / videos / oss]
+  end
+  subgraph Build["GitHub Actions"]
+    Q[Prettier + ESLint]
+    B[Astro SSG]
+    V[validate_ci]
+  end
+  subgraph Edge["分发"]
+    P[GitHub Pages]
+    C[可选 Cloudflare CDN]
+  end
+  subgraph Product["用户路径"]
+    S[搜索] --> R[推荐]
+    R --> L[学习回访]
+    L --> G[Star on GitHub]
+  end
+  Content --> Q --> B --> V --> P
+  V --> C
+  P --> Product
+```
 
 ## Features
 
@@ -97,12 +143,14 @@
 搜索找到内容 → 推荐选工具 → 学习体系愿意回来 → SEO 被发现
 ```
 
-| 环节 | 实现                                                          |
-| ---- | ------------------------------------------------------------- |
-| 搜索 | Hero Fuse 搜索；案例 → `cases/index.html#case-N`；Prompt 深链 |
-| 推荐 | 场景/文本匹配 + 结果附带替代/互补                             |
-| 学习 | `progress.js` 最近打开；路线图阶段勾选；收藏清单              |
-| SEO  | sitemap 对齐 `.html`；Standalone OG；BreadcrumbList           |
+| 环节 | 实现                                                              |
+| ---- | ----------------------------------------------------------------- |
+| 搜索 | Hero Fuse 搜索；案例 → `cases/index.html#case-N`；Prompt 深链     |
+| 推荐 | 场景/文本匹配 + 结果附带替代/互补                                 |
+| 学习 | `progress.js` 最近打开；路线图阶段勾选；收藏清单                  |
+| SEO  | 强化 TDK 长尾词；OG/Twitter Card；sitemap `.html`；BreadcrumbList |
+| 分析 | 隐私优先 Umami / Cloudflare Web Analytics（可选 GA/Clarity）      |
+| 闭环 | 首页 / 导航 / 页脚 **Star on GitHub**                             |
 
 ## 页面结构
 
@@ -128,38 +176,22 @@ Tab / 分区（同页 SPA）
 └── /compare/*.html
 ```
 
-## 快速开始
-
-### 本地预览
+## 本地校验与 E2E
 
 ```bash
-cd ai
-npm ci
-pip install -r requirements.txt
-./build.sh          # Astro SSG → dist/
-./start.sh          # FastAPI 预览 dist/
-```
-
-访问 http://127.0.0.1:8765/ai/（`/` 会重定向到 `/ai/`）
-
-### 本地校验与 E2E
-
-```bash
-npm run quality                                   # Prettier + ESLint（与 CI 质量门禁一致）
+npm run quality                                   # Prettier + ESLint
 npm run build
 DIST=dist python3 scripts/validate_ci.py          # 全量校验（与 CI 一致，11 步）
-DIST=dist python3 scripts/validate_ci.py links    # 单步：HTML 内部链接（含 /ai/ 绝对路径）
-npm run test:unit                                 # Node + Python 轻量单测
-npx playwright install chromium                   # 首次运行 E2E 需安装浏览器
-npm run test:e2e                                  # Playwright 冒烟（约 12 项；失败会红 CI）
+npm run test:unit
+npx playwright install chromium                   # 首次 E2E
+npm run test:e2e
 ```
 
 > **必绿（合并 / Pages）**：`npm run quality` + `validate_ci.py`。  
-> **必绿（CI job）**：另含单元测 + FastAPI smoke + Playwright E2E（E2E 失败会使 CI 失败；**Pages 工作流不跑 E2E**，避免浏览器不稳挡发版）。  
-> **分析**：仓库默认可空 GA ID；在 GitHub Secrets 设 `GA_MEASUREMENT_ID` / `CLARITY_PROJECT_ID` 后构建即启用（见 `docs/ANALYTICS-EVENTS.md`）。  
-> **CDN / HTTPS / CSP**：见 [`docs/DEPLOY-CDN-SECURITY.md`](./docs/DEPLOY-CDN-SECURITY.md)。  
-> **首屏性能（FCP/LCP · WebP · 字体 · 动效）**：见 [`docs/PERFORMANCE.md`](./docs/PERFORMANCE.md)。  
-> 线上健康：`npm run health:live` 或定时 `site-health.yml`（内容过期会开 Issue）。
+> **必绿（CI job）**：另含单元测 + FastAPI smoke + Playwright E2E（Pages 工作流不跑 E2E）。  
+> **分析（隐私优先）**：Secrets 配 `UMAMI_*` / `CLOUDFLARE_BEACON_TOKEN`（可选再开 GA/Clarity），见 [`docs/ANALYTICS-EVENTS.md`](./docs/ANALYTICS-EVENTS.md)。  
+> **CDN / HTTPS / CSP**：[`docs/DEPLOY-CDN-SECURITY.md`](./docs/DEPLOY-CDN-SECURITY.md) · **性能**：[`docs/PERFORMANCE.md`](./docs/PERFORMANCE.md)。  
+> 线上健康：`npm run health:live` 或定时 `site-health.yml`。
 
 ### 手动刷新动态数据
 
@@ -170,7 +202,7 @@ python scripts/fetch_ai_news.py        # 一周内 AI 热点（日更抓取）
 python scripts/fetch_oss_stars.py      # 开源 Star 数
 ```
 
-**开发者文档**：[DEVELOPER.md](./DEVELOPER.md)（架构、数据格式、CI/CD、故障排查）
+**开发者文档**：[DEVELOPER.md](./DEVELOPER.md)
 
 ## 自动更新
 
@@ -189,7 +221,7 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 | 阶段              | 说明                                                                                                                           |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | Lint & Format     | `npm run quality`（Prettier check + ESLint）                                                                                   |
-| Astro 构建        | `npm ci && npm run build` → `dist/`（Secrets 可注入 GA/Clarity）                                                               |
+| Astro 构建        | `npm ci && npm run build` → `dist/`（Secrets 可注入 Umami / CF / GA / Clarity）                                                |
 | 单元测试          | `npm run test:unit`（paths / 视频回退 / 新闻去重）                                                                             |
 | 数据校验（11 步） | `validate_ci.py`：data · **tool-relations** · oss · videos · news · runtime · recommend · sitemap · search · analytics · links |
 | API 冒烟          | `scripts/smoke_api.py`（本地 FastAPI；生产 Pages **无** `/api/*`）                                                             |
@@ -217,6 +249,8 @@ Pages **不跑 E2E**，避免浏览器不稳定挡住内容上线。
 | 动态数据  | `daily-videos.json` · `ai-news.json` · `oss-projects.json`  |
 | 部署      | GitHub Pages + GitHub Actions（可选 Cloudflare Pages CDN）  |
 | 安全      | HTTPS 强制 + CSP（`_headers` / meta 兜底）                  |
+| 分析      | Umami / Cloudflare Web Analytics（可选 GA4 + Clarity）      |
+| SEO       | TDK 长尾词 + Open Graph / Twitter Card                      |
 
 ## Roadmap
 
@@ -235,8 +269,9 @@ Pages **不跑 E2E**，避免浏览器不稳定挡住内容上线。
 | Phase 4    | 本地收藏、搜索增强、对话式推荐、AI Labs、工具中心                  | ✅ 已完成 |
 | Phase 4.1  | 工具关系（替代/互补）+ 搜索/推荐/学习回访/SEO 链路                 | ✅ 已完成 |
 | Phase 4.2  | 「一周内 AI 热点」日更 · 近 7 天窗口                               | ✅ 已完成 |
+| Phase 4.3  | SEO TDK/OG、隐私分析、README 门面、Star 闭环                       | ✅ 已完成 |
 | Phase 5    | 云端账户 / 向量 RAG / 真 LLM Agent（需独立托管）                   | 🔜 规划中 |
 
 ## License
 
-MIT — see [GitHub repository](https://github.com/bio-apple/ai).
+MIT — 欢迎 [⭐ Star](https://github.com/bio-apple/ai) 与 PR：[bio-apple/ai](https://github.com/bio-apple/ai)。

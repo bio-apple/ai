@@ -1,7 +1,10 @@
-/* 点击追踪：从 analytics-config.json 读取 GA4 / Clarity 配置 */
+/* 分析：隐私优先 Umami / Cloudflare Web Analytics；可选 GA4 / Clarity */
 let analyticsConfig = {
   ga_measurement_id: '',
   clarity_project_id: '',
+  umami_script_url: '',
+  umami_website_id: '',
+  cloudflare_beacon_token: '',
   track_engagement: true,
 };
 
@@ -9,6 +12,13 @@ function trackEvent(name, params = {}) {
   const gaId = analyticsConfig.ga_measurement_id;
   if (gaId && typeof gtag === 'function') {
     gtag('event', name, params);
+  }
+  if (typeof window.umami?.track === 'function') {
+    try {
+      window.umami.track(name, params);
+    } catch {
+      /* ignore */
+    }
   }
   if (typeof window.__clickStats !== 'object') window.__clickStats = {};
   window.__clickStats[name] = (window.__clickStats[name] || 0) + 1;
@@ -43,10 +53,36 @@ function initClarity() {
   document.head.appendChild(s);
 }
 
+/** 无 cookie：Umami（自托管或 cloud.umami.is） */
+function initUmami() {
+  const scriptUrl = (analyticsConfig.umami_script_url || '').trim();
+  const websiteId = (analyticsConfig.umami_website_id || '').trim();
+  if (!scriptUrl || !websiteId) return;
+  const s = document.createElement('script');
+  s.defer = true;
+  s.src = scriptUrl;
+  s.dataset.websiteId = websiteId;
+  s.dataset.autoTrack = 'true';
+  document.head.appendChild(s);
+}
+
+/** 无 cookie：Cloudflare Web Analytics beacon */
+function initCloudflareWebAnalytics() {
+  const token = (analyticsConfig.cloudflare_beacon_token || '').trim();
+  if (!token) return;
+  const s = document.createElement('script');
+  s.defer = true;
+  s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  s.setAttribute('data-cf-beacon', JSON.stringify({ token }));
+  document.head.appendChild(s);
+}
+
 function initEngagementTracking() {
   if (!analyticsConfig.track_engagement) return;
-  const gaId = (analyticsConfig.ga_measurement_id || '').trim();
-  if (!gaId) return;
+  const hasSink =
+    (analyticsConfig.ga_measurement_id || '').trim() ||
+    (analyticsConfig.umami_website_id || '').trim();
+  if (!hasSink) return;
 
   let visibleMs = 0;
   let visibleSince = document.visibilityState === 'visible' ? Date.now() : null;
@@ -75,9 +111,10 @@ function initEngagementTracking() {
 }
 
 async function loadAnalyticsConfig() {
-  const base = document.body?.dataset?.assetBase || '';
+  const base = document.documentElement?.dataset?.base || document.body?.dataset?.assetBase || '';
+  const prefix = String(base).replace(/\/?$/, '/');
   try {
-    const res = await fetch(`${base}analytics-config.json`, { cache: 'default' });
+    const res = await fetch(`${prefix}analytics-config.json`, { cache: 'default' });
     if (res.ok) {
       const data = await res.json();
       analyticsConfig = { ...analyticsConfig, ...data };
@@ -103,6 +140,8 @@ function bindClickTracking() {
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadAnalyticsConfig();
+  initUmami();
+  initCloudflareWebAnalytics();
   initGA4();
   initClarity();
   initEngagementTracking();

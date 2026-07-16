@@ -77,7 +77,7 @@
 | 交互     | 原生 JavaScript（无框架）                                          |
 | 搜索     | `search-index.json`（构建时自动生成）+ Fuse.js                     |
 | 知识库   | `knowledge.js`（客户端检索）+ `/api/ask`（FastAPI BM25）           |
-| 分析     | GA4 + Microsoft Clarity（`data/analytics.json`）                   |
+| 分析     | 隐私优先 Umami / CF Web Analytics；可选 GA4 + Clarity              |
 | 视频     | `daily-videos.json` + `videos.js`（Promise 缓存）                  |
 | 新闻     | `ai-news.json` + `news.js`（一周内热点 · 每天更新）                |
 | 开源精选 | `oss-projects.json` + `oss.js`（每周刷新 Star）                    |
@@ -772,7 +772,8 @@ watch_sources: [...] # 官方博客 + X 账号
 
 ### `data/analytics.json`
 
-填入 GA4 与 Clarity ID 后 `npm run build`，生成 `analytics-config.json`。
+推荐填入 Umami（`umami_script_url` + `umami_website_id`）或 `cloudflare_beacon_token`；可选 GA4 / Clarity。  
+`npm run build` 生成 `analytics-config.json`（CI Secrets 优先）。详见 `docs/ANALYTICS-EVENTS.md`。
 
 ### FastAPI 内容 API（`./start.sh`）
 

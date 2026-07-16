@@ -60,11 +60,27 @@ const recommendKind: Record<string, string> = {
         <h1>{site.hero.title}</h1>
         <p class="hero-subtitle">{site.hero.subtitle}</p>
         <div class="hero-cta">
-          <a href="#home-recommend" class="cta-btn" data-track="hero-cta-primary">获取 AI 推荐</a>
-          <a href="#home-tools" class="cta-btn cta-btn-outline" data-track="hero-cta-nav"
-            >浏览热门工具</a
+          <a
+            href={site.hero.cta_primary?.href || '#home-recommend'}
+            class="cta-btn"
+            data-track="hero-cta-primary">{site.hero.cta_primary?.label || '获取 AI 推荐'}</a
           >
+          <a
+            href={site.hero.cta_github?.href || site.footer.github}
+            class="github-star-btn"
+            target="_blank"
+            rel="noopener"
+            data-track={site.hero.cta_github?.track || 'github-star-hero'}
+          >
+            <span aria-hidden="true">★</span>
+            {site.hero.cta_github?.label || 'Star on GitHub'}
+          </a>
         </div>
+        <p class="hero-secondary-link">
+          <a href={site.hero.cta_secondary?.href || '#home-tools'} data-track="hero-cta-nav"
+            >{site.hero.cta_secondary?.label || '浏览热门工具'} →</a
+          >
+        </p>
         <div class="site-search-wrap hero-search">
           <label class="hero-search-label" for="site-search">全站搜索</label>
           <input
