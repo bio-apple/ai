@@ -44,10 +44,10 @@ npm run optimize:images   # 封面转 WebP（可选）
 
 ### 分析 Secrets（隐私优先）
 
-| Secret                    | 用途                |
-| ------------------------- | ------------------- |
-| `UMAMI_SCRIPT_URL` + `UMAMI_WEBSITE_ID` | Umami（无 cookie） |
-| `CLOUDFLARE_BEACON_TOKEN` | CF Web Analytics    |
+| Secret                                     | 用途               |
+| ------------------------------------------ | ------------------ |
+| `UMAMI_SCRIPT_URL` + `UMAMI_WEBSITE_ID`    | Umami（无 cookie） |
+| `CLOUDFLARE_BEACON_TOKEN`                  | CF Web Analytics   |
 | `GA_MEASUREMENT_ID` / `CLARITY_PROJECT_ID` | 可选               |
 
 事件统一走 `trackEvent` / `[data-track]`；未配置时仅 `window.__clickStats`。
@@ -60,12 +60,12 @@ npm run optimize:images   # 封面转 WebP（可选）
 
 ## 定时任务（北京时间）
 
-| 工作流             | 内容            |
-| ------------------ | --------------- |
-| `daily-videos.yml` | 六类视频 00:00  |
+| 工作流             | 内容             |
+| ------------------ | ---------------- |
+| `daily-videos.yml` | 六类视频 00:00   |
 | `daily-news.yml`   | 一周内热点 06:00 |
-| `weekly-oss.yml`   | OSS Star 周一   |
-| `site-health.yml`  | 线上新鲜度探针  |
+| `weekly-oss.yml`   | OSS Star 周一    |
+| `site-health.yml`  | 线上新鲜度探针   |
 
 失败处置见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。
 

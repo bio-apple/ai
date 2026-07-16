@@ -2,16 +2,16 @@
 
 ## 环境
 
-| 环境           | `/api/*` | 说明                |
-| -------------- | -------- | ------------------- |
-| GitHub Pages   | 无       | 纯静态 `dist/`      |
-| `./start.sh`   | 有       | 本地 FastAPI 预览   |
+| 环境         | `/api/*` | 说明              |
+| ------------ | -------- | ----------------- |
+| GitHub Pages | 无       | 纯静态 `dist/`    |
+| `./start.sh` | 有       | 本地 FastAPI 预览 |
 
 ## 告警怎么处理
 
-1. **首页 / JSON 404** → 查 Pages/CI → 本地 `npm run build && DIST=dist python3 scripts/validate_ci.py` → 重部署  
-2. **视频过期** → Actions 手动跑 `daily-videos.yml`（`force=true`）→ 确认提交含 `daily-videos.json` + `video-thumbs/`  
-3. **新闻过期** → 手动跑 `daily-news.yml`  
+1. **首页 / JSON 404** → 查 Pages/CI → 本地 `npm run build && DIST=dist python3 scripts/validate_ci.py` → 重部署
+2. **视频过期** → Actions 手动跑 `daily-videos.yml`（`force=true`）→ 确认提交含 `daily-videos.json` + `video-thumbs/`
+3. **新闻过期** → 手动跑 `daily-news.yml`
 4. **OSS Star 异常** → 手动跑 `weekly-oss.yml`（需 `GITHUB_TOKEN`）
 
 快捷入口：
