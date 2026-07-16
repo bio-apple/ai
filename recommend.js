@@ -174,16 +174,25 @@
     }
   });
 
+  function clearResult() {
+    out.hidden = true;
+    out.innerHTML = '';
+    const url = new URL(location.href);
+    if (url.searchParams.has('rq')) {
+      url.searchParams.delete('rq');
+      history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    }
+  }
+
+  input.addEventListener('input', () => {
+    if (!input.value.trim()) clearResult();
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const q = input.value.trim();
     if (!q) {
-      out.hidden = false;
-      out.innerHTML = `
-        <p class="recommend-result-meta">请先描述你想用 AI 做什么，例如「写周报」或「开发网站」。</p>
-        <div class="recommend-links">
-          <a class="recommend-link" href="#home-daily" data-track="recommend_empty_daily">先看 AI 简报 →</a>
-        </div>`;
+      clearResult();
       input.focus();
       if (typeof trackEvent === 'function')
         trackEvent('recommend_empty_submit', { funnel_step: 0 });
