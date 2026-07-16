@@ -62,7 +62,7 @@ npm run optimize:images   # 封面转 WebP（可选）
 
 | 工作流             | 内容             |
 | ------------------ | ---------------- |
-| `daily-videos.yml` | 六类视频 00:00   |
+| `daily-videos.yml` | 每日视频 00:00   |
 | `daily-news.yml`   | 一周内热点 06:00 |
 | `weekly-oss.yml`   | OSS Star 周一    |
 | `site-health.yml`  | 线上新鲜度探针   |

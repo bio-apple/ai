@@ -3,7 +3,7 @@ const VIDEO_DATA_URL =
     ? document.documentElement.dataset.base.replace(/\/?$/, '/')
     : '') + 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
-/** 页面展示顺序：各平台 100d → 30d → 24h */
+/** 抓取分桶键（仅用于合并前去重；页面不再按 100d/30d/24h 分开展示） */
 const CATEGORY_ORDER = [
   'youtube_top_views',
   'youtube_recent_30d',
@@ -17,7 +17,7 @@ const CATEGORY_ORDER = [
   'last_6m',
 ];
 
-/** 与抓取脚本一致：窄窗口优先占坑，展示时去掉跨分类重复 */
+/** 与抓取脚本一致：窄窗口优先占坑，合并展示前去掉跨分类重复 */
 const DEDUPE_PICK_ORDER = [
   'youtube_recent_24h',
   'youtube_recent_30d',
@@ -28,7 +28,8 @@ const DEDUPE_PICK_ORDER = [
 ];
 
 let videoDataPromise = null;
-let videoState = { platform: 'all', sort: 'views', rawData: null };
+/** 默认按上传时间（最新）排序；平台内合并展示 */
+let videoState = { platform: 'all', sort: 'recent', rawData: null };
 
 function getCategoryKeys(batch) {
   if (!batch.categories) return [];
@@ -220,58 +221,52 @@ function renderFilteredGrid(videos) {
   return `<div class="video-grid">${videos.map((v) => renderVideoCard(v)).join('')}</div>`;
 }
 
-function renderCategory(cat) {
-  const videos = cat.videos || [];
-  const fallbackNote = cat.fallback_from
-    ? `<p class="video-fallback-note">今日该分类抓取为空，已回退展示 <strong>${escapeHtml(cat.fallback_from)}</strong> 批次内容（备选）。</p>`
-    : '';
+function renderPlatformBlock(label, videos) {
   if (!videos.length) {
-    return `<div class="video-category video-category-empty"><h4 class="video-category-title">${escapeHtml(cat.label)}</h4><p class="loading-hint">暂无符合该分类的推荐</p></div>`;
+    return `<div class="video-category video-category-empty"><h4 class="video-category-title">${escapeHtml(label)}</h4><p class="loading-hint">暂无该平台推荐</p></div>`;
   }
   return `
-    <div class="video-category${cat.fallback_from ? ' video-category-fallback' : ''}">
-      <h4 class="video-category-title">${escapeHtml(cat.label)} <span class="video-day-count">${videos.length} 条</span>${cat.fallback_from ? '<span class="video-fallback-badge">回退批次</span>' : ''}</h4>
-      ${fallbackNote}
+    <div class="video-category">
+      <h4 class="video-category-title">${escapeHtml(label)} <span class="video-day-count">${videos.length} 条</span></h4>
       <div class="video-grid">${videos.map((v) => renderVideoCard(v)).join('')}</div>
     </div>
   `;
 }
 
+/** 合并各时间窗视频后按平台分组展示；默认按上传时间倒序 */
 function renderBatch(batch, state) {
   const flat = flattenLatestVideos(batch);
-  const filtered = filterAndSortVideos(flat, state);
+  const sortLabel = state.sort === 'recent' ? '按上传时间' : '按播放量';
+  const fallbackNote = batch._fallback_count
+    ? `<p class="video-fallback-note">有 ${batch._fallback_count} 组来源今日为空，已用上一有效批次补齐。</p>`
+    : '';
 
-  if (state.platform !== 'all' || state.sort !== 'views') {
-    const label = state.sort === 'recent' ? '最新排序' : '热门排序';
-    const platformLabelText =
-      state.platform === 'all' ? '全部平台' : state.platform === 'bilibili' ? 'B站' : 'YouTube';
+  if (state.platform !== 'all') {
+    const filtered = filterAndSortVideos(flat, state);
+    const platformLabelText = state.platform === 'bilibili' ? 'B站' : 'YouTube';
     return `
       <section class="video-day">
-        <h3 class="video-day-title">${escapeHtml(batch.date)} · ${platformLabelText} · ${label}
+        <h3 class="video-day-title">${escapeHtml(batch.date)} · ${platformLabelText} · ${sortLabel}
           <span class="video-day-count">${filtered.length} 条</span>
         </h3>
+        ${fallbackNote}
         ${renderFilteredGrid(filtered)}
       </section>
     `;
   }
 
-  const unique = dedupeBatchCategories(batch);
-  const count = getBatchVideos(unique).length;
-  if (unique.categories) {
-    const categories = getCategoryKeys(unique).map((key) => unique.categories[key]);
-    return `
-      <section class="video-day">
-        <h3 class="video-day-title">${escapeHtml(unique.date)} <span class="video-day-count">${count} 条</span></h3>
-        ${categories.map(renderCategory).join('')}
-      </section>
-    `;
-  }
+  const youtube = filterAndSortVideos(flat, { platform: 'youtube', sort: state.sort });
+  const bilibili = filterAndSortVideos(flat, { platform: 'bilibili', sort: state.sort });
+  const total = youtube.length + bilibili.length;
 
-  const videos = batch.videos || [];
   return `
     <section class="video-day">
-      <h3 class="video-day-title">${escapeHtml(batch.date)} <span class="video-day-count">${videos.length} 条</span></h3>
-      <div class="video-grid">${videos.map((v) => renderVideoCard(v)).join('')}</div>
+      <h3 class="video-day-title">${escapeHtml(batch.date)} · ${sortLabel}
+        <span class="video-day-count">${total} 条</span>
+      </h3>
+      ${fallbackNote}
+      ${renderPlatformBlock('YouTube', youtube)}
+      ${renderPlatformBlock('B站', bilibili)}
     </section>
   `;
 }
@@ -356,9 +351,9 @@ async function loadDailyVideos() {
       const updated = new Date(data.updated_at);
       const day = display?.date ? ` · 推荐日期 ${display.date}` : '';
       const fallbackNote = display?._fallback_count
-        ? ` · ${display._fallback_count} 个分类已回退至上一有效批次`
+        ? ` · ${display._fallback_count} 组来源已回退至上一有效批次`
         : '';
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · 仅展示最新一批${fallbackNote}`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站合并展示 · 默认按上传时间${fallbackNote}`;
     }
 
     paintVideoList();

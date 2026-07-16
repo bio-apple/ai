@@ -24,7 +24,7 @@ npm ci && pip install -r requirements.txt
 - 工具分类 / 教程 / 替代互补关系 / 排行对比
 - 推荐助手 · 站内搜索 · 学习回访
 - 数据运营热榜（浏览 / 点击）
-- 一周内 AI 热点（日更）· 六类每日视频 · GitHub Stars 开源精选
+- 一周内 AI 热点（日更）· YouTube/B站每日视频 · GitHub Stars 开源精选
 
 ## 改内容
 
