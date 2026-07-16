@@ -170,6 +170,8 @@ header {
   text-align: left;
   border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
+  box-sizing: border-box;
   transition:
     background 0.15s,
     color 0.15s;

@@ -106,6 +106,10 @@ test.describe('Bio AI Lab 关键路径', () => {
 
   test('工具中心与 Labs', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
+    await page.goto('index.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('.nav-dropdown-trigger', { hasText: '工具' })).toBeVisible();
+    await expect(page.locator('.nav-dropdown-trigger', { hasText: 'AI 助手' })).toHaveCount(0);
+    await expect(page.locator('.nav-link-page', { hasText: '工具中心' })).toHaveCount(0);
     await page.goto('tools/hub.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('工具中心');
     await page.goto('labs/index.html', { waitUntil: 'domcontentloaded' });

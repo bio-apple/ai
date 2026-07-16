@@ -47,9 +47,11 @@ export function buildCreateToolCards() {
 export function flattenNavLabels() {
   const labels: Record<string, string> = {};
   for (const item of site.nav.menu) {
-    if (item.type === 'tab') labels[item.id] = item.label;
+    if (item.type === 'tab' && 'id' in item && item.id) labels[item.id] = item.label;
     else if (item.type === 'dropdown') {
-      for (const sub of item.children || []) labels[sub.id] = sub.label;
+      for (const sub of item.children || []) {
+        if ('id' in sub && sub.id) labels[sub.id] = sub.label;
+      }
     }
   }
   return labels;
