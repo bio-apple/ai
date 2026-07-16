@@ -30,16 +30,15 @@ const rankMeta = hubRankingMeta();
   canonical={`${base}tools/hub.html`}
   schema={schema}
   ogType="website"
-  scripts={['analytics.js', 'ux.js', 'app.js', 'progress.js', 'ranking-tabs.js']}
+  scripts={['analytics.js', 'ux.js', 'app.js', 'ranking-tabs.js']}
 >
   <main class="standalone-page tools-hub-page hub-compare-page aicpb-ranking-page">
     <nav class="breadcrumb"><a href={homeHref()}>首页</a> / 工具中心</nav>
     <div class="standalone-hero">
-      <p class="section-kicker">对比选型 · AICPB 排行 · {toolCount} 款精选</p>
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
       <p class="standalone-meta">
-        先对比能力与场景，再看 {rankMeta.source_name} 市场热度（更新 {rankMeta.updated_at}）
+        {toolCount} 款精选 · {rankMeta.source_name} 更新 {rankMeta.updated_at}
       </p>
       <div class="hub-quick-links" aria-label="本页目录">
         <a href="#hub-compare" class="recommend-link">精选对比</a>
@@ -47,14 +46,10 @@ const rankMeta = hubRankingMeta();
       </div>
     </div>
 
-    <!-- 产品：选型决策；UX：能力维度优先于热度 -->
     <section class="hub-compare-section" id="hub-compare" aria-labelledby="hub-compare-title">
       <div class="section-head">
-        <p class="section-kicker">1 · 选型</p>
         <h2 class="section-title" id="hub-compare-title">精选 AI 工具对比</h2>
-        <p class="section-desc">
-          按类型、优势、场景与定价横向比较；点「官方教程 / 站内教程」继续上手。
-        </p>
+        <p class="section-desc">类型、优势、场景与定价一表看清，点教程继续上手。</p>
       </div>
 
       <div class="hub-compare-wrap" role="region" aria-label="AI 工具对比表" tabindex="0">
@@ -119,15 +114,11 @@ const rankMeta = hubRankingMeta();
       </div>
     </section>
 
-    <!-- 产品：市场信号；前端：复用 Tab + AICPB 表格样式 -->
     <section class="hub-ranking-section" id="hub-ranking" aria-labelledby="hub-ranking-title">
       <div class="section-head">
-        <p class="section-kicker">2 · 排行</p>
         <h2 class="section-title" id="hub-ranking-title">AI 工具排行</h2>
         <p class="section-desc">
-          数据来自 {rankMeta.source_name}，按 Website 访问量；此处各榜展示 Top {
-            HUB_RANKING_TOP_N
-          }（{rankMeta.month_label}）。
+          {rankMeta.source_name} · 各榜 Top {HUB_RANKING_TOP_N}（{rankMeta.month_label}）
         </p>
       </div>
 

@@ -23,7 +23,7 @@ const {
   description,
   canonical,
   schema,
-  scripts = ['analytics.js', 'ux.js', 'app.js', 'progress.js'],
+  scripts = ['analytics.js', 'ux.js', 'app.js'],
   ogType = 'article',
 } = Astro.props;
 
@@ -55,17 +55,11 @@ const home = homeHref();
   <body>
     <a class="skip-link" href="#main-content">跳到主要内容</a>
     <UxWidgets />
-    <Nav
-      nav={site.nav}
-      standalone={true}
-      homeHref={home}
-      navPrefix={BASE}
-      githubUrl={site.footer.github}
-    />
+    <Nav nav={site.nav} standalone={true} homeHref={home} navPrefix={BASE} />
     <div id="main-content">
       <slot />
     </div>
-    <Footer text={site.footer.text} github={site.footer.github} />
+    <Footer text={site.footer.text} />
     {scripts.map((src) => <script src={assetVersioned(src)} defer />)}
   </body>
 </html>

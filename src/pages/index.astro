@@ -23,7 +23,6 @@ const schema = buildHomeSchema(site);
     'ux.js',
     'app.js',
     'recommend.js',
-    'progress.js',
     'engagement.js',
     'lazy-sections.js',
   ]}
@@ -95,31 +94,29 @@ const schema = buildHomeSchema(site);
         aria-labelledby="home-community-title"
       >
         <div class="section-head">
-          <p class="section-kicker">继续探索</p>
           <h2 class="section-title" id="home-community-title">工具中心与实战案例</h2>
-          <p class="section-desc">选型看工具对比与教程，落地跟实战案例，两条路径互补。</p>
         </div>
         <div class="community-links community-links--duo">
           <a
             href={asset('tools/hub.html')}
             class="community-card"
             data-track="home-community-hub"
-            aria-label="进入 AI 工具中心，查看精选工具、应用分类与官方教程"
+            aria-label="进入 AI 工具中心"
           >
-            <span class="community-card-kicker">对比 · AICPB 排行</span>
+            <span class="community-card-kicker">对比 · 排行</span>
             <strong>AI 工具中心</strong>
-            <span>精选对比表 + AI产品榜排行，选型与市场热度一并看清。</span>
+            <span>精选对比表与 AICPB 排行，快速选型。</span>
             <em class="community-card-cta">浏览工具 →</em>
           </a>
           <a
             href={asset('cases/index.html')}
             class="community-card"
             data-track="home-community-cases"
-            aria-label="进入实战案例，查看工作流与 Prompt 库"
+            aria-label="进入实战案例"
           >
-            <span class="community-card-kicker">工作流 · Prompt</span>
+            <span class="community-card-kicker">工作流</span>
             <strong>实战案例</strong>
-            <span>可复制步骤与提示词模板，把工具选型落到具体任务。</span>
+            <span>可复制步骤，把选型落到具体任务。</span>
             <em class="community-card-cta">查看案例 →</em>
           </a>
         </div>
@@ -177,9 +174,7 @@ const schema = buildHomeSchema(site);
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
         <div>
           <h2>每日 AI 视频推荐</h2>
-          <p class="desc">
-            日更完整列表：YouTube / B站各自合并展示，默认按上传时间排序。上方简报仅摘 2 条。
-          </p>
+          <p class="desc">YouTube 与 B站日更列表，默认按上传时间排序。</p>
           <p class="video-update-meta" id="video-update-meta"></p>
         </div>
       </div>

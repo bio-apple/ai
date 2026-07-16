@@ -494,43 +494,6 @@ header {
   margin: 0 0 14px;
 }
 
-.scenario-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 12px;
-}
-
-.scenario-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 20px 16px;
-  text-align: center;
-  transition:
-    transform 0.25s,
-    border-color 0.25s,
-    box-shadow 0.25s;
-}
-
-.scenario-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-light);
-  box-shadow: var(--shadow-hover);
-}
-
-.scenario-card .icon {
-  font-size: 1.6rem;
-  margin-bottom: 8px;
-}
-.scenario-card h4 {
-  font-size: 0.9rem;
-  margin-bottom: 4px;
-}
-.scenario-card p {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-}
-
 .tool-icon.chatgpt {
   background: rgba(13, 143, 111, 0.12);
   color: var(--chatgpt);

@@ -156,10 +156,6 @@
   border-top: 1px solid var(--border);
 }
 
-.tool-card-top {
-  position: relative;
-}
-
 @media (max-width: 640px) {
   .recommend-composer {
     padding: 14px;

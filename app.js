@@ -113,16 +113,6 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
 window.showSection = showSection;
 
 function resolveGoto(target) {
-  if (
-    target === 'cases' ||
-    target === 'videos' ||
-    target === 'news' ||
-    target === 'create' ||
-    target === 'prompts' ||
-    target === 'oss'
-  ) {
-    return `section-${target}`;
-  }
   if (target === 'all' || target === 'home') return 'section-home';
   return `section-${target}`;
 }
@@ -178,31 +168,6 @@ function initMobileNav() {
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-}
-
-function initAiPicker() {
-  const options = document.querySelectorAll('.ai-picker-option');
-  const groups = document.querySelectorAll('.ai-picker-tool-group');
-  if (!options.length) return;
-
-  options.forEach((opt) => {
-    opt.addEventListener('click', () => {
-      const id = opt.dataset.picker;
-      options.forEach((o) => {
-        o.classList.toggle('active', o === opt);
-        o.setAttribute('aria-pressed', o === opt ? 'true' : 'false');
-      });
-      groups.forEach((g) => g.classList.toggle('active', g.dataset.pickerResult === id));
-      trackEvent('ai-picker', { choice: id });
-    });
-  });
-
-  document.querySelectorAll('.ai-picker-tool[data-tool]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      showSection(`section-${btn.dataset.tool}`);
-      trackEvent('ai-picker-tool', { tool: btn.dataset.tool });
-    });
   });
 }
 
@@ -553,7 +518,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initHashRouting();
   initNavDropdowns();
   initMobileNav();
-  initAiPicker();
   initScrollAnimations();
   initCasesLibraryFilter();
   loadSearchIndex().finally(() => {

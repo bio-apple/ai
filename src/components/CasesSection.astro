@@ -1,18 +1,11 @@
 ---
 import { cases, flattenNavLabels, toolNamesMap } from '../lib/data';
-import { asset } from '../lib/paths';
 
-interface Props {
-  /** spa：首页旧区块样式；page：独立案例页（始终可见） */
-  mode?: 'spa' | 'page';
-}
-const { mode = 'page' } = Astro.props;
 const navLabels = flattenNavLabels();
 const toolNames = toolNamesMap();
-const wrapClass = mode === 'spa' ? 'section cases-section' : 'cases-section cases-page-body active';
 ---
 
-<section id="section-cases" class={wrapClass}>
+<section id="section-cases" class="cases-section cases-page-body active">
   <main>
     <div class="tool-header">
       <div class="tool-icon" style="background:rgba(59,130,246,0.15);color:var(--accent)">⚡</div>
@@ -30,18 +23,6 @@ const wrapClass = mode === 'spa' ? 'section cases-section' : 'cases-section case
         <strong>{cases.scenario_filters.length - 1}</strong><span>应用场景</span>
       </div>
     </div>
-    {
-      mode === 'spa' && (
-        <div class="section-cta" style="margin-bottom:24px">
-          <a href={asset('cases/index.html')} class="cta-btn cta-btn-outline">
-            独立案例库页 →
-          </a>
-          <a href={asset('prompts/library.html')} class="cta-btn">
-            浏览 Prompt 库 →
-          </a>
-        </div>
-      )
-    }
     <div class="case-filters">
       {
         cases.tool_filters.map((f) => (

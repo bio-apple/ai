@@ -51,7 +51,7 @@
   "hero": {
     "eyebrow": "Bio AI Lab",
     "title": "让每个人拥有自己的 AI 工作流",
-    "subtitle": "Bio-Apple 出品：发现、学习并使用下一代 AI 工具，从趋势到实践一步到位。",
+    "subtitle": "对比选型、实战案例、热点与视频——搭好你的 AI 工作流。",
     "cta_primary": {
       "label": "获取 AI 推荐",
       "href": "#home-recommend"
@@ -219,7 +219,7 @@
   ],
   "ai_picker": {
     "title": "你想使用 AI 做什么？",
-    "lead": "先描述目标或点选场景，立刻拿到工具选型；再跟学习路线与案例动手。",
+    "lead": "描述目标或点选场景，立刻拿到工具与下一步。",
     "options": [
       {
         "id": "writing",
@@ -495,24 +495,15 @@
   "faq": [
     {
       "question": "零基础应该先学哪个 AI 工具？",
-      "answer": "建议从 ChatGPT、豆包或 DeepSeek 开始学会基本对话和提示词，编程方向选 Cursor 或 GitHub Copilot，长文档分析选 Kimi 或 Claude。"
+      "answer": "对话从 ChatGPT、豆包或 DeepSeek 起步；编程选 Cursor 或 Copilot；长文档选 Kimi 或 Claude。"
     },
     {
-      "question": "Cursor 和 GitHub Copilot 哪个更适合日常编码？",
-      "answer": "Cursor 适合需要 Agent 跨文件改动的快速迭代；Copilot 适合已在 VS Code 生态、预算较低的场景。详见选型对比页。"
-    },
-    {
-      "question": "本站每日视频如何更新？",
-      "answer": "每日自动抓取 YouTube 与 B站 AI 应用教程；页面可按平台筛选，并按上传时间或播放量排序。"
-    },
-    {
-      "question": "AI 新闻多久更新一次？",
-      "answer": "每日更新一周内 AI 热点：官方博客、arXiv、GitHub Trending 与主要中文科技媒体摘要。"
+      "question": "Cursor 和 GitHub Copilot 怎么选？",
+      "answer": "需要 Agent 跨文件改动选 Cursor；已在 VS Code 且预算有限选 Copilot。详见站内对比页。"
     }
   ],
   "footer": {
-    "text": "Bio AI Lab · Discover. Learn. Create with AI.",
-    "github": "https://github.com/bio-apple/ai"
+    "text": "Bio AI Lab · Discover. Learn. Create with AI."
   },
   "recommend_fallback": {
     "tools": ["chatgpt", "claude", "cursor"],
@@ -523,6 +514,6 @@
   "tools_hub_page": {
     "title": "AI 工具中心 | Bio AI Lab",
     "h1": "AI 工具中心",
-    "lead": "精选工具对比表 + AI产品榜（AICPB）排行：先按能力选型，再看市场热度。"
+    "lead": "先对比能力与场景，再看 AICPB 市场热度。"
   }
 }

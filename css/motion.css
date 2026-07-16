@@ -69,7 +69,6 @@
 .nav-tab,
 .video-filter,
 .video-sort,
-.scenario-card,
 .tool-card,
 .prompt-card,
 .compare-card,
@@ -84,7 +83,6 @@
 
 .cta-btn:hover:hover,
 .tool-card:hover,
-.scenario-card:hover,
 .prompt-card:hover,
 .compare-card:hover,
 .video-card:hover {

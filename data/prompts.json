@@ -10,10 +10,5 @@
     { "id": "writing", "label": "写作", "icon": "✍" },
     { "id": "productivity", "label": "办公", "icon": "⚙" },
     { "id": "market", "label": "市场分析", "icon": "📊" }
-  ],
-  "page": {
-    "title": "Prompt 提示词库 | Bio AI Lab",
-    "h1": "Prompt 提示词库",
-    "lead": "精选可复制提示词模板，覆盖写作、编程、科研、办公与市场调研等场景。"
-  }
+  ]
 }

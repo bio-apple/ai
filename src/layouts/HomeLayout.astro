@@ -62,17 +62,11 @@ const styleHref = asset('style.css');
     <a class="skip-link" href="#main-content">跳到主要内容</a>
     <UxWidgets />
     {includeKnowledge && <KnowledgeAssistant />}
-    <Nav
-      nav={site.nav}
-      standalone={false}
-      homeHref={asset('index.html')}
-      navPrefix={BASE}
-      githubUrl={site.footer.github}
-    />
+    <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
     <div id="main-content">
       <slot />
     </div>
-    <Footer text={site.footer.text} github={site.footer.github} />
+    <Footer text={site.footer.text} />
     {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
   </body>
 </html>

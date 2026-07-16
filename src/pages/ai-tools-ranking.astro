@@ -19,17 +19,16 @@ const boards = rankings.boards || [];
   description={rankings.lead}
   canonical={`${base}ai-tools-ranking.html`}
   schema={schema}
-  scripts={['analytics.js', 'ux.js', 'app.js', 'progress.js', 'ranking-tabs.js']}
+  scripts={['analytics.js', 'ux.js', 'app.js', 'ranking-tabs.js']}
 >
   <main class="standalone-page ranking-page aicpb-ranking-page">
     <nav class="breadcrumb"><a href={home}>首页</a> / AI 工具排行榜</nav>
 
     <div class="standalone-hero aicpb-ranking-hero">
-      <p class="section-kicker">每日更新 · {rankings.updated_at}</p>
       <h1>{rankings.title}</h1>
       <p class="standalone-lead">{rankings.lead}</p>
       <p class="standalone-meta">
-        数据月份 {rankings.month_label || rankings.month} · 来源 AICPB · 各榜仅展示 Top 10
+        {rankings.month_label || rankings.month} · AICPB · Top 10 · 更新 {rankings.updated_at}
       </p>
     </div>
 
