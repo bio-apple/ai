@@ -23,49 +23,17 @@
       },
       {
         "type": "dropdown",
-        "label": "AI 助手",
+        "label": "工具",
         "children": [
           {
-            "id": "chatgpt",
-            "label": "ChatGPT"
+            "label": "工具中心",
+            "href": "tools/hub.html"
           },
           {
-            "id": "claude",
-            "label": "Claude"
-          },
-          {
-            "id": "gemini",
-            "label": "Gemini"
-          },
-          {
-            "id": "deepseek",
-            "label": "DeepSeek"
+            "label": "AI Labs",
+            "href": "labs/index.html"
           }
         ]
-      },
-      {
-        "type": "dropdown",
-        "label": "AI 编程",
-        "children": [
-          {
-            "id": "cursor",
-            "label": "Cursor"
-          },
-          {
-            "id": "copilot",
-            "label": "Copilot"
-          }
-        ]
-      },
-      {
-        "type": "page",
-        "label": "工具中心",
-        "href": "tools/hub.html"
-      },
-      {
-        "type": "page",
-        "label": "AI Labs",
-        "href": "labs/index.html"
       },
       {
         "type": "tab",
@@ -756,6 +724,6 @@
   "tools_hub_page": {
     "title": "AI 工具中心 | Bio AI Lab",
     "h1": "AI 工具中心",
-    "lead": "按助手、编程、写作、图片、视频、音频、办公与 Agent 分类发现工具。"
+    "lead": "助手、编程、写作、图片、视频、音频、办公与 Agent 一站分类；动手实验见 AI Labs。"
   }
 }

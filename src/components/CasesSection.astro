@@ -46,7 +46,7 @@ const wrapClass = mode === 'spa' ? 'section cases-section' : 'cases-section case
       {
         cases.tool_filters.map((f) => (
           <button class:list={['case-filter', { active: f === 'all' }]} data-filter={f}>
-            {f === 'all' ? '全部' : navLabels[f] || f}
+            {f === 'all' ? '全部' : toolNames[f] || navLabels[f] || f}
           </button>
         ))
       }

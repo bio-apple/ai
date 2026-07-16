@@ -52,8 +52,17 @@ const {
                   {item.label} <span class="nav-chevron">▾</span>
                 </button>
                 <div class="nav-dropdown-menu" role="menu">
-                  {item.children?.map((sub) =>
-                    standalone ? (
+                  {item.children?.map((sub) => {
+                    const href = 'href' in sub && sub.href ? String(sub.href) : '';
+                    if (href) {
+                      return (
+                        <a href={`${navPrefix}${href}`} class="nav-dropdown-item" role="menuitem">
+                          {sub.label}
+                        </a>
+                      );
+                    }
+                    if (!('id' in sub) || !sub.id) return null;
+                    return standalone ? (
                       <a
                         href={`${homeHref}#section-${sub.id}`}
                         class="nav-dropdown-item"
@@ -70,8 +79,8 @@ const {
                       >
                         {sub.label}
                       </button>
-                    ),
-                  )}
+                    );
+                  })}
                 </div>
               </div>
             );

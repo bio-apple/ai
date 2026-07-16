@@ -28,6 +28,13 @@ const urls = site.tool_urls || {};
     <div class="standalone-hero">
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
+      <div class="hub-quick-links">
+        <a href="#hub-assistant" class="recommend-link">AI 助手</a>
+        <a href="#hub-coding" class="recommend-link">AI 编程</a>
+        <a href={asset('labs/index.html')} class="recommend-link" data-track="hub-quick-labs"
+          >AI Labs →</a
+        >
+      </div>
     </div>
 
     {
