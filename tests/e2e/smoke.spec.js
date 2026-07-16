@@ -43,6 +43,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-favorites')).toHaveCount(0);
     await expect(page.locator('#home-learning')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toBeVisible();
+    await expect(page.locator('a.logo')).toHaveAttribute('aria-label', '返回首页');
+    await expect(page.locator('a.logo')).toHaveAttribute('href', /index\.html$/);
   });
 
   test('推荐助手文本流', async ({ page }) => {
