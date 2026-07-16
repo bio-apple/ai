@@ -12,13 +12,13 @@ const brief = pickAiDailyBrief();
       <p class="section-desc">标题速览 · 详情进新闻与视频专区</p>
     </div>
     {brief.updatedAt && (
-      <p class="daily-updated">资讯更新于 {formatNewsDate(brief.updatedAt)} · 周更</p>
+      <p class="daily-updated">资讯更新于 {formatNewsDate(brief.updatedAt)} · 日更</p>
     )}
   </div>
 
   <div class="daily-grid">
     <article class="daily-panel">
-      <h3 class="daily-panel-title">本周 · 模型与发布 <span class="daily-cadence">周更</span></h3>
+      <h3 class="daily-panel-title">最新 · 模型与发布 <span class="daily-cadence">日更</span></h3>
       <ul class="daily-list">
         {brief.models.map((item) => (
           <li>
@@ -33,7 +33,7 @@ const brief = pickAiDailyBrief();
     </article>
 
     <article class="daily-panel">
-      <h3 class="daily-panel-title">GitHub 热门 <span class="daily-cadence">周更</span></h3>
+      <h3 class="daily-panel-title">GitHub 热门 <span class="daily-cadence">日更</span></h3>
       <ul class="daily-list">
         {brief.github.map((item) => (
           <li>
@@ -50,7 +50,7 @@ const brief = pickAiDailyBrief();
     </article>
 
     <article class="daily-panel">
-      <h3 class="daily-panel-title">本周 · 行业资讯 <span class="daily-cadence">周更</span></h3>
+      <h3 class="daily-panel-title">最新 · 行业资讯 <span class="daily-cadence">日更</span></h3>
       <ul class="daily-list">
         {brief.industry.map((item) => (
           <li>

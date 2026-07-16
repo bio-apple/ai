@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bio-apple.github.io/ai/schemas/ai-news.schema.json",
-  "title": "AI news weekly payload",
+  "title": "AI news daily payload",
   "type": "object",
   "required": ["items"],
   "properties": {

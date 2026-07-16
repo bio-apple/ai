@@ -210,7 +210,7 @@ async function loadDailyNews() {
     }
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      const cadence = data.cadence === 'weekly' ? '每周一' : '最近';
+      const cadence = data.cadence === 'daily' ? '每日' : (data.cadence === 'weekly' ? '每周一' : '最近');
       meta.textContent = `${cadence}更新 · ${updated.toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' })} · ${newsState.items.length} 条`;
     }
     paintNewsList();

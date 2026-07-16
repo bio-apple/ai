@@ -1,0 +1,302 @@
+{
+  "month": "2026-07",
+  "updated_at": "2026-07-16",
+  "cadence": "monthly",
+  "title": "2026 AI 工具排行榜（按月）",
+  "lead": "每月更新三份榜单：用户量、模型能力、价格。面向中文用户，综合公开资料与站内体验，分数为相对分（满分 10），非官方统计。",
+  "methodology": [
+    "用户量：公开月活/下载量报道、生态体量、中文区渗透（权重偏「能找得到人在用」）。",
+    "模型能力：推理/长文本/多模态/编程 Agent 等综合表现（权重偏「干得成难活」）。",
+    "价格：免费额度、订阅与 API 性价比（权重偏「同等效果花更少」；免费可用得分更高）。",
+    "榜单每月刷新；上月可在 Git 历史中回看 data/rankings.json。"
+  ],
+  "dimensions": [
+    {
+      "id": "users",
+      "label": "用户量",
+      "description": "谁更「有人用」：全球与中文区体量、入口触达",
+      "items": [
+        {
+          "rank": 1,
+          "id": "chatgpt",
+          "name": "ChatGPT",
+          "score": 9.8,
+          "metric": "全球月活领先",
+          "note": "通用助手默认入口，生态与 GPTs 最全"
+        },
+        {
+          "rank": 2,
+          "id": "doubao",
+          "name": "豆包",
+          "score": 9.2,
+          "metric": "国内 C 端渗透高",
+          "note": "字节系分发强，移动端触达广"
+        },
+        {
+          "rank": 3,
+          "id": "deepseek",
+          "name": "DeepSeek",
+          "score": 9.0,
+          "metric": "爆发式增长",
+          "note": "性价比带动海量尝鲜与留存"
+        },
+        {
+          "rank": 4,
+          "id": "gemini",
+          "name": "Gemini",
+          "score": 8.6,
+          "metric": "Google 生态分发",
+          "note": "搜索/Workspace/Android 联动"
+        },
+        {
+          "rank": 5,
+          "id": "qwen",
+          "name": "通义千问",
+          "score": 8.4,
+          "metric": "阿里云与钉钉触达",
+          "note": "企业与开放平台用户面宽"
+        },
+        {
+          "rank": 6,
+          "id": "kimi",
+          "name": "Kimi",
+          "score": 8.1,
+          "metric": "长文档场景口碑",
+          "note": "垂直场景粘性高"
+        },
+        {
+          "rank": 7,
+          "id": "claude",
+          "name": "Claude",
+          "score": 7.9,
+          "metric": "专业用户占比高",
+          "note": "体量小于 ChatGPT，质量用户多"
+        },
+        {
+          "rank": 8,
+          "id": "cursor",
+          "name": "Cursor",
+          "score": 7.6,
+          "metric": "开发者增长快",
+          "note": "编程细分赛道头部"
+        },
+        {
+          "rank": 9,
+          "id": "copilot",
+          "name": "GitHub Copilot",
+          "score": 7.4,
+          "metric": "IDE 内置分发",
+          "note": "随 GitHub/VS Code 触达稳定"
+        },
+        {
+          "rank": 10,
+          "id": "codex",
+          "name": "Codex",
+          "score": 6.8,
+          "metric": "OpenAI 编程产品线",
+          "note": "相对 Cursor/Copilot 心智偏新"
+        }
+      ]
+    },
+    {
+      "id": "capability",
+      "label": "模型能力",
+      "description": "谁更「能干」：推理、长文、多模态、Agent/编程",
+      "items": [
+        {
+          "rank": 1,
+          "id": "claude",
+          "name": "Claude",
+          "score": 9.7,
+          "metric": "长文与工程推理强",
+          "note": "复杂文档、代码审查、Artifacts 体验突出"
+        },
+        {
+          "rank": 2,
+          "id": "chatgpt",
+          "name": "ChatGPT",
+          "score": 9.5,
+          "metric": "综合最均衡",
+          "note": "多模态、工具调用、生态完整"
+        },
+        {
+          "rank": 3,
+          "id": "gemini",
+          "name": "Gemini",
+          "score": 9.3,
+          "metric": "多模态与超长上下文",
+          "note": "视频/图像理解与 Google 工具链"
+        },
+        {
+          "rank": 4,
+          "id": "cursor",
+          "name": "Cursor",
+          "score": 9.2,
+          "metric": "编程 Agent",
+          "note": "跨文件改动与项目级工作流领先"
+        },
+        {
+          "rank": 5,
+          "id": "deepseek",
+          "name": "DeepSeek",
+          "score": 9.0,
+          "metric": "推理性价比极高",
+          "note": "硬推理接近一线，工程生态仍在追赶"
+        },
+        {
+          "rank": 6,
+          "id": "kimi",
+          "name": "Kimi",
+          "score": 8.7,
+          "metric": "超长文本",
+          "note": "合同/论文/报告速读场景强"
+        },
+        {
+          "rank": 7,
+          "id": "qwen",
+          "name": "通义千问",
+          "score": 8.5,
+          "metric": "中文与开源双线",
+          "note": "云上能力与开源模型家族完整"
+        },
+        {
+          "rank": 8,
+          "id": "copilot",
+          "name": "GitHub Copilot",
+          "score": 8.3,
+          "metric": "补全与仓库上下文",
+          "note": "IDE 内稳定；Agent 深度不及 Cursor"
+        },
+        {
+          "rank": 9,
+          "id": "codex",
+          "name": "Codex",
+          "score": 8.1,
+          "metric": "代码生成",
+          "note": "OpenAI 编程能力底座，产品形态演进中"
+        },
+        {
+          "rank": 10,
+          "id": "doubao",
+          "name": "豆包",
+          "score": 7.8,
+          "metric": "日常对话够用",
+          "note": "偏 C 端体验，硬核推理非主打"
+        }
+      ]
+    },
+    {
+      "id": "price",
+      "label": "价格",
+      "description": "谁更「划算」：免费额度、订阅与 API 性价比（分数越高越省）",
+      "items": [
+        {
+          "rank": 1,
+          "id": "deepseek",
+          "name": "DeepSeek",
+          "score": 9.8,
+          "metric": "免费+API 极低价",
+          "note": "同等推理强度下成本优势明显"
+        },
+        {
+          "rank": 2,
+          "id": "doubao",
+          "name": "豆包",
+          "score": 9.5,
+          "metric": "C 端免费友好",
+          "note": "日常对话几乎零门槛"
+        },
+        {
+          "rank": 3,
+          "id": "qwen",
+          "name": "通义千问",
+          "score": 9.2,
+          "metric": "免费档+云上弹性",
+          "note": "开源可自建进一步压成本"
+        },
+        {
+          "rank": 4,
+          "id": "gemini",
+          "name": "Gemini",
+          "score": 8.8,
+          "metric": "免费层实用",
+          "note": "Advanced/订阅按需；免费已覆盖多数场景"
+        },
+        {
+          "rank": 5,
+          "id": "kimi",
+          "name": "Kimi",
+          "score": 8.5,
+          "metric": "长文免费额度",
+          "note": "重文档用户性价比高"
+        },
+        {
+          "rank": 6,
+          "id": "chatgpt",
+          "name": "ChatGPT",
+          "score": 7.4,
+          "metric": "免费可用 / Plus 偏贵",
+          "note": "能力强但订阅与高级模型成本高"
+        },
+        {
+          "rank": 7,
+          "id": "copilot",
+          "name": "GitHub Copilot",
+          "score": 7.2,
+          "metric": "个人订阅适中",
+          "note": "相对 Cursor 更便宜；功能面更窄"
+        },
+        {
+          "rank": 8,
+          "id": "claude",
+          "name": "Claude",
+          "score": 7.0,
+          "metric": "Pro 订阅偏高",
+          "note": "质量换价格；重度用户仍值"
+        },
+        {
+          "rank": 9,
+          "id": "cursor",
+          "name": "Cursor",
+          "score": 6.6,
+          "metric": "订阅+用量",
+          "note": "Agent 强但月费与额度需规划"
+        },
+        {
+          "rank": 10,
+          "id": "codex",
+          "name": "Codex",
+          "score": 6.5,
+          "metric": "随 OpenAI 套餐",
+          "note": "定价跟 ChatGPT/API 体系绑定"
+        }
+      ]
+    }
+  ],
+  "highlights": [
+    {
+      "medal": "👥",
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "dimension": "用户量 Top 1",
+      "score": 9.8,
+      "stars": 5
+    },
+    {
+      "medal": "🧠",
+      "id": "claude",
+      "name": "Claude",
+      "dimension": "模型能力 Top 1",
+      "score": 9.7,
+      "stars": 5
+    },
+    {
+      "medal": "💰",
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "dimension": "价格 Top 1",
+      "score": 9.8,
+      "stars": 5
+    }
+  ]
+}

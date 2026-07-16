@@ -4,9 +4,18 @@
 
 | 日 | 动作 |
 |----|------|
-| 周一 | 确认 `ai-news` / OSS Stars workflow 成功；抽查简报三栏 |
-| 每日 | 确认 `daily-videos` 六类非空；B 站封面是否进仓库 |
+| 每日 | 确认 `daily-videos` 六类非空；确认 `daily-news` 成功；抽查简报三栏 |
+| 周一 | 确认 `weekly-oss` Star 刷新成功 |
+| 月初 | 更新 `data/rankings.json`：用户量 / 模型能力 / 价格三榜；同步 `site.json` → `rankings` 三项冠军与 `ranking_page.updated` |
 | 周五 | 工具中心外链抽样 5 条；死链记入 Issue |
+
+## 排行榜（按月）
+
+源文件：`data/rankings.json`。
+
+- 三个 `dimensions`：`users`（用户量）、`capability`（模型能力）、`price`（价格）
+- `highlights`：三项冠军（首页/Schema 预览用，需与 `site.json` → `rankings` 保持一致）
+- 改完后：`npm run build` + 打开 `/ai/ai-tools-ranking.html` 目视三榜
 
 ## 工具中心「延伸推荐」验收
 

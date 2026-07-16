@@ -1,9 +1,9 @@
 # AI 新闻抓取配置（scripts/fetch_ai_news.py）
-# 更新频次：每周一次（见 .github/workflows/weekly-news.yml）
+# 更新频次：每日一次（见 .github/workflows/daily-news.yml）
 
 max_items: 48
 max_per_feed: 5
-max_age_days: 7
+max_age_days: 3
 min_per_source: 1
 
 feeds:

@@ -18,14 +18,15 @@ Site Health / Issue 打开
         ├─ 首页或 style/JSON 404 ──────────────► P0：查 Pages/CI 部署 → 本地 build+validate → 重部署
         ├─ daily-videos 过期 ──────────────────► P1：workflow_dispatch daily-videos（可 force）
         │                                         确认 thumbs 一并提交 → 仍挂则回滚 JSON+thumbs
-        ├─ ai-news 过期 ───────────────────────► P1：workflow_dispatch weekly-news → 回滚新闻产物
+        ├─ ai-news 过期 ───────────────────────► P1：workflow_dispatch daily-news → 回滚新闻产物
         └─ 抓取 metrics 严重不足 ──────────────► 看 Step Summary → 修源/配额 → 重跑 → 必要时回滚
 ```
 
 快捷链接（替换为你的仓库若 fork）：
 
 - [Daily videos](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)
-- [Weekly news](https://github.com/bio-apple/ai/actions/workflows/weekly-news.yml)
+- [Daily news](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)
+- [Weekly OSS](https://github.com/bio-apple/ai/actions/workflows/weekly-oss.yml)
 - [Site health](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)
 - [CI](https://github.com/bio-apple/ai/actions/workflows/ci.yml)
 
@@ -93,7 +94,7 @@ git push
 | 级别 | 条件 | 动作 |
 |------|------|------|
 | P0 | 首页 / 关键 JSON 404 | 立刻查 Pages 部署与 `validate_ci` |
-| P1 | 视频 >2 天未更新 / 新闻 >10 天 | Issue + 手动 `workflow_dispatch` |
+| P1 | 视频 >2 天未更新 / 新闻 >2 天 | Issue + 手动 `workflow_dispatch` |
 | P2 | 单平台短窗口为空 | metrics 警告，不阻断 |
 
 ## 抓取门禁

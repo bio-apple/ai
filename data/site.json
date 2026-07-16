@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Bio AI Lab | AI 工具 · 开源 · 新闻 · 视频",
-    "description": "Bio AI Lab：国内国际热门 AI 工具分类/排行/对比、GitHub Stars 六领域开源精选、每周 AI 新闻，以及 YouTube/B站六类每日视频（100 天内上新 Top / 30 天上新 / 24h 上新）。",
+    "description": "Bio AI Lab：国内国际热门 AI 工具分类/排行/对比、GitHub Stars 六领域开源精选、每日 AI 新闻，以及 YouTube/B站六类每日视频（100 天内上新 Top / 30 天上新 / 24h 上新）。",
     "keywords": "Bio AI Lab,AI工具,AI排行,GitHub Stars,AI新闻,AI视频,ChatGPT,Cursor,DeepSeek",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
@@ -304,35 +304,27 @@
   ],
   "rankings": [
     {
-      "medal": "🥇",
+      "medal": "👥",
       "id": "chatgpt",
       "name": "ChatGPT",
-      "dimension": "综合能力",
+      "dimension": "用户量 Top 1",
       "score": 9.8,
       "stars": 5
     },
     {
-      "medal": "🥈",
+      "medal": "🧠",
       "id": "claude",
       "name": "Claude",
-      "dimension": "长文本",
-      "score": 9.5,
+      "dimension": "模型能力 Top 1",
+      "score": 9.7,
       "stars": 5
     },
     {
-      "medal": "🥉",
+      "medal": "💰",
       "id": "deepseek",
       "name": "DeepSeek",
-      "dimension": "性价比",
-      "score": 9.4,
-      "stars": 5
-    },
-    {
-      "medal": "💻",
-      "id": "cursor",
-      "name": "Cursor",
-      "dimension": "AI 编程",
-      "score": 9.6,
+      "dimension": "价格 Top 1",
+      "score": 9.8,
       "stars": 5
     }
   ],
@@ -633,9 +625,9 @@
     }
   ],
   "news_page": {
-    "title": "本周 AI 热点 | Bio AI Lab",
-    "h1": "本周 AI 热点",
-    "lead": "每周汇总 OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、Meta、Hugging Face、arXiv、GitHub Trending 与机器之心、量子位等中文渠道动态。"
+    "title": "AI 热点日报 | Bio AI Lab",
+    "h1": "AI 热点日报",
+    "lead": "每日汇总 OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、Meta、Hugging Face、arXiv、GitHub Trending 与机器之心、量子位等中文渠道动态。"
   },
   "prompts_page": {
     "title": "Prompt 提示词库 | Bio AI Lab",
@@ -725,8 +717,8 @@
   },
   "ranking_page": {
     "title": "2026 AI 工具排行榜 | Bio AI Lab",
-    "h1": "2026 AI 工具排行榜",
-    "lead": "综合综合能力、长文本、性价比、编程体验等维度，为中文用户精选 Top 工具。",
+    "h1": "2026 AI 工具排行榜（按月）",
+    "lead": "按月更新三份榜单：用户量、模型能力、价格。详细条目见 data/rankings.json。",
     "updated": "2026-07"
   },
   "faq": [
@@ -744,7 +736,7 @@
     },
     {
       "question": "AI 新闻多久更新一次？",
-      "answer": "每周一北京时间 6:00 自动汇总官方博客 RSS、arXiv 论文、GitHub Trending 与机器之心、量子位等中文媒体；同时关注 OpenAI、Anthropic、Meta、Hugging Face 等公司公告与 X 账号。"
+      "answer": "北京时间每日 6:00 自动汇总官方博客 RSS、arXiv 论文、GitHub Trending 与机器之心、量子位等中文媒体；同时关注 OpenAI、Anthropic、Meta、Hugging Face 等公司公告与 X 账号。"
     }
   ],
   "general_tips": {

@@ -28,7 +28,7 @@ jobs:
         env:
           SITE_BASE: https://bio-apple.github.io/ai
           VIDEO_MAX_AGE_DAYS: "2"
-          NEWS_MAX_AGE_DAYS: "10"
+          NEWS_MAX_AGE_DAYS: "2"
           REPO_ACTIONS_URL: https://github.com/bio-apple/ai/actions
 
       - name: Open or update issue on failure
@@ -49,7 +49,8 @@ jobs:
               '',
               '快捷入口：',
               `- [Daily videos](${{ github.server_url }}/${{ github.repository }}/actions/workflows/daily-videos.yml)`,
-              `- [Weekly news](${{ github.server_url }}/${{ github.repository }}/actions/workflows/weekly-news.yml)`,
+              `- [Daily news](${{ github.server_url }}/${{ github.repository }}/actions/workflows/daily-news.yml)`,
+              `- [Weekly OSS](${{ github.server_url }}/${{ github.repository }}/actions/workflows/weekly-oss.yml)`,
               `- [Pages](${{ github.server_url }}/${{ github.repository }}/actions/workflows/pages.yml)`,
               '',
               '<!-- site-health-probe -->',

@@ -3,9 +3,10 @@ import tools from '../../data/tools.json';
 import cases from '../../data/cases.json';
 import compares from '../../data/compares.json';
 import promptsMeta from '../../data/prompts.json';
+import rankings from '../../data/rankings.json';
 
 export const BRAND = 'Bio AI Lab';
-export { site, tools, cases, compares, promptsMeta };
+export { site, tools, cases, compares, promptsMeta, rankings };
 
 export type Tool = (typeof tools)[number];
 export type Compare = (typeof compares)[number];

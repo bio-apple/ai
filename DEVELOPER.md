@@ -22,7 +22,7 @@
 6. [前端设计](#前端设计)
 7. [本地开发](#本地开发)
 8. [每日视频流水线](#每日视频流水线)
-9. [每周新闻与开源 Star 流水线](#每周新闻与开源-star-流水线)
+9. [每日新闻与每周 OSS Star 流水线](#每日新闻与每周-oss-star-流水线)
 10. [CI/CD 与部署](#cicd-与部署)
 11. [内容维护指南](#内容维护指南)
 12. [配置参考](#配置参考)
@@ -46,7 +46,7 @@
                 ▼                              ▼
      ┌────────────────────┐         ┌──────────────────────────┐
      │ npm run build      │         │ daily-videos.yml（每日）   │
-     │ → dist/ → Pages    │         │ weekly-news.yml（每周）    │
+     │ → dist/ → Pages    │         │ daily-news.yml（每日）     │
      └────────────────────┘         │ → commit JSON 到仓库根目录 │
                                       └──────────────────────────┘
 ```
@@ -58,7 +58,7 @@
 - 10 个 AI 工具详情页由 `src/pages/tools/[id].astro` + `getStaticPaths` **自动生成**。
 - 生产环境以 **GitHub Pages** 部署 `dist/`；`backend/` 本地预览挂载 **`/ai/`**（与 Astro `base` 一致），`/` 重定向到 `/ai/`。
 - **每日视频**通过 `daily-videos.json` + `daily-videos.yml` 定时写入（六类推荐）。
-- **每周新闻**与 **GitHub Stars** 通过 `weekly-news.yml` 定时刷新 `ai-news.json` 与 `oss-projects.json`。
+- **每日新闻**通过 `daily-news.yml` 刷新 `ai-news.json`；**GitHub Stars** 通过 `weekly-oss.yml` 刷新 `oss-projects.json`。
 - 部署前必须通过 **Pages 校验**（`validate_ci.py`）；完整 CI 另含单元测试、FastAPI smoke 与 Playwright E2E（E2E **失败会使 CI 红**，但 **不挡 Pages** 部署）。
 - 站内链接与静态资源统一走 **`src/lib/paths.ts`**（`/ai/...`）；`validate_ci.py links` 会解析 `/ai/` 绝对路径并拒绝逃出 `dist/` 的相对路径。
 
@@ -102,7 +102,7 @@ ai/
 │   └── lib/                    # data.ts · schema.ts
 ├── config/
 │   ├── video-fetch.yaml        # 六类视频抓取配置
-│   └── news-fetch.yaml         # 每周新闻 RSS / 关注源配置
+│   └── news-fetch.yaml         # 每日新闻 RSS / 关注源配置
 ├── public/                     # prebuild 同步（gitignore）
 ├── dist/                       # Astro 构建产物（gitignore，CI 部署）
 ├── scripts/
@@ -110,17 +110,18 @@ ai/
 │   ├── sync-public.mjs         # css/js/json → public/
 │   ├── build-artifacts.mjs     # prompts/search-index/analytics-config
 │   ├── fetch_daily_videos.py   # 每日六类视频抓取
-│   ├── fetch_ai_news.py        # 每周新闻抓取
+│   ├── fetch_ai_news.py        # 每日新闻抓取
 │   ├── fetch_oss_stars.py      # 刷新 oss-projects Star 数
 │   └── validate_ci.py          # 校验 dist/
 ├── daily-videos.json           # 每日视频数据（Actions 写入）
-├── ai-news.json                # 每周新闻数据（Actions 写入）
+├── ai-news.json                # 每日新闻数据（Actions 写入）
 ├── oss-projects.json           # 开源精选运行时副本（与 data/ 同步）
 ├── oss.js · news.js · videos.js
 ├── .github/workflows/
 │   ├── ci.yml · pages.yml
 │   ├── daily-videos.yml        # 每日 0:00 北京时间
-│   └── weekly-news.yml         # 每周一 6:00 北京时间
+│   ├── daily-news.yml          # 每日 6:00 北京时间
+│   └── weekly-oss.yml          # 每周一 6:00 北京时间（Star）
 ├── astro.config.mjs · package.json
 ├── css/ · app.js · style.css
 ├── backend/                    # 本地预览 dist/ + 内容 API
@@ -180,7 +181,7 @@ npm run test:e2e
 
 - 每个工具的 SPA section + 独立页 URL
 - 对比专题页、对比指南
-- 每日视频、每周新闻、开源精选、排行榜
+- 每日视频、每日新闻、开源精选、排行榜
 
 > Prompt / 案例 / 学习路线 / Labs / 工具中心 **已写入**主搜索索引（`build-artifacts.mjs`）。
 
@@ -330,7 +331,7 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 | `all` | `section-home` | 总览：热门工具、分类、排行、对比、开源、新闻、视频 |
 | `chatgpt` … `copilot` | `section-{tool}` | 各 AI 工具教程 |
 | `oss` | `section-oss` | GitHub Stars 开源精选 |
-| `news` | `section-news` | 每周 AI 新闻 |
+| `news` | `section-news` | 每日 AI 新闻 |
 | `videos` | `section-videos` | 每日六类视频推荐（仅最新一批） |
 
 > 旧 hash（`cases` / `prompts` / `create`）若仍可跳转，属于**遗留兼容**；对应区块已不在 `index.astro` 主路径与导航中。
@@ -482,16 +483,18 @@ python3 scripts/fetch_daily_videos.py --force   # 升级分类后强制重抓今
 
 ---
 
-## 每周新闻与开源 Star 流水线
+## 每日新闻与每周 OSS Star 流水线
 
 ### 触发时机
 
-| 触发器 | 说明 |
-|--------|------|
-| `cron: "0 22 * * 0"` | UTC 周日 22:00 = 北京时间周一 06:00 |
-| `workflow_dispatch` | 手动运行 |
+| 工作流 | cron | 北京时间 |
+|--------|------|----------|
+| `daily-news.yml` | `0 22 * * *` | 每日 06:00 |
+| `weekly-oss.yml` | `0 22 * * 0` | 每周一 06:00 |
 
-工作流：`.github/workflows/weekly-news.yml`
+两者均支持 `workflow_dispatch` 手动运行。
+
+新闻工作流：`.github/workflows/daily-news.yml`（每日）；开源：`.github/workflows/weekly-oss.yml`（每周）
 
 ### 新闻信源
 
@@ -508,12 +511,16 @@ python3 scripts/fetch_daily_videos.py --force   # 升级分类后强制重抓今
 ### 抓取流程
 
 ```
+【每日新闻】
 1. 读取 config/news-fetch.yaml
 2. 拉取 RSS / HTML / GitHub Trending
-3. 按关键词分类；去重；保留近 7 天（最多 40 条）
+3. 按关键词分类；去重；保留近 3 天（见 max_age_days）
 4. 写入 ai-news.json + content/news/daily-ai-news.md
-5. 运行 fetch_oss_stars.py 刷新 data/oss-projects.json 与 oss-projects.json
-6. push → 触发 CI + Pages
+5. push → 显式派发 pages.yml
+
+【每周 OSS】
+1. fetch_oss_stars.py 刷新 data/oss-projects.json 与 oss-projects.json
+2. push → 显式派发 pages.yml
 ```
 
 ### 本地手动运行
@@ -538,7 +545,8 @@ push/PR → ci.yml（build + unit + validate 10 步 + API smoke；E2E 失败则 
 push main → pages.yml（build + validate → artifact → deploy；无 E2E）
 
 daily-videos.yml → metrics summary → commit → 失败开 Issue(ops,fetch)
-weekly-news.yml  → metrics summary → commit → 失败开 Issue(ops,fetch)
+daily-news.yml   → metrics summary → commit → 派发 Pages → 失败开 Issue(ops,fetch)
+weekly-oss.yml    → commit OSS stars → 派发 Pages → 失败开 Issue(ops,fetch)
 site-health.yml  → 探测线上新鲜度 → 失败开 Issue(ops,site-health)
 ```
 
@@ -558,7 +566,7 @@ npm run health:live
 |------|------------------------|
 | 首页 / style.css | HTTP 200 |
 | `daily-videos.json` | ≤ `VIDEO_MAX_AGE_DAYS`（默认 2 天） |
-| `ai-news.json` | ≤ `NEWS_MAX_AGE_DAYS`（默认 10 天） |
+| `ai-news.json` | ≤ `NEWS_MAX_AGE_DAYS`（默认 2 天） |
 
 ### `pages.yml`（发版）
 
@@ -700,7 +708,7 @@ watch_sources: [...]     # 官方博客 + X 账号
 
 ### GitHub Actions 权限
 
-- `daily-videos.yml`、`weekly-news.yml` 需 `contents: write`
+- `daily-videos.yml`、`daily-news.yml`、`weekly-oss.yml` 需 `contents: write`（派发 Pages 还需 `actions: write`）
 - Settings → Actions → Workflow permissions → **Read and write**
 
 ---
@@ -722,6 +730,7 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 1.11 | 主路径：推荐 → 简报 → 工具 → 收藏；学习/案例入 Labs·独立页 |
 | 1.12 | 视频：100 天 Top + 分类 min_views；跨分类去重；页面仅最新批次；展示序 100d→30d→24h；空分类回退；新闻去重 |
 | 1.13 | GA Secrets 注入、文档对齐 CI；a11y；首页卸案例 SPA→`/cases/`；asset() 防双前缀；单测 + E2E 边角 |
+| 1.14 | AI 新闻改为日更（`daily-news.yml`）；OSS Star 独立为 `weekly-oss.yml`；健康探针新闻阈值 2 天 |
 
 ---
 

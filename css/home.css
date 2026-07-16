@@ -285,6 +285,118 @@
   color: var(--text-muted);
 }
 
+/* Monthly three-dimension ranking page */
+.ranking-page .ranking-highlights {
+  margin-bottom: 2.5rem;
+}
+
+.ranking-dim-head {
+  margin-bottom: 1rem;
+}
+
+.ranking-dimension-block {
+  margin-bottom: 2.75rem;
+}
+
+.ranking-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.ranking-row {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.75rem;
+  align-items: start;
+  padding: 1rem 1.1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.ranking-row:last-child {
+  border-bottom: none;
+}
+
+.ranking-rank {
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.ranking-row-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ranking-tool-name {
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.ranking-tool-name:hover {
+  color: var(--primary);
+}
+
+.ranking-score-inline {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.ranking-score-inline::after {
+  content: "/10";
+  margin-left: 2px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.ranking-metric {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.ranking-note {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.ranking-method {
+  margin: 2rem 0 2.5rem;
+  padding: 1.25rem 1.35rem;
+  border-radius: var(--radius-lg);
+  border: 1px dashed var(--border);
+  background: color-mix(in srgb, var(--bg-card) 80%, transparent);
+}
+
+.ranking-method-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 640px) {
+  .ranking-row {
+    grid-template-columns: 2.25rem 1fr;
+    padding: 0.85rem 0.9rem;
+  }
+}
+
 /* AI News — list feed (calmer than dense cards) */
 .news-toolbar {
   display: flex;

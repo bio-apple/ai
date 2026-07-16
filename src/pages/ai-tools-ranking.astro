@@ -1,39 +1,83 @@
 ---
 import StandaloneLayout from '../layouts/StandaloneLayout.astro';
-import { site } from '../lib/data';
+import { site, rankings } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
 
 const page = site.ranking_page;
 const base = site.meta.base_url;
-const schema = buildPageSchema(page.title, page.lead, `${base}ai-tools-ranking.html`);
+const schema = buildPageSchema(
+  `${rankings.title} | Bio AI Lab`,
+  rankings.lead,
+  `${base}ai-tools-ranking.html`,
+);
 const home = homeHref();
+const medals = ['🥇', '🥈', '🥉'];
 ---
 <StandaloneLayout
-  title={page.title}
-  description={page.lead}
+  title={`${rankings.title} | Bio AI Lab`}
+  description={rankings.lead}
   canonical={`${base}ai-tools-ranking.html`}
   schema={schema}
 >
-  <main class="standalone-page">
+  <main class="standalone-page ranking-page">
     <nav class="breadcrumb"><a href={home}>首页</a> / AI 工具排行榜</nav>
     <div class="standalone-hero">
-      <h1>{page.h1}</h1>
-      <p class="standalone-lead">{page.lead}</p>
-      <p class="standalone-meta">更新于 {page.updated}</p>
+      <p class="section-kicker">按月更新 · {rankings.month}</p>
+      <h1>{rankings.title}</h1>
+      <p class="standalone-lead">{rankings.lead}</p>
+      <p class="standalone-meta">数据月份 {rankings.month} · 更新于 {rankings.updated_at}</p>
     </div>
-    <div class="ranking-grid ranking-grid-full">
-      {site.rankings.map((item) => (
-        <article class="ranking-card ranking-card-lg">
-          <span class="ranking-medal">{item.medal}</span>
-          <h2>{item.name}</h2>
-          <p class="ranking-dimension">{item.dimension}</p>
-          <p class="ranking-score">{item.score}</p>
-          <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
-          <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm">查看 {item.name} 教程</a>
-        </article>
-      ))}
-    </div>
+
+    <section class="ranking-highlights" aria-label="本月三项冠军">
+      <h2 class="resources-title">本月三项冠军</h2>
+      <div class="ranking-grid ranking-grid-full">
+        {rankings.highlights.map((item) => (
+          <article class="ranking-card ranking-card-lg">
+            <span class="ranking-medal">{item.medal}</span>
+            <h3>{item.name}</h3>
+            <p class="ranking-dimension">{item.dimension}</p>
+            <p class="ranking-score">{item.score}</p>
+            <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
+            <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm">查看教程</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    {rankings.dimensions.map((dim) => (
+      <section class="ranking-dimension-block" id={`rank-${dim.id}`} aria-labelledby={`rank-title-${dim.id}`}>
+        <div class="section-head ranking-dim-head">
+          <h2 class="resources-title" id={`rank-title-${dim.id}`}>{dim.label}</h2>
+          <p class="section-desc">{dim.description}</p>
+        </div>
+        <ol class="ranking-list">
+          {dim.items.map((item) => (
+            <li class="ranking-row">
+              <span class="ranking-rank" aria-label={`第 ${item.rank} 名`}>
+                {item.rank <= 3 ? medals[item.rank - 1] : item.rank}
+              </span>
+              <div class="ranking-row-main">
+                <div class="ranking-row-top">
+                  <a class="ranking-tool-name" href={asset(`tools/${item.id}.html`)}>{item.name}</a>
+                  <span class="ranking-score-inline">{item.score}</span>
+                </div>
+                <p class="ranking-metric">{item.metric}</p>
+                <p class="ranking-note">{item.note}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))}
+
+    <section class="ranking-method" aria-label="评分说明">
+      <h2 class="resources-title">如何评分</h2>
+      <ul class="ranking-method-list">
+        {rankings.methodology.map((line) => <li>{line}</li>)}
+      </ul>
+    </section>
+
     <h2 class="resources-title">完整工具对比表</h2>
     <div class="compare-wrap">
       <table class="compare-table">
@@ -47,7 +91,8 @@ const home = homeHref();
     </div>
     <div class="standalone-cta">
       <a href={home} class="cta-btn">返回首页</a>
-      <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline">查看学习路线</a>
+      <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">工具中心</a>
+      <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline">学习路线</a>
     </div>
   </main>
 </StandaloneLayout>

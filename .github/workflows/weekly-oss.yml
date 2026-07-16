@@ -1,20 +1,22 @@
-name: Weekly AI News Update
+name: Weekly OSS Stars Update
 
 on:
   schedule:
+    # 北京时间每周一 06:00 ≈ UTC 周日 22:00
     - cron: "0 22 * * 0"
   workflow_dispatch:
 
 permissions:
   contents: write
   issues: write
+  actions: write
 
 concurrency:
-  group: weekly-news
+  group: weekly-oss
   cancel-in-progress: false
 
 jobs:
-  update-news:
+  update-oss:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -24,48 +26,54 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Install Python deps
-        run: python -m pip install pyyaml==6.0.3
-
-      - name: Fetch AI news
-        id: fetch
-        run: python scripts/fetch_ai_news.py
-
       - name: Refresh GitHub Stars for OSS projects
+        id: fetch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/fetch_oss_stars.py
 
-      - name: Report metrics
-        if: always() && steps.fetch.outcome == 'success'
-        run: python scripts/report_fetch_metrics.py news
-
       - name: Commit and push
-        if: success()
+        id: commit
+        if: steps.fetch.outcome == 'success'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ai-news.json content/news/daily-ai-news.md data/oss-projects.json oss-projects.json
+          git add data/oss-projects.json oss-projects.json
           if git diff --staged --quiet; then
-            echo "No news updates this week"
+            echo "No OSS star updates this week"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
-          git commit -m "chore: weekly AI news and OSS stars $DATE"
+          git commit -m "chore: weekly OSS stars $DATE"
           git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger Pages deploy
+        if: steps.commit.outputs.pushed == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'pages.yml',
+              ref: 'main',
+            });
+            console.log('Dispatched pages.yml');
 
       - name: Open issue on fetch failure
         if: failure()
         uses: actions/github-script@v8
         with:
           script: |
-            const title = '[ops] Weekly news fetch failed';
+            const title = '[ops] Weekly OSS stars fetch failed';
             const body = [
-              '每周新闻/开源 Star 刷新失败，或新闻条数严重不足。',
+              '每周开源 Star 刷新失败。',
               '',
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
               '',
-              '<!-- weekly-news-fetch -->',
+              '<!-- weekly-oss-fetch -->',
             ].join('\n');
             const { data: issues } = await github.rest.issues.listForRepo({
               owner: context.repo.owner,

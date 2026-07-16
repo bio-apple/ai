@@ -12,7 +12,7 @@ from datetime import datetime, timezone
 
 SITE_BASE = os.environ.get("SITE_BASE", "https://bio-apple.github.io/ai").rstrip("/")
 VIDEO_MAX_AGE_DAYS = int(os.environ.get("VIDEO_MAX_AGE_DAYS", "2"))
-NEWS_MAX_AGE_DAYS = int(os.environ.get("NEWS_MAX_AGE_DAYS", "10"))
+NEWS_MAX_AGE_DAYS = int(os.environ.get("NEWS_MAX_AGE_DAYS", "2"))
 TIMEOUT = int(os.environ.get("PROBE_TIMEOUT", "20"))
 REPO_ACTIONS = os.environ.get(
     "REPO_ACTIONS_URL",
@@ -103,7 +103,7 @@ def remediation_for(exc: BaseException) -> list[str]:
     elif msg.startswith("STALE:ai-news") or ("ai-news" in msg and "STALE" in msg):
         lines += [
             "### P1 · 新闻过期",
-            f"1. 手动重跑：{REPO_ACTIONS}/workflows/weekly-news.yml → Run workflow",
+            f"1. 手动重跑：{REPO_ACTIONS}/workflows/daily-news.yml → Run workflow",
             "2. 检查 `ai-news.json` / `content/news/daily-ai-news.md` 是否写入",
             "3. 必要时回滚新闻 JSON",
             "",

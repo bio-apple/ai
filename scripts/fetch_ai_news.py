@@ -532,7 +532,7 @@ def main() -> int:
     payload = {
         "updated_at": datetime.now(TZ).isoformat(),
         "date": today,
-        "cadence": "weekly",
+        "cadence": "daily",
         "schema_version": 1,
         "dedupe": {"by": ["title", "url"], "keep": "latest_published_at"},
         "items": items,

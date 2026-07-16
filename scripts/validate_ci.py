@@ -239,7 +239,7 @@ def validate_oss_projects() -> None:
 
 
 def validate_data_json() -> None:
-    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json", "oss-projects.json"):
+    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json", "oss-projects.json", "rankings.json"):
         path = REPO / "data" / name
         if not path.exists():
             raise FileNotFoundError(path)
