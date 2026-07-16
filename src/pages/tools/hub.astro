@@ -31,8 +31,10 @@ const urls = site.tool_urls || {};
       <div class="hub-quick-links">
         <a href="#hub-assistant" class="recommend-link">AI 助手</a>
         <a href="#hub-coding" class="recommend-link">AI 编程</a>
-        <a href={asset('labs/index.html')} class="recommend-link" data-track="hub-quick-labs"
-          >AI Labs →</a
+        <a
+          href={asset('prompts/library.html')}
+          class="recommend-link"
+          data-track="hub-quick-prompts">Prompt 库 →</a
         >
       </div>
     </div>
@@ -131,7 +133,7 @@ const urls = site.tool_urls || {};
 
     <div class="standalone-cta">
       <a href={asset('ai-tools-ranking.html')} class="cta-btn">查看排行榜 →</a>
-      <a href={asset('labs/index.html')} class="cta-btn cta-btn-outline">进入 AI Labs →</a>
+      <a href={asset('prompts/library.html')} class="cta-btn cta-btn-outline">Prompt 库 →</a>
     </div>
   </main>
 </StandaloneLayout>

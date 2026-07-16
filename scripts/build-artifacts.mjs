@@ -131,12 +131,6 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     keywords: '工具分类 助手 编程 写作 图片 视频 音频 办公 Agent',
   });
   items.push({
-    label: 'AI Labs',
-    type: '导航',
-    url: 'labs/index.html',
-    keywords: 'Labs Prompt Lab 模型体验 工作流 Agent Playground',
-  });
-  items.push({
     label: 'AI 学习路线图',
     type: '学习',
     url: 'ai-learning-roadmap.html',

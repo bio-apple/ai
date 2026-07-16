@@ -33,15 +33,6 @@ feeds:
   - source: arXiv cs.AI
     url: https://arxiv.org/rss/cs.AI
     category: 学术论文
-  - source: arXiv cs.LG
-    url: https://arxiv.org/rss/cs.LG
-    category: 学术论文
-  - source: arXiv cs.CL
-    url: https://arxiv.org/rss/cs.CL
-    category: 学术论文
-  - source: arXiv cs.CV
-    url: https://arxiv.org/rss/cs.CV
-    category: 学术论文
   - source: 量子位
     url: https://www.qbitai.com/feed
     category: 中文资讯
