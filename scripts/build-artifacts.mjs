@@ -96,7 +96,7 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
   items.push({ label: '零基础入门指南', type: '学习', url: 'guides/beginner.html', keywords: '零基础 入门 指南' });
   items.push({ label: '进阶应用指南', type: '学习', url: 'guides/advanced.html', keywords: '进阶 编程 API 工作流' });
   items.push({ label: 'AI 工具排行榜', type: '导航', url: 'ai-tools-ranking.html', keywords: '排行榜 ranking ChatGPT Claude Cursor DeepSeek' });
-  items.push({ label: '本周 AI 热点', type: '频道', url: 'news/daily-ai-news.html', keywords: 'AI新闻 热点 OpenAI Anthropic arXiv 每周' });
+  items.push({ label: '一周内 AI 热点', type: '频道', url: 'news/daily-ai-news.html', keywords: 'AI新闻 热点 一周内 每天更新 OpenAI Anthropic arXiv' });
   items.push({ label: '编程 AI 工具', type: '场景', section: 'section-home', keywords: '编程 写代码 开发 Cursor Copilot Codex', anchor: 'home-tools' });
   items.push({ label: '写作翻译办公', type: '场景', section: 'section-home', keywords: '写作 翻译 办公 科研 视频生成 ChatGPT Claude 豆包', anchor: 'home-recommend' });
   items.push({ label: '免费 AI 工具', type: '场景', section: 'section-home', keywords: '免费 DeepSeek 豆包 Kimi', anchor: 'home-tools' });

@@ -1,9 +1,10 @@
 # AI 新闻抓取配置（scripts/fetch_ai_news.py）
-# 更新频次：每日一次（见 .github/workflows/daily-news.yml）
+# 产品定义：一周内 AI 热点；更新频次：每天一次（见 .github/workflows/daily-news.yml）
 
 max_items: 48
 max_per_feed: 5
-max_age_days: 3
+# 保留近 7 天内容（一周内），由日更 workflow 刷新
+max_age_days: 7
 min_per_source: 1
 
 feeds:

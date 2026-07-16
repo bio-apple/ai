@@ -210,8 +210,9 @@ async function loadDailyNews() {
     }
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      const cadence = data.cadence === 'daily' ? '每日' : (data.cadence === 'weekly' ? '每周一' : '最近');
-      meta.textContent = `${cadence}更新 · ${updated.toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' })} · ${newsState.items.length} 条`;
+      const windowDays = Number(data.window_days) > 0 ? Number(data.window_days) : 7;
+      const stamp = updated.toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' });
+      meta.textContent = `一周内热点 · 每天更新 · 近 ${windowDays} 天 · ${stamp} · ${newsState.items.length} 条`;
     }
     paintNewsList();
     if (watchRoot) {

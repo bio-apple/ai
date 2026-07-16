@@ -643,9 +643,9 @@
     }
   ],
   "news_page": {
-    "title": "AI 热点日报 | Bio AI Lab",
-    "h1": "AI 热点日报",
-    "lead": "每日汇总 OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、Meta、Hugging Face、arXiv、GitHub Trending 与机器之心、量子位等中文渠道动态。"
+    "title": "一周内 AI 热点 | Bio AI Lab",
+    "h1": "一周内 AI 热点",
+    "lead": "每天更新近 7 天内的 AI 热点：OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、Meta、Hugging Face、arXiv、GitHub Trending 与机器之心、量子位等中文渠道。"
   },
   "prompts_page": {
     "title": "Prompt 提示词库 | Bio AI Lab",
@@ -754,7 +754,7 @@
     },
     {
       "question": "AI 新闻多久更新一次？",
-      "answer": "北京时间每日 6:00 自动汇总官方博客 RSS、arXiv 论文、GitHub Trending 与机器之心、量子位等中文媒体；同时关注 OpenAI、Anthropic、Meta、Hugging Face 等公司公告与 X 账号。"
+      "answer": "每天更新「一周内 AI 热点」：北京时间每日 6:00 自动汇总近 7 天内的官方博客 RSS、arXiv 论文、GitHub Trending 与机器之心、量子位等中文媒体；同时关注 OpenAI、Anthropic、Meta、Hugging Face 等公司公告与 X 账号。"
     }
   ],
   "general_tips": {

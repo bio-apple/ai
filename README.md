@@ -77,9 +77,9 @@
 | 多模态 | LLaVA、Transformers |
 | 机器学习框架 | PyTorch、JAX |
 
-### 4. AI 新闻（每日更新）
+### 4. 一周内 AI 热点（每天更新）
 
-北京时间每日 6:00 自动汇总：
+北京时间每日 6:00 自动汇总**近 7 天**热点：
 
 - **公司动态**：OpenAI、Anthropic、Google DeepMind、Google AI、NVIDIA、Microsoft（RSS / 官网）
 - **中文媒体**：智源社区聚合、量子位 RSS；关注面板含机器之心、新智元

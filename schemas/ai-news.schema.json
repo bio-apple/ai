@@ -9,6 +9,8 @@
     "updated_at": { "type": "string" },
     "date": { "type": "string" },
     "cadence": { "type": "string" },
+    "window_days": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string" },
     "items": {
       "type": "array",
       "minItems": 1,

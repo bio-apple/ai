@@ -77,7 +77,7 @@
 | 知识库 | `knowledge.js`（客户端检索）+ `/api/ask`（FastAPI BM25） |
 | 分析 | GA4 + Microsoft Clarity（`data/analytics.json`） |
 | 视频 | `daily-videos.json` + `videos.js`（Promise 缓存） |
-| 新闻 | `ai-news.json` + `news.js`（每周更新） |
+| 新闻 | `ai-news.json` + `news.js`（一周内热点 · 每天更新） |
 | 开源精选 | `oss-projects.json` + `oss.js`（每周刷新 Star） |
 | 视频抓取 | Python 3.12 + [yt-dlp](https://github.com/yt-dlp/yt-dlp) |
 | 新闻抓取 | Python 3.12 + RSS / HTML 抓取 / GitHub API |
@@ -298,7 +298,9 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 {
   "updated_at": "2026-07-10T21:31:02+08:00",
   "date": "2026-07-10",
-  "cadence": "weekly",
+  "cadence": "daily",
+  "window_days": 7,
+  "title": "一周内 AI 热点",
   "items": [
     {
       "id": "abc123",
@@ -317,7 +319,7 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 }
 ```
 
-- `cadence: "weekly"` 表示每周更新。
+- `cadence: "daily"` + `window_days: 7`：每天刷新，内容窗口为近 7 天（一周内 AI 热点）。
 - `watch_sources` 展示暂无稳定 RSS 的官方博客与 X 账号（Meta AI、Hugging Face、机器之心、新智元、智源社区等）。
 
 ---
@@ -349,7 +351,7 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 | `home-rankings` | 2026 工具排行榜预览 |
 | `home-compare` | 选型对比表预览 |
 | `home-oss` | 开源精选预览 |
-| `home-news` | 本周新闻预览 |
+| `home-news` | 一周内热点预览 |
 | `home-videos` | 每日视频预览（最新一批） |
 
 ### 样式模块
@@ -514,7 +516,7 @@ python3 scripts/fetch_daily_videos.py --force   # 升级分类后强制重抓今
 【每日新闻】
 1. 读取 config/news-fetch.yaml
 2. 拉取 RSS / HTML / GitHub Trending
-3. 按关键词分类；去重；保留近 3 天（见 max_age_days）
+3. 按关键词分类；去重；保留近 7 天（一周内，见 max_age_days）
 4. 写入 ai-news.json + content/news/daily-ai-news.md
 5. push → 显式派发 pages.yml
 
@@ -653,7 +655,7 @@ npm run health:live
 ```yaml
 max_items: 40
 max_per_feed: 5
-max_age_days: 7          # 每周保留近 7 天
+max_age_days: 7          # 一周内热点窗口；由日更 workflow 刷新
 
 feeds: [...]             # RSS / html_links
 github_trending:         # GitHub API 搜索 AI 仓库
