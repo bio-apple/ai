@@ -34,16 +34,6 @@ export function toolLookup() {
   return found;
 }
 
-export function buildHotToolCards() {
-  const lookup = toolLookup();
-  return site.hot_tools.map((id) => lookup[id]).filter(Boolean);
-}
-
-export function buildCreateToolCards() {
-  const lookup = toolLookup();
-  return site.create_tools.map((id) => lookup[id]).filter(Boolean);
-}
-
 export function flattenNavLabels() {
   const labels: Record<string, string> = {};
   for (const item of site.nav.menu) {

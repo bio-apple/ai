@@ -145,24 +145,6 @@ navTabs.forEach(bindNavItem);
 document.querySelectorAll('.nav-dropdown-item').forEach(bindNavItem);
 document.querySelectorAll('a.logo[data-tool]').forEach(bindNavItem);
 
-document.querySelectorAll('.tool-card-v2, .ranking-card[data-tool]').forEach((card) => {
-  card.addEventListener('click', (e) => {
-    if (e.target.closest('.tool-card-btn')) return;
-    const tool = card.dataset.tool;
-    if (!tool) return;
-    showSection(`section-${tool}`);
-    trackEvent('tool-card', { tool });
-  });
-});
-
-document.querySelectorAll('.tool-card-btn[data-tool]').forEach((btn) => {
-  btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showSection(`section-${btn.dataset.tool}`);
-    trackEvent('tool-card-btn', { tool: btn.dataset.tool });
-  });
-});
-
 document.querySelectorAll('[data-goto]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.goto;

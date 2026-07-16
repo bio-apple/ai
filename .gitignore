@@ -16,8 +16,6 @@ dist/
 /guides/
 /news/
 /prompts/
-!/prompts/
-!/prompts/**
 /cases/
 /ai-tools-ranking.html
 /ai-learning-roadmap.html

@@ -21,21 +21,20 @@ npm ci && pip install -r requirements.txt
 
 ## 做什么
 
-- 工具分类 / 教程 / 替代互补关系 / 排行对比
-- 推荐助手 · 站内搜索 · 学习回访
-- 数据运营热榜（浏览 / 点击）
-- 一周内 AI 热点（日更）· YouTube/B站每日视频 · GitHub Stars 开源精选
+- 推荐助手 · 工具对比表 · AICPB 排行
+- 工具教程与替代/互补关系
+- 一周内 AI 热点 · 每日视频 · GitHub 开源精选
 
 ## 改内容
 
-| 想改什么         | 改哪里                                                   |
-| ---------------- | -------------------------------------------------------- |
-| 文案 / 导航      | `data/site.json`                                         |
-| 工具 / 关系      | `data/tools.json` · `data/tool-relations.json`           |
-| 最佳实践Prompt库 | `prompts/`（分类模板） · `prompts/index.json`            |
-| 热度基准         | `data/engagement.json`                                   |
-| 排行榜           | `data/rankings.json`                                     |
-| 分析 Secrets     | `UMAMI_*` / `CLOUDFLARE_BEACON_TOKEN`（可选 GA/Clarity） |
+| 想改什么    | 改哪里                                               |
+| ----------- | ---------------------------------------------------- |
+| 文案 / 导航 | `data/site.json`                                     |
+| 工具 / 关系 | `data/tools.json` · `data/tool-relations.json`       |
+| 对比表行    | `data/site.json` → `compare_table`                   |
+| 排行榜      | `data/rankings.json`（或 `fetch_aicpb_rankings.py`） |
+| 热度基准    | `data/engagement.json`                               |
+| Prompt 库   | 由 `data/cases.json` 构建生成                        |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。  
 运维救急见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。

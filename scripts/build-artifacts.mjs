@@ -233,11 +233,6 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
       keywords: cmp.search_keywords || cmp.title,
     });
   }
-  for (const g of site.compare_guides || []) {
-    if (!items.some((x) => x.url === g.href)) {
-      items.push({ label: g.title, type: '对比', url: g.href, keywords: g.title });
-    }
-  }
   return items;
 }
 

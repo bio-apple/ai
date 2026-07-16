@@ -30,7 +30,7 @@
 }
 
 .hero-cta .cta-btn:nth-child(2),
-.hero-cta .github-star-btn {
+.hero-cta {
   animation: heroEnter calc(var(--motion-slow) + 40ms) var(--ease-out) both;
   animation-delay: 120ms;
 }
@@ -64,7 +64,6 @@
 
 /* 轻量按压反馈 */
 .cta-btn,
-.github-star-btn,
 .nav-star,
 .tool-card-btn,
 .nav-tab,
@@ -83,8 +82,7 @@
     color var(--motion-fast) ease;
 }
 
-.cta-btn:hover,
-.github-star-btn:hover,
+.cta-btn:hover:hover,
 .tool-card:hover,
 .scenario-card:hover,
 .prompt-card:hover,
@@ -93,8 +91,7 @@
   transform: translate3d(0, -3px, 0);
 }
 
-.cta-btn:active,
-.github-star-btn:active,
+.cta-btn:active:active,
 .nav-star:active,
 .tool-card-btn:active,
 .nav-tab:active,
@@ -106,7 +103,7 @@
 @media (prefers-reduced-motion: reduce) {
   .hero-content,
   .hero-cta .cta-btn,
-  .hero-cta .github-star-btn {
+  .hero-cta {
     animation: none !important;
   }
 

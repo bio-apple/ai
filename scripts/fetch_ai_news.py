@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从 RSS / 官方页面 / GitHub API 抓取 AI 新闻，写入 ai-news.json 与 content/news/daily-ai-news.md。"""
+"""从 RSS / 官方页面 / GitHub API 抓取 AI 新闻，写入 ai-news.json。"""
 
 from __future__ import annotations
 
@@ -24,7 +24,6 @@ from news_dedupe import assert_news_unique, dedupe_news_items, normalize_news_ti
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_FILE = ROOT / "config" / "news-fetch.yaml"
 DATA_FILE = ROOT / "ai-news.json"
-MD_FILE = ROOT / "content" / "news" / "daily-ai-news.md"
 TZ = timezone(timedelta(hours=8))
 USER_AGENT = "BioAI-Lab-NewsBot/1.0"
 
@@ -489,28 +488,6 @@ def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
     return picked[:max_items]
 
 
-def write_markdown(items: list[dict], today: str, window_days: int) -> None:
-    MD_FILE.parent.mkdir(parents=True, exist_ok=True)
-    lines = [
-        f"# 一周内 AI 热点 — {today}",
-        "",
-        f"> 每天更新近 {window_days} 天内的 AI 热点：OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、arXiv、GitHub Trending 与中文 AI 媒体动态。",
-        "",
-    ]
-    for i, item in enumerate(items[:12], 1):
-        lines.append(f"## {i}. {item['title']}")
-        lines.append("")
-        lines.append(f"- **来源**：{item['source']}")
-        lines.append(f"- **分类**：{item['category']}")
-        if item.get("published_at"):
-            lines.append(f"- **时间**：{item['published_at']}")
-        lines.append(f"- **链接**：{item['url']}")
-        lines.append("")
-        lines.append(item["summary"])
-        lines.append("")
-    MD_FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-
 def main() -> int:
     cfg = load_config()
     collected: list[dict] = []
@@ -542,9 +519,7 @@ def main() -> int:
         "watch_sources": cfg.get("watch_sources", []),
     }
     DATA_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    write_markdown(items, today, window_days)
     print(f"✓ ai-news.json ({len(items)} 条 · 窗口 {window_days} 天 · 日更) → {DATA_FILE}")
-    print(f"✓ {MD_FILE}")
     return 0
 
 

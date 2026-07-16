@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "Bio AI Lab | Bio-Apple AI 工具导航 · 开源精选 · 每日热点与视频",
-    "description": "Bio AI Lab（Bio-Apple）一站式 AI 工具导航：ChatGPT / Claude / Cursor / DeepSeek 教程与对比、工具替代互补关系、GitHub Stars 开源精选、一周内 AI 热点与 YouTube/B站每日视频，帮你快速搭建 AI 工作流。",
-    "keywords": "Bio AI Lab,Bio-Apple,Bio Apple AI,AI工具导航,AI工具推荐,AI工具对比,ChatGPT教程,Claude教程,Cursor教程,DeepSeek教程,Copilot,Gemini,Kimi,通义千问,豆包,GitHub Stars AI,AI开源项目,一周AI热点,AI视频推荐,AI学习路线,Prompt库,AI工作流,生物信息学AI,AI agent",
+    "description": "Bio AI Lab：AI 工具对比与教程、AICPB 排行、开源精选、一周热点与每日视频，帮你快速选型并搭建工作流。",
+    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,AI开源,AI热点",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
     "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与开源精选",
@@ -56,18 +56,12 @@
       "label": "获取 AI 推荐",
       "href": "#home-recommend"
     },
-    "cta_github": {
-      "label": "Star on GitHub",
-      "href": "https://github.com/bio-apple/ai",
-      "track": "github-star-hero"
-    },
     "cta_secondary": {
       "label": "浏览工具中心",
       "href": "tools/hub.html"
     },
     "search_placeholder": "搜索 AI 工具、教程、Bio-Apple…"
   },
-  "hot_tools": ["chatgpt", "claude", "cursor", "deepseek", "gemini", "kimi"],
   "home_tool_categories": [
     {
       "label": "国际对话 AI",
@@ -206,7 +200,6 @@
       ]
     }
   ],
-  "create_tools": ["doubao", "kimi", "gemini", "chatgpt"],
   "rankings": [
     {
       "medal": "🌍",
@@ -339,66 +332,6 @@
       }
     ]
   },
-  "scenarios": [
-    {
-      "icon": "✍",
-      "title": "写作",
-      "description": "文章、邮件、文案、翻译"
-    },
-    {
-      "icon": "💻",
-      "title": "编程",
-      "description": "写代码、调试、代码审查"
-    },
-    {
-      "icon": "🎨",
-      "title": "图片设计",
-      "description": "AI 绘图、海报、视觉素材"
-    },
-    {
-      "icon": "🎬",
-      "title": "视频制作",
-      "description": "脚本、剪辑、字幕生成"
-    },
-    {
-      "icon": "📊",
-      "title": "数据分析",
-      "description": "表格处理、图表、报告"
-    },
-    {
-      "icon": "📚",
-      "title": "学习研究",
-      "description": "知识问答、论文总结"
-    },
-    {
-      "icon": "⚙",
-      "title": "自动化办公",
-      "description": "会议纪要、流程自动化"
-    }
-  ],
-  "compare_guides": [
-    {
-      "tag": "编程 AI",
-      "title": "Cursor vs Copilot 怎么选？",
-      "description": "Agent 跨文件开发 vs IDE 补全，按场景选型",
-      "href": "compare/cursor-vs-copilot.html",
-      "track": "compare-cursor-copilot"
-    },
-    {
-      "tag": "对话 AI",
-      "title": "ChatGPT vs DeepSeek vs 豆包",
-      "description": "零基础入门，哪个免费好用、中文体验好",
-      "href": "compare/chatgpt-vs-deepseek-vs-doubao.html",
-      "track": "compare-chatgpt-deepseek"
-    },
-    {
-      "tag": "长文档",
-      "title": "Kimi vs Claude vs 通义",
-      "description": "合同、论文、报告速读与深度分析对比",
-      "href": "compare/kimi-vs-claude-vs-qwen.html",
-      "track": "compare-kimi-claude"
-    }
-  ],
   "compare_table": {
     "rows": [
       {
@@ -498,7 +431,7 @@
   "news_page": {
     "title": "一周内 AI 热点 | Bio AI Lab",
     "h1": "一周内 AI 热点",
-    "lead": "每天更新近 7 天内的 AI 热点：OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、Meta、Hugging Face、arXiv、GitHub Trending 与机器之心、量子位等中文渠道。"
+    "lead": "一周内 AI 热点精选：模型发布、开源动态与行业资讯，每日自动更新。"
   },
   "prompts_page": {
     "title": "Prompt 提示词库 | Bio AI Lab",
@@ -559,12 +492,6 @@
       }
     ]
   },
-  "ranking_page": {
-    "title": "2026 AI 工具排行榜 | Bio AI Lab",
-    "h1": "2026 AI 工具排行榜（每日更新）",
-    "lead": "每天同步 AICPB 五大专题榜（Global AI、China AI、AI Vibe Coding、AI Video Generators、AI PPT Rankings），各榜仅展示 Top 10。",
-    "updated": "2026-07"
-  },
   "faq": [
     {
       "question": "零基础应该先学哪个 AI 工具？",
@@ -576,30 +503,13 @@
     },
     {
       "question": "本站每日视频如何更新？",
-      "answer": "北京时间每日 0:00 自动抓取 YouTube 与 B站 AI 应用相关教程；页面按平台合并展示，并默认按视频上传时间排序（也可切换为按播放量）。"
+      "answer": "每日自动抓取 YouTube 与 B站 AI 应用教程；页面可按平台筛选，并按上传时间或播放量排序。"
     },
     {
       "question": "AI 新闻多久更新一次？",
-      "answer": "每天更新「一周内 AI 热点」：北京时间每日 6:00 自动汇总近 7 天内的官方博客 RSS、arXiv cs.AI 论文、GitHub Trending 与机器之心、量子位等中文媒体；同时关注 OpenAI、Anthropic、Meta、Hugging Face 等公司公告与 X 账号。"
+      "answer": "每日更新一周内 AI 热点：官方博客、arXiv、GitHub Trending 与主要中文科技媒体摘要。"
     }
   ],
-  "general_tips": {
-    "title": "通用实战技巧",
-    "columns": [
-      [
-        "先 Plan 后 Agent — 复杂任务先让 AI 出方案，确认后再写代码",
-        "小步迭代 — 每次只做一个功能点，验证通过再继续",
-        "写好配置文件 — CLAUDE.md / AGENTS.md / .cursor/rules 是 AI 的「员工手册」",
-        "明确验收标准 — 告诉 AI「做完后运行 xxx 测试」而不是「做好就行」"
-      ],
-      [
-        "审查每一行 diff — AI 会犯错，你的审查是最关键的质量关卡",
-        "用 @ 引用文件 — 给 AI 精确的上下文，比笼统描述效果好 10 倍",
-        "分角色使用工具 — Kimi 读长文档、Cursor/Copilot 日常编码、Codex 自动化 PR",
-        "保存好用的提示词 — 把验证有效的 prompt 存到项目文档中复用"
-      ]
-    ]
-  },
   "footer": {
     "text": "Bio AI Lab · Discover. Learn. Create with AI.",
     "github": "https://github.com/bio-apple/ai"
@@ -608,117 +518,11 @@
     "tools": ["chatgpt", "claude", "cursor"],
     "guide": "guides/beginner.html",
     "path_title": "零基础入门",
-    "steps": [
-      "先描述你的目标与约束",
-      "选一个主力工具深入",
-      "用案例与 Prompt 库练手",
-      "沉淀可复用工作流"
-    ]
+    "steps": ["先描述你的目标与约束", "选一个主力工具深入", "用实战案例练手", "沉淀可复用工作流"]
   },
-  "tool_urls": {
-    "chatgpt": "https://chatgpt.com",
-    "claude": "https://claude.ai",
-    "gemini": "https://gemini.google.com",
-    "deepseek": "https://chat.deepseek.com",
-    "kimi": "https://kimi.moonshot.cn",
-    "qwen": "https://tongyi.aliyun.com",
-    "doubao": "https://www.doubao.com",
-    "cursor": "https://cursor.com",
-    "codex": "https://chatgpt.com/codex",
-    "copilot": "https://github.com/features/copilot",
-    "new-bing": "https://www.bing.com/chat"
-  },
-  "tool_hub": [
-    {
-      "id": "assistant",
-      "label": "AI 助手",
-      "description": "通用对话、问答与多模态助手",
-      "tools": ["chatgpt", "claude", "gemini", "new-bing", "deepseek", "kimi", "qwen", "doubao"]
-    },
-    {
-      "id": "coding",
-      "label": "AI 编程",
-      "description": "IDE、补全与编程代理",
-      "tools": ["cursor", "copilot", "codex", "claude", "deepseek"]
-    },
-    {
-      "id": "writing",
-      "label": "AI 写作",
-      "description": "文章、文案、翻译与长文档",
-      "tools": ["chatgpt", "claude", "kimi", "qwen"]
-    },
-    {
-      "id": "image",
-      "label": "AI 图片",
-      "description": "文生图与视觉创作",
-      "tools": ["chatgpt", "gemini", "doubao"],
-      "external": [
-        {
-          "name": "Midjourney",
-          "url": "https://www.midjourney.com",
-          "note": "社区文生图"
-        },
-        {
-          "name": "Stable Diffusion WebUI",
-          "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
-          "note": "开源绘画"
-        }
-      ]
-    },
-    {
-      "id": "video",
-      "label": "AI 视频",
-      "description": "脚本、生成与剪辑辅助",
-      "tools": ["gemini", "doubao", "chatgpt"],
-      "external": [
-        {
-          "name": "Runway",
-          "url": "https://runwayml.com",
-          "note": "生成式视频"
-        }
-      ]
-    },
-    {
-      "id": "audio",
-      "label": "AI 音频",
-      "description": "语音、配音与转写",
-      "tools": ["chatgpt", "doubao", "qwen"],
-      "external": [
-        {
-          "name": "ElevenLabs",
-          "url": "https://elevenlabs.io",
-          "note": "语音合成"
-        }
-      ]
-    },
-    {
-      "id": "office",
-      "label": "AI 办公",
-      "description": "文档、表格与会议效率",
-      "tools": ["copilot", "chatgpt", "gemini", "kimi"]
-    },
-    {
-      "id": "agent",
-      "label": "AI Agent",
-      "description": "多步任务、工具调用与工作流",
-      "tools": ["cursor", "codex", "claude"],
-      "external": [
-        {
-          "name": "Dify",
-          "url": "https://github.com/langgenius/dify",
-          "note": "开源 LLM 应用平台"
-        },
-        {
-          "name": "扣子 Coze",
-          "url": "https://www.coze.cn",
-          "note": "无代码 Agent"
-        }
-      ]
-    }
-  ],
   "tools_hub_page": {
     "title": "AI 工具中心 | Bio AI Lab",
     "h1": "AI 工具中心",
-    "lead": "精选工具对比表（类型、优势、场景、定价与教程）+ AI产品榜（AICPB）各专题排行，先选型再看市场热度。"
+    "lead": "精选工具对比表 + AI产品榜（AICPB）排行：先按能力选型，再看市场热度。"
   }
 }
