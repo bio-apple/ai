@@ -17,6 +17,7 @@ on:
 permissions:
   contents: write
   issues: write
+  actions: write   # 派发 pages.yml 需要；缺此项 Trigger Pages deploy 会 403
 
 concurrency:
   group: daily-videos
@@ -82,16 +83,21 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'pages.yml',
-              ref: 'main',
-            });
-            console.log('Dispatched pages.yml');
+            try {
+              await github.rest.actions.createWorkflowDispatch({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                workflow_id: 'pages.yml',
+                ref: 'main',
+              });
+              console.log('Dispatched pages.yml');
+            } catch (err) {
+              core.setFailed(`Trigger Pages deploy failed: ${err.message}`);
+              throw err;
+            }
 
       - name: Open issue on hard failure
-        if: failure()
+        if: steps.fetch.outcome == 'failure' || steps.metrics.outputs.level == '2'
         uses: actions/github-script@v8
         with:
           script: |
