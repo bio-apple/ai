@@ -4,6 +4,7 @@ import ToolSection from '../components/ToolSection.astro';
 import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
+import HomeOps from '../components/HomeOps.astro';
 import HomeFavorites from '../components/HomeFavorites.astro';
 import { site, tools, buildHotToolCards } from '../lib/data';
 import { buildHomeSchema } from '../lib/schema';
@@ -41,6 +42,7 @@ const recommendKind: Record<string, string> = {
     'recommend.js',
     'favorites.js',
     'progress.js',
+    'engagement.js',
     'lazy-sections.js',
   ]}
   includeKnowledge={true}
@@ -100,6 +102,7 @@ const recommendKind: Record<string, string> = {
     <main class="home-main">
       <HomeRecommend />
       <HomeAiDaily />
+      <HomeOps />
       <HomeFavorites />
 
       <section class="home-section fade-in" id="home-tools">

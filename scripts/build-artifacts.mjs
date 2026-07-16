@@ -358,6 +358,11 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   writeOut(outDir, 'recommend-rules.json', recommendRules);
   writeOut(outDir, 'analytics-config.json', analyticsCfg);
 
+  const engagementSrc = path.join(DATA, 'engagement.json');
+  if (fs.existsSync(engagementSrc)) {
+    fs.copyFileSync(engagementSrc, path.join(outDir, 'engagement.json'));
+  }
+
   const ossSrc = path.join(DATA, 'oss-projects.json');
   if (fs.existsSync(ossSrc)) {
     fs.copyFileSync(ossSrc, path.join(outDir, 'oss-projects.json'));

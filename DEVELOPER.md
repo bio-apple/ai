@@ -61,7 +61,7 @@
 - **每日视频**通过 `daily-videos.json` + `daily-videos.yml` 定时写入（六类推荐）。
 - **一周内 AI 热点**通过 `daily-news.yml` 每天刷新 `ai-news.json`（近 7 天窗口）；**GitHub Stars** 通过 `weekly-oss.yml` 刷新 `oss-projects.json`。
 - 发现链路：搜索 → 推荐 → 学习回访（`progress.js`）→ SEO（sitemap `.html` + BreadcrumbList）。
-- 部署前必须通过 **Pages 校验**（`validate_ci.py`，11 步）；完整 CI 另含单元测试、FastAPI smoke 与 Playwright E2E（E2E **失败会使 CI 红**，但 **不挡 Pages** 部署）。
+- 部署前必须通过 **Pages 校验**（`validate_ci.py`，12 步）；完整 CI 另含单元测试、FastAPI smoke 与 Playwright E2E（E2E **失败会使 CI 红**，但 **不挡 Pages** 部署）。
 - 站内链接与静态资源统一走 **`src/lib/paths.ts`**（`/ai/...`）；`validate_ci.py links` 会解析 `/ai/` 绝对路径并拒绝逃出 `dist/` 的相对路径。
 
 ---
@@ -116,7 +116,7 @@ ai/
 │   ├── fetch_daily_videos.py   # 每日六类视频抓取
 │   ├── fetch_ai_news.py        # 一周内 AI 热点抓取（日更）
 │   ├── fetch_oss_stars.py      # 刷新 oss-projects Star 数
-│   └── validate_ci.py          # 校验 dist/ + data schema（11 步）
+│   └── validate_ci.py          # 校验 dist/ + data schema（12 步）
 ├── daily-videos.json           # 每日视频数据（Actions 写入）
 ├── ai-news.json                # 一周内热点数据（Actions 写入）
 ├── oss-projects.json           # 开源精选运行时副本（与 data/ 同步）
@@ -475,7 +475,7 @@ npm run dev     # 热更新，适合改 src/
 ### 测试
 
 ```bash
-# 全量校验（默认 11 步，与 CI 一致）
+# 全量校验（默认 12 步，与 CI 一致）
 DIST=dist python3 scripts/validate_ci.py
 
 # 单步校验（CI 中逐步执行，便于定位失败）
@@ -636,7 +636,7 @@ macOS 若遇 Python SSL 证书问题，脚本会自动回退到 `curl` 抓取。
 ### 工作流关系
 
 ```
-push/PR → ci.yml（quality → build + unit + validate 11 步 + API smoke；E2E 失败则 CI 红）
+push/PR → ci.yml（quality → build + unit + validate 12 步 + API smoke；E2E 失败则 CI 红）
          PR 额外上传 dist-preview artifact
 push main → pages.yml（quality → build + validate → artifact → deploy Pages；无 E2E）
          → deploy-cloudflare.yml（可选：Secrets 齐全则发 Cloudflare Pages）
@@ -686,7 +686,7 @@ npm run health:live
 | Lint & Format     | `npm run quality`（Prettier + ESLint）                               |
 | 构建              | `npm ci && npm run build` → `dist/`                                  |
 | PR preview        | 上传 `dist-preview` artifact（保留 7 天）                            |
-| Validate（11 步） | `validate_ci.py` 分步（含 tool-relations · recommend）               |
+| Validate（12 步） | `validate_ci.py` 分步（含 tool-relations · engagement · recommend）  |
 | FastAPI API smoke | `scripts/smoke_api.py`                                               |
 | E2E               | Playwright 冒烟 ≈12 项；**失败会使 CI job 失败**；Pages 部署不跑 E2E |
 

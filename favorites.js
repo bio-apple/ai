@@ -173,6 +173,11 @@
     });
     syncStars();
     renderHomeList();
+    try {
+      window.dispatchEvent(new CustomEvent('bioai:favorites-changed'));
+    } catch {
+      /* ignore */
+    }
   }
 
   document.getElementById('favorites-export')?.addEventListener('click', exportJson);

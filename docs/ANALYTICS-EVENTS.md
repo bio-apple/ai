@@ -37,6 +37,8 @@ page_view
 
 GitHub 闭环：`github-star-hero` / `github-star-nav` / `github-star-footer`。
 
+首页 **数据运营**（`#home-ops`）：`data/engagement.json` 提供浏览/点击/收藏基准与「今日点击」热榜；本机互动写入 `localStorage`（`bioai.engagement.v1`）并实时叠加。事件 `ops-tool-click` 表示点击热榜条目。
+
 可选旁路：`recommend_guide_query`、`recommend_related_tool`、`search_empty` → `#home-recommend`、`learning_continue`。
 
 ## 事件表

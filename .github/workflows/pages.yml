@@ -62,6 +62,7 @@ jobs:
           test -f dist/index.html
           test -f dist/prompts.json
           test -f dist/daily-videos.json
+          test -f dist/engagement.json
           test -f dist/_headers
           test -f dist/_redirects
 

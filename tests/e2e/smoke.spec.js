@@ -34,6 +34,9 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-recommend')).toBeVisible();
     await expect(page.locator('#home-daily')).toBeVisible();
     await expect(page.locator('#home-daily .daily-cadence').first()).toBeVisible();
+    await expect(page.locator('#home-ops')).toBeVisible();
+    await expect(page.locator('#ops-views')).not.toHaveText('—');
+    await expect(page.locator('#ops-trend-list .ops-trend-item').first()).toContainText('今日点击');
     await expect(page.locator('#home-tools .tool-card-v2')).toHaveCount(6);
     await expect(page.locator('#home-favorites')).toBeVisible();
     await expect(page.locator('#home-learning')).toHaveCount(0);

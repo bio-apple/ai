@@ -32,6 +32,7 @@ export default [
         showSection: 'readonly',
         bioFavorites: 'writable',
         bioProgress: 'writable',
+        bioEngagement: 'writable',
       },
     },
     rules: {

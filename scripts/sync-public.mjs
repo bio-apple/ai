@@ -21,6 +21,7 @@ const COPY_FILES = [
   'recommend.js',
   'favorites.js',
   'progress.js',
+  'engagement.js',
   'robots.txt',
   '_headers',
   '_redirects',

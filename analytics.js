@@ -22,6 +22,13 @@ function trackEvent(name, params = {}) {
   }
   if (typeof window.__clickStats !== 'object') window.__clickStats = {};
   window.__clickStats[name] = (window.__clickStats[name] || 0) + 1;
+  if (typeof window.bioEngagement?.onEvent === 'function') {
+    try {
+      window.bioEngagement.onEvent(name, params);
+    } catch {
+      /* ignore */
+    }
+  }
 }
 
 function initGA4() {

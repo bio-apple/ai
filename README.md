@@ -72,6 +72,7 @@ flowchart LR
 | AI 推荐助手（场景 + 文本，附带相关工具）                           | ✅   |
 | 站内搜索（Fuse.js，案例/Prompt 深链）                              | ✅   |
 | 学习回访（最近打开 + 路线阶段勾选，localStorage）                  | ✅   |
+| **数据运营**（浏览量 / 点击量 / 收藏量 · 今日热榜）                | ✅   |
 | GitHub Stars 开源精选（6 大领域，每领域 ≥1）                       | ✅   |
 | **一周内 AI 热点**（每天更新 · 近 7 天窗口）                       | ✅   |
 | 每日六类视频（YouTube + B站 100d / 30d / 24h）                     | ✅   |
@@ -150,6 +151,7 @@ flowchart LR
 | 学习 | `progress.js` 最近打开；路线图阶段勾选；收藏清单                  |
 | SEO  | 强化 TDK 长尾词；OG/Twitter Card；sitemap `.html`；BreadcrumbList |
 | 分析 | 隐私优先 Umami / Cloudflare Web Analytics（可选 GA/Clarity）      |
+| 运营 | 首页「今日热度」：浏览量 / 点击量 / 收藏量 + 最近更新热榜         |
 | 闭环 | 首页 / 导航 / 页脚 **Star on GitHub**                             |
 
 ## 页面结构
@@ -157,7 +159,7 @@ flowchart LR
 ```
 首页主路径
 ├── Hero + 站内搜索
-├── 推荐助手 → AI 简报 → 收藏 / 继续学习
+├── 推荐助手 → AI 简报 → 数据运营热度 → 收藏 / 继续学习
 ├── 热门工具 + 更多分类
 ├── 开源预览
 └── 继续深入（工具中心 / Labs / 排行 / 案例 + 对比卡）
@@ -181,7 +183,7 @@ Tab / 分区（同页 SPA）
 ```bash
 npm run quality                                   # Prettier + ESLint
 npm run build
-DIST=dist python3 scripts/validate_ci.py          # 全量校验（与 CI 一致，11 步）
+DIST=dist python3 scripts/validate_ci.py          # 全量校验（与 CI 一致，12 步）
 npm run test:unit
 npx playwright install chromium                   # 首次 E2E
 npm run test:e2e
@@ -218,14 +220,14 @@ python scripts/fetch_oss_stars.py      # 开源 Star 数
 
 `push` / `PR` 触发 [`.github/workflows/ci.yml`](.github/workflows/ci.yml)：
 
-| 阶段              | 说明                                                                                                                           |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Lint & Format     | `npm run quality`（Prettier check + ESLint）                                                                                   |
-| Astro 构建        | `npm ci && npm run build` → `dist/`（Secrets 可注入 Umami / CF / GA / Clarity）                                                |
-| 单元测试          | `npm run test:unit`（paths / 视频回退 / 新闻去重）                                                                             |
-| 数据校验（11 步） | `validate_ci.py`：data · **tool-relations** · oss · videos · news · runtime · recommend · sitemap · search · analytics · links |
-| API 冒烟          | `scripts/smoke_api.py`（本地 FastAPI；生产 Pages **无** `/api/*`）                                                             |
-| E2E               | Playwright 冒烟 ≈12 项；**失败会使 CI 红**；Pages 部署流水线不跑 E2E                                                           |
+| 阶段              | 说明                                                                                                                                            |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| Lint & Format     | `npm run quality`（Prettier check + ESLint）                                                                                                    |
+| Astro 构建        | `npm ci && npm run build` → `dist/`（Secrets 可注入 Umami / CF / GA / Clarity）                                                                 |
+| 单元测试          | `npm run test:unit`（paths / 视频回退 / 新闻去重）                                                                                              |
+| 数据校验（12 步） | `validate_ci.py`：data · **tool-relations** · oss · videos · news · runtime · recommend · sitemap · search · analytics · **engagement** · links |
+| API 冒烟          | `scripts/smoke_api.py`（本地 FastAPI；生产 Pages **无** `/api/*`）                                                                              |
+| E2E               | Playwright 冒烟 ≈12 项；**失败会使 CI 红**；Pages 部署流水线不跑 E2E                                                                            |
 
 `main` 推送触发：
 

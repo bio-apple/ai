@@ -1,0 +1,41 @@
+---
+/**
+ * 数据运营：浏览量 / 点击量 / 收藏量 + 今日热榜（engagement.js 填充）
+ */
+---
+
+<section class="home-section fade-in" id="home-ops" data-ops-ready="0">
+  <div class="section-head section-head-row">
+    <div>
+      <p class="section-kicker">数据运营</p>
+      <h2 class="section-title">今日热度</h2>
+      <p class="section-desc">浏览 · 点击 · 收藏；热榜随本机互动实时累加</p>
+    </div>
+    <p class="ops-updated" id="ops-updated" aria-live="polite"></p>
+  </div>
+
+  <div class="ops-summary" role="group" aria-label="关键指标">
+    <div class="ops-stat">
+      <span class="ops-stat-label">浏览量</span>
+      <strong class="ops-stat-value" id="ops-views">—</strong>
+    </div>
+    <div class="ops-stat">
+      <span class="ops-stat-label">点击量</span>
+      <strong class="ops-stat-value" id="ops-clicks">—</strong>
+    </div>
+    <div class="ops-stat">
+      <span class="ops-stat-label">收藏量</span>
+      <strong class="ops-stat-value" id="ops-favs">—</strong>
+    </div>
+  </div>
+
+  <div class="ops-trend">
+    <div class="ops-trend-head">
+      <h3 class="ops-trend-title">最近更新</h3>
+      <span class="ops-trend-hint">按今日点击排序</span>
+    </div>
+    <ul class="ops-trend-list" id="ops-trend-list">
+      <li class="ops-trend-empty">加载热度数据…</li>
+    </ul>
+  </div>
+</section>

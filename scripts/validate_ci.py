@@ -283,12 +283,38 @@ def validate_oss_projects() -> None:
 
 
 def validate_data_json() -> None:
-    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json", "oss-projects.json", "rankings.json", "tool-relations.json"):
+    for name in (
+        "site.json",
+        "tools.json",
+        "cases.json",
+        "compares.json",
+        "prompts.json",
+        "tutorials.json",
+        "videos.json",
+        "analytics.json",
+        "oss-projects.json",
+        "rankings.json",
+        "tool-relations.json",
+        "engagement.json",
+    ):
         path = REPO / "data" / name
         if not path.exists():
             raise FileNotFoundError(path)
         json.loads(path.read_text(encoding="utf-8"))
     print("✓ data/*.json 可解析")
+
+
+def validate_engagement() -> None:
+    path = REPO / "data" / "engagement.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("engagement.schema.json")).validate(data)
+    runtime = ROOT / "engagement.json"
+    if not runtime.exists():
+        raise FileNotFoundError("engagement.json 缺失，请先运行 npm run build")
+    ids = [t.get("id") for t in data.get("tools") or []]
+    if len(ids) != len(set(ids)):
+        raise ValueError("engagement.json tools.id 重复")
+    print(f"✓ engagement.json schema ({len(ids)} 工具热度)")
 
 
 def validate_tool_relations() -> None:
@@ -323,6 +349,7 @@ STEPS = (
     ("sitemap", validate_sitemap_robots),
     ("search", validate_search_index),
     ("analytics", validate_analytics_config),
+    ("engagement", validate_engagement),
     ("links", validate_html_links),
 )
 
