@@ -192,7 +192,9 @@ const schema = buildHomeSchema(site);
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
         <div>
           <h2>每日 AI 视频推荐</h2>
-          <p class="desc">日更完整列表（六类 · 100d → 30d → 24h）。上方简报仅摘 2 条。</p>
+          <p class="desc">
+            日更完整列表：YouTube / B站各自合并展示，默认按上传时间排序。上方简报仅摘 2 条。
+          </p>
           <p class="video-update-meta" id="video-update-meta"></p>
         </div>
       </div>
@@ -205,8 +207,8 @@ const schema = buildHomeSchema(site);
         </div>
         <div class="video-toolbar-group">
           <span class="video-toolbar-label">排序</span>
-          <button type="button" class="video-sort active" data-video-sort="views">热门</button>
-          <button type="button" class="video-sort" data-video-sort="recent">最新</button>
+          <button type="button" class="video-sort" data-video-sort="views">热门</button>
+          <button type="button" class="video-sort active" data-video-sort="recent">最新</button>
         </div>
       </div>
       <div id="daily-video-list" class="daily-video-list">
