@@ -4,6 +4,7 @@ import { asset } from '../lib/paths';
 
 const brief = pickAiDailyBrief();
 ---
+
 <section class="home-section fade-in" id="home-daily">
   <div class="section-head section-head-row">
     <div>
@@ -11,76 +12,126 @@ const brief = pickAiDailyBrief();
       <h2 class="section-title">AI 简报</h2>
       <p class="section-desc">标题速览 · 详情进新闻与视频专区</p>
     </div>
-    {brief.updatedAt && (
-      <p class="daily-updated">资讯更新于 {formatNewsDate(brief.updatedAt)} · 周更</p>
-    )}
+    {
+      brief.updatedAt && (
+        <p class="daily-updated">资讯更新于 {formatNewsDate(brief.updatedAt)} · 日更</p>
+      )
+    }
   </div>
 
   <div class="daily-grid">
     <article class="daily-panel">
-      <h3 class="daily-panel-title">本周 · 模型与发布 <span class="daily-cadence">周更</span></h3>
+      <h3 class="daily-panel-title">最新 · 模型与发布 <span class="daily-cadence">日更</span></h3>
       <ul class="daily-list">
-        {brief.models.map((item) => (
-          <li>
-            <a href={item.url} target="_blank" rel="noopener" data-track="daily_panel_click" data-track-panel="models">
-              <span class="daily-item-title">{item.title}</span>
-              <span class="daily-item-meta">{item.source || item.category || ''}</span>
-            </a>
-          </li>
-        ))}
+        {
+          brief.models.map((item) => (
+            <li>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener"
+                data-track="daily_panel_click"
+                data-track-panel="models"
+              >
+                <span class="daily-item-title">{item.title}</span>
+                <span class="daily-item-meta">{item.source || item.category || ''}</span>
+              </a>
+            </li>
+          ))
+        }
         {brief.models.length === 0 && <li class="daily-empty">暂无模型动态</li>}
       </ul>
     </article>
 
     <article class="daily-panel">
-      <h3 class="daily-panel-title">GitHub 热门 <span class="daily-cadence">周更</span></h3>
+      <h3 class="daily-panel-title">GitHub 热门 <span class="daily-cadence">日更</span></h3>
       <ul class="daily-list">
-        {brief.github.map((item) => (
-          <li>
-            <a href={item.url} target="_blank" rel="noopener" data-track="daily_panel_click" data-track-panel="github">
-              <span class="daily-item-title">{item.title}</span>
-              <span class="daily-item-meta">{item.category || item.source || 'GitHub'}</span>
-            </a>
-          </li>
-        ))}
-        {brief.github.length === 0 && (
-          <li class="daily-empty">暂无 GitHub 动态 · <a href="#home-oss" data-track="daily_empty_oss">看开源精选</a></li>
-        )}
+        {
+          brief.github.map((item) => (
+            <li>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener"
+                data-track="daily_panel_click"
+                data-track-panel="github"
+              >
+                <span class="daily-item-title">{item.title}</span>
+                <span class="daily-item-meta">{item.category || item.source || 'GitHub'}</span>
+              </a>
+            </li>
+          ))
+        }
+        {
+          brief.github.length === 0 && (
+            <li class="daily-empty">
+              暂无 GitHub 动态 ·{' '}
+              <a href="#home-oss" data-track="daily_empty_oss">
+                看开源精选
+              </a>
+            </li>
+          )
+        }
       </ul>
     </article>
 
     <article class="daily-panel">
-      <h3 class="daily-panel-title">本周 · 行业资讯 <span class="daily-cadence">周更</span></h3>
+      <h3 class="daily-panel-title">最新 · 行业资讯 <span class="daily-cadence">日更</span></h3>
       <ul class="daily-list">
-        {brief.industry.map((item) => (
-          <li>
-            <a href={item.url} target="_blank" rel="noopener" data-track="daily_panel_click" data-track-panel="industry">
-              <span class="daily-item-title">{item.title}</span>
-              <span class="daily-item-meta">{item.source || ''}</span>
-            </a>
-          </li>
-        ))}
+        {
+          brief.industry.map((item) => (
+            <li>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener"
+                data-track="daily_panel_click"
+                data-track-panel="industry"
+              >
+                <span class="daily-item-title">{item.title}</span>
+                <span class="daily-item-meta">{item.source || ''}</span>
+              </a>
+            </li>
+          ))
+        }
         {brief.industry.length === 0 && <li class="daily-empty">暂无行业资讯</li>}
       </ul>
-      <a class="daily-more" href={asset('news/daily-ai-news.html')} data-track="daily_news_more">全部新闻 →</a>
+      <a class="daily-more" href={asset('news/daily-ai-news.html')} data-track="daily_news_more"
+        >全部新闻 →</a
+      >
     </article>
 
     <article class="daily-panel">
       <h3 class="daily-panel-title">今日 · 学习视频 <span class="daily-cadence">日更</span></h3>
       <ul class="daily-list">
-        {brief.learn.map((v) => (
-          <li>
-            <a href={v.url} target="_blank" rel="noopener" data-track="daily_panel_click" data-track-panel="learn">
-              <span class="daily-item-title">{v.title}</span>
-              <span class="daily-item-meta">
-                {[v.platform === 'bilibili' ? 'B站' : 'YouTube', formatPublishDate(v.published_at)].filter(Boolean).join(' · ')}
-              </span>
-            </a>
-          </li>
-        ))}
+        {
+          brief.learn.map((v) => (
+            <li>
+              <a
+                href={v.url}
+                target="_blank"
+                rel="noopener"
+                data-track="daily_panel_click"
+                data-track-panel="learn"
+              >
+                <span class="daily-item-title">{v.title}</span>
+                <span class="daily-item-meta">
+                  {[
+                    v.platform === 'bilibili' ? 'B站' : 'YouTube',
+                    formatPublishDate(v.published_at),
+                  ]
+                    .filter(Boolean)
+                    .join(' · ')}
+                </span>
+              </a>
+            </li>
+          ))
+        }
         {brief.learn.length === 0 && <li class="daily-empty">暂无视频条目</li>}
       </ul>
-      <button type="button" class="daily-more" data-goto="videos" data-track="daily_videos_more">每日视频 →</button>
+      <button type="button" class="daily-more" data-goto="videos" data-track="daily_videos_more"
+        >每日视频 →</button
+      >
     </article>
   </div>
 </section>

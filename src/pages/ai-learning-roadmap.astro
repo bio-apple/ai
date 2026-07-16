@@ -7,36 +7,68 @@ import { asset, homeHref } from '../lib/paths';
 const page = site.roadmap_page;
 const toolNames = toolNamesMap();
 const base = site.meta.base_url;
-const schema = buildPageSchema(page.title, page.lead, `${base}ai-learning-roadmap.html`);
 const home = homeHref();
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: 'AI 学习路线', url: `${base}ai-learning-roadmap.html` },
+];
+const schema = buildPageSchema(
+  page.title,
+  page.lead,
+  `${base}ai-learning-roadmap.html`,
+  breadcrumbs,
+);
 ---
+
 <StandaloneLayout
   title={page.title}
   description={page.lead}
   canonical={`${base}ai-learning-roadmap.html`}
   schema={schema}
+  ogType="website"
 >
   <main class="standalone-page">
     <nav class="breadcrumb"><a href={home}>首页</a> / AI 学习路线</nav>
     <div class="standalone-hero">
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
+      <p class="library-meta" id="roadmap-progress-meta">
+        进度 0/{page.phases.length}（保存在本浏览器）
+      </p>
     </div>
     <div class="roadmap-timeline">
-      {page.phases.map((phase) => (
-        <article class="roadmap-phase card">
-          <div class="roadmap-phase-head">
-            <span class="roadmap-phase-label">{phase.phase}</span>
-            <h2>{phase.title}</h2>
-          </div>
-          <div class="roadmap-tools">
-            {phase.tools.map((tid) => (
-              <a href={asset(`tools/${tid}.html`)} class={`roadmap-tool-chip ${tid}`}>{toolNames[tid]}</a>
-            ))}
-          </div>
-          <ul class="roadmap-tasks">{phase.tasks.map((task) => <li>{task}</li>)}</ul>
-        </article>
-      ))}
+      {
+        page.phases.map((phase, idx) => {
+          const phaseId = `phase-${idx + 1}`;
+          return (
+            <article class="roadmap-phase card" data-phase-id={phaseId}>
+              <div class="roadmap-phase-head">
+                <label class="roadmap-phase-done">
+                  <input
+                    type="checkbox"
+                    class="roadmap-phase-check"
+                    aria-label={`标记完成：${phase.title}`}
+                  />
+                  <span class="roadmap-phase-label">{phase.phase}</span>
+                </label>
+                <h2>{phase.title}</h2>
+              </div>
+              <div class="roadmap-tools">
+                {phase.tools.map((tid) => (
+                  <a href={asset(`tools/${tid}.html`)} class={`roadmap-tool-chip ${tid}`}>
+                    {toolNames[tid]}
+                  </a>
+                ))}
+              </div>
+              <ul class="roadmap-tasks">
+                {phase.tasks.map((task) => (
+                  <li>{task}</li>
+                ))}
+              </ul>
+            </article>
+          );
+        })
+      }
     </div>
     <div class="standalone-cta">
       <a href={asset('cases/index.html')} class="cta-btn">开始实战案例</a>

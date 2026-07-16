@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-16",
+  "label": "数据运营",
+  "page_views": 18620,
+  "favorites_count": 942,
+  "tools": [
+    {
+      "id": "chatgpt",
+      "name": "ChatGPT",
+      "icon": "🔥",
+      "today_clicks": 1284,
+      "updated_at": "2026-07-16",
+      "note": "教程与推荐入口持续更新"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "icon": "⚡",
+      "today_clicks": 976,
+      "updated_at": "2026-07-16",
+      "note": "Agent 工作流补充"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "icon": "🚀",
+      "today_clicks": 851,
+      "updated_at": "2026-07-15",
+      "note": "免费入门路径"
+    },
+    {
+      "id": "claude",
+      "name": "Claude",
+      "icon": "✦",
+      "today_clicks": 743,
+      "updated_at": "2026-07-15",
+      "note": "长文档与 Code 指南"
+    },
+    {
+      "id": "gemini",
+      "name": "Gemini",
+      "icon": "◈",
+      "today_clicks": 612,
+      "updated_at": "2026-07-14",
+      "note": "多模态场景"
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "icon": "◐",
+      "today_clicks": 508,
+      "updated_at": "2026-07-14",
+      "note": "长上下文阅读"
+    }
+  ]
+}

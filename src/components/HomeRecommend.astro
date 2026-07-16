@@ -1,5 +1,5 @@
 ---
-import { site, toolLookup } from '../lib/data';
+import { site, toolLookup, toolRelations } from '../lib/data';
 import { asset } from '../lib/paths';
 
 const picker = site.ai_picker;
@@ -7,20 +7,25 @@ const lookup = toolLookup();
 const toolsMeta = Object.fromEntries(
   Object.entries(lookup).map(([id, t]) => [
     id,
-    { name: (t as { name?: string }).name || id, tagline: (t as { tagline?: string }).tagline || '' },
+    {
+      name: (t as { name?: string }).name || id,
+      tagline: (t as { tagline?: string }).tagline || '',
+    },
   ]),
 );
 const recommendConfig = {
   options: picker.options,
   fallback: site.recommend_fallback,
   tools: toolsMeta,
+  relations: toolRelations,
 };
 ---
+
 <section class="home-section fade-in" id="home-recommend">
   <div class="section-head">
     <p class="section-kicker">AI 推荐助手</p>
     <h2 class="section-title">{picker.title}</h2>
-    <p class="section-desc">描述需求或点选场景，先拿到工具选型；学习步骤见下方路线</p>
+    <p class="section-desc">描述需求或点选场景，先拿到工具选型；再进入学习路线与案例巩固</p>
   </div>
 
   <form class="recommend-query" id="recommend-form">
@@ -39,46 +44,64 @@ const recommendConfig = {
   <div class="recommend-result" id="recommend-result" hidden></div>
 
   <div class="recommend-grid" id="recommend-grid">
-    {picker.options.map((opt) => (
-      <details class="recommend-card" data-picker={opt.id}>
-        <summary>
-          <span class="recommend-card-label">{opt.label}</span>
-          <span class="recommend-card-hint">查看工具</span>
-        </summary>
-        <div class="recommend-card-body">
-          <p class="recommend-card-lead">推荐工具</p>
-          <ul class="recommend-tools">
-            {opt.tools.map((id, idx) => {
-              const tool = lookup[id] as { name?: string; tagline?: string } | undefined;
-              return (
-                <li>
-                  <button type="button" class="recommend-tool-btn" data-tool={id} data-track={`recommend-${opt.id}`}>
-                    <span class="recommend-rank">{idx + 1}</span>
-                    <span>
-                      <strong>{tool?.name || id}</strong>
-                      {tool?.tagline && <small>{tool.tagline}</small>}
-                    </span>
-                  </button>
-                </li>
-              );
-            })}
-          </ul>
-          <div class="recommend-links">
-            <a href={asset('ai-learning-roadmap.html')} class="recommend-link" data-track={`recommend-learning-${opt.id}`}>
-              学习路线 →
-            </a>
-            <a
-              href={asset(opt.guide || (opt.id === 'coding' ? 'guides/advanced.html' : 'guides/beginner.html'))}
-              class="recommend-link"
-              data-track={`recommend-guide-${opt.id}`}
-            >
-              完整指南 →
-            </a>
+    {
+      picker.options.map((opt) => (
+        <details class="recommend-card" data-picker={opt.id}>
+          <summary>
+            <span class="recommend-card-label">{opt.label}</span>
+            <span class="recommend-card-hint">查看工具</span>
+          </summary>
+          <div class="recommend-card-body">
+            <p class="recommend-card-lead">推荐工具</p>
+            <ul class="recommend-tools">
+              {opt.tools.map((id, idx) => {
+                const tool = lookup[id] as { name?: string; tagline?: string } | undefined;
+                return (
+                  <li>
+                    <button
+                      type="button"
+                      class="recommend-tool-btn"
+                      data-tool={id}
+                      data-track={`recommend-${opt.id}`}
+                    >
+                      <span class="recommend-rank">{idx + 1}</span>
+                      <span>
+                        <strong>{tool?.name || id}</strong>
+                        {tool?.tagline && <small>{tool.tagline}</small>}
+                      </span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+            <div class="recommend-links">
+              <a
+                href={asset('ai-learning-roadmap.html')}
+                class="recommend-link"
+                data-track={`recommend-learning-${opt.id}`}
+              >
+                学习路线 →
+              </a>
+              <a
+                href={asset(
+                  opt.guide ||
+                    (opt.id === 'coding' ? 'guides/advanced.html' : 'guides/beginner.html'),
+                )}
+                class="recommend-link"
+                data-track={`recommend-guide-${opt.id}`}
+              >
+                完整指南 →
+              </a>
+            </div>
           </div>
-        </div>
-      </details>
-    ))}
+        </details>
+      ))
+    }
   </div>
 
-  <script type="application/json" id="recommend-config" set:html={JSON.stringify(recommendConfig)} />
+  <script
+    type="application/json"
+    id="recommend-config"
+    set:html={JSON.stringify(recommendConfig)}
+  />
 </section>

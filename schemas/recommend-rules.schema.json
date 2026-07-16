@@ -33,6 +33,36 @@
         "path_title": { "type": "string" },
         "steps": { "type": "array", "items": { "type": "string" } }
       }
+    },
+    "relations": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "alternatives": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "note"],
+              "properties": {
+                "id": { "type": "string" },
+                "note": { "type": "string" }
+              }
+            }
+          },
+          "complements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "note"],
+              "properties": {
+                "id": { "type": "string" },
+                "note": { "type": "string" }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

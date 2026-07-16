@@ -15,7 +15,7 @@ function getSystemTheme() {
 function applyTheme(theme) {
   const resolved = theme === 'dark' || theme === 'light' ? theme : getSystemTheme();
   document.documentElement.dataset.theme = resolved;
-  document.querySelectorAll('.theme-toggle').forEach(btn => {
+  document.querySelectorAll('.theme-toggle').forEach((btn) => {
     const isDark = resolved === 'dark';
     btn.setAttribute('aria-label', isDark ? '切换到浅色模式' : '切换到深色模式');
     btn.textContent = isDark ? '☀' : '☾';
@@ -25,7 +25,7 @@ function applyTheme(theme) {
 function initTheme() {
   applyTheme(getStoredTheme() || getSystemTheme());
 
-  document.querySelectorAll('.theme-toggle').forEach(btn => {
+  document.querySelectorAll('.theme-toggle').forEach((btn) => {
     btn.addEventListener('click', () => {
       const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       try {
@@ -123,8 +123,8 @@ function collectHeadings(root) {
 }
 
 function renderTocPrimary(activeId) {
-  return TOC_PRIMARY.filter(item => document.getElementById(item.id))
-    .map(item => {
+  return TOC_PRIMARY.filter((item) => document.getElementById(item.id))
+    .map((item) => {
       const active = item.id === activeId ? ' active' : '';
       return `<li><button type="button" class="page-toc-link${active}" data-section="${item.id}">${item.label}</button></li>`;
     })
@@ -133,27 +133,29 @@ function renderTocPrimary(activeId) {
 
 function renderTocSubheadings(headings, activeHeadingId) {
   if (!headings.length) return '';
-  const links = headings.map(h => {
-    const active = h.id === activeHeadingId ? ' active' : '';
-    return `<li><button type="button" class="page-toc-link${active}" data-level="${h.level}" data-heading="${h.id}">${h.label}</button></li>`;
-  }).join('');
+  const links = headings
+    .map((h) => {
+      const active = h.id === activeHeadingId ? ' active' : '';
+      return `<li><button type="button" class="page-toc-link${active}" data-level="${h.level}" data-heading="${h.id}">${h.label}</button></li>`;
+    })
+    .join('');
   return `<div class="page-toc-subtitle">本页目录</div><ul class="page-toc-nav">${links}</ul>`;
 }
 
 function bindTocLinks(container) {
   if (!container) return;
-  container.querySelectorAll('[data-section]').forEach(btn => {
+  container.querySelectorAll('[data-section]').forEach((btn) => {
     btn.addEventListener('click', () => {
       if (typeof showSection === 'function') {
         showSection(btn.dataset.section);
       }
     });
   });
-  container.querySelectorAll('[data-heading]').forEach(btn => {
+  container.querySelectorAll('[data-heading]').forEach((btn) => {
     btn.addEventListener('click', () => {
       const el = document.getElementById(btn.dataset.heading);
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      container.querySelectorAll('.page-toc-link').forEach(l => l.classList.remove('active'));
+      container.querySelectorAll('.page-toc-link').forEach((l) => l.classList.remove('active'));
       btn.classList.add('active');
     });
   });
@@ -168,14 +170,16 @@ function updatePageToc(activeSectionId) {
     : document.querySelector('.section.active');
 
   const sectionId = activeSection?.id || 'section-home';
-  const headingRoot = sectionId === 'section-home'
-    ? document.querySelector('#section-home .home-main')
-    : activeSection;
+  const headingRoot =
+    sectionId === 'section-home'
+      ? document.querySelector('#section-home .home-main')
+      : activeSection;
 
   const sub = collectHeadings(headingRoot);
-  const promptHeading = sectionId === 'section-cases'
-    ? [{ id: 'section-cases', label: 'Prompt 提示词库', level: 2 }]
-    : [];
+  const promptHeading =
+    sectionId === 'section-cases'
+      ? [{ id: 'section-cases', label: 'Prompt 提示词库', level: 2 }]
+      : [];
 
   toc.innerHTML = `
     <div class="page-toc-title">页面导航</div>
@@ -202,7 +206,7 @@ function initStandaloneToc() {
   toc.innerHTML = `
     <div class="page-toc-title">本页目录</div>
     <ul class="page-toc-nav">
-      ${headings.map(h => `<li><button type="button" class="page-toc-link" data-level="${h.level}" data-heading="${h.id}">${h.label}</button></li>`).join('')}
+      ${headings.map((h) => `<li><button type="button" class="page-toc-link" data-level="${h.level}" data-heading="${h.id}">${h.label}</button></li>`).join('')}
     </ul>
   `;
   document.body.classList.add('toc-enabled');
@@ -234,18 +238,21 @@ function initScrollReveal(root = document) {
   const targets = root.querySelectorAll('.reveal:not(.visible)');
   if (!targets.length) return;
   if (!('IntersectionObserver' in window)) {
-    targets.forEach(el => el.classList.add('visible'));
+    targets.forEach((el) => el.classList.add('visible'));
     return;
   }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-  targets.forEach(el => observer.observe(el));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.08, rootMargin: '0px 0px -30px 0px' },
+  );
+  targets.forEach((el) => observer.observe(el));
 }
 
 window.refreshScrollReveal = initScrollReveal;

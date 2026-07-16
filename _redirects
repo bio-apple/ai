@@ -1,0 +1,4 @@
+# Cloudflare Pages：强制 HTTPS（边缘层）
+# GitHub Pages 对 *.github.io 已强制 HTTPS；自定义域名请在 Cloudflare 开启 Always Use HTTPS
+
+http://bio-apple.github.io/* https://bio-apple.github.io/:splat 301

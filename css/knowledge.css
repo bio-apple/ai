@@ -13,7 +13,9 @@
   font-size: 1.35rem;
   cursor: pointer;
   box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .knowledge-fab:hover {

@@ -1,0 +1,85 @@
+{
+  "chatgpt": {
+    "alternatives": [
+      { "id": "claude", "note": "长文写作与深度推理更稳" },
+      { "id": "gemini", "note": "深度整合 Google 生态" },
+      { "id": "deepseek", "note": "免费强推理、API 更便宜" },
+      { "id": "doubao", "note": "国内直连、中文多模态免费" }
+    ],
+    "complements": [{ "id": "cursor", "note": "对话定方案，再用 Cursor Agent 落地改代码" }]
+  },
+  "claude": {
+    "alternatives": [
+      { "id": "chatgpt", "note": "生态更全，GPTs 与多模态更成熟" },
+      { "id": "gemini", "note": "Google 服务联动更强" },
+      { "id": "kimi", "note": "国产长文档速读更方便" }
+    ],
+    "complements": [{ "id": "cursor", "note": "Claude 写规格与评审，Cursor 负责仓库级改动" }]
+  },
+  "gemini": {
+    "alternatives": [
+      { "id": "chatgpt", "note": "通用助手与插件生态更全" },
+      { "id": "claude", "note": "长文与代码分析更稳" }
+    ],
+    "complements": [{ "id": "cursor", "note": "Gemini 调研资料，Cursor 落地实现" }]
+  },
+  "deepseek": {
+    "alternatives": [
+      { "id": "chatgpt", "note": "需要更完整产品生态时切换" },
+      { "id": "doubao", "note": "更偏日常中文多模态体验" },
+      { "id": "qwen", "note": "阿里系企业与会议场景更齐" }
+    ],
+    "complements": [
+      { "id": "cursor", "note": "低成本推理助手 + Cursor Agent 开发流" },
+      { "id": "copilot", "note": "IDE 补全用 Copilot，复杂题交给 DeepSeek" }
+    ]
+  },
+  "kimi": {
+    "alternatives": [
+      { "id": "claude", "note": "高质量写作与技术文档分析" },
+      { "id": "qwen", "note": "会议转写与企业部署更强" },
+      { "id": "chatgpt", "note": "通用任务与国际化内容" }
+    ],
+    "complements": [{ "id": "cursor", "note": "Kimi 消化长文档需求，Cursor 改代码落地" }]
+  },
+  "qwen": {
+    "alternatives": [
+      { "id": "kimi", "note": "超长 PDF / 合同速读更擅长" },
+      { "id": "deepseek", "note": "免费强推理与便宜 API" },
+      { "id": "doubao", "note": "日常中文多模态更轻便" }
+    ],
+    "complements": []
+  },
+  "doubao": {
+    "alternatives": [
+      { "id": "chatgpt", "note": "需要国际内容与 GPTs 生态时切换" },
+      { "id": "deepseek", "note": "更偏推理与开发者 API" },
+      { "id": "qwen", "note": "企业办公与听悟会议场景" }
+    ],
+    "complements": []
+  },
+  "cursor": {
+    "alternatives": [
+      { "id": "copilot", "note": "留在 VS Code，成熟补全与 Chat" },
+      { "id": "codex", "note": "偏云端/CLI 代理式编码" }
+    ],
+    "complements": [
+      { "id": "claude", "note": "复杂规格与代码评审交给 Claude" },
+      { "id": "chatgpt", "note": "方案讨论与资料整理用 ChatGPT" }
+    ]
+  },
+  "copilot": {
+    "alternatives": [
+      { "id": "cursor", "note": "需要 Agent 跨文件改动时切换" },
+      { "id": "codex", "note": "更偏代理式任务与自动化" }
+    ],
+    "complements": [{ "id": "chatgpt", "note": "补全写代码，复杂方案先在 ChatGPT 对齐" }]
+  },
+  "codex": {
+    "alternatives": [
+      { "id": "cursor", "note": "本地 IDE 里做 Agent 开发" },
+      { "id": "copilot", "note": "日常行级补全与 VS Code 生态" }
+    ],
+    "complements": [{ "id": "chatgpt", "note": "用 ChatGPT 澄清需求，再交给 Codex 执行" }]
+  }
+}

@@ -10,9 +10,15 @@ export function getStaticPaths() {
 
 const { compare } = Astro.props;
 const base = site.meta.base_url;
-const schema = buildCompareSchema(compare, base);
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: '选型指南', url: `${base}ai-tools-ranking.html` },
+  { name: compare.breadcrumb, url: `${base}compare/${compare.slug}.html` },
+];
+const schema = buildCompareSchema(compare, base, breadcrumbs);
 const home = homeHref();
 ---
+
 <StandaloneLayout
   title={compare.title}
   description={compare.meta_description}
@@ -23,25 +29,55 @@ const home = homeHref();
     <nav class="breadcrumb"><a href={home}>首页</a> / 选型指南 / {compare.breadcrumb}</nav>
     <h1>{compare.h1}</h1>
     <p class="standalone-lead">{compare.lead}</p>
-    <div class="answer-box"><strong>一句话结论：</strong><span set:html={compare.conclusion} /></div>
+    <div class="answer-box">
+      <strong>一句话结论：</strong><span set:html={compare.conclusion} />
+    </div>
     <table class="compare-table">
       <thead><tr>{compare.table.headers.map((h) => <th>{h}</th>)}</tr></thead>
-      <tbody>{compare.table.rows.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}</tbody>
+      <tbody
+        >{
+          compare.table.rows.map((row) => (
+            <tr>
+              {row.map((cell) => (
+                <td>{cell}</td>
+              ))}
+            </tr>
+          ))
+        }</tbody
+      >
     </table>
-    {compare.sections.map((sec) => (
-      <>
-        <h2>{sec.heading}</h2>
-        {sec.ordered ? (
-          <ol class="steps">{sec.items.map((item) => <li set:html={item} />)}</ol>
-        ) : (
-          <ul class="features">{sec.items.map((item) => <li set:html={item} />)}</ul>
-        )}
-      </>
-    ))}
+    {
+      compare.sections.map((sec) => (
+        <>
+          <h2>{sec.heading}</h2>
+          {sec.ordered ? (
+            <ol class="steps">
+              {sec.items.map((item) => (
+                <li set:html={item} />
+              ))}
+            </ol>
+          ) : (
+            <ul class="features">
+              {sec.items.map((item) => (
+                <li set:html={item} />
+              ))}
+            </ul>
+          )}
+        </>
+      ))
+    }
     <div class="standalone-cta">
-      {compare.cta.map((btn) => (
-        <a href={btn.href} class:list={['cta-btn', { 'cta-btn-outline': btn.outline }]} data-track={btn.track}>{btn.label}</a>
-      ))}
+      {
+        compare.cta.map((btn) => (
+          <a
+            href={btn.href}
+            class:list={['cta-btn', { 'cta-btn-outline': btn.outline }]}
+            data-track={btn.track}
+          >
+            {btn.label}
+          </a>
+        ))
+      }
     </div>
   </main>
 </StandaloneLayout>

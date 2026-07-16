@@ -3,9 +3,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildArtifacts } from './build-artifacts.mjs';
 import { syncPublic } from './sync-public.mjs';
+import { bundleCss } from './bundle-css.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = path.join(ROOT, 'public');
 
 syncPublic(publicDir);
+bundleCss({
+  entry: path.join(ROOT, 'style.css'),
+  outFile: path.join(publicDir, 'style.css'),
+});
 buildArtifacts(publicDir);

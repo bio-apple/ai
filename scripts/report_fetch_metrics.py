@@ -67,7 +67,7 @@ def report_news() -> int:
     items = data.get("items") or []
     watch = data.get("watch_sources") or []
     append_summary(
-        "### Weekly news\n\n"
+        "### Daily news\n\n"
         f"- updated_at: `{data.get('updated_at')}`\n"
         f"- items: **{len(items)}**\n"
         f"- watch_sources: {len(watch)}\n"

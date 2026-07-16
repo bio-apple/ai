@@ -1,5 +1,5 @@
 const navTabs = document.querySelectorAll('.nav-tab');
-const navItems = document.querySelectorAll('.nav-tab, .nav-dropdown-item');
+const _navItems = document.querySelectorAll('.nav-tab, .nav-dropdown-item');
 const sections = document.querySelectorAll('.section');
 
 let searchIndex = [];
@@ -21,9 +21,25 @@ function highlightMatch(text, query) {
   return `${escapeHtml(before)}<strong>${escapeHtml(match)}</strong>${escapeHtml(after)}`;
 }
 
+function resolveSearchUrl(url) {
+  if (!url) return url;
+  if (/^(https?:|\/|#)/.test(url)) return url;
+  return `${siteBase()}${String(url).replace(/^\//, '')}`;
+}
+
 function gotoSearchHit(item) {
   if (item.url) {
-    window.location.href = item.url;
+    window.location.href = resolveSearchUrl(item.url);
+    return;
+  }
+  // 案例已迁出首页 SPA
+  if (
+    item.section === 'section-cases' ||
+    (item.anchor && String(item.anchor).startsWith('case-'))
+  ) {
+    window.location.href = casesLibraryUrl(
+      item.anchor && String(item.anchor).startsWith('case-') ? item.anchor : null,
+    );
     return;
   }
   showSection(item.section, { anchor: item.anchor || null });
@@ -37,23 +53,23 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
   const target = document.getElementById(id);
   // 只切换顶层 .section，避免 #home-daily 等锚点误当作整页 section
   if (!target || !target.classList.contains('section')) return;
-  sections.forEach(s => s.classList.toggle('active', s.id === id));
+  sections.forEach((s) => s.classList.toggle('active', s.id === id));
   const toolId = id === 'section-home' ? 'all' : id.replace('section-', '');
 
-  navTabs.forEach(t => {
+  navTabs.forEach((t) => {
     const tabId = t.dataset.tool;
-    const match = tabId === 'all'
-      ? id === 'section-home'
-      : tabId === toolId;
+    const match = tabId === 'all' ? id === 'section-home' : tabId === toolId;
     t.classList.toggle('active', match);
   });
 
-  document.querySelectorAll('.nav-dropdown-item').forEach(item => {
+  document.querySelectorAll('.nav-dropdown-item').forEach((item) => {
     item.classList.toggle('active', item.dataset.tool === toolId);
   });
 
-  document.querySelectorAll('.nav-dropdown').forEach(drop => {
-    const hasActive = [...drop.querySelectorAll('.nav-dropdown-item')].some(i => i.classList.contains('active'));
+  document.querySelectorAll('.nav-dropdown').forEach((drop) => {
+    const hasActive = [...drop.querySelectorAll('.nav-dropdown-item')].some((i) =>
+      i.classList.contains('active'),
+    );
     drop.classList.toggle('has-active', hasActive);
   });
 
@@ -88,14 +104,23 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
   document.querySelector('.nav-menu')?.classList.remove('open');
   document.querySelector('.nav-toggle')?.setAttribute('aria-expanded', 'false');
 
-  window.dispatchEvent(new CustomEvent('bioai:section-change', { detail: { sectionId: id, anchor } }));
+  window.dispatchEvent(
+    new CustomEvent('bioai:section-change', { detail: { sectionId: id, anchor } }),
+  );
   if (typeof window.updatePageToc === 'function') window.updatePageToc(id);
 }
 
 window.showSection = showSection;
 
 function resolveGoto(target) {
-  if (target === 'cases' || target === 'videos' || target === 'news' || target === 'create' || target === 'prompts' || target === 'oss') {
+  if (
+    target === 'cases' ||
+    target === 'videos' ||
+    target === 'news' ||
+    target === 'create' ||
+    target === 'prompts' ||
+    target === 'oss'
+  ) {
     return `section-${target}`;
   }
   if (target === 'all' || target === 'home') return 'section-home';
@@ -115,7 +140,7 @@ function bindNavItem(el) {
 navTabs.forEach(bindNavItem);
 document.querySelectorAll('.nav-dropdown-item').forEach(bindNavItem);
 
-document.querySelectorAll('.tool-card-v2, .ranking-card[data-tool]').forEach(card => {
+document.querySelectorAll('.tool-card-v2, .ranking-card[data-tool]').forEach((card) => {
   card.addEventListener('click', (e) => {
     if (e.target.closest('.tool-card-btn')) return;
     const tool = card.dataset.tool;
@@ -125,7 +150,7 @@ document.querySelectorAll('.tool-card-v2, .ranking-card[data-tool]').forEach(car
   });
 });
 
-document.querySelectorAll('.tool-card-btn[data-tool]').forEach(btn => {
+document.querySelectorAll('.tool-card-btn[data-tool]').forEach((btn) => {
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
     showSection(`section-${btn.dataset.tool}`);
@@ -133,7 +158,7 @@ document.querySelectorAll('.tool-card-btn[data-tool]').forEach(btn => {
   });
 });
 
-document.querySelectorAll('[data-goto]').forEach(btn => {
+document.querySelectorAll('[data-goto]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.goto;
     if (target === 'prompts') {
@@ -145,17 +170,17 @@ document.querySelectorAll('[data-goto]').forEach(btn => {
 });
 
 function initNavDropdowns() {
-  document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
+  document.querySelectorAll('.nav-dropdown-trigger').forEach((trigger) => {
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       const drop = trigger.closest('.nav-dropdown');
       const wasOpen = drop.classList.contains('open');
-      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+      document.querySelectorAll('.nav-dropdown').forEach((d) => d.classList.remove('open'));
       if (!wasOpen) drop.classList.add('open');
     });
   });
   document.addEventListener('click', () => {
-    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.nav-dropdown').forEach((d) => d.classList.remove('open'));
   });
 }
 
@@ -174,19 +199,19 @@ function initAiPicker() {
   const groups = document.querySelectorAll('.ai-picker-tool-group');
   if (!options.length) return;
 
-  options.forEach(opt => {
+  options.forEach((opt) => {
     opt.addEventListener('click', () => {
       const id = opt.dataset.picker;
-      options.forEach(o => {
+      options.forEach((o) => {
         o.classList.toggle('active', o === opt);
         o.setAttribute('aria-pressed', o === opt ? 'true' : 'false');
       });
-      groups.forEach(g => g.classList.toggle('active', g.dataset.pickerResult === id));
+      groups.forEach((g) => g.classList.toggle('active', g.dataset.pickerResult === id));
       trackEvent('ai-picker', { choice: id });
     });
   });
 
-  document.querySelectorAll('.ai-picker-tool[data-tool]').forEach(btn => {
+  document.querySelectorAll('.ai-picker-tool[data-tool]').forEach((btn) => {
     btn.addEventListener('click', () => {
       showSection(`section-${btn.dataset.tool}`);
       trackEvent('ai-picker-tool', { tool: btn.dataset.tool });
@@ -197,23 +222,27 @@ function initAiPicker() {
 function initScrollAnimations() {
   const targets = document.querySelectorAll('.fade-in');
   if (!targets.length || !('IntersectionObserver' in window)) {
-    targets.forEach(el => el.classList.add('visible'));
+    targets.forEach((el) => el.classList.add('visible'));
     return;
   }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  targets.forEach(el => observer.observe(el));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+  );
+  targets.forEach((el) => observer.observe(el));
 }
 
 const HOME_HASH_ANCHORS = new Set([
   'home-daily',
   'home-recommend',
+  'home-ops',
   'home-favorites',
   'home-tools',
   'home-community',
@@ -237,7 +266,9 @@ function applyLocationHash() {
 
   // 案例已迁出首页 SPA → 独立页
   if (hash === 'section-cases' || (anchor && String(anchor).startsWith('case-'))) {
-    window.location.replace(casesLibraryUrl(anchor && String(anchor).startsWith('case-') ? anchor : null));
+    window.location.replace(
+      casesLibraryUrl(anchor && String(anchor).startsWith('case-') ? anchor : null),
+    );
     return;
   }
 
@@ -267,19 +298,22 @@ function initHashRouting() {
 window.addEventListener('hashchange', applyLocationHash);
 
 /* Case accordion */
-document.querySelectorAll('.case-header').forEach(header => {
+document.querySelectorAll('.case-header').forEach((header) => {
   const toggle = () => {
     const card = header.closest('.case-card');
     const wasOpen = card.classList.contains('open');
-    document.querySelectorAll('.case-card').forEach(c => c.classList.remove('open'));
+    document.querySelectorAll('.case-card').forEach((c) => c.classList.remove('open'));
     if (!wasOpen) {
       card.classList.add('open');
       trackEvent('case-expand', { tool: card.dataset.tool });
     }
   };
   header.addEventListener('click', toggle);
-  header.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+  header.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggle();
+    }
   });
 });
 
@@ -288,17 +322,18 @@ const filters = document.querySelectorAll('.case-filter');
 const caseCards = document.querySelectorAll('.case-card[data-tool]');
 
 function applyCaseFilters() {
-  caseCards.forEach(card => {
+  caseCards.forEach((card) => {
     const toolMatch = activeToolFilter === 'all' || card.dataset.tool === activeToolFilter;
     const scenarios = (card.dataset.scenario || '').split(' ');
-    const scenarioMatch = activeScenarioFilter === 'all' || scenarios.includes(activeScenarioFilter);
+    const scenarioMatch =
+      activeScenarioFilter === 'all' || scenarios.includes(activeScenarioFilter);
     card.classList.toggle('hidden', !(toolMatch && scenarioMatch));
   });
 }
 
-filters.forEach(btn => {
+filters.forEach((btn) => {
   btn.addEventListener('click', () => {
-    filters.forEach(f => f.classList.remove('active'));
+    filters.forEach((f) => f.classList.remove('active'));
     btn.classList.add('active');
     activeToolFilter = btn.dataset.filter;
     applyCaseFilters();
@@ -306,9 +341,9 @@ filters.forEach(btn => {
   });
 });
 
-document.querySelectorAll('.case-scenario').forEach(btn => {
+document.querySelectorAll('.case-scenario').forEach((btn) => {
   btn.addEventListener('click', () => {
-    document.querySelectorAll('.case-scenario').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.case-scenario').forEach((b) => b.classList.remove('active'));
     btn.classList.add('active');
     activeScenarioFilter = btn.dataset.scenario;
     applyCaseFilters();
@@ -316,13 +351,13 @@ document.querySelectorAll('.case-scenario').forEach(btn => {
   });
 });
 
-document.querySelectorAll('.case-tag').forEach(tag => {
+document.querySelectorAll('.case-tag').forEach((tag) => {
   tag.addEventListener('click', (e) => {
     e.stopPropagation();
-    const map = { '写作': 'writing', '编程': 'coding', '入门': 'beginner' };
+    const map = { 写作: 'writing', 编程: 'coding', 入门: 'beginner' };
     const scenario = map[tag.textContent.trim()];
     if (!scenario) return;
-    document.querySelectorAll('.case-scenario').forEach(b => {
+    document.querySelectorAll('.case-scenario').forEach((b) => {
       b.classList.toggle('active', b.dataset.scenario === scenario);
     });
     activeScenarioFilter = scenario;
@@ -333,7 +368,7 @@ document.querySelectorAll('.case-tag').forEach(tag => {
   });
 });
 
-document.querySelectorAll('[data-goto-case]').forEach(card => {
+document.querySelectorAll('[data-goto-case]').forEach((card) => {
   card.addEventListener('click', () => {
     const anchor = card.dataset.gotoCase;
     trackEvent('case-preview-click', { anchor });
@@ -344,12 +379,12 @@ document.querySelectorAll('[data-goto-case]').forEach(card => {
 function initCasesLibraryFilter() {
   const toolbar = document.getElementById('cases-toolbar');
   if (!toolbar) return;
-  toolbar.querySelectorAll('[data-case-tool]').forEach(btn => {
+  toolbar.querySelectorAll('[data-case-tool]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      toolbar.querySelectorAll('[data-case-tool]').forEach(b => b.classList.remove('active'));
+      toolbar.querySelectorAll('[data-case-tool]').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       const tool = btn.dataset.caseTool;
-      document.querySelectorAll('.case-library-card').forEach(card => {
+      document.querySelectorAll('.case-library-card').forEach((card) => {
         const match = tool === 'all' || card.dataset.tool === tool;
         card.style.display = match ? '' : 'none';
       });
@@ -358,7 +393,7 @@ function initCasesLibraryFilter() {
 }
 
 /* Copy prompt */
-document.querySelectorAll('.prompt-block').forEach(block => {
+document.querySelectorAll('.prompt-block').forEach((block) => {
   block.addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText(block.textContent.replace('点击复制', '').trim());
@@ -408,13 +443,15 @@ function runSearch(query) {
   const q = query.trim();
   if (!q) return [];
   if (fuseSearch) {
-    return fuseSearch.search(q, { limit: 10 }).map(r => r.item);
+    return fuseSearch.search(q, { limit: 10 }).map((r) => r.item);
   }
   const lower = q.toLowerCase();
-  return searchIndex.filter(item =>
-    item.label.toLowerCase().includes(lower) ||
-    item.keywords.toLowerCase().includes(lower)
-  ).slice(0, 10);
+  return searchIndex
+    .filter(
+      (item) =>
+        item.label.toLowerCase().includes(lower) || item.keywords.toLowerCase().includes(lower),
+    )
+    .slice(0, 10);
 }
 
 function initSiteSearch() {
@@ -443,7 +480,8 @@ function initSiteSearch() {
     }
 
     if (searchIndexStatus === 'error') {
-      results.innerHTML = '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
+      results.innerHTML =
+        '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
       results.hidden = false;
       if (typeof trackEvent === 'function') trackEvent('search_error', { q: query.slice(0, 40) });
       return;
@@ -465,17 +503,21 @@ function initSiteSearch() {
       return;
     }
 
-    results.innerHTML = hits.map(item => {
-      const label = highlightMatch(item.label, query);
-      const meta = item.type ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>` : '';
-      if (item.url) {
-        return `<a href="${escapeHtml(item.url)}" class="search-hit" data-track="search_hit">${label}${meta}</a>`;
-      }
-      return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit">${label}${meta}</button>`;
-    }).join('');
+    results.innerHTML = hits
+      .map((item) => {
+        const label = highlightMatch(item.label, query);
+        const meta = item.type
+          ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>`
+          : '';
+        if (item.url) {
+          return `<a href="${escapeHtml(resolveSearchUrl(item.url))}" class="search-hit" data-track="search_hit">${label}${meta}</a>`;
+        }
+        return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit">${label}${meta}</button>`;
+      })
+      .join('');
     results.hidden = false;
 
-    results.querySelectorAll('button.search-hit').forEach(btn => {
+    results.querySelectorAll('button.search-hit').forEach((btn) => {
       btn.addEventListener('click', () => {
         gotoSearchHit({
           section: btn.dataset.section,

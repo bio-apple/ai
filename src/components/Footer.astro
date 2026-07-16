@@ -5,6 +5,18 @@ interface Props {
 }
 const { text, github } = Astro.props;
 ---
-<footer>
-  <p>{text} · <a href={github} target="_blank" rel="noopener">GitHub</a></p>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <p class="site-footer-copy">{text}</p>
+    <a
+      class="github-star-btn github-star-btn-footer"
+      href={github}
+      target="_blank"
+      rel="noopener"
+      data-track="github-star-footer"
+    >
+      <span aria-hidden="true">★</span> Star on GitHub
+    </a>
+  </div>
 </footer>

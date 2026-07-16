@@ -17,7 +17,7 @@ on:
 permissions:
   contents: write
   issues: write
-  actions: write   # 派发 pages.yml 需要；缺此项 Trigger Pages deploy 会 403
+  actions: write # 派发 pages.yml 需要；缺此项 Trigger Pages deploy 会 403
 
 concurrency:
   group: daily-videos

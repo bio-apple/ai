@@ -6,62 +6,110 @@ interface Props {
   standalone?: boolean;
   homeHref?: string;
   navPrefix?: string;
+  githubUrl?: string;
 }
 
-const { nav, standalone = false, homeHref = 'index.html', navPrefix = '' } = Astro.props;
+const {
+  nav,
+  standalone = false,
+  homeHref = 'index.html',
+  navPrefix = '',
+  githubUrl = 'https://github.com/bio-apple/ai',
+} = Astro.props;
 ---
+
 <header>
   <nav class="nav">
-    {standalone ? (
-      <a href={homeHref} class="logo">
-        <div class="logo-icon">{nav.logo.icon}</div>
-        <div class="logo-text">
-          <span class="logo-brand">{nav.logo.brand}</span>
-          <span class="logo-tagline">{nav.logo.tagline}</span>
+    {
+      standalone ? (
+        <a href={homeHref} class="logo">
+          <div class="logo-icon">{nav.logo.icon}</div>
+          <div class="logo-text">
+            <span class="logo-brand">{nav.logo.brand}</span>
+            <span class="logo-tagline">{nav.logo.tagline}</span>
+          </div>
+        </a>
+      ) : (
+        <div class="logo" role="banner">
+          <div class="logo-icon">{nav.logo.icon}</div>
+          <div class="logo-text">
+            <span class="logo-brand">{nav.logo.brand}</span>
+            <span class="logo-tagline">{nav.logo.tagline}</span>
+          </div>
         </div>
-      </a>
-    ) : (
-      <div class="logo" role="banner">
-        <div class="logo-icon">{nav.logo.icon}</div>
-        <div class="logo-text">
-          <span class="logo-brand">{nav.logo.brand}</span>
-          <span class="logo-tagline">{nav.logo.tagline}</span>
-        </div>
-      </div>
-    )}
+      )
+    }
     <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <div class="nav-menu">
-      {nav.menu.map((item) => {
-        if (item.type === 'dropdown') {
-          return (
-            <div class="nav-dropdown">
-              <button type="button" class="nav-dropdown-trigger" aria-haspopup="true">
-                {item.label} <span class="nav-chevron">▾</span>
-              </button>
-              <div class="nav-dropdown-menu" role="menu">
-                {item.children?.map((sub) =>
-                  standalone ? (
-                    <a href={`${homeHref}#section-${sub.id}`} class="nav-dropdown-item" role="menuitem">{sub.label}</a>
-                  ) : (
-                    <button type="button" class="nav-dropdown-item" data-tool={sub.id} role="menuitem">{sub.label}</button>
-                  )
-                )}
+      {
+        nav.menu.map((item) => {
+          if (item.type === 'dropdown') {
+            return (
+              <div class="nav-dropdown">
+                <button type="button" class="nav-dropdown-trigger" aria-haspopup="true">
+                  {item.label} <span class="nav-chevron">▾</span>
+                </button>
+                <div class="nav-dropdown-menu" role="menu">
+                  {item.children?.map((sub) =>
+                    standalone ? (
+                      <a
+                        href={`${homeHref}#section-${sub.id}`}
+                        class="nav-dropdown-item"
+                        role="menuitem"
+                      >
+                        {sub.label}
+                      </a>
+                    ) : (
+                      <button
+                        type="button"
+                        class="nav-dropdown-item"
+                        data-tool={sub.id}
+                        role="menuitem"
+                      >
+                        {sub.label}
+                      </button>
+                    ),
+                  )}
+                </div>
               </div>
-            </div>
+            );
+          }
+          if (item.type === 'page') {
+            return (
+              <a href={`${navPrefix}${item.href}`} class="nav-link-page">
+                {item.label}
+              </a>
+            );
+          }
+          const active = item.id === 'all';
+          if (standalone) {
+            const href = item.id === 'all' ? homeHref : `${homeHref}#section-${item.id}`;
+            return (
+              <a href={href} class:list={['nav-tab', { active }]}>
+                {item.label}
+              </a>
+            );
+          }
+          return (
+            <button type="button" class:list={['nav-tab', { active }]} data-tool={item.id}>
+              {item.label}
+            </button>
           );
-        }
-        if (item.type === 'page') {
-          return <a href={`${navPrefix}${item.href}`} class="nav-link-page">{item.label}</a>;
-        }
-        const active = item.id === 'all';
-        if (standalone) {
-          const href = item.id === 'all' ? homeHref : `${homeHref}#section-${item.id}`;
-          return <a href={href} class:list={['nav-tab', { active }]}>{item.label}</a>;
-        }
-        return <button type="button" class:list={['nav-tab', { active }]} data-tool={item.id}>{item.label}</button>;
-      })}
+        })
+      }
+      <a
+        class="nav-star"
+        href={githubUrl}
+        target="_blank"
+        rel="noopener"
+        data-track="github-star-nav"
+        aria-label="在 GitHub 上 Star Bio AI Lab"
+      >
+        <span class="nav-star-icon" aria-hidden="true">★</span>
+        Star
+      </a>
       <button type="button" class="theme-toggle" aria-label="切换主题">☾</button>
     </div>
   </nav>

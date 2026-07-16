@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bio-apple.github.io/ai/schemas/tool-relations.schema.json",
+  "title": "Tool relations",
+  "type": "object",
+  "additionalProperties": {
+    "type": "object",
+    "required": ["alternatives", "complements"],
+    "additionalProperties": false,
+    "properties": {
+      "alternatives": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/edge" }
+      },
+      "complements": {
+        "type": "array",
+        "items": { "$ref": "#/$defs/edge" }
+      }
+    }
+  },
+  "$defs": {
+    "edge": {
+      "type": "object",
+      "required": ["id", "note"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "note": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

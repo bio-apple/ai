@@ -194,7 +194,9 @@
   background: var(--bg-card);
   text-decoration: none;
   color: inherit;
-  transition: border-color 0.2s, transform 0.2s;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
 }
 
 .labs-model-card:hover,
@@ -234,6 +236,35 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 8px;
+}
+
+.hub-tool-relations {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hub-tool-rel-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.hub-tool-rel-label {
+  color: var(--text-muted);
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+
+.hub-tool-rel-line .recommend-link {
+  font-size: 0.78rem;
 }
 
 .hub-external {

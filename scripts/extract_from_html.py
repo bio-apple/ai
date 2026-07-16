@@ -293,7 +293,7 @@ def extract_site(soup: BeautifulSoup) -> dict:
             "description": desc["content"] if desc else "",
             "keywords": keywords["content"] if keywords else "",
             "canonical": canonical["href"] if canonical else "",
-            "og_image": "https://bio-apple.github.io/ai/og-image.png",
+            "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
             "base_url": "https://bio-apple.github.io/ai/",
         },
         "nav": {"logo": {"icon": "AI", "text": "AI 应用指南"}, "tabs": nav_tabs},

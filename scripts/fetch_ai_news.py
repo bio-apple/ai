@@ -489,12 +489,12 @@ def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
     return picked[:max_items]
 
 
-def write_markdown(items: list[dict], today: str) -> None:
+def write_markdown(items: list[dict], today: str, window_days: int) -> None:
     MD_FILE.parent.mkdir(parents=True, exist_ok=True)
     lines = [
-        f"# 本周 AI 热点 — {today}",
+        f"# 一周内 AI 热点 — {today}",
         "",
-        "> 每周汇总 OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、arXiv、GitHub Trending 与中文 AI 媒体动态。",
+        f"> 每天更新近 {window_days} 天内的 AI 热点：OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、arXiv、GitHub Trending 与中文 AI 媒体动态。",
         "",
     ]
     for i, item in enumerate(items[:12], 1):
@@ -529,18 +529,21 @@ def main() -> int:
         return 1
 
     today = datetime.now(TZ).strftime("%Y-%m-%d")
+    window_days = int(cfg.get("max_age_days", 7))
     payload = {
         "updated_at": datetime.now(TZ).isoformat(),
         "date": today,
-        "cadence": "weekly",
+        "cadence": "daily",
+        "window_days": window_days,
+        "title": "一周内 AI 热点",
         "schema_version": 1,
         "dedupe": {"by": ["title", "url"], "keep": "latest_published_at"},
         "items": items,
         "watch_sources": cfg.get("watch_sources", []),
     }
     DATA_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    write_markdown(items, today)
-    print(f"✓ ai-news.json ({len(items)} 条) → {DATA_FILE}")
+    write_markdown(items, today, window_days)
+    print(f"✓ ai-news.json ({len(items)} 条 · 窗口 {window_days} 天 · 日更) → {DATA_FILE}")
     print(f"✓ {MD_FILE}")
     return 0
 

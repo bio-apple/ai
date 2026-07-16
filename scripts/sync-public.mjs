@@ -20,11 +20,14 @@ const COPY_FILES = [
   'knowledge.js',
   'recommend.js',
   'favorites.js',
+  'progress.js',
+  'engagement.js',
   'robots.txt',
+  '_headers',
+  '_redirects',
   'daily-videos.json',
   'ai-news.json',
   'oss-projects.json',
-  'og-image.png',
   'og-image.jpg',
 ];
 

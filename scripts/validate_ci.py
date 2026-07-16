@@ -78,14 +78,35 @@ def validate_sitemap_robots() -> None:
     sitemap_files = sorted(ROOT.glob("sitemap*.xml"))
     if not sitemap_files:
         raise FileNotFoundError("dist 中未找到 sitemap*.xml")
-    sitemap = sitemap_files[0].read_text(encoding="utf-8")
+    # Prefer the urlset file (sitemap-0.xml) over the index
+    urlset = next((p for p in sitemap_files if "<urlset" in p.read_text(encoding="utf-8")[:200] or p.name != "sitemap-index.xml"), sitemap_files[0])
+    sitemap = urlset.read_text(encoding="utf-8")
+    if urlset.name == "sitemap-index.xml":
+        # fall back: read first child sitemap
+        child = ROOT / "sitemap-0.xml"
+        if child.exists():
+            sitemap = child.read_text(encoding="utf-8")
+            urlset = child
     if "Sitemap:" not in robots:
         raise ValueError("robots.txt 缺少 Sitemap 声明")
     if ("<urlset" not in sitemap and "<sitemapindex" not in sitemap) or "<loc>" not in sitemap:
         raise ValueError("sitemap 格式无效")
-    if "https://bio-apple.github.io/ai/" not in sitemap:
+    locs = re.findall(r"<loc>([^<]+)</loc>", sitemap)
+    if not any(u.rstrip("/").endswith("/ai") or u.endswith("/ai/") or u.endswith("/ai/index.html") for u in locs):
         raise ValueError("sitemap 缺少首页 URL")
-    print(f"✓ robots.txt + {sitemap_files[0].name}")
+    page_locs = [
+        u for u in locs
+        if not u.endswith("sitemap-0.xml")
+        and not u.endswith("sitemap-index.xml")
+        and not u.rstrip("/").endswith("/ai")
+        and not u.endswith("/ai/")
+    ]
+    missing_html = [u for u in page_locs if "/ai/" in u and not u.endswith(".html")]
+    if missing_html:
+        raise ValueError("sitemap 页面 URL 缺少 .html 后缀: " + ", ".join(missing_html[:5]))
+    if not any(u.endswith("tools/chatgpt.html") for u in locs):
+        raise ValueError("sitemap 缺少 tools/chatgpt.html（format=file 应对齐 canonical）")
+    print(f"✓ robots.txt + {urlset.name} ({len(locs)} loc)")
 
 
 def _load_schema(name: str) -> dict:
@@ -212,17 +233,40 @@ def validate_analytics_config() -> None:
     if not path.exists():
         raise FileNotFoundError("analytics-config.json 缺失，请先运行 npm run build")
     data = json.loads(path.read_text(encoding="utf-8"))
-    for key in ("ga_measurement_id", "clarity_project_id", "track_engagement"):
+    for key in (
+        "ga_measurement_id",
+        "clarity_project_id",
+        "umami_script_url",
+        "umami_website_id",
+        "cloudflare_beacon_token",
+        "track_engagement",
+    ):
         if key not in data:
             raise ValueError(f"analytics-config.json 缺少 {key}")
     ga = str(data.get("ga_measurement_id") or "").strip()
     clarity = str(data.get("clarity_project_id") or "").strip()
+    umami_script = str(data.get("umami_script_url") or "").strip()
+    umami_id = str(data.get("umami_website_id") or "").strip()
+    cf_beacon = str(data.get("cloudflare_beacon_token") or "").strip()
     if ga and not ga.startswith("G-"):
         raise ValueError(f"ga_measurement_id 格式应为 G-xxxxxxxxxx，当前：{ga!r}")
-    if not ga and not clarity:
-        print("⚠ analytics：GA/Clarity 未配置（允许；Secrets 或 data/analytics.json 可启用）")
+    if (umami_script and not umami_id) or (umami_id and not umami_script):
+        raise ValueError("Umami 需同时配置 umami_script_url 与 umami_website_id")
+    if umami_script and not (
+        umami_script.startswith("https://") or umami_script.startswith("http://")
+    ):
+        raise ValueError(f"umami_script_url 应为 http(s) URL，当前：{umami_script!r}")
+    privacy_on = bool((umami_script and umami_id) or cf_beacon)
+    if not ga and not clarity and not privacy_on:
+        print(
+            "⚠ analytics：Umami/CF/GA/Clarity 未配置（允许；Secrets 或 data/analytics.json 可启用）"
+        )
     print(
-        f"✓ analytics-config.json（GA={'on' if ga else 'off'} Clarity={'on' if clarity else 'off'}）"
+        "✓ analytics-config.json（"
+        f"Umami={'on' if umami_script and umami_id else 'off'} "
+        f"CF={'on' if cf_beacon else 'off'} "
+        f"GA={'on' if ga else 'off'} "
+        f"Clarity={'on' if clarity else 'off'}）"
     )
 
 
@@ -239,7 +283,20 @@ def validate_oss_projects() -> None:
 
 
 def validate_data_json() -> None:
-    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json", "oss-projects.json"):
+    for name in (
+        "site.json",
+        "tools.json",
+        "cases.json",
+        "compares.json",
+        "prompts.json",
+        "tutorials.json",
+        "videos.json",
+        "analytics.json",
+        "oss-projects.json",
+        "rankings.json",
+        "tool-relations.json",
+        "engagement.json",
+    ):
         path = REPO / "data" / name
         if not path.exists():
             raise FileNotFoundError(path)
@@ -247,8 +304,43 @@ def validate_data_json() -> None:
     print("✓ data/*.json 可解析")
 
 
+def validate_engagement() -> None:
+    path = REPO / "data" / "engagement.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("engagement.schema.json")).validate(data)
+    runtime = ROOT / "engagement.json"
+    if not runtime.exists():
+        raise FileNotFoundError("engagement.json 缺失，请先运行 npm run build")
+    ids = [t.get("id") for t in data.get("tools") or []]
+    if len(ids) != len(set(ids)):
+        raise ValueError("engagement.json tools.id 重复")
+    print(f"✓ engagement.json schema ({len(ids)} 工具热度)")
+
+
+def validate_tool_relations() -> None:
+    data = json.loads((REPO / "data/tool-relations.json").read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("tool-relations.schema.json")).validate(data)
+    tools = json.loads((REPO / "data/tools.json").read_text(encoding="utf-8"))
+    known = {t["id"] for t in tools}
+    unknown: list[str] = []
+    for source_id, rel in data.items():
+        if source_id not in known:
+            unknown.append(f"source:{source_id}")
+        for kind in ("alternatives", "complements"):
+            for edge in rel.get(kind) or []:
+                target = edge.get("id")
+                if target not in known:
+                    unknown.append(f"{source_id}.{kind}:{target}")
+                if target == source_id:
+                    raise AssertionError(f"self-relation forbidden: {source_id}.{kind}")
+    if unknown:
+        raise AssertionError(f"tool-relations unknown ids: {', '.join(unknown)}")
+    print(f"✓ tool-relations.json schema + ids ({len(data)} 工具)")
+
+
 STEPS = (
     ("data", validate_data_json),
+    ("tool-relations", validate_tool_relations),
     ("oss", validate_oss_projects),
     ("videos", validate_daily_videos),
     ("news", validate_ai_news),
@@ -257,6 +349,7 @@ STEPS = (
     ("sitemap", validate_sitemap_robots),
     ("search", validate_search_index),
     ("analytics", validate_analytics_config),
+    ("engagement", validate_engagement),
     ("links", validate_html_links),
 )
 

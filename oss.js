@@ -1,6 +1,7 @@
-const OSS_DATA_URL = (typeof document !== 'undefined' && document.documentElement.dataset.base
-  ? document.documentElement.dataset.base.replace(/\/?$/, '/')
-  : '') + 'oss-projects.json';
+const OSS_DATA_URL =
+  (typeof document !== 'undefined' && document.documentElement.dataset.base
+    ? document.documentElement.dataset.base.replace(/\/?$/, '/')
+    : '') + 'oss-projects.json';
 
 let ossDataPromise = null;
 
@@ -36,11 +37,11 @@ function renderOssCard(project, domainLabel) {
 function fetchOssData() {
   if (!ossDataPromise) {
     ossDataPromise = fetch(OSS_DATA_URL, { cache: 'default' })
-      .then(res => {
+      .then((res) => {
         if (!res.ok) throw new Error('无法加载开源项目数据');
         return res.json();
       })
-      .catch(err => {
+      .catch((err) => {
         ossDataPromise = null;
         throw err;
       });
@@ -71,41 +72,46 @@ function renderOssByDomain(data, activeDomain = 'all') {
   const toolbar = `
     <div class="library-toolbar oss-toolbar" id="oss-toolbar">
       <button type="button" class="library-filter active" data-oss-domain="all">全部领域</button>
-      ${domains.map(d => `<button type="button" class="library-filter" data-oss-domain="${escapeHtml(d.id)}">${escapeHtml(d.label)}</button>`).join('')}
+      ${domains.map((d) => `<button type="button" class="library-filter" data-oss-domain="${escapeHtml(d.id)}">${escapeHtml(d.label)}</button>`).join('')}
     </div>
   `;
 
   if (activeDomain === 'all') {
-    const blocks = domains.map(domain => {
-      const projects = domain.projects || [];
-      if (!projects.length) return '';
-      return `
+    const blocks = domains
+      .map((domain) => {
+        const projects = domain.projects || [];
+        if (!projects.length) return '';
+        return `
         <div class="oss-domain-block" data-oss-block="${escapeHtml(domain.id)}">
           <h4 class="oss-domain-title">${escapeHtml(domain.label)} <span class="oss-domain-desc">${escapeHtml(domain.description || '')}</span></h4>
-          <div class="oss-grid">${projects.map(p => renderOssCard(p, domain.label)).join('')}</div>
+          <div class="oss-grid">${projects.map((p) => renderOssCard(p, domain.label)).join('')}</div>
         </div>
       `;
-    }).join('');
+      })
+      .join('');
     return toolbar + blocks;
   }
 
-  const domain = domains.find(d => d.id === activeDomain);
+  const domain = domains.find((d) => d.id === activeDomain);
   if (!domain) return toolbar + '<p class="loading-hint">暂无该领域项目。</p>';
-  return toolbar + `
+  return (
+    toolbar +
+    `
     <div class="oss-domain-block">
       <h4 class="oss-domain-title">${escapeHtml(domain.label)} <span class="oss-domain-desc">${escapeHtml(domain.description || '')}</span></h4>
-      <div class="oss-grid">${(domain.projects || []).map(p => renderOssCard(p, domain.label)).join('')}</div>
+      <div class="oss-grid">${(domain.projects || []).map((p) => renderOssCard(p, domain.label)).join('')}</div>
     </div>
-  `;
+  `
+  );
 }
 
 function bindOssToolbar(data) {
   const toolbar = document.getElementById('oss-toolbar');
   if (!toolbar) return;
   const root = document.getElementById('oss-project-list');
-  toolbar.querySelectorAll('[data-oss-domain]').forEach(btn => {
+  toolbar.querySelectorAll('[data-oss-domain]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      toolbar.querySelectorAll('[data-oss-domain]').forEach(b => b.classList.remove('active'));
+      toolbar.querySelectorAll('[data-oss-domain]').forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       if (root) {
         root.innerHTML = renderOssByDomain(data, btn.dataset.ossDomain);

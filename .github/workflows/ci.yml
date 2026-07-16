@@ -7,8 +7,34 @@ on:
     branches: [main]
   workflow_dispatch:
 
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
+  quality:
+    name: Lint & Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Prettier check
+        run: npm run format:check
+
+      - name: ESLint
+        run: npm run lint
+
   validate:
+    name: Build · Test · Validate
+    needs: quality
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -22,6 +48,9 @@ jobs:
         env:
           GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
           CLARITY_PROJECT_ID: ${{ secrets.CLARITY_PROJECT_ID }}
+          UMAMI_SCRIPT_URL: ${{ secrets.UMAMI_SCRIPT_URL }}
+          UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
+          CLOUDFLARE_BEACON_TOKEN: ${{ secrets.CLOUDFLARE_BEACON_TOKEN }}
         run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
 
       - name: Unit tests
@@ -46,6 +75,9 @@ jobs:
 
       - name: Validate data JSON
         run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py data
+
+      - name: Validate tool relations
+        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py tool-relations
 
       - name: Validate OSS projects
         run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py oss

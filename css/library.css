@@ -21,7 +21,10 @@
   font-size: 0.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    background 0.2s;
 }
 
 .library-filter:hover,
@@ -45,7 +48,10 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.25s ease;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.25s ease;
 }
 
 .prompt-card:hover {
@@ -134,7 +140,10 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 18px;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.25s ease;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.25s ease;
 }
 
 .case-library-card:hover {
@@ -221,7 +230,9 @@
   border-radius: var(--radius);
   padding: 14px;
   cursor: pointer;
-  transition: border-color 0.2s, transform 0.25s ease;
+  transition:
+    border-color 0.2s,
+    transform 0.25s ease;
 }
 
 .case-preview-card:hover {
@@ -254,7 +265,10 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.25s ease;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s,
+    transform 0.25s ease;
 }
 
 .oss-card:hover {
@@ -362,14 +376,11 @@
   color: var(--accent);
 }
 
-/* Scroll reveal */
+/* Scroll reveal — 过渡见 css/motion.css */
 .reveal {
   opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
 }

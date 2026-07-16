@@ -1,0 +1,62 @@
+name: Deploy Cloudflare Pages (optional CDN)
+
+# 可选加速通道：将同一 dist/ 部署到 Cloudflare Pages（国内更稳 + 边缘安全头）
+# 需仓库 Secrets：CLOUDFLARE_API_TOKEN · CLOUDFLARE_ACCOUNT_ID · CLOUDFLARE_PROJECT_NAME
+# 未配置 Secrets 时本工作流会跳过部署步骤，不影响 GitHub Pages。
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Check Cloudflare secrets
+        id: cf
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ACCOUNT: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          PROJECT: ${{ secrets.CLOUDFLARE_PROJECT_NAME }}
+        run: |
+          if [ -n "$TOKEN" ] && [ -n "$ACCOUNT" ] && [ -n "$PROJECT" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+            echo "project=$PROJECT" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Cloudflare Secrets 未配置，跳过 CF Pages 部署（仍使用 GitHub Pages）。"
+          fi
+
+      - name: Quality gate
+        if: steps.cf.outputs.ready == 'true'
+        run: npm ci && npm run quality
+
+      - name: Build
+        if: steps.cf.outputs.ready == 'true'
+        env:
+          GA_MEASUREMENT_ID: ${{ secrets.GA_MEASUREMENT_ID }}
+          CLARITY_PROJECT_ID: ${{ secrets.CLARITY_PROJECT_ID }}
+          UMAMI_SCRIPT_URL: ${{ secrets.UMAMI_SCRIPT_URL }}
+          UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
+          CLOUDFLARE_BEACON_TOKEN: ${{ secrets.CLOUDFLARE_BEACON_TOKEN }}
+        run: ASTRO_TELEMETRY_DISABLED=1 npm run build
+
+      - name: Publish to Cloudflare Pages
+        if: steps.cf.outputs.ready == 'true'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ steps.cf.outputs.project }} --commit-dirty=true
