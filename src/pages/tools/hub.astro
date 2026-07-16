@@ -43,9 +43,10 @@ function localToolId(name: string): string | null {
   const baseName = n.split(/[|｜]/)[0].trim();
   const aliased = NAME_ALIASES[n] || NAME_ALIASES[baseName];
   if (aliased) return aliased;
+  // 仅精确匹配站内工具名/id，避免短词（如 Pi）误命中 Copilot
   const hit = tools.find((t) => {
     const tn = normalizeName(t.name);
-    return tn === n || tn === baseName || n.includes(tn) || tn.includes(baseName);
+    return tn === n || tn === baseName || t.id === n || t.id === baseName;
   });
   return hit?.id || null;
 }
