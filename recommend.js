@@ -200,13 +200,25 @@
     history.replaceState(null, '', url);
   });
 
-  document.querySelectorAll('.recommend-card[data-picker]').forEach((card) => {
-    card.addEventListener('toggle', () => {
-      if (!card.open) return;
-      const id = card.dataset.picker;
-      if (typeof trackEvent === 'function') trackEvent('recommend_scenario', { choice: id });
+  const chips = document.getElementById('recommend-chips');
+  if (chips) {
+    chips.addEventListener('click', (e) => {
+      const chip = e.target.closest('[data-recommend-chip]');
+      if (!chip || !chips.contains(chip)) return;
+      const q = chip.dataset.recommendChip || chip.textContent.trim();
+      input.value = q;
+      const opt = matchOption(q) || options.find((o) => o.id === chip.dataset.picker) || null;
+      render(opt, q);
+      if (typeof trackEvent === 'function') {
+        trackEvent('recommend_chip', { choice: chip.dataset.picker || q, funnel_step: 1 });
+      }
+      const url = new URL(location.href);
+      url.hash = 'home-recommend';
+      url.searchParams.set('rq', q);
+      history.replaceState(null, '', url);
+      input.focus();
     });
-  });
+  }
 
   const params = new URLSearchParams(location.search);
   const rq = params.get('rq');
