@@ -21,6 +21,7 @@ const COPY_FILES = [
   'recommend.js',
   'progress.js',
   'engagement.js',
+  'ranking-tabs.js',
   'robots.txt',
   '_headers',
   '_redirects',

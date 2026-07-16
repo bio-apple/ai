@@ -113,7 +113,7 @@ export function buildHomeSchema(site: {
     },
     {
       '@type': 'ItemList',
-      name: '2026 AI 工具排行榜（每日更新 · 用户量 · 模型能力 · 价格）',
+      name: '2026 AI 工具排行榜（AICPB 五榜 Top 10）',
       itemListElement: (site.rankings || []).map((row, i) => ({
         '@type': 'ListItem',
         position: i + 1,

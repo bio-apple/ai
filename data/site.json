@@ -198,28 +198,19 @@
   "create_tools": ["doubao", "kimi", "gemini", "chatgpt"],
   "rankings": [
     {
-      "medal": "👥",
-      "id": "chatgpt",
+      "medal": "🌍",
       "name": "ChatGPT",
-      "dimension": "用户量 Top 1",
-      "score": 9.8,
-      "stars": 5
+      "dimension": "Global AI Top 1"
     },
     {
-      "medal": "🧠",
-      "id": "claude",
-      "name": "Claude",
-      "dimension": "模型能力 Top 1",
-      "score": 9.7,
-      "stars": 5
-    },
-    {
-      "medal": "💰",
-      "id": "deepseek",
+      "medal": "🇨🇳",
       "name": "DeepSeek",
-      "dimension": "价格 Top 1",
-      "score": 9.8,
-      "stars": 5
+      "dimension": "China AI Top 1"
+    },
+    {
+      "medal": "💻",
+      "name": "Github Copilot",
+      "dimension": "AI Vibe Coding Top 1"
     }
   ],
   "ai_picker": {
@@ -559,7 +550,7 @@
   "ranking_page": {
     "title": "2026 AI 工具排行榜 | Bio AI Lab",
     "h1": "2026 AI 工具排行榜（每日更新）",
-    "lead": "每天更新三份榜单：用户量、模型能力、价格。原网页引用：Global AI、China AI、AI Vibe Coding、AI Video Generators、AI PPT Rankings；详细条目见 data/rankings.json。",
+    "lead": "每天同步 AICPB 五大专题榜（Global AI、China AI、AI Vibe Coding、AI Video Generators、AI PPT Rankings），各榜仅展示 Top 10。",
     "updated": "2026-07"
   },
   "faq": [

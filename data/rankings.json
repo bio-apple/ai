@@ -1,302 +1,590 @@
 {
-  "month": "2026-07",
+  "month": "2026-06",
+  "month_label": "Jun 2026",
   "updated_at": "2026-07-16",
   "cadence": "daily",
   "title": "2026 AI 工具排行榜（每日更新）",
-  "lead": "每天更新三份榜单：用户量、模型能力、价格。原网页引用：Global AI、China AI、AI Vibe Coding、AI Video Generators、AI PPT Rankings；本站仅引用原文排名与表述，不做主观评分。",
+  "lead": "每天同步 AICPB 原网页榜单，仅展示各榜 Top 10。来源：Global AI、China AI、AI Vibe Coding、AI Video Generators、AI PPT Rankings。",
   "methodology": [
-    "来源：原网页引用 Global AI、China AI、AI Vibe Coding、AI Video Generators、AI PPT Rankings。",
-    "原则：保持原文，不做二次评分与主观排序；若多来源口径不同，分别标注来源并给出原文链接。",
-    "更新：每日同步公开页面；如官方暂停更新，则保持最近一次有效数据。",
-    "历史：过往数据可在 Git 历史中回看 data/rankings.json。"
+    "来源：AICPB（AI产品榜）官方页面，仅引用原文排名、访问量与月环比。",
+    "展示：每个专题榜仅保留前 10 名；完整榜单请点击「查看全部产品」跳转原网页。",
+    "更新：每日同步；若官方未更新则保留最近一次抓取结果。"
   ],
-  "dimensions": [
+  "boards": [
     {
-      "id": "users",
-      "label": "用户量",
-      "description": "谁更「有人用」：全球与中文区体量、入口触达",
+      "id": "global-ai",
+      "label": "Global AI",
+      "title": "AI产品榜 · Global AI · Website",
+      "subtitle": "根据 Website 访问量排名",
+      "metric": "Website Visits",
+      "month": "Jun 2026",
+      "source_url": "https://www.aicpb.com/ai-rankings/products/global-ai-rankings/websites",
       "items": [
         {
           "rank": 1,
-          "id": "chatgpt",
           "name": "ChatGPT",
-          "score": 9.8,
-          "metric": "全球月活领先",
-          "note": "通用助手默认入口，生态与 GPTs 最全"
+          "description": "",
+          "visits": "5.56B",
+          "mom": "-3.29%",
+          "mom_bar_pct": 6.58,
+          "url": "https://www.aicpb.com/product/ChatGPT/webid1D6F37591",
+          "source": "AICPB"
         },
         {
           "rank": 2,
-          "id": "doubao",
-          "name": "豆包",
-          "score": 9.2,
-          "metric": "国内 C 端渗透高",
-          "note": "字节系分发强，移动端触达广"
+          "name": "New Bing",
+          "description": "",
+          "visits": "3.68B",
+          "mom": "0.73%",
+          "mom_bar_pct": 1.46,
+          "url": "https://www.aicpb.com/product/New-Bing/webid1D6F37521",
+          "source": "AICPB"
         },
         {
           "rank": 3,
-          "id": "deepseek",
-          "name": "DeepSeek",
-          "score": 9.0,
-          "metric": "爆发式增长",
-          "note": "性价比带动海量尝鲜与留存"
+          "name": "Gemini",
+          "description": "",
+          "visits": "2.95B",
+          "mom": "-1.51%",
+          "mom_bar_pct": 3.02,
+          "url": "https://www.aicpb.com/product/Gemini/webid1D6F37519",
+          "source": "AICPB"
         },
         {
           "rank": 4,
-          "id": "gemini",
-          "name": "Gemini",
-          "score": 8.6,
-          "metric": "Google 生态分发",
-          "note": "搜索/Workspace/Android 联动"
+          "name": "Claude｜Anthropic",
+          "description": "",
+          "visits": "965.59M",
+          "mom": "-0.61%",
+          "mom_bar_pct": 1.22,
+          "url": "https://www.aicpb.com/product/Claude｜Anthropic/webid1D6F37489",
+          "source": "AICPB"
         },
         {
           "rank": 5,
-          "id": "qwen",
-          "name": "通义千问",
-          "score": 8.4,
-          "metric": "阿里云与钉钉触达",
-          "note": "企业与开放平台用户面宽"
+          "name": "DeepSeek",
+          "description": "",
+          "visits": "483.80M",
+          "mom": "-10.59%",
+          "mom_bar_pct": 21.18,
+          "url": "https://www.aicpb.com/product/DeepSeek/webid1D6F374B1",
+          "source": "AICPB"
         },
         {
           "rank": 6,
-          "id": "kimi",
-          "name": "Kimi",
-          "score": 8.1,
-          "metric": "长文档场景口碑",
-          "note": "垂直场景粘性高"
+          "name": "Github Copilot",
+          "description": "",
+          "visits": "371.18M",
+          "mom": "-3.28%",
+          "mom_bar_pct": 6.56,
+          "url": "https://www.aicpb.com/product/Github-Copilot/webid1D6F374B9",
+          "source": "AICPB"
         },
         {
           "rank": 7,
-          "id": "claude",
-          "name": "Claude",
-          "score": 7.9,
-          "metric": "专业用户占比高",
-          "note": "体量小于 ChatGPT，质量用户多"
+          "name": "Shop",
+          "description": "",
+          "visits": "314.90M",
+          "mom": "0.32%",
+          "mom_bar_pct": 0.64,
+          "url": "https://www.aicpb.com/product/Shop/webid1D6F37421",
+          "source": "AICPB"
         },
         {
           "rank": 8,
-          "id": "cursor",
-          "name": "Cursor",
-          "score": 7.6,
-          "metric": "开发者增长快",
-          "note": "编程细分赛道头部"
+          "name": "notebooklm",
+          "description": "",
+          "visits": "223.04M",
+          "mom": "-13.74%",
+          "mom_bar_pct": 27.48,
+          "url": "https://www.aicpb.com/product/notebooklm/webid1D6F37461",
+          "source": "AICPB"
         },
         {
           "rank": 9,
-          "id": "copilot",
-          "name": "GitHub Copilot",
-          "score": 7.4,
-          "metric": "IDE 内置分发",
-          "note": "随 GitHub/VS Code 触达稳定"
+          "name": "Grok",
+          "description": "",
+          "visits": "220.78M",
+          "mom": "-13.28%",
+          "mom_bar_pct": 26.56,
+          "url": "https://www.aicpb.com/product/Grok/webid1D6F37429",
+          "source": "AICPB"
         },
         {
           "rank": 10,
-          "id": "codex",
-          "name": "Codex",
-          "score": 6.8,
-          "metric": "OpenAI 编程产品线",
-          "note": "相对 Cursor/Copilot 心智偏新"
+          "name": "Character AI",
+          "description": "",
+          "visits": "193.61M",
+          "mom": "3.62%",
+          "mom_bar_pct": 7.24,
+          "url": "https://www.aicpb.com/product/Character-AI/webid1D6F374C9",
+          "source": "AICPB"
         }
       ]
     },
     {
-      "id": "capability",
-      "label": "模型能力",
-      "description": "谁更「能干」：推理、长文、多模态、Agent/编程",
+      "id": "china-ai",
+      "label": "China AI",
+      "title": "AI产品榜 · China AI · Website",
+      "subtitle": "根据 Website 访问量排名",
+      "metric": "Website Visits",
+      "month": "Jun 2026",
+      "source_url": "https://www.aicpb.com/ai-rankings/products/china-ai-rankings/websites",
       "items": [
         {
           "rank": 1,
-          "id": "claude",
-          "name": "Claude",
-          "score": 9.7,
-          "metric": "长文与工程推理强",
-          "note": "复杂文档、代码审查、Artifacts 体验突出"
+          "name": "DeepSeek",
+          "description": "",
+          "visits": "483.80M",
+          "mom": "-10.59%",
+          "mom_bar_pct": 21.18,
+          "url": "https://www.aicpb.com/product/DeepSeek/webid1D6F374B1",
+          "source": "AICPB"
         },
         {
           "rank": 2,
-          "id": "chatgpt",
-          "name": "ChatGPT",
-          "score": 9.5,
-          "metric": "综合最均衡",
-          "note": "多模态、工具调用、生态完整"
+          "name": "纳米AI搜索",
+          "description": "",
+          "visits": "180.29M",
+          "mom": "-8.84%",
+          "mom_bar_pct": 17.68,
+          "url": "https://www.aicpb.com/product/纳米AI搜索/webid1D6F374A1",
+          "source": "AICPB"
         },
         {
           "rank": 3,
-          "id": "gemini",
-          "name": "Gemini",
-          "score": 9.3,
-          "metric": "多模态与超长上下文",
-          "note": "视频/图像理解与 Google 工具链"
+          "name": "豆包｜抖音",
+          "description": "",
+          "visits": "152.87M",
+          "mom": "-6.58%",
+          "mom_bar_pct": 13.16,
+          "url": "https://www.aicpb.com/product/豆包｜抖音/webid1D6F37449",
+          "source": "AICPB"
         },
         {
           "rank": 4,
-          "id": "cursor",
-          "name": "Cursor",
-          "score": 9.2,
-          "metric": "编程 Agent",
-          "note": "跨文件改动与项目级工作流领先"
+          "name": "纳米AI",
+          "description": "",
+          "visits": "151.92M",
+          "mom": "-2.62%",
+          "mom_bar_pct": 5.24,
+          "url": "https://www.aicpb.com/product/纳米AI/webid1D6F374D9",
+          "source": "AICPB"
         },
         {
           "rank": 5,
-          "id": "deepseek",
-          "name": "DeepSeek",
-          "score": 9.0,
-          "metric": "推理性价比极高",
-          "note": "硬推理接近一线，工程生态仍在追赶"
+          "name": "AI 搜索｜百度",
+          "description": "",
+          "visits": "44.85M",
+          "mom": "13.76%",
+          "mom_bar_pct": 27.52,
+          "url": "https://www.aicpb.com/product/AI-搜索｜百度/webid1D6F377D9",
+          "source": "AICPB"
         },
         {
           "rank": 6,
-          "id": "kimi",
-          "name": "Kimi",
-          "score": 8.7,
-          "metric": "超长文本",
-          "note": "合同/论文/报告速读场景强"
+          "name": "千问 qianwen.com｜阿里",
+          "description": "",
+          "visits": "44.53M",
+          "mom": "0.56%",
+          "mom_bar_pct": 1.12,
+          "url": "https://www.aicpb.com/product/千问-qianwen.com｜阿里/webid1D6F375E9",
+          "source": "AICPB"
         },
         {
           "rank": 7,
-          "id": "qwen",
-          "name": "通义千问",
-          "score": 8.5,
-          "metric": "中文与开源双线",
-          "note": "云上能力与开源模型家族完整"
+          "name": "Kimi｜月之暗面",
+          "description": "",
+          "visits": "40.16M",
+          "mom": "-12.83%",
+          "mom_bar_pct": 25.66,
+          "url": "https://www.aicpb.com/product/Kimi｜月之暗面/webid1D6F37691",
+          "source": "AICPB"
         },
         {
           "rank": 8,
-          "id": "copilot",
-          "name": "GitHub Copilot",
-          "score": 8.3,
-          "metric": "补全与仓库上下文",
-          "note": "IDE 内稳定；Agent 深度不及 Cursor"
+          "name": "Qwen.ai｜阿里",
+          "description": "",
+          "visits": "35.43M",
+          "mom": "-2.85%",
+          "mom_bar_pct": 5.7,
+          "url": "https://www.aicpb.com/product/Qwen.ai｜阿里/webid1D6F37779",
+          "source": "AICPB"
         },
         {
           "rank": 9,
-          "id": "codex",
-          "name": "Codex",
-          "score": 8.1,
-          "metric": "代码生成",
-          "note": "OpenAI 编程能力底座，产品形态演进中"
+          "name": "百度文库",
+          "description": "",
+          "visits": "23.77M",
+          "mom": "4.83%",
+          "mom_bar_pct": 9.66,
+          "url": "https://www.aicpb.com/product/百度文库/webid1D6F37759",
+          "source": "AICPB"
         },
         {
           "rank": 10,
-          "id": "doubao",
-          "name": "豆包",
-          "score": 7.8,
-          "metric": "日常对话够用",
-          "note": "偏 C 端体验，硬核推理非主打"
+          "name": "腾讯元宝",
+          "description": "",
+          "visits": "12.10M",
+          "mom": "-19.38%",
+          "mom_bar_pct": 38.76,
+          "url": "https://www.aicpb.com/product/腾讯元宝/webid1D6F37619",
+          "source": "AICPB"
         }
       ]
     },
     {
-      "id": "price",
-      "label": "价格",
-      "description": "谁更「划算」：免费额度、订阅与 API 性价比（分数越高越省）",
+      "id": "vibe-coding",
+      "label": "AI Vibe Coding",
+      "title": "AI产品榜 · AI Vibe Coding · Website",
+      "subtitle": "根据 Website 访问量排名",
+      "metric": "Website Visits",
+      "month": "Jun 2026",
+      "source_url": "https://www.aicpb.com/ai-rankings/products/vibe-coding-rankings/websites",
       "items": [
         {
           "rank": 1,
-          "id": "deepseek",
-          "name": "DeepSeek",
-          "score": 9.8,
-          "metric": "免费+API 极低价",
-          "note": "同等推理强度下成本优势明显"
+          "name": "Github Copilot",
+          "description": "",
+          "visits": "371.18M",
+          "mom": "-3.28%",
+          "mom_bar_pct": 6.56,
+          "url": "https://www.aicpb.com/product/Github-Copilot/webid1D6F374B9",
+          "source": "AICPB"
         },
         {
           "rank": 2,
-          "id": "doubao",
-          "name": "豆包",
-          "score": 9.5,
-          "metric": "C 端免费友好",
-          "note": "日常对话几乎零门槛"
+          "name": "Hostinger",
+          "description": "",
+          "visits": "50.26M",
+          "mom": "-5.51%",
+          "mom_bar_pct": 11.02,
+          "url": "https://www.aicpb.com/product/Hostinger/webid1D6F377C9",
+          "source": "AICPB"
         },
         {
           "rank": 3,
-          "id": "qwen",
-          "name": "通义千问",
-          "score": 9.2,
-          "metric": "免费档+云上弹性",
-          "note": "开源可自建进一步压成本"
+          "name": "Lovable.dev",
+          "description": "",
+          "visits": "34.83M",
+          "mom": "-1.27%",
+          "mom_bar_pct": 2.54,
+          "url": "https://www.aicpb.com/product/Lovable.dev/webid1D6F39F89",
+          "source": "AICPB"
         },
         {
           "rank": 4,
-          "id": "gemini",
-          "name": "Gemini",
-          "score": 8.8,
-          "metric": "免费层实用",
-          "note": "Advanced/订阅按需；免费已覆盖多数场景"
+          "name": "Supabase",
+          "description": "",
+          "visits": "29.73M",
+          "mom": "-2.50%",
+          "mom_bar_pct": 5.0,
+          "url": "https://www.aicpb.com/product/Supabase/webid1D6F371E9",
+          "source": "AICPB"
         },
         {
           "rank": 5,
-          "id": "kimi",
-          "name": "Kimi",
-          "score": 8.5,
-          "metric": "长文免费额度",
-          "note": "重文档用户性价比高"
+          "name": "Vercel",
+          "description": "",
+          "visits": "29.68M",
+          "mom": "-2.93%",
+          "mom_bar_pct": 5.86,
+          "url": "https://www.aicpb.com/product/Vercel/webid1D6F37139",
+          "source": "AICPB"
         },
         {
           "rank": 6,
-          "id": "chatgpt",
-          "name": "ChatGPT",
-          "score": 7.4,
-          "metric": "免费可用 / Plus 偏贵",
-          "note": "能力强但订阅与高级模型成本高"
+          "name": "Airtable",
+          "description": "",
+          "visits": "27.69M",
+          "mom": "0.16%",
+          "mom_bar_pct": 0.32,
+          "url": "https://www.aicpb.com/product/Airtable/webid1D6F376A9",
+          "source": "AICPB"
         },
         {
           "rank": 7,
-          "id": "copilot",
-          "name": "GitHub Copilot",
-          "score": 7.2,
-          "metric": "个人订阅适中",
-          "note": "相对 Cursor 更便宜；功能面更窄"
+          "name": "cursor",
+          "description": "",
+          "visits": "23.18M",
+          "mom": "7.22%",
+          "mom_bar_pct": 14.44,
+          "url": "https://www.aicpb.com/product/cursor/webid1D6F37649",
+          "source": "AICPB"
         },
         {
           "rank": 8,
-          "id": "claude",
-          "name": "Claude",
-          "score": 7.0,
-          "metric": "Pro 订阅偏高",
-          "note": "质量换价格；重度用户仍值"
+          "name": "BASE44 2.0",
+          "description": "",
+          "visits": "17.16M",
+          "mom": "-8.58%",
+          "mom_bar_pct": 17.16,
+          "url": "https://www.aicpb.com/product/BASE44-2.0/webid1D6F373F9",
+          "source": "AICPB"
         },
         {
           "rank": 9,
-          "id": "cursor",
-          "name": "Cursor",
-          "score": 6.6,
-          "metric": "订阅+用量",
-          "note": "Agent 强但月费与额度需规划"
+          "name": "Replit",
+          "description": "",
+          "visits": "13.28M",
+          "mom": "-5.31%",
+          "mom_bar_pct": 10.62,
+          "url": "https://www.aicpb.com/product/Replit/webid1D6F37089",
+          "source": "AICPB"
         },
         {
           "rank": 10,
-          "id": "codex",
-          "name": "Codex",
-          "score": 6.5,
-          "metric": "随 OpenAI 套餐",
-          "note": "定价跟 ChatGPT/API 体系绑定"
+          "name": "Ollama",
+          "description": "",
+          "visits": "12.07M",
+          "mom": "4.77%",
+          "mom_bar_pct": 9.54,
+          "url": "https://www.aicpb.com/product/Ollama/webid1D6F37241",
+          "source": "AICPB"
+        }
+      ]
+    },
+    {
+      "id": "video-generators",
+      "label": "AI Video Generators",
+      "title": "AI产品榜 · AI Video Generators · Website",
+      "subtitle": "根据 Website 访问量排名",
+      "metric": "Website Visits",
+      "month": "Jun 2026",
+      "source_url": "https://www.aicpb.com/ai-rankings/products/ai-video-generators-rankings/websites",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Loom",
+          "description": "",
+          "visits": "17.26M",
+          "mom": "-2.51%",
+          "mom_bar_pct": 5.02,
+          "url": "https://www.aicpb.com/product/Loom/webid1D6F371B9",
+          "source": "AICPB"
+        },
+        {
+          "rank": 2,
+          "name": "Dreamina",
+          "description": "",
+          "visits": "12.81M",
+          "mom": "23.51%",
+          "mom_bar_pct": 47.02,
+          "url": "https://www.aicpb.com/product/Dreamina/webid1D6F37341",
+          "source": "AICPB"
+        },
+        {
+          "rank": 3,
+          "name": "Kling ai",
+          "description": "",
+          "visits": "12.65M",
+          "mom": "1.19%",
+          "mom_bar_pct": 2.38,
+          "url": "https://www.aicpb.com/product/Kling-ai/webid1D6F399B1",
+          "source": "AICPB"
+        },
+        {
+          "rank": 4,
+          "name": "即梦 AI｜剪映",
+          "description": "",
+          "visits": "10.83M",
+          "mom": "-21.63%",
+          "mom_bar_pct": 43.26,
+          "url": "https://www.aicpb.com/product/即梦-AI｜剪映/webid1D6F37081",
+          "source": "AICPB"
+        },
+        {
+          "rank": 5,
+          "name": "HeyGen",
+          "description": "",
+          "visits": "9.79M",
+          "mom": "-8.86%",
+          "mom_bar_pct": 17.72,
+          "url": "https://www.aicpb.com/product/HeyGen/webid1D6F37019",
+          "source": "AICPB"
+        },
+        {
+          "rank": 6,
+          "name": "Pollo",
+          "description": "",
+          "visits": "9.33M",
+          "mom": "18.96%",
+          "mom_bar_pct": 37.92,
+          "url": "https://www.aicpb.com/product/Pollo/webid1D6F37309",
+          "source": "AICPB"
+        },
+        {
+          "rank": 7,
+          "name": "PixVerse",
+          "description": "",
+          "visits": "7.08M",
+          "mom": "9.66%",
+          "mom_bar_pct": 19.32,
+          "url": "https://www.aicpb.com/product/PixVerse/webid1D6F373D1",
+          "source": "AICPB"
+        },
+        {
+          "rank": 8,
+          "name": "Runwayml",
+          "description": "",
+          "visits": "6.63M",
+          "mom": "-20.52%",
+          "mom_bar_pct": 41.04,
+          "url": "https://www.aicpb.com/product/Runwayml/webid1D6F37051",
+          "source": "AICPB"
+        },
+        {
+          "rank": 9,
+          "name": "DeeVid",
+          "description": "DeeVid",
+          "visits": "3.60M",
+          "mom": "-29.01%",
+          "mom_bar_pct": 58.02,
+          "url": "https://www.aicpb.com/product/DeeVid/webid1D6F399B9",
+          "source": "AICPB"
+        },
+        {
+          "rank": 10,
+          "name": "Vidu 海外｜生数科技",
+          "description": "",
+          "visits": "3.17M",
+          "mom": "5.62%",
+          "mom_bar_pct": 11.24,
+          "url": "https://www.aicpb.com/product/Vidu-海外｜生数科技/webid1D6F37E19",
+          "source": "AICPB"
+        }
+      ]
+    },
+    {
+      "id": "ppt",
+      "label": "AI PPT Rankings",
+      "title": "AI产品榜 · AI PPT · Website",
+      "subtitle": "根据 Website 访问量排名",
+      "metric": "Website Visits",
+      "month": "Jun 2026",
+      "source_url": "https://www.aicpb.com/ai-rankings/products/ai-ppt-rankings",
+      "items": [
+        {
+          "rank": 1,
+          "name": "Gamma",
+          "description": "",
+          "visits": "24.73M",
+          "mom": "-20.58%",
+          "mom_bar_pct": 41.16,
+          "url": "https://www.aicpb.com/product/Gamma/webid1D6F37751",
+          "source": "AICPB"
+        },
+        {
+          "rank": 2,
+          "name": "AiPPT.com｜像素绽放",
+          "description": "",
+          "visits": "6.93M",
+          "mom": "6.25%",
+          "mom_bar_pct": 12.5,
+          "url": "https://www.aicpb.com/product/AiPPT.com｜像素绽放/webid1D6F373C1",
+          "source": "AICPB"
+        },
+        {
+          "rank": 3,
+          "name": "Prezi",
+          "description": "",
+          "visits": "6.46M",
+          "mom": "-30.93%",
+          "mom_bar_pct": 61.86,
+          "url": "https://www.aicpb.com/product/Prezi/webid1D6F37149",
+          "source": "AICPB"
+        },
+        {
+          "rank": 4,
+          "name": "slidesgo",
+          "description": "",
+          "visits": "4.94M",
+          "mom": "-26.91%",
+          "mom_bar_pct": 53.82,
+          "url": "https://www.aicpb.com/product/slidesgo/webid1D6F370E1",
+          "source": "AICPB"
+        },
+        {
+          "rank": 5,
+          "name": "Mentimeter",
+          "description": "",
+          "visits": "3.61M",
+          "mom": "-14.50%",
+          "mom_bar_pct": 29.0,
+          "url": "https://www.aicpb.com/product/Mentimeter/webid1D6F372A9",
+          "source": "AICPB"
+        },
+        {
+          "rank": 6,
+          "name": "Pitch",
+          "description": "",
+          "visits": "1.44M",
+          "mom": "16.63%",
+          "mom_bar_pct": 33.26,
+          "url": "https://www.aicpb.com/product/Pitch/webid1D6F37829",
+          "source": "AICPB"
+        },
+        {
+          "rank": 7,
+          "name": "PresentationsAI",
+          "description": "",
+          "visits": "920.67K",
+          "mom": "-30.12%",
+          "mom_bar_pct": 60.24,
+          "url": "https://www.aicpb.com/product/PresentationsAI/webid1D6F37889",
+          "source": "AICPB"
+        },
+        {
+          "rank": 8,
+          "name": "Beautiful.ai",
+          "description": "",
+          "visits": "892.24K",
+          "mom": "-22.08%",
+          "mom_bar_pct": 44.16,
+          "url": "https://www.aicpb.com/product/Beautiful.ai/webid1D6F37851",
+          "source": "AICPB"
+        },
+        {
+          "rank": 9,
+          "name": "AiPPT.cn｜像素绽放",
+          "description": "",
+          "visits": "859.78K",
+          "mom": "-40.00%",
+          "mom_bar_pct": 80.0,
+          "url": "https://www.aicpb.com/product/AiPPT.cn｜像素绽放/webid1D6F37049",
+          "source": "AICPB"
+        },
+        {
+          "rank": 10,
+          "name": "Pi",
+          "description": "",
+          "visits": "451.81K",
+          "mom": "-11.73%",
+          "mom_bar_pct": 23.46,
+          "url": "https://www.aicpb.com/product/Pi/webid1D6F37E49",
+          "source": "AICPB"
         }
       ]
     }
   ],
   "highlights": [
     {
-      "medal": "👥",
-      "id": "chatgpt",
+      "medal": "🌍",
       "name": "ChatGPT",
-      "dimension": "用户量 Top 1",
-      "score": 9.8,
-      "stars": 5
+      "dimension": "Global AI Top 1",
+      "url": "https://www.aicpb.com/product/ChatGPT/webid1D6F37591"
     },
     {
-      "medal": "🧠",
-      "id": "claude",
-      "name": "Claude",
-      "dimension": "模型能力 Top 1",
-      "score": 9.7,
-      "stars": 5
-    },
-    {
-      "medal": "💰",
-      "id": "deepseek",
+      "medal": "🇨🇳",
       "name": "DeepSeek",
-      "dimension": "价格 Top 1",
-      "score": 9.8,
-      "stars": 5
+      "dimension": "China AI Top 1",
+      "url": "https://www.aicpb.com/product/DeepSeek/webid1D6F374B1"
+    },
+    {
+      "medal": "💻",
+      "name": "Github Copilot",
+      "dimension": "AI Vibe Coding Top 1",
+      "url": "https://www.aicpb.com/product/Github-Copilot/webid1D6F374B9"
     }
   ]
 }

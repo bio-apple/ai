@@ -4,7 +4,6 @@ import { site, rankings } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
 
-const page = site.ranking_page;
 const base = site.meta.base_url;
 const schema = buildPageSchema(
   `${rankings.title} | Bio AI Lab`,
@@ -12,7 +11,7 @@ const schema = buildPageSchema(
   `${base}ai-tools-ranking.html`,
 );
 const home = homeHref();
-const medals = ['🥇', '🥈', '🥉'];
+const boards = rankings.boards || [];
 ---
 
 <StandaloneLayout
@@ -20,181 +19,121 @@ const medals = ['🥇', '🥈', '🥉'];
   description={rankings.lead}
   canonical={`${base}ai-tools-ranking.html`}
   schema={schema}
+  scripts={['analytics.js', 'ux.js', 'app.js', 'progress.js', 'ranking-tabs.js']}
 >
-  <main class="standalone-page ranking-page">
+  <main class="standalone-page ranking-page aicpb-ranking-page">
     <nav class="breadcrumb"><a href={home}>首页</a> / AI 工具排行榜</nav>
-    <div class="standalone-hero">
+
+    <div class="standalone-hero aicpb-ranking-hero">
       <p class="section-kicker">每日更新 · {rankings.updated_at}</p>
       <h1>{rankings.title}</h1>
       <p class="standalone-lead">{rankings.lead}</p>
       <p class="standalone-meta">
-        数据月份 {rankings.month} · 更新于 {rankings.updated_at} · 仅引用官方原文
+        数据月份 {rankings.month_label || rankings.month} · 来源 AICPB · 各榜仅展示 Top 10
       </p>
     </div>
 
-    <section class="ranking-toc" aria-label="维度目录" style="margin: 12px 0 28px">
-      <ul class="ranking-method-list" style="display:flex;flex-wrap:wrap;gap:10px">
-        <li><a href="#rank-users" class="cta-btn cta-btn-sm cta-btn-outline">用户量</a></li>
-        <li>
-          <a href="#rank-capability" class="cta-btn cta-btn-sm cta-btn-outline">模型能力</a>
-        </li>
-        <li><a href="#rank-price" class="cta-btn cta-btn-sm cta-btn-outline">价格</a></li>
-      </ul>
-    </section>
-    <section class="ranking-sources" aria-label="数据来源">
-      <h2 class="resources-title">数据来源</h2>
-      <ul class="ranking-method-list">
-        <li>
-          <a
-            href="https://www.aicpb.com/ai-rankings/products/global-ai-rankings"
-            target="_blank"
-            rel="noopener">Global AI</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.aicpb.com/ai-rankings/products/china-ai-rankings"
-            target="_blank"
-            rel="noopener">China AI</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.aicpb.com/ai-rankings/products/vibe-coding-rankings/websites"
-            target="_blank"
-            rel="noopener">AI Vibe Coding</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.aicpb.com/ai-rankings/products/ai-video-generators-rankings/websites"
-            target="_blank"
-            rel="noopener">AI Video Generators</a
-          >
-        </li>
-        <li>
-          <a
-            href="https://www.aicpb.com/ai-rankings/products/ai-ppt-rankings"
-            target="_blank"
-            rel="noopener">AI PPT Rankings</a
-          >
-        </li>
-      </ul>
-    </section>
-
-    <section class="ranking-highlights" aria-label="本月原文冠军（摘录）">
-      <h2 class="resources-title">本月原文冠军（摘录）</h2>
-      <div class="ranking-grid ranking-grid-full">
+    <div class="aicpb-ranking-shell" data-ranking-tabs>
+      <div class="aicpb-tabbar" role="tablist" aria-label="排行榜分类">
         {
-          rankings.highlights.map((item) => (
-            <article class="ranking-card ranking-card-lg">
-              <span class="ranking-medal">{item.medal}</span>
-              <h3>{item.name}</h3>
-              <p class="ranking-dimension">{item.dimension}</p>
-              <div style="display:flex;gap:10px;flex-wrap:wrap">
-                {item.url ? (
-                  <a href={item.url} target="_blank" rel="noopener" class="cta-btn cta-btn-sm">
-                    查看原文
-                  </a>
-                ) : null}
-                <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm cta-btn-outline">
-                  查看工具
-                </a>
-              </div>
-            </article>
+          boards.map((board, index) => (
+            <button
+              type="button"
+              class:list={['aicpb-tab', { 'is-active': index === 0 }]}
+              data-ranking-tab={board.id}
+              role="tab"
+              aria-selected={index === 0 ? 'true' : 'false'}
+              aria-controls={`panel-${board.id}`}
+            >
+              {board.label}
+            </button>
           ))
         }
       </div>
-    </section>
 
-    {
-      rankings.dimensions.map((dim) => (
-        <section
-          class="ranking-dimension-block"
-          id={`rank-${dim.id}`}
-          aria-labelledby={`rank-title-${dim.id}`}
-        >
-          <div class="section-head ranking-dim-head">
-            <h2 class="resources-title" id={`rank-title-${dim.id}`}>
-              {dim.label}
-            </h2>
-            <p class="section-desc">{dim.description}</p>
-          </div>
-          <ol class="ranking-list">
-            {dim.items.map((item) => (
-              <li class="ranking-row">
-                <span class="ranking-rank" aria-label={`第 ${item.rank} 名`}>
-                  {item.rank <= 3 ? medals[item.rank - 1] : item.rank}
-                </span>
-                <div class="ranking-row-main">
-                  <div class="ranking-row-top">
-                    <a class="ranking-tool-name" href={asset(`tools/${item.id}.html`)}>
-                      {item.name}
-                    </a>
-                  </div>
-                  <p
-                    class="ranking-metric"
-                    style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"
-                  >
-                    <span
-                      class="ranking-source-badge"
-                      style="font-size:.82rem;color:var(--text-muted)"
-                    >
-                      来源：{item.source || '官方榜单原文'}
+      {
+        boards.map((board, index) => (
+          <section
+            id={`panel-${board.id}`}
+            class="aicpb-board-panel"
+            data-ranking-panel={board.id}
+            role="tabpanel"
+            aria-labelledby={`tab-${board.id}`}
+            hidden={index !== 0}
+          >
+            <header class="aicpb-board-header">
+              <h2>{board.title}</h2>
+              <p>
+                {board.subtitle} — {board.month}
+              </p>
+            </header>
+
+            <div class="aicpb-table-wrap">
+              <div class="aicpb-table-head" aria-hidden="true">
+                <span>#排名</span>
+                <span />
+                <span>产品名</span>
+                <span>访问量</span>
+                <span>月环比</span>
+              </div>
+              <ol class="aicpb-table-body">
+                {board.items.map((item) => (
+                  <li class="aicpb-table-row">
+                    <span class="aicpb-rank">{item.rank}</span>
+                    <span class="aicpb-logo" aria-hidden="true">
+                      {item.name.trim().charAt(0).toUpperCase()}
                     </span>
-                    {item.url ? (
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener"
-                        class="cta-btn cta-btn-xs cta-btn-outline"
-                      >
-                        查看原文
+                    <div class="aicpb-product">
+                      <a href={item.url} target="_blank" rel="noopener" class="aicpb-product-name">
+                        {item.name}
                       </a>
-                    ) : null}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </section>
-      ))
-    }
+                      {item.description ? (
+                        <p class="aicpb-product-desc">{item.description}</p>
+                      ) : null}
+                    </div>
+                    <span class="aicpb-visits">{item.visits}</span>
+                    <div class="aicpb-mom">
+                      <span class="aicpb-mom-value">{item.mom}</span>
+                      <span class="aicpb-mom-bar-track" aria-hidden="true">
+                        <em
+                          class:list={[
+                            'aicpb-mom-bar-fill',
+                            item.mom.startsWith('-') ? 'is-down' : 'is-up',
+                          ]}
+                          style={`width:${item.mom_bar_pct || 0}%`}
+                        />
+                      </span>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
 
-    <section class="ranking-method" aria-label="评分说明">
-      <h2 class="resources-title">如何评分</h2>
+            <div class="aicpb-board-footer">
+              <a href={board.source_url} target="_blank" rel="noopener" class="aicpb-view-all">
+                查看 {board.label} 全部产品 →
+              </a>
+            </div>
+          </section>
+        ))
+      }
+    </div>
+
+    <section class="ranking-method aicpb-ranking-note" aria-label="引用说明">
+      <h2 class="resources-title">引用说明</h2>
       <ul class="ranking-method-list">
         {rankings.methodology.map((line) => <li>{line}</li>)}
       </ul>
+      <p class="aicpb-attribution">
+        数据版权归 <a href="https://www.aicpb.com/" target="_blank" rel="noopener"
+          >AICPB（AI产品榜）</a
+        > 所有，本站仅作摘录展示。
+      </p>
     </section>
 
-    <h2 class="resources-title">完整工具对比表</h2>
-    <div class="compare-wrap">
-      <table class="compare-table">
-        <thead
-          ><tr><th>工具</th><th>类型</th><th>核心优势</th><th>适合场景</th><th>入门</th></tr></thead
-        >
-        <tbody>
-          {
-            site.compare_table.rows.map((row) => (
-              <tr>
-                <>
-                  <td>{row.tool}</td>
-                  <td>{row.type}</td>
-                  <td>{row.strength}</td>
-                  <td>{row.scenario}</td>
-                  <td>{row.pricing}</td>
-                </>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-    </div>
     <div class="standalone-cta">
       <a href={home} class="cta-btn">返回首页</a>
       <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">工具中心</a>
-      <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline">学习路线</a>
     </div>
   </main>
 </StandaloneLayout>
