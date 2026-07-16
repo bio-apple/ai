@@ -27,6 +27,8 @@ header {
   gap: 12px;
   flex-shrink: 0;
   color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .logo-text {

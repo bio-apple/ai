@@ -20,25 +20,13 @@ const {
 
 <header>
   <nav class="nav">
-    {
-      standalone ? (
-        <a href={homeHref} class="logo">
-          <div class="logo-icon">{nav.logo.icon}</div>
-          <div class="logo-text">
-            <span class="logo-brand">{nav.logo.brand}</span>
-            <span class="logo-tagline">{nav.logo.tagline}</span>
-          </div>
-        </a>
-      ) : (
-        <div class="logo" role="banner">
-          <div class="logo-icon">{nav.logo.icon}</div>
-          <div class="logo-text">
-            <span class="logo-brand">{nav.logo.brand}</span>
-            <span class="logo-tagline">{nav.logo.tagline}</span>
-          </div>
-        </div>
-      )
-    }
+    <a href={homeHref} class="logo" data-tool="all" aria-label="返回首页">
+      <div class="logo-icon" aria-hidden="true">{nav.logo.icon}</div>
+      <div class="logo-text">
+        <span class="logo-brand">{nav.logo.brand}</span>
+        <span class="logo-tagline">{nav.logo.tagline}</span>
+      </div>
+    </a>
     <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>

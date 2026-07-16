@@ -132,13 +132,18 @@ function bindNavItem(el) {
     e.stopPropagation();
     const tool = el.dataset.tool;
     if (!tool) return;
-    showSection(tool === 'all' ? 'section-home' : `section-${tool}`);
+    const sectionId = tool === 'all' ? 'section-home' : `section-${tool}`;
+    const target = document.getElementById(sectionId);
+    if (!target || !target.classList.contains('section')) return;
+    e.preventDefault();
+    showSection(sectionId);
     trackEvent('nav-tab', { tool });
   });
 }
 
 navTabs.forEach(bindNavItem);
 document.querySelectorAll('.nav-dropdown-item').forEach(bindNavItem);
+document.querySelectorAll('a.logo[data-tool]').forEach(bindNavItem);
 
 document.querySelectorAll('.tool-card-v2, .ranking-card[data-tool]').forEach((card) => {
   card.addEventListener('click', (e) => {
