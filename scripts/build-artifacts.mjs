@@ -128,7 +128,7 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     label: 'AI 工具中心',
     type: '导航',
     url: 'tools/hub.html',
-    keywords: '工具分类 助手 编程 写作 图片 视频 音频 办公 Agent',
+    keywords: '工具中心 AICPB 榜单 Global AI China AI Vibe Coding Video PPT Top10',
   });
   items.push({
     label: 'AI 学习路线图',
@@ -237,15 +237,27 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
       items.push({ label: g.title, type: '对比', url: g.href, keywords: g.title });
     }
   }
-  for (const cat of site.tool_hub || []) {
-    items.push({
-      label: `工具分类：${cat.label}`,
-      type: '导航',
-      url: `tools/hub.html#hub-${cat.id}`,
-      keywords: [cat.label, cat.description, ...(cat.tools || [])].join(' '),
-    });
-  }
   return items;
+}
+
+function appendHubBoardSearchItems(items, rankings) {
+  for (const board of rankings.boards || []) {
+    const names = (board.items || []).map((item) => item.name);
+    items.push({
+      label: `工具中心：${board.label}`,
+      type: '导航',
+      url: `tools/hub.html#hub-${board.id}`,
+      keywords: [board.label, board.title, board.subtitle, ...names].filter(Boolean).join(' '),
+    });
+    for (const item of board.items || []) {
+      items.push({
+        label: item.name,
+        type: '工具',
+        url: `tools/hub.html#hub-${board.id}`,
+        keywords: [item.name, board.label, item.visits, 'AICPB', '工具中心'].filter(Boolean).join(' '),
+      });
+    }
+  }
 }
 
 function buildRecommendRules(site) {
@@ -339,10 +351,17 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const cases = readJson('cases.json');
   const compares = readJson('compares.json');
   const promptsMeta = readJson('prompts.json');
+  let rankings = { boards: [] };
+  try {
+    rankings = readJson('rankings.json');
+  } catch {
+    rankings = { boards: [] };
+  }
 
   const promptsPayload = buildPromptsPayload(cases, promptsMeta);
   const tutorialsPayload = buildTutorialsPayload(cases, tools);
   const searchIndex = buildSearchIndex(site, tools, cases, compares, promptsPayload);
+  appendHubBoardSearchItems(searchIndex, rankings);
   const recommendRules = buildRecommendRules(site);
   const analyticsCfg = buildAnalyticsConfig();
 

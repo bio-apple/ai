@@ -88,6 +88,19 @@
   margin-bottom: 48px;
 }
 
+.tools-hub-page .aicpb-hub-board {
+  margin-bottom: 40px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+}
+
+.tools-hub-page .hub-local-links {
+  margin: 4px 0 0;
+  font-size: 0.78rem;
+}
+
 .hub-quick-links {
   display: flex;
   flex-wrap: wrap;

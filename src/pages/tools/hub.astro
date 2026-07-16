@@ -1,6 +1,6 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
-import { resolveToolRelations, site, toolLookup } from '../../lib/data';
+import { rankings, site, tools } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
@@ -11,9 +11,44 @@ const breadcrumbs = [
   { name: '工具中心', url: `${base}tools/hub.html` },
 ];
 const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`, breadcrumbs);
-const lookup = toolLookup();
-const hub = site.tool_hub || [];
-const urls = site.tool_urls || {};
+const boards = rankings.boards || [];
+
+const NAME_ALIASES: Record<string, string> = {
+  chatgpt: 'chatgpt',
+  'new bing': 'new-bing',
+  gemini: 'gemini',
+  'google gemini': 'gemini',
+  claude: 'claude',
+  'claude｜anthropic': 'claude',
+  'claude|anthropic': 'claude',
+  deepseek: 'deepseek',
+  'github copilot': 'copilot',
+  'microsoft copilot': 'copilot',
+  copilot: 'copilot',
+  cursor: 'cursor',
+  kimi: 'kimi',
+  通义千问: 'qwen',
+  qwen: 'qwen',
+  豆包: 'doubao',
+  'openai codex': 'codex',
+  codex: 'codex',
+};
+
+function normalizeName(name: string) {
+  return name.trim().toLowerCase().replace(/\s+/g, ' ');
+}
+
+function localToolId(name: string): string | null {
+  const n = normalizeName(name);
+  const baseName = n.split(/[|｜]/)[0].trim();
+  const aliased = NAME_ALIASES[n] || NAME_ALIASES[baseName];
+  if (aliased) return aliased;
+  const hit = tools.find((t) => {
+    const tn = normalizeName(t.name);
+    return tn === n || tn === baseName || n.includes(tn) || tn.includes(baseName);
+  });
+  return hit?.id || null;
+}
 ---
 
 <StandaloneLayout
@@ -23,14 +58,28 @@ const urls = site.tool_urls || {};
   schema={schema}
   ogType="website"
 >
-  <main class="standalone-page tools-hub-page">
+  <main class="standalone-page tools-hub-page aicpb-ranking-page">
     <nav class="breadcrumb"><a href={homeHref()}>首页</a> / 工具中心</nav>
-    <div class="standalone-hero">
+    <div class="standalone-hero aicpb-ranking-hero">
+      <p class="section-kicker">AICPB 各榜 Top 10 · 更新 {rankings.updated_at}</p>
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
+      <p class="standalone-meta">
+        数据月份 {rankings.month_label || rankings.month} · 来源 AICPB · 与排行榜同源
+      </p>
       <div class="hub-quick-links">
-        <a href="#hub-assistant" class="recommend-link">AI 助手</a>
-        <a href="#hub-coding" class="recommend-link">AI 编程</a>
+        {
+          boards.map((board) => (
+            <a href={`#hub-${board.id}`} class="recommend-link">
+              {board.label}
+            </a>
+          ))
+        }
+        <a
+          href={asset('ai-tools-ranking.html')}
+          class="recommend-link"
+          data-track="hub-quick-ranking">排行榜页 →</a
+        >
         <a
           href={asset('prompts/library.html')}
           class="recommend-link"
@@ -40,96 +89,92 @@ const urls = site.tool_urls || {};
     </div>
 
     {
-      hub.map((cat) => (
-        <section class="hub-category" id={`hub-${cat.id}`}>
-          <div class="section-head">
-            <h2 class="section-title">{cat.label}</h2>
-            <p class="section-desc">{cat.description}</p>
-          </div>
-          <div class="hub-tool-grid">
-            {cat.tools.map((id) => {
-              const t = lookup[id] as
-                { name?: string; tagline?: string; summary?: string; icon?: string } | undefined;
-              const relations = resolveToolRelations(id);
-              const altPreview = relations.alternatives.slice(0, 2);
-              const compPreview = relations.complements.slice(0, 1);
-              const hasPreview = altPreview.length > 0 || compPreview.length > 0;
-              return (
-                <article class="hub-tool-card">
-                  <div class="hub-tool-top">
-                    <span class={`tool-card-logo ${id}`}>
-                      {t?.icon || id.slice(0, 1).toUpperCase()}
-                    </span>
-                    <h3>{t?.name || id}</h3>
-                  </div>
-                  <p>{t?.tagline || t?.summary || ''}</p>
-                  <div class="hub-tool-actions">
-                    <a href={asset(`tools/${id}.html`)} class="recommend-link">
-                      教程页 →
-                    </a>
-                    {urls[id] && (
-                      <a href={urls[id]} class="recommend-link" target="_blank" rel="noopener">
-                        官网 →
-                      </a>
-                    )}
-                    <a href={homeHref(`#section-${id}`)} class="recommend-link">
-                      站内详解 →
-                    </a>
-                  </div>
-                  {hasPreview && (
-                    <div class="hub-tool-relations">
-                      {altPreview.length > 0 && (
-                        <p class="hub-tool-rel-line">
-                          <span class="hub-tool-rel-label">替代</span>
-                          {altPreview.map((rel) => (
-                            <a
-                              href={rel.href}
-                              class="recommend-link"
-                              data-track={`hub-rel-alt-${id}-${rel.id}`}
-                            >
-                              {rel.name}
-                            </a>
-                          ))}
-                        </p>
-                      )}
-                      {compPreview.length > 0 && (
-                        <p class="hub-tool-rel-line">
-                          <span class="hub-tool-rel-label">搭配</span>
-                          {compPreview.map((rel) => (
-                            <a
-                              href={rel.href}
-                              class="recommend-link"
-                              data-track={`hub-rel-comp-${id}-${rel.id}`}
-                            >
-                              {rel.name}
-                            </a>
-                          ))}
-                        </p>
-                      )}
-                    </div>
-                  )}
-                </article>
-              );
-            })}
-          </div>
-          {(cat.external || []).length > 0 && (
-            <div class="hub-external">
-              <p class="recommend-card-lead">延伸推荐</p>
-              <ul>
-                {cat.external.map((ext) => (
-                  <li>
-                    <a href={ext.url} target="_blank" rel="noopener">
-                      {ext.name}
-                    </a>
-                    {ext.note && <span> — {ext.note}</span>}
-                  </li>
-                ))}
-              </ul>
+      boards.map((board) => (
+        <section class="hub-category aicpb-hub-board" id={`hub-${board.id}`}>
+          <header class="aicpb-board-header">
+            <h2>{board.title}</h2>
+            <p>
+              {board.subtitle} — {board.month} · Top {board.items?.length || 0}
+            </p>
+          </header>
+
+          <div class="aicpb-table-wrap">
+            <div class="aicpb-table-head" aria-hidden="true">
+              <span>#排名</span>
+              <span />
+              <span>产品名</span>
+              <span>访问量</span>
+              <span>月环比</span>
             </div>
-          )}
+            <ol class="aicpb-table-body">
+              {(board.items || []).map((item) => {
+                const toolId = localToolId(item.name);
+                return (
+                  <li class="aicpb-table-row">
+                    <span class="aicpb-rank">{item.rank}</span>
+                    <span class="aicpb-logo" aria-hidden="true">
+                      {item.name.trim().charAt(0).toUpperCase()}
+                    </span>
+                    <div class="aicpb-product">
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener"
+                        class="aicpb-product-name"
+                      >
+                        {item.name}
+                      </a>
+                      {toolId ? (
+                        <p class="hub-local-links">
+                          <a
+                            href={asset(`tools/${toolId}.html`)}
+                            class="recommend-link"
+                            data-track={`hub-local-${toolId}`}
+                          >
+                            站内教程 →
+                          </a>
+                        </p>
+                      ) : null}
+                    </div>
+                    <span class="aicpb-visits">{item.visits}</span>
+                    <div class="aicpb-mom">
+                      <span class="aicpb-mom-value">{item.mom}</span>
+                      <span class="aicpb-mom-bar-track" aria-hidden="true">
+                        <em
+                          class:list={[
+                            'aicpb-mom-bar-fill',
+                            item.mom.startsWith('-') ? 'is-down' : 'is-up',
+                          ]}
+                          style={`width:${item.mom_bar_pct || 0}%`}
+                        />
+                      </span>
+                    </div>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+
+          <div class="aicpb-board-footer">
+            <a href={board.source_url} target="_blank" rel="noopener" class="aicpb-view-all">
+              查看 {board.label} 全部产品 →
+            </a>
+          </div>
         </section>
       ))
     }
+
+    <section class="ranking-method aicpb-ranking-note" aria-label="引用说明">
+      <h2 class="resources-title">引用说明</h2>
+      <ul class="ranking-method-list">
+        {rankings.methodology.map((line) => <li>{line}</li>)}
+      </ul>
+      <p class="aicpb-attribution">
+        数据版权归 <a href="https://www.aicpb.com/" target="_blank" rel="noopener"
+          >AICPB（AI产品榜）</a
+        > 所有，本站仅作摘录展示。
+      </p>
+    </section>
 
     <div class="standalone-cta">
       <a href={asset('ai-tools-ranking.html')} class="cta-btn">查看排行榜 →</a>
