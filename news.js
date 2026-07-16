@@ -96,19 +96,61 @@ function groupNewsByCategory(items) {
   return keys.map((key) => ({ category: key, items: map.get(key) }));
 }
 
-function renderNewsRow(item) {
+/** 同类新闻再按来源聚合：OpenAI 等多条合并为一个来源块 */
+function groupNewsBySource(items) {
+  const map = new Map();
+  for (const item of items || []) {
+    const source = String(item.source || '').trim() || '其他来源';
+    if (!map.has(source)) map.set(source, []);
+    map.get(source).push(item);
+  }
+  const groups = [...map.entries()].map(([source, list]) => {
+    const sorted = [...list].sort((a, b) => {
+      const ta = a.published_at ? Date.parse(a.published_at) : 0;
+      const tb = b.published_at ? Date.parse(b.published_at) : 0;
+      return tb - ta;
+    });
+    const latest = sorted[0]?.published_at ? Date.parse(sorted[0].published_at) : 0;
+    return { source, items: sorted, latest };
+  });
+  groups.sort((a, b) => b.latest - a.latest || a.source.localeCompare(b.source, 'zh'));
+  return groups;
+}
+
+function renderNewsRow(item, { hideSource = false } = {}) {
   const summary = truncateText(item.summary, 68);
+  const metaParts = [];
+  if (!hideSource && item.source) {
+    metaParts.push(`<span class="news-row-source">${escapeHtml(item.source)}</span>`);
+  }
+  if (item.published_at) {
+    metaParts.push(
+      `<span class="news-row-date">${escapeHtml(formatNewsDateShort(item.published_at))}</span>`,
+    );
+  }
   return `
-    <li class="news-row">
+    <li class="news-row${hideSource ? ' news-row-in-source' : ''}">
       <a class="news-row-main" href="${escapeHtml(item.url)}" target="_blank" rel="noopener" data-track="news-click">
         <span class="news-row-title">${escapeHtml(item.title)}</span>
-        <span class="news-row-meta">
-          <span class="news-row-source">${escapeHtml(item.source || '')}</span>
-          ${item.published_at ? `<span class="news-row-date">${escapeHtml(formatNewsDateShort(item.published_at))}</span>` : ''}
-        </span>
+        ${metaParts.length ? `<span class="news-row-meta">${metaParts.join('')}</span>` : ''}
       </a>
       ${summary ? `<p class="news-row-summary">${escapeHtml(summary)}</p>` : ''}
     </li>
+  `;
+}
+
+function renderSourceGroup(group) {
+  const multi = group.items.length > 1;
+  return `
+    <div class="news-source-group${multi ? ' news-source-group-multi' : ''}">
+      <div class="news-source-head">
+        <span class="news-source-name">${escapeHtml(group.source)}</span>
+        <span class="news-source-count">${group.items.length}</span>
+      </div>
+      <ul class="news-feed-list news-feed-list-source">
+        ${group.items.map((item) => renderNewsRow(item, { hideSource: true })).join('')}
+      </ul>
+    </div>
   `;
 }
 
@@ -118,19 +160,20 @@ function renderNewsFeed(items) {
   }
   const groups = groupNewsByCategory(items);
   return groups
-    .map(
-      (group) => `
+    .map((group) => {
+      const bySource = groupNewsBySource(group.items);
+      return `
     <section class="news-group">
       <h3 class="news-group-title">
         ${escapeHtml(group.category)}
         <span class="news-group-count">${group.items.length}</span>
       </h3>
-      <ul class="news-feed-list">
-        ${group.items.map(renderNewsRow).join('')}
-      </ul>
+      <div class="news-source-stack">
+        ${bySource.map(renderSourceGroup).join('')}
+      </div>
     </section>
-  `,
-    )
+  `;
+    })
     .join('');
 }
 
