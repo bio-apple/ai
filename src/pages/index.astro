@@ -49,16 +49,6 @@ const schema = buildHomeSchema(site);
             class="cta-btn"
             data-track="hero-cta-primary">{site.hero.cta_primary?.label || '获取 AI 推荐'}</a
           >
-          <a
-            href={site.hero.cta_github?.href || site.footer.github}
-            class="github-star-btn"
-            target="_blank"
-            rel="noopener"
-            data-track={site.hero.cta_github?.track || 'github-star-hero'}
-          >
-            <span aria-hidden="true">★</span>
-            {site.hero.cta_github?.label || 'Star on GitHub'}
-          </a>
         </div>
         <p class="hero-secondary-link">
           <a
