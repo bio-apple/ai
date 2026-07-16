@@ -107,14 +107,19 @@
   }
 
   function clearResult() {
-    out.hidden = true;
     out.innerHTML = '';
+    out.hidden = true;
+    out.setAttribute('hidden', '');
     setActiveChip(null);
     const url = new URL(location.href);
     if (url.searchParams.has('rq')) {
       url.searchParams.delete('rq');
       history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
     }
+  }
+
+  function syncEmptyResult() {
+    if (!String(input.value || '').trim()) clearResult();
   }
 
   function render(opt, query) {
@@ -254,8 +259,18 @@
     }
   });
 
-  input.addEventListener('input', () => {
-    if (!input.value.trim()) clearResult();
+  // 兼容：键盘删除、粘贴清空、以及 type=search 的 ✕ 清空（部分浏览器只派发 search）
+  ['input', 'change', 'keyup', 'cut', 'paste'].forEach((evt) => {
+    input.addEventListener(evt, () => {
+      // paste/cut 后值可能尚未写入，下一微任务再确认
+      syncEmptyResult();
+      queueMicrotask(syncEmptyResult);
+    });
+  });
+  input.addEventListener('search', () => {
+    syncEmptyResult();
+    queueMicrotask(syncEmptyResult);
+    requestAnimationFrame(syncEmptyResult);
   });
 
   form.addEventListener('submit', (e) => {

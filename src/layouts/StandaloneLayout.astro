@@ -7,7 +7,7 @@ import UxWidgets from '../components/UxWidgets.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/data';
-import { BASE, asset, homeHref } from '../lib/paths';
+import { BASE, asset, assetVersioned, homeHref } from '../lib/paths';
 
 interface Props {
   title: string;
@@ -66,6 +66,6 @@ const home = homeHref();
       <slot />
     </div>
     <Footer text={site.footer.text} github={site.footer.github} />
-    {scripts.map((src) => <script src={asset(src)} defer />)}
+    {scripts.map((src) => <script src={assetVersioned(src)} defer />)}
   </body>
 </html>

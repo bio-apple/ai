@@ -8,7 +8,7 @@ import KnowledgeAssistant from '../components/KnowledgeAssistant.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/data';
-import { BASE, asset } from '../lib/paths';
+import { BASE, asset, assetVersioned } from '../lib/paths';
 
 interface Props {
   title: string;
@@ -73,6 +73,6 @@ const styleHref = asset('style.css');
       <slot />
     </div>
     <Footer text={site.footer.text} github={site.footer.github} />
-    {scriptList.map((src) => <script src={asset(src)} defer />)}
+    {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
   </body>
 </html>
