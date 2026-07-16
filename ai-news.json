@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T12:38:48.299814+08:00",
+  "updated_at": "2026-07-16T13:11:12.002641+08:00",
   "date": "2026-07-16",
   "cadence": "daily",
   "window_days": 7,
@@ -13,6 +13,15 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "ae7d79790794",
+      "title": "从上海到世界：WAICA正以“AI原生”范式重写顶会规则",
+      "summary": "从上海到世界：WAICA正以“AI原生”范式重写顶会规则",
+      "url": "https://www.qbitai.com/2026/07/450917.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-16T12:02:31+08:00"
+    },
     {
       "id": "e1d9ebeff816",
       "title": "OriginBlame: Record- and Token-Level Data Provenance for AI Training Datasets",
@@ -222,7 +231,7 @@
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 80,928",
+      "title": "OpenHands/OpenHands · ★ 80,931",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
@@ -258,7 +267,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 87,417",
+      "title": "thedotmack/claude-mem · ★ 87,421",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -320,15 +329,6 @@
       "published_at": "2026-07-15T17:03:58+08:00"
     },
     {
-      "id": "366f7458c142",
-      "title": "我和「二次元老公」约上会了！全球首个可以玩的实时交互模型，Xmax X2.0发布",
-      "summary": "世界就是你的画布",
-      "url": "https://www.qbitai.com/2026/07/450130.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-15T16:09:57+08:00"
-    },
-    {
       "id": "9d5925e11f31",
       "title": "Nemotron Labs: How Open Models Give Enterprises and Nations AI They Can Trust, Control and Customize",
       "summary": "Enterprises have plenty of powerful models to choose from. The real test is whether the AI an enterprise builds uniquely addresses the needs of the business: i…",
@@ -366,7 +366,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 94,935",
+      "title": "hacksider/Deep-Live-Cam · ★ 94,936",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -411,7 +411,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,153",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,156",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
