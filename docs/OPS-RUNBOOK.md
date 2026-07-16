@@ -97,14 +97,25 @@ git push
 | P1 | 视频 >2 天未更新 / 新闻 >2 天 | Issue + 手动 `workflow_dispatch` |
 | P2 | 单平台短窗口为空 | metrics 警告，不阻断 |
 
+## 一周内 AI 热点
+
+- **窗口**：近 7 天（`config/news-fetch.yaml` → `max_age_days: 7`）
+- **频次**：每天（`daily-news.yml`）
+- **健康阈值**：`NEWS_MAX_AGE_DAYS` 默认 2 天（看的是 JSON `updated_at` 是否日更，不是窗口大小）
+- 手动救急：Actions → Daily AI News Update → Run workflow
+
 ## 抓取门禁
 
 - `daily-videos.yml` 必须提交 `daily-videos.json` **与** `video-thumbs/`
 - `fetch_oss_stars.py` 全失败 → 非零退出；需 `GITHUB_TOKEN`
+- `daily-news.yml` / `daily-videos.yml` / `weekly-oss.yml` 推送后需能派发 Pages（`actions: write`）
 - E2E 与 API smoke **阻断** CI `validate` job
+- 数据门禁含 `tool-relations`（未知工具 id 即失败）
 
 ## 本地复现健康检查
 
 ```bash
 SITE_BASE=https://bio-apple.github.io/ai python3 scripts/check_site_health.py
+DIST=dist python3 scripts/validate_ci.py
 ```
+

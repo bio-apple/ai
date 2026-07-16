@@ -22,7 +22,7 @@
 6. [前端设计](#前端设计)
 7. [本地开发](#本地开发)
 8. [每日视频流水线](#每日视频流水线)
-9. [每日新闻与每周 OSS Star 流水线](#每日新闻与每周-oss-star-流水线)
+9. [一周内 AI 热点与每周 OSS Star 流水线](#一周内-ai-热点与每周-oss-star-流水线)
 10. [CI/CD 与部署](#cicd-与部署)
 11. [内容维护指南](#内容维护指南)
 12. [配置参考](#配置参考)
@@ -36,7 +36,7 @@
 ┌──────────────────────────────────────────────────────────────────────┐
 │                        GitHub 仓库 (main)                             │
 ├──────────────────────────────────────────────────────────────────────┤
-│  【内容源】data/*.json                                                │
+│  【内容源】data/*.json（含 tool-relations / rankings）                 │
 │  【SSG 源】src/pages · src/components · src/layouts (Astro)           │
 │  【运行时 JSON】daily-videos.json · ai-news.json · oss-projects.json  │
 │  【构建产物】dist/（CI 生成，部署到 Pages，不提交仓库）                  │
@@ -47,7 +47,8 @@
      ┌────────────────────┐         ┌──────────────────────────┐
      │ npm run build      │         │ daily-videos.yml（每日）   │
      │ → dist/ → Pages    │         │ daily-news.yml（每日）     │
-     └────────────────────┘         │ → commit JSON 到仓库根目录 │
+     └────────────────────┘         │ weekly-oss.yml（每周）     │
+                                      │ → commit JSON 到仓库根目录 │
                                       └──────────────────────────┘
 ```
 
@@ -55,11 +56,12 @@
 
 - **内容源**在 `data/*.json`；**页面模板**在 `src/`（Astro 组件化）。
 - `npm run build`（`prebuild` → `astro build`）生成 `dist/`，含首页、工具页、Labs、工具中心等 HTML + JSON 索引。
-- 10 个 AI 工具详情页由 `src/pages/tools/[id].astro` + `getStaticPaths` **自动生成**。
+- 10 个 AI 工具详情页由 `src/pages/tools/[id].astro` + `getStaticPaths` **自动生成**；关系边来自 `data/tool-relations.json`。
 - 生产环境以 **GitHub Pages** 部署 `dist/`；`backend/` 本地预览挂载 **`/ai/`**（与 Astro `base` 一致），`/` 重定向到 `/ai/`。
 - **每日视频**通过 `daily-videos.json` + `daily-videos.yml` 定时写入（六类推荐）。
-- **每日新闻**通过 `daily-news.yml` 刷新 `ai-news.json`；**GitHub Stars** 通过 `weekly-oss.yml` 刷新 `oss-projects.json`。
-- 部署前必须通过 **Pages 校验**（`validate_ci.py`）；完整 CI 另含单元测试、FastAPI smoke 与 Playwright E2E（E2E **失败会使 CI 红**，但 **不挡 Pages** 部署）。
+- **一周内 AI 热点**通过 `daily-news.yml` 每天刷新 `ai-news.json`（近 7 天窗口）；**GitHub Stars** 通过 `weekly-oss.yml` 刷新 `oss-projects.json`。
+- 发现链路：搜索 → 推荐 → 学习回访（`progress.js`）→ SEO（sitemap `.html` + BreadcrumbList）。
+- 部署前必须通过 **Pages 校验**（`validate_ci.py`，11 步）；完整 CI 另含单元测试、FastAPI smoke 与 Playwright E2E（E2E **失败会使 CI 红**，但 **不挡 Pages** 部署）。
 - 站内链接与静态资源统一走 **`src/lib/paths.ts`**（`/ai/...`）；`validate_ci.py links` 会解析 `/ai/` 绝对路径并拒绝逃出 `dist/` 的相对路径。
 
 ---
@@ -92,38 +94,41 @@
 ```
 ai/
 ├── data/                       # ★ 内容源（版本控制）
-│   ├── site.json               # 站点配置、导航、排行、对比表
+│   ├── site.json               # 站点配置、导航、排行预览、对比表、ai_picker
 │   ├── tools.json · cases.json · compares.json
+│   ├── tool-relations.json     # 工具替代 / 互补关系
+│   ├── rankings.json           # 月更三榜（用户量 / 能力 / 价格）
 │   └── oss-projects.json       # GitHub Stars 开源精选（Star 每周刷新）
 ├── src/                        # ★ Astro SSG 源
 │   ├── pages/                  # 路由（含 tools/[id].astro 自动生成 10 页）
-│   ├── components/             # Nav、ToolSection、CasesSection…
+│   ├── components/             # Nav、ToolDetail、HomeRecommend、CasesSection…
 │   ├── layouts/                # HomeLayout · StandaloneLayout
-│   └── lib/                    # data.ts · schema.ts
+│   └── lib/                    # data.ts · schema.ts · paths.ts · runtime.ts
 ├── config/
 │   ├── video-fetch.yaml        # 六类视频抓取配置
-│   └── news-fetch.yaml         # 每日新闻 RSS / 关注源配置
+│   └── news-fetch.yaml         # 一周内热点 RSS / 关注源（max_age_days: 7）
 ├── public/                     # prebuild 同步（gitignore）
 ├── dist/                       # Astro 构建产物（gitignore，CI 部署）
 ├── scripts/
 │   ├── prebuild.mjs            # sync-public + build-artifacts
 │   ├── sync-public.mjs         # css/js/json → public/
-│   ├── build-artifacts.mjs     # prompts/search-index/analytics-config
+│   ├── build-artifacts.mjs     # prompts/search-index/recommend-rules/analytics
 │   ├── fetch_daily_videos.py   # 每日六类视频抓取
-│   ├── fetch_ai_news.py        # 每日新闻抓取
+│   ├── fetch_ai_news.py        # 一周内 AI 热点抓取（日更）
 │   ├── fetch_oss_stars.py      # 刷新 oss-projects Star 数
-│   └── validate_ci.py          # 校验 dist/
+│   └── validate_ci.py          # 校验 dist/ + data schema（11 步）
 ├── daily-videos.json           # 每日视频数据（Actions 写入）
-├── ai-news.json                # 每日新闻数据（Actions 写入）
+├── ai-news.json                # 一周内热点数据（Actions 写入）
 ├── oss-projects.json           # 开源精选运行时副本（与 data/ 同步）
-├── oss.js · news.js · videos.js
+├── app.js · recommend.js · favorites.js · progress.js
+├── oss.js · news.js · videos.js · knowledge.js
 ├── .github/workflows/
-│   ├── ci.yml · pages.yml
+│   ├── ci.yml · pages.yml · site-health.yml
 │   ├── daily-videos.yml        # 每日 0:00 北京时间
 │   ├── daily-news.yml          # 每日 6:00 北京时间
 │   └── weekly-oss.yml          # 每周一 6:00 北京时间（Star）
 ├── astro.config.mjs · package.json
-├── css/ · app.js · style.css
+├── css/ · style.css
 ├── backend/                    # 本地预览 dist/ + 内容 API
 └── tests/e2e/smoke.spec.js
 ```
@@ -154,8 +159,8 @@ npm run test:e2e
 
 `npm run prebuild` 依次执行：
 
-1. **`sync-public.mjs`** — 将 `css/`、`vendor/`、`*.js`、`daily-videos.json`、`ai-news.json`、`oss-projects.json` 复制到 `public/`。
-2. **`build-artifacts.mjs`** — 从 `data/*.json` 生成 `prompts.json`、`tutorials.json`、`search-index.json`、`analytics-config.json`，并复制 `data/oss-projects.json` → `public/oss-projects.json`。
+1. **`sync-public.mjs`** — 将 `css/`、`vendor/`、`*.js`（含 `progress.js` / `recommend.js`）、`daily-videos.json`、`ai-news.json`、`oss-projects.json` 复制到 `public/`。
+2. **`build-artifacts.mjs`** — 从 `data/*.json` 生成 `prompts.json`、`tutorials.json`、`search-index.json`、`recommend-rules.json`（内嵌 `tool-relations`）、`analytics-config.json`，并复制 `data/oss-projects.json` → `public/oss-projects.json`。
 
 ### 构建产物（dist/）
 
@@ -164,8 +169,8 @@ npm run test:e2e
 | `data/site.json` + `tools.json` + `cases.json` | `index.html` |
 | `data/tools.json` | `tools/{id}.html`（**getStaticPaths 自动生成**） |
 | `data/compares.json` | `compare/{slug}.html` |
-| 全部内容数据 | `search-index.json`（build-artifacts.mjs） |
-| Astro sitemap 集成 | `sitemap-index.xml` |
+| 全部内容数据 | `search-index.json` · `recommend-rules.json`（build-artifacts.mjs） |
+| Astro sitemap 集成 | `sitemap-index.xml`（serialize 补齐 `.html` / `index.html`） |
 
 ### 重要约定
 
@@ -177,15 +182,40 @@ npm run test:e2e
 
 ### 搜索索引
 
-`search-index.json` 由 `build-artifacts.mjs` 自动生成，**主路径**包含：
+`search-index.json` 由 `build-artifacts.mjs` 自动生成，条目带 `type` 标签，**主路径**包含：
 
 - 每个工具的 SPA section + 独立页 URL
-- 对比专题页、对比指南
-- 每日视频、每日新闻、开源精选、排行榜
+- 案例深链 `cases/index.html#case-N`（案例已迁出首页 SPA）
+- Prompt 深链 `prompts/library.html#{id}`
+- 对比专题、学习路线、指南、Labs、工具中心分类锚点
+- 六类视频、一周内 AI 热点、开源精选、排行榜
 
-> Prompt / 案例 / 学习路线 / Labs / 工具中心 **已写入**主搜索索引（`build-artifacts.mjs`）。
+`app.js` 启动时 `fetch('search-index.json')`，**不要手写**搜索条目；相对 URL 经 `siteBase()` 拼到 `/ai/`。
 
-`app.js` 启动时 `fetch('search-index.json')`，**不要手写**搜索条目。
+### 工具关系
+
+`data/tool-relations.json` 按工具 id 声明：
+
+```json
+{
+  "chatgpt": {
+    "alternatives": [{ "id": "claude", "note": "长文写作与深度推理更稳" }],
+    "complements": [{ "id": "cursor", "note": "对话定方案，再用 Cursor 落地改代码" }]
+  }
+}
+```
+
+- 解析：`src/lib/data.ts` → `resolveToolRelations()`
+- 展示：`ToolDetail.astro`（可切换替代 / 常一起用）、`tools/hub.astro`（紧凑预览）
+- 推荐：`recommend-rules.json.relations` + `recommend.js`「也可以看看」
+- CI：`validate_ci.py tool-relations`（schema + 未知 id）
+
+### 学习回访
+
+`progress.js`（localStorage，无账户）：
+
+- `bioai.recent.v1`：最近打开的工具/指南/路线/案例 → 首页「继续学习」
+- `bioai.roadmap.v1`：学习路线阶段勾选进度
 
 ---
 
@@ -219,6 +249,14 @@ npm run test:e2e
 ### `data/compares.json`
 
 对比专题：`slug`、`title`、`meta_description`、`table`、`sections`、`cta`、`search_keywords`。
+
+### `data/tool-relations.json`
+
+工具关系图：每个工具含 `alternatives[]` / `complements[]`，边字段为 `{ id, note }`。只引用 `tools.json` 内已有 id。
+
+### `data/rankings.json`
+
+月更排行：`month`、`dimensions`（`users` / `capability` / `price`）、`highlights`（与 `site.json` → `rankings` 冠军项保持同步）。
 
 ### `data/oss-projects.json`
 
@@ -330,29 +368,29 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 
 | `data-tool` / `data-goto` | Section ID | 内容 |
 |---------------------------|------------|------|
-| `all` | `section-home` | 总览：热门工具、分类、排行、对比、开源、新闻、视频 |
-| `chatgpt` … `copilot` | `section-{tool}` | 各 AI 工具教程 |
+| `all` | `section-home` | 总览：推荐、简报、收藏/继续学习、热门工具、分类、开源 |
+| `chatgpt` … `cursor` | `section-{tool}` | 各 AI 工具教程（含独立页入口） |
 | `oss` | `section-oss` | GitHub Stars 开源精选 |
-| `news` | `section-news` | 每日 AI 新闻 |
+| `news` | `section-news` | 一周内 AI 热点 |
 | `videos` | `section-videos` | 每日六类视频推荐（仅最新一批） |
 
-> 旧 hash（`cases` / `prompts` / `create`）若仍可跳转，属于**遗留兼容**；对应区块已不在 `index.astro` 主路径与导航中。
+> 案例库已迁出首页 SPA：hash `#section-cases` / `case-*` 会跳转到 `cases/index.html`。
 
-支持 **hash 深链接**：`index.html#section-cursor`。
+支持 **hash 深链接**：`index.html#section-cursor`、`#home-recommend`、`#home-daily`。
 
-另有 **独立 URL 页面**（SEO）：`tools/cursor.html`、`ai-tools-ranking.html`、`news/daily-ai-news.html` 等。
+另有 **独立 URL 页面**（SEO）：`tools/*.html`、`tools/hub.html`、`ai-tools-ranking.html`、`news/daily-ai-news.html`、`ai-learning-roadmap.html`、`guides/*`、`compare/*` 等；Standalone 页含 OG/Twitter 与 BreadcrumbList。
 
 ### 首页内容区块（`section-home`）
 
 | 区块 ID | 说明 |
 |---------|------|
-| 热门 AI 工具 | 国内/国际热门卡片 |
-| AI 工具分类 | 国内 / 国际 / 编程场景 |
-| `home-rankings` | 2026 工具排行榜预览 |
-| `home-compare` | 选型对比表预览 |
+| Hero | 品牌 + CTA + 站内搜索 |
+| `home-recommend` | AI 推荐助手（场景/文本 + 相关工具） |
+| `home-daily` | 今日 AI 简报 |
+| `home-favorites` | 本地收藏 +「继续学习」 |
+| `home-tools` / `home-categories` | 热门工具与更多分类 |
 | `home-oss` | 开源精选预览 |
-| `home-news` | 一周内热点预览 |
-| `home-videos` | 每日视频预览（最新一批） |
+| `home-community` | 工具中心 / Labs / 排行 / 案例 + 对比卡 |
 
 ### 样式模块
 
@@ -403,16 +441,18 @@ npm run dev     # 热更新，适合改 src/
 ### 测试
 
 ```bash
-# 全量校验（默认 9 步，与 CI 一致）
+# 全量校验（默认 11 步，与 CI 一致）
 DIST=dist python3 scripts/validate_ci.py
 
 # 单步校验（CI 中逐步执行，便于定位失败）
 DIST=dist python3 scripts/validate_ci.py data
+DIST=dist python3 scripts/validate_ci.py tool-relations
 DIST=dist python3 scripts/validate_ci.py oss
 DIST=dist python3 scripts/validate_ci.py videos    # 六类 key + 跨分类唯一 id + 摘要清洗
-DIST=dist python3 scripts/validate_ci.py news
+DIST=dist python3 scripts/validate_ci.py news      # 一周内热点 schema + 去重
 DIST=dist python3 scripts/validate_ci.py runtime
-DIST=dist python3 scripts/validate_ci.py sitemap
+DIST=dist python3 scripts/validate_ci.py recommend
+DIST=dist python3 scripts/validate_ci.py sitemap   # locs 对齐 *.html
 DIST=dist python3 scripts/validate_ci.py search
 DIST=dist python3 scripts/validate_ci.py analytics
 DIST=dist python3 scripts/validate_ci.py links     # HTML 内部链接，禁止逃出 dist/
@@ -485,7 +525,16 @@ python3 scripts/fetch_daily_videos.py --force   # 升级分类后强制重抓今
 
 ---
 
-## 每日新闻与每周 OSS Star 流水线
+## 一周内 AI 热点与每周 OSS Star 流水线
+
+### 产品定义
+
+| 项 | 值 |
+|----|-----|
+| 名称 | 一周内 AI 热点 |
+| 更新频次 | **每天**（`daily-news.yml`） |
+| 内容窗口 | 近 **7** 天（`config/news-fetch.yaml` → `max_age_days`） |
+| 产物字段 | `cadence: "daily"` · `window_days: 7` · `title: "一周内 AI 热点"` |
 
 ### 触发时机
 
@@ -513,12 +562,12 @@ python3 scripts/fetch_daily_videos.py --force   # 升级分类后强制重抓今
 ### 抓取流程
 
 ```
-【每日新闻】
-1. 读取 config/news-fetch.yaml
+【一周内 AI 热点 · 每天更新】
+1. 读取 config/news-fetch.yaml（max_age_days: 7）
 2. 拉取 RSS / HTML / GitHub Trending
-3. 按关键词分类；去重；保留近 7 天（一周内，见 max_age_days）
-4. 写入 ai-news.json + content/news/daily-ai-news.md
-5. push → 显式派发 pages.yml
+3. 按关键词分类；去重；保留近 7 天
+4. 写入 ai-news.json（window_days/title）+ content/news/daily-ai-news.md
+5. push → 显式派发 pages.yml（需 actions: write）
 
 【每周 OSS】
 1. fetch_oss_stars.py 刷新 data/oss-projects.json 与 oss-projects.json
@@ -542,7 +591,7 @@ macOS 若遇 Python SSL 证书问题，脚本会自动回退到 `curl` 抓取。
 ### 工作流关系
 
 ```
-push/PR → ci.yml（build + unit + validate 10 步 + API smoke；E2E 失败则 CI 红）
+push/PR → ci.yml（build + unit + validate 11 步 + API smoke；E2E 失败则 CI 红）
          PR 额外上传 dist-preview artifact
 push main → pages.yml（build + validate → artifact → deploy；无 E2E）
 
@@ -587,7 +636,7 @@ npm run health:live
 |------|-------------|
 | 构建 | `npm ci && npm run build` → `dist/` |
 | PR preview | 上传 `dist-preview` artifact（保留 7 天） |
-| Validate（10 步） | `validate_ci.py` 分步（含 recommend） |
+| Validate（11 步） | `validate_ci.py` 分步（含 tool-relations · recommend） |
 | FastAPI API smoke | `scripts/smoke_api.py` |
 | E2E | Playwright 冒烟 ≈10 项；**失败会使 CI job 失败**；Pages 部署不跑 E2E |
 
@@ -733,6 +782,8 @@ watch_sources: [...]     # 官方博客 + X 账号
 | 1.12 | 视频：100 天 Top + 分类 min_views；跨分类去重；页面仅最新批次；展示序 100d→30d→24h；空分类回退；新闻去重 |
 | 1.13 | GA Secrets 注入、文档对齐 CI；a11y；首页卸案例 SPA→`/cases/`；asset() 防双前缀；单测 + E2E 边角 |
 | 1.14 | AI 新闻改为日更（`daily-news.yml`）；OSS Star 独立为 `weekly-oss.yml`；健康探针新闻阈值 2 天 |
+| 1.15 | 工具关系（替代/互补）；搜索/推荐/学习回访/SEO 链路；sitemap `.html` + BreadcrumbList |
+| 1.16 | 「一周内 AI 热点」：每天更新、近 7 天窗口（`window_days`）；文档对齐 |
 
 ---
 

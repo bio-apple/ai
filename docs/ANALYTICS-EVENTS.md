@@ -21,7 +21,7 @@ page_view
       → favorite_add              (funnel_step=3)
 ```
 
-可选旁路：`recommend_guide_query`、`search_empty` → `#home-recommend`。
+可选旁路：`recommend_guide_query`、`recommend_related_tool`、`search_empty` → `#home-recommend`、`learning_continue`。
 
 ## 事件表
 
@@ -29,11 +29,16 @@ page_view
 |------|------|----------|
 | `recommend_submit` | 推荐表单提交 | `matched`, `funnel_step=1` |
 | `recommend_empty_submit` | 空查询提交 | `funnel_step=0` |
-| `recommend_query_tool` | 点推荐工具 | `tool`, `funnel_step=2` |
+| `recommend_query_tool` | 点推荐工具（结果区/场景卡） | `tool`, `funnel_step=2` |
+| `recommend_related_tool` | 点「也可以看看」替代/互补 | `tool`, `funnel_step=2` |
 | `recommend_guide_query` | 点学习路线 / 指南 | — |
 | `recommend_scenario` | 展开场景卡片 | `choice` |
 | `favorite_add` / `favorite_remove` | 星标 | `tool`, `funnel_step=3`（仅 add） |
 | `favorite_export` / `favorite_import` | 导入导出 | `count` |
+| `learning_continue` | 首页「继续学习」芯片 | — |
+| `roadmap_phase_toggle` | 学习路线阶段勾选 | `phase`, `done` |
+| `tool-rel-alt-*` / `tool-rel-comp-*` | 工具详情关系链接（`data-track`） | — |
+| `hub-rel-alt-*` / `hub-rel-comp-*` | Hub 关系链接（`data-track`） | — |
 | `search_empty` | 搜索无结果 | `q` |
 | `search_hit` | 点搜索结果 | — |
 | `search_error` | 索引失败 | `q` |

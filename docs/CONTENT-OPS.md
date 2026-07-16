@@ -1,13 +1,20 @@
 # 内容运营验收（P0）
 
-## 周更日历（建议）
+## 更新日历（建议）
 
 | 日 | 动作 |
 |----|------|
-| 每日 | 确认 `daily-videos` 六类非空；确认 `daily-news` 成功；抽查简报三栏 |
+| 每日 | 确认 `daily-videos` 六类非空；确认 `daily-news`（一周内 AI 热点）成功；抽查简报三栏 |
 | 周一 | 确认 `weekly-oss` Star 刷新成功 |
 | 月初 | 更新 `data/rankings.json`：用户量 / 模型能力 / 价格三榜；同步 `site.json` → `rankings` 三项冠军与 `ranking_page.updated` |
-| 周五 | 工具中心外链抽样 5 条；死链记入 Issue |
+| 周五 | 工具中心外链抽样 5 条；死链记入 Issue；抽查工具关系边是否仍合理 |
+
+## 一周内 AI 热点（每天更新）
+
+- 配置：`config/news-fetch.yaml` → `max_age_days: 7`
+- 工作流：`daily-news.yml`（北京时间每日 06:00）
+- 产物：`ai-news.json`（`cadence: daily` · `window_days: 7` · `title: 一周内 AI 热点`）+ `content/news/daily-ai-news.md`
+- 验收：首页 `#section-news` 与 `/news/daily-ai-news.html` 标题为「一周内 AI 热点」；meta 含「每天更新 · 近 7 天」
 
 ## 排行榜（按月）
 
@@ -16,6 +23,15 @@
 - 三个 `dimensions`：`users`（用户量）、`capability`（模型能力）、`price`（价格）
 - `highlights`：三项冠军（首页/Schema 预览用，需与 `site.json` → `rankings` 保持一致）
 - 改完后：`npm run build` + 打开 `/ai/ai-tools-ranking.html` 目视三榜
+
+## 工具关系（替代 / 互补）
+
+源文件：`data/tool-relations.json`。
+
+- 每个站内工具应有合理的 `alternatives`（同类可切换）与可选 `complements`（跨品类搭配）
+- `note` 一句话说明「为什么相关」
+- 改完后跑：`python3 scripts/validate_ci.py tool-relations`
+- 目视：`/ai/tools/chatgpt.html`、`/ai/tools/hub.html`
 
 ## 工具中心「延伸推荐」验收
 
@@ -30,7 +46,7 @@
 ## 简报导语模板
 
 ```
-本周关注：{1 句趋势}
+近七日关注：{1 句趋势}
 今日可学：{1 条视频或工具}
 行动：打开推荐助手，输入你的场景
 ```
