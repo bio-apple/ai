@@ -89,16 +89,17 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.search-empty-actions')).toBeVisible();
   });
 
-  test('工具中心与 Labs', async ({ page }) => {
+  test('顶栏工具中心与实战案例', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('index.html', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('.nav-dropdown-trigger', { hasText: '工具' })).toBeVisible();
-    await expect(page.locator('.nav-dropdown-trigger', { hasText: 'AI 助手' })).toHaveCount(0);
-    await expect(page.locator('.nav-link-page', { hasText: '工具中心' })).toHaveCount(0);
-    await page.goto('tools/hub.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('.nav-dropdown-trigger', { hasText: '工具' })).toHaveCount(0);
+    await expect(page.locator('.nav-link-page', { hasText: 'AI工具中心' })).toBeVisible();
+    await expect(page.locator('.nav-link-page', { hasText: '实战案例' })).toBeVisible();
+    await page.locator('.nav-link-page', { hasText: 'AI工具中心' }).click();
     await expect(page.locator('h1')).toContainText('工具中心');
-    await page.goto('labs/index.html', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('h1')).toContainText('AI Labs');
+    await page.goto('index.html', { waitUntil: 'domcontentloaded' });
+    await page.locator('.nav-link-page', { hasText: '实战案例' }).click();
+    await expect(page.locator('#section-cases')).toBeVisible();
   });
 
   test('视频区加载态解除与新闻区切换', async ({ page }) => {

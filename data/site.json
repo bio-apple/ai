@@ -22,18 +22,14 @@
         "label": "首页"
       },
       {
-        "type": "dropdown",
-        "label": "工具",
-        "children": [
-          {
-            "label": "工具中心",
-            "href": "tools/hub.html"
-          },
-          {
-            "label": "AI Labs",
-            "href": "labs/index.html"
-          }
-        ]
+        "type": "page",
+        "label": "AI工具中心",
+        "href": "tools/hub.html"
+      },
+      {
+        "type": "page",
+        "label": "实战案例",
+        "href": "cases/index.html"
       },
       {
         "type": "tab",
