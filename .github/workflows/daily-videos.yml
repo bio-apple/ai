@@ -91,16 +91,20 @@ jobs:
             console.log('Dispatched pages.yml');
 
       - name: Open issue on hard failure
-        if: steps.fetch.outcome == 'failure' || steps.metrics.outputs.level == '2'
+        if: failure()
         uses: actions/github-script@v8
         with:
           script: |
             const fetchFailed = '${{ steps.fetch.outcome }}' === 'failure';
             const level = '${{ steps.metrics.outputs.level }}';
+            if (!fetchFailed && level !== '2') {
+              console.log('Non-severe failure; skip issue');
+              return;
+            }
             const title = '[ops] Daily video fetch failed';
             const body = [
               fetchFailed
-                ? '每日视频抓取步骤失败（脚本异常 / 总条数为 0）。'
+                ? '每日视频抓取步骤失败（脚本异常 / 总条数为 0 / 代码错误）。'
                 : '抓取已写入，但最新批次核心内容严重不足（metrics_level=2）。',
               '',
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,

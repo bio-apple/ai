@@ -40,7 +40,7 @@ Site Health / Issue 打开
 | Fetch ✅ 但网页不更新 | ① 旧逻辑 metrics 挡 commit；② **`GITHUB_TOKEN` push 不触发 Pages** | ① 已修提交门禁；② push 后显式 `workflow_dispatch` pages.yml |
 | YouTube 长期空 | Actions 缺 JS runtime / yt-dlp 搜索失败 | workflow 已装 Node；页面「回退批次」临时顶上 |
 | Site Health 报视频过期 | 多日未成功 push 新 `daily-videos.json` | `workflow_dispatch` + **force=true** |
-| Fetch 本身红 | 总条数 0 或脚本异常 | 看 run 日志 → force 重跑 → 仍挂再查 yt-dlp/B 站 API |
+| Fetch 红、约十几秒结束 | 代码把 `platform` 误改成 `0.platform`（commit `no`）导致 KeyError | 已回滚字段名；勿再改候选字典键 |
 
 手动救急：
 

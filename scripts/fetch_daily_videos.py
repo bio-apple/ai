@@ -263,7 +263,7 @@ def search_bilibili_api_candidates(
             if pic.startswith("//"):
                 pic = f"https:{pic}"
             candidate = {
-                "0.platform": "bilibili",
+                "platform": "bilibili",
                 "id": bvid,
                 "title": title,
                 "view_count": views,
@@ -335,7 +335,7 @@ def search_source_candidates(
                 continue
             key = composite_id(platform, vid)
             candidate = {
-                "0.platform": platform,
+                "platform": platform,
                 "id": vid,
                 "title": title,
                 "view_count": views,
@@ -400,7 +400,7 @@ def log_reject(reason: str, video_id: str, extra: str = "") -> None:
 
 
 def fetch_video_detail(candidate: dict, cache: dict[str, dict | None]) -> dict | None:
-    key = composite_id(candidate["0.platform"], candidate["id"])
+    key = composite_id(candidate["platform"], candidate["id"])
     if key in cache:
         return cache[key]
     if candidate.get("detail"):
@@ -478,7 +478,7 @@ def validate_and_build_record(
     require_hours: float | None,
     min_views: int,
 ) -> dict | None:
-    platform = candidate["0.platform"]
+    platform = candidate["platform"]
     source_cfg = cfg.get("search_sources", {}).get(platform, {})
     key = composite_id(platform, candidate["id"])
 
@@ -522,7 +522,7 @@ def validate_and_build_record(
 
     return {
         "id": key,
-        "0.platform": platform,
+        "platform": platform,
         "title": title,
         "summary": make_summary(title, detail.get("description"), channel, cfg),
         "url": platform_video_url(platform, candidate["id"], detail),
@@ -589,7 +589,7 @@ def collect_top_videos(
             break
         if checked >= max_checks:
             break
-        key = composite_id(candidate["0.platform"], candidate["id"])
+        key = composite_id(candidate["platform"], candidate["id"])
         if key in exclude_ids or key in picked_ids:
             continue
         # 搜索结果已带 pubdate 时，超窗外直接跳过且不计入 checked
@@ -598,7 +598,7 @@ def collect_top_videos(
             if known is False:
                 continue
         checked += 1
-        platform = candidate["0.platform"]
+        platform = candidate["platform"]
         source_cfg = cfg.get("search_sources", {}).get(platform, {})
         threshold = min_views
         if threshold is None:
@@ -648,7 +648,7 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
 
     for key in PICK_ORDER:
         cat = cfg["video_categories"][key]
-        platform = cat["0.platform"]
+        platform = cat["platform"]
         source_cfg = cfg.get("search_sources", {}).get(platform, {})
         require_hours = category_window_hours(cat)
         min_views = category_min_views(cat, source_cfg)
