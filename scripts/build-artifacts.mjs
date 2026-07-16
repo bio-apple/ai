@@ -128,7 +128,8 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     label: 'AI 工具中心',
     type: '导航',
     url: 'tools/hub.html',
-    keywords: '工具中心 AICPB 榜单 Top5 应用分类 助手 编程 视频 PPT 官方教程',
+    keywords:
+      '工具中心 ChatGPT New Bing Gemini Claude DeepSeek 豆包 Kimi Copilot cursor 即梦 官方教程',
   });
   items.push({
     label: 'AI 学习路线图',
@@ -240,35 +241,39 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
   return items;
 }
 
-function appendHubBoardSearchItems(items, rankings) {
-  const hubCats = [
-    { id: 'assistant-global', label: '全球 AI 助手', boardId: 'global-ai' },
-    { id: 'assistant-china', label: '国内 AI 助手', boardId: 'china-ai' },
-    { id: 'coding', label: 'AI 编程', boardId: 'vibe-coding' },
-    { id: 'video', label: 'AI 视频', boardId: 'video-generators' },
-    { id: 'ppt', label: 'AI PPT', boardId: 'ppt' },
+function appendHubBoardSearchItems(items) {
+  const featured = [
+    { name: 'ChatGPT', categoryId: 'assistant', label: 'AI 助手' },
+    { name: 'New Bing', categoryId: 'assistant', label: 'AI 助手' },
+    { name: 'Gemini', categoryId: 'assistant', label: 'AI 助手' },
+    { name: 'Claude｜Anthropic', categoryId: 'assistant', label: 'AI 助手' },
+    { name: 'DeepSeek', categoryId: 'assistant', label: 'AI 助手' },
+    { name: '豆包｜抖音', categoryId: 'assistant', label: 'AI 助手' },
+    { name: 'Kimi｜月之暗面', categoryId: 'assistant', label: 'AI 助手' },
+    { name: 'Github Copilot', categoryId: 'coding', label: 'AI 编程' },
+    { name: 'cursor', categoryId: 'coding', label: 'AI 编程' },
+    { name: '即梦 AI｜剪映', categoryId: 'video', label: 'AI 视频' },
   ];
-  const boards = Object.fromEntries((rankings.boards || []).map((b) => [b.id, b]));
-  for (const cat of hubCats) {
-    const board = boards[cat.boardId];
-    const top = (board?.items || []).slice(0, 5);
-    const names = top.map((item) => item.name);
+  const byCat = new Map();
+  for (const tool of featured) {
+    if (!byCat.has(tool.categoryId)) {
+      byCat.set(tool.categoryId, { id: tool.categoryId, label: tool.label, names: [] });
+    }
+    byCat.get(tool.categoryId).names.push(tool.name);
+    items.push({
+      label: tool.name,
+      type: '工具',
+      url: `tools/hub.html#hub-${tool.categoryId}`,
+      keywords: [tool.name, tool.label, '工具中心', '官方教程', 'AICPB'].join(' '),
+    });
+  }
+  for (const cat of byCat.values()) {
     items.push({
       label: `工具中心：${cat.label}`,
       type: '导航',
       url: `tools/hub.html#hub-${cat.id}`,
-      keywords: [cat.label, board?.label, ...names, '官方教程', 'AICPB'].filter(Boolean).join(' '),
+      keywords: [cat.label, ...cat.names, '官方教程'].join(' '),
     });
-    for (const item of top) {
-      items.push({
-        label: item.name,
-        type: '工具',
-        url: `tools/hub.html#hub-${cat.id}`,
-        keywords: [item.name, cat.label, item.visits, 'AICPB', '工具中心', '官方教程']
-          .filter(Boolean)
-          .join(' '),
-      });
-    }
   }
 }
 
@@ -373,7 +378,7 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const promptsPayload = buildPromptsPayload(cases, promptsMeta);
   const tutorialsPayload = buildTutorialsPayload(cases, tools);
   const searchIndex = buildSearchIndex(site, tools, cases, compares, promptsPayload);
-  appendHubBoardSearchItems(searchIndex, rankings);
+  appendHubBoardSearchItems(searchIndex);
   const recommendRules = buildRecommendRules(site);
   const analyticsCfg = buildAnalyticsConfig();
 
