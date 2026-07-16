@@ -1219,48 +1219,74 @@
   color: var(--text-muted);
 }
 
-/* Community links */
+/* Community links — 工具中心 + 实战案例 */
 .community-links {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.community-links--duo {
+  max-width: 880px;
 }
 
 .community-card {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
   text-align: left;
   text-decoration: none;
   color: inherit;
-  padding: 18px 18px 16px;
+  padding: 20px 20px 18px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: var(--bg-card);
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.03), transparent 42%), var(--bg-card);
   cursor: pointer;
   transition:
     border-color 0.2s,
     background 0.2s,
     transform 0.2s;
   font: inherit;
+  min-height: 148px;
 }
 
 .community-card:hover {
   border-color: var(--accent);
-  background: rgba(37, 99, 235, 0.04);
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.06), transparent 48%), var(--bg-card);
   transform: translateY(-2px);
 }
 
+.community-card:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.45);
+  outline-offset: 2px;
+}
+
+.community-card-kicker {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
 .community-card strong {
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   font-weight: 800;
   color: var(--text);
 }
 
-.community-card span {
-  font-size: 0.8rem;
-  line-height: 1.45;
+.community-card > span:not(.community-card-kicker) {
+  font-size: 0.84rem;
+  line-height: 1.5;
   color: var(--text-muted);
+  flex: 1;
+}
+
+.community-card-cta {
+  margin-top: 4px;
+  font-size: 0.86rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--accent);
 }
 
 /* 数据运营 · 今日热度 */

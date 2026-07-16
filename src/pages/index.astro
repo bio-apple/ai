@@ -89,34 +89,40 @@ const schema = buildHomeSchema(site);
         </div>
       </section>
 
-      <section class="home-section fade-in" id="home-community">
+      <section
+        class="home-section fade-in"
+        id="home-community"
+        aria-labelledby="home-community-title"
+      >
         <div class="section-head">
-          <h2 class="section-title">工具 · 排行 · 案例</h2>
-          <p class="section-desc">主路径：推荐 → 简报 → 工具中心；案例详情在独立页</p>
+          <p class="section-kicker">继续探索</p>
+          <h2 class="section-title" id="home-community-title">工具中心与实战案例</h2>
+          <p class="section-desc">选型看榜单与教程，落地跟案例与 Prompt，两条路径互补。</p>
         </div>
-        <div class="community-links">
-          <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
-            <strong>工具</strong>
-            <span>AICPB 五榜 Top 10 · 站内教程</span>
-          </a>
+        <div class="community-links community-links--duo">
           <a
-            href={asset('ai-tools-ranking.html')}
+            href={asset('tools/hub.html')}
             class="community-card"
-            data-track="home-community-rank"
+            data-track="home-community-hub"
+            aria-label="进入 AI 工具中心，查看 AICPB 五榜 Top 10 与站内教程"
           >
-            <strong>2026 工具排行榜</strong>
-            <span>每日 · AICPB 五榜 Top 10</span>
+            <span class="community-card-kicker">目录 · 榜单</span>
+            <strong>AI 工具中心</strong>
+            <span>AICPB 五榜 Top 10，附站内教程与原文链接，按场景快速定位工具。</span>
+            <em class="community-card-cta">浏览工具 →</em>
           </a>
           <a
             href={asset('cases/index.html')}
             class="community-card"
             data-track="home-community-cases"
+            aria-label="进入实战案例，查看工作流与 Prompt 库"
           >
+            <span class="community-card-kicker">工作流 · Prompt</span>
             <strong>实战案例</strong>
-            <span>独立页 · Prompt 库</span>
+            <span>可复制步骤与提示词模板，把工具选型落到具体任务。</span>
+            <em class="community-card-cta">查看案例 →</em>
           </a>
         </div>
-        {/* 删除首页对比卡片入口（site.compare_guides） */}
       </section>
 
       <HomeOps />
