@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "last_updated": "2026-07-16",
+  "categories": [
+    {
+      "id": "coding",
+      "label": "编程",
+      "file": "coding/best-practices.md",
+      "status": "verified"
+    },
+    {
+      "id": "writing",
+      "label": "写作",
+      "file": "writing/best-practices.md",
+      "status": "verified"
+    },
+    {
+      "id": "research",
+      "label": "科研",
+      "file": "research/best-practices.md",
+      "status": "verified"
+    },
+    {
+      "id": "data-analysis",
+      "label": "数据分析",
+      "file": "data-analysis/best-practices.md",
+      "status": "verified"
+    },
+    {
+      "id": "productivity",
+      "label": "办公",
+      "file": "productivity/best-practices.md",
+      "status": "verified"
+    },
+    {
+      "id": "marketing",
+      "label": "市场分析",
+      "file": "marketing/best-practices.md",
+      "status": "verified"
+    }
+  ]
+}

@@ -6,6 +6,7 @@
 
 ```
 data/                 # 内容源（JSON）
+prompts/              # 高质量 Prompt 最佳实践库（分类）
 src/pages|components  # Astro 页面
 css/ + *.js           # 样式与运行时脚本
 scripts/              # 构建 / 抓取 / 校验
