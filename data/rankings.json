@@ -3,9 +3,9 @@
   "updated_at": "2026-07-16",
   "cadence": "daily",
   "title": "2026 AI 工具排行榜（每日更新）",
-  "lead": "每天更新三份榜单：用户量、模型能力、价格。来源限定：AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis；本站仅引用原文排名与表述，不做主观评分。",
+  "lead": "每天更新三份榜单：用户量、模型能力、价格。原网页引用：Global AI、China AI、AI Vibe Coding、AI Video Generators、AI PPT Rankings；本站仅引用原文排名与表述，不做主观评分。",
   "methodology": [
-    "来源：仅参考 AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis 的官方数据与报告。",
+    "来源：原网页引用 Global AI、China AI、AI Vibe Coding、AI Video Generators、AI PPT Rankings。",
     "原则：保持原文，不做二次评分与主观排序；若多来源口径不同，分别标注来源并给出原文链接。",
     "更新：每日同步公开页面；如官方暂停更新，则保持最近一次有效数据。",
     "历史：过往数据可在 Git 历史中回看 data/rankings.json。"
