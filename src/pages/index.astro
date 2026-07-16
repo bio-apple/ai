@@ -88,46 +88,7 @@ const schema = buildHomeSchema(site);
         </div>
       </section>
 
-      <section class="home-section fade-in" id="home-community">
-        <div class="section-head">
-          <p class="section-kicker">继续深入</p>
-          <h2 class="section-title">工具 · 排行 · 案例</h2>
-          <p class="section-desc">主路径：推荐 → 简报 → 工具中心；案例详情在独立页</p>
-        </div>
-        <div class="community-links">
-          <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
-            <strong>工具</strong>
-            <span>分类目录 · Prompt 库 · 工作流入口</span>
-          </a>
-          <a
-            href={asset('ai-tools-ranking.html')}
-            class="community-card"
-            data-track="home-community-rank"
-          >
-            <strong>2026 工具排行榜</strong>
-            <span>按月 · 用户量 · 模型能力 · 价格</span>
-          </a>
-          <a
-            href={asset('cases/index.html')}
-            class="community-card"
-            data-track="home-community-cases"
-          >
-            <strong>实战案例</strong>
-            <span>独立页 · Prompt 库</span>
-          </a>
-        </div>
-        <div class="section-cta compare-guide-grid" style="margin-top:1.25rem">
-          {
-            site.compare_guides.map((g) => (
-              <a href={asset(g.href)} class="compare-guide-card" data-track={g.track}>
-                <span class="compare-guide-tag">{g.tag}</span>
-                <h4>{g.title}</h4>
-                <p>{g.description}</p>
-              </a>
-            ))
-          }
-        </div>
-      </section>
+      {/* 继续深入模块已移除 */}
 
       {/* 数据运营模块已移除 */}
     </main>
