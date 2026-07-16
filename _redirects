@@ -2,3 +2,5 @@
 # GitHub Pages 对 *.github.io 已强制 HTTPS；自定义域名请在 Cloudflare 开启 Always Use HTTPS
 
 http://bio-apple.github.io/* https://bio-apple.github.io/:splat 301
+/ai/labs/index.html /ai/tools/hub.html 302
+/labs/index.html /tools/hub.html 302

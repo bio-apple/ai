@@ -1,4 +1,4 @@
-/* AI Labs / 工具中心 / 推荐查询 */
+/* AI 工具中心 / 推荐查询 */
 
 .recommend-query {
   display: flex;
@@ -84,7 +84,6 @@
   /* columns set in home.css / labs.css */
 }
 
-.labs-page .labs-block,
 .tools-hub-page .hub-category {
   margin-bottom: 48px;
 }
@@ -96,20 +95,12 @@
   margin-top: 16px;
 }
 
-.labs-desc {
-  color: var(--text-muted);
-  margin: 0 0 16px;
-  max-width: 52rem;
-}
-
-.labs-model-grid,
 .hub-tool-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
-.labs-model-card,
 .hub-tool-card {
   display: flex;
   flex-direction: column;
@@ -125,19 +116,16 @@
     transform 0.2s;
 }
 
-.labs-model-card:hover,
 .hub-tool-card:hover {
   border-color: var(--accent);
   transform: translateY(-2px);
 }
 
-.labs-model-card strong,
 .hub-tool-card h3 {
   font-size: 0.98rem;
   margin: 0;
 }
 
-.labs-model-card span,
 .hub-tool-card p {
   font-size: 0.8rem;
   color: var(--text-muted);
@@ -210,47 +198,7 @@
   gap: 6px;
 }
 
-.workflow-editor {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  max-width: 40rem;
-}
-
-.workflow-editor label {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  margin-top: 6px;
-}
-
-.workflow-input,
-.workflow-textarea {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--bg-card);
-  color: var(--text);
-  font: inherit;
-}
-
-.workflow-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.workflow-status {
-  min-height: 1.2em;
-  font-size: 0.85rem;
-  color: var(--accent);
-  margin: 4px 0 0;
-}
-
 @media (max-width: 900px) {
-  .labs-model-grid,
   .hub-tool-grid,
   .community-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -258,7 +206,6 @@
 }
 
 @media (max-width: 640px) {
-  .labs-model-grid,
   .hub-tool-grid,
   .community-links {
     grid-template-columns: 1fr;

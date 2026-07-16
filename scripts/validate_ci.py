@@ -195,7 +195,6 @@ def validate_html_links() -> None:
         *ROOT.glob("guides/*.html"),
         *ROOT.glob("prompts/*.html"),
         *ROOT.glob("cases/**/*.html"),
-        *ROOT.glob("labs/**/*.html"),
     ]
     missing = []
     checked = 0

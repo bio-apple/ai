@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T13:11:12.002641+08:00",
+  "updated_at": "2026-07-16T14:39:49.298890+08:00",
   "date": "2026-07-16",
   "cadence": "daily",
   "window_days": 7,
@@ -13,6 +13,15 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "dbefe809ae3e",
+      "title": "一句「哈哈」引发的苹果OpenAI窃密大战",
+      "summary": "苹果怒斥：烂到骨子里",
+      "url": "https://www.qbitai.com/2026/07/450921.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-16T12:47:55+08:00"
+    },
     {
       "id": "ae7d79790794",
       "title": "从上海到世界：WAICA正以“AI原生”范式重写顶会规则",
@@ -28,33 +37,6 @@
       "summary": "arXiv:2607.13037v1 Announce Type: new Abstract: When a data contributor requests removal, model trainers face a practical gap: unlearning algorithms require a …",
       "url": "https://arxiv.org/abs/2607.13037",
       "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "9125249cfcb8",
-      "title": "Scaling Point-in-Time Language Models",
-      "summary": "arXiv:2607.11889v1 Announce Type: new Abstract: Large language models trained on unrestricted internet corpora inevitably embed information from the future, in…",
-      "url": "https://arxiv.org/abs/2607.11889",
-      "source": "arXiv cs.CL",
-      "category": "新工具上线",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "e6006b507fc9",
-      "title": "C-Norm: Cell-Distribution Normalization Enables Precision Recognition of Medical-Cell Image",
-      "summary": "arXiv:2607.13116v1 Announce Type: new Abstract: ThinPrep Cytologic Test (TCT) enables early cervical cancer screening, but manual reading is time-consuming and…",
-      "url": "https://arxiv.org/abs/2607.13116",
-      "source": "arXiv cs.CV",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "59084a3d41eb",
-      "title": "Automatic Differentiation from Scratch: How PyTorch Computes Gradients in Physics-Informed Neural Networks",
-      "summary": "arXiv:2607.13042v1 Announce Type: new Abstract: This paper traces, with explicit numerical values, how PyTorch's automatic differentiation (AD) engine computes…",
-      "url": "https://arxiv.org/abs/2607.13042",
-      "source": "arXiv cs.LG",
       "category": "开源项目",
       "published_at": "2026-07-16T12:00:00+08:00"
     },
@@ -95,114 +77,6 @@
       "published_at": "2026-07-16T12:00:00+08:00"
     },
     {
-      "id": "f9a6df9830d8",
-      "title": "Beyond Backbone Backpropagation: A Decoupled Strategy for Efficient Transfer Learning",
-      "summary": "arXiv:2607.13043v1 Announce Type: new Abstract: Deep learning models achieve state-of-the-art image classification but face deployment challenges due to comput…",
-      "url": "https://arxiv.org/abs/2607.13043",
-      "source": "arXiv cs.LG",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "1bcc4869bde7",
-      "title": "Federated Explainable Artificial Intelligence: Roles, Architectures, Evaluation, and Open Challenges",
-      "summary": "arXiv:2607.13045v1 Announce Type: new Abstract: Federated Learning (FL) has emerged as a key paradigm for privacy-preserving collaborative model training acros…",
-      "url": "https://arxiv.org/abs/2607.13045",
-      "source": "arXiv cs.LG",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "84dfd6ac2e1a",
-      "title": "What Your Model Threw Away and Why You'll Want It Back: Masking, Fingerprinting, and Privacy from Discarded Geometry",
-      "summary": "arXiv:2607.13046v1 Announce Type: new Abstract: We develop a framework for the information discarded by machine learning models whose inputs carry a Lie group …",
-      "url": "https://arxiv.org/abs/2607.13046",
-      "source": "arXiv cs.LG",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "324689a9d8cd",
-      "title": "Targeted Recovery of Weight-Space Mechanisms From Neural Networks",
-      "summary": "arXiv:2607.13047v1 Announce Type: new Abstract: Parameter decomposition (PD) decomposes neural networks into interpretable computational components that faithf…",
-      "url": "https://arxiv.org/abs/2607.13047",
-      "source": "arXiv cs.LG",
-      "category": "新工具上线",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "296edf8ff79e",
-      "title": "CANDI: Contextual Alignment for Niche Domains Question Answering",
-      "summary": "arXiv:2607.11891v1 Announce Type: new Abstract: The deployment of large language models (LLMs) in specialized domains like medical diagnostics and financial ad…",
-      "url": "https://arxiv.org/abs/2607.11891",
-      "source": "arXiv cs.CL",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "8c241ae62425",
-      "title": "G-SHARE: A Guideline-Based Structured Reasoning Framework for Human-Factor Event Diagnosis",
-      "summary": "arXiv:2607.11892v1 Announce Type: new Abstract: Human-factor event diagnosis is essential for learning from operational events in nuclear power plants, yet its…",
-      "url": "https://arxiv.org/abs/2607.11892",
-      "source": "arXiv cs.CL",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "f26f08313324",
-      "title": "I'm Sorry, but I Can't Help with Braille: Revealing Accessibility Failures in State-of-the-Art LLMs",
-      "summary": "arXiv:2607.11893v1 Announce Type: new Abstract: Large Language Models (LLMs) perform strongly on many language tasks, but their capability in structurally cons…",
-      "url": "https://arxiv.org/abs/2607.11893",
-      "source": "arXiv cs.CL",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "37fe854c1521",
-      "title": "Graph-Based Detection of Disinformation Narrative Diffusion between Russian and Ukrainian Telegram Channels",
-      "summary": "arXiv:2607.11894v1 Announce Type: new Abstract: Detecting disinformation narratives on social media is challenging due to the scale of amplification, rapid evo…",
-      "url": "https://arxiv.org/abs/2607.11894",
-      "source": "arXiv cs.CL",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "d92b78f292e8",
-      "title": "Boogu-Image-0.1: Boosting Open-Source Unified Multimodal Understanding and Generation",
-      "summary": "arXiv:2607.13125v1 Announce Type: new Abstract: We introduce Boogu-Image-0.1, an open-source unified multimodal understanding and generation model family, comp…",
-      "url": "https://arxiv.org/abs/2607.13125",
-      "source": "arXiv cs.CV",
-      "category": "新工具上线",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "8a25c472ad72",
-      "title": "A Masked Autoencoder Approach to Unsupervised Steel Surface Defect Recognition",
-      "summary": "arXiv:2607.13178v1 Announce Type: new Abstract: Automated visual inspection of steel surface defects is a recurring quality control task in which labeled defec…",
-      "url": "https://arxiv.org/abs/2607.13178",
-      "source": "arXiv cs.CV",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "a86fae1363bc",
-      "title": "MGFace: Mask-Gated Face Matching via Conditional Similarity Routing",
-      "summary": "arXiv:2607.13187v1 Announce Type: new Abstract: Face identification has achieved remarkable performance under normal conditions. Yet, its accuracy often degrad…",
-      "url": "https://arxiv.org/abs/2607.13187",
-      "source": "arXiv cs.CV",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "99b21eb971f5",
-      "title": "Self-Supervised Visual Representation Learning: Pretrain-Finetuning or Joint Training?",
-      "summary": "arXiv:2607.13192v1 Announce Type: new Abstract: Self-supervision is a powerful technique for learning visual representations from unlabeled data. Existing tech…",
-      "url": "https://arxiv.org/abs/2607.13192",
-      "source": "arXiv cs.CV",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
       "id": "facf9f6e82c2",
       "title": "用世界模型给VLA当教练，原力灵机发布DW0.5，把RL搬进虚拟世界",
       "summary": "后训练中真机数据需求骤降60%",
@@ -222,7 +96,7 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 165,831",
+      "title": "f/prompts.chat · ★ 165,839",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -231,7 +105,7 @@
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 80,931",
+      "title": "OpenHands/OpenHands · ★ 80,944",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
@@ -258,7 +132,7 @@
     },
     {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,572",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,574",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
@@ -267,7 +141,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 87,421",
+      "title": "thedotmack/claude-mem · ★ 87,431",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -320,15 +194,6 @@
       "published_at": "2026-07-15T17:18:03+08:00"
     },
     {
-      "id": "0974f88181ff",
-      "title": "人在Meta，休个病假/产假转身被AI裁了？？",
-      "summary": "26名员工正在集体起诉Meta",
-      "url": "https://www.qbitai.com/2026/07/450709.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-15T17:03:58+08:00"
-    },
-    {
       "id": "9d5925e11f31",
       "title": "Nemotron Labs: How Open Models Give Enterprises and Nations AI They Can Trust, Control and Customize",
       "summary": "Enterprises have plenty of powerful models to choose from. The real test is whether the AI an enterprise builds uniquely addresses the needs of the business: i…",
@@ -366,7 +231,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 94,936",
+      "title": "hacksider/Deep-Live-Cam · ★ 94,937",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -411,7 +276,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,156",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,161",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -428,6 +293,15 @@
       "published_at": "2026-07-10T00:46:22+08:00"
     },
     {
+      "id": "5bb297bb60d9",
+      "title": "GeForce NOW Turns Up the Heat With New GeForce RTX 5080-Powered Toronto Server",
+      "summary": "This GFN Thursday brings more games, more power and more ways to play on GeForce NOW. The cloud gaming service is expanding with a new GeForce RTX 5080-powered…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-toronto-expansion/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-09T21:00:55+08:00"
+    },
+    {
       "id": "5e689a649359",
       "title": "Inviting hard questions",
       "summary": "Inviting hard questions",
@@ -442,6 +316,51 @@
       "summary": "三名女生仅用三周开发出快穿3D乙女游戏PV，在小红书、B站爆火，“求上线”呼声高涨。游戏融合民国恋爱、玄幻修罗场、霸道疯批、绿茶修狗等多元题材，满足用户“我全都要”需求。技术支持来自AI视频领域新锐企业爱诗科技，该公司近日宣布完成C轮融资，累计融资达29.8亿元人民币，由阿里巴巴领投，王慧文参与。",
       "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713010&idx=1&sn=6520cdf57a897266c1087509fe68b94f&chksm=f0fe447422d2fdac2a44b28a80cb703b194b58828f329af7db2e5f1654c45ddd16b0eff23b21&scene=0&xtrack=1#rd",
       "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "ff1300aa6cce",
+      "title": "Redeploying Claude Fable 5",
+      "summary": "Redeploying Claude Fable 5",
+      "url": "https://www.anthropic.com/news/redeploying-fable-5",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": null
+    },
+    {
+      "id": "0f764e9bc764",
+      "title": "Introducing Claude Sonnet 5",
+      "summary": "Introducing Claude Sonnet 5",
+      "url": "https://www.anthropic.com/news/claude-sonnet-5",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": null
+    },
+    {
+      "id": "d5f7bd1f6df8",
+      "title": "Claude Science, an AI workbench for scientists",
+      "summary": "Claude Science, an AI workbench for scientists",
+      "url": "https://www.anthropic.com/news/claude-science-ai-workbench",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": null
+    },
+    {
+      "id": "b7ee3e937f1e",
+      "title": "马斯克“机器人还进不了厂”刚说完，小米机器人“上岗”汽车产线了",
+      "summary": "小米机器人在不到半年内实现柔性工件长时作业，成功进入工厂“实习”。该能力要求机器人能实时应对物体位置、姿态及突发状况的动态变化，具备高度自适应性与灵活性，远超固定动作任务难度。此举打破马斯克关于机器人难进工厂的论断，展现小米在具身智能与工业落地方面的快速进展。（150字）",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247903810&idx=1&sn=cb5ff714403b8209712b95aabf407aa0&chksm=e99cbd3685e62d653181258d1fe5f9dcb99d5c4dca1e3c72394ab02714f5da94c79e08d9b155&scene=126&sessionid=0#rd",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "be10b89fa5ad",
+      "title": "J. Am. Chem. Soc. | 自动化平行合成加速虚拟筛选苗头化合物发现",
+      "summary": "该论文介绍了一种自动化平行合成技术，显著加速虚拟筛选中的苗头化合物发现。研究团队整合了高通量实验平台与计算化学方法，实现从虚拟筛选预测到毫克级化合物快速合成与验证的闭环流程。通过并行合成数十至数百种结构类似物，大幅缩短传统“设计—合成—测试”周期。实验表明，该策略在多个靶点（如激酶、蛋白-蛋白相互作用）上成功识别出高…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513980&idx=3&sn=53abb72f58b97716840c9a5d518b7a81&chksm=fdde43fc7e7a6a6bc3d0ea06842396a6321e12b9c42e92d7a1fe018a98f9bb51c62a9c41c352&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     }
