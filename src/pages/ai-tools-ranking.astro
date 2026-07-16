@@ -27,9 +27,20 @@ const medals = ['🥇', '🥈', '🥉'];
       <p class="section-kicker">每日更新 · {rankings.updated_at}</p>
       <h1>{rankings.title}</h1>
       <p class="standalone-lead">{rankings.lead}</p>
-      <p class="standalone-meta">数据月份 {rankings.month} · 更新于 {rankings.updated_at}</p>
+      <p class="standalone-meta">
+        数据月份 {rankings.month} · 更新于 {rankings.updated_at} · 仅引用官方原文
+      </p>
     </div>
 
+    <section class="ranking-toc" aria-label="维度目录" style="margin: 12px 0 28px">
+      <ul class="ranking-method-list" style="display:flex;flex-wrap:wrap;gap:10px">
+        <li><a href="#rank-users" class="cta-btn cta-btn-sm cta-btn-outline">用户量</a></li>
+        <li>
+          <a href="#rank-capability" class="cta-btn cta-btn-sm cta-btn-outline">模型能力</a>
+        </li>
+        <li><a href="#rank-price" class="cta-btn cta-btn-sm cta-btn-outline">价格</a></li>
+      </ul>
+    </section>
     <section class="ranking-sources" aria-label="数据来源">
       <h2 class="resources-title">数据来源</h2>
       <ul class="ranking-method-list">
@@ -49,7 +60,7 @@ const medals = ['🥇', '🥈', '🥉'];
       </ul>
     </section>
 
-    <section class="ranking-highlights" aria-label="本月三项冠军">
+    <section class="ranking-highlights" aria-label="本月原文冠军（摘录）">
       <h2 class="resources-title">本月原文冠军（摘录）</h2>
       <div class="ranking-grid ranking-grid-full">
         {
@@ -58,9 +69,16 @@ const medals = ['🥇', '🥈', '🥉'];
               <span class="ranking-medal">{item.medal}</span>
               <h3>{item.name}</h3>
               <p class="ranking-dimension">{item.dimension}</p>
-              <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm">
-                查看工具
-              </a>
+              <div style="display:flex;gap:10px;flex-wrap:wrap">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener" class="cta-btn cta-btn-sm">
+                    查看原文
+                  </a>
+                ) : null}
+                <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm cta-btn-outline">
+                  查看工具
+                </a>
+              </div>
             </article>
           ))
         }
@@ -92,15 +110,25 @@ const medals = ['🥇', '🥈', '🥉'];
                       {item.name}
                     </a>
                   </div>
-                  <p class="ranking-metric">
-                    来源：{item.source || '官方榜单原文（见上文数据来源）'}
+                  <p
+                    class="ranking-metric"
+                    style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"
+                  >
+                    <span
+                      class="ranking-source-badge"
+                      style="font-size:.82rem;color:var(--text-muted)"
+                    >
+                      来源：{item.source || '官方榜单原文'}
+                    </span>
                     {item.url ? (
-                      <>
-                        {' · '}
-                        <a href={item.url} target="_blank" rel="noopener">
-                          查看原文
-                        </a>
-                      </>
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener"
+                        class="cta-btn cta-btn-xs cta-btn-outline"
+                      >
+                        查看原文
+                      </a>
                     ) : null}
                   </p>
                 </div>
