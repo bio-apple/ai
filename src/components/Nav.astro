@@ -8,12 +8,7 @@ interface Props {
   navPrefix?: string;
 }
 
-const {
-  nav,
-  standalone = false,
-  homeHref = 'index.html',
-  navPrefix = '',
-} = Astro.props;
+const { nav, standalone = false, homeHref = 'index.html', navPrefix = '' } = Astro.props;
 ---
 
 <header>
