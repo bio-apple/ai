@@ -6,7 +6,11 @@ import { asset, homeHref } from '../../lib/paths';
 
 const page = site.tools_hub_page;
 const base = site.meta.base_url;
-const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`);
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: '工具中心', url: `${base}tools/hub.html` },
+];
+const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`, breadcrumbs);
 const lookup = toolLookup();
 const hub = site.tool_hub || [];
 const urls = site.tool_urls || {};
@@ -16,6 +20,7 @@ const urls = site.tool_urls || {};
   description={page.lead}
   canonical={`${base}tools/hub.html`}
   schema={schema}
+  ogType="website"
 >
   <main class="standalone-page tools-hub-page">
     <nav class="breadcrumb"><a href={homeHref()}>首页</a> / 工具中心</nav>

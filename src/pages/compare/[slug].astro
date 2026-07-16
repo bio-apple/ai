@@ -10,7 +10,12 @@ export function getStaticPaths() {
 
 const { compare } = Astro.props;
 const base = site.meta.base_url;
-const schema = buildCompareSchema(compare, base);
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: '选型指南', url: `${base}ai-tools-ranking.html` },
+  { name: compare.breadcrumb, url: `${base}compare/${compare.slug}.html` },
+];
+const schema = buildCompareSchema(compare, base, breadcrumbs);
 const home = homeHref();
 ---
 <StandaloneLayout

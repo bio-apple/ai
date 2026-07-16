@@ -20,6 +20,7 @@ const COPY_FILES = [
   'knowledge.js',
   'recommend.js',
   'favorites.js',
+  'progress.js',
   'robots.txt',
   'daily-videos.json',
   'ai-news.json',

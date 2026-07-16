@@ -78,14 +78,35 @@ def validate_sitemap_robots() -> None:
     sitemap_files = sorted(ROOT.glob("sitemap*.xml"))
     if not sitemap_files:
         raise FileNotFoundError("dist 中未找到 sitemap*.xml")
-    sitemap = sitemap_files[0].read_text(encoding="utf-8")
+    # Prefer the urlset file (sitemap-0.xml) over the index
+    urlset = next((p for p in sitemap_files if "<urlset" in p.read_text(encoding="utf-8")[:200] or p.name != "sitemap-index.xml"), sitemap_files[0])
+    sitemap = urlset.read_text(encoding="utf-8")
+    if urlset.name == "sitemap-index.xml":
+        # fall back: read first child sitemap
+        child = ROOT / "sitemap-0.xml"
+        if child.exists():
+            sitemap = child.read_text(encoding="utf-8")
+            urlset = child
     if "Sitemap:" not in robots:
         raise ValueError("robots.txt 缺少 Sitemap 声明")
     if ("<urlset" not in sitemap and "<sitemapindex" not in sitemap) or "<loc>" not in sitemap:
         raise ValueError("sitemap 格式无效")
-    if "https://bio-apple.github.io/ai/" not in sitemap:
+    locs = re.findall(r"<loc>([^<]+)</loc>", sitemap)
+    if not any(u.rstrip("/").endswith("/ai") or u.endswith("/ai/") or u.endswith("/ai/index.html") for u in locs):
         raise ValueError("sitemap 缺少首页 URL")
-    print(f"✓ robots.txt + {sitemap_files[0].name}")
+    page_locs = [
+        u for u in locs
+        if not u.endswith("sitemap-0.xml")
+        and not u.endswith("sitemap-index.xml")
+        and not u.rstrip("/").endswith("/ai")
+        and not u.endswith("/ai/")
+    ]
+    missing_html = [u for u in page_locs if "/ai/" in u and not u.endswith(".html")]
+    if missing_html:
+        raise ValueError("sitemap 页面 URL 缺少 .html 后缀: " + ", ".join(missing_html[:5]))
+    if not any(u.endswith("tools/chatgpt.html") for u in locs):
+        raise ValueError("sitemap 缺少 tools/chatgpt.html（format=file 应对齐 canonical）")
+    print(f"✓ robots.txt + {urlset.name} ({len(locs)} loc)")
 
 
 def _load_schema(name: str) -> dict:

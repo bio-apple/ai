@@ -82,56 +82,62 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
   const items = [];
   for (const t of tools) {
     const kw = [t.id, t.name, t.description, ...(t.features || []).map((f) => f.title)].filter(Boolean).join(' ');
-    items.push({ label: `${t.name} 教程`, section: t.section_id, keywords: kw });
-    items.push({ label: `${t.name} 独立页`, url: `tools/${t.id}.html`, keywords: kw });
+    items.push({ label: `${t.name} 教程`, type: '工具', section: t.section_id, keywords: kw });
+    items.push({ label: `${t.name} 独立页`, type: '工具', url: `tools/${t.id}.html`, keywords: kw });
   }
-  items.push({ label: '每日视频', section: 'section-videos', keywords: '视频 youtube bilibili 教程 每日 100天 Top10 30天 24小时 六类' });
-  items.push({ label: 'AI 新闻', section: 'section-news', keywords: 'AI新闻 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace arXiv GitHub Trending 机器之心 量子位 新智元 智源 每周' });
-  items.push({ label: 'GitHub 开源精选', section: 'section-oss', keywords: '开源 GitHub Stars Agent LLM 本地大模型 AI绘画 多模态 机器学习框架' });
-  items.push({ label: '实战案例库', section: 'section-cases', keywords: '案例 教程 实战 Prompt 工作流' });
-  items.push({ label: '实战案例库（独立页）', url: 'cases/index.html', keywords: '案例 教程 实战' });
-  items.push({ label: 'Prompt 提示词库', url: 'prompts/library.html', keywords: 'Prompt 提示词 模板 写作 编程 科研' });
-  items.push({ label: 'AI 工具中心', url: 'tools/hub.html', keywords: '工具分类 助手 编程 写作 图片 视频 音频 办公 Agent' });
-  items.push({ label: 'AI Labs', url: 'labs/index.html', keywords: 'Labs Prompt Lab 模型体验 工作流 Agent Playground' });
-  items.push({ label: 'AI 学习路线图', url: 'ai-learning-roadmap.html', keywords: '学习路线 入门 进阶 roadmap' });
-  items.push({ label: '零基础入门指南', url: 'guides/beginner.html', keywords: '零基础 入门 指南' });
-  items.push({ label: '进阶应用指南', url: 'guides/advanced.html', keywords: '进阶 编程 API 工作流' });
-  items.push({ label: 'AI 工具排行榜', url: 'ai-tools-ranking.html', keywords: '排行榜 ranking ChatGPT Claude Cursor DeepSeek' });
-  items.push({ label: '本周 AI 热点', url: 'news/daily-ai-news.html', keywords: 'AI新闻 热点 OpenAI Anthropic arXiv 每周' });
-  items.push({ label: '编程 AI 工具', section: 'section-home', keywords: '编程 写代码 开发 Cursor Copilot Codex' });
-  items.push({ label: '写作翻译办公', section: 'section-home', keywords: '写作 翻译 办公 科研 视频生成 ChatGPT Claude 豆包' });
-  items.push({ label: '免费 AI 工具', section: 'section-home', keywords: '免费 DeepSeek 豆包 Kimi' });
-  items.push({ label: '今日 AI 简报', section: 'section-home', keywords: 'AI Daily 简报 模型 GitHub 新闻', anchor: 'home-daily' });
-  items.push({ label: 'AI 推荐助手', section: 'section-home', keywords: '推荐助手 场景 选型', anchor: 'home-recommend' });
+  items.push({ label: '每日视频', type: '频道', section: 'section-videos', keywords: '视频 youtube bilibili 教程 每日 100天 Top10 30天 24小时 六类' });
+  items.push({ label: 'AI 新闻', type: '频道', section: 'section-news', keywords: 'AI新闻 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace arXiv GitHub Trending 机器之心 量子位 新智元 智源 每周' });
+  items.push({ label: 'GitHub 开源精选', type: '频道', section: 'section-oss', keywords: '开源 GitHub Stars Agent LLM 本地大模型 AI绘画 多模态 机器学习框架' });
+  items.push({ label: '实战案例库', type: '案例', url: 'cases/index.html', keywords: '案例 教程 实战 Prompt 工作流' });
+  items.push({ label: 'Prompt 提示词库', type: 'Prompt', url: 'prompts/library.html', keywords: 'Prompt 提示词 模板 写作 编程 科研' });
+  items.push({ label: 'AI 工具中心', type: '导航', url: 'tools/hub.html', keywords: '工具分类 助手 编程 写作 图片 视频 音频 办公 Agent' });
+  items.push({ label: 'AI Labs', type: '导航', url: 'labs/index.html', keywords: 'Labs Prompt Lab 模型体验 工作流 Agent Playground' });
+  items.push({ label: 'AI 学习路线图', type: '学习', url: 'ai-learning-roadmap.html', keywords: '学习路线 入门 进阶 roadmap' });
+  items.push({ label: '零基础入门指南', type: '学习', url: 'guides/beginner.html', keywords: '零基础 入门 指南' });
+  items.push({ label: '进阶应用指南', type: '学习', url: 'guides/advanced.html', keywords: '进阶 编程 API 工作流' });
+  items.push({ label: 'AI 工具排行榜', type: '导航', url: 'ai-tools-ranking.html', keywords: '排行榜 ranking ChatGPT Claude Cursor DeepSeek' });
+  items.push({ label: '本周 AI 热点', type: '频道', url: 'news/daily-ai-news.html', keywords: 'AI新闻 热点 OpenAI Anthropic arXiv 每周' });
+  items.push({ label: '编程 AI 工具', type: '场景', section: 'section-home', keywords: '编程 写代码 开发 Cursor Copilot Codex', anchor: 'home-tools' });
+  items.push({ label: '写作翻译办公', type: '场景', section: 'section-home', keywords: '写作 翻译 办公 科研 视频生成 ChatGPT Claude 豆包', anchor: 'home-recommend' });
+  items.push({ label: '免费 AI 工具', type: '场景', section: 'section-home', keywords: '免费 DeepSeek 豆包 Kimi', anchor: 'home-tools' });
+  items.push({ label: '今日 AI 简报', type: '简报', section: 'section-home', keywords: 'AI Daily 简报 模型 GitHub 新闻', anchor: 'home-daily' });
+  items.push({ label: 'AI 推荐助手', type: '推荐', section: 'section-home', keywords: '推荐助手 场景 选型', anchor: 'home-recommend' });
 
-  for (const caseItem of cases.cases || []) {
-    const idx = (cases.cases || []).indexOf(caseItem);
+  for (const [idx, caseItem] of (cases.cases || []).entries()) {
+    const anchor = `case-${idx + 1}`;
     items.push({
       label: caseItem.title,
-      section: 'section-cases',
-      anchor: `case-${idx + 1}`,
+      type: '案例',
+      url: `cases/index.html#${anchor}`,
       keywords: [caseItem.title, caseItem.summary, caseItem.tool, ...(caseItem.tags || []), ...(caseItem.scenarios || [])].filter(Boolean).join(' '),
     });
   }
   for (const p of promptsPayload.prompts || []) {
     items.push({
       label: `Prompt：${p.title}`,
-      url: 'prompts/library.html',
+      type: 'Prompt',
+      url: `prompts/library.html#${p.id}`,
       keywords: [p.title, p.content, p.tool, p.category, ...(p.tags || [])].filter(Boolean).join(' ').slice(0, 400),
     });
   }
   for (const cmp of compares) {
-    items.push({ label: cmp.h1 || cmp.title, url: `compare/${cmp.slug}.html`, keywords: cmp.search_keywords || cmp.title });
+    items.push({
+      label: cmp.h1 || cmp.title,
+      type: '对比',
+      url: `compare/${cmp.slug}.html`,
+      keywords: cmp.search_keywords || cmp.title,
+    });
   }
   for (const g of site.compare_guides || []) {
     if (!items.some((x) => x.url === g.href)) {
-      items.push({ label: g.title, url: g.href, keywords: g.title });
+      items.push({ label: g.title, type: '对比', url: g.href, keywords: g.title });
     }
   }
   for (const cat of site.tool_hub || []) {
     items.push({
       label: `工具分类：${cat.label}`,
-      url: 'tools/hub.html',
+      type: '导航',
+      url: `tools/hub.html#hub-${cat.id}`,
       keywords: [cat.label, cat.description, ...(cat.tools || [])].join(' '),
     });
   }
@@ -148,10 +154,17 @@ function buildRecommendRules(site) {
     path_title: opt.path_title || null,
     steps: opt.steps || [],
   }));
+  let relations = {};
+  try {
+    relations = readJson('tool-relations.json');
+  } catch {
+    relations = {};
+  }
   return {
     schema_version: 1,
     updated_from: 'data/site.json',
     options,
+    relations,
     fallback: site.recommend_fallback || {
       tools: ['chatgpt', 'claude', 'cursor'],
       guide: 'guides/beginner.html',

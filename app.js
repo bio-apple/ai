@@ -21,9 +21,20 @@ function highlightMatch(text, query) {
   return `${escapeHtml(before)}<strong>${escapeHtml(match)}</strong>${escapeHtml(after)}`;
 }
 
+function resolveSearchUrl(url) {
+  if (!url) return url;
+  if (/^(https?:|\/|#)/.test(url)) return url;
+  return `${siteBase()}${String(url).replace(/^\//, '')}`;
+}
+
 function gotoSearchHit(item) {
   if (item.url) {
-    window.location.href = item.url;
+    window.location.href = resolveSearchUrl(item.url);
+    return;
+  }
+  // 案例已迁出首页 SPA
+  if (item.section === 'section-cases' || (item.anchor && String(item.anchor).startsWith('case-'))) {
+    window.location.href = casesLibraryUrl(item.anchor && String(item.anchor).startsWith('case-') ? item.anchor : null);
     return;
   }
   showSection(item.section, { anchor: item.anchor || null });
@@ -469,7 +480,7 @@ function initSiteSearch() {
       const label = highlightMatch(item.label, query);
       const meta = item.type ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>` : '';
       if (item.url) {
-        return `<a href="${escapeHtml(item.url)}" class="search-hit" data-track="search_hit">${label}${meta}</a>`;
+        return `<a href="${escapeHtml(resolveSearchUrl(item.url))}" class="search-hit" data-track="search_hit">${label}${meta}</a>`;
       }
       return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit">${label}${meta}</button>`;
     }).join('');

@@ -12,6 +12,7 @@ interface Props {
   canonical: string;
   schema?: object;
   scripts?: string[];
+  ogType?: string;
 }
 
 const {
@@ -19,7 +20,8 @@ const {
   description,
   canonical,
   schema,
-  scripts = ['analytics.js', 'ux.js', 'app.js'],
+  scripts = ['analytics.js', 'ux.js', 'app.js', 'progress.js'],
+  ogType = 'article',
 } = Astro.props;
 
 const styleHref = asset('style.css');
@@ -32,12 +34,18 @@ const home = homeHref();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{title}</title>
   <meta name="description" content={description}>
+  <meta name="keywords" content={site.meta.keywords}>
   <link rel="canonical" href={canonical}>
+  <meta property="og:type" content={ogType}>
+  <meta property="og:url" content={canonical}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:image" content={site.meta.og_image}>
-  <meta property="og:url" content={canonical}>
+  <meta property="og:locale" content="zh_CN">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={site.meta.og_image}>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@450;550;650;750&display=swap" rel="stylesheet">

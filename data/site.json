@@ -347,7 +347,11 @@
           "翻译",
           "博客",
           "邮件",
-          "稿件"
+          "稿件",
+          "周报",
+          "改写",
+          "润色",
+          "小红书"
         ],
         "guide": "guides/beginner.html",
         "path_title": "零基础入门",
@@ -377,7 +381,11 @@
           "react",
           "调试",
           "cursor",
-          "代码"
+          "代码",
+          "python",
+          "app",
+          "小程序",
+          "重构"
         ],
         "guide": "guides/advanced.html",
         "path_title": "进阶应用",
@@ -402,7 +410,10 @@
           "幻灯片",
           "演示",
           "汇报",
-          "presentation"
+          "presentation",
+          "路演",
+          "大纲",
+          "讲稿"
         ],
         "guide": "guides/beginner.html",
         "path_title": "零基础入门",
@@ -428,7 +439,11 @@
           "脚本",
           "剪辑",
           "漫剧",
-          "字幕"
+          "字幕",
+          "分镜",
+          "口播",
+          "B站",
+          "抖音"
         ],
         "guide": "guides/beginner.html",
         "path_title": "零基础入门",
@@ -455,7 +470,10 @@
           "excel",
           "报表",
           "sql",
-          "图表"
+          "图表",
+          "可视化",
+          "统计",
+          "csv"
         ],
         "guide": "guides/advanced.html",
         "path_title": "进阶应用",

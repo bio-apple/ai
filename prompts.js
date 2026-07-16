@@ -128,8 +128,25 @@ async function loadPromptLibrary() {
 
   try {
     const data = await fetchPromptsData();
+    const hashId = location.hash.replace(/^#/, '');
+    if (hashId && data?.prompts?.some((p) => p.id === hashId)) {
+      const hit = data.prompts.find((p) => p.id === hashId);
+      if (hit?.category) activePromptCategory = hit.category;
+      const toolbar = document.getElementById('prompts-toolbar');
+      toolbar?.querySelectorAll('[data-prompt-cat]').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.promptCat === activePromptCategory);
+      });
+    }
     renderPromptsList(data, activePromptCategory);
     initPromptFilters();
+    if (hashId) {
+      requestAnimationFrame(() => {
+        const el = document.getElementById(hashId);
+        if (!el) return;
+        el.classList.add('is-target');
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
   } catch (err) {
     root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
   }

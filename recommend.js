@@ -4,7 +4,8 @@
   const input = document.getElementById('recommend-input');
   const out = document.getElementById('recommend-result');
   const cfgEl = document.getElementById('recommend-config');
-  if (!form || !input || !out || !cfgEl) return;
+  const root = document.getElementById('home-recommend');
+  if (!form || !input || !out || !cfgEl || !root) return;
 
   let cfg;
   try {
@@ -15,12 +16,16 @@
 
   let options = cfg.options || [];
   let fallback = cfg.fallback || {};
+  let relations = cfg.relations || {};
   const toolMeta = cfg.tools || {};
 
   function applyRules(rules) {
     if (!rules || !Array.isArray(rules.options)) return;
     options = rules.options;
     fallback = rules.fallback || fallback;
+    if (rules.relations && typeof rules.relations === 'object') {
+      relations = rules.relations;
+    }
   }
 
   fetch('recommend-rules.json', { cache: 'default' })
@@ -51,9 +56,54 @@
     return bestScore > 0 ? best : null;
   }
 
+  function siteBase() {
+    const raw = document.documentElement.dataset.base || '/';
+    return raw.endsWith('/') ? raw : `${raw}/`;
+  }
+
+  function escape(s) {
+    const d = document.createElement('div');
+    d.textContent = s == null ? '' : String(s);
+    return d.innerHTML;
+  }
+
+  function collectRelated(toolIds) {
+    const seen = new Set(toolIds);
+    const chips = [];
+    for (const id of toolIds) {
+      const rel = relations[id];
+      if (!rel) continue;
+      const edges = [
+        ...((rel.alternatives || []).slice(0, 1).map((e) => ({ ...e, kind: 'alt' }))),
+        ...((rel.complements || []).slice(0, 1).map((e) => ({ ...e, kind: 'comp' }))),
+      ];
+      for (const edge of edges) {
+        if (!edge?.id || seen.has(edge.id)) continue;
+        seen.add(edge.id);
+        chips.push(edge);
+        if (chips.length >= 3) return chips;
+      }
+    }
+    return chips;
+  }
+
+  function openTool(tool) {
+    if (!tool) return;
+    if (typeof window.showSection === 'function') window.showSection(`section-${tool}`);
+    else location.hash = `section-${tool}`;
+    if (typeof window.bioProgress?.record === 'function') {
+      window.bioProgress.record({
+        id: tool,
+        title: (toolMeta[tool] && toolMeta[tool].name) || tool,
+        href: `${siteBase()}tools/${tool}.html`,
+        kind: 'tool',
+      });
+    }
+  }
+
   function render(opt, query) {
     const tools = (opt?.tools || fallback.tools || []).slice(0, 5);
-    const base = (document.documentElement.dataset.base || '/').replace(/\/?$/, '/');
+    const base = siteBase();
     const guidePath = opt?.guide || fallback.guide || 'guides/beginner.html';
     const guide = guidePath.startsWith('http') || guidePath.startsWith('/')
       ? guidePath
@@ -75,12 +125,29 @@
       })
       .join('');
 
-    // 学习路线走独立页，结果区不再复读 steps
+    const related = collectRelated(tools);
+    const relatedHtml = related.length
+      ? `<div class="recommend-related">
+          <p class="recommend-card-lead">也可以看看</p>
+          <div class="recommend-links">
+            ${related.map((edge) => {
+              const t = toolMeta[edge.id] || { name: edge.id };
+              const kind = edge.kind === 'comp' ? '搭配' : '替代';
+              return `<button type="button" class="recommend-link recommend-related-btn" data-tool="${escape(edge.id)}" data-track="recommend_related_${edge.kind}">
+                ${escape(kind)} · ${escape(t.name)}
+              </button>`;
+            }).join('')}
+          </div>
+          <p class="recommend-related-note">${escape(related[0].note || '')}</p>
+        </div>`
+      : '';
+
     out.hidden = false;
     out.innerHTML = `
       <p class="recommend-result-meta">${escape(why)}${query ? ` · 「${escape(query)}」` : ''}</p>
       <p class="recommend-card-lead">推荐工具</p>
       <ul class="recommend-tools">${toolHtml}</ul>
+      ${relatedHtml}
       <div class="recommend-next">
         <p class="recommend-card-lead">下一步</p>
         <div class="recommend-links">
@@ -90,21 +157,21 @@
         </div>
       </div>
     `;
-    out.querySelectorAll('.recommend-tool-btn[data-tool]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const tool = btn.dataset.tool;
-        if (typeof window.showSection === 'function') window.showSection(`section-${tool}`);
-        else location.hash = `section-${tool}`;
-        if (typeof trackEvent === 'function') trackEvent('recommend_query_tool', { tool, funnel_step: 2 });
-      });
-    });
   }
 
-  function escape(s) {
-    const d = document.createElement('div');
-    d.textContent = s == null ? '' : String(s);
-    return d.innerHTML;
-  }
+  // 统一委托：结果区 + 场景卡片里的工具按钮都能点
+  root.addEventListener('click', (e) => {
+    const btn = e.target.closest('.recommend-tool-btn[data-tool], .recommend-related-btn[data-tool]');
+    if (!btn || !root.contains(btn)) return;
+    const tool = btn.dataset.tool;
+    openTool(tool);
+    if (typeof trackEvent === 'function') {
+      trackEvent(btn.classList.contains('recommend-related-btn') ? 'recommend_related_tool' : 'recommend_query_tool', {
+        tool,
+        funnel_step: 2,
+      });
+    }
+  });
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();

@@ -10,7 +10,12 @@ export function getStaticPaths() {
 
 const { tool } = Astro.props;
 const base = site.meta.base_url;
-const schema = buildToolSchema(tool, base);
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: '工具中心', url: `${base}tools/hub.html` },
+  { name: tool.name, url: `${base}tools/${tool.id}.html` },
+];
+const schema = buildToolSchema(tool, base, breadcrumbs);
 ---
 <StandaloneLayout
   title={`${tool.name} 使用指南 - Bio AI Lab`}

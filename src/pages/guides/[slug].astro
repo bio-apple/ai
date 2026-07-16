@@ -14,7 +14,12 @@ export function getStaticPaths() {
 
 const { guide, path } = Astro.props;
 const base = site.meta.base_url;
-const schema = buildPageSchema(guide.title, guide.lead, `${base}guides/${guide.slug}.html`);
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: '学习指南', url: `${base}ai-learning-roadmap.html` },
+  { name: guide.h1, url: `${base}guides/${guide.slug}.html` },
+];
+const schema = buildPageSchema(guide.title, guide.lead, `${base}guides/${guide.slug}.html`, breadcrumbs);
 const home = homeHref();
 ---
 <StandaloneLayout

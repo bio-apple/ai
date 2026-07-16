@@ -7,7 +7,11 @@ import { asset, homeHref } from '../../../lib/paths';
 
 const page = site.cases_page;
 const base = site.meta.base_url;
-const schema = buildPageSchema(page.title, page.lead, `${base}cases/index.html`);
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: '实战案例库', url: `${base}cases/index.html` },
+];
+const schema = buildPageSchema(page.title, page.lead, `${base}cases/index.html`, breadcrumbs);
 const home = homeHref();
 
 let promptsCount = 0;
@@ -22,6 +26,7 @@ for (const caseItem of cases.cases) {
   description={page.lead}
   canonical={`${base}cases/index.html`}
   schema={schema}
+  ogType="website"
 >
   <main class="standalone-page">
     <nav class="breadcrumb"><a href={home}>首页</a> / 实战案例库</nav>

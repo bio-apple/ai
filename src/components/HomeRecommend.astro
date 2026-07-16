@@ -1,5 +1,5 @@
 ---
-import { site, toolLookup } from '../lib/data';
+import { site, toolLookup, toolRelations } from '../lib/data';
 import { asset } from '../lib/paths';
 
 const picker = site.ai_picker;
@@ -14,13 +14,14 @@ const recommendConfig = {
   options: picker.options,
   fallback: site.recommend_fallback,
   tools: toolsMeta,
+  relations: toolRelations,
 };
 ---
 <section class="home-section fade-in" id="home-recommend">
   <div class="section-head">
     <p class="section-kicker">AI 推荐助手</p>
     <h2 class="section-title">{picker.title}</h2>
-    <p class="section-desc">描述需求或点选场景，先拿到工具选型；学习步骤见下方路线</p>
+    <p class="section-desc">描述需求或点选场景，先拿到工具选型；再进入学习路线与案例巩固</p>
   </div>
 
   <form class="recommend-query" id="recommend-form">
