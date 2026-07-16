@@ -1,4 +1,4 @@
-/* 数据运营：站点热度基准（engagement.json）+ 本机浏览/点击/收藏累加 */
+/* 数据运营：站点热度基准（engagement.json）+ 本机浏览/点击累加 */
 (function initEngagement() {
   const STORAGE_KEY = 'bioai.engagement.v1';
   const SESSION_VIEW_KEY = 'bioai.engagement.viewed';
@@ -32,7 +32,6 @@
   let seed = {
     updated_at: '',
     page_views: 0,
-    favorites_count: 0,
     tools: [],
   };
 
@@ -77,22 +76,6 @@
     return Math.max(0, Math.round(Number(n) || 0)).toLocaleString('zh-CN');
   }
 
-  function localFavoriteCount() {
-    if (typeof window.bioFavorites?.load === 'function') {
-      try {
-        return window.bioFavorites.load().length;
-      } catch {
-        /* ignore */
-      }
-    }
-    try {
-      const raw = JSON.parse(localStorage.getItem('bioai.favorites.v1') || '[]');
-      return Array.isArray(raw) ? raw.length : 0;
-    } catch {
-      return 0;
-    }
-  }
-
   function mergedTools(local) {
     const map = new Map();
     for (const t of seed.tools || []) {
@@ -129,17 +112,14 @@
     const seedClicks = (seed.tools || []).reduce((n, t) => n + (Number(t.today_clicks) || 0), 0);
     const views = (Number(seed.page_views) || 0) + (local.page_views || 0);
     const clicks = seedClicks + (local.clicks || 0);
-    const favorites = (Number(seed.favorites_count) || 0) + localFavoriteCount();
 
     const viewsEl = document.getElementById('ops-views');
     const clicksEl = document.getElementById('ops-clicks');
-    const favsEl = document.getElementById('ops-favs');
     const updatedEl = document.getElementById('ops-updated');
     const list = document.getElementById('ops-trend-list');
 
     if (viewsEl) viewsEl.textContent = formatNumber(views);
     if (clicksEl) clicksEl.textContent = formatNumber(clicks);
-    if (favsEl) favsEl.textContent = formatNumber(favorites);
     if (updatedEl) {
       updatedEl.textContent = seed.updated_at
         ? `基准 ${seed.updated_at} · 含本机今日`
@@ -186,10 +166,6 @@
   }
 
   function onEvent(name, params = {}) {
-    if (name === 'favorite_add' || name === 'favorite_remove') {
-      render();
-      return;
-    }
     if (!CLICK_EVENTS.has(name)) return;
 
     const local = loadLocal();
@@ -238,7 +214,6 @@
       seed = {
         updated_at: data.updated_at || '',
         page_views: Number(data.page_views) || 0,
-        favorites_count: Number(data.favorites_count) || 0,
         tools: Array.isArray(data.tools) ? data.tools : [],
       };
     } catch {
@@ -252,7 +227,6 @@
     recordPageView();
     bindTrendClicks();
     render();
-    window.addEventListener('bioai:favorites-changed', render);
   }
 
   window.bioEngagement = { onEvent, render, loadLocal };
