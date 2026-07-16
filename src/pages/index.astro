@@ -116,17 +116,7 @@ const schema = buildHomeSchema(site);
             <span>独立页 · Prompt 库</span>
           </a>
         </div>
-        <div class="section-cta compare-guide-grid" style="margin-top:1.25rem">
-          {
-            site.compare_guides.map((g) => (
-              <a href={asset(g.href)} class="compare-guide-card" data-track={g.track}>
-                <span class="compare-guide-tag">{g.tag}</span>
-                <h4>{g.title}</h4>
-                <p>{g.description}</p>
-              </a>
-            ))
-          }
-        </div>
+        {/* 删除首页对比卡片入口（site.compare_guides） */}
       </section>
 
       <HomeOps />
