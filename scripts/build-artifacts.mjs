@@ -128,7 +128,7 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     label: 'AI 工具中心',
     type: '导航',
     url: 'tools/hub.html',
-    keywords: '工具中心 AICPB 榜单 Global AI China AI Vibe Coding Video PPT Top10',
+    keywords: '工具中心 AICPB 榜单 Top5 应用分类 助手 编程 视频 PPT 官方教程',
   });
   items.push({
     label: 'AI 学习路线图',
@@ -241,20 +241,30 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
 }
 
 function appendHubBoardSearchItems(items, rankings) {
-  for (const board of rankings.boards || []) {
-    const names = (board.items || []).map((item) => item.name);
+  const hubCats = [
+    { id: 'assistant-global', label: '全球 AI 助手', boardId: 'global-ai' },
+    { id: 'assistant-china', label: '国内 AI 助手', boardId: 'china-ai' },
+    { id: 'coding', label: 'AI 编程', boardId: 'vibe-coding' },
+    { id: 'video', label: 'AI 视频', boardId: 'video-generators' },
+    { id: 'ppt', label: 'AI PPT', boardId: 'ppt' },
+  ];
+  const boards = Object.fromEntries((rankings.boards || []).map((b) => [b.id, b]));
+  for (const cat of hubCats) {
+    const board = boards[cat.boardId];
+    const top = (board?.items || []).slice(0, 5);
+    const names = top.map((item) => item.name);
     items.push({
-      label: `工具中心：${board.label}`,
+      label: `工具中心：${cat.label}`,
       type: '导航',
-      url: `tools/hub.html#hub-${board.id}`,
-      keywords: [board.label, board.title, board.subtitle, ...names].filter(Boolean).join(' '),
+      url: `tools/hub.html#hub-${cat.id}`,
+      keywords: [cat.label, board?.label, ...names, '官方教程', 'AICPB'].filter(Boolean).join(' '),
     });
-    for (const item of board.items || []) {
+    for (const item of top) {
       items.push({
         label: item.name,
         type: '工具',
-        url: `tools/hub.html#hub-${board.id}`,
-        keywords: [item.name, board.label, item.visits, 'AICPB', '工具中心']
+        url: `tools/hub.html#hub-${cat.id}`,
+        keywords: [item.name, cat.label, item.visits, 'AICPB', '工具中心', '官方教程']
           .filter(Boolean)
           .join(' '),
       });

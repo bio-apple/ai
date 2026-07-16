@@ -1,0 +1,168 @@
+{
+  "schema_version": 1,
+  "note": "AICPB 各榜 Top5 工具的官网与官方教程；名称键为归一化小写（去空格变体见 aliases）",
+  "aliases": {
+    "claude｜anthropic": "claude",
+    "claude|anthropic": "claude",
+    "豆包｜抖音": "豆包",
+    "豆包|抖音": "豆包",
+    "kimi｜月之暗面": "kimi",
+    "kimi|月之暗面": "kimi",
+    "千问 qianwen.com｜阿里": "通义千问",
+    "qwen.ai｜阿里": "通义千问",
+    "github copilot": "github copilot",
+    "即梦 ai｜剪映": "即梦 ai",
+    "即梦 ai|剪映": "即梦 ai",
+    "aippt.com｜像素绽放": "aippt.com",
+    "aippt.cn｜像素绽放": "aippt.cn",
+    "ai 搜索｜百度": "百度 ai 搜索",
+    "kling ai": "kling"
+  },
+  "tools": {
+    "chatgpt": {
+      "site": "https://chatgpt.com",
+      "tutorial": "https://help.openai.com/en/articles/6783457-what-is-chatgpt",
+      "tutorial_label": "官方帮助"
+    },
+    "new bing": {
+      "site": "https://www.bing.com/chat",
+      "tutorial": "https://support.microsoft.com/copilot",
+      "tutorial_label": "Microsoft 支持"
+    },
+    "gemini": {
+      "site": "https://gemini.google.com",
+      "tutorial": "https://support.google.com/gemini/answer/13275745",
+      "tutorial_label": "官方帮助"
+    },
+    "claude": {
+      "site": "https://claude.ai",
+      "tutorial": "https://claude.com/resources/tutorials/getting-started-with-claude-ai",
+      "tutorial_label": "官方入门教程"
+    },
+    "deepseek": {
+      "site": "https://chat.deepseek.com",
+      "tutorial": "https://api-docs.deepseek.com/",
+      "tutorial_label": "官方文档"
+    },
+    "纳米ai搜索": {
+      "site": "https://www.n.cn",
+      "tutorial": "https://www.n.cn",
+      "tutorial_label": "官网入口"
+    },
+    "纳米ai": {
+      "site": "https://www.n.cn",
+      "tutorial": "https://www.n.cn",
+      "tutorial_label": "官网入口"
+    },
+    "豆包": {
+      "site": "https://www.doubao.com",
+      "tutorial": "https://www.doubao.com",
+      "tutorial_label": "官网入口"
+    },
+    "百度 ai 搜索": {
+      "site": "https://chat.baidu.com",
+      "tutorial": "https://chat.baidu.com",
+      "tutorial_label": "官网入口"
+    },
+    "通义千问": {
+      "site": "https://tongyi.aliyun.com",
+      "tutorial": "https://help.aliyun.com/zh/dashscope/",
+      "tutorial_label": "官方文档"
+    },
+    "kimi": {
+      "site": "https://kimi.moonshot.cn",
+      "tutorial": "https://platform.moonshot.cn/docs",
+      "tutorial_label": "官方文档"
+    },
+    "kimi｜月之暗面": {
+      "site": "https://kimi.moonshot.cn",
+      "tutorial": "https://platform.moonshot.cn/docs",
+      "tutorial_label": "官方文档"
+    },
+    "github copilot": {
+      "site": "https://github.com/features/copilot",
+      "tutorial": "https://docs.github.com/en/copilot",
+      "tutorial_label": "官方文档"
+    },
+    "hostinger": {
+      "site": "https://www.hostinger.com",
+      "tutorial": "https://www.hostinger.com/tutorials",
+      "tutorial_label": "官方教程"
+    },
+    "lovable.dev": {
+      "site": "https://lovable.dev",
+      "tutorial": "https://docs.lovable.dev",
+      "tutorial_label": "官方文档"
+    },
+    "supabase": {
+      "site": "https://supabase.com",
+      "tutorial": "https://supabase.com/docs",
+      "tutorial_label": "官方文档"
+    },
+    "vercel": {
+      "site": "https://vercel.com",
+      "tutorial": "https://vercel.com/docs",
+      "tutorial_label": "官方文档"
+    },
+    "cursor": {
+      "site": "https://cursor.com",
+      "tutorial": "https://cursor.com/docs/get-started/quickstart",
+      "tutorial_label": "官方快速入门"
+    },
+    "loom": {
+      "site": "https://www.loom.com",
+      "tutorial": "https://www.loom.com/blog/how-to-use-loom",
+      "tutorial_label": "官方指南"
+    },
+    "dreamina": {
+      "site": "https://dreamina.capcut.com",
+      "tutorial": "https://dreamina.capcut.com",
+      "tutorial_label": "官网入口"
+    },
+    "kling": {
+      "site": "https://klingai.com",
+      "tutorial": "https://klingai.com",
+      "tutorial_label": "官网入口"
+    },
+    "即梦 ai": {
+      "site": "https://jimeng.jianying.com",
+      "tutorial": "https://jimeng.jianying.com",
+      "tutorial_label": "官网入口"
+    },
+    "heygen": {
+      "site": "https://www.heygen.com",
+      "tutorial": "https://www.heygen.com/blog",
+      "tutorial_label": "官方博客/教程"
+    },
+    "gamma": {
+      "site": "https://gamma.app",
+      "tutorial": "https://gamma.app/docs",
+      "tutorial_label": "官方文档"
+    },
+    "aippt.com": {
+      "site": "https://www.aippt.com",
+      "tutorial": "https://www.aippt.com",
+      "tutorial_label": "官网入口"
+    },
+    "aippt.cn": {
+      "site": "https://www.aippt.cn",
+      "tutorial": "https://www.aippt.cn",
+      "tutorial_label": "官网入口"
+    },
+    "prezi": {
+      "site": "https://prezi.com",
+      "tutorial": "https://prezi.com/learn/",
+      "tutorial_label": "官方学习中心"
+    },
+    "slidesgo": {
+      "site": "https://slidesgo.com",
+      "tutorial": "https://slidesgo.com",
+      "tutorial_label": "官网入口"
+    },
+    "mentimeter": {
+      "site": "https://www.mentimeter.com",
+      "tutorial": "https://www.mentimeter.com/blog",
+      "tutorial_label": "官方指南"
+    }
+  }
+}
