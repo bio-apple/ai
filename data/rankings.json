@@ -3,13 +3,12 @@
   "updated_at": "2026-07-16",
   "cadence": "daily",
   "title": "2026 AI 工具排行榜（每日更新）",
-  "lead": "每月更新三份榜单：用户量、模型能力、价格。来源限定：AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis；面向中文用户，综合公开资料与站内体验，分数为相对分（满分 10），非官方统计。",
+  "lead": "每天更新三份榜单：用户量、模型能力、价格。来源限定：AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis；本站仅引用原文排名与表述，不做主观评分。",
   "methodology": [
-    "来源：仅参考 AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis 公布的数据与报告。",
-    "用户量：公开月活/下载量报道、生态体量、中文区渗透（权重偏「能找得到人在用」）。",
-    "模型能力：推理/长文本/多模态/编程 Agent 等综合表现（权重偏「干得成难活」）。",
-    "价格：免费额度、订阅与 API 性价比（权重偏「同等效果花更少」；免费可用得分更高）。",
-    "榜单每月刷新；上月可在 Git 历史中回看 data/rankings.json。"
+    "来源：仅参考 AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis 的官方数据与报告。",
+    "原则：保持原文，不做二次评分与主观排序；若多来源口径不同，分别标注来源并给出原文链接。",
+    "更新：每日同步公开页面；如官方暂停更新，则保持最近一次有效数据。",
+    "历史：过往数据可在 Git 历史中回看 data/rankings.json。"
   ],
   "dimensions": [
     {

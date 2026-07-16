@@ -50,7 +50,7 @@ const medals = ['🥇', '🥈', '🥉'];
     </section>
 
     <section class="ranking-highlights" aria-label="本月三项冠军">
-      <h2 class="resources-title">本月三项冠军</h2>
+      <h2 class="resources-title">本月原文冠军（摘录）</h2>
       <div class="ranking-grid ranking-grid-full">
         {
           rankings.highlights.map((item) => (
@@ -58,10 +58,8 @@ const medals = ['🥇', '🥈', '🥉'];
               <span class="ranking-medal">{item.medal}</span>
               <h3>{item.name}</h3>
               <p class="ranking-dimension">{item.dimension}</p>
-              <p class="ranking-score">{item.score}</p>
-              <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
               <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm">
-                查看教程
+                查看工具
               </a>
             </article>
           ))
@@ -93,10 +91,18 @@ const medals = ['🥇', '🥈', '🥉'];
                     <a class="ranking-tool-name" href={asset(`tools/${item.id}.html`)}>
                       {item.name}
                     </a>
-                    <span class="ranking-score-inline">{item.score}</span>
                   </div>
-                  <p class="ranking-metric">{item.metric}</p>
-                  <p class="ranking-note">{item.note}</p>
+                  <p class="ranking-metric">
+                    来源：{item.source || '官方榜单原文（见上文数据来源）'}
+                    {item.url ? (
+                      <>
+                        {' · '}
+                        <a href={item.url} target="_blank" rel="noopener">
+                          查看原文
+                        </a>
+                      </>
+                    ) : null}
+                  </p>
                 </div>
               </li>
             ))}
