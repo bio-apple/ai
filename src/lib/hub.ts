@@ -1,7 +1,11 @@
 import hubOfficial from '../../data/hub-official.json';
+import rankings from '../../data/rankings.json';
 import site from '../../data/site.json';
 import tools from '../../data/tools.json';
 import { asset } from './paths';
+
+/** 工具中心排行区：各 AICPB 专题榜展示条数（完整 Top10 见排行榜页） */
+export const HUB_RANKING_TOP_N = 5;
 
 /** AI 工具中心仅比较这 10 个产品 */
 export const HUB_FEATURED_TOOLS = [
@@ -127,4 +131,52 @@ export function buildHubCompareRows(): HubCompareRow[] {
 
 export function hubFeaturedCount() {
   return HUB_FEATURED_TOOLS.length;
+}
+
+export type HubRankingItem = {
+  rank: number;
+  name: string;
+  visits: string;
+  mom: string;
+  mom_bar_pct: number;
+  url: string;
+};
+
+export type HubRankingBoard = {
+  id: string;
+  label: string;
+  title: string;
+  subtitle: string;
+  month: string;
+  source_url: string;
+  items: HubRankingItem[];
+};
+
+/** 工具中心用的 AICPB 排行摘要（各榜 Top N） */
+export function buildHubRankingBoards(topN = HUB_RANKING_TOP_N): HubRankingBoard[] {
+  return (rankings.boards || []).map((board) => ({
+    id: board.id,
+    label: board.label,
+    title: board.title,
+    subtitle: board.subtitle,
+    month: board.month || rankings.month_label || rankings.month,
+    source_url: board.source_url,
+    items: (board.items || []).slice(0, topN).map((item) => ({
+      rank: item.rank,
+      name: item.name,
+      visits: item.visits,
+      mom: item.mom,
+      mom_bar_pct: item.mom_bar_pct || 0,
+      url: item.url,
+    })),
+  }));
+}
+
+export function hubRankingMeta() {
+  return {
+    updated_at: rankings.updated_at,
+    month_label: rankings.month_label || rankings.month,
+    source_name: 'AICPB（AI产品榜）',
+    source_home: 'https://www.aicpb.com/',
+  };
 }

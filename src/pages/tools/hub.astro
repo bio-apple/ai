@@ -1,9 +1,15 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import { site } from '../../lib/data';
-import { buildHubCompareRows, hubFeaturedCount } from '../../lib/hub';
+import {
+  buildHubCompareRows,
+  buildHubRankingBoards,
+  hubFeaturedCount,
+  hubRankingMeta,
+  HUB_RANKING_TOP_N,
+} from '../../lib/hub';
 import { buildPageSchema } from '../../lib/schema';
-import { homeHref } from '../../lib/paths';
+import { asset, homeHref } from '../../lib/paths';
 
 const page = site.tools_hub_page;
 const base = site.meta.base_url;
@@ -13,7 +19,9 @@ const breadcrumbs = [
 ];
 const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`, breadcrumbs);
 const rows = buildHubCompareRows();
+const boards = buildHubRankingBoards(HUB_RANKING_TOP_N);
 const toolCount = hubFeaturedCount();
+const rankMeta = hubRankingMeta();
 ---
 
 <StandaloneLayout
@@ -22,20 +30,31 @@ const toolCount = hubFeaturedCount();
   canonical={`${base}tools/hub.html`}
   schema={schema}
   ogType="website"
+  scripts={['analytics.js', 'ux.js', 'app.js', 'progress.js', 'ranking-tabs.js']}
 >
-  <main class="standalone-page tools-hub-page hub-compare-page">
+  <main class="standalone-page tools-hub-page hub-compare-page aicpb-ranking-page">
     <nav class="breadcrumb"><a href={homeHref()}>首页</a> / 工具中心</nav>
     <div class="standalone-hero">
-      <p class="section-kicker">表格对比 · {toolCount} 款精选</p>
+      <p class="section-kicker">对比选型 · AICPB 排行 · {toolCount} 款精选</p>
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
-      <p class="standalone-meta">横向比较类型、优势、场景、定价与教程入口</p>
+      <p class="standalone-meta">
+        先对比能力与场景，再看 {rankMeta.source_name} 市场热度（更新 {rankMeta.updated_at}）
+      </p>
+      <div class="hub-quick-links" aria-label="本页目录">
+        <a href="#hub-compare" class="recommend-link">精选对比</a>
+        <a href="#hub-ranking" class="recommend-link">AICPB 排行</a>
+      </div>
     </div>
 
-    <section class="hub-compare-section" aria-labelledby="hub-compare-title">
+    <!-- 产品：选型决策；UX：能力维度优先于热度 -->
+    <section class="hub-compare-section" id="hub-compare" aria-labelledby="hub-compare-title">
       <div class="section-head">
+        <p class="section-kicker">1 · 选型</p>
         <h2 class="section-title" id="hub-compare-title">精选 AI 工具对比</h2>
-        <p class="section-desc">同一表格并排比较，快速选型；点「官方教程 / 站内教程」继续深入。</p>
+        <p class="section-desc">
+          按类型、优势、场景与定价横向比较；点「官方教程 / 站内教程」继续上手。
+        </p>
       </div>
 
       <div class="hub-compare-wrap" role="region" aria-label="AI 工具对比表" tabindex="0">
@@ -100,20 +119,140 @@ const toolCount = hubFeaturedCount();
       </div>
     </section>
 
-    <section class="ranking-method" aria-label="收录说明">
-      <h2 class="resources-title">收录说明</h2>
+    <!-- 产品：市场信号；前端：复用 Tab + AICPB 表格样式 -->
+    <section class="hub-ranking-section" id="hub-ranking" aria-labelledby="hub-ranking-title">
+      <div class="section-head">
+        <p class="section-kicker">2 · 排行</p>
+        <h2 class="section-title" id="hub-ranking-title">AI 工具排行</h2>
+        <p class="section-desc">
+          数据来自 {rankMeta.source_name}，按 Website 访问量；此处各榜展示 Top {
+            HUB_RANKING_TOP_N
+          }（{rankMeta.month_label}）。
+        </p>
+      </div>
+
+      <div class="aicpb-ranking-shell hub-ranking-shell" data-ranking-tabs>
+        <div class="aicpb-tabbar" role="tablist" aria-label="AICPB 排行分类">
+          {
+            boards.map((board, index) => (
+              <button
+                type="button"
+                class:list={['aicpb-tab', { 'is-active': index === 0 }]}
+                data-ranking-tab={board.id}
+                role="tab"
+                aria-selected={index === 0 ? 'true' : 'false'}
+                aria-controls={`hub-panel-${board.id}`}
+                id={`hub-tab-${board.id}`}
+              >
+                {board.label}
+              </button>
+            ))
+          }
+        </div>
+
+        {
+          boards.map((board, index) => (
+            <section
+              id={`hub-panel-${board.id}`}
+              class="aicpb-board-panel"
+              data-ranking-panel={board.id}
+              role="tabpanel"
+              aria-labelledby={`hub-tab-${board.id}`}
+              hidden={index !== 0}
+            >
+              <header class="aicpb-board-header">
+                <h3>{board.title}</h3>
+                <p>
+                  {board.subtitle} — {board.month} · Top {board.items.length}
+                </p>
+              </header>
+
+              <div class="aicpb-table-wrap">
+                <div class="aicpb-table-head" aria-hidden="true">
+                  <span>#排名</span>
+                  <span />
+                  <span>产品名</span>
+                  <span>访问量</span>
+                  <span>月环比</span>
+                </div>
+                <ol class="aicpb-table-body">
+                  {board.items.map((item) => (
+                    <li class="aicpb-table-row">
+                      <span class="aicpb-rank">{item.rank}</span>
+                      <span class="aicpb-logo" aria-hidden="true">
+                        {item.name.trim().charAt(0).toUpperCase()}
+                      </span>
+                      <div class="aicpb-product">
+                        <a
+                          href={item.url}
+                          target="_blank"
+                          rel="noopener"
+                          class="aicpb-product-name"
+                        >
+                          {item.name}
+                        </a>
+                      </div>
+                      <span class="aicpb-visits">{item.visits}</span>
+                      <div class="aicpb-mom">
+                        <span class="aicpb-mom-value">{item.mom}</span>
+                        <span class="aicpb-mom-bar-track" aria-hidden="true">
+                          <em
+                            class:list={[
+                              'aicpb-mom-bar-fill',
+                              item.mom.startsWith('-') ? 'is-down' : 'is-up',
+                            ]}
+                            style={`width:${item.mom_bar_pct || 0}%`}
+                          />
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </div>
+
+              <div class="aicpb-board-footer">
+                <a href={board.source_url} target="_blank" rel="noopener" class="aicpb-view-all">
+                  在 AICPB 查看 {board.label} 全部产品 →
+                </a>
+              </div>
+            </section>
+          ))
+        }
+      </div>
+
+      <p class="hub-ranking-footnote">
+        需要完整 Top 10 与更多说明？见
+        <a href={asset('ai-tools-ranking.html')}>站内排行榜页</a>
+        ，或访问
+        <a href={rankMeta.source_home} target="_blank" rel="noopener">{rankMeta.source_name}</a>
+        原文。
+      </p>
+    </section>
+
+    <section class="ranking-method" aria-label="说明">
+      <h2 class="resources-title">说明</h2>
       <ul class="ranking-method-list">
         <li>
-          对比表仅含：ChatGPT、New Bing、Gemini、Claude｜Anthropic、DeepSeek、豆包｜抖音、Github
-          Copilot、即梦 AI｜剪映、Kimi｜月之暗面、cursor。
+          <strong>对比表</strong>：站内精选 ChatGPT、New
+          Bing、Gemini、Claude｜Anthropic、DeepSeek、豆包｜抖音、Github Copilot、即梦
+          AI｜剪映、Kimi｜月之暗面、cursor，便于能力选型。
         </li>
-        <li>类型 / 优势 / 场景 / 定价为站内选型摘要。</li>
-        <li>「官方教程」跳转厂商文档或帮助中心；有站内详解页时额外提供「站内教程」。</li>
+        <li>
+          <strong>排行</strong>：引用 {rankMeta.source_name} 五个专题榜（按 Website 访问量），本页各榜
+          Top {HUB_RANKING_TOP_N}；完整榜单见原文或站内排行榜页。
+        </li>
+        <li>热度不等于适合你：先看对比表场景与定价，再用排行验证市场采用情况。</li>
       </ul>
+      <p class="aicpb-attribution">
+        排行数据版权归
+        <a href={rankMeta.source_home} target="_blank" rel="noopener">{rankMeta.source_name}</a>
+        所有，本站仅作摘录展示。
+      </p>
     </section>
 
     <div class="standalone-cta">
       <a href={homeHref()} class="cta-btn">返回首页</a>
+      <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline">完整排行榜 →</a>
     </div>
   </main>
 </StandaloneLayout>

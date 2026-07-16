@@ -129,7 +129,7 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     type: '导航',
     url: 'tools/hub.html',
     keywords:
-      '工具中心 对比表 ChatGPT New Bing Gemini Claude DeepSeek 豆包 Kimi Copilot cursor 即梦 官方教程',
+      '工具中心 对比表 AICPB AI产品榜 排行 ChatGPT New Bing Gemini Claude DeepSeek 豆包 Kimi Copilot cursor 即梦 官方教程',
   });
   items.push({
     label: 'AI 学习路线图',
@@ -257,14 +257,20 @@ function appendHubBoardSearchItems(items) {
   items.push({
     label: '工具中心：对比表',
     type: '导航',
-    url: 'tools/hub.html',
+    url: 'tools/hub.html#hub-compare',
     keywords: ['对比表', '选型', ...featured, '官方教程'].join(' '),
+  });
+  items.push({
+    label: '工具中心：AICPB 排行',
+    type: '导航',
+    url: 'tools/hub.html#hub-ranking',
+    keywords: 'AICPB AI产品榜 排行 Global China Vibe Coding Video PPT Top5',
   });
   for (const name of featured) {
     items.push({
       label: name,
       type: '工具',
-      url: 'tools/hub.html',
+      url: 'tools/hub.html#hub-compare',
       keywords: [name, '工具中心', '对比表', '官方教程'].join(' '),
     });
   }

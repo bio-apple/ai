@@ -197,7 +197,44 @@
 }
 
 .hub-compare-section {
-  margin-bottom: 40px;
+  margin-bottom: 48px;
+}
+
+.hub-ranking-section {
+  margin-bottom: 48px;
+}
+
+.hub-ranking-shell {
+  margin-top: 8px;
+}
+
+.hub-ranking-footnote {
+  margin: 16px 0 0;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.hub-ranking-footnote a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.hub-ranking-footnote a:hover {
+  text-decoration: underline;
+}
+
+.tools-hub-page .aicpb-board-header h3 {
+  margin: 0 0 6px;
+  font-size: 1.05rem;
+  color: #fff;
+}
+
+.tools-hub-page .aicpb-attribution {
+  margin: 0.85rem 0 0;
+  font-size: 0.86rem;
+  color: var(--text-muted);
 }
 
 .hub-compare-wrap {
