@@ -5,6 +5,7 @@
   const out = document.getElementById('recommend-result');
   const cfgEl = document.getElementById('recommend-config');
   const root = document.getElementById('home-recommend');
+  const chips = document.getElementById('recommend-chips');
   if (!form || !input || !out || !cfgEl || !root) return;
 
   let cfg;
@@ -18,6 +19,8 @@
   let fallback = cfg.fallback || {};
   let relations = cfg.relations || {};
   const toolMeta = cfg.tools || {};
+  const hubHref = cfg.hubHref || 'tools/hub.html';
+  const casesHref = cfg.casesHref || 'cases/index.html';
 
   function applyRules(rules) {
     if (!rules || !Array.isArray(rules.options)) return;
@@ -46,7 +49,8 @@
       for (const k of keys) {
         const key = String(k).toLowerCase();
         if (!key) continue;
-        if (q.includes(key) || key.includes(q)) score += key.length;
+        if (q === key) score += key.length + 20;
+        else if (q.includes(key) || key.includes(q)) score += key.length;
       }
       if (score > bestScore) {
         bestScore = score;
@@ -67,9 +71,15 @@
     return d.innerHTML;
   }
 
+  function toolHref(id) {
+    const meta = toolMeta[id];
+    if (meta?.href) return meta.href;
+    return `${siteBase()}tools/${encodeURIComponent(id)}.html`;
+  }
+
   function collectRelated(toolIds) {
     const seen = new Set(toolIds);
-    const chips = [];
+    const items = [];
     for (const id of toolIds) {
       const rel = relations[id];
       if (!rel) continue;
@@ -80,17 +90,31 @@
       for (const edge of edges) {
         if (!edge?.id || seen.has(edge.id)) continue;
         seen.add(edge.id);
-        chips.push(edge);
-        if (chips.length >= 3) return chips;
+        items.push(edge);
+        if (items.length >= 3) return items;
       }
     }
-    return chips;
+    return items;
   }
 
-  function openTool(tool) {
-    if (!tool) return;
-    if (typeof window.showSection === 'function') window.showSection(`section-${tool}`);
-    else location.hash = `section-${tool}`;
+  function setActiveChip(pickerId) {
+    if (!chips) return;
+    chips.querySelectorAll('[data-picker]').forEach((chip) => {
+      const on = Boolean(pickerId) && chip.dataset.picker === pickerId;
+      chip.classList.toggle('is-active', on);
+      chip.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+  }
+
+  function clearResult() {
+    out.hidden = true;
+    out.innerHTML = '';
+    setActiveChip(null);
+    const url = new URL(location.href);
+    if (url.searchParams.has('rq')) {
+      url.searchParams.delete('rq');
+      history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    }
   }
 
   function render(opt, query) {
@@ -102,21 +126,31 @@
         ? guidePath
         : `${base}${guidePath.replace(/^\//, '')}`;
     const roadmapHref = `${base}ai-learning-roadmap.html`;
-    const why = opt
-      ? `因为你的需求匹配场景「${opt.label}」：优先这些工具上手更快。`
-      : '未精确匹配场景，先给出通用主力工具；你可以换个说法再试。';
+    const pathTitle = opt?.path_title || fallback.path_title || '学习路径';
+    const steps = opt?.steps || fallback.steps || [];
+    const scenario = opt?.label || '通用入门';
 
     const toolHtml = tools
       .map((id, i) => {
         const t = toolMeta[id] || { name: id, tagline: '' };
         return `<li>
-          <button type="button" class="recommend-tool-btn" data-tool="${id}" data-track="recommend_query_tool">
-            <span class="recommend-rank">${i + 1}</span>
-            <span><strong>${escape(t.name)}</strong>${t.tagline ? `<small>${escape(t.tagline)}</small>` : ''}</span>
-          </button>
+          <a class="recommend-tool-btn" href="${escape(toolHref(id))}" data-tool="${escape(id)}" data-track="recommend_query_tool">
+            <span class="recommend-rank" aria-hidden="true">${i + 1}</span>
+            <span>
+              <strong>${escape(t.name)}</strong>
+              ${t.tagline ? `<small>${escape(t.tagline)}</small>` : ''}
+            </span>
+            <span class="recommend-tool-cta">教程</span>
+          </a>
         </li>`;
       })
       .join('');
+
+    const stepsHtml = steps.length
+      ? `<ol class="recommend-path-steps">
+          ${steps.map((s) => `<li>${escape(s)}</li>`).join('')}
+        </ol>`
+      : '';
 
     const related = collectRelated(tools);
     const relatedHtml = related.length
@@ -127,9 +161,9 @@
               .map((edge) => {
                 const t = toolMeta[edge.id] || { name: edge.id };
                 const kind = edge.kind === 'comp' ? '搭配' : '替代';
-                return `<button type="button" class="recommend-link recommend-related-btn" data-tool="${escape(edge.id)}" data-track="recommend_related_${edge.kind}">
+                return `<a class="recommend-link recommend-related-btn" href="${escape(toolHref(edge.id))}" data-tool="${escape(edge.id)}" data-track="recommend_related_${edge.kind}">
                 ${escape(kind)} · ${escape(t.name)}
-              </button>`;
+              </a>`;
               })
               .join('')}
           </div>
@@ -137,30 +171,71 @@
         </div>`
       : '';
 
+    setActiveChip(opt?.id || null);
     out.hidden = false;
     out.innerHTML = `
-      <p class="recommend-result-meta">${escape(why)}${query ? ` · 「${escape(query)}」` : ''}</p>
+      <header class="recommend-result-head">
+        <p class="recommend-result-badge">${opt ? `匹配场景 · ${escape(scenario)}` : '通用推荐'}</p>
+        <p class="recommend-result-meta">
+          ${
+            opt
+              ? `按「${escape(scenario)}」优先这些工具；点进教程页即可上手。`
+              : '未精确匹配场景，先给通用主力工具；可换个说法或点选场景再试。'
+          }
+          ${query && opt && query !== opt.label ? ` <span class="recommend-query-echo">查询：${escape(query)}</span>` : ''}
+        </p>
+      </header>
       <p class="recommend-card-lead">推荐工具</p>
       <ul class="recommend-tools">${toolHtml}</ul>
+      ${
+        stepsHtml
+          ? `<div class="recommend-path">
+              <p class="recommend-card-lead">${escape(pathTitle)}</p>
+              ${stepsHtml}
+            </div>`
+          : ''
+      }
       ${relatedHtml}
       <div class="recommend-next">
         <p class="recommend-card-lead">下一步</p>
         <div class="recommend-links">
-          <a class="recommend-link" href="${escape(roadmapHref)}" data-track="recommend_goto_learning">查看学习路线 →</a>
-          <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">打开完整指南 →</a>
+          <a class="recommend-link" href="${escape(roadmapHref)}" data-track="recommend_goto_learning">学习路线 →</a>
+          <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">完整指南 →</a>
+          <a class="recommend-link" href="${escape(hubHref)}" data-track="recommend_goto_hub">工具中心 →</a>
+          <a class="recommend-link" href="${escape(casesHref)}" data-track="recommend_goto_cases">实战案例 →</a>
         </div>
       </div>
     `;
   }
 
-  // 统一委托：结果区 + 场景卡片里的工具按钮都能点
+  function runQuery(q, { fromChip = false, pickerId = null } = {}) {
+    const query = String(q || '').trim();
+    if (!query) {
+      clearResult();
+      input.focus();
+      return;
+    }
+    const opt = (pickerId && options.find((o) => o.id === pickerId)) || matchOption(query) || null;
+    render(opt, query);
+    if (typeof trackEvent === 'function') {
+      trackEvent(fromChip ? 'recommend_chip' : 'recommend_submit', {
+        matched: opt?.id || 'fallback',
+        choice: pickerId || opt?.id || query,
+        funnel_step: 1,
+      });
+    }
+    const url = new URL(location.href);
+    url.hash = 'home-recommend';
+    url.searchParams.set('rq', query);
+    history.replaceState(null, '', url);
+  }
+
   root.addEventListener('click', (e) => {
     const btn = e.target.closest(
       '.recommend-tool-btn[data-tool], .recommend-related-btn[data-tool]',
     );
     if (!btn || !root.contains(btn)) return;
     const tool = btn.dataset.tool;
-    openTool(tool);
     if (typeof trackEvent === 'function') {
       trackEvent(
         btn.classList.contains('recommend-related-btn')
@@ -172,17 +247,12 @@
         },
       );
     }
-  });
-
-  function clearResult() {
-    out.hidden = true;
-    out.innerHTML = '';
-    const url = new URL(location.href);
-    if (url.searchParams.has('rq')) {
-      url.searchParams.delete('rq');
-      history.replaceState(null, '', `${url.pathname}${url.search}${url.hash}`);
+    // 默认走链接到教程页；若同页仍有工具分区则允许 showSection 加速
+    if (typeof window.showSection === 'function' && document.getElementById(`section-${tool}`)) {
+      e.preventDefault();
+      window.showSection(`section-${tool}`);
     }
-  }
+  });
 
   input.addEventListener('input', () => {
     if (!input.value.trim()) clearResult();
@@ -198,33 +268,16 @@
         trackEvent('recommend_empty_submit', { funnel_step: 0 });
       return;
     }
-    const opt = matchOption(q);
-    render(opt, q);
-    if (typeof trackEvent === 'function') {
-      trackEvent('recommend_submit', { matched: opt?.id || 'fallback', funnel_step: 1 });
-    }
-    const url = new URL(location.href);
-    url.hash = 'home-recommend';
-    url.searchParams.set('rq', q);
-    history.replaceState(null, '', url);
+    runQuery(q);
   });
 
-  const chips = document.getElementById('recommend-chips');
   if (chips) {
     chips.addEventListener('click', (e) => {
       const chip = e.target.closest('[data-recommend-chip]');
       if (!chip || !chips.contains(chip)) return;
       const q = chip.dataset.recommendChip || chip.textContent.trim();
       input.value = q;
-      const opt = matchOption(q) || options.find((o) => o.id === chip.dataset.picker) || null;
-      render(opt, q);
-      if (typeof trackEvent === 'function') {
-        trackEvent('recommend_chip', { choice: chip.dataset.picker || q, funnel_step: 1 });
-      }
-      const url = new URL(location.href);
-      url.hash = 'home-recommend';
-      url.searchParams.set('rq', q);
-      history.replaceState(null, '', url);
+      runQuery(q, { fromChip: true, pickerId: chip.dataset.picker || null });
       input.focus();
     });
   }
@@ -233,6 +286,6 @@
   const rq = params.get('rq');
   if (rq) {
     input.value = rq;
-    render(matchOption(rq), rq);
+    runQuery(rq);
   }
 })();

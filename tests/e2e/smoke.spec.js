@@ -50,15 +50,19 @@ test.describe('Bio AI Lab 关键路径', () => {
   test('推荐助手文本流', async ({ page }) => {
     await gotoHome(page, '#home-recommend');
     await expect(page.locator('#recommend-form')).toBeVisible();
+    await expect(page.locator('#recommend-chips')).toBeVisible();
     await page.fill('#recommend-input', '我想开发一个网站写代码');
     await page.click('#recommend-form button[type="submit"]');
     const result = page.locator('#recommend-result');
     await expect(result).toBeVisible();
     await expect(result).toContainText(/Cursor|Copilot|Codex/);
+    await expect(result.locator('.recommend-path-steps')).toBeVisible();
     await expect(result.locator('.recommend-next')).toBeVisible();
     await expect(
       result.locator('.recommend-next a[data-track="recommend_goto_learning"]'),
     ).toHaveAttribute('href', /ai-learning-roadmap\.html$/);
+    await page.fill('#recommend-input', '');
+    await expect(result).toBeHidden();
   });
 
   test('hash 路由与简报深链', async ({ page }) => {

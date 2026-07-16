@@ -1031,6 +1031,7 @@
   border-radius: 12px;
   background: var(--bg-hover);
   color: var(--text);
+  text-decoration: none;
   cursor: pointer;
   transition:
     border-color 0.2s,
@@ -1072,7 +1073,8 @@
 
 .recommend-links {
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 10px 14px;
 }
 
 .recommend-link {

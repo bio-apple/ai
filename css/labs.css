@@ -1,27 +1,42 @@
 /* AI 工具中心 / 推荐查询 */
 
+.recommend-composer {
+  margin-bottom: 20px;
+  padding: 16px 18px 18px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(37, 99, 235, 0.04), transparent 48%), var(--bg-card);
+}
+
 .recommend-query {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+}
+
+.recommend-suggest-label {
+  margin: 0 0 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
 }
 
 .recommend-chips {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 0 0 20px;
+  gap: 8px;
 }
 
 .recommend-chip {
   appearance: none;
   border: 1px solid var(--border);
-  background: var(--bg-card);
+  background: var(--bg);
   color: var(--text);
   border-radius: 10px;
-  padding: 8px 14px;
-  font-size: 0.88rem;
+  padding: 7px 12px;
+  font-size: 0.86rem;
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -37,13 +52,19 @@
   outline: none;
 }
 
+.recommend-chip.is-active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(37, 99, 235, 0.08);
+}
+
 .recommend-input {
   flex: 1 1 280px;
   min-height: 48px;
   padding: 12px 16px;
   border: 1px solid var(--border);
   border-radius: 12px;
-  background: var(--bg-card);
+  background: var(--bg);
   color: var(--text);
   font-size: 0.95rem;
 }
@@ -54,17 +75,55 @@
 }
 
 .recommend-result {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
   padding: 18px 20px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   background: rgba(37, 99, 235, 0.04);
 }
 
+.recommend-result[hidden] {
+  display: none !important;
+}
+
+.recommend-result-head {
+  margin-bottom: 14px;
+}
+
+.recommend-result-badge {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  background: rgba(37, 99, 235, 0.1);
+}
+
 .recommend-result-meta {
-  font-size: 0.82rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  margin: 0 0 12px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.recommend-query-echo {
+  color: var(--text);
+}
+
+.recommend-path {
+  margin: 4px 0 14px;
+}
+
+.recommend-tool-cta {
+  margin-left: auto;
+  align-self: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
 }
 
 .recommend-path-steps {
@@ -102,11 +161,17 @@
 }
 
 @media (max-width: 640px) {
+  .recommend-composer {
+    padding: 14px;
+  }
   .recommend-query {
     flex-direction: column;
   }
   .recommend-query .cta-btn {
     width: 100%;
+  }
+  .recommend-tool-cta {
+    display: none;
   }
 }
 

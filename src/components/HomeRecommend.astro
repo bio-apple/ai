@@ -1,5 +1,6 @@
 ---
 import { site, toolLookup, toolRelations } from '../lib/data';
+import { asset } from '../lib/paths';
 
 const picker = site.ai_picker;
 const lookup = toolLookup();
@@ -9,6 +10,7 @@ const toolsMeta = Object.fromEntries(
     {
       name: (t as { name?: string }).name || id,
       tagline: (t as { tagline?: string }).tagline || '',
+      href: asset(`tools/${id}.html`),
     },
   ]),
 );
@@ -17,46 +19,78 @@ const recommendConfig = {
   fallback: site.recommend_fallback,
   tools: toolsMeta,
   relations: toolRelations,
+  hubHref: asset('tools/hub.html'),
+  casesHref: asset('cases/index.html'),
 };
 ---
 
-<section class="home-section fade-in" id="home-recommend">
+<section
+  class="home-section fade-in recommend-section"
+  id="home-recommend"
+  aria-labelledby="recommend-title"
+>
   <div class="section-head">
     <p class="section-kicker">AI 推荐助手</p>
-    <h2 class="section-title">{picker.title}</h2>
-    <p class="section-desc">描述需求或点选下方关键词，先拿到工具选型；再进入学习路线与案例巩固</p>
+    <h2 class="section-title" id="recommend-title">{picker.title}</h2>
+    <p class="section-desc">
+      {picker.lead || '先描述目标或点选场景，立刻拿到工具选型；再跟学习路线与案例动手。'}
+    </p>
   </div>
 
-  <form class="recommend-query" id="recommend-form">
-    <label class="visually-hidden" for="recommend-input">描述你想用 AI 做什么</label>
-    <input
-      type="search"
-      id="recommend-input"
-      class="recommend-input"
-      placeholder="例如：我想开发一个网站 / 写调研报告 / 做短视频脚本"
-      maxlength="200"
-      autocomplete="off"
-    />
-    <button type="submit" class="cta-btn" data-track="recommend-submit">获取推荐</button>
-  </form>
+  <div class="recommend-composer">
+    <form class="recommend-query" id="recommend-form" role="search">
+      <label class="visually-hidden" for="recommend-input">描述你想用 AI 做什么</label>
+      <input
+        type="search"
+        id="recommend-input"
+        class="recommend-input"
+        name="q"
+        placeholder="例如：我想开发一个网站 / 写调研报告 / 做短视频脚本"
+        maxlength="200"
+        autocomplete="off"
+        enterkeyhint="search"
+        aria-controls="recommend-result"
+        aria-describedby="recommend-chip-hint"
+      />
+      <button type="submit" class="cta-btn" data-track="recommend-submit">获取推荐</button>
+    </form>
 
-  <div class="recommend-chips" id="recommend-chips" aria-label="热门场景关键词">
-    {
-      picker.options.map((opt) => (
-        <button
-          type="button"
-          class="recommend-chip"
-          data-recommend-chip={opt.label}
-          data-picker={opt.id}
-          data-track={`recommend-chip-${opt.id}`}
-        >
-          {opt.label}
-        </button>
-      ))
-    }
+    <div class="recommend-suggest">
+      <p class="recommend-suggest-label" id="recommend-chip-hint">常见场景</p>
+      <div
+        class="recommend-chips"
+        id="recommend-chips"
+        role="group"
+        aria-label="常见场景，点选即推荐"
+      >
+        {
+          picker.options.map((opt) => (
+            <button
+              type="button"
+              class="recommend-chip"
+              data-recommend-chip={opt.label}
+              data-picker={opt.id}
+              data-track={`recommend-chip-${opt.id}`}
+              aria-pressed="false"
+            >
+              {opt.label}
+            </button>
+          ))
+        }
+      </div>
+    </div>
   </div>
 
-  <div class="recommend-result" id="recommend-result" hidden></div>
+  <div
+    class="recommend-result"
+    id="recommend-result"
+    hidden
+    role="region"
+    aria-live="polite"
+    aria-atomic="true"
+    aria-label="推荐结果"
+  >
+  </div>
 
   <script
     type="application/json"
