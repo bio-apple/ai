@@ -96,7 +96,7 @@ const TOC_PRIMARY = [
   { id: 'section-create', label: 'AI 创作' },
   { id: 'section-cases', label: '案例库' },
   { id: 'section-prompts', label: 'Prompt库' },
-  { id: 'section-news', label: 'AI 新闻' },
+  { id: 'section-news', label: '新闻热点' },
   { id: 'section-videos', label: 'AI 视频' },
 ];
 
