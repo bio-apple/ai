@@ -4,7 +4,6 @@ import ToolSection from '../components/ToolSection.astro';
 import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
-import HomeOps from '../components/HomeOps.astro';
 import { site, tools } from '../lib/data';
 import { buildHomeSchema } from '../lib/schema';
 import { asset } from '../lib/paths';
@@ -130,7 +129,7 @@ const schema = buildHomeSchema(site);
         </div>
       </section>
 
-      <HomeOps />
+      {/* 数据运营模块已移除 */}
     </main>
   </section>
 
