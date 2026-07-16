@@ -2,14 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bio-apple.github.io/ai/schemas/engagement.schema.json",
   "type": "object",
-  "required": ["schema_version", "updated_at", "page_views", "favorites_count", "tools"],
+  "required": ["schema_version", "updated_at", "page_views", "tools"],
   "additionalProperties": true,
   "properties": {
     "schema_version": { "type": "integer", "minimum": 1 },
     "updated_at": { "type": "string", "minLength": 8 },
     "label": { "type": "string" },
     "page_views": { "type": "integer", "minimum": 0 },
-    "favorites_count": { "type": "integer", "minimum": 0 },
     "tools": {
       "type": "array",
       "minItems": 1,

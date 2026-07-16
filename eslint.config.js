@@ -30,7 +30,6 @@ export default [
         dataLayer: 'writable',
         umami: 'writable',
         showSection: 'readonly',
-        bioFavorites: 'writable',
         bioProgress: 'writable',
         bioEngagement: 'writable',
       },

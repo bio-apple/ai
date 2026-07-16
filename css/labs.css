@@ -1,4 +1,4 @@
-/* AI Labs / 工具中心 / 收藏 / 推荐查询 */
+/* AI Labs / 工具中心 / 推荐查询 */
 
 .recommend-query {
   display: flex;
@@ -48,68 +48,6 @@
   line-height: 1.5;
 }
 
-.fav-star {
-  margin-left: auto;
-  border: none;
-  background: transparent;
-  color: var(--text-muted);
-  font-size: 1.15rem;
-  cursor: pointer;
-  line-height: 1;
-  padding: 4px 6px;
-  border-radius: 8px;
-}
-
-.fav-star:hover,
-.fav-star.is-active {
-  color: #d97706;
-  background: rgba(217, 119, 6, 0.08);
-}
-
-.favorites-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.favorites-list li {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--bg-card);
-  padding: 4px 4px 4px 4px;
-}
-
-.favorite-chip {
-  border: none;
-  background: transparent;
-  color: var(--text);
-  font-weight: 600;
-  font-size: 0.88rem;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
-.favorite-remove {
-  border: none;
-  background: transparent;
-  color: var(--text-muted);
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-.favorite-remove:hover {
-  background: var(--bg-hover);
-  color: var(--text);
-}
-
 .daily-cadence {
   display: inline-block;
   margin-left: 6px;
@@ -123,18 +61,6 @@
   vertical-align: middle;
 }
 
-.favorites-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
-}
-
-.favorites-import-label {
-  cursor: pointer;
-  margin: 0;
-}
-
 .recommend-next {
   margin-top: 8px;
   padding-top: 12px;
@@ -146,13 +72,6 @@
 }
 
 @media (max-width: 640px) {
-  .favorites-actions {
-    width: 100%;
-  }
-  .favorites-actions .cta-btn {
-    flex: 1 1 auto;
-    text-align: center;
-  }
   .recommend-query {
     flex-direction: column;
   }

@@ -91,14 +91,6 @@
     if (!tool) return;
     if (typeof window.showSection === 'function') window.showSection(`section-${tool}`);
     else location.hash = `section-${tool}`;
-    if (typeof window.bioProgress?.record === 'function') {
-      window.bioProgress.record({
-        id: tool,
-        title: (toolMeta[tool] && toolMeta[tool].name) || tool,
-        href: `${siteBase()}tools/${tool}.html`,
-        kind: 'tool',
-      });
-    }
   }
 
   function render(opt, query) {
@@ -156,7 +148,6 @@
         <div class="recommend-links">
           <a class="recommend-link" href="${escape(roadmapHref)}" data-track="recommend_goto_learning">查看学习路线 →</a>
           <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">打开完整指南 →</a>
-          <a class="recommend-link" href="#home-favorites" data-track="recommend_goto_favorites">加入收藏清单 →</a>
         </div>
       </div>
     `;

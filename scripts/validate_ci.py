@@ -220,7 +220,7 @@ def validate_html_links() -> None:
                 continue
             if not target.exists():
                 missing.append(f"{fp.relative_to(ROOT)} -> {href}")
-    for asset in ("style.css", "app.js", "search-index.json", "recommend-rules.json", "recommend.js", "favorites.js"):
+    for asset in ("style.css", "app.js", "search-index.json", "recommend-rules.json", "recommend.js"):
         if not (ROOT / asset).exists():
             missing.append(f"(dist root) -> {asset}")
     if missing:

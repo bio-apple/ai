@@ -26,7 +26,7 @@ async function waitSearchReady(page) {
 }
 
 test.describe('Bio AI Lab 关键路径', () => {
-  test('首页主路径：推荐 · 简报 · 工具 · 收藏（无学习区块）', async ({ page }) => {
+  test('首页主路径：推荐 · 简报 · 工具（无收藏区块）', async ({ page }) => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('AI 工作流');
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
@@ -38,7 +38,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#ops-views')).not.toHaveText('—');
     await expect(page.locator('#ops-trend-list .ops-trend-item').first()).toContainText('今日点击');
     await expect(page.locator('#home-tools .tool-card-v2')).toHaveCount(6);
-    await expect(page.locator('#home-favorites')).toBeVisible();
+    await expect(page.locator('#home-favorites')).toHaveCount(0);
+    await expect(page.locator('.fav-star')).toHaveCount(0);
     await expect(page.locator('#home-learning')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toBeVisible();
   });
@@ -55,22 +56,6 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(
       result.locator('.recommend-next a[data-track="recommend_goto_learning"]'),
     ).toHaveAttribute('href', /ai-learning-roadmap\.html$/);
-  });
-
-  test('收藏星标与导出控件', async ({ page }) => {
-    await gotoHome(page);
-    const star = page.locator('.tool-cards-hot .fav-star').first();
-    await expect(star).toBeVisible();
-    await star.click();
-    await expect(page.locator('#favorites-list .favorite-chip').first()).toBeVisible();
-    await expect(page.locator('#favorites-export')).toBeVisible();
-
-    const downloadPromise = page.waitForEvent('download', { timeout: 5000 }).catch(() => null);
-    await page.locator('#favorites-export').click();
-    const download = await downloadPromise;
-    if (download) {
-      expect(download.suggestedFilename()).toMatch(/favorites/i);
-    }
   });
 
   test('hash 路由与简报深链', async ({ page }) => {
@@ -167,27 +152,6 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.goto('cases/index.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#section-cases')).toBeVisible();
     await expect(page.locator('.case-card').first()).toBeVisible();
-  });
-
-  test('收藏导入合并', async ({ page }) => {
-    await gotoHome(page);
-    await page.locator('.tool-cards-hot .fav-star').first().click();
-    await expect(page.locator('#favorites-list .favorite-chip').first()).toBeVisible();
-
-    await page.evaluate(() => {
-      const input = document.getElementById('favorites-import');
-      const blob = new Blob([JSON.stringify({ tools: ['chatgpt', 'cursor'] })], {
-        type: 'application/json',
-      });
-      const file = new File([blob], 'favorites.json', { type: 'application/json' });
-      const dt = new DataTransfer();
-      dt.items.add(file);
-      input.files = dt.files;
-      input.dispatchEvent(new Event('change', { bubbles: true }));
-    });
-    await expect
-      .poll(async () => page.locator('#favorites-list .favorite-chip').count())
-      .toBeGreaterThanOrEqual(2);
   });
 
   test('视频回退标注可出现或正常加载', async ({ page }) => {

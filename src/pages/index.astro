@@ -5,7 +5,6 @@ import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
 import HomeOps from '../components/HomeOps.astro';
-import HomeFavorites from '../components/HomeFavorites.astro';
 import { site, tools, buildHotToolCards } from '../lib/data';
 import { buildHomeSchema } from '../lib/schema';
 import { asset } from '../lib/paths';
@@ -40,7 +39,6 @@ const recommendKind: Record<string, string> = {
     'ux.js',
     'app.js',
     'recommend.js',
-    'favorites.js',
     'progress.js',
     'engagement.js',
     'lazy-sections.js',
@@ -103,7 +101,6 @@ const recommendKind: Record<string, string> = {
       <HomeRecommend />
       <HomeAiDaily />
       <HomeOps />
-      <HomeFavorites />
 
       <section class="home-section fade-in" id="home-tools">
         <div class="section-head">
@@ -117,16 +114,6 @@ const recommendKind: Record<string, string> = {
                 <div class="tool-card-top">
                   <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
                   <span class="badge">{tool.badge}</span>
-                  <button
-                    type="button"
-                    class="fav-star"
-                    data-fav-toggle={tool.id}
-                    aria-label="收藏工具"
-                    aria-pressed="false"
-                    title="收藏工具"
-                  >
-                    ☆
-                  </button>
                 </div>
                 {(tool.recommend || []).length > 0 && (
                   <ul class="recommend-badges">
@@ -168,16 +155,6 @@ const recommendKind: Record<string, string> = {
                     <div class="tool-card-top">
                       <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
                       <span class="badge">{tool.badge}</span>
-                      <button
-                        type="button"
-                        class="fav-star"
-                        data-fav-toggle={tool.id}
-                        aria-label="收藏工具"
-                        aria-pressed="false"
-                        title="收藏工具"
-                      >
-                        ☆
-                      </button>
                     </div>
                     <h3>{tool.name}</h3>
                     <p class="tool-tagline">{tool.tagline}</p>
@@ -216,7 +193,7 @@ const recommendKind: Record<string, string> = {
         <div class="section-head">
           <p class="section-kicker">继续深入</p>
           <h2 class="section-title">工具 · 排行 · 案例</h2>
-          <p class="section-desc">主路径：推荐 → 简报 → 工具 → 收藏；案例详情在独立页</p>
+          <p class="section-desc">主路径：推荐 → 简报 → 工具；案例详情在独立页</p>
         </div>
         <div class="community-links">
           <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">

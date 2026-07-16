@@ -19,7 +19,6 @@ const COPY_FILES = [
   'prompts.js',
   'knowledge.js',
   'recommend.js',
-  'favorites.js',
   'progress.js',
   'engagement.js',
   'robots.txt',
