@@ -368,13 +368,6 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const cases = readJson('cases.json');
   const compares = readJson('compares.json');
   const promptsMeta = readJson('prompts.json');
-  let rankings = { boards: [] };
-  try {
-    rankings = readJson('rankings.json');
-  } catch {
-    rankings = { boards: [] };
-  }
-
   const promptsPayload = buildPromptsPayload(cases, promptsMeta);
   const tutorialsPayload = buildTutorialsPayload(cases, tools);
   const searchIndex = buildSearchIndex(site, tools, cases, compares, promptsPayload);
