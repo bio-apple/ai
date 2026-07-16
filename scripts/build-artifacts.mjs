@@ -265,7 +265,7 @@ function appendHubBoardSearchItems(items) {
       label: name,
       type: '工具',
       url: 'tools/hub.html',
-      keywords: [name, '工具中心', '对比表', '官方教程', 'AICPB'].join(' '),
+      keywords: [name, '工具中心', '对比表', '官方教程'].join(' '),
     });
   }
 }

@@ -1,9 +1,9 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
-import { rankings, site } from '../../lib/data';
+import { site } from '../../lib/data';
 import { buildHubCompareRows, hubFeaturedCount } from '../../lib/hub';
 import { buildPageSchema } from '../../lib/schema';
-import { asset, homeHref } from '../../lib/paths';
+import { homeHref } from '../../lib/paths';
 
 const page = site.tools_hub_page;
 const base = site.meta.base_url;
@@ -26,24 +26,10 @@ const toolCount = hubFeaturedCount();
   <main class="standalone-page tools-hub-page hub-compare-page">
     <nav class="breadcrumb"><a href={homeHref()}>首页</a> / 工具中心</nav>
     <div class="standalone-hero">
-      <p class="section-kicker">表格对比 · {toolCount} 款精选 · 更新 {rankings.updated_at}</p>
+      <p class="section-kicker">表格对比 · {toolCount} 款精选</p>
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
-      <p class="standalone-meta">
-        横向比较类型、优势、场景、定价与教程入口 · 榜单数据 {rankings.month_label || rankings.month}
-      </p>
-      <div class="hub-quick-links">
-        <a
-          href={asset('ai-tools-ranking.html')}
-          class="recommend-link"
-          data-track="hub-quick-ranking">完整排行榜 →</a
-        >
-        <a
-          href={asset('prompts/library.html')}
-          class="recommend-link"
-          data-track="hub-quick-prompts">Prompt 库 →</a
-        >
-      </div>
+      <p class="standalone-meta">横向比较类型、优势、场景、定价与教程入口</p>
     </div>
 
     <section class="hub-compare-section" aria-labelledby="hub-compare-title">
@@ -61,7 +47,6 @@ const toolCount = hubFeaturedCount();
               <th scope="col">核心优势</th>
               <th scope="col">适合场景</th>
               <th scope="col">定价</th>
-              <th scope="col">AICPB</th>
               <th scope="col">教程</th>
             </tr>
           </thead>
@@ -78,16 +63,6 @@ const toolCount = hubFeaturedCount();
                   <td>{row.strength}</td>
                   <td>{row.scenario}</td>
                   <td>{row.pricing}</td>
-                  <td>
-                    {row.rank ? (
-                      <span class="hub-compare-rank">
-                        {row.boardLabel} #{row.rank}
-                        {row.visits !== '—' ? ` · ${row.visits}` : ''}
-                      </span>
-                    ) : (
-                      '—'
-                    )}
-                  </td>
                   <td>
                     <div class="hub-compare-links">
                       {row.tutorialUrl ? (
@@ -125,26 +100,20 @@ const toolCount = hubFeaturedCount();
       </div>
     </section>
 
-    <section class="ranking-method aicpb-ranking-note" aria-label="收录说明">
+    <section class="ranking-method" aria-label="收录说明">
       <h2 class="resources-title">收录说明</h2>
       <ul class="ranking-method-list">
         <li>
           对比表仅含：ChatGPT、New Bing、Gemini、Claude｜Anthropic、DeepSeek、豆包｜抖音、Github
           Copilot、即梦 AI｜剪映、Kimi｜月之暗面、cursor。
         </li>
-        <li>类型 / 优势 / 场景 / 定价为站内选型摘要；访问量与排名引用 AICPB。</li>
+        <li>类型 / 优势 / 场景 / 定价为站内选型摘要。</li>
         <li>「官方教程」跳转厂商文档或帮助中心；有站内详解页时额外提供「站内教程」。</li>
       </ul>
-      <p class="aicpb-attribution">
-        数据版权归 <a href="https://www.aicpb.com/" target="_blank" rel="noopener"
-          >AICPB（AI产品榜）</a
-        > 所有，本站仅作摘录展示。
-      </p>
     </section>
 
     <div class="standalone-cta">
-      <a href={asset('ai-tools-ranking.html')} class="cta-btn">查看完整排行榜 →</a>
-      <a href={asset('prompts/library.html')} class="cta-btn cta-btn-outline">Prompt 库 →</a>
+      <a href={homeHref()} class="cta-btn">返回首页</a>
     </div>
   </main>
 </StandaloneLayout>
