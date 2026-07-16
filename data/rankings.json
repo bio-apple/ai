@@ -1,8 +1,8 @@
 {
   "month": "2026-07",
   "updated_at": "2026-07-16",
-  "cadence": "monthly",
-  "title": "2026 AI 工具排行榜（按月）",
+  "cadence": "daily",
+  "title": "2026 AI 工具排行榜（每日更新）",
   "lead": "每月更新三份榜单：用户量、模型能力、价格。来源限定：AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis；面向中文用户，综合公开资料与站内体验，分数为相对分（满分 10），非官方统计。",
   "methodology": [
     "来源：仅参考 AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis 公布的数据与报告。",

@@ -558,8 +558,8 @@
   },
   "ranking_page": {
     "title": "2026 AI 工具排行榜 | Bio AI Lab",
-    "h1": "2026 AI 工具排行榜（按月）",
-    "lead": "按月更新三份榜单：用户量、模型能力、价格。来源限定：AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis；详细条目见 data/rankings.json。",
+    "h1": "2026 AI 工具排行榜（每日更新）",
+    "lead": "每天更新三份榜单：用户量、模型能力、价格。来源限定：AI产品榜（AICPB）、LMSYS Chatbot Arena、Artificial Analysis；详细条目见 data/rankings.json。",
     "updated": "2026-07"
   },
   "faq": [
