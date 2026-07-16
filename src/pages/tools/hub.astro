@@ -1,6 +1,6 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
-import { site, toolLookup } from '../../lib/data';
+import { resolveToolRelations, site, toolLookup } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
@@ -33,6 +33,10 @@ const urls = site.tool_urls || {};
         <div class="hub-tool-grid">
           {cat.tools.map((id) => {
             const t = lookup[id] as { name?: string; tagline?: string; summary?: string; icon?: string } | undefined;
+            const relations = resolveToolRelations(id);
+            const altPreview = relations.alternatives.slice(0, 2);
+            const compPreview = relations.complements.slice(0, 1);
+            const hasPreview = altPreview.length > 0 || compPreview.length > 0;
             return (
               <article class="hub-tool-card">
                 <div class="hub-tool-top">
@@ -47,6 +51,34 @@ const urls = site.tool_urls || {};
                   )}
                   <a href={homeHref(`#section-${id}`)} class="recommend-link">站内详解 →</a>
                 </div>
+                {hasPreview && (
+                  <div class="hub-tool-relations">
+                    {altPreview.length > 0 && (
+                      <p class="hub-tool-rel-line">
+                        <span class="hub-tool-rel-label">替代</span>
+                        {altPreview.map((rel) => (
+                          <a
+                            href={rel.href}
+                            class="recommend-link"
+                            data-track={`hub-rel-alt-${id}-${rel.id}`}
+                          >{rel.name}</a>
+                        ))}
+                      </p>
+                    )}
+                    {compPreview.length > 0 && (
+                      <p class="hub-tool-rel-line">
+                        <span class="hub-tool-rel-label">搭配</span>
+                        {compPreview.map((rel) => (
+                          <a
+                            href={rel.href}
+                            class="recommend-link"
+                            data-track={`hub-rel-comp-${id}-${rel.id}`}
+                          >{rel.name}</a>
+                        ))}
+                      </p>
+                    )}
+                  </div>
+                )}
               </article>
             );
           })}

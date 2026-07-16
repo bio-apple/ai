@@ -422,6 +422,75 @@ code {
   line-height: 1.6;
 }
 
+.tool-relations {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.tool-relations-group .resources-title {
+  margin-bottom: 12px;
+}
+
+.tool-relations-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tool-relation-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.tool-relation-link:hover {
+  border-color: var(--accent);
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.tool-relation-icon {
+  flex: 0 0 auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+}
+
+.tool-relation-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.tool-relation-body strong {
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+.tool-relation-note {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
 .standalone-cta {
   display: flex;
   flex-wrap: wrap;

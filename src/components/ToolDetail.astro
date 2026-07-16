@@ -1,10 +1,13 @@
 ---
 import type { Tool } from '../lib/data';
+import { resolveToolRelations } from '../lib/data';
 import { asset, homeHref } from '../lib/paths';
 
 interface Props { tool: Tool }
 const { tool } = Astro.props;
 const home = homeHref();
+const relations = resolveToolRelations(tool.id);
+const hasRelations = relations.alternatives.length > 0 || relations.complements.length > 0;
 ---
 <main class="standalone-page">
   <nav class="breadcrumb"><a href={home}>首页</a> / {tool.name} 教程</nav>
@@ -53,6 +56,54 @@ const home = homeHref();
         ))}
       </div>
     </>
+  )}
+  {hasRelations && (
+    <section class="tool-relations" aria-label="相关工具">
+      {relations.alternatives.length > 0 && (
+        <div class="tool-relations-group">
+          <h3 class="resources-title">可切换替代</h3>
+          <ul class="tool-relations-list">
+            {relations.alternatives.map((rel) => (
+              <li>
+                <a
+                  href={rel.href}
+                  class="tool-relation-link"
+                  data-track={`tool-rel-alt-${tool.id}-${rel.id}`}
+                >
+                  <span class={`tool-relation-icon ${rel.id}`}>{rel.icon}</span>
+                  <span class="tool-relation-body">
+                    <strong>{rel.name}</strong>
+                    <span class="tool-relation-note">{rel.note}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {relations.complements.length > 0 && (
+        <div class="tool-relations-group">
+          <h3 class="resources-title">常一起用</h3>
+          <ul class="tool-relations-list">
+            {relations.complements.map((rel) => (
+              <li>
+                <a
+                  href={rel.href}
+                  class="tool-relation-link"
+                  data-track={`tool-rel-comp-${tool.id}-${rel.id}`}
+                >
+                  <span class={`tool-relation-icon ${rel.id}`}>{rel.icon}</span>
+                  <span class="tool-relation-body">
+                    <strong>{rel.name}</strong>
+                    <span class="tool-relation-note">{rel.note}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </section>
   )}
   <div class="standalone-cta">
     <a href={homeHref(`#${tool.section_id}`)} class="cta-btn" data-track={`tool-goto-spa-${tool.id}`}>在站内交互式教程中查看 →</a>

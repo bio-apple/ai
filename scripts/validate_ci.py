@@ -239,7 +239,7 @@ def validate_oss_projects() -> None:
 
 
 def validate_data_json() -> None:
-    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json", "oss-projects.json", "rankings.json"):
+    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json", "oss-projects.json", "rankings.json", "tool-relations.json"):
         path = REPO / "data" / name
         if not path.exists():
             raise FileNotFoundError(path)
@@ -247,8 +247,30 @@ def validate_data_json() -> None:
     print("✓ data/*.json 可解析")
 
 
+def validate_tool_relations() -> None:
+    data = json.loads((REPO / "data/tool-relations.json").read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("tool-relations.schema.json")).validate(data)
+    tools = json.loads((REPO / "data/tools.json").read_text(encoding="utf-8"))
+    known = {t["id"] for t in tools}
+    unknown: list[str] = []
+    for source_id, rel in data.items():
+        if source_id not in known:
+            unknown.append(f"source:{source_id}")
+        for kind in ("alternatives", "complements"):
+            for edge in rel.get(kind) or []:
+                target = edge.get("id")
+                if target not in known:
+                    unknown.append(f"{source_id}.{kind}:{target}")
+                if target == source_id:
+                    raise AssertionError(f"self-relation forbidden: {source_id}.{kind}")
+    if unknown:
+        raise AssertionError(f"tool-relations unknown ids: {', '.join(unknown)}")
+    print(f"✓ tool-relations.json schema + ids ({len(data)} 工具)")
+
+
 STEPS = (
     ("data", validate_data_json),
+    ("tool-relations", validate_tool_relations),
     ("oss", validate_oss_projects),
     ("videos", validate_daily_videos),
     ("news", validate_ai_news),
