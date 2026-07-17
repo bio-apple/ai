@@ -139,7 +139,7 @@ document.querySelectorAll('[data-goto]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.goto;
     if (target === 'prompts') {
-      window.location.href = 'prompts/library.html';
+      showSection(resolveGoto('oss'));
       return;
     }
     showSection(resolveGoto(target));

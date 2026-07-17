@@ -3,7 +3,7 @@ import StandaloneLayout from '../../../layouts/StandaloneLayout.astro';
 import CasesSection from '../../../components/CasesSection.astro';
 import { cases, site } from '../../../lib/data';
 import { buildPageSchema } from '../../../lib/schema';
-import { asset, homeHref } from '../../../lib/paths';
+import { homeHref } from '../../../lib/paths';
 
 const page = site.cases_page;
 const base = site.meta.base_url;
@@ -38,7 +38,7 @@ for (const caseItem of cases.cases) {
     </div>
     <CasesSection />
     <div class="standalone-cta">
-      <a href={asset('prompts/library.html')} class="cta-btn">Prompt 库</a>
+      <a href={`${home}#section-oss`} class="cta-btn">开源精选</a>
       <a href={home} class="cta-btn cta-btn-outline">回首页</a>
     </div>
   </main>

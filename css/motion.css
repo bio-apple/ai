@@ -70,7 +70,7 @@
 .video-filter,
 .video-sort,
 .tool-card,
-.prompt-card,
+.prompt-lib-card,
 .compare-card,
 .video-card {
   transition:
@@ -83,7 +83,7 @@
 
 .cta-btn:hover:hover,
 .tool-card:hover,
-.prompt-card:hover,
+.prompt-lib-card:hover,
 .compare-card:hover,
 .video-card:hover {
   transform: translate3d(0, -3px, 0);

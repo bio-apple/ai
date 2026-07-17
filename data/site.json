@@ -32,11 +32,6 @@
         "href": "cases/index.html"
       },
       {
-        "type": "page",
-        "label": "Prompt 库",
-        "href": "prompts/library.html"
-      },
-      {
         "type": "tab",
         "id": "oss",
         "label": "开源精选"

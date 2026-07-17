@@ -5,26 +5,6 @@
   color: var(--text-muted);
 }
 
-.library-search-wrap {
-  margin: 0 0 16px;
-}
-
-.library-search {
-  width: 100%;
-  max-width: 560px;
-  padding: 12px 14px;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--bg-card);
-  color: var(--text);
-  font-size: 0.92rem;
-}
-
-.library-search:focus {
-  outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent);
-  border-color: var(--accent);
-}
-
 .library-toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -93,106 +73,6 @@
   border-color: var(--accent);
   color: var(--accent);
   background: rgba(37, 99, 235, 0.08);
-}
-
-.prompts-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 16px;
-}
-
-.prompt-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  transition:
-    border-color 0.2s,
-    box-shadow 0.2s,
-    transform 0.25s ease;
-}
-
-.prompt-card:hover {
-  border-color: var(--accent);
-  box-shadow: var(--shadow);
-}
-
-.prompt-card-head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-.prompt-category {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--accent);
-  background: rgba(37, 99, 235, 0.1);
-  padding: 3px 10px;
-  border-radius: 999px;
-}
-
-.prompt-card h4 {
-  font-size: 0.95rem;
-  line-height: 1.4;
-}
-
-.prompt-case-ref {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
-.prompt-content {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.75rem;
-  line-height: 1.55;
-  white-space: pre-wrap;
-  word-break: break-word;
-  background: var(--bg-hover);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 12px;
-  max-height: 180px;
-  overflow: auto;
-  flex: 1;
-}
-
-.prompt-card-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-.prompt-copy-btn {
-  padding: 8px 14px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--bg-elevated);
-  color: var(--text);
-  font-size: 0.78rem;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.prompt-copy-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-.prompt-case-link {
-  font-size: 0.78rem;
-  color: var(--accent);
-  font-weight: 600;
-}
-
-.case-badge.classic {
-  background: rgba(15, 118, 110, 0.12);
-  color: #0f766e;
 }
 
 .cases-library-grid {

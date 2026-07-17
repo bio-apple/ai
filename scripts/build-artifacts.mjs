@@ -30,7 +30,7 @@ function classifyPromptCategory(scenarios, title, content) {
   return 'writing';
 }
 
-function buildPromptsPayload(cases, promptsMeta, classicPack) {
+function buildPromptsPayload(cases, promptsMeta) {
   const prompts = [];
   for (const [idx, caseItem] of (cases.cases || []).entries()) {
     const caseAnchor = `case-${idx + 1}`;
@@ -55,34 +55,9 @@ function buildPromptsPayload(cases, promptsMeta, classicPack) {
     }
   }
 
-  // 精选自 prompts.chat（原 Awesome ChatGPT Prompts，CC0）
-  for (const item of classicPack?.prompts || []) {
-    const content = (item.content || '').trim();
-    if (!content) continue;
-    prompts.push({
-      id: item.id,
-      title: item.title || item.act || item.title_en,
-      title_en: item.title_en || item.act || '',
-      category: item.category || 'productivity',
-      tool: 'classic',
-      case_title: item.title_en || item.act || 'prompts.chat',
-      content,
-      case_anchor: '',
-      source: 'prompts.chat',
-      source_url: item.source_url || classicPack?.header?.attribution || 'https://prompts.chat/',
-      for_devs: Boolean(item.for_devs),
-      tags: [item.act, item.title_en, item.for_devs ? 'for_devs' : ''].filter(Boolean),
-    });
-  }
-
   return {
     ...promptsMeta,
     count: prompts.length,
-    classic_count: (classicPack?.prompts || []).length,
-    attribution: {
-      prompts_chat: classicPack?.header?.attribution || 'https://github.com/f/prompts.chat',
-      license: classicPack?.header?.license || 'CC0-1.0',
-    },
     prompts,
   };
 }
@@ -150,17 +125,11 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     keywords: '案例 教程 实战 Prompt 工作流',
   });
   items.push({
-    label: 'Prompt 提示词库',
-    type: 'Prompt',
-    url: 'prompts/library.html',
-    keywords: 'Prompt 提示词 模板 写作 编程 科研 prompts.chat GitHub Top10',
-  });
-  items.push({
     label: 'GitHub Top 10 Prompt 库',
-    type: 'Prompt',
-    url: 'prompts/library.html#github-top10-prompts',
+    type: '开源',
+    section: 'section-oss',
     keywords:
-      'GitHub Prompt 库 Top10 prompts.chat Fabric Prompt Engineering Guide 中文调教 系统提示词',
+      'GitHub Prompt 库 Top10 prompts.chat Fabric Prompt Engineering Guide 中文调教 系统提示词 开源精选',
   });
   items.push({
     label: 'AI 工具中心',
@@ -253,10 +222,12 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     });
   }
   for (const p of promptsPayload.prompts || []) {
+    const url = p.case_anchor ? `cases/index.html#${p.case_anchor}` : undefined;
+    const section = url ? undefined : 'section-oss';
     items.push({
       label: `Prompt：${p.title}`,
       type: 'Prompt',
-      url: `prompts/library.html#${p.id}`,
+      ...(url ? { url } : { section }),
       keywords: [p.title, p.title_en, p.content, p.tool, p.category, p.source, ...(p.tags || [])]
         .filter(Boolean)
         .join(' ')
@@ -400,13 +371,7 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const cases = readJson('cases.json');
   const compares = readJson('compares.json');
   const promptsMeta = readJson('prompts.json');
-  let classicPack = { prompts: [] };
-  try {
-    classicPack = readJson('prompts-classic.json');
-  } catch {
-    /* optional curated pack from prompts.chat */
-  }
-  const promptsPayload = buildPromptsPayload(cases, promptsMeta, classicPack);
+  const promptsPayload = buildPromptsPayload(cases, promptsMeta);
   const tutorialsPayload = buildTutorialsPayload(cases, tools);
   const searchIndex = buildSearchIndex(site, tools, cases, compares, promptsPayload);
   appendHubBoardSearchItems(searchIndex);
