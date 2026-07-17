@@ -290,24 +290,6 @@
   white-space: nowrap;
 }
 
-.hub-compare-links {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  min-width: 5.5rem;
-}
-
-.hub-compare-links a {
-  color: var(--accent);
-  font-weight: 650;
-  font-size: 0.82rem;
-  text-decoration: none;
-}
-
-.hub-compare-links a:hover {
-  text-decoration: underline;
-}
-
 .hub-quick-links {
   display: flex;
   flex-wrap: wrap;

@@ -53,7 +53,7 @@ const rankMeta = hubRankingMeta();
     <section class="hub-compare-section" id="hub-compare" aria-labelledby="hub-compare-title">
       <div class="section-head">
         <h2 class="section-title" id="hub-compare-title">精选 AI 工具对比</h2>
-        <p class="section-desc">类型、优势、场景与定价一表看清，点教程继续上手。</p>
+        <p class="section-desc">类型、优势、场景与定价一表看清。</p>
       </div>
 
       <div class="hub-compare-wrap" role="region" aria-label="AI 工具对比表" tabindex="0">
@@ -65,7 +65,6 @@ const rankMeta = hubRankingMeta();
               <th scope="col">核心优势</th>
               <th scope="col">适合场景</th>
               <th scope="col">定价</th>
-              <th scope="col">教程</th>
             </tr>
           </thead>
           <tbody>
@@ -81,35 +80,6 @@ const rankMeta = hubRankingMeta();
                   <td>{row.strength}</td>
                   <td>{row.scenario}</td>
                   <td>{row.pricing}</td>
-                  <td>
-                    <div class="hub-compare-links">
-                      {row.tutorialUrl ? (
-                        <a
-                          href={row.tutorialUrl}
-                          target="_blank"
-                          rel="noopener"
-                          data-track={`hub-tutorial-${row.localId || row.name}`}
-                        >
-                          官方教程
-                        </a>
-                      ) : null}
-                      {row.localHref ? (
-                        <a href={row.localHref} data-track={`hub-local-${row.localId}`}>
-                          站内教程
-                        </a>
-                      ) : null}
-                      {row.siteUrl && row.siteUrl !== row.tutorialUrl ? (
-                        <a
-                          href={row.siteUrl}
-                          target="_blank"
-                          rel="noopener"
-                          data-track={`hub-site-${row.localId || row.name}`}
-                        >
-                          官网
-                        </a>
-                      ) : null}
-                    </div>
-                  </td>
                 </tr>
               ))
             }
