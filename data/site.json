@@ -434,9 +434,9 @@
     "lead": "一周内 AI 热点精选：模型发布、开源动态与行业资讯，每日自动更新。"
   },
   "prompts_page": {
-    "title": "GitHub Top 10 Prompt 库 | Bio AI Lab",
-    "h1": "GitHub Top 10 Prompt 库",
-    "lead": "按角色整理的高星 Prompt 开源库：从 WEB 开发到系统提示词，点开即可跳转仓库。"
+    "title": "GitHub Prompt 库精选 | Bio AI Lab",
+    "h1": "GitHub Prompt 库精选",
+    "lead": "按应用分类的高星 Prompt 开源库（≥3万 Stars）：从 WEB 开发到系统提示词。"
   },
   "cases_page": {
     "title": "AI 实战案例库 | Bio AI Lab",

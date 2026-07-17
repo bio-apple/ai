@@ -112,7 +112,7 @@ def main() -> int:
 
 
 def sync_prompt_libraries(payload: dict) -> None:
-    """从 OSS 的 Prompt 库领域同步 GitHub Top 10，并保留角色分类。"""
+    """从 OSS 的 Prompt 库领域同步精选榜（≤15），并保留应用分类。"""
     domain = next((d for d in payload.get("domains") or [] if d.get("id") == "prompt-libs"), None)
     if not domain:
         return
@@ -125,69 +125,40 @@ def sync_prompt_libraries(payload: dict) -> None:
             print(f"warn: 无法读取既有 prompt-libraries.json: {err}", file=sys.stderr)
 
     role_by_id = {
-        lib.get("id"): lib.get("role")
+        lib.get("id"): lib.get("app") or lib.get("role")
         for lib in existing.get("libraries") or []
-        if lib.get("id") and lib.get("role")
+        if lib.get("id") and (lib.get("app") or lib.get("role"))
     }
     role_by_repo = {
-        lib.get("repo"): lib.get("role")
+        lib.get("repo"): lib.get("app") or lib.get("role")
         for lib in existing.get("libraries") or []
-        if lib.get("repo") and lib.get("role")
+        if lib.get("repo") and (lib.get("app") or lib.get("role"))
     }
 
     libs = sorted(domain.get("projects") or [], key=lambda p: -(p.get("stars") or 0))
     ranked = []
-    for i, project in enumerate(libs[:10], start=1):
+    for i, project in enumerate(libs[:15], start=1):
         item = {**project, "rank": i}
-        role = (
-            project.get("role")
+        app = (
+            project.get("app")
+            or project.get("role")
             or role_by_id.get(project.get("id"))
             or role_by_repo.get(project.get("repo"))
         )
-        if role:
-            item["role"] = role
+        if app:
+            item["app"] = app
+            item["role"] = app
         ranked.append(item)
 
+    roles = domain.get("apps") or existing.get("roles") or []
     out = {
         "updated_at": payload.get("updated_at"),
-        "title": existing.get("title") or "GitHub Top 10 Prompt 库",
+        "title": existing.get("title") or "GitHub Prompt 库精选",
         "lead": existing.get("lead")
-        or "按角色浏览 GitHub Stars 最高的开源 Prompt 资源，从 WEB 开发起步。",
+        or "按应用分类浏览高星 Prompt 开源库（≥3万 Stars），从 WEB 开发起步。",
         "source_note": existing.get("source_note")
-        or "排名按 Star 数；角色分类便于选型，每周随 OSS 刷新更新。",
-        "roles": existing.get("roles")
-        or [
-            {
-                "id": "web-dev",
-                "label": "WEB 开发",
-                "blurb": "面向前端/全栈：优化提示词、编排可复用 Pattern。",
-            },
-            {
-                "id": "ai-coding",
-                "label": "AI 编程",
-                "blurb": "Cursor、Claude Code、GPTs 等编程助手系统提示与用法。",
-            },
-            {
-                "id": "pe-learning",
-                "label": "提示工程",
-                "blurb": "系统学习 Prompt Engineering 的指南与官方教程。",
-            },
-            {
-                "id": "general-roles",
-                "label": "通用角色",
-                "blurb": "跨场景角色扮演与社区精选提示词。",
-            },
-            {
-                "id": "zh-scenes",
-                "label": "中文场景",
-                "blurb": "中文写作、办公、调教与可玩性提示词。",
-            },
-            {
-                "id": "system-prompts",
-                "label": "系统提示词",
-                "blurb": "主流模型与产品系统提示词摘录，适合研究与对照。",
-            },
-        ],
+        or "筛选：Stars ≥ 3万，总数 ≤ 15；按应用分类，随 OSS 刷新更新。",
+        "roles": roles,
         "libraries": ranked,
     }
     PROMPT_LIBS_FILE.write_text(

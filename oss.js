@@ -67,6 +67,43 @@ function renderOssGrid(items, { limit = 0 } = {}) {
   return `<div class="oss-grid">${list.map(({ project, domain }) => renderOssCard(project, domain.label)).join('')}</div>`;
 }
 
+function renderOssDomainBody(domain) {
+  const projects = domain.projects || [];
+  const apps = domain.apps || [];
+  if (!apps.length) {
+    return `<div class="oss-grid">${projects.map((p) => renderOssCard(p, domain.label)).join('')}</div>`;
+  }
+
+  const byApp = Object.fromEntries(apps.map((a) => [a.id, []]));
+  const other = [];
+  for (const project of projects) {
+    const appId = project.app || project.role;
+    if (appId && byApp[appId]) byApp[appId].push(project);
+    else other.push(project);
+  }
+
+  const sections = apps
+    .map((app) => {
+      const items = [...(byApp[app.id] || [])].sort((a, b) => (b.stars || 0) - (a.stars || 0));
+      if (!items.length) return '';
+      return `
+        <div class="oss-app-block" data-oss-app="${escapeHtml(app.id)}">
+          <h5 class="oss-app-title">
+            ${escapeHtml(app.label)}
+            ${app.blurb ? `<span class="oss-app-blurb">${escapeHtml(app.blurb)}</span>` : ''}
+          </h5>
+          <div class="oss-grid">${items.map((p) => renderOssCard(p, app.label)).join('')}</div>
+        </div>
+      `;
+    })
+    .join('');
+
+  const leftover = other.length
+    ? `<div class="oss-grid">${other.map((p) => renderOssCard(p, domain.label)).join('')}</div>`
+    : '';
+  return sections + leftover;
+}
+
 function renderOssByDomain(data, activeDomain = 'all') {
   const domains = data.domains || [];
   const toolbar = `
@@ -84,7 +121,7 @@ function renderOssByDomain(data, activeDomain = 'all') {
         return `
         <div class="oss-domain-block" data-oss-block="${escapeHtml(domain.id)}">
           <h4 class="oss-domain-title">${escapeHtml(domain.label)} <span class="oss-domain-desc">${escapeHtml(domain.description || '')}</span></h4>
-          <div class="oss-grid">${projects.map((p) => renderOssCard(p, domain.label)).join('')}</div>
+          ${renderOssDomainBody(domain)}
         </div>
       `;
       })
@@ -99,7 +136,7 @@ function renderOssByDomain(data, activeDomain = 'all') {
     `
     <div class="oss-domain-block">
       <h4 class="oss-domain-title">${escapeHtml(domain.label)} <span class="oss-domain-desc">${escapeHtml(domain.description || '')}</span></h4>
-      <div class="oss-grid">${(domain.projects || []).map((p) => renderOssCard(p, domain.label)).join('')}</div>
+      ${renderOssDomainBody(domain)}
     </div>
   `
   );

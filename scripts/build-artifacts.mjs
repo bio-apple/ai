@@ -125,11 +125,11 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     keywords: '案例 教程 实战 Prompt 工作流',
   });
   items.push({
-    label: 'GitHub Top 10 Prompt 库',
+    label: 'GitHub Prompt 库精选',
     type: '开源',
     section: 'section-oss',
     keywords:
-      'GitHub Prompt 库 Top10 prompts.chat Fabric Prompt Engineering Guide 中文调教 系统提示词 开源精选',
+      'GitHub Prompt 库 应用分类 WEB开发 AI编程 提示工程 prompts.chat Fabric 中文调教 系统提示词 开源精选',
   });
   items.push({
     label: 'AI 工具中心',
@@ -394,7 +394,7 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
     fs.copyFileSync(ossSrc, path.join(outDir, 'oss-projects.json'));
   }
 
-  // GitHub Top 10 Prompt 库：优先独立文件，否则从 OSS 领域推导
+  // GitHub Prompt 库精选：优先独立文件，否则从 OSS 领域推导
   const promptLibsSrc = path.join(DATA, 'prompt-libraries.json');
   if (fs.existsSync(promptLibsSrc)) {
     fs.copyFileSync(promptLibsSrc, path.join(outDir, 'prompt-libraries.json'));
@@ -404,13 +404,14 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
     if (domain) {
       const libraries = [...(domain.projects || [])]
         .sort((a, b) => (b.stars || 0) - (a.stars || 0))
-        .slice(0, 10)
+        .slice(0, 15)
         .map((p, i) => ({ ...p, rank: i + 1 }));
       writeOut(outDir, 'prompt-libraries.json', {
         updated_at: oss.updated_at,
-        title: 'GitHub Top 10 Prompt 库',
-        lead: '按 GitHub Stars 精选的开源 Prompt 库与提示工程资源（Top 10）。',
-        source_note: '排名按 Star 数排序，随每周 OSS 刷新更新。',
+        title: 'GitHub Prompt 库精选',
+        lead: '按应用分类浏览高星 Prompt 开源库（≥3万 Stars）。',
+        source_note: '筛选：Stars ≥ 3万，总数 ≤ 15；按应用分类，随 OSS 刷新更新。',
+        roles: domain.apps || [],
         libraries,
       });
     }

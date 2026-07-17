@@ -34,11 +34,11 @@ function formatStars(n: number) {
     <nav class="breadcrumb"><a href={home}>首页</a> / Prompt 库</nav>
 
     <div class="standalone-hero">
-      <p class="section-kicker">GitHub Stars · 按角色</p>
+      <p class="section-kicker">GitHub Stars · 按应用 · ≥3万</p>
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
       <p class="library-meta">
-        Top {libs.length} · {roles.length} 个角色 · 更新 {promptLibraries.updated_at}
+        {libs.length} 个开源库 · {roles.length} 类应用 · 更新 {promptLibraries.updated_at}
       </p>
     </div>
 
@@ -46,14 +46,14 @@ function formatStars(n: number) {
       class="library-toolbar prompt-role-toolbar"
       id="prompt-role-toolbar"
       role="tablist"
-      aria-label="按角色筛选"
+      aria-label="按应用筛选"
     >
       <button
         type="button"
         class="library-filter active"
         data-prompt-role="all"
         role="tab"
-        aria-selected="true">全部角色</button
+        aria-selected="true">全部应用</button
       >
       {
         roles.map((role) => (

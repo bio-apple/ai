@@ -27,14 +27,14 @@ npm ci && pip install -r requirements.txt
 
 ## 改内容
 
-| 想改什么    | 改哪里                                           |
-| ----------- | ------------------------------------------------ |
-| 文案 / 导航 | `data/site.json`                                 |
-| 工具 / 关系 | `data/tools.json` · `data/tool-relations.json`   |
-| 对比表行    | `data/site.json` → `compare_table`               |
-| 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`）   |
-| 热度基准    | `data/engagement.json`                           |
-| Prompt 库   | `prompt-libraries.json`（GitHub Top 10，按角色） |
+| 想改什么    | 改哪里                                         |
+| ----------- | ---------------------------------------------- |
+| 文案 / 导航 | `data/site.json`                               |
+| 工具 / 关系 | `data/tools.json` · `data/tool-relations.json` |
+| 对比表行    | `data/site.json` → `compare_table`             |
+| 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`） |
+| 热度基准    | `data/engagement.json`                         |
+| Prompt 库   | `prompt-libraries.json`（≥3万星，按应用，≤15） |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。  
 运维救急见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。
