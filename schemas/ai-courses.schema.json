@@ -37,7 +37,8 @@
           "language": { "type": "string" },
           "is_free": { "type": "boolean", "const": true },
           "is_new": { "type": "boolean" },
-          "required": { "type": "boolean" }
+          "required": { "type": "boolean" },
+          "hub": { "type": "boolean" }
         }
       }
     }

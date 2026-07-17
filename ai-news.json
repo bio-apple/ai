@@ -95,24 +95,6 @@
       "published_at": "2026-07-16T07:00:54+08:00"
     },
     {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 165,839",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-16T04:04:27Z"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 80,944",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-16T03:47:18Z"
-    },
-    {
       "id": "52ec802fb768",
       "title": "Schrödinger计算化学驱动的药物发现全流程实战研修班",
       "summary": "Schrödinger套件是业界领先的一站式计算药物设计平台，深度融合基于物理的高精度算法（如FEP+自由能微扰、Desmond分子动力学、Glide对接）与数据驱动的机器学习模型。其功能覆盖药物发现全流程：靶点结构预测（同源建模、口袋检测）、虚拟筛选（对接、药效团、形状匹配）、先导化合物优化（Ligand Desi…",
@@ -129,15 +111,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-07-16 11:51 分享"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,574",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-15T22:22:49Z"
     },
     {
       "id": "b8da10635efb",

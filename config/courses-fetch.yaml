@@ -3,7 +3,7 @@
 
 max_age_days: 180
 max_items: 80
-min_items: 10
+min_items: 8
 free_only: true
 
 # 学习路线（展示与筛选顺序）
@@ -16,6 +16,8 @@ track_order:
   - AI 工程实践
 
 # 必收录（不受半年窗口限制；始终写入）
+# 说明：吴恩达系列以 ML + Deep Learning Specialization 为代表；
+# DeepLearning.AI 短课程合集不与单课同时进列表（见 dedupe.hubs）
 required:
   - id: microsoft-genai-beginners
     title: Generative AI for Beginners（微软官方 AI 入门）
@@ -74,17 +76,30 @@ required:
     format: 大学公开课
     summary: 斯坦福从零构建语言模型课程，覆盖数据、架构、训练与推理。
     language: en
+
+# 合集入口：只作外链说明，不与下属单课同时出现在 items
+hubs:
   - id: deeplearning-ai-hub
     title: DeepLearning.AI 短课程系列（吴恩达团队）
     url: https://www.deeplearning.ai/short-courses/
+    child_url_prefix: https://www.deeplearning.ai/courses/
     platform: DeepLearning.AI
     track: LLM 大模型
-    format: 短课程
-    summary: DeepLearning.AI 持续更新的免费短课程合集，覆盖 RAG、Agent、推理优化等。
-    language: en
+    format: 短课程合集
+    summary: DeepLearning.AI 短课程合集入口（RAG / Agent / 推理等）；不与下属单课重复罗列。
+
+dedupe:
+  # 合集已收录时，不再收录其下属单课（避免合集+清单重复）
+  prefer_hub_over_children: true
+  # 同一平台同一路线最多保留的非必收录条数
+  max_per_platform_per_track: 2
+  # 同路线标题词重叠过高视为近重复
+  title_jaccard: 0.5
+  youtube_ai_pattern: "(ai|artificial intelligence|machine learning|deep learning|llm|gpt|neural|transformer|pytorch|agent|langchain|rag|prompt|diffusion|reinforcement|computer vision|nlp|大模型|人工智能|机器学习|深度学习)"
 
 deeplearning_ai:
-  enabled: true
+  # 合集优先时关闭单课抓取，避免与 hubs 重复
+  enabled: false
   source: DeepLearning.AI
   url: https://www.deeplearning.ai/short-courses/
   base_url: https://www.deeplearning.ai/courses/

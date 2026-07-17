@@ -127,6 +127,38 @@ function uniqueValues(items, key) {
   return [...new Set((items || []).map((i) => i[key]).filter(Boolean))];
 }
 
+/** URL / 标题去重，避免合集与单课或近重复同时渲染 */
+function dedupeCourseItems(items) {
+  const seenUrl = new Set();
+  const seenTitle = new Set();
+  const out = [];
+  for (const item of items || []) {
+    const url = String(item.url || '')
+      .trim()
+      .replace(/\/+$/, '');
+    const title = String(item.title || '')
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, ' ');
+    if (url && seenUrl.has(url)) continue;
+    if (title && seenTitle.has(title)) continue;
+    if (url) seenUrl.add(url);
+    if (title) seenTitle.add(title);
+    out.push(item);
+  }
+  // 合集优先：若同时存在合集与下属路径，丢掉下属
+  const hubs = out.filter((i) => i.hub);
+  if (!hubs.length) return out;
+  const prefixes = ['https://www.deeplearning.ai/courses'];
+  return out.filter((item) => {
+    if (item.hub) return true;
+    const url = String(item.url || '')
+      .trim()
+      .replace(/\/+$/, '');
+    return !prefixes.some((p) => url.startsWith(p));
+  });
+}
+
 function renderToolbar(items) {
   const toolbar = document.getElementById('courses-toolbar');
   if (!toolbar) return;
@@ -216,11 +248,13 @@ async function initCoursesSection() {
         ? data.track_order
         : DEFAULT_TRACK_ORDER;
     const orderIndex = Object.fromEntries(coursesState.trackOrder.map((t, i) => [t, i]));
-    coursesState.items = [...(data.items || [])].sort((a, b) => {
+    coursesState.items = dedupeCourseItems([...(data.items || [])]).sort((a, b) => {
       const ta = orderIndex[a.track] ?? 999;
       const tb = orderIndex[b.track] ?? 999;
       if (ta !== tb) return ta - tb;
-      if (Boolean(a.required) !== Boolean(b.required)) return a.required ? -1 : 1;
+      if (Boolean(a.required || a.hub) !== Boolean(b.required || b.hub)) {
+        return a.required || a.hub ? -1 : 1;
+      }
       return String(b.published_at || '').localeCompare(String(a.published_at || ''));
     });
     renderCoursesMeta(data);

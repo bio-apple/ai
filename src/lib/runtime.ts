@@ -215,8 +215,15 @@ export function pickAiDailyBrief(
     limits.industry,
   );
   // 不把 OSS 精选回填进 GitHub 面板，避免与首页「开源项目精选」重复
-  const github = pickNewsBy(items, (i) => /GitHub/i.test(i.source || ''), limits.github);
   const oss = pickHomeOss(limits.oss);
+  const ossUrls = new Set(
+    oss.map((x) => (x.project.url || '').trim().replace(/\/+$/, '')).filter(Boolean),
+  );
+  const github = pickNewsBy(
+    items,
+    (i) => /GitHub/i.test(i.source || '') && !ossUrls.has((i.url || '').trim().replace(/\/+$/, '')),
+    limits.github,
+  );
   return {
     updatedAt: news?.updated_at,
     models: models.length ? models : items.slice(0, limits.models),

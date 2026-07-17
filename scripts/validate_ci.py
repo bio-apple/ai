@@ -139,6 +139,11 @@ REQUIRED_COURSE_URLS = (
     "https://cs231n.stanford.edu",
     "https://web.stanford.edu/class/cs224n",
     "https://cs336.stanford.edu",
+    "https://www.deeplearning.ai/short-courses",
+)
+
+HUB_CHILD_PREFIXES = (
+    ("https://www.deeplearning.ai/short-courses", "https://www.deeplearning.ai/courses"),
 )
 
 
@@ -163,14 +168,25 @@ def validate_ai_courses() -> None:
     urls = [str(i.get("url") or "").strip().rstrip("/") for i in items]
     if len(urls) != len(set(urls)):
         raise ValueError("ai-courses.json 存在重复 URL")
+    titles = [" ".join(str(i.get("title") or "").lower().split()) for i in items]
+    if len(titles) != len(set(titles)):
+        raise ValueError("ai-courses.json 存在重复标题")
     present = set(urls)
     missing = [u for u in REQUIRED_COURSE_URLS if u not in present]
     if missing:
         raise ValueError("ai-courses.json 缺少必收录课程: " + ", ".join(missing))
+    for hub, prefix in HUB_CHILD_PREFIXES:
+        if hub in present:
+            children = [u for u in urls if u.startswith(prefix)]
+            if children:
+                raise ValueError(
+                    "ai-courses.json 合集与下属单课重复: "
+                    + ", ".join(children[:5])
+                )
     window = int(data.get("window_days") or 180)
     if window < 1:
         raise ValueError("window_days 无效")
-    print(f"✓ ai-courses.json schema ({len(items)} 门免费 · 路线 {len(data.get('track_order') or [])})")
+    print(f"✓ ai-courses.json schema ({len(items)} 门免费 · 去重 · 路线 {len(data.get('track_order') or [])})")
 
 
 def validate_search_index() -> None:

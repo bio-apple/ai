@@ -117,6 +117,43 @@ def normalize_url(url: str) -> str:
     return (url or "").strip().rstrip("/")
 
 
+def title_tokens(title: str) -> set[str]:
+    stop = {
+        "a",
+        "an",
+        "the",
+        "and",
+        "or",
+        "with",
+        "for",
+        "to",
+        "of",
+        "in",
+        "on",
+        "course",
+        "courses",
+        "full",
+        "complete",
+        "free",
+        "ai",
+        "系列",
+        "课程",
+        "官方",
+        "入门",
+    }
+    parts = re.findall(r"[a-z0-9\u4e00-\u9fff]+", (title or "").lower())
+    return {p for p in parts if len(p) > 1 and p not in stop}
+
+
+def title_jaccard(a: str, b: str) -> float:
+    ta, tb = title_tokens(a), title_tokens(b)
+    if not ta or not tb:
+        return 0.0
+    inter = len(ta & tb)
+    union = len(ta | tb)
+    return inter / union if union else 0.0
+
+
 def decode_js_str(value: str) -> str:
     text = value.replace("\\u0026", "&").replace("\\/", "/")
     try:
@@ -194,6 +231,39 @@ def fetch_required(cfg: dict[str, Any]) -> list[dict[str, Any]]:
     print(f"  · 必收录: {len(items)}")
     return items
 
+
+def fetch_hubs(cfg: dict[str, Any]) -> list[dict[str, Any]]:
+    """合集入口：一卡代表整套系列，避免与下属单课并列。"""
+    today = now_local().strftime("%Y-%m-%d")
+    items: list[dict[str, Any]] = []
+    for row in cfg.get("hubs") or []:
+        if not isinstance(row, dict):
+            continue
+        url = str(row.get("url") or "").strip()
+        title = str(row.get("title") or "").strip()
+        if not url or not title:
+            continue
+        platform = str(row.get("platform") or "Official")
+        item = course_item(
+            source=platform,
+            title=title,
+            url=url,
+            summary=str(
+                row.get("summary")
+                or "系列合集入口：点此浏览全部短课程（不与下属单课重复罗列）。"
+            ),
+            track=str(row.get("track") or "LLM 大模型"),
+            fmt=str(row.get("format") or "短课程合集"),
+            published_at=today,
+            language=str(row.get("language") or "en"),
+            course_id=str(row.get("id") or make_id(platform, url)),
+            required=True,
+        )
+        item["hub"] = True
+        item["child_url_prefix"] = str(row.get("child_url_prefix") or "").strip()
+        items.append(item)
+    print(f"  · 合集入口: {len(items)}")
+    return items
 
 def fetch_deeplearning_ai(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str, str]) -> list[dict]:
     if not cfg.get("enabled", True):
@@ -385,7 +455,13 @@ def fetch_huggingface(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str,
     return items
 
 
-def fetch_youtube_courses(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str, str]) -> list[dict]:
+def fetch_youtube_courses(
+    cfg: dict[str, Any],
+    cutoff: datetime,
+    keywords: dict[str, str],
+    *,
+    ai_pattern: str | None = None,
+) -> list[dict]:
     if not cfg.get("enabled", True):
         return []
     pattern = cfg.get("title_pattern") or "course"
@@ -393,6 +469,12 @@ def fetch_youtube_courses(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
         title_re = re.compile(pattern, re.I)
     except re.error:
         title_re = re.compile(r"course", re.I)
+    ai_re = None
+    if ai_pattern:
+        try:
+            ai_re = re.compile(ai_pattern, re.I)
+        except re.error:
+            ai_re = None
     fallback = "入门"
     items: list[dict] = []
     for ch in cfg.get("channels") or []:
@@ -417,6 +499,8 @@ def fetch_youtube_courses(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
             title = (entry.findtext("a:title", default="", namespaces=ATOM_NS) or "").strip()
             if not title_re.search(title):
                 continue
+            if ai_re and not ai_re.search(title):
+                continue
             published = parse_iso_date(entry.findtext("a:published", default="", namespaces=ATOM_NS))
             if not published or published < cutoff:
                 continue
@@ -437,8 +521,81 @@ def fetch_youtube_courses(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
                 )
             )
             n += 1
-        print(f"  · YouTube {ch.get('name')} (免费): +{n}")
+        print(f"  · YouTube {ch.get('name')} (免费·AI): +{n}")
     return items
+
+
+def suppress_hub_children(items: list[dict], *, prefer_hub: bool) -> list[dict]:
+    if not prefer_hub:
+        return items
+    prefixes = [
+        normalize_url(str(i.get("child_url_prefix") or ""))
+        for i in items
+        if i.get("hub") and i.get("child_url_prefix")
+    ]
+    if not prefixes:
+        return items
+    out: list[dict] = []
+    dropped = 0
+    for item in items:
+        if item.get("hub"):
+            out.append(item)
+            continue
+        url = normalize_url(str(item.get("url") or ""))
+        if any(url.startswith(p) for p in prefixes if p):
+            dropped += 1
+            continue
+        out.append(item)
+    if dropped:
+        print(f"  · 去重：合集下属单课已抑制 {dropped} 条")
+    return out
+
+
+def drop_near_duplicate_titles(items: list[dict], *, threshold: float) -> list[dict]:
+    if threshold <= 0:
+        return items
+    kept: list[dict] = []
+    dropped = 0
+    for item in items:
+        title = str(item.get("title") or "")
+        track = str(item.get("track") or "")
+        dup = False
+        for prev in kept:
+            if str(prev.get("track") or "") != track:
+                continue
+            # required/hub 优先保留；后来者若过近则丢
+            if title_jaccard(title, str(prev.get("title") or "")) >= threshold:
+                dup = True
+                break
+        if dup:
+            dropped += 1
+            continue
+        kept.append(item)
+    if dropped:
+        print(f"  · 去重：标题近重复丢弃 {dropped} 条")
+    return kept
+
+
+def cap_platform_track(items: list[dict], *, max_per: int) -> list[dict]:
+    if max_per <= 0:
+        return items
+    counts: dict[tuple[str, str], int] = {}
+    out: list[dict] = []
+    dropped = 0
+    for item in items:
+        if item.get("required") or item.get("hub"):
+            out.append(item)
+            continue
+        key = (str(item.get("platform") or ""), str(item.get("track") or ""))
+        n = counts.get(key, 0)
+        if n >= max_per:
+            dropped += 1
+            continue
+        counts[key] = n + 1
+        out.append(item)
+    if dropped:
+        print(f"  · 去重：平台×路线超额丢弃 {dropped} 条")
+    return out
 
 
 def merge_and_sort(
@@ -447,6 +604,7 @@ def merge_and_sort(
     *,
     track_order: list[str],
     max_items: int,
+    dedupe_cfg: dict[str, Any],
 ) -> list[dict]:
     order_index = {name: i for i, name in enumerate(track_order)}
     seen_url: set[str] = set()
@@ -466,12 +624,19 @@ def merge_and_sort(
             seen_url.add(url)
         if title_key:
             seen_title.add(title_key)
-        merged.append(item)
+        # 不把内部字段写进最终 JSON
+        clean = {k: v for k, v in item.items() if k != "child_url_prefix"}
+        # 暂存 prefix 供 suppress 使用
+        if item.get("child_url_prefix"):
+            clean["child_url_prefix"] = item["child_url_prefix"]
+        merged.append(clean)
+
+    prefer_hub = bool(dedupe_cfg.get("prefer_hub_over_children", True))
+    merged = suppress_hub_children(merged, prefer_hub=prefer_hub)
 
     def sort_key(row: dict[str, Any]) -> tuple[int, int, str, str]:
         track = str(row.get("track") or "")
-        # required first within the same track
-        req_rank = 0 if row.get("required") else 1
+        req_rank = 0 if (row.get("required") or row.get("hub")) else 1
         return (
             order_index.get(track, 999),
             req_rank,
@@ -480,8 +645,23 @@ def merge_and_sort(
         )
 
     merged.sort(key=sort_key)
+    merged = drop_near_duplicate_titles(
+        merged, threshold=float(dedupe_cfg.get("title_jaccard") or 0)
+    )
+    merged = cap_platform_track(
+        merged, max_per=int(dedupe_cfg.get("max_per_platform_per_track") or 0)
+    )
+    merged.sort(key=sort_key)
 
-    required_urls = {normalize_url(str(x.get("url") or "")) for x in required}
+    # 清理内部字段
+    for row in merged:
+        row.pop("child_url_prefix", None)
+
+    required_urls = {
+        normalize_url(str(x.get("url") or ""))
+        for x in required
+        if x.get("required") or x.get("hub")
+    }
     if len(merged) <= max_items:
         return merged
 
@@ -504,15 +684,27 @@ def main() -> int:
         str(k): str(v) for k, v in (cfg.get("track_keywords") or {}).items() if v
     }
 
-    print(f"规则：必收录 + 近 {max_age} 天免费补充 · 路线编排 · 最多 {max_items} 条")
-    required = fetch_required(cfg)
+    dedupe_cfg = cfg.get("dedupe") or {}
+    print(f"规则：必收录 + 近 {max_age} 天免费补充 · 去重 · 路线编排 · 最多 {max_items} 条")
+    required = fetch_required(cfg) + fetch_hubs(cfg)
     discovered: list[dict] = []
     discovered += fetch_deeplearning_ai(cfg.get("deeplearning_ai") or {}, cutoff, keywords)
     discovered += fetch_coursera(cfg.get("coursera") or {}, cutoff, keywords)
     discovered += fetch_huggingface(cfg.get("huggingface_learn") or {}, cutoff, keywords)
-    discovered += fetch_youtube_courses(cfg.get("youtube_courses") or {}, cutoff, keywords)
+    discovered += fetch_youtube_courses(
+        cfg.get("youtube_courses") or {},
+        cutoff,
+        keywords,
+        ai_pattern=str(dedupe_cfg.get("youtube_ai_pattern") or "") or None,
+    )
 
-    items = merge_and_sort(required, discovered, track_order=track_order, max_items=max_items)
+    items = merge_and_sort(
+        required,
+        discovered,
+        track_order=track_order,
+        max_items=max_items,
+        dedupe_cfg=dedupe_cfg,
+    )
     if len(items) < min_items:
         print(f"✗ 免费课程条数不足（{len(items)} < {min_items}）", file=sys.stderr)
         return 1
@@ -535,11 +727,11 @@ def main() -> int:
         "title": "AI 课程资源",
         "lead": (
             "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent → AI 工程实践」编排的免费课程；"
-            "必收录微软 / 吴恩达 / 斯坦福 / Google 核心课，并补充近半年新课。"
+            "必收录微软 / 吴恩达 / 斯坦福 / Google 核心课；合集与单课不重复罗列。"
         ),
         "source_note": (
-            "必收录不受时间窗限制；补充课来自 DeepLearning.AI / Coursera 免费课 / "
-            "Hugging Face Learn / YouTube 公开视频课。"
+            "去重规则：URL/标题唯一；合集优先于下属单课；同平台同路线限额；"
+            "标题近重复合并。补充课来自 Coursera 免费课 / Hugging Face / YouTube（AI 向）。"
         ),
         "items": items,
     }

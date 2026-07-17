@@ -5,6 +5,7 @@
 
 from __future__ import annotations
 
+import json
 import unicodedata
 from typing import Any
 
@@ -65,3 +66,54 @@ def assert_news_unique(items: list[dict[str, Any]]) -> None:
     problems = find_news_duplicates(items)
     if problems:
         raise ValueError("新闻去重失败：\n- " + "\n- ".join(problems))
+
+
+def normalize_repo_url(url: str) -> str:
+    text = (url or "").strip().rstrip("/")
+    lower = text.lower()
+    if lower.startswith("http://"):
+        text = "https://" + text[7:]
+        lower = text.lower()
+    if lower.startswith("https://www."):
+        text = "https://" + text[len("https://www.") :]
+    return text
+
+
+def load_oss_project_urls(path: Any) -> set[str]:
+    """读取开源精选里的仓库 URL，供新闻侧排除，避免首页重复。"""
+    from pathlib import Path
+
+    p = Path(path)
+    if not p.is_file():
+        return set()
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return set()
+    urls: set[str] = set()
+
+    def walk(node: Any) -> None:
+        if isinstance(node, dict):
+            url = node.get("url") or node.get("html_url")
+            if isinstance(url, str) and "github.com" in url:
+                urls.add(normalize_repo_url(url))
+            for v in node.values():
+                walk(v)
+        elif isinstance(node, list):
+            for v in node:
+                walk(v)
+
+    walk(data)
+    return urls
+
+
+def exclude_urls(items: list[dict[str, Any]], blocked: set[str]) -> list[dict[str, Any]]:
+    if not blocked:
+        return items
+    out: list[dict[str, Any]] = []
+    for item in items:
+        url = normalize_repo_url(str(item.get("url") or ""))
+        if url and url in blocked:
+            continue
+        out.append(item)
+    return out
