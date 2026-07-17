@@ -187,6 +187,8 @@ export type AiDailyBrief = {
   models: NewsItem[];
   industry: NewsItem[];
   github: NewsItem[];
+  /** 全量 GitHub 源资讯（供虚拟列表，可远大于 github 预览条数） */
+  githubAll?: NewsItem[];
   oss: Array<{ project: OssProject; domainLabel: string }>;
   learn: VideoItem[];
 };
@@ -220,11 +222,10 @@ export function pickAiDailyBrief(
   const ossUrls = new Set(
     oss.map((x) => (x.project.url || '').trim().replace(/\/+$/, '')).filter(Boolean),
   );
-  const github = pickNewsBy(
-    items,
+  const githubAll = items.filter(
     (i) => /GitHub/i.test(i.source || '') && !ossUrls.has((i.url || '').trim().replace(/\/+$/, '')),
-    limits.github,
   );
+  const github = githubAll.slice(0, limits.github);
   return {
     updatedAt: news?.updated_at,
     models: models.length ? models : items.slice(0, limits.models),
@@ -232,6 +233,7 @@ export function pickAiDailyBrief(
       ? industry
       : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
     github,
+    githubAll,
     oss,
     learn: pickHomeVideos(limits.learn),
   };

@@ -6,8 +6,8 @@
   const loaded = new Set();
 
   const SECTION_SCRIPTS = {
-    'section-videos': ['videos.js'],
-    'section-news': ['news.js'],
+    'section-videos': ['lib/virtual-list.js', 'videos.js'],
+    'section-news': ['lib/virtual-list.js', 'news.js'],
     'section-oss': ['oss.js'],
     'section-courses': ['courses.js'],
   };

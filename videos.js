@@ -220,7 +220,7 @@ function renderFilteredGrid(videos) {
   if (!videos.length) {
     return '<p class="loading-hint">当前筛选条件下暂无视频。</p>';
   }
-  return `<div class="video-grid">${videos.map((v) => renderVideoCard(v)).join('')}</div>`;
+  return `<div class="video-virtual-host" data-video-vl data-vl-items="${videos.length}"></div>`;
 }
 
 function renderPlatformBlock(label, videos) {
@@ -230,7 +230,7 @@ function renderPlatformBlock(label, videos) {
   return `
     <div class="video-category">
       <h4 class="video-category-title">${escapeHtml(label)} <span class="video-day-count">${videos.length} 条</span></h4>
-      <div class="video-grid">${videos.map((v) => renderVideoCard(v)).join('')}</div>
+      <div class="video-virtual-host" data-video-vl data-vl-items="${videos.length}"></div>
     </div>
   `;
 }
@@ -246,7 +246,8 @@ function renderBatch(batch, state) {
   if (state.platform !== 'all') {
     const filtered = filterAndSortVideos(flat, state);
     const platformLabelText = state.platform === 'bilibili' ? 'B站' : 'YouTube';
-    return `
+    return {
+      html: `
       <section class="video-day">
         <h3 class="video-day-title">${escapeHtml(batch.date)} · ${platformLabelText} · ${sortLabel}
           <span class="video-day-count">${filtered.length} 条</span>
@@ -254,14 +255,17 @@ function renderBatch(batch, state) {
         ${fallbackNote}
         ${renderFilteredGrid(filtered)}
       </section>
-    `;
+    `,
+      groups: [{ key: 'single', items: filtered }],
+    };
   }
 
   const youtube = filterAndSortVideos(flat, { platform: 'youtube', sort: state.sort });
   const bilibili = filterAndSortVideos(flat, { platform: 'bilibili', sort: state.sort });
   const total = youtube.length + bilibili.length;
 
-  return `
+  return {
+    html: `
     <section class="video-day">
       <h3 class="video-day-title">${escapeHtml(batch.date)} · ${sortLabel}
         <span class="video-day-count">${total} 条</span>
@@ -270,7 +274,81 @@ function renderBatch(batch, state) {
       ${renderPlatformBlock('YouTube', youtube)}
       ${renderPlatformBlock('B站', bilibili)}
     </section>
-  `;
+  `,
+    groups: [
+      { key: 'youtube', items: youtube },
+      { key: 'bilibili', items: bilibili },
+    ],
+  };
+}
+
+let videoVirtualLists = [];
+
+function destroyVideoVirtualLists() {
+  for (const vl of videoVirtualLists) {
+    try {
+      vl.destroy();
+    } catch {
+      /* ignore */
+    }
+  }
+  videoVirtualLists = [];
+}
+
+function mountVideoVirtualLists(root, groups) {
+  destroyVideoVirtualLists();
+  const create = window.BioAI?.createVirtualList;
+  const hosts = [...root.querySelectorAll('[data-video-vl]')];
+  if (!create) {
+    // 无虚拟列表时回退：分片写入，避免一次 innerHTML 卡顿
+    const mapInChunks = window.BioAI?.mapInChunks;
+    hosts.forEach((host, idx) => {
+      const items = groups[idx]?.items || [];
+      if (!items.length) return;
+      if (mapInChunks) {
+        mapInChunks(items, (v) => renderVideoCard(v), { chunkSize: 24 }).then((parts) => {
+          host.className = 'video-grid';
+          host.innerHTML = parts.join('');
+        });
+      } else {
+        host.className = 'video-grid';
+        host.innerHTML = items.map((v) => renderVideoCard(v)).join('');
+      }
+    });
+    return;
+  }
+
+  hosts.forEach((host, idx) => {
+    const items = groups[idx]?.items || [];
+    if (!items.length) return;
+    const vl = create({
+      container: host,
+      items,
+      layout: 'grid',
+      itemHeight: 320,
+      minItemWidth: 280,
+      gap: 16,
+      overscan: 4,
+      renderItem: (v) => renderVideoCard(v),
+    });
+    videoVirtualLists.push(vl);
+  });
+}
+
+function paintVideoList() {
+  const root = document.getElementById('daily-video-list');
+  if (!root || !videoState.rawData) return;
+  const batches = videoState.rawData.batches || [];
+  const latest = withCategoryFallback(batches);
+  if (!latest) {
+    destroyVideoVirtualLists();
+    root.innerHTML = '<p class="loading-hint">暂无视频数据，每日北京时间 0:00 自动更新。</p>';
+    return;
+  }
+  const painted = renderBatch(latest, videoState);
+  root.innerHTML = painted.html;
+  mountVideoVirtualLists(root, painted.groups);
+  if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
 }
 
 function fetchVideoData() {
@@ -292,20 +370,6 @@ function resetVideoFetch() {
   window.BioAI?.invalidateFetch?.(VIDEO_JSON);
   window.BioAI?.invalidateFetch?.(VIDEO_JSON_FALLBACK);
   videoDataPromise = null;
-}
-
-function paintVideoList() {
-  const root = document.getElementById('daily-video-list');
-  if (!root || !videoState.rawData) return;
-  const batches = videoState.rawData.batches || [];
-  const latest = withCategoryFallback(batches);
-  if (!latest) {
-    root.innerHTML = '<p class="loading-hint">暂无视频数据，每日北京时间 0:00 自动更新。</p>';
-    return;
-  }
-  // 只展示最新一批推荐（空分类已从前序批次回填），不渲染历史日期整页
-  root.innerHTML = renderBatch(latest, videoState);
-  if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
 }
 
 function initVideoToolbar() {

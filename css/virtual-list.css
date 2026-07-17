@@ -1,0 +1,78 @@
+/* Virtual list hosts */
+.vl-root {
+  position: relative;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vl-spacer {
+  width: 1px;
+  pointer-events: none;
+}
+
+.vl-window {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  will-change: transform;
+}
+
+.daily-virtual-host {
+  max-height: 220px;
+  min-height: 120px;
+  margin: 0;
+  border-radius: 10px;
+}
+
+.daily-virtual-host.vl-root {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.daily-vl-row a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  padding: 10px 12px;
+  border-radius: 0;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+.daily-vl-row a:hover {
+  background: var(--bg-hover);
+}
+
+.daily-vl-row .daily-item-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.daily-vl-row .daily-item-meta {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.video-virtual-host {
+  max-height: min(70vh, 720px);
+  min-height: 280px;
+}
+
+.video-virtual-host.vl-root {
+  padding-right: 4px;
+}
+
+.aicpb-table-body.vl-root {
+  max-height: min(70vh, 640px);
+  list-style: none;
+}
+
+.aicpb-table-body .vl-window .aicpb-table-row:last-child {
+  border-bottom: 1px solid #f4f4f4;
+}

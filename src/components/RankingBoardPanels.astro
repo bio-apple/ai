@@ -37,9 +37,15 @@ const {
 } = Astro.props;
 
 const TitleTag = headingLevel;
+const boardsPayload = boards.map((board) => ({
+  id: board.id,
+  show_bar: board.show_bar !== false,
+  items: board.items || [],
+}));
 ---
 
 <div class="aicpb-ranking-shell" data-ranking-tabs>
+  <script type="application/json" data-ranking-boards set:html={JSON.stringify(boardsPayload)} />
   <div class="aicpb-tabbar" role="tablist" aria-label="排行榜分类">
     {
       boards.map((board, index) => (
@@ -67,6 +73,7 @@ const TitleTag = headingLevel;
       };
       const showBar = board.show_bar !== false;
       const sourceLabel = board.source_name || board.label;
+      const ssrPreview = (board.items || []).slice(0, 10);
       return (
         <section
           id={`${panelIdPrefix}-${board.id}`}
@@ -91,9 +98,15 @@ const TitleTag = headingLevel;
               <span>{cols.primary}</span>
               <span>{cols.secondary}</span>
             </div>
-            <ol class="aicpb-table-body">
-              {board.items.map((item) => (
-                <li class="aicpb-table-row">
+            <div
+              class="aicpb-table-body"
+              data-ranking-vl
+              data-ranking-board={board.id}
+              data-show-bar={showBar ? '1' : '0'}
+              role="list"
+            >
+              {ssrPreview.map((item) => (
+                <div class="aicpb-table-row" role="listitem">
                   <span class="aicpb-rank">{item.rank}</span>
                   <span class="aicpb-logo" aria-hidden="true">
                     {item.name.trim().charAt(0).toUpperCase()}
@@ -119,9 +132,9 @@ const TitleTag = headingLevel;
                       </span>
                     ) : null}
                   </div>
-                </li>
+                </div>
               ))}
-            </ol>
+            </div>
           </div>
 
           <div class="aicpb-board-footer">

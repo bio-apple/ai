@@ -43,36 +43,54 @@ const brief = pickAiDailyBrief();
       </ul>
     </article>
 
-    <article class="daily-panel">
+    <article class="daily-panel daily-panel-github">
       <h3 class="daily-panel-title">GitHub 热门 <span class="daily-cadence">日更</span></h3>
-      <ul class="daily-list">
-        {
-          brief.github.map((item) => (
-            <li>
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener"
-                data-track="daily_panel_click"
-                data-track-panel="github"
-              >
-                <span class="daily-item-title">{item.title}</span>
-                <span class="daily-item-meta">{item.category || item.source || 'GitHub'}</span>
-              </a>
-            </li>
-          ))
-        }
-        {
-          brief.github.length === 0 && (
-            <li class="daily-empty">
-              暂无 GitHub 动态 ·{' '}
-              <a href="#home-oss" data-track="daily_empty_oss">
-                看开源精选
-              </a>
-            </li>
-          )
-        }
-      </ul>
+      <script
+        type="application/json"
+        id="daily-github-data"
+        set:html={JSON.stringify(
+          (brief.githubAll?.length ? brief.githubAll : brief.github).map((item) => ({
+            title: item.title,
+            url: item.url,
+            meta: item.category || item.source || 'GitHub',
+          })),
+        )}
+      />
+      <div
+        id="daily-github-list"
+        class="daily-virtual-host"
+        data-github-vl
+        aria-label="GitHub 热门列表"
+      >
+        <ul class="daily-list">
+          {
+            brief.github.map((item) => (
+              <li>
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener"
+                  data-track="daily_panel_click"
+                  data-track-panel="github"
+                >
+                  <span class="daily-item-title">{item.title}</span>
+                  <span class="daily-item-meta">{item.category || item.source || 'GitHub'}</span>
+                </a>
+              </li>
+            ))
+          }
+          {
+            brief.github.length === 0 && (
+              <li class="daily-empty">
+                暂无 GitHub 动态 ·{' '}
+                <a href="#home-oss" data-track="daily_empty_oss">
+                  看开源精选
+                </a>
+              </li>
+            )
+          }
+        </ul>
+      </div>
     </article>
 
     <article class="daily-panel">
