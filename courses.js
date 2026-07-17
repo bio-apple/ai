@@ -69,7 +69,8 @@ function renderCourseCard(item) {
         <span class="course-date">${html(formatCourseDate(item.published_at))}</span>
       </div>
       <h4>
-        <a href="${html(item.url)}" target="_blank" rel="${extRel()}" data-track="course-click">
+        <a href="${html(item.url)}" target="_blank" rel="${extRel()}" data-track="course-click"
+          data-course-title="${html(item.title || '')}" data-course-track="${html(item.track || '')}">
           ${html(item.title || '')}
         </a>
         ${badges}
@@ -79,7 +80,8 @@ function renderCourseCard(item) {
         ${item.format ? `<span>${html(item.format)}</span>` : ''}
       </p>
       ${item.summary ? `<p class="course-summary">${html(item.summary)}</p>` : ''}
-      <a href="${html(item.url)}" target="_blank" rel="${extRel()}" class="course-read" data-track="course-read">打开课程 →</a>
+      <a href="${html(item.url)}" target="_blank" rel="${extRel()}" class="course-read" data-track="course-read"
+        data-course-title="${html(item.title || '')}" data-course-track="${html(item.track || '')}">打开课程 →</a>
     </article>
   `;
 }

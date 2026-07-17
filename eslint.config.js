@@ -32,6 +32,7 @@ export default [
         showSection: 'readonly',
         bioProgress: 'writable',
         bioEngagement: 'writable',
+        bioFunnel: 'writable',
       },
     },
     rules: {

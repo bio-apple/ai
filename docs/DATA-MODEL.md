@@ -352,6 +352,8 @@ nav: {
 | `track_engagement`                      | `boolean` | 是否上报点击        |
 | `analytics_enabled`                     | `boolean` | 任一项配置则为 true |
 
+**内容漏斗**：`funnel.js` 为 `trackEvent()` 附加 `journey_id`、`funnel_step`（1–5）、`funnel_stage`、`page_type`。事件清单与分析维度见 [CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)。
+
 ---
 
 ## 9. 脚本抓取的 JSON

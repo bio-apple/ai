@@ -150,6 +150,8 @@ npm run build
 | `site-health.yml`       | 线上探针 08:00 / 20:00 |
 | `weekly-link-check.yml` | Dead Link 检测（lychee） |
 
+行为分析（内容漏斗）见 **[docs/CONTENT-FUNNEL.md](./docs/CONTENT-FUNNEL.md)**。
+
 失败处置见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。
 
 ## 常见改动

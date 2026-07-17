@@ -20,6 +20,7 @@
     'tool-card',
     'tool-card-btn',
     'nav-tab',
+    'section_view',
     'recommend_query_tool',
     'recommend_related_tool',
     'ops-tool-click',
@@ -27,6 +28,10 @@
     'hero-cta-nav',
     'daily_panel_click',
     'search_hit',
+    'search_query',
+    'course-click',
+    'course-read',
+    'funnel_entry',
   ]);
 
   let seed = {

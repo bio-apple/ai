@@ -9,13 +9,15 @@ let analyticsConfig = {
 };
 
 function trackEvent(name, params = {}) {
+  const payload =
+    typeof window.bioFunnel?.enrich === 'function' ? window.bioFunnel.enrich(name, params) : params;
   const gaId = analyticsConfig.ga_measurement_id;
   if (gaId && typeof gtag === 'function') {
-    gtag('event', name, params);
+    gtag('event', name, payload);
   }
   if (typeof window.umami?.track === 'function') {
     try {
-      window.umami.track(name, params);
+      window.umami.track(name, payload);
     } catch {
       /* ignore */
     }
@@ -24,7 +26,7 @@ function trackEvent(name, params = {}) {
   window.__clickStats[name] = (window.__clickStats[name] || 0) + 1;
   if (typeof window.bioEngagement?.onEvent === 'function') {
     try {
-      window.bioEngagement.onEvent(name, params);
+      window.bioEngagement.onEvent(name, payload);
     } catch {
       /* ignore */
     }
@@ -141,6 +143,9 @@ function bindClickTracking() {
     };
     if (el.dataset.trackPanel) params.panel = el.dataset.trackPanel;
     if (el.dataset.tool) params.tool = el.dataset.tool;
+    if (el.dataset.courseTitle) params.course_title = el.dataset.courseTitle.slice(0, 80);
+    if (el.dataset.courseTrack) params.course_track = el.dataset.courseTrack.slice(0, 40);
+    if (el.dataset.searchQuery) params.q = el.dataset.searchQuery.slice(0, 80);
     trackEvent(el.dataset.track, params);
   });
 }

@@ -284,6 +284,21 @@ function initSiteSearch() {
   const results = document.getElementById('site-search-results');
   if (!input || !results) return;
 
+  let searchQueryTimer = null;
+  let lastTrackedQuery = '';
+
+  function scheduleSearchQueryTrack(query, resultCount) {
+    const q = query.trim();
+    if (!q || q === lastTrackedQuery) return;
+    clearTimeout(searchQueryTimer);
+    searchQueryTimer = setTimeout(() => {
+      lastTrackedQuery = q;
+      if (typeof trackEvent === 'function') {
+        trackEvent('search_query', { q: q.slice(0, 80), result_count: resultCount });
+      }
+    }, 600);
+  }
+
   input.setAttribute('role', 'combobox');
   input.setAttribute('aria-autocomplete', 'list');
   input.setAttribute('aria-controls', 'site-search-results');
@@ -341,14 +356,16 @@ function initSiteSearch() {
         const meta = item.type
           ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>`
           : '';
+        const qAttr = escapeHtml(query.slice(0, 80));
         if (item.url) {
-          return `<a href="${escapeHtml(resolveSearchUrl(item.url))}" class="search-hit" data-track="search_hit">${label}${meta}</a>`;
+          return `<a href="${escapeHtml(resolveSearchUrl(item.url))}" class="search-hit" data-track="search_hit" data-search-query="${qAttr}">${label}${meta}</a>`;
         }
-        return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit">${label}${meta}</button>`;
+        return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit" data-search-query="${qAttr}">${label}${meta}</button>`;
       })
       .join('');
     results.hidden = false;
     input.setAttribute('aria-expanded', 'true');
+    scheduleSearchQueryTrack(query, hits.length);
 
     results.querySelectorAll('button.search-hit').forEach((btn) => {
       btn.addEventListener('click', () => {
@@ -385,6 +402,9 @@ function initSiteSearch() {
   if (q) {
     input.value = q;
     renderResults(q);
+    if (typeof trackEvent === 'function') {
+      trackEvent('search_query', { q: q.slice(0, 80), entry_source: 'url_param' });
+    }
   }
 
   // 索引异步完成后刷新就绪标记与当前查询
