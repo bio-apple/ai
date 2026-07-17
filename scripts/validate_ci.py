@@ -150,6 +150,34 @@ def validate_sitemap_robots() -> None:
     print(f"✓ robots.txt + {urlset.name} ({len(locs)} loc)")
 
 
+def validate_open_graph() -> None:
+    """确认关键页面含 Open Graph / Twitter Card，便于 X / LinkedIn / 微信分享预览。"""
+    samples = [
+        ROOT / "index.html",
+        ROOT / "tools" / "chatgpt.html",
+    ]
+    required_og = ("og:title", "og:description", "og:image", "og:url")
+    required_twitter = ("twitter:card", "twitter:title", "twitter:image")
+    for path in samples:
+        if not path.exists():
+            raise FileNotFoundError(f"OG 校验缺少页面: {path.relative_to(ROOT)}")
+        html = path.read_text(encoding="utf-8")
+        soup = BeautifulSoup(html, "html.parser")
+        for prop in required_og:
+            tag = soup.find("meta", attrs={"property": prop})
+            content = (tag.get("content") or "").strip() if tag else ""
+            if not content:
+                raise ValueError(f"{path.name} 缺少 meta property={prop!r}")
+            if prop == "og:image" and not content.startswith("https://"):
+                raise ValueError(f"{path.name} og:image 须为绝对 HTTPS URL")
+        for name in required_twitter:
+            tag = soup.find("meta", attrs={"name": name})
+            content = (tag.get("content") or "").strip() if tag else ""
+            if not content:
+                raise ValueError(f"{path.name} 缺少 meta name={name!r}")
+    print("✓ Open Graph / Twitter Card（首页 + 工具页）")
+
+
 def _load_schema(name: str) -> dict:
     schema = json.loads((REPO / "schemas" / name).read_text(encoding="utf-8"))
     schema.pop("$schema", None)
@@ -487,6 +515,7 @@ STEPS = (
     ("runtime", validate_runtime_json),
     ("recommend", validate_recommend_rules),
     ("sitemap", validate_sitemap_robots),
+    ("opengraph", validate_open_graph),
     ("search", validate_search_index),
     ("analytics", validate_analytics_config),
     ("engagement", validate_engagement),

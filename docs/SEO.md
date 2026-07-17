@@ -8,7 +8,7 @@
 | ------- | ----------- | -------------------------------------------------------------- |
 | SEO-001 | Title       | `data/site.json` → `meta.title`，各页经 `SeoHead.astro` 输出   |
 | SEO-002 | Description | `meta.description` + 各页独立 `description` prop               |
-| SEO-003 | Open Graph  | `SeoHead.astro`：og:title/description/image/url + Twitter Card |
+| SEO-003 | Open Graph  | `SeoHead.astro`：og:title/description/image/url + Twitter Card + 微信 itemprop |
 | SEO-004 | Favicon     | 根目录 `favicon.svg` → `Favicon.astro`                         |
 | SEO-005 | robots.txt  | 根目录 `robots.txt`，构建时同步至 `dist/`                      |
 | SEO-006 | sitemap     | `@astrojs/sitemap` → `sitemap-index.xml`                       |
@@ -52,7 +52,7 @@ https://bio-apple.github.io/ai/
 
 - [ ] 浏览器标签显示品牌 favicon
 - [ ] 首页 Title / Description 符合 `site.json`
-- [ ] 微信 / X / LinkedIn 分享显示 `og-image.jpg` 预览
+- [ ] 微信 / X / LinkedIn 分享显示 `og-image.jpg` 预览（可用 [opengraph.xyz](https://www.opengraph.xyz/) 或各平台调试器验收）
 - [ ] `https://bio-apple.github.io/ai/robots.txt` 可访问
 - [ ] `https://bio-apple.github.io/ai/sitemap-index.xml` 可访问
 - [ ] Lighthouse SEO ≥ 90（本地 `npm run build` 后测 `dist/index.html`）

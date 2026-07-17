@@ -48,6 +48,11 @@ const image = ogImage || 'https://bio-apple.github.io/ai/og-image.jpg';
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content={ogImageAlt} />
 
+<!-- 微信等国内平台兼容（与 og:* 并存） -->
+<meta itemprop="name" content={title} />
+<meta itemprop="description" content={description} />
+<meta itemprop="image" content={image} />
+
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
