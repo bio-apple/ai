@@ -18,6 +18,7 @@
 3. **新闻过期** → 手动跑 [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)
 4. **OSS 精选异常** → 手动跑 [weekly-oss.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-oss.yml)（≥5 万 Star Top5 + 中文 Top1；需 `GITHUB_TOKEN`）
 5. **课程资源异常** → 手动跑 [weekly-courses.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-courses.yml)
+6. **Dead Link 告警** → 查看 [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) artifact → 本地 `npm run build && lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'` → 修复后 push
 
 ### 课程资源专项
 
@@ -53,6 +54,7 @@ DIST=dist python3 scripts/validate_ci.py courses
 - [Weekly OSS](https://github.com/bio-apple/ai/actions/workflows/weekly-oss.yml)
 - [Weekly courses](https://github.com/bio-apple/ai/actions/workflows/weekly-courses.yml)
 - [Site health](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)
+- [Weekly link check (lychee)](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml)
 - [CI / Pages](https://github.com/bio-apple/ai/actions)
 
 ## 回滚

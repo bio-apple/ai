@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""检查构建产物与 data 中的外链可达性（HEAD/GET）。"""
+"""轻量外链抽检（HEAD/GET）。每周 CI 使用 lychee（见 weekly-link-check.yml / .lychee.toml）。"""
 
 from __future__ import annotations
 

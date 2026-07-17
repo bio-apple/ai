@@ -1,0 +1,27 @@
+# Dead Link 检测（weekly-link-check.yml）
+# 站内本地链路由 validate_ci.py → links 步骤覆盖；lychee 专注外链可达性。
+
+verbose = "warn"
+no_progress = true
+cache = true
+max_cache_age = "7d"
+timeout = 20
+max_retries = 2
+max_concurrency = 14
+user_agent = "BioAILab-LinkChecker/1.0 (+https://bio-apple.github.io/ai/)"
+
+accept = [
+  "200", "201", "202", "203", "204",
+  "301", "302", "303", "307", "308",
+  "403", "405", "429", "999",
+]
+
+scheme = ["https", "http"]
+method = "get"
+
+exclude = [
+  "^https://bio-apple\\.github\\.io",
+  "^https://api\\.",
+  "^https://x\\.com/",
+  "^https://twitter\\.com/",
+]

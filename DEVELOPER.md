@@ -148,7 +148,7 @@ npm run build
 | `weekly-oss.yml`        | OSS 精选 周一 06:00    |
 | `weekly-courses.yml`    | 课程资源 周一 07:00    |
 | `site-health.yml`       | 线上探针 08:00 / 20:00 |
-| `weekly-link-check.yml` | 外链抽检               |
+| `weekly-link-check.yml` | Dead Link 检测（lychee） |
 
 失败处置见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。
 

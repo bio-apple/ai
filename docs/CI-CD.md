@@ -32,6 +32,7 @@ flowchart LR
 | `daily-news.yml`                                | 每日 06:00            | 刷新新闻，必要时派发部署                              |
 | `weekly-oss.yml` / `weekly-courses.yml`         | 每周一                | 刷新开源/课程，必要时派发部署                         |
 | `site-health.yml`                               | 定时                  | 线上探针                                              |
+| `weekly-link-check.yml`                         | 每周一                | Dead Link 检测（lychee 外链扫描）                     |
 | `deploy-cloudflare.yml`                         | push `main`           | 可选 Cloudflare Pages 镜像（需 Secrets）              |
 
 push `main` 时 **`ci.yml` 与 `deploy.yml` 并行**：

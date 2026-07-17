@@ -1,12 +1,18 @@
 name: Weekly Link Check
 
+# Dead Link 检测：每周扫描构建产物与 JSON 数据中的外链（lychee）
 on:
   schedule:
+    # 北京时间每周一 10:00 ≈ UTC 周一 02:00
     - cron: "0 2 * * 1"
   workflow_dispatch:
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
-  external-links:
+  lychee:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -19,14 +25,88 @@ jobs:
       - name: Install deps and build (Astro)
         run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
 
-      - uses: actions/setup-python@v6
+      - name: Restore lychee cache
+        uses: actions/cache@v4
         with:
-          python-version: "3.12"
-          cache: pip
+          path: .lycheecache
+          key: lychee-${{ github.sha }}
+          restore-keys: lychee-
 
-      - name: Install Python deps
-        run: python -m pip install -r requirements.txt
+      - name: Dead link check (lychee)
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          fail: false
+          format: markdown
+          output: lychee-report.md
+          args: >-
+            --config .lychee.toml
+            --github-token ${{ secrets.GITHUB_TOKEN }}
+            './dist/**/*.html'
+            './data/**/*.json'
+            './ai-courses.json'
+            './ai-news.json'
 
-      - name: Check external links
-        run: DIST=dist python scripts/check_external_links.py
-        continue-on-error: true
+      - name: Upload lychee report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-report-${{ github.run_id }}
+          path: lychee-report.md
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Open or update issue on broken links
+        if: steps.lychee.outputs.exit_code != '0'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const fs = require('fs');
+            const title = '[ops] Dead link check failed';
+            let report = '';
+            try {
+              report = fs.readFileSync('lychee-report.md', 'utf8').trim();
+            } catch (_) {
+              report = '(lychee 报告未生成，请查看 workflow 日志与 artifact)';
+            }
+            const body = [
+              '每周 Dead Link 检测发现失效或不可达外链。',
+              '',
+              `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
+              `- Time (UTC): ${new Date().toISOString()}`,
+              '',
+              '**lychee 报告摘要**',
+              '',
+              report.length > 6000 ? report.slice(0, 6000) + '\n\n…（完整报告见 workflow artifact）' : report,
+              '',
+              '处置：',
+              '- 本地复现：`npm run build && lychee --config .lychee.toml \'./dist/**/*.html\' \'./data/**/*.json\'`',
+              '- 站内本地链：`DIST=dist python3 scripts/validate_ci.py links`',
+              '- 文档：docs/CONTENT-OPS.md §7 · docs/OPS-RUNBOOK.md',
+              '',
+              '<!-- weekly-link-check -->',
+            ].join('\n');
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 30,
+            });
+            const existing = issues.data.find((i) => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
