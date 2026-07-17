@@ -88,6 +88,9 @@ jobs:
       - name: Validate AI news
         run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py news
 
+      - name: Validate AI courses
+        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py courses
+
       - name: Validate runtime JSON
         run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py runtime
 
