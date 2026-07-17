@@ -11,27 +11,33 @@
   role="dialog"
   aria-label="AI 知识库助手"
   aria-hidden="true"
+  aria-modal="true"
 >
   <div class="knowledge-header">
     <h3>AI 知识库助手</h3>
     <button type="button" class="knowledge-close" id="knowledge-close" aria-label="关闭">×</button>
   </div>
-  <div class="knowledge-messages" id="knowledge-messages">
-    <div class="knowledge-msg bot">
-      你好！可问我站内工具、Prompt、案例或视频，例如「Cursor 怎么写代码」「科研 Prompt」。
+  <div class="knowledge-messages" id="knowledge-messages" aria-live="polite">
+    <div class="knowledge-msg bot" data-msg-id="welcome">
+      <div class="knowledge-msg-body">
+        你好！可问我站内工具、课程、开源或视频，例如「Cursor 怎么写代码」「免费 AI 课程」。
+      </div>
     </div>
   </div>
-  <p class="knowledge-hint">基于站内索引检索 · 本地优先，FastAPI 环境下可调用 /api/ask</p>
+  <p class="knowledge-hint">Enter 发送 · Shift+Enter 换行 · 基于站内索引检索</p>
   <form class="knowledge-form" id="knowledge-form">
-    <input
-      type="search"
-      class="knowledge-input"
-      id="knowledge-input"
-      placeholder="输入问题…"
-      autocomplete="off"
-      maxlength="300"
-      aria-label="知识库问题"
-    />
-    <button type="submit" class="knowledge-submit" id="knowledge-submit">提问</button>
+    <div class="knowledge-composer">
+      <textarea
+        class="knowledge-input"
+        id="knowledge-input"
+        placeholder="输入问题…"
+        autocomplete="off"
+        maxlength="600"
+        rows="1"
+        aria-label="知识库问题"></textarea>
+      <button type="submit" class="knowledge-submit" id="knowledge-submit" aria-label="发送">
+        <span class="knowledge-submit-icon" aria-hidden="true">↑</span>
+      </button>
+    </div>
   </form>
 </div>

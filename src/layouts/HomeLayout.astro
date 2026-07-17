@@ -2,6 +2,7 @@
 import ThemeBoot from '../components/ThemeBoot.astro';
 import SecurityMeta from '../components/SecurityMeta.astro';
 import SeoHead from '../components/SeoHead.astro';
+import Favicon from '../components/Favicon.astro';
 import FontLoader from '../components/FontLoader.astro';
 import UxWidgets from '../components/UxWidgets.astro';
 import KnowledgeAssistant from '../components/KnowledgeAssistant.astro';
@@ -53,6 +54,7 @@ const styleHref = asset('style.css');
       ogImageAlt={site.meta.og_image_alt || title}
       siteName={site.meta.site_name || 'Bio AI Lab'}
     />
+    <Favicon />
     <FontLoader />
     <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />

@@ -27,8 +27,10 @@ const home = homeHref();
 >
   <main class="standalone-page">
     <nav class="breadcrumb"><a href={home}>首页</a> / 选型指南 / {compare.breadcrumb}</nav>
-    <h1>{compare.h1}</h1>
-    <p class="standalone-lead">{compare.lead}</p>
+    <div class="standalone-hero">
+      <h1>{compare.h1}</h1>
+      <p class="standalone-lead">{compare.lead}</p>
+    </div>
     <div class="answer-box">
       <strong>一句话结论：</strong><span set:html={compare.conclusion} />
     </div>

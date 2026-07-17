@@ -1,6 +1,7 @@
-name: Deploy GitHub Pages
+name: Deploy
 
-# push main → 质量门禁 → 构建校验 → 部署 Pages
+# push main → Lint & Format → Build → Deploy GitHub Pages
+# 线上：https://bio-apple.github.io/ai/
 on:
   push:
     branches: [main]
@@ -37,7 +38,7 @@ jobs:
         run: npm run lint
 
   build:
-    name: Build & Validate
+    name: Build
     needs: quality
     runs-on: ubuntu-latest
     steps:
@@ -67,7 +68,8 @@ jobs:
           test -f dist/ai-courses.json
           test -f dist/engagement.json
           test -f dist/_headers
-          test -f dist/_redirects
+          test -f dist/favicon.svg
+          test -f dist/og-image.jpg
 
       - uses: actions/setup-python@v6
         id: setup-python
@@ -88,7 +90,7 @@ jobs:
           path: dist
 
   deploy:
-    name: Deploy Pages
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     environment:

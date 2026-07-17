@@ -17,7 +17,7 @@ on:
 permissions:
   contents: write
   issues: write
-  actions: write # 派发 pages.yml 需要；缺此项 Trigger Pages deploy 会 403
+  actions: write # 派发 deploy.yml 需要；缺此项 Trigger Pages deploy 会 403
 
 concurrency:
   group: daily-videos
@@ -87,10 +87,10 @@ jobs:
               await github.rest.actions.createWorkflowDispatch({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                workflow_id: 'pages.yml',
+                workflow_id: 'deploy.yml',
                 ref: 'main',
               });
-              console.log('Dispatched pages.yml');
+              console.log('Dispatched deploy.yml');
             } catch (err) {
               core.setFailed(`Trigger Pages deploy failed: ${err.message}`);
               throw err;

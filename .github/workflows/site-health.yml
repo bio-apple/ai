@@ -51,7 +51,7 @@ jobs:
               `- [Daily videos](${{ github.server_url }}/${{ github.repository }}/actions/workflows/daily-videos.yml)`,
               `- [Daily news](${{ github.server_url }}/${{ github.repository }}/actions/workflows/daily-news.yml)`,
               `- [Weekly OSS](${{ github.server_url }}/${{ github.repository }}/actions/workflows/weekly-oss.yml)`,
-              `- [Pages](${{ github.server_url }}/${{ github.repository }}/actions/workflows/pages.yml)`,
+              `- [Deploy](${{ github.server_url }}/${{ github.repository }}/actions/workflows/deploy.yml)`,
               '',
               '<!-- site-health-probe -->',
             ].join('\n');

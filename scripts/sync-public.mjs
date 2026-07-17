@@ -29,6 +29,7 @@ const COPY_FILES = [
   'ai-news.json',
   'oss-projects.json',
   'ai-courses.json',
+  'favicon.svg',
   'og-image.jpg',
 ];
 

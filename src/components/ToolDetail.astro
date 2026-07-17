@@ -151,11 +151,8 @@ const hasRelations = relations.alternatives.length > 0 || relations.complements.
     )
   }
   <div class="standalone-cta">
-    <a
-      href={homeHref(`#${tool.section_id}`)}
-      class="cta-btn"
-      data-track={`tool-goto-spa-${tool.id}`}>在站内交互式教程中查看 →</a
-    >
+    <a href={home} class="cta-btn" data-track={`tool-goto-home-${tool.id}`}>返回首页</a>
+    <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">浏览工具中心</a>
     <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline">查看工具排行</a>
   </div>
 </main>

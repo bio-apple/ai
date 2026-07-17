@@ -1,0 +1,11 @@
+---
+/**
+ * Favicon 与 PWA 触控图标
+ */
+import { asset } from '../lib/paths';
+
+const icon = asset('favicon.svg');
+---
+
+<link rel="icon" href={icon} type="image/svg+xml" />
+<link rel="apple-touch-icon" href={icon} />

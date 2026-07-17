@@ -106,7 +106,7 @@ npm run build
 
 1. `prebuild`（`scripts/prebuild.mjs`）：清空 `public/` → 同步静态资源 → 打包 CSS → 生成 search / recommend / analytics
 2. `astro build` → `dist/`
-3. push `main`：`.github/workflows/ci.yml` 校验 → `pages.yml` 部署
+3. push `main`：`.github/workflows/ci.yml` 校验 → `deploy.yml` 部署（见 [docs/CI-CD.md](./docs/CI-CD.md)）
 
 分析 Secrets（可选）：`UMAMI_*` · `CLOUDFLARE_BEACON_TOKEN` · `GA_MEASUREMENT_ID` / `CLARITY_PROJECT_ID`  
 本地同名变量可写入 `.env.local`（prebuild 自动加载）；**禁止**将 LLM 服务商 API Key 写入仓库。

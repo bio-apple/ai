@@ -9,7 +9,7 @@
 
 ## 告警怎么处理
 
-1. **首页 / JSON 404** → 查 [CI](https://github.com/bio-apple/ai/actions/workflows/ci.yml) / [Pages](https://github.com/bio-apple/ai/actions/workflows/pages.yml) → 本地 `npm run build && DIST=dist python3 scripts/validate_ci.py` → 重部署
+1. **首页 / JSON 404** → 查 [CI](https://github.com/bio-apple/ai/actions/workflows/ci.yml) / [Deploy](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) → 本地 `npm run build && DIST=dist python3 scripts/validate_ci.py` → 重部署
 2. **视频过期** → Actions 手动跑 [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（可选 `force=true`）→ 确认提交含 `daily-videos.json` + `video-thumbs/`
 3. **新闻过期** → 手动跑 [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)
 4. **OSS 精选异常** → 手动跑 [weekly-oss.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-oss.yml)（≥5 万 Star Top5 + 中文 Top1；需 `GITHUB_TOKEN`）

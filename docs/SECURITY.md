@@ -25,13 +25,13 @@ cp .env.local.example .env.local
 
 ### 允许的本地 / CI 变量（非 LLM 密钥）
 
-| 变量 | 用途 |
-| ---- | ---- |
-| `GA_MEASUREMENT_ID` / `PUBLIC_GA_MEASUREMENT_ID` | Google Analytics |
-| `CLARITY_PROJECT_ID` / `PUBLIC_CLARITY_PROJECT_ID` | Microsoft Clarity |
-| `UMAMI_*` / `PUBLIC_UMAMI_*` | Umami 统计 |
-| `CLOUDFLARE_BEACON_TOKEN` / `PUBLIC_CLOUDFLARE_BEACON_TOKEN` | Cloudflare Web Analytics |
-| `GITHUB_TOKEN` / `GH_TOKEN` | 本地抓取脚本提高 GitHub API 限额 |
+| 变量                                                         | 用途                             |
+| ------------------------------------------------------------ | -------------------------------- |
+| `GA_MEASUREMENT_ID` / `PUBLIC_GA_MEASUREMENT_ID`             | Google Analytics                 |
+| `CLARITY_PROJECT_ID` / `PUBLIC_CLARITY_PROJECT_ID`           | Microsoft Clarity                |
+| `UMAMI_*` / `PUBLIC_UMAMI_*`                                 | Umami 统计                       |
+| `CLOUDFLARE_BEACON_TOKEN` / `PUBLIC_CLOUDFLARE_BEACON_TOKEN` | Cloudflare Web Analytics         |
+| `GITHUB_TOKEN` / `GH_TOKEN`                                  | 本地抓取脚本提高 GitHub API 限额 |
 
 生产 CI 通过 [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) 注入上述构建变量，**不要**写入仓库。
 
@@ -52,7 +52,7 @@ cp .env.local.example .env.local
 - 本地可选：`./start.sh` 启动 FastAPI，`/api/ask` 为**站内 BM25/Fuse 检索**，不调用外部 LLM，也不承载用户密钥。
 - GitHub Pages **不部署** `/api/*` 路由。
 
-## 5.  incident 响应
+## 5. incident 响应
 
 若误提交密钥：
 

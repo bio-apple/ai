@@ -2,8 +2,10 @@
 import ThemeBoot from '../components/ThemeBoot.astro';
 import SecurityMeta from '../components/SecurityMeta.astro';
 import SeoHead from '../components/SeoHead.astro';
+import Favicon from '../components/Favicon.astro';
 import FontLoader from '../components/FontLoader.astro';
 import UxWidgets from '../components/UxWidgets.astro';
+import KnowledgeAssistant from '../components/KnowledgeAssistant.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/data';
@@ -16,6 +18,7 @@ interface Props {
   schema?: object;
   scripts?: string[];
   ogType?: string;
+  includeKnowledge?: boolean;
 }
 
 const {
@@ -25,7 +28,14 @@ const {
   schema,
   scripts = ['analytics.js', 'ux.js', 'app.js'],
   ogType = 'article',
+  includeKnowledge = false,
 } = Astro.props;
+
+const scriptList = [...scripts];
+if (includeKnowledge) {
+  if (!scriptList.includes('vendor/fuse.min.js')) scriptList.unshift('vendor/fuse.min.js');
+  if (!scriptList.includes('knowledge.js')) scriptList.push('knowledge.js');
+}
 
 const styleHref = asset('style.css');
 const home = homeHref();
@@ -47,7 +57,9 @@ const home = homeHref();
       ogImageAlt={site.meta.og_image_alt || title}
       siteName={site.meta.site_name || 'Bio AI Lab'}
     />
+    <Favicon />
     <FontLoader />
+    <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />
     <ThemeBoot assetPrefix={BASE} />
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
@@ -55,11 +67,12 @@ const home = homeHref();
   <body>
     <a class="skip-link" href="#main-content">跳到主要内容</a>
     <UxWidgets />
+    {includeKnowledge && <KnowledgeAssistant />}
     <Nav nav={site.nav} standalone={true} homeHref={home} navPrefix={BASE} />
     <div id="main-content">
       <slot />
     </div>
     <Footer text={site.footer.text} />
-    {scripts.map((src) => <script src={assetVersioned(src)} defer />)}
+    {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
   </body>
 </html>

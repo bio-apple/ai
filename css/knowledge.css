@@ -1,8 +1,12 @@
+body.knowledge-panel-open {
+  overflow: hidden;
+}
+
 /* AI 知识库助手浮层 */
 .knowledge-fab {
   position: fixed;
   right: 20px;
-  bottom: 88px;
+  bottom: max(88px, calc(env(safe-area-inset-bottom) + 72px));
   z-index: 150;
   width: 52px;
   height: 52px;
@@ -28,8 +32,9 @@
   right: 20px;
   bottom: 152px;
   z-index: 151;
-  width: min(380px, calc(100vw - 32px));
-  max-height: min(520px, calc(100vh - 180px));
+  width: min(400px, calc(100vw - 32px));
+  height: min(560px, calc(100dvh - 180px));
+  max-height: calc(100dvh - 180px);
   display: none;
   flex-direction: column;
   border-radius: 16px;
@@ -44,6 +49,7 @@
 }
 
 .knowledge-header {
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -65,42 +71,130 @@
   font-size: 1.2rem;
   cursor: pointer;
   line-height: 1;
+  padding: 4px;
 }
 
 .knowledge-messages {
   flex: 1;
+  min-height: 0;
   overflow-y: auto;
+  overscroll-behavior: contain;
   padding: 12px 14px;
   display: flex;
   flex-direction: column;
   gap: 10px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .knowledge-msg {
   max-width: 92%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.knowledge-msg-body {
   padding: 10px 12px;
   border-radius: 12px;
   font-size: 0.82rem;
   line-height: 1.55;
   white-space: pre-wrap;
+  word-break: break-word;
 }
 
-.knowledge-msg.bot {
+.knowledge-msg.bot .knowledge-msg-body {
   align-self: flex-start;
   background: var(--bg);
   border: 1px solid var(--border);
   color: var(--text);
 }
 
-.knowledge-msg.user {
+.knowledge-msg.user .knowledge-msg-body {
   align-self: flex-end;
   background: rgba(37, 99, 235, 0.12);
   color: var(--text);
 }
 
+.knowledge-msg.user {
+  align-self: flex-end;
+}
+
+.knowledge-msg.bot {
+  align-self: flex-start;
+}
+
+.knowledge-msg.is-thinking .knowledge-msg-body {
+  padding: 12px 14px;
+}
+
+.knowledge-thinking {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.knowledge-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--accent);
+  animation: knowledge-blink 1s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes knowledge-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.knowledge-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.knowledge-skeleton-line {
+  height: 10px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    var(--border) 0%,
+    color-mix(in srgb, var(--border) 60%, var(--bg-elevated)) 50%,
+    var(--border) 100%
+  );
+  background-size: 200% 100%;
+  animation: knowledge-shimmer 1.2s ease-in-out infinite;
+}
+
+.knowledge-skeleton-line:nth-child(1) {
+  width: 88%;
+}
+
+.knowledge-skeleton-line:nth-child(2) {
+  width: 72%;
+  animation-delay: 0.15s;
+}
+
+.knowledge-skeleton-line:nth-child(3) {
+  width: 56%;
+  animation-delay: 0.3s;
+}
+
+@keyframes knowledge-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
 .knowledge-source {
   display: block;
-  margin-top: 6px;
+  margin-top: 4px;
   font-size: 0.75rem;
   color: var(--accent);
   text-decoration: none;
@@ -110,47 +204,142 @@
   text-decoration: underline;
 }
 
-.knowledge-form {
+.knowledge-actions {
   display: flex;
-  gap: 8px;
-  padding: 12px 14px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding-left: 2px;
+}
+
+.knowledge-action-btn {
+  appearance: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    background 0.15s;
+}
+
+.knowledge-action-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.knowledge-action-btn.is-active[data-feedback='up'] {
+  border-color: #16a34a;
+  color: #16a34a;
+  background: rgba(22, 163, 74, 0.08);
+}
+
+.knowledge-action-btn.is-active[data-feedback='down'] {
+  border-color: #dc2626;
+  color: #dc2626;
+  background: rgba(220, 38, 38, 0.08);
+}
+
+.knowledge-action-btn.is-copied {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.knowledge-hint {
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0 14px 8px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.knowledge-form {
+  flex-shrink: 0;
+  padding: 10px 12px max(12px, env(safe-area-inset-bottom));
   border-top: 1px solid var(--border);
+  background: var(--bg-subtle, var(--bg));
+}
+
+.knowledge-composer {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
 }
 
 .knowledge-input {
   flex: 1;
+  min-height: 42px;
+  max-height: 120px;
+  resize: none;
+  overflow-y: auto;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 10px 12px;
   font-size: 0.85rem;
+  font-family: inherit;
+  line-height: 1.45;
   background: var(--bg);
   color: var(--text);
 }
 
-.knowledge-submit {
-  border: none;
-  border-radius: 10px;
-  padding: 0 14px;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
-  font-size: 0.82rem;
+.knowledge-input:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  border-color: var(--accent);
 }
 
-.knowledge-hint {
-  padding: 0 14px 10px;
-  font-size: 0.72rem;
-  color: var(--text-muted);
+.knowledge-input:disabled {
+  opacity: 0.65;
+}
+
+.knowledge-submit {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 12px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.15s;
+}
+
+.knowledge-submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.knowledge-submit-icon {
+  font-size: 1.1rem;
+  line-height: 1;
 }
 
 @media (max-width: 640px) {
   .knowledge-fab {
     right: 14px;
-    bottom: 76px;
+    bottom: max(76px, calc(env(safe-area-inset-bottom) + 60px));
   }
+
   .knowledge-panel {
-    right: 14px;
-    bottom: 138px;
+    inset: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100dvh;
+    max-height: none;
+    border-radius: 0;
+    border: none;
+    z-index: 200;
+  }
+
+  .knowledge-panel.open {
+    position: fixed;
   }
 }

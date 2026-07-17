@@ -43,7 +43,7 @@
       },
       {
         "label": "查看 Copilot 完整教程 →",
-        "href": "/ai/index.html#section-copilot",
+        "href": "/ai/tools/copilot.html",
         "track": "compare-goto-copilot",
         "outline": true
       },
@@ -99,7 +99,7 @@
       },
       {
         "label": "豆包教程 →",
-        "href": "/ai/index.html#section-doubao",
+        "href": "/ai/tools/doubao.html",
         "track": "compare-goto-doubao",
         "outline": true
       }
@@ -137,18 +137,18 @@
     "cta": [
       {
         "label": "Kimi 教程 →",
-        "href": "/ai/index.html#section-kimi",
+        "href": "/ai/tools/kimi.html",
         "track": "compare-goto-kimi"
       },
       {
         "label": "Claude 教程 →",
-        "href": "/ai/index.html#section-claude",
+        "href": "/ai/tools/claude.html",
         "track": "compare-goto-claude",
         "outline": true
       },
       {
         "label": "通义教程 →",
-        "href": "/ai/index.html#section-qwen",
+        "href": "/ai/tools/qwen.html",
         "track": "compare-goto-qwen",
         "outline": true
       }
