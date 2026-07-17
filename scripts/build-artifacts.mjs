@@ -153,7 +153,14 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     label: 'Prompt 提示词库',
     type: 'Prompt',
     url: 'prompts/library.html',
-    keywords: 'Prompt 提示词 模板 写作 编程 科研',
+    keywords: 'Prompt 提示词 模板 写作 编程 科研 prompts.chat GitHub Top10',
+  });
+  items.push({
+    label: 'GitHub Top 10 Prompt 库',
+    type: 'Prompt',
+    url: 'prompts/library.html#github-top10-prompts',
+    keywords:
+      'GitHub Prompt 库 Top10 prompts.chat Fabric Prompt Engineering Guide 中文调教 系统提示词',
   });
   items.push({
     label: 'AI 工具中心',
@@ -420,6 +427,28 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const ossSrc = path.join(DATA, 'oss-projects.json');
   if (fs.existsSync(ossSrc)) {
     fs.copyFileSync(ossSrc, path.join(outDir, 'oss-projects.json'));
+  }
+
+  // GitHub Top 10 Prompt 库：优先独立文件，否则从 OSS 领域推导
+  const promptLibsSrc = path.join(DATA, 'prompt-libraries.json');
+  if (fs.existsSync(promptLibsSrc)) {
+    fs.copyFileSync(promptLibsSrc, path.join(outDir, 'prompt-libraries.json'));
+  } else if (fs.existsSync(ossSrc)) {
+    const oss = JSON.parse(fs.readFileSync(ossSrc, 'utf8'));
+    const domain = (oss.domains || []).find((d) => d.id === 'prompt-libs');
+    if (domain) {
+      const libraries = [...(domain.projects || [])]
+        .sort((a, b) => (b.stars || 0) - (a.stars || 0))
+        .slice(0, 10)
+        .map((p, i) => ({ ...p, rank: i + 1 }));
+      writeOut(outDir, 'prompt-libraries.json', {
+        updated_at: oss.updated_at,
+        title: 'GitHub Top 10 Prompt 库',
+        lead: '按 GitHub Stars 精选的开源 Prompt 库与提示工程资源（Top 10）。',
+        source_note: '排名按 Star 数排序，随每周 OSS 刷新更新。',
+        libraries,
+      });
+    }
   }
 
   console.log(`✓ artifacts → ${outDir}`);

@@ -316,6 +316,94 @@
   color: var(--text-muted);
 }
 
+/* GitHub Top 10 Prompt libraries */
+.prompt-libs-section {
+  margin: 0 0 2.5rem;
+}
+
+.prompt-libs-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg, 14px);
+  overflow: hidden;
+  background: var(--bg-card);
+}
+
+.prompt-libs-item {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+  gap: 12px 14px;
+  align-items: start;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.prompt-libs-item:last-child {
+  border-bottom: none;
+}
+
+.prompt-libs-item:hover {
+  background: color-mix(in srgb, var(--accent) 4%, transparent);
+}
+
+.prompt-libs-rank {
+  font-size: 1.1rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.4;
+}
+
+.prompt-libs-item:nth-child(-n + 3) .prompt-libs-rank {
+  color: var(--accent);
+}
+
+.prompt-libs-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.prompt-libs-name:hover {
+  color: var(--accent);
+}
+
+.prompt-libs-repo {
+  margin: 2px 0 0;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+.prompt-libs-desc {
+  margin: 6px 0 0;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.prompt-libs-stars {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #f59e0b;
+  white-space: nowrap;
+  padding-top: 2px;
+}
+
+@media (max-width: 640px) {
+  .prompt-libs-item {
+    grid-template-columns: 2rem minmax(0, 1fr);
+  }
+  .prompt-libs-stars {
+    grid-column: 2;
+    padding-top: 0;
+  }
+}
+
 /* OSS projects */
 .oss-grid {
   display: grid;

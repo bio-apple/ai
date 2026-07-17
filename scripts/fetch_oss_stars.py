@@ -15,6 +15,7 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "data" / "oss-projects.json"
 PUBLIC_FILE = ROOT / "oss-projects.json"
+PROMPT_LIBS_FILE = ROOT / "data" / "prompt-libraries.json"
 TZ = timezone(timedelta(hours=8))
 USER_AGENT = "BioAI-Lab-OSSBot/1.0"
 
@@ -102,11 +103,34 @@ def main() -> int:
     text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     DATA_FILE.write_text(text, encoding="utf-8")
     PUBLIC_FILE.write_text(text, encoding="utf-8")
+    sync_prompt_libraries(payload)
     print(f"✓ oss-projects.json ({updated} repos, {skipped} skipped) → {DATA_FILE}")
     if updated == 0 and skipped > 0:
         print("✗ 全部仓库刷新失败，保留原文件但以非零退出", file=sys.stderr)
         return 1
     return 0
+
+
+def sync_prompt_libraries(payload: dict) -> None:
+    """从 OSS 的 Prompt 库领域同步 GitHub Top 10 榜单文件。"""
+    domain = next((d for d in payload.get("domains") or [] if d.get("id") == "prompt-libs"), None)
+    if not domain:
+        return
+    libs = sorted(domain.get("projects") or [], key=lambda p: -(p.get("stars") or 0))
+    ranked = []
+    for i, project in enumerate(libs[:10], start=1):
+        ranked.append({**project, "rank": i})
+    out = {
+        "updated_at": payload.get("updated_at"),
+        "title": "GitHub Top 10 Prompt 库",
+        "lead": "按 GitHub Stars 精选的开源 Prompt 库与提示工程资源（Top 10）。",
+        "source_note": "排名按 Star 数排序，随每周 OSS 刷新更新。",
+        "libraries": ranked,
+    }
+    PROMPT_LIBS_FILE.write_text(
+        json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    print(f"✓ prompt-libraries.json ({len(ranked)} repos) → {PROMPT_LIBS_FILE}")
 
 
 if __name__ == "__main__":

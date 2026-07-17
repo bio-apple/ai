@@ -3,11 +3,21 @@ import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import { site, promptsMeta } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
 import { homeHref, asset } from '../../lib/paths';
+import promptLibraries from '../../../data/prompt-libraries.json';
 
 const page = site.prompts_page;
 const base = site.meta.base_url;
 const schema = buildPageSchema(page.title, page.lead, `${base}prompts/library.html`);
 const home = homeHref();
+const libs = promptLibraries.libraries || [];
+
+function formatStars(n: number) {
+  if (!n) return '—';
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 10_000) return `${(n / 10_000).toFixed(1)}万`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
+  return String(n);
+}
 ---
 
 <StandaloneLayout
@@ -23,54 +33,110 @@ const home = homeHref();
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
       <p class="library-meta" id="prompts-count-meta"></p>
+      <div class="hub-quick-links" aria-label="本页目录">
+        <a href="#github-top10-prompts" class="recommend-link">GitHub Top 10</a>
+        <a href="#prompts-toolbox" class="recommend-link">可复制 Prompt</a>
+      </div>
     </div>
 
-    <div class="library-search-wrap">
-      <label class="visually-hidden" for="prompts-search">搜索 Prompt</label>
-      <input
-        type="search"
-        id="prompts-search"
-        class="library-search"
-        placeholder="搜索角色、关键词…（如 Linux、翻译、代码审查）"
-        autocomplete="off"
-      />
-    </div>
-
-    <div class="library-toolbar" id="prompts-toolbar">
-      <div class="library-toolbar-group" role="group" aria-label="按分类">
-        <button type="button" class="library-filter active" data-prompt-cat="all">全部</button>
+    <section
+      class="prompt-libs-section"
+      id="github-top10-prompts"
+      aria-labelledby="github-top10-title"
+    >
+      <div class="section-head">
+        <h2 class="section-title" id="github-top10-title">{promptLibraries.title}</h2>
+        <p class="section-desc">
+          {promptLibraries.lead}
+          {promptLibraries.updated_at ? <> · 更新 {promptLibraries.updated_at}</> : null}
+        </p>
+      </div>
+      <ol class="prompt-libs-list">
         {
-          promptsMeta.categories.map((cat) => (
-            <button type="button" class="library-filter" data-prompt-cat={cat.id}>
-              {cat.icon} {cat.label}
-            </button>
+          libs.map((lib) => (
+            <li class="prompt-libs-item">
+              <span class="prompt-libs-rank" aria-label={`第 ${lib.rank} 名`}>
+                {lib.rank}
+              </span>
+              <div class="prompt-libs-body">
+                <a
+                  href={lib.url}
+                  target="_blank"
+                  rel="noopener"
+                  class="prompt-libs-name"
+                  data-track={`prompt-lib-${lib.id}`}
+                >
+                  {lib.name}
+                </a>
+                <p class="prompt-libs-repo">
+                  {lib.repo}
+                  {lib.language ? ` · ${lib.language}` : ''}
+                </p>
+                <p class="prompt-libs-desc">{lib.description}</p>
+              </div>
+              <span class="prompt-libs-stars">★ {formatStars(lib.stars)}</span>
+            </li>
           ))
         }
-      </div>
-      <div class="library-toolbar-group" role="group" aria-label="按来源">
-        <button type="button" class="library-filter active" data-prompt-source="all"
-          >全部来源</button
-        >
-        <button type="button" class="library-filter" data-prompt-source="case">实战案例</button>
-        <button type="button" class="library-filter" data-prompt-source="prompts.chat"
-          >prompts.chat</button
-        >
-      </div>
-    </div>
+      </ol>
+      <p class="library-meta">{promptLibraries.source_note}</p>
+    </section>
 
-    <div id="prompts-list" class="prompts-grid">
-      <p class="loading-hint">加载 Prompt 库…</p>
-    </div>
+    <section id="prompts-toolbox" aria-labelledby="prompts-toolbox-title">
+      <div class="section-head">
+        <h2 class="section-title" id="prompts-toolbox-title">可复制 Prompt</h2>
+        <p class="section-desc">
+          实战案例提炼 + prompts.chat 经典角色提示词，搜索后一键复制或试用。
+        </p>
+      </div>
+
+      <div class="library-search-wrap">
+        <label class="visually-hidden" for="prompts-search">搜索 Prompt</label>
+        <input
+          type="search"
+          id="prompts-search"
+          class="library-search"
+          placeholder="搜索角色、关键词…（如 Linux、翻译、代码审查）"
+          autocomplete="off"
+        />
+      </div>
+
+      <div class="library-toolbar" id="prompts-toolbar">
+        <div class="library-toolbar-group" role="group" aria-label="按分类">
+          <button type="button" class="library-filter active" data-prompt-cat="all">全部</button>
+          {
+            promptsMeta.categories.map((cat) => (
+              <button type="button" class="library-filter" data-prompt-cat={cat.id}>
+                {cat.icon} {cat.label}
+              </button>
+            ))
+          }
+        </div>
+        <div class="library-toolbar-group" role="group" aria-label="按来源">
+          <button type="button" class="library-filter active" data-prompt-source="all"
+            >全部来源</button
+          >
+          <button type="button" class="library-filter" data-prompt-source="case">实战案例</button>
+          <button type="button" class="library-filter" data-prompt-source="prompts.chat"
+            >prompts.chat</button
+          >
+        </div>
+      </div>
+
+      <div id="prompts-list" class="prompts-grid">
+        <p class="loading-hint">加载 Prompt 库…</p>
+      </div>
+    </section>
 
     <p class="library-attribution">
       经典角色提示词精选自
       <a href="https://github.com/f/prompts.chat" target="_blank" rel="noopener">f/prompts.chat</a>
-      （原 Awesome ChatGPT Prompts，CC0）；实战案例 Prompt 来自本站案例库。
+      （原 Awesome ChatGPT Prompts，CC0）；GitHub Top 10 按 Star 精选开源 Prompt 库；实战案例 Prompt 来自本站案例库。
     </p>
 
     <div class="standalone-cta">
       <a href={asset('cases/index.html')} class="cta-btn">实战案例库</a>
-      <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">AI 工具中心</a>
+      <a href={`${home}#section-oss`} class="cta-btn cta-btn-outline">开源精选</a>
     </div>
   </main>
 </StandaloneLayout>
