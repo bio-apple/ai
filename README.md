@@ -34,7 +34,7 @@ npm ci && pip install -r requirements.txt
 | 对比表行    | `data/site.json` → `compare_table`                              |
 | 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`）                  |
 | 热度基准    | `data/engagement.json`                                          |
-| Prompt 库   | `cases.json` + `prompts-classic.json` + `prompt-libraries.json` |
+| Prompt 库   | `prompt-libraries.json`（GitHub Top 10，按角色） |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。  
 运维救急见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。

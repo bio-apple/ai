@@ -165,7 +165,8 @@
           "description": "原 Awesome ChatGPT Prompts，全球最大开源 Prompt 社区库。",
           "stars": 165867,
           "url": "https://github.com/f/prompts.chat",
-          "language": "HTML"
+          "language": "HTML",
+          "role": "general-roles"
         },
         {
           "id": "system-prompts-ai-tools",
@@ -174,7 +175,8 @@
           "description": "Cursor、Claude Code、Devin 等主流 AI 工具系统提示词合集。",
           "stars": 141985,
           "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
-          "language": "Markdown"
+          "language": "Markdown",
+          "role": "ai-coding"
         },
         {
           "id": "pe-guide",
@@ -183,7 +185,8 @@
           "description": "提示工程指南：论文、课程、笔记与实践资源。",
           "stars": 76609,
           "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
-          "language": "MDX"
+          "language": "MDX",
+          "role": "pe-learning"
         },
         {
           "id": "awesome-zh",
@@ -192,7 +195,8 @@
           "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
           "stars": 60994,
           "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
-          "language": "Markdown"
+          "language": "Markdown",
+          "role": "zh-scenes"
         },
         {
           "id": "system-prompts-leaks",
@@ -201,7 +205,8 @@
           "description": "各大模型与产品系统提示词摘录，持续更新。",
           "stars": 58388,
           "url": "https://github.com/asgeirtj/system_prompts_leaks",
-          "language": "JavaScript"
+          "language": "JavaScript",
+          "role": "system-prompts"
         },
         {
           "id": "fabric",
@@ -210,7 +215,8 @@
           "description": "开源 AI 增强框架，内置大量可复用 Prompt Patterns。",
           "stars": 43106,
           "url": "https://github.com/danielmiessler/Fabric",
-          "language": "Go"
+          "language": "Go",
+          "role": "web-dev"
         },
         {
           "id": "anthropic-pe-tutorial",
@@ -219,7 +225,8 @@
           "description": "Anthropic 官方交互式提示工程教程。",
           "stars": 37089,
           "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
-          "language": "Jupyter Notebook"
+          "language": "Jupyter Notebook",
+          "role": "pe-learning"
         },
         {
           "id": "prompt-optimizer",
@@ -228,7 +235,8 @@
           "description": "提示词优化工具，帮助写出更高质量的 Prompt。",
           "stars": 32249,
           "url": "https://github.com/linshenkx/prompt-optimizer",
-          "language": "TypeScript"
+          "language": "TypeScript",
+          "role": "web-dev"
         },
         {
           "id": "gpts-prompts",
@@ -237,7 +245,8 @@
           "description": "GPTs / 自定义 GPT 提示词合集。",
           "stars": 32001,
           "url": "https://github.com/linexjlin/GPTs",
-          "language": "Markdown"
+          "language": "Markdown",
+          "role": "ai-coding"
         },
         {
           "id": "wonderful-prompts",
@@ -246,7 +255,8 @@
           "description": "中文 Prompt 精选，提升可玩性与可用性。",
           "stars": 6174,
           "url": "https://github.com/langgptai/wonderful-prompts",
-          "language": "Markdown"
+          "language": "Markdown",
+          "role": "zh-scenes"
         }
       ]
     }

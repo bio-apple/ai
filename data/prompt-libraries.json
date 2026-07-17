@@ -1,58 +1,51 @@
 {
   "updated_at": "2026-07-17",
   "title": "GitHub Top 10 Prompt 库",
-  "lead": "按 GitHub Stars 精选的开源 Prompt 库与提示工程资源（Top 10）。",
-  "source_note": "排名按 Star 数排序，随每周 OSS 刷新更新。",
+  "lead": "按角色浏览 GitHub Stars 最高的开源 Prompt 资源，从 WEB 开发起步。",
+  "source_note": "排名按 Star 数；角色分类便于选型，每周随 OSS 刷新更新。",
+  "roles": [
+    {
+      "id": "web-dev",
+      "label": "WEB 开发",
+      "blurb": "面向前端/全栈：优化提示词、编排可复用 Pattern。"
+    },
+    {
+      "id": "ai-coding",
+      "label": "AI 编程",
+      "blurb": "Cursor、Claude Code、GPTs 等编程助手系统提示与用法。"
+    },
+    {
+      "id": "pe-learning",
+      "label": "提示工程",
+      "blurb": "系统学习 Prompt Engineering 的指南与官方教程。"
+    },
+    {
+      "id": "general-roles",
+      "label": "通用角色",
+      "blurb": "跨场景角色扮演与社区精选提示词。"
+    },
+    {
+      "id": "zh-scenes",
+      "label": "中文场景",
+      "blurb": "中文写作、办公、调教与可玩性提示词。"
+    },
+    {
+      "id": "system-prompts",
+      "label": "系统提示词",
+      "blurb": "主流模型与产品系统提示词摘录，适合研究与对照。"
+    }
+  ],
   "libraries": [
     {
-      "id": "prompts-chat",
-      "repo": "f/prompts.chat",
-      "name": "prompts.chat",
-      "description": "原 Awesome ChatGPT Prompts，全球最大开源 Prompt 社区库。",
-      "stars": 165867,
-      "url": "https://github.com/f/prompts.chat",
-      "language": "HTML",
-      "rank": 1
-    },
-    {
-      "id": "system-prompts-ai-tools",
-      "repo": "x1xhlol/system-prompts-and-models-of-ai-tools",
-      "name": "System Prompts of AI Tools",
-      "description": "Cursor、Claude Code、Devin 等主流 AI 工具系统提示词合集。",
-      "stars": 141985,
-      "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
-      "language": "Markdown",
-      "rank": 2
-    },
-    {
-      "id": "pe-guide",
-      "repo": "dair-ai/Prompt-Engineering-Guide",
-      "name": "Prompt Engineering Guide",
-      "description": "提示工程指南：论文、课程、笔记与实践资源。",
-      "stars": 76609,
-      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
-      "language": "MDX",
-      "rank": 3
-    },
-    {
-      "id": "awesome-zh",
-      "repo": "PlexPt/awesome-chatgpt-prompts-zh",
-      "name": "ChatGPT 中文调教指南",
-      "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
-      "stars": 60994,
-      "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
-      "language": "Markdown",
-      "rank": 4
-    },
-    {
-      "id": "system-prompts-leaks",
-      "repo": "asgeirtj/system_prompts_leaks",
-      "name": "system_prompts_leaks",
-      "description": "各大模型与产品系统提示词摘录，持续更新。",
-      "stars": 58388,
-      "url": "https://github.com/asgeirtj/system_prompts_leaks",
-      "language": "JavaScript",
-      "rank": 5
+      "id": "prompt-optimizer",
+      "repo": "linshenkx/prompt-optimizer",
+      "name": "Prompt Optimizer",
+      "description": "提示词优化 Web 应用，帮助写出更高质量的 Prompt。",
+      "stars": 32249,
+      "url": "https://github.com/linshenkx/prompt-optimizer",
+      "language": "TypeScript",
+      "role": "web-dev",
+      "rank": 8
     },
     {
       "id": "fabric",
@@ -62,27 +55,19 @@
       "stars": 43106,
       "url": "https://github.com/danielmiessler/Fabric",
       "language": "Go",
+      "role": "web-dev",
       "rank": 6
     },
     {
-      "id": "anthropic-pe-tutorial",
-      "repo": "anthropics/prompt-eng-interactive-tutorial",
-      "name": "Anthropic PE Tutorial",
-      "description": "Anthropic 官方交互式提示工程教程。",
-      "stars": 37089,
-      "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
-      "language": "Jupyter Notebook",
-      "rank": 7
-    },
-    {
-      "id": "prompt-optimizer",
-      "repo": "linshenkx/prompt-optimizer",
-      "name": "Prompt Optimizer",
-      "description": "提示词优化工具，帮助写出更高质量的 Prompt。",
-      "stars": 32249,
-      "url": "https://github.com/linshenkx/prompt-optimizer",
-      "language": "TypeScript",
-      "rank": 8
+      "id": "system-prompts-ai-tools",
+      "repo": "x1xhlol/system-prompts-and-models-of-ai-tools",
+      "name": "System Prompts of AI Tools",
+      "description": "Cursor、Claude Code、Devin 等主流 AI 工具系统提示词合集。",
+      "stars": 141985,
+      "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+      "language": "Markdown",
+      "role": "ai-coding",
+      "rank": 2
     },
     {
       "id": "gpts-prompts",
@@ -92,7 +77,52 @@
       "stars": 32001,
       "url": "https://github.com/linexjlin/GPTs",
       "language": "Markdown",
+      "role": "ai-coding",
       "rank": 9
+    },
+    {
+      "id": "pe-guide",
+      "repo": "dair-ai/Prompt-Engineering-Guide",
+      "name": "Prompt Engineering Guide",
+      "description": "提示工程指南：论文、课程、笔记与实践资源。",
+      "stars": 76609,
+      "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
+      "language": "MDX",
+      "role": "pe-learning",
+      "rank": 3
+    },
+    {
+      "id": "anthropic-pe-tutorial",
+      "repo": "anthropics/prompt-eng-interactive-tutorial",
+      "name": "Anthropic PE Tutorial",
+      "description": "Anthropic 官方交互式提示工程教程。",
+      "stars": 37089,
+      "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
+      "language": "Jupyter Notebook",
+      "role": "pe-learning",
+      "rank": 7
+    },
+    {
+      "id": "prompts-chat",
+      "repo": "f/prompts.chat",
+      "name": "prompts.chat",
+      "description": "原 Awesome ChatGPT Prompts，全球最大开源 Prompt 社区库。",
+      "stars": 165867,
+      "url": "https://github.com/f/prompts.chat",
+      "language": "HTML",
+      "role": "general-roles",
+      "rank": 1
+    },
+    {
+      "id": "awesome-zh",
+      "repo": "PlexPt/awesome-chatgpt-prompts-zh",
+      "name": "ChatGPT 中文调教指南",
+      "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
+      "stars": 60994,
+      "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
+      "language": "Markdown",
+      "role": "zh-scenes",
+      "rank": 4
     },
     {
       "id": "wonderful-prompts",
@@ -102,7 +132,19 @@
       "stars": 6174,
       "url": "https://github.com/langgptai/wonderful-prompts",
       "language": "Markdown",
+      "role": "zh-scenes",
       "rank": 10
+    },
+    {
+      "id": "system-prompts-leaks",
+      "repo": "asgeirtj/system_prompts_leaks",
+      "name": "system_prompts_leaks",
+      "description": "各大模型与产品系统提示词摘录，持续更新。",
+      "stars": 58388,
+      "url": "https://github.com/asgeirtj/system_prompts_leaks",
+      "language": "JavaScript",
+      "role": "system-prompts",
+      "rank": 5
     }
   ]
 }
