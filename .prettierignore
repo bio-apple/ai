@@ -18,3 +18,5 @@ og-image.png
 og-image.jpg
 *.min.js
 backend/**/__pycache__/
+results.sarif
+gitleaks-report.json

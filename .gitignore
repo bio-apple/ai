@@ -29,5 +29,7 @@ dist/
 /tutorials.json
 .DS_Store
 .pw-browsers/
+results.sarif
+gitleaks-report.json
 # 本地短视频制作素材（非站点产物）
 content/video-kungfu-nvzu/
