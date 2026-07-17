@@ -35,7 +35,7 @@ npm ci && pip install -r requirements.txt
 | 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`）                           |
 | 热度基准    | `data/engagement.json`                                                   |
 | 开源精选    | `oss-projects.json`（≥5万 Top5 + 中文Top1 · 周一；含 Prompt 领域）       |
-| 学习资源    | `ai-courses.json`（近半年免费在线课程 · 周一；见 `fetch_ai_courses.py`） |
+| 课程资源    | `ai-courses.json`（路线编排免费课 · 周一；见 `fetch_ai_courses.py`） |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。  
 运维救急见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。

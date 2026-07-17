@@ -131,6 +131,17 @@ def validate_ai_news() -> None:
     print(f"✓ ai-news.json schema + 去重 ({len(items)} 条)")
 
 
+REQUIRED_COURSE_URLS = (
+    "https://microsoft.github.io/generative-ai-for-beginners",
+    "https://developers.google.com/machine-learning/crash-course",
+    "https://www.coursera.org/learn/machine-learning",
+    "https://www.coursera.org/specializations/deep-learning",
+    "https://cs231n.stanford.edu",
+    "https://web.stanford.edu/class/cs224n",
+    "https://cs336.stanford.edu",
+)
+
+
 def validate_ai_courses() -> None:
     path = ROOT / "ai-courses.json"
     if not path.exists():
@@ -144,16 +155,22 @@ def validate_ai_courses() -> None:
         raise ValueError("ai-courses.json items 为空")
     if data.get("free_only") is not True:
         raise ValueError("ai-courses.json 必须 free_only=true（仅免费资源）")
+    if not data.get("track_order"):
+        raise ValueError("ai-courses.json 缺少 track_order")
     paid = [i.get("title") for i in items if i.get("is_free") is not True]
     if paid:
         raise ValueError("ai-courses.json 含非免费条目: " + ", ".join(str(t) for t in paid[:5]))
-    urls = [str(i.get("url") or "").strip() for i in items]
+    urls = [str(i.get("url") or "").strip().rstrip("/") for i in items]
     if len(urls) != len(set(urls)):
         raise ValueError("ai-courses.json 存在重复 URL")
+    present = set(urls)
+    missing = [u for u in REQUIRED_COURSE_URLS if u not in present]
+    if missing:
+        raise ValueError("ai-courses.json 缺少必收录课程: " + ", ".join(missing))
     window = int(data.get("window_days") or 180)
     if window < 1:
         raise ValueError("window_days 无效")
-    print(f"✓ ai-courses.json schema ({len(items)} 门免费 · {window} 天窗口)")
+    print(f"✓ ai-courses.json schema ({len(items)} 门免费 · 路线 {len(data.get('track_order') or [])})")
 
 
 def validate_search_index() -> None:

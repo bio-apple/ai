@@ -94,7 +94,7 @@ const TOC_PRIMARY = [
   { id: 'section-codex', label: 'Codex' },
   { id: 'section-copilot', label: 'Copilot' },
   { id: 'section-oss', label: '开源精选' },
-  { id: 'section-courses', label: '学习资源' },
+  { id: 'section-courses', label: '课程资源' },
   { id: 'section-news', label: '新闻热点' },
   { id: 'section-videos', label: 'AI 视频' },
 ];

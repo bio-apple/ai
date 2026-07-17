@@ -13,7 +13,7 @@
 2. **视频过期** → Actions 手动跑 `daily-videos.yml`（`force=true`）→ 确认提交含 `daily-videos.json` + `video-thumbs/`
 3. **新闻过期** → 手动跑 `daily-news.yml`
 4. **OSS 精选异常** → 手动跑 `weekly-oss.yml`（按 AI 应用重刷 · ≥5万 Top5 + 中文Top1；需 `GITHUB_TOKEN`）
-5. **学习资源异常** → 手动跑 `weekly-courses.yml`（近半年免费 AI 在线课程）
+5. **课程资源异常** → 手动跑 `weekly-courses.yml`（路线编排免费课 + 必收录核心课）
 
 快捷入口：
 

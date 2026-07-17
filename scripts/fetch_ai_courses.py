@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""抓取近半年上线的【免费】AI 在线课程，写入 ai-courses.json。"""
+"""抓取免费 AI 课程资源（必收录核心课 + 近半年补充），按学习路线写入 ai-courses.json。"""
 
 from __future__ import annotations
 
@@ -24,10 +24,17 @@ ROOT = Path(__file__).resolve().parents[1]
 CONFIG_FILE = ROOT / "config" / "courses-fetch.yaml"
 DATA_FILE = ROOT / "ai-courses.json"
 TZ = timezone(timedelta(hours=8))
-USER_AGENT = "BioAI-Lab-CoursesBot/1.0"
-ATOM_NS = {
-    "a": "http://www.w3.org/2005/Atom",
-}
+USER_AGENT = "BioAI-Lab-CoursesBot/2.0"
+ATOM_NS = {"a": "http://www.w3.org/2005/Atom"}
+
+DEFAULT_TRACK_ORDER = [
+    "入门",
+    "机器学习",
+    "深度学习",
+    "LLM 大模型",
+    "AI Agent",
+    "AI 工程实践",
+]
 
 
 def ssl_context() -> ssl.SSLContext:
@@ -79,7 +86,7 @@ def fetch_text(url: str) -> str | None:
 
 
 def load_config() -> dict[str, Any]:
-    return yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8"))
+    return yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8")) or {}
 
 
 def now_local() -> datetime:
@@ -102,8 +109,12 @@ def parse_iso_date(raw: str | None) -> datetime | None:
 
 
 def make_id(platform: str, url: str) -> str:
-    digest = hashlib.sha1(f"{platform}|{url}".encode("utf-8")).hexdigest()[:12]
+    digest = hashlib.sha1(f"{platform}|{url}".encode("utf-8")).hexdigest()[:12]  # noqa: S324
     return f"{re.sub(r'[^a-z0-9]+', '-', platform.lower()).strip('-')}-{digest}"
+
+
+def normalize_url(url: str) -> str:
+    return (url or "").strip().rstrip("/")
 
 
 def decode_js_str(value: str) -> str:
@@ -114,12 +125,12 @@ def decode_js_str(value: str) -> str:
         return unescape(text)
 
 
-def classify_category(title: str, summary: str, keywords: dict[str, str], fallback: str) -> str:
+def classify_track(title: str, summary: str, keywords: dict[str, str], fallback: str) -> str:
     blob = f"{title}\n{summary}".lower()
-    for cat, pattern in (keywords or {}).items():
+    for track, pattern in (keywords or {}).items():
         try:
             if re.search(pattern, blob, re.I):
-                return cat
+                return str(track)
         except re.error:
             continue
     return fallback
@@ -131,29 +142,60 @@ def course_item(
     title: str,
     url: str,
     summary: str,
-    category: str,
+    track: str,
     fmt: str,
     published_at: str,
     language: str = "en",
     is_new: bool = False,
+    course_id: str | None = None,
+    required: bool = False,
 ) -> dict[str, Any]:
     return {
-        "id": make_id(source, url),
+        "id": course_id or make_id(source, url),
         "title": title,
         "url": url,
-        "summary": (summary or "")[:200],
+        "summary": (summary or "")[:280],
         "platform": source,
-        "category": category,
+        "track": track,
         "format": fmt,
         "published_at": published_at,
         "language": language,
         "is_free": True,
         "is_new": is_new,
+        "required": required,
     }
 
 
+def fetch_required(cfg: dict[str, Any]) -> list[dict[str, Any]]:
+    today = now_local().strftime("%Y-%m-%d")
+    items: list[dict[str, Any]] = []
+    for row in cfg.get("required") or []:
+        if not isinstance(row, dict):
+            continue
+        url = str(row.get("url") or "").strip()
+        title = str(row.get("title") or "").strip()
+        if not url or not title:
+            continue
+        platform = str(row.get("platform") or "Official")
+        items.append(
+            course_item(
+                source=platform,
+                title=title,
+                url=url,
+                summary=str(row.get("summary") or ""),
+                track=str(row.get("track") or "入门"),
+                fmt=str(row.get("format") or "官方课程"),
+                published_at=today,
+                language=str(row.get("language") or "en"),
+                course_id=str(row.get("id") or make_id(platform, url)),
+                required=True,
+            )
+        )
+    print(f"  · 必收录: {len(items)}")
+    return items
+
+
 def fetch_deeplearning_ai(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str, str]) -> list[dict]:
-    """DeepLearning.AI 短课程可免费学习；按 releasedAt 过滤近半年。"""
     if not cfg.get("enabled", True):
         return []
     html = fetch_text(cfg["url"])
@@ -161,10 +203,9 @@ def fetch_deeplearning_ai(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
         return []
     base = cfg.get("base_url") or "https://www.deeplearning.ai/courses/"
     source = cfg.get("source") or "DeepLearning.AI"
-    fallback_cat = cfg.get("category") or "短课程"
+    fallback = "LLM 大模型"
     items: list[dict] = []
     seen: set[str] = set()
-    # 在 releasedAt 前回看窗口，避免 name 跨字段误匹配
     for m in re.finditer(r'releasedAt\\":\\"(20\d{2}-\d{2}-\d{2}T[^\\"]*)\\"', html):
         published = parse_iso_date(m.group(1))
         if not published or published < cutoff:
@@ -197,7 +238,7 @@ def fetch_deeplearning_ai(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
                 title=name,
                 url=url,
                 summary=summary,
-                category=classify_category(name, summary, keywords, fallback_cat),
+                track=classify_track(name, summary, keywords, fallback),
                 fmt="短课程",
                 published_at=published.strftime("%Y-%m-%d"),
             )
@@ -207,12 +248,11 @@ def fetch_deeplearning_ai(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
 
 
 def fetch_coursera(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str, str]) -> list[dict]:
-    """仅收录 Coursera isCourseFree=true 的课程。"""
     if not cfg.get("enabled", True):
         return []
     base = cfg.get("base_url") or "https://www.coursera.org"
     source = cfg.get("source") or "Coursera"
-    fallback_cat = cfg.get("category") or "MOOC"
+    fallback = "机器学习"
     max_per = int(cfg.get("max_per_query") or 10)
     sort = str(cfg.get("sort") or "NEW")
     today = now_local().strftime("%Y-%m-%d")
@@ -254,11 +294,7 @@ def fetch_coursera(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str, st
                 full = urljoin(base + "/", path.lstrip("/"))
                 if full in seen:
                     continue
-                # 无发布日：仅收 NEW 标记；有 NEW 时用抓取日代表「新上架免费课」
-                if sort_by == "NEW" and not hit.get("isNewContent"):
-                    # BEST_MATCH 分支可收免费但非 NEW 的课——仍要求半年窗口无法验证则跳过
-                    continue
-                if sort_by != "NEW" and not hit.get("isNewContent"):
+                if not hit.get("isNewContent"):
                     continue
                 seen.add(full)
                 partners = hit.get("partners") or []
@@ -273,7 +309,7 @@ def fetch_coursera(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str, st
                         title=title,
                         url=full,
                         summary=summary,
-                        category=classify_category(title, summary, keywords, fallback_cat),
+                        track=classify_track(title, summary, keywords, fallback),
                         fmt="MOOC",
                         published_at=today,
                         is_new=bool(hit.get("isNewContent")),
@@ -314,7 +350,7 @@ def fetch_huggingface(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str,
     if not cfg.get("enabled", True):
         return []
     source = cfg.get("source") or "Hugging Face"
-    fallback_cat = cfg.get("category") or "开源课程"
+    fallback = "LLM 大模型"
     items: list[dict] = []
     for course in cfg.get("courses") or []:
         url = course.get("url")
@@ -323,7 +359,6 @@ def fetch_huggingface(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str,
             continue
         published = github_repo_pushed_at(course["repo"]) if course.get("repo") else None
         if not published:
-            # 页面可达则保留，日期取抓取日（仅当 hub 列表仍挂着）
             hub_html = fetch_text(cfg.get("hub") or "https://huggingface.co/learn") or ""
             if course.get("id") and course["id"] not in hub_html and url not in hub_html:
                 continue
@@ -331,15 +366,19 @@ def fetch_huggingface(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str,
         if published < cutoff:
             continue
         summary = f"Hugging Face Learn 免费开源课程 · {course.get('id')}"
+        track = str(course.get("track") or "").strip() or classify_track(
+            str(name), summary, keywords, fallback
+        )
         items.append(
             course_item(
                 source=source,
                 title=name,
                 url=url,
                 summary=summary,
-                category=classify_category(name, summary, keywords, fallback_cat),
+                track=track,
                 fmt="开源课程",
                 published_at=published.strftime("%Y-%m-%d"),
+                course_id=str(course.get("id") or make_id(source, url)),
             )
         )
     print(f"  · Hugging Face Learn (免费): {len(items)}")
@@ -354,7 +393,7 @@ def fetch_youtube_courses(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
         title_re = re.compile(pattern, re.I)
     except re.error:
         title_re = re.compile(r"course", re.I)
-    fallback_cat = cfg.get("category") or "视频课程"
+    fallback = "入门"
     items: list[dict] = []
     for ch in cfg.get("channels") or []:
         cid = ch.get("channel_id")
@@ -392,7 +431,7 @@ def fetch_youtube_courses(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
                     title=unescape(title),
                     url=href,
                     summary=summary,
-                    category=classify_category(title, summary, keywords, fallback_cat),
+                    track=classify_track(title, summary, keywords, fallback),
                     fmt="视频课程",
                     published_at=published.strftime("%Y-%m-%d"),
                 )
@@ -402,17 +441,22 @@ def fetch_youtube_courses(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
     return items
 
 
-def dedupe_courses(items: list[dict]) -> list[dict]:
-    sorted_items = sorted(
-        items,
-        key=lambda x: (x.get("published_at") or "", x.get("title") or ""),
-        reverse=True,
-    )
+def merge_and_sort(
+    required: list[dict],
+    discovered: list[dict],
+    *,
+    track_order: list[str],
+    max_items: int,
+) -> list[dict]:
+    order_index = {name: i for i, name in enumerate(track_order)}
     seen_url: set[str] = set()
     seen_title: set[str] = set()
-    out: list[dict] = []
-    for item in sorted_items:
-        url = str(item.get("url") or "").strip().rstrip("/")
+    merged: list[dict] = []
+
+    for item in required + discovered:
+        if item.get("is_free") is not True:
+            continue
+        url = normalize_url(str(item.get("url") or ""))
         title_key = re.sub(r"\s+", " ", str(item.get("title") or "").lower()).strip()
         if url and url in seen_url:
             continue
@@ -422,55 +466,89 @@ def dedupe_courses(items: list[dict]) -> list[dict]:
             seen_url.add(url)
         if title_key:
             seen_title.add(title_key)
-        out.append(item)
+        merged.append(item)
+
+    def sort_key(row: dict[str, Any]) -> tuple[int, int, str, str]:
+        track = str(row.get("track") or "")
+        # required first within the same track
+        req_rank = 0 if row.get("required") else 1
+        return (
+            order_index.get(track, 999),
+            req_rank,
+            str(row.get("published_at") or ""),
+            str(row.get("title") or "").lower(),
+        )
+
+    merged.sort(key=sort_key)
+
+    required_urls = {normalize_url(str(x.get("url") or "")) for x in required}
+    if len(merged) <= max_items:
+        return merged
+
+    keep = [r for r in merged if normalize_url(str(r.get("url") or "")) in required_urls]
+    extras = [r for r in merged if normalize_url(str(r.get("url") or "")) not in required_urls]
+    remain = max(0, max_items - len(keep))
+    out = keep + extras[:remain]
+    out.sort(key=sort_key)
     return out
 
 
 def main() -> int:
     cfg = load_config()
     max_age = int(cfg.get("max_age_days") or 180)
-    max_items = int(cfg.get("max_items") or 60)
+    max_items = int(cfg.get("max_items") or 80)
     min_items = int(cfg.get("min_items") or 8)
     cutoff = now_local() - timedelta(days=max_age)
-    keywords = cfg.get("category_keywords") or {}
+    track_order = [str(x) for x in (cfg.get("track_order") or DEFAULT_TRACK_ORDER)]
+    keywords = {
+        str(k): str(v) for k, v in (cfg.get("track_keywords") or {}).items() if v
+    }
 
-    free_only = cfg.get("free_only", True)
-    print(f"规则：近 {max_age} 天【免费】AI 在线课程 · 最多 {max_items} 条")
-    collected: list[dict] = []
-    collected += fetch_deeplearning_ai(cfg.get("deeplearning_ai") or {}, cutoff, keywords)
-    collected += fetch_coursera(cfg.get("coursera") or {}, cutoff, keywords)
-    collected += fetch_huggingface(cfg.get("huggingface_learn") or {}, cutoff, keywords)
-    collected += fetch_youtube_courses(cfg.get("youtube_courses") or {}, cutoff, keywords)
+    print(f"规则：必收录 + 近 {max_age} 天免费补充 · 路线编排 · 最多 {max_items} 条")
+    required = fetch_required(cfg)
+    discovered: list[dict] = []
+    discovered += fetch_deeplearning_ai(cfg.get("deeplearning_ai") or {}, cutoff, keywords)
+    discovered += fetch_coursera(cfg.get("coursera") or {}, cutoff, keywords)
+    discovered += fetch_huggingface(cfg.get("huggingface_learn") or {}, cutoff, keywords)
+    discovered += fetch_youtube_courses(cfg.get("youtube_courses") or {}, cutoff, keywords)
 
-    if free_only:
-        collected = [i for i in collected if i.get("is_free") is True]
-    items = dedupe_courses(collected)[:max_items]
+    items = merge_and_sort(required, discovered, track_order=track_order, max_items=max_items)
     if len(items) < min_items:
         print(f"✗ 免费课程条数不足（{len(items)} < {min_items}）", file=sys.stderr)
         return 1
 
+    required_urls = {normalize_url(str(r.get("url") or "")) for r in required}
+    present = {normalize_url(str(i.get("url") or "")) for i in items}
+    missing = sorted(required_urls - present)
+    if missing:
+        print(f"✗ 必收录课程缺失: {missing}", file=sys.stderr)
+        return 1
+
     payload = {
-        "schema_version": 1,
+        "schema_version": 2,
         "updated_at": now_local().strftime("%Y-%m-%d %H:%M:%S%z"),
         "date": now_local().strftime("%Y-%m-%d"),
         "cadence": "weekly",
         "window_days": max_age,
         "free_only": True,
-        "title": "AI 学习资源",
+        "track_order": track_order,
+        "title": "AI 课程资源",
         "lead": (
-            f"近 {max_age // 30} 个月上线的免费 AI 在线课程"
-            f"（DeepLearning.AI / Coursera 免费课 / Hugging Face / 视频课），每周刷新。"
+            "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent → AI 工程实践」编排的免费课程；"
+            "必收录微软 / 吴恩达 / 斯坦福 / Google 核心课，并补充近半年新课。"
         ),
         "source_note": (
-            "仅免费：DeepLearning.AI 短课程；Coursera 仅 isCourseFree；"
-            "Hugging Face Learn / YouTube 公开视频课。时间窗：releasedAt / NEW / 仓库推送 / 视频发布日。"
+            "必收录不受时间窗限制；补充课来自 DeepLearning.AI / Coursera 免费课 / "
+            "Hugging Face Learn / YouTube 公开视频课。"
         ),
         "items": items,
     }
     DATA_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     platforms = sorted({i.get("platform") for i in items if i.get("platform")})
-    print(f"✓ ai-courses.json ({len(items)} 门) → {DATA_FILE}")
-    print(f"  platforms: {', '.join(platforms)}")
+    tracks = sorted({i.get("track") for i in items if i.get("track")})
+    print(f"✓ ai-courses.json ({len(items)} 门, required={len(required)}) → {DATA_FILE}")
+    print(f"  tracks: {', '.join(tracks)}")
+    print(f"  platforms: {', '.join(str(p) for p in platforms)}")
     return 0
 
 

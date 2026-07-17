@@ -3,21 +3,17 @@ const COURSES_DATA_URL =
     ? document.documentElement.dataset.base.replace(/\/?$/, '/')
     : '') + 'ai-courses.json';
 
-const COURSE_CATEGORY_ORDER = [
-  'Agent应用',
-  'LLM应用',
-  '多模态',
+const DEFAULT_TRACK_ORDER = [
+  '入门',
   '机器学习',
-  '效率办公',
-  '入门基础',
-  '短课程',
-  'MOOC',
-  '开源课程',
-  '视频课程',
+  '深度学习',
+  'LLM 大模型',
+  'AI Agent',
+  'AI 工程实践',
 ];
 
 let coursesDataPromise = null;
-let coursesState = { category: 'all', platform: 'all', items: [] };
+let coursesState = { track: 'all', platform: 'all', items: [], trackOrder: DEFAULT_TRACK_ORDER };
 
 function escapeHtml(s) {
   const d = document.createElement('div');
@@ -47,7 +43,7 @@ function fetchCoursesData() {
   if (!coursesDataPromise) {
     coursesDataPromise = fetch(COURSES_DATA_URL, { cache: 'default' })
       .then((res) => {
-        if (!res.ok) throw new Error('无法加载学习资源数据');
+        if (!res.ok) throw new Error('无法加载课程资源数据');
         return res.json();
       })
       .catch((err) => {
@@ -60,14 +56,15 @@ function fetchCoursesData() {
 
 function filterCourses(items) {
   return (items || []).filter((item) => {
-    const catOk = coursesState.category === 'all' || item.category === coursesState.category;
+    const trackOk = coursesState.track === 'all' || item.track === coursesState.track;
     const platOk = coursesState.platform === 'all' || item.platform === coursesState.platform;
-    return catOk && platOk;
+    return trackOk && platOk;
   });
 }
 
 function renderCourseCard(item) {
   const badges = [
+    item.required ? '<span class="course-required-badge">必学</span>' : '',
     '<span class="course-free-badge">免费</span>',
     item.is_new ? '<span class="course-new-badge">新</span>' : '',
   ]
@@ -86,7 +83,7 @@ function renderCourseCard(item) {
         ${badges}
       </h4>
       <p class="course-meta">
-        ${item.category ? `<span>${escapeHtml(item.category)}</span>` : ''}
+        ${item.track ? `<span>${escapeHtml(item.track)}</span>` : ''}
         ${item.format ? `<span>${escapeHtml(item.format)}</span>` : ''}
       </p>
       ${item.summary ? `<p class="course-summary">${escapeHtml(item.summary)}</p>` : ''}
@@ -95,11 +92,35 @@ function renderCourseCard(item) {
   `;
 }
 
+function groupByTrack(items) {
+  const order = coursesState.trackOrder || DEFAULT_TRACK_ORDER;
+  const groups = new Map();
+  for (const track of order) groups.set(track, []);
+  for (const item of items) {
+    const track = item.track || '其他';
+    if (!groups.has(track)) groups.set(track, []);
+    groups.get(track).push(item);
+  }
+  return [...groups.entries()].filter(([, list]) => list.length);
+}
+
 function renderCoursesGrid(items) {
   if (!items.length) {
-    return '<p class="loading-hint">当前筛选下暂无课程，请切换分类或平台。</p>';
+    return '<p class="loading-hint">当前筛选下暂无课程，请切换路线或平台。</p>';
   }
-  return `<div class="courses-grid">${items.map(renderCourseCard).join('')}</div>`;
+  if (coursesState.track !== 'all') {
+    return `<div class="courses-grid">${items.map(renderCourseCard).join('')}</div>`;
+  }
+  return groupByTrack(items)
+    .map(
+      ([track, list]) => `
+      <section class="courses-track-block">
+        <h3 class="courses-track-title">${escapeHtml(track)}</h3>
+        <div class="courses-grid">${list.map(renderCourseCard).join('')}</div>
+      </section>
+    `,
+    )
+    .join('');
 }
 
 function uniqueValues(items, key) {
@@ -109,21 +130,24 @@ function uniqueValues(items, key) {
 function renderToolbar(items) {
   const toolbar = document.getElementById('courses-toolbar');
   if (!toolbar) return;
-  const categories = [
+  const present = new Set(uniqueValues(items, 'track'));
+  const tracks = [
     'all',
-    ...COURSE_CATEGORY_ORDER.filter((c) => items.some((i) => i.category === c)),
-    ...uniqueValues(items, 'category').filter((c) => !COURSE_CATEGORY_ORDER.includes(c)),
+    ...(coursesState.trackOrder || DEFAULT_TRACK_ORDER).filter((t) => present.has(t)),
+    ...uniqueValues(items, 'track').filter(
+      (t) => !(coursesState.trackOrder || DEFAULT_TRACK_ORDER).includes(t),
+    ),
   ];
   const platforms = [
     'all',
     ...uniqueValues(items, 'platform').sort((a, b) => a.localeCompare(b, 'zh')),
   ];
 
-  const catHtml = categories
-    .map((c) => {
-      const label = c === 'all' ? '全部领域' : c;
-      const active = coursesState.category === c ? ' active' : '';
-      return `<button type="button" class="video-filter${active}" data-course-category="${escapeHtml(c)}">${escapeHtml(label)}</button>`;
+  const trackHtml = tracks
+    .map((t) => {
+      const label = t === 'all' ? '全部路线' : t;
+      const active = coursesState.track === t ? ' active' : '';
+      return `<button type="button" class="video-filter${active}" data-course-track="${escapeHtml(t)}">${escapeHtml(label)}</button>`;
     })
     .join('');
   const platHtml = platforms
@@ -136,8 +160,8 @@ function renderToolbar(items) {
 
   toolbar.innerHTML = `
     <div class="video-toolbar-group">
-      <span class="video-toolbar-label">领域</span>
-      ${catHtml}
+      <span class="video-toolbar-label">路线</span>
+      ${trackHtml}
     </div>
     <div class="video-toolbar-group">
       <span class="video-toolbar-label">平台</span>
@@ -145,12 +169,12 @@ function renderToolbar(items) {
     </div>
   `;
 
-  toolbar.querySelectorAll('[data-course-category]').forEach((btn) => {
+  toolbar.querySelectorAll('[data-course-track]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      coursesState.category = btn.dataset.courseCategory || 'all';
+      coursesState.track = btn.dataset.courseTrack || 'all';
       paintCourses();
       if (typeof trackEvent === 'function') {
-        trackEvent('courses-filter-category', { category: coursesState.category });
+        trackEvent('courses-filter-track', { track: coursesState.track });
       }
     });
   });
@@ -177,9 +201,9 @@ function renderCoursesMeta(data) {
   const meta = document.getElementById('courses-update-meta');
   if (!meta) return;
   const n = (data.items || []).length;
-  const windowDays = data.window_days || 180;
+  const required = (data.items || []).filter((i) => i.required).length;
   const updated = data.updated_at || data.date || '';
-  meta.textContent = `免费 · 近 ${windowDays} 天 · ${n} 门课程${updated ? ` · 更新 ${formatCourseDate(updated)}` : ''}`;
+  meta.textContent = `免费 · 路线编排 · ${n} 门（必学 ${required}）${updated ? ` · 更新 ${formatCourseDate(updated)}` : ''}`;
 }
 
 async function initCoursesSection() {
@@ -187,9 +211,18 @@ async function initCoursesSection() {
   if (!list) return;
   try {
     const data = await fetchCoursesData();
-    coursesState.items = [...(data.items || [])].sort((a, b) =>
-      String(b.published_at || '').localeCompare(String(a.published_at || '')),
-    );
+    coursesState.trackOrder =
+      Array.isArray(data.track_order) && data.track_order.length
+        ? data.track_order
+        : DEFAULT_TRACK_ORDER;
+    const orderIndex = Object.fromEntries(coursesState.trackOrder.map((t, i) => [t, i]));
+    coursesState.items = [...(data.items || [])].sort((a, b) => {
+      const ta = orderIndex[a.track] ?? 999;
+      const tb = orderIndex[b.track] ?? 999;
+      if (ta !== tb) return ta - tb;
+      if (Boolean(a.required) !== Boolean(b.required)) return a.required ? -1 : 1;
+      return String(b.published_at || '').localeCompare(String(a.published_at || ''));
+    });
     renderCoursesMeta(data);
     paintCourses();
   } catch (err) {

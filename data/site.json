@@ -34,7 +34,7 @@
       {
         "type": "tab",
         "id": "courses",
-        "label": "学习资源"
+        "label": "课程资源"
       },
       {
         "type": "tab",
@@ -51,7 +51,7 @@
   "hero": {
     "eyebrow": "Bio AI Lab",
     "title": "让每个人拥有自己的 AI 工作流",
-    "subtitle": "对比选型、开源精选、学习资源、热点与视频——搭好你的 AI 工作流。",
+    "subtitle": "对比选型、开源精选、课程资源、热点与视频——搭好你的 AI 工作流。",
     "cta_primary": {
       "label": "获取 AI 推荐",
       "href": "#home-recommend"

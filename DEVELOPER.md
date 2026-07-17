@@ -15,7 +15,7 @@ dist/                 # 构建产物（不提交）
 
 关键数据：`site.json` · `tools.json` · `tool-relations.json` · `engagement.json` · `rankings.json`  
 运行时 JSON（根目录，定时任务写入）：`daily-videos.json` · `ai-news.json` · `oss-projects.json` · `ai-courses.json`  
-搜索索引与推荐规则由 `scripts/build-artifacts.mjs` 生成；开源精选由 `fetch_oss_stars.py` 重刷；学习资源由 `fetch_ai_courses.py` 收集近半年【免费】AI 在线课程（每周一）。
+搜索索引与推荐规则由 `scripts/build-artifacts.mjs` 生成；开源精选由 `fetch_oss_stars.py` 重刷；课程资源由 `fetch_ai_courses.py` 按学习路线收集【免费】AI 课程（必收录 + 近半年补充，每周一）。
 
 ## 本地
 
@@ -52,7 +52,7 @@ python3 scripts/fetch_rankings.py   # AICPB / LMSYS Elo / AA Intelligence Index
 | `daily-videos.yml`   | 每日视频 00:00 |
 | `daily-news.yml`     | 一周热点 06:00 |
 | `weekly-oss.yml`     | OSS 周一       |
-| `weekly-courses.yml` | 学习资源 周一  |
+| `weekly-courses.yml` | 课程资源 周一  |
 | `site-health.yml`    | 线上探针       |
 
 失败处置见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。

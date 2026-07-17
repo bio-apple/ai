@@ -1,16 +1,21 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://bio-apple.github.io/ai/schemas/ai-courses.schema.json",
-  "title": "AI online courses payload",
+  "title": "AI course resources payload",
   "type": "object",
-  "required": ["items", "window_days"],
+  "required": ["items", "window_days", "free_only", "track_order"],
   "properties": {
     "schema_version": { "type": "integer", "minimum": 1 },
     "updated_at": { "type": "string" },
     "date": { "type": "string" },
     "cadence": { "type": "string" },
     "window_days": { "type": "integer", "minimum": 1 },
-    "free_only": { "type": "boolean" },
+    "free_only": { "type": "boolean", "const": true },
+    "track_order": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
     "title": { "type": "string" },
     "lead": { "type": "string" },
     "source_note": { "type": "string" },
@@ -19,19 +24,20 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["title", "url", "platform", "published_at", "is_free"],
+        "required": ["title", "url", "platform", "track", "published_at", "is_free"],
         "properties": {
           "id": { "type": "string" },
           "title": { "type": "string", "minLength": 1 },
           "url": { "type": "string", "minLength": 1 },
           "summary": { "type": "string" },
           "platform": { "type": "string" },
-          "category": { "type": "string" },
+          "track": { "type": "string", "minLength": 1 },
           "format": { "type": "string" },
           "published_at": { "type": "string", "minLength": 8 },
           "language": { "type": "string" },
           "is_free": { "type": "boolean", "const": true },
-          "is_new": { "type": "boolean" }
+          "is_new": { "type": "boolean" },
+          "required": { "type": "boolean" }
         }
       }
     }

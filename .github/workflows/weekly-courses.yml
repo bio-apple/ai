@@ -29,7 +29,7 @@ jobs:
       - name: Install Python deps
         run: python -m pip install pyyaml==6.0.3
 
-      - name: Fetch free AI courses (last 6 months)
+      - name: Fetch free AI course resources (track path)
         id: fetch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -48,7 +48,7 @@ jobs:
             exit 0
           fi
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
-          git commit -m "chore: weekly free AI courses $DATE (近半年)"
+          git commit -m "chore: weekly AI course resources $DATE"
           git push
           echo "pushed=true" >> "$GITHUB_OUTPUT"
 
@@ -72,7 +72,7 @@ jobs:
           script: |
             const title = '[ops] Weekly AI courses fetch failed';
             const body = [
-              '每周一学习资源（近半年免费 AI 在线课程）重刷失败。',
+              '每周一课程资源（路线编排免费课）重刷失败。',
               '',
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
               '',
