@@ -33,7 +33,6 @@ DEFAULT_TRACK_ORDER = [
     "深度学习",
     "LLM 大模型",
     "AI Agent",
-    "AI 工程实践",
 ]
 
 
@@ -789,7 +788,7 @@ def main() -> int:
         "track_order": track_order,
         "title": "AI 课程资源",
         "lead": (
-            "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent → AI 工程实践」编排的免费课程；"
+            "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排的免费课程；"
             "每条路线最多推荐 5 门；必收录微软 / 吴恩达 / 斯坦福 / Google 核心课。"
         ),
         "source_note": (

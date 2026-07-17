@@ -3,14 +3,7 @@ const COURSES_DATA_URL =
     ? document.documentElement.dataset.base.replace(/\/?$/, '/')
     : '') + 'ai-courses.json';
 
-const DEFAULT_TRACK_ORDER = [
-  '入门',
-  '机器学习',
-  '深度学习',
-  'LLM 大模型',
-  'AI Agent',
-  'AI 工程实践',
-];
+const DEFAULT_TRACK_ORDER = ['入门', '机器学习', '深度学习', 'LLM 大模型', 'AI Agent'];
 
 let coursesDataPromise = null;
 let coursesState = { track: 'all', platform: 'all', items: [], trackOrder: DEFAULT_TRACK_ORDER };

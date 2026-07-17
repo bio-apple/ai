@@ -13,7 +13,6 @@ track_order:
   - 深度学习
   - LLM 大模型
   - AI Agent
-  - AI 工程实践
 
 # 必收录（不受半年窗口限制；始终写入）
 # 说明：吴恩达系列以 ML + Deep Learning Specialization 为代表；
@@ -174,11 +173,10 @@ youtube_courses:
       source: Sentdex
       optional: true
 
-# 自动抓取条目 → 路线映射（按优先级匹配；工程实践须在 LLM 之前）
+# 自动抓取条目 → 路线映射（按优先级匹配）
 track_keywords:
-  AI Agent: "(agent|agentic|mcp|tool use|多智能体|computer use)"
-  AI 工程实践: "(deploy|inference|mlops|llmops|production|vllm|sglang|ops|工程|部署|评测|observability|serving)"
-  LLM 大模型: "(llm|language model|gpt|claude|gemini|prompt|rag|retrieval|transformer|token|推理)"
+  AI Agent: "(agent|agentic|mcp|tool use|多智能体|computer use|deploy|inference|mlops|llmops|production|vllm|sglang|ops|部署|评测|observability|serving)"
+  LLM 大模型: "(llm|language model|gpt|claude|gemini|prompt|rag|retrieval|transformer|token|推理|工程)"
   深度学习: "(deep learning|cnn|neural|diffusion|pytorch|jax|强化学习|reinforcement|vision|audio)"
   机器学习: "(machine learning|supervised|regression|classification|scikit|特征)"
   入门: "(beginner|everyone|intro|入门|基础|crash course|for beginners|python for)"
