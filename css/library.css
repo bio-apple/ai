@@ -89,7 +89,7 @@
   padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
   transition:
     border-color 0.2s,
     box-shadow 0.2s,
@@ -106,6 +106,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 8px;
+  flex-wrap: wrap;
 }
 
 .oss-domain-badge {
@@ -119,8 +120,6 @@
 
 .oss-zh-badge {
   display: inline-block;
-  margin-left: 8px;
-  vertical-align: middle;
   font-size: 0.68rem;
   font-weight: 700;
   padding: 2px 8px;
@@ -130,42 +129,117 @@
   letter-spacing: 0.02em;
 }
 
-.oss-stars {
-  font-size: 0.8rem;
-  color: #f59e0b;
-  font-weight: 600;
-}
-
+.oss-card-title,
 .oss-card h4 {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px;
-  font-size: 1rem;
   margin: 0;
+  font-size: 1rem;
+  line-height: 1.35;
 }
 
+.oss-card-title a,
 .oss-card h4 a {
   color: inherit;
   text-decoration: none;
 }
 
-.oss-repo {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  font-family: var(--font-mono, monospace);
-}
-
-.oss-summary {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  flex: 1;
-}
-
-.oss-read {
-  font-size: 0.8rem;
+.oss-card-title a:hover,
+.oss-card h4 a:hover {
   color: var(--accent);
-  font-weight: 500;
+}
+
+.oss-repo-slug {
+  margin: -4px 0 0;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+.oss-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oss-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--bg-hover);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+}
+
+.oss-meta-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.oss-meta-value {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.oss-meta-stars {
+  color: #f59e0b;
+}
+
+.oss-purpose {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.55;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.oss-purpose-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.oss-purpose-text {
+  color: var(--text);
+}
+
+.oss-repo-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: auto;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  background: rgba(37, 99, 235, 0.08);
+  color: var(--accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+
+.oss-repo-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.oss-repo-btn-icon {
+  font-size: 0.9rem;
+  line-height: 1;
 }
 
 .oss-domain-block {

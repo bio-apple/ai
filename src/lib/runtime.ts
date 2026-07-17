@@ -38,6 +38,7 @@ export type OssProject = {
   description?: string;
   language?: string;
   stars?: number;
+  badge?: string;
 };
 
 export type OssDomain = {

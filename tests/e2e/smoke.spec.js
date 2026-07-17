@@ -41,6 +41,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-tools')).toHaveCount(0);
     await expect(page.locator('#home-categories')).toHaveCount(0);
     await expect(page.locator('#home-oss')).toBeVisible();
+    await expect(page.locator('#home-oss .oss-meta').first()).toBeVisible();
+    await expect(page.locator('#home-oss .oss-repo-btn').first()).toBeVisible();
     await expect(page.locator('#home-favorites')).toHaveCount(0);
     await expect(page.locator('#home-learning')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toBeVisible();

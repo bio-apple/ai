@@ -1,0 +1,61 @@
+---
+import { formatStars } from '../lib/runtime';
+
+export type OssCardProject = {
+  name: string;
+  repo: string;
+  url: string;
+  description?: string;
+  language?: string;
+  stars?: number;
+  badge?: string;
+};
+
+interface Props {
+  project: OssCardProject;
+  domainLabel: string;
+}
+
+const { project, domainLabel } = Astro.props;
+const stars = formatStars(project.stars);
+const language = project.language?.trim() || '—';
+const purpose = project.description?.trim() || '暂无简介';
+---
+
+<article class:list={['oss-card', { 'oss-card-zh': Boolean(project.badge) }]}>
+  <div class="oss-card-head">
+    <span class="oss-domain-badge">{domainLabel}</span>
+    {project.badge && <span class="oss-zh-badge">{project.badge}</span>}
+  </div>
+  <h4 class="oss-card-title">
+    <a href={project.url} target="_blank" rel="noopener noreferrer" data-track="oss-click">
+      {project.name}
+    </a>
+  </h4>
+  <p class="oss-repo-slug">{project.repo}</p>
+  <ul class="oss-meta" aria-label="项目信息">
+    <li class="oss-meta-item">
+      <span class="oss-meta-label">Stars</span>
+      <span class="oss-meta-value oss-meta-stars">★ {stars}</span>
+    </li>
+    <li class="oss-meta-item">
+      <span class="oss-meta-label">语言</span>
+      <span class="oss-meta-value">{language}</span>
+    </li>
+  </ul>
+  <p class="oss-purpose">
+    <span class="oss-purpose-label">用途</span>
+    <span class="oss-purpose-text">{purpose}</span>
+  </p>
+  <a
+    href={project.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="oss-repo-btn"
+    data-track="oss-read"
+    aria-label={`打开 ${project.name} GitHub 仓库`}
+  >
+    <span class="oss-repo-btn-icon" aria-hidden="true">↗</span>
+    打开 GitHub 仓库
+  </a>
+</article>

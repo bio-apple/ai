@@ -19,19 +19,41 @@ function formatStars(n) {
 }
 
 function renderOssCard(project, domainLabel) {
+  const stars = formatStars(project.stars);
+  const language = (project.language || '').trim() || '—';
+  const purpose = (project.description || '').trim() || '暂无简介';
   const badge = project.badge
     ? `<span class="oss-zh-badge">${escapeHtml(project.badge)}</span>`
     : '';
+  const repoBtnLabel = `打开 ${project.name} GitHub 仓库`;
   return `
     <article class="oss-card${project.badge ? ' oss-card-zh' : ''}">
       <div class="oss-card-head">
         <span class="oss-domain-badge">${escapeHtml(domainLabel)}</span>
-        <span class="oss-stars">★ ${escapeHtml(formatStars(project.stars))}</span>
+        ${badge}
       </div>
-      <h4><a href="${escapeHtml(project.url)}" target="_blank" rel="${extRel()}" data-track="oss-click">${escapeHtml(project.name)}</a>${badge}</h4>
-      <p class="oss-repo">${escapeHtml(project.repo)}${project.language ? ` · ${escapeHtml(project.language)}` : ''}</p>
-      <p class="oss-summary">${escapeHtml(project.description || '')}</p>
-      <a href="${escapeHtml(project.url)}" target="_blank" rel="${extRel()}" class="oss-read" data-track="oss-read">查看仓库 →</a>
+      <h4 class="oss-card-title">
+        <a href="${escapeHtml(project.url)}" target="_blank" rel="${extRel()}" data-track="oss-click">${escapeHtml(project.name)}</a>
+      </h4>
+      <p class="oss-repo-slug">${escapeHtml(project.repo)}</p>
+      <ul class="oss-meta" aria-label="项目信息">
+        <li class="oss-meta-item">
+          <span class="oss-meta-label">Stars</span>
+          <span class="oss-meta-value oss-meta-stars">★ ${escapeHtml(stars)}</span>
+        </li>
+        <li class="oss-meta-item">
+          <span class="oss-meta-label">语言</span>
+          <span class="oss-meta-value">${escapeHtml(language)}</span>
+        </li>
+      </ul>
+      <p class="oss-purpose">
+        <span class="oss-purpose-label">用途</span>
+        <span class="oss-purpose-text">${escapeHtml(purpose)}</span>
+      </p>
+      <a href="${escapeHtml(project.url)}" target="_blank" rel="${extRel()}" class="oss-repo-btn" data-track="oss-read" aria-label="${escapeHtml(repoBtnLabel)}">
+        <span class="oss-repo-btn-icon" aria-hidden="true">↗</span>
+        打开 GitHub 仓库
+      </a>
     </article>
   `;
 }
