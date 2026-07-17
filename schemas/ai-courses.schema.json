@@ -10,6 +10,7 @@
     "date": { "type": "string" },
     "cadence": { "type": "string" },
     "window_days": { "type": "integer", "minimum": 1 },
+    "free_only": { "type": "boolean" },
     "title": { "type": "string" },
     "lead": { "type": "string" },
     "source_note": { "type": "string" },
@@ -18,7 +19,7 @@
       "minItems": 1,
       "items": {
         "type": "object",
-        "required": ["title", "url", "platform", "published_at"],
+        "required": ["title", "url", "platform", "published_at", "is_free"],
         "properties": {
           "id": { "type": "string" },
           "title": { "type": "string", "minLength": 1 },
@@ -29,6 +30,7 @@
           "format": { "type": "string" },
           "published_at": { "type": "string", "minLength": 8 },
           "language": { "type": "string" },
+          "is_free": { "type": "boolean", "const": true },
           "is_new": { "type": "boolean" }
         }
       }

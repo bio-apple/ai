@@ -67,7 +67,12 @@ function filterCourses(items) {
 }
 
 function renderCourseCard(item) {
-  const badge = item.is_new ? '<span class="course-new-badge">新</span>' : '';
+  const badges = [
+    '<span class="course-free-badge">免费</span>',
+    item.is_new ? '<span class="course-new-badge">新</span>' : '',
+  ]
+    .filter(Boolean)
+    .join('');
   return `
     <article class="course-card">
       <div class="course-card-head">
@@ -78,7 +83,7 @@ function renderCourseCard(item) {
         <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener" data-track="course-click">
           ${escapeHtml(item.title || '')}
         </a>
-        ${badge}
+        ${badges}
       </h4>
       <p class="course-meta">
         ${item.category ? `<span>${escapeHtml(item.category)}</span>` : ''}
@@ -174,7 +179,7 @@ function renderCoursesMeta(data) {
   const n = (data.items || []).length;
   const windowDays = data.window_days || 180;
   const updated = data.updated_at || data.date || '';
-  meta.textContent = `近 ${windowDays} 天 · ${n} 门课程${updated ? ` · 更新 ${formatCourseDate(updated)}` : ''}`;
+  meta.textContent = `免费 · 近 ${windowDays} 天 · ${n} 门课程${updated ? ` · 更新 ${formatCourseDate(updated)}` : ''}`;
 }
 
 async function initCoursesSection() {

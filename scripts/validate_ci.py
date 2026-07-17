@@ -142,13 +142,18 @@ def validate_ai_courses() -> None:
     items = data.get("items") or []
     if not items:
         raise ValueError("ai-courses.json items 为空")
+    if data.get("free_only") is not True:
+        raise ValueError("ai-courses.json 必须 free_only=true（仅免费资源）")
+    paid = [i.get("title") for i in items if i.get("is_free") is not True]
+    if paid:
+        raise ValueError("ai-courses.json 含非免费条目: " + ", ".join(str(t) for t in paid[:5]))
     urls = [str(i.get("url") or "").strip() for i in items]
     if len(urls) != len(set(urls)):
         raise ValueError("ai-courses.json 存在重复 URL")
     window = int(data.get("window_days") or 180)
     if window < 1:
         raise ValueError("window_days 无效")
-    print(f"✓ ai-courses.json schema ({len(items)} 门 · {window} 天窗口)")
+    print(f"✓ ai-courses.json schema ({len(items)} 门免费 · {window} 天窗口)")
 
 
 def validate_search_index() -> None:

@@ -15,7 +15,7 @@ dist/                 # 构建产物（不提交）
 
 关键数据：`site.json` · `tools.json` · `tool-relations.json` · `engagement.json` · `rankings.json`  
 运行时 JSON（根目录，定时任务写入）：`daily-videos.json` · `ai-news.json` · `oss-projects.json` · `ai-courses.json`  
-搜索索引与推荐规则由 `scripts/build-artifacts.mjs` 生成；开源精选由 `fetch_oss_stars.py` 重刷；学习资源由 `fetch_ai_courses.py` 收集近半年 AI 在线课程（每周一）。
+搜索索引与推荐规则由 `scripts/build-artifacts.mjs` 生成；开源精选由 `fetch_oss_stars.py` 重刷；学习资源由 `fetch_ai_courses.py` 收集近半年【免费】AI 在线课程（每周一）。
 
 ## 本地
 

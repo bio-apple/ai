@@ -23,19 +23,19 @@ npm ci && pip install -r requirements.txt
 
 - 推荐助手 · 工具对比表 · AICPB 排行
 - 工具教程与替代/互补关系
-- 一周内 AI 热点 · 每日视频 · GitHub 开源精选 · 近半年 AI 在线课程
+- 一周内 AI 热点 · 每日视频 · GitHub 开源精选 · 近半年免费 AI 在线课程
 
 ## 改内容
 
-| 想改什么    | 改哪里                                                               |
-| ----------- | -------------------------------------------------------------------- |
-| 文案 / 导航 | `data/site.json`                                                     |
-| 工具 / 关系 | `data/tools.json` · `data/tool-relations.json`                       |
-| 对比表行    | `data/site.json` → `compare_table`                                   |
-| 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`）                       |
-| 热度基准    | `data/engagement.json`                                               |
-| 开源精选    | `oss-projects.json`（≥5万 Top5 + 中文Top1 · 周一；含 Prompt 领域）   |
-| 学习资源    | `ai-courses.json`（近半年在线课程 · 周一；见 `fetch_ai_courses.py`） |
+| 想改什么    | 改哪里                                                                   |
+| ----------- | ------------------------------------------------------------------------ |
+| 文案 / 导航 | `data/site.json`                                                         |
+| 工具 / 关系 | `data/tools.json` · `data/tool-relations.json`                           |
+| 对比表行    | `data/site.json` → `compare_table`                                       |
+| 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`）                           |
+| 热度基准    | `data/engagement.json`                                                   |
+| 开源精选    | `oss-projects.json`（≥5万 Top5 + 中文Top1 · 周一；含 Prompt 领域）       |
+| 学习资源    | `ai-courses.json`（近半年免费在线课程 · 周一；见 `fetch_ai_courses.py`） |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。  
 运维救急见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。

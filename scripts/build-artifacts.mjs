@@ -55,7 +55,7 @@ function buildSearchIndex(site, tools, compares) {
     type: '频道',
     section: 'section-courses',
     keywords:
-      '学习资源 在线课程 MOOC DeepLearning.AI Coursera Hugging Face freeCodeCamp Agent LLM 短课程 近半年',
+      '学习资源 免费 在线课程 MOOC DeepLearning.AI Coursera Hugging Face freeCodeCamp Agent LLM 短课程 近半年',
   });
   items.push({
     label: 'GitHub Prompt 库 Top 5',

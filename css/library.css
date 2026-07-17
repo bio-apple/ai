@@ -308,15 +308,24 @@
   color: var(--accent);
 }
 
+.course-free-badge,
 .course-new-badge {
   margin-left: 6px;
   font-size: 0.68rem;
   font-weight: 800;
-  color: #b45309;
-  background: rgba(245, 158, 11, 0.14);
   padding: 2px 6px;
   border-radius: 6px;
   vertical-align: middle;
+}
+
+.course-free-badge {
+  color: #047857;
+  background: rgba(16, 185, 129, 0.14);
+}
+
+.course-new-badge {
+  color: #b45309;
+  background: rgba(245, 158, 11, 0.14);
 }
 
 .course-meta {

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""抓取近半年上线的 AI 在线课程，写入 ai-courses.json。"""
+"""抓取近半年上线的【免费】AI 在线课程，写入 ai-courses.json。"""
 
 from __future__ import annotations
 
@@ -125,134 +125,169 @@ def classify_category(title: str, summary: str, keywords: dict[str, str], fallba
     return fallback
 
 
+def course_item(
+    *,
+    source: str,
+    title: str,
+    url: str,
+    summary: str,
+    category: str,
+    fmt: str,
+    published_at: str,
+    language: str = "en",
+    is_new: bool = False,
+) -> dict[str, Any]:
+    return {
+        "id": make_id(source, url),
+        "title": title,
+        "url": url,
+        "summary": (summary or "")[:200],
+        "platform": source,
+        "category": category,
+        "format": fmt,
+        "published_at": published_at,
+        "language": language,
+        "is_free": True,
+        "is_new": is_new,
+    }
+
+
 def fetch_deeplearning_ai(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str, str]) -> list[dict]:
+    """DeepLearning.AI 短课程可免费学习；按 releasedAt 过滤近半年。"""
     if not cfg.get("enabled", True):
         return []
     html = fetch_text(cfg["url"])
     if not html:
         return []
-    pat = re.compile(
-        r'slug\\":\\"([a-z0-9-]+)\\",\\"name\\":\\"(.*?)\\",\\"type\\":\\"short_course\\",'
-        r'\\"maintenanceMode\\":(?:true|false),\\"comingSoon\\":(?:true|false),'
-        r'\\"releasedAt\\":\\"(20\d{2}-\d{2}-\d{2}T[^\\"]*)\\"',
-        re.S,
-    )
     base = cfg.get("base_url") or "https://www.deeplearning.ai/courses/"
     source = cfg.get("source") or "DeepLearning.AI"
     fallback_cat = cfg.get("category") or "短课程"
     items: list[dict] = []
     seen: set[str] = set()
-    for slug, name_raw, released in pat.findall(html):
+    # 在 releasedAt 前回看窗口，避免 name 跨字段误匹配
+    for m in re.finditer(r'releasedAt\\":\\"(20\d{2}-\d{2}-\d{2}T[^\\"]*)\\"', html):
+        published = parse_iso_date(m.group(1))
+        if not published or published < cutoff:
+            continue
+        window = html[max(0, m.start() - 500) : m.start()]
+        if 'type\\":\\"short_course\\"' not in window and 'type\\":\\"course\\"' not in window:
+            continue
+        slug_m = re.search(r'slug\\":\\"([a-z0-9-]+)\\"', window)
+        name_m = re.search(r'name\\":\\"((?:[^\\]|\\[^"])*?)\\"', window)
+        if not slug_m or not name_m:
+            continue
+        slug = slug_m.group(1)
         if slug in seen:
             continue
         seen.add(slug)
-        published = parse_iso_date(released)
-        if not published or published < cutoff:
+        name = decode_js_str(name_m.group(1)).strip()
+        if not name or len(name) > 160 or '"' in name or "type\\" in name:
             continue
-        name = decode_js_str(name_raw).strip()
         url = urljoin(base if base.endswith("/") else base + "/", slug)
-        # pull nearby description if present
-        summary = ""
+        summary = "DeepLearning.AI 免费短课程"
         desc_m = re.search(
-            rf'\\"description\\":\\"(.*?)\\",\\"slug\\":\\"{re.escape(slug)}\\"',
+            rf'\\"description\\":\\"((?:[^\\]|\\[^"])*?)\\",\\"slug\\":\\"{re.escape(slug)}\\"',
             html,
-            re.S,
         )
         if desc_m:
-            summary = decode_js_str(desc_m.group(1)).strip()
+            summary = decode_js_str(desc_m.group(1)).strip() or summary
         items.append(
-            {
-                "id": make_id(source, url),
-                "title": name,
-                "url": url,
-                "summary": summary[:200],
-                "platform": source,
-                "category": classify_category(name, summary, keywords, fallback_cat),
-                "format": "短课程",
-                "published_at": published.strftime("%Y-%m-%d"),
-                "language": "en",
-            }
+            course_item(
+                source=source,
+                title=name,
+                url=url,
+                summary=summary,
+                category=classify_category(name, summary, keywords, fallback_cat),
+                fmt="短课程",
+                published_at=published.strftime("%Y-%m-%d"),
+            )
         )
-    print(f"  · DeepLearning.AI: {len(items)}")
+    print(f"  · DeepLearning.AI (免费): {len(items)}")
     return items
 
 
 def fetch_coursera(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str, str]) -> list[dict]:
+    """仅收录 Coursera isCourseFree=true 的课程。"""
     if not cfg.get("enabled", True):
         return []
     base = cfg.get("base_url") or "https://www.coursera.org"
     source = cfg.get("source") or "Coursera"
     fallback_cat = cfg.get("category") or "MOOC"
     max_per = int(cfg.get("max_per_query") or 10)
+    sort = str(cfg.get("sort") or "NEW")
     today = now_local().strftime("%Y-%m-%d")
     items: list[dict] = []
     seen: set[str] = set()
     for query in cfg.get("queries") or []:
-        url = (
-            f"{base}/courses?query={quote(query)}&sortBy=NEW"
-        )
-        html = fetch_text(url)
-        if not html:
-            continue
-        m = re.search(
-            r"window\.__APOLLO_STATE__\s*=\s*(\{.*?\})\s*(?:;|\n|</script>)",
-            html,
-            re.S,
-        )
-        if not m:
-            print(f"  · Coursera warn: no Apollo state for q={query}", file=sys.stderr)
-            continue
-        try:
-            state = json.loads(m.group(1))
-        except json.JSONDecodeError as exc:
-            print(f"  · Coursera warn: JSON {exc}", file=sys.stderr)
-            continue
-        hits = [
-            v
-            for v in state.values()
-            if isinstance(v, dict)
-            and v.get("__typename") == "Search_ProductHit"
-            and v.get("productType") == "COURSE"
-        ]
-        n = 0
-        for hit in hits:
-            path = str(hit.get("url") or "").strip()
-            title = str(hit.get("name") or "").strip()
-            if not path or not title:
+        for sort_by in (sort, "BEST_MATCH"):
+            url = f"{base}/courses?query={quote(query)}&sortBy={quote(sort_by)}"
+            html = fetch_text(url)
+            if not html:
                 continue
-            full = urljoin(base + "/", path.lstrip("/"))
-            if full in seen:
-                continue
-            # NEW 排序下优先 isNewContent；无日期时用抓取日（仅新内容）
-            if not hit.get("isNewContent"):
-                continue
-            seen.add(full)
-            partners = hit.get("partners") or []
-            partner = partners[0] if partners else ""
-            summary = str(hit.get("tagline") or partner or "").strip()
-            level = str(hit.get("productDifficultyLevel") or "").replace("_", " ").title()
-            if level:
-                summary = f"{summary} · {level}".strip(" ·")
-            items.append(
-                {
-                    "id": make_id(source, full),
-                    "title": title,
-                    "url": full,
-                    "summary": summary[:200],
-                    "platform": source,
-                    "category": classify_category(title, summary, keywords, fallback_cat),
-                    "format": "MOOC",
-                    "published_at": today,
-                    "language": "en",
-                    "is_new": True,
-                }
+            m = re.search(
+                r"window\.__APOLLO_STATE__\s*=\s*(\{.*?\})\s*(?:;|\n|</script>)",
+                html,
+                re.S,
             )
-            n += 1
+            if not m:
+                continue
+            try:
+                state = json.loads(m.group(1))
+            except json.JSONDecodeError as exc:
+                print(f"  · Coursera warn: JSON {exc}", file=sys.stderr)
+                continue
+            hits = [
+                v
+                for v in state.values()
+                if isinstance(v, dict)
+                and v.get("__typename") == "Search_ProductHit"
+                and v.get("productType") == "COURSE"
+            ]
+            n = 0
+            for hit in hits:
+                if not hit.get("isCourseFree"):
+                    continue
+                path = str(hit.get("url") or "").strip()
+                title = str(hit.get("name") or "").strip()
+                if not path or not title:
+                    continue
+                full = urljoin(base + "/", path.lstrip("/"))
+                if full in seen:
+                    continue
+                # 无发布日：仅收 NEW 标记；有 NEW 时用抓取日代表「新上架免费课」
+                if sort_by == "NEW" and not hit.get("isNewContent"):
+                    # BEST_MATCH 分支可收免费但非 NEW 的课——仍要求半年窗口无法验证则跳过
+                    continue
+                if sort_by != "NEW" and not hit.get("isNewContent"):
+                    continue
+                seen.add(full)
+                partners = hit.get("partners") or []
+                partner = partners[0] if partners else ""
+                summary = str(hit.get("tagline") or partner or "Coursera 免费课程").strip()
+                level = str(hit.get("productDifficultyLevel") or "").replace("_", " ").title()
+                if level:
+                    summary = f"{summary} · {level}".strip(" ·")
+                items.append(
+                    course_item(
+                        source=source,
+                        title=title,
+                        url=full,
+                        summary=summary,
+                        category=classify_category(title, summary, keywords, fallback_cat),
+                        fmt="MOOC",
+                        published_at=today,
+                        is_new=bool(hit.get("isNewContent")),
+                    )
+                )
+                n += 1
+                if n >= max_per:
+                    break
+            if n:
+                print(f"  · Coursera free q={query!r} sort={sort_by}: +{n}")
             if n >= max_per:
                 break
-        print(f"  · Coursera q={query!r}: +{n}")
-    # cutoff unused for Coursera new-only, but keep signature consistent
     _ = cutoff
+    print(f"  · Coursera (免费合计): {len(items)}")
     return items
 
 
@@ -295,21 +330,19 @@ def fetch_huggingface(cfg: dict[str, Any], cutoff: datetime, keywords: dict[str,
             published = now_local()
         if published < cutoff:
             continue
-        summary = f"Hugging Face Learn · {course.get('id')}"
+        summary = f"Hugging Face Learn 免费开源课程 · {course.get('id')}"
         items.append(
-            {
-                "id": make_id(source, url),
-                "title": name,
-                "url": url,
-                "summary": summary,
-                "platform": source,
-                "category": classify_category(name, summary, keywords, fallback_cat),
-                "format": "开源课程",
-                "published_at": published.strftime("%Y-%m-%d"),
-                "language": "en",
-            }
+            course_item(
+                source=source,
+                title=name,
+                url=url,
+                summary=summary,
+                category=classify_category(name, summary, keywords, fallback_cat),
+                fmt="开源课程",
+                published_at=published.strftime("%Y-%m-%d"),
+            )
         )
-    print(f"  · Hugging Face Learn: {len(items)}")
+    print(f"  · Hugging Face Learn (免费): {len(items)}")
     return items
 
 
@@ -352,22 +385,20 @@ def fetch_youtube_courses(cfg: dict[str, Any], cutoff: datetime, keywords: dict[
             href = link_el.get("href") if link_el is not None else ""
             if not href:
                 continue
-            summary = f"{ch.get('name') or source} · YouTube 完整课程向视频"
+            summary = f"{ch.get('name') or source} · YouTube 免费完整课程向视频"
             items.append(
-                {
-                    "id": make_id(source, href),
-                    "title": unescape(title),
-                    "url": href,
-                    "summary": summary,
-                    "platform": source,
-                    "category": classify_category(title, summary, keywords, fallback_cat),
-                    "format": "视频课程",
-                    "published_at": published.strftime("%Y-%m-%d"),
-                    "language": "en",
-                }
+                course_item(
+                    source=source,
+                    title=unescape(title),
+                    url=href,
+                    summary=summary,
+                    category=classify_category(title, summary, keywords, fallback_cat),
+                    fmt="视频课程",
+                    published_at=published.strftime("%Y-%m-%d"),
+                )
             )
             n += 1
-        print(f"  · YouTube {ch.get('name')}: +{n}")
+        print(f"  · YouTube {ch.get('name')} (免费): +{n}")
     return items
 
 
@@ -403,16 +434,19 @@ def main() -> int:
     cutoff = now_local() - timedelta(days=max_age)
     keywords = cfg.get("category_keywords") or {}
 
-    print(f"规则：近 {max_age} 天 AI 在线课程 · 最多 {max_items} 条")
+    free_only = cfg.get("free_only", True)
+    print(f"规则：近 {max_age} 天【免费】AI 在线课程 · 最多 {max_items} 条")
     collected: list[dict] = []
     collected += fetch_deeplearning_ai(cfg.get("deeplearning_ai") or {}, cutoff, keywords)
     collected += fetch_coursera(cfg.get("coursera") or {}, cutoff, keywords)
     collected += fetch_huggingface(cfg.get("huggingface_learn") or {}, cutoff, keywords)
     collected += fetch_youtube_courses(cfg.get("youtube_courses") or {}, cutoff, keywords)
 
+    if free_only:
+        collected = [i for i in collected if i.get("is_free") is True]
     items = dedupe_courses(collected)[:max_items]
     if len(items) < min_items:
-        print(f"✗ 课程条数不足（{len(items)} < {min_items}）", file=sys.stderr)
+        print(f"✗ 免费课程条数不足（{len(items)} < {min_items}）", file=sys.stderr)
         return 1
 
     payload = {
@@ -421,9 +455,16 @@ def main() -> int:
         "date": now_local().strftime("%Y-%m-%d"),
         "cadence": "weekly",
         "window_days": max_age,
+        "free_only": True,
         "title": "AI 学习资源",
-        "lead": f"近 {max_age // 30} 个月上线的 AI 在线课程（DeepLearning.AI / Coursera / Hugging Face / 视频课），每周刷新。",
-        "source_note": "筛选：发布或标注为新上线的课程；DeepLearning.AI 用 releasedAt；Coursera 取 NEW+isNewContent；Hugging Face 用仓库最近推送；YouTube 匹配课程向标题。",
+        "lead": (
+            f"近 {max_age // 30} 个月上线的免费 AI 在线课程"
+            f"（DeepLearning.AI / Coursera 免费课 / Hugging Face / 视频课），每周刷新。"
+        ),
+        "source_note": (
+            "仅免费：DeepLearning.AI 短课程；Coursera 仅 isCourseFree；"
+            "Hugging Face Learn / YouTube 公开视频课。时间窗：releasedAt / NEW / 仓库推送 / 视频发布日。"
+        ),
         "items": items,
     }
     DATA_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

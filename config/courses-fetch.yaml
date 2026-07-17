@@ -1,9 +1,10 @@
 # AI 在线课程抓取（scripts/fetch_ai_courses.py）
-# 产品定义：近半年上线的 AI 在线课程；周更（见 .github/workflows/weekly-courses.yml）
+# 产品定义：近半年上线的【免费】AI 在线课程；周更（见 .github/workflows/weekly-courses.yml）
 
 max_age_days: 180
 max_items: 60
 min_items: 8
+free_only: true
 
 deeplearning_ai:
   enabled: true
@@ -11,19 +12,24 @@ deeplearning_ai:
   url: https://www.deeplearning.ai/short-courses/
   category: 短课程
   base_url: https://www.deeplearning.ai/courses/
+  # 短课程可免费学习
+  free: true
 
 coursera:
   enabled: true
   source: Coursera
   category: MOOC
   base_url: https://www.coursera.org
-  # sortBy=NEW；优先收录 isNewContent
+  # 仅收录 isCourseFree=true；并结合 NEW/isNewContent 控制「近半年」
+  free_only: true
   queries:
     - artificial intelligence
     - generative ai
     - large language models
-    - ai agents
-  max_per_query: 10
+    - machine learning free
+    - prompt engineering
+  max_per_query: 12
+  sort: NEW
 
 huggingface_learn:
   enabled: true
