@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { withCategoryFallback } from './video-fallback.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
@@ -295,7 +296,9 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   if (fs.existsSync(videosSrc)) {
     const full = JSON.parse(fs.readFileSync(videosSrc, 'utf8'));
     const batches = full.batches || [];
-    const slim = { ...full, batches: batches.slice(0, 2) };
+    // 在完整历史上做分类回退后再瘦身：仅保留 2 批时 YouTube 常因近几日抓取失败而无法回退。
+    const merged = withCategoryFallback(batches);
+    const slim = { ...full, batches: merged ? [merged] : [] };
     writeOut(outDir, 'daily-videos.latest.json', slim);
   }
 

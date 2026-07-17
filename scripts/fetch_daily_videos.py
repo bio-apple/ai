@@ -5,10 +5,12 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import subprocess
 import sys
 import urllib.parse
+import urllib.request
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -59,8 +61,99 @@ def load_config() -> dict[str, Any]:
     return cfg
 
 
+def youtube_api_key() -> str | None:
+    key = (os.environ.get("YOUTUBE_API_KEY") or os.environ.get("GOOGLE_API_KEY") or "").strip()
+    return key or None
+
+
+def youtube_api_request(endpoint: str, params: dict[str, Any]) -> dict[str, Any]:
+    key = youtube_api_key()
+    if not key:
+        raise RuntimeError("missing YOUTUBE_API_KEY")
+    query = urllib.parse.urlencode({**params, "key": key})
+    url = f"https://www.googleapis.com/youtube/v3/{endpoint}?{query}"
+    req = urllib.request.Request(url, headers={"User-Agent": "bio-apple-ai-daily-videos/1.0"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def parse_iso8601_duration(iso: str | None) -> int:
+    """PT1H2M3S → 秒数。"""
+    if not iso:
+        return 0
+    m = re.fullmatch(
+        r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?",
+        iso.strip(),
+        flags=re.I,
+    )
+    if not m:
+        return 0
+    h, mi, s = (int(x or 0) for x in m.groups())
+    return h * 3600 + mi * 60 + s
+
+
+def parse_iso8601_datetime(iso: str | None) -> datetime | None:
+    if not iso:
+        return None
+    try:
+        dt = datetime.fromisoformat(iso.replace("Z", "+00:00"))
+        if TZ:
+            return dt.astimezone(TZ)
+        return dt
+    except ValueError:
+        return None
+
+
+def youtube_api_item_to_detail(item: dict[str, Any], *, default_height: int = 1080) -> dict[str, Any]:
+    snippet = item.get("snippet") or {}
+    stats = item.get("statistics") or {}
+    content = item.get("contentDetails") or {}
+    published = parse_iso8601_datetime(snippet.get("publishedAt"))
+    thumbs = snippet.get("thumbnails") or {}
+    thumb = (
+        (thumbs.get("maxres") or {}).get("url")
+        or (thumbs.get("high") or {}).get("url")
+        or (thumbs.get("medium") or {}).get("url")
+        or (thumbs.get("default") or {}).get("url")
+        or ""
+    )
+    duration_sec = parse_iso8601_duration(content.get("duration"))
+    upload_date = published.strftime("%Y%m%d") if published else None
+    return {
+        "id": item.get("id"),
+        "title": snippet.get("title") or "",
+        "description": snippet.get("description") or "",
+        "view_count": int(stats.get("viewCount") or 0),
+        "channel": snippet.get("channelTitle") or "未知频道",
+        "uploader": snippet.get("channelTitle") or "未知频道",
+        "thumbnail": thumb,
+        "thumbnails": [{"url": thumb}] if thumb else [],
+        "duration": duration_sec,
+        "timestamp": int(published.timestamp()) if published else None,
+        "upload_date": upload_date,
+        "height": default_height,
+        "channel_follower_count": 0,
+    }
+
+
+def fetch_youtube_api_detail(video_id: str, *, default_height: int = 1080) -> dict | None:
+    try:
+        data = youtube_api_request("videos", {"part": "snippet,statistics,contentDetails", "id": video_id})
+    except Exception as exc:
+        log_reject("youtube_api_detail_failed", composite_id("youtube", video_id), str(exc))
+        return None
+    items = data.get("items") or []
+    if not items:
+        return None
+    return youtube_api_item_to_detail(items[0], default_height=default_height)
+
+
 def run_ytdlp(args: list[str], timeout: int = 120) -> str:
-    cmd = ["yt-dlp", "--no-warnings", "--no-color", "--no-update", "--js-runtimes", "node", *args]
+    cmd = ["yt-dlp", "--no-warnings", "--no-color", "--no-update", "--js-runtimes", "node"]
+    cookies = (os.environ.get("YTDLP_COOKIES_FILE") or "").strip()
+    if cookies and Path(cookies).is_file():
+        cmd.extend(["--cookies", cookies])
+    cmd.extend(args)
     proc = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
     if proc.returncode != 0:
         raise RuntimeError(proc.stderr.strip() or proc.stdout.strip() or "yt-dlp failed")
@@ -399,17 +492,33 @@ def log_reject(reason: str, video_id: str, extra: str = "") -> None:
     print(msg, file=sys.stderr)
 
 
-def fetch_video_detail(candidate: dict, cache: dict[str, dict | None]) -> dict | None:
+def fetch_video_detail(candidate: dict, cache: dict[str, dict | None], cfg: dict | None = None) -> dict | None:
     key = composite_id(candidate["platform"], candidate["id"])
     if key in cache:
         return cache[key]
     if candidate.get("detail"):
         cache[key] = candidate["detail"]
         return candidate["detail"]
+
+    platform = candidate["platform"]
+    source_cfg = (cfg or {}).get("search_sources", {}).get(platform, {})
+    default_height = int(source_cfg.get("min_height") or 1080)
+
+    if platform == "youtube" and youtube_api_key():
+        detail = fetch_youtube_api_detail(candidate["id"], default_height=default_height)
+        if detail:
+            cache[key] = detail
+            return detail
+
     try:
         raw = run_ytdlp(["--dump-json", "--no-download", candidate["url"]], timeout=90)
         detail = json.loads(raw)
     except Exception as exc:
+        if platform == "youtube" and youtube_api_key():
+            detail = fetch_youtube_api_detail(candidate["id"], default_height=default_height)
+            if detail:
+                cache[key] = detail
+                return detail
         log_reject("detail_fetch_failed", key, str(exc))
         detail = None
     cache[key] = detail
@@ -551,7 +660,8 @@ def validate_and_build_record(
         return None
 
     min_subscribers = source_cfg.get("min_subscribers", cfg.get("min_subscribers", 0))
-    if min_subscribers and subs < min_subscribers:
+    # 订阅数未知（如 YouTube Data API 未拉 channels）时不因 0 误杀
+    if min_subscribers and subs > 0 and subs < min_subscribers:
         log_reject("low_subscribers", key, f"subs={subs}")
         return None
 
@@ -652,7 +762,7 @@ def collect_top_videos(
         if threshold is None:
             threshold = source_cfg.get("min_views", 0)
 
-        detail = fetch_video_detail(candidate, detail_cache)
+        detail = fetch_video_detail(candidate, detail_cache, cfg)
         if not detail:
             continue
         record = validate_and_build_record(
@@ -773,6 +883,44 @@ def total_video_count(buckets: dict[str, list[dict]]) -> int:
     return sum(len(buckets[key]) for key in CATEGORY_ORDER)
 
 
+def youtube_bucket_total(buckets: dict[str, list[dict]]) -> int:
+    return sum(len(buckets.get(key) or []) for key in CATEGORY_ORDER if key.startswith("youtube"))
+
+
+def preserve_youtube_from_previous(
+    buckets: dict[str, list[dict]],
+    store: dict,
+    *,
+    today: str,
+) -> dict[str, list[dict]]:
+    """今日 YouTube 全空时沿用最近一个有货的批次，避免覆盖掉有效数据。"""
+    if youtube_bucket_total(buckets) > 0:
+        return buckets
+    for batch in store.get("batches") or []:
+        if batch.get("date") == today:
+            continue
+        cats = batch.get("categories") or {}
+        prev_total = sum(
+            len((cats.get(key) or {}).get("videos") or [])
+            for key in CATEGORY_ORDER
+            if key.startswith("youtube")
+        )
+        if prev_total == 0:
+            continue
+        for key in CATEGORY_ORDER:
+            if not key.startswith("youtube"):
+                continue
+            prev_videos = (cats.get(key) or {}).get("videos") or []
+            if prev_videos:
+                buckets[key] = [dict(v) for v in prev_videos]
+        print(
+            f"警告：今日 YouTube 抓取为空，已沿用 {batch.get('date')} 批次（共 {prev_total} 条）",
+            file=sys.stderr,
+        )
+        break
+    return buckets
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="抓取每日 AI 视频推荐")
     parser.add_argument(
@@ -801,6 +949,7 @@ def main() -> int:
                 return 0
 
     buckets = pick_today_videos(cfg)
+    buckets = preserve_youtube_from_previous(buckets, store, today=today)
     limits = bucket_limits(cfg)
     total = total_video_count(buckets)
     min_total = sum(limits.values())

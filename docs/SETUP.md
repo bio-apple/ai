@@ -151,7 +151,32 @@ cp ai-news.json ai-courses.json daily-videos.json public/
 npm run build
 ```
 
-### 3.3 停止预览服务
+### 3.3 YouTube 视频抓取（本地 / CI）
+
+每日视频依赖 `scripts/fetch_daily_videos.py`。B 站通常正常；**YouTube 在数据中心 IP 上常被反爬**，需按下列步骤配置：
+
+**一次性配置（推荐）**
+
+1. 打开 [Google Cloud Console](https://console.cloud.google.com/) → 启用 **YouTube Data API v3** → 创建 **API Key**
+2. 本地：`cp .env.local.example .env.local`，填入 `YOUTUBE_API_KEY=你的Key`
+3. GitHub：仓库 **Settings → Secrets and variables → Actions** → 新建 `YOUTUBE_API_KEY`
+4. （可选）导出 YouTube Netscape cookies，`base64 -w0 youtube_cookies.txt` → Secret `YTDLP_COOKIES_B64`
+
+**本地抓取**
+
+```bash
+# 加载 .env.local 后执行
+set -a && source .env.local && set +a
+python3 -m pip install -U "yt-dlp[default]" pyyaml
+python3 scripts/fetch_daily_videos.py --force
+npm run build
+```
+
+**CI 手动重抓**：Actions → [Daily AI Video Update](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml) → Run workflow → `force=true`。
+
+未配置 API Key 时：脚本会沿用上一有货 YouTube 批次；构建时 `daily-videos.latest.json` 也会做历史回退。详见 [CONTENT-OPS.md](./CONTENT-OPS.md)。
+
+### 3.4 停止预览服务
 
 在运行 `./start.sh` 的终端按 `Ctrl+C`。  
 若端口仍被占用，见下文 [§4.1 端口占用](#41-端口被占用)。

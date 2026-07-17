@@ -45,14 +45,60 @@ jobs:
           yt-dlp --version
           node -v
 
+      - name: Preflight YouTube credentials
+        run: |
+          if [ -z "${{ secrets.YOUTUBE_API_KEY }}" ]; then
+            echo "::warning::YOUTUBE_API_KEY 未配置。CI 上 yt-dlp 详情常被反爬拦截，YouTube 可能为空；将依赖批次回退。请在 Settings → Secrets → Actions 添加 YOUTUBE_API_KEY 后重跑。"
+          else
+            echo "✓ YOUTUBE_API_KEY 已配置（YouTube Data API v3）"
+          fi
+          if [ -n "${{ secrets.YTDLP_COOKIES_B64 }}" ]; then
+            echo "✓ YTDLP_COOKIES_B64 已配置（yt-dlp 备用 cookies）"
+          fi
+
+      - name: Prepare optional yt-dlp cookies
+        env:
+          COOKIES_B64: ${{ secrets.YTDLP_COOKIES_B64 }}
+        run: |
+          if [ -n "$COOKIES_B64" ]; then
+            echo "$COOKIES_B64" | base64 -d > "${RUNNER_TEMP}/youtube_cookies.txt"
+            echo "YTDLP_COOKIES_FILE=${RUNNER_TEMP}/youtube_cookies.txt" >> "$GITHUB_ENV"
+            echo "✓ yt-dlp cookies 已写入临时文件"
+          fi
+
       - name: Fetch daily AI videos
         id: fetch
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: |
           FORCE_FLAG=""
           if [ "${{ github.event.inputs.force }}" = "true" ]; then
             FORCE_FLAG="--force"
           fi
           python scripts/fetch_daily_videos.py $FORCE_FLAG
+
+      - name: Verify YouTube batch health
+        if: steps.fetch.outcome == 'success'
+        run: |
+          python3 << 'PY'
+          import json
+          import sys
+          from pathlib import Path
+          data = json.loads(Path("daily-videos.json").read_text(encoding="utf-8"))
+          batch = (data.get("batches") or [None])[0]
+          if not batch:
+              print("::error::无视频批次")
+              sys.exit(1)
+          cats = batch.get("categories") or {}
+          yt = sum(len((cats.get(k) or {}).get("videos") or []) for k in cats if k.startswith("youtube"))
+          bi = sum(len((cats.get(k) or {}).get("videos") or []) for k in cats if k.startswith("bilibili"))
+          print(f"YouTube: {yt} · B站: {bi}")
+          if yt == 0:
+              print("::warning::今日批次 YouTube 仍为空（可能未配置 YOUTUBE_API_KEY 或反爬未绕过）；页面将依赖历史回退。")
+          if bi == 0 and yt == 0:
+              print("::error::双平台均为空，不应提交")
+              sys.exit(1)
+          PY
 
       - name: Report metrics
         id: metrics
@@ -117,7 +163,8 @@ jobs:
               `- metrics_level: ${level || 'n/a'}`,
               '',
               '处置：Actions → Daily AI Video Update → Run workflow（force=true）。',
-              'YouTube 常空时页面会「回退批次」；B 站有货时应已 commit。',
+              '若 YouTube 为空：在 Settings → Secrets 配置 **YOUTUBE_API_KEY**（YouTube Data API v3），可选 **YTDLP_COOKIES_B64**。',
+              '页面与构建产物会回退历史批次；B 站有货时应已 commit。',
               '详见 docs/OPS-RUNBOOK.md',
               '',
               '<!-- daily-videos-fetch -->',

@@ -194,7 +194,7 @@ DIST=dist python3 scripts/validate_ci.py news
 | **配置文件** | `config/video-fetch.yaml`                      |
 | **产出**     | `daily-videos.json`、`video-thumbs/bilibili/`  |
 | **频率**     | 每日 00:00（北京）                             |
-| **依赖**     | `yt-dlp`（需 Node.js 作 JS runtime）、`pyyaml` |
+| **依赖**     | `yt-dlp`（需 Node.js 作 JS runtime）、`pyyaml`；**推荐** `YOUTUBE_API_KEY`（YouTube Data API v3） |
 
 **运行机制：**
 
@@ -228,7 +228,17 @@ Actions 手动触发时可选 `force=true`。
 | `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词      |
 | `summary.strip_patterns`                     | 摘要广告过滤正则            |
 
-**注意：** YouTube 在 CI 环境可能偶发为空；B站有数据时仍会 commit。页面会回退显示上一批次。
+**注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → 六类为空。
+
+**避免 YouTube 为空的措施（按推荐顺序）：**
+
+1. **配置 `YOUTUBE_API_KEY`**（GitHub Actions Secret + 本地 `.env.local`）  
+   脚本在拉取单条视频详情时优先/回退使用 [YouTube Data API v3](https://developers.google.com/youtube/v3)（`videos.list`），不受 yt-dlp 反爬影响。免费配额通常足够每日抓取（约数百次 `videos.list`）。
+2. **可选 `YTDLP_COOKIES_FILE`**：指向 Netscape 格式 cookies 文件，供 yt-dlp 在无 API Key 时尝试通过登录态绕过（需定期更新，不适合长期无人值守）。
+3. **抓取层回退**：若今日 YouTube 仍为空，脚本会**沿用上一有货批次**的 YouTube 分类，避免用空数据覆盖 `daily-videos.json`。
+4. **展示层回退**：构建 `daily-videos.latest.json` 时预合并历史分类（见 PR #28）；B 站有货时页面不会整页空白。
+
+Actions 手动触发可选 `force=true` 重抓；日志中 `detail_fetch_failed` + bot 文案即属反爬。
 
 ---
 
