@@ -11,7 +11,7 @@ const schema = buildPageSchema(page.title, page.lead, `${base}prompts/library.ht
 const home = homeHref();
 const libs = [...(promptLibraries.libraries || [])]
   .sort((a, b) => (b.stars || 0) - (a.stars || 0))
-  .slice(0, 10)
+  .slice(0, 5)
   .map((lib, i) => ({ ...lib, rank: i + 1 }));
 
 function formatStars(n: number) {
@@ -34,7 +34,7 @@ function formatStars(n: number) {
     <nav class="breadcrumb"><a href={home}>首页</a> / Prompt 库</nav>
 
     <div class="standalone-hero">
-      <p class="section-kicker">GitHub Stars · ≥5万 · Top 10</p>
+      <p class="section-kicker">GitHub Stars · ≥5万 · Top 5</p>
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
       <p class="library-meta">按 Star 数排序 · 更新 {promptLibraries.updated_at}</p>

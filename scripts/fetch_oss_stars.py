@@ -4,7 +4,7 @@
 规则：
 1. 按 AI 应用领域分类
 2. 每个项目 Stars ≥ 50,000
-3. 各领域按 Stars 降序，最多取 Top 10
+3. 各领域按 Stars 降序，最多取 Top 5
 4. 由 weekly-oss.yml 每周一自动重刷
 """
 
@@ -27,9 +27,9 @@ TZ = timezone(timedelta(hours=8))
 USER_AGENT = "BioAI-Lab-OSSBot/1.0"
 
 MIN_STARS = 50_000
-TOP_N = 10
+TOP_N = 5
 
-# 按 AI 应用分类的候选仓库（每周重刷 Stars 后过滤 ≥5万并取 Top10）
+# 按 AI 应用分类的候选仓库（每周重刷 Stars 后过滤 ≥5万并取 Top5）
 APP_CATALOG: list[dict] = [
     {
         "id": "ai-agent",
@@ -317,7 +317,7 @@ APP_CATALOG: list[dict] = [
     {
         "id": "prompt-libs",
         "label": "Prompt 库",
-        "description": "按 Stars 精选的 Prompt / 提示工程开源资源（Top 10）",
+        "description": "按 Stars 精选的 Prompt / 提示工程开源资源（Top 5）",
         "candidates": [
             {
                 "id": "superpowers",
@@ -463,7 +463,7 @@ def collect_domain(domain_def: dict) -> dict | None:
 
 
 def sync_prompt_libraries(payload: dict) -> None:
-    """Prompt 库领域同步为 Stars Top 10（同样遵守 ≥5万）。"""
+    """Prompt 库领域同步为 Stars Top 5（同样遵守 ≥5万）。"""
     domain = next((d for d in payload.get("domains") or [] if d.get("id") == "prompt-libs"), None)
     if not domain:
         return
@@ -472,7 +472,7 @@ def sync_prompt_libraries(payload: dict) -> None:
     ranked = [{**project, "rank": i} for i, project in enumerate(libs[:TOP_N], start=1)]
     out = {
         "updated_at": payload.get("updated_at"),
-        "title": "GitHub Prompt 库 Top 10",
+        "title": "GitHub Prompt 库 Top 5",
         "lead": f"按 GitHub Stars 排序的 Prompt / 提示工程开源库（≥{MIN_STARS // 10000}万，最多 {TOP_N}）。",
         "source_note": f"筛选：Stars ≥ {MIN_STARS}，每类最多 {TOP_N}；每周一随 OSS 重刷更新。",
         "libraries": ranked,
