@@ -134,6 +134,27 @@ const schema = buildHomeSchema(site);
     </main>
   </section>
 
+  <section id="section-courses" class="section courses-section">
+    <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载学习资源。</p></noscript>
+    <main>
+      <div class="tool-header">
+        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📚</div>
+        <div>
+          <h2>AI 学习资源</h2>
+          <p class="desc">
+            近半年上线的 AI 在线课程（DeepLearning.AI / Coursera / Hugging Face /
+            视频课），每周刷新。
+          </p>
+          <p class="video-update-meta" id="courses-update-meta"></p>
+        </div>
+      </div>
+      <div class="video-toolbar" id="courses-toolbar"></div>
+      <div id="courses-list" class="courses-list">
+        <p class="loading-hint">加载 AI 在线课程…</p>
+      </div>
+    </main>
+  </section>
+
   <section id="section-news" class="section">
     <main>
       <div class="tool-header">

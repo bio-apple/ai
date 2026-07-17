@@ -51,6 +51,13 @@ function buildSearchIndex(site, tools, compares) {
       '开源 GitHub Stars AI应用 Agent AI编程 OpenCode Claude Code OpenHands Dify LangChain n8n Ollama vLLM Open WebUI 本地大模型 AI绘画 多模态 Prompt库 每周一',
   });
   items.push({
+    label: 'AI 学习资源',
+    type: '频道',
+    section: 'section-courses',
+    keywords:
+      '学习资源 在线课程 MOOC DeepLearning.AI Coursera Hugging Face freeCodeCamp Agent LLM 短课程 近半年',
+  });
+  items.push({
     label: 'GitHub Prompt 库 Top 5',
     type: '开源',
     section: 'section-oss',

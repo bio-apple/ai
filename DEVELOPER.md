@@ -14,8 +14,8 @@ dist/                 # 构建产物（不提交）
 ```
 
 关键数据：`site.json` · `tools.json` · `tool-relations.json` · `engagement.json` · `rankings.json`  
-运行时 JSON（根目录，定时任务写入）：`daily-videos.json` · `ai-news.json` · `oss-projects.json`  
-搜索索引与推荐规则由 `scripts/build-artifacts.mjs` 生成；开源精选（含 Prompt 领域）由 `fetch_oss_stars.py` 按 AI 应用重刷（≥5万 Top5 + 中文Top1，每周一）。
+运行时 JSON（根目录，定时任务写入）：`daily-videos.json` · `ai-news.json` · `oss-projects.json` · `ai-courses.json`  
+搜索索引与推荐规则由 `scripts/build-artifacts.mjs` 生成；开源精选由 `fetch_oss_stars.py` 重刷；学习资源由 `fetch_ai_courses.py` 收集近半年 AI 在线课程（每周一）。
 
 ## 本地
 
@@ -33,6 +33,7 @@ npm run quality && npm run test:unit
 python3 scripts/fetch_ai_news.py
 python3 scripts/fetch_daily_videos.py
 python3 scripts/fetch_oss_stars.py
+python3 scripts/fetch_ai_courses.py
 python3 scripts/fetch_rankings.py   # AICPB / LMSYS Elo / AA Intelligence Index
 ```
 
@@ -46,12 +47,13 @@ python3 scripts/fetch_rankings.py   # AICPB / LMSYS Elo / AA Intelligence Index
 
 ## 定时任务（北京时间）
 
-| 工作流             | 内容           |
-| ------------------ | -------------- |
-| `daily-videos.yml` | 每日视频 00:00 |
-| `daily-news.yml`   | 一周热点 06:00 |
-| `weekly-oss.yml`   | OSS 周一       |
-| `site-health.yml`  | 线上探针       |
+| 工作流               | 内容           |
+| -------------------- | -------------- |
+| `daily-videos.yml`   | 每日视频 00:00 |
+| `daily-news.yml`     | 一周热点 06:00 |
+| `weekly-oss.yml`     | OSS 周一       |
+| `weekly-courses.yml` | 学习资源 周一  |
+| `site-health.yml`    | 线上探针       |
 
 失败处置见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。
 

@@ -106,6 +106,25 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('h1')).toContainText('工具中心');
   });
 
+  test('学习资源频道', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
+    await page.goto('index.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('.nav-tab', { hasText: '学习资源' })).toBeVisible();
+    await page.locator('.nav-tab', { hasText: '学习资源' }).click();
+    await expect(page.locator('#section-courses')).toHaveClass(/active/);
+    await expect
+      .poll(
+        async () => {
+          const text = (await page.locator('#courses-list').innerText()).trim();
+          if (/加载 AI 在线课程/.test(text)) return false;
+          return text.length > 0;
+        },
+        { timeout: 20000 },
+      )
+      .toBeTruthy();
+    await expect(page.locator('#courses-list .course-card').first()).toBeVisible();
+  });
+
   test('视频区加载态解除与新闻区切换', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('index.html#section-videos', { waitUntil: 'domcontentloaded' });

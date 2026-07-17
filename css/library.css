@@ -248,6 +248,119 @@
   color: var(--accent);
 }
 
+/* AI 学习资源 · 在线课程 */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  transition:
+    border-color 0.2s,
+    transform 0.25s ease;
+}
+
+.course-card:hover {
+  border-color: color-mix(in srgb, var(--accent) 50%, var(--border));
+  transform: translateY(-2px);
+}
+
+.course-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.course-platform {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.course-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.course-card h4 {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+}
+
+.course-card h4 a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.course-card h4 a:hover {
+  color: var(--accent);
+}
+
+.course-new-badge {
+  margin-left: 6px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #b45309;
+  background: rgba(245, 158, 11, 0.14);
+  padding: 2px 6px;
+  border-radius: 6px;
+  vertical-align: middle;
+}
+
+.course-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.course-meta span {
+  background: var(--bg-hover);
+  padding: 3px 8px;
+  border-radius: 8px;
+}
+
+.course-summary {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.course-read {
+  margin-top: 4px;
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.course-read:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 640px) {
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Scroll reveal — 过渡见 css/motion.css */
 .reveal {
   opacity: 0;

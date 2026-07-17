@@ -9,6 +9,7 @@
     'section-videos': ['videos.js'],
     'section-news': ['news.js'],
     'section-oss': ['oss.js'],
+    'section-courses': ['courses.js'],
   };
 
   function ensureScript(name) {

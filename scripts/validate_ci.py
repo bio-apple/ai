@@ -131,6 +131,26 @@ def validate_ai_news() -> None:
     print(f"✓ ai-news.json schema + 去重 ({len(items)} 条)")
 
 
+def validate_ai_courses() -> None:
+    path = ROOT / "ai-courses.json"
+    if not path.exists():
+        path = REPO / "ai-courses.json"
+    if not path.exists():
+        raise FileNotFoundError("ai-courses.json 缺失，请先运行 scripts/fetch_ai_courses.py")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("ai-courses.schema.json")).validate(data)
+    items = data.get("items") or []
+    if not items:
+        raise ValueError("ai-courses.json items 为空")
+    urls = [str(i.get("url") or "").strip() for i in items]
+    if len(urls) != len(set(urls)):
+        raise ValueError("ai-courses.json 存在重复 URL")
+    window = int(data.get("window_days") or 180)
+    if window < 1:
+        raise ValueError("window_days 无效")
+    print(f"✓ ai-courses.json schema ({len(items)} 门 · {window} 天窗口)")
+
+
 def validate_search_index() -> None:
     data = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
     Draft202012Validator(_load_schema("search-index.schema.json")).validate(data)
@@ -332,6 +352,7 @@ STEPS = (
     ("oss", validate_oss_projects),
     ("videos", validate_daily_videos),
     ("news", validate_ai_news),
+    ("courses", validate_ai_courses),
     ("runtime", validate_runtime_json),
     ("recommend", validate_recommend_rules),
     ("sitemap", validate_sitemap_robots),

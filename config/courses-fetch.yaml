@@ -1,0 +1,84 @@
+# AI 在线课程抓取（scripts/fetch_ai_courses.py）
+# 产品定义：近半年上线的 AI 在线课程；周更（见 .github/workflows/weekly-courses.yml）
+
+max_age_days: 180
+max_items: 60
+min_items: 8
+
+deeplearning_ai:
+  enabled: true
+  source: DeepLearning.AI
+  url: https://www.deeplearning.ai/short-courses/
+  category: 短课程
+  base_url: https://www.deeplearning.ai/courses/
+
+coursera:
+  enabled: true
+  source: Coursera
+  category: MOOC
+  base_url: https://www.coursera.org
+  # sortBy=NEW；优先收录 isNewContent
+  queries:
+    - artificial intelligence
+    - generative ai
+    - large language models
+    - ai agents
+  max_per_query: 10
+
+huggingface_learn:
+  enabled: true
+  source: Hugging Face
+  category: 开源课程
+  hub: https://huggingface.co/learn
+  # 无稳定发布日的长线课程：用 GitHub 仓库最近提交作为「更新时间」
+  courses:
+    - id: agents-course
+      name: AI Agents Course
+      url: https://huggingface.co/learn/agents-course
+      repo: huggingface/agents-course
+    - id: llm-course
+      name: LLM Course
+      url: https://huggingface.co/learn/llm-course
+      repo: huggingface/course
+    - id: smol-course
+      name: Smol Course
+      url: https://huggingface.co/learn/smol-course
+      repo: huggingface/smol-course
+    - id: diffusion-course
+      name: Diffusion Course
+      url: https://huggingface.co/learn/diffusion-course
+      repo: huggingface/diffusion-models-class
+    - id: deep-rl-course
+      name: Deep RL Course
+      url: https://huggingface.co/learn/deep-rl-course
+      repo: huggingface/deep-rl-class
+    - id: audio-course
+      name: Audio Course
+      url: https://huggingface.co/learn/audio-course
+      repo: huggingface/audio-transformers-course
+    - id: computer-vision-course
+      name: Computer Vision Course
+      url: https://huggingface.co/learn/computer-vision-course
+      repo: huggingface/computer-vision-course
+
+youtube_courses:
+  enabled: true
+  category: 视频课程
+  # 标题需匹配 course 关键词，且发布于 max_age_days 内
+  title_pattern: "(full course|complete course|crash course|bootcamp|课程|完整教程|从零|入门到)"
+  channels:
+    - name: freeCodeCamp.org
+      channel_id: UC8butISFwT-Wl7EV0hUK0BQ
+      source: freeCodeCamp
+    - name: Sentdex
+      channel_id: UCfzlCWGWYyIQ0aLC5w48gBQ
+      source: Sentdex
+      optional: true
+
+category_keywords:
+  Agent应用: "(agent|agentic|mcp|tool use|多智能体)"
+  LLM应用: "(llm|language model|gpt|claude|gemini|prompt|rag|retrieval)"
+  多模态: "(vision|image|video|audio|diffusion|multimodal|语音)"
+  机器学习: "(machine learning|deep learning|reinforcement|transformers|pytorch|jax)"
+  效率办公: "(productivity|workplace|automation|time management|gtm)"
+  入门基础: "(beginner|everyone|intro|入门|基础|python for)"

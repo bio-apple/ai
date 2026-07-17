@@ -16,6 +16,7 @@ const COPY_FILES = [
   'videos.js',
   'news.js',
   'oss.js',
+  'courses.js',
   'knowledge.js',
   'recommend.js',
   'progress.js',
@@ -27,6 +28,7 @@ const COPY_FILES = [
   'daily-videos.json',
   'ai-news.json',
   'oss-projects.json',
+  'ai-courses.json',
   'og-image.jpg',
 ];
 
