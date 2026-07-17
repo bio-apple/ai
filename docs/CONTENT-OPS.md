@@ -189,11 +189,11 @@ DIST=dist python3 scripts/validate_ci.py news
 
 ### 4.3 AI 视频 — `fetch_daily_videos.py`
 
-| 项           | 说明                                           |
-| ------------ | ---------------------------------------------- |
-| **配置文件** | `config/video-fetch.yaml`                      |
-| **产出**     | `daily-videos.json`、`video-thumbs/bilibili/`  |
-| **频率**     | 每日 00:00（北京）                             |
+| 项           | 说明                                                                                              |
+| ------------ | ------------------------------------------------------------------------------------------------- |
+| **配置文件** | `config/video-fetch.yaml`                                                                         |
+| **产出**     | `daily-videos.json`、`video-thumbs/bilibili/`                                                     |
+| **频率**     | 每日 00:00（北京）                                                                                |
 | **依赖**     | `yt-dlp`（需 Node.js 作 JS runtime）、`pyyaml`；**推荐** `YOUTUBE_API_KEY`（YouTube Data API v3） |
 
 **运行机制：**
