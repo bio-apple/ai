@@ -5,14 +5,7 @@
   "cadence": "weekly",
   "window_days": 180,
   "free_only": true,
-  "track_order": [
-    "入门",
-    "机器学习",
-    "深度学习",
-    "LLM 大模型",
-    "AI Agent",
-    "AI 工程实践"
-  ],
+  "track_order": ["入门", "机器学习", "深度学习", "LLM 大模型", "AI Agent", "AI 工程实践"],
   "title": "AI 课程资源",
   "lead": "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent → AI 工程实践」编排的免费课程；必收录微软 / 吴恩达 / 斯坦福 / Google 核心课，并补充近半年新课。",
   "source_note": "必收录不受时间窗限制；补充课来自 DeepLearning.AI / Coursera 免费课 / Hugging Face Learn / YouTube 公开视频课。",

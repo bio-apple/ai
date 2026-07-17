@@ -27,14 +27,14 @@ npm ci && pip install -r requirements.txt
 
 ## 改内容
 
-| 想改什么    | 改哪里                                                                   |
-| ----------- | ------------------------------------------------------------------------ |
-| 文案 / 导航 | `data/site.json`                                                         |
-| 工具 / 关系 | `data/tools.json` · `data/tool-relations.json`                           |
-| 对比表行    | `data/site.json` → `compare_table`                                       |
-| 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`）                           |
-| 热度基准    | `data/engagement.json`                                                   |
-| 开源精选    | `oss-projects.json`（≥5万 Top5 + 中文Top1 · 周一；含 Prompt 领域）       |
+| 想改什么    | 改哪里                                                               |
+| ----------- | -------------------------------------------------------------------- |
+| 文案 / 导航 | `data/site.json`                                                     |
+| 工具 / 关系 | `data/tools.json` · `data/tool-relations.json`                       |
+| 对比表行    | `data/site.json` → `compare_table`                                   |
+| 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`）                       |
+| 热度基准    | `data/engagement.json`                                               |
+| 开源精选    | `oss-projects.json`（≥5万 Top5 + 中文Top1 · 周一；含 Prompt 领域）   |
 | 课程资源    | `ai-courses.json`（路线编排免费课 · 周一；见 `fetch_ai_courses.py`） |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。  
