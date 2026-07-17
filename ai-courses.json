@@ -1,11 +1,17 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-17 14:43:48+0800",
+  "updated_at": "2026-07-17 16:28:26+0800",
   "date": "2026-07-17",
   "cadence": "weekly",
   "window_days": 180,
   "free_only": true,
-  "track_order": ["入门", "机器学习", "深度学习", "LLM 大模型", "AI Agent"],
+  "track_order": [
+    "入门",
+    "机器学习",
+    "深度学习",
+    "LLM 大模型",
+    "AI Agent"
+  ],
   "title": "AI 课程资源",
   "lead": "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排的免费课程；每条路线最多推荐 5 门；必收录微软 / 吴恩达 / 斯坦福 / Google 核心课。",
   "source_note": "去重规则：URL/标题唯一；合集优先于下属单课；每条路线≤5 门（必学优先）；同平台同路线限额。补充课来自 Coursera 免费课 / Hugging Face / YouTube（AI 向）。",

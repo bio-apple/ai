@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-17T14:45:08.924603+08:00",
+  "updated_at": "2026-07-17T16:28:34.735028+08:00",
   "date": "2026-07-17",
   "cadence": "daily",
   "window_days": 7,
@@ -104,6 +104,15 @@
       "published_at": "2026-07-17T00:00:00+08:00"
     },
     {
+      "id": "e27e65096026",
+      "title": "数据集汇总丨英伟达开源Nemotron系列数据集，超10T tokens+40M 条后训练样本，覆盖数学推理/代码生成/多语言对话",
+      "summary": "训练数据正成为大模型竞争的核心变量，质量、结构与任务适配性比单纯规模更关键。NVIDIA推出的Nemotron系列数据集（超10T tokens、40M后训练样本）覆盖预训练、SFT、代码、数学推理及多语言对话等15个方向，强调能力导向的精准构建，体现“用更精准数据训练更适配模型”的新范式。其设计凸显数据工程能力对模…",
+      "url": "https://simg.baai.ac.cn/uploads/2026/07/30d884f22b1e5e04d03605d1c297f41f.jpg",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-17 16:00 发布"
+    },
+    {
       "id": "444c6770223c",
       "title": "Nature重磅！下一代AI系统雏形？MIT团队：从推理100+新游戏开始",
       "summary": "麻省理工学院团队联合发表于《Nature》的研究，基于121种游戏的大规模行为分析，提出“直觉玩家”计算认知模型，揭示人类如何仅凭规则即判断新游戏的公平性与趣味性。该模型模拟人类直觉推理能力，强调对未遇情境的灵活适应与决策生成，为AI实现类人泛化推理提供新路径，突破传统机器学习依赖大量数据训练的局限，推动人工智能向具…",
@@ -159,7 +168,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 87,546",
+      "title": "thedotmack/claude-mem · ★ 87,560",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -249,7 +258,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 94,956",
+      "title": "hacksider/Deep-Live-Cam · ★ 94,958",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -276,7 +285,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,210",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,218",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -326,15 +335,6 @@
       "url": "https://www.anthropic.com/news/claude-science-ai-workbench",
       "source": "Anthropic",
       "category": "新模型发布",
-      "published_at": null
-    },
-    {
-      "id": "33fef15bca1b",
-      "title": "DeeCamp 2026·AI4S训练营",
-      "summary": "DeeCamp 2026·AI4S训练营",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513990&idx=1&sn=98f9d1fa4850c49908a1ffd748db1f2f&chksm=fd4b7864bc77b2c97afbcb0333ad254ae5f11f28415098b43297a8ff069da59c75afc6e0709a&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
       "published_at": null
     },
     {
