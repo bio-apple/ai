@@ -19,6 +19,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from urllib.request import Request, urlopen
 
+from fetch_resilience import load_json, retry_with_backoff, write_or_preserve
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "data" / "oss-projects.json"
 PUBLIC_FILE = ROOT / "oss-projects.json"
@@ -543,10 +545,14 @@ def github_headers() -> dict[str, str]:
 def fetch_repo(repo: str) -> dict | None:
     url = f"https://api.github.com/repos/{repo}"
     headers = github_headers()
-    try:
+
+    def _urllib_get() -> dict:
         req = Request(url, headers=headers)
         with urlopen(req, timeout=20, context=ssl_context()) as resp:
             return json.loads(resp.read().decode())
+
+    try:
+        return retry_with_backoff(_urllib_get, label=f"github:{repo}")
     except Exception as err:
         try:
             curl_cmd = [
@@ -676,8 +682,7 @@ def main() -> int:
             domains.append(domain)
 
     if len(domains) < 6:
-        print(f"✗ 有效领域不足 6 个（当前 {len(domains)}），拒绝写入", file=sys.stderr)
-        return 1
+        print(f"警告：有效领域仅 {len(domains)} 个（目标 ≥6）", file=sys.stderr)
 
     payload = {
         "updated_at": datetime.now(TZ).strftime("%Y-%m-%d"),
@@ -696,16 +701,21 @@ def main() -> int:
         "domains": domains,
     }
 
-    text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
-    DATA_FILE.write_text(text, encoding="utf-8")
-    PUBLIC_FILE.write_text(text, encoding="utf-8")
+    if write_or_preserve(
+        DATA_FILE,
+        payload,
+        accept=lambda p: len(p.get("domains") or []) >= 6,
+        label="开源精选",
+        mirror_paths=[PUBLIC_FILE],
+    ):
+        total = sum(len(d.get("projects") or []) for d in domains)
+        print(f"✓ oss-projects.json ({len(domains)} 应用 / {total} 仓库) → {DATA_FILE}")
+        for d in domains:
+            names = ", ".join(p["name"] for p in d["projects"])
+            print(f"  - {d['label']}: {len(d['projects'])} · {names}")
+        return 0
 
-    total = sum(len(d.get("projects") or []) for d in domains)
-    print(f"✓ oss-projects.json ({len(domains)} 应用 / {total} 仓库) → {DATA_FILE}")
-    for d in domains:
-        names = ", ".join(p["name"] for p in d["projects"])
-        print(f"  - {d['label']}: {len(d['projects'])} · {names}")
-    return 0
+    return 0 if load_json(DATA_FILE) is not None else 1
 
 
 if __name__ == "__main__":

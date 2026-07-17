@@ -351,6 +351,29 @@ DIST=dist python3 scripts/validate_ci.py
 
 ---
 
+## 6.5 抓取幂等与容灾
+
+所有 `scripts/fetch_*.py` 共享 `scripts/fetch_resilience.py`：
+
+| 能力               | 说明                                                                                        |
+| ------------------ | ------------------------------------------------------------------------------------------- |
+| **指数退避重试**   | YouTube Data API、GitHub API、RSS/HTTP 遇 429/5xx/超时自动重试（默认最多 4 次，1s→2s→4s…）  |
+| **原子写入**       | 先写 `*.json.tmp` 再 `rename`，避免半截文件                                                 |
+| **失败保留旧数据** | 抓取结果为空或未达标时**不覆盖**已有 JSON；脚本 **exit 0**（有历史）或 **exit 1**（无历史） |
+
+各脚本行为：
+
+- **daily-videos**：今日全空则不写入；`--force` 失败时恢复 force 前的今日批次
+- **ai-news**：0 条新闻时保留 `ai-news.json`
+- **ai-courses**：条数不足或必收录缺失时保留 `ai-courses.json`
+- **oss-projects**：有效领域 &lt;6 时保留 `oss-projects.json`
+
+CI 仍会通过 `report_fetch_metrics.py` 告警，但**不会因单次 API 抖动阻断 commit**（视频 workflow 设计为 metrics 开 Issue、不 fail job）。
+
+本地自检：`python3 -m unittest discover -s tests/unit -p 'test_fetch*.py'`
+
+---
+
 ## 7. 质量监控
 
 | 机制                        | 说明                                                        |

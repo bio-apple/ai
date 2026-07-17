@@ -19,6 +19,7 @@ from urllib.request import Request, urlopen
 
 import yaml
 
+from fetch_resilience import atomic_write_json, fetch_url_bytes, load_json
 from news_dedupe import (
     assert_news_unique,
     dedupe_news_items,
@@ -44,38 +45,8 @@ def ssl_context() -> ssl.SSLContext:
         return ssl.create_default_context()
 
 
-def fetch_bytes(url: str, retries: int = 3) -> bytes | None:
-    last_err: Exception | None = None
-    for attempt in range(1, retries + 1):
-        try:
-            req = Request(url, headers={"User-Agent": USER_AGENT})
-            with urlopen(req, timeout=25, context=ssl_context()) as resp:
-                return resp.read()
-        except Exception as urllib_err:
-            last_err = urllib_err
-            try:
-                proc = subprocess.run(
-                    [
-                        "curl",
-                        "-sL",
-                        "--max-time",
-                        "25",
-                        "-A",
-                        USER_AGENT,
-                        url,
-                    ],
-                    capture_output=True,
-                    timeout=30,
-                )
-                if proc.returncode == 0 and proc.stdout:
-                    return proc.stdout
-            except Exception as curl_err:
-                last_err = curl_err
-            if attempt < retries:
-                continue
-    if last_err:
-        print(f"fetch failed ({retries}x): {url} → {last_err}", file=sys.stderr)
-    return None
+def fetch_bytes(url: str, retries: int = 4) -> bytes | None:
+    return fetch_url_bytes(url, timeout=25, max_attempts=retries, user_agent=USER_AGENT)
 
 
 def fetch_text(url: str) -> str | None:
@@ -517,9 +488,6 @@ def main() -> int:
     # 去重 → 多样性挑选 → 再次去重兜底，写入前再断言唯一
     items = dedupe_news_items(select_diverse_items(dedupe_news_items(recent), cfg))
     assert_news_unique(items)
-    if not items:
-        print("未抓取到 AI 新闻", file=sys.stderr)
-        return 1
 
     today = datetime.now(TZ).strftime("%Y-%m-%d")
     window_days = int(cfg.get("max_age_days", 7))
@@ -534,7 +502,15 @@ def main() -> int:
         "items": items,
         "watch_sources": cfg.get("watch_sources", []),
     }
-    DATA_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    if not items:
+        if load_json(DATA_FILE) is not None:
+            print("警告：未抓取到 AI 新闻，保留现有 ai-news.json", file=sys.stderr)
+            return 0
+        print("未抓取到 AI 新闻", file=sys.stderr)
+        return 1
+
+    atomic_write_json(DATA_FILE, payload)
     print(f"✓ ai-news.json ({len(items)} 条 · 窗口 {window_days} 天 · 日更) → {DATA_FILE}")
     return 0
 

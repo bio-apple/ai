@@ -17,6 +17,8 @@ from typing import Any
 
 import yaml
 
+from fetch_resilience import atomic_write_json, retry_with_backoff
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
@@ -77,9 +79,13 @@ def youtube_api_request(endpoint: str, params: dict[str, Any]) -> dict[str, Any]
         raise RuntimeError("missing YOUTUBE_API_KEY")
     query = urllib.parse.urlencode({**params, "key": key})
     url = f"https://www.googleapis.com/youtube/v3/{endpoint}?{query}"
-    req = urllib.request.Request(url, headers={"User-Agent": "bio-apple-ai-daily-videos/1.0"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+
+    def _get() -> dict[str, Any]:
+        req = urllib.request.Request(url, headers={"User-Agent": "bio-apple-ai-daily-videos/1.0"})
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            return json.loads(resp.read().decode("utf-8"))
+
+    return retry_with_backoff(_get, label=f"youtube:{endpoint}")
 
 
 def parse_iso8601_duration(iso: str | None) -> int:
@@ -487,7 +493,7 @@ def load_store() -> dict:
 
 def save_store(store: dict) -> None:
     store["updated_at"] = now_local().isoformat()
-    DATA_FILE.write_text(json.dumps(store, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    atomic_write_json(DATA_FILE, store)
 
 
 def log_reject(reason: str, video_id: str, extra: str = "") -> None:
@@ -938,8 +944,13 @@ def main() -> int:
     cfg = load_config()
     store = load_store()
     today = now_local().strftime("%Y-%m-%d")
+    today_backup: dict | None = None
 
     if args.force:
+        for batch in store.get("batches", []):
+            if batch.get("date") == today:
+                today_backup = batch
+                break
         before = len(store.get("batches", []))
         store["batches"] = [b for b in store.get("batches", []) if b.get("date") != today]
         if before != len(store["batches"]):
@@ -967,8 +978,16 @@ def main() -> int:
             print(f"警告：{label} 仅 {got} 条（目标 {need}）", file=sys.stderr)
 
     if total == 0:
-        print("未找到符合条件的新视频", file=sys.stderr)
-        return 1
+        if today_backup:
+            store.setdefault("batches", [])
+            store["batches"].insert(0, today_backup)
+            print("警告：今日抓取为空，已恢复 force 前的今日批次", file=sys.stderr)
+        elif store.get("batches"):
+            print("警告：今日抓取为空，未写入新批次，保留历史 daily-videos.json", file=sys.stderr)
+        else:
+            print("未找到符合条件的新视频，且无历史批次", file=sys.stderr)
+            return 1
+        return 0
 
     if total < min_total:
         print(f"警告：合计仅 {total} 条（目标 {min_total}）", file=sys.stderr)

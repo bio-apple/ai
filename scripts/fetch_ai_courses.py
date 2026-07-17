@@ -20,6 +20,8 @@ from xml.etree import ElementTree as ET
 
 import yaml
 
+from fetch_resilience import atomic_write_json, fetch_url_bytes, load_json, retry_with_backoff
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_FILE = ROOT / "config" / "courses-fetch.yaml"
 DATA_FILE = ROOT / "ai-courses.json"
@@ -45,36 +47,8 @@ def ssl_context() -> ssl.SSLContext:
         return ssl.create_default_context()
 
 
-def fetch_bytes(url: str, retries: int = 3) -> bytes | None:
-    last_err: Exception | None = None
-    for attempt in range(1, retries + 1):
-        try:
-            req = Request(
-                url,
-                headers={
-                    "User-Agent": USER_AGENT,
-                    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-                },
-            )
-            with urlopen(req, timeout=30, context=ssl_context()) as resp:
-                return resp.read()
-        except Exception as urllib_err:  # noqa: BLE001
-            last_err = urllib_err
-            try:
-                proc = subprocess.run(
-                    ["curl", "-sL", "--max-time", "30", "-A", USER_AGENT, url],
-                    capture_output=True,
-                    timeout=35,
-                )
-                if proc.returncode == 0 and proc.stdout:
-                    return proc.stdout
-            except Exception as curl_err:  # noqa: BLE001
-                last_err = curl_err
-            if attempt < retries:
-                continue
-    if last_err:
-        print(f"fetch failed ({retries}x): {url} → {last_err}", file=sys.stderr)
-    return None
+def fetch_bytes(url: str, retries: int = 4) -> bytes | None:
+    return fetch_url_bytes(url, timeout=30, max_attempts=retries, user_agent=USER_AGENT)
 
 
 def fetch_text(url: str) -> str | None:
@@ -405,10 +379,14 @@ def github_repo_pushed_at(repo: str) -> datetime | None:
     }
     if token:
         headers["Authorization"] = f"Bearer {token}"
-    try:
+
+    def _get() -> dict:
         req = Request(api, headers=headers)
         with urlopen(req, timeout=20, context=ssl_context()) as resp:
-            data = json.loads(resp.read().decode("utf-8"))
+            return json.loads(resp.read().decode("utf-8"))
+
+    try:
+        data = retry_with_backoff(_get, label=f"github:{repo}")
     except Exception as exc:  # noqa: BLE001
         print(f"  · GitHub API warn: {repo} → {exc}", file=sys.stderr)
         return None
@@ -767,17 +745,6 @@ def main() -> int:
         max_items=max_items,
         dedupe_cfg=dedupe_cfg,
     )
-    if len(items) < min_items:
-        print(f"✗ 免费课程条数不足（{len(items)} < {min_items}）", file=sys.stderr)
-        return 1
-
-    required_urls = {normalize_url(str(r.get("url") or "")) for r in required}
-    present = {normalize_url(str(i.get("url") or "")) for i in items}
-    missing = sorted(required_urls - present)
-    if missing:
-        print(f"✗ 必收录课程缺失: {missing}", file=sys.stderr)
-        return 1
-
     payload = {
         "schema_version": 2,
         "updated_at": now_local().strftime("%Y-%m-%d %H:%M:%S%z"),
@@ -797,7 +764,31 @@ def main() -> int:
         ),
         "items": items,
     }
-    DATA_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+    required_urls = {normalize_url(str(r.get("url") or "")) for r in required}
+    present = {normalize_url(str(i.get("url") or "")) for i in items}
+    missing = sorted(required_urls - present)
+
+    def courses_acceptable(data: dict) -> bool:
+        got = data.get("items") or []
+        if len(got) < min_items:
+            return False
+        got_urls = {normalize_url(str(i.get("url") or "")) for i in got}
+        return not (required_urls - got_urls)
+
+    if not courses_acceptable(payload):
+        if load_json(DATA_FILE) is not None:
+            reason = f"条数 {len(items)} < {min_items}" if len(items) < min_items else f"缺失必收录 {missing}"
+            print(f"警告：课程抓取未达标（{reason}），保留现有 ai-courses.json", file=sys.stderr)
+            return 0
+        if len(items) < min_items:
+            print(f"✗ 免费课程条数不足（{len(items)} < {min_items}）", file=sys.stderr)
+            return 1
+        if missing:
+            print(f"✗ 必收录课程缺失: {missing}", file=sys.stderr)
+            return 1
+
+    atomic_write_json(DATA_FILE, payload)
     platforms = sorted({i.get("platform") for i in items if i.get("platform")})
     tracks = sorted({i.get("track") for i in items if i.get("track")})
     print(f"✓ ai-courses.json ({len(items)} 门, required={len(required)}) → {DATA_FILE}")
