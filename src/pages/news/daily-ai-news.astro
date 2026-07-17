@@ -2,21 +2,37 @@
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import { site } from '../../lib/data';
-import { buildPageSchema } from '../../lib/schema';
+import { buildNewsSchema, mergeSchemaGraphs, buildPageSchema } from '../../lib/schema';
 import { homeHref } from '../../lib/paths';
+import newsPayload from '../../../ai-news.json';
 
 const page = site.news_page;
 const base = site.meta.base_url;
-const schema = buildPageSchema(page.title, page.lead, `${base}news/daily-ai-news.html`);
+const schema = mergeSchemaGraphs(
+  buildPageSchema(page.title, page.lead, `${base}news/daily-ai-news.html`),
+  buildNewsSchema(
+    { title: page.h1 || page.title, lead: page.lead, items: newsPayload.items || [] },
+    base,
+  ),
+);
 const home = homeHref();
 ---
 
 <StandaloneLayout
-  title={page.title}
+  title={`${page.title} | Bio AI Lab`}
   description={page.lead}
   canonical={`${base}news/daily-ai-news.html`}
   schema={schema}
-  scripts={['lib/fetch-json.js', 'vendor/fuse.min.js', 'funnel.js', 'analytics.js', 'ux.js', 'app.js', 'news.js']}
+  scripts={[
+    'lib/fetch-json.js',
+    'lib/link-guard.js',
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'ux.js',
+    'app.js',
+    'news.js',
+  ]}
 >
   <main class="standalone-page">
     <StandalonePageHeader

@@ -39,6 +39,8 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
@@ -47,7 +49,29 @@ body {
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+img,
+video,
+iframe,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+.oss-grid,
+.video-grid,
+.daily-grid,
+.news-feed,
+.aicpb-table-wrap,
+.site-search-results,
+.course-grid,
+.library-list {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 a {

@@ -29,6 +29,7 @@ function renderOssCard(project, domainLabel) {
   return `
     <article class="oss-card${project.badge ? ' oss-card-zh' : ''}">
       <div class="oss-card-head">
+        <span class="content-type-badge content-type-oss" aria-hidden="true">开源</span>
         <span class="oss-domain-badge">${escapeHtml(domainLabel)}</span>
         ${badge}
       </div>

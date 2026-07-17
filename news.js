@@ -3,7 +3,28 @@ const NEWS_JSON = 'ai-news.json';
 const NEWS_CATEGORY_ORDER = ['新模型发布', '新工具上线', '开源项目', '行业新闻', '中文资讯'];
 
 let newsDataPromise = null;
-let newsState = { category: 'all', items: [], watchSources: [] };
+let newsState = { category: 'all', window: 'week', items: [], watchSources: [] };
+
+function parseNewsTime(raw) {
+  if (!raw) return 0;
+  const t = Date.parse(raw);
+  return Number.isNaN(t) ? 0 : t;
+}
+
+function filterByTimeWindow(items, window) {
+  if (window === 'today') {
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
+    const t0 = start.getTime();
+    return (items || []).filter((i) => parseNewsTime(i.published_at) >= t0);
+  }
+  // week（默认）：近 7 天
+  const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  return (items || []).filter((i) => {
+    const t = parseNewsTime(i.published_at);
+    return !t || t >= cutoff;
+  });
+}
 
 function escapeHtml(s) {
   return window.BioAI?.escapeHtml ? window.BioAI.escapeHtml(s) : String(s ?? '');
@@ -128,7 +149,7 @@ function renderNewsRow(item, { hideSource = false } = {}) {
   return `
     <li class="news-row${hideSource ? ' news-row-in-source' : ''}">
       <a class="news-row-main" href="${escapeHtml(item.url)}" target="_blank" rel="${extRel()}" data-track="news-click">
-        <span class="news-row-title">${escapeHtml(item.title)}</span>
+        <span class="news-row-title"><span class="content-type-badge content-type-news" aria-hidden="true">资讯</span> ${escapeHtml(item.title)}</span>
         ${metaParts.length ? `<span class="news-row-meta">${metaParts.join('')}</span>` : ''}
       </a>
       ${summary ? `<p class="news-row-summary">${escapeHtml(summary)}</p>` : ''}
@@ -174,9 +195,9 @@ function renderNewsFeed(items) {
     .join('');
 }
 
-function renderNewsToolbar(items) {
-  const counts = new Map([['all', items.length]]);
-  for (const item of items) {
+function renderNewsToolbar(itemsInWindow) {
+  const counts = new Map([['all', itemsInWindow.length]]);
+  for (const item of itemsInWindow) {
     const cat = item.category || '其他';
     counts.set(cat, (counts.get(cat) || 0) + 1);
   }
@@ -185,25 +206,38 @@ function renderNewsToolbar(items) {
     ...NEWS_CATEGORY_ORDER.filter((k) => counts.has(k)),
     ...[...counts.keys()].filter((k) => k !== 'all' && !NEWS_CATEGORY_ORDER.includes(k)),
   ];
-  const buttons = cats
+  const catButtons = cats
     .map((cat) => {
       const label = cat === 'all' ? '全部' : cat;
       const active = newsState.category === cat;
       return `<button type="button" class="news-filter${active ? ' active' : ''}" data-news-category="${escapeHtml(cat)}" aria-pressed="${active}">${escapeHtml(label)} <span>${counts.get(cat) || 0}</span></button>`;
     })
     .join('');
-  return `<div class="news-toolbar" role="toolbar" aria-label="新闻分类筛选">${buttons}</div>`;
+  const timeButtons = [
+    { id: 'today', label: '今日' },
+    { id: 'week', label: '本周' },
+  ]
+    .map((t) => {
+      const active = newsState.window === t.id;
+      return `<button type="button" class="news-filter news-filter-time${active ? ' active' : ''}" data-news-window="${t.id}" aria-pressed="${active}">${t.label}</button>`;
+    })
+    .join('');
+  return `
+    <div class="news-toolbar news-toolbar-time" role="toolbar" aria-label="时间过滤">${timeButtons}</div>
+    <div class="news-toolbar" role="toolbar" aria-label="新闻分类筛选">${catButtons}</div>
+  `;
 }
 
 function paintNewsList() {
   const root = document.getElementById('daily-news-list');
   if (!root) return;
+  const inWindow = filterByTimeWindow(newsState.items, newsState.window);
   const filtered =
     newsState.category === 'all'
-      ? newsState.items
-      : newsState.items.filter((i) => (i.category || '其他') === newsState.category);
+      ? inWindow
+      : inWindow.filter((i) => (i.category || '其他') === newsState.category);
   root.innerHTML = `
-    ${renderNewsToolbar(newsState.items)}
+    ${renderNewsToolbar(inWindow)}
     <div class="news-feed">${renderNewsFeed(filtered)}</div>
   `;
   root.querySelectorAll('[data-news-category]').forEach((btn) => {
@@ -212,6 +246,16 @@ function paintNewsList() {
       paintNewsList();
       if (typeof trackEvent === 'function') {
         trackEvent('news_filter_category', { category: newsState.category });
+      }
+    });
+  });
+  root.querySelectorAll('[data-news-window]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      newsState.window = btn.dataset.newsWindow || 'week';
+      newsState.category = 'all';
+      paintNewsList();
+      if (typeof trackEvent === 'function') {
+        trackEvent('news_filter_window', { window: newsState.window });
       }
     });
   });

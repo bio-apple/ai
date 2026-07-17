@@ -112,7 +112,7 @@ const boardsPayload = boards.map((board) => ({
                     {item.name.trim().charAt(0).toUpperCase()}
                   </span>
                   <div class="aicpb-product">
-                    <a href={item.url} target="_blank" rel="noopener" class="aicpb-product-name">
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" class="aicpb-product-name">
                       {item.name}
                     </a>
                     {item.description ? <p class="aicpb-product-desc">{item.description}</p> : null}
@@ -138,7 +138,7 @@ const boardsPayload = boards.map((board) => ({
           </div>
 
           <div class="aicpb-board-footer">
-            <a href={board.source_url} target="_blank" rel="noopener" class="aicpb-view-all">
+            <a href={board.source_url} target="_blank" rel="noopener noreferrer" class="aicpb-view-all">
               在 {sourceLabel} 查看 {footerSuffix}
             </a>
           </div>

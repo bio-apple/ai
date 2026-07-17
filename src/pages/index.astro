@@ -5,14 +5,22 @@ import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
 import HomeOps from '../components/HomeOps.astro';
 import GlobalSearch from '../components/GlobalSearch.astro';
+import HomeQuickFilters from '../components/HomeQuickFilters.astro';
 import { site } from '../lib/data';
-import { buildHomeSchema, buildCoursesSchema, mergeSchemaGraphs } from '../lib/schema';
+import {
+  buildHomeSchema,
+  buildCoursesSchema,
+  buildOssSchema,
+  mergeSchemaGraphs,
+} from '../lib/schema';
 import { asset } from '../lib/paths';
 import coursesPayload from '../../ai-courses.json';
+import ossPayload from '../../data/oss-projects.json';
 
 const schema = mergeSchemaGraphs(
   buildHomeSchema(site),
   buildCoursesSchema(coursesPayload, site.meta.canonical),
+  buildOssSchema(ossPayload, site.meta.canonical),
 );
 ---
 
@@ -27,6 +35,7 @@ const schema = mergeSchemaGraphs(
     'vendor/fuse.min.js',
     'funnel.js',
     'analytics.js',
+    'lib/link-guard.js',
     'ux.js',
     'app.js',
     'recommend.js',
@@ -63,6 +72,7 @@ const schema = mergeSchemaGraphs(
           >
         </p>
         <GlobalSearch variant="hero" />
+        <HomeQuickFilters />
       </div>
     </div>
 

@@ -26,7 +26,16 @@ const boards = (rankings.boards || []).map((board) => ({
   description={rankings.lead}
   canonical={`${base}ai-tools-ranking.html`}
   schema={schema}
-  scripts={['lib/virtual-list.js', 'vendor/fuse.min.js', 'funnel.js', 'analytics.js', 'ux.js', 'app.js', 'ranking-tabs.js']}
+  scripts={[
+    'lib/virtual-list.js',
+    'lib/link-guard.js',
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'ux.js',
+    'app.js',
+    'ranking-tabs.js',
+  ]}
 >
   <main class="standalone-page ranking-page aicpb-ranking-page">
     <StandalonePageHeader
@@ -50,11 +59,11 @@ const boards = (rankings.boards || []).map((board) => ({
       </ul>
       <p class="aicpb-attribution">
         数据版权归
-        <a href="https://www.aicpb.com/" target="_blank" rel="noopener">AICPB</a>、
-        <a href="https://arena.ai/leaderboard/text" target="_blank" rel="noopener"
+        <a href="https://www.aicpb.com/" target="_blank" rel="noopener noreferrer">AICPB</a>、
+        <a href="https://arena.ai/leaderboard/text" target="_blank" rel="noopener noreferrer"
           >LMSYS Chatbot Arena</a
         >、
-        <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener"
+        <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener noreferrer"
           >Artificial Analysis</a
         >
         各自所有，本站仅作摘录展示。

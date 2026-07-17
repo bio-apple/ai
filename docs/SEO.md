@@ -14,6 +14,7 @@
 | SEO-006 | sitemap     | `@astrojs/sitemap` → `sitemap-index.xml`                                       |
 | SEO-007 | GitHub Repo | 见下方维护者清单（需在 GitHub 设置）                                           |
 | SEO-008 | JSON-LD     | `src/lib/schema.ts` → Layout 注入 `application/ld+json`                        |
+| SEO-009 | 新闻/开源 LD | 新闻页 `NewsArticle` ItemList；首页开源 `SoftwareSourceCode` ItemList          |
 
 ## JSON-LD 结构化数据（SEO-008）
 

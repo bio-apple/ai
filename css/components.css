@@ -182,6 +182,120 @@ code {
   color: var(--text-muted);
 }
 
+/* 内容类型视觉标识 */
+.content-type-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 6px;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.content-type-news {
+  background: rgba(37, 99, 235, 0.12);
+  color: #1d4ed8;
+}
+
+.content-type-oss {
+  background: rgba(13, 140, 109, 0.12);
+  color: #0f766e;
+}
+
+.content-type-video {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  background: rgba(220, 38, 38, 0.9);
+  color: #fff;
+}
+
+html[data-theme='dark'] .content-type-news {
+  background: rgba(99, 102, 241, 0.22);
+  color: #c7d2fe;
+}
+
+html[data-theme='dark'] .content-type-oss {
+  background: rgba(6, 182, 212, 0.2);
+  color: #a5f3fc;
+}
+
+.news-row-main .content-type-badge {
+  margin-right: 2px;
+}
+
+.news-toolbar-time {
+  margin-bottom: 8px;
+}
+
+/* 失效链接弹窗 */
+.deadlink-dialog {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.deadlink-dialog-card {
+  width: min(420px, 100%);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow-hover);
+}
+
+.deadlink-dialog-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.deadlink-dialog-card p {
+  margin: 0 0 10px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.deadlink-url {
+  word-break: break-all;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 0.75rem !important;
+}
+
+.deadlink-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.deadlink-btn {
+  min-height: 44px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-hover);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.deadlink-btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 /* Site search */
 .site-search-wrap {
   position: relative;

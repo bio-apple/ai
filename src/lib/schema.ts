@@ -188,6 +188,111 @@ export function buildCoursesSchema(courses: CoursesSchemaInput, baseUrl: string)
   };
 }
 
+/** 新闻归档页：CollectionPage + ItemList(NewsArticle) */
+export function buildNewsSchema(
+  news: {
+    title?: string;
+    lead?: string;
+    items: { title: string; url: string; summary?: string; source?: string; published_at?: string }[];
+  },
+  baseUrl: string,
+) {
+  const pageUrl = `${baseUrl}news/daily-ai-news.html`;
+  const items = (news.items || []).slice(0, 40);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#news`,
+        name: news.title || '一周内 AI 热点',
+        description: news.lead || '近一周 AI 资讯精选',
+        url: pageUrl,
+        inLanguage: 'zh-CN',
+        isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: items.length,
+          itemListElement: items.map((item, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'NewsArticle',
+              headline: item.title,
+              description: item.summary || item.title,
+              url: item.url,
+              datePublished: item.published_at,
+              author: { '@type': 'Organization', name: item.source || 'Unknown' },
+            },
+          })),
+        },
+      },
+    ],
+  };
+}
+
+/** 开源精选：ItemList(SoftwareSourceCode) */
+export function buildOssSchema(
+  oss: {
+    title?: string;
+    lead?: string;
+    domains?: {
+      label: string;
+      projects?: {
+        name: string;
+        url: string;
+        description?: string;
+        language?: string;
+        stars?: number;
+        repo?: string;
+      }[];
+    }[];
+  },
+  baseUrl: string,
+) {
+  const sectionUrl = `${baseUrl}#section-oss`;
+  const projects = (oss.domains || []).flatMap((d) =>
+    (d.projects || []).map((p) => ({ ...p, domain: d.label })),
+  );
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${sectionUrl}#oss`,
+        name: oss.title || 'GitHub Stars 开源精选',
+        description: oss.lead || '按 AI 应用分类的高星开源项目',
+        url: sectionUrl,
+        inLanguage: 'zh-CN',
+        isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: projects.length,
+          itemListElement: projects.map((p, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'SoftwareSourceCode',
+              name: p.name,
+              description: p.description || p.name,
+              url: p.url,
+              codeRepository: p.url,
+              programmingLanguage: p.language || undefined,
+              interactionStatistic: p.stars
+                ? {
+                    '@type': 'InteractionCounter',
+                    interactionType: 'https://schema.org/LikeAction',
+                    userInteractionCount: p.stars,
+                  }
+                : undefined,
+            },
+          })),
+        },
+      },
+    ],
+  };
+}
+
 export function buildCompareSchema(
   compare: { title: string; meta_description: string; slug: string },
   baseUrl: string,

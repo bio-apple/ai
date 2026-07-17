@@ -84,7 +84,7 @@ const hasRelations = relations.alternatives.length > 0 || relations.complements.
         <div class="resource-grid">
           {tool.video_resources.map((r) => (
             <div class="resource-item">
-              <a href={r.href} target="_blank" rel="noopener">
+              <a href={r.href} target="_blank" rel="noopener noreferrer">
                 <div class={`resource-type ${r.type_class}`}>{r.type}</div>
                 <h4>{r.title}</h4>
                 <div class="resource-meta">{r.meta}</div>
@@ -104,7 +104,7 @@ const hasRelations = relations.alternatives.length > 0 || relations.complements.
         <div class="resource-grid">
           {tool.text_resources.map((r) => (
             <div class="resource-item">
-              <a href={r.href} target="_blank" rel="noopener">
+              <a href={r.href} target="_blank" rel="noopener noreferrer">
                 <div class={`resource-type ${r.type_class}`}>{r.type}</div>
                 <h4>{r.title}</h4>
                 <div class="resource-meta">{r.meta}</div>

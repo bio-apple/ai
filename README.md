@@ -20,7 +20,19 @@ npm ci && pip install -r requirements.txt
 本地预览：**http://127.0.0.1:8765/ai/**  
 校验：`npm run quality && npm run build && DIST=dist python3 scripts/validate_ci.py`
 
+```bash
+# 仅构建静态站（不启本地 API）
+npm run build && npx astro preview --host 127.0.0.1 --port 8766
+
+# 刷新数据（按需）
+python3 scripts/fetch_ai_news.py
+python3 scripts/fetch_ai_courses.py
+python3 scripts/fetch_oss_stars.py
+python3 scripts/fetch_daily_videos.py
+```
+
 > **环境要求**：Node.js **22.x**（`.nvmrc`）· Python **3.12**（抓取/校验/本地 API）  
+> **部署**：GitHub Pages 强制 HTTPS，静态资源由 CDN 提供 Gzip/Brotli；JS/CSS 带内容哈希 `?v=` 防缓存脏读。  
 > 详尽搭建、三种预览模式与故障排除 → **[docs/SETUP.md](./docs/SETUP.md)**
 
 ## 做什么

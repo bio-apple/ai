@@ -205,10 +205,11 @@ def _json_ld_types(html: str) -> set[str]:
 
 
 def validate_json_ld() -> None:
-    """确认关键页面含 JSON-LD 结构化数据（工具页 + 课程 CollectionPage）。"""
+    """确认关键页面含 JSON-LD 结构化数据（工具页 + 课程/新闻/开源 CollectionPage）。"""
     checks = [
-        (ROOT / "index.html", {"CollectionPage", "Course", "WebSite"}),
+        (ROOT / "index.html", {"CollectionPage", "Course", "WebSite", "SoftwareSourceCode"}),
         (ROOT / "tools" / "chatgpt.html", {"SoftwareApplication", "LearningResource", "WebPage"}),
+        (ROOT / "news" / "daily-ai-news.html", {"NewsArticle", "CollectionPage"}),
     ]
     for path, required in checks:
         if not path.exists():
@@ -220,7 +221,7 @@ def validate_json_ld() -> None:
             raise ValueError(
                 f"{path.name} JSON-LD 缺少 @type: {', '.join(sorted(missing))}（已有: {', '.join(sorted(found)) or '无'}）"
             )
-    print("✓ JSON-LD 结构化数据（首页课程 + 工具页）")
+    print("✓ JSON-LD 结构化数据（首页课程/开源 + 工具页 + 新闻）")
 
 
 def _load_schema(name: str) -> dict:

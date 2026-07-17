@@ -1,0 +1,52 @@
+---
+import { asset } from '../lib/paths';
+
+/** 首页快速分类入口：开源 / 资讯 / 工具教程 */
+const filters = [
+  { id: 'oss', label: '开源项目', hint: '高星仓库', goto: 'oss', track: 'home-filter-oss' },
+  { id: 'news', label: 'AI 资讯', hint: '一周热点', goto: 'news', track: 'home-filter-news' },
+  {
+    id: 'tools',
+    label: '工具教程',
+    hint: '选型对比',
+    href: asset('tools/hub.html'),
+    track: 'home-filter-tools',
+  },
+];
+---
+
+<nav class="home-quick-filters" aria-label="内容快速筛选">
+  <p class="home-quick-filters-label">快速进入</p>
+  <div class="home-quick-filters-row">
+    {
+      filters.map((f) =>
+        f.href ? (
+          <a
+            class="home-quick-filter"
+            href={f.href}
+            data-track={f.track}
+            data-filter-type={f.id}
+          >
+            <span class="home-quick-filter-type" data-type={f.id}>
+              {f.label}
+            </span>
+            <span class="home-quick-filter-hint">{f.hint}</span>
+          </a>
+        ) : (
+          <button
+            type="button"
+            class="home-quick-filter"
+            data-goto={f.goto}
+            data-track={f.track}
+            data-filter-type={f.id}
+          >
+            <span class="home-quick-filter-type" data-type={f.id}>
+              {f.label}
+            </span>
+            <span class="home-quick-filter-hint">{f.hint}</span>
+          </button>
+        ),
+      )
+    }
+  </div>
+</nav>

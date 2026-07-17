@@ -24,6 +24,7 @@ const purpose = project.description?.trim() || '暂无简介';
 
 <article class:list={['oss-card', { 'oss-card-zh': Boolean(project.badge) }]}>
   <div class="oss-card-head">
+    <span class="content-type-badge content-type-oss" aria-hidden="true">开源</span>
     <span class="oss-domain-badge">{domainLabel}</span>
     {project.badge && <span class="oss-zh-badge">{project.badge}</span>}
   </div>

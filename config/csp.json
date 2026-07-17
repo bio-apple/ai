@@ -34,7 +34,8 @@
       "https://cloud.umami.is",
       "https://*.umami.is",
       "https://cloudflareinsights.com",
-      "https://*.cloudflareinsights.com"
+      "https://*.cloudflareinsights.com",
+      "https://api.github.com"
     ],
     "upgrade-insecure-requests": []
   },

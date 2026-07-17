@@ -25,7 +25,14 @@ const {
   description,
   canonical = site.meta.canonical,
   schema,
-  scripts = ['vendor/fuse.min.js', 'funnel.js', 'analytics.js', 'ux.js', 'app.js'],
+  scripts = [
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'lib/link-guard.js',
+    'ux.js',
+    'app.js',
+  ],
   includeKnowledge = false,
 } = Astro.props;
 
@@ -35,14 +42,14 @@ if (includeKnowledge) {
   if (!scriptList.includes('knowledge.js')) scriptList.push('knowledge.js');
 }
 
-const styleHref = asset('style.css');
+const styleHref = assetVersioned('style.css');
 ---
 
 <!doctype html>
 <html lang="zh-CN" data-base={BASE}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <SecurityMeta />
     <SeoHead
       title={title}
@@ -56,6 +63,9 @@ const styleHref = asset('style.css');
     />
     <Favicon />
     <FontLoader />
+    <style is:inline>
+      html{overflow-x:hidden;max-width:100%}body{margin:0;background:#eef3fb;color:#1a2234;font-family:system-ui,sans-serif}#main-content{min-height:40vh}
+    </style>
     <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />
     <ThemeBoot assetPrefix={BASE} />
