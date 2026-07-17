@@ -47,10 +47,10 @@ jobs:
 
       - name: Preflight YouTube credentials
         run: |
-          if [ -z "${{ secrets.YOUTUBE_API_KEY }}" ]; then
-            echo "::warning::YOUTUBE_API_KEY 未配置。CI 上 yt-dlp 详情常被反爬拦截，YouTube 可能为空；将依赖批次回退。请在 Settings → Secrets → Actions 添加 YOUTUBE_API_KEY 后重跑。"
+          if [ -z "${{ secrets.YOUTUBE_API_KEY }}" ] && [ -z "${{ secrets.YOUTUBE_DATA_API_V3 }}" ]; then
+            echo "::warning::未配置 YouTube API Key（YOUTUBE_API_KEY 或 YOUTUBE_DATA_API_V3）。CI 上 yt-dlp 详情常被反爬拦截，YouTube 可能为空；将依赖批次回退。"
           else
-            echo "✓ YOUTUBE_API_KEY 已配置（YouTube Data API v3）"
+            echo "✓ YouTube Data API v3 Key 已配置"
           fi
           if [ -n "${{ secrets.YTDLP_COOKIES_B64 }}" ]; then
             echo "✓ YTDLP_COOKIES_B64 已配置（yt-dlp 备用 cookies）"
@@ -70,6 +70,7 @@ jobs:
         id: fetch
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          YOUTUBE_DATA_API_V3: ${{ secrets.YOUTUBE_DATA_API_V3 }}
         run: |
           FORCE_FLAG=""
           if [ "${{ github.event.inputs.force }}" = "true" ]; then

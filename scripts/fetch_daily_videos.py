@@ -62,7 +62,12 @@ def load_config() -> dict[str, Any]:
 
 
 def youtube_api_key() -> str | None:
-    key = (os.environ.get("YOUTUBE_API_KEY") or os.environ.get("GOOGLE_API_KEY") or "").strip()
+    key = (
+        os.environ.get("YOUTUBE_API_KEY")
+        or os.environ.get("YOUTUBE_DATA_API_V3")
+        or os.environ.get("GOOGLE_API_KEY")
+        or ""
+    ).strip()
     return key or None
 
 
