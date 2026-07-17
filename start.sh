@@ -13,8 +13,10 @@ fi
 
 export PYTHONPATH="."
 
-HOST="$(.venv/bin/python -c "import yaml; c=yaml.safe_load(open('config.yaml')); print(c['server']['host'])")"
-PORT="$(.venv/bin/python -c "import yaml; c=yaml.safe_load(open('config.yaml')); print(c['server']['port'])")"
+CFG_HOST="$(.venv/bin/python -c "import yaml; c=yaml.safe_load(open('config.yaml')); print(c['server']['host'])")"
+CFG_PORT="$(.venv/bin/python -c "import yaml; c=yaml.safe_load(open('config.yaml')); print(c['server']['port'])")"
+HOST="${HOST:-$CFG_HOST}"
+PORT="${PORT:-$CFG_PORT}"
 
 if [ ! -f "dist/index.html" ]; then
   echo "未找到 dist/index.html，先执行 ./build.sh"

@@ -6,18 +6,22 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0d8c6d?style=flat-square)](./LICENSE)
 
-站点：https://bio-apple.github.io/ai/ · 架构：[docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) · 数据模型：[docs/DATA-MODEL.md](./docs/DATA-MODEL.md) · 开发：[DEVELOPER.md](./DEVELOPER.md) · SEO：[docs/SEO.md](./docs/SEO.md) · 安全：[docs/SECURITY.md](./docs/SECURITY.md) · 运维：[docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)
+站点：https://bio-apple.github.io/ai/ · 环境搭建：[docs/SETUP.md](./docs/SETUP.md) · 架构：[docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) · 数据模型：[docs/DATA-MODEL.md](./docs/DATA-MODEL.md) · 开发：[DEVELOPER.md](./DEVELOPER.md) · SEO：[docs/SEO.md](./docs/SEO.md) · 安全：[docs/SECURITY.md](./docs/SECURITY.md) · 运维：[docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)
 
 ## 快速开始
 
 ```bash
 git clone https://github.com/bio-apple/ai.git && cd ai
+nvm use                    # Node 22，见 .nvmrc
 npm ci && pip install -r requirements.txt
 ./build.sh && ./start.sh
 ```
 
-本地预览：http://127.0.0.1:8765/ai/  
+本地预览：**http://127.0.0.1:8765/ai/**  
 校验：`npm run quality && npm run build && DIST=dist python3 scripts/validate_ci.py`
+
+> **环境要求**：Node.js **22.x**（`.nvmrc`）· Python **3.12**（抓取/校验/本地 API）  
+> 详尽搭建、三种预览模式与故障排除 → **[docs/SETUP.md](./docs/SETUP.md)**
 
 ## 做什么
 

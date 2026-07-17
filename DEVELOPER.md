@@ -3,7 +3,8 @@
 线上：https://bio-apple.github.io/ai/  
 栈：Astro 5 SSG + GitHub Pages（本地可选 FastAPI 预览 `./start.sh`）。
 
-**架构与数据**： [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) · [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)
+**架构与数据**：[docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) · [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)  
+**环境搭建**：[docs/SETUP.md](./docs/SETUP.md)（Node 22 / Python 3.12、本地预览、故障排除）
 
 ## 目录要点
 
@@ -81,14 +82,36 @@ DIST=dist python3 scripts/validate_ci.py courses
 
 ## 本地开发
 
+> 完整环境搭建、三种预览模式、端口占用与依赖故障排除见 **[docs/SETUP.md](./docs/SETUP.md)**。
+
+### 环境版本
+
+| 组件         | 版本     | 说明                                                |
+| ------------ | -------- | --------------------------------------------------- |
+| Node.js      | **22.x** | `.nvmrc`；`package.json` → `engines.node: >=22 <26` |
+| Python       | **3.12** | 与 CI 一致；`./start.sh` 自动创建 `.venv`           |
+| 本地预览端口 | **8765** | `config.yaml`；可用 `PORT=8770 ./start.sh` 覆盖     |
+
+### 标准流程
+
 ```bash
-npm ci && pip install -r requirements.txt
-cp .env.local.example .env.local   # 可选：本地环境变量（勿提交）
-npm run build                              # prebuild → Astro → dist/
-./start.sh                                 # FastAPI 挂载 /ai/
+nvm use                                  # 或 fnm use
+npm ci
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # 可选；start.sh 也会做
+cp .env.local.example .env.local         # 可选：本地环境变量（勿提交）
+npm run build                            # prebuild → Astro → dist/
+./start.sh                               # http://127.0.0.1:8765/ai/
 DIST=dist python3 scripts/validate_ci.py
 npm run quality && npm run test:unit
 ```
+
+### 预览模式速查
+
+| 目的                          | 命令                               | 地址                      |
+| ----------------------------- | ---------------------------------- | ------------------------- |
+| 完整预览（静态 + `/api/ask`） | `./build.sh && ./start.sh`         | http://127.0.0.1:8765/ai/ |
+| 改 Astro 页面（HMR）          | `npm run dev`                      | 终端提示（通常 `:4321`）  |
+| 仅验证 dist（无 Python）      | `npm run build && npm run preview` | http://127.0.0.1:8766/ai/ |
 
 **安全**：禁止硬编码 LLM API Key；本地用 `.env.local`，用户密钥仅存浏览器本地存储并直连官方 API。详见 [docs/SECURITY.md](./docs/SECURITY.md)。
 
