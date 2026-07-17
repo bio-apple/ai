@@ -17,6 +17,38 @@ from bs4 import BeautifulSoup
 REPO = Path(__file__).resolve().parents[1]
 ROOT = Path(os.environ.get("DIST", REPO / "dist")).resolve()
 
+# 密钥扫描：排除构建产物、依赖与锁文件（避免误报）
+SECRET_SCAN_SKIP_DIRS = {
+    ".git",
+    ".venv",
+    "node_modules",
+    "dist",
+    "public",
+    ".astro",
+    "playwright-report",
+    "test-results",
+    ".pw-browsers",
+}
+SECRET_SCAN_SKIP_FILES = {
+    "package-lock.json",
+    "pnpm-lock.yaml",
+    "yarn.lock",
+}
+SECRET_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
+    (re.compile(r"sk-[a-zA-Z0-9]{20,}"), "疑似 OpenAI API Key (sk-…)"),
+    (re.compile(r"sk-ant-api[a-zA-Z0-9_-]{20,}"), "疑似 Anthropic API Key"),
+    (
+        re.compile(
+            r"(?i)(openai|anthropic|deepseek|gemini|cohere|mistral)_api_key\s*=\s*['\"][^'\"\\s]{8,}['\"]"
+        ),
+        "硬编码 LLM API Key 环境变量赋值",
+    ),
+    (
+        re.compile(r"(?i)api[_-]?key\s*[:=]\s*['\"]sk-[a-zA-Z0-9_-]{10,}['\"]"),
+        "硬编码 sk- API Key",
+    ),
+)
+
 from news_dedupe import assert_news_unique, find_news_duplicates  # noqa: E402  # same scripts/ package style
 
 
@@ -362,6 +394,45 @@ def validate_data_json() -> None:
     print("✓ data/*.json 可解析")
 
 
+def validate_no_secrets() -> None:
+    """扫描仓库源码，禁止硬编码 LLM / 服务商 API Key。"""
+    hits: list[str] = []
+    for path in sorted(REPO.rglob("*")):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(REPO)
+        if rel.parts and rel.parts[0] in SECRET_SCAN_SKIP_DIRS:
+            continue
+        if any(part in SECRET_SCAN_SKIP_DIRS for part in rel.parts):
+            continue
+        if rel.name in SECRET_SCAN_SKIP_FILES:
+            continue
+        if rel.name == ".env.local" or (
+            rel.name.startswith(".env") and rel.name.endswith(".local") and rel.name != ".env.local.example"
+        ):
+            hits.append(f"{rel}: 不得提交 .env.local（请加入 .gitignore）")
+            continue
+        if rel.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".woff", ".woff2"}:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue
+        for line_no, line in enumerate(text.splitlines(), 1):
+            for pattern, label in SECRET_PATTERNS:
+                if pattern.search(line):
+                    hits.append(f"{rel}:{line_no}: {label}")
+                    break
+    if hits:
+        sample = "\n".join(f"  - {h}" for h in hits[:12])
+        extra = f"\n  … 另有 {len(hits) - 12} 处" if len(hits) > 12 else ""
+        raise ValueError(
+            "检测到疑似硬编码密钥，请移除并改用 .env.local / GitHub Secrets：\n"
+            f"{sample}{extra}\n详见 docs/SECURITY.md"
+        )
+    print("✓ 无硬编码 API Key（secrets 扫描）")
+
+
 def validate_engagement() -> None:
     path = REPO / "data" / "engagement.json"
     data = json.loads(path.read_text(encoding="utf-8"))
@@ -397,6 +468,7 @@ def validate_tool_relations() -> None:
 
 
 STEPS = (
+    ("secrets", validate_no_secrets),
     ("data", validate_data_json),
     ("tool-relations", validate_tool_relations),
     ("oss", validate_oss_projects),

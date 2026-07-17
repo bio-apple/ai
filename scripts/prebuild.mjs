@@ -1,12 +1,15 @@
 #!/usr/bin/env node
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadEnvLocal } from './load-env-local.mjs';
 import { buildArtifacts } from './build-artifacts.mjs';
 import { syncPublic } from './sync-public.mjs';
 import { bundleCss } from './bundle-css.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = path.join(ROOT, 'public');
+
+loadEnvLocal(ROOT);
 
 syncPublic(publicDir);
 bundleCss({

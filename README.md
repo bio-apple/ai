@@ -6,7 +6,7 @@
 [![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0d8c6d?style=flat-square)](./LICENSE)
 
-站点：https://bio-apple.github.io/ai/ · 开发说明：[DEVELOPER.md](./DEVELOPER.md) · 运维：[docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)
+站点：https://bio-apple.github.io/ai/ · 开发说明：[DEVELOPER.md](./DEVELOPER.md) · 安全：[docs/SECURITY.md](./docs/SECURITY.md) · 运维：[docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)
 
 ## 快速开始
 

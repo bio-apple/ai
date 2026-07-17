@@ -3,6 +3,9 @@ uploads/
 __pycache__/
 *.pyc
 .env
+.env.local
+.env*.local
+!.env.local.example
 node_modules/
 playwright-report/
 test-results/

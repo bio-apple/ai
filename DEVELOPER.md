@@ -81,11 +81,14 @@ DIST=dist python3 scripts/validate_ci.py courses
 
 ```bash
 npm ci && pip install -r requirements.txt
+cp .env.local.example .env.local   # 可选：本地环境变量（勿提交）
 npm run build                              # prebuild → Astro → dist/
 ./start.sh                                 # FastAPI 挂载 /ai/
 DIST=dist python3 scripts/validate_ci.py
 npm run quality && npm run test:unit
 ```
+
+**安全**：禁止硬编码 LLM API Key；本地用 `.env.local`，用户密钥仅存浏览器本地存储并直连官方 API。详见 [docs/SECURITY.md](./docs/SECURITY.md)。
 
 手动刷新运行时数据：
 
@@ -105,7 +108,8 @@ npm run build
 2. `astro build` → `dist/`
 3. push `main`：`.github/workflows/ci.yml` 校验 → `pages.yml` 部署
 
-分析 Secrets（可选）：`UMAMI_*` · `CLOUDFLARE_BEACON_TOKEN` · `GA_MEASUREMENT_ID` / `CLARITY_PROJECT_ID`
+分析 Secrets（可选）：`UMAMI_*` · `CLOUDFLARE_BEACON_TOKEN` · `GA_MEASUREMENT_ID` / `CLARITY_PROJECT_ID`  
+本地同名变量可写入 `.env.local`（prebuild 自动加载）；**禁止**将 LLM 服务商 API Key 写入仓库。
 
 ## 定时任务（北京时间）
 
