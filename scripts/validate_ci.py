@@ -288,6 +288,7 @@ def validate_data_json() -> None:
         "cases.json",
         "compares.json",
         "prompts.json",
+        "prompts-classic.json",
         "tutorials.json",
         "videos.json",
         "analytics.json",

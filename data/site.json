@@ -32,6 +32,11 @@
         "href": "cases/index.html"
       },
       {
+        "type": "page",
+        "label": "Prompt 库",
+        "href": "prompts/library.html"
+      },
+      {
         "type": "tab",
         "id": "oss",
         "label": "开源精选"
@@ -436,7 +441,7 @@
   "prompts_page": {
     "title": "Prompt 提示词库 | Bio AI Lab",
     "h1": "Prompt 提示词库",
-    "lead": "精选可复制提示词模板，覆盖写作、编程、科研、办公与市场调研等场景。"
+    "lead": "实战案例提炼 + prompts.chat 经典角色提示词：搜索、复制，或一键在 ChatGPT 试用。"
   },
   "cases_page": {
     "title": "AI 实战案例库 | Bio AI Lab",

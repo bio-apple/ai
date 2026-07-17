@@ -13,9 +13,9 @@ scripts/              # 构建 / 抓取 / 校验
 dist/                 # 构建产物（不提交）
 ```
 
-关键数据：`site.json` · `tools.json` · `tool-relations.json` · `engagement.json` · `rankings.json` · `hub-official.json`  
+关键数据：`site.json` · `tools.json` · `tool-relations.json` · `engagement.json` · `rankings.json` · `hub-official.json` · `prompts-classic.json`  
 运行时 JSON（根目录，定时任务写入）：`daily-videos.json` · `ai-news.json` · `oss-projects.json`  
-Prompt / 搜索索引等由 `scripts/build-artifacts.mjs` 从案例与站点数据生成。
+Prompt / 搜索索引等由 `scripts/build-artifacts.mjs` 从案例 + prompts.chat 精选生成。
 
 ## 本地
 

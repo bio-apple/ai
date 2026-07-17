@@ -5,11 +5,49 @@
   color: var(--text-muted);
 }
 
+.library-search-wrap {
+  margin: 0 0 16px;
+}
+
+.library-search {
+  width: 100%;
+  max-width: 560px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.library-search:focus {
+  outline: 2px solid color-mix(in srgb, var(--accent) 45%, transparent);
+  border-color: var(--accent);
+}
+
 .library-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.library-toolbar-group {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 20px;
+}
+
+.library-attribution {
+  margin: 28px 0 8px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.library-attribution a {
+  color: var(--accent);
+  font-weight: 600;
 }
 
 .library-filter {
@@ -127,6 +165,11 @@
   font-size: 0.78rem;
   color: var(--accent);
   font-weight: 600;
+}
+
+.case-badge.classic {
+  background: rgba(15, 118, 110, 0.12);
+  color: #0f766e;
 }
 
 .cases-library-grid {

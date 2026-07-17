@@ -24,19 +24,50 @@ const home = homeHref();
       <p class="standalone-lead">{page.lead}</p>
       <p class="library-meta" id="prompts-count-meta"></p>
     </div>
-    <div class="library-toolbar" id="prompts-toolbar">
-      <button type="button" class="library-filter active" data-prompt-cat="all">全部</button>
-      {
-        promptsMeta.categories.map((cat) => (
-          <button type="button" class="library-filter" data-prompt-cat={cat.id}>
-            {cat.icon} {cat.label}
-          </button>
-        ))
-      }
+
+    <div class="library-search-wrap">
+      <label class="visually-hidden" for="prompts-search">搜索 Prompt</label>
+      <input
+        type="search"
+        id="prompts-search"
+        class="library-search"
+        placeholder="搜索角色、关键词…（如 Linux、翻译、代码审查）"
+        autocomplete="off"
+      />
     </div>
+
+    <div class="library-toolbar" id="prompts-toolbar">
+      <div class="library-toolbar-group" role="group" aria-label="按分类">
+        <button type="button" class="library-filter active" data-prompt-cat="all">全部</button>
+        {
+          promptsMeta.categories.map((cat) => (
+            <button type="button" class="library-filter" data-prompt-cat={cat.id}>
+              {cat.icon} {cat.label}
+            </button>
+          ))
+        }
+      </div>
+      <div class="library-toolbar-group" role="group" aria-label="按来源">
+        <button type="button" class="library-filter active" data-prompt-source="all"
+          >全部来源</button
+        >
+        <button type="button" class="library-filter" data-prompt-source="case">实战案例</button>
+        <button type="button" class="library-filter" data-prompt-source="prompts.chat"
+          >prompts.chat</button
+        >
+      </div>
+    </div>
+
     <div id="prompts-list" class="prompts-grid">
       <p class="loading-hint">加载 Prompt 库…</p>
     </div>
+
+    <p class="library-attribution">
+      经典角色提示词精选自
+      <a href="https://github.com/f/prompts.chat" target="_blank" rel="noopener">f/prompts.chat</a>
+      （原 Awesome ChatGPT Prompts，CC0）；实战案例 Prompt 来自本站案例库。
+    </p>
+
     <div class="standalone-cta">
       <a href={asset('cases/index.html')} class="cta-btn">实战案例库</a>
       <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">AI 工具中心</a>

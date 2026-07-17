@@ -30,7 +30,7 @@ function classifyPromptCategory(scenarios, title, content) {
   return 'writing';
 }
 
-function buildPromptsPayload(cases, promptsMeta) {
+function buildPromptsPayload(cases, promptsMeta, classicPack) {
   const prompts = [];
   for (const [idx, caseItem] of (cases.cases || []).entries()) {
     const caseAnchor = `case-${idx + 1}`;
@@ -48,12 +48,43 @@ function buildPromptsPayload(cases, promptsMeta) {
           case_title: caseItem.title,
           content,
           case_anchor: caseAnchor,
+          source: 'case',
           tags: [...new Set([...(caseItem.tags || []), ...(caseItem.scenarios || [])])],
         });
       }
     }
   }
-  return { ...promptsMeta, count: prompts.length, prompts };
+
+  // 精选自 prompts.chat（原 Awesome ChatGPT Prompts，CC0）
+  for (const item of classicPack?.prompts || []) {
+    const content = (item.content || '').trim();
+    if (!content) continue;
+    prompts.push({
+      id: item.id,
+      title: item.title || item.act || item.title_en,
+      title_en: item.title_en || item.act || '',
+      category: item.category || 'productivity',
+      tool: 'classic',
+      case_title: item.title_en || item.act || 'prompts.chat',
+      content,
+      case_anchor: '',
+      source: 'prompts.chat',
+      source_url: item.source_url || classicPack?.header?.attribution || 'https://prompts.chat/',
+      for_devs: Boolean(item.for_devs),
+      tags: [item.act, item.title_en, item.for_devs ? 'for_devs' : ''].filter(Boolean),
+    });
+  }
+
+  return {
+    ...promptsMeta,
+    count: prompts.length,
+    classic_count: (classicPack?.prompts || []).length,
+    attribution: {
+      prompts_chat: classicPack?.header?.attribution || 'https://github.com/f/prompts.chat',
+      license: classicPack?.header?.license || 'CC0-1.0',
+    },
+    prompts,
+  };
 }
 
 function buildTutorialsPayload(cases, tools) {
@@ -219,7 +250,7 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
       label: `Prompt：${p.title}`,
       type: 'Prompt',
       url: `prompts/library.html#${p.id}`,
-      keywords: [p.title, p.content, p.tool, p.category, ...(p.tags || [])]
+      keywords: [p.title, p.title_en, p.content, p.tool, p.category, p.source, ...(p.tags || [])]
         .filter(Boolean)
         .join(' ')
         .slice(0, 400),
@@ -362,7 +393,13 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const cases = readJson('cases.json');
   const compares = readJson('compares.json');
   const promptsMeta = readJson('prompts.json');
-  const promptsPayload = buildPromptsPayload(cases, promptsMeta);
+  let classicPack = { prompts: [] };
+  try {
+    classicPack = readJson('prompts-classic.json');
+  } catch {
+    /* optional curated pack from prompts.chat */
+  }
+  const promptsPayload = buildPromptsPayload(cases, promptsMeta, classicPack);
   const tutorialsPayload = buildTutorialsPayload(cases, tools);
   const searchIndex = buildSearchIndex(site, tools, cases, compares, promptsPayload);
   appendHubBoardSearchItems(searchIndex);
