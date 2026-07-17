@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Recollect OSS by AI app (≥50k Stars, Top 5 / app)
+      - name: Recollect OSS by AI app (≥50k Top5 + 中文Top1 / app)
         id: fetch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -45,7 +45,7 @@ jobs:
             exit 0
           fi
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
-          git commit -m "chore: weekly OSS recollect $DATE (≥50k · Top5/app)"
+          git commit -m "chore: weekly OSS recollect $DATE (≥50k Top5 + 中文Top1)"
           git push
           echo "pushed=true" >> "$GITHUB_OUTPUT"
 
@@ -69,7 +69,7 @@ jobs:
           script: |
             const title = '[ops] Weekly OSS stars fetch failed';
             const body = [
-              '每周一开源精选重刷失败（按 AI 应用分类 · ≥5万 Stars · 每类 Top 5）。',
+              '每周一开源精选重刷失败（按 AI 应用分类 · ≥5万 Top5 + 中文Top1）。',
               '',
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
               '',

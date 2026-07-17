@@ -20,13 +20,16 @@ function formatStars(n) {
 }
 
 function renderOssCard(project, domainLabel) {
+  const badge = project.badge
+    ? `<span class="oss-zh-badge">${escapeHtml(project.badge)}</span>`
+    : '';
   return `
-    <article class="oss-card">
+    <article class="oss-card${project.badge ? ' oss-card-zh' : ''}">
       <div class="oss-card-head">
         <span class="oss-domain-badge">${escapeHtml(domainLabel)}</span>
         <span class="oss-stars">★ ${escapeHtml(formatStars(project.stars))}</span>
       </div>
-      <h4><a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" data-track="oss-click">${escapeHtml(project.name)}</a></h4>
+      <h4><a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" data-track="oss-click">${escapeHtml(project.name)}</a>${badge}</h4>
       <p class="oss-repo">${escapeHtml(project.repo)}${project.language ? ` · ${escapeHtml(project.language)}` : ''}</p>
       <p class="oss-summary">${escapeHtml(project.description || '')}</p>
       <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" class="oss-read" data-track="oss-read">查看仓库 →</a>

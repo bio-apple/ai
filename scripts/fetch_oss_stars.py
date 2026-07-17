@@ -3,8 +3,8 @@
 
 规则：
 1. 按 AI 应用领域分类
-2. 每个项目 Stars ≥ 50,000
-3. 各领域按 Stars 降序，最多取 Top 5
+2. 全球榜：Stars ≥ 50,000，每类按 Stars 降序最多 Top 5
+3. 每类额外增加 1 个「中文 Top1」（该应用中文候选里 Stars 最高者；若已在 Top5 则仅标注）
 4. 由 weekly-oss.yml 每周一自动重刷
 """
 
@@ -29,12 +29,32 @@ USER_AGENT = "BioAI-Lab-OSSBot/1.0"
 MIN_STARS = 50_000
 TOP_N = 5
 
-# 按 AI 应用分类的候选仓库（每周重刷 Stars 后过滤 ≥5万并取 Top5）
+# 按 AI 应用分类的候选仓库（全球 Top5 + 中文 Top1）
 APP_CATALOG: list[dict] = [
     {
         "id": "ai-agent",
         "label": "AI Agent",
         "description": "自主规划、多代理协作与 Agent 记忆/工具编排",
+        "zh_candidates": [
+            {
+                "id": "metagpt",
+                "repo": "FoundationAgents/MetaGPT",
+                "name": "MetaGPT",
+                "description": "国产多智能体「软件公司」框架，从需求到代码协作生成。",
+            },
+            {
+                "id": "hello-agents",
+                "repo": "datawhalechina/hello-agents",
+                "name": "Hello-Agents",
+                "description": "《从零开始构建智能体》中文教程与实践。",
+            },
+            {
+                "id": "tradingagents",
+                "repo": "TauricResearch/TradingAgents",
+                "name": "TradingAgents",
+                "description": "多智能体 LLM 金融交易框架。",
+            },
+        ],
         "candidates": [
             {
                 "id": "autogpt",
@@ -78,6 +98,14 @@ APP_CATALOG: list[dict] = [
         "id": "ai-coding",
         "label": "AI 编程",
         "description": "终端/IDE 编程助手与自主改码 Agent",
+        "zh_candidates": [
+            {
+                "id": "qwen-code",
+                "repo": "QwenLM/qwen-code",
+                "name": "Qwen Code",
+                "description": "通义千问开源 AI 编程 Agent，可在终端完成改码任务。",
+            },
+        ],
         "candidates": [
             {
                 "id": "opencode",
@@ -109,6 +137,32 @@ APP_CATALOG: list[dict] = [
         "id": "llm-apps",
         "label": "LLM 应用开发",
         "description": "RAG、工作流与可视化 LLM / Agent 应用搭建",
+        "zh_candidates": [
+            {
+                "id": "dify",
+                "repo": "langgenius/dify",
+                "name": "Dify",
+                "description": "国产开源 LLM 应用开发平台，支持 RAG、Agent 与工作流编排。",
+            },
+            {
+                "id": "ragflow",
+                "repo": "infiniflow/ragflow",
+                "name": "RAGFlow",
+                "description": "面向生产的开源 RAG 引擎与知识库问答平台。",
+            },
+            {
+                "id": "lobehub",
+                "repo": "lobehub/lobehub",
+                "name": "LobeHub",
+                "description": "Agent 运营与多助手工作区。",
+            },
+            {
+                "id": "nextchat",
+                "repo": "ChatGPTNextWeb/NextChat",
+                "name": "NextChat",
+                "description": "轻量跨端 AI 助手前端。",
+            },
+        ],
         "candidates": [
             {
                 "id": "n8n",
@@ -182,6 +236,26 @@ APP_CATALOG: list[dict] = [
         "id": "local-llm",
         "label": "本地大模型",
         "description": "端侧推理、模型服务与本地聊天入口",
+        "zh_candidates": [
+            {
+                "id": "chatglm",
+                "repo": "zai-org/ChatGLM-6B",
+                "name": "ChatGLM-6B",
+                "description": "清华开源双语对话大模型，中文本地部署经典选择。",
+            },
+            {
+                "id": "qwen",
+                "repo": "QwenLM/Qwen",
+                "name": "Qwen",
+                "description": "通义千问开源对话与预训练模型仓库。",
+            },
+            {
+                "id": "xinference",
+                "repo": "xorbitsai/inference",
+                "name": "Xinference",
+                "description": "一行切换任意开源 LLM 的推理与服务框架。",
+            },
+        ],
         "candidates": [
             {
                 "id": "ollama",
@@ -213,6 +287,26 @@ APP_CATALOG: list[dict] = [
         "id": "ai-art",
         "label": "AI 绘画",
         "description": "图像生成、扩散模型与创作工作流",
+        "zh_candidates": [
+            {
+                "id": "fooocus",
+                "repo": "lllyasviel/Fooocus",
+                "name": "Fooocus",
+                "description": "专注提示词与出图体验的本地绘画工具。",
+            },
+            {
+                "id": "gfpgan",
+                "repo": "TencentARC/GFPGAN",
+                "name": "GFPGAN",
+                "description": "腾讯开源人脸修复与增强算法。",
+            },
+            {
+                "id": "controlnet",
+                "repo": "lllyasviel/ControlNet",
+                "name": "ControlNet",
+                "description": "可控扩散模型条件生成框架。",
+            },
+        ],
         "candidates": [
             {
                 "id": "sd-webui",
@@ -244,6 +338,26 @@ APP_CATALOG: list[dict] = [
         "id": "multimodal",
         "label": "多模态",
         "description": "视觉-语言、语音识别与跨模态感知",
+        "zh_candidates": [
+            {
+                "id": "paddleocr",
+                "repo": "PaddlePaddle/PaddleOCR",
+                "name": "PaddleOCR",
+                "description": "百度飞桨 OCR，文档/图片结构化抽取。",
+            },
+            {
+                "id": "minicpm-v",
+                "repo": "OpenBMB/MiniCPM-V",
+                "name": "MiniCPM-V",
+                "description": "面壁智能端侧多模态大模型。",
+            },
+            {
+                "id": "qwen3-vl",
+                "repo": "QwenLM/Qwen3-VL",
+                "name": "Qwen3-VL",
+                "description": "通义千问多模态视觉语言模型。",
+            },
+        ],
         "candidates": [
             {
                 "id": "transformers",
@@ -287,6 +401,26 @@ APP_CATALOG: list[dict] = [
         "id": "ml-framework",
         "label": "机器学习框架",
         "description": "深度学习训练与机器学习基础设施",
+        "zh_candidates": [
+            {
+                "id": "paddle",
+                "repo": "PaddlePaddle/Paddle",
+                "name": "PaddlePaddle",
+                "description": "百度飞桨深度学习框架。",
+            },
+            {
+                "id": "ncnn",
+                "repo": "Tencent/ncnn",
+                "name": "ncnn",
+                "description": "腾讯高性能端侧神经网络推理框架。",
+            },
+            {
+                "id": "mnn",
+                "repo": "alibaba/MNN",
+                "name": "MNN",
+                "description": "阿里巴巴轻量高速推理引擎。",
+            },
+        ],
         "candidates": [
             {
                 "id": "tensorflow",
@@ -318,6 +452,26 @@ APP_CATALOG: list[dict] = [
         "id": "prompt-libs",
         "label": "Prompt 库",
         "description": "按 Stars 精选的 Prompt / 提示工程开源资源（Top 5）",
+        "zh_candidates": [
+            {
+                "id": "awesome-zh",
+                "repo": "PlexPt/awesome-chatgpt-prompts-zh",
+                "name": "ChatGPT 中文调教指南",
+                "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
+            },
+            {
+                "id": "langgpt",
+                "repo": "langgptai/LangGPT",
+                "name": "LangGPT",
+                "description": "结构化提示词方法论，帮助人人成为 Prompt 专家。",
+            },
+            {
+                "id": "wonderful-prompts",
+                "repo": "langgptai/wonderful-prompts",
+                "name": "wonderful-prompts",
+                "description": "中文 Prompt 精选，提升可玩性与可用性。",
+            },
+        ],
         "candidates": [
             {
                 "id": "superpowers",
@@ -420,6 +574,39 @@ def fetch_repo(repo: str) -> dict | None:
             return None
 
 
+def project_from_cand(cand: dict, data: dict) -> dict:
+    full_name = data.get("full_name") or cand["repo"]
+    return {
+        "id": cand["id"],
+        "repo": full_name,
+        "name": cand.get("name") or data.get("name") or full_name.split("/")[-1],
+        "description": cand.get("description")
+        or (data.get("description") or "").strip()
+        or full_name,
+        "stars": int(data.get("stargazers_count") or 0),
+        "url": data.get("html_url") or f"https://github.com/{full_name}",
+        "language": data.get("language") or "",
+    }
+
+
+def pick_zh_top1(domain_def: dict) -> dict | None:
+    """在中文候选中取 Stars 最高者作为中文 Top1。"""
+    best: dict | None = None
+    for cand in domain_def.get("zh_candidates") or []:
+        repo = cand.get("repo")
+        if not repo:
+            continue
+        data = fetch_repo(repo)
+        if not data:
+            continue
+        item = project_from_cand(cand, data)
+        item["locale"] = "zh"
+        item["badge"] = "中文Top1"
+        if best is None or item["stars"] > best["stars"]:
+            best = item
+    return best
+
+
 def collect_domain(domain_def: dict) -> dict | None:
     projects: list[dict] = []
     for cand in domain_def.get("candidates") or []:
@@ -433,27 +620,37 @@ def collect_domain(domain_def: dict) -> dict | None:
         if stars < MIN_STARS:
             print(f"  · drop {repo} ({stars} < {MIN_STARS})")
             continue
-        full_name = data.get("full_name") or repo
-        projects.append(
-            {
-                "id": cand["id"],
-                "repo": full_name,
-                "name": cand.get("name") or data.get("name") or full_name.split("/")[-1],
-                "description": cand.get("description")
-                or (data.get("description") or "").strip()
-                or full_name,
-                "stars": stars,
-                "url": data.get("html_url") or f"https://github.com/{full_name}",
-                "language": data.get("language") or "",
-            }
-        )
-        print(f"  · keep ★{stars} {full_name}")
+        item = project_from_cand(cand, data)
+        projects.append(item)
+        print(f"  · keep ★{stars} {item['repo']}")
 
     projects.sort(key=lambda p: -(p.get("stars") or 0))
     projects = projects[:TOP_N]
     if not projects:
         print(f"✗ {domain_def['id']}: 无 ≥{MIN_STARS} 项目，跳过该领域", file=sys.stderr)
         return None
+
+    zh = pick_zh_top1(domain_def)
+    if zh:
+        # 已在全球 Top5：仅标注；否则追加中文 Top1
+        existed = next(
+            (
+                p
+                for p in projects
+                if p.get("id") == zh["id"] or p.get("repo") == zh["repo"]
+            ),
+            None,
+        )
+        if existed:
+            existed["locale"] = "zh"
+            existed["badge"] = "中文Top1"
+            print(f"  · zh-top1(mark) ★{existed['stars']} {existed['repo']}")
+        else:
+            projects.append(zh)
+            print(f"  · zh-top1(add) ★{zh['stars']} {zh['repo']}")
+    else:
+        print(f"  · warn: 无可用中文 Top1 候选", file=sys.stderr)
+
     return {
         "id": domain_def["id"],
         "label": domain_def["label"],
@@ -463,18 +660,24 @@ def collect_domain(domain_def: dict) -> dict | None:
 
 
 def sync_prompt_libraries(payload: dict) -> None:
-    """Prompt 库领域同步为 Stars Top 5（同样遵守 ≥5万）。"""
+    """Prompt 库领域同步：全球 Top5 + 中文 Top1（若额外追加）。"""
     domain = next((d for d in payload.get("domains") or [] if d.get("id") == "prompt-libs"), None)
     if not domain:
         return
 
-    libs = sorted(domain.get("projects") or [], key=lambda p: -(p.get("stars") or 0))
-    ranked = [{**project, "rank": i} for i, project in enumerate(libs[:TOP_N], start=1)]
+    libs = list(domain.get("projects") or [])
+    ranked = [{**project, "rank": i} for i, project in enumerate(libs, start=1)]
     out = {
         "updated_at": payload.get("updated_at"),
-        "title": "GitHub Prompt 库 Top 5",
-        "lead": f"按 GitHub Stars 排序的 Prompt / 提示工程开源库（≥{MIN_STARS // 10000}万，最多 {TOP_N}）。",
-        "source_note": f"筛选：Stars ≥ {MIN_STARS}，每类最多 {TOP_N}；每周一随 OSS 重刷更新。",
+        "title": "GitHub Prompt 库精选",
+        "lead": (
+            f"按 GitHub Stars 精选 Prompt / 提示工程开源库"
+            f"（≥{MIN_STARS // 10000}万 Top {TOP_N} + 中文 Top1）。"
+        ),
+        "source_note": (
+            f"筛选：全球榜 Stars ≥ {MIN_STARS} 取 Top {TOP_N}；"
+            f"每类另附中文 Top1；每周一随 OSS 重刷更新。"
+        ),
         "libraries": ranked,
     }
     PROMPT_LIBS_FILE.write_text(
@@ -490,7 +693,9 @@ def main() -> int:
     else:
         print("✓ 使用 GITHUB_TOKEN 调用 GitHub API")
 
-    print(f"规则：按 AI 应用分类 · Stars ≥ {MIN_STARS} · 每类 Top {TOP_N} · 每周一重刷")
+    print(
+        f"规则：按 AI 应用分类 · Stars ≥ {MIN_STARS} · 每类 Top {TOP_N} + 中文Top1 · 每周一重刷"
+    )
     domains: list[dict] = []
     for domain_def in APP_CATALOG:
         print(f"→ {domain_def['label']} ({domain_def['id']})")
@@ -507,12 +712,13 @@ def main() -> int:
         "title": "GitHub Stars 开源精选",
         "lead": (
             f"按 AI 应用分类精选 GitHub 高星开源项目"
-            f"（每项 ≥{MIN_STARS // 10000}万 Stars，每类最多 {TOP_N} 个），每周一重新收集。"
+            f"（≥{MIN_STARS // 10000}万 Stars Top {TOP_N}，每类另附中文 Top1），每周一重新收集。"
         ),
         "schema_version": 1,
         "rules": {
             "min_stars": MIN_STARS,
             "top_n_per_app": TOP_N,
+            "zh_top1_per_app": True,
             "refresh": "每周一",
         },
         "domains": domains,

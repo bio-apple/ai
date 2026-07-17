@@ -1,11 +1,12 @@
 {
   "updated_at": "2026-07-17",
   "title": "GitHub Stars 开源精选",
-  "lead": "按 AI 应用分类精选 GitHub 高星开源项目（每项 ≥5万 Stars，每类最多 5 个），每周一重新收集。",
+  "lead": "按 AI 应用分类精选 GitHub 高星开源项目（≥5万 Stars Top 5，每类另附中文 Top1），每周一重新收集。",
   "schema_version": 1,
   "rules": {
     "min_stars": 50000,
     "top_n_per_app": 5,
+    "zh_top1_per_app": true,
     "refresh": "每周一"
   },
   "domains": [
@@ -30,7 +31,9 @@
           "description": "多智能体 LLM 金融交易框架。",
           "stars": 93349,
           "url": "https://github.com/TauricResearch/TradingAgents",
-          "language": "Python"
+          "language": "Python",
+          "locale": "zh",
+          "badge": "中文Top1"
         },
         {
           "id": "metagpt",
@@ -71,7 +74,7 @@
           "repo": "anomalyco/opencode",
           "name": "OpenCode",
           "description": "开源 coding agent，面向仓库级自主开发。",
-          "stars": 186621,
+          "stars": 186626,
           "url": "https://github.com/anomalyco/opencode",
           "language": "TypeScript"
         },
@@ -80,7 +83,7 @@
           "repo": "anthropics/claude-code",
           "name": "Claude Code",
           "description": "Anthropic 终端编程 Agent，可读写代码与运行命令。",
-          "stars": 138019,
+          "stars": 138020,
           "url": "https://github.com/anthropics/claude-code",
           "language": "Python"
         },
@@ -89,7 +92,7 @@
           "repo": "OpenHands/OpenHands",
           "name": "OpenHands",
           "description": "开源 AI 驱动开发 Agent，可读写代码、运行命令并完成任务。",
-          "stars": 81038,
+          "stars": 81039,
           "url": "https://github.com/OpenHands/OpenHands",
           "language": "Python"
         },
@@ -101,6 +104,17 @@
           "stars": 64727,
           "url": "https://github.com/cline/cline",
           "language": "TypeScript"
+        },
+        {
+          "id": "qwen-code",
+          "repo": "QwenLM/qwen-code",
+          "name": "Qwen Code",
+          "description": "通义千问开源 AI 编程 Agent，可在终端完成改码任务。",
+          "stars": 26068,
+          "url": "https://github.com/QwenLM/qwen-code",
+          "language": "TypeScript",
+          "locale": "zh",
+          "badge": "中文Top1"
         }
       ]
     },
@@ -123,7 +137,7 @@
           "repo": "langflow-ai/langflow",
           "name": "Langflow",
           "description": "可视化构建 LLM / Agent 应用的开源工具。",
-          "stars": 151924,
+          "stars": 151925,
           "url": "https://github.com/langflow-ai/langflow",
           "language": "Python"
         },
@@ -132,9 +146,11 @@
           "repo": "langgenius/dify",
           "name": "Dify",
           "description": "开源 LLM 应用开发平台，支持 RAG、Agent 与工作流编排。",
-          "stars": 149099,
+          "stars": 149100,
           "url": "https://github.com/langgenius/dify",
-          "language": "TypeScript"
+          "language": "TypeScript",
+          "locale": "zh",
+          "badge": "中文Top1"
         },
         {
           "id": "langchain",
@@ -150,7 +166,7 @@
           "repo": "Shubhamsaboo/awesome-llm-apps",
           "name": "Awesome LLM Apps",
           "description": "可运行的 AI Agent / RAG 应用合集，便于克隆实践。",
-          "stars": 123031,
+          "stars": 123043,
           "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
           "language": "Python"
         }
@@ -166,7 +182,7 @@
           "repo": "ollama/ollama",
           "name": "Ollama",
           "description": "一键在本地运行 Llama、Qwen、DeepSeek 等开源模型。",
-          "stars": 176284,
+          "stars": 176285,
           "url": "https://github.com/ollama/ollama",
           "language": "Go"
         },
@@ -184,7 +200,7 @@
           "repo": "ggml-org/llama.cpp",
           "name": "llama.cpp",
           "description": "高性能 C/C++ 推理引擎，支持 CPU/GPU 量化部署。",
-          "stars": 120644,
+          "stars": 120643,
           "url": "https://github.com/ggml-org/llama.cpp",
           "language": "C++"
         },
@@ -193,9 +209,20 @@
           "repo": "vllm-project/vllm",
           "name": "vLLM",
           "description": "高吞吐推理与服务引擎，适合本地/集群部署开源大模型。",
-          "stars": 86462,
+          "stars": 86463,
           "url": "https://github.com/vllm-project/vllm",
           "language": "Python"
+        },
+        {
+          "id": "chatglm",
+          "repo": "zai-org/ChatGLM-6B",
+          "name": "ChatGLM-6B",
+          "description": "清华开源双语对话大模型，中文本地部署经典选择。",
+          "stars": 41025,
+          "url": "https://github.com/zai-org/ChatGLM-6B",
+          "language": "Python",
+          "locale": "zh",
+          "badge": "中文Top1"
         }
       ]
     },
@@ -218,7 +245,7 @@
           "repo": "Comfy-Org/ComfyUI",
           "name": "ComfyUI",
           "description": "节点式扩散模型工作流，灵活组合 ControlNet 与 LoRA。",
-          "stars": 121054,
+          "stars": 121057,
           "url": "https://github.com/Comfy-Org/ComfyUI",
           "language": "Python"
         },
@@ -238,7 +265,9 @@
           "description": "专注提示词与出图体验的本地绘画工具。",
           "stars": 50996,
           "url": "https://github.com/lllyasviel/Fooocus",
-          "language": "Python"
+          "language": "Python",
+          "locale": "zh",
+          "badge": "中文Top1"
         }
       ]
     },
@@ -252,7 +281,7 @@
           "repo": "huggingface/transformers",
           "name": "Transformers",
           "description": "Hugging Face 模型定义框架，覆盖 VLM、ASR 与多模态任务。",
-          "stars": 162668,
+          "stars": 162669,
           "url": "https://github.com/huggingface/transformers",
           "language": "Python"
         },
@@ -270,16 +299,18 @@
           "repo": "PaddlePaddle/PaddleOCR",
           "name": "PaddleOCR",
           "description": "文档/图片 OCR 与结构化抽取，服务多模态文档理解。",
-          "stars": 85654,
+          "stars": 85655,
           "url": "https://github.com/PaddlePaddle/PaddleOCR",
-          "language": "Python"
+          "language": "Python",
+          "locale": "zh",
+          "badge": "中文Top1"
         },
         {
           "id": "ultralytics",
           "repo": "ultralytics/ultralytics",
           "name": "Ultralytics YOLO",
           "description": "YOLO 系列目标检测、分割与姿态估计工具箱。",
-          "stars": 59568,
+          "stars": 59569,
           "url": "https://github.com/ultralytics/ultralytics",
           "language": "Python"
         },
@@ -304,7 +335,7 @@
           "repo": "tensorflow/tensorflow",
           "name": "TensorFlow",
           "description": "端到端机器学习平台，覆盖训练与部署。",
-          "stars": 196322,
+          "stars": 196330,
           "url": "https://github.com/tensorflow/tensorflow",
           "language": "C++"
         },
@@ -313,7 +344,7 @@
           "repo": "pytorch/pytorch",
           "name": "PyTorch",
           "description": "主流深度学习框架，研究与生产部署首选。",
-          "stars": 101716,
+          "stars": 101717,
           "url": "https://github.com/pytorch/pytorch",
           "language": "Python"
         },
@@ -334,6 +365,17 @@
           "stars": 64169,
           "url": "https://github.com/keras-team/keras",
           "language": "Python"
+        },
+        {
+          "id": "paddle",
+          "repo": "PaddlePaddle/Paddle",
+          "name": "PaddlePaddle",
+          "description": "百度飞桨深度学习框架。",
+          "stars": 24019,
+          "url": "https://github.com/PaddlePaddle/Paddle",
+          "language": "C++",
+          "locale": "zh",
+          "badge": "中文Top1"
         }
       ]
     },
@@ -347,7 +389,7 @@
           "repo": "obra/superpowers",
           "name": "Superpowers",
           "description": "Agent 技能框架与软件开发方法论提示词体系。",
-          "stars": 256076,
+          "stars": 256082,
           "url": "https://github.com/obra/superpowers",
           "language": "Shell"
         },
@@ -356,7 +398,7 @@
           "repo": "f/prompts.chat",
           "name": "prompts.chat",
           "description": "原 Awesome ChatGPT Prompts，全球最大开源 Prompt 社区库。",
-          "stars": 165868,
+          "stars": 165867,
           "url": "https://github.com/f/prompts.chat",
           "language": "HTML"
         },
@@ -374,7 +416,7 @@
           "repo": "dair-ai/Prompt-Engineering-Guide",
           "name": "Prompt Engineering Guide",
           "description": "提示工程指南：论文、课程、笔记与实践资源。",
-          "stars": 76614,
+          "stars": 76615,
           "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
           "language": "MDX"
         },
@@ -383,9 +425,20 @@
           "repo": "gsd-build/get-shit-done",
           "name": "Get Shit Done",
           "description": "轻量元提示与上下文工程框架，适合规格驱动开发。",
-          "stars": 64759,
+          "stars": 64761,
           "url": "https://github.com/gsd-build/get-shit-done",
           "language": "JavaScript"
+        },
+        {
+          "id": "awesome-zh",
+          "repo": "PlexPt/awesome-chatgpt-prompts-zh",
+          "name": "ChatGPT 中文调教指南",
+          "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
+          "stars": 60995,
+          "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
+          "language": "",
+          "locale": "zh",
+          "badge": "中文Top1"
         }
       ]
     }
