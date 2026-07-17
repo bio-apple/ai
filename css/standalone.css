@@ -1,8 +1,9 @@
-/* 独立页（工具中心 / 对比 / 指南 / 排行等）统一排版 */
+/* 独立页版式 — 与首页 .home-main、工具中心 hub 对齐（max-width 1200px） */
 .standalone-page {
-  max-width: 960px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 28px 0 72px;
+  padding: 28px 24px 80px;
 }
 
 .breadcrumb {
@@ -23,16 +24,16 @@
 }
 
 .standalone-hero {
-  margin-bottom: 28px;
+  margin-bottom: 40px;
 }
 
 .standalone-hero h1,
 .standalone-page > h1 {
   margin: 0 0 12px;
-  font-size: clamp(1.55rem, 4vw, 2rem);
+  font-size: clamp(1.65rem, 4vw, 2.1rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  line-height: 1.25;
+  line-height: 1.22;
 }
 
 .standalone-lead {
@@ -49,8 +50,49 @@
   color: var(--text-muted);
 }
 
+.standalone-hero-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.standalone-hero-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.standalone-hero--with-icon .standalone-hero-row .tool-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  margin: 0;
+}
+
+/* 与 hub .hub-compare-section / .home-section 间距一致 */
+.page-section {
+  margin-bottom: 48px;
+}
+
+.page-section .section-head {
+  margin-bottom: 20px;
+}
+
+/* 表格容器 — 与 hub-compare-wrap 同款 */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap .compare-table {
+  margin: 0;
+  min-width: 720px;
+}
+
 .answer-box {
-  margin: 0 0 28px;
+  margin: 0 0 40px;
   padding: 16px 18px;
   border-radius: 12px;
   border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
@@ -67,42 +109,25 @@
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 36px;
+  margin-top: 48px;
   padding-top: 8px;
 }
 
-.tool-header {
+/* 工具详情页：取消 layout 里带宽分割线的 tool-header，改用 hero 变体 */
+.standalone-page.standalone-page--tool .tool-header {
+  display: none;
+}
+
+.hub-quick-links {
   display: flex;
-  align-items: flex-start;
-  gap: 18px;
-  margin-bottom: 28px;
-}
-
-.tool-header h1 {
-  margin: 0 0 8px;
-  font-size: clamp(1.5rem, 3.5vw, 1.85rem);
-  font-weight: 800;
-  letter-spacing: -0.02em;
-}
-
-.standalone-page .section-head {
-  margin-bottom: 18px;
-}
-
-.standalone-page .section-title {
-  margin: 0 0 6px;
-  font-size: 1.25rem;
-}
-
-.standalone-page .section-desc {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 0.92rem;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-top: 16px;
 }
 
 @media (max-width: 640px) {
   .standalone-page {
-    padding: 20px 0 56px;
+    padding: 20px 16px 56px;
   }
 
   .standalone-cta {
@@ -114,7 +139,7 @@
     text-align: center;
   }
 
-  .tool-header {
+  .standalone-hero-row {
     flex-direction: column;
     gap: 12px;
   }

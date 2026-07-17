@@ -1,5 +1,6 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
+import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import { site } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
@@ -35,15 +36,23 @@ const home = homeHref();
   schema={schema}
 >
   <main class="standalone-page">
-    <nav class="breadcrumb"><a href={home}>首页</a> / 学习指南 / {guide.h1}</nav>
-    <div class="standalone-hero">
-      <h1>{guide.h1}</h1>
-      <p class="standalone-lead">{guide.lead}</p>
-    </div>
-    <div class="card">
-      <h3><span class="dot" style={`background:${path.dot_color}`}></span> {path.title}</h3>
-      <ol class="steps">{path.steps.map((step) => <li>{step}</li>)}</ol>
-    </div>
+    <StandalonePageHeader
+      crumbs={[
+        { label: '首页', href: home },
+        { label: '学习指南', href: asset('ai-learning-roadmap.html') },
+        { label: guide.h1 },
+      ]}
+      title={guide.h1}
+      lead={guide.lead}
+    />
+
+    <section class="page-section">
+      <div class="card">
+        <h3><span class="dot" style={`background:${path.dot_color}`}></span> {path.title}</h3>
+        <ol class="steps">{path.steps.map((step) => <li>{step}</li>)}</ol>
+      </div>
+    </section>
+
     <div class="standalone-cta">
       <a href={asset('tools/hub.html')} class="cta-btn">浏览工具中心</a>
       <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline">完整学习路线</a>

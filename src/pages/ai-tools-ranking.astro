@@ -1,5 +1,6 @@
 ---
 import StandaloneLayout from '../layouts/StandaloneLayout.astro';
+import StandalonePageHeader from '../components/StandalonePageHeader.astro';
 import RankingBoardPanels from '../components/RankingBoardPanels.astro';
 import { site, rankings } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
@@ -28,20 +29,22 @@ const boards = (rankings.boards || []).map((board) => ({
   scripts={['analytics.js', 'ux.js', 'app.js', 'ranking-tabs.js']}
 >
   <main class="standalone-page ranking-page aicpb-ranking-page">
-    <nav class="breadcrumb"><a href={home}>首页</a> / AI 工具排行榜</nav>
+    <StandalonePageHeader
+      crumbs={[{ label: '首页', href: home }, { label: 'AI 工具排行榜' }]}
+      title={rankings.title}
+      lead={rankings.lead}
+      meta={`${rankings.month_label || rankings.month} · 三榜 Top 10 · 更新 ${rankings.updated_at}`}
+      class="aicpb-ranking-hero"
+    />
 
-    <div class="standalone-hero aicpb-ranking-hero">
-      <h1>{rankings.title}</h1>
-      <p class="standalone-lead">{rankings.lead}</p>
-      <p class="standalone-meta">
-        {rankings.month_label || rankings.month} · 三榜 Top 10 · 更新 {rankings.updated_at}
-      </p>
-    </div>
+    <section class="page-section hub-ranking-section">
+      <RankingBoardPanels boards={boards} panelIdPrefix="panel" headingLevel="h2" />
+    </section>
 
-    <RankingBoardPanels boards={boards} panelIdPrefix="panel" headingLevel="h2" />
-
-    <section class="ranking-method aicpb-ranking-note" aria-label="引用说明">
-      <h2 class="resources-title">引用说明</h2>
+    <section class="ranking-method aicpb-ranking-note page-section" aria-label="引用说明">
+      <div class="section-head">
+        <h2 class="section-title">引用说明</h2>
+      </div>
       <ul class="ranking-method-list">
         {rankings.methodology.map((line) => <li>{line}</li>)}
       </ul>

@@ -1,8 +1,9 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
+import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import { compares, site } from '../../lib/data';
 import { buildCompareSchema } from '../../lib/schema';
-import { homeHref } from '../../lib/paths';
+import { asset, homeHref } from '../../lib/paths';
 
 export function getStaticPaths() {
   return compares.map((compare) => ({ params: { slug: compare.slug }, props: { compare } }));
@@ -26,32 +27,50 @@ const home = homeHref();
   schema={schema}
 >
   <main class="standalone-page">
-    <nav class="breadcrumb"><a href={home}>首页</a> / 选型指南 / {compare.breadcrumb}</nav>
-    <div class="standalone-hero">
-      <h1>{compare.h1}</h1>
-      <p class="standalone-lead">{compare.lead}</p>
-    </div>
+    <StandalonePageHeader
+      crumbs={[
+        { label: '首页', href: home },
+        { label: '选型指南', href: asset('ai-tools-ranking.html') },
+        { label: compare.breadcrumb },
+      ]}
+      title={compare.h1}
+      lead={compare.lead}
+    />
+
     <div class="answer-box">
       <strong>一句话结论：</strong><span set:html={compare.conclusion} />
     </div>
-    <table class="compare-table">
-      <thead><tr>{compare.table.headers.map((h) => <th>{h}</th>)}</tr></thead>
-      <tbody
-        >{
-          compare.table.rows.map((row) => (
-            <tr>
-              {row.map((cell) => (
-                <td>{cell}</td>
-              ))}
-            </tr>
-          ))
-        }</tbody
-      >
-    </table>
+
+    <section class="page-section" aria-labelledby="compare-table-title">
+      <div class="section-head">
+        <h2 class="section-title" id="compare-table-title">参数对比</h2>
+      </div>
+      <div class="table-wrap" role="region" aria-label="工具对比表" tabindex="0">
+        <table class="compare-table">
+          <thead><tr>{compare.table.headers.map((h) => <th>{h}</th>)}</tr></thead>
+          <tbody>
+            {
+              compare.table.rows.map((row) => (
+                <tr>
+                  {row.map((cell) => (
+                    <td>{cell}</td>
+                  ))}
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
     {
       compare.sections.map((sec) => (
-        <>
-          <h2>{sec.heading}</h2>
+        <section class="page-section" aria-labelledby={`compare-sec-${sec.heading}`}>
+          <div class="section-head">
+            <h2 class="section-title" id={`compare-sec-${sec.heading}`}>
+              {sec.heading}
+            </h2>
+          </div>
           {sec.ordered ? (
             <ol class="steps">
               {sec.items.map((item) => (
@@ -65,9 +84,10 @@ const home = homeHref();
               ))}
             </ul>
           )}
-        </>
+        </section>
       ))
     }
+
     <div class="standalone-cta">
       {
         compare.cta.map((btn) => (

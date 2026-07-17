@@ -1,5 +1,6 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
+import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import RankingBoardPanels from '../../components/RankingBoardPanels.astro';
 import { site } from '../../lib/data';
 import {
@@ -38,20 +39,23 @@ const rankMeta = hubRankingMeta();
   scripts={['analytics.js', 'ux.js', 'app.js', 'ranking-tabs.js']}
 >
   <main class="standalone-page tools-hub-page hub-compare-page aicpb-ranking-page">
-    <nav class="breadcrumb"><a href={homeHref()}>首页</a> / 工具中心</nav>
-    <div class="standalone-hero">
-      <h1>{page.h1}</h1>
-      <p class="standalone-lead">{page.lead}</p>
-      <p class="standalone-meta">
-        {toolCount} 款精选 · 多源排行更新 {rankMeta.updated_at}
-      </p>
-      <div class="hub-quick-links" aria-label="本页目录">
+    <StandalonePageHeader
+      crumbs={[{ label: '首页', href: homeHref() }, { label: '工具中心' }]}
+      title={page.h1}
+      lead={page.lead}
+      meta={`${toolCount} 款精选 · 多源排行更新 ${rankMeta.updated_at}`}
+    >
+      <div slot="hero-extra" class="hub-quick-links" aria-label="本页目录">
         <a href="#hub-compare" class="recommend-link">精选对比</a>
         <a href="#hub-ranking" class="recommend-link">多源排行</a>
       </div>
-    </div>
+    </StandalonePageHeader>
 
-    <section class="hub-compare-section" id="hub-compare" aria-labelledby="hub-compare-title">
+    <section
+      class="hub-compare-section page-section"
+      id="hub-compare"
+      aria-labelledby="hub-compare-title"
+    >
       <div class="section-head">
         <h2 class="section-title" id="hub-compare-title">精选 AI 工具对比</h2>
         <p class="section-desc">类型、优势、场景与定价一表看清。</p>
@@ -89,7 +93,11 @@ const rankMeta = hubRankingMeta();
       </div>
     </section>
 
-    <section class="hub-ranking-section" id="hub-ranking" aria-labelledby="hub-ranking-title">
+    <section
+      class="hub-ranking-section page-section"
+      id="hub-ranking"
+      aria-labelledby="hub-ranking-title"
+    >
       <div class="section-head">
         <h2 class="section-title" id="hub-ranking-title">AI 工具排行</h2>
         <p class="section-desc">
@@ -114,8 +122,10 @@ const rankMeta = hubRankingMeta();
       </p>
     </section>
 
-    <section class="ranking-method" aria-label="说明">
-      <h2 class="resources-title">说明</h2>
+    <section class="ranking-method page-section" aria-label="说明">
+      <div class="section-head">
+        <h2 class="section-title">说明</h2>
+      </div>
       <ul class="ranking-method-list">
         <li>
           对比表用于能力与场景选型；排行仅展示 AICPB、LMSYS Chatbot Arena Elo、Artificial Analysis

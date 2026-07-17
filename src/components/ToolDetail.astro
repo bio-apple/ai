@@ -1,6 +1,7 @@
 ---
 import type { Tool } from '../lib/data';
 import { resolveToolRelations } from '../lib/data';
+import StandalonePageHeader from './StandalonePageHeader.astro';
 import { asset, homeHref } from '../lib/paths';
 
 interface Props {
@@ -13,61 +14,73 @@ const hasRelations = relations.alternatives.length > 0 || relations.complements.
 ---
 
 <main class="standalone-page">
-  <nav class="breadcrumb"><a href={home}>首页</a> / {tool.name} 教程</nav>
-  <div class="tool-header">
-    <div class={`tool-icon ${tool.id}`}>{tool.icon}</div>
-    <div>
-      <h1>{tool.name} 教程 2026</h1>
-      <p class="standalone-lead">{tool.description}</p>
+  <StandalonePageHeader
+    crumbs={[
+      { label: '首页', href: home },
+      { label: '工具中心', href: asset('tools/hub.html') },
+      { label: `${tool.name} 教程` },
+    ]}
+    title={`${tool.name} 教程 2026`}
+    lead={tool.description}
+    icon={tool.icon}
+    iconClass={tool.id}
+  />
+
+  <section class="page-section">
+    <div class="grid-2">
+      <div class="card">
+        <h3><span class="dot"></span> 快速入门</h3>
+        <ol class="steps">{tool.getting_started_steps.map((step) => <li set:html={step} />)}</ol>
+      </div>
+      <div class="card">
+        <h3><span class="dot"></span> 核心功能</h3>
+        <ul class="features">
+          {
+            tool.features.map((f) => (
+              <li>
+                <strong>{f.title}</strong> — {f.description}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <h3><span class="dot"></span> 快速入门</h3>
-      <ol class="steps">{tool.getting_started_steps.map((step) => <li set:html={step} />)}</ol>
-    </div>
-    <div class="card">
-      <h3><span class="dot"></span> 核心功能</h3>
-      <ul class="features">
-        {
-          tool.features.map((f) => (
-            <li>
-              <strong>{f.title}</strong> — {f.description}
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </div>
+  </section>
   {
     tool.shortcuts && (
-      <>
-        <h3 class="resources-title">{tool.shortcuts.title}</h3>
-        <table class="compare-table">
-          <thead>
-            <tr>
-              <>
-                <th>快捷键</th>
-                <th>功能</th>
-              </>
-            </tr>
-          </thead>
-          <tbody>
-            {tool.shortcuts.rows.map((row) => (
+      <section class="page-section">
+        <div class="section-head">
+          <h2 class="section-title">{tool.shortcuts.title}</h2>
+        </div>
+        <div class="table-wrap">
+          <table class="compare-table">
+            <thead>
               <tr>
-                <td set:html={row.key} />
-                <td>{row.action}</td>
+                <>
+                  <th>快捷键</th>
+                  <th>功能</th>
+                </>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </>
+            </thead>
+            <tbody>
+              {tool.shortcuts.rows.map((row) => (
+                <tr>
+                  <td set:html={row.key} />
+                  <td>{row.action}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
     )
   }
   {
     tool.video_resources?.length > 0 && (
-      <>
-        <h3 class="resources-title">视频教程</h3>
+      <section class="page-section">
+        <div class="section-head">
+          <h2 class="section-title">视频教程</h2>
+        </div>
         <div class="resource-grid">
           {tool.video_resources.map((r) => (
             <div class="resource-item">
@@ -79,13 +92,15 @@ const hasRelations = relations.alternatives.length > 0 || relations.complements.
             </div>
           ))}
         </div>
-      </>
+      </section>
     )
   }
   {
     tool.text_resources?.length > 0 && (
-      <>
-        <h3 class="resources-title">文字资料</h3>
+      <section class="page-section">
+        <div class="section-head">
+          <h2 class="section-title">文字资料</h2>
+        </div>
         <div class="resource-grid">
           {tool.text_resources.map((r) => (
             <div class="resource-item">
@@ -97,15 +112,17 @@ const hasRelations = relations.alternatives.length > 0 || relations.complements.
             </div>
           ))}
         </div>
-      </>
+      </section>
     )
   }
   {
     hasRelations && (
-      <section class="tool-relations" aria-label="相关工具">
+      <section class="page-section tool-relations" aria-label="相关工具">
         {relations.alternatives.length > 0 && (
           <div class="tool-relations-group">
-            <h3 class="resources-title">可切换替代</h3>
+            <div class="section-head">
+              <h2 class="section-title">可切换替代</h2>
+            </div>
             <ul class="tool-relations-list">
               {relations.alternatives.map((rel) => (
                 <li>
@@ -127,7 +144,9 @@ const hasRelations = relations.alternatives.length > 0 || relations.complements.
         )}
         {relations.complements.length > 0 && (
           <div class="tool-relations-group">
-            <h3 class="resources-title">常一起用</h3>
+            <div class="section-head">
+              <h2 class="section-title">常一起用</h2>
+            </div>
             <ul class="tool-relations-list">
               {relations.complements.map((rel) => (
                 <li>

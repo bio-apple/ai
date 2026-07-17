@@ -1,5 +1,6 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
+import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import { site } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
 import { homeHref } from '../../lib/paths';
@@ -18,15 +19,19 @@ const home = homeHref();
   scripts={['lib/fetch-json.js', 'analytics.js', 'ux.js', 'app.js', 'news.js']}
 >
   <main class="standalone-page">
-    <nav class="breadcrumb"><a href={home}>首页</a> / 一周内 AI 热点</nav>
-    <div class="standalone-hero">
-      <h1>{page.h1}</h1>
-      <p class="standalone-lead">{page.lead}</p>
-      <p class="standalone-meta" id="news-page-meta"></p>
-    </div>
-    <div id="daily-news-list" class="news-list">
-      <p class="loading-hint">加载 AI 新闻…</p>
-    </div>
+    <StandalonePageHeader
+      crumbs={[{ label: '首页', href: home }, { label: '一周内 AI 热点' }]}
+      title={page.h1}
+      lead={page.lead}
+      metaId="news-page-meta"
+    />
+
+    <section class="page-section">
+      <div id="daily-news-list" class="news-list">
+        <p class="loading-hint">加载 AI 新闻…</p>
+      </div>
+    </section>
+
     <div class="standalone-cta">
       <a href={homeHref('#section-news')} class="cta-btn">返回站内新闻</a>
       <a href={home} class="cta-btn cta-btn-outline">返回首页</a>
