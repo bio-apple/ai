@@ -769,6 +769,11 @@ footer a:hover {
   .nav-toggle {
     display: flex;
   }
+  .nav-search-col {
+    order: 3;
+    flex: 1 1 100%;
+    max-width: none;
+  }
   .nav-menu {
     display: none;
     position: absolute;

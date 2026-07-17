@@ -318,7 +318,14 @@ def validate_ai_courses() -> None:
 def validate_search_index() -> None:
     data = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
     Draft202012Validator(_load_schema("search-index.schema.json")).validate(data)
-    print(f"✓ search-index.json schema ({len(data)} 条)")
+    types = {item.get("type") for item in data if isinstance(item, dict)}
+    required_types = {"课程", "资讯", "开源", "视频", "模型", "工具"}
+    missing = required_types - types
+    if missing:
+        raise ValueError(f"search-index 缺少内容类型: {', '.join(sorted(missing))}")
+    if len(data) < 80:
+        raise ValueError(f"search-index 条目过少: {len(data)}")
+    print(f"✓ search-index.json schema ({len(data)} 条 · 含课程/资讯/开源/视频/模型)")
 
 
 def validate_recommend_rules() -> None:

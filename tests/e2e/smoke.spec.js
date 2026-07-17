@@ -12,14 +12,15 @@ async function gotoHome(page, hash = '') {
 async function waitSearchReady(page) {
   await page.waitForFunction(
     () => {
-      const el = document.getElementById('site-search');
+      const el = document.querySelector('.site-search-input');
       return el && el.dataset.searchStatus && el.dataset.searchStatus !== 'loading';
     },
     null,
     { timeout: 15000 },
   );
-  const ready = await page.locator('#site-search').getAttribute('data-search-ready');
-  const status = await page.locator('#site-search').getAttribute('data-search-status');
+  const input = page.locator('.site-search-input').first();
+  const ready = await input.getAttribute('data-search-ready');
+  const status = await input.getAttribute('data-search-status');
   if (ready !== '1') {
     throw new Error(`搜索索引未就绪: ready=${ready} status=${status}`);
   }
@@ -85,14 +86,33 @@ test.describe('Bio AI Lab 关键路径', () => {
     expect((body.options || []).length).toBeGreaterThan(0);
 
     await waitSearchReady(page);
-    await page.fill('#site-search', 'Cursor');
+    await page.locator('#site-search').fill('Cursor');
     await expect(page.locator('.search-hit').first()).toBeVisible();
+  });
+
+  test('搜索联想与历史面板', async ({ page }) => {
+    await gotoHome(page);
+    await waitSearchReady(page);
+    await page.locator('#site-search').focus();
+    await expect(page.locator('.search-suggest-chip').first()).toBeVisible();
+    await page.locator('#site-search').fill('DeepSeek');
+    await expect(page.locator('.search-group-label').first()).toBeVisible();
+  });
+
+  test('顶栏全局搜索（工具页）', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
+    await page.route('**/*fonts.gstatic.com/**', (route) => route.abort());
+    await page.goto('tools/chatgpt.html', { waitUntil: 'domcontentloaded' });
+    await waitSearchReady(page);
+    await expect(page.locator('#nav-site-search')).toBeVisible();
+    await page.fill('#nav-site-search', '课程');
+    await expect(page.locator('#nav-site-search-results .search-hit').first()).toBeVisible();
   });
 
   test('搜索空状态引导', async ({ page }) => {
     await gotoHome(page);
     await waitSearchReady(page);
-    await page.fill('#site-search', 'zzzz-no-such-tool-xyz');
+    await page.locator('#site-search').fill('zzzz-no-such-tool-xyz');
     await expect(page.locator('.search-empty-actions')).toBeVisible();
   });
 

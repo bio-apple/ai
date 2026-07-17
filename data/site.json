@@ -60,7 +60,17 @@
       "label": "浏览工具中心",
       "href": "tools/hub.html"
     },
-    "search_placeholder": "搜索 AI 工具、教程、Bio-Apple…"
+    "search_placeholder": "搜索工具、模型、开源、课程、视频…",
+    "search_suggestions": [
+      "ChatGPT",
+      "Cursor",
+      "DeepSeek",
+      "Claude",
+      "Ollama",
+      "RAG",
+      "AI Agent",
+      "机器学习"
+    ]
   },
   "home_tool_categories": [
     {

@@ -2,9 +2,6 @@ const navTabs = document.querySelectorAll('.nav-tab');
 const _navItems = document.querySelectorAll('.nav-tab, .nav-dropdown-item');
 const sections = document.querySelectorAll('.section');
 
-let searchIndex = [];
-let fuseSearch = null;
-
 function escapeHtml(s) {
   const d = document.createElement('div');
   d.textContent = s;
@@ -27,13 +24,34 @@ function resolveSearchUrl(url) {
   return `${siteBase()}${String(url).replace(/^\//, '')}`;
 }
 
-function gotoSearchHit(item) {
+function gotoSearchHit(item, query = '') {
+  const q = query.trim();
+  if (q) pushSearchHistory(q);
+
   if (item.url) {
-    window.location.href = resolveSearchUrl(item.url);
+    const url = resolveSearchUrl(item.url);
+    const external = item.external || /^https?:\/\//i.test(String(item.url));
+    if (external) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = url;
+    }
     return;
   }
-  showSection(item.section, { anchor: item.anchor || null });
-  trackEvent('search-goto', { section: item.section, anchor: item.anchor || '' });
+
+  if (item.section) {
+    const onHome = Boolean(document.getElementById(item.section));
+    if (!onHome) {
+      const base = siteBase();
+      const u = new URL(`${base}index.html`, location.origin);
+      u.hash = item.section;
+      if (item.anchor) u.searchParams.set('anchor', item.anchor);
+      window.location.href = `${u.pathname}${u.search}${u.hash}`;
+      return;
+    }
+    showSection(item.section, { anchor: item.anchor || null });
+    trackEvent('search-goto', { section: item.section, anchor: item.anchor || '' });
+  }
 }
 
 function showSection(id, { updateHash = true, anchor = null } = {}) {
@@ -232,12 +250,60 @@ function initHashRouting() {
 window.addEventListener('hashchange', applyLocationHash);
 
 /* Site search */
+const SEARCH_HISTORY_KEY = 'bioai.search.history.v1';
+const SEARCH_HISTORY_MAX = 8;
+const SEARCH_RESULT_LIMIT = 15;
+const DEFAULT_SUGGESTIONS = ['ChatGPT', 'Cursor', 'DeepSeek', 'Claude', 'Ollama', 'RAG'];
+
+let searchIndex = [];
+let fuseSearch = null;
 let searchIndexStatus = 'loading'; // loading | ready | error
+
+function loadSearchHistory() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(SEARCH_HISTORY_KEY) || '[]');
+    return Array.isArray(raw) ? raw.filter((q) => typeof q === 'string' && q.trim()) : [];
+  } catch {
+    return [];
+  }
+}
+
+function pushSearchHistory(query) {
+  const q = query.trim();
+  if (!q || q.length < 2) return;
+  const next = [q, ...loadSearchHistory().filter((item) => item !== q)].slice(0, SEARCH_HISTORY_MAX);
+  try {
+    localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(next));
+  } catch {
+    /* private mode */
+  }
+}
+
+function clearSearchHistory() {
+  try {
+    localStorage.removeItem(SEARCH_HISTORY_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+
+function getCuratedSuggestions(wrap) {
+  try {
+    const raw = wrap?.dataset?.searchSuggestions;
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length) return parsed.map(String);
+    }
+  } catch {
+    /* ignore */
+  }
+  return DEFAULT_SUGGESTIONS;
+}
 
 async function loadSearchIndex() {
   searchIndexStatus = 'loading';
   try {
-    const res = await fetch('search-index.json', { cache: 'default' });
+    const res = await fetch(`${siteBase()}search-index.json`, { cache: 'default' });
     if (!res.ok) throw new Error('search index unavailable');
     const data = await res.json();
     if (Array.isArray(data) && data.length) {
@@ -247,6 +313,7 @@ async function loadSearchIndex() {
           keys: [
             { name: 'label', weight: 0.55 },
             { name: 'keywords', weight: 0.45 },
+            { name: 'type', weight: 0.12 },
           ],
           threshold: 0.38,
           ignoreLocation: true,
@@ -268,7 +335,7 @@ function runSearch(query) {
   const q = query.trim();
   if (!q) return [];
   if (fuseSearch) {
-    return fuseSearch.search(q, { limit: 10 }).map((r) => r.item);
+    return fuseSearch.search(q, { limit: SEARCH_RESULT_LIMIT }).map((r) => r.item);
   }
   const lower = q.toLowerCase();
   return searchIndex
@@ -276,16 +343,165 @@ function runSearch(query) {
       (item) =>
         item.label.toLowerCase().includes(lower) || item.keywords.toLowerCase().includes(lower),
     )
-    .slice(0, 10);
+    .slice(0, SEARCH_RESULT_LIMIT);
 }
 
-function initSiteSearch() {
-  const input = document.getElementById('site-search');
-  const results = document.getElementById('site-search-results');
+function isExternalHit(item) {
+  return Boolean(item.external || (item.url && /^https?:\/\//i.test(String(item.url))));
+}
+
+function renderSearchHit(item, query) {
+  const label = highlightMatch(item.label, query);
+  const meta = item.type ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>` : '';
+  const qAttr = escapeHtml(query.slice(0, 80));
+  const external = isExternalHit(item);
+  const extMark = external ? '<span class="search-hit-ext" aria-hidden="true">↗</span>' : '';
+  if (item.url) {
+    const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a href="${escapeHtml(resolveSearchUrl(item.url))}" class="search-hit"${attrs} data-track="search_hit" data-search-query="${qAttr}">${label}${meta}${extMark}</a>`;
+  }
+  return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit" data-search-query="${qAttr}">${label}${meta}</button>`;
+}
+
+function renderSuggestionsPanel(wrap, input, results) {
+  const history = loadSearchHistory();
+  const curated = getCuratedSuggestions(wrap);
+  let html = '';
+
+  if (history.length) {
+    html += `<div class="search-panel-section">
+      <div class="search-panel-head">
+        <p class="search-panel-label">最近搜索</p>
+        <button type="button" class="search-panel-clear" data-action="clear-history">清除</button>
+      </div>
+      <div class="search-suggest-row">${history
+        .map(
+          (q) =>
+            `<button type="button" class="search-suggest-chip search-history-chip" data-query="${escapeHtml(q)}">${escapeHtml(q)}</button>`,
+        )
+        .join('')}</div>
+    </div>`;
+  }
+
+  html += `<div class="search-panel-section">
+    <p class="search-panel-label">搜索联想</p>
+    <div class="search-suggest-row">${curated
+      .map(
+        (q) =>
+          `<button type="button" class="search-suggest-chip" data-query="${escapeHtml(q)}">${escapeHtml(q)}</button>`,
+      )
+      .join('')}</div>
+  </div>`;
+
+  results.innerHTML = html;
+  results.hidden = false;
+  input.setAttribute('aria-expanded', 'true');
+
+  results.querySelector('[data-action="clear-history"]')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    clearSearchHistory();
+    renderSuggestionsPanel(wrap, input, results);
+  });
+
+  results.querySelectorAll('[data-query]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      input.value = btn.dataset.query || '';
+      renderSearchResults(wrap, input, results, input.value);
+      input.focus();
+    });
+  });
+}
+
+function bindSearchHitActions(wrap, input, results, query) {
+  results.querySelectorAll('button.search-hit').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      gotoSearchHit(
+        {
+          section: btn.dataset.section,
+          anchor: btn.dataset.anchor || null,
+        },
+        query,
+      );
+      input.value = '';
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  results.querySelectorAll('a.search-hit').forEach((link) => {
+    link.addEventListener('click', () => {
+      pushSearchHistory(query);
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
+function renderSearchResults(wrap, input, results, rawQuery) {
+  const query = rawQuery.trim();
+  if (!query) {
+    renderSuggestionsPanel(wrap, input, results);
+    return;
+  }
+
+  if (searchIndexStatus === 'loading') {
+    results.innerHTML = '<p class="search-empty search-loading">搜索索引加载中…</p>';
+    results.hidden = false;
+    return;
+  }
+
+  if (searchIndexStatus === 'error') {
+    results.innerHTML =
+      '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
+    results.hidden = false;
+    if (typeof trackEvent === 'function') trackEvent('search_error', { q: query.slice(0, 40) });
+    return;
+  }
+
+  const hits = runSearch(query);
+
+  if (!hits.length) {
+    results.innerHTML = `
+      <div class="search-empty">
+        <p>未找到「${escapeHtml(query)}」相关内容</p>
+        <div class="search-empty-actions">
+          <a href="#home-recommend" class="search-empty-link" data-track="search_empty_recommend">试试 AI 推荐助手</a>
+          <a href="${escapeHtml(siteBase())}tools/hub.html" class="search-empty-link" data-track="search_empty_hub">浏览工具中心</a>
+        </div>
+      </div>`;
+    results.hidden = false;
+    if (typeof trackEvent === 'function') trackEvent('search_empty', { q: query.slice(0, 40) });
+    return;
+  }
+
+  const grouped = new Map();
+  for (const hit of hits) {
+    const type = hit.type || '其他';
+    if (!grouped.has(type)) grouped.set(type, []);
+    grouped.get(type).push(hit);
+  }
+
+  results.innerHTML = [...grouped.entries()]
+    .map(
+      ([type, items]) => `<div class="search-group">
+        <p class="search-group-label">${escapeHtml(type)}</p>
+        ${items.map((item) => renderSearchHit(item, query)).join('')}
+      </div>`,
+    )
+    .join('');
+  results.hidden = false;
+  input.setAttribute('aria-expanded', 'true');
+  bindSearchHitActions(wrap, input, results, query);
+}
+
+function initSearchWrap(wrap) {
+  const input = wrap.querySelector('.site-search-input');
+  const results = wrap.querySelector('.site-search-results');
   if (!input || !results) return;
 
   let searchQueryTimer = null;
   let lastTrackedQuery = '';
+  let activeIndex = -1;
 
   function scheduleSearchQueryTrack(query, resultCount) {
     const q = query.trim();
@@ -299,93 +515,66 @@ function initSiteSearch() {
     }, 600);
   }
 
-  input.setAttribute('role', 'combobox');
-  input.setAttribute('aria-autocomplete', 'list');
-  input.setAttribute('aria-controls', 'site-search-results');
-  input.setAttribute('aria-expanded', 'false');
-  results.setAttribute('role', 'listbox');
-
   function markReady() {
     input.dataset.searchReady = searchIndexStatus === 'ready' ? '1' : '0';
     input.dataset.searchStatus = searchIndexStatus;
   }
   markReady();
 
-  function renderResults(q) {
-    const query = q.trim();
-    if (!query) {
-      results.hidden = true;
-      results.innerHTML = '';
-      input.setAttribute('aria-expanded', 'false');
-      return;
+  function updateActiveHit() {
+    const hits = [...results.querySelectorAll('.search-hit')];
+    hits.forEach((el, i) => el.classList.toggle('search-hit-active', i === activeIndex));
+    if (activeIndex >= 0 && hits[activeIndex]) {
+      hits[activeIndex].scrollIntoView({ block: 'nearest' });
     }
-
-    if (searchIndexStatus === 'loading') {
-      results.innerHTML = '<p class="search-empty search-loading">搜索索引加载中…</p>';
-      results.hidden = false;
-      return;
-    }
-
-    if (searchIndexStatus === 'error') {
-      results.innerHTML =
-        '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
-      results.hidden = false;
-      if (typeof trackEvent === 'function') trackEvent('search_error', { q: query.slice(0, 40) });
-      return;
-    }
-
-    const hits = runSearch(query);
-
-    if (!hits.length) {
-      results.innerHTML = `
-        <div class="search-empty">
-          <p>未找到「${escapeHtml(query)}」相关内容</p>
-          <div class="search-empty-actions">
-            <a href="#home-recommend" class="search-empty-link" data-track="search_empty_recommend">试试 AI 推荐助手</a>
-            <a href="tools/hub.html" class="search-empty-link" data-track="search_empty_hub">浏览工具中心</a>
-          </div>
-        </div>`;
-      results.hidden = false;
-      if (typeof trackEvent === 'function') trackEvent('search_empty', { q: query.slice(0, 40) });
-      return;
-    }
-
-    results.innerHTML = hits
-      .map((item) => {
-        const label = highlightMatch(item.label, query);
-        const meta = item.type
-          ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>`
-          : '';
-        const qAttr = escapeHtml(query.slice(0, 80));
-        if (item.url) {
-          return `<a href="${escapeHtml(resolveSearchUrl(item.url))}" class="search-hit" data-track="search_hit" data-search-query="${qAttr}">${label}${meta}</a>`;
-        }
-        return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit" data-search-query="${qAttr}">${label}${meta}</button>`;
-      })
-      .join('');
-    results.hidden = false;
-    input.setAttribute('aria-expanded', 'true');
-    scheduleSearchQueryTrack(query, hits.length);
-
-    results.querySelectorAll('button.search-hit').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        gotoSearchHit({
-          section: btn.dataset.section,
-          anchor: btn.dataset.anchor || null,
-        });
-        input.value = '';
-        results.hidden = true;
-      });
-    });
   }
 
+  function renderResults(rawQuery) {
+    activeIndex = -1;
+    renderSearchResults(wrap, input, results, rawQuery);
+    const q = rawQuery.trim();
+    if (q && searchIndexStatus === 'ready') {
+      scheduleSearchQueryTrack(q, runSearch(q).length);
+    }
+  }
+
+  input.setAttribute('role', 'combobox');
+  input.setAttribute('aria-autocomplete', 'list');
+  input.setAttribute('aria-controls', results.id || 'site-search-results');
+  input.setAttribute('aria-expanded', 'false');
+  results.setAttribute('role', 'listbox');
+
   input.addEventListener('input', () => renderResults(input.value));
+  input.addEventListener('focus', () => {
+    if (!input.value.trim()) renderSuggestionsPanel(wrap, input, results);
+  });
   input.addEventListener('keydown', (e) => {
+    const hits = [...results.querySelectorAll('.search-hit')];
     if (e.key === 'Escape') {
       input.value = '';
       results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      activeIndex = -1;
+      return;
+    }
+    if (e.key === 'ArrowDown' && hits.length && !results.hidden) {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, hits.length - 1);
+      updateActiveHit();
+      return;
+    }
+    if (e.key === 'ArrowUp' && hits.length && !results.hidden) {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      updateActiveHit();
+      return;
     }
     if (e.key === 'Enter') {
+      if (activeIndex >= 0 && hits[activeIndex]) {
+        e.preventDefault();
+        hits[activeIndex].click();
+        return;
+      }
       const first = results.querySelector('.search-hit');
       if (first && !results.hidden) {
         e.preventDefault();
@@ -393,13 +582,17 @@ function initSiteSearch() {
       }
     }
   });
+
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.site-search-wrap')) results.hidden = true;
+    if (!wrap.contains(e.target)) {
+      results.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+    }
   });
 
   const params = new URLSearchParams(location.search);
   const q = params.get('q');
-  if (q) {
+  if (q && wrap.querySelector('#site-search, #nav-site-search') === input) {
     input.value = q;
     renderResults(q);
     if (typeof trackEvent === 'function') {
@@ -407,15 +600,17 @@ function initSiteSearch() {
     }
   }
 
-  // 索引异步完成后刷新就绪标记与当前查询
-  const _origMark = markReady;
   const poll = setInterval(() => {
-    _origMark();
+    markReady();
     if (searchIndexStatus !== 'loading') {
       clearInterval(poll);
       if (input.value.trim()) renderResults(input.value);
     }
   }, 50);
+}
+
+function initSiteSearch() {
+  document.querySelectorAll('.site-search-wrap').forEach((wrap) => initSearchWrap(wrap));
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -424,11 +619,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initScrollAnimations();
   loadSearchIndex().finally(() => {
-    const input = document.getElementById('site-search');
-    if (input) {
+    document.querySelectorAll('.site-search-input').forEach((input) => {
       input.dataset.searchReady = searchIndexStatus === 'ready' ? '1' : '0';
       input.dataset.searchStatus = searchIndexStatus;
-    }
+    });
     initSiteSearch();
   });
 });

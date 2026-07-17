@@ -1,0 +1,45 @@
+---
+import { site } from '../lib/data';
+
+interface Props {
+  variant?: 'hero' | 'nav';
+  placeholder?: string;
+  suggestions?: string[];
+  showLabel?: boolean;
+}
+
+const {
+  variant = 'hero',
+  placeholder = site.hero.search_placeholder,
+  suggestions = site.hero.search_suggestions || [],
+  showLabel = variant === 'hero',
+} = Astro.props;
+
+const inputId = variant === 'nav' ? 'nav-site-search' : 'site-search';
+const resultsId = variant === 'nav' ? 'nav-site-search-results' : 'site-search-results';
+const suggestionsJson = JSON.stringify(suggestions);
+---
+
+<div
+  class:list={['site-search-wrap', { 'hero-search': variant === 'hero', 'nav-search': variant === 'nav' }]}
+  data-search-suggestions={suggestionsJson}
+>
+  {
+    showLabel && (
+      <label class="hero-search-label" for={inputId}>
+        全站搜索
+      </label>
+    )
+  }
+  <input
+    type="search"
+    id={inputId}
+    class="site-search site-search-input"
+    placeholder={placeholder}
+    aria-label="全站搜索"
+    autocomplete="off"
+    data-search-ready="0"
+    data-search-status="loading"
+  />
+  <div id={resultsId} class="site-search-results" hidden></div>
+</div>

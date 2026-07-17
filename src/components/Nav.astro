@@ -1,14 +1,22 @@
 ---
 import type { site as SiteType } from '../../data/site.json';
+import GlobalSearch from './GlobalSearch.astro';
 
 interface Props {
   nav: typeof SiteType.nav;
   standalone?: boolean;
   homeHref?: string;
   navPrefix?: string;
+  showSearch?: boolean;
 }
 
-const { nav, standalone = false, homeHref = 'index.html', navPrefix = '' } = Astro.props;
+const {
+  nav,
+  standalone = false,
+  homeHref = 'index.html',
+  navPrefix = '',
+  showSearch = true,
+} = Astro.props;
 ---
 
 <header>
@@ -20,6 +28,13 @@ const { nav, standalone = false, homeHref = 'index.html', navPrefix = '' } = Ast
         <span class="logo-tagline">{nav.logo.tagline}</span>
       </div>
     </a>
+    {
+      showSearch && (
+        <div class="nav-search-col">
+          <GlobalSearch variant="nav" />
+        </div>
+      )
+    }
     <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>

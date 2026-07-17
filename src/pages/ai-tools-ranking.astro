@@ -26,7 +26,7 @@ const boards = (rankings.boards || []).map((board) => ({
   description={rankings.lead}
   canonical={`${base}ai-tools-ranking.html`}
   schema={schema}
-  scripts={['funnel.js', 'analytics.js', 'ux.js', 'app.js', 'ranking-tabs.js']}
+  scripts={['vendor/fuse.min.js', 'funnel.js', 'analytics.js', 'ux.js', 'app.js', 'ranking-tabs.js']}
 >
   <main class="standalone-page ranking-page aicpb-ranking-page">
     <StandalonePageHeader

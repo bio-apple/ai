@@ -322,7 +322,9 @@ nav: {
 | ---------- | -------- | ---- | ------------------------------ |
 | `label`    | `string` | ✅   | 显示标题                       |
 | `keywords` | `string` | ✅   | Fuse 检索文本                  |
-| `type`     | `string` | —    | 分类：工具 / 频道 / 导航 …     |
+| `type`     | `string` | —    | 工具 / 资讯 / 开源 / 课程 / 视频 / 模型 … |
+| `external` | `boolean`| —    | 外链（新标签打开）             |
+| `id`       | `string` | —    | 内容 id（新闻/课程/OSS 等）    |
 | `section`  | `string` | *    | 首页 Tab id（与 `url` 二选一） |
 | `url`      | `string` | *    | 独立页相对路径                 |
 | `anchor`   | `string` | —    | 页内锚点                       |

@@ -17,6 +17,110 @@ function writeOut(outDir, name, data) {
   fs.writeFileSync(path.join(outDir, name), `${JSON.stringify(data, null, 2)}\n`, 'utf8');
 }
 
+function readRootJson(name) {
+  const p = path.join(ROOT, name);
+  if (!fs.existsSync(p)) return null;
+  return JSON.parse(fs.readFileSync(p, 'utf8'));
+}
+
+function appendNewsSearchItems(items, aiNews, { limit = 50 } = {}) {
+  for (const item of (aiNews?.items || []).slice(0, limit)) {
+    if (!item?.title) continue;
+    const isModel =
+      item.category === '新模型发布' || /新模型|模型发布|GPT|Claude|Gemini|DeepSeek/i.test(item.title);
+    items.push({
+      id: item.id,
+      label: item.title,
+      type: isModel ? '模型' : '资讯',
+      url: item.url,
+      external: true,
+      keywords: [item.title, item.summary, item.source, item.category].filter(Boolean).join(' '),
+    });
+  }
+}
+
+function appendCoursesSearchItems(items, courses) {
+  for (const item of courses?.items || []) {
+    if (!item?.title || !item?.url) continue;
+    items.push({
+      id: item.id,
+      label: item.title,
+      type: '课程',
+      url: item.url,
+      external: true,
+      keywords: [item.title, item.summary, item.platform, item.track, item.format, item.language]
+        .filter(Boolean)
+        .join(' '),
+    });
+  }
+}
+
+function appendOssSearchItems(items, oss) {
+  for (const domain of oss?.domains || []) {
+    for (const project of domain.projects || []) {
+      if (!project?.name || !project?.url) continue;
+      items.push({
+        id: project.id,
+        label: project.name,
+        type: '开源',
+        url: project.url,
+        external: true,
+        keywords: [project.name, project.repo, project.description, domain.label, project.language, project.badge]
+          .filter(Boolean)
+          .join(' '),
+      });
+    }
+  }
+}
+
+function appendVideoSearchItems(items, dailyVideos, { limitPerCategory = 2, maxTotal = 24 } = {}) {
+  const batches = dailyVideos?.batches || [];
+  const merged = withCategoryFallback(batches);
+  if (!merged?.categories) return;
+  const seen = new Set();
+  let total = 0;
+  for (const [category, cat] of Object.entries(merged.categories)) {
+    const videos = (cat?.videos || []).slice(0, limitPerCategory);
+    for (const video of videos) {
+      if (!video?.title || !video?.url || seen.has(video.url)) continue;
+      seen.add(video.url);
+      items.push({
+        id: video.id || video.url,
+        label: video.title,
+        type: '视频',
+        url: video.url,
+        external: true,
+        keywords: [video.title, video.summary, video.channel, video.platform, category]
+          .filter(Boolean)
+          .join(' '),
+      });
+      total += 1;
+      if (total >= maxTotal) return;
+    }
+  }
+}
+
+function appendRankingSearchItems(items, rankings) {
+  const seen = new Set();
+  for (const board of rankings?.boards || []) {
+    for (const row of board.items || []) {
+      const name = row?.name;
+      if (!name || seen.has(name)) continue;
+      seen.add(name);
+      const extUrl = row.url && String(row.url).startsWith('http');
+      items.push({
+        label: name,
+        type: '模型',
+        url: extUrl ? row.url : 'ai-tools-ranking.html',
+        external: Boolean(extUrl),
+        keywords: [name, board.label, board.title, row.description, '排行榜', 'AICPB', 'LMSYS']
+          .filter(Boolean)
+          .join(' '),
+      });
+    }
+  }
+}
+
 function buildSearchIndex(site, tools, compares) {
   const items = [];
   for (const t of tools) {
@@ -273,8 +377,14 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const site = readJson('site.json');
   const tools = readJson('tools.json');
   const compares = readJson('compares.json');
+  const rankings = readJson('rankings.json');
   const searchIndex = buildSearchIndex(site, tools, compares);
   appendHubBoardSearchItems(searchIndex);
+  appendNewsSearchItems(searchIndex, readRootJson('ai-news.json'));
+  appendCoursesSearchItems(searchIndex, readRootJson('ai-courses.json'));
+  appendOssSearchItems(searchIndex, readRootJson('oss-projects.json') || readJson('oss-projects.json'));
+  appendVideoSearchItems(searchIndex, readRootJson('daily-videos.json'));
+  appendRankingSearchItems(searchIndex, rankings);
   const recommendRules = buildRecommendRules(site);
   const analyticsCfg = buildAnalyticsConfig();
 

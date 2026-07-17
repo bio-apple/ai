@@ -13,7 +13,9 @@
       "section": { "type": "string" },
       "url": { "type": "string" },
       "anchor": { "type": "string" },
-      "type": { "type": "string" }
+      "type": { "type": "string" },
+      "id": { "type": "string" },
+      "external": { "type": "boolean" }
     },
     "anyOf": [{ "required": ["section"] }, { "required": ["url"] }]
   }

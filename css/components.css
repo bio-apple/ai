@@ -277,6 +277,122 @@ code {
   margin: 0;
 }
 
+.search-hit-meta {
+  margin-left: 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--bg-hover);
+}
+
+.search-hit-ext {
+  margin-left: 6px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.search-hit-active,
+.search-hit.search-hit-active {
+  background: var(--bg-hover);
+  color: var(--accent);
+}
+
+.search-group-label {
+  margin: 0;
+  padding: 8px 16px 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.search-group + .search-group {
+  border-top: 1px solid var(--border);
+}
+
+.search-panel-section {
+  padding: 10px 12px 12px;
+}
+
+.search-panel-section + .search-panel-section {
+  border-top: 1px solid var(--border);
+}
+
+.search-panel-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.search-panel-label {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.search-panel-clear {
+  border: none;
+  background: transparent;
+  color: var(--accent);
+  font-size: 0.72rem;
+  cursor: pointer;
+  padding: 0;
+}
+
+.search-suggest-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.search-suggest-chip {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+
+.search-suggest-chip:hover {
+  border-color: var(--accent);
+  background: var(--bg-hover);
+  color: var(--accent);
+}
+
+/* Nav global search */
+.nav-search-col {
+  flex: 1 1 220px;
+  max-width: 360px;
+  min-width: 0;
+}
+
+.nav-search.site-search-wrap {
+  max-width: none;
+  margin: 0;
+}
+
+.nav-search .site-search {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  border-radius: 999px;
+  box-shadow: none;
+}
+
+.nav-search .site-search-results {
+  z-index: 120;
+}
+
 /* Compare guide cards */
 .compare-guide-grid {
   display: grid;
