@@ -41,6 +41,8 @@ function copyRecursive(src, dest) {
 }
 
 export function syncPublic(outDir = path.join(ROOT, 'public')) {
+  // 清空后再同步，避免历史产物（整包 css/、已废弃 JSON）残留进 dist
+  fs.rmSync(outDir, { recursive: true, force: true });
   fs.mkdirSync(outDir, { recursive: true });
   for (const dir of COPY_DIRS) {
     const src = path.join(ROOT, dir);
