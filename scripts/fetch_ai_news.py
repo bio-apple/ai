@@ -25,6 +25,7 @@ from news_dedupe import (
     exclude_urls,
     load_oss_project_urls,
     news_recency_key,
+    normalize_news_title,
 )
 
 ROOT = Path(__file__).resolve().parents[1]

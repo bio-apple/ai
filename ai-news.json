@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-16T14:39:49.298890+08:00",
-  "date": "2026-07-16",
+  "updated_at": "2026-07-17T14:45:08.924603+08:00",
+  "date": "2026-07-17",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -14,76 +14,166 @@
   },
   "items": [
     {
-      "id": "dbefe809ae3e",
-      "title": "一句「哈哈」引发的苹果OpenAI窃密大战",
-      "summary": "苹果怒斥：烂到骨子里",
-      "url": "https://www.qbitai.com/2026/07/450921.html",
+      "id": "8263a238aeda",
+      "title": "OpenAI官方教你8招玩透ChatGPT！",
+      "summary": "OpenAI官方教你8招玩透ChatGPT！",
+      "url": "https://www.qbitai.com/2026/07/452611.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-07-17T13:11:53+08:00"
+    },
+    {
+      "id": "7d1eed8c6164",
+      "title": "Intelligent Three Level Learning Architecture for Autonomous UAV Swarms in Search and Rescue",
+      "summary": "arXiv:2607.14093v1 Announce Type: new Abstract: This paper presents a novel three level hierarchical learning architecture for autonomous UAV swarms performing…",
+      "url": "https://arxiv.org/abs/2607.14093",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-17T12:00:00+08:00"
+    },
+    {
+      "id": "50e350980818",
+      "title": "HG-RAG: Hierarchy-Guided Retrieval-Augmented Generation for Structured Knowledge Graphs",
+      "summary": "arXiv:2607.14095v1 Announce Type: new Abstract: Retrieval Augmented Generation (RAG) has proven to be a widely successful process at improving the quality of o…",
+      "url": "https://arxiv.org/abs/2607.14095",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-17T12:00:00+08:00"
+    },
+    {
+      "id": "396e428869ba",
+      "title": "IMEX Interaction-Based Model Explanation",
+      "summary": "arXiv:2607.14096v1 Announce Type: new Abstract: In predictive modeling, the ability to explain why a model produces a given target prediction has become increa…",
+      "url": "https://arxiv.org/abs/2607.14096",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-17T12:00:00+08:00"
+    },
+    {
+      "id": "fcd7043efcdf",
+      "title": "RegNetAgents: A Multi-Agent Framework for Cross-Network Regulatory Driver Identification in Cancer Genomics",
+      "summary": "arXiv:2607.14097v1 Announce Type: new Abstract: We introduce RegNetAgents, an AI-oriented multi-agent framework for structured, query-driven regulatory candida…",
+      "url": "https://arxiv.org/abs/2607.14097",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-17T12:00:00+08:00"
+    },
+    {
+      "id": "edfff5893e18",
+      "title": "DialogueVPR: Towards Conversational Visual Place Recognition",
+      "summary": "arXiv:2607.14115v1 Announce Type: new Abstract: Inspired by how humans communicate spatial information, language-guided geo-localization has gained significant…",
+      "url": "https://arxiv.org/abs/2607.14115",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-17T12:00:00+08:00"
+    },
+    {
+      "id": "66bfb7f89b15",
+      "title": "百度搭子获评WAIC 2026“镇馆之宝”，智能体全家桶将集中亮相",
+      "summary": "百度搭子获评WAIC 2026“镇馆之宝”，智能体全家桶将集中亮相",
+      "url": "https://www.qbitai.com/2026/07/451691.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-07-16T12:47:55+08:00"
+      "published_at": "2026-07-17T10:41:03+08:00"
     },
     {
-      "id": "ae7d79790794",
-      "title": "从上海到世界：WAICA正以“AI原生”范式重写顶会规则",
-      "summary": "从上海到世界：WAICA正以“AI原生”范式重写顶会规则",
-      "url": "https://www.qbitai.com/2026/07/450917.html",
+      "id": "a564401bb829",
+      "title": "Connect more of your apps to Search",
+      "summary": "You’ll be able to securely link and interact with your go-to services directly in AI Mode.",
+      "url": "https://blog.google/products-and-platforms/products/search/connected-apps/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-17T00:00:00+08:00"
+    },
+    {
+      "id": "8fe39edff791",
+      "title": "Why teens deserve access to safe AI",
+      "summary": "Learn how OpenAI is making ChatGPT safer for teens with age-appropriate protections, learning tools, parental controls, and expert partnerships.",
+      "url": "https://openai.com/index/why-teens-deserve-access-safe-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-17T00:00:00+08:00"
+    },
+    {
+      "id": "0199c9587e0b",
+      "title": "Create, edit and star in videos with two Google Vids updates",
+      "summary": "Gemini Omni and personal avatars in Google Vids make video creation easier than ever.",
+      "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-17T00:00:00+08:00"
+    },
+    {
+      "id": "444c6770223c",
+      "title": "Nature重磅！下一代AI系统雏形？MIT团队：从推理100+新游戏开始",
+      "summary": "麻省理工学院团队联合发表于《Nature》的研究，基于121种游戏的大规模行为分析，提出“直觉玩家”计算认知模型，揭示人类如何仅凭规则即判断新游戏的公平性与趣味性。该模型模拟人类直觉推理能力，强调对未遇情境的灵活适应与决策生成，为AI实现类人泛化推理提供新路径，突破传统机器学习依赖大量数据训练的局限，推动人工智能向具…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MDE3OTA5NA==&mid=2247605965&idx=1&sn=efad68f766a54c69dc410b99bf01dd93&chksm=ce1fe99468f0a4c8e9929d00277fc58858dc412f2f733ef18d9b3ad1744df1c0c9b8c5af68fa&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-17 09:10 分享"
+    },
+    {
+      "id": "551549e20a88",
+      "title": "理想L6换代24.98万开卖！L9同款自研芯片中控屏下放，一个版本配置拉满不涨价",
+      "summary": "最快下周一提车",
+      "url": "https://www.qbitai.com/2026/07/451576.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-07-16T12:02:31+08:00"
+      "published_at": "2026-07-16T23:12:41+08:00"
     },
     {
-      "id": "e1d9ebeff816",
-      "title": "OriginBlame: Record- and Token-Level Data Provenance for AI Training Datasets",
-      "summary": "arXiv:2607.13037v1 Announce Type: new Abstract: When a data contributor requests removal, model trainers face a practical gap: unlearning algorithms require a …",
-      "url": "https://arxiv.org/abs/2607.13037",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "a49c38739dd6",
-      "title": "SPINE: Bridging the Cyber-Physical Gap with Agentic AI",
-      "summary": "arXiv:2607.13049v1 Announce Type: new Abstract: Foundation models have given robots a sophisticated brain for complex decision-making, yet deploying that intel…",
-      "url": "https://arxiv.org/abs/2607.13049",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "d23c105befda",
-      "title": "Interventional Grounding Audits: Black-Box Premise-Dependency Tests for LLM Chain-of-Thought via Predicate Substitution",
-      "summary": "arXiv:2607.13069v1 Announce Type: new Abstract: Large language models produce chain-of-thought (CoT) reasoning that appears logically sound yet may not genuine…",
-      "url": "https://arxiv.org/abs/2607.13069",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "9b1198f60daa",
-      "title": "Probabilistic Extension of Neuro-Symbolic AGI Robots based on Belnap's Typed Intensional FOL",
-      "summary": "arXiv:2607.13073v1 Announce Type: new Abstract: Neuro-symbolic AI based on $IFOL_B$ is a way to combine neural learning and symbolic reasoning to overcome limi…",
-      "url": "https://arxiv.org/abs/2607.13073",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "df30f82d4adb",
-      "title": "Self-Improvements in Modern Agentic Systems: A Survey",
-      "summary": "arXiv:2607.13104v1 Announce Type: new Abstract: Self-improving autonomous agents are moving from research prototypes to deployed systems. The primary goal is c…",
-      "url": "https://arxiv.org/abs/2607.13104",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-16T12:00:00+08:00"
-    },
-    {
-      "id": "facf9f6e82c2",
-      "title": "用世界模型给VLA当教练，原力灵机发布DW0.5，把RL搬进虚拟世界",
-      "summary": "后训练中真机数据需求骤降60%",
-      "url": "https://www.qbitai.com/2026/07/450896.html",
-      "source": "量子位",
+      "id": "62fe82c2b1f7",
+      "title": "Sharpen the Sword, Skip the Downloads — ‘Onimusha: Way of the Sword’ Is Coming to GeForce NOW",
+      "summary": "Onimusha: Way of the Sword is coming to GeForce NOW at launch, with the playable demo available this week. It’s joined by Denshattack! rolling in with five new…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-onimusha-coming/",
+      "source": "NVIDIA AI",
       "category": "新工具上线",
-      "published_at": "2026-07-16T10:30:46+08:00"
+      "published_at": "2026-07-16T21:00:34+08:00"
+    },
+    {
+      "id": "88e635888b62",
+      "title": "全球首个！银河通用新框架仅需人类视频即可部署，特斯拉蚌埠住了",
+      "summary": "还能让机器人边干边学",
+      "url": "https://www.qbitai.com/2026/07/451403.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-16T18:51:10+08:00"
+    },
+    {
+      "id": "287800377f1b",
+      "title": "Our approach to bioresilience",
+      "summary": "Google DeepMind and Isomorphic Labs are sharing our joint approach to bioresilience and AI models.",
+      "url": "https://deepmind.google/blog/our-approach-to-bioresilience/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-07-16T17:30:42+08:00"
+    },
+    {
+      "id": "8209173591c9",
+      "title": "工业母机进入“计算化时刻”：中国移动投资友机技术，押注工业AI下一代基础设施",
+      "summary": "工业母机进入“计算化时刻”：中国移动投资友机技术，押注工业AI下一代基础设施",
+      "url": "https://www.qbitai.com/2026/07/451371.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-16T17:29:09+08:00"
+    },
+    {
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 87,546",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-16T11:34:41Z"
+    },
+    {
+      "id": "6f16a999c8dd",
+      "title": "How Cars24 scales conversations and builds faster with OpenAI",
+      "summary": "Cars24 uses OpenAI-powered voice and chat agents to handle 1M+ monthly conversation minutes, recover 12% of lost leads, and bring agentic workflows to teams ac…",
+      "url": "https://openai.com/index/cars24",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-16T08:00:00+08:00"
     },
     {
       "id": "dc5abc6a592c",
@@ -93,33 +183,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-07-16T07:00:54+08:00"
-    },
-    {
-      "id": "52ec802fb768",
-      "title": "Schrödinger计算化学驱动的药物发现全流程实战研修班",
-      "summary": "Schrödinger套件是业界领先的一站式计算药物设计平台，深度融合基于物理的高精度算法（如FEP+自由能微扰、Desmond分子动力学、Glide对接）与数据驱动的机器学习模型。其功能覆盖药物发现全流程：靶点结构预测（同源建模、口袋检测）、虚拟筛选（对接、药效团、形状匹配）、先导化合物优化（Ligand Desi…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513980&idx=1&sn=ff5b7fadc51d859086170556ffeb0461&chksm=fdafb220458b128298abf6afa2ee0dcb436755fdde297afc1bbded52576ef132765c3ef31aee&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-16 12:00 分享"
-    },
-    {
-      "id": "d8c521a8c34c",
-      "title": "提示词工程论文登上ICML 2026，网友吵翻了天",
-      "summary": "一篇被ICML 2026接收的论文引发热议，作者未提出新算法或训练新模型，仅通过优化提示词（Prompt）提升性能。该方法名为Verbalized Sampling（VS），通过对提示词进行结构化、可解释的语言调整，显著改善大模型在推理、数学与代码等任务上的表现。论文强调提示词设计本身具有严谨方法论和可复现性，挑战了…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247903832&idx=2&sn=fcc9e413ff7e8c11d32f0274209c4789&chksm=e9bf57b37cd0c8b55236759b75020995ab7a930b620ffe0fe1b99f59d1f7455e2b94e9fe7704&scene=126&sessionid=0#rd",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-16 11:51 分享"
-    },
-    {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 87,431",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-15T22:16:21Z"
     },
     {
       "id": "1e97faa490fa",
@@ -147,24 +210,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-07-15T18:00:00+08:00"
-    },
-    {
-      "id": "8c3638e709c0",
-      "title": "测量精度突破1微米，效率提升3倍，优可测高精度闪测仪发布",
-      "summary": "测量精度突破1微米，效率提升3倍，优可测高精度闪测仪发布",
-      "url": "https://www.qbitai.com/2026/07/450841.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-15T17:45:53+08:00"
-    },
-    {
-      "id": "551a697d6e68",
-      "title": "主论坛丨WAIC 2026主论坛（下午场）重磅揭晓！",
-      "summary": "主论坛丨WAIC 2026主论坛（下午场）重磅揭晓！",
-      "url": "https://www.qbitai.com/2026/07/450831.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-15T17:18:03+08:00"
     },
     {
       "id": "9d5925e11f31",
@@ -204,30 +249,12 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 94,937",
+      "title": "hacksider/Deep-Live-Cam · ★ 94,956",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-14T15:55:23Z"
-    },
-    {
-      "id": "248b5ff06999",
-      "title": "How sales teams use ChatGPT Work",
-      "summary": "See how sales teams can use ChatGPT Work to create pipeline briefs, meeting prep packets, forecast reviews, account plans, and stalled-deal diagnoses from real…",
-      "url": "https://openai.com/academy/codex-for-work/how-sales-teams-use-codex",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-14T08:00:00+08:00"
-    },
-    {
-      "id": "cca00ce68781",
-      "title": "How data science teams use ChatGPT Work",
-      "summary": "See how data science teams can use ChatGPT Work to build root-cause briefs, impact readouts, KPI memos, scoped analyses, and dashboard specs from real work inp…",
-      "url": "https://openai.com/academy/codex-for-work/how-data-science-teams-use-codex",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-14T08:00:00+08:00"
     },
     {
       "id": "5a030d66774a",
@@ -249,30 +276,12 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,161",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,210",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-11T20:45:39Z"
-    },
-    {
-      "id": "6647cb6f53c6",
-      "title": "Aurora 1.5: Extending open foundation models for weather and Earth-system applications",
-      "summary": "Aurora 1.5 adds 22 more variables, hourly temporal resolution, and probabilistic ensemble forecasting to the Aurora foundation model, making it more useful for…",
-      "url": "https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/",
-      "source": "Microsoft AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-10T00:46:22+08:00"
-    },
-    {
-      "id": "5bb297bb60d9",
-      "title": "GeForce NOW Turns Up the Heat With New GeForce RTX 5080-Powered Toronto Server",
-      "summary": "This GFN Thursday brings more games, more power and more ways to play on GeForce NOW. The cloud gaming service is expanding with a new GeForce RTX 5080-powered…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-toronto-expansion/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-09T21:00:55+08:00"
     },
     {
       "id": "5e689a649359",
@@ -284,10 +293,10 @@
       "published_at": null
     },
     {
-      "id": "dc5dfd4d49c9",
-      "title": "三个女生手搓爆款游戏PV，背后公司狂揽29.8亿！阿里领投、王慧文入局",
-      "summary": "三名女生仅用三周开发出快穿3D乙女游戏PV，在小红书、B站爆火，“求上线”呼声高涨。游戏融合民国恋爱、玄幻修罗场、霸道疯批、绿茶修狗等多元题材，满足用户“我全都要”需求。技术支持来自AI视频领域新锐企业爱诗科技，该公司近日宣布完成C轮融资，累计融资达29.8亿元人民币，由阿里巴巴领投，王慧文参与。",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713010&idx=1&sn=6520cdf57a897266c1087509fe68b94f&chksm=f0fe447422d2fdac2a44b28a80cb703b194b58828f329af7db2e5f1654c45ddd16b0eff23b21&scene=0&xtrack=1#rd",
+      "id": "d5c1d1d9a2a5",
+      "title": "首次，统一建模视角下的扩散语言模型后门威胁",
+      "summary": "扩散语言模型（DLM）作为自回归语言模型之外的新范式，通过迭代去噪机制对整条序列并行精修，突破了传统从左到右逐词生成的限制，天然支持并行生成、双向上下文建模及灵活解码控制。Gemini Diffusion、SEED Diffusion、LLaDA、Dream等开源模型的涌现，显著推动了DLM在学术界与工业界的关注与应…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713046&idx=3&sn=b0cd67c9e2394cb878ac2d3f4ff6ffc4&chksm=f0be3a84bc071d2d477f7f22a21feb36464a7ee096e375a2665958d954371a97978203f45288&scene=0&xtrack=1#rd",
       "source": "新智元",
       "category": "中文资讯",
       "published_at": null
@@ -320,19 +329,28 @@
       "published_at": null
     },
     {
-      "id": "b7ee3e937f1e",
-      "title": "马斯克“机器人还进不了厂”刚说完，小米机器人“上岗”汽车产线了",
-      "summary": "小米机器人在不到半年内实现柔性工件长时作业，成功进入工厂“实习”。该能力要求机器人能实时应对物体位置、姿态及突发状况的动态变化，具备高度自适应性与灵活性，远超固定动作任务难度。此举打破马斯克关于机器人难进工厂的论断，展现小米在具身智能与工业落地方面的快速进展。（150字）",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247903810&idx=1&sn=cb5ff714403b8209712b95aabf407aa0&chksm=e99cbd3685e62d653181258d1fe5f9dcb99d5c4dca1e3c72394ab02714f5da94c79e08d9b155&scene=126&sessionid=0#rd",
+      "id": "33fef15bca1b",
+      "title": "DeeCamp 2026·AI4S训练营",
+      "summary": "DeeCamp 2026·AI4S训练营",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513990&idx=1&sn=98f9d1fa4850c49908a1ffd748db1f2f&chksm=fd4b7864bc77b2c97afbcb0333ad254ae5f11f28415098b43297a8ff069da59c75afc6e0709a&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "cdfabba14a5f",
+      "title": "不er？谁家大模型12B版本跑分比975B的高啊",
+      "summary": "Thinking Machines推出首款自研大模型Inkling，参数达9750亿，全面开源，定位为“最适合定制的基础模型”而非追求综合性能第一。其商业模式聚焦模型微调服务，依托自研平台Tinker提供定制化训练支持。团队现场演示Inkling可自主编写微调任务、执行训练与评估，甚至支持特殊约束（如禁用字母e）。模…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904058&idx=2&sn=a88b5756b623d53d756f50530b2d4a06&chksm=e968514c129c1077d0a975d652397ebe51d9dd2731f41b1ffa2171c083f16a8ac2332424e5db&scene=0&xtrack=1#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "be10b89fa5ad",
-      "title": "J. Am. Chem. Soc. | 自动化平行合成加速虚拟筛选苗头化合物发现",
-      "summary": "该论文介绍了一种自动化平行合成技术，显著加速虚拟筛选中的苗头化合物发现。研究团队整合了高通量实验平台与计算化学方法，实现从虚拟筛选预测到毫克级化合物快速合成与验证的闭环流程。通过并行合成数十至数百种结构类似物，大幅缩短传统“设计—合成—测试”周期。实验表明，该策略在多个靶点（如激酶、蛋白-蛋白相互作用）上成功识别出高…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513980&idx=3&sn=53abb72f58b97716840c9a5d518b7a81&chksm=fdde43fc7e7a6a6bc3d0ea06842396a6321e12b9c42e92d7a1fe018a98f9bb51c62a9c41c352&scene=0&xtrack=1#rd",
+      "id": "1a39e6796da5",
+      "title": "梁正教授参加清华大学第43期文科沙龙并就智能体风险与治理展开跨学科对话",
+      "summary": "2026年6月5日，清华大学举办第43期文科沙龙“智能体：风险与治理”，聚焦人工智能智能体带来的新型风险与治理挑战。梁正教授（清华公管学院、AI国际治理研究院副院长）等专家围绕智能体自主性增强引发的伦理、安全、责任归属及监管适配等问题展开研讨，强调需构建跨学科、多层次、动态演进的治理体系，推动技术向善。活动由清华教师…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524439&idx=1&sn=dbbb3e92b5246eb4faf17ed825a1dad3&chksm=fc7ef6a60de4845a7199ed727b775942bb2b158c3ff594520808aa04bafde201311acc464bec&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
