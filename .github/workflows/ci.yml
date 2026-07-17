@@ -24,6 +24,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Python deps (secret scan)
+        run: python3 -m pip install -q jsonschema pyyaml beautifulsoup4
+
       - name: Secret scan (validate_ci)
         run: python3 scripts/validate_ci.py secrets
 
