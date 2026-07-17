@@ -116,7 +116,8 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     label: 'GitHub 开源精选',
     type: '频道',
     section: 'section-oss',
-    keywords: '开源 GitHub Stars Agent LLM 本地大模型 AI绘画 多模态 机器学习框架',
+    keywords:
+      '开源 GitHub Stars Agent AI编程 OpenHands Aider Continue Dify LangChain Ollama vLLM Open WebUI 本地大模型 AI绘画 多模态 Prompt库',
   });
   items.push({
     label: '实战案例库',

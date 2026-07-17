@@ -1,7 +1,7 @@
 {
   "updated_at": "2026-07-17",
   "title": "GitHub Stars 开源精选",
-  "lead": "按 AI 应用领域筛选 GitHub 上最受欢迎的开源项目，每周更新 Star 数。",
+  "lead": "按 AI 应用领域筛选 GitHub 高星开源项目，覆盖 Agent、AI 编程、应用搭建与本地部署等，每周更新 Star 数。",
   "domains": [
     {
       "id": "ai-agent",
@@ -9,12 +9,30 @@
       "description": "自主规划、工具调用与多步任务编排",
       "projects": [
         {
-          "id": "langgraph",
-          "repo": "langchain-ai/langgraph",
-          "name": "LangGraph",
-          "description": "低层级 Agent 编排框架，支持有状态、可循环的多步工作流。",
-          "stars": 37391,
-          "url": "https://github.com/langchain-ai/langgraph",
+          "id": "autogpt",
+          "repo": "Significant-Gravitas/AutoGPT",
+          "name": "AutoGPT",
+          "description": "经典自主 Agent 项目，探索目标驱动的多步任务执行。",
+          "stars": 185577,
+          "url": "https://github.com/Significant-Gravitas/AutoGPT",
+          "language": "Python"
+        },
+        {
+          "id": "metagpt",
+          "repo": "FoundationAgents/MetaGPT",
+          "name": "MetaGPT",
+          "description": "多智能体「软件公司」框架，从需求到代码协作生成。",
+          "stars": 69406,
+          "url": "https://github.com/FoundationAgents/MetaGPT",
+          "language": "Python"
+        },
+        {
+          "id": "autogen",
+          "repo": "microsoft/autogen",
+          "name": "AutoGen",
+          "description": "微软 Agent 编程框架，支持多代理对话与工具调用。",
+          "stars": 59782,
+          "url": "https://github.com/microsoft/autogen",
           "language": "Python"
         },
         {
@@ -22,9 +40,70 @@
           "repo": "crewAIInc/crewAI",
           "name": "crewAI",
           "description": "多 Agent 协作框架，适合角色分工与任务流水线。",
-          "stars": 55597,
+          "stars": 55658,
           "url": "https://github.com/crewAIInc/crewAI",
           "language": "Python"
+        },
+        {
+          "id": "langgraph",
+          "repo": "langchain-ai/langgraph",
+          "name": "LangGraph",
+          "description": "低层级 Agent 编排框架，支持有状态、可循环的多步工作流。",
+          "stars": 37457,
+          "url": "https://github.com/langchain-ai/langgraph",
+          "language": "Python"
+        }
+      ]
+    },
+    {
+      "id": "ai-coding",
+      "label": "AI 编程",
+      "description": "终端/IDE 编程助手与自主改码 Agent",
+      "projects": [
+        {
+          "id": "openhands",
+          "repo": "OpenHands/OpenHands",
+          "name": "OpenHands",
+          "description": "开源 AI 驱动开发 Agent，可读写代码、运行命令并完成任务。",
+          "stars": 81033,
+          "url": "https://github.com/OpenHands/OpenHands",
+          "language": "Python"
+        },
+        {
+          "id": "cline",
+          "repo": "cline/cline",
+          "name": "Cline",
+          "description": "自主编程 Agent，支持 IDE 扩展、CLI 与 SDK。",
+          "stars": 64728,
+          "url": "https://github.com/cline/cline",
+          "language": "TypeScript"
+        },
+        {
+          "id": "aider",
+          "repo": "Aider-AI/aider",
+          "name": "Aider",
+          "description": "终端里的 AI pair programming，直接在 Git 仓库中改代码。",
+          "stars": 47440,
+          "url": "https://github.com/Aider-AI/aider",
+          "language": "Python"
+        },
+        {
+          "id": "continue",
+          "repo": "continuedev/continue",
+          "name": "Continue",
+          "description": "开源 IDE 编程助手，可接入自有模型与本地推理。",
+          "stars": 34920,
+          "url": "https://github.com/continuedev/continue",
+          "language": "TypeScript"
+        },
+        {
+          "id": "tabby",
+          "repo": "TabbyML/tabby",
+          "name": "Tabby",
+          "description": "可自托管的 AI 编码助手，适合团队内网部署。",
+          "stars": 33710,
+          "url": "https://github.com/TabbyML/tabby",
+          "language": "Rust"
         }
       ]
     },
@@ -38,17 +117,44 @@
           "repo": "langgenius/dify",
           "name": "Dify",
           "description": "开源 LLM 应用开发平台，支持 RAG、Agent 与工作流编排。",
-          "stars": 148993,
+          "stars": 149095,
           "url": "https://github.com/langgenius/dify",
           "language": "TypeScript"
+        },
+        {
+          "id": "langchain",
+          "repo": "langchain-ai/langchain",
+          "name": "LangChain",
+          "description": "主流 LLM 应用编排框架，覆盖 Agent、工具调用与链式组合。",
+          "stars": 141935,
+          "url": "https://github.com/langchain-ai/langchain",
+          "language": "Python"
+        },
+        {
+          "id": "anything-llm",
+          "repo": "Mintplex-Labs/anything-llm",
+          "name": "AnythingLLM",
+          "description": "一站式私有知识库与多用户 LLM 工作区，支持本地与云端模型。",
+          "stars": 63413,
+          "url": "https://github.com/Mintplex-Labs/anything-llm",
+          "language": "JavaScript"
         },
         {
           "id": "llamaindex",
           "repo": "run-llama/llama_index",
           "name": "LlamaIndex",
           "description": "数据连接与 RAG 框架，快速构建知识库问答应用。",
-          "stars": 50877,
+          "stars": 50893,
           "url": "https://github.com/run-llama/llama_index",
+          "language": "Python"
+        },
+        {
+          "id": "langchain-chatchat",
+          "repo": "chatchat-space/Langchain-Chatchat",
+          "name": "Langchain-Chatchat",
+          "description": "中文场景 RAG 知识库方案，基于 Langchain 与开源模型。",
+          "stars": 38432,
+          "url": "https://github.com/chatchat-space/Langchain-Chatchat",
           "language": "Python"
         }
       ]
@@ -56,25 +162,43 @@
     {
       "id": "local-llm",
       "label": "本地大模型",
-      "description": "端侧推理、模型量化与本地部署",
+      "description": "端侧推理、模型服务与本地聊天入口",
       "projects": [
         {
           "id": "ollama",
           "repo": "ollama/ollama",
           "name": "Ollama",
           "description": "一键在本地运行 Llama、Qwen、DeepSeek 等开源模型。",
-          "stars": 176213,
+          "stars": 176283,
           "url": "https://github.com/ollama/ollama",
           "language": "Go"
+        },
+        {
+          "id": "open-webui",
+          "repo": "open-webui/open-webui",
+          "name": "Open WebUI",
+          "description": "友好的本地/私有模型聊天界面，兼容 Ollama 与 OpenAI API。",
+          "stars": 145683,
+          "url": "https://github.com/open-webui/open-webui",
+          "language": "Python"
         },
         {
           "id": "llamacpp",
           "repo": "ggml-org/llama.cpp",
           "name": "llama.cpp",
           "description": "高性能 C/C++ 推理引擎，支持 CPU/GPU 量化部署。",
-          "stars": 120545,
+          "stars": 120644,
           "url": "https://github.com/ggml-org/llama.cpp",
           "language": "C++"
+        },
+        {
+          "id": "vllm",
+          "repo": "vllm-project/vllm",
+          "name": "vLLM",
+          "description": "高吞吐推理与服务引擎，适合本地/集群部署开源大模型。",
+          "stars": 86459,
+          "url": "https://github.com/vllm-project/vllm",
+          "language": "Python"
         }
       ]
     },
@@ -84,21 +208,21 @@
       "description": "Stable Diffusion 工作流与图像生成",
       "projects": [
         {
-          "id": "comfyui",
-          "repo": "comfyanonymous/ComfyUI",
-          "name": "ComfyUI",
-          "description": "节点式 Stable Diffusion 工作流，灵活组合 ControlNet 与 LoRA。",
-          "stars": 120902,
-          "url": "https://github.com/comfyanonymous/ComfyUI",
-          "language": "Python"
-        },
-        {
           "id": "sd-webui",
           "repo": "AUTOMATIC1111/stable-diffusion-webui",
           "name": "Stable Diffusion WebUI",
           "description": "最流行的 SD 图形界面，插件生态丰富。",
-          "stars": 164268,
+          "stars": 164188,
           "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
+          "language": "Python"
+        },
+        {
+          "id": "comfyui",
+          "repo": "comfyanonymous/ComfyUI",
+          "name": "ComfyUI",
+          "description": "节点式 Stable Diffusion 工作流，灵活组合 ControlNet 与 LoRA。",
+          "stars": 121051,
+          "url": "https://github.com/Comfy-Org/ComfyUI",
           "language": "Python"
         }
       ]
@@ -109,21 +233,21 @@
       "description": "视觉-语言理解与跨模态推理",
       "projects": [
         {
-          "id": "llava",
-          "repo": "haotian-liu/LLaVA",
-          "name": "LLaVA",
-          "description": "视觉指令微调大模型，图像理解与对话问答。",
-          "stars": 24922,
-          "url": "https://github.com/haotian-liu/LLaVA",
-          "language": "Python"
-        },
-        {
           "id": "transformers-vision",
           "repo": "huggingface/transformers",
           "name": "Transformers",
           "description": "Hugging Face 多模态模型库，覆盖 VLM、ASR 与视觉任务。",
-          "stars": 162637,
+          "stars": 162667,
           "url": "https://github.com/huggingface/transformers",
+          "language": "Python"
+        },
+        {
+          "id": "llava",
+          "repo": "haotian-liu/LLaVA",
+          "name": "LLaVA",
+          "description": "视觉指令微调大模型，图像理解与对话问答。",
+          "stars": 24927,
+          "url": "https://github.com/haotian-liu/LLaVA",
           "language": "Python"
         }
       ]
@@ -138,7 +262,7 @@
           "repo": "pytorch/pytorch",
           "name": "PyTorch",
           "description": "主流深度学习框架，研究与生产部署首选。",
-          "stars": 101841,
+          "stars": 101715,
           "url": "https://github.com/pytorch/pytorch",
           "language": "Python"
         },
@@ -148,7 +272,7 @@
           "name": "JAX",
           "description": "Google 高性能数值计算与自动微分框架。",
           "stars": 36007,
-          "url": "https://github.com/google/jax",
+          "url": "https://github.com/jax-ml/jax",
           "language": "Python"
         }
       ]
@@ -163,121 +287,121 @@
           "repo": "danielmiessler/Fabric",
           "name": "Fabric",
           "description": "开源 AI 增强框架，内置大量可复用 Prompt Patterns。",
+          "app": "web-dev",
+          "role": "web-dev",
           "stars": 43106,
           "url": "https://github.com/danielmiessler/Fabric",
-          "language": "Go",
-          "app": "web-dev",
-          "role": "web-dev"
+          "language": "Go"
         },
         {
           "id": "prompt-optimizer",
           "repo": "linshenkx/prompt-optimizer",
           "name": "Prompt Optimizer",
           "description": "提示词优化 Web 应用，帮助写出更高质量的 Prompt。",
+          "app": "web-dev",
+          "role": "web-dev",
           "stars": 32249,
           "url": "https://github.com/linshenkx/prompt-optimizer",
-          "language": "TypeScript",
-          "app": "web-dev",
-          "role": "web-dev"
+          "language": "TypeScript"
         },
         {
           "id": "system-prompts-ai-tools",
           "repo": "x1xhlol/system-prompts-and-models-of-ai-tools",
           "name": "System Prompts of AI Tools",
           "description": "Cursor、Claude Code、Devin 等主流 AI 工具系统提示词合集。",
-          "stars": 141985,
-          "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
-          "language": "",
           "app": "ai-coding",
-          "role": "ai-coding"
+          "role": "ai-coding",
+          "stars": 141986,
+          "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
+          "language": ""
         },
         {
           "id": "get-shit-done",
           "repo": "gsd-build/get-shit-done",
           "name": "Get Shit Done",
           "description": "轻量元提示与上下文工程框架，适合规格驱动开发。",
+          "app": "ai-coding",
+          "role": "ai-coding",
           "stars": 64759,
           "url": "https://github.com/gsd-build/get-shit-done",
-          "language": "JavaScript",
-          "app": "ai-coding",
-          "role": "ai-coding"
+          "language": "JavaScript"
         },
         {
           "id": "gpts-prompts",
           "repo": "linexjlin/GPTs",
           "name": "GPTs Prompts",
           "description": "GPTs / 自定义 GPT 提示词合集。",
+          "app": "ai-coding",
+          "role": "ai-coding",
           "stars": 32001,
           "url": "https://github.com/linexjlin/GPTs",
-          "language": "",
-          "app": "ai-coding",
-          "role": "ai-coding"
+          "language": ""
         },
         {
           "id": "pe-guide",
           "repo": "dair-ai/Prompt-Engineering-Guide",
           "name": "Prompt Engineering Guide",
           "description": "提示工程指南：论文、课程、笔记与实践资源。",
+          "app": "pe-learning",
+          "role": "pe-learning",
           "stars": 76610,
           "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
-          "language": "MDX",
-          "app": "pe-learning",
-          "role": "pe-learning"
+          "language": "MDX"
         },
         {
           "id": "anthropic-pe-tutorial",
           "repo": "anthropics/prompt-eng-interactive-tutorial",
           "name": "Anthropic PE Tutorial",
           "description": "Anthropic 官方交互式提示工程教程。",
+          "app": "pe-learning",
+          "role": "pe-learning",
           "stars": 37089,
           "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
-          "language": "Jupyter Notebook",
-          "app": "pe-learning",
-          "role": "pe-learning"
+          "language": "Jupyter Notebook"
         },
         {
           "id": "prompts-chat",
           "repo": "f/prompts.chat",
           "name": "prompts.chat",
           "description": "原 Awesome ChatGPT Prompts，全球最大开源 Prompt 社区库。",
+          "app": "general-roles",
+          "role": "general-roles",
           "stars": 165868,
           "url": "https://github.com/f/prompts.chat",
-          "language": "HTML",
-          "app": "general-roles",
-          "role": "general-roles"
+          "language": "HTML"
         },
         {
           "id": "awesome-zh",
           "repo": "PlexPt/awesome-chatgpt-prompts-zh",
           "name": "ChatGPT 中文调教指南",
           "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
+          "app": "zh-scenes",
+          "role": "zh-scenes",
           "stars": 60994,
           "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
-          "language": "",
-          "app": "zh-scenes",
-          "role": "zh-scenes"
+          "language": ""
         },
         {
           "id": "system-prompts-leaks",
           "repo": "asgeirtj/system_prompts_leaks",
           "name": "system_prompts_leaks",
           "description": "各大模型与产品系统提示词摘录，持续更新。",
-          "stars": 58397,
-          "url": "https://github.com/asgeirtj/system_prompts_leaks",
-          "language": "JavaScript",
           "app": "system-prompts",
-          "role": "system-prompts"
+          "role": "system-prompts",
+          "stars": 58400,
+          "url": "https://github.com/asgeirtj/system_prompts_leaks",
+          "language": "JavaScript"
         },
         {
           "id": "cl4r1t4s",
           "repo": "elder-plinius/CL4R1T4S",
           "name": "CL4R1T4S",
           "description": "ChatGPT、Claude、Gemini、Cursor 等系统提示词泄露合集。",
+          "app": "system-prompts",
+          "role": "system-prompts",
           "stars": 45657,
           "url": "https://github.com/elder-plinius/CL4R1T4S",
-          "language": "",
-          "app": "system-prompts",
-          "role": "system-prompts"
+          "language": ""
         }
       ],
       "apps": [

@@ -41,11 +41,11 @@
       "repo": "f/prompts.chat",
       "name": "prompts.chat",
       "description": "原 Awesome ChatGPT Prompts，全球最大开源 Prompt 社区库。",
+      "app": "general-roles",
+      "role": "general-roles",
       "stars": 165868,
       "url": "https://github.com/f/prompts.chat",
       "language": "HTML",
-      "role": "general-roles",
-      "app": "general-roles",
       "rank": 1
     },
     {
@@ -53,11 +53,11 @@
       "repo": "x1xhlol/system-prompts-and-models-of-ai-tools",
       "name": "System Prompts of AI Tools",
       "description": "Cursor、Claude Code、Devin 等主流 AI 工具系统提示词合集。",
-      "stars": 141985,
+      "app": "ai-coding",
+      "role": "ai-coding",
+      "stars": 141986,
       "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
       "language": "",
-      "role": "ai-coding",
-      "app": "ai-coding",
       "rank": 2
     },
     {
@@ -65,11 +65,11 @@
       "repo": "dair-ai/Prompt-Engineering-Guide",
       "name": "Prompt Engineering Guide",
       "description": "提示工程指南：论文、课程、笔记与实践资源。",
+      "app": "pe-learning",
+      "role": "pe-learning",
       "stars": 76610,
       "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
       "language": "MDX",
-      "role": "pe-learning",
-      "app": "pe-learning",
       "rank": 3
     },
     {
@@ -77,11 +77,11 @@
       "repo": "gsd-build/get-shit-done",
       "name": "Get Shit Done",
       "description": "轻量元提示与上下文工程框架，适合规格驱动开发。",
+      "app": "ai-coding",
+      "role": "ai-coding",
       "stars": 64759,
       "url": "https://github.com/gsd-build/get-shit-done",
       "language": "JavaScript",
-      "role": "ai-coding",
-      "app": "ai-coding",
       "rank": 4
     },
     {
@@ -89,11 +89,11 @@
       "repo": "PlexPt/awesome-chatgpt-prompts-zh",
       "name": "ChatGPT 中文调教指南",
       "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
+      "app": "zh-scenes",
+      "role": "zh-scenes",
       "stars": 60994,
       "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
       "language": "",
-      "role": "zh-scenes",
-      "app": "zh-scenes",
       "rank": 5
     },
     {
@@ -101,11 +101,11 @@
       "repo": "asgeirtj/system_prompts_leaks",
       "name": "system_prompts_leaks",
       "description": "各大模型与产品系统提示词摘录，持续更新。",
-      "stars": 58397,
+      "app": "system-prompts",
+      "role": "system-prompts",
+      "stars": 58400,
       "url": "https://github.com/asgeirtj/system_prompts_leaks",
       "language": "JavaScript",
-      "role": "system-prompts",
-      "app": "system-prompts",
       "rank": 6
     },
     {
@@ -113,11 +113,11 @@
       "repo": "elder-plinius/CL4R1T4S",
       "name": "CL4R1T4S",
       "description": "ChatGPT、Claude、Gemini、Cursor 等系统提示词泄露合集。",
+      "app": "system-prompts",
+      "role": "system-prompts",
       "stars": 45657,
       "url": "https://github.com/elder-plinius/CL4R1T4S",
       "language": "",
-      "role": "system-prompts",
-      "app": "system-prompts",
       "rank": 7
     },
     {
@@ -125,11 +125,11 @@
       "repo": "danielmiessler/Fabric",
       "name": "Fabric",
       "description": "开源 AI 增强框架，内置大量可复用 Prompt Patterns。",
+      "app": "web-dev",
+      "role": "web-dev",
       "stars": 43106,
       "url": "https://github.com/danielmiessler/Fabric",
       "language": "Go",
-      "role": "web-dev",
-      "app": "web-dev",
       "rank": 8
     },
     {
@@ -137,11 +137,11 @@
       "repo": "anthropics/prompt-eng-interactive-tutorial",
       "name": "Anthropic PE Tutorial",
       "description": "Anthropic 官方交互式提示工程教程。",
+      "app": "pe-learning",
+      "role": "pe-learning",
       "stars": 37089,
       "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
       "language": "Jupyter Notebook",
-      "role": "pe-learning",
-      "app": "pe-learning",
       "rank": 9
     },
     {
@@ -149,11 +149,11 @@
       "repo": "linshenkx/prompt-optimizer",
       "name": "Prompt Optimizer",
       "description": "提示词优化 Web 应用，帮助写出更高质量的 Prompt。",
+      "app": "web-dev",
+      "role": "web-dev",
       "stars": 32249,
       "url": "https://github.com/linshenkx/prompt-optimizer",
       "language": "TypeScript",
-      "role": "web-dev",
-      "app": "web-dev",
       "rank": 10
     },
     {
@@ -161,11 +161,11 @@
       "repo": "linexjlin/GPTs",
       "name": "GPTs Prompts",
       "description": "GPTs / 自定义 GPT 提示词合集。",
+      "app": "ai-coding",
+      "role": "ai-coding",
       "stars": 32001,
       "url": "https://github.com/linexjlin/GPTs",
       "language": "",
-      "role": "ai-coding",
-      "app": "ai-coding",
       "rank": 11
     }
   ]
