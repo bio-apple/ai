@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-17T16:28:34.735028+08:00",
-  "date": "2026-07-17",
+  "updated_at": "2026-07-18T06:50:15.000968+08:00",
+  "date": "2026-07-18",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -14,13 +14,76 @@
   },
   "items": [
     {
-      "id": "8263a238aeda",
-      "title": "OpenAI官方教你8招玩透ChatGPT！",
-      "summary": "OpenAI官方教你8招玩透ChatGPT！",
-      "url": "https://www.qbitai.com/2026/07/452611.html",
+      "id": "62341aa6c562",
+      "title": "逛完WAIC 2026我悟了：国产AI芯片的真对手，根本不是英伟达的GPU",
+      "summary": "发布芯片只是拿到了入场券",
+      "url": "https://www.qbitai.com/2026/07/453352.html",
       "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-18T01:09:14+08:00"
+    },
+    {
+      "id": "9e9b8b1d8492",
+      "title": "给AI发工号、定岗位、做绩效，数字员工终于能落地了",
+      "summary": "面壁智能开源StaffDeck",
+      "url": "https://www.qbitai.com/2026/07/453245.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-07-18T00:40:47+08:00"
+    },
+    {
+      "id": "5e06054fb7d8",
+      "title": "WAIC直击 | 十大开源社区「挤」进了一家GPU展台，沐曦凭什么？",
+      "summary": "每个Token背后，都是一次开源协作",
+      "url": "https://www.qbitai.com/2026/07/453246.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-07-18T00:24:49+08:00"
+    },
+    {
+      "id": "a3be1138471a",
+      "title": "文科沙龙嘉宾观点 | 梁正：不竞于器，而归于人",
+      "summary": "2026年6月5日，清华大学举办第43期文科沙龙“智能体：风险与治理”，聚焦人工智能智能体发展中的安全风险与治理挑战。梁正教授（清华大学人工智能国际治理研究院副院长等职）、陈慧敏副教授及微软AI亚洲高管魏某等专家参与研讨，围绕智能体的技术特性、伦理隐患、责任界定、监管框架及跨学科协同治理路径展开深入交流，强调需构建兼…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524442&idx=2&sn=b7201fccbd5ecc8ec69b1161b8b4650c&chksm=fc4f05450bfc4351452f5d625a6a52d4895ed6346edf7c6da3487ab10f375b19b0287c59b10e&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-18 00:40 分享"
+    },
+    {
+      "id": "3cc85d0a4ad9",
+      "title": "NVIDIA Vera Rubin Maximizes Intelligence per Dollar for Post-Training Workloads — a Key Metric for Agentic AI",
+      "summary": "Lowest cost per token from extreme codesign maximizes intelligence per dollar for post-training in the agentic era.",
+      "url": "https://blogs.nvidia.com/blog/nvidia-vera-rubin-post-training-intelligence-per-dollar/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-17T23:00:14+08:00"
+    },
+    {
+      "id": "e7a06f73eaac",
+      "title": "达卯科技WAIC首发算电协同2.0：构筑AI算力与绿色能源融合新范式",
+      "summary": "打造AIDC绿电直连能源运营操作系统",
+      "url": "https://www.qbitai.com/2026/07/453237.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-17T20:00:56+08:00"
+    },
+    {
+      "id": "22bae0ad58f8",
+      "title": "WAIC 2026 | 如果Agent有性格，你的智能伙伴会是什么样的？",
+      "summary": "北电数智带来AI赋能民生的真实答卷",
+      "url": "https://www.qbitai.com/2026/07/453217.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-17T19:34:02+08:00"
+    },
+    {
+      "id": "3ebda52fc80e",
+      "title": "A scorecard for the AI age",
+      "summary": "Sarah Friar, CFO of OpenAI, introduces a practical AI scorecard to measure ROI through useful work, cost per successful task, dependability, and return on comp…",
+      "url": "https://openai.com/index/a-scorecard-for-the-ai-age",
+      "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-07-17T13:11:53+08:00"
+      "published_at": "2026-07-17T18:00:00+08:00"
     },
     {
       "id": "7d1eed8c6164",
@@ -68,15 +131,6 @@
       "published_at": "2026-07-17T12:00:00+08:00"
     },
     {
-      "id": "66bfb7f89b15",
-      "title": "百度搭子获评WAIC 2026“镇馆之宝”，智能体全家桶将集中亮相",
-      "summary": "百度搭子获评WAIC 2026“镇馆之宝”，智能体全家桶将集中亮相",
-      "url": "https://www.qbitai.com/2026/07/451691.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-17T10:41:03+08:00"
-    },
-    {
       "id": "a564401bb829",
       "title": "Connect more of your apps to Search",
       "summary": "You’ll be able to securely link and interact with your go-to services directly in AI Mode.",
@@ -104,31 +158,13 @@
       "published_at": "2026-07-17T00:00:00+08:00"
     },
     {
-      "id": "e27e65096026",
-      "title": "数据集汇总丨英伟达开源Nemotron系列数据集，超10T tokens+40M 条后训练样本，覆盖数学推理/代码生成/多语言对话",
-      "summary": "训练数据正成为大模型竞争的核心变量，质量、结构与任务适配性比单纯规模更关键。NVIDIA推出的Nemotron系列数据集（超10T tokens、40M后训练样本）覆盖预训练、SFT、代码、数学推理及多语言对话等15个方向，强调能力导向的精准构建，体现“用更精准数据训练更适配模型”的新范式。其设计凸显数据工程能力对模…",
-      "url": "https://simg.baai.ac.cn/uploads/2026/07/30d884f22b1e5e04d03605d1c297f41f.jpg",
+      "id": "b0aa14fe991f",
+      "title": "阿里安全课堂走进西安电子科技大学，AI时代网络安全实战课圆满结课！",
+      "summary": "为应对技术复杂化带来的安全治理挑战，阿里巴巴联合30余所高校启动“阿里安全课堂”，推动产教融合人才培养。近日，西安电子科技大学与阿里安全部共建的《网络安全实战课》圆满结课。该课程历时十周，深度融合企业一线前沿案例与实战训练，强化学生治理视野与实操能力，是教育、科技、人才一体化发展的创新实践，助力构建高质量网络安全人才…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MTY2MzUyNA==&mid=2247600520&idx=1&sn=09d847b2d2e99e29bd20c2a61e7eca3c&chksm=ce81756b0b4a4f086278bd57e6d9edbf25e41474a018802636a2141b42ba24b26b8f51b517e7&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
-      "published_at": "2026-07-17 16:00 发布"
-    },
-    {
-      "id": "444c6770223c",
-      "title": "Nature重磅！下一代AI系统雏形？MIT团队：从推理100+新游戏开始",
-      "summary": "麻省理工学院团队联合发表于《Nature》的研究，基于121种游戏的大规模行为分析，提出“直觉玩家”计算认知模型，揭示人类如何仅凭规则即判断新游戏的公平性与趣味性。该模型模拟人类直觉推理能力，强调对未遇情境的灵活适应与决策生成，为AI实现类人泛化推理提供新路径，突破传统机器学习依赖大量数据训练的局限，推动人工智能向具…",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MDE3OTA5NA==&mid=2247605965&idx=1&sn=efad68f766a54c69dc410b99bf01dd93&chksm=ce1fe99468f0a4c8e9929d00277fc58858dc412f2f733ef18d9b3ad1744df1c0c9b8c5af68fa&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-17 09:10 分享"
-    },
-    {
-      "id": "551549e20a88",
-      "title": "理想L6换代24.98万开卖！L9同款自研芯片中控屏下放，一个版本配置拉满不涨价",
-      "summary": "最快下周一提车",
-      "url": "https://www.qbitai.com/2026/07/451576.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-16T23:12:41+08:00"
+      "published_at": "2026-07-17 21:30 分享"
     },
     {
       "id": "62fe82c2b1f7",
@@ -140,15 +176,6 @@
       "published_at": "2026-07-16T21:00:34+08:00"
     },
     {
-      "id": "88e635888b62",
-      "title": "全球首个！银河通用新框架仅需人类视频即可部署，特斯拉蚌埠住了",
-      "summary": "还能让机器人边干边学",
-      "url": "https://www.qbitai.com/2026/07/451403.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-16T18:51:10+08:00"
-    },
-    {
       "id": "287800377f1b",
       "title": "Our approach to bioresilience",
       "summary": "Google DeepMind and Isomorphic Labs are sharing our joint approach to bioresilience and AI models.",
@@ -158,17 +185,8 @@
       "published_at": "2026-07-16T17:30:42+08:00"
     },
     {
-      "id": "8209173591c9",
-      "title": "工业母机进入“计算化时刻”：中国移动投资友机技术，押注工业AI下一代基础设施",
-      "summary": "工业母机进入“计算化时刻”：中国移动投资友机技术，押注工业AI下一代基础设施",
-      "url": "https://www.qbitai.com/2026/07/451371.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-16T17:29:09+08:00"
-    },
-    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 87,560",
+      "title": "thedotmack/claude-mem · ★ 87,635",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -239,26 +257,8 @@
       "published_at": "2026-07-15T00:00:00+08:00"
     },
     {
-      "id": "43be431cc445",
-      "title": "Why Performance per Watt Is the Ultimate Metric for AI Infrastructure Efficiency",
-      "summary": "Power is AI infrastructure’s inescapable constraint. How many tokens an AI factory can generate within a fixed power budget determines its revenue and profitab…",
-      "url": "https://blogs.nvidia.com/blog/performance-per-watt-ai-infrastructure-efficiency/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-14T23:00:20+08:00"
-    },
-    {
-      "id": "92ab1f77dd8c",
-      "title": "How to manage AI investments in the agentic era",
-      "summary": "Learn how enterprises can manage AI investments in the agentic era by measuring useful work per dollar, improving efficiency, and scaling high-value workflows.",
-      "url": "https://openai.com/index/managing-ai-investments-in-agentic-era",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-14T18:00:00+08:00"
-    },
-    {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 94,958",
+      "title": "hacksider/Deep-Live-Cam · ★ 94,973",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -285,7 +285,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,218",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,265",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -302,10 +302,10 @@
       "published_at": null
     },
     {
-      "id": "d5c1d1d9a2a5",
-      "title": "首次，统一建模视角下的扩散语言模型后门威胁",
-      "summary": "扩散语言模型（DLM）作为自回归语言模型之外的新范式，通过迭代去噪机制对整条序列并行精修，突破了传统从左到右逐词生成的限制，天然支持并行生成、双向上下文建模及灵活解码控制。Gemini Diffusion、SEED Diffusion、LLaDA、Dream等开源模型的涌现，显著推动了DLM在学术界与工业界的关注与应…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713046&idx=3&sn=b0cd67c9e2394cb878ac2d3f4ff6ffc4&chksm=f0be3a84bc071d2d477f7f22a21feb36464a7ee096e375a2665958d954371a97978203f45288&scene=0&xtrack=1#rd",
+      "id": "dbfe7d8076da",
+      "title": "别再写提示词，Claude官方亲自教你用4种循环自动干活",
+      "summary": "AI领域正兴起“循环工程”新范式，核心在于让AI具备自主决策与终止能力，而非依赖人工持续输入提示词。以Peter Steinberger、Boris Cherny为代表的硅谷专家，正推动AI从被动响应转向主动闭环——能启动、执行、评估并适时“踩刹车”。这标志着智能体向真正自主进化的关键跃迁，摆脱提示词依赖，实现任务级…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713293&idx=2&sn=044d6737b2d04b1568b0bfe23a4a8355&chksm=f0ffdccce67fcf6e8ba25e3eef4ac9964cd386e49302ca182bd548874d16077894a0bb326843&scene=0&xtrack=1#rd",
       "source": "新智元",
       "category": "中文资讯",
       "published_at": null
@@ -338,20 +338,20 @@
       "published_at": null
     },
     {
-      "id": "cdfabba14a5f",
-      "title": "不er？谁家大模型12B版本跑分比975B的高啊",
-      "summary": "Thinking Machines推出首款自研大模型Inkling，参数达9750亿，全面开源，定位为“最适合定制的基础模型”而非追求综合性能第一。其商业模式聚焦模型微调服务，依托自研平台Tinker提供定制化训练支持。团队现场演示Inkling可自主编写微调任务、执行训练与评估，甚至支持特殊约束（如禁用字母e）。模…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904058&idx=2&sn=a88b5756b623d53d756f50530b2d4a06&chksm=e968514c129c1077d0a975d652397ebe51d9dd2731f41b1ffa2171c083f16a8ac2332424e5db&scene=0&xtrack=1#rd",
-      "source": "量子位",
+      "id": "e093a1b787ff",
+      "title": "一份16.5小时的深度研报，现在15分钟就够了",
+      "summary": "凌晨分析师加班至深夜，为下周深度报告连续奋战三天，仅3小时用于核心分析，其余时间均耗在数据搜集、核验与模板填写上。类似情况普遍存在，某头部券商统计显示，资深分析师每周平均花费超22小时（近三个工作日）于信息搜集与验证，严重挤占实质性研究时间，折射出行业普遍存在的低效重复劳动问题。",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5MjY2ODI4Nw==&mid=2247513623&idx=1&sn=ef7e76f959fc047b26c0adad929d27ed&chksm=c171616c0d17c3d718922b91a315c6807700a7995f6fa771073e828fc5a93d825fa5d3c62456&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "1a39e6796da5",
-      "title": "梁正教授参加清华大学第43期文科沙龙并就智能体风险与治理展开跨学科对话",
-      "summary": "2026年6月5日，清华大学举办第43期文科沙龙“智能体：风险与治理”，聚焦人工智能智能体带来的新型风险与治理挑战。梁正教授（清华公管学院、AI国际治理研究院副院长）等专家围绕智能体自主性增强引发的伦理、安全、责任归属及监管适配等问题展开研讨，强调需构建跨学科、多层次、动态演进的治理体系，推动技术向善。活动由清华教师…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524439&idx=1&sn=dbbb3e92b5246eb4faf17ed825a1dad3&chksm=fc7ef6a60de4845a7199ed727b775942bb2b158c3ff594520808aa04bafde201311acc464bec&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "00783366232c",
+      "title": "ICML26闭门会发言曝光，10个一线研究者说了10个最新趋势",
+      "summary": "ICML 2026虽已落幕，但最具启发性的讨论多发生在非正式场合：走廊、海报区与晚餐桌旁。全球前沿AI实验室、顶尖高校、创业公司及投资机构的研究者聚焦深层议题——下一代扩散语言模型的发展潜力、世界模型的真实机遇，以及AI Agent深度介入科研流程后对科学范式本身的重塑影响。这些对话超越论文技术细节，直指AI未来演进…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904211&idx=2&sn=0b4602180e5652b4b80346b8c4e59da6&chksm=e965c3b538d4a5e836f680458a374dbd343929f7cc3c2564627ab1a342d21365742c04a8abac&scene=0&xtrack=1#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     }
