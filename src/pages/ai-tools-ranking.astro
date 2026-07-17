@@ -1,5 +1,6 @@
 ---
 import StandaloneLayout from '../layouts/StandaloneLayout.astro';
+import RankingBoardPanels from '../components/RankingBoardPanels.astro';
 import { site, rankings } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
@@ -11,7 +12,12 @@ const schema = buildPageSchema(
   `${base}ai-tools-ranking.html`,
 );
 const home = homeHref();
-const boards = rankings.boards || [];
+const boards = (rankings.boards || []).map((board) => ({
+  ...board,
+  columns: board.columns || { name: '产品名', primary: '访问量', secondary: '月环比' },
+  show_bar: board.show_bar !== false,
+  source_name: board.source_name || board.label,
+}));
 ---
 
 <StandaloneLayout
@@ -28,95 +34,13 @@ const boards = rankings.boards || [];
       <h1>{rankings.title}</h1>
       <p class="standalone-lead">{rankings.lead}</p>
       <p class="standalone-meta">
-        {rankings.month_label || rankings.month} · AICPB · Top 10 · 更新 {rankings.updated_at}
+        {rankings.month_label || rankings.month} · AICPB · LMSYS · AA · Top 10 · 更新 {
+          rankings.updated_at
+        }
       </p>
     </div>
 
-    <div class="aicpb-ranking-shell" data-ranking-tabs>
-      <div class="aicpb-tabbar" role="tablist" aria-label="排行榜分类">
-        {
-          boards.map((board, index) => (
-            <button
-              type="button"
-              class:list={['aicpb-tab', { 'is-active': index === 0 }]}
-              data-ranking-tab={board.id}
-              role="tab"
-              aria-selected={index === 0 ? 'true' : 'false'}
-              aria-controls={`panel-${board.id}`}
-            >
-              {board.label}
-            </button>
-          ))
-        }
-      </div>
-
-      {
-        boards.map((board, index) => (
-          <section
-            id={`panel-${board.id}`}
-            class="aicpb-board-panel"
-            data-ranking-panel={board.id}
-            role="tabpanel"
-            aria-labelledby={`tab-${board.id}`}
-            hidden={index !== 0}
-          >
-            <header class="aicpb-board-header">
-              <h2>{board.title}</h2>
-              <p>
-                {board.subtitle} — {board.month}
-              </p>
-            </header>
-
-            <div class="aicpb-table-wrap">
-              <div class="aicpb-table-head" aria-hidden="true">
-                <span>#排名</span>
-                <span />
-                <span>产品名</span>
-                <span>访问量</span>
-                <span>月环比</span>
-              </div>
-              <ol class="aicpb-table-body">
-                {board.items.map((item) => (
-                  <li class="aicpb-table-row">
-                    <span class="aicpb-rank">{item.rank}</span>
-                    <span class="aicpb-logo" aria-hidden="true">
-                      {item.name.trim().charAt(0).toUpperCase()}
-                    </span>
-                    <div class="aicpb-product">
-                      <a href={item.url} target="_blank" rel="noopener" class="aicpb-product-name">
-                        {item.name}
-                      </a>
-                      {item.description ? (
-                        <p class="aicpb-product-desc">{item.description}</p>
-                      ) : null}
-                    </div>
-                    <span class="aicpb-visits">{item.visits}</span>
-                    <div class="aicpb-mom">
-                      <span class="aicpb-mom-value">{item.mom}</span>
-                      <span class="aicpb-mom-bar-track" aria-hidden="true">
-                        <em
-                          class:list={[
-                            'aicpb-mom-bar-fill',
-                            item.mom.startsWith('-') ? 'is-down' : 'is-up',
-                          ]}
-                          style={`width:${item.mom_bar_pct || 0}%`}
-                        />
-                      </span>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-
-            <div class="aicpb-board-footer">
-              <a href={board.source_url} target="_blank" rel="noopener" class="aicpb-view-all">
-                查看 {board.label} 全部产品 →
-              </a>
-            </div>
-          </section>
-        ))
-      }
-    </div>
+    <RankingBoardPanels boards={boards} panelIdPrefix="panel" headingLevel="h2" />
 
     <section class="ranking-method aicpb-ranking-note" aria-label="引用说明">
       <h2 class="resources-title">引用说明</h2>
@@ -124,9 +48,15 @@ const boards = rankings.boards || [];
         {rankings.methodology.map((line) => <li>{line}</li>)}
       </ul>
       <p class="aicpb-attribution">
-        数据版权归 <a href="https://www.aicpb.com/" target="_blank" rel="noopener"
-          >AICPB（AI产品榜）</a
-        > 所有，本站仅作摘录展示。
+        数据版权归
+        <a href="https://www.aicpb.com/" target="_blank" rel="noopener">AICPB</a>、
+        <a href="https://arena.ai/leaderboard/text" target="_blank" rel="noopener"
+          >LMSYS Chatbot Arena</a
+        >、
+        <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener"
+          >Artificial Analysis</a
+        >
+        各自所有，本站仅作摘录展示。
       </p>
     </section>
 

@@ -1,14 +1,16 @@
 {
   "month": "2026-06",
   "month_label": "Jun 2026",
-  "updated_at": "2026-07-16",
+  "updated_at": "2026-07-17",
   "cadence": "daily",
   "title": "2026 AI 工具排行榜（每日更新）",
-  "lead": "每天同步 AICPB 原网页榜单，仅展示各榜 Top 10。来源：Global AI、China AI、AI Vibe Coding、AI Video Generators、AI PPT Rankings。",
+  "lead": "同步 AICPB 产品访问量榜、LMSYS Chatbot Arena Elo，以及 Artificial Analysis Intelligence Index；各榜展示 Top 10。",
   "methodology": [
-    "来源：AICPB（AI产品榜）官方页面，仅引用原文排名、访问量与月环比。",
-    "展示：每个专题榜仅保留前 10 名；完整榜单请点击「查看全部产品」跳转原网页。",
-    "更新：每日同步；若官方未更新则保留最近一次抓取结果。"
+    "AICPB：引用官方产品榜 Website 访问量、排名与月环比。",
+    "LMSYS Chatbot Arena（Arena AI）：引用文本对战 Arena Elo 与投票数。",
+    "Artificial Analysis：引用公开榜单 Intelligence Index 与厂商信息。",
+    "展示：每个专题榜仅保留前 10 名；完整榜单请跳转原文。",
+    "更新：每日同步；若某一源失败则整次抓取失败，保留仓库内上一版数据。"
   ],
   "boards": [
     {
@@ -19,6 +21,13 @@
       "metric": "Website Visits",
       "month": "Jun 2026",
       "source_url": "https://www.aicpb.com/ai-rankings/products/global-ai-rankings/websites",
+      "source_name": "AICPB",
+      "columns": {
+        "name": "产品名",
+        "primary": "访问量",
+        "secondary": "月环比"
+      },
+      "show_bar": true,
       "items": [
         {
           "rank": 1,
@@ -130,6 +139,13 @@
       "metric": "Website Visits",
       "month": "Jun 2026",
       "source_url": "https://www.aicpb.com/ai-rankings/products/china-ai-rankings/websites",
+      "source_name": "AICPB",
+      "columns": {
+        "name": "产品名",
+        "primary": "访问量",
+        "secondary": "月环比"
+      },
+      "show_bar": true,
       "items": [
         {
           "rank": 1,
@@ -241,6 +257,13 @@
       "metric": "Website Visits",
       "month": "Jun 2026",
       "source_url": "https://www.aicpb.com/ai-rankings/products/vibe-coding-rankings/websites",
+      "source_name": "AICPB",
+      "columns": {
+        "name": "产品名",
+        "primary": "访问量",
+        "secondary": "月环比"
+      },
+      "show_bar": true,
       "items": [
         {
           "rank": 1,
@@ -352,6 +375,13 @@
       "metric": "Website Visits",
       "month": "Jun 2026",
       "source_url": "https://www.aicpb.com/ai-rankings/products/ai-video-generators-rankings/websites",
+      "source_name": "AICPB",
+      "columns": {
+        "name": "产品名",
+        "primary": "访问量",
+        "secondary": "月环比"
+      },
+      "show_bar": true,
       "items": [
         {
           "rank": 1,
@@ -463,6 +493,13 @@
       "metric": "Website Visits",
       "month": "Jun 2026",
       "source_url": "https://www.aicpb.com/ai-rankings/products/ai-ppt-rankings",
+      "source_name": "AICPB",
+      "columns": {
+        "name": "产品名",
+        "primary": "访问量",
+        "secondary": "月环比"
+      },
+      "show_bar": true,
       "items": [
         {
           "rank": 1,
@@ -565,6 +602,242 @@
           "source": "AICPB"
         }
       ]
+    },
+    {
+      "id": "lmsys-arena",
+      "label": "LMSYS Arena",
+      "title": "LMSYS Chatbot Arena · Text",
+      "subtitle": "人类盲测对战 Elo（Arena AI / LMSYS）",
+      "metric": "Arena Elo",
+      "month": "Jul 13, 2026",
+      "source_url": "https://arena.ai/leaderboard/text",
+      "source_name": "LMSYS Chatbot Arena",
+      "columns": {
+        "name": "模型",
+        "primary": "Arena Elo",
+        "secondary": "Votes"
+      },
+      "show_bar": false,
+      "items": [
+        {
+          "rank": 1,
+          "name": "claude-fable-5",
+          "description": "Anthropic",
+          "visits": "1508",
+          "mom": "8.0K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
+          "rank": 2,
+          "name": "claude-opus-4-6-thinking",
+          "description": "Anthropic",
+          "visits": "1504",
+          "mom": "59.9K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
+          "rank": 3,
+          "name": "claude-opus-4-7-thinking",
+          "description": "Anthropic",
+          "visits": "1503",
+          "mom": "47.1K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
+          "rank": 4,
+          "name": "claude-opus-4-6",
+          "description": "Anthropic",
+          "visits": "1498",
+          "mom": "63.6K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
+          "rank": 5,
+          "name": "claude-opus-4-7",
+          "description": "Anthropic",
+          "visits": "1494",
+          "mom": "48.2K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
+          "rank": 6,
+          "name": "muse-spark-1.1",
+          "description": "Meta",
+          "visits": "1491",
+          "mom": "4.6K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
+          "rank": 7,
+          "name": "muse-spark",
+          "description": "Meta",
+          "visits": "1488",
+          "mom": "13.6K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
+          "rank": 8,
+          "name": "gemini-3.1-pro-preview",
+          "description": "Google",
+          "visits": "1486",
+          "mom": "79.9K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
+          "rank": 9,
+          "name": "gemini-3-pro",
+          "description": "Google",
+          "visits": "1486",
+          "mom": "41.3K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
+          "rank": 10,
+          "name": "gpt-5.6-sol-xhigh",
+          "description": "OpenAI",
+          "visits": "1484",
+          "mom": "3.0K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        }
+      ]
+    },
+    {
+      "id": "artificial-analysis",
+      "label": "Artificial Analysis",
+      "title": "Artificial Analysis · Intelligence Index",
+      "subtitle": "独立基准合成的 Intelligence Index",
+      "metric": "Intelligence Index",
+      "month": "Jul 2026",
+      "source_url": "https://artificialanalysis.ai/leaderboards/models",
+      "source_name": "Artificial Analysis",
+      "columns": {
+        "name": "模型",
+        "primary": "Intelligence",
+        "secondary": "厂商"
+      },
+      "show_bar": false,
+      "items": [
+        {
+          "rank": 1,
+          "name": "Claude Fable 5 (with fallback)",
+          "description": "Anthropic",
+          "visits": "59.9",
+          "mom": "Anthropic",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/claude-fable-5",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 2,
+          "name": "GPT-5.6 Sol (max)",
+          "description": "OpenAI",
+          "visits": "58.9",
+          "mom": "OpenAI",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/gpt-5-6-sol",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 3,
+          "name": "GPT-5.6 Sol (xhigh)",
+          "description": "OpenAI",
+          "visits": "57.7",
+          "mom": "OpenAI",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/gpt-5-6-sol-xhigh",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 4,
+          "name": "Kimi K3",
+          "description": "Kimi",
+          "visits": "57.1",
+          "mom": "Kimi",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/kimi-k3",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 5,
+          "name": "GPT-5.6 Sol (high)",
+          "description": "OpenAI",
+          "visits": "55.9",
+          "mom": "OpenAI",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/gpt-5-6-sol-high",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 6,
+          "name": "Claude Opus 4.8 (max)",
+          "description": "Anthropic",
+          "visits": "55.7",
+          "mom": "Anthropic",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/claude-opus-4-8",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 7,
+          "name": "GPT-5.6 Terra (max)",
+          "description": "OpenAI",
+          "visits": "55.0",
+          "mom": "OpenAI",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/gpt-5-6-terra",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 8,
+          "name": "GPT-5.5 (xhigh)",
+          "description": "OpenAI",
+          "visits": "54.8",
+          "mom": "OpenAI",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/gpt-5-5",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 9,
+          "name": "Grok 4.5 (high)",
+          "description": "SpaceXAI",
+          "visits": "53.8",
+          "mom": "SpaceXAI",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/grok-4-5",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 10,
+          "name": "GPT-5.6 Sol (medium)",
+          "description": "OpenAI",
+          "visits": "53.6",
+          "mom": "OpenAI",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/gpt-5-6-sol-medium",
+          "source": "Artificial Analysis"
+        }
+      ]
     }
   ],
   "highlights": [
@@ -575,16 +848,16 @@
       "url": "https://www.aicpb.com/product/ChatGPT/webid1D6F37591"
     },
     {
-      "medal": "🇨🇳",
-      "name": "DeepSeek",
-      "dimension": "China AI Top 1",
-      "url": "https://www.aicpb.com/product/DeepSeek/webid1D6F374B1"
+      "medal": "🏟️",
+      "name": "claude-fable-5",
+      "dimension": "LMSYS Arena Top 1",
+      "url": "https://arena.ai/leaderboard/text"
     },
     {
-      "medal": "💻",
-      "name": "Github Copilot",
-      "dimension": "AI Vibe Coding Top 1",
-      "url": "https://www.aicpb.com/product/Github-Copilot/webid1D6F374B9"
+      "medal": "📈",
+      "name": "Claude Fable 5 (with fallback)",
+      "dimension": "Artificial Analysis Top 1",
+      "url": "https://artificialanalysis.ai/models/claude-fable-5"
     }
   ]
 }

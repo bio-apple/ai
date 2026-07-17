@@ -204,17 +204,17 @@
     {
       "medal": "🌍",
       "name": "ChatGPT",
-      "dimension": "Global AI Top 1"
+      "dimension": "AICPB Global AI Top 1"
     },
     {
-      "medal": "🇨🇳",
-      "name": "DeepSeek",
-      "dimension": "China AI Top 1"
+      "medal": "🏟️",
+      "name": "LMSYS Chatbot Arena",
+      "dimension": "Arena Elo 对战榜"
     },
     {
-      "medal": "💻",
-      "name": "Github Copilot",
-      "dimension": "AI Vibe Coding Top 1"
+      "medal": "📈",
+      "name": "Artificial Analysis",
+      "dimension": "Intelligence Index"
     }
   ],
   "ai_picker": {
@@ -514,6 +514,6 @@
   "tools_hub_page": {
     "title": "AI 工具中心 | Bio AI Lab",
     "h1": "AI 工具中心",
-    "lead": "先对比能力与场景，再看 AICPB 市场热度。"
+    "lead": "先对比能力与场景，再看 AICPB、LMSYS Arena 与 Artificial Analysis 排行。"
   }
 }

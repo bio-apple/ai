@@ -1,5 +1,6 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
+import RankingBoardPanels from '../../components/RankingBoardPanels.astro';
 import { site } from '../../lib/data';
 import {
   buildHubCompareRows,
@@ -19,7 +20,10 @@ const breadcrumbs = [
 ];
 const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`, breadcrumbs);
 const rows = buildHubCompareRows();
-const boards = buildHubRankingBoards(HUB_RANKING_TOP_N);
+const boards = buildHubRankingBoards(HUB_RANKING_TOP_N).map((board) => ({
+  ...board,
+  subtitle: `${board.subtitle} · Top ${board.items.length}`,
+}));
 const toolCount = hubFeaturedCount();
 const rankMeta = hubRankingMeta();
 ---
@@ -38,11 +42,11 @@ const rankMeta = hubRankingMeta();
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
       <p class="standalone-meta">
-        {toolCount} 款精选 · {rankMeta.source_name} 更新 {rankMeta.updated_at}
+        {toolCount} 款精选 · 多源排行更新 {rankMeta.updated_at}
       </p>
       <div class="hub-quick-links" aria-label="本页目录">
         <a href="#hub-compare" class="recommend-link">精选对比</a>
-        <a href="#hub-ranking" class="recommend-link">AICPB 排行</a>
+        <a href="#hub-ranking" class="recommend-link">多源排行</a>
       </div>
     </div>
 
@@ -118,105 +122,22 @@ const rankMeta = hubRankingMeta();
       <div class="section-head">
         <h2 class="section-title" id="hub-ranking-title">AI 工具排行</h2>
         <p class="section-desc">
-          {rankMeta.source_name} · 各榜 Top {HUB_RANKING_TOP_N}（{rankMeta.month_label}）
+          AICPB · LMSYS Arena · Artificial Analysis · 各榜 Top {HUB_RANKING_TOP_N}
         </p>
       </div>
 
-      <div class="aicpb-ranking-shell hub-ranking-shell" data-ranking-tabs>
-        <div class="aicpb-tabbar" role="tablist" aria-label="AICPB 排行分类">
-          {
-            boards.map((board, index) => (
-              <button
-                type="button"
-                class:list={['aicpb-tab', { 'is-active': index === 0 }]}
-                data-ranking-tab={board.id}
-                role="tab"
-                aria-selected={index === 0 ? 'true' : 'false'}
-                aria-controls={`hub-panel-${board.id}`}
-                id={`hub-tab-${board.id}`}
-              >
-                {board.label}
-              </button>
-            ))
-          }
-        </div>
-
-        {
-          boards.map((board, index) => (
-            <section
-              id={`hub-panel-${board.id}`}
-              class="aicpb-board-panel"
-              data-ranking-panel={board.id}
-              role="tabpanel"
-              aria-labelledby={`hub-tab-${board.id}`}
-              hidden={index !== 0}
-            >
-              <header class="aicpb-board-header">
-                <h3>{board.title}</h3>
-                <p>
-                  {board.subtitle} — {board.month} · Top {board.items.length}
-                </p>
-              </header>
-
-              <div class="aicpb-table-wrap">
-                <div class="aicpb-table-head" aria-hidden="true">
-                  <span>#排名</span>
-                  <span />
-                  <span>产品名</span>
-                  <span>访问量</span>
-                  <span>月环比</span>
-                </div>
-                <ol class="aicpb-table-body">
-                  {board.items.map((item) => (
-                    <li class="aicpb-table-row">
-                      <span class="aicpb-rank">{item.rank}</span>
-                      <span class="aicpb-logo" aria-hidden="true">
-                        {item.name.trim().charAt(0).toUpperCase()}
-                      </span>
-                      <div class="aicpb-product">
-                        <a
-                          href={item.url}
-                          target="_blank"
-                          rel="noopener"
-                          class="aicpb-product-name"
-                        >
-                          {item.name}
-                        </a>
-                      </div>
-                      <span class="aicpb-visits">{item.visits}</span>
-                      <div class="aicpb-mom">
-                        <span class="aicpb-mom-value">{item.mom}</span>
-                        <span class="aicpb-mom-bar-track" aria-hidden="true">
-                          <em
-                            class:list={[
-                              'aicpb-mom-bar-fill',
-                              item.mom.startsWith('-') ? 'is-down' : 'is-up',
-                            ]}
-                            style={`width:${item.mom_bar_pct || 0}%`}
-                          />
-                        </span>
-                      </div>
-                    </li>
-                  ))}
-                </ol>
-              </div>
-
-              <div class="aicpb-board-footer">
-                <a href={board.source_url} target="_blank" rel="noopener" class="aicpb-view-all">
-                  在 AICPB 查看 {board.label} 全部产品 →
-                </a>
-              </div>
-            </section>
-          ))
-        }
+      <div class="hub-ranking-shell">
+        <RankingBoardPanels
+          boards={boards}
+          panelIdPrefix="hub-panel"
+          headingLevel="h3"
+          footerSuffix="完整榜单 →"
+        />
       </div>
 
       <p class="hub-ranking-footnote">
-        需要完整 Top 10 与更多说明？见
-        <a href={asset('ai-tools-ranking.html')}>站内排行榜页</a>
-        ，或访问
-        <a href={rankMeta.source_home} target="_blank" rel="noopener">{rankMeta.source_name}</a>
-        原文。
+        完整 Top 10 与引用说明见
+        <a href={asset('ai-tools-ranking.html')}>站内排行榜页</a>。
       </p>
     </section>
 
@@ -224,16 +145,18 @@ const rankMeta = hubRankingMeta();
       <h2 class="resources-title">说明</h2>
       <ul class="ranking-method-list">
         <li>
-          对比表用于能力与场景选型；排行引用 {rankMeta.source_name}，本页各榜 Top {
-            HUB_RANKING_TOP_N
-          }。
+          对比表用于能力与场景选型；排行汇总产品热度（AICPB）、对战 Elo（LMSYS）与基准分（AA）。
         </li>
-        <li>热度不等于适合你：先看场景与定价，再用排行验证市场采用情况。</li>
+        <li>热度与榜单分数不等于适合你：先看场景与定价，再用排行交叉验证。</li>
       </ul>
       <p class="aicpb-attribution">
-        排行数据版权归
-        <a href={rankMeta.source_home} target="_blank" rel="noopener">{rankMeta.source_name}</a>
-        所有，本站仅作摘录展示。
+        数据版权归
+        <a href="https://www.aicpb.com/" target="_blank" rel="noopener">AICPB</a>、
+        <a href="https://arena.ai/leaderboard/text" target="_blank" rel="noopener">LMSYS Arena</a>、
+        <a href="https://artificialanalysis.ai/leaderboards/models" target="_blank" rel="noopener"
+          >Artificial Analysis</a
+        >
+        各自所有，本站仅作摘录展示。
       </p>
     </section>
 

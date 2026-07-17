@@ -1,0 +1,136 @@
+---
+interface RankingItem {
+  rank: number;
+  name: string;
+  description?: string;
+  visits: string;
+  mom: string;
+  mom_bar_pct?: number;
+  url: string;
+}
+
+interface RankingBoard {
+  id: string;
+  label: string;
+  title: string;
+  subtitle: string;
+  month: string;
+  source_url: string;
+  source_name?: string;
+  columns?: { name?: string; primary?: string; secondary?: string };
+  show_bar?: boolean;
+  items: RankingItem[];
+}
+
+interface Props {
+  boards: RankingBoard[];
+  panelIdPrefix?: string;
+  headingLevel?: 'h2' | 'h3';
+  footerSuffix?: string;
+}
+
+const {
+  boards,
+  panelIdPrefix = 'panel',
+  headingLevel = 'h2',
+  footerSuffix = '全部 →',
+} = Astro.props;
+
+const TitleTag = headingLevel;
+---
+
+<div class="aicpb-ranking-shell" data-ranking-tabs>
+  <div class="aicpb-tabbar" role="tablist" aria-label="排行榜分类">
+    {
+      boards.map((board, index) => (
+        <button
+          type="button"
+          class:list={['aicpb-tab', { 'is-active': index === 0 }]}
+          data-ranking-tab={board.id}
+          role="tab"
+          aria-selected={index === 0 ? 'true' : 'false'}
+          aria-controls={`${panelIdPrefix}-${board.id}`}
+          id={`${panelIdPrefix}-tab-${board.id}`}
+        >
+          {board.label}
+        </button>
+      ))
+    }
+  </div>
+
+  {
+    boards.map((board, index) => {
+      const cols = {
+        name: board.columns?.name || '产品名',
+        primary: board.columns?.primary || '访问量',
+        secondary: board.columns?.secondary || '月环比',
+      };
+      const showBar = board.show_bar !== false;
+      const sourceLabel = board.source_name || board.label;
+      return (
+        <section
+          id={`${panelIdPrefix}-${board.id}`}
+          class="aicpb-board-panel"
+          data-ranking-panel={board.id}
+          role="tabpanel"
+          aria-labelledby={`${panelIdPrefix}-tab-${board.id}`}
+          hidden={index !== 0}
+        >
+          <header class="aicpb-board-header">
+            <TitleTag>{board.title}</TitleTag>
+            <p>
+              {board.subtitle} — {board.month}
+            </p>
+          </header>
+
+          <div class="aicpb-table-wrap">
+            <div class="aicpb-table-head" aria-hidden="true">
+              <span>#排名</span>
+              <span />
+              <span>{cols.name}</span>
+              <span>{cols.primary}</span>
+              <span>{cols.secondary}</span>
+            </div>
+            <ol class="aicpb-table-body">
+              {board.items.map((item) => (
+                <li class="aicpb-table-row">
+                  <span class="aicpb-rank">{item.rank}</span>
+                  <span class="aicpb-logo" aria-hidden="true">
+                    {item.name.trim().charAt(0).toUpperCase()}
+                  </span>
+                  <div class="aicpb-product">
+                    <a href={item.url} target="_blank" rel="noopener" class="aicpb-product-name">
+                      {item.name}
+                    </a>
+                    {item.description ? <p class="aicpb-product-desc">{item.description}</p> : null}
+                  </div>
+                  <span class="aicpb-visits">{item.visits}</span>
+                  <div class:list={['aicpb-mom', { 'is-text-only': !showBar }]}>
+                    <span class="aicpb-mom-value">{item.mom}</span>
+                    {showBar ? (
+                      <span class="aicpb-mom-bar-track" aria-hidden="true">
+                        <em
+                          class:list={[
+                            'aicpb-mom-bar-fill',
+                            item.mom.startsWith('-') ? 'is-down' : 'is-up',
+                          ]}
+                          style={`width:${item.mom_bar_pct || 0}%`}
+                        />
+                      </span>
+                    ) : null}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+
+          <div class="aicpb-board-footer">
+            <a href={board.source_url} target="_blank" rel="noopener" class="aicpb-view-all">
+              在 {sourceLabel} 查看 {footerSuffix}
+            </a>
+          </div>
+        </section>
+      );
+    })
+  }
+</div>
