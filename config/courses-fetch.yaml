@@ -91,6 +91,8 @@ hubs:
 dedupe:
   # 合集已收录时，不再收录其下属单课（避免合集+清单重复）
   prefer_hub_over_children: true
+  # 每条学习路线最多推荐条数（必学/合集优先）
+  max_per_track: 5
   # 同一平台同一路线最多保留的非必收录条数
   max_per_platform_per_track: 2
   # 同路线标题词重叠过高视为近重复

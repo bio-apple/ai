@@ -146,6 +146,8 @@ HUB_CHILD_PREFIXES = (
     ("https://www.deeplearning.ai/short-courses", "https://www.deeplearning.ai/courses"),
 )
 
+MAX_COURSES_PER_TRACK = 5
+
 
 def validate_ai_courses() -> None:
     path = ROOT / "ai-courses.json"
@@ -183,10 +185,20 @@ def validate_ai_courses() -> None:
                     "ai-courses.json 合集与下属单课重复: "
                     + ", ".join(children[:5])
                 )
+    from collections import Counter
+
+    by_track = Counter(str(i.get("track") or "其他") for i in items)
+    over = {t: n for t, n in by_track.items() if n > MAX_COURSES_PER_TRACK}
+    if over:
+        detail = ", ".join(f"{t}×{n}" for t, n in sorted(over.items()))
+        raise ValueError(f"ai-courses.json 单条路线超过 {MAX_COURSES_PER_TRACK} 门: {detail}")
     window = int(data.get("window_days") or 180)
     if window < 1:
         raise ValueError("window_days 无效")
-    print(f"✓ ai-courses.json schema ({len(items)} 门免费 · 去重 · 路线 {len(data.get('track_order') or [])})")
+    print(
+        f"✓ ai-courses.json schema ({len(items)} 门免费 · 每路线≤{MAX_COURSES_PER_TRACK} · "
+        f"路线 {len(data.get('track_order') or [])})"
+    )
 
 
 def validate_search_index() -> None:

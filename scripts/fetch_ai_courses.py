@@ -598,6 +598,60 @@ def cap_platform_track(items: list[dict], *, max_per: int) -> list[dict]:
     return out
 
 
+def cap_track(
+    items: list[dict],
+    *,
+    track_order: list[str],
+    max_per: int,
+) -> list[dict]:
+    """每条学习路线最多 max_per 条；必学/合集优先。"""
+    if max_per <= 0:
+        return items
+
+    order_index = {name: i for i, name in enumerate(track_order)}
+
+    def item_rank(row: dict[str, Any]) -> tuple[int, str, str]:
+        req_rank = 0 if (row.get("required") or row.get("hub")) else 1
+        return (
+            req_rank,
+            str(row.get("published_at") or ""),
+            str(row.get("title") or "").lower(),
+        )
+
+    buckets: dict[str, list[dict]] = {t: [] for t in track_order}
+    extras: list[dict] = []
+    for item in items:
+        track = str(item.get("track") or "")
+        if track in buckets:
+            buckets[track].append(item)
+        else:
+            extras.append(item)
+
+    out: list[dict] = []
+    dropped = 0
+    for track in track_order:
+        rows = sorted(buckets.get(track) or [], key=item_rank)
+        if len(rows) > max_per:
+            dropped += len(rows) - max_per
+            rows = rows[:max_per]
+        out.extend(rows)
+
+    extra_tracks: dict[str, list[dict]] = {}
+    for item in extras:
+        track = str(item.get("track") or "其他")
+        extra_tracks.setdefault(track, []).append(item)
+    for track in sorted(extra_tracks, key=lambda t: order_index.get(t, 999)):
+        rows = sorted(extra_tracks[track], key=item_rank)
+        if len(rows) > max_per:
+            dropped += len(rows) - max_per
+            rows = rows[:max_per]
+        out.extend(rows)
+
+    if dropped:
+        print(f"  · 限额：每条路线最多 {max_per} 门，已丢弃 {dropped} 条")
+    return out
+
+
 def merge_and_sort(
     required: list[dict],
     discovered: list[dict],
@@ -652,6 +706,12 @@ def merge_and_sort(
         merged, max_per=int(dedupe_cfg.get("max_per_platform_per_track") or 0)
     )
     merged.sort(key=sort_key)
+    merged = cap_track(
+        merged,
+        track_order=track_order,
+        max_per=int(dedupe_cfg.get("max_per_track") or 5),
+    )
+    merged.sort(key=sort_key)
 
     # 清理内部字段
     for row in merged:
@@ -685,7 +745,10 @@ def main() -> int:
     }
 
     dedupe_cfg = cfg.get("dedupe") or {}
-    print(f"规则：必收录 + 近 {max_age} 天免费补充 · 去重 · 路线编排 · 最多 {max_items} 条")
+    print(
+        f"规则：必收录 + 近 {max_age} 天免费补充 · 去重 · 每路线≤"
+        f"{int(dedupe_cfg.get('max_per_track') or 5)} · 最多 {max_items} 条"
+    )
     required = fetch_required(cfg) + fetch_hubs(cfg)
     discovered: list[dict] = []
     discovered += fetch_deeplearning_ai(cfg.get("deeplearning_ai") or {}, cutoff, keywords)
@@ -727,11 +790,11 @@ def main() -> int:
         "title": "AI 课程资源",
         "lead": (
             "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent → AI 工程实践」编排的免费课程；"
-            "必收录微软 / 吴恩达 / 斯坦福 / Google 核心课；合集与单课不重复罗列。"
+            "每条路线最多推荐 5 门；必收录微软 / 吴恩达 / 斯坦福 / Google 核心课。"
         ),
         "source_note": (
-            "去重规则：URL/标题唯一；合集优先于下属单课；同平台同路线限额；"
-            "标题近重复合并。补充课来自 Coursera 免费课 / Hugging Face / YouTube（AI 向）。"
+            "去重规则：URL/标题唯一；合集优先于下属单课；每条路线≤5 门（必学优先）；"
+            "同平台同路线限额。补充课来自 Coursera 免费课 / Hugging Face / YouTube（AI 向）。"
         ),
         "items": items,
     }

@@ -235,7 +235,7 @@ function renderCoursesMeta(data) {
   const n = (data.items || []).length;
   const required = (data.items || []).filter((i) => i.required).length;
   const updated = data.updated_at || data.date || '';
-  meta.textContent = `免费 · 路线编排 · ${n} 门（必学 ${required}）${updated ? ` · 更新 ${formatCourseDate(updated)}` : ''}`;
+  meta.textContent = `免费 · 每段最多 5 门 · ${n} 门（必学 ${required}）${updated ? ` · 更新 ${formatCourseDate(updated)}` : ''}`;
 }
 
 async function initCoursesSection() {
