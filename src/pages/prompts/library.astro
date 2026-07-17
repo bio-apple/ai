@@ -21,7 +21,6 @@ function formatStars(n: number) {
   if (n >= 1_000) return `${(n / 1_000).toFixed(1)}K`;
   return String(n);
 }
-
 ---
 
 <StandaloneLayout
@@ -43,9 +42,18 @@ function formatStars(n: number) {
       </p>
     </div>
 
-    <div class="library-toolbar prompt-role-toolbar" id="prompt-role-toolbar" role="tablist" aria-label="按角色筛选">
-      <button type="button" class="library-filter active" data-prompt-role="all" role="tab" aria-selected="true"
-        >全部角色</button
+    <div
+      class="library-toolbar prompt-role-toolbar"
+      id="prompt-role-toolbar"
+      role="tablist"
+      aria-label="按角色筛选"
+    >
+      <button
+        type="button"
+        class="library-filter active"
+        data-prompt-role="all"
+        role="tab"
+        aria-selected="true">全部角色</button
       >
       {
         roles.map((role) => (
@@ -149,7 +157,9 @@ function formatStars(n: number) {
         });
       }
       buttons.forEach((btn) => {
-        btn.addEventListener('click', () => activate(btn.getAttribute('data-prompt-role') || 'all'));
+        btn.addEventListener('click', () =>
+          activate(btn.getAttribute('data-prompt-role') || 'all'),
+        );
       });
       activate('all');
     })();
