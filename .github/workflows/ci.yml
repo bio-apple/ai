@@ -73,41 +73,8 @@ jobs:
       - name: Install Python deps
         run: ${{ steps.setup-python.outputs.python-path }} -m pip install -r requirements.txt
 
-      - name: Validate data JSON
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py data
-
-      - name: Validate tool relations
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py tool-relations
-
-      - name: Validate OSS projects
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py oss
-
-      - name: Validate daily videos
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py videos
-
-      - name: Validate AI news
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py news
-
-      - name: Validate AI courses
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py courses
-
-      - name: Validate runtime JSON
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py runtime
-
-      - name: Validate recommend rules
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py recommend
-
-      - name: Validate sitemap and robots
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py sitemap
-
-      - name: Validate search index
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py search
-
-      - name: Validate analytics config
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py analytics
-
-      - name: Validate HTML links
-        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py links
+      - name: Validate dist (schema · links · engagement)
+        run: DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py
 
       - name: FastAPI API smoke
         run: PYTHONPATH=. ${{ steps.setup-python.outputs.python-path }} scripts/smoke_api.py

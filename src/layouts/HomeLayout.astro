@@ -54,6 +54,7 @@ const styleHref = asset('style.css');
       siteName={site.meta.site_name || 'Bio AI Lab'}
     />
     <FontLoader />
+    <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />
     <ThemeBoot assetPrefix={BASE} />
     {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}

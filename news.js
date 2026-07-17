@@ -1,9 +1,4 @@
-const NEWS_DATA_URL =
-  (typeof document !== 'undefined' && document.documentElement.dataset.base
-    ? document.documentElement.dataset.base.replace(/\/?$/, '/')
-    : window.location.pathname.includes('/news/')
-      ? '../'
-      : '') + 'ai-news.json';
+const NEWS_JSON = 'ai-news.json';
 
 const NEWS_CATEGORY_ORDER = ['新模型发布', '新工具上线', '开源项目', '行业新闻', '中文资讯'];
 
@@ -11,9 +6,11 @@ let newsDataPromise = null;
 let newsState = { category: 'all', items: [], watchSources: [] };
 
 function escapeHtml(s) {
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
+  return window.BioAI?.escapeHtml ? window.BioAI.escapeHtml(s) : String(s ?? '');
+}
+
+function extRel() {
+  return window.BioAI?.externalRel ? window.BioAI.externalRel() : 'noopener noreferrer';
 }
 
 function formatNewsDateShort(raw) {
@@ -130,7 +127,7 @@ function renderNewsRow(item, { hideSource = false } = {}) {
   }
   return `
     <li class="news-row${hideSource ? ' news-row-in-source' : ''}">
-      <a class="news-row-main" href="${escapeHtml(item.url)}" target="_blank" rel="noopener" data-track="news-click">
+      <a class="news-row-main" href="${escapeHtml(item.url)}" target="_blank" rel="${extRel()}" data-track="news-click">
         <span class="news-row-title">${escapeHtml(item.title)}</span>
         ${metaParts.length ? `<span class="news-row-meta">${metaParts.join('')}</span>` : ''}
       </a>
@@ -191,8 +188,8 @@ function renderNewsToolbar(items) {
   const buttons = cats
     .map((cat) => {
       const label = cat === 'all' ? '全部' : cat;
-      const active = newsState.category === cat ? ' active' : '';
-      return `<button type="button" class="news-filter${active}" data-news-category="${escapeHtml(cat)}">${escapeHtml(label)} <span>${counts.get(cat) || 0}</span></button>`;
+      const active = newsState.category === cat;
+      return `<button type="button" class="news-filter${active ? ' active' : ''}" data-news-category="${escapeHtml(cat)}" aria-pressed="${active}">${escapeHtml(label)} <span>${counts.get(cat) || 0}</span></button>`;
     })
     .join('');
   return `<div class="news-toolbar" role="toolbar" aria-label="新闻分类筛选">${buttons}</div>`;
@@ -222,17 +219,17 @@ function paintNewsList() {
 
 function fetchNewsData() {
   if (!newsDataPromise) {
-    newsDataPromise = fetch(NEWS_DATA_URL, { cache: 'no-store' })
-      .then((res) => {
-        if (!res.ok) throw new Error('无法加载新闻数据');
-        return res.json();
-      })
-      .catch((err) => {
-        newsDataPromise = null;
-        throw err;
-      });
+    if (!window.BioAI?.fetchJson) {
+      return Promise.reject(new Error('加载器未就绪，请稍后重试'));
+    }
+    newsDataPromise = window.BioAI.fetchJson(NEWS_JSON, { label: '新闻' });
   }
   return newsDataPromise;
+}
+
+function resetNewsFetch() {
+  window.BioAI?.invalidateFetch?.(NEWS_JSON);
+  newsDataPromise = null;
 }
 
 function renderWatchSources(sources) {
@@ -241,8 +238,9 @@ function renderWatchSources(sources) {
     .map((src) => {
       const parts = [];
       if (src.blog)
-        parts.push(`<a href="${escapeHtml(src.blog)}" target="_blank" rel="noopener">博客</a>`);
-      if (src.x) parts.push(`<a href="${escapeHtml(src.x)}" target="_blank" rel="noopener">X</a>`);
+        parts.push(`<a href="${escapeHtml(src.blog)}" target="_blank" rel="${extRel()}">博客</a>`);
+      if (src.x)
+        parts.push(`<a href="${escapeHtml(src.x)}" target="_blank" rel="${extRel()}">X</a>`);
       return `<li><strong>${escapeHtml(src.name)}</strong> ${parts.join(' · ')}</li>`;
     })
     .join('');
@@ -283,8 +281,13 @@ async function loadDailyNews() {
       watchRoot.innerHTML = renderWatchSources(newsState.watchSources);
     }
   } catch (err) {
-    root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
-    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'news-section' });
+    root.innerHTML = window.BioAI?.renderErrorBlock
+      ? window.BioAI.renderErrorBlock(err.message || '加载失败')
+      : `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    window.BioAI?.bindRetry?.(root, () => {
+      resetNewsFetch();
+      loadDailyNews();
+    });
   }
 }
 

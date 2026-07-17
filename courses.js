@@ -1,17 +1,16 @@
-const COURSES_DATA_URL =
-  (typeof document !== 'undefined' && document.documentElement.dataset.base
-    ? document.documentElement.dataset.base.replace(/\/?$/, '/')
-    : '') + 'ai-courses.json';
+const COURSES_JSON = 'ai-courses.json';
 
 const DEFAULT_TRACK_ORDER = ['入门', '机器学习', '深度学习', 'LLM 大模型', 'AI Agent'];
 
 let coursesDataPromise = null;
 let coursesState = { track: 'all', platform: 'all', items: [], trackOrder: DEFAULT_TRACK_ORDER };
 
-function escapeHtml(s) {
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
+function html(s) {
+  return window.BioAI?.escapeHtml ? window.BioAI.escapeHtml(s) : String(s ?? '');
+}
+
+function extRel() {
+  return window.BioAI?.externalRel ? window.BioAI.externalRel() : 'noopener noreferrer';
 }
 
 function formatCourseDate(raw) {
@@ -34,17 +33,17 @@ function formatCourseDate(raw) {
 
 function fetchCoursesData() {
   if (!coursesDataPromise) {
-    coursesDataPromise = fetch(COURSES_DATA_URL, { cache: 'default' })
-      .then((res) => {
-        if (!res.ok) throw new Error('无法加载课程资源数据');
-        return res.json();
-      })
-      .catch((err) => {
-        coursesDataPromise = null;
-        throw err;
-      });
+    if (!window.BioAI?.fetchJson) {
+      return Promise.reject(new Error('加载器未就绪，请稍后重试'));
+    }
+    coursesDataPromise = window.BioAI.fetchJson(COURSES_JSON, { label: '课程资源' });
   }
   return coursesDataPromise;
+}
+
+function resetCoursesFetch() {
+  window.BioAI?.invalidateFetch?.(COURSES_JSON);
+  coursesDataPromise = null;
 }
 
 function filterCourses(items) {
@@ -66,21 +65,21 @@ function renderCourseCard(item) {
   return `
     <article class="course-card">
       <div class="course-card-head">
-        <span class="course-platform">${escapeHtml(item.platform || '')}</span>
-        <span class="course-date">${escapeHtml(formatCourseDate(item.published_at))}</span>
+        <span class="course-platform">${html(item.platform || '')}</span>
+        <span class="course-date">${html(formatCourseDate(item.published_at))}</span>
       </div>
       <h4>
-        <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener" data-track="course-click">
-          ${escapeHtml(item.title || '')}
+        <a href="${html(item.url)}" target="_blank" rel="${extRel()}" data-track="course-click">
+          ${html(item.title || '')}
         </a>
         ${badges}
       </h4>
       <p class="course-meta">
-        ${item.track ? `<span>${escapeHtml(item.track)}</span>` : ''}
-        ${item.format ? `<span>${escapeHtml(item.format)}</span>` : ''}
+        ${item.track ? `<span>${html(item.track)}</span>` : ''}
+        ${item.format ? `<span>${html(item.format)}</span>` : ''}
       </p>
-      ${item.summary ? `<p class="course-summary">${escapeHtml(item.summary)}</p>` : ''}
-      <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener" class="course-read" data-track="course-read">打开课程 →</a>
+      ${item.summary ? `<p class="course-summary">${html(item.summary)}</p>` : ''}
+      <a href="${html(item.url)}" target="_blank" rel="${extRel()}" class="course-read" data-track="course-read">打开课程 →</a>
     </article>
   `;
 }
@@ -108,7 +107,7 @@ function renderCoursesGrid(items) {
     .map(
       ([track, list]) => `
       <section class="courses-track-block">
-        <h3 class="courses-track-title">${escapeHtml(track)}</h3>
+        <h3 class="courses-track-title">${html(track)}</h3>
         <div class="courses-grid">${list.map(renderCourseCard).join('')}</div>
       </section>
     `,
@@ -171,15 +170,15 @@ function renderToolbar(items) {
   const trackHtml = tracks
     .map((t) => {
       const label = t === 'all' ? '全部路线' : t;
-      const active = coursesState.track === t ? ' active' : '';
-      return `<button type="button" class="video-filter${active}" data-course-track="${escapeHtml(t)}">${escapeHtml(label)}</button>`;
+      const active = coursesState.track === t;
+      return `<button type="button" class="video-filter${active ? ' active' : ''}" data-course-track="${html(t)}" aria-pressed="${active}">${html(label)}</button>`;
     })
     .join('');
   const platHtml = platforms
     .map((p) => {
       const label = p === 'all' ? '全部平台' : p;
-      const active = coursesState.platform === p ? ' active' : '';
-      return `<button type="button" class="video-filter${active}" data-course-platform="${escapeHtml(p)}">${escapeHtml(label)}</button>`;
+      const active = coursesState.platform === p;
+      return `<button type="button" class="video-filter${active ? ' active' : ''}" data-course-platform="${html(p)}" aria-pressed="${active}">${html(label)}</button>`;
     })
     .join('');
 
@@ -202,6 +201,7 @@ function renderToolbar(items) {
         trackEvent('courses-filter-track', { track: coursesState.track });
       }
     });
+    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
   });
   toolbar.querySelectorAll('[data-course-platform]').forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -211,6 +211,7 @@ function renderToolbar(items) {
         trackEvent('courses-filter-platform', { platform: coursesState.platform });
       }
     });
+    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
   });
 }
 
@@ -253,7 +254,13 @@ async function initCoursesSection() {
     renderCoursesMeta(data);
     paintCourses();
   } catch (err) {
-    list.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message || '加载失败')}</p>`;
+    list.innerHTML = window.BioAI?.renderErrorBlock
+      ? window.BioAI.renderErrorBlock(err.message || '加载失败')
+      : `<p class="loading-hint error-hint">${html(err.message || '加载失败')}</p>`;
+    window.BioAI?.bindRetry?.(list, () => {
+      resetCoursesFetch();
+      initCoursesSection();
+    });
   }
 }
 

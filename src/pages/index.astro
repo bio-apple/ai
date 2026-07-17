@@ -1,11 +1,10 @@
 ---
 import HomeLayout from '../layouts/HomeLayout.astro';
-import ToolSection from '../components/ToolSection.astro';
 import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
 import HomeOps from '../components/HomeOps.astro';
-import { site, tools } from '../lib/data';
+import { site } from '../lib/data';
 import { buildHomeSchema } from '../lib/schema';
 import { asset } from '../lib/paths';
 
@@ -18,6 +17,7 @@ const schema = buildHomeSchema(site);
   canonical={site.meta.canonical}
   schema={schema}
   scripts={[
+    'lib/fetch-json.js',
     'vendor/fuse.min.js',
     'analytics.js',
     'ux.js',
@@ -71,7 +71,7 @@ const schema = buildHomeSchema(site);
       </div>
     </div>
 
-    <main class="home-main">
+    <div class="home-main section-panel">
       <HomeRecommend />
       <HomeAiDaily />
 
@@ -112,14 +112,12 @@ const schema = buildHomeSchema(site);
       </section>
 
       <HomeOps />
-    </main>
+    </div>
   </section>
-
-  {tools.map((tool) => <ToolSection tool={tool} />)}
 
   <section id="section-oss" class="section oss-section">
     <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载开源精选。</p></noscript>
-    <main>
+    <div class="section-panel">
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">⭐</div>
         <div>
@@ -131,12 +129,12 @@ const schema = buildHomeSchema(site);
       <div id="oss-project-list" class="oss-project-list">
         <p class="loading-hint">加载 GitHub 开源精选…</p>
       </div>
-    </main>
+    </div>
   </section>
 
   <section id="section-courses" class="section courses-section">
     <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载课程资源。</p></noscript>
-    <main>
+    <div class="section-panel">
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📚</div>
         <div>
@@ -152,11 +150,11 @@ const schema = buildHomeSchema(site);
       <div id="courses-list" class="courses-list">
         <p class="loading-hint">加载课程资源…</p>
       </div>
-    </main>
+    </div>
   </section>
 
   <section id="section-news" class="section">
-    <main>
+    <div class="section-panel">
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📰</div>
         <div>
@@ -175,11 +173,11 @@ const schema = buildHomeSchema(site);
           >查看新闻归档页 →</a
         >
       </div>
-    </main>
+    </div>
   </section>
 
   <section id="section-videos" class="section videos-section">
-    <main>
+    <div class="section-panel">
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
         <div>
@@ -191,20 +189,42 @@ const schema = buildHomeSchema(site);
       <div class="video-toolbar" id="video-toolbar">
         <div class="video-toolbar-group">
           <span class="video-toolbar-label">平台</span>
-          <button type="button" class="video-filter active" data-video-platform="all">全部</button>
-          <button type="button" class="video-filter" data-video-platform="youtube">YouTube</button>
-          <button type="button" class="video-filter" data-video-platform="bilibili">B站</button>
+          <button
+            type="button"
+            class="video-filter active"
+            data-video-platform="all"
+            aria-pressed="true">全部</button
+          >
+          <button
+            type="button"
+            class="video-filter"
+            data-video-platform="youtube"
+            aria-pressed="false">YouTube</button
+          >
+          <button
+            type="button"
+            class="video-filter"
+            data-video-platform="bilibili"
+            aria-pressed="false">B站</button
+          >
         </div>
         <div class="video-toolbar-group">
           <span class="video-toolbar-label">排序</span>
-          <button type="button" class="video-sort" data-video-sort="views">热门</button>
-          <button type="button" class="video-sort active" data-video-sort="recent">最新</button>
+          <button type="button" class="video-sort" data-video-sort="views" aria-pressed="false"
+            >热门</button
+          >
+          <button
+            type="button"
+            class="video-sort active"
+            data-video-sort="recent"
+            aria-pressed="true">最新</button
+          >
         </div>
       </div>
       <div id="daily-video-list" class="daily-video-list">
         <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载视频。</p></noscript>
         <p class="loading-hint">加载视频推荐…</p>
       </div>
-    </main>
+    </div>
   </section>
 </HomeLayout>

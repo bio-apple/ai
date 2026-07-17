@@ -12,6 +12,8 @@
     'section-courses': ['courses.js'],
   };
 
+  const LIB_SCRIPTS = ['lib/fetch-json.js'];
+
   function ensureScript(name) {
     if (loaded.has(name) || document.querySelector(`script[data-lazy-src="${name}"]`)) {
       loaded.add(name);
@@ -31,7 +33,8 @@
 
   function loadForSection(sectionId) {
     const files = SECTION_SCRIPTS[sectionId] || [];
-    return Promise.all(files.map(ensureScript));
+    const chain = [...LIB_SCRIPTS, ...files.filter((f) => !LIB_SCRIPTS.includes(f))];
+    return chain.reduce((p, name) => p.then(() => ensureScript(name)), Promise.resolve());
   }
 
   window.addEventListener('bioai:section-change', (e) => {

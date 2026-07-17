@@ -68,8 +68,8 @@ test.describe('Bio AI Lab 关键路径', () => {
   test('hash 路由与简报深链', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.route('**/*fonts.gstatic.com/**', (route) => route.abort());
-    await page.goto('index.html#section-cursor', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#section-cursor')).toHaveClass(/active/);
+    await page.goto('index.html#section-videos', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#section-videos')).toHaveClass(/active/);
     await page.goto('index.html#home-daily', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('#section-home')).toHaveClass(/active/);
     await expect(page.locator('#home-daily')).toBeVisible();
@@ -123,6 +123,22 @@ test.describe('Bio AI Lab 关键路径', () => {
       )
       .toBeTruthy();
     await expect(page.locator('#courses-list .course-card').first()).toBeVisible();
+  });
+
+  test('新闻归档页加载', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
+    await page.goto('news/daily-ai-news.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('h1')).toContainText('热点');
+    await expect
+      .poll(
+        async () => {
+          const text = (await page.locator('#daily-news-list').innerText()).trim();
+          if (/加载 AI 新闻/.test(text)) return false;
+          return text.length > 0;
+        },
+        { timeout: 20000 },
+      )
+      .toBeTruthy();
   });
 
   test('视频区加载态解除与新闻区切换', async ({ page }) => {

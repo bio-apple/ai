@@ -291,6 +291,14 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
     fs.copyFileSync(ossSrc, path.join(outDir, 'oss-projects.json'));
   }
 
+  const videosSrc = path.join(ROOT, 'daily-videos.json');
+  if (fs.existsSync(videosSrc)) {
+    const full = JSON.parse(fs.readFileSync(videosSrc, 'utf8'));
+    const batches = full.batches || [];
+    const slim = { ...full, batches: batches.slice(0, 2) };
+    writeOut(outDir, 'daily-videos.latest.json', slim);
+  }
+
   console.log(`✓ artifacts → ${outDir}`);
   console.log(
     `  search-index.json (${searchIndex.length}) · recommend-rules.json (${recommendRules.options.length})`,

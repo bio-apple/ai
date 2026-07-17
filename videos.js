@@ -1,7 +1,5 @@
-const VIDEO_DATA_URL =
-  (typeof document !== 'undefined' && document.documentElement.dataset.base
-    ? document.documentElement.dataset.base.replace(/\/?$/, '/')
-    : '') + 'daily-videos.json';
+const VIDEO_JSON = 'daily-videos.latest.json';
+const VIDEO_JSON_FALLBACK = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
 /** 抓取分桶键（仅用于合并前去重；页面不再按 100d/30d/24h 分开展示） */
 const CATEGORY_ORDER = [
@@ -103,6 +101,10 @@ function withCategoryFallback(batches) {
   return { ...latest, categories, _fallback_count: fallbackCount };
 }
 
+function extRel() {
+  return window.BioAI?.externalRel ? window.BioAI.externalRel() : 'noopener noreferrer';
+}
+
 function escapeHtml(s) {
   const d = document.createElement('div');
   d.textContent = s;
@@ -165,7 +167,7 @@ function renderVideoCard(v, { compact = false } = {}) {
   const published = formatPublishDate(v.published_at);
   return `
     <article class="video-card reveal${compact ? ' video-card-compact' : ''}">
-      <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">
+      <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="${extRel()}" data-track="${track}">
         <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(v.title)}" loading="lazy" decoding="async" width="640" height="360"${thumbPolicy}>
         <span class="video-play-btn" aria-hidden="true">▶ 观看</span>
         ${v.duration ? `<span class="video-duration">${escapeHtml(v.duration)}</span>` : ''}
@@ -174,7 +176,7 @@ function renderVideoCard(v, { compact = false } = {}) {
         ${hot ? '<span class="video-hot">热门</span>' : ''}
       </a>
       <div class="video-body">
-        <h4><a href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">${escapeHtml(v.title)}</a></h4>
+        <h4><a href="${escapeHtml(v.url)}" target="_blank" rel="${extRel()}" data-track="${track}">${escapeHtml(v.title)}</a></h4>
         <p class="video-summary">${escapeHtml(formatSummary(v))}</p>
         <div class="video-meta">
           <span>${escapeHtml(author)}</span>
@@ -273,17 +275,23 @@ function renderBatch(batch, state) {
 
 function fetchVideoData() {
   if (!videoDataPromise) {
-    videoDataPromise = fetch(VIDEO_DATA_URL, { cache: 'no-store' })
-      .then((res) => {
-        if (!res.ok) throw new Error('无法加载视频数据');
-        return res.json();
-      })
-      .catch((err) => {
-        videoDataPromise = null;
-        throw err;
-      });
+    if (!window.BioAI?.fetchJson) {
+      return Promise.reject(new Error('加载器未就绪，请稍后重试'));
+    }
+    videoDataPromise = window.BioAI.fetchJson(VIDEO_JSON, { label: '视频' }).catch(() =>
+      window.BioAI.fetchJson(VIDEO_JSON_FALLBACK, {
+        label: '视频',
+        memoKey: VIDEO_JSON_FALLBACK,
+      }),
+    );
   }
   return videoDataPromise;
+}
+
+function resetVideoFetch() {
+  window.BioAI?.invalidateFetch?.(VIDEO_JSON);
+  window.BioAI?.invalidateFetch?.(VIDEO_JSON_FALLBACK);
+  videoDataPromise = null;
 }
 
 function paintVideoList() {
@@ -306,10 +314,12 @@ function initVideoToolbar() {
 
   toolbar.querySelectorAll('[data-video-platform]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      toolbar
-        .querySelectorAll('[data-video-platform]')
-        .forEach((b) => b.classList.remove('active'));
+      toolbar.querySelectorAll('[data-video-platform]').forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       videoState.platform = btn.dataset.videoPlatform;
       paintVideoList();
       if (typeof trackEvent === 'function')
@@ -319,13 +329,21 @@ function initVideoToolbar() {
 
   toolbar.querySelectorAll('[data-video-sort]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      toolbar.querySelectorAll('[data-video-sort]').forEach((b) => b.classList.remove('active'));
+      toolbar.querySelectorAll('[data-video-sort]').forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       videoState.sort = btn.dataset.videoSort;
       paintVideoList();
       if (typeof trackEvent === 'function')
         trackEvent('video-filter-sort', { sort: videoState.sort });
     });
+  });
+
+  toolbar.querySelectorAll('[data-video-platform], [data-video-sort]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
   });
 }
 
@@ -359,9 +377,13 @@ async function loadDailyVideos() {
     paintVideoList();
     initVideoToolbar();
   } catch (err) {
-    root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
-    if (typeof trackEvent === 'function')
-      trackEvent('data_load_error', { source: 'videos-section' });
+    root.innerHTML = window.BioAI?.renderErrorBlock
+      ? window.BioAI.renderErrorBlock(err.message || '加载失败')
+      : `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    window.BioAI?.bindRetry?.(root, () => {
+      resetVideoFetch();
+      loadDailyVideos();
+    });
   }
 }
 

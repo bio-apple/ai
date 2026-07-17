@@ -89,6 +89,7 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
 
   document.querySelector('.nav-menu')?.classList.remove('open');
   document.querySelector('.nav-toggle')?.setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
 
   window.dispatchEvent(
     new CustomEvent('bioai:section-change', { detail: { sectionId: id, anchor } }),
@@ -134,16 +135,26 @@ document.querySelectorAll('[data-goto]').forEach((btn) => {
 
 function initNavDropdowns() {
   document.querySelectorAll('.nav-dropdown-trigger').forEach((trigger) => {
+    trigger.setAttribute('aria-expanded', 'false');
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       const drop = trigger.closest('.nav-dropdown');
       const wasOpen = drop.classList.contains('open');
-      document.querySelectorAll('.nav-dropdown').forEach((d) => d.classList.remove('open'));
-      if (!wasOpen) drop.classList.add('open');
+      document.querySelectorAll('.nav-dropdown').forEach((d) => {
+        d.classList.remove('open');
+        d.querySelector('.nav-dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        drop.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
     });
   });
   document.addEventListener('click', () => {
-    document.querySelectorAll('.nav-dropdown').forEach((d) => d.classList.remove('open'));
+    document.querySelectorAll('.nav-dropdown').forEach((d) => {
+      d.classList.remove('open');
+      d.querySelector('.nav-dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+    });
   });
 }
 
@@ -154,6 +165,7 @@ function initMobileNav() {
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.style.overflow = open ? 'hidden' : '';
   });
 }
 
@@ -272,6 +284,12 @@ function initSiteSearch() {
   const results = document.getElementById('site-search-results');
   if (!input || !results) return;
 
+  input.setAttribute('role', 'combobox');
+  input.setAttribute('aria-autocomplete', 'list');
+  input.setAttribute('aria-controls', 'site-search-results');
+  input.setAttribute('aria-expanded', 'false');
+  results.setAttribute('role', 'listbox');
+
   function markReady() {
     input.dataset.searchReady = searchIndexStatus === 'ready' ? '1' : '0';
     input.dataset.searchStatus = searchIndexStatus;
@@ -283,6 +301,7 @@ function initSiteSearch() {
     if (!query) {
       results.hidden = true;
       results.innerHTML = '';
+      input.setAttribute('aria-expanded', 'false');
       return;
     }
 
@@ -329,6 +348,7 @@ function initSiteSearch() {
       })
       .join('');
     results.hidden = false;
+    input.setAttribute('aria-expanded', 'true');
 
     results.querySelectorAll('button.search-hit').forEach((btn) => {
       btn.addEventListener('click', () => {

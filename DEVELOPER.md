@@ -9,6 +9,7 @@
 data/                 # 内容源（JSON）
 src/pages|components  # Astro 页面
 css/ + *.js           # 样式与运行时脚本（courses.js / news.js / videos.js …）
+lib/                  # 共享前端工具（fetch-json.js）
 config/               # 抓取配置（courses / news / video / oss）
 scripts/              # 构建 / 抓取 / 校验
 schemas/              # JSON Schema（CI 门禁）
@@ -29,6 +30,10 @@ dist/                 # 构建产物（不提交）
 | `recommend-rules.json` | `build-artifacts.mjs`             | 每次构建   |
 
 `prebuild` 会把根目录运行时 JSON 与静态 JS/CSS 同步到 `public/`，再经 Astro 打进 `dist/`。
+
+**前端共享层**（`lib/fetch-json.js`）：统一 JSON 拉取（重试 / 超时 / 内存缓存）、`escapeHtml`、外链 `rel`、错误重试 UI。懒加载频道脚本由 `lazy-sections.js` 保证先加载 `lib/`。
+
+**性能**：视频 Tab 使用 `daily-videos.latest.json`（prebuild 从完整 JSON 截取近 2 批）；首页已移除重复的嵌入式工具教程区块。
 
 ## 课程资源
 

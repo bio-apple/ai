@@ -62,6 +62,8 @@ npm ci && pip install -r requirements.txt
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
 
+**工程实践**：共享 `lib/fetch-json.js` · 视频 slim JSON · 首页去重 HTML · CI 一次校验 · a11y/缓存/重试 UI。
+
 ## License
 
 MIT

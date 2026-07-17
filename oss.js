@@ -1,14 +1,13 @@
-const OSS_DATA_URL =
-  (typeof document !== 'undefined' && document.documentElement.dataset.base
-    ? document.documentElement.dataset.base.replace(/\/?$/, '/')
-    : '') + 'oss-projects.json';
+const OSS_JSON = 'oss-projects.json';
 
 let ossDataPromise = null;
 
 function escapeHtml(s) {
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
+  return window.BioAI?.escapeHtml ? window.BioAI.escapeHtml(s) : String(s ?? '');
+}
+
+function extRel() {
+  return window.BioAI?.externalRel ? window.BioAI.externalRel() : 'noopener noreferrer';
 }
 
 function formatStars(n) {
@@ -29,27 +28,27 @@ function renderOssCard(project, domainLabel) {
         <span class="oss-domain-badge">${escapeHtml(domainLabel)}</span>
         <span class="oss-stars">★ ${escapeHtml(formatStars(project.stars))}</span>
       </div>
-      <h4><a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" data-track="oss-click">${escapeHtml(project.name)}</a>${badge}</h4>
+      <h4><a href="${escapeHtml(project.url)}" target="_blank" rel="${extRel()}" data-track="oss-click">${escapeHtml(project.name)}</a>${badge}</h4>
       <p class="oss-repo">${escapeHtml(project.repo)}${project.language ? ` · ${escapeHtml(project.language)}` : ''}</p>
       <p class="oss-summary">${escapeHtml(project.description || '')}</p>
-      <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" class="oss-read" data-track="oss-read">查看仓库 →</a>
+      <a href="${escapeHtml(project.url)}" target="_blank" rel="${extRel()}" class="oss-read" data-track="oss-read">查看仓库 →</a>
     </article>
   `;
 }
 
 function fetchOssData() {
   if (!ossDataPromise) {
-    ossDataPromise = fetch(OSS_DATA_URL, { cache: 'default' })
-      .then((res) => {
-        if (!res.ok) throw new Error('无法加载开源项目数据');
-        return res.json();
-      })
-      .catch((err) => {
-        ossDataPromise = null;
-        throw err;
-      });
+    if (!window.BioAI?.fetchJson) {
+      return Promise.reject(new Error('加载器未就绪，请稍后重试'));
+    }
+    ossDataPromise = window.BioAI.fetchJson(OSS_JSON, { label: '开源精选' });
   }
   return ossDataPromise;
+}
+
+function resetOssFetch() {
+  window.BioAI?.invalidateFetch?.(OSS_JSON);
+  ossDataPromise = null;
 }
 
 function flattenProjects(data) {
@@ -192,7 +191,13 @@ async function loadOssSection() {
     bindOssToolbar(data);
     if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
   } catch (err) {
-    root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    root.innerHTML = window.BioAI?.renderErrorBlock
+      ? window.BioAI.renderErrorBlock(err.message || '加载失败')
+      : `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    window.BioAI?.bindRetry?.(root, () => {
+      resetOssFetch();
+      loadOssSection();
+    });
   }
 }
 
