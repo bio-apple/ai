@@ -27,10 +27,10 @@ export function syncHeadersCsp(headersPath = path.join(ROOT, '_headers')) {
   const csp = buildCspPolicy();
   const line = `  Content-Security-Policy: ${csp}`;
   const raw = fs.readFileSync(headersPath, 'utf8');
-  if (!/^  Content-Security-Policy:/m.test(raw)) {
+  if (!/^ {2}Content-Security-Policy:/m.test(raw)) {
     throw new Error('_headers 中未找到 Content-Security-Policy 行');
   }
-  const next = raw.replace(/^  Content-Security-Policy:.*$/m, line);
+  const next = raw.replace(/^ {2}Content-Security-Policy:.*$/m, line);
   if (next !== raw) {
     fs.writeFileSync(headersPath, next, 'utf8');
   }
