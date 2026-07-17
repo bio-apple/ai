@@ -117,7 +117,7 @@ function buildSearchIndex(site, tools, cases, compares, promptsPayload) {
     type: '频道',
     section: 'section-oss',
     keywords:
-      '开源 GitHub Stars Agent AI编程 OpenHands Aider Continue Dify LangChain Ollama vLLM Open WebUI 本地大模型 AI绘画 多模态 Prompt库',
+      '开源 GitHub Stars AI应用 Agent AI编程 OpenCode Claude Code OpenHands Dify LangChain n8n Ollama vLLM Open WebUI 本地大模型 AI绘画 多模态 Prompt库 每周一',
   });
   items.push({
     label: '实战案例库',
@@ -395,7 +395,7 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
     fs.copyFileSync(ossSrc, path.join(outDir, 'oss-projects.json'));
   }
 
-  // GitHub Prompt 库 Top 5：优先独立文件，否则从 OSS 领域推导
+  // GitHub Prompt 库：优先独立文件，否则从 OSS 领域推导（≥5万 · Top10）
   const promptLibsSrc = path.join(DATA, 'prompt-libraries.json');
   if (fs.existsSync(promptLibsSrc)) {
     fs.copyFileSync(promptLibsSrc, path.join(outDir, 'prompt-libraries.json'));
@@ -405,13 +405,13 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
     if (domain) {
       const libraries = [...(domain.projects || [])]
         .sort((a, b) => (b.stars || 0) - (a.stars || 0))
-        .slice(0, 5)
+        .slice(0, 10)
         .map((p, i) => ({ ...p, rank: i + 1 }));
       writeOut(outDir, 'prompt-libraries.json', {
         updated_at: oss.updated_at,
-        title: 'GitHub Prompt 库 Top 5',
-        lead: '按 GitHub Stars 排序的 Prompt / 提示工程开源库 Top 5。',
-        source_note: '排名按 Star 数；随每周 OSS 刷新更新。',
+        title: 'GitHub Prompt 库 Top 10',
+        lead: '按 GitHub Stars 排序的 Prompt / 提示工程开源库（≥5万，最多 10 个）。',
+        source_note: '筛选：Stars ≥ 50000，每类最多 10；每周一随 OSS 重刷更新。',
         libraries,
       });
     }

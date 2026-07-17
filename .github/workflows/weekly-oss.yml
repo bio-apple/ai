@@ -26,7 +26,7 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Refresh GitHub Stars for OSS projects
+      - name: Recollect OSS by AI app (≥50k Stars, Top 10 / app)
         id: fetch
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -38,14 +38,14 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/oss-projects.json oss-projects.json
+          git add data/oss-projects.json oss-projects.json data/prompt-libraries.json
           if git diff --staged --quiet; then
-            echo "No OSS star updates this week"
+            echo "No OSS updates this week"
             echo "pushed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
-          git commit -m "chore: weekly OSS stars $DATE"
+          git commit -m "chore: weekly OSS recollect $DATE (≥50k · Top10/app)"
           git push
           echo "pushed=true" >> "$GITHUB_OUTPUT"
 
@@ -69,7 +69,7 @@ jobs:
           script: |
             const title = '[ops] Weekly OSS stars fetch failed';
             const body = [
-              '每周开源 Star 刷新失败。',
+              '每周一开源精选重刷失败（按 AI 应用分类 · ≥5万 Stars · 每类 Top 10）。',
               '',
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
               '',

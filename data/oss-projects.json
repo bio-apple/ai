@@ -1,12 +1,18 @@
 {
   "updated_at": "2026-07-17",
   "title": "GitHub Stars 开源精选",
-  "lead": "按 AI 应用领域筛选 GitHub 高星开源项目，覆盖 Agent、AI 编程、应用搭建与本地部署等，每周更新 Star 数。",
+  "lead": "按 AI 应用分类精选 GitHub 高星开源项目（每项 ≥5万 Stars，每类最多 10 个），每周一重新收集。",
+  "schema_version": 1,
+  "rules": {
+    "min_stars": 50000,
+    "top_n_per_app": 10,
+    "refresh": "每周一"
+  },
   "domains": [
     {
       "id": "ai-agent",
       "label": "AI Agent",
-      "description": "自主规划、工具调用与多步任务编排",
+      "description": "自主规划、多代理协作与 Agent 记忆/工具编排",
       "projects": [
         {
           "id": "autogpt",
@@ -18,13 +24,31 @@
           "language": "Python"
         },
         {
+          "id": "tradingagents",
+          "repo": "TauricResearch/TradingAgents",
+          "name": "TradingAgents",
+          "description": "多智能体 LLM 金融交易框架。",
+          "stars": 93348,
+          "url": "https://github.com/TauricResearch/TradingAgents",
+          "language": "Python"
+        },
+        {
           "id": "metagpt",
           "repo": "FoundationAgents/MetaGPT",
           "name": "MetaGPT",
           "description": "多智能体「软件公司」框架，从需求到代码协作生成。",
-          "stars": 69406,
+          "stars": 69407,
           "url": "https://github.com/FoundationAgents/MetaGPT",
           "language": "Python"
+        },
+        {
+          "id": "mem0",
+          "repo": "mem0ai/mem0",
+          "name": "Mem0",
+          "description": "面向 AI Agent 的通用记忆层。",
+          "stars": 61016,
+          "url": "https://github.com/mem0ai/mem0",
+          "language": "TypeScript"
         },
         {
           "id": "autogen",
@@ -40,17 +64,8 @@
           "repo": "crewAIInc/crewAI",
           "name": "crewAI",
           "description": "多 Agent 协作框架，适合角色分工与任务流水线。",
-          "stars": 55658,
+          "stars": 55661,
           "url": "https://github.com/crewAIInc/crewAI",
-          "language": "Python"
-        },
-        {
-          "id": "langgraph",
-          "repo": "langchain-ai/langgraph",
-          "name": "LangGraph",
-          "description": "低层级 Agent 编排框架，支持有状态、可循环的多步工作流。",
-          "stars": 37457,
-          "url": "https://github.com/langchain-ai/langgraph",
           "language": "Python"
         }
       ]
@@ -61,11 +76,29 @@
       "description": "终端/IDE 编程助手与自主改码 Agent",
       "projects": [
         {
+          "id": "opencode",
+          "repo": "anomalyco/opencode",
+          "name": "OpenCode",
+          "description": "开源 coding agent，面向仓库级自主开发。",
+          "stars": 186621,
+          "url": "https://github.com/anomalyco/opencode",
+          "language": "TypeScript"
+        },
+        {
+          "id": "claude-code",
+          "repo": "anthropics/claude-code",
+          "name": "Claude Code",
+          "description": "Anthropic 终端编程 Agent，可读写代码与运行命令。",
+          "stars": 138018,
+          "url": "https://github.com/anthropics/claude-code",
+          "language": "Python"
+        },
+        {
           "id": "openhands",
           "repo": "OpenHands/OpenHands",
           "name": "OpenHands",
           "description": "开源 AI 驱动开发 Agent，可读写代码、运行命令并完成任务。",
-          "stars": 81033,
+          "stars": 81036,
           "url": "https://github.com/OpenHands/OpenHands",
           "language": "Python"
         },
@@ -77,47 +110,38 @@
           "stars": 64728,
           "url": "https://github.com/cline/cline",
           "language": "TypeScript"
-        },
-        {
-          "id": "aider",
-          "repo": "Aider-AI/aider",
-          "name": "Aider",
-          "description": "终端里的 AI pair programming，直接在 Git 仓库中改代码。",
-          "stars": 47440,
-          "url": "https://github.com/Aider-AI/aider",
-          "language": "Python"
-        },
-        {
-          "id": "continue",
-          "repo": "continuedev/continue",
-          "name": "Continue",
-          "description": "开源 IDE 编程助手，可接入自有模型与本地推理。",
-          "stars": 34920,
-          "url": "https://github.com/continuedev/continue",
-          "language": "TypeScript"
-        },
-        {
-          "id": "tabby",
-          "repo": "TabbyML/tabby",
-          "name": "Tabby",
-          "description": "可自托管的 AI 编码助手，适合团队内网部署。",
-          "stars": 33710,
-          "url": "https://github.com/TabbyML/tabby",
-          "language": "Rust"
         }
       ]
     },
     {
       "id": "llm-apps",
       "label": "LLM 应用开发",
-      "description": "RAG、工作流与可视化 LLM 应用搭建",
+      "description": "RAG、工作流与可视化 LLM / Agent 应用搭建",
       "projects": [
+        {
+          "id": "n8n",
+          "repo": "n8n-io/n8n",
+          "name": "n8n",
+          "description": "工作流自动化平台，原生支持 AI 节点与 Agent 编排。",
+          "stars": 196733,
+          "url": "https://github.com/n8n-io/n8n",
+          "language": "TypeScript"
+        },
+        {
+          "id": "langflow",
+          "repo": "langflow-ai/langflow",
+          "name": "Langflow",
+          "description": "可视化构建 LLM / Agent 应用的开源工具。",
+          "stars": 151923,
+          "url": "https://github.com/langflow-ai/langflow",
+          "language": "Python"
+        },
         {
           "id": "dify",
           "repo": "langgenius/dify",
           "name": "Dify",
           "description": "开源 LLM 应用开发平台，支持 RAG、Agent 与工作流编排。",
-          "stars": 149095,
+          "stars": 149100,
           "url": "https://github.com/langgenius/dify",
           "language": "TypeScript"
         },
@@ -126,36 +150,63 @@
           "repo": "langchain-ai/langchain",
           "name": "LangChain",
           "description": "主流 LLM 应用编排框架，覆盖 Agent、工具调用与链式组合。",
-          "stars": 141935,
+          "stars": 141937,
           "url": "https://github.com/langchain-ai/langchain",
           "language": "Python"
+        },
+        {
+          "id": "awesome-llm-apps",
+          "repo": "Shubhamsaboo/awesome-llm-apps",
+          "name": "Awesome LLM Apps",
+          "description": "可运行的 AI Agent / RAG 应用合集，便于克隆实践。",
+          "stars": 123022,
+          "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
+          "language": "Python"
+        },
+        {
+          "id": "nextchat",
+          "repo": "ChatGPTNextWeb/NextChat",
+          "name": "NextChat",
+          "description": "轻量跨端 AI 助手前端，支持 Web / iOS / macOS 等。",
+          "stars": 88481,
+          "url": "https://github.com/ChatGPTNextWeb/NextChat",
+          "language": "TypeScript"
+        },
+        {
+          "id": "ragflow",
+          "repo": "infiniflow/ragflow",
+          "name": "RAGFlow",
+          "description": "面向生产的开源 RAG 引擎与知识库问答平台。",
+          "stars": 85242,
+          "url": "https://github.com/infiniflow/ragflow",
+          "language": "Go"
+        },
+        {
+          "id": "lobehub",
+          "repo": "lobehub/lobehub",
+          "name": "LobeHub",
+          "description": "Agent 运营与多助手工作区，组织你的 AI 工具矩阵。",
+          "stars": 80230,
+          "url": "https://github.com/lobehub/lobehub",
+          "language": "TypeScript"
         },
         {
           "id": "anything-llm",
           "repo": "Mintplex-Labs/anything-llm",
           "name": "AnythingLLM",
-          "description": "一站式私有知识库与多用户 LLM 工作区，支持本地与云端模型。",
-          "stars": 63413,
+          "description": "一站式私有知识库与多用户 LLM 工作区。",
+          "stars": 63415,
           "url": "https://github.com/Mintplex-Labs/anything-llm",
           "language": "JavaScript"
         },
         {
-          "id": "llamaindex",
-          "repo": "run-llama/llama_index",
-          "name": "LlamaIndex",
-          "description": "数据连接与 RAG 框架，快速构建知识库问答应用。",
-          "stars": 50893,
-          "url": "https://github.com/run-llama/llama_index",
-          "language": "Python"
-        },
-        {
-          "id": "langchain-chatchat",
-          "repo": "chatchat-space/Langchain-Chatchat",
-          "name": "Langchain-Chatchat",
-          "description": "中文场景 RAG 知识库方案，基于 Langchain 与开源模型。",
-          "stars": 38432,
-          "url": "https://github.com/chatchat-space/Langchain-Chatchat",
-          "language": "Python"
+          "id": "flowise",
+          "repo": "FlowiseAI/Flowise",
+          "name": "Flowise",
+          "description": "可视化拖拽构建 AI Agent 与 LLM 流程。",
+          "stars": 54679,
+          "url": "https://github.com/FlowiseAI/Flowise",
+          "language": "TypeScript"
         }
       ]
     },
@@ -169,7 +220,7 @@
           "repo": "ollama/ollama",
           "name": "Ollama",
           "description": "一键在本地运行 Llama、Qwen、DeepSeek 等开源模型。",
-          "stars": 176283,
+          "stars": 176284,
           "url": "https://github.com/ollama/ollama",
           "language": "Go"
         },
@@ -178,7 +229,7 @@
           "repo": "open-webui/open-webui",
           "name": "Open WebUI",
           "description": "友好的本地/私有模型聊天界面，兼容 Ollama 与 OpenAI API。",
-          "stars": 145683,
+          "stars": 145689,
           "url": "https://github.com/open-webui/open-webui",
           "language": "Python"
         },
@@ -196,7 +247,7 @@
           "repo": "vllm-project/vllm",
           "name": "vLLM",
           "description": "高吞吐推理与服务引擎，适合本地/集群部署开源大模型。",
-          "stars": 86459,
+          "stars": 86461,
           "url": "https://github.com/vllm-project/vllm",
           "language": "Python"
         }
@@ -205,24 +256,42 @@
     {
       "id": "ai-art",
       "label": "AI 绘画",
-      "description": "Stable Diffusion 工作流与图像生成",
+      "description": "图像生成、扩散模型与创作工作流",
       "projects": [
         {
           "id": "sd-webui",
           "repo": "AUTOMATIC1111/stable-diffusion-webui",
           "name": "Stable Diffusion WebUI",
           "description": "最流行的 SD 图形界面，插件生态丰富。",
-          "stars": 164188,
+          "stars": 164189,
           "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
           "language": "Python"
         },
         {
           "id": "comfyui",
-          "repo": "comfyanonymous/ComfyUI",
+          "repo": "Comfy-Org/ComfyUI",
           "name": "ComfyUI",
-          "description": "节点式 Stable Diffusion 工作流，灵活组合 ControlNet 与 LoRA。",
-          "stars": 121051,
+          "description": "节点式扩散模型工作流，灵活组合 ControlNet 与 LoRA。",
+          "stars": 121053,
           "url": "https://github.com/Comfy-Org/ComfyUI",
+          "language": "Python"
+        },
+        {
+          "id": "stable-diffusion",
+          "repo": "CompVis/stable-diffusion",
+          "name": "Stable Diffusion",
+          "description": "潜空间文生图扩散模型原版开源实现。",
+          "stars": 73195,
+          "url": "https://github.com/CompVis/stable-diffusion",
+          "language": "Jupyter Notebook"
+        },
+        {
+          "id": "fooocus",
+          "repo": "lllyasviel/Fooocus",
+          "name": "Fooocus",
+          "description": "专注提示词与出图体验的本地绘画工具。",
+          "stars": 50996,
+          "url": "https://github.com/lllyasviel/Fooocus",
           "language": "Python"
         }
       ]
@@ -230,49 +299,103 @@
     {
       "id": "multimodal",
       "label": "多模态",
-      "description": "视觉-语言理解与跨模态推理",
+      "description": "视觉-语言、语音识别与跨模态感知",
       "projects": [
         {
-          "id": "transformers-vision",
+          "id": "transformers",
           "repo": "huggingface/transformers",
           "name": "Transformers",
-          "description": "Hugging Face 多模态模型库，覆盖 VLM、ASR 与视觉任务。",
-          "stars": 162667,
+          "description": "Hugging Face 模型定义框架，覆盖 VLM、ASR 与多模态任务。",
+          "stars": 162668,
           "url": "https://github.com/huggingface/transformers",
           "language": "Python"
         },
         {
-          "id": "llava",
-          "repo": "haotian-liu/LLaVA",
-          "name": "LLaVA",
-          "description": "视觉指令微调大模型，图像理解与对话问答。",
-          "stars": 24927,
-          "url": "https://github.com/haotian-liu/LLaVA",
+          "id": "whisper",
+          "repo": "openai/whisper",
+          "name": "Whisper",
+          "description": "OpenAI 开源语音识别模型，多语言转写强项。",
+          "stars": 105092,
+          "url": "https://github.com/openai/whisper",
           "language": "Python"
+        },
+        {
+          "id": "paddleocr",
+          "repo": "PaddlePaddle/PaddleOCR",
+          "name": "PaddleOCR",
+          "description": "文档/图片 OCR 与结构化抽取，服务多模态文档理解。",
+          "stars": 85653,
+          "url": "https://github.com/PaddlePaddle/PaddleOCR",
+          "language": "Python"
+        },
+        {
+          "id": "ultralytics",
+          "repo": "ultralytics/ultralytics",
+          "name": "Ultralytics YOLO",
+          "description": "YOLO 系列目标检测、分割与姿态估计工具箱。",
+          "stars": 59568,
+          "url": "https://github.com/ultralytics/ultralytics",
+          "language": "Python"
+        },
+        {
+          "id": "yolov5",
+          "repo": "ultralytics/yolov5",
+          "name": "YOLOv5",
+          "description": "经典实时目标检测实现，工业视觉常用基线。",
+          "stars": 57690,
+          "url": "https://github.com/ultralytics/yolov5",
+          "language": "Python"
+        },
+        {
+          "id": "segment-anything",
+          "repo": "facebookresearch/segment-anything",
+          "name": "Segment Anything",
+          "description": "Meta 通用图像分割模型（SAM）。",
+          "stars": 54555,
+          "url": "https://github.com/facebookresearch/segment-anything",
+          "language": "Jupyter Notebook"
         }
       ]
     },
     {
       "id": "ml-framework",
       "label": "机器学习框架",
-      "description": "深度学习训练与推理基础设施",
+      "description": "深度学习训练与机器学习基础设施",
       "projects": [
+        {
+          "id": "tensorflow",
+          "repo": "tensorflow/tensorflow",
+          "name": "TensorFlow",
+          "description": "端到端机器学习平台，覆盖训练与部署。",
+          "stars": 196318,
+          "url": "https://github.com/tensorflow/tensorflow",
+          "language": "C++"
+        },
         {
           "id": "pytorch",
           "repo": "pytorch/pytorch",
           "name": "PyTorch",
           "description": "主流深度学习框架，研究与生产部署首选。",
-          "stars": 101715,
+          "stars": 101716,
           "url": "https://github.com/pytorch/pytorch",
           "language": "Python"
         },
         {
-          "id": "jax",
-          "repo": "google/jax",
-          "name": "JAX",
-          "description": "Google 高性能数值计算与自动微分框架。",
-          "stars": 36007,
-          "url": "https://github.com/jax-ml/jax",
+          "id": "scikit-learn",
+          "repo": "scikit-learn/scikit-learn",
+          "name": "scikit-learn",
+          "description": "经典机器学习库，覆盖分类、回归与聚类等算法。",
+          "stars": 66704,
+          "url": "https://github.com/scikit-learn/scikit-learn",
+          "language": "Python"
+        },
+        {
+          "id": "keras",
+          "repo": "keras-team/keras",
+          "name": "Keras",
+          "description": "高阶深度学习 API，降低模型搭建门槛。",
+          "stars": 64169,
+          "url": "https://github.com/keras-team/keras",
           "language": "Python"
         }
       ]
@@ -280,14 +403,23 @@
     {
       "id": "prompt-libs",
       "label": "Prompt 库",
-      "description": "按 GitHub Stars 精选 Top 5",
+      "description": "按 Stars 精选的 Prompt / 提示工程开源资源（Top 10）",
       "projects": [
+        {
+          "id": "superpowers",
+          "repo": "obra/superpowers",
+          "name": "Superpowers",
+          "description": "Agent 技能框架与软件开发方法论提示词体系。",
+          "stars": 256068,
+          "url": "https://github.com/obra/superpowers",
+          "language": "Shell"
+        },
         {
           "id": "prompts-chat",
           "repo": "f/prompts.chat",
           "name": "prompts.chat",
           "description": "原 Awesome ChatGPT Prompts，全球最大开源 Prompt 社区库。",
-          "stars": 165868,
+          "stars": 165867,
           "url": "https://github.com/f/prompts.chat",
           "language": "HTML"
         },
@@ -305,7 +437,7 @@
           "repo": "dair-ai/Prompt-Engineering-Guide",
           "name": "Prompt Engineering Guide",
           "description": "提示工程指南：论文、课程、笔记与实践资源。",
-          "stars": 76610,
+          "stars": 76614,
           "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
           "language": "MDX"
         },
@@ -323,12 +455,20 @@
           "repo": "PlexPt/awesome-chatgpt-prompts-zh",
           "name": "ChatGPT 中文调教指南",
           "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
-          "stars": 60994,
+          "stars": 60995,
           "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
           "language": ""
+        },
+        {
+          "id": "system-prompts-leaks",
+          "repo": "asgeirtj/system_prompts_leaks",
+          "name": "system_prompts_leaks",
+          "description": "各大模型与产品系统提示词摘录，持续更新。",
+          "stars": 58404,
+          "url": "https://github.com/asgeirtj/system_prompts_leaks",
+          "language": "JavaScript"
         }
       ]
     }
-  ],
-  "schema_version": 1
+  ]
 }

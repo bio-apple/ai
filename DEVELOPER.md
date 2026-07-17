@@ -15,7 +15,7 @@ dist/                 # 构建产物（不提交）
 
 关键数据：`site.json` · `tools.json` · `tool-relations.json` · `engagement.json` · `rankings.json` · `hub-official.json` · `prompt-libraries.json`  
 运行时 JSON（根目录，定时任务写入）：`daily-videos.json` · `ai-news.json` · `oss-projects.json`  
-Prompt / 搜索索引等由 `scripts/build-artifacts.mjs` 从实战案例生成；Prompt 库 Top 5 随 `fetch_oss_stars.py` 刷新。
+Prompt / 搜索索引等由 `scripts/build-artifacts.mjs` 从实战案例生成；开源精选 / Prompt 库由 `fetch_oss_stars.py` 按 AI 应用重刷（≥5万 Stars，每类 Top 10，每周一）。
 
 ## 本地
 
