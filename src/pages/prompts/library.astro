@@ -9,10 +9,10 @@ const page = site.prompts_page;
 const base = site.meta.base_url;
 const schema = buildPageSchema(page.title, page.lead, `${base}prompts/library.html`);
 const home = homeHref();
-const roles = promptLibraries.roles || [];
-const libs = [...(promptLibraries.libraries || [])].sort(
-  (a, b) => (a.rank || 99) - (b.rank || 99) || (b.stars || 0) - (a.stars || 0),
-);
+const libs = [...(promptLibraries.libraries || [])]
+  .sort((a, b) => (b.stars || 0) - (a.stars || 0))
+  .slice(0, 5)
+  .map((lib, i) => ({ ...lib, rank: i + 1 }));
 
 function formatStars(n: number) {
   if (!n) return '—';
@@ -34,100 +34,43 @@ function formatStars(n: number) {
     <nav class="breadcrumb"><a href={home}>首页</a> / Prompt 库</nav>
 
     <div class="standalone-hero">
-      <p class="section-kicker">GitHub Stars · 按应用 · ≥3万</p>
+      <p class="section-kicker">GitHub Stars · Top 5</p>
       <h1>{page.h1}</h1>
       <p class="standalone-lead">{page.lead}</p>
-      <p class="library-meta">
-        {libs.length} 个开源库 · {roles.length} 类应用 · 更新 {promptLibraries.updated_at}
-      </p>
+      <p class="library-meta">按 Star 数排序 · 更新 {promptLibraries.updated_at}</p>
     </div>
 
-    <div
-      class="library-toolbar prompt-role-toolbar"
-      id="prompt-role-toolbar"
-      role="tablist"
-      aria-label="按应用筛选"
-    >
-      <button
-        type="button"
-        class="library-filter active"
-        data-prompt-role="all"
-        role="tab"
-        aria-selected="true">全部应用</button
-      >
+    <ol class="prompt-libs-top5">
       {
-        roles.map((role) => (
-          <button
-            type="button"
-            class="library-filter"
-            data-prompt-role={role.id}
-            role="tab"
-            aria-selected="false"
-          >
-            {role.label}
-          </button>
+        libs.map((lib) => (
+          <li class="prompt-lib-card">
+            <div class="prompt-lib-card-top">
+              <span class="prompt-lib-rank">#{lib.rank}</span>
+              <span class="prompt-libs-stars">★ {formatStars(lib.stars)}</span>
+            </div>
+            <h2 class="prompt-lib-card-name">
+              <a href={lib.url} target="_blank" rel="noopener" data-track={`prompt-lib-${lib.id}`}>
+                {lib.name}
+              </a>
+            </h2>
+            <p class="prompt-libs-repo">
+              {lib.repo}
+              {lib.language ? ` · ${lib.language}` : ''}
+            </p>
+            <p class="prompt-libs-desc">{lib.description}</p>
+            <a
+              href={lib.url}
+              target="_blank"
+              rel="noopener"
+              class="prompt-lib-cta"
+              data-track={`prompt-lib-open-${lib.id}`}
+            >
+              打开仓库 →
+            </a>
+          </li>
         ))
       }
-    </div>
-
-    <div class="prompt-role-panels">
-      {
-        roles.map((role) => {
-          const items = libs
-            .filter((lib) => lib.role === role.id)
-            .sort((a, b) => (b.stars || 0) - (a.stars || 0));
-          if (!items.length) return null;
-          return (
-            <section
-              class="prompt-role-block"
-              data-prompt-role-panel={role.id}
-              aria-labelledby={`role-${role.id}`}
-            >
-              <header class="prompt-role-head">
-                <h2 class="prompt-role-title" id={`role-${role.id}`}>
-                  {role.label}
-                </h2>
-                <p class="prompt-role-blurb">{role.blurb}</p>
-              </header>
-              <div class="prompt-libs-grid">
-                {items.map((lib) => (
-                  <article class="prompt-lib-card">
-                    <div class="prompt-lib-card-top">
-                      <span class="prompt-lib-rank">#{lib.rank}</span>
-                      <span class="prompt-libs-stars">★ {formatStars(lib.stars)}</span>
-                    </div>
-                    <h3 class="prompt-lib-card-name">
-                      <a
-                        href={lib.url}
-                        target="_blank"
-                        rel="noopener"
-                        data-track={`prompt-lib-${lib.id}`}
-                      >
-                        {lib.name}
-                      </a>
-                    </h3>
-                    <p class="prompt-libs-repo">
-                      {lib.repo}
-                      {lib.language ? ` · ${lib.language}` : ''}
-                    </p>
-                    <p class="prompt-libs-desc">{lib.description}</p>
-                    <a
-                      href={lib.url}
-                      target="_blank"
-                      rel="noopener"
-                      class="prompt-lib-cta"
-                      data-track={`prompt-lib-open-${lib.id}`}
-                    >
-                      打开仓库 →
-                    </a>
-                  </article>
-                ))}
-              </div>
-            </section>
-          );
-        })
-      }
-    </div>
+    </ol>
 
     <p class="library-attribution">
       {promptLibraries.source_note} 数据来自各仓库 GitHub 公开 Stars，本站仅作导航摘录。
@@ -138,30 +81,4 @@ function formatStars(n: number) {
       <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">AI 工具中心</a>
     </div>
   </main>
-
-  <script is:inline>
-    (function () {
-      const toolbar = document.getElementById('prompt-role-toolbar');
-      if (!toolbar) return;
-      const buttons = toolbar.querySelectorAll('[data-prompt-role]');
-      const blocks = document.querySelectorAll('[data-prompt-role-panel]');
-      function activate(role) {
-        buttons.forEach((btn) => {
-          const on = btn.getAttribute('data-prompt-role') === role;
-          btn.classList.toggle('active', on);
-          btn.setAttribute('aria-selected', on ? 'true' : 'false');
-        });
-        blocks.forEach((block) => {
-          const id = block.getAttribute('data-prompt-role-panel');
-          block.hidden = role !== 'all' && id !== role;
-        });
-      }
-      buttons.forEach((btn) => {
-        btn.addEventListener('click', () =>
-          activate(btn.getAttribute('data-prompt-role') || 'all'),
-        );
-      });
-      activate('all');
-    })();
-  </script>
 </StandaloneLayout>

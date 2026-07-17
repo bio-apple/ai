@@ -1,48 +1,14 @@
 {
   "updated_at": "2026-07-17",
-  "title": "GitHub Prompt 库精选",
-  "lead": "按应用分类浏览高星 Prompt 开源库（≥3万 Stars），从 WEB 开发起步。",
-  "source_note": "筛选：Stars ≥ 3万，总数 ≤ 15；按应用分类，随 OSS 刷新更新。",
-  "roles": [
-    {
-      "id": "web-dev",
-      "label": "WEB 开发",
-      "blurb": "提示词优化工具与可复用 Pattern，服务前端/全栈工作流。"
-    },
-    {
-      "id": "ai-coding",
-      "label": "AI 编程",
-      "blurb": "编程助手、GPTs 与规格驱动开发相关 Prompt。"
-    },
-    {
-      "id": "pe-learning",
-      "label": "提示工程",
-      "blurb": "系统学习 Prompt Engineering 的指南与官方教程。"
-    },
-    {
-      "id": "general-roles",
-      "label": "通用角色",
-      "blurb": "跨场景角色扮演与社区精选提示词。"
-    },
-    {
-      "id": "zh-scenes",
-      "label": "中文场景",
-      "blurb": "中文写作、办公与调教场景 Prompt。"
-    },
-    {
-      "id": "system-prompts",
-      "label": "系统提示词",
-      "blurb": "主流模型与产品系统提示词摘录，便于研究对照。"
-    }
-  ],
+  "title": "GitHub Prompt 库 Top 5",
+  "lead": "按 GitHub Stars 排序的 Prompt / 提示工程开源库 Top 5。",
+  "source_note": "排名按 Star 数；随每周 OSS 刷新更新。",
   "libraries": [
     {
       "id": "prompts-chat",
       "repo": "f/prompts.chat",
       "name": "prompts.chat",
       "description": "原 Awesome ChatGPT Prompts，全球最大开源 Prompt 社区库。",
-      "app": "general-roles",
-      "role": "general-roles",
       "stars": 165868,
       "url": "https://github.com/f/prompts.chat",
       "language": "HTML",
@@ -53,8 +19,6 @@
       "repo": "x1xhlol/system-prompts-and-models-of-ai-tools",
       "name": "System Prompts of AI Tools",
       "description": "Cursor、Claude Code、Devin 等主流 AI 工具系统提示词合集。",
-      "app": "ai-coding",
-      "role": "ai-coding",
       "stars": 141986,
       "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
       "language": "",
@@ -65,8 +29,6 @@
       "repo": "dair-ai/Prompt-Engineering-Guide",
       "name": "Prompt Engineering Guide",
       "description": "提示工程指南：论文、课程、笔记与实践资源。",
-      "app": "pe-learning",
-      "role": "pe-learning",
       "stars": 76610,
       "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
       "language": "MDX",
@@ -77,8 +39,6 @@
       "repo": "gsd-build/get-shit-done",
       "name": "Get Shit Done",
       "description": "轻量元提示与上下文工程框架，适合规格驱动开发。",
-      "app": "ai-coding",
-      "role": "ai-coding",
       "stars": 64759,
       "url": "https://github.com/gsd-build/get-shit-done",
       "language": "JavaScript",
@@ -89,84 +49,10 @@
       "repo": "PlexPt/awesome-chatgpt-prompts-zh",
       "name": "ChatGPT 中文调教指南",
       "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
-      "app": "zh-scenes",
-      "role": "zh-scenes",
       "stars": 60994,
       "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
       "language": "",
       "rank": 5
-    },
-    {
-      "id": "system-prompts-leaks",
-      "repo": "asgeirtj/system_prompts_leaks",
-      "name": "system_prompts_leaks",
-      "description": "各大模型与产品系统提示词摘录，持续更新。",
-      "app": "system-prompts",
-      "role": "system-prompts",
-      "stars": 58400,
-      "url": "https://github.com/asgeirtj/system_prompts_leaks",
-      "language": "JavaScript",
-      "rank": 6
-    },
-    {
-      "id": "cl4r1t4s",
-      "repo": "elder-plinius/CL4R1T4S",
-      "name": "CL4R1T4S",
-      "description": "ChatGPT、Claude、Gemini、Cursor 等系统提示词泄露合集。",
-      "app": "system-prompts",
-      "role": "system-prompts",
-      "stars": 45657,
-      "url": "https://github.com/elder-plinius/CL4R1T4S",
-      "language": "",
-      "rank": 7
-    },
-    {
-      "id": "fabric",
-      "repo": "danielmiessler/Fabric",
-      "name": "Fabric",
-      "description": "开源 AI 增强框架，内置大量可复用 Prompt Patterns。",
-      "app": "web-dev",
-      "role": "web-dev",
-      "stars": 43106,
-      "url": "https://github.com/danielmiessler/Fabric",
-      "language": "Go",
-      "rank": 8
-    },
-    {
-      "id": "anthropic-pe-tutorial",
-      "repo": "anthropics/prompt-eng-interactive-tutorial",
-      "name": "Anthropic PE Tutorial",
-      "description": "Anthropic 官方交互式提示工程教程。",
-      "app": "pe-learning",
-      "role": "pe-learning",
-      "stars": 37089,
-      "url": "https://github.com/anthropics/prompt-eng-interactive-tutorial",
-      "language": "Jupyter Notebook",
-      "rank": 9
-    },
-    {
-      "id": "prompt-optimizer",
-      "repo": "linshenkx/prompt-optimizer",
-      "name": "Prompt Optimizer",
-      "description": "提示词优化 Web 应用，帮助写出更高质量的 Prompt。",
-      "app": "web-dev",
-      "role": "web-dev",
-      "stars": 32249,
-      "url": "https://github.com/linshenkx/prompt-optimizer",
-      "language": "TypeScript",
-      "rank": 10
-    },
-    {
-      "id": "gpts-prompts",
-      "repo": "linexjlin/GPTs",
-      "name": "GPTs Prompts",
-      "description": "GPTs / 自定义 GPT 提示词合集。",
-      "app": "ai-coding",
-      "role": "ai-coding",
-      "stars": 32001,
-      "url": "https://github.com/linexjlin/GPTs",
-      "language": "",
-      "rank": 11
     }
   ]
 }

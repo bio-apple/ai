@@ -112,7 +112,7 @@ def main() -> int:
 
 
 def sync_prompt_libraries(payload: dict) -> None:
-    """从 OSS 的 Prompt 库领域同步精选榜（≤15），并保留应用分类。"""
+    """从 OSS 的 Prompt 库领域同步 Stars Top 5。"""
     domain = next((d for d in payload.get("domains") or [] if d.get("id") == "prompt-libs"), None)
     if not domain:
         return
@@ -124,41 +124,16 @@ def sync_prompt_libraries(payload: dict) -> None:
         except Exception as err:
             print(f"warn: 无法读取既有 prompt-libraries.json: {err}", file=sys.stderr)
 
-    role_by_id = {
-        lib.get("id"): lib.get("app") or lib.get("role")
-        for lib in existing.get("libraries") or []
-        if lib.get("id") and (lib.get("app") or lib.get("role"))
-    }
-    role_by_repo = {
-        lib.get("repo"): lib.get("app") or lib.get("role")
-        for lib in existing.get("libraries") or []
-        if lib.get("repo") and (lib.get("app") or lib.get("role"))
-    }
-
     libs = sorted(domain.get("projects") or [], key=lambda p: -(p.get("stars") or 0))
     ranked = []
-    for i, project in enumerate(libs[:15], start=1):
-        item = {**project, "rank": i}
-        app = (
-            project.get("app")
-            or project.get("role")
-            or role_by_id.get(project.get("id"))
-            or role_by_repo.get(project.get("repo"))
-        )
-        if app:
-            item["app"] = app
-            item["role"] = app
-        ranked.append(item)
+    for i, project in enumerate(libs[:5], start=1):
+        ranked.append({**project, "rank": i})
 
-    roles = domain.get("apps") or existing.get("roles") or []
     out = {
         "updated_at": payload.get("updated_at"),
-        "title": existing.get("title") or "GitHub Prompt 库精选",
-        "lead": existing.get("lead")
-        or "按应用分类浏览高星 Prompt 开源库（≥3万 Stars），从 WEB 开发起步。",
-        "source_note": existing.get("source_note")
-        or "筛选：Stars ≥ 3万，总数 ≤ 15；按应用分类，随 OSS 刷新更新。",
-        "roles": roles,
+        "title": existing.get("title") or "GitHub Prompt 库 Top 5",
+        "lead": existing.get("lead") or "按 GitHub Stars 排序的 Prompt / 提示工程开源库 Top 5。",
+        "source_note": existing.get("source_note") or "排名按 Star 数；随每周 OSS 刷新更新。",
         "libraries": ranked,
     }
     PROMPT_LIBS_FILE.write_text(
