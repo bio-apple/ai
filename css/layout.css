@@ -434,6 +434,16 @@ header {
   border: 0;
 }
 
+/* 与 .nav / .home-main / .standalone-page 共用 1200px 版心 */
+.site-container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
 .home-main {
   max-width: 1200px;
   margin: 0 auto;

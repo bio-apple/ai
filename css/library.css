@@ -405,6 +405,16 @@
 
 .section-panel {
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px 80px;
+}
+
+/* 与顶栏 .nav（1200px + 24px）左缘对齐 */
+.section-panel,
+.home-main,
+.standalone-page {
+  box-sizing: border-box;
 }
 
 @media (max-width: 640px) {
