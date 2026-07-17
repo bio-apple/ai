@@ -1,31 +1,12 @@
-import { BRAND } from './data';
+/**
+ * 与 `src/lib/schema.ts` 的 JSON-LD 结构对齐（Node 侧无 TS/Astro 解析）。
+ */
+import assert from 'node:assert/strict';
+import test from 'node:test';
 
-export type BreadcrumbItem = { name: string; url: string };
+const BRAND = 'Bio AI Lab';
 
-export type ToolSchemaInput = {
-  name: string;
-  description: string;
-  id: string;
-  text_resources?: { type_class?: string; href?: string }[];
-};
-
-export type CourseSchemaItem = {
-  title: string;
-  url: string;
-  summary?: string;
-  platform?: string;
-  track?: string;
-  language?: string;
-  is_free?: boolean;
-};
-
-export type CoursesSchemaInput = {
-  title?: string;
-  lead?: string;
-  items: CourseSchemaItem[];
-};
-
-export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
+function buildBreadcrumbSchema(items) {
   return {
     '@type': 'BreadcrumbList',
     itemListElement: items.map((item, i) => ({
@@ -37,25 +18,21 @@ export function buildBreadcrumbSchema(items: BreadcrumbItem[]) {
   };
 }
 
-export function withBreadcrumbs<T extends Record<string, unknown>>(
-  schema: T,
-  breadcrumbs?: BreadcrumbItem[],
-) {
+function withBreadcrumbs(schema, breadcrumbs) {
   if (!breadcrumbs?.length) return schema;
   const crumb = buildBreadcrumbSchema(breadcrumbs);
   if (schema['@graph'] && Array.isArray(schema['@graph'])) {
     return { ...schema, '@graph': [...schema['@graph'], crumb] };
   }
-  const { '@context': ctx, ...rest } = schema as T & { '@context'?: string };
+  const { '@context': ctx, ...rest } = schema;
   return {
     '@context': ctx || 'https://schema.org',
     '@graph': [rest, crumb],
   };
 }
 
-/** 合并多个 @graph  schema（首页 WebSite + 课程 CollectionPage 等） */
-export function mergeSchemaGraphs(...schemas: Record<string, unknown>[]) {
-  const graph: unknown[] = [];
+function mergeSchemaGraphs(...schemas) {
+  const graph = [];
   let context = 'https://schema.org';
   for (const schema of schemas) {
     if (schema['@graph'] && Array.isArray(schema['@graph'])) {
@@ -70,36 +47,12 @@ export function mergeSchemaGraphs(...schemas: Record<string, unknown>[]) {
   return { '@context': context, '@graph': graph };
 }
 
-function toolOfficialUrl(tool: ToolSchemaInput): string | undefined {
+function toolOfficialUrl(tool) {
   const official = tool.text_resources?.find((r) => r.type_class === 'official' && r.href);
   return official?.href;
 }
 
-export function buildPageSchema(
-  title: string,
-  description: string,
-  url: string,
-  breadcrumbs?: BreadcrumbItem[],
-) {
-  return withBreadcrumbs(
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebPage',
-      name: title,
-      description,
-      url,
-      author: { '@type': 'Organization', name: BRAND },
-    },
-    breadcrumbs,
-  );
-}
-
-/** 工具独立页：WebPage + SoftwareApplication + LearningResource + BreadcrumbList */
-export function buildToolSchema(
-  tool: ToolSchemaInput,
-  baseUrl: string,
-  breadcrumbs?: BreadcrumbItem[],
-) {
+function buildToolSchema(tool, baseUrl, breadcrumbs) {
   const pageUrl = `${baseUrl}tools/${tool.id}.html`;
   const officialUrl = toolOfficialUrl(tool);
   const appId = `${pageUrl}#app`;
@@ -140,8 +93,7 @@ export function buildToolSchema(
   return withBreadcrumbs({ '@context': 'https://schema.org', '@graph': graph }, breadcrumbs);
 }
 
-/** 首页课程 Tab：CollectionPage + ItemList(Course) */
-export function buildCoursesSchema(courses: CoursesSchemaInput, baseUrl: string) {
+function buildCoursesSchema(courses, baseUrl) {
   const sectionUrl = `${baseUrl}#section-courses`;
   const title = courses.title || 'AI 课程资源';
   const description =
@@ -188,60 +140,54 @@ export function buildCoursesSchema(courses: CoursesSchemaInput, baseUrl: string)
   };
 }
 
-export function buildCompareSchema(
-  compare: { title: string; meta_description: string; slug: string },
-  baseUrl: string,
-  breadcrumbs?: BreadcrumbItem[],
-) {
-  return withBreadcrumbs(
+test('buildToolSchema includes SoftwareApplication and LearningResource', () => {
+  const schema = buildToolSchema(
     {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: compare.title,
-      description: compare.meta_description,
-      author: { '@type': 'Organization', name: BRAND },
-      mainEntityOfPage: `${baseUrl}compare/${compare.slug}.html`,
+      id: 'chatgpt',
+      name: 'ChatGPT',
+      description: 'OpenAI 通用助手',
+      text_resources: [{ type_class: 'official', href: 'https://chatgpt.com' }],
     },
-    breadcrumbs,
+    'https://bio-apple.github.io/ai/',
+    [{ name: '首页', url: 'https://bio-apple.github.io/ai/' }],
   );
-}
+  const types = schema['@graph'].map((n) => n['@type']);
+  assert.ok(types.includes('SoftwareApplication'));
+  assert.ok(types.includes('LearningResource'));
+  assert.ok(types.includes('WebPage'));
+  assert.ok(types.includes('BreadcrumbList'));
+  const app = schema['@graph'].find((n) => n['@type'] === 'SoftwareApplication');
+  assert.equal(app.url, 'https://chatgpt.com');
+});
 
-export function buildHomeSchema(site: {
-  meta: { canonical: string; description: string };
-  faq?: { question: string; answer: string }[];
-  rankings?: { name: string; dimension: string }[];
-}) {
-  const graph = [
+test('buildCoursesSchema emits Course ItemList', () => {
+  const schema = buildCoursesSchema(
     {
-      '@type': 'WebSite',
-      name: BRAND,
-      url: site.meta.canonical,
-      description: site.meta.description,
-      inLanguage: 'zh-CN',
-      potentialAction: {
-        '@type': 'SearchAction',
-        target: `${site.meta.canonical}?q={search_term_string}`,
-        'query-input': 'required name=search_term_string',
-      },
+      title: 'AI 课程资源',
+      lead: '免费课程合集',
+      items: [
+        {
+          title: 'ML 入门',
+          url: 'https://example.com/ml',
+          summary: '机器学习基础',
+          platform: 'Coursera',
+          track: '机器学习',
+          is_free: true,
+        },
+      ],
     },
-    {
-      '@type': 'FAQPage',
-      mainEntity: (site.faq || []).map((q) => ({
-        '@type': 'Question',
-        name: q.question,
-        acceptedAnswer: { '@type': 'Answer', text: q.answer },
-      })),
-    },
-    {
-      '@type': 'ItemList',
-      name: '2026 AI 工具排行榜（AICPB 五榜 Top 10）',
-      itemListElement: (site.rankings || []).map((row, i) => ({
-        '@type': 'ListItem',
-        position: i + 1,
-        name: row.name,
-        description: row.dimension,
-      })),
-    },
-  ];
-  return { '@context': 'https://schema.org', '@graph': graph };
-}
+    'https://bio-apple.github.io/ai/',
+  );
+  const page = schema['@graph'][0];
+  assert.equal(page['@type'], 'CollectionPage');
+  assert.equal(page.mainEntity.itemListElement.length, 1);
+  assert.equal(page.mainEntity.itemListElement[0].item['@type'], 'Course');
+});
+
+test('mergeSchemaGraphs combines home and courses', () => {
+  const merged = mergeSchemaGraphs(
+    { '@context': 'https://schema.org', '@graph': [{ '@type': 'WebSite' }] },
+    { '@context': 'https://schema.org', '@graph': [{ '@type': 'CollectionPage' }] },
+  );
+  assert.equal(merged['@graph'].length, 2);
+});

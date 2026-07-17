@@ -5,10 +5,14 @@ import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
 import HomeOps from '../components/HomeOps.astro';
 import { site } from '../lib/data';
-import { buildHomeSchema } from '../lib/schema';
+import { buildHomeSchema, buildCoursesSchema, mergeSchemaGraphs } from '../lib/schema';
 import { asset } from '../lib/paths';
+import coursesPayload from '../../ai-courses.json';
 
-const schema = buildHomeSchema(site);
+const schema = mergeSchemaGraphs(
+  buildHomeSchema(site),
+  buildCoursesSchema(coursesPayload, site.meta.canonical),
+);
 ---
 
 <HomeLayout

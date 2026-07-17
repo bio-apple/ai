@@ -4,20 +4,38 @@
 
 ## 已落地项
 
-| 编号    | 项          | 实现                                                           |
-| ------- | ----------- | -------------------------------------------------------------- |
-| SEO-001 | Title       | `data/site.json` → `meta.title`，各页经 `SeoHead.astro` 输出   |
-| SEO-002 | Description | `meta.description` + 各页独立 `description` prop               |
+| 编号    | 项          | 实现                                                                           |
+| ------- | ----------- | ------------------------------------------------------------------------------ |
+| SEO-001 | Title       | `data/site.json` → `meta.title`，各页经 `SeoHead.astro` 输出                   |
+| SEO-002 | Description | `meta.description` + 各页独立 `description` prop                               |
 | SEO-003 | Open Graph  | `SeoHead.astro`：og:title/description/image/url + Twitter Card + 微信 itemprop |
-| SEO-004 | Favicon     | 根目录 `favicon.svg` → `Favicon.astro`                         |
-| SEO-005 | robots.txt  | 根目录 `robots.txt`，构建时同步至 `dist/`                      |
-| SEO-006 | sitemap     | `@astrojs/sitemap` → `sitemap-index.xml`                       |
-| SEO-007 | GitHub Repo | 见下方维护者清单（需在 GitHub 设置）                           |
+| SEO-004 | Favicon     | 根目录 `favicon.svg` → `Favicon.astro`                                         |
+| SEO-005 | robots.txt  | 根目录 `robots.txt`，构建时同步至 `dist/`                                      |
+| SEO-006 | sitemap     | `@astrojs/sitemap` → `sitemap-index.xml`                                       |
+| SEO-007 | GitHub Repo | 见下方维护者清单（需在 GitHub 设置）                                           |
+| SEO-008 | JSON-LD     | `src/lib/schema.ts` → Layout 注入 `application/ld+json`                        |
+
+## JSON-LD 结构化数据（SEO-008）
+
+| 页面 | Schema 类型 | 说明 |
+| ---- | ----------- | ---- |
+| 首页 | `WebSite` + `FAQPage` + `ItemList` + `CollectionPage` | 全站 + 排行榜 FAQ；`#section-courses` 课程合集 |
+| 首页课程 Tab | `CollectionPage` → `ItemList` → `Course` | 构建时从 `ai-courses.json` 生成 |
+| 工具独立页 | `WebPage` + `SoftwareApplication` + `LearningResource` + `BreadcrumbList` | 官方链接取自 `text_resources` 中 `type_class=official` |
+| 对比 / 指南等 | `WebPage` / `Article` | 沿用 `buildPageSchema` / `buildCompareSchema` |
+
+注入位置：`HomeLayout.astro`、`StandaloneLayout.astro` 的 `<script type="application/ld+json">`。
+
+验收：
+
+- [Google Rich Results Test](https://search.google.com/test/rich-results) 或 [Schema Markup Validator](https://validator.schema.org/)
+- 本地：`npm run build && DIST=dist python3 scripts/validate_ci.py jsonld`
 
 ## 文件位置
 
 ```
 data/site.json          # 全站默认 TDK、OG 图
+src/lib/schema.ts       # JSON-LD 生成（工具 / 课程 / 首页）
 src/components/SeoHead.astro
 src/components/Favicon.astro
 favicon.svg
@@ -56,6 +74,7 @@ https://bio-apple.github.io/ai/
 - [ ] `https://bio-apple.github.io/ai/robots.txt` 可访问
 - [ ] `https://bio-apple.github.io/ai/sitemap-index.xml` 可访问
 - [ ] Lighthouse SEO ≥ 90（本地 `npm run build` 后测 `dist/index.html`）
+- [ ] 首页含 `Course` / `CollectionPage` JSON-LD；工具页含 `SoftwareApplication`（`validate_ci.py jsonld`）
 
 ## 禁止事项
 

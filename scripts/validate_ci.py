@@ -178,6 +178,51 @@ def validate_open_graph() -> None:
     print("✓ Open Graph / Twitter Card（首页 + 工具页）")
 
 
+def _json_ld_types(html: str) -> set[str]:
+    soup = BeautifulSoup(html, "html.parser")
+    types: set[str] = set()
+    for tag in soup.find_all("script", attrs={"type": "application/ld+json"}):
+        raw = (tag.string or tag.get_text() or "").strip()
+        if not raw:
+            continue
+        data = json.loads(raw)
+
+        def walk(node: object) -> None:
+            if isinstance(node, dict):
+                t = node.get("@type")
+                if isinstance(t, str):
+                    types.add(t)
+                elif isinstance(t, list):
+                    types.update(x for x in t if isinstance(x, str))
+                for value in node.values():
+                    walk(value)
+            elif isinstance(node, list):
+                for item in node:
+                    walk(item)
+
+        walk(data)
+    return types
+
+
+def validate_json_ld() -> None:
+    """确认关键页面含 JSON-LD 结构化数据（工具页 + 课程 CollectionPage）。"""
+    checks = [
+        (ROOT / "index.html", {"CollectionPage", "Course", "WebSite"}),
+        (ROOT / "tools" / "chatgpt.html", {"SoftwareApplication", "LearningResource", "WebPage"}),
+    ]
+    for path, required in checks:
+        if not path.exists():
+            raise FileNotFoundError(f"JSON-LD 校验缺少页面: {path.relative_to(ROOT)}")
+        html = path.read_text(encoding="utf-8")
+        found = _json_ld_types(html)
+        missing = required - found
+        if missing:
+            raise ValueError(
+                f"{path.name} JSON-LD 缺少 @type: {', '.join(sorted(missing))}（已有: {', '.join(sorted(found)) or '无'}）"
+            )
+    print("✓ JSON-LD 结构化数据（首页课程 + 工具页）")
+
+
 def _load_schema(name: str) -> dict:
     schema = json.loads((REPO / "schemas" / name).read_text(encoding="utf-8"))
     schema.pop("$schema", None)
@@ -516,6 +561,7 @@ STEPS = (
     ("recommend", validate_recommend_rules),
     ("sitemap", validate_sitemap_robots),
     ("opengraph", validate_open_graph),
+    ("jsonld", validate_json_ld),
     ("search", validate_search_index),
     ("analytics", validate_analytics_config),
     ("engagement", validate_engagement),
