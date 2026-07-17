@@ -4,20 +4,20 @@
   "updated_at": "2026-07-17",
   "cadence": "daily",
   "title": "2026 AI 工具排行榜（每日更新）",
-  "lead": "同步 AICPB 产品访问量榜、LMSYS Chatbot Arena Elo，以及 Artificial Analysis Intelligence Index；各榜展示 Top 10。",
+  "lead": "同步 AICPB、LMSYS Chatbot Arena Elo，以及 Artificial Analysis Intelligence Index；各榜展示 Top 10。",
   "methodology": [
-    "AICPB：引用官方产品榜 Website 访问量、排名与月环比。",
-    "LMSYS Chatbot Arena（Arena AI）：引用文本对战 Arena Elo 与投票数。",
-    "Artificial Analysis：引用公开榜单 Intelligence Index 与厂商信息。",
-    "展示：每个专题榜仅保留前 10 名；完整榜单请跳转原文。",
+    "AICPB：引用 Global AI Website 访问量、排名与月环比。",
+    "LMSYS Chatbot Arena Elo：引用文本对战 Arena Elo 与投票数。",
+    "Artificial Analysis Intelligence Index：引用公开榜单分数与厂商信息。",
+    "展示：仅上述三榜，各保留前 10 名；完整榜单请跳转原文。",
     "更新：每日同步；若某一源失败则整次抓取失败，保留仓库内上一版数据。"
   ],
   "boards": [
     {
-      "id": "global-ai",
-      "label": "Global AI",
-      "title": "AI产品榜 · Global AI · Website",
-      "subtitle": "根据 Website 访问量排名",
+      "id": "aicpb",
+      "label": "AICPB",
+      "title": "AICPB · Global AI · Website",
+      "subtitle": "Global AI · 根据 Website 访问量排名",
       "metric": "Website Visits",
       "month": "Jun 2026",
       "source_url": "https://www.aicpb.com/ai-rankings/products/global-ai-rankings/websites",
@@ -132,481 +132,9 @@
       ]
     },
     {
-      "id": "china-ai",
-      "label": "China AI",
-      "title": "AI产品榜 · China AI · Website",
-      "subtitle": "根据 Website 访问量排名",
-      "metric": "Website Visits",
-      "month": "Jun 2026",
-      "source_url": "https://www.aicpb.com/ai-rankings/products/china-ai-rankings/websites",
-      "source_name": "AICPB",
-      "columns": {
-        "name": "产品名",
-        "primary": "访问量",
-        "secondary": "月环比"
-      },
-      "show_bar": true,
-      "items": [
-        {
-          "rank": 1,
-          "name": "DeepSeek",
-          "description": "",
-          "visits": "483.80M",
-          "mom": "-10.59%",
-          "mom_bar_pct": 21.18,
-          "url": "https://www.aicpb.com/product/DeepSeek/webid1D6F374B1",
-          "source": "AICPB"
-        },
-        {
-          "rank": 2,
-          "name": "纳米AI搜索",
-          "description": "",
-          "visits": "180.29M",
-          "mom": "-8.84%",
-          "mom_bar_pct": 17.68,
-          "url": "https://www.aicpb.com/product/纳米AI搜索/webid1D6F374A1",
-          "source": "AICPB"
-        },
-        {
-          "rank": 3,
-          "name": "豆包｜抖音",
-          "description": "",
-          "visits": "152.87M",
-          "mom": "-6.58%",
-          "mom_bar_pct": 13.16,
-          "url": "https://www.aicpb.com/product/豆包｜抖音/webid1D6F37449",
-          "source": "AICPB"
-        },
-        {
-          "rank": 4,
-          "name": "纳米AI",
-          "description": "",
-          "visits": "151.92M",
-          "mom": "-2.62%",
-          "mom_bar_pct": 5.24,
-          "url": "https://www.aicpb.com/product/纳米AI/webid1D6F374D9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 5,
-          "name": "AI 搜索｜百度",
-          "description": "",
-          "visits": "44.85M",
-          "mom": "13.76%",
-          "mom_bar_pct": 27.52,
-          "url": "https://www.aicpb.com/product/AI-搜索｜百度/webid1D6F377D9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 6,
-          "name": "千问 qianwen.com｜阿里",
-          "description": "",
-          "visits": "44.53M",
-          "mom": "0.56%",
-          "mom_bar_pct": 1.12,
-          "url": "https://www.aicpb.com/product/千问-qianwen.com｜阿里/webid1D6F375E9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 7,
-          "name": "Kimi｜月之暗面",
-          "description": "",
-          "visits": "40.16M",
-          "mom": "-12.83%",
-          "mom_bar_pct": 25.66,
-          "url": "https://www.aicpb.com/product/Kimi｜月之暗面/webid1D6F37691",
-          "source": "AICPB"
-        },
-        {
-          "rank": 8,
-          "name": "Qwen.ai｜阿里",
-          "description": "",
-          "visits": "35.43M",
-          "mom": "-2.85%",
-          "mom_bar_pct": 5.7,
-          "url": "https://www.aicpb.com/product/Qwen.ai｜阿里/webid1D6F37779",
-          "source": "AICPB"
-        },
-        {
-          "rank": 9,
-          "name": "百度文库",
-          "description": "",
-          "visits": "23.77M",
-          "mom": "4.83%",
-          "mom_bar_pct": 9.66,
-          "url": "https://www.aicpb.com/product/百度文库/webid1D6F37759",
-          "source": "AICPB"
-        },
-        {
-          "rank": 10,
-          "name": "腾讯元宝",
-          "description": "",
-          "visits": "12.10M",
-          "mom": "-19.38%",
-          "mom_bar_pct": 38.76,
-          "url": "https://www.aicpb.com/product/腾讯元宝/webid1D6F37619",
-          "source": "AICPB"
-        }
-      ]
-    },
-    {
-      "id": "vibe-coding",
-      "label": "AI Vibe Coding",
-      "title": "AI产品榜 · AI Vibe Coding · Website",
-      "subtitle": "根据 Website 访问量排名",
-      "metric": "Website Visits",
-      "month": "Jun 2026",
-      "source_url": "https://www.aicpb.com/ai-rankings/products/vibe-coding-rankings/websites",
-      "source_name": "AICPB",
-      "columns": {
-        "name": "产品名",
-        "primary": "访问量",
-        "secondary": "月环比"
-      },
-      "show_bar": true,
-      "items": [
-        {
-          "rank": 1,
-          "name": "Github Copilot",
-          "description": "",
-          "visits": "371.18M",
-          "mom": "-3.28%",
-          "mom_bar_pct": 6.56,
-          "url": "https://www.aicpb.com/product/Github-Copilot/webid1D6F374B9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 2,
-          "name": "Hostinger",
-          "description": "",
-          "visits": "50.26M",
-          "mom": "-5.51%",
-          "mom_bar_pct": 11.02,
-          "url": "https://www.aicpb.com/product/Hostinger/webid1D6F377C9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 3,
-          "name": "Lovable.dev",
-          "description": "",
-          "visits": "34.83M",
-          "mom": "-1.27%",
-          "mom_bar_pct": 2.54,
-          "url": "https://www.aicpb.com/product/Lovable.dev/webid1D6F39F89",
-          "source": "AICPB"
-        },
-        {
-          "rank": 4,
-          "name": "Supabase",
-          "description": "",
-          "visits": "29.73M",
-          "mom": "-2.50%",
-          "mom_bar_pct": 5.0,
-          "url": "https://www.aicpb.com/product/Supabase/webid1D6F371E9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 5,
-          "name": "Vercel",
-          "description": "",
-          "visits": "29.68M",
-          "mom": "-2.93%",
-          "mom_bar_pct": 5.86,
-          "url": "https://www.aicpb.com/product/Vercel/webid1D6F37139",
-          "source": "AICPB"
-        },
-        {
-          "rank": 6,
-          "name": "Airtable",
-          "description": "",
-          "visits": "27.69M",
-          "mom": "0.16%",
-          "mom_bar_pct": 0.32,
-          "url": "https://www.aicpb.com/product/Airtable/webid1D6F376A9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 7,
-          "name": "cursor",
-          "description": "",
-          "visits": "23.18M",
-          "mom": "7.22%",
-          "mom_bar_pct": 14.44,
-          "url": "https://www.aicpb.com/product/cursor/webid1D6F37649",
-          "source": "AICPB"
-        },
-        {
-          "rank": 8,
-          "name": "BASE44 2.0",
-          "description": "",
-          "visits": "17.16M",
-          "mom": "-8.58%",
-          "mom_bar_pct": 17.16,
-          "url": "https://www.aicpb.com/product/BASE44-2.0/webid1D6F373F9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 9,
-          "name": "Replit",
-          "description": "",
-          "visits": "13.28M",
-          "mom": "-5.31%",
-          "mom_bar_pct": 10.62,
-          "url": "https://www.aicpb.com/product/Replit/webid1D6F37089",
-          "source": "AICPB"
-        },
-        {
-          "rank": 10,
-          "name": "Ollama",
-          "description": "",
-          "visits": "12.07M",
-          "mom": "4.77%",
-          "mom_bar_pct": 9.54,
-          "url": "https://www.aicpb.com/product/Ollama/webid1D6F37241",
-          "source": "AICPB"
-        }
-      ]
-    },
-    {
-      "id": "video-generators",
-      "label": "AI Video Generators",
-      "title": "AI产品榜 · AI Video Generators · Website",
-      "subtitle": "根据 Website 访问量排名",
-      "metric": "Website Visits",
-      "month": "Jun 2026",
-      "source_url": "https://www.aicpb.com/ai-rankings/products/ai-video-generators-rankings/websites",
-      "source_name": "AICPB",
-      "columns": {
-        "name": "产品名",
-        "primary": "访问量",
-        "secondary": "月环比"
-      },
-      "show_bar": true,
-      "items": [
-        {
-          "rank": 1,
-          "name": "Loom",
-          "description": "",
-          "visits": "17.26M",
-          "mom": "-2.51%",
-          "mom_bar_pct": 5.02,
-          "url": "https://www.aicpb.com/product/Loom/webid1D6F371B9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 2,
-          "name": "Dreamina",
-          "description": "",
-          "visits": "12.81M",
-          "mom": "23.51%",
-          "mom_bar_pct": 47.02,
-          "url": "https://www.aicpb.com/product/Dreamina/webid1D6F37341",
-          "source": "AICPB"
-        },
-        {
-          "rank": 3,
-          "name": "Kling ai",
-          "description": "",
-          "visits": "12.65M",
-          "mom": "1.19%",
-          "mom_bar_pct": 2.38,
-          "url": "https://www.aicpb.com/product/Kling-ai/webid1D6F399B1",
-          "source": "AICPB"
-        },
-        {
-          "rank": 4,
-          "name": "即梦 AI｜剪映",
-          "description": "",
-          "visits": "10.83M",
-          "mom": "-21.63%",
-          "mom_bar_pct": 43.26,
-          "url": "https://www.aicpb.com/product/即梦-AI｜剪映/webid1D6F37081",
-          "source": "AICPB"
-        },
-        {
-          "rank": 5,
-          "name": "HeyGen",
-          "description": "",
-          "visits": "9.79M",
-          "mom": "-8.86%",
-          "mom_bar_pct": 17.72,
-          "url": "https://www.aicpb.com/product/HeyGen/webid1D6F37019",
-          "source": "AICPB"
-        },
-        {
-          "rank": 6,
-          "name": "Pollo",
-          "description": "",
-          "visits": "9.33M",
-          "mom": "18.96%",
-          "mom_bar_pct": 37.92,
-          "url": "https://www.aicpb.com/product/Pollo/webid1D6F37309",
-          "source": "AICPB"
-        },
-        {
-          "rank": 7,
-          "name": "PixVerse",
-          "description": "",
-          "visits": "7.08M",
-          "mom": "9.66%",
-          "mom_bar_pct": 19.32,
-          "url": "https://www.aicpb.com/product/PixVerse/webid1D6F373D1",
-          "source": "AICPB"
-        },
-        {
-          "rank": 8,
-          "name": "Runwayml",
-          "description": "",
-          "visits": "6.63M",
-          "mom": "-20.52%",
-          "mom_bar_pct": 41.04,
-          "url": "https://www.aicpb.com/product/Runwayml/webid1D6F37051",
-          "source": "AICPB"
-        },
-        {
-          "rank": 9,
-          "name": "DeeVid",
-          "description": "DeeVid",
-          "visits": "3.60M",
-          "mom": "-29.01%",
-          "mom_bar_pct": 58.02,
-          "url": "https://www.aicpb.com/product/DeeVid/webid1D6F399B9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 10,
-          "name": "Vidu 海外｜生数科技",
-          "description": "",
-          "visits": "3.17M",
-          "mom": "5.62%",
-          "mom_bar_pct": 11.24,
-          "url": "https://www.aicpb.com/product/Vidu-海外｜生数科技/webid1D6F37E19",
-          "source": "AICPB"
-        }
-      ]
-    },
-    {
-      "id": "ppt",
-      "label": "AI PPT Rankings",
-      "title": "AI产品榜 · AI PPT · Website",
-      "subtitle": "根据 Website 访问量排名",
-      "metric": "Website Visits",
-      "month": "Jun 2026",
-      "source_url": "https://www.aicpb.com/ai-rankings/products/ai-ppt-rankings",
-      "source_name": "AICPB",
-      "columns": {
-        "name": "产品名",
-        "primary": "访问量",
-        "secondary": "月环比"
-      },
-      "show_bar": true,
-      "items": [
-        {
-          "rank": 1,
-          "name": "Gamma",
-          "description": "",
-          "visits": "24.73M",
-          "mom": "-20.58%",
-          "mom_bar_pct": 41.16,
-          "url": "https://www.aicpb.com/product/Gamma/webid1D6F37751",
-          "source": "AICPB"
-        },
-        {
-          "rank": 2,
-          "name": "AiPPT.com｜像素绽放",
-          "description": "",
-          "visits": "6.93M",
-          "mom": "6.25%",
-          "mom_bar_pct": 12.5,
-          "url": "https://www.aicpb.com/product/AiPPT.com｜像素绽放/webid1D6F373C1",
-          "source": "AICPB"
-        },
-        {
-          "rank": 3,
-          "name": "Prezi",
-          "description": "",
-          "visits": "6.46M",
-          "mom": "-30.93%",
-          "mom_bar_pct": 61.86,
-          "url": "https://www.aicpb.com/product/Prezi/webid1D6F37149",
-          "source": "AICPB"
-        },
-        {
-          "rank": 4,
-          "name": "slidesgo",
-          "description": "",
-          "visits": "4.94M",
-          "mom": "-26.91%",
-          "mom_bar_pct": 53.82,
-          "url": "https://www.aicpb.com/product/slidesgo/webid1D6F370E1",
-          "source": "AICPB"
-        },
-        {
-          "rank": 5,
-          "name": "Mentimeter",
-          "description": "",
-          "visits": "3.61M",
-          "mom": "-14.50%",
-          "mom_bar_pct": 29.0,
-          "url": "https://www.aicpb.com/product/Mentimeter/webid1D6F372A9",
-          "source": "AICPB"
-        },
-        {
-          "rank": 6,
-          "name": "Pitch",
-          "description": "",
-          "visits": "1.44M",
-          "mom": "16.63%",
-          "mom_bar_pct": 33.26,
-          "url": "https://www.aicpb.com/product/Pitch/webid1D6F37829",
-          "source": "AICPB"
-        },
-        {
-          "rank": 7,
-          "name": "PresentationsAI",
-          "description": "",
-          "visits": "920.67K",
-          "mom": "-30.12%",
-          "mom_bar_pct": 60.24,
-          "url": "https://www.aicpb.com/product/PresentationsAI/webid1D6F37889",
-          "source": "AICPB"
-        },
-        {
-          "rank": 8,
-          "name": "Beautiful.ai",
-          "description": "",
-          "visits": "892.24K",
-          "mom": "-22.08%",
-          "mom_bar_pct": 44.16,
-          "url": "https://www.aicpb.com/product/Beautiful.ai/webid1D6F37851",
-          "source": "AICPB"
-        },
-        {
-          "rank": 9,
-          "name": "AiPPT.cn｜像素绽放",
-          "description": "",
-          "visits": "859.78K",
-          "mom": "-40.00%",
-          "mom_bar_pct": 80.0,
-          "url": "https://www.aicpb.com/product/AiPPT.cn｜像素绽放/webid1D6F37049",
-          "source": "AICPB"
-        },
-        {
-          "rank": 10,
-          "name": "Pi",
-          "description": "",
-          "visits": "451.81K",
-          "mom": "-11.73%",
-          "mom_bar_pct": 23.46,
-          "url": "https://www.aicpb.com/product/Pi/webid1D6F37E49",
-          "source": "AICPB"
-        }
-      ]
-    },
-    {
       "id": "lmsys-arena",
-      "label": "LMSYS Arena",
-      "title": "LMSYS Chatbot Arena · Text",
+      "label": "LMSYS Chatbot Arena Elo",
+      "title": "LMSYS Chatbot Arena Elo",
       "subtitle": "人类盲测对战 Elo（Arena AI / LMSYS）",
       "metric": "Arena Elo",
       "month": "Jul 13, 2026",
@@ -723,8 +251,8 @@
     },
     {
       "id": "artificial-analysis",
-      "label": "Artificial Analysis",
-      "title": "Artificial Analysis · Intelligence Index",
+      "label": "Artificial Analysis Intelligence Index",
+      "title": "Artificial Analysis Intelligence Index",
       "subtitle": "独立基准合成的 Intelligence Index",
       "metric": "Intelligence Index",
       "month": "Jul 2026",
@@ -844,19 +372,19 @@
     {
       "medal": "🌍",
       "name": "ChatGPT",
-      "dimension": "Global AI Top 1",
+      "dimension": "AICPB Top 1",
       "url": "https://www.aicpb.com/product/ChatGPT/webid1D6F37591"
     },
     {
       "medal": "🏟️",
       "name": "claude-fable-5",
-      "dimension": "LMSYS Arena Top 1",
+      "dimension": "LMSYS Chatbot Arena Elo Top 1",
       "url": "https://arena.ai/leaderboard/text"
     },
     {
       "medal": "📈",
       "name": "Claude Fable 5 (with fallback)",
-      "dimension": "Artificial Analysis Top 1",
+      "dimension": "Artificial Analysis Intelligence Index Top 1",
       "url": "https://artificialanalysis.ai/models/claude-fable-5"
     }
   ]

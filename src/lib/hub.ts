@@ -207,7 +207,7 @@ export function hubRankingMeta() {
   return {
     updated_at: rankings.updated_at,
     month_label: rankings.month_label || rankings.month,
-    source_name: 'AICPB · LMSYS Arena · Artificial Analysis',
+    source_name: 'AICPB · LMSYS Chatbot Arena Elo · Artificial Analysis Intelligence Index',
     source_home: 'https://www.aicpb.com/',
   };
 }

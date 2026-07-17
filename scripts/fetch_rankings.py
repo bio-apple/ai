@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """抓取多源 AI 排行榜 Top 10，写入 data/rankings.json。
 
-来源：
-- AICPB（产品访问量五榜）
-- LMSYS Chatbot Arena / Arena AI（文本 Arena Elo）
-- Artificial Analysis（Intelligence Index）
+仅展示三榜：
+- AICPB（Global AI Website 访问量）
+- LMSYS Chatbot Arena Elo
+- Artificial Analysis Intelligence Index
 """
 
 from __future__ import annotations
@@ -25,38 +25,12 @@ TZ = timezone(timedelta(hours=8))
 USER_AGENT = "BioAI-Lab-RankingsBot/1.0"
 TOP_N = 10
 
-AICPB_BOARDS: list[dict[str, str]] = [
-    {
-        "id": "global-ai",
-        "label": "Global AI",
-        "title": "AI产品榜 · Global AI · Website",
-        "path": "/ai-rankings/products/global-ai-rankings/websites",
-    },
-    {
-        "id": "china-ai",
-        "label": "China AI",
-        "title": "AI产品榜 · China AI · Website",
-        "path": "/ai-rankings/products/china-ai-rankings/websites",
-    },
-    {
-        "id": "vibe-coding",
-        "label": "AI Vibe Coding",
-        "title": "AI产品榜 · AI Vibe Coding · Website",
-        "path": "/ai-rankings/products/vibe-coding-rankings/websites",
-    },
-    {
-        "id": "video-generators",
-        "label": "AI Video Generators",
-        "title": "AI产品榜 · AI Video Generators · Website",
-        "path": "/ai-rankings/products/ai-video-generators-rankings/websites",
-    },
-    {
-        "id": "ppt",
-        "label": "AI PPT Rankings",
-        "title": "AI产品榜 · AI PPT · Website",
-        "path": "/ai-rankings/products/ai-ppt-rankings",
-    },
-]
+AICPB_BOARD: dict[str, str] = {
+    "id": "aicpb",
+    "label": "AICPB",
+    "title": "AICPB · Global AI · Website",
+    "path": "/ai-rankings/products/global-ai-rankings/websites",
+}
 
 ROW_RE = re.compile(
     r"grid-cols-\[40px_60px.*?"
@@ -148,7 +122,7 @@ def parse_aicpb_board(meta: dict[str, str]) -> dict[str, Any]:
         "id": meta["id"],
         "label": meta["label"],
         "title": meta["title"],
-        "subtitle": "根据 Website 访问量排名",
+        "subtitle": "Global AI · 根据 Website 访问量排名",
         "metric": "Website Visits",
         "month": month_label,
         "source_url": source_url,
@@ -188,8 +162,8 @@ def parse_lmsys_arena() -> dict[str, Any]:
 
     return {
         "id": "lmsys-arena",
-        "label": "LMSYS Arena",
-        "title": "LMSYS Chatbot Arena · Text",
+        "label": "LMSYS Chatbot Arena Elo",
+        "title": "LMSYS Chatbot Arena Elo",
         "subtitle": "人类盲测对战 Elo（Arena AI / LMSYS）",
         "metric": "Arena Elo",
         "month": month,
@@ -254,8 +228,8 @@ def parse_artificial_analysis() -> dict[str, Any]:
     month = datetime.now(TZ).strftime("%b %Y")
     return {
         "id": "artificial-analysis",
-        "label": "Artificial Analysis",
-        "title": "Artificial Analysis · Intelligence Index",
+        "label": "Artificial Analysis Intelligence Index",
+        "title": "Artificial Analysis Intelligence Index",
         "subtitle": "独立基准合成的 Intelligence Index",
         "metric": "Intelligence Index",
         "month": month,
@@ -283,13 +257,13 @@ def enrich_legacy_boards(boards: list[dict[str, Any]]) -> list[dict[str, Any]]:
 
 
 def main() -> None:
-    aicpb = [parse_aicpb_board(meta) for meta in AICPB_BOARDS]
+    aicpb = parse_aicpb_board(AICPB_BOARD)
     arena = parse_lmsys_arena()
     aa = parse_artificial_analysis()
-    boards = enrich_legacy_boards(aicpb + [arena, aa])
+    boards = enrich_legacy_boards([aicpb, arena, aa])
 
     updated_at = datetime.now(TZ).strftime("%Y-%m-%d")
-    month_label = aicpb[0]["month"] if aicpb else ""
+    month_label = aicpb.get("month") or ""
     month_key = ""
     if month_label:
         try:
@@ -304,34 +278,34 @@ def main() -> None:
         "cadence": "daily",
         "title": "2026 AI 工具排行榜（每日更新）",
         "lead": (
-            "同步 AICPB 产品访问量榜、LMSYS Chatbot Arena Elo，"
+            "同步 AICPB、LMSYS Chatbot Arena Elo，"
             "以及 Artificial Analysis Intelligence Index；各榜展示 Top 10。"
         ),
         "methodology": [
-            "AICPB：引用官方产品榜 Website 访问量、排名与月环比。",
-            "LMSYS Chatbot Arena（Arena AI）：引用文本对战 Arena Elo 与投票数。",
-            "Artificial Analysis：引用公开榜单 Intelligence Index 与厂商信息。",
-            "展示：每个专题榜仅保留前 10 名；完整榜单请跳转原文。",
+            "AICPB：引用 Global AI Website 访问量、排名与月环比。",
+            "LMSYS Chatbot Arena Elo：引用文本对战 Arena Elo 与投票数。",
+            "Artificial Analysis Intelligence Index：引用公开榜单分数与厂商信息。",
+            "展示：仅上述三榜，各保留前 10 名；完整榜单请跳转原文。",
             "更新：每日同步；若某一源失败则整次抓取失败，保留仓库内上一版数据。",
         ],
         "boards": boards,
         "highlights": [
             {
                 "medal": "🌍",
-                "name": aicpb[0]["items"][0]["name"],
-                "dimension": f"{aicpb[0]['label']} Top 1",
-                "url": aicpb[0]["items"][0]["url"],
+                "name": aicpb["items"][0]["name"],
+                "dimension": "AICPB Top 1",
+                "url": aicpb["items"][0]["url"],
             },
             {
                 "medal": "🏟️",
                 "name": arena["items"][0]["name"],
-                "dimension": "LMSYS Arena Top 1",
+                "dimension": "LMSYS Chatbot Arena Elo Top 1",
                 "url": arena["items"][0]["url"],
             },
             {
                 "medal": "📈",
                 "name": aa["items"][0]["name"],
-                "dimension": "Artificial Analysis Top 1",
+                "dimension": "Artificial Analysis Intelligence Index Top 1",
                 "url": aa["items"][0]["url"],
             },
         ],

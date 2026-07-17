@@ -33,7 +33,7 @@ npm run quality && npm run test:unit
 python3 scripts/fetch_ai_news.py
 python3 scripts/fetch_daily_videos.py
 python3 scripts/fetch_oss_stars.py
-python3 scripts/fetch_rankings.py   # AICPB + LMSYS Arena + Artificial Analysis
+python3 scripts/fetch_rankings.py   # AICPB / LMSYS Elo / AA Intelligence Index
 ```
 
 ## 构建与部署
