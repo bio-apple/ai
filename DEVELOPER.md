@@ -3,6 +3,8 @@
 线上：https://bio-apple.github.io/ai/  
 栈：Astro 5 SSG + GitHub Pages（本地可选 FastAPI 预览 `./start.sh`）。
 
+**架构与数据**： [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) · [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)
+
 ## 目录要点
 
 ```
