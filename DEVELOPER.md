@@ -82,7 +82,8 @@ DIST=dist python3 scripts/validate_ci.py courses
 
 ## 本地开发
 
-> 完整环境搭建、三种预览模式、端口占用与依赖故障排除见 **[docs/SETUP.md](./docs/SETUP.md)**。
+> 完整环境搭建、三种预览模式、端口占用与依赖故障排除见 **[docs/SETUP.md](./docs/SETUP.md)**。  
+> 数据抓取、定时刷新与内容运营见 **[docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)**。
 
 ### 环境版本
 
@@ -138,14 +139,16 @@ npm run build
 
 ## 定时任务（北京时间）
 
-| 工作流                  | 内容           |
-| ----------------------- | -------------- |
-| `daily-videos.yml`      | 每日视频 00:00 |
-| `daily-news.yml`        | 一周热点 06:00 |
-| `weekly-oss.yml`        | OSS 精选 周一  |
-| `weekly-courses.yml`    | 课程资源 周一  |
-| `site-health.yml`       | 线上探针       |
-| `weekly-link-check.yml` | 外链抽检       |
+详见 **[docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)**（含各 `fetch_*.py` 配置说明与手动刷新步骤）。
+
+| 工作流                  | 内容                   |
+| ----------------------- | ---------------------- |
+| `daily-videos.yml`      | 每日视频 00:00         |
+| `daily-news.yml`        | 一周热点 06:00         |
+| `weekly-oss.yml`        | OSS 精选 周一 06:00    |
+| `weekly-courses.yml`    | 课程资源 周一 07:00    |
+| `site-health.yml`       | 线上探针 08:00 / 20:00 |
+| `weekly-link-check.yml` | 外链抽检               |
 
 失败处置见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。
 
