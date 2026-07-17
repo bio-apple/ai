@@ -32,6 +32,9 @@ cp .env.local.example .env.local
 | `UMAMI_*` / `PUBLIC_UMAMI_*`                                 | Umami 统计                       |
 | `CLOUDFLARE_BEACON_TOKEN` / `PUBLIC_CLOUDFLARE_BEACON_TOKEN` | Cloudflare Web Analytics         |
 | `GITHUB_TOKEN` / `GH_TOKEN`                                  | 本地抓取脚本提高 GitHub API 限额 |
+| `YOUTUBE_API_KEY` / `GOOGLE_API_KEY`                         | 每日视频抓取：YouTube Data API v3 详情（规避 yt-dlp 反爬） |
+| `YTDLP_COOKIES_FILE`                                         | 本地可选：yt-dlp Netscape cookies 文件路径 |
+| `YTDLP_COOKIES_B64`（仅 CI Secret）                           | 可选：base64 编码的 cookies，供 Actions 写入临时文件 |
 
 生产 CI 通过 [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) 注入上述构建变量，**不要**写入仓库。
 
