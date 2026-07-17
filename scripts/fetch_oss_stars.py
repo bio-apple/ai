@@ -22,7 +22,6 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 DATA_FILE = ROOT / "data" / "oss-projects.json"
 PUBLIC_FILE = ROOT / "oss-projects.json"
-PROMPT_LIBS_FILE = ROOT / "data" / "prompt-libraries.json"
 TZ = timezone(timedelta(hours=8))
 USER_AGENT = "BioAI-Lab-OSSBot/1.0"
 
@@ -659,33 +658,6 @@ def collect_domain(domain_def: dict) -> dict | None:
     }
 
 
-def sync_prompt_libraries(payload: dict) -> None:
-    """Prompt 库领域同步：全球 Top5 + 中文 Top1（若额外追加）。"""
-    domain = next((d for d in payload.get("domains") or [] if d.get("id") == "prompt-libs"), None)
-    if not domain:
-        return
-
-    libs = list(domain.get("projects") or [])
-    ranked = [{**project, "rank": i} for i, project in enumerate(libs, start=1)]
-    out = {
-        "updated_at": payload.get("updated_at"),
-        "title": "GitHub Prompt 库精选",
-        "lead": (
-            f"按 GitHub Stars 精选 Prompt / 提示工程开源库"
-            f"（≥{MIN_STARS // 10000}万 Top {TOP_N} + 中文 Top1）。"
-        ),
-        "source_note": (
-            f"筛选：全球榜 Stars ≥ {MIN_STARS} 取 Top {TOP_N}；"
-            f"每类另附中文 Top1；每周一随 OSS 重刷更新。"
-        ),
-        "libraries": ranked,
-    }
-    PROMPT_LIBS_FILE.write_text(
-        json.dumps(out, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
-    )
-    print(f"✓ prompt-libraries.json ({len(ranked)} repos) → {PROMPT_LIBS_FILE}")
-
-
 def main() -> int:
     token = (os.environ.get("GITHUB_TOKEN") or os.environ.get("GH_TOKEN") or "").strip()
     if not token:
@@ -727,7 +699,6 @@ def main() -> int:
     text = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
     DATA_FILE.write_text(text, encoding="utf-8")
     PUBLIC_FILE.write_text(text, encoding="utf-8")
-    sync_prompt_libraries(payload)
 
     total = sum(len(d.get("projects") or []) for d in domains)
     print(f"✓ oss-projects.json ({len(domains)} 应用 / {total} 仓库) → {DATA_FILE}")

@@ -104,7 +104,7 @@ def remediation_for(exc: BaseException) -> list[str]:
         lines += [
             "### P1 · 新闻过期",
             f"1. 手动重跑：{REPO_ACTIONS}/workflows/daily-news.yml → Run workflow",
-            "2. 检查 `ai-news.json` / `content/news/daily-ai-news.md` 是否写入",
+            "2. 检查 `ai-news.json` 是否写入",
             "3. 必要时回滚新闻 JSON",
             "",
         ]

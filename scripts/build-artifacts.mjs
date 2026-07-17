@@ -395,28 +395,6 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
     fs.copyFileSync(ossSrc, path.join(outDir, 'oss-projects.json'));
   }
 
-  // GitHub Prompt 库：优先独立文件，否则从 OSS 领域推导（≥5万 · Top5）
-  const promptLibsSrc = path.join(DATA, 'prompt-libraries.json');
-  if (fs.existsSync(promptLibsSrc)) {
-    fs.copyFileSync(promptLibsSrc, path.join(outDir, 'prompt-libraries.json'));
-  } else if (fs.existsSync(ossSrc)) {
-    const oss = JSON.parse(fs.readFileSync(ossSrc, 'utf8'));
-    const domain = (oss.domains || []).find((d) => d.id === 'prompt-libs');
-    if (domain) {
-      const libraries = [...(domain.projects || [])]
-        .sort((a, b) => (b.stars || 0) - (a.stars || 0))
-        .slice(0, 5)
-        .map((p, i) => ({ ...p, rank: i + 1 }));
-      writeOut(outDir, 'prompt-libraries.json', {
-        updated_at: oss.updated_at,
-        title: 'GitHub Prompt 库 Top 5',
-        lead: '按 GitHub Stars 排序的 Prompt / 提示工程开源库（≥5万，最多 5 个）。',
-        source_note: '筛选：Stars ≥ 50000，每类最多 5；每周一随 OSS 重刷更新。',
-        libraries,
-      });
-    }
-  }
-
   console.log(`✓ artifacts → ${outDir}`);
   console.log(
     `  prompts.json (${promptsPayload.count}) · tutorials.json (${tutorialsPayload.count}) · search-index.json (${searchIndex.length}) · recommend-rules.json (${recommendRules.options.length})`,

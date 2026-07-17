@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ai-news.json content/news/daily-ai-news.md
+          git add ai-news.json
           if git diff --staged --quiet; then
             echo "No news updates today"
             echo "pushed=false" >> "$GITHUB_OUTPUT"

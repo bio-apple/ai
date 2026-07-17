@@ -34,8 +34,7 @@ npm ci && pip install -r requirements.txt
 | 对比表行    | `data/site.json` → `compare_table`                 |
 | 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`）     |
 | 热度基准    | `data/engagement.json`                             |
-| 开源精选    | `oss-projects.json`（≥5万 Top5 + 中文Top1 · 周一） |
-| Prompt 库   | `prompt-libraries.json`（随 OSS 同步）             |
+| 开源精选    | `oss-projects.json`（≥5万 Top5 + 中文Top1 · 周一；含 Prompt 领域） |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。  
 运维救急见 [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)。

@@ -38,7 +38,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/oss-projects.json oss-projects.json data/prompt-libraries.json
+          git add data/oss-projects.json oss-projects.json
           if git diff --staged --quiet; then
             echo "No OSS updates this week"
             echo "pushed=false" >> "$GITHUB_OUTPUT"

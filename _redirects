@@ -4,3 +4,5 @@
 http://bio-apple.github.io/* https://bio-apple.github.io/:splat 301
 /ai/labs/index.html /ai/tools/hub.html 302
 /labs/index.html /tools/hub.html 302
+/ai/prompts/library.html /ai/#section-oss 302
+/prompts/library.html /#section-oss 302

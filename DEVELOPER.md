@@ -13,9 +13,9 @@ scripts/              # 构建 / 抓取 / 校验
 dist/                 # 构建产物（不提交）
 ```
 
-关键数据：`site.json` · `tools.json` · `tool-relations.json` · `engagement.json` · `rankings.json` · `hub-official.json` · `prompt-libraries.json`  
+关键数据：`site.json` · `tools.json` · `tool-relations.json` · `engagement.json` · `rankings.json`  
 运行时 JSON（根目录，定时任务写入）：`daily-videos.json` · `ai-news.json` · `oss-projects.json`  
-Prompt / 搜索索引等由 `scripts/build-artifacts.mjs` 从实战案例生成；开源精选 / Prompt 库由 `fetch_oss_stars.py` 按 AI 应用重刷（≥5万 Top5 + 中文Top1，每周一）。
+Prompt / 搜索索引等由 `scripts/build-artifacts.mjs` 从实战案例生成；开源精选（含 Prompt 领域）由 `fetch_oss_stars.py` 按 AI 应用重刷（≥5万 Top5 + 中文Top1，每周一）。
 
 ## 本地
 
@@ -38,7 +38,7 @@ python3 scripts/fetch_rankings.py   # AICPB / LMSYS Elo / AA Intelligence Index
 
 ## 构建与部署
 
-1. `prebuild`：同步静态资源、打包 CSS、生成 search/prompts/analytics 等
+1. `prebuild`：同步静态资源、打包 `style.css`、生成 search/prompts/analytics 等
 2. `astro build` → `dist/`
 3. push `main`：`ci.yml` + `pages.yml`
 
@@ -58,7 +58,7 @@ python3 scripts/fetch_rankings.py   # AICPB / LMSYS Elo / AA Intelligence Index
 ## 常见改动
 
 - **新工具**：`data/tools.json` + `site.home_tool_categories` / `compare_table` + `tool-relations.json`
-- **工具中心对比行**：`site.compare_table` + `hub-official.json`
+- **工具中心对比行**：`site.compare_table`
 - **排行榜**：`data/rankings.json`
 
 站内链接用 `src/lib/paths.ts` 的 `asset()`（base `/ai/`）。
