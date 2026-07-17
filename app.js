@@ -32,22 +32,9 @@ function gotoSearchHit(item) {
     window.location.href = resolveSearchUrl(item.url);
     return;
   }
-  // 案例已迁出首页 SPA
-  if (
-    item.section === 'section-cases' ||
-    (item.anchor && String(item.anchor).startsWith('case-'))
-  ) {
-    window.location.href = casesLibraryUrl(
-      item.anchor && String(item.anchor).startsWith('case-') ? item.anchor : null,
-    );
-    return;
-  }
   showSection(item.section, { anchor: item.anchor || null });
   trackEvent('search-goto', { section: item.section, anchor: item.anchor || '' });
 }
-
-let activeToolFilter = 'all';
-let activeScenarioFilter = 'all';
 
 function showSection(id, { updateHash = true, anchor = null } = {}) {
   const target = document.getElementById(id);
@@ -91,7 +78,6 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
     requestAnimationFrame(() => {
       const el = document.getElementById(anchor);
       if (el) {
-        if (el.classList.contains('case-card')) el.classList.add('open');
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         return;
       }
@@ -204,22 +190,9 @@ function siteBase() {
   return raw.endsWith('/') ? raw : `${raw}/`;
 }
 
-function casesLibraryUrl(anchor) {
-  const hash = anchor ? `#${encodeURIComponent(anchor)}` : '';
-  return `${siteBase()}cases/index.html${hash}`;
-}
-
 function applyLocationHash() {
   const hash = location.hash.replace('#', '');
   const anchor = new URLSearchParams(location.search).get('anchor');
-
-  // 案例已迁出首页 SPA → 独立页
-  if (hash === 'section-cases' || (anchor && String(anchor).startsWith('case-'))) {
-    window.location.replace(
-      casesLibraryUrl(anchor && String(anchor).startsWith('case-') ? anchor : null),
-    );
-    return;
-  }
 
   if (hash && HOME_HASH_ANCHORS.has(hash)) {
     showSection('section-home', { updateHash: false });
@@ -245,115 +218,6 @@ function initHashRouting() {
 }
 
 window.addEventListener('hashchange', applyLocationHash);
-
-/* Case accordion */
-document.querySelectorAll('.case-header').forEach((header) => {
-  const toggle = () => {
-    const card = header.closest('.case-card');
-    const wasOpen = card.classList.contains('open');
-    document.querySelectorAll('.case-card').forEach((c) => c.classList.remove('open'));
-    if (!wasOpen) {
-      card.classList.add('open');
-      trackEvent('case-expand', { tool: card.dataset.tool });
-    }
-  };
-  header.addEventListener('click', toggle);
-  header.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggle();
-    }
-  });
-});
-
-/* Case filter */
-const filters = document.querySelectorAll('.case-filter');
-const caseCards = document.querySelectorAll('.case-card[data-tool]');
-
-function applyCaseFilters() {
-  caseCards.forEach((card) => {
-    const toolMatch = activeToolFilter === 'all' || card.dataset.tool === activeToolFilter;
-    const scenarios = (card.dataset.scenario || '').split(' ');
-    const scenarioMatch =
-      activeScenarioFilter === 'all' || scenarios.includes(activeScenarioFilter);
-    card.classList.toggle('hidden', !(toolMatch && scenarioMatch));
-  });
-}
-
-filters.forEach((btn) => {
-  btn.addEventListener('click', () => {
-    filters.forEach((f) => f.classList.remove('active'));
-    btn.classList.add('active');
-    activeToolFilter = btn.dataset.filter;
-    applyCaseFilters();
-    trackEvent('case-filter-tool', { filter: activeToolFilter });
-  });
-});
-
-document.querySelectorAll('.case-scenario').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.case-scenario').forEach((b) => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeScenarioFilter = btn.dataset.scenario;
-    applyCaseFilters();
-    trackEvent('case-filter-scenario', { scenario: activeScenarioFilter });
-  });
-});
-
-document.querySelectorAll('.case-tag').forEach((tag) => {
-  tag.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const map = { 写作: 'writing', 编程: 'coding', 入门: 'beginner' };
-    const scenario = map[tag.textContent.trim()];
-    if (!scenario) return;
-    document.querySelectorAll('.case-scenario').forEach((b) => {
-      b.classList.toggle('active', b.dataset.scenario === scenario);
-    });
-    activeScenarioFilter = scenario;
-    applyCaseFilters();
-    showSection('section-home', { updateHash: true });
-    trackEvent('case-tag-click', { scenario });
-    window.location.href = casesLibraryUrl();
-  });
-});
-
-document.querySelectorAll('[data-goto-case]').forEach((card) => {
-  card.addEventListener('click', () => {
-    const anchor = card.dataset.gotoCase;
-    trackEvent('case-preview-click', { anchor });
-    window.location.href = casesLibraryUrl(anchor);
-  });
-});
-
-function initCasesLibraryFilter() {
-  const toolbar = document.getElementById('cases-toolbar');
-  if (!toolbar) return;
-  toolbar.querySelectorAll('[data-case-tool]').forEach((btn) => {
-    btn.addEventListener('click', () => {
-      toolbar.querySelectorAll('[data-case-tool]').forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      const tool = btn.dataset.caseTool;
-      document.querySelectorAll('.case-library-card').forEach((card) => {
-        const match = tool === 'all' || card.dataset.tool === tool;
-        card.style.display = match ? '' : 'none';
-      });
-    });
-  });
-}
-
-/* Copy prompt */
-document.querySelectorAll('.prompt-block').forEach((block) => {
-  block.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(block.textContent.replace('点击复制', '').trim());
-      block.classList.add('copied');
-      setTimeout(() => block.classList.remove('copied'), 2000);
-      trackEvent('prompt-copy');
-    } catch {
-      /* fallback: ignore */
-    }
-  });
-});
 
 /* Site search */
 let searchIndexStatus = 'loading'; // loading | ready | error
@@ -519,7 +383,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavDropdowns();
   initMobileNav();
   initScrollAnimations();
-  initCasesLibraryFilter();
   loadSearchIndex().finally(() => {
     const input = document.getElementById('site-search');
     if (input) {

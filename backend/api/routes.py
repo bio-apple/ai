@@ -8,10 +8,8 @@ from pydantic import BaseModel, Field
 from backend.services.data_store import (
     DataLoadError,
     load_daily_videos,
-    load_prompts_runtime,
     load_recommend_rules,
     load_tools,
-    load_tutorials_runtime,
     runtime_path,
 )
 from backend.services.knowledge import get_knowledge_index
@@ -44,8 +42,6 @@ def health() -> dict[str, Any]:
     checks: dict[str, Any] = {}
     for name in (
         "search-index.json",
-        "prompts.json",
-        "tutorials.json",
         "daily-videos.json",
         "ai-news.json",
         "oss-projects.json",
@@ -90,31 +86,6 @@ def api_tools() -> dict[str, Any]:
     except DataLoadError as exc:
         raise HTTPException(503, detail=str(exc)) from exc
     return {"count": len(tools), "tools": tools}
-
-
-@router.get("/prompts")
-def api_prompts(
-    category: str | None = Query(None),
-    limit: int = Query(50, ge=1, le=200),
-) -> dict[str, Any]:
-    try:
-        payload = load_prompts_runtime()
-    except DataLoadError as exc:
-        raise HTTPException(503, detail=str(exc)) from exc
-    prompts = payload.get("prompts", [])
-    if category:
-        prompts = [p for p in prompts if p.get("category") == category]
-    return {"count": len(prompts), "prompts": prompts[:limit], "categories": payload.get("categories", [])}
-
-
-@router.get("/tutorials")
-def api_tutorials(limit: int = Query(50, ge=1, le=200)) -> dict[str, Any]:
-    try:
-        payload = load_tutorials_runtime()
-    except DataLoadError as exc:
-        raise HTTPException(503, detail=str(exc)) from exc
-    tutorials = payload.get("tutorials", [])[:limit]
-    return {"count": len(tutorials), "tutorials": tutorials}
 
 
 @router.get("/videos")

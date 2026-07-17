@@ -35,16 +35,6 @@ def main() -> int:
     assert tools.json()["count"] >= 5
     print("✓ /api/tools")
 
-    prompts = client.get("/api/prompts?limit=5")
-    assert prompts.status_code == 200, prompts.text
-    assert prompts.json()["count"] >= 1, prompts.text
-    print("✓ /api/prompts")
-
-    tutorials = client.get("/api/tutorials?limit=5")
-    assert tutorials.status_code == 200, tutorials.text
-    assert tutorials.json()["count"] >= 1, tutorials.text
-    print("✓ /api/tutorials")
-
     videos = client.get("/api/videos?limit=5")
     assert videos.status_code == 200, videos.text
     vbody = videos.json()

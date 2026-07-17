@@ -689,15 +689,12 @@
   color: var(--text-muted);
 }
 
-/* Community links — 工具中心 + 实战案例 */
+/* Community links — 工具中心 */
 .community-links {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 14px;
-}
-
-.community-links--duo {
-  max-width: 880px;
+  max-width: 520px;
 }
 
 .community-card {

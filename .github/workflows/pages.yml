@@ -60,7 +60,7 @@ jobs:
       - name: Check dist artifacts
         run: |
           test -f dist/index.html
-          test -f dist/prompts.json
+          test -f dist/recommend-rules.json
           test -f dist/daily-videos.json
           test -f dist/engagement.json
           test -f dist/_headers

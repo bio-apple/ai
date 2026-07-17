@@ -93,7 +93,6 @@ const TOC_PRIMARY = [
   { id: 'section-cursor', label: 'Cursor' },
   { id: 'section-codex', label: 'Codex' },
   { id: 'section-copilot', label: 'Copilot' },
-  { id: 'section-cases', label: '案例库' },
   { id: 'section-news', label: '新闻热点' },
   { id: 'section-videos', label: 'AI 视频' },
 ];
@@ -174,16 +173,12 @@ function updatePageToc(activeSectionId) {
       : activeSection;
 
   const sub = collectHeadings(headingRoot);
-  const promptHeading =
-    sectionId === 'section-cases'
-      ? [{ id: 'section-cases', label: 'Prompt 提示词库', level: 2 }]
-      : [];
 
   toc.innerHTML = `
     <div class="page-toc-title">页面导航</div>
     <ul class="page-toc-nav">${renderTocPrimary(sectionId)}</ul>
     <div class="page-toc-divider"></div>
-    ${renderTocSubheadings([...promptHeading, ...sub])}
+    ${renderTocSubheadings(sub)}
   `;
 
   document.body.classList.add('toc-enabled');

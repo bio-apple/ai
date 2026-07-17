@@ -20,7 +20,6 @@
   let relations = cfg.relations || {};
   const toolMeta = cfg.tools || {};
   const hubHref = cfg.hubHref || 'tools/hub.html';
-  const casesHref = cfg.casesHref || 'cases/index.html';
 
   function applyRules(rules) {
     if (!rules || !Array.isArray(rules.options)) return;
@@ -207,7 +206,6 @@
           <a class="recommend-link" href="${escape(roadmapHref)}" data-track="recommend_goto_learning">学习路线 →</a>
           <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">完整指南 →</a>
           <a class="recommend-link" href="${escape(hubHref)}" data-track="recommend_goto_hub">工具中心 →</a>
-          <a class="recommend-link" href="${escape(casesHref)}" data-track="recommend_goto_cases">实战案例 →</a>
         </div>
       </div>
     `;

@@ -27,11 +27,6 @@
         "href": "tools/hub.html"
       },
       {
-        "type": "page",
-        "label": "实战案例",
-        "href": "cases/index.html"
-      },
-      {
         "type": "tab",
         "id": "oss",
         "label": "开源精选"
@@ -51,7 +46,7 @@
   "hero": {
     "eyebrow": "Bio AI Lab",
     "title": "让每个人拥有自己的 AI 工作流",
-    "subtitle": "对比选型、实战案例、热点与视频——搭好你的 AI 工作流。",
+    "subtitle": "对比选型、开源精选、热点与视频——搭好你的 AI 工作流。",
     "cta_primary": {
       "label": "获取 AI 推荐",
       "href": "#home-recommend"
@@ -433,11 +428,6 @@
     "h1": "一周内 AI 热点",
     "lead": "一周内 AI 热点精选：模型发布、开源动态与行业资讯，每日自动更新。"
   },
-  "cases_page": {
-    "title": "AI 实战案例库 | Bio AI Lab",
-    "h1": "AI 实战案例库",
-    "lead": "从对话助手到编程自动化，跟着真实任务流程掌握 AI 工具。"
-  },
   "guides": {
     "beginner": {
       "slug": "beginner",
@@ -483,7 +473,7 @@
         "phase": "持续进阶",
         "title": "多工具协同工作流",
         "tools": ["gemini", "doubao"],
-        "tasks": ["按场景选择最优工具组合", "保存并复用高效提示词", "跟进本站每日视频与案例"]
+        "tasks": ["按场景选择最优工具组合", "保存并复用高效提示词", "跟进本站每日视频与热点"]
       }
     ]
   },
@@ -504,7 +494,7 @@
     "tools": ["chatgpt", "claude", "cursor"],
     "guide": "guides/beginner.html",
     "path_title": "零基础入门",
-    "steps": ["先描述你的目标与约束", "选一个主力工具深入", "用实战案例练手", "沉淀可复用工作流"]
+    "steps": ["先描述你的目标与约束", "选一个主力工具深入", "跟教程页动手练习", "沉淀可复用工作流"]
   },
   "tools_hub_page": {
     "title": "AI 工具中心 | Bio AI Lab",

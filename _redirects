@@ -6,3 +6,5 @@ http://bio-apple.github.io/* https://bio-apple.github.io/:splat 301
 /labs/index.html /tools/hub.html 302
 /ai/prompts/library.html /ai/#section-oss 302
 /prompts/library.html /#section-oss 302
+/ai/cases/index.html /ai/tools/hub.html 302
+/cases/index.html /tools/hub.html 302

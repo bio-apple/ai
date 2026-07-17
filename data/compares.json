@@ -48,9 +48,9 @@
         "outline": true
       },
       {
-        "label": "看编程实战案例 →",
-        "href": "/ai/cases/index.html",
-        "track": "compare-goto-cases",
+        "label": "浏览 AI 工具中心 →",
+        "href": "/ai/tools/hub.html",
+        "track": "compare-goto-hub",
         "outline": true
       }
     ],
@@ -126,7 +126,7 @@
     },
     "sections": [
       {
-        "heading": "实战案例推荐",
+        "heading": "实践建议",
         "items": [
           "用 Kimi 速读 50 页合同 — 提取关键条款与风险点",
           "用 Claude Projects 生成技术文档 — 上传代码库自动分析",

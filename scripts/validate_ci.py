@@ -147,18 +147,13 @@ def validate_recommend_rules() -> None:
 
 
 def validate_runtime_json() -> None:
-    for name in ("prompts.json", "tutorials.json", "recommend-rules.json"):
-        path = ROOT / name
-        if not path.exists():
-            raise FileNotFoundError(f"{name} 缺失，请先运行 npm run build")
-        data = json.loads(path.read_text(encoding="utf-8"))
-        if name == "prompts.json" and not data.get("prompts"):
-            raise ValueError("prompts.json prompts 为空")
-        if name == "tutorials.json" and not data.get("tutorials"):
-            raise ValueError("tutorials.json tutorials 为空")
-        if name == "recommend-rules.json" and not data.get("options"):
-            raise ValueError("recommend-rules.json options 为空")
-    print("✓ prompts.json + tutorials.json + recommend-rules.json")
+    path = ROOT / "recommend-rules.json"
+    if not path.exists():
+        raise FileNotFoundError("recommend-rules.json 缺失，请先运行 npm run build")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not data.get("options"):
+        raise ValueError("recommend-rules.json options 为空")
+    print("✓ recommend-rules.json")
 
 
 SITE_BASE = "/ai/"
@@ -193,8 +188,6 @@ def validate_html_links() -> None:
         *ROOT.glob("compare/*.html"),
         *ROOT.glob("news/*.html"),
         *ROOT.glob("guides/*.html"),
-        *ROOT.glob("prompts/*.html"),
-        *ROOT.glob("cases/**/*.html"),
     ]
     missing = []
     checked = 0
@@ -285,10 +278,7 @@ def validate_data_json() -> None:
     for name in (
         "site.json",
         "tools.json",
-        "cases.json",
         "compares.json",
-        "prompts.json",
-        "tutorials.json",
         "analytics.json",
         "oss-projects.json",
         "rankings.json",

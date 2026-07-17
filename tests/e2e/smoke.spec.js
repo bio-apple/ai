@@ -96,17 +96,14 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.search-empty-actions')).toBeVisible();
   });
 
-  test('顶栏工具中心与实战案例', async ({ page }) => {
+  test('顶栏工具中心', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('index.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.nav-dropdown-trigger', { hasText: '工具' })).toHaveCount(0);
     await expect(page.locator('.nav-link-page', { hasText: 'AI工具中心' })).toBeVisible();
-    await expect(page.locator('.nav-link-page', { hasText: '实战案例' })).toBeVisible();
+    await expect(page.locator('.nav-link-page', { hasText: '实战案例' })).toHaveCount(0);
     await page.locator('.nav-link-page', { hasText: 'AI工具中心' }).click();
     await expect(page.locator('h1')).toContainText('工具中心');
-    await page.goto('index.html', { waitUntil: 'domcontentloaded' });
-    await page.locator('.nav-link-page', { hasText: '实战案例' }).click();
-    await expect(page.locator('#section-cases')).toBeVisible();
   });
 
   test('视频区加载态解除与新闻区切换', async ({ page }) => {
@@ -151,15 +148,11 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('h1')).toContainText('Cursor');
   });
 
-  test('对比专题页与案例独立页', async ({ page }) => {
+  test('对比专题页', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('compare/cursor-vs-copilot.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1, .compare-hero h1, main h1').first()).toBeVisible();
     await expect(page.locator('body')).toContainText(/Cursor|Copilot/i);
-
-    await page.goto('cases/index.html', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#section-cases')).toBeVisible();
-    await expect(page.locator('.case-card').first()).toBeVisible();
   });
 
   test('视频回退标注可出现或正常加载', async ({ page }) => {

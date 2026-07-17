@@ -1,13 +1,12 @@
 import site from '../../data/site.json';
 import tools from '../../data/tools.json';
-import cases from '../../data/cases.json';
 import compares from '../../data/compares.json';
 import rankings from '../../data/rankings.json';
 import toolRelations from '../../data/tool-relations.json';
 import { asset } from './paths';
 
 export const BRAND = 'Bio AI Lab';
-export { site, tools, cases, compares, rankings, toolRelations };
+export { site, tools, compares, rankings, toolRelations };
 
 export type Tool = (typeof tools)[number];
 export type Compare = (typeof compares)[number];
