@@ -1,0 +1,108 @@
+/**
+ * JS 动态注入区块的 CLS 防护：加载阶段预留 min-height，避免「一行提示 → 大段内容」布局跳动。
+ * 使用 :has(> .loading-hint) 限定仅在初始占位时生效；内容渲染后规则自动失效。
+ */
+
+/* 元信息行（fetch 完成后由 JS 写入） */
+.video-update-meta:empty,
+.ops-updated:empty {
+  min-height: 1.35em;
+}
+
+/* 课程筛选条：paintCourses 前为空 */
+#courses-toolbar:empty {
+  min-height: 3.25rem;
+}
+
+/* 新闻来源面板：load 后注入 */
+#news-watch-sources {
+  min-height: 2.75rem;
+}
+
+/* 首页热度榜 */
+#ops-trend-list {
+  min-height: 11rem;
+}
+
+/* 全站搜索下拉 */
+.site-search-results:not([hidden]) {
+  min-height: 2.75rem;
+}
+
+/* AI 推荐结果（展开时） */
+#recommend-result:not([hidden]) {
+  min-height: 10rem;
+}
+
+/* ── Tab / 独立页 JSON 面板（加载占位） ── */
+.daily-video-list:has(> .loading-hint),
+#daily-video-list:has(> .loading-hint) {
+  min-height: 42rem;
+}
+
+.news-list:has(> .loading-hint),
+#daily-news-list:has(> .loading-hint) {
+  min-height: 28rem;
+}
+
+.courses-list:has(> .loading-hint),
+#courses-list:has(> .loading-hint) {
+  min-height: 24rem;
+}
+
+.oss-project-list:has(> .loading-hint),
+#oss-project-list:has(> .loading-hint) {
+  min-height: 32rem;
+}
+
+.home-oss-preview:has(> .loading-hint),
+#home-oss-preview:has(> .loading-hint) {
+  min-height: 17.5rem;
+}
+
+/* 错误块保持可点，不占大块空白 */
+.daily-video-list:has(> .data-error-block),
+.news-list:has(> .data-error-block),
+.courses-list:has(> .data-error-block),
+.oss-project-list:has(> .data-error-block) {
+  min-height: 5.5rem;
+}
+
+@media (max-width: 768px) {
+  .daily-video-list:has(> .loading-hint),
+  #daily-video-list:has(> .loading-hint) {
+    min-height: 32rem;
+  }
+
+  .news-list:has(> .loading-hint),
+  #daily-news-list:has(> .loading-hint) {
+    min-height: 22rem;
+  }
+
+  .courses-list:has(> .loading-hint),
+  #courses-list:has(> .loading-hint) {
+    min-height: 20rem;
+  }
+
+  .oss-project-list:has(> .loading-hint),
+  #oss-project-list:has(> .loading-hint) {
+    min-height: 26rem;
+  }
+
+  .home-oss-preview:has(> .loading-hint),
+  #home-oss-preview:has(> .loading-hint) {
+    min-height: 14rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .daily-video-list:has(> .loading-hint),
+  #daily-video-list:has(> .loading-hint) {
+    min-height: 26rem;
+  }
+
+  .news-list:has(> .loading-hint),
+  #daily-news-list:has(> .loading-hint) {
+    min-height: 18rem;
+  }
+}
