@@ -310,9 +310,52 @@ npm run test:unit
 
 ---
 
+## 7. 本地全量更新与上线前自检
+
+从远端拉齐代码并刷新全部可抓取内容后，再构建校验、推送到云端：
+
+```bash
+git pull origin main
+nvm use
+npm ci
+python3 -m venv .venv 2>/dev/null || true
+.venv/bin/pip install -r requirements.txt
+
+# 可选：加载 .env.local（GITHUB_TOKEN / YOUTUBE_API_KEY 等）
+set -a && [ -f .env.local ] && source .env.local; set +a
+
+# 刷新动态数据（按需；无 Token 时部分步骤可能降级/保留旧 JSON）
+python3 scripts/fetch_ai_news.py
+python3 scripts/fetch_daily_videos.py
+python3 scripts/fetch_oss_stars.py
+python3 scripts/fetch_ai_courses.py
+# python3 scripts/fetch_rankings.py   # 排行榜暂无定时任务
+
+npm run quality
+npm run scan:secrets
+npm run build
+DIST=dist python3 scripts/validate_ci.py
+npm run test:unit
+# npm run test:e2e                  # 与 CI 对齐时建议跑
+# lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'
+
+git status   # 确认仅意图提交的 JSON/文档变更
+git add -A   # 或按需 add；勿提交 .env.local / video-thumbs 临时脏文件（若未打算更新）
+git commit -m "docs: 同步文档与本地数据刷新"
+git push -u origin main
+```
+
+推送后由 Actions 自动部署 Pages；约数分钟后刷新 https://bio-apple.github.io/ai/ 。
+
+分步校验示例：`DIST=dist python3 scripts/validate_ci.py jsonld|opengraph|search|links`。
+
+---
+
 ## 相关文档
 
 - [DEVELOPER.md](../DEVELOPER.md) — 目录结构、数据文件、部署
+- [FRONTEND.md](./FRONTEND.md) — 前端能力
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构
 - [SECURITY.md](./SECURITY.md) — `.env.local` 与安全规范
 - [CI-CD.md](./CI-CD.md) — 推送与自动部署
+- [CONTENT-OPS.md](./CONTENT-OPS.md) — 抓取与运营

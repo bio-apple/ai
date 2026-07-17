@@ -17,8 +17,10 @@ flowchart LR
 1. **本地开发**：`npm run build` 生成 `dist/`（不提交）。
 2. **合并 `main`**：push 或合并 PR 后自动触发 [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)。
 3. **Lint & Format**：Prettier + ESLint。
-4. **Build**：`prebuild` → Astro SSG → `dist/`，并运行 `validate_ci.py`（Schema、链接、密钥扫描等）。
+4. **Build**：`prebuild` → Astro SSG → `dist/`，并运行 `validate_ci.py`（含 `secrets` / Schema / `opengraph` / `jsonld` / `search` / 内部链接等）。
 5. **Deploy**：上传构建制品，由 `actions/deploy-pages` 发布至 GitHub Pages 环境。
+
+> **密钥扫描**：`ci.yml` / `deploy.yml` 在 Lint 前另跑 **gitleaks**（`.gitleaks.toml`），与 `validate_ci.py secrets` 双重拦截。
 
 > **说明**：本站使用 GitHub 官方 **Actions 制品部署**（`upload-pages-artifact` + `deploy-pages`），**不维护**独立的 `gh-pages` 分支。产物仅存在于 Actions 制品与 Pages CDN，与 `main` 源码分离。
 
@@ -46,12 +48,16 @@ push `main` 时 **`ci.yml` 与 `deploy.yml` 并行**：
 npm ci && pip install -r requirements.txt
 cp .env.local.example .env.local   # 可选
 npm run quality                    # Prettier + ESLint
+npm run scan:secrets               # 与 CI 对齐的密钥扫描
 npm run build                      # prebuild → Astro → dist/
 DIST=dist python3 scripts/validate_ci.py
+# 常用分步：jsonld | opengraph | search | links | courses | news
 npm run test:unit && npm run test:e2e   # 与 CI 对齐
 ```
 
 通过后再 push `main`，Actions 将自动完成线上部署。
+
+**Dead Link（可选本地）**：`npm run build && lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'`（与 `weekly-link-check.yml` 一致）。
 
 ## 手动重新部署
 
@@ -72,3 +78,12 @@ npm run test:unit && npm run test:e2e   # 与 CI 对齐
 ## 故障排查
 
 部署失败或线上 404 → 查看 [Deploy 工作流](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) 与 [CI 工作流](https://github.com/bio-apple/ai/actions/workflows/ci.yml)，本地复现 `npm run build && DIST=dist python3 scripts/validate_ci.py`。详见 [OPS-RUNBOOK.md](./OPS-RUNBOOK.md)。
+
+死链告警 → [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) artifact + 本地 lychee。
+
+## 相关文档
+
+- [SETUP.md](./SETUP.md) — 本地环境
+- [SECURITY.md](./SECURITY.md) — CSP / gitleaks
+- [FRONTEND.md](./FRONTEND.md) — 前端能力
+- [SEO.md](./SEO.md) — OG / JSON-LD

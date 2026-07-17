@@ -216,6 +216,7 @@ trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型'
 
 ## 相关文档
 
+- [FRONTEND.md](./FRONTEND.md) — 前端能力总览（含漏斗脚本加载顺序）
 - [DATA-MODEL.md](./DATA-MODEL.md) — `analytics.json` / `engagement.json`
 - [SEO.md](./SEO.md) — 搜索可发现性（与行为分析互补）
 - [CONTENT-OPS.md](./CONTENT-OPS.md) — 内容运营与 `engagement.json` 维护

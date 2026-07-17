@@ -20,6 +20,15 @@
 5. **课程资源异常** → 手动跑 [weekly-courses.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-courses.yml)
 6. **Dead Link 告警** → 查看 [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) artifact → 本地 `npm run build && lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'` → 修复后 push
 
+### 死链：用户侧 vs 周检
+
+| 层级 | 机制 | 说明 |
+| ---- | ---- | ---- |
+| **用户侧** | `lib/link-guard.js` | 点击 GitHub 仓库前探测 API；404 弹窗，避免盲跳 |
+| **运维周检** | lychee + `weekly-link-check.yml` | 扫描 `dist` HTML 与 `data` JSON 外链；失败开 `[ops]` Issue |
+
+用户弹窗**不能替代**周检：仅覆盖 GitHub 仓库类链接；新闻/课程/官方站死链仍依赖 lychee。
+
 ### 课程资源专项
 
 症状：Tab「课程资源」空白、条数骤减、CI 报 `ai-courses.json` 校验失败。
@@ -66,4 +75,4 @@ git commit -m "revert: 回滚坏批次" && git push
 
 回滚后若课程有变更，建议再跑一遍 `npm run build` 与 `validate_ci.py`，确认 Pages 部署成功。
 
-开发说明见根目录 [DEVELOPER.md](../DEVELOPER.md)。
+开发说明见根目录 [DEVELOPER.md](../DEVELOPER.md)。前端能力见 [FRONTEND.md](./FRONTEND.md)。

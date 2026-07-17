@@ -51,9 +51,19 @@ cp .env.local.example .env.local
 
 ## 4. 站内搜索与本地 API
 
-- 生产环境：知识库搜索使用客户端 `search-index.json` + Fuse.js（`knowledge.js`）。
+- 生产环境：全站 / 知识库搜索使用客户端 `search-index.json` + Fuse.js（`app.js`、`knowledge.js`）。
 - 本地可选：`./start.sh` 启动 FastAPI，`/api/ask` 为**站内 BM25/Fuse 检索**，不调用外部 LLM，也不承载用户密钥。
 - GitHub Pages **不部署** `/api/*` 路由。
+
+## 4.1 外链与 GitHub 探测（link-guard）
+
+`lib/link-guard.js`（Layout 默认加载）：
+
+- 外链自动补齐 `rel="noopener noreferrer"`
+- 图片加载失败时替换为本地 SVG 占位，避免破图
+- 点击疑似 GitHub 仓库链接前，用 `https://api.github.com` 探测；仓库 404 时弹窗（复制链接 / 仍要打开 / 关闭），避免用户盲跳失效页
+
+因此 CSP `connect-src` **必须**包含 `https://api.github.com`（见 `config/csp.json`）。探测失败时不阻断打开（网络抖动降级）。
 
 ## 5. incident 响应
 
@@ -84,6 +94,8 @@ cp .env.local.example .env.local
 
 修改 CSP 时只编辑 `config/csp.json`，然后 `node scripts/csp-policy.mjs` 或 `npm run build` 同步 `_headers`。
 
+**与 link-guard 相关的 `connect-src`**：除分析域名外，须保留 `https://api.github.com`（仓库存活探测）。勿随意删除。
+
 ## 7. CI 密钥扫描（双重）
 
 每次 `push` / `pull_request` 在 **Lint 之前**执行两道扫描，阻断密钥进入仓库：
@@ -106,6 +118,8 @@ npm run scan:secrets
 - `.env.local.example` — 本地变量模板（可提交）
 - `config/csp.json` — CSP 单一事实来源
 - `.gitleaks.toml` — gitleaks 允许列表
+- `lib/link-guard.js` — 外链 / 图片 / GitHub 404 兜底
 - `scripts/validate_ci.py` — CI 密钥扫描与产物校验
 - `_headers` — Cloudflare 安全响应头（含 CSP）
+- [FRONTEND.md](./FRONTEND.md) — 前端能力（含 link-guard）
 - `DEVELOPER.md` — 开发流程

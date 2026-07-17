@@ -4,6 +4,7 @@
 栈：Astro 5 SSG + GitHub Pages（本地可选 FastAPI 预览 `./start.sh`）。
 
 **架构与数据**：[docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) · [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)  
+**前端能力**：[docs/FRONTEND.md](./docs/FRONTEND.md) · **内容漏斗**：[docs/CONTENT-FUNNEL.md](./docs/CONTENT-FUNNEL.md)  
 **环境搭建**：[docs/SETUP.md](./docs/SETUP.md)（Node 22 / Python 3.12、本地预览、故障排除）
 
 ## 目录要点
@@ -11,14 +12,22 @@
 ```
 data/                 # 内容源（JSON）
 src/pages|components  # Astro 页面
-css/ + *.js           # 样式与运行时脚本（courses.js / news.js / videos.js …）
-lib/                  # 共享前端工具（fetch-json.js）
-config/               # 抓取配置（courses / news / video / oss）
+css/ + *.js           # 样式与运行时脚本（courses.js / news.js / videos.js / funnel.js …）
+lib/                  # 共享前端工具（见下）
+config/               # 抓取配置（courses / news / video / oss）+ csp.json
 scripts/              # 构建 / 抓取 / 校验
 schemas/              # JSON Schema（CI 门禁）
-.github/workflows/    # CI、Pages、日更/周更
+.github/workflows/    # CI、Pages、日更/周更、死链检测
 dist/                 # 构建产物（不提交）
 ```
+
+**`lib/` 清单：**
+
+| 文件 | 作用 |
+| ---- | ---- |
+| `fetch-json.js` | JSON 拉取（重试 / 超时 / 缓存）、`escapeHtml`、错误重试 UI |
+| `virtual-list.js` | 长列表可视区渲染 + `mapInChunks` |
+| `link-guard.js` | 外链 `noreferrer`、图片兜底、GitHub 仓库 404 探测弹窗 |
 
 ## 数据文件
 
@@ -34,9 +43,11 @@ dist/                 # 构建产物（不提交）
 
 `prebuild` 会把根目录运行时 JSON 与静态 JS/CSS 同步到 `public/`，再经 Astro 打进 `dist/`。
 
-**前端共享层**（`lib/fetch-json.js`）：统一 JSON 拉取（重试 / 超时 / 内存缓存）、`escapeHtml`、外链 `rel`、错误重试 UI。懒加载频道脚本由 `lazy-sections.js` 保证先加载 `lib/`。
+**搜索索引来源**（`build-artifacts.mjs` → 约 180+ 条）：`tools.json`、`site.json`（导航/场景/对比）、`ai-news.json`、`oss-projects.json`、`ai-courses.json`、`daily-videos.json`、排行榜模型名。联想词：`site.hero.search_suggestions`。校验：`validate_ci.py search`。
 
-**性能**：视频 Tab 使用 `daily-videos.latest.json`（prebuild 从完整 JSON 截取近 2 批）；首页已移除重复的嵌入式工具教程区块。
+**前端共享层**：见上表 `lib/*`；懒加载频道由 `lazy-sections.js` 保证先加载 `lib/`。Layout 默认加载 `link-guard.js`、`funnel.js` → `analytics.js`。能力总览见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
+
+**性能**：视频 Tab 用 `daily-videos.latest.json`（近 2 批）；视频 / 榜单 / GitHub 热门接入虚拟列表；动态区块 `min-height` 降 CLS；`style.css` 带内容哈希 `?v=`。
 
 ## 课程资源
 
