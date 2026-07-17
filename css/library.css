@@ -27,15 +27,33 @@
 
 .library-toolbar {
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 20px;
+}
+
+/* Prompt 库等多组筛选：组纵向堆叠，组内仍横向换行 */
+.library-toolbar:has(.library-toolbar-group) {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
 }
 
 .library-toolbar-group {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 8px;
+}
+
+.oss-toolbar {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 22px;
+  padding: 4px 0;
 }
 
 .library-attribution {
@@ -51,13 +69,18 @@
 }
 
 .library-filter {
-  padding: 8px 14px;
+  appearance: none;
+  width: auto;
+  flex: 0 0 auto;
+  padding: 7px 12px;
   border-radius: 999px;
   border: 1px solid var(--border);
   background: var(--bg-card);
   color: var(--text-muted);
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 1.2;
+  white-space: nowrap;
   cursor: pointer;
   transition:
     border-color 0.2s,
