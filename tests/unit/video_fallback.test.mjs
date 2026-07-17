@@ -3,44 +3,7 @@
  */
 import assert from 'node:assert/strict';
 import test from 'node:test';
-
-function withCategoryFallback(batches) {
-  if (!Array.isArray(batches) || !batches.length) return null;
-  const latest = batches[0];
-  if (!latest?.categories) return latest;
-
-  const categories = {};
-  let fallbackCount = 0;
-  for (const key of Object.keys(latest.categories)) {
-    const cat = latest.categories[key] || {};
-    const videos = cat.videos || [];
-    if (videos.length) {
-      categories[key] = { ...cat, videos: [...videos] };
-      continue;
-    }
-    let filled = null;
-    let fromDate = null;
-    for (let i = 1; i < batches.length; i += 1) {
-      const prevVideos = batches[i]?.categories?.[key]?.videos || [];
-      if (prevVideos.length) {
-        filled = prevVideos;
-        fromDate = batches[i].date || null;
-        break;
-      }
-    }
-    if (filled) {
-      fallbackCount += 1;
-      categories[key] = {
-        ...cat,
-        videos: filled.map((v) => ({ ...v })),
-        fallback_from: fromDate,
-      };
-    } else {
-      categories[key] = { ...cat, videos: [] };
-    }
-  }
-  return { ...latest, categories, _fallback_count: fallbackCount };
-}
+import { withCategoryFallback } from '../../scripts/video-fallback.mjs';
 
 test('empty latest category falls back to previous batch', () => {
   const out = withCategoryFallback([
@@ -68,4 +31,32 @@ test('empty latest category falls back to previous batch', () => {
 
 test('no batches returns null', () => {
   assert.equal(withCategoryFallback([]), null);
+});
+
+test('two empty YouTube days still backfill when full history is available at build', () => {
+  const out = withCategoryFallback([
+    {
+      date: '2026-07-17',
+      categories: {
+        youtube_top_views: { videos: [] },
+        bilibili_top_views: { videos: [{ id: 'b1' }] },
+      },
+    },
+    {
+      date: '2026-07-16',
+      categories: {
+        youtube_top_views: { videos: [] },
+        bilibili_top_views: { videos: [{ id: 'b0' }] },
+      },
+    },
+    {
+      date: '2026-07-13',
+      categories: {
+        youtube_top_views: { videos: [{ id: 'y1' }, { id: 'y2' }] },
+        bilibili_top_views: { videos: [{ id: 'b-old' }] },
+      },
+    },
+  ]);
+  assert.equal(out.categories.youtube_top_views.videos.length, 2);
+  assert.equal(out.categories.youtube_top_views.fallback_from, '2026-07-13');
 });
