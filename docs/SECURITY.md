@@ -63,9 +63,49 @@ cp .env.local.example .env.local
 2. 从 Git 历史中清除（如 `git filter-repo`），并 force-push。
 3. 假定密钥已泄露，检查账单与用量异常。
 
+## 6. Content-Security-Policy（XSS 防御）
+
+站点通过 HTTP 响应头限制浏览器可加载的资源来源，降低 XSS 与恶意注入的影响面。
+
+| 层级       | 文件                                | 说明                                     |
+| ---------- | ----------------------------------- | ---------------------------------------- |
+| **主策略** | `config/csp.json` → `_headers`      | Cloudflare 边缘注入；`prebuild` 自动同步 |
+| **兜底**   | `src/components/SecurityMeta.astro` | GitHub Pages 无自定义头时的 `<meta>` CSP |
+
+**已收紧的指令（相对初版）：**
+
+- `script-src-attr 'none'` — 禁止内联事件处理器（`onclick` 等）
+- `frame-src 'none'` / `frame-ancestors 'none'` — 禁止被嵌入 iframe
+- `worker-src 'none'` — 禁止 Service Worker 滥用
+- `object-src 'none'` — 禁止 Flash 等插件
+- `style-src-attr 'unsafe-inline'` — 允许 Astro 模板中的 `style=` 属性（与 `style-src` 分离）
+
+**仍保留 `unsafe-inline` 的原因：** `ThemeBoot.astro` 等首屏内联脚本尚未改为 nonce/hash；完全移除需后续重构。
+
+修改 CSP 时只编辑 `config/csp.json`，然后 `node scripts/csp-policy.mjs` 或 `npm run build` 同步 `_headers`。
+
+## 7. CI 密钥扫描（双重）
+
+每次 `push` / `pull_request` 在 **Lint 之前**执行两道扫描，阻断密钥进入仓库：
+
+| 工具            | 命令 / 配置                                      | 作用                                                                             |
+| --------------- | ------------------------------------------------ | -------------------------------------------------------------------------------- |
+| **validate_ci** | `python3 scripts/validate_ci.py secrets`         | 自定义正则：OpenAI `sk-`、Anthropic、Google `AIza…`、私钥块、`.env.local` 误提交 |
+| **gitleaks**    | `.gitleaks.toml` + `gitleaks/gitleaks-action@v2` | 业界规则库 + git 历史深度扫描                                                    |
+
+本地自检：
+
+```bash
+npm run scan:secrets
+# 若已安装 gitleaks CLI：gitleaks detect --source . --config .gitleaks.toml
+```
+
 ## 相关文件
 
 - `.gitignore` — 忽略 `.env.local`、`.env*.local`
 - `.env.local.example` — 本地变量模板（可提交）
-- `scripts/validate_ci.py` — CI 密钥扫描
+- `config/csp.json` — CSP 单一事实来源
+- `.gitleaks.toml` — gitleaks 允许列表
+- `scripts/validate_ci.py` — CI 密钥扫描与产物校验
+- `_headers` — Cloudflare 安全响应头（含 CSP）
 - `DEVELOPER.md` — 开发流程

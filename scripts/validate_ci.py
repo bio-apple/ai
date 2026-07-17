@@ -47,6 +47,15 @@ SECRET_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
         re.compile(r"(?i)api[_-]?key\s*[:=]\s*['\"]sk-[a-zA-Z0-9_-]{10,}['\"]"),
         "硬编码 sk- API Key",
     ),
+    (re.compile(r"AIza[0-9A-Za-z_-]{35}"), "疑似 Google / YouTube Data API Key"),
+    (
+        re.compile(r"(?i)(youtube|google)[_-]?api[_-]?key\s*=\s*['\"][^'\"\\s]{8,}['\"]"),
+        "硬编码 YouTube / Google API Key 赋值",
+    ),
+    (
+        re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+        "疑似私钥块",
+    ),
 )
 
 from news_dedupe import assert_news_unique, find_news_duplicates  # noqa: E402  # same scripts/ package style

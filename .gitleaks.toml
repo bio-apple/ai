@@ -1,0 +1,21 @@
+# gitleaks 配置：与 scripts/validate_ci.py 互补，扫描 git 历史与全量文件
+title = "bio-apple-ai gitleaks"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "文档示例、测试夹具与本地环境模板"
+paths = [
+  '''(?i)\.env\.local\.example$''',
+  '''(?i)^docs/''',
+  '''(?i)^tests/''',
+  '''(?i)package-lock\.json$''',
+]
+regexTarget = "match"
+regexes = [
+  '''(?i)your[_-]?api[_-]?key''',
+  '''(?i)example\.com''',
+  '''(?i)sk-[x]{10,}''',
+  '''AIzaSyDUMMY''',
+]

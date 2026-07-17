@@ -1,21 +1,12 @@
 ---
+import { buildCspPolicy } from '../../scripts/csp-policy.mjs';
+
 /**
  * GitHub Pages 无法自定义 HTTP 响应头时的兜底。
- * 完整 CSP / HSTS 仍建议走 Cloudflare `_headers`（见 DEVELOPER.md）。
- * 注意：meta CSP 不支持 frame-ancestors；脚本含 ThemeBoot 内联，需 unsafe-inline。
+ * 完整 CSP / HSTS 以 `config/csp.json` → `_headers` 为准（Cloudflare 边缘注入）。
+ * meta CSP 省略 frame-ancestors；ThemeBoot 内联脚本仍需 script-src unsafe-inline。
  */
-const csp = [
-  "default-src 'self'",
-  "base-uri 'self'",
-  "object-src 'none'",
-  "form-action 'self'",
-  "img-src 'self' data: blob: https:",
-  "font-src 'self' data: https://fonts.gstatic.com",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms https://cloud.umami.is https://*.umami.is https://static.cloudflareinsights.com",
-  "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.clarity.ms https://*.clarity.ms https://cloud.umami.is https://*.umami.is https://cloudflareinsights.com https://*.cloudflareinsights.com",
-  'upgrade-insecure-requests',
-].join('; ');
+const csp = buildCspPolicy({ forMeta: true });
 ---
 
 <meta http-equiv="Content-Security-Policy" content={csp} />
