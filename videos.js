@@ -157,7 +157,7 @@ function videoPlatform(v) {
   return isBilibiliVideo(v) ? 'bilibili' : 'youtube';
 }
 
-function renderVideoCard(v, { compact = false } = {}) {
+function renderVideoCard(v, { compact = false, reveal = true } = {}) {
   const hot = v.views >= HOT_VIEWS_THRESHOLD;
   const track = compact ? 'home-video-click' : 'video-click';
   const platform = platformLabel(v);
@@ -165,8 +165,10 @@ function renderVideoCard(v, { compact = false } = {}) {
   const thumbSrc = v.thumbnail || '';
   const author = v.author || v.channel || '未知作者';
   const published = formatPublishDate(v.published_at);
+  // 虚拟列表异步插入的卡片若仍用 .reveal（opacity:0），滚动观察常已错过 → 空白
+  const revealClass = reveal ? ' reveal' : '';
   return `
-    <article class="video-card reveal${compact ? ' video-card-compact' : ''}">
+    <article class="video-card${revealClass}${compact ? ' video-card-compact' : ''}">
       <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="${extRel()}" data-track="${track}">
         <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(v.title)}" loading="lazy" decoding="async" width="640" height="360"${thumbPolicy}>
         <span class="content-type-badge content-type-video" aria-hidden="true">视频</span>
@@ -306,14 +308,15 @@ function mountVideoVirtualLists(root, groups) {
     hosts.forEach((host, idx) => {
       const items = groups[idx]?.items || [];
       if (!items.length) return;
-      if (mapInChunks) {
-        mapInChunks(items, (v) => renderVideoCard(v), { chunkSize: 24 }).then((parts) => {
-          host.className = 'video-grid';
-          host.innerHTML = parts.join('');
-        });
-      } else {
+      const paint = (parts) => {
         host.className = 'video-grid';
-        host.innerHTML = items.map((v) => renderVideoCard(v)).join('');
+        host.innerHTML = parts.join('');
+        window.refreshScrollReveal?.(host);
+      };
+      if (mapInChunks) {
+        mapInChunks(items, (v) => renderVideoCard(v), { chunkSize: 24 }).then(paint);
+      } else {
+        paint(items.map((v) => renderVideoCard(v)));
       }
     });
     return;
@@ -330,7 +333,8 @@ function mountVideoVirtualLists(root, groups) {
       minItemWidth: 280,
       gap: 16,
       overscan: 4,
-      renderItem: (v) => renderVideoCard(v),
+      // 虚拟列表项不做 scroll-reveal，避免异步绘制后永久 opacity:0
+      renderItem: (v) => renderVideoCard(v, { reveal: false }),
     });
     videoVirtualLists.push(vl);
   });

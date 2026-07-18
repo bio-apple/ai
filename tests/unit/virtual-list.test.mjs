@@ -42,6 +42,21 @@ test('virtual list grid window stays bounded', () => {
   assert.ok(range.start > 0);
 });
 
+test('virtual list still paints when viewH is 0 (fallback height)', () => {
+  const fallbackH = Math.max(320 * 2, 280);
+  const range = visibleRange({
+    scrollTop: 0,
+    viewH: fallbackH,
+    itemCount: 17,
+    itemHeight: 320,
+    gap: 16,
+    columns: 1,
+    overscan: 4,
+  });
+  assert.ok(range.painted >= 1, `expected painted items, got ${range.painted}`);
+  assert.equal(range.start, 0);
+});
+
 test('mapInChunks completes without dropping items', async () => {
   // 与 BioAI.mapInChunks 同算法的精简版（单测不依赖浏览器全局）
   function mapInChunks(items, mapper, opts = {}) {
