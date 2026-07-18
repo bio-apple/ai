@@ -1,11 +1,11 @@
 {
   "updated_at": "2026-07-17",
   "title": "GitHub Stars 开源精选",
-  "lead": "按 AI 应用分类精选 GitHub 高星开源项目（≥5万 Stars Top 5，每类另附中文 Top1），每日重新收集。",
+  "lead": "按 AI 应用分类精选 GitHub 高星开源项目（≥5万 Stars Top 3，每类另附中文 Top1），每日重新收集。",
   "schema_version": 1,
   "rules": {
     "min_stars": 50000,
-    "top_n_per_app": 5,
+    "top_n_per_app": 3,
     "zh_top1_per_app": true,
     "refresh": "每日"
   },
@@ -43,24 +43,6 @@
           "stars": 69407,
           "url": "https://github.com/FoundationAgents/MetaGPT",
           "language": "Python"
-        },
-        {
-          "id": "mem0",
-          "repo": "mem0ai/mem0",
-          "name": "Mem0",
-          "description": "面向 AI Agent 的通用记忆层。",
-          "stars": 61014,
-          "url": "https://github.com/mem0ai/mem0",
-          "language": "TypeScript"
-        },
-        {
-          "id": "autogen",
-          "repo": "microsoft/autogen",
-          "name": "AutoGen",
-          "description": "微软 Agent 编程框架，支持多代理对话与工具调用。",
-          "stars": 59782,
-          "url": "https://github.com/microsoft/autogen",
-          "language": "Python"
         }
       ]
     },
@@ -95,15 +77,6 @@
           "stars": 81039,
           "url": "https://github.com/OpenHands/OpenHands",
           "language": "Python"
-        },
-        {
-          "id": "cline",
-          "repo": "cline/cline",
-          "name": "Cline",
-          "description": "自主编程 Agent，支持 IDE 扩展、CLI 与 SDK。",
-          "stars": 64727,
-          "url": "https://github.com/cline/cline",
-          "language": "TypeScript"
         },
         {
           "id": "qwen-code",
@@ -151,24 +124,6 @@
           "language": "TypeScript",
           "locale": "zh",
           "badge": "中文Top1"
-        },
-        {
-          "id": "langchain",
-          "repo": "langchain-ai/langchain",
-          "name": "LangChain",
-          "description": "主流 LLM 应用编排框架，覆盖 Agent、工具调用与链式组合。",
-          "stars": 141939,
-          "url": "https://github.com/langchain-ai/langchain",
-          "language": "Python"
-        },
-        {
-          "id": "awesome-llm-apps",
-          "repo": "Shubhamsaboo/awesome-llm-apps",
-          "name": "Awesome LLM Apps",
-          "description": "可运行的 AI Agent / RAG 应用合集，便于克隆实践。",
-          "stars": 123043,
-          "url": "https://github.com/Shubhamsaboo/awesome-llm-apps",
-          "language": "Python"
         }
       ]
     },
@@ -203,15 +158,6 @@
           "stars": 120643,
           "url": "https://github.com/ggml-org/llama.cpp",
           "language": "C++"
-        },
-        {
-          "id": "vllm",
-          "repo": "vllm-project/vllm",
-          "name": "vLLM",
-          "description": "高吞吐推理与服务引擎，适合本地/集群部署开源大模型。",
-          "stars": 86463,
-          "url": "https://github.com/vllm-project/vllm",
-          "language": "Python"
         },
         {
           "id": "chatglm",
@@ -304,24 +250,6 @@
           "language": "Python",
           "locale": "zh",
           "badge": "中文Top1"
-        },
-        {
-          "id": "ultralytics",
-          "repo": "ultralytics/ultralytics",
-          "name": "Ultralytics YOLO",
-          "description": "YOLO 系列目标检测、分割与姿态估计工具箱。",
-          "stars": 59569,
-          "url": "https://github.com/ultralytics/ultralytics",
-          "language": "Python"
-        },
-        {
-          "id": "yolov5",
-          "repo": "ultralytics/yolov5",
-          "name": "YOLOv5",
-          "description": "经典实时目标检测实现，工业视觉常用基线。",
-          "stars": 57690,
-          "url": "https://github.com/ultralytics/yolov5",
-          "language": "Python"
         }
       ]
     },
@@ -358,15 +286,6 @@
           "language": "Python"
         },
         {
-          "id": "keras",
-          "repo": "keras-team/keras",
-          "name": "Keras",
-          "description": "高阶深度学习 API，降低模型搭建门槛。",
-          "stars": 64169,
-          "url": "https://github.com/keras-team/keras",
-          "language": "Python"
-        },
-        {
           "id": "paddle",
           "repo": "PaddlePaddle/Paddle",
           "name": "PaddlePaddle",
@@ -382,7 +301,7 @@
     {
       "id": "prompt-libs",
       "label": "Prompt 库",
-      "description": "按 Stars 精选的 Prompt / 提示工程开源资源（Top 5）",
+      "description": "按 Stars 精选的 Prompt / 提示工程开源资源（Top 3）",
       "projects": [
         {
           "id": "superpowers",
@@ -410,24 +329,6 @@
           "stars": 141987,
           "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
           "language": ""
-        },
-        {
-          "id": "pe-guide",
-          "repo": "dair-ai/Prompt-Engineering-Guide",
-          "name": "Prompt Engineering Guide",
-          "description": "提示工程指南：论文、课程、笔记与实践资源。",
-          "stars": 76615,
-          "url": "https://github.com/dair-ai/Prompt-Engineering-Guide",
-          "language": "MDX"
-        },
-        {
-          "id": "get-shit-done",
-          "repo": "gsd-build/get-shit-done",
-          "name": "Get Shit Done",
-          "description": "轻量元提示与上下文工程框架，适合规格驱动开发。",
-          "stars": 64761,
-          "url": "https://github.com/gsd-build/get-shit-done",
-          "language": "JavaScript"
         },
         {
           "id": "awesome-zh",

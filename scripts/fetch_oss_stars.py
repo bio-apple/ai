@@ -3,8 +3,8 @@
 
 规则：
 1. 按 AI 应用领域分类
-2. 全球榜：Stars ≥ 50,000，每类按 Stars 降序最多 Top 5
-3. 每类额外增加 1 个「中文 Top1」（该应用中文候选里 Stars 最高者；若已在 Top5 则仅标注）
+2. 全球榜：Stars ≥ 50,000，每类按 Stars 降序最多 Top 3
+3. 每类额外增加 1 个「中文 Top1」（该应用中文候选里 Stars 最高者；若已在 Top3 则仅标注）
 4. 由 daily-oss.yml 每日自动重刷
 """
 
@@ -28,9 +28,9 @@ TZ = timezone(timedelta(hours=8))
 USER_AGENT = "BioAI-Lab-OSSBot/1.0"
 
 MIN_STARS = 50_000
-TOP_N = 5
+TOP_N = 3
 
-# 按 AI 应用分类的候选仓库（全球 Top5 + 中文 Top1）
+# 按 AI 应用分类的候选仓库（全球 Top3 + 中文 Top1）
 APP_CATALOG: list[dict] = [
     {
         "id": "ai-agent",
@@ -452,7 +452,7 @@ APP_CATALOG: list[dict] = [
     {
         "id": "prompt-libs",
         "label": "Prompt 库",
-        "description": "按 Stars 精选的 Prompt / 提示工程开源资源（Top 5）",
+        "description": "按 Stars 精选的 Prompt / 提示工程开源资源（Top 3）",
         "zh_candidates": [
             {
                 "id": "awesome-zh",
@@ -637,7 +637,7 @@ def collect_domain(domain_def: dict) -> dict | None:
 
     zh = pick_zh_top1(domain_def)
     if zh:
-        # 已在全球 Top5：仅标注；否则追加中文 Top1
+        # 已在全球 Top3：仅标注；否则追加中文 Top1
         existed = next(
             (
                 p

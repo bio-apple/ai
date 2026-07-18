@@ -254,7 +254,7 @@ Actions 手动触发可选 `force=true` 重抓；日志中 `detail_fetch_failed`
 **规则（代码内常量）：**
 
 - 按 **8 个 AI 应用领域** 分类
-- 全球榜：Stars **≥ 50,000**，每类 Top **5**
+- 全球榜：Stars **≥ 50,000**，每类 Top **3**
 - 每类额外 **中文 Top1**（候选池 `zh_candidates`）
 
 **本地执行：**
