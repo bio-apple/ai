@@ -215,27 +215,16 @@ jobs:
         run: |
           git fetch origin main --quiet
           AHEAD=$(git rev-list --count origin/main..HEAD)
-          if [ "$AHEAD" -gt 0 ]; then
-            git push origin HEAD:main
-            echo "pushed=true" >> "$GITHUB_OUTPUT"
-            echo "✓ 已推送 ${AHEAD} 个串行日更提交"
-          else
+          if [ "$AHEAD" -eq 0 ]; then
             echo "No commits to push"
             echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
           fi
-
-      - name: Trigger Pages deploy
-        if: steps.push.outputs.pushed == 'true'
-        uses: actions/github-script@v8
-        with:
-          script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'deploy.yml',
-              ref: 'main',
-            });
-            console.log('Dispatched deploy.yml');
+          # 串行抓取较久，push 前 rebase 避免非快进失败丢日更
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+          echo "✓ 已推送串行日更提交（deploy.yml 由 push 自动触发，不再二次 dispatch）"
 
       # ── 死链检测（串行末步）────────────────────────────────
       - name: Install npm deps (link check)
@@ -271,6 +260,8 @@ jobs:
             './data/**/*.json'
             './ai-courses.json'
             './ai-news.json'
+            './daily-videos.json'
+            './oss-projects.json'
 
       - name: Upload lychee report
         if: always() && github.event.inputs.skip_link_check != 'true'
@@ -282,6 +273,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Open issue on channel / link failures
+        id: report
         if: always()
         uses: actions/github-script@v8
         env:
@@ -293,6 +285,7 @@ jobs:
             const fs = require('fs');
             const failed = (process.env.FAILED_CHANNELS || '').split(',').filter(Boolean);
             const lycheeBad = process.env.SKIP_LINK !== 'true' && process.env.LYCHEE_EXIT && process.env.LYCHEE_EXIT !== '0';
+            core.setOutput('has_failure', failed.length || lycheeBad ? 'true' : 'false');
             if (!failed.length && !lycheeBad) {
               console.log('All channels ok; link check ok or skipped');
               return;
@@ -342,3 +335,9 @@ jobs:
                 body,
               });
             }
+
+      - name: Fail job if any channel or lychee failed
+        if: always() && steps.report.outputs.has_failure == 'true'
+        run: |
+          echo "::error::串行日更存在失败频道或死链检测未通过，详见上方 Issue 步骤与日志"
+          exit 1

@@ -13,6 +13,8 @@ from datetime import datetime, timezone
 SITE_BASE = os.environ.get("SITE_BASE", "https://bio-apple.github.io/ai").rstrip("/")
 VIDEO_MAX_AGE_DAYS = int(os.environ.get("VIDEO_MAX_AGE_DAYS", "2"))
 NEWS_MAX_AGE_DAYS = int(os.environ.get("NEWS_MAX_AGE_DAYS", "2"))
+COURSES_MAX_AGE_DAYS = int(os.environ.get("COURSES_MAX_AGE_DAYS", "2"))
+OSS_MAX_AGE_DAYS = int(os.environ.get("OSS_MAX_AGE_DAYS", "2"))
 TIMEOUT = int(os.environ.get("PROBE_TIMEOUT", "20"))
 REPO_ACTIONS = os.environ.get(
     "REPO_ACTIONS_URL",
@@ -108,6 +110,20 @@ def remediation_for(exc: BaseException) -> list[str]:
             "3. 必要时回滚新闻 JSON",
             "",
         ]
+    elif msg.startswith("STALE:ai-courses") or ("ai-courses" in msg and "STALE" in msg):
+        lines += [
+            "### P1 · 课程过期",
+            f"1. 优先重跑：{REPO_ACTIONS}/workflows/daily-refresh.yml（串行日更）",
+            f"2. 或单跑：{REPO_ACTIONS}/workflows/daily-courses.yml",
+            "",
+        ]
+    elif msg.startswith("STALE:oss-projects") or ("oss-projects" in msg and "STALE" in msg):
+        lines += [
+            "### P1 · 开源精选过期",
+            f"1. 优先重跑：{REPO_ACTIONS}/workflows/daily-refresh.yml",
+            f"2. 或单跑：{REPO_ACTIONS}/workflows/daily-oss.yml（需 GITHUB_TOKEN）",
+            "",
+        ]
     elif msg.startswith("CONTENT:"):
         lines += [
             "### P0 · 页面内容异常",
@@ -177,6 +193,20 @@ def main() -> int:
             "ai-news",
         )
         notes.append(f"- news fresh ≤{NEWS_MAX_AGE_DAYS}d")
+        check_json_freshness(
+            "/ai-courses.json",
+            ["updated_at", "date"],
+            COURSES_MAX_AGE_DAYS,
+            "ai-courses",
+        )
+        notes.append(f"- courses fresh ≤{COURSES_MAX_AGE_DAYS}d")
+        check_json_freshness(
+            "/oss-projects.json",
+            ["updated_at"],
+            OSS_MAX_AGE_DAYS,
+            "oss-projects",
+        )
+        notes.append(f"- oss fresh ≤{OSS_MAX_AGE_DAYS}d")
         write_summary("\n".join(notes))
         print("全部健康检查通过")
         return 0

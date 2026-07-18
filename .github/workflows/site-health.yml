@@ -29,6 +29,8 @@ jobs:
           SITE_BASE: https://bio-apple.github.io/ai
           VIDEO_MAX_AGE_DAYS: "2"
           NEWS_MAX_AGE_DAYS: "2"
+          COURSES_MAX_AGE_DAYS: "2"
+          OSS_MAX_AGE_DAYS: "2"
           REPO_ACTIONS_URL: https://github.com/bio-apple/ai/actions
 
       - name: Open or update issue on failure

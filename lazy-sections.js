@@ -3,6 +3,8 @@
  */
 (function () {
   const base = (document.documentElement.dataset.base || '/ai/').replace(/\/?$/, '/');
+  /** @type {Map<string, Promise<void>>} */
+  const inflight = new Map();
   const loaded = new Set();
 
   const SECTION_SCRIPTS = {
@@ -14,21 +16,40 @@
 
   const LIB_SCRIPTS = ['lib/fetch-json.js'];
 
+  function scriptAlreadyPresent(name) {
+    const abs = base + name;
+    return [...document.querySelectorAll('script[src]')].some((el) => {
+      const src = el.getAttribute('src') || '';
+      return src === abs || src.endsWith('/' + name) || el.dataset.lazySrc === name;
+    });
+  }
+
   function ensureScript(name) {
-    if (loaded.has(name) || document.querySelector(`script[data-lazy-src="${name}"]`)) {
+    if (loaded.has(name) || scriptAlreadyPresent(name)) {
       loaded.add(name);
       return Promise.resolve();
     }
-    loaded.add(name);
-    return new Promise((resolve, reject) => {
+    if (inflight.has(name)) return inflight.get(name);
+
+    const p = new Promise((resolve, reject) => {
       const el = document.createElement('script');
       el.src = base + name;
       el.async = true;
       el.dataset.lazySrc = name;
-      el.onload = () => resolve();
-      el.onerror = () => reject(new Error('failed to load ' + name));
+      el.onload = () => {
+        loaded.add(name);
+        inflight.delete(name);
+        resolve();
+      };
+      el.onerror = () => {
+        inflight.delete(name);
+        el.remove();
+        reject(new Error('failed to load ' + name));
+      };
       document.body.appendChild(el);
     });
+    inflight.set(name, p);
+    return p;
   }
 
   function loadForSection(sectionId) {

@@ -131,10 +131,16 @@ function renderOssDomainBody(domain) {
 
 function renderOssByDomain(data, activeDomain = 'all') {
   const domains = data.domains || [];
+  const allActive = activeDomain === 'all';
   const toolbar = `
     <div class="library-toolbar oss-toolbar" id="oss-toolbar">
-      <button type="button" class="library-filter active" data-oss-domain="all">全部领域</button>
-      ${domains.map((d) => `<button type="button" class="library-filter" data-oss-domain="${escapeHtml(d.id)}">${escapeHtml(d.label)}</button>`).join('')}
+      <button type="button" class="library-filter${allActive ? ' active' : ''}" data-oss-domain="all" aria-pressed="${allActive ? 'true' : 'false'}">全部领域</button>
+      ${domains
+        .map((d) => {
+          const on = activeDomain === d.id;
+          return `<button type="button" class="library-filter${on ? ' active' : ''}" data-oss-domain="${escapeHtml(d.id)}" aria-pressed="${on ? 'true' : 'false'}">${escapeHtml(d.label)}</button>`;
+        })
+        .join('')}
     </div>
   `;
 

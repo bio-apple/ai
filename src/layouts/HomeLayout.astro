@@ -10,6 +10,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/data';
 import { BASE, asset, assetVersioned } from '../lib/paths';
+import { stringifyJsonLd } from '../lib/schema';
 
 interface Props {
   title: string;
@@ -49,7 +50,7 @@ const styleHref = assetVersioned('style.css');
 <html lang="zh-CN" data-base={BASE}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <SecurityMeta />
     <SeoHead
       title={title}
@@ -81,7 +82,7 @@ const styleHref = assetVersioned('style.css');
     <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />
     <ThemeBoot assetPrefix={BASE} />
-    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    {schema && <script type="application/ld+json" set:html={stringifyJsonLd(schema)} />}
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳到主要内容</a>

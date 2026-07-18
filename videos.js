@@ -223,17 +223,17 @@ function renderFilteredGrid(videos) {
   if (!videos.length) {
     return '<p class="loading-hint">当前筛选条件下暂无视频。</p>';
   }
-  return `<div class="video-virtual-host" data-video-vl data-vl-items="${videos.length}"></div>`;
+  return `<div class="video-virtual-host" data-video-vl="single" data-vl-items="${videos.length}"></div>`;
 }
 
-function renderPlatformBlock(label, videos) {
+function renderPlatformBlock(label, key, videos) {
   if (!videos.length) {
     return `<div class="video-category video-category-empty"><h4 class="video-category-title">${escapeHtml(label)}</h4><p class="loading-hint">暂无该平台推荐</p></div>`;
   }
   return `
     <div class="video-category">
       <h4 class="video-category-title">${escapeHtml(label)} <span class="video-day-count">${videos.length} 条</span></h4>
-      <div class="video-virtual-host" data-video-vl data-vl-items="${videos.length}"></div>
+      <div class="video-virtual-host" data-video-vl="${escapeHtml(key)}" data-vl-items="${videos.length}"></div>
     </div>
   `;
 }
@@ -274,8 +274,8 @@ function renderBatch(batch, state) {
         <span class="video-day-count">${total} 条</span>
       </h3>
       ${fallbackNote}
-      ${renderPlatformBlock('YouTube', youtube)}
-      ${renderPlatformBlock('B站', bilibili)}
+      ${renderPlatformBlock('YouTube', 'youtube', youtube)}
+      ${renderPlatformBlock('B站', 'bilibili', bilibili)}
     </section>
   `,
     groups: [
@@ -301,12 +301,22 @@ function destroyVideoVirtualLists() {
 function mountVideoVirtualLists(root, groups) {
   destroyVideoVirtualLists();
   const create = window.BioAI?.createVirtualList;
+  const byKey = new Map((groups || []).map((g) => [g.key, g.items || []]));
   const hosts = [...root.querySelectorAll('[data-video-vl]')];
+
+  function itemsForHost(host) {
+    const key = host.getAttribute('data-video-vl') || '';
+    if (byKey.has(key)) return byKey.get(key);
+    // 兼容旧 markup：无 key 时按 DOM 顺序回退
+    const idx = hosts.indexOf(host);
+    return groups[idx]?.items || [];
+  }
+
   if (!create) {
     // 无虚拟列表时回退：分片写入，避免一次 innerHTML 卡顿
     const mapInChunks = window.BioAI?.mapInChunks;
-    hosts.forEach((host, idx) => {
-      const items = groups[idx]?.items || [];
+    hosts.forEach((host) => {
+      const items = itemsForHost(host);
       if (!items.length) return;
       const paint = (parts) => {
         host.className = 'video-grid';
@@ -322,8 +332,8 @@ function mountVideoVirtualLists(root, groups) {
     return;
   }
 
-  hosts.forEach((host, idx) => {
-    const items = groups[idx]?.items || [];
+  hosts.forEach((host) => {
+    const items = itemsForHost(host);
     if (!items.length) return;
     const vl = create({
       container: host,
@@ -379,7 +389,8 @@ function resetVideoFetch() {
 
 function initVideoToolbar() {
   const toolbar = document.getElementById('video-toolbar');
-  if (!toolbar) return;
+  if (!toolbar || toolbar.dataset.bound === '1') return;
+  toolbar.dataset.bound = '1';
 
   toolbar.querySelectorAll('[data-video-platform]').forEach((btn) => {
     btn.addEventListener('click', () => {

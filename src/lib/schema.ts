@@ -1,5 +1,16 @@
 import { BRAND } from './data';
 
+/** JSON-LD 注入 HTML 时转义 `<`，防止内容打断 script 标签 */
+export function stringifyJsonLd(data: unknown): string {
+  return JSON.stringify(data).replace(/</g, '\\u003c');
+}
+
+function isIsoDate(value?: string | null): value is string {
+  if (!value || typeof value !== 'string') return false;
+  const t = Date.parse(value);
+  return Number.isFinite(t);
+}
+
 export type BreadcrumbItem = { name: string; url: string };
 
 export type ToolSchemaInput = {
@@ -148,23 +159,36 @@ export function buildCoursesSchema(courses: CoursesSchemaInput, baseUrl: string)
     courses.lead ||
     '按学习路线编排的免费 AI 课程：入门、机器学习、深度学习、LLM 大模型与 AI Agent。';
 
-  const itemListElement = (courses.items || []).map((course, index) => ({
-    '@type': 'ListItem',
-    position: index + 1,
-    item: {
-      '@type': 'Course',
-      name: course.title,
-      description: course.summary || course.title,
-      url: course.url,
-      provider: {
-        '@type': 'Organization',
-        name: course.platform || 'Unknown',
+  const itemListElement = (courses.items || []).map((course, index) => {
+    const free = course.is_free !== false;
+    return {
+      '@type': 'ListItem',
+      position: index + 1,
+      item: {
+        '@type': 'Course',
+        name: course.title,
+        description: course.summary || course.title,
+        url: course.url,
+        provider: {
+          '@type': 'Organization',
+          name: course.platform || 'Unknown',
+        },
+        isAccessibleForFree: free,
+        inLanguage: course.language || 'zh-CN',
+        ...(course.track ? { educationalLevel: course.track } : {}),
+        ...(free
+          ? {
+              offers: {
+                '@type': 'Offer',
+                price: 0,
+                priceCurrency: 'CNY',
+                category: 'Free',
+              },
+            }
+          : {}),
       },
-      isAccessibleForFree: course.is_free !== false,
-      inLanguage: course.language || 'zh-CN',
-      ...(course.track ? { educationalLevel: course.track } : {}),
-    },
-  }));
+    };
+  });
 
   return {
     '@context': 'https://schema.org',
@@ -227,7 +251,7 @@ export function buildNewsSchema(
               headline: item.title,
               description: item.summary || item.title,
               url: item.url,
-              datePublished: item.published_at,
+              ...(isIsoDate(item.published_at) ? { datePublished: item.published_at } : {}),
               author: { '@type': 'Organization', name: item.source || 'Unknown' },
             },
           })),
