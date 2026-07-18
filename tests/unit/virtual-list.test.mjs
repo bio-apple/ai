@@ -4,15 +4,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-function visibleRange({
-  scrollTop,
-  viewH,
-  itemCount,
-  itemHeight,
-  gap,
-  columns,
-  overscan,
-}) {
+function visibleRange({ scrollTop, viewH, itemCount, itemHeight, gap, columns, overscan }) {
   const stride = itemHeight + gap;
   const rowCount = Math.ceil(itemCount / columns) || 0;
   const firstRow = Math.max(0, Math.floor(scrollTop / stride) - overscan);

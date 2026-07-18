@@ -29,13 +29,13 @@ flowchart LR
   D --> E[5 完成 Complete]
 ```
 
-| 阶段 | `funnel_step` | `funnel_stage` | 典型行为 |
-| ---- | ------------- | -------------- | -------- |
-| 发现 | 1 | `discover` | 进入首页、Hero CTA、AI 推荐输入 |
-| 浏览 | 2 | `browse` | Tab 切换、搜索、Daily 面板、工具中心 |
-| 深入 | 3 | `engage` | 打开工具教程页、对比页、推荐结果点工具 |
-| 学习 | 4 | `learn` | 点击课程/视频外链、知识库提问、学习路线 |
-| 完成 | 5 | `complete` | 路线阶段勾选完成、重复访问高价值教程 |
+| 阶段 | `funnel_step` | `funnel_stage` | 典型行为                                |
+| ---- | ------------- | -------------- | --------------------------------------- |
+| 发现 | 1             | `discover`     | 进入首页、Hero CTA、AI 推荐输入         |
+| 浏览 | 2             | `browse`       | Tab 切换、搜索、Daily 面板、工具中心    |
+| 深入 | 3             | `engage`       | 打开工具教程页、对比页、推荐结果点工具  |
+| 学习 | 4             | `learn`        | 点击课程/视频外链、知识库提问、学习路线 |
+| 完成 | 5             | `complete`     | 路线阶段勾选完成、重复访问高价值教程    |
 
 ---
 
@@ -43,23 +43,23 @@ flowchart LR
 
 所有经 `trackEvent()` 发送的事件，在配置了 `funnel.js` 后会自动附加：
 
-| 字段 | 类型 | 说明 |
-| ---- | ---- | ---- |
-| `journey_id` | `string` | 会话级 UUID（`sessionStorage`），用于串联单次访问路径 |
-| `funnel_step` | `1–5` | 事件所属漏斗阶段 |
-| `funnel_stage` | `string` | 阶段英文名：`discover` / `browse` / `engage` / `learn` / `complete` |
-| `page_type` | `string` | 当前页类型：`home` / `tool` / `hub` / `compare` / `ranking` / `roadmap` / … |
+| 字段           | 类型     | 说明                                                                        |
+| -------------- | -------- | --------------------------------------------------------------------------- |
+| `journey_id`   | `string` | 会话级 UUID（`sessionStorage`），用于串联单次访问路径                       |
+| `funnel_step`  | `1–5`    | 事件所属漏斗阶段                                                            |
+| `funnel_stage` | `string` | 阶段英文名：`discover` / `browse` / `engage` / `learn` / `complete`         |
+| `page_type`    | `string` | 当前页类型：`home` / `tool` / `hub` / `compare` / `ranking` / `roadmap` / … |
 
 业务事件可额外携带：
 
-| 字段 | 场景 |
-| ---- | ---- |
-| `tool` | 工具 id |
-| `section` | 首页 Tab（`section-courses` 等） |
-| `q` | 搜索词（截断 80 字符） |
-| `course_title` / `course_track` | 课程点击 |
-| `entry_source` | 入口：`direct` / `search` / `hash` / `search_engine` / `github` / `referral` / UTM |
-| `result_count` | 搜索命中条数 |
+| 字段                            | 场景                                                                               |
+| ------------------------------- | ---------------------------------------------------------------------------------- |
+| `tool`                          | 工具 id                                                                            |
+| `section`                       | 首页 Tab（`section-courses` 等）                                                   |
+| `q`                             | 搜索词（截断 80 字符）                                                             |
+| `course_title` / `course_track` | 课程点击                                                                           |
+| `entry_source`                  | 入口：`direct` / `search` / `hash` / `search_engine` / `github` / `referral` / UTM |
+| `result_count`                  | 搜索命中条数                                                                       |
 
 ---
 
@@ -91,45 +91,45 @@ funnel.js → analytics.js → ux.js → app.js → …
 
 ### 5.1 漏斗生命周期
 
-| 事件 | 阶段 | 触发 |
-| ---- | ---- | ---- |
-| `funnel_entry` | 1 | 每会话首次页面加载 |
-| `section_view` | 2 | 首页 Tab 切换（`bioai:section-change`） |
-| `page_engagement` | 1 | 页面可见 ≥5s（需 GA/Umami） |
+| 事件              | 阶段 | 触发                                    |
+| ----------------- | ---- | --------------------------------------- |
+| `funnel_entry`    | 1    | 每会话首次页面加载                      |
+| `section_view`    | 2    | 首页 Tab 切换（`bioai:section-change`） |
+| `page_engagement` | 1    | 页面可见 ≥5s（需 GA/Umami）             |
 
 ### 5.2 发现 → 浏览
 
-| 事件 | 阶段 | 来源 |
-| ---- | ---- | ---- |
-| `hero-cta-primary` | 1 | 首页 Hero |
-| `hero-cta-nav` | 2 | 浏览工具中心 |
-| `nav-tab` | 2 | 顶栏 Tab |
-| `search_query` | 2 | 搜索输入（600ms 防抖）或 `?q=` 入站 |
-| `search_hit` / `search-goto` | 2 | 搜索结果点击 |
-| `search_empty` | 2 | 零结果 |
-| `daily_panel_click` | 2 | Daily 面板 |
-| `home-all-oss` / `home-community-hub` | 2 | 首页区块 CTA |
+| 事件                                  | 阶段 | 来源                                |
+| ------------------------------------- | ---- | ----------------------------------- |
+| `hero-cta-primary`                    | 1    | 首页 Hero                           |
+| `hero-cta-nav`                        | 2    | 浏览工具中心                        |
+| `nav-tab`                             | 2    | 顶栏 Tab                            |
+| `search_query`                        | 2    | 搜索输入（600ms 防抖）或 `?q=` 入站 |
+| `search_hit` / `search-goto`          | 2    | 搜索结果点击                        |
+| `search_empty`                        | 2    | 零结果                              |
+| `daily_panel_click`                   | 2    | Daily 面板                          |
+| `home-all-oss` / `home-community-hub` | 2    | 首页区块 CTA                        |
 
 ### 5.3 浏览 → 深入
 
-| 事件 | 阶段 | 来源 |
-| ---- | ---- | ---- |
-| `recommend_submit` / `recommend_chip` | 1 | AI 推荐 |
-| `recommend_query_tool` | 3 | 推荐结果 → 工具页 |
-| `recommend_related_*` | 3 | 关联工具 |
-| `ops-tool-click` | 3 | 运营热度榜 |
-| `tool-rel-alt-*` / `tool-rel-comp-*` | 3 | 工具页关联 |
-| `compare-goto-*` | 3 | 对比页 CTA |
+| 事件                                  | 阶段 | 来源              |
+| ------------------------------------- | ---- | ----------------- |
+| `recommend_submit` / `recommend_chip` | 1    | AI 推荐           |
+| `recommend_query_tool`                | 3    | 推荐结果 → 工具页 |
+| `recommend_related_*`                 | 3    | 关联工具          |
+| `ops-tool-click`                      | 3    | 运营热度榜        |
+| `tool-rel-alt-*` / `tool-rel-comp-*`  | 3    | 工具页关联        |
+| `compare-goto-*`                      | 3    | 对比页 CTA        |
 
 ### 5.4 深入 → 学习 → 完成
 
-| 事件 | 阶段 | 来源 |
-| ---- | ---- | ---- |
-| `course-click` / `course-read` | 4 | 课程 Tab（含 `course_title`） |
-| `courses-filter-track` | 4 | 课程路线筛选 |
-| `video-click` / `home-video-click` | 4 | 视频外链 |
-| `knowledge_ask` | 4 | 知识库 |
-| `roadmap_phase_toggle` | 5 | 学习路线勾选 |
+| 事件                               | 阶段 | 来源                          |
+| ---------------------------------- | ---- | ----------------------------- |
+| `course-click` / `course-read`     | 4    | 课程 Tab（含 `course_title`） |
+| `courses-filter-track`             | 4    | 课程路线筛选                  |
+| `video-click` / `home-video-click` | 4    | 视频外链                      |
+| `knowledge_ask`                    | 4    | 知识库                        |
+| `roadmap_phase_toggle`             | 5    | 学习路线勾选                  |
 
 完整 declarative 事件见各模块 `[data-track]` 与 `trackEvent()` 调用。
 
@@ -141,14 +141,14 @@ funnel.js → analytics.js → ux.js → app.js → …
 
 在 Umami Dashboard 创建自定义事件报表：
 
-| 问题 | 事件 / 维度 |
-| ---- | ----------- |
-| 用户最关注什么 | `section_view` × `section`；`course-click` × `course_track` |
-| 在哪里流失 | 漏斗：`funnel_entry` → `section_view` → `recommend_query_tool` → `course-click`（按 `journey_id` 在导出数据中串联） |
-| 教程价值 | `tool` 页 `page_view` + `page_engagement`；工具页 `funnel_entry` × `tool` |
-| 无人访问页面 | Umami Pages 报表 + 对比 sitemap |
-| 热门搜索 | `search_query` × `q`（Top N） |
-| 学习路线效果 | `courses-filter-track` + `course-click` × `course_track`；`roadmap_phase_toggle` |
+| 问题           | 事件 / 维度                                                                                                         |
+| -------------- | ------------------------------------------------------------------------------------------------------------------- |
+| 用户最关注什么 | `section_view` × `section`；`course-click` × `course_track`                                                         |
+| 在哪里流失     | 漏斗：`funnel_entry` → `section_view` → `recommend_query_tool` → `course-click`（按 `journey_id` 在导出数据中串联） |
+| 教程价值       | `tool` 页 `page_view` + `page_engagement`；工具页 `funnel_entry` × `tool`                                           |
+| 无人访问页面   | Umami Pages 报表 + 对比 sitemap                                                                                     |
+| 热门搜索       | `search_query` × `q`（Top N）                                                                                       |
+| 学习路线效果   | `courses-filter-track` + `course-click` × `course_track`；`roadmap_phase_toggle`                                    |
 
 ### 6.2 GA4
 
@@ -189,15 +189,15 @@ CI Secrets 见 [CI-CD.md](./CI-CD.md)、[SECURITY.md](./SECURITY.md)。
 
 ## 9. 实施路线图
 
-| 优先级 | 项 | 状态 |
-| ------ | -- | ---- |
-| P0 | `funnel.js` + `trackEvent` enrich | ✅ |
-| P0 | `funnel_entry` / `section_view` / `search_query` | ✅ |
-| P0 | 课程点击携带 `course_title` / `course_track` | ✅ |
-| P1 | 工具中心 / 排行榜页 `data-track` 补全 | 待办 |
-| P1 | 工具页外链（官方文档）点击追踪 | 待办 |
-| P2 | Umami 漏斗 Dashboard 模板（维护者手动） | 待办 |
-| P2 | 导出脚本：按 `journey_id` 聚合路径 | 待办 |
+| 优先级 | 项                                               | 状态 |
+| ------ | ------------------------------------------------ | ---- |
+| P0     | `funnel.js` + `trackEvent` enrich                | ✅   |
+| P0     | `funnel_entry` / `section_view` / `search_query` | ✅   |
+| P0     | 课程点击携带 `course_title` / `course_track`     | ✅   |
+| P1     | 工具中心 / 排行榜页 `data-track` 补全            | 待办 |
+| P1     | 工具页外链（官方文档）点击追踪                   | 待办 |
+| P2     | Umami 漏斗 Dashboard 模板（维护者手动）          | 待办 |
+| P2     | 导出脚本：按 `journey_id` 聚合路径               | 待办 |
 
 ---
 
@@ -205,10 +205,10 @@ CI Secrets 见 [CI-CD.md](./CI-CD.md)、[SECURITY.md](./SECURITY.md)。
 
 ```javascript
 // 浏览器控制台
-window.__clickStats          // 事件计数
-window.bioFunnel.getJourneyId()
-window.bioFunnel.pageType()
-trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型' })
+window.__clickStats; // 事件计数
+window.bioFunnel.getJourneyId();
+window.bioFunnel.pageType();
+trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型' });
 // → 应含 journey_id、funnel_step: 4、funnel_stage: 'learn'
 ```
 

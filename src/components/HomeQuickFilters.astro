@@ -21,12 +21,7 @@ const filters = [
     {
       filters.map((f) =>
         f.href ? (
-          <a
-            class="home-quick-filter"
-            href={f.href}
-            data-track={f.track}
-            data-filter-type={f.id}
-          >
+          <a class="home-quick-filter" href={f.href} data-track={f.track} data-filter-type={f.id}>
             <span class="home-quick-filter-type" data-type={f.id}>
               {f.label}
             </span>

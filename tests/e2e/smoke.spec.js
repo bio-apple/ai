@@ -127,7 +127,9 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.nav-link-page', { hasText: '实战案例' })).toHaveCount(0);
     await page.locator('.nav-link-page', { hasText: 'AI工具中心' }).click();
     await expect(page.locator('h1')).toContainText('工具中心');
-    await expect(page.locator('[data-ranking-vl].vl-root, [data-ranking-vl] .aicpb-table-row').first()).toBeVisible();
+    await expect(
+      page.locator('[data-ranking-vl].vl-root, [data-ranking-vl] .aicpb-table-row').first(),
+    ).toBeVisible();
   });
 
   test('课程资源频道', async ({ page }) => {
@@ -180,7 +182,9 @@ test.describe('Bio AI Lab 关键路径', () => {
         { timeout: 20000 },
       )
       .toBeTruthy();
-    await expect(page.locator('#daily-video-list .vl-root, #daily-video-list .video-grid').first()).toBeVisible();
+    await expect(
+      page.locator('#daily-video-list .vl-root, #daily-video-list .video-grid').first(),
+    ).toBeVisible();
     const meta = page.locator('#video-update-meta');
     // 成功加载时有「最近更新」；失败时空 meta 也可接受（至少列表已离开纯 loading）
     const metaText = await meta.innerText().catch(() => '');

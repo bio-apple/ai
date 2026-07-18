@@ -8,14 +8,14 @@
 
 ## 1. 全局搜索
 
-| 项 | 说明 |
-| -- | ---- |
-| 入口 | 顶栏（全站）+ 首页 Hero（`GlobalSearch.astro`） |
+| 项   | 说明                                                                     |
+| ---- | ------------------------------------------------------------------------ |
+| 入口 | 顶栏（全站）+ 首页 Hero（`GlobalSearch.astro`）                          |
 | 索引 | 构建时 `scripts/build-artifacts.mjs` → `search-index.json`（约 180+ 条） |
-| 覆盖 | 工具、对比、资讯、开源仓库、课程、视频、排行榜模型名 |
-| 联想 | 聚焦空输入显示 `site.hero.search_suggestions` chips |
-| 历史 | `localStorage` 键 `bioai.search.history.v1`（最多 8 条） |
-| 引擎 | Fuse.js（`vendor/fuse.min.js`） |
+| 覆盖 | 工具、对比、资讯、开源仓库、课程、视频、排行榜模型名                     |
+| 联想 | 聚焦空输入显示 `site.hero.search_suggestions` chips                      |
+| 历史 | `localStorage` 键 `bioai.search.history.v1`（最多 8 条）                 |
+| 引擎 | Fuse.js（`vendor/fuse.min.js`）                                          |
 
 本地验收：`npm run build && DIST=dist python3 scripts/validate_ci.py search`
 
@@ -25,22 +25,22 @@
 
 见 **[CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)**。
 
-| 脚本 | 作用 |
-| ---- | ---- |
-| `funnel.js` | `journey_id`、`funnel_step`、`funnel_entry`、`section_view` |
-| `analytics.js` | Umami / CF / GA4 / Clarity；`trackEvent` 统一出口 |
-| `engagement.js` | 首页运营热度 widget（本地累加） |
+| 脚本            | 作用                                                        |
+| --------------- | ----------------------------------------------------------- |
+| `funnel.js`     | `journey_id`、`funnel_step`、`funnel_entry`、`section_view` |
+| `analytics.js`  | Umami / CF / GA4 / Clarity；`trackEvent` 统一出口           |
+| `engagement.js` | 首页运营热度 widget（本地累加）                             |
 
 ---
 
 ## 3. 虚拟列表（性能）
 
-| 模块 | 文件 | 说明 |
-| ---- | ---- | ---- |
-| 核心 | `lib/virtual-list.js` | 可视区渲染 + rAF；`mapInChunks` 分片 |
-| 视频 | `videos.js` | YouTube / B站网格虚拟滚动 |
-| 工具榜 | `ranking-tabs.js` | 榜单行虚拟列表（SSR 预览前 10 条） |
-| GitHub 热门 | 首页 Daily 面板 | 全量 GitHub 源资讯可滚动 |
+| 模块        | 文件                  | 说明                                 |
+| ----------- | --------------------- | ------------------------------------ |
+| 核心        | `lib/virtual-list.js` | 可视区渲染 + rAF；`mapInChunks` 分片 |
+| 视频        | `videos.js`           | YouTube / B站网格虚拟滚动            |
+| 工具榜      | `ranking-tabs.js`     | 榜单行虚拟列表（SSR 预览前 10 条）   |
+| GitHub 热门 | 首页 Daily 面板       | 全量 GitHub 源资讯可滚动             |
 
 样式：`css/virtual-list.css`。
 
@@ -70,26 +70,26 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ## 6. 响应式与首屏
 
-| 项 | 实现 |
-| -- | ---- |
-| Viewport | `width=device-width, initial-scale=1, maximum-scale=1` |
-| 横滚 | `html/body` 与列表容器 `max-width:100%; overflow-x:hidden` |
-| 点击区 | 汉堡 / 主题切换 ≥44px |
-| 关键 CSS | Layout 内联极简样式，完整 `style.css` 带 `?v=` 哈希 |
-| CLS | `css/dynamic-panels.css` 为加载中区块预留 `min-height` |
-| 暗色模式 | `ux.js` + `ThemeBoot.astro`，`localStorage` 持久化 |
+| 项       | 实现                                                       |
+| -------- | ---------------------------------------------------------- |
+| Viewport | `width=device-width, initial-scale=1, maximum-scale=1`     |
+| 横滚     | `html/body` 与列表容器 `max-width:100%; overflow-x:hidden` |
+| 点击区   | 汉堡 / 主题切换 ≥44px                                      |
+| 关键 CSS | Layout 内联极简样式，完整 `style.css` 带 `?v=` 哈希        |
+| CLS      | `css/dynamic-panels.css` 为加载中区块预留 `min-height`     |
+| 暗色模式 | `ux.js` + `ThemeBoot.astro`，`localStorage` 持久化         |
 
 ---
 
 ## 7. 首页产品入口
 
-| 组件 | 作用 |
-| ---- | ---- |
-| `HomeQuickFilters.astro` | 快筛：开源项目 / AI 资讯 / 工具教程 |
-| `HomeAiDaily.astro` | 简报四宫格（模型 / GitHub / 行业 / 视频） |
-| `HomeRecommend.astro` | AI 推荐助手 |
-| `HomeOssPreview.astro` | 开源预览（SSG） |
-| 新闻列表 | `今日` / `本周` 时间过滤 + 分类筛选 |
+| 组件                     | 作用                                      |
+| ------------------------ | ----------------------------------------- |
+| `HomeQuickFilters.astro` | 快筛：开源项目 / AI 资讯 / 工具教程       |
+| `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
+| `HomeRecommend.astro`    | AI 推荐助手                               |
+| `HomeOssPreview.astro`   | 开源预览（SSG）                           |
+| 新闻列表                 | `今日` / `本周` 时间过滤 + 分类筛选       |
 
 内容类型徽章：资讯（蓝）/ 开源（绿）/ 视频（红角标）。
 
@@ -99,12 +99,12 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 `lazy-sections.js`：进入 Tab 再加载业务脚本。
 
-| Section | 脚本链 |
-| ------- | ------ |
-| `section-videos` | `lib/virtual-list.js` → `videos.js` |
-| `section-news` | `lib/virtual-list.js` → `news.js` |
-| `section-oss` | `oss.js` |
-| `section-courses` | `courses.js` |
+| Section           | 脚本链                              |
+| ----------------- | ----------------------------------- |
+| `section-videos`  | `lib/virtual-list.js` → `videos.js` |
+| `section-news`    | `lib/virtual-list.js` → `news.js`   |
+| `section-oss`     | `oss.js`                            |
+| `section-courses` | `courses.js`                        |
 
 共享前置：`lib/fetch-json.js`（首页 scripts 已带）。
 

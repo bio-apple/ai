@@ -5,12 +5,15 @@ title = "bio-apple-ai gitleaks"
 useDefault = true
 
 [allowlist]
-description = "文档示例、测试夹具与本地环境模板"
+description = "文档示例、测试夹具、本地环境模板，以及浏览器 localStorage 键名（非密钥）"
 paths = [
   '''(?i)\.env\.local\.example$''',
   '''(?i)^docs/''',
   '''(?i)^tests/''',
   '''(?i)package-lock\.json$''',
+  '''(?i)^progress\.js$''',
+  '''(?i)^engagement\.js$''',
+  '''(?i)^funnel\.js$''',
 ]
 regexTarget = "match"
 regexes = [
@@ -18,4 +21,7 @@ regexes = [
   '''(?i)example\.com''',
   '''(?i)sk-[x]{10,}''',
   '''AIzaSyDUMMY''',
+  # 站内偏好键，形如 bioai.recent.v1 / bioai-theme（易被 generic-api-key 误报）
+  '''(?i)^bioai[\.\-][a-z0-9_.-]+$''',
+  '''(?i)^bio-ai-lab-[a-z0-9_-]+$''',
 ]

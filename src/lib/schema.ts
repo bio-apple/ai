@@ -193,7 +193,13 @@ export function buildNewsSchema(
   news: {
     title?: string;
     lead?: string;
-    items: { title: string; url: string; summary?: string; source?: string; published_at?: string }[];
+    items: {
+      title: string;
+      url: string;
+      summary?: string;
+      source?: string;
+      published_at?: string;
+    }[];
   },
   baseUrl: string,
 ) {

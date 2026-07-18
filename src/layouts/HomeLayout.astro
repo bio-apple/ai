@@ -64,7 +64,19 @@ const styleHref = assetVersioned('style.css');
     <Favicon />
     <FontLoader />
     <style is:inline>
-      html{overflow-x:hidden;max-width:100%}body{margin:0;background:#eef3fb;color:#1a2234;font-family:system-ui,sans-serif}#main-content{min-height:40vh}
+      html {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+      body {
+        margin: 0;
+        background: #eef3fb;
+        color: #1a2234;
+        font-family: system-ui, sans-serif;
+      }
+      #main-content {
+        min-height: 40vh;
+      }
     </style>
     <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />

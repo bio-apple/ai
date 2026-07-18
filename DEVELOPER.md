@@ -23,11 +23,11 @@ dist/                 # 构建产物（不提交）
 
 **`lib/` 清单：**
 
-| 文件 | 作用 |
-| ---- | ---- |
-| `fetch-json.js` | JSON 拉取（重试 / 超时 / 缓存）、`escapeHtml`、错误重试 UI |
-| `virtual-list.js` | 长列表可视区渲染 + `mapInChunks` |
-| `link-guard.js` | 外链 `noreferrer`、图片兜底、GitHub 仓库 404 探测弹窗 |
+| 文件              | 作用                                                       |
+| ----------------- | ---------------------------------------------------------- |
+| `fetch-json.js`   | JSON 拉取（重试 / 超时 / 缓存）、`escapeHtml`、错误重试 UI |
+| `virtual-list.js` | 长列表可视区渲染 + `mapInChunks`                           |
+| `link-guard.js`   | 外链 `noreferrer`、图片兜底、GitHub 仓库 404 探测弹窗      |
 
 ## 数据文件
 
@@ -152,13 +152,13 @@ npm run build
 
 详见 **[docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)**（含各 `fetch_*.py` 配置说明与手动刷新步骤）。
 
-| 工作流                  | 内容                   |
-| ----------------------- | ---------------------- |
-| `daily-videos.yml`      | 每日视频 00:00         |
-| `daily-news.yml`        | 一周热点 06:00         |
-| `weekly-oss.yml`        | OSS 精选 周一 06:00    |
-| `weekly-courses.yml`    | 课程资源 周一 07:00    |
-| `site-health.yml`       | 线上探针 08:00 / 20:00 |
+| 工作流                  | 内容                     |
+| ----------------------- | ------------------------ |
+| `daily-videos.yml`      | 每日视频 00:00           |
+| `daily-news.yml`        | 一周热点 06:00           |
+| `weekly-oss.yml`        | OSS 精选 周一 06:00      |
+| `weekly-courses.yml`    | 课程资源 周一 07:00      |
+| `site-health.yml`       | 线上探针 08:00 / 20:00   |
 | `weekly-link-check.yml` | Dead Link 检测（lychee） |
 
 行为分析（内容漏斗）见 **[docs/CONTENT-FUNNEL.md](./docs/CONTENT-FUNNEL.md)**。

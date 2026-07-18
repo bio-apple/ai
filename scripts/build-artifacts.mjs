@@ -27,7 +27,8 @@ function appendNewsSearchItems(items, aiNews, { limit = 50 } = {}) {
   for (const item of (aiNews?.items || []).slice(0, limit)) {
     if (!item?.title) continue;
     const isModel =
-      item.category === '新模型发布' || /新模型|模型发布|GPT|Claude|Gemini|DeepSeek/i.test(item.title);
+      item.category === '新模型发布' ||
+      /新模型|模型发布|GPT|Claude|Gemini|DeepSeek/i.test(item.title);
     items.push({
       id: item.id,
       label: item.title,
@@ -65,7 +66,14 @@ function appendOssSearchItems(items, oss) {
         type: '开源',
         url: project.url,
         external: true,
-        keywords: [project.name, project.repo, project.description, domain.label, project.language, project.badge]
+        keywords: [
+          project.name,
+          project.repo,
+          project.description,
+          domain.label,
+          project.language,
+          project.badge,
+        ]
           .filter(Boolean)
           .join(' '),
       });
@@ -382,7 +390,10 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   appendHubBoardSearchItems(searchIndex);
   appendNewsSearchItems(searchIndex, readRootJson('ai-news.json'));
   appendCoursesSearchItems(searchIndex, readRootJson('ai-courses.json'));
-  appendOssSearchItems(searchIndex, readRootJson('oss-projects.json') || readJson('oss-projects.json'));
+  appendOssSearchItems(
+    searchIndex,
+    readRootJson('oss-projects.json') || readJson('oss-projects.json'),
+  );
   appendVideoSearchItems(searchIndex, readRootJson('daily-videos.json'));
   appendRankingSearchItems(searchIndex, rankings);
   const recommendRules = buildRecommendRules(site);

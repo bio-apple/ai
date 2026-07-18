@@ -271,7 +271,10 @@ function loadSearchHistory() {
 function pushSearchHistory(query) {
   const q = query.trim();
   if (!q || q.length < 2) return;
-  const next = [q, ...loadSearchHistory().filter((item) => item !== q)].slice(0, SEARCH_HISTORY_MAX);
+  const next = [q, ...loadSearchHistory().filter((item) => item !== q)].slice(
+    0,
+    SEARCH_HISTORY_MAX,
+  );
   try {
     localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(next));
   } catch {
@@ -451,8 +454,7 @@ function renderSearchResults(wrap, input, results, rawQuery) {
   }
 
   if (searchIndexStatus === 'error') {
-    results.innerHTML =
-      '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
+    results.innerHTML = '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
     results.hidden = false;
     if (typeof trackEvent === 'function') trackEvent('search_error', { q: query.slice(0, 40) });
     return;

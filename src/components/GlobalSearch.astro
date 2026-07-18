@@ -21,7 +21,10 @@ const suggestionsJson = JSON.stringify(suggestions);
 ---
 
 <div
-  class:list={['site-search-wrap', { 'hero-search': variant === 'hero', 'nav-search': variant === 'nav' }]}
+  class:list={[
+    'site-search-wrap',
+    { 'hero-search': variant === 'hero', 'nav-search': variant === 'nav' },
+  ]}
   data-search-suggestions={suggestionsJson}
 >
   {

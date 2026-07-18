@@ -12,7 +12,7 @@
 ## 告警怎么处理
 
 1. **首页 / JSON 404** → 查 [CI](https://github.com/bio-apple/ai/actions/workflows/ci.yml) / [Deploy](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) → 本地 `npm run build && DIST=dist python3 scripts/validate_ci.py` → 重部署
-2. **视频过期** → Actions 手动跑 [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（可选 `force=true`）→ 确认提交含 `daily-videos.json` + `video-thumbs/`
+2. **视频仍显示昨日** → 先确认 `main` 上 `daily-videos.json` 最新 `batches[0].date` 是否已是今日；若仓库已更新但线上未变，多半是 **Deploy 失败**（常见：gitleaks 误报 / Prettier）。修门禁后重跑 [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)。若仓库仍是昨日 → 手动跑 [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（可选 `force=true`）→ 确认提交含 `daily-videos.json` + `video-thumbs/`
    - YouTube 全空：在仓库 Settings → Secrets 配置 **`YOUTUBE_API_KEY`**（YouTube Data API v3），再重跑 workflow
    - 日志含 `Sign in to confirm you're not a bot`：即反爬；无 API Key 时可临时用 `YTDLP_COOKIES_FILE` 或依赖脚本/页面的批次回退
 3. **新闻过期** → 手动跑 [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)
@@ -22,9 +22,9 @@
 
 ### 死链：用户侧 vs 周检
 
-| 层级 | 机制 | 说明 |
-| ---- | ---- | ---- |
-| **用户侧** | `lib/link-guard.js` | 点击 GitHub 仓库前探测 API；404 弹窗，避免盲跳 |
+| 层级         | 机制                             | 说明                                                       |
+| ------------ | -------------------------------- | ---------------------------------------------------------- |
+| **用户侧**   | `lib/link-guard.js`              | 点击 GitHub 仓库前探测 API；404 弹窗，避免盲跳             |
 | **运维周检** | lychee + `weekly-link-check.yml` | 扫描 `dist` HTML 与 `data` JSON 外链；失败开 `[ops]` Issue |
 
 用户弹窗**不能替代**周检：仅覆盖 GitHub 仓库类链接；新闻/课程/官方站死链仍依赖 lychee。

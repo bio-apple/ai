@@ -95,14 +95,14 @@ nav: {
 
 ### 2.4 `hero`
 
-| 字段                 | 类型              | 说明           |
-| -------------------- | ----------------- | -------------- |
-| `eyebrow`            | `string`          | 品牌眉标       |
-| `title`              | `string`          | H1             |
-| `subtitle`           | `string`          | 副标题         |
-| `cta_primary`        | `{ label, href }` | 主 CTA         |
-| `cta_secondary`      | `{ label, href }` | 次 CTA         |
-| `search_placeholder` | `string`          | 站内搜索占位符 |
+| 字段                 | 类型              | 说明                                   |
+| -------------------- | ----------------- | -------------------------------------- |
+| `eyebrow`            | `string`          | 品牌眉标                               |
+| `title`              | `string`          | H1                                     |
+| `subtitle`           | `string`          | 副标题                                 |
+| `cta_primary`        | `{ label, href }` | 主 CTA                                 |
+| `cta_secondary`      | `{ label, href }` | 次 CTA                                 |
+| `search_placeholder` | `string`          | 站内搜索占位符                         |
 | `search_suggestions` | `string[]`        | 搜索框聚焦空输入时的联想 chips（可选） |
 
 ### 2.5 `home_tool_categories[]`
@@ -321,16 +321,16 @@ nav: {
 **消费**：`app.js`（顶栏 / Hero 多实例）、`knowledge.js`  
 **校验**：`DIST=dist python3 scripts/validate_ci.py search`
 
-| 字段       | 类型     | 必填 | 说明                           |
-| ---------- | -------- | ---- | ------------------------------ |
-| `label`    | `string` | ✅   | 显示标题                       |
-| `keywords` | `string` | ✅   | Fuse 检索文本                  |
-| `type`     | `string` | —    | 工具 / 资讯 / 开源 / 课程 / 视频 / 模型 / 频道 / 导航 / 学习 / 场景 / 简报 / 推荐 / 对比 … |
-| `external` | `boolean`| —    | 外链（新标签打开）             |
-| `id`       | `string` | —    | 内容 id（新闻/课程/OSS 等）    |
-| `section`  | `string` | *    | 首页 Tab id（与 `url` 二选一） |
-| `url`      | `string` | *    | 独立页相对路径                 |
-| `anchor`   | `string` | —    | 页内锚点                       |
+| 字段       | 类型      | 必填 | 说明                                                                                       |
+| ---------- | --------- | ---- | ------------------------------------------------------------------------------------------ |
+| `label`    | `string`  | ✅   | 显示标题                                                                                   |
+| `keywords` | `string`  | ✅   | Fuse 检索文本                                                                              |
+| `type`     | `string`  | —    | 工具 / 资讯 / 开源 / 课程 / 视频 / 模型 / 频道 / 导航 / 学习 / 场景 / 简报 / 推荐 / 对比 … |
+| `external` | `boolean` | —    | 外链（新标签打开）                                                                         |
+| `id`       | `string`  | —    | 内容 id（新闻/课程/OSS 等）                                                                |
+| `section`  | `string`  | *    | 首页 Tab id（与 `url` 二选一）                                                             |
+| `url`      | `string`  | *    | 独立页相对路径                                                                             |
+| `anchor`   | `string`  | —    | 页内锚点                                                                                   |
 
 联想词不在索引内，而在 `site.hero.search_suggestions`；搜索历史键：`bioai.search.history.v1`。
 

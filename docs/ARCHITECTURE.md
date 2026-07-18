@@ -168,25 +168,25 @@ flowchart TB
 
 ### 3.2 构建期 vs 运行时
 
-| 时机       | 数据源                                 | 消费方                               | 说明                                             |
-| ---------- | -------------------------------------- | ------------------------------------ | ------------------------------------------------ |
-| **构建期** | `data/site.json` 等                    | Astro 页面、`src/lib/*.ts`           | `import` 进 HTML，SEO/结构化数据在 SSG 时固化    |
-| **运行时** | `ai-news.json`、`daily-videos.json` 等 | `news.js`、`videos.js`、`courses.js` | 页面加载后 `fetch`，支持日更而不重编全部页面逻辑 |
+| 时机       | 数据源                                 | 消费方                               | 说明                                              |
+| ---------- | -------------------------------------- | ------------------------------------ | ------------------------------------------------- |
+| **构建期** | `data/site.json` 等                    | Astro 页面、`src/lib/*.ts`           | `import` 进 HTML，SEO/结构化数据在 SSG 时固化     |
+| **运行时** | `ai-news.json`、`daily-videos.json` 等 | `news.js`、`videos.js`、`courses.js` | 页面加载后 `fetch`，支持日更而不重编全部页面逻辑  |
 | **运行时** | `search-index.json`                    | `app.js`、`knowledge.js`、顶栏搜索   | Fuse.js 全文检索（工具/资讯/开源/课程/视频/模型） |
-| **运行时** | `recommend-rules.json`                 | `recommend.js`                       | 场景关键词 → 工具推荐                            |
+| **运行时** | `recommend-rules.json`                 | `recommend.js`                       | 场景关键词 → 工具推荐                             |
 
 首页是 **混合模式**：Hero/导航/推荐场景在构建期渲染；新闻/视频/课程/OSS Tab 由 JS 懒加载对应 JSON。
 
 ### 3.4 客户端模块（浏览器）
 
-| 模块 | 文件 | 职责 |
-| ---- | ---- | ---- |
-| 搜索 | `app.js` + `GlobalSearch.astro` | 多实例 Fuse 搜索、联想、历史 |
-| 漏斗 | `funnel.js` → `analytics.js` | `journey_id` / `funnel_step` enrich |
-| 虚拟列表 | `lib/virtual-list.js` | 视频 / 榜单 / GitHub 热门 |
-| 链接兜底 | `lib/link-guard.js` | noreferrer、图片兜底、GitHub 404 |
-| 开源卡 | `OssCard.astro` + `oss.js` | Stars / 语言 / 用途 / 仓库按钮 |
-| 懒加载 | `lazy-sections.js` | Tab 进入后再拉业务脚本 |
+| 模块     | 文件                            | 职责                                |
+| -------- | ------------------------------- | ----------------------------------- |
+| 搜索     | `app.js` + `GlobalSearch.astro` | 多实例 Fuse 搜索、联想、历史        |
+| 漏斗     | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich |
+| 虚拟列表 | `lib/virtual-list.js`           | 视频 / 榜单 / GitHub 热门           |
+| 链接兜底 | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404    |
+| 开源卡   | `OssCard.astro` + `oss.js`      | Stars / 语言 / 用途 / 仓库按钮      |
+| 懒加载   | `lazy-sections.js`              | Tab 进入后再拉业务脚本              |
 
 详见 [FRONTEND.md](./FRONTEND.md)、[CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)。
 
@@ -206,14 +206,14 @@ flowchart LR
   MAIN --> DEPLOY
 ```
 
-| 工作流                  | 脚本                    | 产出 / 作用                         |
-| ----------------------- | ----------------------- | ----------------------------------- |
-| `daily-news.yml`        | `fetch_ai_news.py`      | `ai-news.json`                      |
-| `daily-videos.yml`      | `fetch_daily_videos.py` | `daily-videos.json`                 |
-| `weekly-oss.yml`        | `fetch_oss_stars.py`    | `oss-projects.json`                 |
-| `weekly-courses.yml`    | `fetch_ai_courses.py`   | `ai-courses.json`                   |
-| `weekly-link-check.yml` | lychee                  | 外链死链扫描（不改数据，开 Issue）  |
-| `site-health.yml`       | `check_site_health.py`  | 线上 JSON 新鲜度探针                |
+| 工作流                  | 脚本                    | 产出 / 作用                        |
+| ----------------------- | ----------------------- | ---------------------------------- |
+| `daily-news.yml`        | `fetch_ai_news.py`      | `ai-news.json`                     |
+| `daily-videos.yml`      | `fetch_daily_videos.py` | `daily-videos.json`                |
+| `weekly-oss.yml`        | `fetch_oss_stars.py`    | `oss-projects.json`                |
+| `weekly-courses.yml`    | `fetch_ai_courses.py`   | `ai-courses.json`                  |
+| `weekly-link-check.yml` | lychee                  | 外链死链扫描（不改数据，开 Issue） |
+| `site-health.yml`       | `check_site_health.py`  | 线上 JSON 新鲜度探针               |
 
 数据有变更时，抓取工作流会 `workflow_dispatch` 触发 `deploy.yml` 重新部署。
 

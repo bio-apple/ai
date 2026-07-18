@@ -23,7 +23,9 @@ const EVENT_STEP = {
 
 function enrich(name, params = {}, journeyId = 'test-journey') {
   const step =
-    typeof params.funnel_step === 'number' ? params.funnel_step : EVENT_STEP[name] || STEPS.DISCOVER;
+    typeof params.funnel_step === 'number'
+      ? params.funnel_step
+      : EVENT_STEP[name] || STEPS.DISCOVER;
   const stage = params.funnel_stage || STAGE_BY_STEP[step] || 'discover';
   return {
     ...params,
