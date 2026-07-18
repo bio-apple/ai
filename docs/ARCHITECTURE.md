@@ -247,11 +247,11 @@ flowchart TB
   D --> LIVE["bio-apple.github.io/ai/"]
 ```
 
-| 工作流         | 触发              | 目的                                        |
-| -------------- | ----------------- | ------------------------------------------- |
-| **ci.yml**     | push/PR `main`    | 完整质量门禁（含 E2E），PR 上传 `dist` 预览 |
-| **deploy.yml** | push `main`、手动 | 精简路径：校验通过后尽快发布 Pages          |
-| **daily-refresh.yml** | cron 00:00（北京） | 串行日更全频道 + 一次 deploy + lychee     |
+| 工作流                | 触发               | 目的                                        |
+| --------------------- | ------------------ | ------------------------------------------- |
+| **ci.yml**            | push/PR `main`     | 完整质量门禁（含 E2E），PR 上传 `dist` 预览 |
+| **deploy.yml**        | push `main`、手动  | 精简路径：校验通过后尽快发布 Pages          |
+| **daily-refresh.yml** | cron 00:00（北京） | 串行日更全频道 + 一次 deploy + lychee       |
 
 push `main` 时 **ci.yml 与 deploy.yml 并行**；deploy 不推 `gh-pages` 分支，而是使用官方 `actions/deploy-pages` 制品部署。
 
