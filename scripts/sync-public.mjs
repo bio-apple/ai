@@ -9,6 +9,7 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 // css/ 仅作 bundle-css 源；页面只加载打包后的 style.css，勿整目录拷贝
 const COPY_DIRS = ['vendor', 'video-thumbs', 'lib'];
 const COPY_FILES = [
+  'funnel.js',
   'analytics.js',
   'app.js',
   'ux.js',
