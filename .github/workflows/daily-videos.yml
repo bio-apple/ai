@@ -1,8 +1,7 @@
 name: Daily AI Video Update
 
 on:
-  schedule:
-    - cron: "0 16 * * *"
+  # 定时由 daily-refresh.yml（北京 00:00 串行）统一触发；本文件仅保留手动
   workflow_dispatch:
     inputs:
       force:

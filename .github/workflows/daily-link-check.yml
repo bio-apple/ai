@@ -2,9 +2,7 @@ name: Daily Link Check
 
 # Dead Link 检测：每日扫描构建产物与 JSON 数据中的外链（lychee）
 on:
-  schedule:
-    # 北京时间每日 10:00 ≈ UTC 02:00
-    - cron: "0 2 * * *"
+  # 定时由 daily-refresh.yml（北京 00:00 串行）统一触发；本文件仅保留手动
   workflow_dispatch:
 
 permissions:

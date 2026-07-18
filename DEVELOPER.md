@@ -17,7 +17,7 @@ lib/                  # 共享前端工具（见下）
 config/               # 抓取配置（courses / news / video / oss）+ csp.json
 scripts/              # 构建 / 抓取 / 校验
 schemas/              # JSON Schema（CI 门禁）
-.github/workflows/    # CI、Pages、日更（视频/新闻/开源/课程/排行/死链）
+.github/workflows/    # CI、Pages、daily-refresh 串行日更、单频道手动救急
 dist/                 # 构建产物（不提交）
 ```
 
@@ -153,15 +153,11 @@ npm run build
 
 详见 **[docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)**（含各 `fetch_*.py` 配置说明与手动刷新步骤）。
 
-| 工作流                 | 内容（北京时间）         |
-| ---------------------- | ------------------------ |
-| `daily-videos.yml`     | 视频 00:00               |
-| `daily-news.yml`       | 新闻热点 06:00           |
-| `daily-oss.yml`        | OSS 精选 07:00           |
-| `daily-courses.yml`    | 课程资源 08:00           |
-| `daily-rankings.yml`   | 工具排行榜 09:00         |
-| `daily-link-check.yml` | Dead Link（lychee）10:00 |
-| `site-health.yml`      | 线上探针 08:00 / 20:00   |
+| 工作流                | 内容（北京时间）                                                        |
+| --------------------- | ----------------------------------------------------------------------- |
+| `daily-refresh.yml`   | **00:00 串行日更**：视频 → 新闻 → 开源 → 课程 → 排行 → 推送/部署 → 死链 |
+| `daily-*.yml`（单频） | 仅手动 `workflow_dispatch`（救急单频道重跑）                            |
+| `site-health.yml`     | 线上探针 08:00 / 20:00                                                  |
 
 行为分析（内容漏斗）见 **[docs/CONTENT-FUNNEL.md](./docs/CONTENT-FUNNEL.md)**。
 

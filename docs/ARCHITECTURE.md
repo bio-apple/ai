@@ -206,17 +206,13 @@ flowchart LR
   MAIN --> DEPLOY
 ```
 
-| 工作流                 | 脚本                    | 产出 / 作用                        |
-| ---------------------- | ----------------------- | ---------------------------------- |
-| `daily-news.yml`       | `fetch_ai_news.py`      | `ai-news.json`                     |
-| `daily-videos.yml`     | `fetch_daily_videos.py` | `daily-videos.json`                |
-| `daily-oss.yml`        | `fetch_oss_stars.py`    | `oss-projects.json`                |
-| `daily-courses.yml`    | `fetch_ai_courses.py`   | `ai-courses.json`                  |
-| `daily-rankings.yml`   | `fetch_rankings.py`     | `data/rankings.json`               |
-| `daily-link-check.yml` | lychee                  | 外链死链扫描（不改数据，开 Issue） |
-| `site-health.yml`      | `check_site_health.py`  | 线上 JSON 新鲜度探针               |
+| 工作流              | 脚本 / 动作             | 产出 / 作用                                          |
+| ------------------- | ----------------------- | ---------------------------------------------------- |
+| `daily-refresh.yml` | 串行调用各 `fetch_*.py` | 视频→新闻→开源→课程→排行；一次 push + deploy；lychee |
+| `daily-*.yml`       | 单频道脚本（仅手动）    | 救急重跑某一频道                                     |
+| `site-health.yml`   | `check_site_health.py`  | 线上 JSON 新鲜度探针                                 |
 
-数据有变更时，抓取工作流会 `workflow_dispatch` 触发 `deploy.yml` 重新部署。
+`daily-refresh.yml` 于北京 **00:00** 启动；频道**顺序执行**（上一频道完成后再开下一频道），全部抓取结束后统一推送并派发一次 `deploy.yml`。
 
 ---
 
@@ -255,7 +251,7 @@ flowchart TB
 | -------------- | ----------------- | ------------------------------------------- |
 | **ci.yml**     | push/PR `main`    | 完整质量门禁（含 E2E），PR 上传 `dist` 预览 |
 | **deploy.yml** | push `main`、手动 | 精简路径：校验通过后尽快发布 Pages          |
-| **daily-\***   | cron              | 每日刷新 JSON / 死链扫描，必要时触发 deploy |
+| **daily-refresh.yml** | cron 00:00（北京） | 串行日更全频道 + 一次 deploy + lychee     |
 
 push `main` 时 **ci.yml 与 deploy.yml 并行**；deploy 不推 `gh-pages` 分支，而是使用官方 `actions/deploy-pages` 制品部署。
 
@@ -283,7 +279,7 @@ flowchart LR
 
 `secrets` → `data` → `tool-relations` → `oss` → `videos` → `news` → `courses` → `runtime` → `recommend` → `sitemap` → `opengraph` → `jsonld` → `search` → `analytics` → `engagement` → `links`
 
-另：CI Lint 前跑 **gitleaks**；每日 **lychee** 扫外链（见 [CI-CD.md](./CI-CD.md)）。
+另：CI Lint 前跑 **gitleaks**；日更末步 **lychee** 扫外链（见 [CI-CD.md](./CI-CD.md)）。
 
 Schema 文件位于 `schemas/`；手工维护的 `site.json` / `tools.json` 校验 **JSON 可解析 + 交叉引用**（如 `tool-relations` 的 id 必须存在于 `tools.json`）。
 

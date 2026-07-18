@@ -1,9 +1,7 @@
 name: Daily AI Courses Update
 
 on:
-  schedule:
-    # 北京时间每日 08:00 ≈ UTC 00:00
-    - cron: "0 0 * * *"
+  # 定时由 daily-refresh.yml（北京 00:00 串行）统一触发；本文件仅保留手动
   workflow_dispatch:
 
 permissions:

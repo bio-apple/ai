@@ -1,0 +1,344 @@
+name: Daily Content Refresh
+
+# 北京时间每日 00:00 启动；频道按序刷新（完成一个再下一个），结束后统一推送与部署。
+on:
+  schedule:
+    # 北京时间 00:00 ≈ UTC 前一日 16:00
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+    inputs:
+      force_videos:
+        description: "强制重抓今日视频批次"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+      skip_link_check:
+        description: "跳过死链检测（lychee）"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: daily-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Install Python / yt-dlp deps
+        run: |
+          python -m pip install -U "yt-dlp[default]>=2024.8.0" pyyaml==6.0.3
+          yt-dlp --version
+          node -v
+
+      - name: Preflight YouTube credentials
+        run: |
+          if [ -z "${{ secrets.YOUTUBE_API_KEY }}" ] && [ -z "${{ secrets.YOUTUBE_DATA_API_V3 }}" ]; then
+            echo "::warning::未配置 YouTube API Key；YouTube 可能为空，将依赖批次回退。"
+          else
+            echo "✓ YouTube Data API v3 Key 已配置"
+          fi
+
+      - name: Prepare optional yt-dlp cookies
+        env:
+          COOKIES_B64: ${{ secrets.YTDLP_COOKIES_B64 }}
+        run: |
+          if [ -n "$COOKIES_B64" ]; then
+            echo "$COOKIES_B64" | base64 -d > "${RUNNER_TEMP}/youtube_cookies.txt"
+            echo "YTDLP_COOKIES_FILE=${RUNNER_TEMP}/youtube_cookies.txt" >> "$GITHUB_ENV"
+            echo "✓ yt-dlp cookies 已写入临时文件"
+          fi
+
+      - name: Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          echo "DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)" >> "$GITHUB_ENV"
+          echo "failed_channels=" >> "$GITHUB_ENV"
+
+      # ── 1. AI 视频 ──────────────────────────────────────────
+      - name: "1/5 Fetch AI videos"
+        id: videos
+        continue-on-error: true
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          YOUTUBE_DATA_API_V3: ${{ secrets.YOUTUBE_DATA_API_V3 }}
+        run: |
+          FORCE_FLAG=""
+          if [ "${{ github.event.inputs.force_videos }}" = "true" ]; then
+            FORCE_FLAG="--force"
+          fi
+          python scripts/fetch_daily_videos.py $FORCE_FLAG
+          python3 << 'PY'
+          import json, sys
+          from pathlib import Path
+          data = json.loads(Path("daily-videos.json").read_text(encoding="utf-8"))
+          batch = (data.get("batches") or [None])[0]
+          if not batch:
+              raise SystemExit("无视频批次")
+          cats = batch.get("categories") or {}
+          yt = sum(len((cats.get(k) or {}).get("videos") or []) for k in cats if k.startswith("youtube"))
+          bi = sum(len((cats.get(k) or {}).get("videos") or []) for k in cats if k.startswith("bilibili"))
+          print(f"YouTube: {yt} · B站: {bi}")
+          if bi == 0 and yt == 0:
+              raise SystemExit("双平台均为空")
+          PY
+          python scripts/report_fetch_metrics.py videos || true
+
+      - name: "1/5 Commit videos"
+        if: steps.videos.outcome == 'success'
+        run: |
+          git add daily-videos.json video-thumbs/
+          if git diff --staged --quiet; then
+            echo "No video file changes"
+          else
+            git commit -m "chore: daily AI videos $DATE"
+          fi
+
+      - name: "1/5 Record videos failure"
+        if: steps.videos.outcome != 'success'
+        run: echo "failed_channels=${failed_channels}videos," >> "$GITHUB_ENV"
+
+      # ── 2. 新闻热点 ────────────────────────────────────────
+      - name: "2/5 Fetch AI news"
+        id: news
+        continue-on-error: true
+        run: |
+          python scripts/fetch_ai_news.py
+          python scripts/report_fetch_metrics.py news || true
+
+      - name: "2/5 Commit news"
+        if: steps.news.outcome == 'success'
+        run: |
+          git add ai-news.json
+          if git diff --staged --quiet; then
+            echo "No news file changes"
+          else
+            git commit -m "chore: daily AI news $DATE"
+          fi
+
+      - name: "2/5 Record news failure"
+        if: steps.news.outcome != 'success'
+        run: echo "failed_channels=${failed_channels}news," >> "$GITHUB_ENV"
+
+      # ── 3. 开源精选 ────────────────────────────────────────
+      - name: "3/5 Fetch OSS stars"
+        id: oss
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/fetch_oss_stars.py
+
+      - name: "3/5 Commit OSS"
+        if: steps.oss.outcome == 'success'
+        run: |
+          git add data/oss-projects.json oss-projects.json
+          if git diff --staged --quiet; then
+            echo "No OSS file changes"
+          else
+            git commit -m "chore: daily OSS recollect $DATE (≥50k Top5 + 中文Top1)"
+          fi
+
+      - name: "3/5 Record OSS failure"
+        if: steps.oss.outcome != 'success'
+        run: echo "failed_channels=${failed_channels}oss," >> "$GITHUB_ENV"
+
+      # ── 4. 课程资源 ────────────────────────────────────────
+      - name: "4/5 Fetch AI courses"
+        id: courses
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/fetch_ai_courses.py
+
+      - name: "4/5 Commit courses"
+        if: steps.courses.outcome == 'success'
+        run: |
+          git add ai-courses.json
+          if git diff --staged --quiet; then
+            echo "No course file changes"
+          else
+            git commit -m "chore: daily AI course resources $DATE"
+          fi
+
+      - name: "4/5 Record courses failure"
+        if: steps.courses.outcome != 'success'
+        run: echo "failed_channels=${failed_channels}courses," >> "$GITHUB_ENV"
+
+      # ── 5. 工具排行榜 ──────────────────────────────────────
+      - name: "5/5 Fetch AI rankings"
+        id: rankings
+        continue-on-error: true
+        run: python scripts/fetch_rankings.py
+
+      - name: "5/5 Commit rankings"
+        if: steps.rankings.outcome == 'success'
+        run: |
+          git add data/rankings.json
+          if git diff --staged --quiet; then
+            echo "No rankings file changes"
+          else
+            git commit -m "chore: daily AI rankings $DATE"
+          fi
+
+      - name: "5/5 Record rankings failure"
+        if: steps.rankings.outcome != 'success'
+        run: echo "failed_channels=${failed_channels}rankings," >> "$GITHUB_ENV"
+
+      # ── 统一推送 + 部署 ────────────────────────────────────
+      - name: Push commits
+        id: push
+        run: |
+          git fetch origin main --quiet
+          AHEAD=$(git rev-list --count origin/main..HEAD)
+          if [ "$AHEAD" -gt 0 ]; then
+            git push origin HEAD:main
+            echo "pushed=true" >> "$GITHUB_OUTPUT"
+            echo "✓ 已推送 ${AHEAD} 个串行日更提交"
+          else
+            echo "No commits to push"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger Pages deploy
+        if: steps.push.outputs.pushed == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy.yml',
+              ref: 'main',
+            });
+            console.log('Dispatched deploy.yml');
+
+      # ── 死链检测（串行末步）────────────────────────────────
+      - name: Install npm deps (link check)
+        if: github.event.inputs.skip_link_check != 'true'
+        run: ASTRO_TELEMETRY_DISABLED=1 npm ci
+
+      - name: Build for lychee
+        if: github.event.inputs.skip_link_check != 'true'
+        run: ASTRO_TELEMETRY_DISABLED=1 npm run build
+
+      - name: Restore lychee cache
+        if: github.event.inputs.skip_link_check != 'true'
+        uses: actions/cache@v4
+        with:
+          path: .lycheecache
+          key: lychee-${{ github.sha }}
+          restore-keys: lychee-
+
+      - name: Dead link check (lychee)
+        id: lychee
+        if: github.event.inputs.skip_link_check != 'true'
+        uses: lycheeverse/lychee-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          fail: false
+          format: markdown
+          output: lychee-report.md
+          args: >-
+            --config .lychee.toml
+            --github-token ${{ secrets.GITHUB_TOKEN }}
+            './dist/**/*.html'
+            './data/**/*.json'
+            './ai-courses.json'
+            './ai-news.json'
+
+      - name: Upload lychee report
+        if: always() && github.event.inputs.skip_link_check != 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: lychee-report-${{ github.run_id }}
+          path: lychee-report.md
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Open issue on channel / link failures
+        if: always()
+        uses: actions/github-script@v8
+        env:
+          FAILED_CHANNELS: ${{ env.failed_channels }}
+          LYCHEE_EXIT: ${{ steps.lychee.outputs.exit_code }}
+          SKIP_LINK: ${{ github.event.inputs.skip_link_check }}
+        with:
+          script: |
+            const fs = require('fs');
+            const failed = (process.env.FAILED_CHANNELS || '').split(',').filter(Boolean);
+            const lycheeBad = process.env.SKIP_LINK !== 'true' && process.env.LYCHEE_EXIT && process.env.LYCHEE_EXIT !== '0';
+            if (!failed.length && !lycheeBad) {
+              console.log('All channels ok; link check ok or skipped');
+              return;
+            }
+            const parts = [
+              '每日串行内容刷新（Daily Content Refresh）部分失败。',
+              '',
+              `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
+              `- 失败频道: ${failed.length ? failed.join(', ') : '（无）'}`,
+              `- 死链检测: ${lycheeBad ? '失败' : '通过/跳过'}`,
+              '',
+            ];
+            if (lycheeBad) {
+              let report = '';
+              try { report = fs.readFileSync('lychee-report.md', 'utf8').trim(); } catch (_) {
+                report = '(lychee 报告未生成)';
+              }
+              parts.push('**lychee 报告摘要**', '', report.length > 5000 ? report.slice(0, 5000) + '\n…' : report, '');
+            }
+            parts.push(
+              '处置：Actions → Daily Content Refresh → Run workflow；或单独跑对应 daily-*.yml。',
+              '详见 docs/OPS-RUNBOOK.md / docs/CONTENT-OPS.md',
+              '',
+              '<!-- daily-refresh -->',
+            );
+            const title = '[ops] Daily content refresh failed';
+            const body = parts.join('\n');
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 30,
+            });
+            const existing = issues.find(i => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }
