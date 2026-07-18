@@ -57,7 +57,7 @@ python3 scripts/fetch_daily_videos.py
 | -------- | -------------------------------------------------------- |
 | 推荐助手 | 按场景推荐工具与入门路径                                 |
 | 工具中心 | 对比表、AICPB 排行、各工具教程页                         |
-| 开源精选 | GitHub AI 项目（≥5 万 Star Top5 + 中文 Top1 · 周一刷新） |
+| 开源精选 | GitHub AI 项目（≥5 万 Star Top5 + 中文 Top1 · 每日刷新） |
 | 课程资源 | 免费 AI 课程，按五条学习路线编排，每段最多 5 门          |
 | 新闻热点 | 近 7 天 AI 热点（与开源精选去重）                        |
 | AI 视频  | 每日 YouTube 精选                                        |
@@ -87,7 +87,7 @@ python3 scripts/fetch_daily_videos.py
 - **必收录**：微软 Generative AI for Beginners、Google ML Crash Course、吴恩达 ML / Deep Learning Specialization、斯坦福 CS224n / CS231n / CS336、DeepLearning.AI 短课程合集
 - **去重**：URL/标题唯一；合集不与下属单课并列；新闻 GitHub 条目不重复出现在开源精选
 
-配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 周更：`.github/workflows/weekly-courses.yml`
+配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 日更：`.github/workflows/daily-courses.yml`
 
 ## 改内容
 

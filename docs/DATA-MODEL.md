@@ -14,13 +14,13 @@ Schema 源文件：`schemas/*.json`（JSON Schema Draft 2020-12）
 | `site.json`             | `data/`           | 手工          | 文档约定 + 可解析             | `data`           |
 | `tools.json`            | `data/`           | 手工          | 文档约定 + 可解析             | `data`           |
 | `compares.json`         | `data/`           | 手工          | 文档约定 + 可解析             | `data`           |
-| `rankings.json`         | `data/`           | 手工/脚本     | 文档约定 + 可解析             | `data`           |
+| `rankings.json`         | `data/`           | 日更脚本      | 文档约定 + 可解析             | `data`           |
 | `tool-relations.json`   | `data/`           | 手工          | `tool-relations.schema.json`  | `tool-relations` |
 | `engagement.json`       | `data/`           | 手工          | `engagement.schema.json`      | `engagement`     |
 | `analytics.json`        | `data/`           | 手工          | 构建时检查                    | `analytics`      |
-| `oss-projects.json`     | `data/` + 根目录  | 脚本          | `oss-projects.schema.json`    | `oss`            |
+| `oss-projects.json`     | `data/` + 根目录  | 日更脚本      | `oss-projects.schema.json`    | `oss`            |
 | `ai-news.json`          | 根目录            | 日更脚本      | `ai-news.schema.json`         | `news`           |
-| `ai-courses.json`       | 根目录            | 周更脚本      | `ai-courses.schema.json`      | `courses`        |
+| `ai-courses.json`       | 根目录            | 日更脚本      | `ai-courses.schema.json`      | `courses`        |
 | `daily-videos.json`     | 根目录            | 日更脚本      | `daily-videos.schema.json`    | `videos`         |
 | `search-index.json`     | `public/`→`dist/` | prebuild 生成 | `search-index.schema.json`    | `search`         |
 | `recommend-rules.json`  | `public/`→`dist/` | prebuild 生成 | `recommend-rules.schema.json` | `recommend`      |

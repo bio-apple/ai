@@ -2,7 +2,7 @@
   "schema_version": 2,
   "updated_at": "2026-07-17 16:28:26+0800",
   "date": "2026-07-17",
-  "cadence": "weekly",
+  "cadence": "daily",
   "window_days": 180,
   "free_only": true,
   "track_order": ["入门", "机器学习", "深度学习", "LLM 大模型", "AI Agent"],

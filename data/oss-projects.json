@@ -1,13 +1,13 @@
 {
   "updated_at": "2026-07-17",
   "title": "GitHub Stars 开源精选",
-  "lead": "按 AI 应用分类精选 GitHub 高星开源项目（≥5万 Stars Top 5，每类另附中文 Top1），每周一重新收集。",
+  "lead": "按 AI 应用分类精选 GitHub 高星开源项目（≥5万 Stars Top 5，每类另附中文 Top1），每日重新收集。",
   "schema_version": 1,
   "rules": {
     "min_stars": 50000,
     "top_n_per_app": 5,
     "zh_top1_per_app": true,
-    "refresh": "每周一"
+    "refresh": "每日"
   },
   "domains": [
     {

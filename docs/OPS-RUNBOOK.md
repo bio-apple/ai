@@ -16,18 +16,19 @@
    - YouTube 全空：在仓库 Settings → Secrets 配置 **`YOUTUBE_API_KEY`**（YouTube Data API v3），再重跑 workflow
    - 日志含 `Sign in to confirm you're not a bot`：即反爬；无 API Key 时可临时用 `YTDLP_COOKIES_FILE` 或依赖脚本/页面的批次回退
 3. **新闻过期** → 手动跑 [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)
-4. **OSS 精选异常** → 手动跑 [weekly-oss.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-oss.yml)（≥5 万 Star Top5 + 中文 Top1；需 `GITHUB_TOKEN`）
-5. **课程资源异常** → 手动跑 [weekly-courses.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-courses.yml)
-6. **Dead Link 告警** → 查看 [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) artifact → 本地 `npm run build && lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'` → 修复后 push
+4. **OSS 精选异常** → 手动跑 [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)（≥5 万 Star Top5 + 中文 Top1；需 `GITHUB_TOKEN`）
+5. **课程资源异常** → 手动跑 [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)
+6. **排行榜异常** → 手动跑 [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)
+7. **Dead Link 告警** → 查看 [daily-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/daily-link-check.yml) artifact → 本地 `npm run build && lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'` → 修复后 push
 
 ### 死链：用户侧 vs 周检
 
-| 层级         | 机制                             | 说明                                                       |
-| ------------ | -------------------------------- | ---------------------------------------------------------- |
-| **用户侧**   | `lib/link-guard.js`              | 点击 GitHub 仓库前探测 API；404 弹窗，避免盲跳             |
-| **运维周检** | lychee + `weekly-link-check.yml` | 扫描 `dist` HTML 与 `data` JSON 外链；失败开 `[ops]` Issue |
+| 层级         | 机制                            | 说明                                                       |
+| ------------ | ------------------------------- | ---------------------------------------------------------- |
+| **用户侧**   | `lib/link-guard.js`             | 点击 GitHub 仓库前探测 API；404 弹窗，避免盲跳             |
+| **运维日检** | lychee + `daily-link-check.yml` | 扫描 `dist` HTML 与 `data` JSON 外链；失败开 `[ops]` Issue |
 
-用户弹窗**不能替代**周检：仅覆盖 GitHub 仓库类链接；新闻/课程/官方站死链仍依赖 lychee。
+用户弹窗**不能替代**日检：仅覆盖 GitHub 仓库类链接；新闻/课程/官方站死链仍依赖 lychee。
 
 ### 课程资源专项
 
@@ -60,10 +61,11 @@ DIST=dist python3 scripts/validate_ci.py courses
 
 - [Daily videos](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)
 - [Daily news](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)
-- [Weekly OSS](https://github.com/bio-apple/ai/actions/workflows/weekly-oss.yml)
-- [Weekly courses](https://github.com/bio-apple/ai/actions/workflows/weekly-courses.yml)
+- [Daily OSS](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)
+- [Daily courses](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)
+- [Daily rankings](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)
 - [Site health](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)
-- [Weekly link check (lychee)](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml)
+- [Daily link check (lychee)](https://github.com/bio-apple/ai/actions/workflows/daily-link-check.yml)
 - [CI / Pages](https://github.com/bio-apple/ai/actions)
 
 ## 回滚

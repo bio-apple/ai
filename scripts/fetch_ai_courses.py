@@ -749,7 +749,7 @@ def main() -> int:
         "schema_version": 2,
         "updated_at": now_local().strftime("%Y-%m-%d %H:%M:%S%z"),
         "date": now_local().strftime("%Y-%m-%d"),
-        "cadence": "weekly",
+        "cadence": "daily",
         "window_days": max_age,
         "free_only": True,
         "track_order": track_order,

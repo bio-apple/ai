@@ -206,14 +206,15 @@ flowchart LR
   MAIN --> DEPLOY
 ```
 
-| 工作流                  | 脚本                    | 产出 / 作用                        |
-| ----------------------- | ----------------------- | ---------------------------------- |
-| `daily-news.yml`        | `fetch_ai_news.py`      | `ai-news.json`                     |
-| `daily-videos.yml`      | `fetch_daily_videos.py` | `daily-videos.json`                |
-| `weekly-oss.yml`        | `fetch_oss_stars.py`    | `oss-projects.json`                |
-| `weekly-courses.yml`    | `fetch_ai_courses.py`   | `ai-courses.json`                  |
-| `weekly-link-check.yml` | lychee                  | 外链死链扫描（不改数据，开 Issue） |
-| `site-health.yml`       | `check_site_health.py`  | 线上 JSON 新鲜度探针               |
+| 工作流                 | 脚本                    | 产出 / 作用                        |
+| ---------------------- | ----------------------- | ---------------------------------- |
+| `daily-news.yml`       | `fetch_ai_news.py`      | `ai-news.json`                     |
+| `daily-videos.yml`     | `fetch_daily_videos.py` | `daily-videos.json`                |
+| `daily-oss.yml`        | `fetch_oss_stars.py`    | `oss-projects.json`                |
+| `daily-courses.yml`    | `fetch_ai_courses.py`   | `ai-courses.json`                  |
+| `daily-rankings.yml`   | `fetch_rankings.py`     | `data/rankings.json`               |
+| `daily-link-check.yml` | lychee                  | 外链死链扫描（不改数据，开 Issue） |
+| `site-health.yml`      | `check_site_health.py`  | 线上 JSON 新鲜度探针               |
 
 数据有变更时，抓取工作流会 `workflow_dispatch` 触发 `deploy.yml` 重新部署。
 
@@ -250,11 +251,11 @@ flowchart TB
   D --> LIVE["bio-apple.github.io/ai/"]
 ```
 
-| 工作流               | 触发              | 目的                                        |
-| -------------------- | ----------------- | ------------------------------------------- |
-| **ci.yml**           | push/PR `main`    | 完整质量门禁（含 E2E），PR 上传 `dist` 预览 |
-| **deploy.yml**       | push `main`、手动 | 精简路径：校验通过后尽快发布 Pages          |
-| **daily-_/weekly-_** | cron              | 刷新 JSON 数据，必要时触发 deploy           |
+| 工作流         | 触发              | 目的                                        |
+| -------------- | ----------------- | ------------------------------------------- |
+| **ci.yml**     | push/PR `main`    | 完整质量门禁（含 E2E），PR 上传 `dist` 预览 |
+| **deploy.yml** | push `main`、手动 | 精简路径：校验通过后尽快发布 Pages          |
+| **daily-\***   | cron              | 每日刷新 JSON / 死链扫描，必要时触发 deploy |
 
 push `main` 时 **ci.yml 与 deploy.yml 并行**；deploy 不推 `gh-pages` 分支，而是使用官方 `actions/deploy-pages` 制品部署。
 
@@ -282,7 +283,7 @@ flowchart LR
 
 `secrets` → `data` → `tool-relations` → `oss` → `videos` → `news` → `courses` → `runtime` → `recommend` → `sitemap` → `opengraph` → `jsonld` → `search` → `analytics` → `engagement` → `links`
 
-另：CI Lint 前跑 **gitleaks**；每周 **lychee** 扫外链（见 [CI-CD.md](./CI-CD.md)）。
+另：CI Lint 前跑 **gitleaks**；每日 **lychee** 扫外链（见 [CI-CD.md](./CI-CD.md)）。
 
 Schema 文件位于 `schemas/`；手工维护的 `site.json` / `tools.json` 校验 **JSON 可解析 + 交叉引用**（如 `tool-relations` 的 id 必须存在于 `tools.json`）。
 

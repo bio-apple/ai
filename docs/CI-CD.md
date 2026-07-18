@@ -32,9 +32,11 @@ flowchart LR
 | [`ci.yml`](../.github/workflows/ci.yml)         | push/PR `main` · 手动 | **质量门禁**：Lint → 构建 → 单元测试 → 全量校验 → E2E |
 | `daily-videos.yml`                              | 每日 00:00（北京）    | 刷新视频数据，必要时派发 `deploy.yml`                 |
 | `daily-news.yml`                                | 每日 06:00            | 刷新新闻，必要时派发部署                              |
-| `weekly-oss.yml` / `weekly-courses.yml`         | 每周一                | 刷新开源/课程，必要时派发部署                         |
+| `daily-oss.yml`                                 | 每日 07:00            | 刷新开源精选，必要时派发部署                          |
+| `daily-courses.yml`                             | 每日 08:00            | 刷新课程资源，必要时派发部署                          |
+| `daily-rankings.yml`                            | 每日 09:00            | 刷新工具排行榜，必要时派发部署                        |
 | `site-health.yml`                               | 定时                  | 线上探针                                              |
-| `weekly-link-check.yml`                         | 每周一                | Dead Link 检测（lychee 外链扫描）                     |
+| `daily-link-check.yml`                          | 每日 10:00            | Dead Link 检测（lychee 外链扫描）                     |
 | `deploy-cloudflare.yml`                         | push `main`           | 可选 Cloudflare Pages 镜像（需 Secrets）              |
 
 push `main` 时 **`ci.yml` 与 `deploy.yml` 并行**：
@@ -57,13 +59,13 @@ npm run test:unit && npm run test:e2e   # 与 CI 对齐
 
 通过后再 push `main`，Actions 将自动完成线上部署。
 
-**Dead Link（可选本地）**：`npm run build && lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'`（与 `weekly-link-check.yml` 一致）。
+**Dead Link（可选本地）**：`npm run build && lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'`（与 `daily-link-check.yml` 一致）。
 
 ## 手动重新部署
 
 无需改代码时，可在 GitHub **Actions → Deploy → Run workflow** 手动触发 `deploy.yml`。
 
-定时任务在数据有变更时会通过 `workflow_dispatch` 自动派发 `deploy.yml`（见各 `daily-*.yml` / `weekly-*.yml`）。
+定时任务在数据有变更时会通过 `workflow_dispatch` 自动派发 `deploy.yml`（见各 `daily-*.yml`）。
 
 ## 构建 Secrets（可选）
 
@@ -79,7 +81,7 @@ npm run test:unit && npm run test:e2e   # 与 CI 对齐
 
 部署失败或线上 404 → 查看 [Deploy 工作流](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) 与 [CI 工作流](https://github.com/bio-apple/ai/actions/workflows/ci.yml)，本地复现 `npm run build && DIST=dist python3 scripts/validate_ci.py`。详见 [OPS-RUNBOOK.md](./OPS-RUNBOOK.md)。
 
-死链告警 → [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) artifact + 本地 lychee。
+死链告警 → [daily-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/daily-link-check.yml) artifact + 本地 lychee。
 
 ## 相关文档
 

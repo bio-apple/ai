@@ -1,10 +1,10 @@
-name: Weekly Link Check
+name: Daily Link Check
 
-# Dead Link 检测：每周扫描构建产物与 JSON 数据中的外链（lychee）
+# Dead Link 检测：每日扫描构建产物与 JSON 数据中的外链（lychee）
 on:
   schedule:
-    # 北京时间每周一 10:00 ≈ UTC 周一 02:00
-    - cron: "0 2 * * 1"
+    # 北京时间每日 10:00 ≈ UTC 02:00
+    - cron: "0 2 * * *"
   workflow_dispatch:
 
 permissions:
@@ -72,7 +72,7 @@ jobs:
               report = '(lychee 报告未生成，请查看 workflow 日志与 artifact)';
             }
             const body = [
-              '每周 Dead Link 检测发现失效或不可达外链。',
+              '每日 Dead Link 检测发现失效或不可达外链。',
               '',
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
               `- Time (UTC): ${new Date().toISOString()}`,
@@ -86,7 +86,7 @@ jobs:
               '- 站内本地链：`DIST=dist python3 scripts/validate_ci.py links`',
               '- 文档：docs/CONTENT-OPS.md §7 · docs/OPS-RUNBOOK.md',
               '',
-              '<!-- weekly-link-check -->',
+              '<!-- daily-link-check -->',
             ].join('\n');
             const issues = await github.rest.issues.listForRepo({
               owner: context.repo.owner,

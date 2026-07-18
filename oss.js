@@ -208,7 +208,7 @@ async function loadOssSection() {
   try {
     const data = await fetchOssData();
     if (meta && data.updated_at) {
-      meta.textContent = `Star 数更新：${data.updated_at}（每周自动刷新）`;
+      meta.textContent = `Star 数更新：${data.updated_at}（每日自动刷新）`;
     }
     root.innerHTML = renderOssByDomain(data, 'all');
     bindOssToolbar(data);

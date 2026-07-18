@@ -17,7 +17,7 @@ lib/                  # 共享前端工具（见下）
 config/               # 抓取配置（courses / news / video / oss）+ csp.json
 scripts/              # 构建 / 抓取 / 校验
 schemas/              # JSON Schema（CI 门禁）
-.github/workflows/    # CI、Pages、日更/周更、死链检测
+.github/workflows/    # CI、Pages、日更（视频/新闻/开源/课程/排行/死链）
 dist/                 # 构建产物（不提交）
 ```
 
@@ -36,8 +36,9 @@ dist/                 # 构建产物（不提交）
 | `data/site.json` 等    | 手工维护                          | 随代码发布 |
 | `daily-videos.json`    | `fetch_daily_videos.py`           | 每日       |
 | `ai-news.json`         | `fetch_ai_news.py`                | 每日       |
-| `oss-projects.json`    | `fetch_oss_stars.py`              | 每周一     |
-| `ai-courses.json`      | `fetch_ai_courses.py`             | 每周一     |
+| `oss-projects.json`    | `fetch_oss_stars.py`              | 每日       |
+| `ai-courses.json`      | `fetch_ai_courses.py`             | 每日       |
+| `data/rankings.json`   | `fetch_rankings.py`               | 每日       |
 | `search-index.json`    | `build-artifacts.mjs`（prebuild） | 每次构建   |
 | `recommend-rules.json` | `build-artifacts.mjs`             | 每次构建   |
 
@@ -152,14 +153,15 @@ npm run build
 
 详见 **[docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)**（含各 `fetch_*.py` 配置说明与手动刷新步骤）。
 
-| 工作流                  | 内容                     |
-| ----------------------- | ------------------------ |
-| `daily-videos.yml`      | 每日视频 00:00           |
-| `daily-news.yml`        | 一周热点 06:00           |
-| `weekly-oss.yml`        | OSS 精选 周一 06:00      |
-| `weekly-courses.yml`    | 课程资源 周一 07:00      |
-| `site-health.yml`       | 线上探针 08:00 / 20:00   |
-| `weekly-link-check.yml` | Dead Link 检测（lychee） |
+| 工作流                 | 内容（北京时间）         |
+| ---------------------- | ------------------------ |
+| `daily-videos.yml`     | 视频 00:00               |
+| `daily-news.yml`       | 新闻热点 06:00           |
+| `daily-oss.yml`        | OSS 精选 07:00           |
+| `daily-courses.yml`    | 课程资源 08:00           |
+| `daily-rankings.yml`   | 工具排行榜 09:00         |
+| `daily-link-check.yml` | Dead Link（lychee）10:00 |
+| `site-health.yml`      | 线上探针 08:00 / 20:00   |
 
 行为分析（内容漏斗）见 **[docs/CONTENT-FUNNEL.md](./docs/CONTENT-FUNNEL.md)**。
 

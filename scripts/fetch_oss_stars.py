@@ -5,7 +5,7 @@
 1. 按 AI 应用领域分类
 2. 全球榜：Stars ≥ 50,000，每类按 Stars 降序最多 Top 5
 3. 每类额外增加 1 个「中文 Top1」（该应用中文候选里 Stars 最高者；若已在 Top5 则仅标注）
-4. 由 weekly-oss.yml 每周一自动重刷
+4. 由 daily-oss.yml 每日自动重刷
 """
 
 from __future__ import annotations
@@ -672,7 +672,7 @@ def main() -> int:
         print("✓ 使用 GITHUB_TOKEN 调用 GitHub API")
 
     print(
-        f"规则：按 AI 应用分类 · Stars ≥ {MIN_STARS} · 每类 Top {TOP_N} + 中文Top1 · 每周一重刷"
+        f"规则：按 AI 应用分类 · Stars ≥ {MIN_STARS} · 每类 Top {TOP_N} + 中文Top1 · 每日重刷"
     )
     domains: list[dict] = []
     for domain_def in APP_CATALOG:
@@ -689,14 +689,14 @@ def main() -> int:
         "title": "GitHub Stars 开源精选",
         "lead": (
             f"按 AI 应用分类精选 GitHub 高星开源项目"
-            f"（≥{MIN_STARS // 10000}万 Stars Top {TOP_N}，每类另附中文 Top1），每周一重新收集。"
+            f"（≥{MIN_STARS // 10000}万 Stars Top {TOP_N}，每类另附中文 Top1），每日重新收集。"
         ),
         "schema_version": 1,
         "rules": {
             "min_stars": MIN_STARS,
             "top_n_per_app": TOP_N,
             "zh_top1_per_app": True,
-            "refresh": "每周一",
+            "refresh": "每日",
         },
         "domains": domains,
     }
