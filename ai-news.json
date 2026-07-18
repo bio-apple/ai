@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-18T06:50:15.000968+08:00",
-  "date": "2026-07-18",
+  "updated_at": "2026-07-19T00:45:37.730482+08:00",
+  "date": "2026-07-19",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -14,40 +14,103 @@
   },
   "items": [
     {
-      "id": "62341aa6c562",
-      "title": "逛完WAIC 2026我悟了：国产AI芯片的真对手，根本不是英伟达的GPU",
-      "summary": "发布芯片只是拿到了入场券",
-      "url": "https://www.qbitai.com/2026/07/453352.html",
+      "id": "d9dab29dbc14",
+      "title": "WAIC看了一圈，这家公司的机器人在认真打工",
+      "summary": "机器人真正具备了干活的完整能力",
+      "url": "https://www.qbitai.com/2026/07/454040.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-18T21:23:21+08:00"
+    },
+    {
+      "id": "8f71d6824fb0",
+      "title": "WAIC 2026现场直击：万兴科技旗下万兴剧厂“无限画布”、新品Filmora.AI与Virbo AI火爆首秀",
+      "summary": "WAIC 2026现场直击：万兴科技旗下万兴剧厂“无限画布”、新品Filmora.AI与Virbo AI火爆首秀",
+      "url": "https://www.qbitai.com/2026/07/454015.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-18T19:19:41+08:00"
+    },
+    {
+      "id": "dcce9c4f16f2",
+      "title": "滴滴在WAIC分享：AI升级出行体验 好服务连接消费烟火气",
+      "summary": "滴滴在WAIC分享：AI升级出行体验 好服务连接消费烟火气",
+      "url": "https://www.qbitai.com/2026/07/454003.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-18T19:04:51+08:00"
+    },
+    {
+      "id": "50e45e611922",
+      "title": "让VLA更懂接触，优理奇UniTac让机器人拥有“触觉想象力”",
+      "summary": "入选ECCV 2026",
+      "url": "https://www.qbitai.com/2026/07/453897.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-18T18:55:47+08:00"
+    },
+    {
+      "id": "2cdd8e872f53",
+      "title": "WAIC 2026现场发布AI商业落地报告，海亮科服同时入选产业图谱、Top50",
+      "summary": "全面演进为赋能千行百业的新型数字基础设施",
+      "url": "https://www.qbitai.com/2026/07/453889.html",
       "source": "量子位",
       "category": "新工具上线",
-      "published_at": "2026-07-18T01:09:14+08:00"
+      "published_at": "2026-07-18T18:12:52+08:00"
     },
     {
-      "id": "9e9b8b1d8492",
-      "title": "给AI发工号、定岗位、做绩效，数字员工终于能落地了",
-      "summary": "面壁智能开源StaffDeck",
-      "url": "https://www.qbitai.com/2026/07/453245.html",
-      "source": "量子位",
+      "id": "7d1eed8c6164",
+      "title": "Intelligent Three Level Learning Architecture for Autonomous UAV Swarms in Search and Rescue",
+      "summary": "arXiv:2607.14093v1 Announce Type: new Abstract: This paper presents a novel three level hierarchical learning architecture for autonomous UAV swarms performing…",
+      "url": "https://arxiv.org/abs/2607.14093",
+      "source": "arXiv cs.AI",
       "category": "开源项目",
-      "published_at": "2026-07-18T00:40:47+08:00"
+      "published_at": "2026-07-18T12:00:00+08:00"
     },
     {
-      "id": "5e06054fb7d8",
-      "title": "WAIC直击 | 十大开源社区「挤」进了一家GPU展台，沐曦凭什么？",
-      "summary": "每个Token背后，都是一次开源协作",
-      "url": "https://www.qbitai.com/2026/07/453246.html",
-      "source": "量子位",
+      "id": "50e350980818",
+      "title": "HG-RAG: Hierarchy-Guided Retrieval-Augmented Generation for Structured Knowledge Graphs",
+      "summary": "arXiv:2607.14095v1 Announce Type: new Abstract: Retrieval Augmented Generation (RAG) has proven to be a widely successful process at improving the quality of o…",
+      "url": "https://arxiv.org/abs/2607.14095",
+      "source": "arXiv cs.AI",
       "category": "开源项目",
-      "published_at": "2026-07-18T00:24:49+08:00"
+      "published_at": "2026-07-18T12:00:00+08:00"
     },
     {
-      "id": "a3be1138471a",
-      "title": "文科沙龙嘉宾观点 | 梁正：不竞于器，而归于人",
-      "summary": "2026年6月5日，清华大学举办第43期文科沙龙“智能体：风险与治理”，聚焦人工智能智能体发展中的安全风险与治理挑战。梁正教授（清华大学人工智能国际治理研究院副院长等职）、陈慧敏副教授及微软AI亚洲高管魏某等专家参与研讨，围绕智能体的技术特性、伦理隐患、责任界定、监管框架及跨学科协同治理路径展开深入交流，强调需构建兼…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524442&idx=2&sn=b7201fccbd5ecc8ec69b1161b8b4650c&chksm=fc4f05450bfc4351452f5d625a6a52d4895ed6346edf7c6da3487ab10f375b19b0287c59b10e&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-18 00:40 分享"
+      "id": "396e428869ba",
+      "title": "IMEX Interaction-Based Model Explanation",
+      "summary": "arXiv:2607.14096v1 Announce Type: new Abstract: In predictive modeling, the ability to explain why a model produces a given target prediction has become increa…",
+      "url": "https://arxiv.org/abs/2607.14096",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-18T12:00:00+08:00"
+    },
+    {
+      "id": "fcd7043efcdf",
+      "title": "RegNetAgents: A Multi-Agent Framework for Cross-Network Regulatory Driver Identification in Cancer Genomics",
+      "summary": "arXiv:2607.14097v1 Announce Type: new Abstract: We introduce RegNetAgents, an AI-oriented multi-agent framework for structured, query-driven regulatory candida…",
+      "url": "https://arxiv.org/abs/2607.14097",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-18T12:00:00+08:00"
+    },
+    {
+      "id": "edfff5893e18",
+      "title": "DialogueVPR: Towards Conversational Visual Place Recognition",
+      "summary": "arXiv:2607.14115v1 Announce Type: new Abstract: Inspired by how humans communicate spatial information, language-guided geo-localization has gained significant…",
+      "url": "https://arxiv.org/abs/2607.14115",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-18T12:00:00+08:00"
+    },
+    {
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 87,726",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-18T10:51:25Z"
     },
     {
       "id": "3cc85d0a4ad9",
@@ -59,24 +122,6 @@
       "published_at": "2026-07-17T23:00:14+08:00"
     },
     {
-      "id": "e7a06f73eaac",
-      "title": "达卯科技WAIC首发算电协同2.0：构筑AI算力与绿色能源融合新范式",
-      "summary": "打造AIDC绿电直连能源运营操作系统",
-      "url": "https://www.qbitai.com/2026/07/453237.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-17T20:00:56+08:00"
-    },
-    {
-      "id": "22bae0ad58f8",
-      "title": "WAIC 2026 | 如果Agent有性格，你的智能伙伴会是什么样的？",
-      "summary": "北电数智带来AI赋能民生的真实答卷",
-      "url": "https://www.qbitai.com/2026/07/453217.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-17T19:34:02+08:00"
-    },
-    {
       "id": "3ebda52fc80e",
       "title": "A scorecard for the AI age",
       "summary": "Sarah Friar, CFO of OpenAI, introduces a practical AI scorecard to measure ROI through useful work, cost per successful task, dependability, and return on comp…",
@@ -84,51 +129,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-07-17T18:00:00+08:00"
-    },
-    {
-      "id": "7d1eed8c6164",
-      "title": "Intelligent Three Level Learning Architecture for Autonomous UAV Swarms in Search and Rescue",
-      "summary": "arXiv:2607.14093v1 Announce Type: new Abstract: This paper presents a novel three level hierarchical learning architecture for autonomous UAV swarms performing…",
-      "url": "https://arxiv.org/abs/2607.14093",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-17T12:00:00+08:00"
-    },
-    {
-      "id": "50e350980818",
-      "title": "HG-RAG: Hierarchy-Guided Retrieval-Augmented Generation for Structured Knowledge Graphs",
-      "summary": "arXiv:2607.14095v1 Announce Type: new Abstract: Retrieval Augmented Generation (RAG) has proven to be a widely successful process at improving the quality of o…",
-      "url": "https://arxiv.org/abs/2607.14095",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-17T12:00:00+08:00"
-    },
-    {
-      "id": "396e428869ba",
-      "title": "IMEX Interaction-Based Model Explanation",
-      "summary": "arXiv:2607.14096v1 Announce Type: new Abstract: In predictive modeling, the ability to explain why a model produces a given target prediction has become increa…",
-      "url": "https://arxiv.org/abs/2607.14096",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-17T12:00:00+08:00"
-    },
-    {
-      "id": "fcd7043efcdf",
-      "title": "RegNetAgents: A Multi-Agent Framework for Cross-Network Regulatory Driver Identification in Cancer Genomics",
-      "summary": "arXiv:2607.14097v1 Announce Type: new Abstract: We introduce RegNetAgents, an AI-oriented multi-agent framework for structured, query-driven regulatory candida…",
-      "url": "https://arxiv.org/abs/2607.14097",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-17T12:00:00+08:00"
-    },
-    {
-      "id": "edfff5893e18",
-      "title": "DialogueVPR: Towards Conversational Visual Place Recognition",
-      "summary": "arXiv:2607.14115v1 Announce Type: new Abstract: Inspired by how humans communicate spatial information, language-guided geo-localization has gained significant…",
-      "url": "https://arxiv.org/abs/2607.14115",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-17T12:00:00+08:00"
     },
     {
       "id": "a564401bb829",
@@ -158,15 +158,6 @@
       "published_at": "2026-07-17T00:00:00+08:00"
     },
     {
-      "id": "b0aa14fe991f",
-      "title": "阿里安全课堂走进西安电子科技大学，AI时代网络安全实战课圆满结课！",
-      "summary": "为应对技术复杂化带来的安全治理挑战，阿里巴巴联合30余所高校启动“阿里安全课堂”，推动产教融合人才培养。近日，西安电子科技大学与阿里安全部共建的《网络安全实战课》圆满结课。该课程历时十周，深度融合企业一线前沿案例与实战训练，强化学生治理视野与实操能力，是教育、科技、人才一体化发展的创新实践，助力构建高质量网络安全人才…",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MTY2MzUyNA==&mid=2247600520&idx=1&sn=09d847b2d2e99e29bd20c2a61e7eca3c&chksm=ce81756b0b4a4f086278bd57e6d9edbf25e41474a018802636a2141b42ba24b26b8f51b517e7&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-17 21:30 分享"
-    },
-    {
       "id": "62fe82c2b1f7",
       "title": "Sharpen the Sword, Skip the Downloads — ‘Onimusha: Way of the Sword’ Is Coming to GeForce NOW",
       "summary": "Onimusha: Way of the Sword is coming to GeForce NOW at launch, with the playable demo available this week. It’s joined by Denshattack! rolling in with five new…",
@@ -183,15 +174,6 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-07-16T17:30:42+08:00"
-    },
-    {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 87,635",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-16T11:34:41Z"
     },
     {
       "id": "6f16a999c8dd",
@@ -258,7 +240,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 94,973",
+      "title": "hacksider/Deep-Live-Cam · ★ 94,983",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -285,7 +267,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,265",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,311",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -302,11 +284,20 @@
       "published_at": null
     },
     {
-      "id": "dbfe7d8076da",
-      "title": "别再写提示词，Claude官方亲自教你用4种循环自动干活",
-      "summary": "AI领域正兴起“循环工程”新范式，核心在于让AI具备自主决策与终止能力，而非依赖人工持续输入提示词。以Peter Steinberger、Boris Cherny为代表的硅谷专家，正推动AI从被动响应转向主动闭环——能启动、执行、评估并适时“踩刹车”。这标志着智能体向真正自主进化的关键跃迁，摆脱提示词依赖，实现任务级…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713293&idx=2&sn=044d6737b2d04b1568b0bfe23a4a8355&chksm=f0ffdccce67fcf6e8ba25e3eef4ac9964cd386e49302ca182bd548874d16077894a0bb326843&scene=0&xtrack=1#rd",
+      "id": "71a987a59a03",
+      "title": "从Token Capital到企业认知主权：别把大脑交给大模型公司！",
+      "summary": "微软CEO纳德拉与Palantir CEO卡普近期同步发问：当AI深度介入企业决策与执行，企业获得的是新生产力，还是正将核心知识、经验、判断力及竞争优势让渡给外部模型厂商？该问题超越传统数据安全与成本考量，直指AI时代企业主体性、知识主权与长期竞争力的根本挑战——企业如何在拥抱AI的同时，避免沦为模型训练的数据源与执…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713617&idx=3&sn=04c545a9178b39f5ae5a3e1d9c3fa74e&chksm=f0e665b43121d3ecf10241df201ca0b4e645cc5c1d355d201072a0877bc41f4a506d135a8fbe&scene=0&xtrack=1#rd",
       "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "6a7799e3d7e6",
+      "title": "AI+Science论文 | ICML 2026 | MOOSE-Star：打破复杂性壁垒，开启科学发现的可行训练",
+      "summary": "尽管大语言模型在科学发现中前景广阔，但现有研究多聚焦于推理或反馈驱动训练，忽视了对生成式推理过程P(h|b)的直接建模。该分布因组合爆炸（复杂度O(Nᵏ)）而数学上难以处理，尤其在从大规模知识库中检索与组合灵感时面临根本性挑战。为此，本文提出新方法以突破这一瓶颈，首次实现对假设生成过程的显式建模，为科学发现提供更可解…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498007&idx=1&sn=73fa0ce28c21dd5412386b9b62ab4c96&chksm=fcc503ffe1884f274e6efe05cb7f280ead7c58c4422a3932a777b9417de301b76701830c9f07&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
@@ -338,20 +329,29 @@
       "published_at": null
     },
     {
-      "id": "e093a1b787ff",
-      "title": "一份16.5小时的深度研报，现在15分钟就够了",
-      "summary": "凌晨分析师加班至深夜，为下周深度报告连续奋战三天，仅3小时用于核心分析，其余时间均耗在数据搜集、核验与模板填写上。类似情况普遍存在，某头部券商统计显示，资深分析师每周平均花费超22小时（近三个工作日）于信息搜集与验证，严重挤占实质性研究时间，折射出行业普遍存在的低效重复劳动问题。",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5MjY2ODI4Nw==&mid=2247513623&idx=1&sn=ef7e76f959fc047b26c0adad929d27ed&chksm=c171616c0d17c3d718922b91a315c6807700a7995f6fa771073e828fc5a93d825fa5d3c62456&scene=0&xtrack=1#rd",
+      "id": "4955f036d75d",
+      "title": "Nat. Rev. Methods Primers | 面向G蛋白偶联受体的肽类配体发现",
+      "summary": "Nat. Rev. Methods Primers | 面向G蛋白偶联受体的肽类配体发现",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514009&idx=2&sn=7cb7d40f3554b50eb170b8ac0f5e2a07&chksm=fd7abf556f94f88e98e8b8a53808556af589b68d733b97fd6c32742ea4731ce7a05a607afdae&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "00783366232c",
-      "title": "ICML26闭门会发言曝光，10个一线研究者说了10个最新趋势",
-      "summary": "ICML 2026虽已落幕，但最具启发性的讨论多发生在非正式场合：走廊、海报区与晚餐桌旁。全球前沿AI实验室、顶尖高校、创业公司及投资机构的研究者聚焦深层议题——下一代扩散语言模型的发展潜力、世界模型的真实机遇，以及AI Agent深度介入科研流程后对科学范式本身的重塑影响。这些对话超越论文技术细节，直指AI未来演进…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904211&idx=2&sn=0b4602180e5652b4b80346b8c4e59da6&chksm=e965c3b538d4a5e836f680458a374dbd343929f7cc3c2564627ab1a342d21365742c04a8abac&scene=0&xtrack=1#rd",
-      "source": "量子位",
+      "id": "12a1805d7b37",
+      "title": "守望者 | 20060809 | 《抵抗强奸耻辱？》",
+      "summary": "《夜空守望者》是中央人民广播电台中国之声《神州夜航》栏目下的温情深夜节目，由主持人林白（林中白狼）倾情主持。节目以诗意哲思的语言叩问人生际遇：“谁曾迎面走来，谁已离你而去……谁倾听，谁诉说”，在冬与春、田野与街道的意象间，传递孤独、守望、相遇与告别的生命况味。节目聚焦普通人的情感与沉思，营造静谧深邃的夜间陪伴氛围。音…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498007&idx=3&sn=94950ec071c620737ceb0e120d642d97&chksm=fc8f0d245aa0821dd121322e58f5d417bb2957425aa838ef888d74097da02ec7863ac4553f68&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "60e17f32085d",
+      "title": "完整议程｜人工智能的全球发展与治理：共赢与共治之路【7月18日9:00-12:00】",
+      "summary": "本文介绍了“从共识到行动：全球人工智能治理的可能路径”论坛的基本信息，定于2026年7月18日在上海世博桐森酒店举行。活动由世界人工智能大会组委会办公室指导，清华大学人工智能国际治理研究院（I-AIIG）与国际人工智能治理联盟（IAGA）联合主办，联合国大学促进伦理和负责任的人工智能发展中心及华为公司协办，联合国开发…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524456&idx=1&sn=dc762dd4d02a15cf4c617f90ae1b44d1&chksm=fc78fd1e456837cb69919f17c603021c1868ea08478a5716bcbb51ed25c6329d5a8474df147b&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     }
