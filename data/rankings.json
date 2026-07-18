@@ -1,7 +1,7 @@
 {
   "month": "2026-06",
   "month_label": "Jun 2026",
-  "updated_at": "2026-07-17",
+  "updated_at": "2026-07-19",
   "cadence": "daily",
   "title": "2026 AI 工具排行榜（每日更新）",
   "lead": "同步 AICPB、LMSYS Chatbot Arena Elo，以及 Artificial Analysis Intelligence Index；各榜展示 Top 10。",
@@ -137,7 +137,7 @@
       "title": "LMSYS Chatbot Arena Elo",
       "subtitle": "人类盲测对战 Elo（Arena AI / LMSYS）",
       "metric": "Arena Elo",
-      "month": "Jul 13, 2026",
+      "month": "Jul 16, 2026",
       "source_url": "https://arena.ai/leaderboard/text",
       "source_name": "LMSYS Chatbot Arena",
       "columns": {
@@ -151,8 +151,8 @@
           "rank": 1,
           "name": "claude-fable-5",
           "description": "Anthropic",
-          "visits": "1508",
-          "mom": "8.0K votes",
+          "visits": "1507",
+          "mom": "8.8K votes",
           "mom_bar_pct": 0,
           "url": "https://arena.ai/leaderboard/text",
           "source": "LMSYS Arena"
@@ -162,7 +162,7 @@
           "name": "claude-opus-4-6-thinking",
           "description": "Anthropic",
           "visits": "1504",
-          "mom": "59.9K votes",
+          "mom": "61.0K votes",
           "mom_bar_pct": 0,
           "url": "https://arena.ai/leaderboard/text",
           "source": "LMSYS Arena"
@@ -172,7 +172,7 @@
           "name": "claude-opus-4-7-thinking",
           "description": "Anthropic",
           "visits": "1503",
-          "mom": "47.1K votes",
+          "mom": "48.3K votes",
           "mom_bar_pct": 0,
           "url": "https://arena.ai/leaderboard/text",
           "source": "LMSYS Arena"
@@ -182,7 +182,7 @@
           "name": "claude-opus-4-6",
           "description": "Anthropic",
           "visits": "1498",
-          "mom": "63.6K votes",
+          "mom": "64.7K votes",
           "mom_bar_pct": 0,
           "url": "https://arena.ai/leaderboard/text",
           "source": "LMSYS Arena"
@@ -192,7 +192,7 @@
           "name": "claude-opus-4-7",
           "description": "Anthropic",
           "visits": "1494",
-          "mom": "48.2K votes",
+          "mom": "49.5K votes",
           "mom_bar_pct": 0,
           "url": "https://arena.ai/leaderboard/text",
           "source": "LMSYS Arena"
@@ -201,8 +201,8 @@
           "rank": 6,
           "name": "muse-spark-1.1",
           "description": "Meta",
-          "visits": "1491",
-          "mom": "4.6K votes",
+          "visits": "1493",
+          "mom": "5.7K votes",
           "mom_bar_pct": 0,
           "url": "https://arena.ai/leaderboard/text",
           "source": "LMSYS Arena"
@@ -211,7 +211,7 @@
           "rank": 7,
           "name": "muse-spark",
           "description": "Meta",
-          "visits": "1488",
+          "visits": "1487",
           "mom": "13.6K votes",
           "mom_bar_pct": 0,
           "url": "https://arena.ai/leaderboard/text",
@@ -219,16 +219,6 @@
         },
         {
           "rank": 8,
-          "name": "gemini-3.1-pro-preview",
-          "description": "Google",
-          "visits": "1486",
-          "mom": "79.9K votes",
-          "mom_bar_pct": 0,
-          "url": "https://arena.ai/leaderboard/text",
-          "source": "LMSYS Arena"
-        },
-        {
-          "rank": 9,
           "name": "gemini-3-pro",
           "description": "Google",
           "visits": "1486",
@@ -238,11 +228,21 @@
           "source": "LMSYS Arena"
         },
         {
+          "rank": 9,
+          "name": "kimi-k3",
+          "description": "Moonshot",
+          "visits": "1486",
+          "mom": "3.0K votes",
+          "mom_bar_pct": 0,
+          "url": "https://arena.ai/leaderboard/text",
+          "source": "LMSYS Arena"
+        },
+        {
           "rank": 10,
           "name": "gpt-5.6-sol-xhigh",
           "description": "OpenAI",
-          "visits": "1484",
-          "mom": "3.0K votes",
+          "visits": "1486",
+          "mom": "4.1K votes",
           "mom_bar_pct": 0,
           "url": "https://arena.ai/leaderboard/text",
           "source": "LMSYS Arena"
