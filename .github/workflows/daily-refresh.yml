@@ -224,7 +224,21 @@ jobs:
           git pull --rebase origin main
           git push origin HEAD:main
           echo "pushed=true" >> "$GITHUB_OUTPUT"
-          echo "✓ 已推送串行日更提交（deploy.yml 由 push 自动触发，不再二次 dispatch）"
+          echo "✓ 已推送串行日更提交"
+
+      # GITHUB_TOKEN 的 push 不会连锁触发其它 workflow，必须显式派发 Pages
+      - name: Trigger Pages deploy
+        if: steps.push.outputs.pushed == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'deploy.yml',
+              ref: 'main',
+            });
+            console.log('Dispatched deploy.yml');
 
       # ── 死链检测（串行末步）────────────────────────────────
       - name: Install npm deps (link check)

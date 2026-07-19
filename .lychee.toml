@@ -1,5 +1,6 @@
-# Dead Link 检测（weekly-link-check.yml）
+# Dead Link 检测（daily-refresh.yml 末步）
 # 站内本地链路由 validate_ci.py → links 步骤覆盖；lychee 专注外链可达性。
+# 排除 /ai/... 根相对路径（本地 dist 扫描时无站点根，易误报）。
 
 verbose = "warn"
 no_progress = true
@@ -20,6 +21,7 @@ scheme = ["https", "http"]
 method = "get"
 
 exclude = [
+  "^/",
   "^https://bio-apple\\.github\\.io",
   "^https://api\\.",
   "^https://x\\.com/",
