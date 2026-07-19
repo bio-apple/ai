@@ -12,21 +12,23 @@
 ## 告警怎么处理
 
 1. **首页 / JSON 404** → 查 [CI](https://github.com/bio-apple/ai/actions/workflows/ci.yml) / [Deploy](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) → 本地 `npm run build && DIST=dist python3 scripts/validate_ci.py` → 重部署
-2. **多频道过期 / 串行日更失败** → 查 [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml)（北京 00:00 串行）→ 可手动 **Run workflow** 重跑全链路
-3. **视频仍显示昨日** → 确认 `main` 上 `daily-videos.json` 的 `batches[0].date`；仓库已更新但线上未变 → 重跑 [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)。仅视频坏 → [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（`force=true`）
+2. **多频道过期 / 串行日更失败** → 查 [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml)（北京 00:00 串行）→ 可手动 **Run workflow** 重跑全链路。仅 lychee 软告警时：数据应已上线，修外链即可
+3. **仓库已更新但线上仍昨日** → 确认 `deploy.yml` 是否被派发成功（`GITHUB_TOKEN` push **不会**自动触发 Deploy）→ 手动 Run [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)
+4. **视频仍显示昨日** → 确认 `main` 上 `daily-videos.json` 的 `batches[0].date`；仅视频坏 → [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（`force=true`）
    - YouTube 全空：配置 **`YOUTUBE_API_KEY`** 后重跑
-4. **新闻过期** → [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)
-5. **OSS 精选异常** → [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)
-6. **课程资源异常** → [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)
-7. **排行榜异常** → [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)
-8. **Dead Link 告警** → [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) artifact（或手动 [daily-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/daily-link-check.yml)）
+5. **新闻过期** → [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)
+6. **OSS 精选异常** → [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)
+7. **课程资源异常** → [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)
+8. **排行榜异常** → [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)
+9. **Dead Link 告警** → [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) artifact（或手动 [daily-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/daily-link-check.yml)）；不阻断日更上线
+10. **Deploy Prettier 失败** → 日更已在提交前格式化；若仍失败，本地 `npx prettier --write <json>` 后 push
 
 ### 死链：用户侧 vs 日检
 
 | 层级         | 机制                           | 说明                                                       |
 | ------------ | ------------------------------ | ---------------------------------------------------------- |
 | **用户侧**   | `lib/link-guard.js`            | 点击 GitHub 仓库前探测 API；404 弹窗，避免盲跳             |
-| **运维日检** | lychee（`daily-refresh` 末步） | 扫描 `dist` HTML 与 `data` JSON 外链；失败开 `[ops]` Issue |
+| **运维日检** | lychee（`daily-refresh` 末步） | 扫描 `dist` HTML 与 JSON 外链；失败为**软告警** + artifact |
 
 用户弹窗**不能替代**日检：仅覆盖 GitHub 仓库类链接；新闻/课程/官方站死链仍依赖 lychee。
 

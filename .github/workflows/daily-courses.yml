@@ -24,8 +24,15 @@ jobs:
           python-version: "3.12"
           cache: pip
 
-      - name: Install Python deps
-        run: python -m pip install pyyaml==6.0.3
+      - uses: actions/setup-node@v6
+        with:
+          node-version-file: ".nvmrc"
+          cache: npm
+
+      - name: Install deps
+        run: |
+          python -m pip install pyyaml==6.0.3
+          ASTRO_TELEMETRY_DISABLED=1 npm ci
 
       - name: Fetch free AI course resources (track path)
         id: fetch
@@ -39,6 +46,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          npx prettier --write ai-courses.json
           git add ai-courses.json
           if git diff --staged --quiet; then
             echo "No course updates today"
@@ -55,13 +63,25 @@ jobs:
         uses: actions/github-script@v8
         with:
           script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'deploy.yml',
-              ref: 'main',
-            });
-            console.log('Dispatched deploy.yml');
+            const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+            let lastErr;
+            for (let i = 1; i <= 4; i++) {
+              try {
+                await github.rest.actions.createWorkflowDispatch({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  workflow_id: 'deploy.yml',
+                  ref: 'main',
+                });
+                console.log(`Dispatched deploy.yml (attempt ${i})`);
+                return;
+              } catch (err) {
+                lastErr = err;
+                console.warn(`Dispatch attempt ${i} failed: ${err.message}`);
+                if (i < 4) await sleep(1000 * Math.pow(2, i));
+              }
+            }
+            core.setFailed(`Trigger Pages deploy failed after retries: ${lastErr && lastErr.message}`);
 
       - name: Open issue on fetch failure
         if: failure()
@@ -79,25 +99,30 @@ jobs:
               '',
               '<!-- daily-courses-fetch -->',
             ].join('\n');
-            const { data: issues } = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              per_page: 30,
-            });
-            const existing = issues.find(i => i.title === title);
-            if (existing) {
-              await github.rest.issues.createComment({
+            try {
+              const { data: issues } = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: existing.number,
-                body,
+                state: 'open',
+                per_page: 30,
               });
-            } else {
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title,
-                body,
-              });
+              const existing = issues.find(i => i.title === title);
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existing.number,
+                  body,
+                });
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                });
+              }
+            } catch (err) {
+              core.warning(`无法创建/更新 Issue（仓库可能关闭了 Issues）: ${err.message}`);
+              core.summary.addHeading(title).addRaw(body).write();
             }

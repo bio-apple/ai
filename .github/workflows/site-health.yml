@@ -55,27 +55,32 @@ jobs:
               '',
               '<!-- site-health-probe -->',
             ].join('\n');
-            const issues = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              per_page: 30,
-            });
-            const existing = issues.data.find(i => i.title === title);
-            if (existing) {
-              await github.rest.issues.createComment({
+            try {
+              const issues = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: existing.number,
-                body,
+                state: 'open',
+                per_page: 30,
               });
-            } else {
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title,
-                body,
-              });
+              const existing = issues.data.find(i => i.title === title);
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existing.number,
+                  body,
+                });
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                });
+              }
+            } catch (err) {
+              core.warning(`无法创建/更新 Issue（仓库可能关闭了 Issues）: ${err.message}`);
+              core.summary.addHeading(title).addRaw(body).write();
             }
         env:
           REMEDIATION: ${{ steps.health.outputs.remediation }}

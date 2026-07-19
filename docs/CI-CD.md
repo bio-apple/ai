@@ -30,9 +30,9 @@ flowchart LR
 | ----------------------------------------------- | ---------------------- | ----------------------------------------------------- |
 | [`deploy.yml`](../.github/workflows/deploy.yml) | push `main` · 手动     | **一键部署**：Lint → Build → Deploy Pages             |
 | [`ci.yml`](../.github/workflows/ci.yml)         | push/PR `main` · 手动  | **质量门禁**：Lint → 构建 → 单元测试 → 全量校验 → E2E |
-| `daily-refresh.yml`                             | 每日 **00:00**（北京） | **串行**刷新全频道后一次部署，末步 lychee             |
-| `daily-*.yml`（单频道）                         | 仅手动                 | 救急重跑某一频道                                      |
-| `site-health.yml`                               | 定时                   | 线上探针                                              |
+| `daily-refresh.yml`                             | 每日 **00:00**（北京） | **串行**刷新全频道 → Prettier → push → **显式派发** Deploy；末步 lychee（软） |
+| `daily-*.yml`（单频道）                         | 仅手动                 | 救急重跑某一频道（同样 Prettier + 派发 Deploy）                             |
+| `site-health.yml`                               | 定时                   | 线上探针（videos/news/courses/oss 新鲜度）                                  |
 | `deploy-cloudflare.yml`                         | push `main`            | 可选 Cloudflare Pages 镜像（需 Secrets）              |
 
 push `main` 时 **`ci.yml` 与 `deploy.yml` 并行**：
@@ -61,7 +61,7 @@ npm run test:unit && npm run test:e2e   # 与 CI 对齐
 
 无需改代码时，可在 GitHub **Actions → Deploy → Run workflow** 手动触发 `deploy.yml`。
 
-定时内容刷新由 **`daily-refresh.yml`** 在北京 **00:00** 串行执行；有数据变更时统一派发一次 `deploy.yml`。
+定时内容刷新由 **`daily-refresh.yml`** 在北京 **00:00** 串行执行；有数据变更时 **显式** 派发一次 `deploy.yml`（带重试）。勿依赖 `GITHUB_TOKEN` push 自动触发 Deploy。
 
 ## 构建 Secrets（可选）
 

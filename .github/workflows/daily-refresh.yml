@@ -1,6 +1,7 @@
 name: Daily Content Refresh
 
 # 北京时间每日 00:00 启动；频道按序刷新（完成一个再下一个），结束后统一推送与部署。
+# 保障链：抓取 → Prettier → commit → rebase/push → 显式派发 deploy → lychee（软）→ 频道失败才 hard-fail
 on:
   schedule:
     # 北京时间 00:00 ≈ UTC 前一日 16:00
@@ -54,6 +55,10 @@ jobs:
           python -m pip install -U "yt-dlp[default]>=2024.8.0" pyyaml==6.0.3
           yt-dlp --version
           node -v
+
+      # 提前安装：日更 JSON 提交前 Prettier，避免 Deploy quality 因格式失败阻断上线
+      - name: Install npm deps
+        run: ASTRO_TELEMETRY_DISABLED=1 npm ci
 
       - name: Preflight YouTube credentials
         run: |
@@ -112,6 +117,7 @@ jobs:
       - name: "1/5 Commit videos"
         if: steps.videos.outcome == 'success'
         run: |
+          npx prettier --write daily-videos.json
           git add daily-videos.json video-thumbs/
           if git diff --staged --quiet; then
             echo "No video file changes"
@@ -134,6 +140,7 @@ jobs:
       - name: "2/5 Commit news"
         if: steps.news.outcome == 'success'
         run: |
+          npx prettier --write ai-news.json
           git add ai-news.json
           if git diff --staged --quiet; then
             echo "No news file changes"
@@ -156,6 +163,7 @@ jobs:
       - name: "3/5 Commit OSS"
         if: steps.oss.outcome == 'success'
         run: |
+          npx prettier --write data/oss-projects.json oss-projects.json
           git add data/oss-projects.json oss-projects.json
           if git diff --staged --quiet; then
             echo "No OSS file changes"
@@ -178,6 +186,7 @@ jobs:
       - name: "4/5 Commit courses"
         if: steps.courses.outcome == 'success'
         run: |
+          npx prettier --write ai-courses.json
           git add ai-courses.json
           if git diff --staged --quiet; then
             echo "No course file changes"
@@ -198,6 +207,7 @@ jobs:
       - name: "5/5 Commit rankings"
         if: steps.rankings.outcome == 'success'
         run: |
+          npx prettier --write data/rankings.json
           git add data/rankings.json
           if git diff --staged --quiet; then
             echo "No rankings file changes"
@@ -226,25 +236,35 @@ jobs:
           echo "pushed=true" >> "$GITHUB_OUTPUT"
           echo "✓ 已推送串行日更提交"
 
-      # GITHUB_TOKEN 的 push 不会连锁触发其它 workflow，必须显式派发 Pages
+      # GITHUB_TOKEN 的 push 不会连锁触发其它 workflow，必须显式派发 Pages（带重试）
       - name: Trigger Pages deploy
+        id: deploy_dispatch
         if: steps.push.outputs.pushed == 'true'
         uses: actions/github-script@v8
         with:
           script: |
-            await github.rest.actions.createWorkflowDispatch({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              workflow_id: 'deploy.yml',
-              ref: 'main',
-            });
-            console.log('Dispatched deploy.yml');
+            const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+            let lastErr;
+            for (let i = 1; i <= 4; i++) {
+              try {
+                await github.rest.actions.createWorkflowDispatch({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  workflow_id: 'deploy.yml',
+                  ref: 'main',
+                });
+                console.log(`Dispatched deploy.yml (attempt ${i})`);
+                core.setOutput('dispatched', 'true');
+                return;
+              } catch (err) {
+                lastErr = err;
+                console.warn(`Dispatch attempt ${i} failed: ${err.message}`);
+                if (i < 4) await sleep(1000 * Math.pow(2, i));
+              }
+            }
+            core.setFailed(`Trigger Pages deploy failed after retries: ${lastErr && lastErr.message}`);
 
-      # ── 死链检测（串行末步）────────────────────────────────
-      - name: Install npm deps (link check)
-        if: github.event.inputs.skip_link_check != 'true'
-        run: ASTRO_TELEMETRY_DISABLED=1 npm ci
-
+      # ── 死链检测（串行末步；软失败，不阻断已上线数据）────────────────
       - name: Build for lychee
         if: github.event.inputs.skip_link_check != 'true'
         run: ASTRO_TELEMETRY_DISABLED=1 npm run build
@@ -286,7 +306,7 @@ jobs:
           retention-days: 14
           if-no-files-found: ignore
 
-      - name: Open issue on channel / link failures
+      - name: Report channel / link failures
         id: report
         if: always()
         uses: actions/github-script@v8
@@ -299,7 +319,8 @@ jobs:
             const fs = require('fs');
             const failed = (process.env.FAILED_CHANNELS || '').split(',').filter(Boolean);
             const lycheeBad = process.env.SKIP_LINK !== 'true' && process.env.LYCHEE_EXIT && process.env.LYCHEE_EXIT !== '0';
-            core.setOutput('has_failure', failed.length || lycheeBad ? 'true' : 'false');
+            core.setOutput('channel_failure', failed.length ? 'true' : 'false');
+            core.setOutput('lychee_failure', lycheeBad ? 'true' : 'false');
             if (!failed.length && !lycheeBad) {
               console.log('All channels ok; link check ok or skipped');
               return;
@@ -309,7 +330,7 @@ jobs:
               '',
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
               `- 失败频道: ${failed.length ? failed.join(', ') : '（无）'}`,
-              `- 死链检测: ${lycheeBad ? '失败' : '通过/跳过'}`,
+              `- 死链检测: ${lycheeBad ? '失败（软告警，不阻断上线）' : '通过/跳过'}`,
               '',
             ];
             if (lycheeBad) {
@@ -327,31 +348,40 @@ jobs:
             );
             const title = '[ops] Daily content refresh failed';
             const body = parts.join('\n');
-            const { data: issues } = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              per_page: 30,
-            });
-            const existing = issues.find(i => i.title === title);
-            if (existing) {
-              await github.rest.issues.createComment({
+            try {
+              const { data: issues } = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: existing.number,
-                body,
+                state: 'open',
+                per_page: 30,
               });
-            } else {
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title,
-                body,
-              });
+              const existing = issues.find(i => i.title === title);
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existing.number,
+                  body,
+                });
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                });
+              }
+            } catch (err) {
+              core.warning(`无法创建/更新 Issue（仓库可能关闭了 Issues）: ${err.message}`);
+              core.summary.addHeading('日更告警（Issues 不可用）').addRaw(body).write();
             }
 
-      - name: Fail job if any channel or lychee failed
-        if: always() && steps.report.outputs.has_failure == 'true'
+      - name: Warn on lychee failure (soft)
+        if: always() && steps.report.outputs.lychee_failure == 'true'
+        run: echo "::warning::死链检测未通过（软告警）。数据若已 push+dispatch 仍会上线；见 lychee artifact。"
+
+      - name: Fail job if any channel failed
+        if: always() && steps.report.outputs.channel_failure == 'true'
         run: |
-          echo "::error::串行日更存在失败频道或死链检测未通过，详见上方 Issue 步骤与日志"
+          echo "::error::串行日更存在失败频道：${failed_channels}。详见日志；死链失败不会单独导致本步失败。"
           exit 1

@@ -37,12 +37,14 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version-file: ".nvmrc"
+          cache: npm
 
-      - name: Install yt-dlp
+      - name: Install yt-dlp + npm
         run: |
           python -m pip install -U "yt-dlp[default]>=2024.8.0" pyyaml==6.0.3
           yt-dlp --version
           node -v
+          ASTRO_TELEMETRY_DISABLED=1 npm ci
 
       - name: Preflight YouTube credentials
         run: |
@@ -112,6 +114,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          npx prettier --write daily-videos.json
           git add daily-videos.json video-thumbs/
           if git diff --staged --quiet; then
             echo "No video updates today"
@@ -123,24 +126,31 @@ jobs:
           git push
           echo "pushed=true" >> "$GITHUB_OUTPUT"
 
-      # GITHUB_TOKEN 的 push 不会连锁触发其它 workflow，需显式派发 Pages
+      # GITHUB_TOKEN 的 push 不会连锁触发其它 workflow，需显式派发 Pages（带重试）
       - name: Trigger Pages deploy
         if: steps.commit.outputs.pushed == 'true'
         uses: actions/github-script@v8
         with:
           script: |
-            try {
-              await github.rest.actions.createWorkflowDispatch({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                workflow_id: 'deploy.yml',
-                ref: 'main',
-              });
-              console.log('Dispatched deploy.yml');
-            } catch (err) {
-              core.setFailed(`Trigger Pages deploy failed: ${err.message}`);
-              throw err;
+            const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+            let lastErr;
+            for (let i = 1; i <= 4; i++) {
+              try {
+                await github.rest.actions.createWorkflowDispatch({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  workflow_id: 'deploy.yml',
+                  ref: 'main',
+                });
+                console.log(`Dispatched deploy.yml (attempt ${i})`);
+                return;
+              } catch (err) {
+                lastErr = err;
+                console.warn(`Dispatch attempt ${i} failed: ${err.message}`);
+                if (i < 4) await sleep(1000 * Math.pow(2, i));
+              }
             }
+            core.setFailed(`Trigger Pages deploy failed after retries: ${lastErr && lastErr.message}`);
 
       - name: Open issue on hard failure
         if: steps.fetch.outcome == 'failure' || steps.metrics.outputs.level == '2'
@@ -169,25 +179,30 @@ jobs:
               '',
               '<!-- daily-videos-fetch -->',
             ].join('\n');
-            const { data: issues } = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              per_page: 30,
-            });
-            const existing = issues.find(i => i.title === title);
-            if (existing) {
-              await github.rest.issues.createComment({
+            try {
+              const { data: issues } = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: existing.number,
-                body,
+                state: 'open',
+                per_page: 30,
               });
-            } else {
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title,
-                body,
-              });
+              const existing = issues.find(i => i.title === title);
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existing.number,
+                  body,
+                });
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                });
+              }
+            } catch (err) {
+              core.warning(`无法创建/更新 Issue（仓库可能关闭了 Issues）: ${err.message}`);
+              core.summary.addHeading(title).addRaw(body).write();
             }
