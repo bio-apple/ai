@@ -136,17 +136,17 @@ nav: {
 
 **`options[]`：**
 
-| 字段         | 类型       | 必填 | 说明                    |
-| ------------ | ---------- | ---- | ----------------------- |
-| `id`         | `string`   | ✅   | 场景 id（如 `writing`） |
-| `label`      | `string`   | ✅   | 芯片显示文案            |
-| `icon`       | `string`   | —    | emoji                   |
-| `tools`      | `string[]` | ✅   | 推荐工具 id 列表        |
-| `keywords`   | `string[]` | ✅   | 用户输入匹配关键词      |
+| 字段         | 类型       | 必填 | 说明                           |
+| ------------ | ---------- | ---- | ------------------------------ |
+| `id`         | `string`   | ✅   | 场景 id（如 `writing`）        |
+| `label`      | `string`   | ✅   | 芯片显示文案                   |
+| `icon`       | `string`   | —    | emoji                          |
+| `tools`      | `string[]` | ✅   | 推荐工具 id 列表               |
+| `keywords`   | `string[]` | ✅   | 用户输入匹配关键词             |
 | `examples`   | `string[]` | —    | **现实实例**文案（结果区展示） |
-| `guide`      | `string`   | —    | 关联指南页相对路径      |
-| `path_title` | `string`   | —    | 学习路径标题            |
-| `steps`      | `string[]` | —    | 推荐步骤                |
+| `guide`      | `string`   | —    | 关联指南页相对路径             |
+| `path_title` | `string`   | —    | 学习路径标题                   |
+| `steps`      | `string[]` | —    | 推荐步骤                       |
 
 `prebuild` 将其转换为 `recommend-rules.json`（透传 `examples`，见 §8.2）。
 
@@ -344,12 +344,12 @@ nav: {
 **Schema**：`schemas/recommend-rules.schema.json`  
 **生成**：`ai_picker` + `recommend_fallback` + `tool-relations`
 
-| 字段             | 类型      | 必填                             |
-| ---------------- | --------- | -------------------------------- |
-| `schema_version` | `integer` | ✅                               |
+| 字段             | 类型      | 必填                                         |
+| ---------------- | --------- | -------------------------------------------- |
+| `schema_version` | `integer` | ✅                                           |
 | `options`        | `array`   | ✅ — 同 `ai_picker.options`（含 `examples`） |
-| `fallback`       | `object`  | ✅                                         |
-| `relations`      | `object`  | — 嵌入 tool-relations                       |
+| `fallback`       | `object`  | ✅                                           |
+| `relations`      | `object`  | — 嵌入 tool-relations                        |
 
 ### 8.3 `analytics-config.json`
 

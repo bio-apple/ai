@@ -84,10 +84,10 @@ flowchart LR
 
 **两种布局壳：**
 
-| 布局                     | 用于                          | 特点                                  |
-| ------------------------ | ----------------------------- | ------------------------------------- |
+| 布局                     | 用于                          | 特点                                         |
+| ------------------------ | ----------------------------- | -------------------------------------------- |
 | `HomeLayout.astro`       | `index.astro`                 | SPA 式 Tab、Hero AI 图、知识库 FAB、推荐助手 |
-| `StandaloneLayout.astro` | 工具页 / 对比 / 指南 / 排行等 | 独立 `<main>`、面包屑、可选知识库 FAB       |
+| `StandaloneLayout.astro` | 工具页 / 对比 / 指南 / 排行等 | 独立 `<main>`、面包屑、可选知识库 FAB        |
 
 关键组件：`HeroAiMap.astro`、`Breadcrumb.astro` / `StandalonePageHeader.astro`、`GlobalSearch.astro`。
 
@@ -181,17 +181,17 @@ flowchart TB
 
 ### 3.4 客户端模块（浏览器）
 
-| 模块     | 文件                                        | 职责                                                              |
-| -------- | ------------------------------------------- | ----------------------------------------------------------------- |
-| 搜索     | `app.js` + `GlobalSearch.astro`             | 多实例 Fuse；fixed 下拉；`preferSearchHits`；提交按钮 / Enter     |
-| Hero 图  | `HeroAiMap.astro`                           | 响应式 WebP + SVG 回退；中心 scrim                                |
-| 面包屑   | `Breadcrumb.astro`                          | 专区「首页 / …」；独立页经 `StandalonePageHeader`                 |
-| 漏斗     | `funnel.js` → `analytics.js`                | `journey_id` / `funnel_step` enrich                               |
-| 虚拟列表 | `lib/virtual-list.js`                       | 视频 / 榜单 / GitHub 热门                                         |
-| 链接兜底 | `lib/link-guard.js`                         | noreferrer、图片兜底、GitHub 404                                  |
-| 开源卡   | `OssCard.astro` + `oss.js`                  | Stars / 语言 / 用途 / 仓库按钮                                    |
-| 懒加载   | `lazy-sections.js`                          | Tab 进入后再拉业务脚本                                            |
-| 工具中心 | `hub.ts` + `hub.astro`                      | 对比表「工具」列 → `tools/{id}.html`（含 jimeng）                 |
+| 模块     | 文件                            | 职责                                                          |
+| -------- | ------------------------------- | ------------------------------------------------------------- |
+| 搜索     | `app.js` + `GlobalSearch.astro` | 多实例 Fuse；fixed 下拉；`preferSearchHits`；提交按钮 / Enter |
+| Hero 图  | `HeroAiMap.astro`               | 响应式 WebP + SVG 回退；中心 scrim                            |
+| 面包屑   | `Breadcrumb.astro`              | 专区「首页 / …」；独立页经 `StandalonePageHeader`             |
+| 漏斗     | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich                           |
+| 虚拟列表 | `lib/virtual-list.js`           | 视频 / 榜单 / GitHub 热门                                     |
+| 链接兜底 | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404                              |
+| 开源卡   | `OssCard.astro` + `oss.js`      | Stars / 语言 / 用途 / 仓库按钮                                |
+| 懒加载   | `lazy-sections.js`              | Tab 进入后再拉业务脚本                                        |
+| 工具中心 | `hub.ts` + `hub.astro`          | 对比表「工具」列 → `tools/{id}.html`（含 jimeng）             |
 
 详见 [FRONTEND.md](./FRONTEND.md)、[CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)。
 
@@ -253,12 +253,12 @@ flowchart TB
   D --> LIVE["bio-apple.github.io/ai/"]
 ```
 
-| 工作流                | 触发                                 | 目的                                                  |
-| --------------------- | ------------------------------------ | ----------------------------------------------------- |
-| **ci.yml**            | push/PR `main`                       | 完整质量门禁（含 E2E），PR 上传 `dist` 预览           |
-| **deploy.yml**        | push `main`、手动                    | 精简路径：校验通过后尽快发布 Pages                    |
-| **daily-refresh.yml** | cron 00:00（北京）                   | 串行日更（视频/开源/课程/排行）+ 一次 deploy + lychee |
-| **daily-news.yml**    | cron 07:30/10:00/12:00/20:00（北京）= UTC 23:30 / 02:00 / 04:00 / 12:00 | 新闻热点多档刷新 + deploy |
+| 工作流                | 触发                                                                    | 目的                                                  |
+| --------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------- |
+| **ci.yml**            | push/PR `main`                                                          | 完整质量门禁（含 E2E），PR 上传 `dist` 预览           |
+| **deploy.yml**        | push `main`、手动                                                       | 精简路径：校验通过后尽快发布 Pages                    |
+| **daily-refresh.yml** | cron 00:00（北京）                                                      | 串行日更（视频/开源/课程/排行）+ 一次 deploy + lychee |
+| **daily-news.yml**    | cron 07:30/10:00/12:00/20:00（北京）= UTC 23:30 / 02:00 / 04:00 / 12:00 | 新闻热点多档刷新 + deploy                             |
 
 push `main` 时 **ci.yml 与 deploy.yml 并行**；deploy 不推 `gh-pages` 分支，而是使用官方 `actions/deploy-pages` 制品部署。
 

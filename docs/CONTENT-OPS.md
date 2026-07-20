@@ -319,15 +319,15 @@ git add data/rankings.json && git commit -m "chore: refresh rankings" && git pus
 
 适合运营直接编辑、随 `main` 发布的内容：
 
-| 想改什么              | 文件                              | 注意事项                                 |
-| --------------------- | --------------------------------- | ---------------------------------------- |
-| 首页文案 / 导航 / FAQ | `data/site.json`                  | 改完 `npm run build` 本地预览            |
-| 工具教程页            | `data/tools.json`                 | `id` 唯一；与 `tool-relations.json` 一致 |
-| 对比专题              | `data/compares.json`              | 每篇一个 `slug`                          |
-| 推荐场景芯片 / 现实实例 | `site.json` → `ai_picker.options`（含 `examples[]`） | 重建后更新 `recommend-rules.json` |
-| 工具中心对比表          | `site.json` → `compare_table`                        | hub 构建时链到 `tools/{id}.html`  |
-| 热度展示基准            | `data/engagement.json`                               | `tools[].id` 不可重复             |
-| Hero 背景图             | `hero-ai-map.svg` / `hero-ai-map-*.webp`             | 同步进 dist；见 FRONTEND.md       |
+| 想改什么                | 文件                                                 | 注意事项                                 |
+| ----------------------- | ---------------------------------------------------- | ---------------------------------------- |
+| 首页文案 / 导航 / FAQ   | `data/site.json`                                     | 改完 `npm run build` 本地预览            |
+| 工具教程页              | `data/tools.json`                                    | `id` 唯一；与 `tool-relations.json` 一致 |
+| 对比专题                | `data/compares.json`                                 | 每篇一个 `slug`                          |
+| 推荐场景芯片 / 现实实例 | `site.json` → `ai_picker.options`（含 `examples[]`） | 重建后更新 `recommend-rules.json`        |
+| 工具中心对比表          | `site.json` → `compare_table`                        | hub 构建时链到 `tools/{id}.html`         |
+| 热度展示基准            | `data/engagement.json`                               | `tools[].id` 不可重复                    |
+| Hero 背景图             | `hero-ai-map.svg` / `hero-ai-map-*.webp`             | 同步进 dist；见 FRONTEND.md              |
 
 字段定义详见 [DATA-MODEL.md](./DATA-MODEL.md)。
 
@@ -350,14 +350,14 @@ git add data/ && git commit -m "content: 更新 xxx" && git push
 
 在 GitHub Actions 界面 **Run workflow**，或本地执行后 push：
 
-| 场景            | 命令 / 操作                                            |
-| --------------- | ------------------------------------------------------ |
-| 新闻不新        | Actions → **Daily AI News Update**                     |
-| 视频空白 / 过期 | Actions → **Daily AI Video Update**（可 `force=true`） |
-| 课程 Tab 异常   | Actions → **Daily AI Courses Update**                  |
-| OSS 数据过旧    | Actions → **Daily OSS Stars Update**                   |
+| 场景            | 命令 / 操作                                                              |
+| --------------- | ------------------------------------------------------------------------ |
+| 新闻不新        | Actions → **Daily AI News Update**                                       |
+| 视频空白 / 过期 | Actions → **Daily AI Video Update**（可 `force=true`）                   |
+| 课程 Tab 异常   | Actions → **Daily AI Courses Update**                                    |
+| OSS 数据过旧    | Actions → **Daily OSS Stars Update**                                     |
 | 排行榜过时      | Actions → **Daily AI Rankings Update** 或本地 `fetch_rankings.py` + push |
-| 仅重部署        | Actions → **Deploy**（不改数据）                       |
+| 仅重部署        | Actions → **Deploy**（不改数据）                                         |
 
 **本地一键刷新全部动态数据：**
 

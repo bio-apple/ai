@@ -30,15 +30,15 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 ## 2. Hero 背景（AI 领域关联图）
 
-| 项       | 说明                                                                 |
-| -------- | -------------------------------------------------------------------- |
-| 组件     | `HeroAiMap.astro`（首页 `hero-bg` 内）                               |
-| 资源     | `hero-ai-map.svg` + `hero-ai-map-{640,960,1280}.webp`                |
-| 策略     | `<768px` 仅 SVG（~5KB）；≥768px 用 WebP `srcset`                      |
-| 构图     | 中心 mask 镂空 + `.hero-content-scrim` 衬底，保证品牌/搜索可读       |
-| 动效     | 轻微 `heroMapFloat`；尊重 `prefers-reduced-motion`                   |
+| 项       | 说明                                                                       |
+| -------- | -------------------------------------------------------------------------- |
+| 组件     | `HeroAiMap.astro`（首页 `hero-bg` 内）                                     |
+| 资源     | `hero-ai-map.svg` + `hero-ai-map-{640,960,1280}.webp`                      |
+| 策略     | `<768px` 仅 SVG（~5KB）；≥768px 用 WebP `srcset`                           |
+| 构图     | 中心 mask 镂空 + `.hero-content-scrim` 衬底，保证品牌/搜索可读             |
+| 动效     | 轻微 `heroMapFloat`；尊重 `prefers-reduced-motion`                         |
 | 装饰语义 | `aria-hidden` + 空 `alt`，不抢 LCP（`loading=lazy` / `fetchpriority=low`） |
-| 缓存     | `_headers` 对 SVG/WebP 设 7 天 `Cache-Control`                       |
+| 缓存     | `_headers` 对 SVG/WebP 设 7 天 `Cache-Control`                             |
 
 关联关系：AI ⊃ ML ⊃ DL，并与 Computer Vision / Robotics / NLP / Speech Recognition 交叉；外围为 Mathematics 等基础学科。
 
@@ -46,34 +46,34 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 ## 3. 面包屑
 
-| 项     | 说明                                                           |
-| ------ | -------------------------------------------------------------- |
-| 组件   | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用 |
+| 项       | 说明                                                               |
+| -------- | ------------------------------------------------------------------ |
+| 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用     |
 | 首页专区 | 开源 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
-| 独立页 | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`         |
-| SEO    | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                 |
+| 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`             |
+| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                     |
 
 ---
 
 ## 4. 工具中心对比表
 
-| 项     | 说明                                                                  |
-| ------ | --------------------------------------------------------------------- |
-| 页面   | `tools/hub.html`（`src/pages/tools/hub.astro`）                       |
-| 逻辑   | `src/lib/hub.ts` → `buildHubCompareRows()` 映射工具名 → `tutorialHref` |
-| UI     | 「工具」列链到站内教程 `tools/{id}.html`（含 **即梦** `jimeng`）       |
-| 样式   | `.hub-compare-link`（`css/labs.css`）                                 |
+| 项   | 说明                                                                   |
+| ---- | ---------------------------------------------------------------------- |
+| 页面 | `tools/hub.html`（`src/pages/tools/hub.astro`）                        |
+| 逻辑 | `src/lib/hub.ts` → `buildHubCompareRows()` 映射工具名 → `tutorialHref` |
+| UI   | 「工具」列链到站内教程 `tools/{id}.html`（含 **即梦** `jimeng`）       |
+| 样式 | `.hub-compare-link`（`css/labs.css`）                                  |
 
 ---
 
 ## 5. AI 推荐助手
 
-| 项       | 说明                                                                  |
-| -------- | --------------------------------------------------------------------- |
-| UI       | `HomeRecommend.astro` + `recommend.js`                                |
-| 配置     | `site.json` → `ai_picker.options[]`（含 `examples` 现实实例）         |
-| 产物     | `recommend-rules.json`（prebuild 透传 `examples` / `steps` / `tools`） |
-| 展示     | 结果区「现实实例」列表 + 路径步骤 + 工具跳转                          |
+| 项   | 说明                                                                   |
+| ---- | ---------------------------------------------------------------------- |
+| UI   | `HomeRecommend.astro` + `recommend.js`                                 |
+| 配置 | `site.json` → `ai_picker.options[]`（含 `examples` 现实实例）          |
+| 产物 | `recommend-rules.json`（prebuild 透传 `examples` / `steps` / `tools`） |
+| 展示 | 结果区「现实实例」列表 + 路径步骤 + 工具跳转                           |
 
 ---
 
