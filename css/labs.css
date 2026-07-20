@@ -269,8 +269,36 @@
 }
 
 .hub-compare-name {
-  display: block;
+  display: inline-flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 6px 8px;
   font-size: 0.95rem;
+}
+
+a.hub-compare-link {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+}
+
+a.hub-compare-link:hover,
+a.hub-compare-link:focus-visible {
+  color: var(--accent);
+  text-decoration: underline;
+  outline: none;
+}
+
+.hub-compare-tutorial-hint {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent);
+  background: rgba(37, 99, 235, 0.1);
+  vertical-align: middle;
 }
 
 .hub-compare-type {

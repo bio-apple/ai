@@ -4,7 +4,7 @@ import site from '../../data/site.json';
 /** 工具中心排行区：各榜展示条数（完整 Top10 见排行榜页） */
 export const HUB_RANKING_TOP_N = 5;
 
-/** AI 工具中心仅比较这 10 个产品 */
+/** AI 工具中心仅比较这 10 个产品（localId → 站内教程页 tools/{id}.html） */
 export const HUB_FEATURED_TOOLS = [
   { name: 'ChatGPT', localId: 'chatgpt' },
   { name: 'New Bing', localId: 'new-bing' },
@@ -15,7 +15,7 @@ export const HUB_FEATURED_TOOLS = [
   { name: 'Kimi｜月之暗面', localId: 'kimi' },
   { name: 'Github Copilot', localId: 'copilot' },
   { name: 'cursor', localId: 'cursor' },
-  { name: '即梦 AI｜剪映', localId: null },
+  { name: '即梦 AI｜剪映', localId: 'jimeng' },
 ] as const;
 
 type CompareRow = {
@@ -50,12 +50,16 @@ export type HubCompareRow = {
   strength: string;
   scenario: string;
   pricing: string;
+  /** 站内教程页相对路径（经 asset()），无教程时为空 */
+  tutorialHref: string | null;
+  localId: string | null;
 };
 
 export function buildHubCompareRows(): HubCompareRow[] {
   return HUB_FEATURED_TOOLS.map((featured) => {
     const compare = findCompareRow(featured.name);
     const displayName = compare?.tool || featured.name;
+    const localId = featured.localId;
 
     return {
       name: displayName,
@@ -63,6 +67,8 @@ export function buildHubCompareRows(): HubCompareRow[] {
       strength: compare?.strength || '—',
       scenario: compare?.scenario || '—',
       pricing: compare?.pricing || '—',
+      localId,
+      tutorialHref: localId ? `tools/${localId}.html` : null,
     };
   });
 }

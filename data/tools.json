@@ -894,5 +894,70 @@
       }
     ],
     "shortcuts": null
+  },
+  {
+    "id": "jimeng",
+    "section_id": "section-jimeng",
+    "icon": "梦",
+    "name": "即梦 AI",
+    "description": "字节跳动剪映生态下的 AI 视频与图像创作工具，支持文生视频、图生视频与中文创作场景，适合短视频脚本、分镜与成片辅助。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://jimeng.jianying.com\" rel=\"noopener\" target=\"_blank\">jimeng.jianying.com</a> 并用抖音 / 手机号登录",
+      "选择「文生视频」或「图生视频」，写清主体、动作、镜头与风格",
+      "生成后在时间轴预览，按需重试或微调提示词",
+      "导出素材到 <a href=\"https://www.capcut.cn\" rel=\"noopener\" target=\"_blank\">剪映</a> 完成配音、字幕与成片",
+      "常用提示词结构：主体 + 场景 + 镜头运动 + 光影风格 + 时长约束"
+    ],
+    "features": [
+      {
+        "title": "文生视频",
+        "description": "用中文描述生成短视频镜头，适合脚本可视化"
+      },
+      {
+        "title": "图生视频",
+        "description": "静态图驱动运镜与动态，快速做分镜草稿"
+      },
+      {
+        "title": "剪映生态",
+        "description": "与剪映素材流打通，便于后期剪辑导出"
+      },
+      {
+        "title": "中文创作友好",
+        "description": "面向国内短视频与漫剧工作流"
+      },
+      {
+        "title": "多风格控制",
+        "description": "可在提示词中指定写实、动漫、电影感等风格"
+      },
+      {
+        "title": "免费额度起步",
+        "description": "基础能力有免费额度，进阶用量走会员"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "产品页",
+        "type_class": "official",
+        "href": "https://jimeng.jianying.com",
+        "title": "即梦 AI 官网",
+        "meta": "文生视频 / 图生视频创作入口"
+      },
+      {
+        "type": "产品页",
+        "type_class": "official",
+        "href": "https://www.capcut.cn",
+        "title": "剪映",
+        "meta": "成片剪辑、字幕与导出"
+      },
+      {
+        "type": "帮助中心",
+        "type_class": "official",
+        "href": "https://www.capcut.cn/help",
+        "title": "剪映帮助中心",
+        "meta": "剪映与 AI 创作相关帮助文档"
+      }
+    ],
+    "shortcuts": null
   }
 ]

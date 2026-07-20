@@ -67,7 +67,7 @@ const rankMeta = hubRankingMeta();
     >
       <div class="section-head">
         <h2 class="section-title" id="hub-compare-title">精选 AI 工具对比</h2>
-        <p class="section-desc">类型、优势、场景与定价一表看清。</p>
+        <p class="section-desc">类型、优势、场景与定价一表看清；点击「工具」列进入站内教程。</p>
       </div>
 
       <div class="hub-compare-wrap" role="region" aria-label="AI 工具对比表" tabindex="0">
@@ -86,7 +86,18 @@ const rankMeta = hubRankingMeta();
               rows.map((row) => (
                 <tr>
                   <th scope="row">
-                    <span class="hub-compare-name">{row.name}</span>
+                    {row.tutorialHref ? (
+                      <a
+                        class="hub-compare-name hub-compare-link"
+                        href={asset(row.tutorialHref)}
+                        data-track={`hub-compare-tutorial-${row.localId || 'unknown'}`}
+                      >
+                        {row.name}
+                        <span class="hub-compare-tutorial-hint">教程</span>
+                      </a>
+                    ) : (
+                      <span class="hub-compare-name">{row.name}</span>
+                    )}
                   </th>
                   <td>
                     <span class="hub-compare-type">{row.type}</span>

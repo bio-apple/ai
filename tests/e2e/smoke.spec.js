@@ -127,6 +127,13 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.nav-link-page', { hasText: '实战案例' })).toHaveCount(0);
     await page.locator('.nav-link-page', { hasText: 'AI工具中心' }).click();
     await expect(page.locator('h1')).toContainText('工具中心');
+    await expect(page.locator('#hub-compare a.hub-compare-link')).toHaveCount(10);
+    await expect(
+      page.locator('#hub-compare a.hub-compare-link', { hasText: 'ChatGPT' }),
+    ).toHaveAttribute('href', /tools\/chatgpt\.html$/);
+    await expect(
+      page.locator('#hub-compare a.hub-compare-link', { hasText: '即梦' }),
+    ).toHaveAttribute('href', /tools\/jimeng\.html$/);
     await expect(
       page.locator('[data-ranking-vl].vl-root, [data-ranking-vl] .aicpb-table-row').first(),
     ).toBeVisible();
