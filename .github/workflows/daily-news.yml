@@ -1,7 +1,9 @@
 name: Daily AI News Update
 
 on:
-  # 定时由 daily-refresh.yml（北京 00:00 串行）统一触发；本文件仅保留手动
+  schedule:
+    # 北京时间 07:30 ≈ UTC 前一日 23:30
+    - cron: "30 23 * * *"
   workflow_dispatch:
 
 permissions:
@@ -58,7 +60,8 @@ jobs:
           fi
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
           git commit -m "chore: daily AI news $DATE"
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
           echo "pushed=true" >> "$GITHUB_OUTPUT"
 
       - name: Trigger Pages deploy

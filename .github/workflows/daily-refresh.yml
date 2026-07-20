@@ -1,6 +1,7 @@
 name: Daily Content Refresh
 
 # 北京时间每日 00:00 启动；频道按序刷新（完成一个再下一个），结束后统一推送与部署。
+# 新闻热点单独在 daily-news.yml（北京 07:30）刷新，不纳入本串行队列。
 # 保障链：抓取 → Prettier → commit → rebase/push → 显式派发 deploy → lychee（软）→ 频道失败才 hard-fail
 on:
   schedule:
@@ -86,7 +87,7 @@ jobs:
           echo "failed_channels=" >> "$GITHUB_ENV"
 
       # ── 1. AI 视频 ──────────────────────────────────────────
-      - name: "1/5 Fetch AI videos"
+      - name: "1/4 Fetch AI videos"
         id: videos
         continue-on-error: true
         env:
@@ -114,7 +115,7 @@ jobs:
           PY
           python scripts/report_fetch_metrics.py videos || true
 
-      - name: "1/5 Commit videos"
+      - name: "1/4 Commit videos"
         if: steps.videos.outcome == 'success'
         run: |
           npx prettier --write daily-videos.json
@@ -125,42 +126,19 @@ jobs:
             git commit -m "chore: daily AI videos $DATE"
           fi
 
-      - name: "1/5 Record videos failure"
+      - name: "1/4 Record videos failure"
         if: steps.videos.outcome != 'success'
         run: echo "failed_channels=${failed_channels}videos," >> "$GITHUB_ENV"
 
-      # ── 2. 新闻热点 ────────────────────────────────────────
-      - name: "2/5 Fetch AI news"
-        id: news
-        continue-on-error: true
-        run: |
-          python scripts/fetch_ai_news.py
-          python scripts/report_fetch_metrics.py news || true
-
-      - name: "2/5 Commit news"
-        if: steps.news.outcome == 'success'
-        run: |
-          npx prettier --write ai-news.json
-          git add ai-news.json
-          if git diff --staged --quiet; then
-            echo "No news file changes"
-          else
-            git commit -m "chore: daily AI news $DATE"
-          fi
-
-      - name: "2/5 Record news failure"
-        if: steps.news.outcome != 'success'
-        run: echo "failed_channels=${failed_channels}news," >> "$GITHUB_ENV"
-
-      # ── 3. 开源精选 ────────────────────────────────────────
-      - name: "3/5 Fetch OSS stars"
+      # ── 2. 开源精选 ────────────────────────────────────────
+      - name: "2/4 Fetch OSS stars"
         id: oss
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/fetch_oss_stars.py
 
-      - name: "3/5 Commit OSS"
+      - name: "2/4 Commit OSS"
         if: steps.oss.outcome == 'success'
         run: |
           npx prettier --write data/oss-projects.json oss-projects.json
@@ -171,19 +149,19 @@ jobs:
             git commit -m "chore: daily OSS recollect $DATE (≥50k Top3 + 中文Top1)"
           fi
 
-      - name: "3/5 Record OSS failure"
+      - name: "2/4 Record OSS failure"
         if: steps.oss.outcome != 'success'
         run: echo "failed_channels=${failed_channels}oss," >> "$GITHUB_ENV"
 
-      # ── 4. 课程资源 ────────────────────────────────────────
-      - name: "4/5 Fetch AI courses"
+      # ── 3. 课程资源 ────────────────────────────────────────
+      - name: "3/4 Fetch AI courses"
         id: courses
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/fetch_ai_courses.py
 
-      - name: "4/5 Commit courses"
+      - name: "3/4 Commit courses"
         if: steps.courses.outcome == 'success'
         run: |
           npx prettier --write ai-courses.json
@@ -194,17 +172,17 @@ jobs:
             git commit -m "chore: daily AI course resources $DATE"
           fi
 
-      - name: "4/5 Record courses failure"
+      - name: "3/4 Record courses failure"
         if: steps.courses.outcome != 'success'
         run: echo "failed_channels=${failed_channels}courses," >> "$GITHUB_ENV"
 
-      # ── 5. 工具排行榜 ──────────────────────────────────────
-      - name: "5/5 Fetch AI rankings"
+      # ── 4. 工具排行榜 ──────────────────────────────────────
+      - name: "4/4 Fetch AI rankings"
         id: rankings
         continue-on-error: true
         run: python scripts/fetch_rankings.py
 
-      - name: "5/5 Commit rankings"
+      - name: "4/4 Commit rankings"
         if: steps.rankings.outcome == 'success'
         run: |
           npx prettier --write data/rankings.json
@@ -215,7 +193,7 @@ jobs:
             git commit -m "chore: daily AI rankings $DATE"
           fi
 
-      - name: "5/5 Record rankings failure"
+      - name: "4/4 Record rankings failure"
         if: steps.rankings.outcome != 'success'
         run: echo "failed_channels=${failed_channels}rankings," >> "$GITHUB_ENV"
 
