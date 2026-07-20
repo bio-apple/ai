@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 780" fill="none" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="aiWash" x1="200" y1="40" x2="980" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563eb" stop-opacity="0.07"/>
+      <stop offset="1" stop-color="#0d8c6d" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="foundFill" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#d4a017" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#f0c14a" stop-opacity="0.12"/>
+    </linearGradient>
+    <filter id="softBlur" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Artificial Intelligence -->
+  <ellipse cx="600" cy="370" rx="340" ry="270" fill="url(#aiWash)" stroke="#3b6fd9" stroke-width="2.2" opacity="0.9"/>
+  <text x="600" y="130" text-anchor="middle" fill="#1a2234" fill-opacity="0.55" font-family="Outfit, 'Noto Sans SC', sans-serif" font-size="22" font-weight="650" letter-spacing="0.02em">Artificial Intelligence</text>
+
+  <!-- Machine Learning -->
+  <ellipse cx="620" cy="400" rx="235" ry="185" fill="rgba(37,99,235,0.04)" stroke="#3b6fd9" stroke-width="1.8" opacity="0.95"/>
+  <text x="620" y="250" text-anchor="middle" fill="#1a2234" fill-opacity="0.5" font-family="Outfit, 'Noto Sans SC', sans-serif" font-size="18" font-weight="600">Machine Learning</text>
+
+  <!-- Deep Learning -->
+  <circle cx="640" cy="390" r="78" fill="rgba(13,140,109,0.06)" stroke="#0d8c6d" stroke-width="1.7"/>
+  <text x="640" y="396" text-anchor="middle" fill="#1a2234" fill-opacity="0.55" font-family="Outfit, 'Noto Sans SC', sans-serif" font-size="14" font-weight="650">Deep Learning</text>
+
+  <!-- Computer Vision -->
+  <ellipse cx="560" cy="360" rx="250" ry="78" fill="none" stroke="#2563eb" stroke-width="1.7" opacity="0.85"/>
+  <text x="400" y="355" text-anchor="middle" fill="#1a2234" fill-opacity="0.48" font-family="Outfit, 'Noto Sans SC', sans-serif" font-size="15" font-weight="600">Computer Vision</text>
+
+  <!-- Robotics -->
+  <ellipse cx="390" cy="300" rx="95" ry="70" fill="none" stroke="#2563eb" stroke-width="1.6" opacity="0.8"/>
+  <text x="390" y="305" text-anchor="middle" fill="#1a2234" fill-opacity="0.48" font-family="Outfit, 'Noto Sans SC', sans-serif" font-size="14" font-weight="600">Robotics</text>
+
+  <!-- Natural Language Processing -->
+  <ellipse cx="620" cy="520" rx="175" ry="70" fill="none" stroke="#2563eb" stroke-width="1.6" opacity="0.8"/>
+  <text x="620" y="525" text-anchor="middle" fill="#1a2234" fill-opacity="0.48" font-family="Outfit, 'Noto Sans SC', sans-serif" font-size="13" font-weight="600">Natural Language Processing</text>
+
+  <!-- Speech Recognition -->
+  <ellipse cx="730" cy="455" rx="105" ry="58" fill="none" stroke="#2563eb" stroke-width="1.5" opacity="0.8"/>
+  <text x="730" y="460" text-anchor="middle" fill="#1a2234" fill-opacity="0.48" font-family="Outfit, 'Noto Sans SC', sans-serif" font-size="12" font-weight="600">Speech Recognition</text>
+
+  <!-- Foundational disciplines -->
+  <g font-family="Outfit, 'Noto Sans SC', sans-serif" font-size="13" font-weight="600" fill="#5a4a1a" fill-opacity="0.7">
+    <line x1="270" y1="175" x2="330" y2="220" stroke="#8a7a40" stroke-opacity="0.35" stroke-width="1"/>
+    <ellipse cx="230" cy="150" rx="78" ry="36" fill="url(#foundFill)" stroke="#c4a035" stroke-opacity="0.55" stroke-width="1.2"/>
+    <text x="230" y="155" text-anchor="middle">Mathematics</text>
+
+    <line x1="900" y1="165" x2="850" y2="220" stroke="#8a7a40" stroke-opacity="0.35" stroke-width="1"/>
+    <ellipse cx="960" cy="140" rx="88" ry="36" fill="url(#foundFill)" stroke="#c4a035" stroke-opacity="0.55" stroke-width="1.2"/>
+    <text x="960" y="145" text-anchor="middle">Neuroscience</text>
+
+    <line x1="980" y1="370" x2="920" y2="370" stroke="#8a7a40" stroke-opacity="0.35" stroke-width="1"/>
+    <ellipse cx="1055" cy="370" rx="95" ry="38" fill="url(#foundFill)" stroke="#c4a035" stroke-opacity="0.55" stroke-width="1.2"/>
+    <text x="1055" y="375" text-anchor="middle">Computer Science</text>
+
+    <line x1="900" y1="600" x2="850" y2="545" stroke="#8a7a40" stroke-opacity="0.35" stroke-width="1"/>
+    <ellipse cx="960" cy="640" rx="78" ry="36" fill="url(#foundFill)" stroke="#c4a035" stroke-opacity="0.55" stroke-width="1.2"/>
+    <text x="960" y="645" text-anchor="middle">Psychology</text>
+
+    <line x1="600" y1="680" x2="600" y2="630" stroke="#8a7a40" stroke-opacity="0.35" stroke-width="1"/>
+    <ellipse cx="600" cy="720" rx="62" ry="32" fill="url(#foundFill)" stroke="#c4a035" stroke-opacity="0.55" stroke-width="1.2"/>
+    <text x="600" y="725" text-anchor="middle">Biology</text>
+
+    <line x1="300" y1="600" x2="360" y2="540" stroke="#8a7a40" stroke-opacity="0.35" stroke-width="1"/>
+    <ellipse cx="250" cy="640" rx="62" ry="32" fill="url(#foundFill)" stroke="#c4a035" stroke-opacity="0.55" stroke-width="1.2"/>
+    <text x="250" y="645" text-anchor="middle">Physics</text>
+  </g>
+</svg>

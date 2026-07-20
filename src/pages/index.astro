@@ -53,6 +53,17 @@ const schema = mergeSchemaGraphs(
         <div class="hero-grid"></div>
         <div class="hero-orb hero-orb-a"></div>
         <div class="hero-orb hero-orb-b"></div>
+        <picture class="hero-ai-map">
+          <source srcset={asset('hero-ai-map.webp')} type="image/webp" />
+          <img
+            src={asset('hero-ai-map.svg')}
+            alt=""
+            width="1200"
+            height="780"
+            decoding="async"
+            fetchpriority="low"
+          />
+        </picture>
       </div>
       <div class="hero-content">
         <div class="hero-brand-mark">

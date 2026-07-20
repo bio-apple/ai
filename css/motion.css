@@ -105,6 +105,12 @@
     animation: none !important;
   }
 
+  .hero-grid,
+  .hero-orb,
+  .hero-ai-map img {
+    animation: none !important;
+  }
+
   .fade-in,
   .reveal {
     opacity: 1;

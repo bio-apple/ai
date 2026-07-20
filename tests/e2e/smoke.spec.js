@@ -30,6 +30,8 @@ test.describe('Bio AI Lab 关键路径', () => {
   test('首页主路径：推荐 · 简报 · 开源（无热门/更多工具）', async ({ page }) => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('AI 工作流');
+    await expect(page.locator('.hero-ai-map img')).toBeAttached();
+    await expect(page.locator('.hero-ai-map img')).toHaveAttribute('src', /hero-ai-map/);
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
     await expect(page.locator('#main-content')).toBeVisible();
     await expect(page.locator('#home-recommend')).toBeVisible();
