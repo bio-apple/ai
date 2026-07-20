@@ -330,7 +330,12 @@ header {
   user-select: none;
   -webkit-user-drag: none;
   /* 仅挖开标题核心区，边缘学科名保持清晰 */
-  mask-image: radial-gradient(ellipse 36% 32% at 50% 36%, transparent 0%, rgba(0, 0, 0, 0.55) 28%, #000 52%);
+  mask-image: radial-gradient(
+    ellipse 36% 32% at 50% 36%,
+    transparent 0%,
+    rgba(0, 0, 0, 0.55) 28%,
+    #000 52%
+  );
   -webkit-mask-image: radial-gradient(
     ellipse 36% 32% at 50% 36%,
     transparent 0%,
