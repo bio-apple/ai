@@ -24,6 +24,36 @@ function resolveSearchUrl(url) {
   return `${siteBase()}${String(url).replace(/^\//, '')}`;
 }
 
+function isNavSearchWrap(wrap) {
+  return Boolean(wrap?.classList?.contains('nav-search'));
+}
+
+/** 顶栏搜索在 sticky/flex 下易被裁切，展开时用 fixed 定位对齐输入框 */
+function syncNavSearchDropdown(wrap, input, results) {
+  if (!isNavSearchWrap(wrap)) return;
+  if (results.hidden) {
+    results.style.cssText = '';
+    return;
+  }
+  const rect = input.getBoundingClientRect();
+  const vw = document.documentElement.clientWidth;
+  const width = Math.min(Math.round(rect.width), vw - 16);
+  let left = Math.round(rect.left);
+  left = Math.max(8, Math.min(left, vw - width - 8));
+  results.style.position = 'fixed';
+  results.style.top = `${Math.round(rect.bottom + 6)}px`;
+  results.style.left = `${left}px`;
+  results.style.width = `${width}px`;
+  results.style.right = 'auto';
+  results.style.zIndex = '1000';
+}
+
+function setSearchDropdownOpen(wrap, input, results, open) {
+  results.hidden = !open;
+  input.setAttribute('aria-expanded', open ? 'true' : 'false');
+  syncNavSearchDropdown(wrap, input, results);
+}
+
 function gotoSearchHit(item, query = '') {
   const q = query.trim();
   if (q) pushSearchHistory(q);
@@ -397,8 +427,7 @@ function renderSuggestionsPanel(wrap, input, results) {
   </div>`;
 
   results.innerHTML = html;
-  results.hidden = false;
-  input.setAttribute('aria-expanded', 'true');
+  setSearchDropdownOpen(wrap, input, results, true);
 
   results.querySelector('[data-action="clear-history"]')?.addEventListener('click', (e) => {
     e.preventDefault();
@@ -426,16 +455,14 @@ function bindSearchHitActions(wrap, input, results, query) {
         query,
       );
       input.value = '';
-      results.hidden = true;
-      input.setAttribute('aria-expanded', 'false');
+      setSearchDropdownOpen(wrap, input, results, false);
     });
   });
 
   results.querySelectorAll('a.search-hit').forEach((link) => {
     link.addEventListener('click', () => {
       pushSearchHistory(query);
-      results.hidden = true;
-      input.setAttribute('aria-expanded', 'false');
+      setSearchDropdownOpen(wrap, input, results, false);
     });
   });
 }
@@ -449,13 +476,13 @@ function renderSearchResults(wrap, input, results, rawQuery) {
 
   if (searchIndexStatus === 'loading') {
     results.innerHTML = '<p class="search-empty search-loading">搜索索引加载中…</p>';
-    results.hidden = false;
+    setSearchDropdownOpen(wrap, input, results, true);
     return;
   }
 
   if (searchIndexStatus === 'error') {
     results.innerHTML = '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
-    results.hidden = false;
+    setSearchDropdownOpen(wrap, input, results, true);
     if (typeof trackEvent === 'function') trackEvent('search_error', { q: query.slice(0, 40) });
     return;
   }
@@ -471,7 +498,7 @@ function renderSearchResults(wrap, input, results, rawQuery) {
           <a href="${escapeHtml(siteBase())}tools/hub.html" class="search-empty-link" data-track="search_empty_hub">浏览工具中心</a>
         </div>
       </div>`;
-    results.hidden = false;
+    setSearchDropdownOpen(wrap, input, results, true);
     if (typeof trackEvent === 'function') trackEvent('search_empty', { q: query.slice(0, 40) });
     return;
   }
@@ -491,8 +518,7 @@ function renderSearchResults(wrap, input, results, rawQuery) {
       </div>`,
     )
     .join('');
-  results.hidden = false;
-  input.setAttribute('aria-expanded', 'true');
+  setSearchDropdownOpen(wrap, input, results, true);
   bindSearchHitActions(wrap, input, results, query);
 }
 
@@ -554,8 +580,7 @@ function initSearchWrap(wrap) {
     const hits = [...results.querySelectorAll('.search-hit')];
     if (e.key === 'Escape') {
       input.value = '';
-      results.hidden = true;
-      input.setAttribute('aria-expanded', 'false');
+      setSearchDropdownOpen(wrap, input, results, false);
       activeIndex = -1;
       return;
     }
@@ -587,10 +612,17 @@ function initSearchWrap(wrap) {
 
   document.addEventListener('click', (e) => {
     if (!wrap.contains(e.target)) {
-      results.hidden = true;
-      input.setAttribute('aria-expanded', 'false');
+      setSearchDropdownOpen(wrap, input, results, false);
     }
   });
+
+  if (isNavSearchWrap(wrap)) {
+    const reposition = () => {
+      if (!results.hidden) syncNavSearchDropdown(wrap, input, results);
+    };
+    window.addEventListener('scroll', reposition, { passive: true });
+    window.addEventListener('resize', reposition);
+  }
 
   const params = new URLSearchParams(location.search);
   const q = params.get('q');

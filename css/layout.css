@@ -2,7 +2,8 @@
 header {
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
+  overflow: visible;
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
@@ -17,6 +18,7 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+  overflow: visible;
 }
 
 .logo {

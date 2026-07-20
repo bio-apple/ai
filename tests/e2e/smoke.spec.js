@@ -121,8 +121,28 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.goto('tools/chatgpt.html', { waitUntil: 'domcontentloaded' });
     await waitSearchReady(page);
     await expect(page.locator('#nav-site-search')).toBeVisible();
-    await page.fill('#nav-site-search', '课程');
-    await expect(page.locator('#nav-site-search-results .search-hit').first()).toBeVisible();
+    await page.fill('#nav-site-search', 'ChatGPT');
+    const results = page.locator('#nav-site-search-results');
+    await expect(results).toBeVisible();
+    await expect(results.locator('a.search-hit[href*="tools/chatgpt"]').first()).toBeVisible();
+    await expect
+      .poll(async () => results.evaluate((el) => getComputedStyle(el).position))
+      .toBe('fixed');
+    await expect
+      .poll(async () => results.evaluate((el) => el.getBoundingClientRect().height))
+      .toBeGreaterThan(24);
+  });
+
+  test('顶栏全局搜索（首页）', async ({ page }) => {
+    await gotoHome(page);
+    await waitSearchReady(page);
+    await page.fill('#nav-site-search', 'ChatGPT');
+    const results = page.locator('#nav-site-search-results');
+    await expect(results).toBeVisible();
+    await expect(results.locator('a.search-hit[href*="tools/chatgpt"]').first()).toBeVisible();
+    await expect
+      .poll(async () => results.evaluate((el) => getComputedStyle(el).position))
+      .toBe('fixed');
   });
 
   test('搜索空状态引导', async ({ page }) => {

@@ -493,11 +493,15 @@ html[data-theme='dark'] .content-type-oss {
   flex: 1 1 220px;
   max-width: 360px;
   min-width: 0;
+  overflow: visible;
+  position: relative;
+  z-index: 2;
 }
 
 .nav-search.site-search-wrap {
   max-width: none;
   margin: 0;
+  overflow: visible;
 }
 
 .nav-search .site-search {
@@ -508,7 +512,7 @@ html[data-theme='dark'] .content-type-oss {
 }
 
 .nav-search .site-search-results {
-  z-index: 120;
+  z-index: 1000;
 }
 
 /* Compare guide cards */
