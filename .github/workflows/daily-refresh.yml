@@ -1,7 +1,7 @@
 name: Daily Content Refresh
 
 # 北京时间每日 00:00 启动；频道按序刷新（完成一个再下一个），结束后统一推送与部署。
-# 新闻热点单独在 daily-news.yml（北京 07:30）刷新，不纳入本串行队列。
+# 新闻热点单独在 daily-news.yml（北京 07:30/10:00/12:00/20:00）刷新，不纳入本串行队列。
 # 保障链：抓取 → Prettier → commit → rebase/push → 显式派发 deploy → lychee（软）→ 频道失败才 hard-fail
 on:
   schedule:

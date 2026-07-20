@@ -16,7 +16,7 @@
 3. **仓库已更新但线上仍昨日** → 确认 `deploy.yml` 是否被派发成功（`GITHUB_TOKEN` push **不会**自动触发 Deploy）→ 手动 Run [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)
 4. **视频仍显示昨日** → 确认 `main` 上 `daily-videos.json` 的 `batches[0].date`；仅视频坏 → [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（`force=true`）
    - YouTube 全空：配置 **`YOUTUBE_API_KEY`** 后重跑
-5. **新闻过期** → [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)（定时北京 **07:30**；可手动 Run）
+5. **新闻过期** → [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)（定时北京 **07:30 / 10:00 / 12:00 / 20:00**；可手动 Run）
 6. **OSS 精选异常** → [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)
 7. **课程资源异常** → [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)
 8. **排行榜异常** → [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)
@@ -63,7 +63,7 @@ DIST=dist python3 scripts/validate_ci.py courses
 
 - [Daily Content Refresh（00:00 串行）](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml)
 - [Daily videos](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（手动）
-- [Daily news](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)（**07:30** / 手动）
+- [Daily news](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)（**07:30 / 10:00 / 12:00 / 20:00** / 手动）
 - [Daily OSS](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)（手动）
 - [Daily courses](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)（手动）
 - [Daily rankings](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)（手动）
