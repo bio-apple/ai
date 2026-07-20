@@ -242,7 +242,8 @@ header {
 /* Hero */
 .hero {
   position: relative;
-  overflow: hidden;
+  /* 勿用 overflow:hidden，否则会裁切站内搜索下拉（绝对定位） */
+  overflow: visible;
   min-height: min(92vh, 820px);
   display: flex;
   align-items: center;
@@ -254,6 +255,8 @@ header {
 .hero-bg {
   position: absolute;
   inset: 0;
+  overflow: hidden;
+  pointer-events: none;
   background:
     radial-gradient(ellipse 90% 70% at 50% -20%, rgba(37, 99, 235, 0.16), transparent 55%),
     radial-gradient(ellipse 45% 40% at 15% 85%, rgba(13, 140, 109, 0.1), transparent 50%),

@@ -135,9 +135,9 @@ function buildSearchIndex(site, tools, compares) {
     const kw = [t.id, t.name, t.description, ...(t.features || []).map((f) => f.title)]
       .filter(Boolean)
       .join(' ');
-    items.push({ label: `${t.name} 教程`, type: '工具', section: t.section_id, keywords: kw });
+    // 工具教程已独立成页；勿再指向首页不存在的 section-*
     items.push({
-      label: `${t.name} 独立页`,
+      label: `${t.name} 教程`,
       type: '工具',
       url: `tools/${t.id}.html`,
       keywords: kw,

@@ -95,8 +95,15 @@ test.describe('Bio AI Lab 关键路径', () => {
     expect((body.options || []).length).toBeGreaterThan(0);
 
     await waitSearchReady(page);
-    await page.locator('#site-search').fill('Cursor');
-    await expect(page.locator('.search-hit').first()).toBeVisible();
+    await page.locator('#site-search').fill('ChatGPT');
+    const heroResults = page.locator('#site-search-results');
+    await expect(heroResults).toBeVisible();
+    await expect(heroResults.locator('.search-hit').first()).toBeVisible();
+    await expect(heroResults.locator('a.search-hit[href*="tools/chatgpt"]').first()).toBeVisible();
+    // 下拉未被 hero overflow 裁切：结果面板应有可见高度
+    await expect
+      .poll(async () => heroResults.evaluate((el) => el.getBoundingClientRect().height))
+      .toBeGreaterThan(24);
   });
 
   test('搜索联想与历史面板', async ({ page }) => {

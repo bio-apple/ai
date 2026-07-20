@@ -306,6 +306,7 @@ html[data-theme='dark'] .content-type-oss {
 .hero-search.site-search-wrap {
   max-width: 560px;
   margin: 0 auto;
+  z-index: 40;
 }
 
 .site-search {
@@ -333,12 +334,15 @@ html[data-theme='dark'] .content-type-oss {
   top: calc(100% + 6px);
   left: 0;
   right: 0;
+  max-height: min(58vh, 420px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 10px;
   box-shadow: var(--shadow);
-  z-index: 50;
-  overflow: hidden;
+  z-index: 60;
 }
 
 .search-hit {
