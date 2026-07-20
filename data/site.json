@@ -230,12 +230,18 @@
   "ai_picker": {
     "title": "你想使用 AI 做什么？",
     "lead": "描述目标或点选场景，立刻拿到工具与下一步。",
+    "placeholder": "例如：写产品周报 / 用 Cursor 改落地页 / 即梦出短视频分镜",
     "options": [
       {
         "id": "writing",
         "label": "写文章",
         "icon": "✍",
         "tools": ["chatgpt", "claude", "kimi"],
+        "examples": [
+          "把会议纪要改成可读的产品周报",
+          "按目标读者重写公众号/官网长文",
+          "上传竞品 PDF，用 Kimi 提炼对比要点"
+        ],
         "keywords": [
           "写文章",
           "写作",
@@ -245,17 +251,21 @@
           "邮件",
           "稿件",
           "周报",
+          "述职",
           "改写",
           "润色",
-          "小红书"
+          "小红书",
+          "公众号",
+          "发布稿",
+          "调研报告"
         ],
         "guide": "guides/beginner.html",
-        "path_title": "零基础入门",
+        "path_title": "现实路径",
         "steps": [
-          "学会基本对话与提示词",
-          "用 Claude / ChatGPT 起草与改写",
-          "长文档交给 Kimi",
-          "沉淀个人写作模板"
+          "用 ChatGPT 按提纲起草一版正文",
+          "用 Claude 按受众改语气、结构与论证",
+          "长文档/附件交给 Kimi 摘要点再回填",
+          "保存成功提示词，下次只改素材"
         ]
       },
       {
@@ -263,6 +273,11 @@
         "label": "写代码",
         "icon": "💻",
         "tools": ["cursor", "copilot", "codex"],
+        "examples": [
+          "用 Cursor Agent 搭落地页并修交互 bug",
+          "在 VS Code 用 Copilot 补 API 与单测",
+          "用 Codex 从 GitHub Issue 自动开 PR"
+        ],
         "keywords": [
           "写代码",
           "编程",
@@ -277,32 +292,62 @@
           "python",
           "app",
           "小程序",
-          "重构"
+          "重构",
+          "落地页",
+          "API",
+          "PR"
         ],
         "guide": "guides/advanced.html",
-        "path_title": "进阶应用",
+        "path_title": "现实路径",
         "steps": [
-          "HTML / CSS 基础",
-          "React 或现有技术栈",
-          "AI Coding（Cursor / Copilot）",
-          "部署上线"
+          "在 Cursor 写清目标与约束（Rules）",
+          "让 Agent 改相关文件并本地跑通",
+          "用 Copilot 补全样板代码与测试",
+          "复杂多仓改动再试 Codex PR 自动化"
         ]
       },
       {
         "id": "ppt",
         "label": "制作 PPT",
         "icon": "📊",
-        "tools": ["chatgpt", "gemini", "doubao"],
-        "keywords": ["ppt", "幻灯片", "演示", "汇报", "presentation", "路演", "大纲", "讲稿"],
+        "tools": ["chatgpt", "copilot", "doubao"],
+        "examples": [
+          "季度业务复盘：大纲 → 讲稿 → 幻灯片要点",
+          "融资路演 10 页：问题、方案、数据、团队",
+          "把 Excel 销售表转成汇报页结论（Copilot）"
+        ],
+        "keywords": [
+          "ppt",
+          "幻灯片",
+          "演示",
+          "汇报",
+          "presentation",
+          "路演",
+          "大纲",
+          "讲稿",
+          "复盘",
+          "季度会",
+          "slides"
+        ],
         "guide": "guides/beginner.html",
-        "path_title": "零基础入门",
-        "steps": ["用对话 AI 生成大纲", "润色讲稿与视觉建议", "导出到 PPT / 文档", "彩排与压缩时长"]
+        "path_title": "现实路径",
+        "steps": [
+          "用 ChatGPT 生成页级大纲与每页一句话结论",
+          "用 Copilot（或豆包）扩成讲稿与视觉建议",
+          "落入 PowerPoint / 金山 / 免费模板排版",
+          "彩排压缩到目标时长并删冗余页"
+        ]
       },
       {
         "id": "video",
         "label": "做视频",
         "icon": "🎬",
-        "tools": ["gemini", "doubao", "chatgpt"],
+        "tools": ["jimeng", "doubao", "chatgpt"],
+        "examples": [
+          "抖音口播：脚本 → 即梦出镜 → 剪映成片",
+          "产品演示短片：分镜表 + 文生视频镜头",
+          "B 站教程：封面文案、字幕稿与片头提示词"
+        ],
         "keywords": [
           "视频",
           "短视频",
@@ -313,17 +358,30 @@
           "分镜",
           "口播",
           "B站",
-          "抖音"
+          "抖音",
+          "即梦",
+          "剪映",
+          "文生视频"
         ],
         "guide": "guides/beginner.html",
-        "path_title": "零基础入门",
-        "steps": ["写脚本与分镜", "用多模态工具出图/出片", "剪辑与字幕", "发布复盘"]
+        "path_title": "现实路径",
+        "steps": [
+          "用豆包/ChatGPT 写口播脚本与分镜表",
+          "用即梦按分镜生成镜头或图生视频",
+          "导入剪映：拼接、字幕、配乐、导出",
+          "按完播与评论回改脚本与镜头"
+        ]
       },
       {
         "id": "data",
         "label": "数据分析",
         "icon": "📈",
-        "tools": ["chatgpt", "claude", "qwen"],
+        "tools": ["chatgpt", "claude", "copilot"],
+        "examples": [
+          "上传 CSV：漏斗转化与异常波动解读",
+          "Excel 销售表：透视结论与一页管理摘要",
+          "把业务问题翻成 SQL 思路与图表说明"
+        ],
         "keywords": [
           "数据",
           "分析",
@@ -334,11 +392,19 @@
           "图表",
           "可视化",
           "统计",
-          "csv"
+          "csv",
+          "漏斗",
+          "留存",
+          "透视"
         ],
         "guide": "guides/advanced.html",
-        "path_title": "进阶应用",
-        "steps": ["理清分析问题", "清洗与探索数据", "让 AI 生成图表解读", "写成可交付报告"]
+        "path_title": "现实路径",
+        "steps": [
+          "先写清分析问题与成功标准",
+          "把表交给 ChatGPT/Claude 清洗并找异常",
+          "用 Copilot 在 Excel 做透视与图表",
+          "输出可交付的一页结论与下一步动作"
+        ]
       }
     ]
   },
@@ -508,8 +574,13 @@
   "recommend_fallback": {
     "tools": ["chatgpt", "claude", "cursor"],
     "guide": "guides/beginner.html",
-    "path_title": "零基础入门",
-    "steps": ["先描述你的目标与约束", "选一个主力工具深入", "跟教程页动手练习", "沉淀可复用工作流"]
+    "path_title": "现实路径",
+    "steps": [
+      "先描述你的目标与约束",
+      "选一个主力工具深入",
+      "对照教程页完成一个现实任务",
+      "沉淀可复用工作流"
+    ]
   },
   "tools_hub_page": {
     "title": "AI 工具中心 | Bio AI Lab",

@@ -117,6 +117,25 @@
   margin: 4px 0 14px;
 }
 
+.recommend-examples {
+  margin: 0 0 14px;
+}
+
+.recommend-example-list {
+  margin: 0;
+  padding-left: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.recommend-example-list li::marker {
+  color: var(--accent);
+}
+
 .recommend-tool-cta {
   margin-left: auto;
   align-self: center;

@@ -20,7 +20,8 @@
           "keywords": { "type": "array", "items": { "type": "string" } },
           "guide": { "type": ["string", "null"] },
           "path_title": { "type": ["string", "null"] },
-          "steps": { "type": "array", "items": { "type": "string" } }
+          "steps": { "type": "array", "items": { "type": "string" } },
+          "examples": { "type": "array", "items": { "type": "string" } }
         }
       }
     },

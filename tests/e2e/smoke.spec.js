@@ -60,11 +60,17 @@ test.describe('Bio AI Lab 关键路径', () => {
     const result = page.locator('#recommend-result');
     await expect(result).toBeVisible();
     await expect(result).toContainText(/Cursor|Copilot|Codex/);
+    await expect(result.locator('.recommend-examples')).toBeVisible();
+    await expect(result.locator('.recommend-example-list li').first()).toBeVisible();
     await expect(result.locator('.recommend-path-steps')).toBeVisible();
     await expect(result.locator('.recommend-next')).toBeVisible();
     await expect(
       result.locator('.recommend-next a[data-track="recommend_goto_learning"]'),
     ).toHaveAttribute('href', /ai-learning-roadmap\.html$/);
+    await page.locator('[data-picker="video"]').click();
+    await expect(result.locator('.recommend-result-badge')).toContainText('做视频');
+    await expect(result.locator('a[data-tool="jimeng"]')).toBeVisible();
+    await expect(result.locator('.recommend-example-list')).toContainText('即梦');
     await page.fill('#recommend-input', '');
     await expect(result).toBeHidden();
   });

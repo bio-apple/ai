@@ -44,7 +44,8 @@ const recommendConfig = {
         id="recommend-input"
         class="recommend-input"
         name="q"
-        placeholder="例如：我想开发一个网站 / 写调研报告 / 做短视频脚本"
+        placeholder={picker.placeholder ||
+          '例如：写产品周报 / 用 Cursor 改落地页 / 即梦出短视频分镜'}
         maxlength="200"
         autocomplete="off"
         enterkeyhint="search"

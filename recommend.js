@@ -132,6 +132,7 @@
     const roadmapHref = `${base}ai-learning-roadmap.html`;
     const pathTitle = opt?.path_title || fallback.path_title || '学习路径';
     const steps = opt?.steps || fallback.steps || [];
+    const examples = opt?.examples || [];
     const scenario = opt?.label || '通用入门';
 
     const toolHtml = tools
@@ -149,6 +150,15 @@
         </li>`;
       })
       .join('');
+
+    const examplesHtml = examples.length
+      ? `<div class="recommend-examples">
+          <p class="recommend-card-lead">现实实例</p>
+          <ul class="recommend-example-list">
+            ${examples.map((ex) => `<li>${escape(ex)}</li>`).join('')}
+          </ul>
+        </div>`
+      : '';
 
     const stepsHtml = steps.length
       ? `<ol class="recommend-path-steps">
@@ -183,12 +193,13 @@
         <p class="recommend-result-meta">
           ${
             opt
-              ? `按「${escape(scenario)}」优先这些工具；点进教程页即可上手。`
+              ? `按「${escape(scenario)}」优先这些工具；对照现实实例动手，点进教程页即可上手。`
               : '未精确匹配场景，先给通用主力工具；可换个说法或点选场景再试。'
           }
           ${query && opt && query !== opt.label ? ` <span class="recommend-query-echo">查询：${escape(query)}</span>` : ''}
         </p>
       </header>
+      ${examplesHtml}
       <p class="recommend-card-lead">推荐工具</p>
       <ul class="recommend-tools">${toolHtml}</ul>
       ${

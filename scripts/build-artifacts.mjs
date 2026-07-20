@@ -302,6 +302,7 @@ function buildRecommendRules(site) {
     label: opt.label,
     tools: opt.tools || [],
     keywords: opt.keywords || [],
+    examples: opt.examples || [],
     guide: opt.guide || null,
     path_title: opt.path_title || null,
     steps: opt.steps || [],
