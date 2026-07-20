@@ -318,22 +318,24 @@ header {
 }
 
 .hero-ai-map-img {
-  width: min(1200px, 112vw);
+  width: min(1240px, 118vw);
   max-width: none;
   height: auto;
   aspect-ratio: 1200 / 780;
   object-fit: contain;
-  opacity: 0.38;
-  mix-blend-mode: multiply;
+  /* 提高标签标签可读性；中心仍靠 scrim 保主文案 */
+  opacity: 0.72;
+  mix-blend-mode: normal;
+  filter: none;
   user-select: none;
   -webkit-user-drag: none;
-  /* 中心镂空 + 边缘更清晰，形成「框住内容」的构图 */
-  mask-image: radial-gradient(ellipse 44% 40% at 50% 42%, transparent 0%, #000 36%, #000 100%);
+  /* 仅挖开标题核心区，边缘学科名保持清晰 */
+  mask-image: radial-gradient(ellipse 36% 32% at 50% 36%, transparent 0%, rgba(0, 0, 0, 0.55) 28%, #000 52%);
   -webkit-mask-image: radial-gradient(
-    ellipse 44% 40% at 50% 42%,
+    ellipse 36% 32% at 50% 36%,
     transparent 0%,
-    #000 36%,
-    #000 100%
+    rgba(0, 0, 0, 0.55) 28%,
+    #000 52%
   );
   transform: translate3d(0, 0, 0);
   animation: heroMapFloat 18s var(--ease-soft, ease-in-out) infinite alternate;
@@ -375,21 +377,22 @@ header {
   isolation: isolate;
 }
 
-/* 文案可读性衬底：产品/UX — 背景图不抢主信息 */
+/* 文案可读性衬底：收紧覆盖区，避免冲淡外围学科标签 */
 .hero-content-scrim {
   position: absolute;
   z-index: -1;
   left: 50%;
-  top: 8%;
-  width: min(100% + 48px, 720px);
-  height: 72%;
+  top: 2%;
+  width: min(100% + 32px, 620px);
+  height: 64%;
   transform: translateX(-50%);
   pointer-events: none;
   background: radial-gradient(
-    ellipse 70% 65% at 50% 40%,
-    rgba(244, 247, 252, 0.92) 0%,
-    rgba(244, 247, 252, 0.72) 42%,
-    rgba(244, 247, 252, 0) 78%
+    ellipse 72% 68% at 50% 36%,
+    rgba(244, 247, 252, 0.96) 0%,
+    rgba(244, 247, 252, 0.86) 38%,
+    rgba(244, 247, 252, 0.35) 62%,
+    rgba(244, 247, 252, 0) 80%
   );
 }
 
@@ -905,20 +908,19 @@ footer a:hover {
     justify-content: center;
   }
   .hero-ai-map-img {
-    width: min(900px, 145vw);
-    opacity: 0.22;
-    /* 小屏弱化标签噪声，只留氛围轮廓 */
-    filter: blur(0.2px) saturate(0.85);
+    width: min(920px, 148vw);
+    opacity: 0.58;
+    filter: none;
   }
 
   .hero-content-scrim {
-    width: min(100% + 24px, 100%);
-    height: 78%;
+    width: min(100% + 16px, 100%);
+    height: 62%;
     background: radial-gradient(
-      ellipse 80% 70% at 50% 38%,
-      rgba(244, 247, 252, 0.94) 0%,
-      rgba(244, 247, 252, 0.78) 48%,
-      rgba(244, 247, 252, 0) 80%
+      ellipse 78% 68% at 50% 36%,
+      rgba(244, 247, 252, 0.95) 0%,
+      rgba(244, 247, 252, 0.8) 42%,
+      rgba(244, 247, 252, 0) 76%
     );
   }
 }
@@ -931,24 +933,22 @@ html[data-theme='dark'] .hero-bg {
 }
 
 html[data-theme='dark'] .hero-ai-map-img {
-  opacity: 0.18;
+  opacity: 0.4;
   mix-blend-mode: screen;
-  filter: brightness(1.25) contrast(0.92) saturate(0.75);
+  filter: brightness(1.2) contrast(1.05);
 }
 
 html[data-theme='dark'] .hero-content-scrim {
   background: radial-gradient(
-    ellipse 70% 65% at 50% 40%,
-    rgba(11, 18, 32, 0.88) 0%,
-    rgba(11, 18, 32, 0.55) 45%,
-    rgba(11, 18, 32, 0) 78%
+    ellipse 62% 58% at 50% 36%,
+    rgba(11, 18, 32, 0.9) 0%,
+    rgba(11, 18, 32, 0.6) 42%,
+    rgba(11, 18, 32, 0) 74%
   );
 }
 
-/* 省流：不拉 WebP，仅靠 SVG 回退（source 仍可能被选，靠 CSS 隐藏大图意义不大；
-   关键策略已是移动端 SVG；此处再压桌面透明度差网） */
 @media (prefers-reduced-data: reduce) {
   .hero-ai-map-img {
-    opacity: 0.2;
+    opacity: 0.55;
   }
 }
