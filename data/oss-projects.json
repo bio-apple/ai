@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-20",
+  "updated_at": "2026-07-21",
   "title": "GitHub Stars 开源精选",
   "lead": "按 AI 应用分类精选 GitHub 高星开源项目（≥5万 Stars Top 3，每类另附中文 Top1），每日重新收集。",
   "schema_version": 1,
@@ -20,7 +20,7 @@
           "repo": "Significant-Gravitas/AutoGPT",
           "name": "AutoGPT",
           "description": "经典自主 Agent 项目，探索目标驱动的多步任务执行。",
-          "stars": 185612,
+          "stars": 185618,
           "url": "https://github.com/Significant-Gravitas/AutoGPT",
           "language": "Python"
         },
@@ -29,7 +29,7 @@
           "repo": "TauricResearch/TradingAgents",
           "name": "TradingAgents",
           "description": "多智能体 LLM 金融交易框架。",
-          "stars": 93669,
+          "stars": 93799,
           "url": "https://github.com/TauricResearch/TradingAgents",
           "language": "Python",
           "locale": "zh",
@@ -40,7 +40,7 @@
           "repo": "FoundationAgents/MetaGPT",
           "name": "MetaGPT",
           "description": "多智能体「软件公司」框架，从需求到代码协作生成。",
-          "stars": 69431,
+          "stars": 69442,
           "url": "https://github.com/FoundationAgents/MetaGPT",
           "language": "Python"
         }
@@ -56,7 +56,7 @@
           "repo": "anomalyco/opencode",
           "name": "OpenCode",
           "description": "开源 coding agent，面向仓库级自主开发。",
-          "stars": 187447,
+          "stars": 187828,
           "url": "https://github.com/anomalyco/opencode",
           "language": "TypeScript"
         },
@@ -65,7 +65,7 @@
           "repo": "anthropics/claude-code",
           "name": "Claude Code",
           "description": "Anthropic 终端编程 Agent，可读写代码与运行命令。",
-          "stars": 138304,
+          "stars": 138450,
           "url": "https://github.com/anthropics/claude-code",
           "language": "Python"
         },
@@ -74,7 +74,7 @@
           "repo": "OpenHands/OpenHands",
           "name": "OpenHands",
           "description": "开源 AI 驱动开发 Agent，可读写代码、运行命令并完成任务。",
-          "stars": 81301,
+          "stars": 81413,
           "url": "https://github.com/OpenHands/OpenHands",
           "language": "Python"
         },
@@ -83,7 +83,7 @@
           "repo": "QwenLM/qwen-code",
           "name": "Qwen Code",
           "description": "通义千问开源 AI 编程 Agent，可在终端完成改码任务。",
-          "stars": 26113,
+          "stars": 26163,
           "url": "https://github.com/QwenLM/qwen-code",
           "language": "TypeScript",
           "locale": "zh",
@@ -101,7 +101,7 @@
           "repo": "n8n-io/n8n",
           "name": "n8n",
           "description": "工作流自动化平台，原生支持 AI 节点与 Agent 编排。",
-          "stars": 197050,
+          "stars": 197189,
           "url": "https://github.com/n8n-io/n8n",
           "language": "TypeScript"
         },
@@ -110,7 +110,7 @@
           "repo": "langflow-ai/langflow",
           "name": "Langflow",
           "description": "可视化构建 LLM / Agent 应用的开源工具。",
-          "stars": 152029,
+          "stars": 152099,
           "url": "https://github.com/langflow-ai/langflow",
           "language": "Python"
         },
@@ -119,7 +119,7 @@
           "repo": "langgenius/dify",
           "name": "Dify",
           "description": "开源 LLM 应用开发平台，支持 RAG、Agent 与工作流编排。",
-          "stars": 149336,
+          "stars": 149496,
           "url": "https://github.com/langgenius/dify",
           "language": "TypeScript",
           "locale": "zh",
@@ -137,7 +137,7 @@
           "repo": "ollama/ollama",
           "name": "Ollama",
           "description": "一键在本地运行 Llama、Qwen、DeepSeek 等开源模型。",
-          "stars": 176449,
+          "stars": 176511,
           "url": "https://github.com/ollama/ollama",
           "language": "Go"
         },
@@ -146,7 +146,7 @@
           "repo": "open-webui/open-webui",
           "name": "Open WebUI",
           "description": "友好的本地/私有模型聊天界面，兼容 Ollama 与 OpenAI API。",
-          "stars": 145952,
+          "stars": 146092,
           "url": "https://github.com/open-webui/open-webui",
           "language": "Python"
         },
@@ -155,7 +155,7 @@
           "repo": "ggml-org/llama.cpp",
           "name": "llama.cpp",
           "description": "高性能 C/C++ 推理引擎，支持 CPU/GPU 量化部署。",
-          "stars": 120943,
+          "stars": 121045,
           "url": "https://github.com/ggml-org/llama.cpp",
           "language": "C++"
         },
@@ -164,7 +164,7 @@
           "repo": "zai-org/ChatGLM-6B",
           "name": "ChatGLM-6B",
           "description": "清华开源双语对话大模型，中文本地部署经典选择。",
-          "stars": 41026,
+          "stars": 41024,
           "url": "https://github.com/zai-org/ChatGLM-6B",
           "language": "Python",
           "locale": "zh",
@@ -182,7 +182,7 @@
           "repo": "AUTOMATIC1111/stable-diffusion-webui",
           "name": "Stable Diffusion WebUI",
           "description": "最流行的 SD 图形界面，插件生态丰富。",
-          "stars": 164233,
+          "stars": 164256,
           "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
           "language": "Python"
         },
@@ -191,7 +191,7 @@
           "repo": "Comfy-Org/ComfyUI",
           "name": "ComfyUI",
           "description": "节点式扩散模型工作流，灵活组合 ControlNet 与 LoRA。",
-          "stars": 121407,
+          "stars": 121542,
           "url": "https://github.com/Comfy-Org/ComfyUI",
           "language": "Python"
         },
@@ -200,7 +200,7 @@
           "repo": "CompVis/stable-diffusion",
           "name": "Stable Diffusion",
           "description": "潜空间文生图扩散模型原版开源实现。",
-          "stars": 73206,
+          "stars": 73212,
           "url": "https://github.com/CompVis/stable-diffusion",
           "language": "Jupyter Notebook"
         },
@@ -209,7 +209,7 @@
           "repo": "lllyasviel/Fooocus",
           "name": "Fooocus",
           "description": "专注提示词与出图体验的本地绘画工具。",
-          "stars": 51082,
+          "stars": 51095,
           "url": "https://github.com/lllyasviel/Fooocus",
           "language": "Python",
           "locale": "zh",
@@ -227,7 +227,7 @@
           "repo": "huggingface/transformers",
           "name": "Transformers",
           "description": "Hugging Face 模型定义框架，覆盖 VLM、ASR 与多模态任务。",
-          "stars": 162735,
+          "stars": 162768,
           "url": "https://github.com/huggingface/transformers",
           "language": "Python"
         },
@@ -236,7 +236,7 @@
           "repo": "openai/whisper",
           "name": "Whisper",
           "description": "OpenAI 开源语音识别模型，多语言转写强项。",
-          "stars": 105249,
+          "stars": 105288,
           "url": "https://github.com/openai/whisper",
           "language": "Python"
         },
@@ -245,7 +245,7 @@
           "repo": "PaddlePaddle/PaddleOCR",
           "name": "PaddleOCR",
           "description": "文档/图片 OCR 与结构化抽取，服务多模态文档理解。",
-          "stars": 85797,
+          "stars": 85880,
           "url": "https://github.com/PaddlePaddle/PaddleOCR",
           "language": "Python",
           "locale": "zh",
@@ -263,7 +263,7 @@
           "repo": "tensorflow/tensorflow",
           "name": "TensorFlow",
           "description": "端到端机器学习平台，覆盖训练与部署。",
-          "stars": 196379,
+          "stars": 196412,
           "url": "https://github.com/tensorflow/tensorflow",
           "language": "C++"
         },
@@ -272,7 +272,7 @@
           "repo": "pytorch/pytorch",
           "name": "PyTorch",
           "description": "主流深度学习框架，研究与生产部署首选。",
-          "stars": 101770,
+          "stars": 101806,
           "url": "https://github.com/pytorch/pytorch",
           "language": "Python"
         },
@@ -281,7 +281,7 @@
           "repo": "scikit-learn/scikit-learn",
           "name": "scikit-learn",
           "description": "经典机器学习库，覆盖分类、回归与聚类等算法。",
-          "stars": 66723,
+          "stars": 66737,
           "url": "https://github.com/scikit-learn/scikit-learn",
           "language": "Python"
         },
@@ -290,7 +290,7 @@
           "repo": "PaddlePaddle/Paddle",
           "name": "PaddlePaddle",
           "description": "百度飞桨深度学习框架。",
-          "stars": 24021,
+          "stars": 24022,
           "url": "https://github.com/PaddlePaddle/Paddle",
           "language": "C++",
           "locale": "zh",
@@ -308,7 +308,7 @@
           "repo": "obra/superpowers",
           "name": "Superpowers",
           "description": "Agent 技能框架与软件开发方法论提示词体系。",
-          "stars": 257477,
+          "stars": 258075,
           "url": "https://github.com/obra/superpowers",
           "language": "Shell"
         },
@@ -317,7 +317,7 @@
           "repo": "f/prompts.chat",
           "name": "prompts.chat",
           "description": "原 Awesome ChatGPT Prompts，全球最大开源 Prompt 社区库。",
-          "stars": 166014,
+          "stars": 166062,
           "url": "https://github.com/f/prompts.chat",
           "language": "HTML"
         },
@@ -326,7 +326,7 @@
           "repo": "x1xhlol/system-prompts-and-models-of-ai-tools",
           "name": "System Prompts of AI Tools",
           "description": "Cursor、Claude Code、Devin 等主流 AI 工具系统提示词合集。",
-          "stars": 142073,
+          "stars": 142108,
           "url": "https://github.com/x1xhlol/system-prompts-and-models-of-ai-tools",
           "language": ""
         },
@@ -335,7 +335,7 @@
           "repo": "PlexPt/awesome-chatgpt-prompts-zh",
           "name": "ChatGPT 中文调教指南",
           "description": "中文场景 Prompt 与调教指南，覆盖写作、编程、办公等。",
-          "stars": 61042,
+          "stars": 61058,
           "url": "https://github.com/PlexPt/awesome-chatgpt-prompts-zh",
           "language": "",
           "locale": "zh",
