@@ -1,0 +1,36 @@
+---
+/**
+ * Hero 背景：AI 领域关联图
+ * - 移动端仅 SVG（~5KB）
+ * - ≥768px 用响应式 WebP
+ * - 纯装饰：aria-hidden + 空 alt，不抢 LCP
+ */
+import { asset } from '../lib/paths';
+
+const svg = asset('hero-ai-map.svg');
+const w640 = asset('hero-ai-map-640.webp');
+const w960 = asset('hero-ai-map-960.webp');
+const w1280 = asset('hero-ai-map-1280.webp');
+---
+
+<div class="hero-ai-map" aria-hidden="true">
+  <picture>
+    <source
+      media="(min-width: 768px)"
+      type="image/webp"
+      srcset={`${w640} 640w, ${w960} 960w, ${w1280} 1280w`}
+      sizes="(max-width: 1100px) 100vw, 1200px"
+    />
+    <img
+      class="hero-ai-map-img"
+      src={svg}
+      alt=""
+      width="1200"
+      height="780"
+      decoding="async"
+      loading="lazy"
+      fetchpriority="low"
+      draggable="false"
+    />
+  </picture>
+</div>

@@ -34,6 +34,9 @@ const COPY_FILES = [
   'og-image.jpg',
   'hero-ai-map.svg',
   'hero-ai-map.webp',
+  'hero-ai-map-640.webp',
+  'hero-ai-map-960.webp',
+  'hero-ai-map-1280.webp',
 ];
 
 function copyRecursive(src, dest) {

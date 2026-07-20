@@ -301,34 +301,42 @@ header {
   animation-delay: -4s;
 }
 
-/* AI 领域关联图：全幅背景层，中心淡出保证文案可读 */
+/* AI 领域关联图：边缘氛围，中心让位文案 */
 .hero-ai-map {
   position: absolute;
   inset: 0;
-  display: block;
+  display: grid;
+  place-items: center;
   margin: 0;
   pointer-events: none;
+  contain: layout paint;
+  z-index: 0;
 }
 
-.hero-ai-map img {
-  position: absolute;
-  left: 50%;
-  top: 46%;
-  width: min(1280px, 118%);
+.hero-ai-map picture {
+  display: contents;
+}
+
+.hero-ai-map-img {
+  width: min(1200px, 112vw);
   max-width: none;
   height: auto;
-  transform: translate3d(-50%, -50%, 0);
-  opacity: 0.5;
+  aspect-ratio: 1200 / 780;
   object-fit: contain;
+  opacity: 0.38;
   mix-blend-mode: multiply;
-  mask-image: radial-gradient(ellipse 46% 42% at 50% 44%, transparent 0%, #000 38%, #000 100%);
+  user-select: none;
+  -webkit-user-drag: none;
+  /* 中心镂空 + 边缘更清晰，形成「框住内容」的构图 */
+  mask-image: radial-gradient(ellipse 44% 40% at 50% 42%, transparent 0%, #000 36%, #000 100%);
   -webkit-mask-image: radial-gradient(
-    ellipse 46% 42% at 50% 44%,
+    ellipse 44% 40% at 50% 42%,
     transparent 0%,
-    #000 38%,
+    #000 36%,
     #000 100%
   );
-  animation: heroMapFloat 16s ease-in-out infinite alternate;
+  transform: translate3d(0, 0, 0);
+  animation: heroMapFloat 18s var(--ease-soft, ease-in-out) infinite alternate;
 }
 
 @keyframes heroGridDrift {
@@ -351,10 +359,10 @@ header {
 
 @keyframes heroMapFloat {
   from {
-    transform: translate3d(-50%, -50%, 0) scale(1);
+    transform: translate3d(0, 0, 0) scale(1);
   }
   to {
-    transform: translate3d(-50%, calc(-50% - 10px), 0) scale(1.03);
+    transform: translate3d(0, -12px, 0) scale(1.025);
   }
 }
 
@@ -364,6 +372,25 @@ header {
   margin: 0 auto;
   width: 100%;
   z-index: 1;
+  isolation: isolate;
+}
+
+/* 文案可读性衬底：产品/UX — 背景图不抢主信息 */
+.hero-content-scrim {
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 8%;
+  width: min(100% + 48px, 720px);
+  height: 72%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 65% at 50% 40%,
+    rgba(244, 247, 252, 0.92) 0%,
+    rgba(244, 247, 252, 0.72) 42%,
+    rgba(244, 247, 252, 0) 78%
+  );
 }
 
 .hero-brand-mark {
@@ -877,9 +904,22 @@ footer a:hover {
     width: 100%;
     justify-content: center;
   }
-  .hero-ai-map img {
-    width: min(980px, 160%);
-    opacity: 0.32;
+  .hero-ai-map-img {
+    width: min(900px, 145vw);
+    opacity: 0.22;
+    /* 小屏弱化标签噪声，只留氛围轮廓 */
+    filter: blur(0.2px) saturate(0.85);
+  }
+
+  .hero-content-scrim {
+    width: min(100% + 24px, 100%);
+    height: 78%;
+    background: radial-gradient(
+      ellipse 80% 70% at 50% 38%,
+      rgba(244, 247, 252, 0.94) 0%,
+      rgba(244, 247, 252, 0.78) 48%,
+      rgba(244, 247, 252, 0) 80%
+    );
   }
 }
 
@@ -890,8 +930,25 @@ html[data-theme='dark'] .hero-bg {
     linear-gradient(180deg, #050505 0%, #0b1220 45%, #111827 100%);
 }
 
-html[data-theme='dark'] .hero-ai-map img {
-  opacity: 0.2;
+html[data-theme='dark'] .hero-ai-map-img {
+  opacity: 0.18;
   mix-blend-mode: screen;
-  filter: invert(1) hue-rotate(180deg) brightness(1.15) contrast(0.9);
+  filter: brightness(1.25) contrast(0.92) saturate(0.75);
+}
+
+html[data-theme='dark'] .hero-content-scrim {
+  background: radial-gradient(
+    ellipse 70% 65% at 50% 40%,
+    rgba(11, 18, 32, 0.88) 0%,
+    rgba(11, 18, 32, 0.55) 45%,
+    rgba(11, 18, 32, 0) 78%
+  );
+}
+
+/* 省流：不拉 WebP，仅靠 SVG 回退（source 仍可能被选，靠 CSS 隐藏大图意义不大；
+   关键策略已是移动端 SVG；此处再压桌面透明度差网） */
+@media (prefers-reduced-data: reduce) {
+  .hero-ai-map-img {
+    opacity: 0.2;
+  }
 }

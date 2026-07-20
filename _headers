@@ -29,3 +29,18 @@
 
 /oss-projects.json
   Cache-Control: public, max-age=3600, stale-while-revalidate=600
+
+/hero-ai-map.svg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/hero-ai-map.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/hero-ai-map-640.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/hero-ai-map-960.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/hero-ai-map-1280.webp
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400

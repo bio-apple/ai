@@ -7,6 +7,7 @@ import HomeOps from '../components/HomeOps.astro';
 import GlobalSearch from '../components/GlobalSearch.astro';
 import HomeQuickFilters from '../components/HomeQuickFilters.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import HeroAiMap from '../components/HeroAiMap.astro';
 import { site } from '../lib/data';
 import {
   buildHomeSchema,
@@ -53,19 +54,10 @@ const schema = mergeSchemaGraphs(
         <div class="hero-grid"></div>
         <div class="hero-orb hero-orb-a"></div>
         <div class="hero-orb hero-orb-b"></div>
-        <picture class="hero-ai-map">
-          <source srcset={asset('hero-ai-map.webp')} type="image/webp" />
-          <img
-            src={asset('hero-ai-map.svg')}
-            alt=""
-            width="1200"
-            height="780"
-            decoding="async"
-            fetchpriority="low"
-          />
-        </picture>
+        <HeroAiMap />
       </div>
       <div class="hero-content">
+        <div class="hero-content-scrim" aria-hidden="true"></div>
         <div class="hero-brand-mark">
           <span class="hero-logo-icon" aria-hidden="true">{site.nav.logo.icon}</span>
           <p class="hero-brand">{site.hero.eyebrow}</p>
