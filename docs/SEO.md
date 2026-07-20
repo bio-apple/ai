@@ -15,6 +15,7 @@
 | SEO-007 | GitHub Repo  | 见下方维护者清单（需在 GitHub 设置）                                           |
 | SEO-008 | JSON-LD      | `src/lib/schema.ts` → Layout 注入 `application/ld+json`                        |
 | SEO-009 | 新闻/开源 LD | 新闻页 `NewsArticle` ItemList；首页开源 `SoftwareSourceCode` ItemList          |
+| SEO-010 | 可见面包屑   | UI：`Breadcrumb.astro`（专区 / 独立页）；结构化：各页 `BreadcrumbList`          |
 
 ## JSON-LD 结构化数据（SEO-008）
 
@@ -30,6 +31,8 @@
 多段 Schema 可用 `mergeSchemaGraphs` 合并为 `@graph` 注入。
 
 注入位置：`HomeLayout.astro`、`StandaloneLayout.astro` 的 `<script type="application/ld+json">`。
+
+**可见面包屑（UX）**与 JSON-LD 并列：首页专区（开源/课程/新闻/视频）与独立页通过 `Breadcrumb.astro` / `StandalonePageHeader` 展示「首页 / …」；详见 [FRONTEND.md](./FRONTEND.md)。
 
 验收：
 

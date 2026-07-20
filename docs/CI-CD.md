@@ -62,7 +62,7 @@ npm run test:unit && npm run test:e2e   # 与 CI 对齐
 
 无需改代码时，可在 GitHub **Actions → Deploy → Run workflow** 手动触发 `deploy.yml`。
 
-定时内容：`daily-refresh.yml` 北京 **00:00** 串行（视频/开源/课程/排行）；新闻由 `daily-news.yml` 北京 **07:30 / 10:00 / 12:00 / 20:00** 多档刷新。有数据变更时均 **显式** 派发 `deploy.yml`（带重试）。勿依赖 `GITHUB_TOKEN` push 自动触发 Deploy。
+定时内容：`daily-refresh.yml` 北京 **00:00** 串行（视频/开源/课程/排行）；新闻由 `daily-news.yml` 北京 **07:30 / 10:00 / 12:00 / 20:00**（对应 UTC **23:30 / 02:00 / 04:00 / 12:00**）多档刷新。有数据变更时均 **显式** 派发 `deploy.yml`（带重试）。勿依赖 `GITHUB_TOKEN` push 自动触发 Deploy。
 
 ## 构建 Secrets（可选）
 

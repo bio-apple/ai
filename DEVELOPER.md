@@ -44,11 +44,15 @@ dist/                 # 构建产物（不提交）
 
 `prebuild` 会把根目录运行时 JSON 与静态 JS/CSS 同步到 `public/`，再经 Astro 打进 `dist/`。
 
-**搜索索引来源**（`build-artifacts.mjs` → 约 180+ 条）：`tools.json`、`site.json`（导航/场景/对比）、`ai-news.json`、`oss-projects.json`、`ai-courses.json`、`daily-videos.json`、排行榜模型名。联想词：`site.hero.search_suggestions`。校验：`validate_ci.py search`。
+**搜索索引来源**（`build-artifacts.mjs` → 约 150 条）：`tools.json`（→ `tools/{id}.html`）、`site.json`（导航/场景/对比入口，**不含**逐工具 hub-compare 重复项）、`ai-news.json`、`oss-projects.json`、`ai-courses.json`、`daily-videos.json`、排行榜模型名。联想词：`site.hero.search_suggestions`。校验：`validate_ci.py search`。
 
-**前端共享层**：见上表 `lib/*`；懒加载频道由 `lazy-sections.js` 保证先加载 `lib/`。Layout 默认加载 `link-guard.js`、`funnel.js` → `analytics.js`。能力总览见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
+**推荐规则**：`ai_picker.options[].examples`（现实实例）随 `recommend-rules.json` 透传。
 
-**性能**：视频 Tab 用 `daily-videos.latest.json`（近 2 批）；视频 / 榜单 / GitHub 热门接入虚拟列表；动态区块 `min-height` 降 CLS；`style.css` 带内容哈希 `?v=`。
+**前端共享层**：见上表 `lib/*`；懒加载频道由 `lazy-sections.js` 保证先加载 `lib/`。Layout 默认加载 `link-guard.js`、`funnel.js` → `analytics.js`。Hero 背景图、面包屑、搜索交互见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
+
+**性能**：视频 Tab 用 `daily-videos.latest.json`（近 2 批）；视频 / 榜单 / GitHub 热门接入虚拟列表；动态区块 `min-height` 降 CLS；`style.css` 带内容哈希 `?v=`；Hero 图移动端仅 SVG、桌面 WebP `srcset`。
+
+`prebuild` 同步静态资源时包含 `hero-ai-map.svg` / `hero-ai-map-*.webp` 与 `_headers`（含图缓存策略）。
 
 ## 课程资源
 
@@ -166,10 +170,13 @@ npm run build
 
 ## 常见改动
 
-- **新工具**：`data/tools.json` + `site.home_tool_categories` / `compare_table` + `tool-relations.json`
+- **新工具**：`data/tools.json` + `site.home_tool_categories` / `compare_table` + `tool-relations.json`；若进对比表，同步 `src/lib/hub.ts` 的 `HUB_FEATURED_TOOLS` 名→id 映射
+- **即梦等新教程页**：在 `tools.json` 增加条目即可生成 `tools/{id}.html`
+- **推荐现实实例**：`site.ai_picker.options[].examples`（数组文案）
 - **新必学课程**：`config/courses-fetch.yaml` → `required` 或 `hubs`，并更新 `validate_ci.py` 中 `REQUIRED_COURSE_URLS`
 - **调整路线**：改 `track_order` / `track_keywords`，重跑 `fetch_ai_courses.py`
-- **工具中心对比行**：`site.compare_table`
-- **排行榜**：`data/rankings.json`
+- **工具中心对比行**：`site.compare_table`（构建时自动链到教程）
+- **Hero 背景图**：替换 `hero-ai-map.svg` / 重导出 `hero-ai-map-*.webp` 后 `npm run build`
+- **排行榜**：`data/rankings.json`（00:00 日更；也可手动 `fetch_rankings.py`）
 
 站内链接用 `src/lib/paths.ts` 的 `asset()`（base `/ai/`）。

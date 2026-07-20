@@ -120,6 +120,6 @@ npm run scan:secrets
 - `.gitleaks.toml` — gitleaks 允许列表
 - `lib/link-guard.js` — 外链 / 图片 / GitHub 404 兜底
 - `scripts/validate_ci.py` — CI 密钥扫描与产物校验
-- `_headers` — Cloudflare 安全响应头（含 CSP）
+- `_headers` — Cloudflare 安全响应头（含 CSP）与静态资源缓存（如 `hero-ai-map*`）
 - [FRONTEND.md](./FRONTEND.md) — 前端能力（含 link-guard）
 - `DEVELOPER.md` — 开发流程

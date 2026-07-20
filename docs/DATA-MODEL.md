@@ -143,11 +143,12 @@ nav: {
 | `icon`       | `string`   | —    | emoji                   |
 | `tools`      | `string[]` | ✅   | 推荐工具 id 列表        |
 | `keywords`   | `string[]` | ✅   | 用户输入匹配关键词      |
+| `examples`   | `string[]` | —    | **现实实例**文案（结果区展示） |
 | `guide`      | `string`   | —    | 关联指南页相对路径      |
 | `path_title` | `string`   | —    | 学习路径标题            |
 | `steps`      | `string[]` | —    | 推荐步骤                |
 
-`prebuild` 将其转换为 `recommend-rules.json`（见 §8.2）。
+`prebuild` 将其转换为 `recommend-rules.json`（透传 `examples`，见 §8.2）。
 
 ### 2.7 `compare_table.rows[]`
 
@@ -158,6 +159,8 @@ nav: {
 | `strength` | `string` | 核心优势                    |
 | `scenario` | `string` | 适合场景                    |
 | `pricing`  | `string` | 定价说明                    |
+
+构建期由 `src/lib/hub.ts` 的 `buildHubCompareRows()` 为每行附加 `tutorialHref` / `localId`（含即梦 `jimeng`），对比表「工具」列链到 `tools/{id}.html`。
 
 ### 2.8 其他页面块
 
@@ -316,21 +319,23 @@ nav: {
 ### 8.1 `search-index.json`
 
 **Schema**：`schemas/search-index.schema.json`  
-**类型**：`array`（当前构建约 **180+** 条，CI 下限 ≥10）  
-**生成**：`scripts/build-artifacts.mjs` ← `tools.json` + `site.json` + `ai-news.json` + `oss-projects.json` + `ai-courses.json` + `daily-videos.json` + 排行榜模型名  
+**类型**：`array`（当前构建约 **150** 条，CI 下限 ≥10）  
+**生成**：`scripts/build-artifacts.mjs` ← `tools.json`（教程页）+ `site.json`（导航/场景/对比入口）+ `ai-news.json` + `oss-projects.json` + `ai-courses.json` + `daily-videos.json` + 排行榜模型名  
 **消费**：`app.js`（顶栏 / Hero 多实例）、`knowledge.js`  
 **校验**：`DIST=dist python3 scripts/validate_ci.py search`
 
 | 字段       | 类型      | 必填 | 说明                                                                                       |
 | ---------- | --------- | ---- | ------------------------------------------------------------------------------------------ |
-| `label`    | `string`  | ✅   | 显示标题                                                                                   |
+| `label`    | `string`  | ✅   | 显示标题（工具为原名，如 `ChatGPT`）                                                       |
 | `keywords` | `string`  | ✅   | Fuse 检索文本                                                                              |
 | `type`     | `string`  | —    | 工具 / 资讯 / 开源 / 课程 / 视频 / 模型 / 频道 / 导航 / 学习 / 场景 / 简报 / 推荐 / 对比 … |
 | `external` | `boolean` | —    | 外链（新标签打开）                                                                         |
 | `id`       | `string`  | —    | 内容 id（新闻/课程/OSS 等）                                                                |
 | `section`  | `string`  | *    | 首页 Tab id（与 `url` 二选一）                                                             |
-| `url`      | `string`  | *    | 独立页相对路径                                                                             |
+| `url`      | `string`  | *    | 独立页相对路径（工具为 `tools/{id}.html`）                                                 |
 | `anchor`   | `string`  | —    | 页内锚点                                                                                   |
+
+**索引约定**：工具只写教程页 URL；工具中心对比表仅一条「导航」入口，**不**再为每个工具名写入 `#hub-compare` 重复项。运行时 `preferSearchHits` 进一步抬升精确匹配与站内教程。
 
 联想词不在索引内，而在 `site.hero.search_suggestions`；搜索历史键：`bioai.search.history.v1`。
 
@@ -342,9 +347,9 @@ nav: {
 | 字段             | 类型      | 必填                             |
 | ---------------- | --------- | -------------------------------- |
 | `schema_version` | `integer` | ✅                               |
-| `options`        | `array`   | ✅ — 同 `ai_picker.options` 结构 |
-| `fallback`       | `object`  | ✅                               |
-| `relations`      | `object`  | — 嵌入 tool-relations            |
+| `options`        | `array`   | ✅ — 同 `ai_picker.options`（含 `examples`） |
+| `fallback`       | `object`  | ✅                                         |
+| `relations`      | `object`  | — 嵌入 tool-relations                       |
 
 ### 8.3 `analytics-config.json`
 

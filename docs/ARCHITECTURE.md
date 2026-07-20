@@ -48,7 +48,7 @@ flowchart TB
 | 层级   | 技术                   | 职责                                                    |
 | ------ | ---------------------- | ------------------------------------------------------- |
 | 内容层 | `data/` + 抓取脚本     | 站点文案、工具、对比、排行；新闻/视频/课程/OSS 定时刷新 |
-| 构建层 | Astro 5 SSG + prebuild | 编译 ~21 个 HTML 页，打包 CSS/JS，生成搜索索引          |
+| 构建层 | Astro 5 SSG + prebuild | 编译 ~22 个 HTML 页，打包 CSS/JS，生成搜索索引          |
 | 交付层 | GitHub Pages           | 托管 `dist/`，无服务端运行时                            |
 | 交互层 | 原生 JS + Fuse.js      | Tab、全站搜索、推荐、漏斗埋点、虚拟列表、链接兜底       |
 
@@ -86,8 +86,10 @@ flowchart LR
 
 | 布局                     | 用于                          | 特点                                  |
 | ------------------------ | ----------------------------- | ------------------------------------- |
-| `HomeLayout.astro`       | `index.astro`                 | SPA 式 Tab 导航、知识库 FAB、推荐助手 |
-| `StandaloneLayout.astro` | 工具页 / 对比 / 指南 / 排行等 | 独立 `<main>`、面包屑、可选知识库 FAB |
+| `HomeLayout.astro`       | `index.astro`                 | SPA 式 Tab、Hero AI 图、知识库 FAB、推荐助手 |
+| `StandaloneLayout.astro` | 工具页 / 对比 / 指南 / 排行等 | 独立 `<main>`、面包屑、可选知识库 FAB       |
+
+关键组件：`HeroAiMap.astro`、`Breadcrumb.astro` / `StandalonePageHeader.astro`、`GlobalSearch.astro`。
 
 **路由与输出**（`astro.config.mjs`）：
 
@@ -117,7 +119,7 @@ sequenceDiagram
 
 **prebuild 三步**（`scripts/prebuild.mjs`）：
 
-1. **sync-public** — 根目录 `*.js`、`robots.txt`、抓取 JSON、`lib/`、`vendor/` 等复制到 `public/`
+1. **sync-public** — 根目录 `*.js`、抓取 JSON、`lib/`、`vendor/`、`hero-ai-map*.{svg,webp}`、`_headers` 等复制到 `public/`
 2. **bundle-css** — `style.css` 合并 `css/*.css` 为单文件
 3. **build-artifacts** — 从 `data/` 生成运行时 JSON（搜索索引、推荐规则、分析配置）
 
@@ -173,20 +175,23 @@ flowchart TB
 | **构建期** | `data/site.json` 等                    | Astro 页面、`src/lib/*.ts`           | `import` 进 HTML，SEO/结构化数据在 SSG 时固化     |
 | **运行时** | `ai-news.json`、`daily-videos.json` 等 | `news.js`、`videos.js`、`courses.js` | 页面加载后 `fetch`，支持日更而不重编全部页面逻辑  |
 | **运行时** | `search-index.json`                    | `app.js`、`knowledge.js`、顶栏搜索   | Fuse.js 全文检索（工具/资讯/开源/课程/视频/模型） |
-| **运行时** | `recommend-rules.json`                 | `recommend.js`                       | 场景关键词 → 工具推荐                             |
+| **运行时** | `recommend-rules.json`                 | `recommend.js`                       | 场景关键词 → 工具 + 现实实例 + 步骤               |
 
-首页是 **混合模式**：Hero/导航/推荐场景在构建期渲染；新闻/视频/课程/OSS Tab 由 JS 懒加载对应 JSON。
+首页是 **混合模式**：Hero（含 AI 关联图背景）/ 导航 / 推荐场景 / 面包屑在构建期渲染；新闻/视频/课程/OSS Tab 由 JS 懒加载对应 JSON。
 
 ### 3.4 客户端模块（浏览器）
 
-| 模块     | 文件                            | 职责                                |
-| -------- | ------------------------------- | ----------------------------------- |
-| 搜索     | `app.js` + `GlobalSearch.astro` | 多实例 Fuse 搜索、联想、历史        |
-| 漏斗     | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich |
-| 虚拟列表 | `lib/virtual-list.js`           | 视频 / 榜单 / GitHub 热门           |
-| 链接兜底 | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404    |
-| 开源卡   | `OssCard.astro` + `oss.js`      | Stars / 语言 / 用途 / 仓库按钮      |
-| 懒加载   | `lazy-sections.js`              | Tab 进入后再拉业务脚本              |
+| 模块     | 文件                                        | 职责                                                              |
+| -------- | ------------------------------------------- | ----------------------------------------------------------------- |
+| 搜索     | `app.js` + `GlobalSearch.astro`             | 多实例 Fuse；fixed 下拉；`preferSearchHits`；提交按钮 / Enter     |
+| Hero 图  | `HeroAiMap.astro`                           | 响应式 WebP + SVG 回退；中心 scrim                                |
+| 面包屑   | `Breadcrumb.astro`                          | 专区「首页 / …」；独立页经 `StandalonePageHeader`                 |
+| 漏斗     | `funnel.js` → `analytics.js`                | `journey_id` / `funnel_step` enrich                               |
+| 虚拟列表 | `lib/virtual-list.js`                       | 视频 / 榜单 / GitHub 热门                                         |
+| 链接兜底 | `lib/link-guard.js`                         | noreferrer、图片兜底、GitHub 404                                  |
+| 开源卡   | `OssCard.astro` + `oss.js`                  | Stars / 语言 / 用途 / 仓库按钮                                    |
+| 懒加载   | `lazy-sections.js`                          | Tab 进入后再拉业务脚本                                            |
+| 工具中心 | `hub.ts` + `hub.astro`                      | 对比表「工具」列 → `tools/{id}.html`（含 jimeng）                 |
 
 详见 [FRONTEND.md](./FRONTEND.md)、[CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)。
 
@@ -253,7 +258,7 @@ flowchart TB
 | **ci.yml**            | push/PR `main`                       | 完整质量门禁（含 E2E），PR 上传 `dist` 预览           |
 | **deploy.yml**        | push `main`、手动                    | 精简路径：校验通过后尽快发布 Pages                    |
 | **daily-refresh.yml** | cron 00:00（北京）                   | 串行日更（视频/开源/课程/排行）+ 一次 deploy + lychee |
-| **daily-news.yml**    | cron 07:30/10:00/12:00/20:00（北京） | 新闻热点多档刷新 + deploy                             |
+| **daily-news.yml**    | cron 07:30/10:00/12:00/20:00（北京）= UTC 23:30 / 02:00 / 04:00 / 12:00 | 新闻热点多档刷新 + deploy |
 
 push `main` 时 **ci.yml 与 deploy.yml 并行**；deploy 不推 `gh-pages` 分支，而是使用官方 `actions/deploy-pages` 制品部署。
 
@@ -313,12 +318,13 @@ data/                 # 手工内容源（见 DATA-MODEL.md）
 config/               # 抓取规则 YAML + csp.json
 schemas/              # JSON Schema（CI 门禁）
 src/pages/            # Astro 路由 → HTML
-src/components/       # 可复用 UI 块（OssCard / GlobalSearch / SeoHead …）
+src/components/       # HeroAiMap / Breadcrumb / GlobalSearch / OssCard / SeoHead …
 src/layouts/          # 页面壳
-src/lib/              # data 加载、路径、Schema.org（schema.ts）
+src/lib/              # data 加载、路径、hub 对比映射、Schema.org（schema.ts）
 lib/                  # 浏览器共享：fetch-json / virtual-list / link-guard
 scripts/              # prebuild / 抓取 / 校验
 css/ + *.js           # 样式与运行时脚本
+hero-ai-map*.{svg,webp}  # Hero 背景图（sync-public → dist）
 dist/                 # 构建产物（不提交）
 public/               # prebuild 中间产物（不提交）
 ```

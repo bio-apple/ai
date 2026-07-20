@@ -14,7 +14,7 @@
 | [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)       | 内容运营与抓取                       |
 | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)     | 系统架构                             |
 | [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)         | 数据模型                             |
-| [docs/FRONTEND.md](./docs/FRONTEND.md)             | 前端能力（搜索 / 虚拟列表 / 漏斗等） |
+| [docs/FRONTEND.md](./docs/FRONTEND.md)             | 前端能力（搜索 / Hero 图 / 面包屑 / 推荐等） |
 | [docs/CONTENT-FUNNEL.md](./docs/CONTENT-FUNNEL.md) | 内容漏斗与分析事件                   |
 | [DEVELOPER.md](./DEVELOPER.md)                     | 开发说明                             |
 | [docs/SEO.md](./docs/SEO.md)                       | TDK / OG / JSON-LD                   |
@@ -51,29 +51,32 @@ python3 scripts/fetch_daily_videos.py
 
 ## 做什么
 
-首页频道（`data/site.json` → `nav.tabs`）：
+顶栏导航（`data/site.json` → `nav.menu`）：
 
-| 频道     | 说明                                                     |
-| -------- | -------------------------------------------------------- |
-| 推荐助手 | 按场景推荐工具与入门路径                                 |
-| 工具中心 | 对比表、AICPB 排行、各工具教程页                         |
-| 开源精选 | GitHub AI 项目（≥5 万 Star Top3 + 中文 Top1 · 每日刷新） |
-| 课程资源 | 免费 AI 课程，按五条学习路线编排，每段最多 5 门          |
-| 新闻热点 | 近 7 天 AI 热点（与开源精选去重）                        |
-| AI 视频  | 每日 YouTube 精选                                        |
+| 入口       | 类型     | 说明                                                     |
+| ---------- | -------- | -------------------------------------------------------- |
+| 首页       | Tab      | Hero、推荐助手、AI 简报、开源预览                        |
+| AI工具中心 | 独立页   | 对比表（链到教程）、AICPB 排行、各工具教程（含即梦）     |
+| 开源精选   | Tab      | GitHub AI 项目（≥5 万 Star Top3 + 中文 Top1 · 每日刷新） |
+| 课程资源   | Tab      | 免费 AI 课程，按五条学习路线编排，每段最多 5 门          |
+| 新闻热点   | Tab      | 近 7 天 AI 热点（与开源精选去重；多档日更）              |
+| AI 视频    | Tab      | 每日 YouTube / B站精选                                   |
 
-独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 每日新闻页
+独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题
 
 ### 前端能力（摘要）
 
-| 能力     | 说明                                                             |
-| -------- | ---------------------------------------------------------------- |
-| 全站搜索 | 顶栏 + Hero；索引覆盖工具/资讯/开源/课程/视频/模型；联想与历史   |
-| 内容漏斗 | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等 |
-| 虚拟列表 | 视频、工具榜、GitHub 热门长列表可视区渲染                        |
-| 开源卡片 | Stars / 语言 / 用途 / 仓库直达（`OssCard`）                      |
-| 链接兜底 | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示     |
-| SEO      | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 开源）                |
+| 能力       | 说明                                                                       |
+| ---------- | -------------------------------------------------------------------------- |
+| 全站搜索   | 顶栏 + Hero；fixed 下拉；工具名直达 `tools/*.html`；联想 / 历史 / 搜索按钮 |
+| Hero 背景  | AI 领域关联图（SVG + 响应式 WebP），中心衬底保文案可读                     |
+| 面包屑     | 专区与独立页统一「首页 / …」                                               |
+| 推荐助手   | 场景芯片 + **现实实例** + 路径步骤                                         |
+| 内容漏斗   | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等           |
+| 虚拟列表   | 视频、工具榜、GitHub 热门长列表可视区渲染                                  |
+| 开源卡片   | Stars / 语言 / 用途 / 仓库直达（`OssCard`）                                |
+| 链接兜底   | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示               |
+| SEO        | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 开源）+ BreadcrumbList          |
 
 详见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
 
@@ -95,8 +98,9 @@ python3 scripts/fetch_daily_videos.py
 | ----------- | -------------------------------------------------------- |
 | 文案 / 导航 | `data/site.json`                                         |
 | 工具 / 关系 | `data/tools.json` · `data/tool-relations.json`           |
-| 对比表行    | `data/site.json` → `compare_table`                       |
-| 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`）           |
+| 对比表行    | `data/site.json` → `compare_table`（hub 内链到教程，见 `src/lib/hub.ts`） |
+| 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                             |
+| 排行榜      | `data/rankings.json`（或 `fetch_rankings.py`；00:00 日更）               |
 | 热度基准    | `data/engagement.json`                                   |
 | 开源精选    | `oss-projects.json` / `data/oss-projects.json`           |
 | 课程资源    | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py` |

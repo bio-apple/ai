@@ -329,7 +329,7 @@ python3 scripts/fetch_ai_news.py
 python3 scripts/fetch_daily_videos.py
 python3 scripts/fetch_oss_stars.py
 python3 scripts/fetch_ai_courses.py
-# python3 scripts/fetch_rankings.py   # 排行榜暂无定时任务
+python3 scripts/fetch_rankings.py   # 00:00 日更；本地可手动补跑
 
 npm run quality
 npm run scan:secrets

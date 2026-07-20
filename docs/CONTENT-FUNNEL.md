@@ -114,9 +114,9 @@ funnel.js → analytics.js → ux.js → app.js → …
 
 | 事件                                  | 阶段 | 来源              |
 | ------------------------------------- | ---- | ----------------- |
-| `recommend_submit` / `recommend_chip` | 1    | AI 推荐           |
-| `recommend_query_tool`                | 3    | 推荐结果 → 工具页 |
-| `recommend_related_*`                 | 3    | 关联工具          |
+| `recommend_submit` / `recommend_chip` | 1    | AI 推荐（结果含现实实例 `examples`） |
+| `recommend_query_tool`                | 3    | 推荐结果 → 工具页                   |
+| `recommend_related_*`                 | 3    | 关联工具                            |
 | `ops-tool-click`                      | 3    | 运营热度榜        |
 | `tool-rel-alt-*` / `tool-rel-comp-*`  | 3    | 工具页关联        |
 | `compare-goto-*`                      | 3    | 对比页 CTA        |
