@@ -132,12 +132,12 @@ function appendRankingSearchItems(items, rankings) {
 function buildSearchIndex(site, tools, compares) {
   const items = [];
   for (const t of tools) {
-    const kw = [t.id, t.name, t.description, ...(t.features || []).map((f) => f.title)]
+    const kw = [t.id, t.name, t.description, '教程', ...(t.features || []).map((f) => f.title)]
       .filter(Boolean)
       .join(' ');
-    // 工具教程已独立成页；勿再指向首页不存在的 section-*
+    // 标签用工具原名，便于精确匹配；URL 指向独立教程页
     items.push({
-      label: `${t.name} 教程`,
+      label: t.name,
       type: '工具',
       url: `tools/${t.id}.html`,
       keywords: kw,
@@ -274,6 +274,7 @@ function appendHubBoardSearchItems(items) {
     'cursor',
     '即梦 AI｜剪映',
   ];
+  // 仅索引导航入口；各工具名已由 tools.json 指向教程页，勿再写入对比表锚点以免抢占搜索首位
   items.push({
     label: '工具中心：对比表',
     type: '导航',
@@ -286,14 +287,6 @@ function appendHubBoardSearchItems(items) {
     url: 'tools/hub.html#hub-ranking',
     keywords: 'AICPB AI产品榜 排行 Global China Vibe Coding Video PPT Top5',
   });
-  for (const name of featured) {
-    items.push({
-      label: name,
-      type: '工具',
-      url: 'tools/hub.html#hub-compare',
-      keywords: [name, '工具中心', '对比表', '官方教程'].join(' '),
-    });
-  }
 }
 
 function buildRecommendRules(site) {

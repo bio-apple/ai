@@ -140,11 +140,18 @@ test.describe('Bio AI Lab 关键路径', () => {
     const heroResults = page.locator('#site-search-results');
     await expect(heroResults).toBeVisible();
     await expect(heroResults.locator('.search-hit').first()).toBeVisible();
-    await expect(heroResults.locator('a.search-hit[href*="tools/chatgpt"]').first()).toBeVisible();
-    // 下拉未被 hero overflow 裁切：结果面板应有可见高度
+    await expect(heroResults.locator('a.search-hit').first()).toHaveAttribute(
+      'href',
+      /tools\/chatgpt\.html/,
+    );
+    await expect
+      .poll(async () => heroResults.evaluate((el) => getComputedStyle(el).position))
+      .toBe('fixed');
     await expect
       .poll(async () => heroResults.evaluate((el) => el.getBoundingClientRect().height))
       .toBeGreaterThan(24);
+    await page.locator('#site-search').press('Enter');
+    await expect(page).toHaveURL(/tools\/chatgpt\.html/);
   });
 
   test('搜索联想与历史面板', async ({ page }) => {
@@ -180,10 +187,15 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.fill('#nav-site-search', 'ChatGPT');
     const results = page.locator('#nav-site-search-results');
     await expect(results).toBeVisible();
-    await expect(results.locator('a.search-hit[href*="tools/chatgpt"]').first()).toBeVisible();
+    await expect(results.locator('a.search-hit').first()).toHaveAttribute(
+      'href',
+      /tools\/chatgpt\.html/,
+    );
     await expect
       .poll(async () => results.evaluate((el) => getComputedStyle(el).position))
       .toBe('fixed');
+    await page.locator('.nav-search .site-search-submit').click();
+    await expect(page).toHaveURL(/tools\/chatgpt\.html/);
   });
 
   test('搜索空状态引导', async ({ page }) => {

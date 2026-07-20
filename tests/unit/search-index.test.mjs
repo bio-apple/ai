@@ -21,5 +21,15 @@ test('buildArtifacts expands search index with content types', () => {
   const course = searchIndex.find((item) => item.type === '课程');
   assert.ok(course?.external && course.url?.startsWith('http'));
 
+  const chatgpt = searchIndex.find((item) => item.label === 'ChatGPT' && item.type === '工具');
+  assert.equal(chatgpt?.url, 'tools/chatgpt.html');
+  assert.equal(
+    searchIndex.filter(
+      (item) => item.label === 'ChatGPT' && /hub\.html#hub-compare/i.test(String(item.url || '')),
+    ).length,
+    0,
+    'ChatGPT must not map to hub compare anchor',
+  );
+
   fs.rmSync(OUT, { recursive: true, force: true });
 });

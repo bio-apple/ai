@@ -28,30 +28,31 @@ function isNavSearchWrap(wrap) {
   return Boolean(wrap?.classList?.contains('nav-search'));
 }
 
-/** 顶栏搜索在 sticky/flex 下易被裁切，展开时用 fixed 定位对齐输入框 */
-function syncNavSearchDropdown(wrap, input, results) {
-  if (!isNavSearchWrap(wrap)) return;
+/** 下拉改为 fixed，避免 sticky/overflow 裁切（顶栏与 Hero 通用） */
+function syncSearchDropdown(wrap, input, results) {
   if (results.hidden) {
     results.style.cssText = '';
     return;
   }
   const rect = input.getBoundingClientRect();
+  const field = wrap.querySelector('.site-search-field') || input;
+  const fieldRect = field.getBoundingClientRect();
   const vw = document.documentElement.clientWidth;
-  const width = Math.min(Math.round(rect.width), vw - 16);
-  let left = Math.round(rect.left);
+  const width = Math.min(Math.round(fieldRect.width || rect.width), vw - 16);
+  let left = Math.round(fieldRect.left || rect.left);
   left = Math.max(8, Math.min(left, vw - width - 8));
   results.style.position = 'fixed';
   results.style.top = `${Math.round(rect.bottom + 6)}px`;
   results.style.left = `${left}px`;
   results.style.width = `${width}px`;
   results.style.right = 'auto';
-  results.style.zIndex = '1000';
+  results.style.zIndex = isNavSearchWrap(wrap) ? '1000' : '80';
 }
 
 function setSearchDropdownOpen(wrap, input, results, open) {
   results.hidden = !open;
   input.setAttribute('aria-expanded', open ? 'true' : 'false');
-  syncNavSearchDropdown(wrap, input, results);
+  syncSearchDropdown(wrap, input, results);
 }
 
 function gotoSearchHit(item, query = '') {
@@ -365,19 +366,41 @@ async function loadSearchIndex() {
   }
 }
 
+function preferSearchHits(hits, query) {
+  const q = query.trim().toLowerCase();
+  if (!q || hits.length < 2) return hits;
+  const rank = (item) => {
+    const label = String(item.label || '').toLowerCase();
+    let score = 0;
+    if (label === q) score += 100;
+    else if (label.startsWith(q)) score += 60;
+    else if (label.includes(q)) score += 30;
+    const url = String(item.url || '');
+    if (/^tools\/[^/]+\.html$/i.test(url)) score += 40;
+    if (item.type === '工具') score += 12;
+    if (item.external) score -= 8;
+    if (/hub\.html#hub-compare/i.test(url)) score -= 20;
+    return score;
+  };
+  return [...hits].sort((a, b) => rank(b) - rank(a));
+}
+
 function runSearch(query) {
   const q = query.trim();
   if (!q) return [];
+  let hits;
   if (fuseSearch) {
-    return fuseSearch.search(q, { limit: SEARCH_RESULT_LIMIT }).map((r) => r.item);
+    hits = fuseSearch.search(q, { limit: SEARCH_RESULT_LIMIT }).map((r) => r.item);
+  } else {
+    const lower = q.toLowerCase();
+    hits = searchIndex
+      .filter(
+        (item) =>
+          item.label.toLowerCase().includes(lower) || item.keywords.toLowerCase().includes(lower),
+      )
+      .slice(0, SEARCH_RESULT_LIMIT);
   }
-  const lower = q.toLowerCase();
-  return searchIndex
-    .filter(
-      (item) =>
-        item.label.toLowerCase().includes(lower) || item.keywords.toLowerCase().includes(lower),
-    )
-    .slice(0, SEARCH_RESULT_LIMIT);
+  return preferSearchHits(hits, q);
 }
 
 function isExternalHit(item) {
@@ -576,7 +599,41 @@ function initSearchWrap(wrap) {
   input.addEventListener('input', () => renderResults(input.value));
   input.addEventListener('focus', () => {
     if (!input.value.trim()) renderSuggestionsPanel(wrap, input, results);
+    else renderResults(input.value);
   });
+  input.addEventListener('search', () => {
+    // type=search 的清除/回车会触发 search；空值时收起，有值时走提交
+    if (!input.value.trim()) {
+      setSearchDropdownOpen(wrap, input, results, false);
+      return;
+    }
+    activatePrimaryHit();
+  });
+
+  function activatePrimaryHit() {
+    renderResults(input.value);
+    const hits = [...results.querySelectorAll('.search-hit')];
+    const target = activeIndex >= 0 && hits[activeIndex] ? hits[activeIndex] : hits[0] || null;
+    if (target) {
+      target.click();
+      return true;
+    }
+    if (!input.value.trim()) renderSuggestionsPanel(wrap, input, results);
+    return false;
+  }
+
+  const submitBtn = wrap.querySelector('.site-search-submit');
+  submitBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!input.value.trim()) {
+      input.focus();
+      renderSuggestionsPanel(wrap, input, results);
+      return;
+    }
+    activatePrimaryHit();
+  });
+
   input.addEventListener('keydown', (e) => {
     const hits = [...results.querySelectorAll('.search-hit')];
     if (e.key === 'Escape') {
@@ -598,32 +655,22 @@ function initSearchWrap(wrap) {
       return;
     }
     if (e.key === 'Enter') {
-      if (activeIndex >= 0 && hits[activeIndex]) {
-        e.preventDefault();
-        hits[activeIndex].click();
-        return;
-      }
-      const first = results.querySelector('.search-hit');
-      if (first && !results.hidden) {
-        e.preventDefault();
-        first.click();
-      }
+      e.preventDefault();
+      activatePrimaryHit();
     }
   });
 
   document.addEventListener('click', (e) => {
-    if (!wrap.contains(e.target)) {
+    if (!wrap.contains(e.target) && !results.contains(e.target)) {
       setSearchDropdownOpen(wrap, input, results, false);
     }
   });
 
-  if (isNavSearchWrap(wrap)) {
-    const reposition = () => {
-      if (!results.hidden) syncNavSearchDropdown(wrap, input, results);
-    };
-    window.addEventListener('scroll', reposition, { passive: true });
-    window.addEventListener('resize', reposition);
-  }
+  const reposition = () => {
+    if (!results.hidden) syncSearchDropdown(wrap, input, results);
+  };
+  window.addEventListener('scroll', reposition, { passive: true });
+  window.addEventListener('resize', reposition);
 
   const params = new URLSearchParams(location.search);
   const q = params.get('q');
