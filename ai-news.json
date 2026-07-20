@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-20T14:41:48.641685+08:00",
+  "updated_at": "2026-07-20T21:53:14.472834+08:00",
   "date": "2026-07-20",
   "cadence": "daily",
   "window_days": 7,
@@ -14,49 +14,67 @@
   },
   "items": [
     {
-      "id": "9bfcb19481ec",
-      "title": "光鉴科技发布具身智能视觉感知方案，为物理AI提供视觉感知基础",
-      "summary": "光鉴科技发布具身智能视觉感知方案，为物理AI提供视觉感知基础",
-      "url": "https://www.qbitai.com/2026/07/455438.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-20T13:52:15+08:00"
+      "id": "c1d126a13f15",
+      "title": "Bristol Myers Squibb Building Life Science Industry’s Most Advanced AI Factory on NVIDIA Vera Rubin",
+      "summary": "Erin Davis calls it the “SuperDuperPOD.” That’s two things in one name: pharmaceutical giant Bristol Myers Squibb (BMS) already runs one of the largest AI clus…",
+      "url": "https://blogs.nvidia.com/blog/bristol-myers-squibb-building-life-science-industrys-most-advanced-ai-factory-on-nvidia-vera-rubin/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-20T18:59:23+08:00"
     },
     {
-      "id": "5bfab232d670",
-      "title": "WAIC 2026｜智象未来发布全球首个无限时长内容创作智能体——vivago R1",
-      "summary": "WAIC 2026｜智象未来发布全球首个无限时长内容创作智能体——vivago R1",
-      "url": "https://www.qbitai.com/2026/07/455434.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-20T13:43:42+08:00"
-    },
-    {
-      "id": "f4fb81e909f8",
-      "title": "「仿真派」落地真产线！苏度WAIC首秀，CEO韩铮：99%+成功率",
-      "summary": "仿真的底层逻辑",
-      "url": "https://www.qbitai.com/2026/07/455400.html",
+      "id": "f5556ee5759a",
+      "title": "WAIC 2026收官｜范式大会亮点集锦，见证AI 2.0从技术突破走向产业实践",
+      "summary": "WAIC 2026收官｜范式大会亮点集锦，见证AI 2.0从技术突破走向产业实践",
+      "url": "https://www.qbitai.com/2026/07/455963.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-07-20T13:35:02+08:00"
+      "published_at": "2026-07-20T18:42:09+08:00"
     },
     {
-      "id": "e1ed14455fdc",
-      "title": "刚刚，机器人顶会RSS三项最佳论文出炉！708篇送审，仅8篇杀入决赛",
-      "summary": "依旧是最多的华人面孔",
-      "url": "https://www.qbitai.com/2026/07/455277.html",
+      "id": "2d68c7ee36bf",
+      "title": "不同模型厂同一家Agentic Infra，AGI时代的地基终于浮出水面",
+      "summary": "大模型时代的共同选择",
+      "url": "https://www.qbitai.com/2026/07/455805.html",
       "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-07-20T12:54:22+08:00"
+      "category": "新模型发布",
+      "published_at": "2026-07-20T18:33:23+08:00"
     },
     {
-      "id": "1a03402390c3",
-      "title": "GMI Cloud 携AI Cloud、MaaS、Agentbox等全栈智算解决方案亮相 WAIC 2026",
-      "summary": "打造了沉浸式的 AI 基础设施交互体验",
-      "url": "https://www.qbitai.com/2026/07/455269.html",
+      "id": "53873cfce106",
+      "title": "当AI进入最依赖“人”的行业：一家四线城市康复机构利润增长40%",
+      "summary": "当AI进入最依赖“人”的行业：一家四线城市康复机构利润增长40%",
+      "url": "https://www.qbitai.com/2026/07/455791.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-07-20T12:34:07+08:00"
+      "published_at": "2026-07-20T17:54:33+08:00"
+    },
+    {
+      "id": "fbb2c86b4ebf",
+      "title": "全球首发技术路线+全域联盟双轮破局，AI for ADANES释放先进核能新质生产力",
+      "summary": "全球首发技术路线+全域联盟双轮破局，AI for ADANES释放先进核能新质生产力",
+      "url": "https://www.qbitai.com/2026/07/455729.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-20T17:41:49+08:00"
+    },
+    {
+      "id": "63325022ee82",
+      "title": "启鸣达人首发《世界模型驱动的教育AGI白皮书》| WAIC 2026",
+      "summary": "从理论探索到体系构建",
+      "url": "https://www.qbitai.com/2026/07/455730.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-20T17:21:30+08:00"
+    },
+    {
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 87,952",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-20T12:32:20Z"
     },
     {
       "id": "bce1ea0cbdf3",
@@ -104,17 +122,8 @@
       "published_at": "2026-07-20T12:00:00+08:00"
     },
     {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 87,903",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-19T07:34:01Z"
-    },
-    {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,005",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,013",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -230,15 +239,6 @@
       "published_at": "2026-07-15T18:00:00+08:00"
     },
     {
-      "id": "9d5925e11f31",
-      "title": "Nemotron Labs: How Open Models Give Enterprises and Nations AI They Can Trust, Control and Customize",
-      "summary": "Enterprises have plenty of powerful models to choose from. The real test is whether the AI an enterprise builds uniquely addresses the needs of the business: i…",
-      "url": "https://blogs.nvidia.com/blog/nemotron-open-models-ai-trust-control-customize/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-15T00:45:13+08:00"
-    },
-    {
       "id": "4a94e64db0fd",
       "title": "Celebrating 25 years of visual search innovation",
       "summary": "Google Images is turning 25. Here’s a look back at some major milestones — and new ways to explore and create visual content.",
@@ -257,15 +257,6 @@
       "published_at": "2026-07-14T00:00:00+08:00"
     },
     {
-      "id": "66188580349f",
-      "title": "Empowering India’s next generation of innovators with ATL Saathi",
-      "summary": "Google and AIM launched ATL Saathi, a Gemini-powered AI tool empowering Indian educators in robotics labs.",
-      "url": "https://deepmind.google/blog/empowering-indias-next-generation-of-innovators-with-atl-saathi/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-07-13T20:37:28+08:00"
-    },
-    {
       "id": "5e689a649359",
       "title": "Inviting hard questions",
       "summary": "Inviting hard questions",
@@ -275,19 +266,19 @@
       "published_at": null
     },
     {
-      "id": "f3423d8ece91",
-      "title": "中国队交卷，盲测打爆Claude！科学多模态统一AI来了",
-      "summary": "在WAIC现场，中科闻歌磐石（ScienceOne）团队发布两大科研AI利器：S1-Omni——全球首个面向科学理解、预测与生成的多模态统一推理模型；以及以S1-Omni为核心的ScienceOne一体化科研平台。该平台覆盖文献分析、实验设计、数据建模到成果生成全流程。实测显示，其在真实科研任务中性能显著优于GPT-…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713778&idx=1&sn=ae3bce6da247838715e2ab86e9914834&chksm=f077e0b4047051aaa132d950f00178a8b502ee6ded474f7bc60c79d56e2b44f76649bb338443&scene=0&xtrack=1#rd",
+      "id": "1b3a42c22389",
+      "title": "Agent拉爆算力？中国杀出新物种：日冲10万亿Token，还赚钱了",
+      "summary": "2026年AI行业最大焦虑并非模型能力不足，而是算力严重短缺。随着大模型从“陪聊”转向实际落地“干活”，智能体（Agent）爆发式消耗算力，尤其在真实软件工程任务中表现突出。密歇根大学、斯坦福等机构研究证实，Agent对算力需求远超预期，导致基础设施承压。WAIC上海展呈现繁荣表象，背后却是算力供给与应用激增间的尖锐…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713906&idx=1&sn=4e843834e26fbf0f675ca8ed0dbfa34f&chksm=f00a180351aa0a576d975acd78acdae13bb8f61cd8202f41c530c327bdccbb36ee9b0acbaf06&scene=0&xtrack=1#rd",
       "source": "新智元",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "8a364bca3d94",
-      "title": "央视新闻·梁正｜三大维度解析中国人工智能全球治理方案",
-      "summary": "2026世界人工智能大会暨全球治理高级别会议在上海举行，习近平主席出席并发表主旨讲话，系统提出全球AI治理的中国理念、主张与方案，强调健康有序发展与深化国际合作。清华大学人工智能国际治理研究院副院长梁正参与相关活动，凸显学界在推动全球AI治理体系构建中的关键作用。",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524483&idx=1&sn=5ecb837d51695841d2391f25a02e6337&chksm=fcceccce1560e9816f63893665a6d194749283fdd9f397ec11db7543a0e0bb4e5366d42a89e9&scene=0&xtrack=1#rd",
+      "id": "fcb52238cc83",
+      "title": "Nat. Commun. | 面向反应路径生成的流匹配模型",
+      "summary": "DRUGONE面临过渡态与产物搜索效率低的挑战，传统量子化学方法计算成本高昂，扩散模型和序列模型虽有加速但依赖人工枚举、采样随机且控制难。为此，研究者提出基于条件流匹配的生成框架MolGEN，融合最优传输理论，实现确定性、可控、快速的分子结构生成，显著提升反应机理探索效率，为大规模反应网络构建提供新范式。（150字）",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514011&idx=1&sn=99d4e18b3655a05ee7fddbabec08e6fb&chksm=fdec5cca7716e32fd06ad8453f573c061488f38eaad603a8ba0fd8762cb8936af12c8b56cdf6&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
@@ -320,28 +311,28 @@
       "published_at": null
     },
     {
-      "id": "117e6446a56c",
-      "title": "央视新闻·肖茜｜秉持包容开放筑牢 AI 安全防线，建多边合作组织助力发展中国家弥合数智鸿沟",
-      "summary": "2026世界人工智能大会暨全球治理高级别会议于17日在上海开幕，主题为“智能伙伴 共创未来”。大会发布主席声明，凝聚全球共识，并推动成立世界人工智能合作组织。多项务实治理举措集中推出，标志着人工智能全球治理正从理念探讨迈向行动落地新阶段。清华大学肖茜指出，此次大会在机制建设、规则制定与国际合作方面取得重要进展，为构建…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524483&idx=2&sn=ff17c91baa6b67b84be76daf30bcc6fe&chksm=fc4e32bf9f2a8b9d981b6078a4d6e2b7d5b13b699d09cddfe19715e0003bc6afca5d2118e240&scene=0&xtrack=1#rd",
+      "id": "1b8649ff8675",
+      "title": "AI+NLP博士论文 | UC Berkeley 2026 | 内存高效的LLM推理算法 189页",
+      "summary": "生成式大语言模型（LLM）在语言处理中迅速崛起，但其高效推理面临严峻系统挑战。模型规模增速远超硬件内存提升，导致资源消耗剧增；同时，应用需求持续升级——要求更长上下文、更复杂推理及多轮agentic工作流，进一步加剧计算与内存压力。如何在有限硬件资源下实现低延迟、高吞吐、低成本的LLM服务，已成为当前系统研究的核心难…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498048&idx=2&sn=13580cea5e4b2ecfc1927fd8b9b5e9da&chksm=fca4feb6b8ae5fac53d311ee73fa200d60da7bb7858a057eaa0a3df072332f5bc329c7e74955&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "4078383b7cca",
-      "title": "港科大新发现：MoE路由很脆弱！重复token输入阻塞负载均衡 | ICML'26",
-      "summary": "MoE大模型通过稀疏激活专家提升推理效率，兼顾大参数量与低计算成本，成为工业界青睐方案。但ICML 2026一项研究揭示其核心组件——专家路由存在系统级风险：路由机制易受对抗扰动影响，导致重复选择同一专家（Repet现象），引发负载失衡、延迟飙升与服务降级。港科大团队首次系统分析该问题，指出其在高并发场景下可能触发级…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713777&idx=3&sn=01c4801592c61a1f52ae653764b5ac39&chksm=f0a1d89d8a59d3659957557df45efc546541148da582789476734796b4bef6f44a40bacc2c00&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "d1cb722092ad",
+      "title": "不靠英伟达网卡，国产GPU直通方案实测出炉：吞吐飙升、延迟砍半",
+      "summary": "2026世界人工智能大会（WAIC 2026）于7月17日至20日在上海世博、张江、西岸“三地四馆”同步举办。AI网络全栈式互联解决方案提供商奇异摩尔首次参展，并主办“智联为擎 合一共进——AI网络前沿生态论坛”，聚焦AI网络互联技术与生态协同创新，搭建行业深度交流平台，彰显其在AI基础设施领域的前沿布局与推动作用。…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905033&idx=2&sn=312c0dbbd95084249385de469ea40bb3&chksm=e984446db39ed1b964d9a66d1661789c60cbd3a5b1fbf7f99b45ecb9681cde7f9216a4087ed2&scene=126&sessionid=0#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "c5dd83414da7",
-      "title": "在WAIC，十大开源社区「挤」进了一个GPU展台",
-      "summary": "在2024年WAIC首日，超节点、大模型、Agent和AI4S成为最热关键词。沐曦携多项新品亮相：首次展出曦景S600超节点，单机柜集成64张GPU，支持扩展至万卡集群；发布面向科学智能的曦索X300系列GPU；Agent体验区人气火爆，数字员工与AI文创工作站持续运行。整体凸显国产AI算力加速落地AI4S与智能体应…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904728&idx=1&sn=9585a00d482ffc4647b7a2ff5669f1df&chksm=e9f8c5af8b0920481958a0cb4e1ce8d77fee7658c930c58bf984b95a73998216eb8ba5c342b0&scene=0&xtrack=1#rd",
+      "id": "223a27225037",
+      "title": "DeepSeek估值，被一家安徽箱包公司给全部暴露了",
+      "summary": "7月16日，安徽开润股份公告披露，其参与投资的基金以29亿元实缴资金间接获得DeepSeek 0.8265%股权，据此推算DeepSeek估值约3508.8亿元。这一数据首次公开揭示了此前未明确披露的DeepSeek融资估值，引发业界广泛关注。作为一家未公开详细融资信息的AI公司，其估值通过一家主营行李箱业务的上市公…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904728&idx=2&sn=b031e081a4926fa4ffa9d737795d90a3&chksm=e93f027e0ce18c27df71b59dffb22b149cd3d4dbed0b681b8eafa6beffcc061d9cfb061be3da&scene=0&xtrack=1#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
