@@ -2,7 +2,10 @@
 /**
  * 独立页统一页头：面包屑 + Hero（与工具中心 hub 一致）
  */
-export type StandaloneCrumb = { label: string; href?: string };
+import Breadcrumb from './Breadcrumb.astro';
+import type { Crumb } from './Breadcrumb.astro';
+
+export type StandaloneCrumb = Crumb;
 
 interface Props {
   crumbs: StandaloneCrumb[];
@@ -18,16 +21,7 @@ interface Props {
 const { crumbs, title, lead, meta, metaId, icon, iconClass, class: className } = Astro.props;
 ---
 
-<nav class="breadcrumb" aria-label="面包屑">
-  {
-    crumbs.map((crumb, index) => (
-      <>
-        {index > 0 && ' / '}
-        {crumb.href ? <a href={crumb.href}>{crumb.label}</a> : crumb.label}
-      </>
-    ))
-  }
-</nav>
+<Breadcrumb crumbs={crumbs} />
 
 <div class:list={['standalone-hero', { 'standalone-hero--with-icon': Boolean(icon) }, className]}>
   {

@@ -8,8 +8,12 @@ import newsPayload from '../../../ai-news.json';
 
 const page = site.news_page;
 const base = site.meta.base_url;
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: '新闻热点', url: `${base}news/daily-ai-news.html` },
+];
 const schema = mergeSchemaGraphs(
-  buildPageSchema(page.title, page.lead, `${base}news/daily-ai-news.html`),
+  buildPageSchema(page.title, page.lead, `${base}news/daily-ai-news.html`, breadcrumbs),
   buildNewsSchema(
     { title: page.h1 || page.title, lead: page.lead, items: newsPayload.items || [] },
     base,
@@ -36,7 +40,7 @@ const home = homeHref();
 >
   <main class="standalone-page">
     <StandalonePageHeader
-      crumbs={[{ label: '首页', href: home }, { label: '一周内 AI 热点' }]}
+      crumbs={[{ label: '首页', href: home }, { label: '新闻热点' }]}
       title={page.h1}
       lead={page.lead}
       metaId="news-page-meta"

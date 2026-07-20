@@ -169,6 +169,7 @@ function bindNavItem(el) {
 navTabs.forEach(bindNavItem);
 document.querySelectorAll('.nav-dropdown-item').forEach(bindNavItem);
 document.querySelectorAll('a.logo[data-tool]').forEach(bindNavItem);
+document.querySelectorAll('.breadcrumb a[data-tool]').forEach(bindNavItem);
 
 document.querySelectorAll('[data-goto]').forEach((btn) => {
   btn.addEventListener('click', () => {

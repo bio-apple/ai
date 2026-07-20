@@ -85,6 +85,47 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-daily')).toBeVisible();
   });
 
+  test('专区页面包屑', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
+    await page.route('**/*fonts.gstatic.com/**', (route) => route.abort());
+    await page.goto('index.html#section-oss', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#section-oss')).toHaveClass(/active/);
+    const ossCrumb = page.locator('#section-oss .breadcrumb');
+    await expect(ossCrumb).toBeVisible();
+    await expect(ossCrumb).toContainText('首页');
+    await expect(ossCrumb).toContainText('开源精选');
+    await expect(ossCrumb.locator('a', { hasText: '首页' })).toBeVisible();
+
+    await page.locator('.nav-tab', { hasText: '课程资源' }).click();
+    await expect(page.locator('#section-courses')).toHaveClass(/active/);
+    await expect(page.locator('#section-courses .breadcrumb')).toContainText('课程资源');
+
+    await page.locator('.nav-tab', { hasText: '新闻热点' }).click();
+    await expect(page.locator('#section-news .breadcrumb')).toContainText('新闻热点');
+
+    await page.locator('.nav-tab', { hasText: 'AI 视频' }).click();
+    await expect(page.locator('#section-videos .breadcrumb')).toContainText('AI 视频');
+
+    await page.locator('#section-videos .breadcrumb a', { hasText: '首页' }).click();
+    await expect(page.locator('#section-home')).toHaveClass(/active/);
+  });
+
+  test('独立页面包屑', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
+    await page.goto('tools/hub.html', { waitUntil: 'domcontentloaded' });
+    const hubCrumb = page.locator('.breadcrumb');
+    await expect(hubCrumb).toContainText('首页');
+    await expect(hubCrumb).toContainText('工具中心');
+
+    await page.goto('tools/chatgpt.html', { waitUntil: 'domcontentloaded' });
+    const toolCrumb = page.locator('.breadcrumb');
+    await expect(toolCrumb).toContainText('工具中心');
+    await expect(toolCrumb).toContainText('ChatGPT');
+
+    await page.goto('news/daily-ai-news.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('.breadcrumb')).toContainText('新闻热点');
+  });
+
   test('站内搜索与规则产物', async ({ page }) => {
     await gotoHome(page);
     await expect.poll(async () => (await page.request.get('search-index.json')).ok()).toBeTruthy();

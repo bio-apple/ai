@@ -6,6 +6,7 @@ import HomeAiDaily from '../components/HomeAiDaily.astro';
 import HomeOps from '../components/HomeOps.astro';
 import GlobalSearch from '../components/GlobalSearch.astro';
 import HomeQuickFilters from '../components/HomeQuickFilters.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
 import { site } from '../lib/data';
 import {
   buildHomeSchema,
@@ -13,9 +14,11 @@ import {
   buildOssSchema,
   mergeSchemaGraphs,
 } from '../lib/schema';
-import { asset } from '../lib/paths';
+import { asset, homeHref } from '../lib/paths';
 import coursesPayload from '../../ai-courses.json';
 import ossPayload from '../../data/oss-projects.json';
+
+const homeCrumb = { label: '首页', href: homeHref(), tool: 'all' };
 
 const schema = mergeSchemaGraphs(
   buildHomeSchema(site),
@@ -123,6 +126,7 @@ const schema = mergeSchemaGraphs(
   <section id="section-oss" class="section oss-section">
     <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载开源精选。</p></noscript>
     <div class="section-panel">
+      <Breadcrumb crumbs={[homeCrumb, { label: '开源精选' }]} />
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">⭐</div>
         <div>
@@ -140,6 +144,7 @@ const schema = mergeSchemaGraphs(
   <section id="section-courses" class="section courses-section">
     <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载课程资源。</p></noscript>
     <div class="section-panel">
+      <Breadcrumb crumbs={[homeCrumb, { label: '课程资源' }]} />
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📚</div>
         <div>
@@ -160,6 +165,7 @@ const schema = mergeSchemaGraphs(
 
   <section id="section-news" class="section">
     <div class="section-panel">
+      <Breadcrumb crumbs={[homeCrumb, { label: '新闻热点' }]} />
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📰</div>
         <div>
@@ -183,6 +189,7 @@ const schema = mergeSchemaGraphs(
 
   <section id="section-videos" class="section videos-section">
     <div class="section-panel">
+      <Breadcrumb crumbs={[homeCrumb, { label: 'AI 视频' }]} />
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
         <div>

@@ -7,10 +7,15 @@ import { buildPageSchema } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
 
 const base = site.meta.base_url;
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: 'AI 工具排行榜', url: `${base}ai-tools-ranking.html` },
+];
 const schema = buildPageSchema(
   `${rankings.title} | Bio AI Lab`,
   rankings.lead,
   `${base}ai-tools-ranking.html`,
+  breadcrumbs,
 );
 const home = homeHref();
 const boards = (rankings.boards || []).map((board) => ({
