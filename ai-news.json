@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-20T13:37:52.682390+08:00",
+  "updated_at": "2026-07-20T14:41:48.641685+08:00",
   "date": "2026-07-20",
   "cadence": "daily",
   "window_days": 7,
@@ -13,6 +13,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "9bfcb19481ec",
+      "title": "光鉴科技发布具身智能视觉感知方案，为物理AI提供视觉感知基础",
+      "summary": "光鉴科技发布具身智能视觉感知方案，为物理AI提供视觉感知基础",
+      "url": "https://www.qbitai.com/2026/07/455438.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-20T13:52:15+08:00"
+    },
+    {
+      "id": "5bfab232d670",
+      "title": "WAIC 2026｜智象未来发布全球首个无限时长内容创作智能体——vivago R1",
+      "summary": "WAIC 2026｜智象未来发布全球首个无限时长内容创作智能体——vivago R1",
+      "url": "https://www.qbitai.com/2026/07/455434.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-20T13:43:42+08:00"
+    },
+    {
+      "id": "f4fb81e909f8",
+      "title": "「仿真派」落地真产线！苏度WAIC首秀，CEO韩铮：99%+成功率",
+      "summary": "仿真的底层逻辑",
+      "url": "https://www.qbitai.com/2026/07/455400.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-20T13:35:02+08:00"
+    },
+    {
+      "id": "e1ed14455fdc",
+      "title": "刚刚，机器人顶会RSS三项最佳论文出炉！708篇送审，仅8篇杀入决赛",
+      "summary": "依旧是最多的华人面孔",
+      "url": "https://www.qbitai.com/2026/07/455277.html",
+      "source": "量子位",
+      "category": "学术论文",
+      "published_at": "2026-07-20T12:54:22+08:00"
+    },
+    {
+      "id": "1a03402390c3",
+      "title": "GMI Cloud 携AI Cloud、MaaS、Agentbox等全栈智算解决方案亮相 WAIC 2026",
+      "summary": "打造了沉浸式的 AI 基础设施交互体验",
+      "url": "https://www.qbitai.com/2026/07/455269.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-20T12:34:07+08:00"
+    },
     {
       "id": "bce1ea0cbdf3",
       "title": "GraphDx: A Cost-Aware Knowledge-Enhanced Multi-Agent Framework for Sequential Diagnosis",
@@ -59,53 +104,8 @@
       "published_at": "2026-07-20T12:00:00+08:00"
     },
     {
-      "id": "79247054245c",
-      "title": "1.5B开源通用VLA模型，冲进具身智能第一梯队",
-      "summary": "面壁智能发布MiniCPM-Robot系列模型",
-      "url": "https://www.qbitai.com/2026/07/455229.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-20T11:36:20+08:00"
-    },
-    {
-      "id": "99e910701835",
-      "title": "Kimi K3上线48小时：模型爆火，GPU爆肝，会员停售",
-      "summary": "市场表现也跟着加速狂飙",
-      "url": "https://www.qbitai.com/2026/07/455179.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-20T11:33:24+08:00"
-    },
-    {
-      "id": "f522af71191c",
-      "title": "WAIC不筹量子重磅发布“量筹一号”——原子量子人工智能基座",
-      "summary": "WAIC不筹量子重磅发布“量筹一号”——原子量子人工智能基座",
-      "url": "https://www.qbitai.com/2026/07/455136.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-20T11:15:19+08:00"
-    },
-    {
-      "id": "f69696f8361f",
-      "title": "蚂蚁集团、阿里云等正式加入PyTorch基金会，携手全球开源力量推动AI普惠",
-      "summary": "蚂蚁集团、阿里云等正式加入PyTorch基金会，携手全球开源力量推动AI普惠",
-      "url": "https://www.qbitai.com/2026/07/455130.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-07-20T11:05:43+08:00"
-    },
-    {
-      "id": "78fd487a6b6c",
-      "title": "冷门的哲学，成了“治”AI的热门",
-      "summary": "智能进了社会，治理不能慢半拍",
-      "url": "https://www.qbitai.com/2026/07/455041.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-19T20:34:01+08:00"
-    },
-    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 87,898",
+      "title": "thedotmack/claude-mem · ★ 87,903",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
