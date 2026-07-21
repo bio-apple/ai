@@ -31,8 +31,13 @@ test.describe('Bio AI Lab 关键路径', () => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('AI 工作流');
     await expect(page.locator('#home-ai-map')).toBeVisible();
-    await expect(page.locator('#home-ai-map .ai-map-img')).toBeVisible();
-    await expect(page.locator('#home-ai-map .ai-map-img')).toHaveAttribute('alt', /AI 领域关系图/);
+    await expect(page.locator('#home-ai-map .ai-map')).toBeVisible();
+    await expect(page.locator('#home-ai-map .ai-map')).toHaveAttribute(
+      'aria-label',
+      /AI 领域关系图/,
+    );
+    await expect(page.locator('#home-ai-map .ai-map-layer-ai')).toContainText('人工智能');
+    await expect(page.locator('#home-ai-map .ai-map-apps li')).toHaveCount(4);
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
     await expect(page.locator('.hero-brand')).toContainText('Bio AI Lab');
     await expect(page.locator('.hero-ai-map')).toHaveCount(0);

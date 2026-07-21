@@ -1,17 +1,29 @@
 ---
 /**
- * 首页「AI 领域地图」内容区块（非 Hero 背景）
- * - 信息图有独立语义：figure + alt + figcaption
- * - 首屏以下 lazy 加载，不抢 LCP
- * - 移动端 SVG；桌面 WebP srcset
+ * 首页「AI 领域地图」— 原生 HTML 信息图（非位图）
+ * - 桌面：嵌套层级 + 外围基础学科
+ * - 移动：纵向堆叠，字号不随缩放变糊
+ * - 跟随 data-theme，无需 WebP 栅格
  */
 import { asset } from '../lib/paths';
 
-const svg = asset('hero-ai-map.svg');
-const w640 = asset('hero-ai-map-640.webp');
-const w960 = asset('hero-ai-map-960.webp');
-const w1280 = asset('hero-ai-map-1280.webp');
 const roadmapHref = asset('ai-learning-roadmap.html');
+
+const foundations = [
+  { zh: '数学', en: 'Mathematics' },
+  { zh: '神经科学', en: 'Neuroscience' },
+  { zh: '计算机科学', en: 'Computer Science' },
+  { zh: '物理学', en: 'Physics' },
+  { zh: '生物学', en: 'Biology' },
+  { zh: '心理学', en: 'Psychology' },
+];
+
+const apps = [
+  { zh: '计算机视觉', en: 'Vision' },
+  { zh: '自然语言', en: 'NLP' },
+  { zh: '语音识别', en: 'Speech' },
+  { zh: '机器人', en: 'Robotics' },
+];
 ---
 
 <section
@@ -23,33 +35,66 @@ const roadmapHref = asset('ai-learning-roadmap.html');
     <p class="section-kicker">知识版图</p>
     <h2 class="section-title" id="home-ai-map-title">AI 领域如何层层嵌套</h2>
     <p class="section-desc">
-      Artificial Intelligence ⊃ Machine Learning ⊃ Deep Learning，并与视觉、语音、机器人、NLP
-      交叉；外围是数学、神经科学等基础学科。
+      人工智能包含机器学习，再深入到深度学习；视觉、语音、机器人、NLP
+      等应用交叉其中。外围是数学、神经科学等基础学科。
     </p>
   </div>
 
   <figure class="ai-map-figure">
-    <picture>
-      <source
-        media="(min-width: 768px)"
-        type="image/webp"
-        srcset={`${w640} 640w, ${w960} 960w, ${w1280} 1280w`}
-        sizes="(max-width: 1200px) 92vw, 1040px"
-      />
-      <img
-        class="ai-map-img"
-        src={svg}
-        alt="AI 领域关系图：人工智能包含机器学习与深度学习，并与计算机视觉、机器人、自然语言处理、语音识别交叉；外围连接数学、神经科学、计算机科学、心理学、生物学与物理学。"
-        width="1200"
-        height="780"
-        decoding="async"
-        loading="lazy"
-        fetchpriority="low"
-        draggable="false"
-      />
-    </picture>
+    <div
+      class="ai-map"
+      role="img"
+      aria-label="AI 领域关系图：人工智能包含机器学习与深度学习，并与计算机视觉、机器人、自然语言处理、语音识别交叉；外围连接数学、神经科学、计算机科学、心理学、生物学与物理学。"
+    >
+      <div class="ai-map-foundations" aria-hidden="true">
+        {
+          foundations.map((f) => (
+            <span class="ai-map-found">
+              <strong>{f.zh}</strong>
+              <em>{f.en}</em>
+            </span>
+          ))
+        }
+      </div>
+
+      <div class="ai-map-core">
+        <div class="ai-map-layer ai-map-layer-ai">
+          <header class="ai-map-layer-head">
+            <strong>人工智能</strong>
+            <em>Artificial Intelligence</em>
+          </header>
+
+          <div class="ai-map-layer ai-map-layer-ml">
+            <header class="ai-map-layer-head">
+              <strong>机器学习</strong>
+              <em>Machine Learning</em>
+            </header>
+
+            <div class="ai-map-layer ai-map-layer-dl">
+              <strong>深度学习</strong>
+              <em>Deep Learning</em>
+            </div>
+
+            <p class="ai-map-apps-label">交叉应用</p>
+            <ul class="ai-map-apps">
+              {
+                apps.map((a) => (
+                  <li>
+                    <strong>{a.zh}</strong>
+                    <em>{a.en}</em>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p class="ai-map-hint" aria-hidden="true">AI ⊃ ML ⊃ DL</p>
+    </div>
+
     <figcaption class="ai-map-caption">
-      示意图启发自经典 CS 课程讲义结构；本站用于帮助你理解工具与课程落在哪一层。
+      用层级理解工具与课程落在哪一层；外围学科是长期地基。
       <a href={roadmapHref} class="ai-map-link" data-track="home-ai-map-roadmap">查看学习路线 →</a>
     </figcaption>
   </figure>

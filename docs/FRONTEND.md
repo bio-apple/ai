@@ -30,16 +30,15 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 ## 2. AI 领域地图（首页内容区块）
 
-| 项     | 说明                                                                     |
-| ------ | ------------------------------------------------------------------------ |
-| 位置   | 首页 `home-main`：推荐助手与 AI 简报之后、开源精选之前（`#home-ai-map`） |
-| 形态   | 独立 section + `figure` / `figcaption`，**不是** Hero 背景               |
-| 组件   | `HomeAiMap.astro`                                                        |
-| 资源   | `hero-ai-map.svg` + `hero-ai-map-{640,960,1280}.webp`                    |
-| 策略   | `<768px` 仅 SVG；≥768px WebP `srcset`；`loading=lazy` 不抢 LCP           |
-| 无障碍 | 完整 `alt` 描述层级关系；标题 + 说明句 + 学习路线链接                    |
+| 项     | 说明                                                                                           |
+| ------ | ---------------------------------------------------------------------------------------------- |
+| 位置   | 首页 `home-main`：推荐助手与 AI 简报之后、开源精选之前（`#home-ai-map`）                       |
+| 形态   | 独立 section + 原生 HTML 嵌套层级图（`figure` / `figcaption`），**不是** Hero 背景、也不是位图 |
+| 组件   | `HomeAiMap.astro` + `css/home.css`（`.ai-map*`）                                               |
+| 策略   | 桌面四列应用芯片、移动两列；字号随版式缩放，暗色主题走 CSS 变量                                |
+| 无障碍 | `role="img"` + `aria-label`；标题 + 说明句 + 学习路线链接                                      |
 
-**为何不放 Hero 背景**：带可读标签的信息图与品牌/搜索抢注意力，对比度与 LCP 难兼顾；装饰用应无字，内容图应独立成段。
+**为何不用位图 / Hero 背景**：信息图需要可读标签与响应式字号；位图在窄屏会糊、难跟主题。带标签的图也不适合垫在品牌/搜索下。
 
 ---
 
@@ -140,7 +139,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 | 组件                     | 作用                                      |
 | ------------------------ | ----------------------------------------- |
-| `HomeAiMap.astro`        | AI 领域关系信息图（简报后）               |
+| `HomeAiMap.astro`        | AI 领域嵌套层级图（原生 HTML，简报后）    |
 | `HomeQuickFilters.astro` | 快筛：开源项目 / AI 资讯 / 工具教程       |
 | `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
 | `HomeRecommend.astro`    | AI 推荐助手（含现实实例）                 |
