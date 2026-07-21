@@ -8,9 +8,12 @@
   <div class="section-head section-head-row">
     <div>
       <h2 class="section-title">今日热度</h2>
-      <p class="section-desc">浏览 · 点击；热榜随本机互动实时累加</p>
+      <p class="section-desc">浏览 · 点击；站点基准定时同步，本机互动即时累加</p>
     </div>
-    <p class="ops-updated" id="ops-updated" aria-live="polite"></p>
+    <p class="ops-updated" id="ops-updated" aria-live="polite">
+      <span class="ops-live-dot" aria-hidden="true"></span>
+      <span id="ops-updated-text">同步中…</span>
+    </p>
   </div>
 
   <div class="ops-summary" role="group" aria-label="关键指标">

@@ -156,7 +156,7 @@ funnel.js → analytics.js → ux.js → app.js → …
 
 ### 6.3 首页运营 widget
 
-`engagement.js` + `data/engagement.json` 提供**当日热度基准**（浏览/点击），白名单已扩展至 `section_view`、`search_query`、`course-click` 等高意图事件。
+`engagement.js` + `data/engagement.json` 提供**当日热度基准**（浏览/点击）：页面每 45s / 回前台时拉取最新 `engagement.json`，本机点击经白名单事件即时累加，多标签页通过 `localStorage` 同步。
 
 ---
 

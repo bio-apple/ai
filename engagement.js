@@ -1,7 +1,8 @@
-/* 数据运营：站点热度基准（engagement.json）+ 本机浏览/点击累加 */
+/* 数据运营：站点热度基准（engagement.json）+ 本机浏览/点击累加 + 定时同步 */
 (function initEngagement() {
   const STORAGE_KEY = 'bioai.engagement.v1';
   const SESSION_VIEW_KEY = 'bioai.engagement.viewed';
+  const POLL_MS = 45_000;
 
   const TOOL_META = {
     chatgpt: { name: 'ChatGPT', icon: '🔥' },
@@ -39,6 +40,9 @@
     page_views: 0,
     tools: [],
   };
+  let lastSyncedAt = 0;
+  let pollTimer = null;
+  let lastRendered = { views: null, clicks: null };
 
   function todayKey() {
     const d = new Date();
@@ -81,6 +85,16 @@
     return Math.max(0, Math.round(Number(n) || 0)).toLocaleString('zh-CN');
   }
 
+  function formatSyncTime(ts) {
+    if (!ts) return '';
+    return new Date(ts).toLocaleTimeString('zh-CN', {
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false,
+    });
+  }
+
   function mergedTools(local) {
     const map = new Map();
     for (const t of seed.tools || []) {
@@ -109,6 +123,13 @@
     );
   }
 
+  function pulseStat(el, changed) {
+    if (!el || !changed) return;
+    el.classList.remove('ops-stat-value--pulse');
+    void el.offsetWidth;
+    el.classList.add('ops-stat-value--pulse');
+  }
+
   function render() {
     const host = document.getElementById('home-ops');
     if (!host) return;
@@ -121,15 +142,27 @@
     const viewsEl = document.getElementById('ops-views');
     const clicksEl = document.getElementById('ops-clicks');
     const updatedEl = document.getElementById('ops-updated');
+    const updatedTextEl = document.getElementById('ops-updated-text');
     const list = document.getElementById('ops-trend-list');
 
-    if (viewsEl) viewsEl.textContent = formatNumber(views);
-    if (clicksEl) clicksEl.textContent = formatNumber(clicks);
-    if (updatedEl) {
-      updatedEl.textContent = seed.updated_at
-        ? `基准 ${seed.updated_at} · 含本机今日`
-        : '含本机今日互动';
+    if (viewsEl) {
+      pulseStat(viewsEl, lastRendered.views !== null && lastRendered.views !== views);
+      viewsEl.textContent = formatNumber(views);
     }
+    if (clicksEl) {
+      pulseStat(clicksEl, lastRendered.clicks !== null && lastRendered.clicks !== clicks);
+      clicksEl.textContent = formatNumber(clicks);
+    }
+    lastRendered = { views, clicks };
+
+    const syncLine = lastSyncedAt
+      ? `最近同步 ${formatSyncTime(lastSyncedAt)}`
+      : seed.updated_at
+        ? `基准 ${seed.updated_at}`
+        : '';
+    const statusText = syncLine ? `${syncLine} · 本机实时累加` : '本机互动实时累加';
+    if (updatedTextEl) updatedTextEl.textContent = statusText;
+    else if (updatedEl) updatedEl.lastChild.textContent = statusText;
 
     if (list) {
       if (!tools.length) {
@@ -155,6 +188,7 @@
     }
 
     host.dataset.opsReady = '1';
+    host.dataset.opsSyncedAt = lastSyncedAt ? String(lastSyncedAt) : '';
   }
 
   function escapeHtml(s) {
@@ -211,30 +245,56 @@
     });
   }
 
-  async function loadSeed() {
+  async function loadSeed(force = false) {
     try {
-      const res = await fetch(`${siteBase()}engagement.json`, { cache: 'default' });
-      if (!res.ok) return;
+      const url = force
+        ? `${siteBase()}engagement.json?t=${Date.now()}`
+        : `${siteBase()}engagement.json`;
+      const res = await fetch(url, { cache: force ? 'no-store' : 'default' });
+      if (!res.ok) return false;
       const data = await res.json();
       seed = {
         updated_at: data.updated_at || '',
         page_views: Number(data.page_views) || 0,
         tools: Array.isArray(data.tools) ? data.tools : [],
       };
+      lastSyncedAt = Date.now();
+      render();
+      return true;
     } catch {
-      /* offline */
+      return false;
     }
+  }
+
+  function startLiveSync() {
+    if (pollTimer) return;
+    pollTimer = window.setInterval(() => {
+      if (document.visibilityState === 'visible') loadSeed(true);
+    }, POLL_MS);
+
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'visible') loadSeed(true);
+    });
+
+    window.addEventListener('storage', (e) => {
+      if (e.key === STORAGE_KEY) render();
+    });
+
+    window.addEventListener('focus', () => {
+      if (document.visibilityState === 'visible') loadSeed(true);
+    });
   }
 
   async function boot() {
     if (!document.getElementById('home-ops')) return;
-    await loadSeed();
+    await loadSeed(false);
     recordPageView();
     bindTrendClicks();
     render();
+    startLiveSync();
   }
 
-  window.bioEngagement = { onEvent, render, loadLocal };
+  window.bioEngagement = { onEvent, render, loadLocal, refresh: () => loadSeed(true) };
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {

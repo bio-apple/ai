@@ -79,11 +79,11 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 见 **[CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)**。
 
-| 脚本            | 作用                                                        |
-| --------------- | ----------------------------------------------------------- |
-| `funnel.js`     | `journey_id`、`funnel_step`、`funnel_entry`、`section_view` |
-| `analytics.js`  | Umami / CF / GA4 / Clarity；`trackEvent` 统一出口           |
-| `engagement.js` | 首页运营热度 widget（本地累加）                             |
+| 脚本            | 作用                                                             |
+| --------------- | ---------------------------------------------------------------- |
+| `funnel.js`     | `journey_id`、`funnel_step`、`funnel_entry`、`section_view`      |
+| `analytics.js`  | Umami / CF / GA4 / Clarity；`trackEvent` 统一出口                |
+| `engagement.js` | 首页运营热度 widget（基准 45s 同步 + 本机即时累加 + 跨标签同步） |
 
 ---
 

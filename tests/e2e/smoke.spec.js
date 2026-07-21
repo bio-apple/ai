@@ -50,6 +50,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-ops')).toBeVisible();
     await expect(page.locator('#ops-views')).not.toHaveText('—');
     await expect(page.locator('#ops-trend-list .ops-trend-item').first()).toContainText('今日点击');
+    await expect(page.locator('#ops-updated-text')).toContainText(/同步|实时/);
+    await expect(page.locator('.ops-live-dot')).toBeVisible();
     await expect(page.locator('#home-tools')).toHaveCount(0);
     await expect(page.locator('#home-categories')).toHaveCount(0);
     await expect(page.locator('#home-oss')).toBeVisible();
@@ -60,6 +62,24 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#knowledge-fab')).toBeVisible();
     await expect(page.locator('a.logo')).toHaveAttribute('aria-label', '返回首页');
     await expect(page.locator('a.logo')).toHaveAttribute('href', /index\.html$/);
+  });
+
+  test('今日热度本机实时累加', async ({ page }) => {
+    await gotoHome(page, '#home-ops');
+    await expect(page.locator('#ops-clicks')).not.toHaveText('—');
+    const before = Number(
+      (await page.locator('#ops-clicks').textContent())?.replace(/,/g, '') || 0,
+    );
+    await page.locator('#ops-trend-list .ops-trend-item').first().click();
+    await expect
+      .poll(async () => {
+        const now = Number(
+          (await page.locator('#ops-clicks').textContent())?.replace(/,/g, '') || 0,
+        );
+        return now > before;
+      })
+      .toBe(true);
+    await expect(page.locator('#ops-updated-text')).toContainText('本机实时累加');
   });
 
   test('推荐助手文本流', async ({ page }) => {
