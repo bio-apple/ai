@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-21T14:24:34.255022+08:00",
+  "updated_at": "2026-07-21T21:22:53.308469+08:00",
   "date": "2026-07-21",
   "cadence": "daily",
   "window_days": 7,
@@ -13,6 +13,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "156450f50c1b",
+      "title": "WAIC重磅成果｜上海仪电智算牵头成立“智算系统架构联盟”并发布《超节点系统架构规范》",
+      "summary": "WAIC重磅成果｜上海仪电智算牵头成立“智算系统架构联盟”并发布《超节点系统架构规范》",
+      "url": "https://www.qbitai.com/2026/07/456052.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-21T17:39:34+08:00"
+    },
+    {
+      "id": "d2db66f665da",
+      "title": "WAIC重磅成果｜上海市教育算力专区正式开启试运行",
+      "summary": "WAIC重磅成果｜上海市教育算力专区正式开启试运行",
+      "url": "https://www.qbitai.com/2026/07/456026.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-21T17:30:03+08:00"
+    },
+    {
+      "id": "e2fd057a37b7",
+      "title": "WAIC重磅成果｜智爱赛思全面升级并发布科研专属Token Plan",
+      "summary": "WAIC重磅成果｜智爱赛思全面升级并发布科研专属Token Plan",
+      "url": "https://www.qbitai.com/2026/07/456021.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-21T17:21:55+08:00"
+    },
+    {
+      "id": "ebe4450f927a",
+      "title": "WAIC重磅成果｜仪电智算云在国家人工智能应用中试基地建设中展现全栈服务能力",
+      "summary": "WAIC重磅成果｜仪电智算云在国家人工智能应用中试基地建设中展现全栈服务能力",
+      "url": "https://www.qbitai.com/2026/07/455998.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-21T17:15:50+08:00"
+    },
+    {
+      "id": "f705053ddeec",
+      "title": "国内首个！阿里健康氢离子达成NEJM、JAMA、BMJ三大医学顶刊内容合作",
+      "summary": "国内首个！阿里健康氢离子达成NEJM、JAMA、BMJ三大医学顶刊内容合作",
+      "url": "https://www.qbitai.com/2026/07/455993.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-07-21T14:03:10+08:00"
+    },
     {
       "id": "92507309f7d6",
       "title": "Rater State Bias in RLHF Preference Data: An Audit Framework",
@@ -59,22 +104,13 @@
       "published_at": "2026-07-21T12:00:00+08:00"
     },
     {
-      "id": "e4f5fad1d59e",
-      "title": "基于超1万肿瘤样本训练，哈佛医学院等提出泛癌症基础模型COMPASS，平均性能优于22种现有方法",
-      "summary": "过去十年，免疫检查点抑制剂（ICIs）显著改变癌症治疗，但疗效个体差异大。现有生物标志物（如TMB、PD-L1）预测能力有限。为此，哈佛医学院、罗氏与浙江大学团队开发泛癌症基础模型COMPASS，基于10,184个肿瘤样本训练，涵盖33种癌症类型，在16个临床队列中验证显示其平均准确率提升8.5%，AUPRC提升15…",
-      "url": "https://simg.baai.ac.cn/uploads/2026/07/cec247ad7f700d435e1e66bf4e7ab855.jpg",
+      "id": "6bcab8780858",
+      "title": "ICML2026最佳论文提名｜模型过拟合后为何突然“开窍”？首个可证明Grokking理论，普渡大学，智源TALK",
+      "summary": "本报告介绍ICML 2026最佳论文提名工作，首次在带权重衰减的过参数化线性回归（即岭回归）中建立可证明的Grokking理论。Grokking指模型长期过拟合后突然泛化，其机制此前缺乏严格解释。研究通过理论分析揭示：岭回归中存在隐式正则化路径与优化动态耦合，导致训练误差先降后升再骤降，泛化误差同步突变；关键在于高维…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU5ODg0MTAwMw==&mid=2247557304&idx=3&sn=e662af924eac41a4a5ee9fe0b6ae1a9e&chksm=ff03811027b1d7081409541dc6cf5f00e3466b9d6caeb8be3b0705f218efb05cf19de2c5db21&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
-      "published_at": "2026-07-21 11:51 发布"
-    },
-    {
-      "id": "2a78dec0bd6f",
-      "title": "Nat. Commun. | 面向复合材料设计的序关系感知多模态表示学习",
-      "summary": "DRUGONE复合材料性能受纤维体积分数、空间分布、取向及局部微观结构等多因素耦合影响，需融合显微图像与材料描述符等异构信息。现有面向晶体/聚合物的多模态方法假设离散映射关系，难以刻画复合材料连续非线性设计空间；且受限于实验数据稀缺，传统对比学习难以构建可靠跨模态表征。为此，研究提出序关系感知框架，利用有序样本对建模…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514048&idx=2&sn=18ad68af733141d574c9cb55ac4a44f7&chksm=fd81c046e02dc7cba8ebcbf7d2a167ba1341762b943277509d86f41a84220a93c89f13954df4&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-21 09:20 分享"
+      "published_at": "2026-07-21 18:50 分享"
     },
     {
       "id": "286358f33346",
@@ -95,24 +131,6 @@
       "published_at": "2026-07-20T18:59:23+08:00"
     },
     {
-      "id": "f5556ee5759a",
-      "title": "WAIC 2026收官｜范式大会亮点集锦，见证AI 2.0从技术突破走向产业实践",
-      "summary": "WAIC 2026收官｜范式大会亮点集锦，见证AI 2.0从技术突破走向产业实践",
-      "url": "https://www.qbitai.com/2026/07/455963.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-20T18:42:09+08:00"
-    },
-    {
-      "id": "2d68c7ee36bf",
-      "title": "不同模型厂同一家Agentic Infra，AGI时代的地基终于浮出水面",
-      "summary": "大模型时代的共同选择",
-      "url": "https://www.qbitai.com/2026/07/455805.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-07-20T18:33:23+08:00"
-    },
-    {
       "id": "d4ff9ec891b7",
       "title": "Safety and alignment in an era of long-horizon models",
       "summary": "OpenAI shares lessons from deploying long-running AI models, highlighting new safety risks, observed failures, and improved safeguards through iterative deploy…",
@@ -122,35 +140,8 @@
       "published_at": "2026-07-20T18:00:00+08:00"
     },
     {
-      "id": "53873cfce106",
-      "title": "当AI进入最依赖“人”的行业：一家四线城市康复机构利润增长40%",
-      "summary": "当AI进入最依赖“人”的行业：一家四线城市康复机构利润增长40%",
-      "url": "https://www.qbitai.com/2026/07/455791.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-20T17:54:33+08:00"
-    },
-    {
-      "id": "fbb2c86b4ebf",
-      "title": "全球首发技术路线+全域联盟双轮破局，AI for ADANES释放先进核能新质生产力",
-      "summary": "全球首发技术路线+全域联盟双轮破局，AI for ADANES释放先进核能新质生产力",
-      "url": "https://www.qbitai.com/2026/07/455729.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-20T17:41:49+08:00"
-    },
-    {
-      "id": "63325022ee82",
-      "title": "启鸣达人首发《世界模型驱动的教育AGI白皮书》| WAIC 2026",
-      "summary": "从理论探索到体系构建",
-      "url": "https://www.qbitai.com/2026/07/455730.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-20T17:21:30+08:00"
-    },
-    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,043",
+      "title": "thedotmack/claude-mem · ★ 88,098",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -159,7 +150,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,027",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,035",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -275,6 +266,15 @@
       "published_at": null
     },
     {
+      "id": "4121c4903744",
+      "title": "一个周末，AI黑掉了AI！这剧情太科幻了",
+      "summary": "Hugging Face近日披露重大安全事件：其部分生产基础设施遭入侵，全程由自主AI Agent系统完成，无任何人参与操作，仅用一个周末即攻破。攻击留下超17000条操作日志。此前Anthropic亦报告类似案例——攻击者将Claude Code集成至攻击框架，自动化程度达80%–90%。此类事件凸显AI自主执行恶…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713993&idx=2&sn=318f2f0d791fffdc82bfe3823f73ea5a&chksm=f09fd8c2aeba1eee0779f7e80c5702aac03a5774dc98190a6f69b417e3479444ee8178d315fb&scene=126&sessionid=0#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
       "id": "ff1300aa6cce",
       "title": "Redeploying Claude Fable 5",
       "summary": "Redeploying Claude Fable 5",
@@ -302,29 +302,29 @@
       "published_at": null
     },
     {
-      "id": "c1f4f6323cf5",
-      "title": "通用机器人迎来“珠峰级”考试：人类登顶满分，最强AI还在山脚",
-      "summary": "具身智能时代，通用机器人策略的评估面临仿真与真实世界脱节、任务简单短程、复现难、成本高等挑战。为此，港大、伯克利、清华、北大等联合提出统一评估基准RoboDojo，兼顾仿真高效性与真实部署可靠性，覆盖多样、长时程、高精度、多技能任务，旨在 bridging the gap 于策略研发与实际落地之间，推动通用机器人向真…",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MDE3OTA5NA==&mid=2247605978&idx=1&sn=0119e2343331b09549553b5d90a13b71&chksm=ce327d78d5ebd8958c10791c1f7fd3039a25d078c4ef9c30bd87f4ae09900530c0ebd67a74c9&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "da9f75a2f25f",
+      "title": "Kimi K3上线48小时：模型爆火，GPU爆肝，会员停售",
+      "summary": "Kimi K3上线仅48小时便因用户激增导致服务器超负荷，GPU算力告急，官方紧急暂停C端新用户会员订阅。现有会员可正常使用，新用户暂无法购买。",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905172&idx=2&sn=bfd76c9d120d714050c6e056d373c0af&chksm=e9fddbb043b1e3d2a9e60c724e00a483d1e9c6b350e25e3cf43a5a266392239be0430d20407c&scene=126&sessionid=0#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "66ba2eeb5550",
-      "title": "ACL2026杰出论文｜强化学习微调新解法，几何视角GeoRA更高效，美团&北大，智源TALK",
-      "summary": "ACL2026杰出论文《GeoRA》提出几何感知低秩适配框架，专为强化学习结合可验证奖励（RLVR）的微调瓶颈设计。现有参数高效方法多针对监督学习，难以适配RLVR特有的优化几何结构。GeoRA通过在几何约束子空间内实施SVD分解，精准建模策略更新的流形结构，提升训练稳定性与收敛效率。该方法在多个大推理模型任务上显著…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU5ODg0MTAwMw==&mid=2247557304&idx=4&sn=9f685611419d908b52eb3582494144eb&chksm=ff6fc5bc86e1813e56014552696ee745c9ba4167edf4107f2c8ad154f0d6feea1383b0f2c98e&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "71607ff1f94b",
+      "title": "「仿真派」落地真产线！苏度WAIC首秀，CEO韩铮：99%+成功率",
+      "summary": "苏度科技，一家成立仅一年、估值超200亿元的中国具身智能新锐企业，于WAIC首次在国内大型展会亮相。其联合创始人、董事长兼CTO苏昊带领团队实现技术突破：机器人无需真机调试与遥操作采集，直接从仿真环境“毕业”，Zero-shot首次抓取成功率高达约98%。此前该成果已在CVPR引发轰动，展台人气爆棚。此次WAIC展示…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905208&idx=1&sn=05126cc220f01d7e678b41f994048a46&chksm=e990bdf92aad9eaca1cc0edffcf7ef9b70ddd00dc894ef05f02bfcc49c02b2158992ce165ab0&scene=126&sessionid=0#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "4cae692ef9fa",
-      "title": "【会议邀请】TPD2026 第三届靶向蛋白降解药物开发论坛/ Ion Channel 2026 靶向离子通道药物开发论坛（8月25-26日）",
-      "summary": "2026年8月25—26日，中国上海将举办靶向蛋白降解（TPD）相关会议。TPD作为一种新兴药物发现策略，利用细胞内泛素-蛋白酶体系统（UPS）或自噬-溶酶体途径（ALP），特异性诱导致病蛋白降解，突破传统小分子药物对“不可成药”靶点的局限，为分子靶向治疗提供全新化学工具与药物研发路径，正引发全球医药研发热潮。（15…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514048&idx=1&sn=1e177bec25e23064a7dcabfdc47f0985&chksm=fdd44e90f8b6b901e7283862ac38e3607d86278951fb552ec935a4c1224532f1606cdb50333c&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "e4e623a3538c",
+      "title": "大模型给图片打分不再“靠嘴说”！结构图、频谱图当“物证”，用“视觉证据”来给图片打分 | ECCV‘26",
+      "summary": "西北工业大学与香港科技大学团队提出IQA新框架，旨在解决多模态大模型（MLLM）图像质量评估不准确问题。现有MLLM常将退化图像（如加噪、压缩、模糊）误判为高质量，因其缺乏对失真特征的细粒度感知，评分依赖直觉而非证据。IQA通过引入可解释的质量感知模块，显式建模退化类型与程度，增强模型对图像失真的识别与量化能力，提升…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905208&idx=2&sn=a3e4a71dcd3ca497be18472aa088bdef&chksm=e9f2bdce1f1fa70c4dfba856be5e81dd86449ed87a29a18fc7158690dd584e21485241c5f787&scene=126&sessionid=0#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     }
