@@ -301,106 +301,6 @@ header {
   animation-delay: -4s;
 }
 
-/* AI 领域关联图：边缘氛围，中心让位文案 */
-.hero-ai-map {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-items: center;
-  margin: 0;
-  pointer-events: none;
-  contain: layout paint;
-  z-index: 0;
-}
-
-.hero-ai-map picture {
-  display: contents;
-}
-
-.hero-ai-map-img {
-  width: min(1240px, 118vw);
-  max-width: none;
-  height: auto;
-  aspect-ratio: 1200 / 780;
-  object-fit: contain;
-  /* 提高标签标签可读性；中心仍靠 scrim 保主文案 */
-  opacity: 0.72;
-  mix-blend-mode: normal;
-  filter: none;
-  user-select: none;
-  -webkit-user-drag: none;
-  /* 仅挖开标题核心区，边缘学科名保持清晰 */
-  mask-image: radial-gradient(
-    ellipse 36% 32% at 50% 36%,
-    transparent 0%,
-    rgba(0, 0, 0, 0.55) 28%,
-    #000 52%
-  );
-  -webkit-mask-image: radial-gradient(
-    ellipse 36% 32% at 50% 36%,
-    transparent 0%,
-    rgba(0, 0, 0, 0.55) 28%,
-    #000 52%
-  );
-  transform: translate3d(0, 0, 0);
-  animation: heroMapFloat 18s var(--ease-soft, ease-in-out) infinite alternate;
-}
-
-@keyframes heroGridDrift {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(0, 24px, 0);
-  }
-}
-
-@keyframes heroOrb {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  to {
-    transform: translate3d(0, -16px, 0) scale(1.06);
-  }
-}
-
-@keyframes heroMapFloat {
-  from {
-    transform: translate3d(0, 0, 0) scale(1);
-  }
-  to {
-    transform: translate3d(0, -12px, 0) scale(1.025);
-  }
-}
-
-.hero-content {
-  position: relative;
-  max-width: 820px;
-  margin: 0 auto;
-  width: 100%;
-  z-index: 1;
-  isolation: isolate;
-}
-
-/* 文案可读性衬底：收紧覆盖区，避免冲淡外围学科标签 */
-.hero-content-scrim {
-  position: absolute;
-  z-index: -1;
-  left: 50%;
-  top: 2%;
-  width: min(100% + 32px, 620px);
-  height: 64%;
-  transform: translateX(-50%);
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 72% 68% at 50% 36%,
-    rgba(244, 247, 252, 0.96) 0%,
-    rgba(244, 247, 252, 0.86) 38%,
-    rgba(244, 247, 252, 0.35) 62%,
-    rgba(244, 247, 252, 0) 80%
-  );
-}
-
 .hero-brand-mark {
   display: flex;
   align-items: center;
@@ -912,22 +812,6 @@ footer a:hover {
     width: 100%;
     justify-content: center;
   }
-  .hero-ai-map-img {
-    width: min(920px, 148vw);
-    opacity: 0.58;
-    filter: none;
-  }
-
-  .hero-content-scrim {
-    width: min(100% + 16px, 100%);
-    height: 62%;
-    background: radial-gradient(
-      ellipse 78% 68% at 50% 36%,
-      rgba(244, 247, 252, 0.95) 0%,
-      rgba(244, 247, 252, 0.8) 42%,
-      rgba(244, 247, 252, 0) 76%
-    );
-  }
 }
 
 html[data-theme='dark'] .hero-bg {
@@ -935,25 +819,4 @@ html[data-theme='dark'] .hero-bg {
     radial-gradient(ellipse 90% 70% at 50% -20%, rgba(99, 102, 241, 0.18), transparent 55%),
     radial-gradient(ellipse 45% 40% at 15% 85%, rgba(6, 182, 212, 0.1), transparent 50%),
     linear-gradient(180deg, #050505 0%, #0b1220 45%, #111827 100%);
-}
-
-html[data-theme='dark'] .hero-ai-map-img {
-  opacity: 0.4;
-  mix-blend-mode: screen;
-  filter: brightness(1.2) contrast(1.05);
-}
-
-html[data-theme='dark'] .hero-content-scrim {
-  background: radial-gradient(
-    ellipse 62% 58% at 50% 36%,
-    rgba(11, 18, 32, 0.9) 0%,
-    rgba(11, 18, 32, 0.6) 42%,
-    rgba(11, 18, 32, 0) 74%
-  );
-}
-
-@media (prefers-reduced-data: reduce) {
-  .hero-ai-map-img {
-    opacity: 0.55;
-  }
 }

@@ -28,19 +28,18 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 ---
 
-## 2. Hero 背景（AI 领域关联图）
+## 2. AI 领域地图（首页内容区块）
 
-| 项       | 说明                                                                       |
-| -------- | -------------------------------------------------------------------------- |
-| 组件     | `HeroAiMap.astro`（首页 `hero-bg` 内）                                     |
-| 资源     | `hero-ai-map.svg` + `hero-ai-map-{640,960,1280}.webp`                      |
-| 策略     | `<768px` 仅 SVG（~5KB）；≥768px 用 WebP `srcset`                           |
-| 构图     | 中心 mask 镂空 + `.hero-content-scrim` 衬底，保证品牌/搜索可读             |
-| 动效     | 轻微 `heroMapFloat`；尊重 `prefers-reduced-motion`                         |
-| 装饰语义 | `aria-hidden` + 空 `alt`，不抢 LCP（`loading=lazy` / `fetchpriority=low`） |
-| 缓存     | `_headers` 对 SVG/WebP 设 7 天 `Cache-Control`                             |
+| 项     | 说明                                                                     |
+| ------ | ------------------------------------------------------------------------ |
+| 位置   | 首页 `home-main`：推荐助手与 AI 简报之后、开源精选之前（`#home-ai-map`） |
+| 形态   | 独立 section + `figure` / `figcaption`，**不是** Hero 背景               |
+| 组件   | `HomeAiMap.astro`                                                        |
+| 资源   | `hero-ai-map.svg` + `hero-ai-map-{640,960,1280}.webp`                    |
+| 策略   | `<768px` 仅 SVG；≥768px WebP `srcset`；`loading=lazy` 不抢 LCP           |
+| 无障碍 | 完整 `alt` 描述层级关系；标题 + 说明句 + 学习路线链接                    |
 
-关联关系：AI ⊃ ML ⊃ DL，并与 Computer Vision / Robotics / NLP / Speech Recognition 交叉；外围为 Mathematics 等基础学科。
+**为何不放 Hero 背景**：带可读标签的信息图与品牌/搜索抢注意力，对比度与 LCP 难兼顾；装饰用应无字，内容图应独立成段。
 
 ---
 
@@ -141,7 +140,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 | 组件                     | 作用                                      |
 | ------------------------ | ----------------------------------------- |
-| `HeroAiMap.astro`        | Hero 背景 AI 领域关联图                   |
+| `HomeAiMap.astro`        | AI 领域关系信息图（简报后）               |
 | `HomeQuickFilters.astro` | 快筛：开源项目 / AI 资讯 / 工具教程       |
 | `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
 | `HomeRecommend.astro`    | AI 推荐助手（含现实实例）                 |

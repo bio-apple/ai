@@ -48,9 +48,9 @@ dist/                 # 构建产物（不提交）
 
 **推荐规则**：`ai_picker.options[].examples`（现实实例）随 `recommend-rules.json` 透传。
 
-**前端共享层**：见上表 `lib/*`；懒加载频道由 `lazy-sections.js` 保证先加载 `lib/`。Layout 默认加载 `link-guard.js`、`funnel.js` → `analytics.js`。Hero 背景图、面包屑、搜索交互见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
+**前端共享层**：见上表 `lib/*`；懒加载频道由 `lazy-sections.js` 保证先加载 `lib/`。Layout 默认加载 `link-guard.js`、`funnel.js` → `analytics.js`。领域地图（`#home-ai-map`）、面包屑、搜索交互见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
 
-**性能**：视频 Tab 用 `daily-videos.latest.json`（近 2 批）；视频 / 榜单 / GitHub 热门接入虚拟列表；动态区块 `min-height` 降 CLS；`style.css` 带内容哈希 `?v=`；Hero 图移动端仅 SVG、桌面 WebP `srcset`。
+**性能**：视频 Tab 用 `daily-videos.latest.json`（近 2 批）；视频 / 榜单 / GitHub 热门接入虚拟列表；动态区块 `min-height` 降 CLS；`style.css` 带内容哈希 `?v=`；领域地图首屏以下 lazy，移动端仅 SVG、桌面 WebP `srcset`。
 
 `prebuild` 同步静态资源时包含 `hero-ai-map.svg` / `hero-ai-map-*.webp` 与 `_headers`（含图缓存策略）。
 
@@ -176,7 +176,7 @@ npm run build
 - **新必学课程**：`config/courses-fetch.yaml` → `required` 或 `hubs`，并更新 `validate_ci.py` 中 `REQUIRED_COURSE_URLS`
 - **调整路线**：改 `track_order` / `track_keywords`，重跑 `fetch_ai_courses.py`
 - **工具中心对比行**：`site.compare_table`（构建时自动链到教程）
-- **Hero 背景图**：替换 `hero-ai-map.svg` / 重导出 `hero-ai-map-*.webp` 后 `npm run build`
+- **AI 领域地图**：替换 `hero-ai-map.svg` / 重导出 `hero-ai-map-*.webp` 后 `npm run build`（展示于首页 `#home-ai-map`，非 Hero）
 - **排行榜**：`data/rankings.json`（00:00 日更；也可手动 `fetch_rankings.py`）
 
 站内链接用 `src/lib/paths.ts` 的 `asset()`（base `/ai/`）。

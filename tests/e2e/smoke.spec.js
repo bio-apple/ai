@@ -30,14 +30,13 @@ test.describe('Bio AI Lab 关键路径', () => {
   test('首页主路径：推荐 · 简报 · 开源（无热门/更多工具）', async ({ page }) => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('AI 工作流');
-    await expect(page.locator('.hero-ai-map .hero-ai-map-img')).toBeAttached();
-    await expect(page.locator('.hero-ai-map .hero-ai-map-img')).toHaveAttribute(
-      'src',
-      /hero-ai-map/,
-    );
-    await expect(page.locator('.hero-content-scrim')).toBeAttached();
-    await expect(page.locator('.hero-brand')).toContainText('Bio AI Lab');
+    await expect(page.locator('#home-ai-map')).toBeVisible();
+    await expect(page.locator('#home-ai-map .ai-map-img')).toBeVisible();
+    await expect(page.locator('#home-ai-map .ai-map-img')).toHaveAttribute('alt', /AI 领域关系图/);
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
+    await expect(page.locator('.hero-brand')).toContainText('Bio AI Lab');
+    await expect(page.locator('.hero-ai-map')).toHaveCount(0);
+    await expect(page.locator('.hero-content-scrim')).toHaveCount(0);
     await expect(page.locator('#main-content')).toBeVisible();
     await expect(page.locator('#home-recommend')).toBeVisible();
     await expect(page.locator('#home-daily')).toBeVisible();

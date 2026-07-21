@@ -950,6 +950,63 @@
   font-size: 0.9rem;
 }
 
+/* AI 领域地图：首屏以下信息图区块（非 Hero 背景） */
+.home-ai-map .section-head {
+  text-align: center;
+  max-width: 40rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ai-map-figure {
+  margin: 0 auto;
+  max-width: 1040px;
+  padding: 8px 0 0;
+}
+
+.ai-map-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1200 / 780;
+  border-radius: 16px;
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 40%, rgba(37, 99, 235, 0.06), transparent 65%),
+    var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  object-fit: contain;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.ai-map-caption {
+  margin: 14px auto 0;
+  max-width: 40rem;
+  text-align: center;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.ai-map-link {
+  display: inline-block;
+  margin-left: 6px;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.ai-map-link:hover {
+  text-decoration: underline;
+}
+
+html[data-theme='dark'] .ai-map-img {
+  background:
+    radial-gradient(ellipse 80% 70% at 50% 40%, rgba(99, 102, 241, 0.12), transparent 65%),
+    var(--bg-card);
+}
+
 @media (max-width: 900px) {
   .learning-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

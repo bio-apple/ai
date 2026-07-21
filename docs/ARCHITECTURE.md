@@ -89,7 +89,7 @@ flowchart LR
 | `HomeLayout.astro`       | `index.astro`                 | SPA 式 Tab、Hero AI 图、知识库 FAB、推荐助手 |
 | `StandaloneLayout.astro` | 工具页 / 对比 / 指南 / 排行等 | 独立 `<main>`、面包屑、可选知识库 FAB        |
 
-关键组件：`HeroAiMap.astro`、`Breadcrumb.astro` / `StandalonePageHeader.astro`、`GlobalSearch.astro`。
+关键组件：`HomeAiMap.astro`（领域地图）、`Breadcrumb.astro` / `StandalonePageHeader.astro`、`GlobalSearch.astro`。
 
 **路由与输出**（`astro.config.mjs`）：
 
@@ -184,7 +184,7 @@ flowchart TB
 | 模块     | 文件                            | 职责                                                          |
 | -------- | ------------------------------- | ------------------------------------------------------------- |
 | 搜索     | `app.js` + `GlobalSearch.astro` | 多实例 Fuse；fixed 下拉；`preferSearchHits`；提交按钮 / Enter |
-| Hero 图  | `HeroAiMap.astro`               | 响应式 WebP + SVG 回退；中心 scrim                            |
+| 领域地图 | `HomeAiMap.astro`               | 简报后信息图区块；SVG + 响应式 WebP；非 Hero 背景             |
 | 面包屑   | `Breadcrumb.astro`              | 专区「首页 / …」；独立页经 `StandalonePageHeader`             |
 | 漏斗     | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich                           |
 | 虚拟列表 | `lib/virtual-list.js`           | 视频 / 榜单 / GitHub 热门                                     |
@@ -318,13 +318,13 @@ data/                 # 手工内容源（见 DATA-MODEL.md）
 config/               # 抓取规则 YAML + csp.json
 schemas/              # JSON Schema（CI 门禁）
 src/pages/            # Astro 路由 → HTML
-src/components/       # HeroAiMap / Breadcrumb / GlobalSearch / OssCard / SeoHead …
+src/components/       # HomeAiMap / Breadcrumb / GlobalSearch / OssCard / SeoHead …
 src/layouts/          # 页面壳
 src/lib/              # data 加载、路径、hub 对比映射、Schema.org（schema.ts）
 lib/                  # 浏览器共享：fetch-json / virtual-list / link-guard
 scripts/              # prebuild / 抓取 / 校验
 css/ + *.js           # 样式与运行时脚本
-hero-ai-map*.{svg,webp}  # Hero 背景图（sync-public → dist）
+hero-ai-map*.{svg,webp}  # AI 领域地图资源（首页内容区块，sync-public → dist）
 dist/                 # 构建产物（不提交）
 public/               # prebuild 中间产物（不提交）
 ```
