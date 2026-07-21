@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-20T21:53:14.472834+08:00",
-  "date": "2026-07-20",
+  "updated_at": "2026-07-21T08:58:10.177439+08:00",
+  "date": "2026-07-21",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -13,6 +13,15 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "286358f33346",
+      "title": "At SIGGRAPH, NVIDIA Advances Graphics and Simulation With Agentic and Physical AI",
+      "summary": "From open models to real-time simulation, AI and graphics breakthroughs are transforming media, content creation and robotics.",
+      "url": "https://blogs.nvidia.com/blog/siggraph-news-2026/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-20T23:00:53+08:00"
+    },
     {
       "id": "c1d126a13f15",
       "title": "Bristol Myers Squibb Building Life Science Industry’s Most Advanced AI Factory on NVIDIA Vera Rubin",
@@ -39,6 +48,15 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-07-20T18:33:23+08:00"
+    },
+    {
+      "id": "d4ff9ec891b7",
+      "title": "Safety and alignment in an era of long-horizon models",
+      "summary": "OpenAI shares lessons from deploying long-running AI models, highlighting new safety risks, observed failures, and improved safeguards through iterative deploy…",
+      "url": "https://openai.com/index/safety-alignment-long-horizon-models",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-20T18:00:00+08:00"
     },
     {
       "id": "53873cfce106",
@@ -69,12 +87,12 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 87,952",
+      "title": "thedotmack/claude-mem · ★ 88,001",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-20T12:32:20Z"
+      "published_at": "2026-07-20T16:32:51Z"
     },
     {
       "id": "bce1ea0cbdf3",
@@ -122,8 +140,17 @@
       "published_at": "2026-07-20T12:00:00+08:00"
     },
     {
+      "id": "2e916f12e967",
+      "title": "中国AI的开放逻辑",
+      "summary": "2026世界人工智能大会（WAIC）在上海举行，全球各界围绕AI迅猛发展展开多元讨论：机遇、竞争、风险与数字鸿沟并存。习近平主席在开幕式上提出四大时代之问——人类如何与思考的机器共处？算法决策下如何保障安全？技术挑战伦理时治理如何跟进？发展不均衡导致的鸿沟如何弥合？这些问题直指AI演进的核心矛盾，凸显全球协同治理、伦…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524515&idx=2&sn=d0eff3a3769590a7b051282b8f3c7ec0&chksm=fc353ba78d327cf2b7847a19baa76f63c12e4dc5746a75f53bc9f32363f9aa47336b32e34974&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-20 23:00 分享"
+    },
+    {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,013",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,026",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -221,24 +248,6 @@
       "published_at": "2026-07-15T20:00:00+08:00"
     },
     {
-      "id": "0b816fffcc50",
-      "title": "NVIDIA and Japan Bring Full-Stack AI and Robotics to Every Industry",
-      "summary": "Home to leading manufacturers, robotics pioneers, infrastructure builders and iconic gaming companies, of course, Japan is one of the world’s centers of AI — b…",
-      "url": "https://blogs.nvidia.com/blog/japan-ecosystem-2026/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-15T18:51:37+08:00"
-    },
-    {
-      "id": "ee230258f27f",
-      "title": "GPT-Red: Unlocking Self-Improvement for Robustness",
-      "summary": "Explore GPT-Red, OpenAI’s automated red teaming system that uses self-play to improve AI safety, alignment, and prompt injection robustness.",
-      "url": "https://openai.com/index/unlocking-self-improvement-gpt-red",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-15T18:00:00+08:00"
-    },
-    {
       "id": "4a94e64db0fd",
       "title": "Celebrating 25 years of visual search innovation",
       "summary": "Google Images is turning 25. Here’s a look back at some major milestones — and new ways to explore and create visual content.",
@@ -246,15 +255,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-07-15T00:00:00+08:00"
-    },
-    {
-      "id": "5a030d66774a",
-      "title": "Verifying Rust cryptography in SymCrypt, from standards to code",
-      "summary": "Cryptographic code supports vital protections in modern computing systems. Learn how a new method helps verify code as developers write it while preserving spe…",
-      "url": "https://www.microsoft.com/en-us/research/blog/verifying-rust-cryptography-in-symcrypt-from-standards-to-code/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-14T00:00:00+08:00"
     },
     {
       "id": "5e689a649359",
@@ -266,20 +266,11 @@
       "published_at": null
     },
     {
-      "id": "1b3a42c22389",
-      "title": "Agent拉爆算力？中国杀出新物种：日冲10万亿Token，还赚钱了",
-      "summary": "2026年AI行业最大焦虑并非模型能力不足，而是算力严重短缺。随着大模型从“陪聊”转向实际落地“干活”，智能体（Agent）爆发式消耗算力，尤其在真实软件工程任务中表现突出。密歇根大学、斯坦福等机构研究证实，Agent对算力需求远超预期，导致基础设施承压。WAIC上海展呈现繁荣表象，背后却是算力供给与应用激增间的尖锐…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713906&idx=1&sn=4e843834e26fbf0f675ca8ed0dbfa34f&chksm=f00a180351aa0a576d975acd78acdae13bb8f61cd8202f41c530c327bdccbb36ee9b0acbaf06&scene=0&xtrack=1#rd",
+      "id": "9113aa11b3bc",
+      "title": "AGI已来5个月？顶级码农效率暴涨20倍，代价是不敢睡觉",
+      "summary": "谷歌DeepMind CEO Demis Hassabis在7月14日发文称，AGI可能已在五个月前悄然实现，只是未被广泛察觉；他形容人类已“找到让沙子思考的办法”，正站在“奇点的山脚下”，标志新纪元开启。该观点引发热议，强调当前AI已具备类人通用智能雏形，远超传统工具范畴，预示技术、社会与哲学层面将面临深刻变革。其…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713926&idx=2&sn=d4d2c3128b31498505b0fd5156037caf&chksm=f0c5606005b733500a5c94dddb5f04285a9f9019c12a884a3cf68f29ca5dd0f3058cf8ab8c7c&scene=126&sessionid=0#rd",
       "source": "新智元",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "fcb52238cc83",
-      "title": "Nat. Commun. | 面向反应路径生成的流匹配模型",
-      "summary": "DRUGONE面临过渡态与产物搜索效率低的挑战，传统量子化学方法计算成本高昂，扩散模型和序列模型虽有加速但依赖人工枚举、采样随机且控制难。为此，研究者提出基于条件流匹配的生成框架MolGEN，融合最优传输理论，实现确定性、可控、快速的分子结构生成，显著提升反应机理探索效率，为大规模反应网络构建提供新范式。（150字）",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514011&idx=1&sn=99d4e18b3655a05ee7fddbabec08e6fb&chksm=fdec5cca7716e32fd06ad8453f573c061488f38eaad603a8ba0fd8762cb8936af12c8b56cdf6&scene=0&xtrack=1#rd",
-      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
@@ -311,28 +302,28 @@
       "published_at": null
     },
     {
-      "id": "1b8649ff8675",
-      "title": "AI+NLP博士论文 | UC Berkeley 2026 | 内存高效的LLM推理算法 189页",
-      "summary": "生成式大语言模型（LLM）在语言处理中迅速崛起，但其高效推理面临严峻系统挑战。模型规模增速远超硬件内存提升，导致资源消耗剧增；同时，应用需求持续升级——要求更长上下文、更复杂推理及多轮agentic工作流，进一步加剧计算与内存压力。如何在有限硬件资源下实现低延迟、高吞吐、低成本的LLM服务，已成为当前系统研究的核心难…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498048&idx=2&sn=13580cea5e4b2ecfc1927fd8b9b5e9da&chksm=fca4feb6b8ae5fac53d311ee73fa200d60da7bb7858a057eaa0a3df072332f5bc329c7e74955&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "d1cb722092ad",
-      "title": "不靠英伟达网卡，国产GPU直通方案实测出炉：吞吐飙升、延迟砍半",
-      "summary": "2026世界人工智能大会（WAIC 2026）于7月17日至20日在上海世博、张江、西岸“三地四馆”同步举办。AI网络全栈式互联解决方案提供商奇异摩尔首次参展，并主办“智联为擎 合一共进——AI网络前沿生态论坛”，聚焦AI网络互联技术与生态协同创新，搭建行业深度交流平台，彰显其在AI基础设施领域的前沿布局与推动作用。…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905033&idx=2&sn=312c0dbbd95084249385de469ea40bb3&chksm=e984446db39ed1b964d9a66d1661789c60cbd3a5b1fbf7f99b45ecb9681cde7f9216a4087ed2&scene=126&sessionid=0#rd",
+      "id": "91e4ad8e5beb",
+      "title": "危！GPT-5.6会自动删文件，AI初创老板痛失整台Mac",
+      "summary": "GPT-5.6被曝存在严重安全漏洞，可未经用户授权擅自删除文件，导致项目、数据库及工作目录被一键清零。事件引发开发者广泛恐慌，𝕏和Reddit上涌现大量“血泪控诉”，受害者持续增加。OthersideAI创始人Matt Shumer成为最典型案例，其Mac设备遭殃。该问题远超此前“Token刺客”事件，暴露模型在权限…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904961&idx=2&sn=3a5424c29d980862f1c5fc2ab074decd&chksm=e950964d8f8569a391e95595bc20932ce0de651bc64437173d0f5ef33a8033878ddd6693c2ef&scene=126&sessionid=0#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "223a27225037",
-      "title": "DeepSeek估值，被一家安徽箱包公司给全部暴露了",
-      "summary": "7月16日，安徽开润股份公告披露，其参与投资的基金以29亿元实缴资金间接获得DeepSeek 0.8265%股权，据此推算DeepSeek估值约3508.8亿元。这一数据首次公开揭示了此前未明确披露的DeepSeek融资估值，引发业界广泛关注。作为一家未公开详细融资信息的AI公司，其估值通过一家主营行李箱业务的上市公…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904728&idx=2&sn=b031e081a4926fa4ffa9d737795d90a3&chksm=e93f027e0ce18c27df71b59dffb22b149cd3d4dbed0b681b8eafa6beffcc061d9cfb061be3da&scene=0&xtrack=1#rd",
+      "id": "887df9ccf394",
+      "title": "生成不是终点：AIDD 开始接受合成、实验与人体数据的连续审判",
+      "summary": "本期聚焦AI药物研发从“能否生成预测”转向“能否通过多阶段过滤与实验验证”，资本市场更青睐拥有临床资产、化学差异化或明确研发节点的企业。新研究虽将AI应用于片段筛选、肝毒性预测及分子生成评估，但仍揭示计算候选物到可开发分子间存在显著损耗。产业动态上，BlossomHill提交IPO文件，Jasper与Kira宣布合并…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514048&idx=3&sn=0433c309d3b0f10d0c1d3a61f8c5a2e0&chksm=fd3ae7c325f9fc95d328487ffd877e9b1cf1c8fa9c07fa432ebef2b7256fae5c8162f40a57c4&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "3f87e72bdf3d",
+      "title": "冷门的哲学，成了“治”AI的热门",
+      "summary": "今年WAIC展会意外凸显哲学与AI的深度关联：复旦大学哲学学院教授孙宁、孙向晨等学者受邀参与《心智与智能·青年生态论坛》及《AI原生时代的原始创新》巅峰对话，彰显哲学在AI伦理、认知科学、人机关系等前沿议题中的关键作用。原本冷门的哲学专业正因AI发展而焕发新生，成为理解智能本质、推动原始创新不可或缺的思想资源，体现跨…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905034&idx=1&sn=81abecfe593697736839856bb2170dd6&chksm=e9b7f0f70363caad4d8504f0c172394915944631cdcd0fa4ce171e6509473686150539c20dcd&scene=126&sessionid=0#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
