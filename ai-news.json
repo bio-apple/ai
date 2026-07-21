@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-21T13:19:30.399397+08:00",
+  "updated_at": "2026-07-21T14:24:34.255022+08:00",
   "date": "2026-07-21",
   "cadence": "daily",
   "window_days": 7,
@@ -150,7 +150,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,035",
+      "title": "thedotmack/claude-mem · ★ 88,043",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -159,7 +159,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,028",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,027",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
