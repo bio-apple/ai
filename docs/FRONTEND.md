@@ -146,12 +146,12 @@ Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 
 ## 9. AI 视频
 
-| 项   | 说明                                                       |
-| ---- | ---------------------------------------------------------- |
-| 页面 | `#section-videos` · `videos.js`                            |
-| 数据 | `daily-videos.latest.json`（fallback `daily-videos.json`） |
-| 展示 | YouTube / B站分块网格，**整页平铺**（无内部滚动虚拟列表）  |
-| 筛选 | 平台（全部 / YouTube / B站）+ 排序（最新 / 热门）          |
+| 项   | 说明                                                                                            |
+| ---- | ----------------------------------------------------------------------------------------------- |
+| 页面 | `#section-videos` · `videos.js`                                                                 |
+| 数据 | `daily-videos.latest.json`（构建时由完整 `daily-videos.json` 瘦身生成；完整文件不再发布到 CDN） |
+| 展示 | YouTube / B站分块网格，**整页平铺**（无内部滚动虚拟列表）                                       |
+| 筛选 | 平台（全部 / YouTube / B站）+ 排序（最新 / 热门）                                               |
 
 ---
 
@@ -171,7 +171,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 | 项       | 实现                                                       |
 | -------- | ---------------------------------------------------------- |
-| Viewport | `width=device-width, initial-scale=1, maximum-scale=1`     |
+| Viewport | `width=device-width, initial-scale=1`                      |
 | 横滚     | `html/body` 与列表容器 `max-width:100%; overflow-x:hidden` |
 | 点击区   | 汉堡 / 主题切换 ≥44px                                      |
 | 关键 CSS | Layout 内联极简样式，完整 `style.css` 带 `?v=` 哈希        |

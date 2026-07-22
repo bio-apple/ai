@@ -303,7 +303,18 @@
       input.focus();
     } else {
       resetMobileViewport();
+      if (document.activeElement && panel.contains(document.activeElement)) {
+        fab.focus();
+      }
     }
+  }
+
+  function focusablesInPanel() {
+    return [
+      ...panel.querySelectorAll(
+        'button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      ),
+    ].filter((el) => el.offsetParent !== null || el === document.activeElement);
   }
 
   function syncMobileViewport() {
@@ -337,7 +348,23 @@
   input.addEventListener('input', autoGrowTextarea);
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && panel.classList.contains('open')) setOpen(false);
+    if (!panel.classList.contains('open')) return;
+    if (e.key === 'Escape') {
+      setOpen(false);
+      return;
+    }
+    if (e.key !== 'Tab') return;
+    const nodes = focusablesInPanel();
+    if (!nodes.length) return;
+    const first = nodes[0];
+    const last = nodes[nodes.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   if (window.visualViewport) {

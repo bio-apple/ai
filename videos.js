@@ -1,5 +1,4 @@
 const VIDEO_JSON = 'daily-videos.latest.json';
-const VIDEO_JSON_FALLBACK = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
 /** 每平台上限（YouTube / B站各自独立，不是两平台合计） */
 const PLATFORM_TOTAL_CAP = 10;
@@ -393,19 +392,13 @@ function fetchVideoData() {
     if (!window.BioAI?.fetchJson) {
       return Promise.reject(new Error('加载器未就绪，请稍后重试'));
     }
-    videoDataPromise = window.BioAI.fetchJson(VIDEO_JSON, { label: '视频' }).catch(() =>
-      window.BioAI.fetchJson(VIDEO_JSON_FALLBACK, {
-        label: '视频',
-        memoKey: VIDEO_JSON_FALLBACK,
-      }),
-    );
+    videoDataPromise = window.BioAI.fetchJson(VIDEO_JSON, { label: '视频' });
   }
   return videoDataPromise;
 }
 
 function resetVideoFetch() {
   window.BioAI?.invalidateFetch?.(VIDEO_JSON);
-  window.BioAI?.invalidateFetch?.(VIDEO_JSON_FALLBACK);
   videoDataPromise = null;
 }
 

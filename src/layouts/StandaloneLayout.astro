@@ -92,9 +92,9 @@ const home = homeHref();
     <UxWidgets />
     {includeKnowledge && <KnowledgeAssistant />}
     <Nav nav={site.nav} standalone={true} homeHref={home} navPrefix={BASE} />
-    <div id="main-content">
+    <main id="main-content">
       <slot />
-    </div>
+    </main>
     <Footer text={site.footer.text} />
     {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
   </body>

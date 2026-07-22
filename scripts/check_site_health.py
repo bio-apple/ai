@@ -172,7 +172,7 @@ def main() -> int:
         check_http("/recommend-rules.json", expect_substr=b"schema_version")
         notes.append("- recommend-rules OK")
         check_json_freshness(
-            "/daily-videos.json",
+            "/daily-videos.latest.json",
             ["updated_at", "batches.0.date"],
             VIDEO_MAX_AGE_DAYS,
             "daily-videos",

@@ -1,0 +1,35 @@
+---
+import StandaloneLayout from '../layouts/StandaloneLayout.astro';
+import { site } from '../lib/data';
+import { asset, homeHref } from '../lib/paths';
+
+const home = homeHref();
+const hub = asset('tools/hub.html');
+---
+
+<StandaloneLayout
+  title={`页面未找到 · ${site.meta.site_name || 'Bio AI Lab'}`}
+  description="你访问的页面不存在或已迁移。可返回首页、工具中心，或使用站内搜索继续探索 AI 工具与教程。"
+  canonical={`${String(site.meta.canonical || '').replace(/\/?$/, '/')}404.html`}
+  ogType="website"
+  scripts={['funnel.js', 'analytics.js', 'lib/link-guard.js', 'ux.js', 'app.js']}
+>
+  <section class="section active" style="padding: 3rem 1.25rem 4rem">
+    <div class="section-panel" style="max-width: 40rem; margin: 0 auto; text-align: center">
+      <p class="desc" style="letter-spacing: 0.08em; text-transform: uppercase; opacity: 0.7">
+        404
+      </p>
+      <h1 style="margin: 0.4rem 0 0.75rem; font-size: clamp(1.6rem, 4vw, 2.2rem)">
+        找不到这个页面
+      </h1>
+      <p class="desc" style="margin-bottom: 1.5rem">
+        链接可能已过期，或内容已合并到新入口。试试下面的去处：
+      </p>
+      <p style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center">
+        <a class="btn btn-primary" href={home}>返回首页</a>
+        <a class="btn btn-ghost" href={hub}>工具中心</a>
+        <a class="btn btn-ghost" href={homeHref('#section-videos')}>AI 视频</a>
+      </p>
+    </div>
+  </section>
+</StandaloneLayout>

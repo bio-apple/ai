@@ -25,7 +25,7 @@ const COPY_FILES = [
   'robots.txt',
   '_headers',
   '_redirects',
-  'daily-videos.json',
+  // 完整 daily-videos.json 仅留仓库；客户端用 build-artifacts 生成的 daily-videos.latest.json
   'ai-news.json',
   'ai-courses.json',
   'favicon.svg',

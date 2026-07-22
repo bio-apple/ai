@@ -1,5 +1,6 @@
 /**
  * 按 Tab section 懒加载业务脚本。首页主路径（推荐/简报/工具）已 SSG。
+ * 脚本 URL 带内容哈希（window.__BIOAI_ASSET_V__，由布局注入），避免 CDN/浏览器吃到旧文件。
  */
 (function () {
   const base = (document.documentElement.dataset.base || '/ai/').replace(/\/?$/, '/');
@@ -15,11 +16,26 @@
 
   const LIB_SCRIPTS = ['lib/fetch-json.js'];
 
+  function versionedSrc(name) {
+    const versions =
+      (typeof window !== 'undefined' && window.__BIOAI_ASSET_V__) ||
+      (typeof globalThis !== 'undefined' && globalThis.__BIOAI_ASSET_V__) ||
+      {};
+    const v = versions[name];
+    return v ? `${base}${name}?v=${v}` : base + name;
+  }
+
   function scriptAlreadyPresent(name) {
-    const abs = base + name;
     return [...document.querySelectorAll('script[src]')].some((el) => {
       const src = el.getAttribute('src') || '';
-      return src === abs || src.endsWith('/' + name) || el.dataset.lazySrc === name;
+      if (el.dataset.lazySrc === name) return true;
+      // 忽略 query：同名脚本（含旧 ?v=）视为已加载
+      try {
+        const path = new URL(src, window.location.origin).pathname;
+        return path === base + name || path.endsWith('/' + name);
+      } catch {
+        return src.includes(name);
+      }
     });
   }
 
@@ -32,7 +48,7 @@
 
     const p = new Promise((resolve, reject) => {
       const el = document.createElement('script');
-      el.src = base + name;
+      el.src = versionedSrc(name);
       el.async = true;
       el.dataset.lazySrc = name;
       el.onload = () => {

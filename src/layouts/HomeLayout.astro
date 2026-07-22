@@ -44,6 +44,17 @@ if (includeKnowledge) {
 }
 
 const styleHref = assetVersioned('style.css');
+
+/** 懒加载 Tab 脚本的内容哈希，供 lazy-sections.js 拼 ?v= */
+const LAZY_ASSET_PATHS = ['lib/fetch-json.js', 'videos.js', 'news.js', 'courses.js'] as const;
+const lazyAssetVersions = Object.fromEntries(
+  LAZY_ASSET_PATHS.map((p) => {
+    const href = assetVersioned(p);
+    const v = href.includes('?v=') ? href.slice(href.indexOf('?v=') + 3) : '';
+    return [p, v];
+  }),
+);
+const lazyAssetBoot = `window.__BIOAI_ASSET_V__=${JSON.stringify(lazyAssetVersions)};`;
 ---
 
 <!doctype html>
@@ -89,10 +100,11 @@ const styleHref = assetVersioned('style.css');
     <UxWidgets />
     {includeKnowledge && <KnowledgeAssistant />}
     <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
-    <div id="main-content">
+    <main id="main-content">
       <slot />
-    </div>
+    </main>
     <Footer text={site.footer.text} />
+    <script is:inline set:html={lazyAssetBoot} />
     {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
   </body>
 </html>

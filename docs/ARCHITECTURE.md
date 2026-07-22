@@ -158,23 +158,25 @@ flowchart TB
   end
 
   manual --> ASTRO_BUILD["Astro 构建期<br/>import 进 HTML"]
-  fetched --> SYNC["sync-public"]
-  manual --> ARTIFACTS["build-artifacts.mjs"]
-  SYNC --> CLIENT["浏览器 fetch"]
+  fetched --> SYNC["sync-public（新闻/课程等）"]
+  fetched --> ARTIFACTS["build-artifacts.mjs"]
+  manual --> ARTIFACTS
   ARTIFACTS --> search
   ARTIFACTS --> recommend
   ARTIFACTS --> analytics
   videos --> slim
+  SYNC --> CLIENT["浏览器 fetch"]
+  ARTIFACTS --> CLIENT
 ```
 
 ### 3.2 构建期 vs 运行时
 
-| 时机       | 数据源                                 | 消费方                               | 说明                                                  |
-| ---------- | -------------------------------------- | ------------------------------------ | ----------------------------------------------------- |
-| **构建期** | `data/site.json` 等                    | Astro 页面、`src/lib/*.ts`           | `import` 进 HTML，SEO/结构化数据在 SSG 时固化         |
-| **运行时** | `ai-news.json`、`daily-videos.json` 等 | `news.js`、`videos.js`、`courses.js` | 页面加载后 `fetch`，支持日更而不重编全部页面逻辑      |
-| **运行时** | `search-index.json`                    | `app.js`、`knowledge.js`、顶栏搜索   | Fuse.js 全文检索（工具/资讯/本地部署/课程/视频/模型） |
-| **运行时** | `recommend-rules.json`                 | `recommend.js`                       | 场景关键词 → 工具 + 现实实例 + 步骤                   |
+| 时机       | 数据源                                        | 消费方                               | 说明                                                      |
+| ---------- | --------------------------------------------- | ------------------------------------ | --------------------------------------------------------- |
+| **构建期** | `data/site.json` 等                           | Astro 页面、`src/lib/*.ts`           | `import` 进 HTML，SEO/结构化数据在 SSG 时固化             |
+| **运行时** | `ai-news.json`、`daily-videos.latest.json` 等 | `news.js`、`videos.js`、`courses.js` | 页面加载后 `fetch`；视频仅发布瘦身 latest，完整历史留仓库 |
+| **运行时** | `search-index.json`                           | `app.js`、`knowledge.js`、顶栏搜索   | Fuse.js 全文检索（工具/资讯/本地部署/课程/视频/模型）     |
+| **运行时** | `recommend-rules.json`                        | `recommend.js`                       | 场景关键词 → 工具 + 现实实例 + 步骤                       |
 
 首页是 **混合模式**：Hero / 导航 / 推荐场景 / 本地部署 / 面包屑在构建期渲染；新闻/视频/课程 Tab 由 JS 懒加载对应 JSON。
 
