@@ -220,17 +220,6 @@ function renderVideoCard(v, { compact = false, reveal = true } = {}) {
   `;
 }
 
-function flattenLatestVideos(batch) {
-  const seen = new Set();
-  const items = [];
-  for (const v of getBatchVideos(batch)) {
-    if (seen.has(v.id)) continue;
-    seen.add(v.id);
-    items.push(v);
-  }
-  return items;
-}
-
 function videosFromCategoryKeys(batch, keys) {
   const unique = dedupeBatchCategories(batch);
   const cats = unique.categories || {};
@@ -274,15 +263,6 @@ function buildPlatformVideoList(batch, platform, sort) {
     MERGED_DISPLAY_TOP,
   );
   return [...sortVideoList(direct, sort), ...merged];
-}
-
-function filterAndSortVideos(videos, { platform, sort }) {
-  // 兼容旧调用：若传入已扁平列表且无 batch，退化为全量排序
-  let list = [...videos];
-  if (platform !== 'all') {
-    list = list.filter((v) => videoPlatform(v) === platform);
-  }
-  return sortVideoList(list, sort);
 }
 
 function renderFilteredGrid(videos) {
