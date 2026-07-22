@@ -1,11 +1,11 @@
 {
   "meta": {
-    "title": "Bio AI Lab | AI 工具导航 · 开源精选 · 课程与热点",
-    "description": "Bio AI Lab：对比 ChatGPT、Claude、Cursor 等 AI 工具，收录开源项目、免费课程、一周热点与每日视频，帮你快速选型并搭建工作流。",
-    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,AI开源,AI热点",
+    "title": "Bio AI Lab | AI 工具导航 · 本地部署 · 课程与热点",
+    "description": "Bio AI Lab：对比 ChatGPT、Claude、Cursor 等 AI 工具，收录本地部署方案、免费课程、一周热点与每日视频，帮你快速选型并搭建工作流。",
+    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,本地部署,Ollama,AI热点",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
-    "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与开源精选",
+    "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与本地部署",
     "site_name": "Bio AI Lab",
     "base_url": "https://bio-apple.github.io/ai/"
   },
@@ -28,8 +28,8 @@
       },
       {
         "type": "tab",
-        "id": "oss",
-        "label": "开源精选"
+        "id": "local",
+        "label": "本地部署"
       },
       {
         "type": "tab",
@@ -51,7 +51,7 @@
   "hero": {
     "eyebrow": "Bio AI Lab",
     "title": "让每个人拥有自己的 AI 工作流",
-    "subtitle": "对比选型、开源精选、课程资源、热点与视频——搭好你的 AI 工作流。",
+    "subtitle": "对比选型、本地部署、课程资源、热点与视频——搭好你的 AI 工作流。",
     "cta_primary": {
       "label": "获取 AI 推荐",
       "href": "#home-recommend"
@@ -60,7 +60,7 @@
       "label": "浏览工具中心",
       "href": "tools/hub.html"
     },
-    "search_placeholder": "搜索工具、模型、开源、课程、视频…",
+    "search_placeholder": "搜索工具、模型、本地部署、课程、视频…",
     "search_suggestions": [
       "ChatGPT",
       "Cursor",
@@ -507,7 +507,7 @@
   "news_page": {
     "title": "一周内 AI 热点 | Bio AI Lab",
     "h1": "一周内 AI 热点",
-    "lead": "一周内 AI 热点精选：模型发布、开源动态与行业资讯，每日自动更新。"
+    "lead": "一周内 AI 热点精选：模型发布、产品动态与行业资讯，每日自动更新。"
   },
   "guides": {
     "beginner": {

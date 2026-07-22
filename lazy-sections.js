@@ -10,7 +10,6 @@
   const SECTION_SCRIPTS = {
     'section-videos': ['lib/virtual-list.js', 'videos.js'],
     'section-news': ['lib/virtual-list.js', 'news.js'],
-    'section-oss': ['oss.js'],
     'section-courses': ['courses.js'],
   };
 

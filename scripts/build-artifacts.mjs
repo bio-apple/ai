@@ -56,23 +56,26 @@ function appendCoursesSearchItems(items, courses) {
   }
 }
 
-function appendOssSearchItems(items, oss) {
-  for (const domain of oss?.domains || []) {
-    for (const project of domain.projects || []) {
-      if (!project?.name || !project?.url) continue;
+function appendLocalDeploySearchItems(items, local) {
+  for (const category of local?.categories || []) {
+    for (const tool of category.items || []) {
+      if (!tool?.name || !tool?.url) continue;
       items.push({
-        id: project.id,
-        label: project.name,
-        type: '开源',
-        url: project.url,
+        id: tool.id,
+        label: tool.name,
+        type: '本地部署',
+        url: tool.url,
         external: true,
         keywords: [
-          project.name,
-          project.repo,
-          project.description,
-          domain.label,
-          project.language,
-          project.badge,
+          tool.name,
+          tool.tagline,
+          tool.summary,
+          category.label,
+          ...(tool.platforms || []),
+          ...(tool.tags || []),
+          '本地部署',
+          'Ollama',
+          '私有化',
         ]
           .filter(Boolean)
           .join(' '),
@@ -157,11 +160,11 @@ function buildSearchIndex(site, tools, compares) {
       'AI新闻 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace arXiv GitHub Trending 机器之心 量子位 新智元 智源 每周',
   });
   items.push({
-    label: 'GitHub 开源精选',
+    label: '本地部署',
     type: '频道',
-    section: 'section-oss',
+    section: 'section-local',
     keywords:
-      '开源 GitHub Stars AI应用 Agent AI编程 OpenCode Claude Code OpenHands Dify LangChain n8n Ollama vLLM Open WebUI 本地大模型 AI绘画 多模态 Prompt库 每周一',
+      '本地部署 Ollama LM Studio llama.cpp vLLM Open WebUI Jan GPT4All LocalAI MLX 私有化 本机大模型',
   });
   items.push({
     label: 'AI 课程资源',
@@ -171,11 +174,10 @@ function buildSearchIndex(site, tools, compares) {
       '课程资源 免费 学习路线 入门 机器学习 深度学习 LLM Agent 微软 吴恩达 斯坦福 Google DeepLearning.AI',
   });
   items.push({
-    label: 'GitHub Prompt 库 Top 5',
-    type: '开源',
-    section: 'section-oss',
-    keywords:
-      'GitHub Prompt 库 Top5 prompts.chat System Prompts Prompt Engineering Guide Get Shit Done 中文调教 开源精选',
+    label: 'Ollama 本地大模型',
+    type: '本地部署',
+    section: 'section-local',
+    keywords: 'Ollama 本地部署 本机跑模型 Open WebUI llama.cpp LM Studio',
   });
   items.push({
     label: 'AI 工具中心',
@@ -384,10 +386,7 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   appendHubBoardSearchItems(searchIndex);
   appendNewsSearchItems(searchIndex, readRootJson('ai-news.json'));
   appendCoursesSearchItems(searchIndex, readRootJson('ai-courses.json'));
-  appendOssSearchItems(
-    searchIndex,
-    readRootJson('oss-projects.json') || readJson('oss-projects.json'),
-  );
+  appendLocalDeploySearchItems(searchIndex, readJson('local-deploy.json'));
   appendVideoSearchItems(searchIndex, readRootJson('daily-videos.json'));
   appendRankingSearchItems(searchIndex, rankings);
   const recommendRules = buildRecommendRules(site);
@@ -402,9 +401,9 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
     fs.copyFileSync(engagementSrc, path.join(outDir, 'engagement.json'));
   }
 
-  const ossSrc = path.join(DATA, 'oss-projects.json');
-  if (fs.existsSync(ossSrc)) {
-    fs.copyFileSync(ossSrc, path.join(outDir, 'oss-projects.json'));
+  const localSrc = path.join(DATA, 'local-deploy.json');
+  if (fs.existsSync(localSrc)) {
+    fs.copyFileSync(localSrc, path.join(outDir, 'local-deploy.json'));
   }
 
   const videosSrc = path.join(ROOT, 'daily-videos.json');

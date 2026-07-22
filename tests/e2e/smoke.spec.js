@@ -27,7 +27,7 @@ async function waitSearchReady(page) {
 }
 
 test.describe('Bio AI Lab 关键路径', () => {
-  test('首页主路径：推荐 · 简报 · 开源（无热门/更多工具）', async ({ page }) => {
+  test('首页主路径：推荐 · 简报 · 本地部署入口（无热门/更多工具）', async ({ page }) => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('AI 工作流');
     await expect(page.locator('#home-ai-map')).toBeVisible();
@@ -56,9 +56,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.ops-live-dot')).toBeVisible();
     await expect(page.locator('#home-tools')).toHaveCount(0);
     await expect(page.locator('#home-categories')).toHaveCount(0);
-    await expect(page.locator('#home-oss')).toBeVisible();
-    await expect(page.locator('#home-oss .oss-meta').first()).toBeVisible();
-    await expect(page.locator('#home-oss .oss-repo-btn').first()).toBeVisible();
+    await expect(page.locator('#home-oss')).toHaveCount(0);
+    await expect(page.locator('#section-oss')).toHaveCount(0);
     await expect(page.locator('#home-favorites')).toHaveCount(0);
     await expect(page.locator('#home-learning')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toBeVisible();
@@ -121,13 +120,15 @@ test.describe('Bio AI Lab 关键路径', () => {
   test('专区页面包屑', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.route('**/*fonts.gstatic.com/**', (route) => route.abort());
-    await page.goto('index.html#section-oss', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#section-oss')).toHaveClass(/active/);
-    const ossCrumb = page.locator('#section-oss .breadcrumb');
-    await expect(ossCrumb).toBeVisible();
-    await expect(ossCrumb).toContainText('首页');
-    await expect(ossCrumb).toContainText('开源精选');
-    await expect(ossCrumb.locator('a', { hasText: '首页' })).toBeVisible();
+    await page.goto('index.html#section-local', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#section-local')).toHaveClass(/active/);
+    const localCrumb = page.locator('#section-local .breadcrumb');
+    await expect(localCrumb).toBeVisible();
+    await expect(localCrumb).toContainText('首页');
+    await expect(localCrumb).toContainText('本地部署');
+    await expect(localCrumb.locator('a', { hasText: '首页' })).toBeVisible();
+    await expect(page.locator('#section-local .local-card').first()).toBeVisible();
+    await expect(page.locator('.nav-tab', { hasText: '本地部署' })).toBeVisible();
 
     await page.locator('.nav-tab', { hasText: '课程资源' }).click();
     await expect(page.locator('#section-courses')).toHaveClass(/active/);

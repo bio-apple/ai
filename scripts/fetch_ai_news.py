@@ -23,8 +23,6 @@ from fetch_resilience import atomic_write_json, fetch_url_bytes, load_json
 from news_dedupe import (
     assert_news_unique,
     dedupe_news_items,
-    exclude_urls,
-    load_oss_project_urls,
     news_recency_key,
     normalize_news_title,
 )
@@ -476,15 +474,6 @@ def main() -> int:
     collected.extend(parse_github_trending(cfg))
 
     recent = filter_recent(collected, cfg)
-    oss_urls = load_oss_project_urls(ROOT / "oss-projects.json") | load_oss_project_urls(
-        ROOT / "data" / "oss-projects.json"
-    )
-    if oss_urls:
-        before = len(recent)
-        recent = exclude_urls(recent, oss_urls)
-        dropped = before - len(recent)
-        if dropped:
-            print(f"  · 去重：已排除开源精选重复 {dropped} 条")
     # 去重 → 多样性挑选 → 再次去重兜底，写入前再断言唯一
     items = dedupe_news_items(select_diverse_items(dedupe_news_items(recent), cfg))
     assert_news_unique(items)

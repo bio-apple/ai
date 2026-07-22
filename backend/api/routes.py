@@ -44,7 +44,6 @@ def health() -> dict[str, Any]:
         "search-index.json",
         "daily-videos.json",
         "ai-news.json",
-        "oss-projects.json",
         "recommend-rules.json",
     ):
         path = runtime_path(name)

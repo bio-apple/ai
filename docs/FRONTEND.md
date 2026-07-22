@@ -15,7 +15,7 @@
 | 下拉 | Hero / Nav 展开时均为 `position: fixed`，避免 sticky / overflow 裁切              |
 | 排序 | `preferSearchHits`：精确标签与 `tools/*.html` 优先，压低 `hub.html#hub-compare`   |
 | 索引 | 构建时 `scripts/build-artifacts.mjs` → `search-index.json`（约 150 条）           |
-| 覆盖 | 工具教程、对比、资讯、开源、课程、视频、排行榜模型名、频道/导航                   |
+| 覆盖 | 工具教程、对比、资讯、本地部署、课程、视频、排行榜模型名、频道/导航                   |
 | 工具 | 条目来自 `tools.json`，`label` 为工具原名，`url` 为 `tools/{id}.html`             |
 | 联想 | 聚焦空输入显示 `site.hero.search_suggestions` chips                               |
 | 历史 | `localStorage` 键 `bioai.search.history.v1`（最多 8 条）                          |
@@ -32,7 +32,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 | 项     | 说明                                                                         |
 | ------ | ---------------------------------------------------------------------------- |
-| 位置   | 首页 `home-main`：推荐助手与 AI 简报之后、开源精选之前（`#home-ai-map`）     |
+| 位置   | 首页 `home-main`：推荐助手与 AI 简报之后（`#home-ai-map`）                     |
 | 形态   | 独立 section + 内联 SVG（全部闭合椭圆/圆），**不是** Hero 背景、不用断弧位图 |
 | 组件   | `HomeAiMap.astro` + `css/home.css`（`.ai-map*`）                             |
 | 策略   | 交叉用半透明叠色；主题色走 CSS 变量；窄屏矢量缩放                            |
@@ -47,7 +47,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 | 项       | 说明                                                               |
 | -------- | ------------------------------------------------------------------ |
 | 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用     |
-| 首页专区 | 开源 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
+| 首页专区 | 本地部署 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
 | 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`             |
 | SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                     |
 
@@ -100,13 +100,15 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 ---
 
-## 8. 开源卡片
+## 8. 本地部署
 
-统一组件 `OssCard.astro` + `oss.js` 动态渲染：
+`HomeLocalDeploy.astro` 构建期 SSG 渲染（`data/local-deploy.json`）：
 
-- **Stars** / **开发语言** / **用途**
-- 全宽「打开 GitHub 仓库」按钮
-- 类型徽章「开源」
+- **平台** / **标签** / **一句话定位**
+- 官网与文档外链按钮
+- 类型徽章「本地」
+
+Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 
 ---
 
@@ -140,26 +142,25 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 | 组件                     | 作用                                      |
 | ------------------------ | ----------------------------------------- |
 | `HomeAiMap.astro`        | AI 领域嵌套层级图（原生 HTML，简报后）    |
-| `HomeQuickFilters.astro` | 快筛：开源项目 / AI 资讯 / 工具教程       |
+| `HomeQuickFilters.astro` | 快筛：本地部署 / AI 资讯 / 工具教程       |
 | `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
 | `HomeRecommend.astro`    | AI 推荐助手（含现实实例）                 |
-| `HomeOssPreview.astro`   | 开源预览（SSG）                           |
+| `HomeLocalDeploy.astro`  | 本地部署（SSG，`#section-local`）         |
 | `Breadcrumb.astro`       | 专区页「首页 / …」面包屑                  |
 | 新闻列表                 | `今日` / `本周` 时间过滤 + 分类筛选       |
 
-内容类型徽章：资讯（蓝）/ 开源（绿）/ 视频（红角标）。
+内容类型徽章：资讯（蓝）/ 本地（绿）/ 视频（红角标）。
 
 ---
 
 ## 12. 懒加载频道
 
-`lazy-sections.js`：进入 Tab 再加载业务脚本。
+`lazy-sections.js`：进入 Tab 再加载业务脚本（`section-local` 为 SSG，不在此列）。
 
 | Section           | 脚本链                              |
 | ----------------- | ----------------------------------- |
 | `section-videos`  | `lib/virtual-list.js` → `videos.js` |
 | `section-news`    | `lib/virtual-list.js` → `news.js`   |
-| `section-oss`     | `oss.js`                            |
 | `section-courses` | `courses.js`                        |
 
 共享前置：`lib/fetch-json.js`（首页 scripts 已带）。

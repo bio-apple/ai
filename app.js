@@ -175,8 +175,8 @@ document.querySelectorAll('.breadcrumb a[data-tool]').forEach(bindNavItem);
 document.querySelectorAll('[data-goto]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.goto;
-    if (target === 'prompts') {
-      showSection(resolveGoto('oss'));
+    if (target === 'prompts' || target === 'oss') {
+      showSection(resolveGoto('local'));
       return;
     }
     showSection(resolveGoto(target));
@@ -244,7 +244,7 @@ const HOME_HASH_ANCHORS = new Set([
   'home-recommend',
   'home-ops',
   'home-community',
-  'home-oss',
+  'home-ai-map',
 ]);
 
 function siteBase() {

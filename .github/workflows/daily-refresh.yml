@@ -87,7 +87,7 @@ jobs:
           echo "failed_channels=" >> "$GITHUB_ENV"
 
       # ── 1. AI 视频 ──────────────────────────────────────────
-      - name: "1/4 Fetch AI videos"
+      - name: "1/3 Fetch AI videos"
         id: videos
         continue-on-error: true
         env:
@@ -115,7 +115,7 @@ jobs:
           PY
           python scripts/report_fetch_metrics.py videos || true
 
-      - name: "1/4 Commit videos"
+      - name: "1/3 Commit videos"
         if: steps.videos.outcome == 'success'
         run: |
           npx prettier --write daily-videos.json
@@ -126,42 +126,19 @@ jobs:
             git commit -m "chore: daily AI videos $DATE"
           fi
 
-      - name: "1/4 Record videos failure"
+      - name: "1/3 Record videos failure"
         if: steps.videos.outcome != 'success'
         run: echo "failed_channels=${failed_channels}videos," >> "$GITHUB_ENV"
 
-      # ── 2. 开源精选 ────────────────────────────────────────
-      - name: "2/4 Fetch OSS stars"
-        id: oss
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python scripts/fetch_oss_stars.py
-
-      - name: "2/4 Commit OSS"
-        if: steps.oss.outcome == 'success'
-        run: |
-          npx prettier --write data/oss-projects.json oss-projects.json
-          git add data/oss-projects.json oss-projects.json
-          if git diff --staged --quiet; then
-            echo "No OSS file changes"
-          else
-            git commit -m "chore: daily OSS recollect $DATE (≥50k Top3 + 中文Top1)"
-          fi
-
-      - name: "2/4 Record OSS failure"
-        if: steps.oss.outcome != 'success'
-        run: echo "failed_channels=${failed_channels}oss," >> "$GITHUB_ENV"
-
-      # ── 3. 课程资源 ────────────────────────────────────────
-      - name: "3/4 Fetch AI courses"
+      # ── 2. 课程资源 ────────────────────────────────────────
+      - name: "2/3 Fetch AI courses"
         id: courses
         continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python scripts/fetch_ai_courses.py
 
-      - name: "3/4 Commit courses"
+      - name: "2/3 Commit courses"
         if: steps.courses.outcome == 'success'
         run: |
           npx prettier --write ai-courses.json
@@ -172,17 +149,17 @@ jobs:
             git commit -m "chore: daily AI course resources $DATE"
           fi
 
-      - name: "3/4 Record courses failure"
+      - name: "2/3 Record courses failure"
         if: steps.courses.outcome != 'success'
         run: echo "failed_channels=${failed_channels}courses," >> "$GITHUB_ENV"
 
-      # ── 4. 工具排行榜 ──────────────────────────────────────
-      - name: "4/4 Fetch AI rankings"
+      # ── 3. 工具排行榜 ──────────────────────────────────────
+      - name: "3/3 Fetch AI rankings"
         id: rankings
         continue-on-error: true
         run: python scripts/fetch_rankings.py
 
-      - name: "4/4 Commit rankings"
+      - name: "3/3 Commit rankings"
         if: steps.rankings.outcome == 'success'
         run: |
           npx prettier --write data/rankings.json
@@ -193,7 +170,7 @@ jobs:
             git commit -m "chore: daily AI rankings $DATE"
           fi
 
-      - name: "4/4 Record rankings failure"
+      - name: "3/3 Record rankings failure"
         if: steps.rankings.outcome != 'success'
         run: echo "failed_channels=${failed_channels}rankings," >> "$GITHUB_ENV"
 
@@ -273,7 +250,7 @@ jobs:
             './ai-courses.json'
             './ai-news.json'
             './daily-videos.json'
-            './oss-projects.json'
+            './data/local-deploy.json'
 
       - name: Upload lychee report
         if: always() && github.event.inputs.skip_link_check != 'true'

@@ -14,7 +14,7 @@ data/                 # 内容源（JSON）
 src/pages|components  # Astro 页面
 css/ + *.js           # 样式与运行时脚本（courses.js / news.js / videos.js / funnel.js …）
 lib/                  # 共享前端工具（见下）
-config/               # 抓取配置（courses / news / video / oss）+ csp.json
+config/               # 抓取配置（courses / news / video）+ csp.json
 scripts/              # 构建 / 抓取 / 校验
 schemas/              # JSON Schema（CI 门禁）
 .github/workflows/    # CI、Pages、daily-refresh 串行日更、单频道手动救急
@@ -36,7 +36,7 @@ dist/                 # 构建产物（不提交）
 | `data/site.json` 等    | 手工维护                          | 随代码发布 |
 | `daily-videos.json`    | `fetch_daily_videos.py`           | 每日       |
 | `ai-news.json`         | `fetch_ai_news.py`                | 每日       |
-| `oss-projects.json`    | `fetch_oss_stars.py`              | 每日       |
+| `local-deploy.json`    | 手工维护（`data/`）               | 随代码发布 |
 | `ai-courses.json`      | `fetch_ai_courses.py`             | 每日       |
 | `data/rankings.json`   | `fetch_rankings.py`               | 每日       |
 | `search-index.json`    | `build-artifacts.mjs`（prebuild） | 每次构建   |
@@ -44,7 +44,7 @@ dist/                 # 构建产物（不提交）
 
 `prebuild` 会把根目录运行时 JSON 与静态 JS/CSS 同步到 `public/`，再经 Astro 打进 `dist/`。
 
-**搜索索引来源**（`build-artifacts.mjs` → 约 150 条）：`tools.json`（→ `tools/{id}.html`）、`site.json`（导航/场景/对比入口，**不含**逐工具 hub-compare 重复项）、`ai-news.json`、`oss-projects.json`、`ai-courses.json`、`daily-videos.json`、排行榜模型名。联想词：`site.hero.search_suggestions`。校验：`validate_ci.py search`。
+**搜索索引来源**（`build-artifacts.mjs` → 约 150 条）：`tools.json`（→ `tools/{id}.html`）、`site.json`（导航/场景/对比入口，**不含**逐工具 hub-compare 重复项）、`ai-news.json`、`local-deploy.json`、`ai-courses.json`、`daily-videos.json`、排行榜模型名。联想词：`site.hero.search_suggestions`。校验：`validate_ci.py search`。
 
 **推荐规则**：`ai_picker.options[].examples`（现实实例）随 `recommend-rules.json` 透传。
 
@@ -88,11 +88,9 @@ python3 scripts/fetch_ai_courses.py
 DIST=dist python3 scripts/validate_ci.py courses
 ```
 
-## 新闻与开源
+## 新闻
 
 - 新闻去重：`scripts/news_dedupe.py`（标题 + URL，保留最新 `published_at`）
-- 抓取时 **排除** 已在 `oss-projects.json` 中的 GitHub 仓库 URL，避免首页 Daily 与「开源精选」重复
-- 首页 `pickAiDailyBrief`（`src/lib/runtime.ts`）GitHub 面板同样过滤 OSS 已收录仓库
 
 ## 本地开发
 
@@ -135,7 +133,6 @@ npm run quality && npm run test:unit
 ```bash
 python3 scripts/fetch_ai_news.py
 python3 scripts/fetch_daily_videos.py
-python3 scripts/fetch_oss_stars.py
 python3 scripts/fetch_ai_courses.py
 python3 scripts/fetch_rankings.py   # AICPB / LMSYS Elo / AA Intelligence Index
 cp ai-courses.json ai-news.json public/   # 本地预览需同步到 public/
@@ -157,7 +154,7 @@ npm run build
 
 | 工作流                | 内容（北京时间）                                                 |
 | --------------------- | ---------------------------------------------------------------- |
-| `daily-refresh.yml`   | **00:00 串行日更**：视频 → 开源 → 课程 → 排行 → 推送/部署 → 死链 |
+| `daily-refresh.yml`   | **00:00 串行日更**：视频 → 课程 → 排行 → 推送/部署 → 死链 |
 | `daily-news.yml`      | **07:30 / 10:00 / 12:00 / 20:00** 新闻热点多档刷新并派发 Deploy  |
 | `daily-*.yml`（单频） | 仅手动 `workflow_dispatch`（救急单频道重跑）                     |
 | `site-health.yml`     | 线上探针 08:00 / 20:00                                           |

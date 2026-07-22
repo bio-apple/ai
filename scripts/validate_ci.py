@@ -205,9 +205,9 @@ def _json_ld_types(html: str) -> set[str]:
 
 
 def validate_json_ld() -> None:
-    """确认关键页面含 JSON-LD 结构化数据（工具页 + 课程/新闻/开源 CollectionPage）。"""
+    """确认关键页面含 JSON-LD 结构化数据（工具页 + 课程/本地部署 CollectionPage）。"""
     checks = [
-        (ROOT / "index.html", {"CollectionPage", "Course", "WebSite", "SoftwareSourceCode"}),
+        (ROOT / "index.html", {"CollectionPage", "Course", "WebSite", "SoftwareApplication"}),
         (ROOT / "tools" / "chatgpt.html", {"SoftwareApplication", "LearningResource", "WebPage"}),
         (ROOT / "news" / "daily-ai-news.html", {"NewsArticle", "CollectionPage"}),
     ]
@@ -221,7 +221,7 @@ def validate_json_ld() -> None:
             raise ValueError(
                 f"{path.name} JSON-LD 缺少 @type: {', '.join(sorted(missing))}（已有: {', '.join(sorted(found)) or '无'}）"
             )
-    print("✓ JSON-LD 结构化数据（首页课程/开源 + 工具页 + 新闻）")
+    print("✓ JSON-LD 结构化数据（首页课程/本地部署 + 工具页 + 新闻）")
 
 
 def _load_schema(name: str) -> dict:
@@ -317,13 +317,13 @@ def validate_search_index() -> None:
     data = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
     Draft202012Validator(_load_schema("search-index.schema.json")).validate(data)
     types = {item.get("type") for item in data if isinstance(item, dict)}
-    required_types = {"课程", "资讯", "开源", "视频", "模型", "工具"}
+    required_types = {"课程", "资讯", "本地部署", "视频", "模型", "工具"}
     missing = required_types - types
     if missing:
         raise ValueError(f"search-index 缺少内容类型: {', '.join(sorted(missing))}")
     if len(data) < 80:
         raise ValueError(f"search-index 条目过少: {len(data)}")
-    print(f"✓ search-index.json schema ({len(data)} 条 · 含课程/资讯/开源/视频/模型)")
+    print(f"✓ search-index.json schema ({len(data)} 条 · 含课程/资讯/本地部署/视频/模型)")
 
 
 def validate_recommend_rules() -> None:
@@ -451,16 +451,15 @@ def validate_analytics_config() -> None:
     )
 
 
-def validate_oss_projects() -> None:
-    path = REPO / "data" / "oss-projects.json"
+def validate_local_deploy() -> None:
+    path = REPO / "data" / "local-deploy.json"
     if not path.exists():
-        raise FileNotFoundError("data/oss-projects.json 缺失")
+        raise FileNotFoundError("data/local-deploy.json 缺失")
     data = json.loads(path.read_text(encoding="utf-8"))
-    Draft202012Validator(_load_schema("oss-projects.schema.json")).validate(data)
-    runtime = ROOT / "oss-projects.json"
-    if not runtime.exists() and not (REPO / "oss-projects.json").exists():
-        raise FileNotFoundError("oss-projects.json 运行时副本缺失")
-    print(f"✓ oss-projects.json schema ({len(data.get('domains') or [])} 领域)")
+    Draft202012Validator(_load_schema("local-deploy.schema.json")).validate(data)
+    cats = data.get("categories") or []
+    items = sum(len(c.get("items") or []) for c in cats)
+    print(f"✓ local-deploy.json schema ({len(cats)} 分类 / {items} 条目)")
 
 
 def validate_data_json() -> None:
@@ -469,7 +468,7 @@ def validate_data_json() -> None:
         "tools.json",
         "compares.json",
         "analytics.json",
-        "oss-projects.json",
+        "local-deploy.json",
         "rankings.json",
         "tool-relations.json",
         "engagement.json",
@@ -558,7 +557,7 @@ STEPS = (
     ("secrets", validate_no_secrets),
     ("data", validate_data_json),
     ("tool-relations", validate_tool_relations),
-    ("oss", validate_oss_projects),
+    ("local", validate_local_deploy),
     ("videos", validate_daily_videos),
     ("news", validate_ai_news),
     ("courses", validate_ai_courses),

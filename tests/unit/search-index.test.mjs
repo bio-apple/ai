@@ -14,7 +14,7 @@ test('buildArtifacts expands search index with content types', () => {
   assert.ok(searchIndex.length >= 120, `expected >=120 entries, got ${searchIndex.length}`);
 
   const types = new Set(searchIndex.map((item) => item.type));
-  for (const expected of ['课程', '资讯', '开源', '视频', '模型']) {
+  for (const expected of ['课程', '资讯', '本地部署', '视频', '模型']) {
     assert.ok(types.has(expected), `missing type ${expected}`);
   }
 

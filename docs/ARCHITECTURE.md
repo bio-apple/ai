@@ -47,7 +47,7 @@ flowchart TB
 
 | 层级   | 技术                   | 职责                                                    |
 | ------ | ---------------------- | ------------------------------------------------------- |
-| 内容层 | `data/` + 抓取脚本     | 站点文案、工具、对比、排行；新闻/视频/课程/OSS 定时刷新 |
+| 内容层 | `data/` + 抓取脚本     | 站点文案、工具、对比、排行、本地部署；新闻/视频/课程定时刷新 |
 | 构建层 | Astro 5 SSG + prebuild | 编译 ~22 个 HTML 页，打包 CSS/JS，生成搜索索引          |
 | 交付层 | GitHub Pages           | 托管 `dist/`，无服务端运行时                            |
 | 交互层 | 原生 JS + Fuse.js      | Tab、全站搜索、推荐、漏斗埋点、虚拟列表、链接兜底       |
@@ -141,14 +141,13 @@ flowchart TB
     rel["tool-relations.json"]
     eng["engagement.json"]
     ana["analytics.json"]
-    oss_d["oss-projects.json 模板"]
+    local_d["local-deploy.json"]
   end
 
   subgraph fetched["脚本抓取 → 根目录 JSON"]
     news["ai-news.json"]
     courses["ai-courses.json"]
     videos["daily-videos.json"]
-    oss["oss-projects.json"]
   end
 
   subgraph generated["prebuild 生成 → public/"]
@@ -174,10 +173,10 @@ flowchart TB
 | ---------- | -------------------------------------- | ------------------------------------ | ------------------------------------------------- |
 | **构建期** | `data/site.json` 等                    | Astro 页面、`src/lib/*.ts`           | `import` 进 HTML，SEO/结构化数据在 SSG 时固化     |
 | **运行时** | `ai-news.json`、`daily-videos.json` 等 | `news.js`、`videos.js`、`courses.js` | 页面加载后 `fetch`，支持日更而不重编全部页面逻辑  |
-| **运行时** | `search-index.json`                    | `app.js`、`knowledge.js`、顶栏搜索   | Fuse.js 全文检索（工具/资讯/开源/课程/视频/模型） |
+| **运行时** | `search-index.json`                    | `app.js`、`knowledge.js`、顶栏搜索   | Fuse.js 全文检索（工具/资讯/本地部署/课程/视频/模型） |
 | **运行时** | `recommend-rules.json`                 | `recommend.js`                       | 场景关键词 → 工具 + 现实实例 + 步骤               |
 
-首页是 **混合模式**：Hero（含 AI 关联图背景）/ 导航 / 推荐场景 / 面包屑在构建期渲染；新闻/视频/课程/OSS Tab 由 JS 懒加载对应 JSON。
+首页是 **混合模式**：Hero / 导航 / 推荐场景 / 本地部署 / 面包屑在构建期渲染；新闻/视频/课程 Tab 由 JS 懒加载对应 JSON。
 
 ### 3.4 客户端模块（浏览器）
 
@@ -189,8 +188,8 @@ flowchart TB
 | 漏斗     | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich                           |
 | 虚拟列表 | `lib/virtual-list.js`           | 视频 / 榜单 / GitHub 热门                                     |
 | 链接兜底 | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404                              |
-| 开源卡   | `OssCard.astro` + `oss.js`      | Stars / 语言 / 用途 / 仓库按钮                                |
-| 懒加载   | `lazy-sections.js`              | Tab 进入后再拉业务脚本                                        |
+| 本地部署 | `HomeLocalDeploy.astro`       | SSG 卡片（`data/local-deploy.json`）；`#section-local`        |
+| 懒加载   | `lazy-sections.js`              | Tab 进入后再拉业务脚本（不含 section-local）                  |
 | 工具中心 | `hub.ts` + `hub.astro`          | 对比表「工具」列 → `tools/{id}.html`（含 jimeng）             |
 
 详见 [FRONTEND.md](./FRONTEND.md)、[CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)。
@@ -213,7 +212,7 @@ flowchart LR
 
 | 工作流              | 脚本 / 动作             | 产出 / 作用                                        |
 | ------------------- | ----------------------- | -------------------------------------------------- |
-| `daily-refresh.yml` | 串行调用各 `fetch_*.py` | 视频→开源→课程→排行；一次 push + deploy；lychee    |
+| `daily-refresh.yml` | 串行调用各 `fetch_*.py` | 视频→课程→排行；一次 push + deploy；lychee    |
 | `daily-news.yml`    | `fetch_ai_news.py`      | 北京 07:30/10:00/12:00/20:00 刷新新闻并派发 deploy |
 | `daily-*.yml`       | 单频道脚本（仅手动）    | 救急重跑某一频道                                   |
 | `site-health.yml`   | `check_site_health.py`  | 线上 JSON 新鲜度探针                               |
@@ -257,7 +256,7 @@ flowchart TB
 | --------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------- |
 | **ci.yml**            | push/PR `main`                                                          | 完整质量门禁（含 E2E），PR 上传 `dist` 预览           |
 | **deploy.yml**        | push `main`、手动                                                       | 精简路径：校验通过后尽快发布 Pages                    |
-| **daily-refresh.yml** | cron 00:00（北京）                                                      | 串行日更（视频/开源/课程/排行）+ 一次 deploy + lychee |
+| **daily-refresh.yml** | cron 00:00（北京）                                                      | 串行日更（视频/课程/排行）+ 一次 deploy + lychee |
 | **daily-news.yml**    | cron 07:30/10:00/12:00/20:00（北京）= UTC 23:30 / 02:00 / 04:00 / 12:00 | 新闻热点多档刷新 + deploy                             |
 
 push `main` 时 **ci.yml 与 deploy.yml 并行**；deploy 不推 `gh-pages` 分支，而是使用官方 `actions/deploy-pages` 制品部署。
@@ -284,7 +283,7 @@ flowchart LR
 
 主要步骤（可单独跑 `DIST=dist python3 scripts/validate_ci.py <step>`）：
 
-`secrets` → `data` → `tool-relations` → `oss` → `videos` → `news` → `courses` → `runtime` → `recommend` → `sitemap` → `opengraph` → `jsonld` → `search` → `analytics` → `engagement` → `links`
+`secrets` → `data` → `tool-relations` → `local` → `videos` → `news` → `courses` → `runtime` → `recommend` → `sitemap` → `opengraph` → `jsonld` → `search` → `analytics` → `engagement` → `links`
 
 另：CI Lint 前跑 **gitleaks**；日更末步 **lychee** 扫外链（见 [CI-CD.md](./CI-CD.md)）。
 
@@ -318,7 +317,7 @@ data/                 # 手工内容源（见 DATA-MODEL.md）
 config/               # 抓取规则 YAML + csp.json
 schemas/              # JSON Schema（CI 门禁）
 src/pages/            # Astro 路由 → HTML
-src/components/       # HomeAiMap / Breadcrumb / GlobalSearch / OssCard / SeoHead …
+src/components/       # HomeAiMap / HomeLocalDeploy / Breadcrumb / GlobalSearch / SeoHead …
 src/layouts/          # 页面壳
 src/lib/              # data 加载、路径、hub 对比映射、Schema.org（schema.ts）
 lib/                  # 浏览器共享：fetch-json / virtual-list / link-guard

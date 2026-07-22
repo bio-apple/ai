@@ -1,6 +1,5 @@
 ---
 import HomeLayout from '../layouts/HomeLayout.astro';
-import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
 import HomeOps from '../components/HomeOps.astro';
@@ -8,23 +7,24 @@ import GlobalSearch from '../components/GlobalSearch.astro';
 import HomeQuickFilters from '../components/HomeQuickFilters.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import HomeAiMap from '../components/HomeAiMap.astro';
+import HomeLocalDeploy from '../components/HomeLocalDeploy.astro';
 import { site } from '../lib/data';
 import {
   buildHomeSchema,
   buildCoursesSchema,
-  buildOssSchema,
+  buildLocalDeploySchema,
   mergeSchemaGraphs,
 } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
 import coursesPayload from '../../ai-courses.json';
-import ossPayload from '../../data/oss-projects.json';
+import localDeployPayload from '../../data/local-deploy.json';
 
 const homeCrumb = { label: '首页', href: homeHref(), tool: 'all' };
 
 const schema = mergeSchemaGraphs(
   buildHomeSchema(site),
   buildCoursesSchema(coursesPayload, site.meta.canonical),
-  buildOssSchema(ossPayload, site.meta.canonical),
+  buildLocalDeploySchema(localDeployPayload, site.meta.canonical),
 );
 ---
 
@@ -85,19 +85,6 @@ const schema = mergeSchemaGraphs(
       <HomeAiDaily />
       <HomeAiMap />
 
-      <section class="home-section fade-in" id="home-oss">
-        <div class="section-head">
-          <h2 class="section-title">开源项目精选</h2>
-          <p class="section-desc">每领域代表项目 · 完整列表在开源专区</p>
-        </div>
-        <HomeOssPreview />
-        <div class="section-cta">
-          <button class="cta-btn cta-btn-outline" data-goto="oss" data-track="home-all-oss"
-            >查看全部开源项目 →</button
-          >
-        </div>
-      </section>
-
       <section
         class="home-section fade-in"
         id="home-community"
@@ -125,21 +112,17 @@ const schema = mergeSchemaGraphs(
     </div>
   </section>
 
-  <section id="section-oss" class="section oss-section">
-    <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载开源精选。</p></noscript>
+  <section id="section-local" class="section local-section">
     <div class="section-panel">
-      <Breadcrumb crumbs={[homeCrumb, { label: '开源精选' }]} />
+      <Breadcrumb crumbs={[homeCrumb, { label: '本地部署' }]} />
       <div class="tool-header">
-        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">⭐</div>
+        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">⌂</div>
         <div>
-          <h2>GitHub Stars 开源精选</h2>
-          <p class="desc">按 AI 应用分类精选（≥5万 Top3 + 中文Top1），每日重新收集。</p>
-          <p class="video-update-meta" id="oss-update-meta"></p>
+          <h2>本地部署</h2>
+          <p class="desc">{localDeployPayload.lead}</p>
         </div>
       </div>
-      <div id="oss-project-list" class="oss-project-list">
-        <p class="loading-hint">加载 GitHub 开源精选…</p>
-      </div>
+      <HomeLocalDeploy />
     </div>
   </section>
 

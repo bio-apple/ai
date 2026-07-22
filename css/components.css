@@ -201,6 +201,11 @@ code {
   color: #1d4ed8;
 }
 
+.content-type-local {
+  background: rgba(13, 140, 109, 0.12);
+  color: #0f766e;
+}
+
 .content-type-oss {
   background: rgba(13, 140, 109, 0.12);
   color: #0f766e;
@@ -220,6 +225,7 @@ html[data-theme='dark'] .content-type-news {
   color: #c7d2fe;
 }
 
+html[data-theme='dark'] .content-type-local,
 html[data-theme='dark'] .content-type-oss {
   background: rgba(6, 182, 212, 0.2);
   color: #a5f3fc;

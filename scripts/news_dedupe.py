@@ -79,34 +79,6 @@ def normalize_repo_url(url: str) -> str:
     return text
 
 
-def load_oss_project_urls(path: Any) -> set[str]:
-    """读取开源精选里的仓库 URL，供新闻侧排除，避免首页重复。"""
-    from pathlib import Path
-
-    p = Path(path)
-    if not p.is_file():
-        return set()
-    try:
-        data = json.loads(p.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return set()
-    urls: set[str] = set()
-
-    def walk(node: Any) -> None:
-        if isinstance(node, dict):
-            url = node.get("url") or node.get("html_url")
-            if isinstance(url, str) and "github.com" in url:
-                urls.add(normalize_repo_url(url))
-            for v in node.values():
-                walk(v)
-        elif isinstance(node, list):
-            for v in node:
-                walk(v)
-
-    walk(data)
-    return urls
-
-
 def exclude_urls(items: list[dict[str, Any]], blocked: set[str]) -> list[dict[str, Any]]:
     if not blocked:
         return items

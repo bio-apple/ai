@@ -240,7 +240,7 @@ E2E_PORT=8771 npm run test:e2e
 ```bash
 # 写入 .env.local 后：
 set -a && source .env.local && set +a
-python3 scripts/fetch_oss_stars.py
+python3 scripts/fetch_ai_news.py
 ```
 
 ### 4.4 构建失败
@@ -327,7 +327,6 @@ set -a && [ -f .env.local ] && source .env.local; set +a
 # 刷新动态数据（按需；无 Token 时部分步骤可能降级/保留旧 JSON）
 python3 scripts/fetch_ai_news.py
 python3 scripts/fetch_daily_videos.py
-python3 scripts/fetch_oss_stars.py
 python3 scripts/fetch_ai_courses.py
 python3 scripts/fetch_rankings.py   # 00:00 日更；本地可手动补跑
 

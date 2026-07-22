@@ -1,0 +1,102 @@
+---
+import localDeploy from '../../data/local-deploy.json';
+
+type LocalItem = {
+  id: string;
+  name: string;
+  tagline?: string;
+  summary: string;
+  url: string;
+  docs_url?: string;
+  platforms?: string[];
+  tags?: string[];
+};
+
+type LocalCategory = {
+  id: string;
+  label: string;
+  blurb?: string;
+  items: LocalItem[];
+};
+
+const categories = (localDeploy.categories || []) as LocalCategory[];
+const updatedAt = localDeploy.updated_at || '';
+---
+
+<div class="local-deploy" data-ssg="1">
+  {
+    updatedAt && (
+      <p class="video-update-meta" id="local-update-meta">
+        精选更新于 {updatedAt}
+      </p>
+    )
+  }
+  {
+    categories.length === 0 ? (
+      <p class="loading-hint">暂无本地部署条目。</p>
+    ) : (
+      categories.map((cat) => (
+        <section class="local-cat" aria-labelledby={`local-cat-${cat.id}`}>
+          <h3 class="local-cat-title" id={`local-cat-${cat.id}`}>
+            {cat.label}
+          </h3>
+          {cat.blurb && <p class="local-cat-blurb">{cat.blurb}</p>}
+          <div class="local-grid">
+            {cat.items.map((item) => (
+              <article class="local-card">
+                <div class="local-card-head">
+                  <span class="content-type-badge content-type-local" aria-hidden="true">
+                    本地
+                  </span>
+                  {(item.tags || []).slice(0, 2).map((tag) => (
+                    <span class="local-tag">{tag}</span>
+                  ))}
+                </div>
+                <h4 class="local-card-title">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="local-click"
+                  >
+                    {item.name}
+                  </a>
+                </h4>
+                {item.tagline && <p class="local-tagline">{item.tagline}</p>}
+                <p class="local-summary">{item.summary}</p>
+                {item.platforms?.length ? (
+                  <p class="local-platforms">
+                    <span class="local-platforms-label">平台</span>
+                    {item.platforms.join(' · ')}
+                  </p>
+                ) : null}
+                <div class="local-card-actions">
+                  <a
+                    class="local-link-btn"
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="local-visit"
+                  >
+                    官网 <span aria-hidden="true">↗</span>
+                  </a>
+                  {item.docs_url && (
+                    <a
+                      class="local-link-btn local-link-btn-muted"
+                      href={item.docs_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-track="local-docs"
+                    >
+                      文档
+                    </a>
+                  )}
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))
+    )
+  }
+</div>

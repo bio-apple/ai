@@ -1,6 +1,6 @@
 # Bio AI Lab
 
-**Bio-Apple · AI 工具导航 · 开源 · 课程 · 热点 · 视频**
+**Bio-Apple · AI 工具导航 · 本地部署 · 课程 · 热点 · 视频**
 
 [![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
 [![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions)
@@ -41,7 +41,6 @@ npm run build && npx astro preview --host 127.0.0.1 --port 8766
 # 刷新数据（按需）
 python3 scripts/fetch_ai_news.py
 python3 scripts/fetch_ai_courses.py
-python3 scripts/fetch_oss_stars.py
 python3 scripts/fetch_daily_videos.py
 ```
 
@@ -53,14 +52,14 @@ python3 scripts/fetch_daily_videos.py
 
 顶栏导航（`data/site.json` → `nav.menu`）：
 
-| 入口       | 类型   | 说明                                                     |
-| ---------- | ------ | -------------------------------------------------------- |
-| 首页       | Tab    | Hero、推荐助手、AI 简报、开源预览                        |
-| AI工具中心 | 独立页 | 对比表（链到教程）、AICPB 排行、各工具教程（含即梦）     |
-| 开源精选   | Tab    | GitHub AI 项目（≥5 万 Star Top3 + 中文 Top1 · 每日刷新） |
-| 课程资源   | Tab    | 免费 AI 课程，按五条学习路线编排，每段最多 5 门          |
-| 新闻热点   | Tab    | 近 7 天 AI 热点（与开源精选去重；多档日更）              |
-| AI 视频    | Tab    | 每日 YouTube / B站精选                                   |
+| 入口       | 类型   | 说明                                                 |
+| ---------- | ------ | ---------------------------------------------------- |
+| 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图                    |
+| AI工具中心 | 独立页 | 对比表（链到教程）、AICPB 排行、各工具教程（含即梦） |
+| 本地部署   | Tab    | Ollama / LM Studio / vLLM 等本机与私有化部署精选     |
+| 课程资源   | Tab    | 免费 AI 课程（微软、谷歌、斯坦福核心课）             |
+| 新闻热点   | Tab    | 近 7 天 AI 热点（多档日更）                          |
+| AI 视频    | Tab    | 每日 YouTube / B站精选                               |
 
 独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题
 
@@ -74,9 +73,9 @@ python3 scripts/fetch_daily_videos.py
 | 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                         |
 | 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等           |
 | 虚拟列表     | 视频、工具榜、GitHub 热门长列表可视区渲染                                  |
-| 开源卡片     | Stars / 语言 / 用途 / 仓库直达（`OssCard`）                                |
+| 本地部署     | 桌面客户端 / 推理引擎 / Web UI（`HomeLocalDeploy`）                        |
 | 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示               |
-| SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 开源）+ BreadcrumbList          |
+| SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 本地部署）+ BreadcrumbList      |
 
 详见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
 
@@ -101,7 +100,7 @@ python3 scripts/fetch_daily_videos.py
 | 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                              |
 | 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；00:00 日更）                |
 | 热度基准     | `data/engagement.json`                                                    |
-| 开源精选     | `oss-projects.json` / `data/oss-projects.json`                            |
+| 本地部署     | `data/local-deploy.json`                                                  |
 | 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                  |
 | 新闻源       | `config/news-fetch.yaml`                                                  |
 | 视频源       | `config/video-fetch.yaml`                                                 |

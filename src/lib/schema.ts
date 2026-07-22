@@ -261,60 +261,52 @@ export function buildNewsSchema(
   };
 }
 
-/** 开源精选：ItemList(SoftwareSourceCode) */
-export function buildOssSchema(
-  oss: {
+/** 本地部署：ItemList(SoftwareApplication) */
+export function buildLocalDeploySchema(
+  local: {
     title?: string;
     lead?: string;
-    domains?: {
+    categories?: {
       label: string;
-      projects?: {
+      items?: {
         name: string;
         url: string;
-        description?: string;
-        language?: string;
-        stars?: number;
-        repo?: string;
+        summary?: string;
+        tagline?: string;
+        platforms?: string[];
       }[];
     }[];
   },
   baseUrl: string,
 ) {
-  const sectionUrl = `${baseUrl}#section-oss`;
-  const projects = (oss.domains || []).flatMap((d) =>
-    (d.projects || []).map((p) => ({ ...p, domain: d.label })),
+  const sectionUrl = `${baseUrl}#section-local`;
+  const items = (local.categories || []).flatMap((c) =>
+    (c.items || []).map((p) => ({ ...p, category: c.label })),
   );
   return {
     '@context': 'https://schema.org',
     '@graph': [
       {
         '@type': 'CollectionPage',
-        '@id': `${sectionUrl}#oss`,
-        name: oss.title || 'GitHub Stars 开源精选',
-        description: oss.lead || '按 AI 应用分类的高星开源项目',
+        '@id': `${sectionUrl}#local`,
+        name: local.title || '本地部署',
+        description: local.lead || '本机与私有环境大模型部署工具',
         url: sectionUrl,
         inLanguage: 'zh-CN',
         isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },
         mainEntity: {
           '@type': 'ItemList',
-          numberOfItems: projects.length,
-          itemListElement: projects.map((p, index) => ({
+          numberOfItems: items.length,
+          itemListElement: items.map((p, index) => ({
             '@type': 'ListItem',
             position: index + 1,
             item: {
-              '@type': 'SoftwareSourceCode',
+              '@type': 'SoftwareApplication',
               name: p.name,
-              description: p.description || p.name,
+              description: p.summary || p.tagline || p.name,
               url: p.url,
-              codeRepository: p.url,
-              programmingLanguage: p.language || undefined,
-              interactionStatistic: p.stars
-                ? {
-                    '@type': 'InteractionCounter',
-                    interactionType: 'https://schema.org/LikeAction',
-                    userInteractionCount: p.stars,
-                  }
-                : undefined,
+              applicationCategory: 'DeveloperApplication',
+              operatingSystem: (p.platforms || []).join(', ') || undefined,
             },
           })),
         },

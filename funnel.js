@@ -35,7 +35,7 @@
     search_hit: STEPS.BROWSE,
     'search-goto': STEPS.BROWSE,
     search_empty: STEPS.BROWSE,
-    'home-all-oss': STEPS.BROWSE,
+    'home-filter-local': STEPS.BROWSE,
     'home-community-hub': STEPS.BROWSE,
     daily_panel_click: STEPS.BROWSE,
     recommend_query_tool: STEPS.ENGAGE,

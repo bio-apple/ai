@@ -18,7 +18,7 @@ Schema 源文件：`schemas/*.json`（JSON Schema Draft 2020-12）
 | `tool-relations.json`   | `data/`           | 手工          | `tool-relations.schema.json`  | `tool-relations` |
 | `engagement.json`       | `data/`           | 手工          | `engagement.schema.json`      | `engagement`     |
 | `analytics.json`        | `data/`           | 手工          | 构建时检查                    | `analytics`      |
-| `oss-projects.json`     | `data/` + 根目录  | 日更脚本      | `oss-projects.schema.json`    | `oss`            |
+| `local-deploy.json`     | `data/`           | 手工          | `local-deploy.schema.json`    | `local`          |
 | `ai-news.json`          | 根目录            | 日更脚本      | `ai-news.schema.json`         | `news`           |
 | `ai-courses.json`       | 根目录            | 日更脚本      | `ai-courses.schema.json`      | `courses`        |
 | `daily-videos.json`     | 根目录            | 日更脚本      | `daily-videos.schema.json`    | `videos`         |
@@ -320,7 +320,7 @@ nav: {
 
 **Schema**：`schemas/search-index.schema.json`  
 **类型**：`array`（当前构建约 **150** 条，CI 下限 ≥10）  
-**生成**：`scripts/build-artifacts.mjs` ← `tools.json`（教程页）+ `site.json`（导航/场景/对比入口）+ `ai-news.json` + `oss-projects.json` + `ai-courses.json` + `daily-videos.json` + 排行榜模型名  
+**生成**：`scripts/build-artifacts.mjs` ← `tools.json`（教程页）+ `site.json`（导航/场景/对比入口）+ `ai-news.json` + `local-deploy.json` + `ai-courses.json` + `daily-videos.json` + 排行榜模型名  
 **消费**：`app.js`（顶栏 / Hero 多实例）、`knowledge.js`  
 **校验**：`DIST=dist python3 scripts/validate_ci.py search`
 
@@ -328,9 +328,9 @@ nav: {
 | ---------- | --------- | ---- | ------------------------------------------------------------------------------------------ |
 | `label`    | `string`  | ✅   | 显示标题（工具为原名，如 `ChatGPT`）                                                       |
 | `keywords` | `string`  | ✅   | Fuse 检索文本                                                                              |
-| `type`     | `string`  | —    | 工具 / 资讯 / 开源 / 课程 / 视频 / 模型 / 频道 / 导航 / 学习 / 场景 / 简报 / 推荐 / 对比 … |
+| `type`     | `string`  | —    | 工具 / 资讯 / 本地部署 / 课程 / 视频 / 模型 / 频道 / 导航 / 学习 / 场景 / 简报 / 推荐 / 对比 … |
 | `external` | `boolean` | —    | 外链（新标签打开）                                                                         |
-| `id`       | `string`  | —    | 内容 id（新闻/课程/OSS 等）                                                                |
+| `id`       | `string`  | —    | 内容 id（新闻/课程/本地部署等）                                                                |
 | `section`  | `string`  | *    | 首页 Tab id（与 `url` 二选一）                                                             |
 | `url`      | `string`  | *    | 独立页相对路径（工具为 `tools/{id}.html`）                                                 |
 | `anchor`   | `string`  | —    | 页内锚点                                                                                   |
@@ -383,7 +383,7 @@ nav: {
 
 **`items[]`**：`title`, `url`（必填）；`id`, `summary`, `source`, `category`, `published_at`
 
-**额外 CI 规则**：标题 + URL 去重；排除已在 OSS 精选中的 GitHub URL。
+**额外 CI 规则**：标题 + URL 去重。
 
 ### 9.2 `ai-courses.json`
 
@@ -417,18 +417,22 @@ nav: {
 
 **额外 CI 规则**：摘要禁止裸 URL；最新批次须覆盖配置中全部分类。
 
-### 9.4 `oss-projects.json`
+### 9.4 `local-deploy.json`
 
-**Schema**：`schemas/oss-projects.schema.json`  
-**脚本**：`scripts/fetch_oss_stars.py`
+**Schema**：`schemas/local-deploy.schema.json`  
+**维护**：手工编辑 `data/local-deploy.json`（非日更抓取）
 
-| 字段      | 类型     | 说明                            |
-| --------- | -------- | ------------------------------- |
-| `domains` | `array`  | ≥6 个领域                       |
-| `rules`   | `object` | `min_stars`, `top_n_per_app` 等 |
+| 字段         | 类型     | 说明           |
+| ------------ | -------- | -------------- |
+| `title`      | `string` | 专区标题       |
+| `lead`       | `string` | 导语           |
+| `updated_at` | `string` | 精选更新日期   |
+| `categories` | `array`  | 分类列表       |
 
-**`domains[]`**：`id`, `label`, `projects[]`  
-**`projects[]`**：`id`, `repo`（`owner/name`）, `name`, `url`, `stars`（必填）
+**`categories[]`**：`id`, `label`, `blurb`（可选）, `items[]`  
+**`items[]`**：`id`, `name`, `summary`, `url`（必填）；`tagline`, `docs_url`, `platforms[]`, `tags[]`（可选）
+
+校验：`DIST=dist python3 scripts/validate_ci.py local`
 
 ---
 

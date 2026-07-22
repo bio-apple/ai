@@ -31,28 +31,6 @@ export type NewsPayload = {
   items?: NewsItem[];
 };
 
-export type OssProject = {
-  name: string;
-  repo: string;
-  url: string;
-  description?: string;
-  language?: string;
-  stars?: number;
-  badge?: string;
-};
-
-export type OssDomain = {
-  id: string;
-  label: string;
-  description?: string;
-  projects?: OssProject[];
-};
-
-export type OssPayload = {
-  updated_at?: string;
-  domains?: OssDomain[];
-};
-
 export type VideoItem = {
   id: string;
   title: string;
@@ -141,17 +119,6 @@ export function pickHomeNews(limit = 4): NewsItem[] {
   return dedupeNewsItems(data?.items || []).slice(0, limit);
 }
 
-export function pickHomeOss(limit = 6): Array<{ project: OssProject; domainLabel: string }> {
-  const data = loadRuntimeJson<OssPayload>('oss-projects.json');
-  const items: Array<{ project: OssProject; domainLabel: string }> = [];
-  for (const domain of data?.domains || []) {
-    for (const project of domain.projects || []) {
-      items.push({ project, domainLabel: domain.label });
-    }
-  }
-  return items.sort((a, b) => (b.project.stars || 0) - (a.project.stars || 0)).slice(0, limit);
-}
-
 export function pickHomeVideos(limit = 3): VideoItem[] {
   const data = loadRuntimeJson<VideosPayload>('daily-videos.json');
   const batch = data?.batches?.[0];
@@ -189,7 +156,6 @@ export type AiDailyBrief = {
   github: NewsItem[];
   /** 全量 GitHub 源资讯（供虚拟列表，可远大于 github 预览条数） */
   githubAll?: NewsItem[];
-  oss: Array<{ project: OssProject; domainLabel: string }>;
   learn: VideoItem[];
 };
 
@@ -201,9 +167,9 @@ function pickNewsBy(
   return items.filter(pred).slice(0, limit);
 }
 
-/** 首页 AI Daily：聚合新闻 / Trending / 开源 / 视频学习 */
+/** 首页 AI Daily：聚合新闻 / Trending / 视频学习 */
 export function pickAiDailyBrief(
-  limits = { models: 3, industry: 2, github: 3, oss: 2, learn: 2 },
+  limits = { models: 3, industry: 2, github: 3, learn: 2 },
 ): AiDailyBrief {
   const news = loadRuntimeJson<NewsPayload>('ai-news.json');
   const items = dedupeNewsItems(news?.items || []);
@@ -217,14 +183,7 @@ export function pickAiDailyBrief(
     (i) => /行业|中文|工具/.test(i.category || '') && !models.includes(i),
     limits.industry,
   );
-  // 不把 OSS 精选回填进 GitHub 面板，避免与首页「开源项目精选」重复
-  const oss = pickHomeOss(limits.oss);
-  const ossUrls = new Set(
-    oss.map((x) => (x.project.url || '').trim().replace(/\/+$/, '')).filter(Boolean),
-  );
-  const githubAll = items.filter(
-    (i) => /GitHub/i.test(i.source || '') && !ossUrls.has((i.url || '').trim().replace(/\/+$/, '')),
-  );
+  const githubAll = items.filter((i) => /GitHub/i.test(i.source || ''));
   const github = githubAll.slice(0, limits.github);
   return {
     updatedAt: news?.updated_at,
@@ -234,7 +193,6 @@ export function pickAiDailyBrief(
       : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
     github,
     githubAll,
-    oss,
     learn: pickHomeVideos(limits.learn),
   };
 }

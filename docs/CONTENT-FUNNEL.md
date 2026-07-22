@@ -108,7 +108,7 @@ funnel.js → analytics.js → ux.js → app.js → …
 | `search_hit` / `search-goto`          | 2    | 搜索结果点击                        |
 | `search_empty`                        | 2    | 零结果                              |
 | `daily_panel_click`                   | 2    | Daily 面板                          |
-| `home-all-oss` / `home-community-hub` | 2    | 首页区块 CTA                        |
+| `home-filter-local` / `home-community-hub` | 2    | 首页区块 CTA                        |
 
 ### 5.3 浏览 → 深入
 

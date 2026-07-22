@@ -1,0 +1,128 @@
+{
+  "title": "本地部署",
+  "lead": "在本机或私有环境跑大模型：一键客户端、推理引擎与 Web UI。",
+  "updated_at": "2026-07-22",
+  "categories": [
+    {
+      "id": "desktop",
+      "label": "桌面与一键启动",
+      "blurb": "安装即用，适合个人本机体验。",
+      "items": [
+        {
+          "id": "ollama",
+          "name": "Ollama",
+          "tagline": "命令行一键拉模型",
+          "summary": "跨平台本地运行时，`ollama run` 即可对话；生态大、与 Open WebUI 等搭配常见。",
+          "url": "https://ollama.com",
+          "docs_url": "https://github.com/ollama/ollama",
+          "platforms": ["macOS", "Windows", "Linux"],
+          "tags": ["入门", "CLI"]
+        },
+        {
+          "id": "lm-studio",
+          "name": "LM Studio",
+          "tagline": "图形界面本地聊天",
+          "summary": "下载 GGUF / 官方格式模型，桌面聊天与本地 OpenAI 兼容 API，适合不想碰终端的用户。",
+          "url": "https://lmstudio.ai",
+          "docs_url": "https://lmstudio.ai/docs",
+          "platforms": ["macOS", "Windows", "Linux"],
+          "tags": ["入门", "GUI"]
+        },
+        {
+          "id": "jan",
+          "name": "Jan",
+          "tagline": "开源桌面助手",
+          "summary": "开源本地 AI 桌面应用，可接本地模型与远程 API，界面接近聊天产品。",
+          "url": "https://jan.ai",
+          "docs_url": "https://github.com/janhq/jan",
+          "platforms": ["macOS", "Windows", "Linux"],
+          "tags": ["开源", "GUI"]
+        },
+        {
+          "id": "gpt4all",
+          "name": "GPT4All",
+          "tagline": "轻量离线聊天",
+          "summary": "Nomic 出品的本地聊天客户端，侧重隐私与离线可用，适合快速试用小模型。",
+          "url": "https://www.nomic.ai/gpt4all",
+          "docs_url": "https://docs.gpt4all.io",
+          "platforms": ["macOS", "Windows", "Linux"],
+          "tags": ["离线", "入门"]
+        }
+      ]
+    },
+    {
+      "id": "runtime",
+      "label": "推理引擎",
+      "blurb": "更高性能或可嵌入应用的运行时。",
+      "items": [
+        {
+          "id": "llama-cpp",
+          "name": "llama.cpp",
+          "tagline": "CPU/GPU 高效推理",
+          "summary": "GGUF 生态核心；可编译为 CLI / server，也是许多桌面客户端底层依赖。",
+          "url": "https://github.com/ggerganov/llama.cpp",
+          "docs_url": "https://github.com/ggerganov/llama.cpp/blob/master/README.md",
+          "platforms": ["macOS", "Windows", "Linux"],
+          "tags": ["高性能", "开发者"]
+        },
+        {
+          "id": "vllm",
+          "name": "vLLM",
+          "tagline": "高吞吐服务端推理",
+          "summary": "面向多并发与生产部署的 Python 推理引擎，OpenAI 兼容 API，适合 GPU 服务器。",
+          "url": "https://github.com/vllm-project/vllm",
+          "docs_url": "https://docs.vllm.ai",
+          "platforms": ["Linux"],
+          "tags": ["服务端", "GPU"]
+        },
+        {
+          "id": "mlx",
+          "name": "MLX",
+          "tagline": "Apple Silicon 原生",
+          "summary": "Apple 机器学习框架；配合 mlx-lm 等在 M 系列芯片上高效跑本地 LLM。",
+          "url": "https://github.com/ml-explore/mlx",
+          "docs_url": "https://ml-explore.github.io/mlx/",
+          "platforms": ["macOS"],
+          "tags": ["Apple", "开发者"]
+        },
+        {
+          "id": "localai",
+          "name": "LocalAI",
+          "tagline": "自托管 OpenAI 兼容 API",
+          "summary": "用一套 API 在本地替换云端 OpenAI 接口，支持文本、语音、图像等多模态后端。",
+          "url": "https://localai.io",
+          "docs_url": "https://localai.io/basics/getting_started/",
+          "platforms": ["Linux", "Docker"],
+          "tags": ["API", "自托管"]
+        }
+      ]
+    },
+    {
+      "id": "ui",
+      "label": "Web UI 与管理",
+      "blurb": "给本地模型套上好用的聊天与管理界面。",
+      "items": [
+        {
+          "id": "open-webui",
+          "name": "Open WebUI",
+          "tagline": "对接 Ollama / OpenAI API",
+          "summary": "功能完整的自托管聊天前端：多用户、知识库、工具调用，常与 Ollama / vLLM 组合。",
+          "url": "https://openwebui.com",
+          "docs_url": "https://docs.openwebui.com",
+          "platforms": ["Docker", "自托管"],
+          "tags": ["Web UI", "推荐"]
+        },
+        {
+          "id": "text-generation-webui",
+          "name": "text-generation-webui",
+          "tagline": "经典本地 WebUI",
+          "summary": "oobabooga 项目：浏览器里加载模型、调参与扩展，社区插件丰富。",
+          "url": "https://github.com/oobabooga/text-generation-webui",
+          "docs_url": "https://github.com/oobabooga/text-generation-webui/wiki",
+          "platforms": ["Windows", "Linux", "macOS"],
+          "tags": ["Web UI", "可扩展"]
+        }
+      ]
+    }
+  ]
+}

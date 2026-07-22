@@ -17,11 +17,10 @@
 4. **视频仍显示昨日** → 确认 `main` 上 `daily-videos.json` 的 `batches[0].date`；仅视频坏 → [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（`force=true`）
    - YouTube 全空：配置 **`YOUTUBE_API_KEY`** 后重跑
 5. **新闻过期** → [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)（定时北京 **07:30 / 10:00 / 12:00 / 20:00**；可手动 Run）
-6. **OSS 精选异常** → [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)
-7. **课程资源异常** → [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)
-8. **排行榜异常** → [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)
-9. **Dead Link 告警** → [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) artifact（或手动 [daily-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/daily-link-check.yml)）；不阻断日更上线
-10. **Deploy Prettier 失败** → 日更已在提交前格式化；若仍失败，本地 `npx prettier --write <json>` 后 push
+6. **课程资源异常** → [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)
+7. **排行榜异常** → [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)
+8. **Dead Link 告警** → [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) artifact（或手动 [daily-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/daily-link-check.yml)）；不阻断日更上线
+9. **Deploy Prettier 失败** → 日更已在提交前格式化；若仍失败，本地 `npx prettier --write <json>` 后 push
 
 ### 死链：用户侧 vs 日检
 
@@ -52,19 +51,11 @@ DIST=dist python3 scripts/validate_ci.py courses
 
 当前路线：**入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent**（无「AI 工程实践」段）。
 
-### 新闻 / 开源重复
-
-若首页 Daily「GitHub 热门」与「开源精选」出现同一仓库：
-
-- 新闻抓取已排除 OSS 已收录 URL；旧数据可本地重刷：`python3 scripts/fetch_ai_news.py`
-- 前端 Daily 面板也会过滤 OSS URL（`src/lib/runtime.ts`）
-
 ## 工作流快捷入口
 
 - [Daily Content Refresh（00:00 串行）](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml)
 - [Daily videos](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（手动）
 - [Daily news](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)（**07:30 / 10:00 / 12:00 / 20:00** / 手动）
-- [Daily OSS](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)（手动）
 - [Daily courses](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)（手动）
 - [Daily rankings](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)（手动）
 - [Daily link check](https://github.com/bio-apple/ai/actions/workflows/daily-link-check.yml)（手动）
@@ -74,7 +65,7 @@ DIST=dist python3 scripts/validate_ci.py courses
 ## 回滚
 
 ```bash
-git checkout <good-sha> -- daily-videos.json video-thumbs/ ai-news.json ai-courses.json oss-projects.json
+git checkout <good-sha> -- daily-videos.json video-thumbs/ ai-news.json ai-courses.json data/rankings.json
 git commit -m "revert: 回滚坏批次" && git push
 ```
 
