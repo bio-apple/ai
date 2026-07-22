@@ -200,11 +200,11 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 `lazy-sections.js`：进入 Tab 再加载业务脚本（`section-local` 为 SSG，不在此列）。
 
-| Section           | 脚本链                            |
-| ----------------- | --------------------------------- |
-| `section-videos`  | `videos.js`                       |
-| `section-news`    | `lib/virtual-list.js` → `news.js` |
-| `section-courses` | `courses.js`                      |
+| Section           | 脚本链       |
+| ----------------- | ------------ |
+| `section-videos`  | `videos.js`  |
+| `section-news`    | `news.js`    |
+| `section-courses` | `courses.js` |
 
 共享前置：`lib/fetch-json.js`（首页 scripts 已带）。
 

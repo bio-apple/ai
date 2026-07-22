@@ -12,7 +12,7 @@ const PLATFORM_PRIORITY_KEYS = {
     'bilibili_top_views',
   ],
 };
-/** 抓取分桶键（仅用于合并前去重；页面按平台展示） */
+/** 抓取分桶键（含历史兼容键；页面按平台展示） */
 const CATEGORY_ORDER = [
   'youtube_recent_3d',
   'youtube_recent_30d',
@@ -20,32 +20,28 @@ const CATEGORY_ORDER = [
   'bilibili_recent_3d',
   'bilibili_recent_30d',
   'bilibili_recent_100d',
-  // 历史键：兼容旧批次回退
+  // 历史键：旧批次 100 天曾用 *_top_views
   'youtube_top_views',
-  'youtube_recent_24h',
   'bilibili_top_views',
-  'bilibili_recent_24h',
-  'top_views',
-  'recent_7d',
-  'recent_24h',
-  'last_6m',
 ];
 
 /** 与抓取脚本一致：近 → 远；历史键仍参与去重优先级 */
 const DEDUPE_PICK_ORDER = [
-  'youtube_recent_24h',
   'youtube_recent_3d',
   'youtube_recent_30d',
   'youtube_recent_100d',
   'youtube_top_views',
-  'bilibili_recent_24h',
   'bilibili_recent_3d',
   'bilibili_recent_30d',
   'bilibili_recent_100d',
   'bilibili_top_views',
 ];
 
-const LEGACY_CATEGORY_ALIASES = {};
+/** 与 scripts/fetch_daily_videos.py 对齐：空 100d 可回退读旧 top_views */
+const LEGACY_CATEGORY_ALIASES = {
+  youtube_recent_100d: ['youtube_recent_100d', 'youtube_top_views'],
+  bilibili_recent_100d: ['bilibili_recent_100d', 'bilibili_top_views'],
+};
 
 let videoDataPromise = null;
 /** 默认按播放量排序；平台内合并展示 */

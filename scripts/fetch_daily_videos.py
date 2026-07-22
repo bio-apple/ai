@@ -45,8 +45,6 @@ PICK_ORDER = (
 )
 PLATFORM_ORDER = ("youtube", "bilibili")
 DEFAULT_PLATFORM_TOTAL_CAP = 10
-# 定稿时按窗口优先级：3d → 30d → 100d
-FINALIZE_PRIORITY_SUFFIXES = ("_recent_3d", "_recent_30d", "_recent_100d")
 
 # 历史批次键兼容（旧 100 天键名为 *_top_views）
 LEGACY_CATEGORY_ALIASES: dict[str, tuple[str, ...]] = {
@@ -483,23 +481,6 @@ def search_platform_candidates(
     return search_source_candidates(cfg, platform, source_cfg, sort_by_date=sort_by_date, min_views=platform_min)
 
 
-def search_all_candidates(cfg: dict, *, sort_by_date: bool = False, min_views: int | None = None) -> dict[str, dict]:
-    found: dict[str, dict] = {}
-    for platform in PLATFORM_ORDER:
-        source_cfg = cfg.get("search_sources", {}).get(platform, {})
-        if not source_cfg.get("enabled", True):
-            continue
-        platform_min = min_views
-        if platform_min is None:
-            platform_min = (
-                source_cfg.get("recent_min_views" if sort_by_date else "min_views")
-                if sort_by_date
-                else source_cfg.get("min_views")
-            )
-        found.update(search_source_candidates(cfg, platform, source_cfg, sort_by_date=sort_by_date, min_views=platform_min))
-    return found
-
-
 def load_store() -> dict:
     if DATA_FILE.exists():
         return json.loads(DATA_FILE.read_text(encoding="utf-8"))
@@ -794,7 +775,7 @@ def collect_top_videos(
 
 
 def is_narrow_window(require_hours: float | None) -> bool:
-    """24h / 3d / 30d 上新为窄窗口；100d Top 等为宽窗口。"""
+    """3d / 30d 为窄窗口；100d 为宽窗口。"""
     return require_hours is not None and require_hours <= NARROW_WINDOW_HOURS
 
 
@@ -962,10 +943,6 @@ def platform_bucket_total(buckets: dict[str, list[dict]], platform: str) -> int:
     return sum(
         len(buckets.get(key) or []) for key in CATEGORY_ORDER if key.startswith(platform)
     )
-
-
-def youtube_bucket_total(buckets: dict[str, list[dict]]) -> int:
-    return platform_bucket_total(buckets, "youtube")
 
 
 def preserve_platform_from_previous(
