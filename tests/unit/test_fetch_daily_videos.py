@@ -53,31 +53,27 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
                 {
                     "date": "2026-07-16",
                     "categories": {
-                        "youtube_top_views": {"videos": [{"id": "youtube:x1"}]},
-                        "youtube_recent_30d": {"videos": []},
-                        "youtube_recent_3d": {"videos": []},
-                        "youtube_recent_24h": {"videos": [{"id": "youtube:x2"}]},
+                        "youtube_recent_30d": {"videos": [{"id": "youtube:x1"}, {"id": "youtube:x2"}]},
                     },
                 }
             ]
         }
         out = mod.preserve_youtube_from_previous(buckets, store, today="2026-07-17")
-        self.assertEqual(len(out["youtube_top_views"]), 1)
-        self.assertEqual(len(out["youtube_recent_24h"]), 1)
+        self.assertEqual(len(out["youtube_recent_30d"]), 2)
 
     def test_preserve_skips_when_today_has_youtube(self) -> None:
         buckets = {key: [] for key in mod.CATEGORY_ORDER}
-        buckets["youtube_top_views"] = [{"id": "youtube:new"}]
+        buckets["youtube_recent_30d"] = [{"id": "youtube:new"}]
         store = {
             "batches": [
                 {
                     "date": "2026-07-16",
-                    "categories": {"youtube_top_views": {"videos": [{"id": "youtube:old"}]}},
+                    "categories": {"youtube_recent_30d": {"videos": [{"id": "youtube:old"}]}},
                 }
             ]
         }
         out = mod.preserve_youtube_from_previous(buckets, store, today="2026-07-17")
-        self.assertEqual(out["youtube_top_views"][0]["id"], "youtube:new")
+        self.assertEqual(out["youtube_recent_30d"][0]["id"], "youtube:new")
 
     def test_main_zero_total_preserves_history_without_write(self) -> None:
         """total==0 且有历史批次时不应 exit 1（由 main 逻辑保证，此处测分支辅助函数语义）。"""

@@ -10,8 +10,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-YT_KEYS = ("youtube_top_views", "youtube_recent_30d", "youtube_recent_3d", "youtube_recent_24h")
-BILI_KEYS = ("bilibili_top_views", "bilibili_recent_30d", "bilibili_recent_3d", "bilibili_recent_24h")
+YT_KEYS = ("youtube_recent_30d",)
+BILI_KEYS = ("bilibili_recent_30d",)
 
 
 def append_summary(md: str) -> None:

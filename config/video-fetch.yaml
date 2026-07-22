@@ -1,59 +1,23 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# 八类推荐（同平台跨分类去重：先填 24h → 3d → 30d → 100d Top）
-# 播放量门槛：24h≥100000 · 3d≥1000000 · 30d≥1000000 · 100d≥1000000
-# 内容门槛：仅保留 AI 关键词匹配（不再按分辨率、频道粉丝过滤）
+# YouTube / B站 分别抓取：仅 30 天内上新 Top 10，最低播放 ≥10 万
+# 内容门槛：仅保留 AI 关键词匹配
+# 各类结果按播放量从高到低排序
 video_categories:
-  youtube_top_views:
-    label: "YouTube：100 天内上新 Top 10"
-    platform: youtube
-    days: 100
-    top_count: 10
-    min_views: 1000000
   youtube_recent_30d:
     label: "YouTube：30 天内上新 Top 10"
     platform: youtube
     days: 30
     top_count: 10
-    min_views: 1000000
-  youtube_recent_3d:
-    label: "YouTube：3 天内上新 Top 3"
-    platform: youtube
-    days: 3
-    top_count: 3
-    min_views: 1000000
-  youtube_recent_24h:
-    label: "YouTube：24 小时内上新 Top 3"
-    platform: youtube
-    hours: 24
-    top_count: 3
     min_views: 100000
-  bilibili_top_views:
-    label: "B站：100 天内上新 Top 10"
-    platform: bilibili
-    days: 100
-    top_count: 10
-    min_views: 1000000
   bilibili_recent_30d:
     label: "B站：30 天内上新 Top 10"
     platform: bilibili
     days: 30
     top_count: 10
-    min_views: 1000000
-  bilibili_recent_3d:
-    label: "B站：3 天内上新 Top 3"
-    platform: bilibili
-    days: 3
-    top_count: 3
-    min_views: 1000000
-  bilibili_recent_24h:
-    label: "B站：24 小时内上新 Top 3"
-    platform: bilibili
-    hours: 24
-    top_count: 3
     min_views: 100000
 
-# 多平台搜索源（分类未写 min_views 时的回退值；不再设分辨率/粉丝门槛）
+# 多平台搜索源（分类未写 min_views 时的回退值）
 search_sources:
   youtube:
     enabled: true
@@ -68,7 +32,8 @@ search_sources:
     recent_min_views: 0
 
 search_per_query: 20
-# YouTube 无发布时间时会消耗 detail 配额；过低会导致 B 站分类被饿死
+# B站/YouTube 每个关键词翻页数（热门排序下 30 天内高播放常不在首页）
+search_pages: 5
 max_detail_checks: 640
 
 search_queries:

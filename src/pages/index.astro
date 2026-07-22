@@ -179,7 +179,7 @@ const schema = mergeSchemaGraphs(
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
         <div>
           <h2>每日 AI 视频推荐</h2>
-          <p class="desc">YouTube 与 B站日更列表，默认按上传时间排序。</p>
+          <p class="desc">YouTube 与 B站日更列表（30 天内 · AI 相关 · Top10 · ≥10 万播放），默认按播放量排序。</p>
           <p class="video-update-meta" id="video-update-meta"></p>
         </div>
       </div>
@@ -207,14 +207,14 @@ const schema = mergeSchemaGraphs(
         </div>
         <div class="video-toolbar-group">
           <span class="video-toolbar-label">排序</span>
-          <button type="button" class="video-sort" data-video-sort="views" aria-pressed="false"
-            >热门</button
-          >
           <button
             type="button"
             class="video-sort active"
-            data-video-sort="recent"
-            aria-pressed="true">最新</button
+            data-video-sort="views"
+            aria-pressed="true">热门</button
+          >
+          <button type="button" class="video-sort" data-video-sort="recent" aria-pressed="false"
+            >最新</button
           >
         </div>
       </div>

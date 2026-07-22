@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关视频（YouTube + B站，八类播放量/上新推荐）。"""
+"""每日抓取 AI 应用相关视频（YouTube + B站，各 30 天 Top10）。"""
 
 from __future__ import annotations
 
@@ -24,32 +24,20 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
-# 页面/写入顺序：各平台 100d → 30d → 3d → 24h
+# 仅保留各平台 30 天 Top10
 CATEGORY_ORDER = (
-    "youtube_top_views",
     "youtube_recent_30d",
-    "youtube_recent_3d",
-    "youtube_recent_24h",
-    "bilibili_top_views",
     "bilibili_recent_30d",
-    "bilibili_recent_3d",
-    "bilibili_recent_24h",
 )
 
-# 抓取填充顺序：先窄窗口再 100d Top，避免热门片同时占满多类
+# 抓取填充顺序：YouTube → B站
 PICK_ORDER = (
-    "youtube_recent_24h",
-    "youtube_recent_3d",
     "youtube_recent_30d",
-    "youtube_top_views",
-    "bilibili_recent_24h",
-    "bilibili_recent_3d",
     "bilibili_recent_30d",
-    "bilibili_top_views",
 )
 PLATFORM_ORDER = ("youtube", "bilibili")
 
-# 历史批次键兼容（当前键已包含 24h/3d，保留空映射结构便于扩展）
+# 历史批次键兼容
 LEGACY_CATEGORY_ALIASES: dict[str, tuple[str, ...]] = {}
 
 # ≤30 天视为「上新」窄窗口：按发布时间搜索
@@ -340,62 +328,68 @@ def search_bilibili_api_candidates(
     threshold = min_views if min_views is not None else source_cfg.get("min_views", 0)
     order = "pubdate" if sort_by_date else "click"
     page_size = min(cfg.get("search_per_query", 20), 20)
+    pages = max(1, int(cfg.get("search_pages") or 1))
 
     for query in source_queries(cfg, "bilibili"):
-        try:
-            data = bilibili_api_request(
-                {
-                    "search_type": "video",
-                    "keyword": query,
-                    "page": 1,
-                    "page_size": page_size,
-                    "order": order,
-                }
-            )
-        except Exception as exc:
-            print(f"search skip [bilibili-api] ({query}): {exc}", file=sys.stderr)
-            continue
+        for page in range(1, pages + 1):
+            try:
+                data = bilibili_api_request(
+                    {
+                        "search_type": "video",
+                        "keyword": query,
+                        "page": page,
+                        "page_size": page_size,
+                        "order": order,
+                    }
+                )
+            except Exception as exc:
+                print(f"search skip [bilibili-api] ({query} p{page}): {exc}", file=sys.stderr)
+                break
 
-        for item in data.get("result") or []:
-            bvid = item.get("bvid")
-            if not bvid:
-                continue
-            title = re.sub("<[^>]+>", "", item.get("title") or "")
-            desc = item.get("description") or ""
-            views = int(item.get("play") or 0)
-            if views < threshold:
-                log_reject("low_views_search", composite_id("bilibili", bvid), f"views={views}")
-                continue
-            if not is_relevant(title, desc, cfg):
-                log_reject("not_relevant_search", composite_id("bilibili", bvid), title[:60])
-                continue
-            key = composite_id("bilibili", bvid)
-            pic = item.get("pic") or ""
-            if pic.startswith("//"):
-                pic = f"https:{pic}"
-            candidate = {
-                "platform": "bilibili",
-                "id": bvid,
-                "title": title,
-                "view_count": views,
-                "url": f"https://www.bilibili.com/video/{bvid}",
-                "detail": {
+            results = data.get("result") or []
+            if not results:
+                break
+
+            for item in results:
+                bvid = item.get("bvid")
+                if not bvid:
+                    continue
+                title = re.sub("<[^>]+>", "", item.get("title") or "")
+                desc = item.get("description") or ""
+                views = int(item.get("play") or 0)
+                if views < threshold:
+                    log_reject("low_views_search", composite_id("bilibili", bvid), f"views={views}")
+                    continue
+                if not is_relevant(title, desc, cfg):
+                    log_reject("not_relevant_search", composite_id("bilibili", bvid), title[:60])
+                    continue
+                key = composite_id("bilibili", bvid)
+                pic = item.get("pic") or ""
+                if pic.startswith("//"):
+                    pic = f"https:{pic}"
+                candidate = {
+                    "platform": "bilibili",
                     "id": bvid,
                     "title": title,
-                    "description": desc,
                     "view_count": views,
-                    "uploader": item.get("author") or "未知UP主",
-                    "channel": item.get("author") or "未知UP主",
-                    "thumbnail": pic,
-                    "duration": parse_bilibili_duration(item.get("duration")),
-                    "timestamp": item.get("pubdate"),
-                    "height": 720,
-                    "channel_follower_count": 0,
-                },
-            }
-            prev = found.get(key)
-            if not prev or views > prev.get("view_count", 0):
-                found[key] = candidate
+                    "url": f"https://www.bilibili.com/video/{bvid}",
+                    "detail": {
+                        "id": bvid,
+                        "title": title,
+                        "description": desc,
+                        "view_count": views,
+                        "uploader": item.get("author") or "未知UP主",
+                        "channel": item.get("author") or "未知UP主",
+                        "thumbnail": pic,
+                        "duration": parse_bilibili_duration(item.get("duration")),
+                        "timestamp": item.get("pubdate"),
+                        "height": 720,
+                        "channel_follower_count": 0,
+                    },
+                }
+                prev = found.get(key)
+                if not prev or views > prev.get("view_count", 0):
+                    found[key] = candidate
     return found
 
 
@@ -829,13 +823,8 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
 
         if require_hours is None:
             candidates = search_platform_candidates(cfg, platform, min_views=min_views)
-        elif is_narrow_window(require_hours):
-            # 上新：只按发布时间搜索，避免老热门占满校验配额
-            candidates = search_platform_candidates(
-                cfg, platform, sort_by_date=True, min_views=min_views
-            )
         else:
-            # 100d Top：按热度搜索，再按时间窗过滤；并补充日期搜索以防候选不足
+            # 热度搜索为主（满足「按播放量 Top」），日期搜索补足近期新片
             candidates = search_platform_candidates(cfg, platform, min_views=min_views)
             for cid, item in search_platform_candidates(
                 cfg, platform, sort_by_date=True, min_views=min_views
@@ -899,19 +888,28 @@ def total_video_count(buckets: dict[str, list[dict]]) -> int:
     return sum(len(buckets[key]) for key in CATEGORY_ORDER)
 
 
+def platform_bucket_total(buckets: dict[str, list[dict]], platform: str) -> int:
+    return sum(
+        len(buckets.get(key) or []) for key in CATEGORY_ORDER if key.startswith(platform)
+    )
+
+
 def youtube_bucket_total(buckets: dict[str, list[dict]]) -> int:
-    return sum(len(buckets.get(key) or []) for key in CATEGORY_ORDER if key.startswith("youtube"))
+    return platform_bucket_total(buckets, "youtube")
 
 
-def preserve_youtube_from_previous(
+def preserve_platform_from_previous(
     buckets: dict[str, list[dict]],
     store: dict,
     *,
     today: str,
+    platform: str,
+    cfg: dict | None = None,
 ) -> dict[str, list[dict]]:
-    """今日 YouTube 全空时沿用最近一个有货的批次，避免覆盖掉有效数据。"""
-    if youtube_bucket_total(buckets) > 0:
+    """今日某平台全空时沿用最近一个有货的批次，避免覆盖掉有效数据。"""
+    if platform_bucket_total(buckets, platform) > 0:
         return buckets
+    cats_cfg = (cfg or {}).get("video_categories") or {}
     for batch in store.get("batches") or []:
         if batch.get("date") == today:
             continue
@@ -919,22 +917,41 @@ def preserve_youtube_from_previous(
         prev_total = sum(
             len(category_videos_from_batch(cats, key))
             for key in CATEGORY_ORDER
-            if key.startswith("youtube")
+            if key.startswith(platform)
         )
         if prev_total == 0:
             continue
         for key in CATEGORY_ORDER:
-            if not key.startswith("youtube"):
+            if not key.startswith(platform):
                 continue
             prev_videos = category_videos_from_batch(cats, key)
-            if prev_videos:
-                buckets[key] = [dict(v) for v in prev_videos]
+            if not prev_videos:
+                continue
+            min_views = int((cats_cfg.get(key) or {}).get("min_views") or 0)
+            top_count = int((cats_cfg.get(key) or {}).get("top_count") or len(prev_videos))
+            filtered = [v for v in prev_videos if int(v.get("views") or 0) >= min_views]
+            ranked = sorted(filtered, key=lambda v: int(v.get("views") or 0), reverse=True)
+            buckets[key] = [dict(v) for v in ranked[:top_count]]
+        kept = platform_bucket_total(buckets, platform)
         print(
-            f"警告：今日 YouTube 抓取为空，已沿用 {batch.get('date')} 批次（共 {prev_total} 条）",
+            f"警告：今日 {platform} 抓取为空，已沿用 {batch.get('date')} 批次"
+            f"（源 {prev_total} 条 → 门槛过滤后 {kept} 条）",
             file=sys.stderr,
         )
         break
     return buckets
+
+
+def preserve_youtube_from_previous(
+    buckets: dict[str, list[dict]],
+    store: dict,
+    *,
+    today: str,
+    cfg: dict | None = None,
+) -> dict[str, list[dict]]:
+    return preserve_platform_from_previous(
+        buckets, store, today=today, platform="youtube", cfg=cfg
+    )
 
 
 def main() -> int:
@@ -970,7 +987,10 @@ def main() -> int:
                 return 0
 
     buckets = pick_today_videos(cfg)
-    buckets = preserve_youtube_from_previous(buckets, store, today=today)
+    buckets = preserve_youtube_from_previous(buckets, store, today=today, cfg=cfg)
+    buckets = preserve_platform_from_previous(
+        buckets, store, today=today, platform="bilibili", cfg=cfg
+    )
     limits = bucket_limits(cfg)
     total = total_video_count(buckets)
     min_total = sum(limits.values())
@@ -1028,10 +1048,7 @@ def main() -> int:
     counts = {key: len(buckets[key]) for key in CATEGORY_ORDER}
     print(
         f"已写入 {today} 视频 {total} 条"
-        f"（YT 100d {counts['youtube_top_views']}, YT 30d {counts['youtube_recent_30d']},"
-        f" YT 3d {counts['youtube_recent_3d']}, YT 24h {counts['youtube_recent_24h']},"
-        f" B站 100d {counts['bilibili_top_views']}, B站 30d {counts['bilibili_recent_30d']},"
-        f" B站 3d {counts['bilibili_recent_3d']}, B站 24h {counts['bilibili_recent_24h']}）"
+        f"（YT 30d {counts['youtube_recent_30d']}, B站 30d {counts['bilibili_recent_30d']}）"
         f" → {DATA_FILE}"
     )
     return 0

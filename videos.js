@@ -1,14 +1,15 @@
 const VIDEO_JSON = 'daily-videos.latest.json';
 const VIDEO_JSON_FALLBACK = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
-/** 抓取分桶键（仅用于合并前去重；页面不再按时间窗分开展示） */
+/** 抓取分桶键（仅用于合并前去重；页面按平台展示） */
 const CATEGORY_ORDER = [
-  'youtube_top_views',
   'youtube_recent_30d',
+  'bilibili_recent_30d',
+  // 历史键：兼容旧批次回退
+  'youtube_top_views',
   'youtube_recent_3d',
   'youtube_recent_24h',
   'bilibili_top_views',
-  'bilibili_recent_30d',
   'bilibili_recent_3d',
   'bilibili_recent_24h',
   'top_views',
@@ -17,7 +18,7 @@ const CATEGORY_ORDER = [
   'last_6m',
 ];
 
-/** 与抓取脚本一致：窄窗口优先占坑，合并展示前去掉跨分类重复 */
+/** 与抓取脚本一致；当前仅 30d 两类，历史键仍参与去重优先级 */
 const DEDUPE_PICK_ORDER = [
   'youtube_recent_24h',
   'youtube_recent_3d',
@@ -32,8 +33,8 @@ const DEDUPE_PICK_ORDER = [
 const LEGACY_CATEGORY_ALIASES = {};
 
 let videoDataPromise = null;
-/** 默认按上传时间（最新）排序；平台内合并展示 */
-let videoState = { platform: 'all', sort: 'recent', rawData: null };
+/** 默认按播放量排序；平台内合并展示 */
+let videoState = { platform: 'all', sort: 'views', rawData: null };
 
 function getCategoryKeys(batch) {
   if (!batch.categories) return [];
@@ -42,7 +43,7 @@ function getCategoryKeys(batch) {
   return Object.keys(batch.categories);
 }
 
-/** 同一视频只保留在优先级最高的分类中（24h > 3d > 30d > 100d） */
+/** 同一视频只保留在优先级最高的分类中 */
 function dedupeBatchCategories(batch) {
   if (!batch?.categories) return batch;
   const claim = new Map();
@@ -252,7 +253,7 @@ function renderPlatformBlock(label, key, videos) {
   `;
 }
 
-/** 合并各时间窗视频后按平台分组展示；默认按上传时间倒序 */
+/** 合并后按平台分组展示；默认按播放量倒序 */
 function renderBatch(batch, state) {
   const flat = flattenLatestVideos(batch);
   const sortLabel = state.sort === 'recent' ? '按上传时间' : '按播放量';
@@ -398,7 +399,7 @@ async function loadDailyVideos() {
       const fallbackNote = display?._fallback_count
         ? ` · ${display._fallback_count} 组来源已回退至上一有效批次`
         : '';
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站合并展示 · 默认按上传时间${fallbackNote}`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 30 天 Top10 · 默认按播放量${fallbackNote}`;
     }
 
     paintVideoList();
