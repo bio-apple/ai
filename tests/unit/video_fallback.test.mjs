@@ -11,14 +11,20 @@ test('empty latest category falls back to previous batch', () => {
       date: '2026-07-14',
       categories: {
         youtube_recent_100d: { videos: [] },
-        bilibili_recent_100d: { videos: [{ id: 'b1', views: 2_000_000, published_at: '2026-05-01T00:00:00+08:00' }] },
+        bilibili_recent_100d: {
+          videos: [{ id: 'b1', views: 2_000_000, published_at: '2026-05-01T00:00:00+08:00' }],
+        },
       },
     },
     {
       date: '2026-07-13',
       categories: {
-        youtube_recent_100d: { videos: [{ id: 'y1', views: 1_500_000, published_at: '2026-05-01T00:00:00+08:00' }] },
-        bilibili_recent_100d: { videos: [{ id: 'b0', views: 1_200_000, published_at: '2026-05-01T00:00:00+08:00' }] },
+        youtube_recent_100d: {
+          videos: [{ id: 'y1', views: 1_500_000, published_at: '2026-05-01T00:00:00+08:00' }],
+        },
+        bilibili_recent_100d: {
+          videos: [{ id: 'b0', views: 1_200_000, published_at: '2026-05-01T00:00:00+08:00' }],
+        },
       },
     },
   ]);
@@ -39,14 +45,18 @@ test('two empty YouTube days still backfill when full history is available at bu
       date: '2026-07-17',
       categories: {
         youtube_top_views: { videos: [] },
-        bilibili_top_views: { videos: [{ id: 'b1', views: 2_000_000, published_at: '2026-05-01T00:00:00+08:00' }] },
+        bilibili_top_views: {
+          videos: [{ id: 'b1', views: 2_000_000, published_at: '2026-05-01T00:00:00+08:00' }],
+        },
       },
     },
     {
       date: '2026-07-16',
       categories: {
         youtube_top_views: { videos: [] },
-        bilibili_top_views: { videos: [{ id: 'b0', views: 1_500_000, published_at: '2026-05-01T00:00:00+08:00' }] },
+        bilibili_top_views: {
+          videos: [{ id: 'b0', views: 1_500_000, published_at: '2026-05-01T00:00:00+08:00' }],
+        },
       },
     },
     {
@@ -58,7 +68,9 @@ test('two empty YouTube days still backfill when full history is available at bu
             { id: 'y2', views: 1_500_000, published_at: '2026-05-10T00:00:00+08:00' },
           ],
         },
-        bilibili_top_views: { videos: [{ id: 'b-old', views: 1_200_000, published_at: '2026-05-01T00:00:00+08:00' }] },
+        bilibili_top_views: {
+          videos: [{ id: 'b-old', views: 1_200_000, published_at: '2026-05-01T00:00:00+08:00' }],
+        },
       },
     },
   ]);
