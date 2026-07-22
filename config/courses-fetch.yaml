@@ -3,7 +3,7 @@
 
 max_age_days: 180
 max_items: 16
-min_items: 8
+min_items: 5
 free_only: true
 required_only: true
 
@@ -15,7 +15,7 @@ track_order:
   - LLM 大模型
   - AI Agent
 
-# 必推荐（唯一数据源；关闭自动补充抓取）
+# 必推荐：仅微软、谷歌 + YouTube 斯坦福课
 required:
   - id: microsoft-genai-beginners
     title: Generative AI for Beginners（微软官方 AI 入门）
@@ -33,22 +33,6 @@ required:
     track: 机器学习
     format: 官方课程
     summary: Google 官方机器学习速成课，从基础概念到实践练习。
-    language: en
-  - id: andrew-ng-machine-learning
-    title: Machine Learning（吴恩达 · DeepLearning.AI）
-    url: https://www.coursera.org/learn/machine-learning
-    platform: DeepLearning.AI
-    track: 机器学习
-    format: MOOC
-    summary: 吴恩达经典机器学习入门课，建立监督学习与模型评估基础。
-    language: en
-  - id: andrew-ng-deep-learning
-    title: Deep Learning Specialization（吴恩达 · DeepLearning.AI）
-    url: https://www.coursera.org/specializations/deep-learning
-    platform: DeepLearning.AI
-    track: 深度学习
-    format: MOOC
-    summary: 吴恩达深度学习专项：神经网络、CNN、序列模型与项目实践。
     language: en
   - id: stanford-cs231n
     title: CS231n Deep Learning for Computer Vision（斯坦福 · Spring 2025）
@@ -78,16 +62,8 @@ required:
     language: en
     year: 2026
 
-# 合集入口：只作外链说明，不与下属单课同时出现在 items
-hubs:
-  - id: deeplearning-ai-hub
-    title: DeepLearning.AI 短课程系列（吴恩达团队）
-    url: https://www.deeplearning.ai/short-courses/
-    child_url_prefix: https://www.deeplearning.ai/courses/
-    platform: DeepLearning.AI
-    track: LLM 大模型
-    format: 短课程合集
-    summary: DeepLearning.AI 短课程合集入口（RAG / Agent / 推理等）；不与下属单课重复罗列。
+# 无合集入口（已去掉 DeepLearning.AI / Coursera）
+hubs: []
 
 dedupe:
   prefer_hub_over_children: true

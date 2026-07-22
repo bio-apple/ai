@@ -141,7 +141,7 @@ sequenceDiagram
 | `required_only`                                      | `true` 时仅写入必推荐，不抓补充源（当前默认）                    |
 | `track_order`                                        | 五条路线顺序：入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent |
 | `required[]`                                         | 必推荐课程；斯坦福课用最新学年 YouTube 播放列表                  |
-| `hubs[]`                                             | 合集入口（如 DeepLearning.AI 短课合集）                          |
+| `hubs[]`                                             | 合集入口（当前为空）                                             |
 | `dedupe`                                             | `max_per_track: 5`、`prefer_hub_over_children` 等                |
 | `coursera` / `huggingface_learn` / `youtube_courses` | 补充源（当前均 `enabled: false`）                                |
 | `max_age_days`                                       | 补充课仅收录近 N 天（默认 180）                                  |

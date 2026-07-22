@@ -765,7 +765,8 @@ def main() -> int:
         "title": "AI 课程资源",
         "lead": (
             "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排；"
-            "仅展示必推荐核心课。斯坦福 CS231n / CS224n / CS336 链至 Stanford Online 最新学年 YouTube 讲座。"
+            "仅展示必推荐核心课（微软 / 谷歌 / 斯坦福 YouTube）。"
+            "斯坦福 CS231n / CS224n / CS336 链至 Stanford Online 最新学年讲座播放列表。"
             if required_only
             else (
                 "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排的免费课程；"
@@ -773,8 +774,8 @@ def main() -> int:
             )
         ),
         "source_note": (
-            "数据源：config/courses-fetch.yaml → required + hubs。"
-            "斯坦福课使用 YouTube 播放列表（标注最新已公开学年）；不自动抓取补充课。"
+            "数据源：config/courses-fetch.yaml → required（微软 / 谷歌 / 斯坦福 YouTube）。"
+            "斯坦福课使用最新已公开学年播放列表；不自动抓取补充课。"
             if required_only
             else (
                 "去重规则：URL/标题唯一；合集优先于下属单课；每条路线≤5 门（必学优先）；"

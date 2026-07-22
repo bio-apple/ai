@@ -249,17 +249,13 @@ def validate_ai_news() -> None:
 REQUIRED_COURSE_URLS = (
     "https://microsoft.github.io/generative-ai-for-beginners",
     "https://developers.google.com/machine-learning/crash-course",
-    "https://www.coursera.org/learn/machine-learning",
-    "https://www.coursera.org/specializations/deep-learning",
     "https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16",
     "https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D",
     "https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV",
-    "https://www.deeplearning.ai/short-courses",
 )
 
-HUB_CHILD_PREFIXES = (
-    ("https://www.deeplearning.ai/short-courses", "https://www.deeplearning.ai/courses"),
-)
+HUB_CHILD_PREFIXES = ()
+
 
 MAX_COURSES_PER_TRACK = 5
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-22 10:44:42+0800",
+  "updated_at": "2026-07-22 11:13:40+0800",
   "date": "2026-07-22",
   "cadence": "daily",
   "window_days": 180,
@@ -8,7 +8,7 @@
   "required_only": true,
   "track_order": ["入门", "机器学习", "深度学习", "LLM 大模型", "AI Agent"],
   "title": "AI 课程资源",
-  "lead": "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排；仅展示必推荐核心课。斯坦福 CS231n / CS224n / CS336 链至 Stanford Online 最新学年 YouTube 讲座。",
+  "lead": "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排；仅展示必推荐核心课（微软 / 谷歌 / 斯坦福 YouTube）。斯坦福 CS231n / CS224n / CS336 链至 Stanford Online 最新学年讲座播放列表。",
   "source_note": "数据源：config/courses-fetch.yaml → required + hubs。斯坦福课使用 YouTube 播放列表（标注最新已公开学年）；不自动抓取补充课。",
   "items": [
     {
@@ -40,20 +40,6 @@
       "required": true
     },
     {
-      "id": "andrew-ng-machine-learning",
-      "title": "Machine Learning（吴恩达 · DeepLearning.AI）",
-      "url": "https://www.coursera.org/learn/machine-learning",
-      "summary": "吴恩达经典机器学习入门课，建立监督学习与模型评估基础。",
-      "platform": "DeepLearning.AI",
-      "track": "机器学习",
-      "format": "MOOC",
-      "published_at": "2026-07-22",
-      "language": "en",
-      "is_free": true,
-      "is_new": false,
-      "required": true
-    },
-    {
       "id": "stanford-cs231n",
       "title": "CS231n Deep Learning for Computer Vision（斯坦福 · Spring 2025）",
       "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16",
@@ -61,20 +47,6 @@
       "platform": "Stanford Online",
       "track": "深度学习",
       "format": "YouTube 公开课",
-      "published_at": "2026-07-22",
-      "language": "en",
-      "is_free": true,
-      "is_new": false,
-      "required": true
-    },
-    {
-      "id": "andrew-ng-deep-learning",
-      "title": "Deep Learning Specialization（吴恩达 · DeepLearning.AI）",
-      "url": "https://www.coursera.org/specializations/deep-learning",
-      "summary": "吴恩达深度学习专项：神经网络、CNN、序列模型与项目实践。",
-      "platform": "DeepLearning.AI",
-      "track": "深度学习",
-      "format": "MOOC",
       "published_at": "2026-07-22",
       "language": "en",
       "is_free": true,
@@ -108,21 +80,6 @@
       "is_free": true,
       "is_new": false,
       "required": true
-    },
-    {
-      "id": "deeplearning-ai-hub",
-      "title": "DeepLearning.AI 短课程系列（吴恩达团队）",
-      "url": "https://www.deeplearning.ai/short-courses/",
-      "summary": "DeepLearning.AI 短课程合集入口（RAG / Agent / 推理等）；不与下属单课重复罗列。",
-      "platform": "DeepLearning.AI",
-      "track": "LLM 大模型",
-      "format": "短课程合集",
-      "published_at": "2026-07-22",
-      "language": "en",
-      "is_free": true,
-      "is_new": false,
-      "required": true,
-      "hub": true
     }
   ]
 }
