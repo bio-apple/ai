@@ -79,7 +79,6 @@ jobs:
         run: |
           test -f dist/index.html
           test -f dist/recommend-rules.json
-          test -f dist/daily-videos.json
           test -f dist/daily-videos.latest.json
           test -f dist/lib/fetch-json.js
           test -f dist/ai-courses.json
