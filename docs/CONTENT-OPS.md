@@ -218,9 +218,11 @@ DIST=dist python3 scripts/validate_ci.py news
 **运行机制：**
 
 ```
-按六类候选抓取（YouTube / B站 · 均 ≥100 万播放）
+按六类候选抓取（YouTube / B站）
         ↓
-3d Top3 直接输出；30d Top10 + 100d Top9 合并去重后按播放量最多取 10
+1）3d Top3（≥100 万）2）30d Top5（≥100 万）3）100d Top10（>100 万）
+        ↓
+按 3d→30d→100d 优先去重，每平台合计不超过 10
         ↓
 yt-dlp 搜索 + AI 关键词过滤，分桶按播放量排序
         ↓
@@ -244,8 +246,8 @@ Actions 手动触发时可选 `force=true`。
 
 | 配置块                                       | 作用                                          |
 | -------------------------------------------- | --------------------------------------------- |
-| `video_categories`                           | 3d Top3 直出；30d+100d 合并 Top10（均≥100万） |
-| `platform_merged_top`                        | 30d+100d 合并后最多保留条数（默认 10）        |
+| `video_categories`                           | 3d Top3 + 30d Top5 + 100d Top10（约≥/>100万） |
+| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）         |
 | `search_queries` / `bilibili_search_queries` | 搜索关键词                                    |
 | `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）        |
 | `summary.strip_patterns`                     | 摘要广告过滤正则                              |

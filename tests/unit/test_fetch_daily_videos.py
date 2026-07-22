@@ -101,40 +101,37 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         buckets["youtube_recent_3d"] = [
             {"id": "youtube:a", "views": 2_000_000},
             {"id": "youtube:b", "views": 1_500_000},
-            {"id": "youtube:keep3d", "views": 1_100_000},
+            {"id": "youtube:c3", "views": 1_200_000},
         ]
         buckets["youtube_recent_30d"] = [
-            {"id": "youtube:c", "views": 3_000_000},
-            {"id": "youtube:d", "views": 2_500_000},
+            {"id": "youtube:d", "views": 3_000_000},
+            {"id": "youtube:e", "views": 2_800_000},
+            {"id": "youtube:f", "views": 2_700_000},
+            {"id": "youtube:g", "views": 2_600_000},
+            {"id": "youtube:h", "views": 2_500_000},
         ]
         buckets["youtube_recent_100d"] = [
-            {"id": "youtube:e", "views": 2_400_000},
-            {"id": "youtube:f", "views": 2_300_000},
-            {"id": "youtube:g", "views": 2_200_000},
-            {"id": "youtube:h", "views": 2_100_000},
-            {"id": "youtube:i", "views": 2_050_000},
-            {"id": "youtube:j", "views": 2_040_000},
-            {"id": "youtube:k", "views": 2_030_000},
-            {"id": "youtube:l", "views": 2_020_000},
-            {"id": "youtube:m", "views": 1_010_000},
-        ]
-        buckets["bilibili_recent_3d"] = [{"id": "bilibili:hot", "views": 5_000_000}]
-        buckets["bilibili_recent_30d"] = [
-            {"id": "bilibili:1", "views": 1_200_000},
-            {"id": "bilibili:2", "views": 1_100_000},
+            {"id": "youtube:i", "views": 4_000_000},
+            {"id": "youtube:j", "views": 3_900_000},
+            {"id": "youtube:k", "views": 3_800_000},
+            {"id": "youtube:l", "views": 3_700_000},
+            {"id": "youtube:m", "views": 3_600_000},
         ]
         out = mod.finalize_platform_top_by_views(buckets, limit=10)
-        # 3d 直出不被截断
-        self.assertEqual(len(out["youtube_recent_3d"]), 3)
-        self.assertEqual(len(out["bilibili_recent_3d"]), 1)
-        yt_merged = {
+        yt_ids = {
             v["id"]
-            for key in ("youtube_recent_30d", "youtube_recent_100d")
+            for key in ("youtube_recent_3d", "youtube_recent_30d", "youtube_recent_100d")
             for v in out[key]
         }
-        self.assertEqual(len(yt_merged), 10)
-        self.assertNotIn("youtube:m", yt_merged)  # 第 11 名被截断
-        self.assertNotIn("youtube:a", yt_merged)  # 3d 不进合并池
+        self.assertEqual(len(yt_ids), 10)
+        # 优先保留 3d 全部 + 30d 全部，再从 100d 补 2 条
+        self.assertEqual(len(out["youtube_recent_3d"]), 3)
+        self.assertEqual(len(out["youtube_recent_30d"]), 5)
+        self.assertEqual(len(out["youtube_recent_100d"]), 2)
+        self.assertEqual(
+            {v["id"] for v in out["youtube_recent_100d"]},
+            {"youtube:i", "youtube:j"},
+        )
 
     def test_topup_platform_from_previous(self) -> None:
         buckets = {key: [] for key in mod.CATEGORY_ORDER}
@@ -157,7 +154,7 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         }
         cfg = {
             "video_categories": {
-                "bilibili_recent_100d": {"min_views": 1000000, "top_count": 9},
+                "bilibili_recent_100d": {"min_views": 1000001, "top_count": 10},
             }
         }
         out = mod.topup_platform_from_previous(
@@ -167,7 +164,7 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         self.assertIn("bilibili:old1", ids)
         self.assertIn("bilibili:old2", ids)
         self.assertNotIn("bilibili:new", ids)  # 已在 30d
-        self.assertEqual(mod.platform_merged_total(out, "bilibili"), 3)
+        self.assertEqual(mod.platform_bucket_total(out, "bilibili"), 3)
 
     def test_main_zero_total_preserves_history_without_write(self) -> None:
         """total==0 且有历史批次时不应 exit 1（由 main 逻辑保证，此处测分支辅助函数语义）。"""

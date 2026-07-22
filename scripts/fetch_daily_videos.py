@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关视频（YouTube + B站：3d 直出；30d+100d 合并 Top10）。"""
+"""每日抓取 AI 应用相关视频（YouTube + B站：3d/30d/100d，合计 ≤10）。"""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
-# 3d Top3(≥100万) 直出；30d Top10 + 100d Top9（均 ≥100 万）合并后按播放量最多 10
+# 1）3d Top3(≥100万) 2）30d Top5(≥100万) 3）100d Top10(>100万)；合计 ≤10
 CATEGORY_ORDER = (
     "youtube_recent_3d",
     "youtube_recent_30d",
@@ -44,8 +44,9 @@ PICK_ORDER = (
     "youtube_recent_100d",
 )
 PLATFORM_ORDER = ("youtube", "bilibili")
-DEFAULT_PLATFORM_MERGED_TOP = 10
-MERGED_BUCKET_SUFFIXES = ("_recent_30d", "_recent_100d")
+DEFAULT_PLATFORM_TOTAL_CAP = 10
+# 定稿时按窗口优先级：3d → 30d → 100d
+FINALIZE_PRIORITY_SUFFIXES = ("_recent_3d", "_recent_30d", "_recent_100d")
 
 # 历史批次键兼容（旧 100 天键名为 *_top_views）
 LEGACY_CATEGORY_ALIASES: dict[str, tuple[str, ...]] = {
@@ -861,65 +862,59 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
     return buckets
 
 
-def platform_merged_top(cfg: dict | None = None) -> int:
+def platform_total_cap(cfg: dict | None = None) -> int:
     if cfg is None:
-        return DEFAULT_PLATFORM_MERGED_TOP
-    if cfg.get("platform_merged_top") is not None:
-        return max(1, int(cfg["platform_merged_top"]))
+        return DEFAULT_PLATFORM_TOTAL_CAP
+    if cfg.get("platform_total_cap") is not None:
+        return max(1, int(cfg["platform_total_cap"]))
     # 兼容旧配置名
-    if cfg.get("platform_final_top") is not None:
-        return max(1, int(cfg["platform_final_top"]))
-    return DEFAULT_PLATFORM_MERGED_TOP
+    for legacy in ("platform_merged_top", "platform_final_top"):
+        if cfg.get(legacy) is not None:
+            return max(1, int(cfg[legacy]))
+    return DEFAULT_PLATFORM_TOTAL_CAP
 
 
-def platform_merged_keys(platform: str) -> tuple[str, str]:
-    return (f"{platform}_recent_30d", f"{platform}_recent_100d")
-
-
-def platform_merged_total(buckets: dict[str, list[dict]], platform: str) -> int:
-    seen: set[str] = set()
-    for key in platform_merged_keys(platform):
-        for video in buckets.get(key) or []:
-            vid = video.get("id")
-            if vid:
-                seen.add(vid)
-    return len(seen)
+def platform_bucket_keys(platform: str) -> tuple[str, str, str]:
+    return (
+        f"{platform}_recent_3d",
+        f"{platform}_recent_30d",
+        f"{platform}_recent_100d",
+    )
 
 
 def finalize_platform_top_by_views(
     buckets: dict[str, list[dict]],
     *,
-    limit: int = DEFAULT_PLATFORM_MERGED_TOP,
+    limit: int = DEFAULT_PLATFORM_TOTAL_CAP,
 ) -> dict[str, list[dict]]:
-    """3d 直出；30d+100d 合并去重后按播放量最多保留 limit 条。"""
+    """按 3d→30d→100d 优先填充，去重后每平台总数不超过 limit。"""
     for platform in PLATFORM_ORDER:
-        key_3d = f"{platform}_recent_3d"
-        key_30, key_100 = platform_merged_keys(platform)
+        keys = platform_bucket_keys(platform)
+        selected: list[tuple[str, dict]] = []
+        selected_ids: set[str] = set()
 
-        direct = list(buckets.get(key_3d) or [])
-        direct.sort(key=lambda v: int(v.get("views") or 0), reverse=True)
-        buckets[key_3d] = direct
-        direct_ids = {v.get("id") for v in direct if v.get("id")}
-
-        pool: list[dict] = []
-        seen: set[str] = set()
-        for key in (key_30, key_100):
-            for video in buckets.get(key) or []:
+        for key in keys:
+            ranked = sorted(
+                buckets.get(key) or [],
+                key=lambda v: int(v.get("views") or 0),
+                reverse=True,
+            )
+            for video in ranked:
+                if len(selected) >= limit:
+                    break
                 vid = video.get("id")
-                if not vid or vid in direct_ids or vid in seen:
+                if not vid or vid in selected_ids:
                     continue
-                seen.add(vid)
-                pool.append(video)
-        top_ids = {
-            video["id"]
-            for video in sorted(pool, key=lambda v: int(v.get("views") or 0), reverse=True)[
-                :limit
-            ]
-        }
-        for key in (key_30, key_100):
-            kept = [v for v in (buckets.get(key) or []) if v.get("id") in top_ids]
-            kept.sort(key=lambda v: int(v.get("views") or 0), reverse=True)
-            buckets[key] = kept
+                selected.append((key, video))
+                selected_ids.add(vid)
+            if len(selected) >= limit:
+                break
+
+        keep: dict[str, list[dict]] = {key: [] for key in keys}
+        for key, video in selected:
+            keep[key].append(video)
+        for key in keys:
+            buckets[key] = keep[key]
     return buckets
 
 
@@ -1023,20 +1018,15 @@ def topup_platform_from_previous(
     cfg: dict,
     limit: int,
 ) -> dict[str, list[dict]]:
-    """30d+100d 合并条数不足时，从历史批次按播放量补齐到 100d 桶。"""
+    """平台总数不足 cap 时，从历史批次按播放量补齐到 100d 桶。"""
     existing: dict[str, dict] = {}
-    key_3d = f"{platform}_recent_3d"
-    for video in buckets.get(key_3d) or []:
-        vid = video.get("id")
-        if vid:
-            existing[vid] = video
-    for key in platform_merged_keys(platform):
+    for key in platform_bucket_keys(platform):
         for video in buckets.get(key) or []:
             vid = video.get("id")
             if vid:
                 existing[vid] = video
-    merged_have = platform_merged_total(buckets, platform)
-    if merged_have >= limit:
+    have = len(existing)
+    if have >= limit:
         return buckets
 
     fill_key = f"{platform}_recent_100d"
@@ -1067,38 +1057,36 @@ def topup_platform_from_previous(
                     continue
                 extras.append(dict(video))
                 existing[vid] = video
-        if platform_merged_total(buckets, platform) + len(extras) >= limit:
+        if have + len(extras) >= limit:
             break
 
     if not extras:
         return buckets
 
     extras.sort(key=lambda v: int(v.get("views") or 0), reverse=True)
-    need = limit - platform_merged_total(buckets, platform)
+    need = limit - have
     add: list[dict] = []
-    have = {v.get("id") for v in (buckets.get(fill_key) or [])}
-    direct_ids = {v.get("id") for v in (buckets.get(key_3d) or [])}
+    have_ids = {v.get("id") for v in (buckets.get(fill_key) or [])}
     for video in extras:
         if len(add) >= need:
             break
         vid = video.get("id")
-        if not vid or vid in have or vid in direct_ids:
+        if not vid or vid in have_ids:
             continue
         if any(
             vid in {x.get("id") for x in (buckets.get(k) or [])}
-            for k in platform_merged_keys(platform)
+            for k in platform_bucket_keys(platform)
             if k != fill_key
         ):
             continue
         add.append(video)
-        have.add(vid)
+        have_ids.add(vid)
 
     if add:
         buckets[fill_key] = list(buckets.get(fill_key) or []) + add
         buckets[fill_key].sort(key=lambda v: int(v.get("views") or 0), reverse=True)
         print(
-            f"警告：今日 {platform} 的 30d+100d 仅 {merged_have} 条，"
-            f"已从历史批次补齐 {len(add)} 条到 100d",
+            f"警告：今日 {platform} 仅 {have} 条，已从历史批次补齐 {len(add)} 条到 100d",
             file=sys.stderr,
         )
     return buckets
@@ -1154,10 +1142,10 @@ def main() -> int:
         buckets, store, today=today, platform="bilibili", cfg=cfg
     )
     limits = bucket_limits(cfg)
-    merged_top = platform_merged_top(cfg)
+    total_cap = platform_total_cap(cfg)
     for platform in PLATFORM_ORDER:
         buckets = topup_platform_from_previous(
-            buckets, store, today=today, platform=platform, cfg=cfg, limit=merged_top
+            buckets, store, today=today, platform=platform, cfg=cfg, limit=total_cap
         )
 
     for key in CATEGORY_ORDER:
@@ -1168,15 +1156,14 @@ def main() -> int:
             print(f"警告：{label} 仅 {got} 条（目标 {need}）", file=sys.stderr)
 
     before_final = total_video_count(buckets)
-    buckets = finalize_platform_top_by_views(buckets, limit=merged_top)
+    buckets = finalize_platform_top_by_views(buckets, limit=total_cap)
     total = total_video_count(buckets)
     if before_final != total:
         print(
-            f"合并截断：候选 {before_final} → 3d 直出 + 30d/100d Top{merged_top} 后合计 {total}",
+            f"合并截断：候选 {before_final} → 3d→30d→100d 优先合计 Top{total_cap} 后 {total}",
             file=sys.stderr,
         )
-    # 理想：每平台 3d Top3 + 合并 Top10
-    min_total = len(PLATFORM_ORDER) * (3 + merged_top)
+    min_total = len(PLATFORM_ORDER) * total_cap
 
     if total == 0:
         if today_backup:
@@ -1202,7 +1189,7 @@ def main() -> int:
             "timezone": TZ_NAME,
             "criteria": {
                 "search_sources": list(cfg.get("search_sources", {}).keys()),
-                "platform_merged_top": merged_top,
+                "platform_total_cap": total_cap,
                 "video_categories": {
                     key: {
                         "label": cfg["video_categories"][key]["label"],
@@ -1235,7 +1222,7 @@ def main() -> int:
         f"（YT {yt_n}=3d/{counts['youtube_recent_3d']}+30d/{counts['youtube_recent_30d']}"
         f"+100d/{counts['youtube_recent_100d']}；"
         f"B站 {bili_n}=3d/{counts['bilibili_recent_3d']}+30d/{counts['bilibili_recent_30d']}"
-        f"+100d/{counts['bilibili_recent_100d']}；3d 直出，30d+100d Top{merged_top}）"
+        f"+100d/{counts['bilibili_recent_100d']}；每平台合计≤{total_cap}）"
         f" → {DATA_FILE}"
     )
     return 0

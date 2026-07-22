@@ -152,10 +152,10 @@
           "youtube",
           "bilibili"
         ],
-        "platform_merged_top": 10,
+        "platform_total_cap": 10,
         "video_categories": {
           "youtube_recent_3d": {
-            "label": "YouTube：3 天内播放量 Top 3",
+            "label": "YouTube：3 天内 Top 3",
             "window": {
               "days": 3
             },
@@ -163,23 +163,23 @@
             "min_views": 1000000
           },
           "youtube_recent_30d": {
-            "label": "YouTube：30 天内播放量 Top 10",
+            "label": "YouTube：30 天内 Top 5",
             "window": {
               "days": 30
             },
-            "top_count": 10,
+            "top_count": 5,
             "min_views": 1000000
           },
           "youtube_recent_100d": {
-            "label": "YouTube：100 天内播放量 Top 9",
+            "label": "YouTube：100 天内 Top 10",
             "window": {
               "days": 100
             },
-            "top_count": 9,
-            "min_views": 1000000
+            "top_count": 10,
+            "min_views": 1000001
           },
           "bilibili_recent_3d": {
-            "label": "B站：3 天内播放量 Top 3",
+            "label": "B站：3 天内 Top 3",
             "window": {
               "days": 3
             },
@@ -187,26 +187,26 @@
             "min_views": 1000000
           },
           "bilibili_recent_30d": {
-            "label": "B站：30 天内播放量 Top 10",
+            "label": "B站：30 天内 Top 5",
             "window": {
               "days": 30
             },
-            "top_count": 10,
+            "top_count": 5,
             "min_views": 1000000
           },
           "bilibili_recent_100d": {
-            "label": "B站：100 天内播放量 Top 9",
+            "label": "B站：100 天内 Top 10",
             "window": {
               "days": 100
             },
-            "top_count": 9,
-            "min_views": 1000000
+            "top_count": 10,
+            "min_views": 1000001
           }
         }
       },
       "categories": {
         "youtube_recent_3d": {
-          "label": "YouTube：3 天内播放量 Top 3",
+          "label": "YouTube：3 天内 Top 3",
           "window": {
             "days": 3
           },
@@ -214,19 +214,19 @@
           "videos": []
         },
         "youtube_recent_30d": {
-          "label": "YouTube：30 天内播放量 Top 10",
+          "label": "YouTube：30 天内 Top 5",
           "window": {
             "days": 30
           },
-          "top_count": 10,
+          "top_count": 5,
           "videos": []
         },
         "youtube_recent_100d": {
-          "label": "YouTube：100 天内播放量 Top 9",
+          "label": "YouTube：100 天内 Top 10",
           "window": {
             "days": 100
           },
-          "top_count": 9,
+          "top_count": 10,
           "videos": [
             {
               "id": "youtube:Ez8F0nW6S-w",
@@ -371,7 +371,7 @@
           ]
         },
         "bilibili_recent_3d": {
-          "label": "B站：3 天内播放量 Top 3",
+          "label": "B站：3 天内 Top 3",
           "window": {
             "days": 3
           },
@@ -379,19 +379,19 @@
           "videos": []
         },
         "bilibili_recent_30d": {
-          "label": "B站：30 天内播放量 Top 10",
+          "label": "B站：30 天内 Top 5",
           "window": {
             "days": 30
           },
-          "top_count": 10,
+          "top_count": 5,
           "videos": []
         },
         "bilibili_recent_100d": {
-          "label": "B站：100 天内播放量 Top 9",
+          "label": "B站：100 天内 Top 10",
           "window": {
             "days": 100
           },
-          "top_count": 9,
+          "top_count": 10,
           "videos": [
             {
               "id": "bilibili:BV1fV41117NX",
@@ -5705,5 +5705,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-22T21:57:08.866022+08:00"
+  "updated_at": "2026-07-22T22:26:24.611204+08:00"
 }

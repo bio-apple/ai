@@ -1,46 +1,49 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# YouTube / B站 分别抓取：
-#   1）3 天 Top3（≥100 万）直接输出
-#   2）30 天 Top10（≥100 万）+ 100 天 Top9（≥100 万）合并去重后按播放量最多输出 10
+# YouTube / B站 分别抓取（均约 100 万播放门槛）：
+#   1）3 天内 Top 3（≥100 万）
+#   2）30 天内 Top 5（≥100 万）
+#   3）100 天内 Top 10（>100 万）
+# 1+2+3 去重后总数不超过 10（优先保留更近窗口）
 # 内容门槛：仅保留 AI 关键词匹配
 video_categories:
   youtube_recent_3d:
-    label: "YouTube：3 天内播放量 Top 3"
+    label: "YouTube：3 天内 Top 3"
     platform: youtube
     days: 3
     top_count: 3
     min_views: 1000000
   youtube_recent_30d:
-    label: "YouTube：30 天内播放量 Top 10"
+    label: "YouTube：30 天内 Top 5"
     platform: youtube
     days: 30
-    top_count: 10
+    top_count: 5
     min_views: 1000000
   youtube_recent_100d:
-    label: "YouTube：100 天内播放量 Top 9"
+    label: "YouTube：100 天内 Top 10"
     platform: youtube
     days: 100
-    top_count: 9
-    min_views: 1000000
+    top_count: 10
+    # >100 万 → 严格大于，用 1000001 作为门槛
+    min_views: 1000001
   bilibili_recent_3d:
-    label: "B站：3 天内播放量 Top 3"
+    label: "B站：3 天内 Top 3"
     platform: bilibili
     days: 3
     top_count: 3
     min_views: 1000000
   bilibili_recent_30d:
-    label: "B站：30 天内播放量 Top 10"
+    label: "B站：30 天内 Top 5"
     platform: bilibili
     days: 30
-    top_count: 10
+    top_count: 5
     min_views: 1000000
   bilibili_recent_100d:
-    label: "B站：100 天内播放量 Top 9"
+    label: "B站：100 天内 Top 10"
     platform: bilibili
     days: 100
-    top_count: 9
-    min_views: 1000000
+    top_count: 10
+    min_views: 1000001
 
 # 多平台搜索源（分类未写 min_views 时的回退值）
 search_sources:
@@ -60,8 +63,8 @@ search_per_query: 20
 # B站/YouTube 每个关键词翻页数（热门排序下高播放常不在首页）
 search_pages: 5
 max_detail_checks: 960
-# 30d+100d 合并去重后按播放量最多保留条数（3d 不计入）
-platform_merged_top: 10
+# 1+2+3 去重后每平台最多条数
+platform_total_cap: 10
 
 search_queries:
   - "ChatGPT tutorial 2026"
