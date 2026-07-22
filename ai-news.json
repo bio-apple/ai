@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-21T21:22:53.308469+08:00",
-  "date": "2026-07-21",
+  "updated_at": "2026-07-22T08:55:32.299419+08:00",
+  "date": "2026-07-22",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -13,6 +13,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "ce1cab87367b",
+      "title": "Built in Fort Worth: Wistron Opens Advanced Manufacturing Plant to Produce NVIDIA AI Systems",
+      "summary": "The AI era runs on AI infrastructure. Many of these advanced systems are built and tested in Texas. Wistron opened its first U.S. manufacturing facility today …",
+      "url": "https://blogs.nvidia.com/blog/wistron-manufacturing-texas/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-22T06:35:45+08:00"
+    },
+    {
+      "id": "d42362617c64",
+      "title": "Introducing the ChatGPT for small business program",
+      "summary": "OpenAI launches the ChatGPT for Small Businesses program, helping entrepreneurs build AI skills, automate work, and grow with ChatGPT Work.",
+      "url": "https://openai.com/index/introducing-chatgpt-small-business-program",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-07-22T01:00:00+08:00"
+    },
+    {
+      "id": "46165e640060",
+      "title": "NVIDIA Vera Rubin Driving Performance Per Watt, Lowest Token Cost for Partners Worldwide",
+      "summary": "NVIDIA Vera Rubin is here, and it’s going gigascale. Vera Rubin NVL72 production is ramping up with racks running at partners CoreWeave, Google Cloud, Microsof…",
+      "url": "https://blogs.nvidia.com/blog/vera-rubin/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-21T23:36:43+08:00"
+    },
+    {
+      "id": "8985407e5ef9",
+      "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+      "summary": "We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber.",
+      "url": "https://deepmind.google/blog/introducing-gemini-36-flash-35-flash-lite-and-35-flash-cyber/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-07-21T23:16:30+08:00"
+    },
+    {
+      "id": "a2118bad79e4",
+      "title": "Built for Vera Rubin, NVIDIA Spectrum-6 Arrives in Gigascale AI Factories",
+      "summary": "AI has entered the gigascale era. The world’s most advanced AI factories are bringing together hundreds of thousands of GPUs and CPUs to train frontier models,…",
+      "url": "https://blogs.nvidia.com/blog/nvidia-spectrum-six-arrives-in-gigascale-ai-factories/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-21T23:00:20+08:00"
+    },
     {
       "id": "156450f50c1b",
       "title": "WAIC重磅成果｜上海仪电智算牵头成立“智算系统架构联盟”并发布《超节点系统架构规范》",
@@ -48,6 +93,15 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-07-21T17:15:50+08:00"
+    },
+    {
+      "id": "20b0eb2d5c14",
+      "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
+      "summary": "OpenAI and Hugging Face share early findings from a security incident during AI model evaluation, highlighting advanced cyber capabilities and lessons for defe…",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+      "source": "OpenAI",
+      "category": "开源项目",
+      "published_at": "2026-07-21T15:00:00+08:00"
     },
     {
       "id": "f705053ddeec",
@@ -104,13 +158,13 @@
       "published_at": "2026-07-21T12:00:00+08:00"
     },
     {
-      "id": "6bcab8780858",
-      "title": "ICML2026最佳论文提名｜模型过拟合后为何突然“开窍”？首个可证明Grokking理论，普渡大学，智源TALK",
-      "summary": "本报告介绍ICML 2026最佳论文提名工作，首次在带权重衰减的过参数化线性回归（即岭回归）中建立可证明的Grokking理论。Grokking指模型长期过拟合后突然泛化，其机制此前缺乏严格解释。研究通过理论分析揭示：岭回归中存在隐式正则化路径与优化动态耦合，导致训练误差先降后升再骤降，泛化误差同步突变；关键在于高维…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU5ODg0MTAwMw==&mid=2247557304&idx=3&sn=e662af924eac41a4a5ee9fe0b6ae1a9e&chksm=ff03811027b1d7081409541dc6cf5f00e3466b9d6caeb8be3b0705f218efb05cf19de2c5db21&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-21 18:50 分享"
+      "id": "40359dbf5a24",
+      "title": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC",
+      "summary": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC, bringing global leadership in finance, technology, and governance.",
+      "url": "https://openai.com/index/david-velez-robin-vince-join-openai-boards",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-21T08:00:00+08:00"
     },
     {
       "id": "286358f33346",
@@ -141,7 +195,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,098",
+      "title": "thedotmack/claude-mem · ★ 88,153",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -150,7 +204,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,035",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,046",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -158,13 +212,13 @@
       "published_at": "2026-07-19T07:12:49Z"
     },
     {
-      "id": "3cc85d0a4ad9",
-      "title": "NVIDIA Vera Rubin Maximizes Intelligence per Dollar for Post-Training Workloads — a Key Metric for Agentic AI",
-      "summary": "Lowest cost per token from extreme codesign maximizes intelligence per dollar for post-training in the agentic era.",
-      "url": "https://blogs.nvidia.com/blog/nvidia-vera-rubin-post-training-intelligence-per-dollar/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-17T23:00:14+08:00"
+      "id": "7898549b95c3",
+      "title": "Introducing Gemini 3.5 Flash Cyber",
+      "summary": "Google introduces Gemini 3.5 Flash Cyber, a lightweight cybersecurity model to find and patch vulnerabilities.",
+      "url": "https://deepmind.google/blog/introducing-gemini-3-5-flash-cyber/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-07-17T23:00:11+08:00"
     },
     {
       "id": "3ebda52fc80e",
@@ -185,15 +239,6 @@
       "published_at": "2026-07-17T00:00:00+08:00"
     },
     {
-      "id": "8fe39edff791",
-      "title": "Why teens deserve access to safe AI",
-      "summary": "Learn how OpenAI is making ChatGPT safer for teens with age-appropriate protections, learning tools, parental controls, and expert partnerships.",
-      "url": "https://openai.com/index/why-teens-deserve-access-safe-ai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-17T00:00:00+08:00"
-    },
-    {
       "id": "0199c9587e0b",
       "title": "Create, edit and star in videos with two Google Vids updates",
       "summary": "Gemini Omni and personal avatars in Google Vids make video creation easier than ever.",
@@ -201,15 +246,6 @@
       "source": "Google AI",
       "category": "新模型发布",
       "published_at": "2026-07-17T00:00:00+08:00"
-    },
-    {
-      "id": "62fe82c2b1f7",
-      "title": "Sharpen the Sword, Skip the Downloads — ‘Onimusha: Way of the Sword’ Is Coming to GeForce NOW",
-      "summary": "Onimusha: Way of the Sword is coming to GeForce NOW at launch, with the playable demo available this week. It’s joined by Denshattack! rolling in with five new…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-onimusha-coming/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-07-16T21:00:34+08:00"
     },
     {
       "id": "287800377f1b",
@@ -221,42 +257,6 @@
       "published_at": "2026-07-16T17:30:42+08:00"
     },
     {
-      "id": "6f16a999c8dd",
-      "title": "How Cars24 scales conversations and builds faster with OpenAI",
-      "summary": "Cars24 uses OpenAI-powered voice and chat agents to handle 1M+ monthly conversation minutes, recover 12% of lost leads, and bring agentic workflows to teams ac…",
-      "url": "https://openai.com/index/cars24",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-16T08:00:00+08:00"
-    },
-    {
-      "id": "dc5abc6a592c",
-      "title": "NVIDIA Introduces New Jetson Thor Computers to Advance Mainstream Robotics and Edge AI",
-      "summary": "General-purpose robots and autonomous machines are moving from research labs to real-world mass-market deployment, creating demand for compact, power-efficient…",
-      "url": "https://blogs.nvidia.com/blog/jetson-thor-robotics-edge-ai-agent/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-16T07:00:54+08:00"
-    },
-    {
-      "id": "1e97faa490fa",
-      "title": "The US is advancing AI safety through state and federal action",
-      "summary": "OpenAI outlines a “reverse federalism” approach to AI governance, where state laws help build a national framework for safe, democratic AI.",
-      "url": "https://openai.com/index/advancing-ai-safety-through-state-and-federal-action",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-15T20:00:00+08:00"
-    },
-    {
-      "id": "4a94e64db0fd",
-      "title": "Celebrating 25 years of visual search innovation",
-      "summary": "Google Images is turning 25. Here’s a look back at some major milestones — and new ways to explore and create visual content.",
-      "url": "https://blog.google/products-and-platforms/products/search/google-images-25th-anniversary/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-15T00:00:00+08:00"
-    },
-    {
       "id": "5e689a649359",
       "title": "Inviting hard questions",
       "summary": "Inviting hard questions",
@@ -266,11 +266,20 @@
       "published_at": null
     },
     {
-      "id": "4121c4903744",
-      "title": "一个周末，AI黑掉了AI！这剧情太科幻了",
-      "summary": "Hugging Face近日披露重大安全事件：其部分生产基础设施遭入侵，全程由自主AI Agent系统完成，无任何人参与操作，仅用一个周末即攻破。攻击留下超17000条操作日志。此前Anthropic亦报告类似案例——攻击者将Claude Code集成至攻击框架，自动化程度达80%–90%。此类事件凸显AI自主执行恶…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713993&idx=2&sn=318f2f0d791fffdc82bfe3823f73ea5a&chksm=f09fd8c2aeba1eee0779f7e80c5702aac03a5774dc98190a6f69b417e3479444ee8178d315fb&scene=126&sessionid=0#rd",
+      "id": "505203707460",
+      "title": "AI领走埃尔德什100美元赏金！44页顶刊没解的题，它一页纸答出",
+      "summary": "1991年，József Beck在《数学年刊》发表一篇44页的艰深论文，探讨单位圆上零点多项式的模问题，涉及埃尔德什猜想与差异理论。Beck是组合数学泰斗，提出Beck-Fiala定理，获Fulkerson奖并受邀ICM报告。近日，新智元报道一项突破：研究者仅用一页纸便重构并简化了该核心证明，大幅降低理解门槛，彰显…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714043&idx=2&sn=3d9fbc666ba65007c5dd7cf1b4b6b13e&chksm=f0b6e9c0f902e44bfbcd93fb091d81fe6b765303cb2454089b6c4768090f5198b308f03594fd&scene=0&xtrack=1#rd",
       "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "beec2b214a11",
+      "title": "环球时报｜走近前沿科技：在上海感受中国AI新势能",
+      "summary": "2026世界人工智能大会暨全球治理高级别会议在上海举行，现场展示覆盖食品、美容、医疗、金融、法律等多领域AI应用，凸显AI技术深度融合产业的热潮。清华大学梁正教授，兼任人工智能国际治理研究院副院长等多个要职，深度参与AI治理研究。《环球时报》记者实地探访展会，感受到AI技术加速落地与广泛渗透的强劲势头，折射出我国在推…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524551&idx=3&sn=750ecc3fff94b79f6d5edfee6c874516&chksm=fca66b2e62dc0c22859edaf6edf8e68882e35592fd9e0881aa323d6a48b03318b43668728547&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
@@ -302,29 +311,29 @@
       "published_at": null
     },
     {
-      "id": "da9f75a2f25f",
-      "title": "Kimi K3上线48小时：模型爆火，GPU爆肝，会员停售",
-      "summary": "Kimi K3上线仅48小时便因用户激增导致服务器超负荷，GPU算力告急，官方紧急暂停C端新用户会员订阅。现有会员可正常使用，新用户暂无法购买。",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905172&idx=2&sn=bfd76c9d120d714050c6e056d373c0af&chksm=e9fddbb043b1e3d2a9e60c724e00a483d1e9c6b350e25e3cf43a5a266392239be0430d20407c&scene=126&sessionid=0#rd",
+      "id": "917d5fa65764",
+      "title": "中兴通讯联合国产算力厂，拿下WAIC SAIL之星",
+      "summary": "今年WAIC的SAIL之星再次授予中兴通讯，其推出的国产高性能Matrix超节点方案（基于OEX+dOCS架构）获评SAIL奖，实现蝉联。该方案对标英伟达GB200 NVL72开创的超节点路径，凸显国产算力基础设施突破。超节点因高密度、高带宽、低延迟优势，正成为头部厂商竞相布局的关键方向。中兴此次成果标志着其在AI算…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904823&idx=2&sn=a9532539070eb27cc27c2c18d83f4ec2&chksm=e9c1a001b7bd1c1eebc025bec6ee5e56d181f2645b10032f7d5cea4c2892061010d0de1c51c8&scene=0&xtrack=1#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "71607ff1f94b",
-      "title": "「仿真派」落地真产线！苏度WAIC首秀，CEO韩铮：99%+成功率",
-      "summary": "苏度科技，一家成立仅一年、估值超200亿元的中国具身智能新锐企业，于WAIC首次在国内大型展会亮相。其联合创始人、董事长兼CTO苏昊带领团队实现技术突破：机器人无需真机调试与遥操作采集，直接从仿真环境“毕业”，Zero-shot首次抓取成功率高达约98%。此前该成果已在CVPR引发轰动，展台人气爆棚。此次WAIC展示…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905208&idx=1&sn=05126cc220f01d7e678b41f994048a46&chksm=e990bdf92aad9eaca1cc0edffcf7ef9b70ddd00dc894ef05f02bfcc49c02b2158992ce165ab0&scene=126&sessionid=0#rd",
+      "id": "77b540a98858",
+      "title": "AI医疗卷了10年终于悟了：不用替代医生，而是给医院装上超强buff",
+      "summary": "WAIC现场热闹非凡，300多款产品全球首发，1100余家企业参展。联影智能提出“元医院”概念，呼应昔日“元宇宙”热潮，但聚焦医疗场景：依托AI大模型、智能体（Agent）与多模态技术，构建覆盖诊疗、科研、管理的全链条智慧医疗新范式。它并非虚拟替代现实，而是深度融合影像、病理、基因等数据，实现精准诊断与个性化治疗。这…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905288&idx=1&sn=cab10872925a0a1fdb56ba2945a6483a&chksm=e9164d4b3e5d2fce65108ae84aa2b0739704e436cd438bf9160cbd6ab18807dc902097c08110&scene=126&sessionid=0#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "e4e623a3538c",
-      "title": "大模型给图片打分不再“靠嘴说”！结构图、频谱图当“物证”，用“视觉证据”来给图片打分 | ECCV‘26",
-      "summary": "西北工业大学与香港科技大学团队提出IQA新框架，旨在解决多模态大模型（MLLM）图像质量评估不准确问题。现有MLLM常将退化图像（如加噪、压缩、模糊）误判为高质量，因其缺乏对失真特征的细粒度感知，评分依赖直觉而非证据。IQA通过引入可解释的质量感知模块，显式建模退化类型与程度，增强模型对图像失真的识别与量化能力，提升…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905208&idx=2&sn=a3e4a71dcd3ca497be18472aa088bdef&chksm=e9f2bdce1f1fa70c4dfba856be5e81dd86449ed87a29a18fc7158690dd584e21485241c5f787&scene=126&sessionid=0#rd",
-      "source": "量子位",
+      "id": "7708473095a0",
+      "title": "刚刚，中国AI首次赢了！一张8K东方长卷惊艳全场",
+      "summary": "在WAIC大会上，商汤科技发布新一代多模态大模型“日日新SenseNova-U1 Pro”，系中国首个直出8K长卷的AI模型，首次将“看懂、生成、动手”能力原生集成于同一多模态基座底层。徐立现场展示为WAIC九周年定制的8K超清长卷《智会世图》，展现2018至2026年间东方城市风貌，涵盖人物、山水、楼宇等丰富细节，…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713777&idx=1&sn=8017bf3f5e66eaf4c26af2553f9432cb&chksm=f006424e4c58c53c777b04ac2d4bac87b29e7782457f7fc858f9e86f45175472fef04f6da5f6&scene=0&xtrack=1#rd",
+      "source": "新智元",
       "category": "中文资讯",
       "published_at": null
     }
