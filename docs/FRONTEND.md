@@ -92,7 +92,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 | 模块        | 文件                  | 说明                                 |
 | ----------- | --------------------- | ------------------------------------ |
 | 核心        | `lib/virtual-list.js` | 可视区渲染 + rAF；`mapInChunks` 分片 |
-| 视频        | `videos.js`           | YouTube / B站网格虚拟滚动            |
+| 视频        | `videos.js`           | YouTube / B站网格平铺展示            |
 | 工具榜      | `ranking-tabs.js`     | 榜单行虚拟列表（SSR 预览前 10 条）   |
 | GitHub 热门 | 首页 Daily 面板       | 全量 GitHub 源资讯可滚动             |
 

@@ -186,7 +186,7 @@ flowchart TB
 | 领域地图 | `HomeAiMap.astro`               | 简报后原生 HTML 嵌套层级图；跟主题 / 窄屏；非 Hero、非位图    |
 | 面包屑   | `Breadcrumb.astro`              | 专区「首页 / …」；独立页经 `StandalonePageHeader`             |
 | 漏斗     | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich                           |
-| 虚拟列表 | `lib/virtual-list.js`           | 视频 / 榜单 / GitHub 热门                                     |
+| 虚拟列表 | `lib/virtual-list.js`           | 榜单 / GitHub 热门（视频区已改为整页网格）                    |
 | 链接兜底 | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404                              |
 | 本地部署 | `HomeLocalDeploy.astro`         | SSG 卡片（`data/local-deploy.json`）；`#section-local`        |
 | 懒加载   | `lazy-sections.js`              | Tab 进入后再拉业务脚本（不含 section-local）                  |
