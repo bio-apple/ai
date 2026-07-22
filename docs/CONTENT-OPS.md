@@ -240,12 +240,12 @@ Actions 手动触发时可选 `force=true`。
 
 **核心配置项：**
 
-| 配置块                                       | 作用                                                          |
-| -------------------------------------------- | ------------------------------------------------------------- |
+| 配置块                                       | 作用                                                                        |
+| -------------------------------------------- | --------------------------------------------------------------------------- |
 | `video_categories`                           | 八类窗口、Top N、最低播放量（24h≥10万 / 3d≥100万 / 30d≥500万 / 100d≥100万） |
-| `search_queries` / `bilibili_search_queries` | 搜索关键词                                                    |
-| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）                        |
-| `summary.strip_patterns`                     | 摘要广告过滤正则                                              |
+| `search_queries` / `bilibili_search_queries` | 搜索关键词                                                                  |
+| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）                                      |
+| `summary.strip_patterns`                     | 摘要广告过滤正则                                                            |
 
 **注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → 六类为空。
 
