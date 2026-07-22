@@ -1,21 +1,15 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-22 11:20:14+0800",
+  "updated_at": "2026-07-22 11:36:04+0800",
   "date": "2026-07-22",
   "cadence": "daily",
   "window_days": 180,
   "free_only": true,
   "required_only": true,
-  "track_order": [
-    "入门",
-    "机器学习",
-    "深度学习",
-    "LLM 大模型",
-    "AI Agent"
-  ],
+  "track_order": ["入门", "机器学习", "深度学习", "LLM 大模型", "AI Agent"],
   "title": "AI 课程资源",
-  "lead": "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排；仅展示必推荐核心课（微软 / 谷歌 / 斯坦福 YouTube）。斯坦福 CS230 / CS231n / CS224n / CS336 链至 Stanford Online 最新学年讲座播放列表。",
-  "source_note": "数据源：config/courses-fetch.yaml → required（微软 / 谷歌 / 斯坦福 YouTube）。斯坦福课使用最新已公开学年播放列表；不自动抓取补充课。",
+  "lead": "按学习路线精选免费课：微软与谷歌入门，斯坦福 CS230 / CS231n / CS224n / CS336（YouTube 最新学年讲座 + 官网）。",
+  "source_note": "仅收录微软、谷歌与斯坦福公开课；斯坦福同时给出 YouTube 播放列表与官方主页。",
   "items": [
     {
       "id": "microsoft-genai-beginners",

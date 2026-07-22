@@ -237,11 +237,19 @@ function paintCourses() {
 
 function renderCoursesMeta(data) {
   const meta = document.getElementById('courses-update-meta');
+  const leadEl = document.getElementById('courses-lead');
+  if (leadEl && data.lead) {
+    leadEl.textContent = String(data.lead);
+  }
   if (!meta) return;
   const n = (data.items || []).length;
-  const required = (data.items || []).filter((i) => i.required).length;
+  const stanford = (data.items || []).filter((i) =>
+    /stanford/i.test(String(i.platform || '')),
+  ).length;
   const updated = data.updated_at || data.date || '';
-  meta.textContent = `免费 · 每段最多 5 门 · ${n} 门（必学 ${required}）${updated ? ` · 更新 ${formatCourseDate(updated)}` : ''}`;
+  meta.textContent = `免费 · 精选 ${n} 门 · 斯坦福 ${stanford} 门（YouTube + 官网）${
+    updated ? ` · 更新 ${formatCourseDate(updated)}` : ''
+  }`;
 }
 
 async function initCoursesSection() {
