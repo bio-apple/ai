@@ -244,7 +244,7 @@ Actions 手动触发时可选 `force=true`。
 
 | 配置块                                       | 作用                                    |
 | -------------------------------------------- | --------------------------------------- |
-| `video_categories`                           | 3d Top3(≥100万) + 30d Top10 + 100d Top9 |
+| `video_categories`                           | 3d≥100万 Top3；30d/100d≥10万 Top10/Top9 |
 | `platform_final_top`                         | 各平台合并后按播放量保留条数（默认 10） |
 | `search_queries` / `bilibili_search_queries` | 搜索关键词                              |
 | `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）  |
