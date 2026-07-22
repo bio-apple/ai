@@ -342,7 +342,7 @@ function renderBatch(batch, state) {
     return {
       html: `
       <section class="video-day">
-        <h3 class="video-day-title">${escapeHtml(batch.date)} · ${platformLabelText} · ${sortLabel}
+        <h3 class="video-day-title">${platformLabelText} · ${sortLabel}
           <span class="video-day-count">${filtered.length} 条</span>
         </h3>
         ${fallbackNote}
@@ -359,7 +359,7 @@ function renderBatch(batch, state) {
   return {
     html: `
     <section class="video-day">
-      <h3 class="video-day-title">${escapeHtml(batch.date)} · ${sortLabel}
+      <h3 class="video-day-title">${sortLabel}
         <span class="video-day-count">YouTube ${youtube.length} · B站 ${bilibili.length}</span>
       </h3>
       ${fallbackNote}
