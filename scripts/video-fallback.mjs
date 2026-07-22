@@ -2,6 +2,19 @@
  * 与 videos.js `withCategoryFallback` 同算法，供构建产物与单测复用。
  */
 
+const LEGACY_CATEGORY_ALIASES = {
+  youtube_recent_3d: ['youtube_recent_3d', 'youtube_recent_24h'],
+  bilibili_recent_3d: ['bilibili_recent_3d', 'bilibili_recent_24h'],
+};
+
+function categoryVideosFromBatch(cats, key) {
+  for (const alias of LEGACY_CATEGORY_ALIASES[key] || [key]) {
+    const videos = cats?.[alias]?.videos || [];
+    if (videos.length) return videos;
+  }
+  return cats?.[key]?.videos || [];
+}
+
 /** @param {Array<Record<string, unknown>> | null | undefined} batches */
 export function withCategoryFallback(batches) {
   if (!Array.isArray(batches) || !batches.length) return null;
@@ -20,7 +33,7 @@ export function withCategoryFallback(batches) {
     let filled = null;
     let fromDate = null;
     for (let i = 1; i < batches.length; i += 1) {
-      const prevVideos = batches[i]?.categories?.[key]?.videos || [];
+      const prevVideos = categoryVideosFromBatch(batches[i]?.categories || {}, key);
       if (prevVideos.length) {
         filled = prevVideos;
         fromDate = batches[i].date || null;

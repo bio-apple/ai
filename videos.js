@@ -1,13 +1,15 @@
 const VIDEO_JSON = 'daily-videos.latest.json';
 const VIDEO_JSON_FALLBACK = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
-/** 抓取分桶键（仅用于合并前去重；页面不再按 100d/30d/24h 分开展示） */
+/** 抓取分桶键（仅用于合并前去重；页面不再按 100d/30d/3d 分开展示） */
 const CATEGORY_ORDER = [
   'youtube_top_views',
   'youtube_recent_30d',
-  'youtube_recent_24h',
+  'youtube_recent_3d',
   'bilibili_top_views',
   'bilibili_recent_30d',
+  'bilibili_recent_3d',
+  'youtube_recent_24h',
   'bilibili_recent_24h',
   'top_views',
   'recent_7d',
@@ -17,13 +19,21 @@ const CATEGORY_ORDER = [
 
 /** 与抓取脚本一致：窄窗口优先占坑，合并展示前去掉跨分类重复 */
 const DEDUPE_PICK_ORDER = [
+  'youtube_recent_3d',
   'youtube_recent_24h',
   'youtube_recent_30d',
   'youtube_top_views',
+  'bilibili_recent_3d',
   'bilibili_recent_24h',
   'bilibili_recent_30d',
   'bilibili_top_views',
 ];
+
+/** 历史 24h 桶映射到当前 3d 键，供分类回退读取 */
+const LEGACY_CATEGORY_ALIASES = {
+  youtube_recent_3d: ['youtube_recent_3d', 'youtube_recent_24h'],
+  bilibili_recent_3d: ['bilibili_recent_3d', 'bilibili_recent_24h'],
+};
 
 let videoDataPromise = null;
 /** 默认按上传时间（最新）排序；平台内合并展示 */
@@ -36,7 +46,7 @@ function getCategoryKeys(batch) {
   return Object.keys(batch.categories);
 }
 
-/** 同一视频只保留在优先级最高的分类中（24h > 30d > 100d） */
+/** 同一视频只保留在优先级最高的分类中（3d > 30d > 100d） */
 function dedupeBatchCategories(batch) {
   if (!batch?.categories) return batch;
   const claim = new Map();
@@ -60,6 +70,14 @@ function dedupeBatchCategories(batch) {
   return { ...batch, categories };
 }
 
+function categoryVideosFromBatch(cats, key) {
+  for (const alias of LEGACY_CATEGORY_ALIASES[key] || [key]) {
+    const videos = cats?.[alias]?.videos || [];
+    if (videos.length) return videos;
+  }
+  return cats?.[key]?.videos || [];
+}
+
 /**
  * 最新批次某分类为空时，向前找最近一个非空批次回填，并标记 fallback_from。
  */
@@ -80,7 +98,7 @@ function withCategoryFallback(batches) {
     let filled = null;
     let fromDate = null;
     for (let i = 1; i < batches.length; i += 1) {
-      const prevVideos = batches[i]?.categories?.[key]?.videos || [];
+      const prevVideos = categoryVideosFromBatch(batches[i]?.categories || {}, key);
       if (prevVideos.length) {
         filled = prevVideos;
         fromDate = batches[i].date || null;

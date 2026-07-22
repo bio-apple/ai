@@ -24,26 +24,32 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
-# 页面/写入顺序：各平台 100d → 30d → 24h
+# 页面/写入顺序：各平台 100d → 30d → 3d
 CATEGORY_ORDER = (
     "youtube_top_views",
     "youtube_recent_30d",
-    "youtube_recent_24h",
+    "youtube_recent_3d",
     "bilibili_top_views",
     "bilibili_recent_30d",
-    "bilibili_recent_24h",
+    "bilibili_recent_3d",
 )
 
 # 抓取填充顺序：先窄窗口再 100d Top，避免热门片同时占满多类
 PICK_ORDER = (
-    "youtube_recent_24h",
+    "youtube_recent_3d",
     "youtube_recent_30d",
     "youtube_top_views",
-    "bilibili_recent_24h",
+    "bilibili_recent_3d",
     "bilibili_recent_30d",
     "bilibili_top_views",
 )
 PLATFORM_ORDER = ("youtube", "bilibili")
+
+# 历史批次键 → 当前键（展示/YouTube 回退兼容）
+LEGACY_CATEGORY_ALIASES = {
+    "youtube_recent_3d": ("youtube_recent_3d", "youtube_recent_24h"),
+    "bilibili_recent_3d": ("bilibili_recent_3d", "bilibili_recent_24h"),
+}
 
 # ≤30 天视为「上新」窄窗口：按发布时间搜索
 NARROW_WINDOW_HOURS = 30 * 24
@@ -382,7 +388,7 @@ def search_bilibili_api_candidates(
                     "thumbnail": pic,
                     "duration": parse_bilibili_duration(item.get("duration")),
                     "timestamp": item.get("pubdate"),
-                    "height": source_cfg.get("min_height", 720),
+                    "height": 720,
                     "channel_follower_count": 0,
                 },
             }
@@ -513,7 +519,7 @@ def fetch_video_detail(candidate: dict, cache: dict[str, dict | None], cfg: dict
 
     platform = candidate["platform"]
     source_cfg = (cfg or {}).get("search_sources", {}).get(platform, {})
-    default_height = int(source_cfg.get("min_height") or 1080)
+    default_height = int(source_cfg.get("default_height") or 1080)
 
     if platform == "youtube" and youtube_api_key():
         detail = fetch_youtube_api_detail(candidate["id"], default_height=default_height)
@@ -647,7 +653,6 @@ def validate_and_build_record(
     min_views: int,
 ) -> dict | None:
     platform = candidate["platform"]
-    source_cfg = cfg.get("search_sources", {}).get(platform, {})
     key = composite_id(platform, candidate["id"])
 
     upload_dt = parse_upload_datetime(detail)
@@ -659,21 +664,11 @@ def validate_and_build_record(
         return None
 
     height = int(detail.get("height") or 0) or max_height(detail)
-    min_height = source_cfg.get("min_height", cfg.get("min_height", 720))
-    if height < min_height:
-        log_reject("low_resolution", key, f"height={height}")
-        return None
 
     views = int(detail.get("view_count") or 0)
     subs = int(detail.get("channel_follower_count") or 0)
     if views < min_views:
         log_reject("low_views_detail", key, f"views={views}")
-        return None
-
-    min_subscribers = source_cfg.get("min_subscribers", cfg.get("min_subscribers", 0))
-    # 订阅数未知（如 YouTube Data API 未拉 channels）时不因 0 误杀
-    if min_subscribers and subs > 0 and subs < min_subscribers:
-        log_reject("low_subscribers", key, f"subs={subs}")
         return None
 
     title = detail.get("title") or candidate.get("title") or ""
@@ -793,8 +788,17 @@ def collect_top_videos(
 
 
 def is_narrow_window(require_hours: float | None) -> bool:
-    """24h / 30d 上新为窄窗口；100d Top 等为宽窗口。"""
+    """3d / 30d 上新为窄窗口；100d Top 等为宽窗口。"""
     return require_hours is not None and require_hours <= NARROW_WINDOW_HOURS
+
+
+def category_videos_from_batch(cats: dict, key: str) -> list:
+    """读取某分类视频；兼容历史 24h → 3d 键名。"""
+    for alias in LEGACY_CATEGORY_ALIASES.get(key, (key,)):
+        videos = (cats.get(alias) or {}).get("videos") or []
+        if videos:
+            return list(videos)
+    return (cats.get(key) or {}).get("videos") or []
 
 
 def category_min_views(cat: dict, source_cfg: dict) -> int:
@@ -912,7 +916,7 @@ def preserve_youtube_from_previous(
             continue
         cats = batch.get("categories") or {}
         prev_total = sum(
-            len((cats.get(key) or {}).get("videos") or [])
+            len(category_videos_from_batch(cats, key))
             for key in CATEGORY_ORDER
             if key.startswith("youtube")
         )
@@ -921,7 +925,7 @@ def preserve_youtube_from_previous(
         for key in CATEGORY_ORDER:
             if not key.startswith("youtube"):
                 continue
-            prev_videos = (cats.get(key) or {}).get("videos") or []
+            prev_videos = category_videos_from_batch(cats, key)
             if prev_videos:
                 buckets[key] = [dict(v) for v in prev_videos]
         print(
@@ -1024,8 +1028,8 @@ def main() -> int:
     print(
         f"已写入 {today} 视频 {total} 条"
         f"（YT Top {counts['youtube_top_views']}, YT 30d {counts['youtube_recent_30d']},"
-        f" YT 24h {counts['youtube_recent_24h']}, B站 Top {counts['bilibili_top_views']},"
-        f" B站 30d {counts['bilibili_recent_30d']}, B站 24h {counts['bilibili_recent_24h']}）"
+        f" YT 3d {counts['youtube_recent_3d']}, B站 Top {counts['bilibili_top_views']},"
+        f" B站 30d {counts['bilibili_recent_30d']}, B站 3d {counts['bilibili_recent_3d']}）"
         f" → {DATA_FILE}"
     )
     return 0

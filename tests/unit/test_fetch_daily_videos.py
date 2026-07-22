@@ -55,14 +55,30 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
                     "categories": {
                         "youtube_top_views": {"videos": [{"id": "youtube:x1"}]},
                         "youtube_recent_30d": {"videos": []},
-                        "youtube_recent_24h": {"videos": [{"id": "youtube:x2"}]},
+                        "youtube_recent_3d": {"videos": [{"id": "youtube:x2"}]},
                     },
                 }
             ]
         }
         out = mod.preserve_youtube_from_previous(buckets, store, today="2026-07-17")
         self.assertEqual(len(out["youtube_top_views"]), 1)
-        self.assertEqual(len(out["youtube_recent_24h"]), 1)
+        self.assertEqual(len(out["youtube_recent_3d"]), 1)
+
+    def test_preserve_youtube_from_legacy_24h_key(self) -> None:
+        buckets = {key: [] for key in mod.CATEGORY_ORDER}
+        store = {
+            "batches": [
+                {
+                    "date": "2026-07-16",
+                    "categories": {
+                        "youtube_top_views": {"videos": [{"id": "youtube:x1"}]},
+                        "youtube_recent_24h": {"videos": [{"id": "youtube:legacy"}]},
+                    },
+                }
+            ]
+        }
+        out = mod.preserve_youtube_from_previous(buckets, store, today="2026-07-17")
+        self.assertEqual(out["youtube_recent_3d"][0]["id"], "youtube:legacy")
 
     def test_preserve_skips_when_today_has_youtube(self) -> None:
         buckets = {key: [] for key in mod.CATEGORY_ORDER}
