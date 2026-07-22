@@ -3,7 +3,7 @@
 
 max_age_days: 180
 max_items: 16
-min_items: 9
+min_items: 6
 free_only: true
 required_only: true
 
@@ -15,7 +15,7 @@ track_order:
   - LLM 大模型
   - AI Agent
 
-# 必推荐：微软 / 谷歌 / 斯坦福 YouTube + DeepLearning.AI YouTube（避开与斯坦福理论课重复）
+# 必推荐：微软 / 谷歌 + YouTube 斯坦福课
 required:
   - id: microsoft-genai-beginners
     title: Generative AI for Beginners（微软官方 AI 入门）
@@ -33,15 +33,6 @@ required:
     track: 机器学习
     format: 官方课程
     summary: Google 官方机器学习速成课，从基础概念到实践练习。
-    language: en
-  - id: dlai-mlops
-    title: Machine Learning Engineering for Production / MLOps（DeepLearning.AI）
-    url: https://www.youtube.com/playlist?list=PLkDaE6sCZn6GMoA0wbpJLi3t34Gd8l0aK
-    official_url: https://www.deeplearning.ai/courses/machine-learning-in-production
-    platform: DeepLearning.AI
-    track: 机器学习
-    format: YouTube 公开课
-    summary: DeepLearning.AI YouTube 完整 MLOps 课节；偏部署与生产，不与谷歌速成课 / 斯坦福理论课重复。
     language: en
   - id: stanford-cs231n
     title: CS231n Deep Learning for Computer Vision（斯坦福 · Spring 2025）
@@ -83,24 +74,6 @@ required:
     summary: 斯坦福 CS336 最新学年（Spring 2026）讲座播放列表；从零构建语言模型。
     language: en
     year: 2026
-  - id: dlai-ai-prompting
-    title: Full AI Prompting Course（DeepLearning.AI · Andrew Ng）
-    url: https://www.youtube.com/watch?v=8ib4Qnh2HFE
-    official_url: https://www.deeplearning.ai/courses/ai-prompting-for-everyone
-    platform: DeepLearning.AI
-    track: LLM 大模型
-    format: YouTube 公开课
-    summary: DeepLearning.AI YouTube 完整提示词课；补实践向能力，不与 CS224n / CS336 理论课重复。
-    language: en
-  - id: dlai-agentic-ai
-    title: Agentic AI（DeepLearning.AI · Andrew Ng）
-    url: https://www.youtube.com/watch?v=w7vqXL4PWEE
-    official_url: https://www.deeplearning.ai/courses/agentic-ai
-    platform: DeepLearning.AI
-    track: AI Agent
-    format: YouTube 公开课
-    summary: DeepLearning.AI Agentic AI 导学视频 + 官网完整课程；填补 Agent 路线，不与斯坦福 NLP/视觉课重复。
-    language: en
 
 hubs: []
 

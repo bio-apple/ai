@@ -243,11 +243,11 @@ function renderCoursesMeta(data) {
   }
   if (!meta) return;
   const n = (data.items || []).length;
-  const youtubeN = (data.items || []).filter((i) =>
-    /youtube\.com|youtu\.be/i.test(String(i.url || '')),
+  const stanford = (data.items || []).filter((i) =>
+    /stanford/i.test(String(i.platform || '')),
   ).length;
   const updated = data.updated_at || data.date || '';
-  meta.textContent = `免费 · 精选 ${n} 门 · YouTube ${youtubeN} 门${
+  meta.textContent = `免费 · 精选 ${n} 门 · 斯坦福 ${stanford} 门（YouTube + 官网）${
     updated ? ` · 更新 ${formatCourseDate(updated)}` : ''
   }`;
 }

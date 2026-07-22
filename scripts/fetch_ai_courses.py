@@ -770,8 +770,8 @@ def main() -> int:
         "track_order": track_order,
         "title": "AI 课程资源",
         "lead": (
-            "按学习路线精选免费课：微软与谷歌入门，斯坦福公开课，以及 DeepLearning.AI"
-            "（提示词 / MLOps / Agentic AI）YouTube 实战课。"
+            "按学习路线精选免费课：微软与谷歌入门，斯坦福 CS230 / CS231n / CS224n / CS336"
+            "（YouTube 最新学年讲座 + 官网）。"
             if required_only
             else (
                 "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排的免费课程；"
@@ -779,8 +779,7 @@ def main() -> int:
             )
         ),
         "source_note": (
-            "微软 / 谷歌官网 + 斯坦福与 DeepLearning.AI 的 YouTube；"
-            "斯坦福 / DL.AI 同时给官方主页。不收录与斯坦福重复的 DL Specialization / CNN / NLP 专项。"
+            "仅收录微软、谷歌与斯坦福公开课；斯坦福同时给出 YouTube 播放列表与官方主页。"
             if required_only
             else (
                 "去重规则：URL/标题唯一；合集优先于下属单课；每条路线≤5 门（必学优先）；"
