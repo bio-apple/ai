@@ -1005,15 +1005,6 @@
 }
 
 .ai-map {
-  --ai-map-ai-fill: color-mix(in srgb, var(--accent, #2563eb) 10%, transparent);
-  --ai-map-ml-fill: color-mix(in srgb, var(--accent, #2563eb) 14%, transparent);
-  --ai-map-dl-fill: color-mix(in srgb, #0d8c6d 22%, transparent);
-  --ai-map-app-fill: color-mix(in srgb, var(--bg-card) 72%, transparent);
-  --ai-map-ai-stroke: color-mix(in srgb, var(--accent, #2563eb) 78%, #1a2234);
-  --ai-map-dl-stroke: #0d8c6d;
-  --ai-map-found-a: color-mix(in srgb, #f0d56a 55%, var(--bg-card));
-  --ai-map-found-b: color-mix(in srgb, #e8c547 30%, var(--bg-card));
-  --ai-map-found-stroke: color-mix(in srgb, #a88420 70%, var(--border));
   border-radius: 20px;
   border: 1px solid var(--border);
   background:
@@ -1032,14 +1023,60 @@
   font-family: var(--font-sans);
 }
 
+.ai-map-connectors line {
+  stroke: #b8922e;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.55;
+  fill: none;
+}
+
+.ai-map-ring-ai {
+  fill: rgba(37, 99, 235, 0.08);
+  stroke: #2563eb;
+  stroke-width: 2.8;
+}
+
+.ai-map-ring-ml {
+  fill: rgba(37, 99, 235, 0.1);
+  stroke: #2563eb;
+  stroke-width: 2.4;
+}
+
+.ai-map-ring-dl {
+  fill: rgba(13, 140, 109, 0.16);
+  stroke: #0d8c6d;
+  stroke-width: 2.4;
+}
+
+.ai-map-ring-app {
+  fill: rgba(255, 255, 255, 0.55);
+  stroke: #2563eb;
+  stroke-width: 2;
+}
+
+.ai-map-ring-found {
+  fill: #f3de7a;
+  stroke: #a88420;
+  stroke-width: 1.7;
+}
+
 .ai-map-label-main {
-  fill: var(--text);
+  fill: #1a2234;
   font-size: 22px;
   font-weight: 700;
 }
 
+.ai-map-label-md {
+  font-size: 20px;
+}
+
+.ai-map-label-sm {
+  font-size: 16px;
+}
+
 .ai-map-label-app {
-  fill: var(--text);
+  fill: #1a2234;
   font-size: 15px;
   font-weight: 700;
 }
@@ -1051,7 +1088,7 @@
 }
 
 .ai-map-label-sub {
-  fill: var(--text-muted);
+  fill: #5b657a;
   font-size: 11px;
   font-weight: 600;
 }
@@ -1078,22 +1115,51 @@
 }
 
 html[data-theme='dark'] .ai-map {
-  --ai-map-ai-fill: rgba(99, 102, 241, 0.12);
-  --ai-map-ml-fill: rgba(99, 102, 241, 0.16);
-  --ai-map-dl-fill: rgba(45, 212, 191, 0.16);
-  --ai-map-app-fill: rgba(15, 23, 42, 0.35);
-  --ai-map-ai-stroke: #93c5fd;
-  --ai-map-dl-stroke: #5eead4;
-  --ai-map-found-a: rgba(234, 179, 8, 0.35);
-  --ai-map-found-b: rgba(202, 138, 4, 0.22);
-  --ai-map-found-stroke: #ca8a04;
   background:
     radial-gradient(ellipse 75% 60% at 50% 42%, rgba(99, 102, 241, 0.14), transparent 70%),
     var(--bg-card);
 }
 
+html[data-theme='dark'] .ai-map-ring-ai {
+  fill: rgba(99, 102, 241, 0.12);
+  stroke: #93c5fd;
+}
+
+html[data-theme='dark'] .ai-map-ring-ml {
+  fill: rgba(99, 102, 241, 0.16);
+  stroke: #93c5fd;
+}
+
+html[data-theme='dark'] .ai-map-ring-dl {
+  fill: rgba(45, 212, 191, 0.16);
+  stroke: #5eead4;
+}
+
+html[data-theme='dark'] .ai-map-ring-app {
+  fill: rgba(15, 23, 42, 0.45);
+  stroke: #93c5fd;
+}
+
+html[data-theme='dark'] .ai-map-ring-found {
+  fill: rgba(234, 179, 8, 0.42);
+  stroke: #ca8a04;
+}
+
+html[data-theme='dark'] .ai-map-connectors line {
+  stroke: #ca8a04;
+}
+
+html[data-theme='dark'] .ai-map-label-main,
+html[data-theme='dark'] .ai-map-label-app {
+  fill: #e8eef8;
+}
+
 html[data-theme='dark'] .ai-map-label-found {
   fill: #fef3c7;
+}
+
+html[data-theme='dark'] .ai-map-label-sub {
+  fill: #94a3b8;
 }
 
 @media (max-width: 640px) {
@@ -1103,6 +1169,14 @@ html[data-theme='dark'] .ai-map-label-found {
 
   .ai-map-label-main {
     font-size: 18px;
+  }
+
+  .ai-map-label-md {
+    font-size: 17px;
+  }
+
+  .ai-map-label-sm {
+    font-size: 14px;
   }
 
   .ai-map-label-app {
