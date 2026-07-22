@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关视频（YouTube + B站，各 30 天 Top10）。"""
+"""每日抓取 AI 应用相关视频（YouTube + B站：3d/30d/100d 候选，合并取 Top10）。"""
 
 from __future__ import annotations
 
@@ -24,23 +24,35 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
-# 仅保留各平台 30 天 Top10
+# 三档候选：3d Top3(≥100万) + 30d Top10 + 100d Top9 → 平台内合并按播放量取前 10
 CATEGORY_ORDER = (
+    "youtube_recent_3d",
     "youtube_recent_30d",
+    "youtube_recent_100d",
+    "bilibili_recent_3d",
     "bilibili_recent_30d",
+    "bilibili_recent_100d",
 )
 
-# 抓取填充顺序：YouTube → B站
+# 抓取填充顺序：先近后远，同视频优先留在更近窗口
 PICK_ORDER = (
+    "youtube_recent_3d",
     "youtube_recent_30d",
+    "youtube_recent_100d",
+    "bilibili_recent_3d",
     "bilibili_recent_30d",
+    "bilibili_recent_100d",
 )
 PLATFORM_ORDER = ("youtube", "bilibili")
+DEFAULT_PLATFORM_FINAL_TOP = 10
 
-# 历史批次键兼容
-LEGACY_CATEGORY_ALIASES: dict[str, tuple[str, ...]] = {}
+# 历史批次键兼容（旧 100 天键名为 *_top_views）
+LEGACY_CATEGORY_ALIASES: dict[str, tuple[str, ...]] = {
+    "youtube_recent_100d": ("youtube_recent_100d", "youtube_top_views"),
+    "bilibili_recent_100d": ("bilibili_recent_100d", "bilibili_top_views"),
+}
 
-# ≤30 天视为「上新」窄窗口：按发布时间搜索
+# ≤30 天视为窄窗口（min_views 回退用）
 NARROW_WINDOW_HOURS = 30 * 24
 
 try:
@@ -851,6 +863,42 @@ def pick_today_videos(cfg: dict) -> dict[str, list[dict]]:
     return buckets
 
 
+def platform_final_top(cfg: dict | None = None) -> int:
+    if cfg and cfg.get("platform_final_top") is not None:
+        return max(1, int(cfg["platform_final_top"]))
+    return DEFAULT_PLATFORM_FINAL_TOP
+
+
+def finalize_platform_top_by_views(
+    buckets: dict[str, list[dict]],
+    *,
+    limit: int = DEFAULT_PLATFORM_FINAL_TOP,
+) -> dict[str, list[dict]]:
+    """各平台三档候选合并去重后，按播放量保留前 N 条（仍挂在原分桶键下）。"""
+    for platform in PLATFORM_ORDER:
+        keys = [key for key in CATEGORY_ORDER if key.startswith(platform)]
+        merged: list[dict] = []
+        seen: set[str] = set()
+        for key in keys:
+            for video in buckets.get(key) or []:
+                vid = video.get("id")
+                if not vid or vid in seen:
+                    continue
+                seen.add(vid)
+                merged.append(video)
+        top_ids = {
+            video["id"]
+            for video in sorted(merged, key=lambda v: int(v.get("views") or 0), reverse=True)[
+                :limit
+            ]
+        }
+        for key in keys:
+            kept = [v for v in (buckets.get(key) or []) if v.get("id") in top_ids]
+            kept.sort(key=lambda v: int(v.get("views") or 0), reverse=True)
+            buckets[key] = kept
+    return buckets
+
+
 def category_window_hours(cat: dict) -> float | None:
     if cat.get("all_time"):
         return None
@@ -992,8 +1040,6 @@ def main() -> int:
         buckets, store, today=today, platform="bilibili", cfg=cfg
     )
     limits = bucket_limits(cfg)
-    total = total_video_count(buckets)
-    min_total = sum(limits.values())
 
     for key in CATEGORY_ORDER:
         got = len(buckets[key])
@@ -1001,6 +1047,17 @@ def main() -> int:
         if got < need:
             label = cfg["video_categories"][key]["label"]
             print(f"警告：{label} 仅 {got} 条（目标 {need}）", file=sys.stderr)
+
+    final_top = platform_final_top(cfg)
+    before_final = total_video_count(buckets)
+    buckets = finalize_platform_top_by_views(buckets, limit=final_top)
+    total = total_video_count(buckets)
+    if before_final != total:
+        print(
+            f"合并截断：候选 {before_final} → 各平台 Top{final_top} 后合计 {total}",
+            file=sys.stderr,
+        )
+    min_total = len(PLATFORM_ORDER) * final_top
 
     if total == 0:
         if today_backup:
@@ -1026,11 +1083,17 @@ def main() -> int:
             "timezone": TZ_NAME,
             "criteria": {
                 "search_sources": list(cfg.get("search_sources", {}).keys()),
+                "platform_final_top": final_top,
                 "video_categories": {
                     key: {
                         "label": cfg["video_categories"][key]["label"],
                         "window": category_window(cfg["video_categories"][key]),
                         "top_count": limits[key],
+                        **(
+                            {"min_views": cfg["video_categories"][key]["min_views"]}
+                            if "min_views" in cfg["video_categories"][key]
+                            else {}
+                        ),
                     }
                     for key in CATEGORY_ORDER
                 },
@@ -1046,9 +1109,14 @@ def main() -> int:
     store["batches"] = store["batches"][:60]
     save_store(store)
     counts = {key: len(buckets[key]) for key in CATEGORY_ORDER}
+    yt_n = platform_bucket_total(buckets, "youtube")
+    bili_n = platform_bucket_total(buckets, "bilibili")
     print(
         f"已写入 {today} 视频 {total} 条"
-        f"（YT 30d {counts['youtube_recent_30d']}, B站 30d {counts['bilibili_recent_30d']}）"
+        f"（YT {yt_n}=3d/{counts['youtube_recent_3d']}+30d/{counts['youtube_recent_30d']}"
+        f"+100d/{counts['youtube_recent_100d']}；"
+        f"B站 {bili_n}=3d/{counts['bilibili_recent_3d']}+30d/{counts['bilibili_recent_30d']}"
+        f"+100d/{counts['bilibili_recent_100d']}；各平台 Top{final_top}）"
         f" → {DATA_FILE}"
     )
     return 0

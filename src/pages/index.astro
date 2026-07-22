@@ -180,8 +180,8 @@ const schema = mergeSchemaGraphs(
         <div>
           <h2>近期热门AI视频推荐</h2>
           <p class="desc">
-            YouTube 与 B站分别列出近 30 天内播放量 Top10 的 AI 相关视频（≥10
-            万播放），按播放量排序，日更。
+            YouTube 与 B站分别抓取：3 天 Top3（≥100 万）+ 30 天 Top10 + 100 天
+            Top9，合并后按播放量取前 10，日更。
           </p>
           <p class="video-update-meta" id="video-update-meta"></p>
         </div>

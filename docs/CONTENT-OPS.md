@@ -218,9 +218,11 @@ DIST=dist python3 scripts/validate_ci.py news
 **运行机制：**
 
 ```
-按两类分类抓取（YouTube / B站 · 各近 30 天播放量 Top10 · ≥10 万播放）
+按六类候选抓取（YouTube / B站 · 3d Top3≥100万 + 30d Top10 + 100d Top9）
         ↓
-yt-dlp 搜索 + AI 关键词 + 播放量过滤，结果按播放量排序
+yt-dlp 搜索 + AI 关键词过滤，分桶按播放量排序
+        ↓
+各平台合并去重后按播放量取前 10
         ↓
 摘要清洗（去广告、短链）
         ↓
@@ -240,12 +242,13 @@ Actions 手动触发时可选 `force=true`。
 
 **核心配置项：**
 
-| 配置块                                       | 作用                                       |
-| -------------------------------------------- | ------------------------------------------ |
-| `video_categories`                           | YouTube/B站 各近 30 天播放量 Top10、≥10 万 |
-| `search_queries` / `bilibili_search_queries` | 搜索关键词                                 |
-| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）     |
-| `summary.strip_patterns`                     | 摘要广告过滤正则                           |
+| 配置块                                       | 作用                                    |
+| -------------------------------------------- | --------------------------------------- |
+| `video_categories`                           | 3d Top3(≥100万) + 30d Top10 + 100d Top9 |
+| `platform_final_top`                         | 各平台合并后按播放量保留条数（默认 10） |
+| `search_queries` / `bilibili_search_queries` | 搜索关键词                              |
+| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）  |
+| `summary.strip_patterns`                     | 摘要广告过滤正则                        |
 
 **注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → 六类为空。
 

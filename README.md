@@ -57,7 +57,7 @@ python3 scripts/fetch_daily_videos.py
 | 本地部署   | Tab    | Ollama / LM Studio / vLLM 等本机与私有化部署精选     |
 | 课程资源   | Tab    | 免费 AI 课程（微软、谷歌、斯坦福核心课）             |
 | 新闻热点   | Tab    | 近 7 天 AI 热点（多档日更）                          |
-| AI 视频    | Tab    | 近 30 天播放量 Top10（YouTube / B站）                |
+| AI 视频    | Tab    | 3d/30d/100d 合并后播放量 Top10（YouTube / B站）      |
 
 独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题
 

@@ -1,16 +1,20 @@
 const VIDEO_JSON = 'daily-videos.latest.json';
 const VIDEO_JSON_FALLBACK = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
+/** 各平台最终展示条数（与抓取 platform_final_top 对齐） */
+const PLATFORM_DISPLAY_TOP = 10;
 /** 抓取分桶键（仅用于合并前去重；页面按平台展示） */
 const CATEGORY_ORDER = [
+  'youtube_recent_3d',
   'youtube_recent_30d',
+  'youtube_recent_100d',
+  'bilibili_recent_3d',
   'bilibili_recent_30d',
+  'bilibili_recent_100d',
   // 历史键：兼容旧批次回退
   'youtube_top_views',
-  'youtube_recent_3d',
   'youtube_recent_24h',
   'bilibili_top_views',
-  'bilibili_recent_3d',
   'bilibili_recent_24h',
   'top_views',
   'recent_7d',
@@ -18,15 +22,17 @@ const CATEGORY_ORDER = [
   'last_6m',
 ];
 
-/** 与抓取脚本一致；当前仅 30d 两类，历史键仍参与去重优先级 */
+/** 与抓取脚本一致：近 → 远；历史键仍参与去重优先级 */
 const DEDUPE_PICK_ORDER = [
   'youtube_recent_24h',
   'youtube_recent_3d',
   'youtube_recent_30d',
+  'youtube_recent_100d',
   'youtube_top_views',
   'bilibili_recent_24h',
   'bilibili_recent_3d',
   'bilibili_recent_30d',
+  'bilibili_recent_100d',
   'bilibili_top_views',
 ];
 
@@ -231,7 +237,7 @@ function filterAndSortVideos(videos, { platform, sort }) {
   } else {
     list.sort((a, b) => (b.views || 0) - (a.views || 0));
   }
-  return list;
+  return list.slice(0, PLATFORM_DISPLAY_TOP);
 }
 
 function renderFilteredGrid(videos) {
@@ -399,7 +405,7 @@ async function loadDailyVideos() {
       const fallbackNote = display?._fallback_count
         ? ` · ${display._fallback_count} 组来源已回退至上一有效批次`
         : '';
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 近 30 天播放量 Top10${fallbackNote}`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 3d+30d+100d 合并播放量 Top10${fallbackNote}`;
     }
 
     paintVideoList();

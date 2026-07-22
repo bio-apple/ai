@@ -75,6 +75,41 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         out = mod.preserve_youtube_from_previous(buckets, store, today="2026-07-17")
         self.assertEqual(out["youtube_recent_30d"][0]["id"], "youtube:new")
 
+    def test_finalize_platform_top_by_views(self) -> None:
+        buckets = {key: [] for key in mod.CATEGORY_ORDER}
+        buckets["youtube_recent_3d"] = [
+            {"id": "youtube:a", "views": 2_000_000},
+            {"id": "youtube:b", "views": 1_500_000},
+        ]
+        buckets["youtube_recent_30d"] = [
+            {"id": "youtube:c", "views": 900_000},
+            {"id": "youtube:d", "views": 800_000},
+        ]
+        buckets["youtube_recent_100d"] = [
+            {"id": "youtube:e", "views": 700_000},
+            {"id": "youtube:f", "views": 600_000},
+            {"id": "youtube:g", "views": 500_000},
+            {"id": "youtube:h", "views": 400_000},
+            {"id": "youtube:i", "views": 300_000},
+            {"id": "youtube:j", "views": 200_000},
+            {"id": "youtube:k", "views": 100_000},
+        ]
+        buckets["bilibili_recent_30d"] = [
+            {"id": "bilibili:1", "views": 50},
+            {"id": "bilibili:2", "views": 40},
+            {"id": "bilibili:3", "views": 30},
+        ]
+        out = mod.finalize_platform_top_by_views(buckets, limit=10)
+        yt_ids = {
+            v["id"]
+            for key in mod.CATEGORY_ORDER
+            if key.startswith("youtube")
+            for v in out[key]
+        }
+        self.assertEqual(len(yt_ids), 10)
+        self.assertNotIn("youtube:k", yt_ids)
+        self.assertEqual(len(out["bilibili_recent_30d"]), 3)
+
     def test_main_zero_total_preserves_history_without_write(self) -> None:
         """total==0 且有历史批次时不应 exit 1（由 main 逻辑保证，此处测分支辅助函数语义）。"""
         store = {"batches": [{"date": "2026-07-16", "categories": {}}]}

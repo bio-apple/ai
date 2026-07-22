@@ -1,21 +1,42 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# YouTube / B站 分别抓取：近 30 天内播放量 Top 10，最低播放 ≥10 万
+# YouTube / B站 分别抓取三档候选，再合并按播放量取前 10：
+#   3 天 Top3（≥100 万）+ 30 天 Top10 + 100 天 Top9
 # 内容门槛：仅保留 AI 关键词匹配
-# 各类结果按播放量从高到低排序
+# 各类候选按播放量从高到低排序
 video_categories:
+  youtube_recent_3d:
+    label: "YouTube：3 天内播放量 Top 3"
+    platform: youtube
+    days: 3
+    top_count: 3
+    min_views: 1000000
   youtube_recent_30d:
-    label: "YouTube：近 30 天播放量 Top 10"
+    label: "YouTube：30 天内播放量 Top 10"
     platform: youtube
     days: 30
     top_count: 10
-    min_views: 100000
+  youtube_recent_100d:
+    label: "YouTube：100 天内播放量 Top 9"
+    platform: youtube
+    days: 100
+    top_count: 9
+  bilibili_recent_3d:
+    label: "B站：3 天内播放量 Top 3"
+    platform: bilibili
+    days: 3
+    top_count: 3
+    min_views: 1000000
   bilibili_recent_30d:
-    label: "B站：近 30 天播放量 Top 10"
+    label: "B站：30 天内播放量 Top 10"
     platform: bilibili
     days: 30
     top_count: 10
-    min_views: 100000
+  bilibili_recent_100d:
+    label: "B站：100 天内播放量 Top 9"
+    platform: bilibili
+    days: 100
+    top_count: 9
 
 # 多平台搜索源（分类未写 min_views 时的回退值）
 search_sources:
@@ -32,9 +53,11 @@ search_sources:
     recent_min_views: 0
 
 search_per_query: 20
-# B站/YouTube 每个关键词翻页数（热门排序下 30 天内高播放常不在首页）
+# B站/YouTube 每个关键词翻页数（热门排序下高播放常不在首页）
 search_pages: 5
 max_detail_checks: 640
+# 各平台三档合并去重后，按播放量保留条数
+platform_final_top: 10
 
 search_queries:
   - "ChatGPT tutorial 2026"
