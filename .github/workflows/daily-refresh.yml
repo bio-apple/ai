@@ -297,7 +297,7 @@ jobs:
             }
             parts.push(
               '处置：Actions → Daily Content Refresh → Run workflow；或单独跑对应 daily-*.yml。',
-              '详见 docs/OPS-RUNBOOK.md / docs/CONTENT-OPS.md',
+              '详见 docs/CONTENT-OPS.md §9',
               '',
               '<!-- daily-refresh -->',
             );

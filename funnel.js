@@ -3,7 +3,7 @@
   const JOURNEY_KEY = 'bioai.journey_id';
   const ENTRY_KEY = 'bioai.funnel_entry';
 
-  /** 漏斗阶段（与 docs/CONTENT-FUNNEL.md 对齐） */
+  /** 漏斗阶段（与 docs/FRONTEND.md §6 对齐） */
   const STEPS = {
     DISCOVER: 1,
     BROWSE: 2,

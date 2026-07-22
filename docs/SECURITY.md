@@ -122,4 +122,4 @@ npm run scan:secrets
 - `scripts/validate_ci.py` — CI 密钥扫描与产物校验
 - `_headers` — Cloudflare 安全响应头（含 CSP）与静态资源缓存
 - [FRONTEND.md](./FRONTEND.md) — 前端能力（含 link-guard）
-- `DEVELOPER.md` — 开发流程
+- `DEVELOPER.md` — 开发速查

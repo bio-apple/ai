@@ -94,5 +94,5 @@ https://bio-apple.github.io/ai/
 
 ## 相关文档
 
-- [DEVELOPER.md](../DEVELOPER.md) — 构建与部署
+- [DEVELOPER.md](../DEVELOPER.md) — 开发速查
 - [CI-CD.md](./CI-CD.md) — push `main` 自动部署

@@ -8,19 +8,17 @@
 
 站点：https://bio-apple.github.io/ai/
 
-| 文档                                               | 说明                                          |
-| -------------------------------------------------- | --------------------------------------------- |
-| [docs/SETUP.md](./docs/SETUP.md)                   | 环境搭建与本地预览                            |
-| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)       | 内容运营与抓取                                |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)     | 系统架构                                      |
-| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)         | 数据模型                                      |
-| [docs/FRONTEND.md](./docs/FRONTEND.md)             | 前端能力（搜索 / 领域地图 / 面包屑 / 推荐等） |
-| [docs/CONTENT-FUNNEL.md](./docs/CONTENT-FUNNEL.md) | 内容漏斗与分析事件                            |
-| [DEVELOPER.md](./DEVELOPER.md)                     | 开发说明                                      |
-| [docs/SEO.md](./docs/SEO.md)                       | TDK / OG / JSON-LD                            |
-| [docs/SECURITY.md](./docs/SECURITY.md)             | 安全与 CSP                                    |
-| [docs/CI-CD.md](./docs/CI-CD.md)                   | CI/CD 与部署                                  |
-| [docs/OPS-RUNBOOK.md](./docs/OPS-RUNBOOK.md)       | 运维救急                                      |
+| 文档                                           | 说明                               |
+| ---------------------------------------------- | ---------------------------------- |
+| [docs/SETUP.md](./docs/SETUP.md)               | 环境搭建与本地预览                 |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构                           |
+| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)     | 数据模型                           |
+| [docs/FRONTEND.md](./docs/FRONTEND.md)         | 前端能力（搜索 / 推荐 / 漏斗埋点） |
+| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)   | 内容运营、日更抓取与故障救急       |
+| [DEVELOPER.md](./DEVELOPER.md)                 | 开发速查与常见改动                 |
+| [docs/SEO.md](./docs/SEO.md)                   | TDK / OG / JSON-LD                 |
+| [docs/SECURITY.md](./docs/SECURITY.md)         | 安全与 CSP                         |
+| [docs/CI-CD.md](./docs/CI-CD.md)               | CI/CD 与部署                       |
 
 ## 快速开始
 
@@ -72,7 +70,7 @@ python3 scripts/fetch_daily_videos.py
 | 面包屑       | 专区与独立页统一「首页 / …」                                               |
 | 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                         |
 | 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等           |
-| 虚拟列表     | 视频、工具榜、GitHub 热门长列表可视区渲染                                  |
+| 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                    |
 | 本地部署     | 桌面客户端 / 推理引擎 / Web UI（`HomeLocalDeploy`）                        |
 | 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示               |
 | SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 本地部署）+ BreadcrumbList      |

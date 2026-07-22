@@ -76,7 +76,7 @@ npm run test:unit && npm run test:e2e   # 与 CI 对齐
 
 ## 故障排查
 
-部署失败或线上 404 → 查看 [Deploy 工作流](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) 与 [CI 工作流](https://github.com/bio-apple/ai/actions/workflows/ci.yml)，本地复现 `npm run build && DIST=dist python3 scripts/validate_ci.py`。详见 [OPS-RUNBOOK.md](./OPS-RUNBOOK.md)。
+部署失败或线上 404 → 查看 [Deploy 工作流](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) 与 [CI 工作流](https://github.com/bio-apple/ai/actions/workflows/ci.yml)，本地复现 `npm run build && DIST=dist python3 scripts/validate_ci.py`。详见 [CONTENT-OPS.md](./CONTENT-OPS.md) §9。
 
 日更 / 死链告警 → [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) artifact + 本地 lychee。
 

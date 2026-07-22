@@ -104,7 +104,7 @@ jobs:
               `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
               '',
               '处置：Actions → Daily AI News Update → Run workflow。',
-              '详见 docs/OPS-RUNBOOK.md',
+              '详见 docs/CONTENT-OPS.md §9',
               '',
               '<!-- daily-news-fetch -->',
             ].join('\n');

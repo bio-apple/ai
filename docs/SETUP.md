@@ -1,6 +1,6 @@
 # 环境搭建与本地预览
 
-本文是 [DEVELOPER.md](../DEVELOPER.md) 的配套指南：从零配置开发环境、启动本地预览，以及常见故障排除。
+本文是开发文档的一部分：从零配置开发环境、启动本地预览，以及常见故障排除。开发速查见 [DEVELOPER.md](../DEVELOPER.md)。
 
 线上站点：https://bio-apple.github.io/ai/（纯静态，无 `/api/*`）
 
@@ -352,7 +352,7 @@ git push -u origin main
 
 ## 相关文档
 
-- [DEVELOPER.md](../DEVELOPER.md) — 目录结构、数据文件、部署
+- [DEVELOPER.md](../DEVELOPER.md) — 开发速查与常见改动
 - [FRONTEND.md](./FRONTEND.md) — 前端能力
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构
 - [SECURITY.md](./SECURITY.md) — `.env.local` 与安全规范

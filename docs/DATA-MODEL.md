@@ -364,7 +364,7 @@ nav: {
 | `track_engagement`                      | `boolean` | 是否上报点击        |
 | `analytics_enabled`                     | `boolean` | 任一项配置则为 true |
 
-**内容漏斗**：`funnel.js` 为 `trackEvent()` 附加 `journey_id`、`funnel_step`（1–5）、`funnel_stage`、`page_type`。事件清单与分析维度见 [CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)。
+**内容漏斗**：`funnel.js` 为 `trackEvent()` 附加 `journey_id`、`funnel_step`（1–5）、`funnel_stage`、`page_type`。事件清单与分析维度见 [FRONTEND.md](./FRONTEND.md) §6。
 
 ---
 
@@ -474,5 +474,5 @@ npm run build && DIST=dist python3 scripts/validate_ci.py data tool-relations li
 ## 相关文档
 
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构与数据流
-- [DEVELOPER.md](../DEVELOPER.md) — 开发流程
+- [DEVELOPER.md](../DEVELOPER.md) — 开发速查
 - `schemas/` — 机器可读 Schema 源文件

@@ -82,7 +82,7 @@ jobs:
               '处置：',
               '- 本地复现：`npm run build && lychee --config .lychee.toml \'./dist/**/*.html\' \'./data/**/*.json\'`',
               '- 站内本地链：`DIST=dist python3 scripts/validate_ci.py links`',
-              '- 文档：docs/CONTENT-OPS.md §7 · docs/OPS-RUNBOOK.md',
+              '- 文档：docs/CONTENT-OPS.md §7 / §9',
               '',
               '<!-- daily-link-check -->',
             ].join('\n');

@@ -47,7 +47,7 @@ jobs:
               `- Time (UTC): ${new Date().toISOString()}`,
               `- Fail: ${{ steps.health.outputs.fail_code }}`,
               '',
-              rem || '请打开 run 日志中的「建议处置」段落，或查阅 docs/OPS-RUNBOOK.md。',
+              rem || '请打开 run 日志中的「建议处置」段落，或查阅 docs/CONTENT-OPS.md §9。',
               '',
               '快捷入口：',
               `- [Daily Content Refresh（串行 00:00）](${{ github.server_url }}/${{ github.repository }}/actions/workflows/daily-refresh.yml)`,

@@ -192,7 +192,7 @@ flowchart TB
 | 懒加载   | `lazy-sections.js`              | Tab 进入后再拉业务脚本（不含 section-local）                  |
 | 工具中心 | `hub.ts` + `hub.astro`          | 对比表「工具」列 → `tools/{id}.html`（含 jimeng）             |
 
-详见 [FRONTEND.md](./FRONTEND.md)、[CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)。
+详见 [FRONTEND.md](./FRONTEND.md)。
 
 ### 3.3 定时数据刷新
 
@@ -332,8 +332,7 @@ public/               # prebuild 中间产物（不提交）
 ## 相关文档
 
 - [DATA-MODEL.md](./DATA-MODEL.md) — 核心 JSON 字段与 Schema
-- [FRONTEND.md](./FRONTEND.md) — 浏览器端能力
-- [CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md) — 内容漏斗埋点
-- [DEVELOPER.md](../DEVELOPER.md) — 本地开发与常见改动
+- [FRONTEND.md](./FRONTEND.md) — 浏览器端能力（含漏斗埋点）
+- [DEVELOPER.md](../DEVELOPER.md) — 开发速查
 - [CI-CD.md](./CI-CD.md) — 部署流程
 - [SECURITY.md](./SECURITY.md) — API Key 与静态站安全

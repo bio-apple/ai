@@ -175,7 +175,7 @@ jobs:
               '处置：Actions → Daily AI Video Update → Run workflow（force=true）。',
               '若 YouTube 为空：在 Settings → Secrets 配置 **YOUTUBE_API_KEY**（YouTube Data API v3），可选 **YTDLP_COOKIES_B64**。',
               '页面与构建产物会回退历史批次；B 站有货时应已 commit。',
-              '详见 docs/OPS-RUNBOOK.md',
+              '详见 docs/CONTENT-OPS.md §9',
               '',
               '<!-- daily-videos-fetch -->',
             ].join('\n');

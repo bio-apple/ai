@@ -100,7 +100,7 @@ def main() -> int:
             "\n**严重不足 · 建议处置**\n\n"
             "1. 打开本 workflow 日志确认分类为空原因（配额 / 网络 / 解析 / 缺 JS runtime）\n"
             "2. `workflow_dispatch` 重跑；视频可勾选 force\n"
-            "3. 仍失败：按 `docs/OPS-RUNBOOK.md` 回滚上一好批次\n"
+            "3. 仍失败：按 `docs/CONTENT-OPS.md` §9 回滚上一好批次\n"
         )
     elif code == 1:
         append_summary(

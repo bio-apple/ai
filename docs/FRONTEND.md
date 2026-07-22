@@ -77,13 +77,44 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 ## 6. 内容漏斗与分析
 
-见 **[CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md)**。
+漏斗模型：`发现(1) → 浏览(2) → 深入(3) → 学习(4) → 完成(5)`。`funnel.js` 为 `trackEvent()` 自动附加 `journey_id`（`sessionStorage`）、`funnel_step`、`funnel_stage`、`page_type`。
 
 | 脚本            | 作用                                                             |
 | --------------- | ---------------------------------------------------------------- |
 | `funnel.js`     | `journey_id`、`funnel_step`、`funnel_entry`、`section_view`      |
 | `analytics.js`  | Umami / CF / GA4 / Clarity；`trackEvent` 统一出口                |
 | `engagement.js` | 首页运营热度 widget（基准 45s 同步 + 本机即时累加 + 跨标签同步） |
+
+**脚本加载顺序**：`funnel.js` → `analytics.js` → `ux.js` → `app.js` → …
+
+### 6.1 典型事件
+
+| 阶段 | 事件示例                                                                                           |
+| ---- | -------------------------------------------------------------------------------------------------- |
+| 发现 | `funnel_entry`、`hero-cta-primary`、`recommend_submit`                                             |
+| 浏览 | `nav-tab`、`section_view`、`search_query` / `search_hit`、`daily_panel_click`、`home-filter-local` |
+| 深入 | `recommend_query_tool`、`ops-tool-click`、`compare-goto-*`                                         |
+| 学习 | `course-click`、`video-click`、`knowledge_ask`                                                     |
+| 完成 | `roadmap_phase_toggle`                                                                             |
+
+课程点击携带 `course_title` / `course_track`；搜索词截断 80 字符。
+
+### 6.2 分析后端
+
+1. **Umami** / **Cloudflare Web Analytics**（推荐，无 cookie）
+2. **GA4** / **Clarity**（可选，需 Secrets）
+3. 未配置时：仅 `window.__clickStats`（浏览器内存，不持久）
+
+配置：`data/analytics.json` 或 GitHub Secrets → prebuild 生成 `analytics-config.json`。详见 [CI-CD.md](./CI-CD.md)、[SECURITY.md](./SECURITY.md)。
+
+### 6.3 本地调试
+
+```javascript
+window.__clickStats;
+window.bioFunnel.getJourneyId();
+trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型' });
+// → 应含 journey_id、funnel_step: 4、funnel_stage: 'learn'
+```
 
 ---
 
@@ -92,9 +123,10 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 | 模块        | 文件                  | 说明                                 |
 | ----------- | --------------------- | ------------------------------------ |
 | 核心        | `lib/virtual-list.js` | 可视区渲染 + rAF；`mapInChunks` 分片 |
-| 视频        | `videos.js`           | YouTube / B站网格平铺展示            |
 | 工具榜      | `ranking-tabs.js`     | 榜单行虚拟列表（SSR 预览前 10 条）   |
 | GitHub 热门 | 首页 Daily 面板       | 全量 GitHub 源资讯可滚动             |
+
+**AI 视频**（`videos.js`）已改为整页网格平铺，不再使用虚拟列表内部滚动。
 
 样式：`css/virtual-list.css`。
 
@@ -112,7 +144,18 @@ Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 
 ---
 
-## 9. 链接安全与失效兜底
+## 9. AI 视频
+
+| 项   | 说明                                                       |
+| ---- | ---------------------------------------------------------- |
+| 页面 | `#section-videos` · `videos.js`                            |
+| 数据 | `daily-videos.latest.json`（fallback `daily-videos.json`） |
+| 展示 | YouTube / B站分块网格，**整页平铺**（无内部滚动虚拟列表）  |
+| 筛选 | 平台（全部 / YouTube / B站）+ 排序（最新 / 热门）          |
+
+---
+
+## 10. 链接安全与失效兜底
 
 `lib/link-guard.js`（全站 Layout 默认加载）：
 
@@ -124,7 +167,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ---
 
-## 10. 响应式与首屏
+## 11. 响应式与首屏
 
 | 项       | 实现                                                       |
 | -------- | ---------------------------------------------------------- |
@@ -137,7 +180,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ---
 
-## 11. 首页产品入口
+## 12. 首页产品入口
 
 | 组件                     | 作用                                      |
 | ------------------------ | ----------------------------------------- |
@@ -153,15 +196,15 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ---
 
-## 12. 懒加载频道
+## 13. 懒加载频道
 
 `lazy-sections.js`：进入 Tab 再加载业务脚本（`section-local` 为 SSG，不在此列）。
 
-| Section           | 脚本链                              |
-| ----------------- | ----------------------------------- |
-| `section-videos`  | `lib/virtual-list.js` → `videos.js` |
-| `section-news`    | `lib/virtual-list.js` → `news.js`   |
-| `section-courses` | `courses.js`                        |
+| Section           | 脚本链                            |
+| ----------------- | --------------------------------- |
+| `section-videos`  | `videos.js`                       |
+| `section-news`    | `lib/virtual-list.js` → `news.js` |
+| `section-courses` | `courses.js`                      |
 
 共享前置：`lib/fetch-json.js`（首页 scripts 已带）。
 
@@ -169,7 +212,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ## 相关文档
 
-- [CONTENT-FUNNEL.md](./CONTENT-FUNNEL.md) — 行为分析
 - [SEO.md](./SEO.md) — TDK / OG / JSON-LD
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构
 - [SETUP.md](./SETUP.md) — 本地环境
+- [CONTENT-OPS.md](./CONTENT-OPS.md) — 内容运营与救急
