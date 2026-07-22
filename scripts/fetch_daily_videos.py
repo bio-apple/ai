@@ -46,12 +46,6 @@ PICK_ORDER = (
 PLATFORM_ORDER = ("youtube", "bilibili")
 DEFAULT_PLATFORM_TOTAL_CAP = 10
 
-# 历史批次键兼容（旧 100 天键名为 *_top_views）
-LEGACY_CATEGORY_ALIASES: dict[str, tuple[str, ...]] = {
-    "youtube_recent_100d": ("youtube_recent_100d", "youtube_top_views"),
-    "bilibili_recent_100d": ("bilibili_recent_100d", "bilibili_top_views"),
-}
-
 # ≤30 天视为窄窗口（min_views 回退用）
 NARROW_WINDOW_HOURS = 30 * 24
 
@@ -849,15 +843,6 @@ def is_narrow_window(require_hours: float | None) -> bool:
     return require_hours is not None and require_hours <= NARROW_WINDOW_HOURS
 
 
-def category_videos_from_batch(cats: dict, key: str) -> list:
-    """读取某分类视频；兼容历史别名键。"""
-    for alias in LEGACY_CATEGORY_ALIASES.get(key, (key,)):
-        videos = (cats.get(alias) or {}).get("videos") or []
-        if videos:
-            return list(videos)
-    return (cats.get(key) or {}).get("videos") or []
-
-
 def category_min_views(cat: dict, source_cfg: dict) -> int:
     if "min_views" in cat:
         return int(cat["min_views"])
@@ -1022,147 +1007,6 @@ def platform_bucket_total(buckets: dict[str, list[dict]], platform: str) -> int:
     )
 
 
-def preserve_platform_from_previous(
-    buckets: dict[str, list[dict]],
-    store: dict,
-    *,
-    today: str,
-    platform: str,
-    cfg: dict | None = None,
-) -> dict[str, list[dict]]:
-    """今日某平台全空时沿用最近一个有货的批次，避免覆盖掉有效数据。"""
-    if platform_bucket_total(buckets, platform) > 0:
-        return buckets
-    cats_cfg = (cfg or {}).get("video_categories") or {}
-    for batch in store.get("batches") or []:
-        if batch.get("date") == today:
-            continue
-        cats = batch.get("categories") or {}
-        prev_total = sum(
-            len(category_videos_from_batch(cats, key))
-            for key in CATEGORY_ORDER
-            if key.startswith(platform)
-        )
-        if prev_total == 0:
-            continue
-        for key in CATEGORY_ORDER:
-            if not key.startswith(platform):
-                continue
-            prev_videos = category_videos_from_batch(cats, key)
-            if not prev_videos:
-                continue
-            min_views = int((cats_cfg.get(key) or {}).get("min_views") or 0)
-            top_count = int((cats_cfg.get(key) or {}).get("top_count") or len(prev_videos))
-            filtered = filter_videos_for_category(
-                prev_videos, key, cfg=cfg, min_views=min_views
-            )
-            ranked = sorted(filtered, key=lambda v: int(v.get("views") or 0), reverse=True)
-            buckets[key] = [dict(v) for v in ranked[:top_count]]
-        kept = platform_bucket_total(buckets, platform)
-        print(
-            f"警告：今日 {platform} 抓取为空，已沿用 {batch.get('date')} 批次"
-            f"（源 {prev_total} 条 → 门槛过滤后 {kept} 条）",
-            file=sys.stderr,
-        )
-        break
-    return buckets
-
-
-def topup_platform_from_previous(
-    buckets: dict[str, list[dict]],
-    store: dict,
-    *,
-    today: str,
-    platform: str,
-    cfg: dict,
-    limit: int,
-) -> dict[str, list[dict]]:
-    """平台总数不足 cap 时，从历史批次按播放量补齐到 100d 桶。"""
-    existing: dict[str, dict] = {}
-    for key in platform_bucket_keys(platform):
-        for video in buckets.get(key) or []:
-            vid = video.get("id")
-            if vid:
-                existing[vid] = video
-    have = len(existing)
-    if have >= limit:
-        return buckets
-
-    fill_key = f"{platform}_recent_100d"
-    if fill_key not in buckets:
-        return buckets
-    cats_cfg = cfg.get("video_categories") or {}
-    min_views = int((cats_cfg.get(fill_key) or {}).get("min_views") or 0)
-    extras: list[dict] = []
-
-    for batch in store.get("batches") or []:
-        if batch.get("date") == today:
-            continue
-        cats = batch.get("categories") or {}
-        hist_keys = [k for k in CATEGORY_ORDER if k.startswith(platform)]
-        for alias_key, aliases in LEGACY_CATEGORY_ALIASES.items():
-            if alias_key.startswith(platform):
-                hist_keys.extend(aliases)
-        seen_hist: set[str] = set()
-        for key in hist_keys:
-            if key in seen_hist:
-                continue
-            seen_hist.add(key)
-            for video in category_videos_from_batch(cats, key):
-                vid = video.get("id")
-                if not vid or vid in existing:
-                    continue
-                if not filter_videos_for_category([video], fill_key, cfg=cfg, min_views=min_views):
-                    continue
-                extras.append(dict(video))
-                existing[vid] = video
-        if have + len(extras) >= limit:
-            break
-
-    if not extras:
-        return buckets
-
-    extras.sort(key=lambda v: int(v.get("views") or 0), reverse=True)
-    need = limit - have
-    add: list[dict] = []
-    have_ids = {v.get("id") for v in (buckets.get(fill_key) or [])}
-    for video in extras:
-        if len(add) >= need:
-            break
-        vid = video.get("id")
-        if not vid or vid in have_ids:
-            continue
-        if any(
-            vid in {x.get("id") for x in (buckets.get(k) or [])}
-            for k in platform_bucket_keys(platform)
-            if k != fill_key
-        ):
-            continue
-        add.append(video)
-        have_ids.add(vid)
-
-    if add:
-        buckets[fill_key] = list(buckets.get(fill_key) or []) + add
-        buckets[fill_key].sort(key=lambda v: int(v.get("views") or 0), reverse=True)
-        print(
-            f"警告：今日 {platform} 仅 {have} 条，已从历史批次补齐 {len(add)} 条到 100d",
-            file=sys.stderr,
-        )
-    return buckets
-
-
-def preserve_youtube_from_previous(
-    buckets: dict[str, list[dict]],
-    store: dict,
-    *,
-    today: str,
-    cfg: dict | None = None,
-) -> dict[str, list[dict]]:
-    return preserve_platform_from_previous(
-        buckets, store, today=today, platform="youtube", cfg=cfg
-    )
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(description="抓取每日 AI 视频推荐")
     parser.add_argument(
@@ -1196,16 +1040,8 @@ def main() -> int:
                 return 0
 
     buckets = pick_today_videos(cfg)
-    buckets = preserve_youtube_from_previous(buckets, store, today=today, cfg=cfg)
-    buckets = preserve_platform_from_previous(
-        buckets, store, today=today, platform="bilibili", cfg=cfg
-    )
     limits = bucket_limits(cfg)
     total_cap = platform_total_cap(cfg)
-    for platform in PLATFORM_ORDER:
-        buckets = topup_platform_from_previous(
-            buckets, store, today=today, platform=platform, cfg=cfg, limit=total_cap
-        )
 
     for key in CATEGORY_ORDER:
         got = len(buckets[key])

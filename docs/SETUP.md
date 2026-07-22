@@ -174,7 +174,7 @@ npm run build
 
 **CI 手动重抓**：Actions → [Daily AI Video Update](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml) → Run workflow → `force=true`。
 
-未配置 API Key 时：脚本会沿用上一有货 YouTube 批次；构建时 `daily-videos.latest.json` 也会做历史回退。详见 [CONTENT-OPS.md](./CONTENT-OPS.md)。
+未配置 API Key 时：今日 YouTube 可能抓取为空；脚本不会从历史批次补进今日结果（合计为 0 时不覆盖已有文件）。构建时 `daily-videos.latest.json` 仍可能做展示层历史回退。详见 [CONTENT-OPS.md](./CONTENT-OPS.md)。
 
 ### 3.4 停止预览服务
 
