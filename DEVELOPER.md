@@ -67,7 +67,7 @@ dist/                 # 构建产物（不提交）
 
 - Microsoft Generative AI for Beginners
 - Google Machine Learning Crash Course
-- Stanford Online YouTube：CS231n（2025）、CS224n（2024）、CS336（2026）
+- Stanford Online YouTube：CS231n（2025）、CS224n（2024）、CS336（2026）；卡片同时提供 `official_url` 官网
 
 **去重规则**（抓取 + 前端 + CI）：
 

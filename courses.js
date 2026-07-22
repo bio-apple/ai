@@ -62,6 +62,13 @@ function renderCourseCard(item) {
   ]
     .filter(Boolean)
     .join('');
+  const primaryIsYoutube = /youtube\.com|youtu\.be/i.test(String(item.url || ''));
+  const primaryLabel = primaryIsYoutube ? 'YouTube 讲座 →' : '打开课程 →';
+  const official = String(item.official_url || '').trim();
+  const officialLink = official
+    ? `<a href="${html(official)}" target="_blank" rel="${extRel()}" class="course-read course-read-secondary" data-track="course-official"
+        data-course-title="${html(item.title || '')}" data-course-track="${html(item.track || '')}">官方主页 →</a>`
+    : '';
   return `
     <article class="course-card">
       <div class="course-card-head">
@@ -80,8 +87,11 @@ function renderCourseCard(item) {
         ${item.format ? `<span>${html(item.format)}</span>` : ''}
       </p>
       ${item.summary ? `<p class="course-summary">${html(item.summary)}</p>` : ''}
-      <a href="${html(item.url)}" target="_blank" rel="${extRel()}" class="course-read" data-track="course-read"
-        data-course-title="${html(item.title || '')}" data-course-track="${html(item.track || '')}">打开课程 →</a>
+      <div class="course-actions">
+        <a href="${html(item.url)}" target="_blank" rel="${extRel()}" class="course-read" data-track="course-read"
+          data-course-title="${html(item.title || '')}" data-course-track="${html(item.track || '')}">${primaryLabel}</a>
+        ${officialLink}
+      </div>
     </article>
   `;
 }

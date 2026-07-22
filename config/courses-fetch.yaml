@@ -37,7 +37,8 @@ required:
   - id: stanford-cs231n
     title: CS231n Deep Learning for Computer Vision（斯坦福 · Spring 2025）
     url: https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16
-    platform: Stanford Online
+    official_url: https://cs231n.stanford.edu/
+    platform: Stanford
     track: 深度学习
     format: YouTube 公开课
     summary: 斯坦福 CS231n 最新学年（Spring 2025）完整讲座播放列表，计算机视觉深度学习。
@@ -46,7 +47,8 @@ required:
   - id: stanford-cs224n
     title: CS224n NLP with Deep Learning（斯坦福 · Spring 2024）
     url: https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D
-    platform: Stanford Online
+    official_url: https://web.stanford.edu/class/cs224n/
+    platform: Stanford
     track: LLM 大模型
     format: YouTube 公开课
     summary: 斯坦福 CS224n 最新已公开学年（Spring 2024）讲座播放列表；NLP / Transformer 基础。
@@ -55,7 +57,8 @@ required:
   - id: stanford-cs336
     title: CS336 Language Modeling from Scratch（斯坦福 · Spring 2026）
     url: https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV
-    platform: Stanford Online
+    official_url: https://cs336.stanford.edu/
+    platform: Stanford
     track: LLM 大模型
     format: YouTube 公开课
     summary: 斯坦福 CS336 最新学年（Spring 2026）讲座播放列表；从零构建语言模型。

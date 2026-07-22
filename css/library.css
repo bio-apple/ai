@@ -442,17 +442,30 @@
   flex: 1;
 }
 
-.course-read {
+.course-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 16px;
   margin-top: 4px;
+}
+
+.course-read {
   font-size: 0.82rem;
   font-weight: 650;
   color: var(--accent);
   text-decoration: none;
-  align-self: flex-start;
 }
 
-.course-read:hover {
+.course-read-secondary {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.course-read:hover,
+.course-read-secondary:hover {
   text-decoration: underline;
+  color: var(--accent);
 }
 
 .data-error-block {

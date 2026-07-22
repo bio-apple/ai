@@ -159,8 +159,9 @@ def course_item(
     is_new: bool = False,
     course_id: str | None = None,
     required: bool = False,
+    official_url: str | None = None,
 ) -> dict[str, Any]:
-    return {
+    item: dict[str, Any] = {
         "id": course_id or make_id(source, url),
         "title": title,
         "url": url,
@@ -174,6 +175,10 @@ def course_item(
         "is_new": is_new,
         "required": required,
     }
+    official = (official_url or "").strip()
+    if official and normalize_url(official) != normalize_url(url):
+        item["official_url"] = official
+    return item
 
 
 def fetch_required(cfg: dict[str, Any]) -> list[dict[str, Any]]:
@@ -199,6 +204,7 @@ def fetch_required(cfg: dict[str, Any]) -> list[dict[str, Any]]:
                 language=str(row.get("language") or "en"),
                 course_id=str(row.get("id") or make_id(platform, url)),
                 required=True,
+                official_url=str(row.get("official_url") or "").strip() or None,
             )
         )
     print(f"  · 必收录: {len(items)}")
