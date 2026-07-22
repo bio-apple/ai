@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-22T14:24:50.811279+08:00",
+  "updated_at": "2026-07-22T21:27:38.438749+08:00",
   "date": "2026-07-22",
   "cadence": "daily",
   "window_days": 7,
@@ -13,6 +13,78 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "562676d43cd3",
+      "title": "NVIDIA Open Sources First GPU-Accelerated Medical Physics Simulation Framework",
+      "summary": "Before a healthcare robot can be useful in the real world, it has to learn how the physical world pushes back. Anatomy varies. Instruments bend, press, slip an…",
+      "url": "https://blogs.nvidia.com/blog/medical-physics-simulation-open-source/",
+      "source": "NVIDIA AI",
+      "category": "开源项目",
+      "published_at": "2026-07-22T21:00:11+08:00"
+    },
+    {
+      "id": "23fca7e72825",
+      "title": "3 Google updates from Galaxy Unpacked 2026",
+      "summary": "We shared how Samsung users can boost productivity and get time back on new foldables, watches, and glasses coming soon.",
+      "url": "https://blog.google/products-and-platforms/platforms/android/galaxy-unpacked-2026/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-22T21:00:00+08:00"
+    },
+    {
+      "id": "bd6ce42035f5",
+      "title": "Building AI infrastructure with the Effingham County community",
+      "summary": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex.",
+      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-22T21:00:00+08:00"
+    },
+    {
+      "id": "52a0f5e0dbb9",
+      "title": "百度文心助手任务Agent登顶国际权威榜单，超越Claude、GPT拿下全球智能体冠军",
+      "summary": "百度文心助手任务Agent登顶国际权威榜单，超越Claude、GPT拿下全球智能体冠军",
+      "url": "https://www.qbitai.com/2026/07/457117.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-07-22T15:31:19+08:00"
+    },
+    {
+      "id": "6dfedaf87245",
+      "title": "业内首款超算+智算的大规模计算底座，在WAIC上我们找到了",
+      "summary": "一颗“不走寻常路”的芯",
+      "url": "https://www.qbitai.com/2026/07/457054.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-22T13:47:42+08:00"
+    },
+    {
+      "id": "c54f46e53d48",
+      "title": "Introducing OpenAI Presence",
+      "summary": "Introducing OpenAI Presence, a proven enterprise AI agent platform that helps organizations deploy trusted voice and chat agents for customer and internal work…",
+      "url": "https://openai.com/index/introducing-openai-presence",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-07-22T13:30:00+08:00"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,650",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-22T13:23:50Z"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 81,688",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-22T12:17:50Z"
+    },
     {
       "id": "54c4c7b3344e",
       "title": "Halliday发布第二代AI眼镜Halliday G2，AI功能走向“实时参与会议”",
@@ -86,24 +158,6 @@
       "published_at": "2026-07-22T11:46:30+08:00"
     },
     {
-      "id": "605c427ed74e",
-      "title": "懂你、能交付、专业操作：金山办公田然给出AI办公助理的三项标准",
-      "summary": "懂你、能交付、专业操作：金山办公田然给出AI办公助理的三项标准",
-      "url": "https://www.qbitai.com/2026/07/456910.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-22T11:24:37+08:00"
-    },
-    {
-      "id": "c85907bd5c17",
-      "title": "物理AI的闭环，终于有人跑通了：日冕+远图万台级部署计划官宣",
-      "summary": "按照规划，日冕和远图将首先在服务器制造场景验证超级工站能力，随后向更多生产环节扩展。2027年完成百台级部署，未来实现万台级具身智能产品部署。",
-      "url": "https://www.qbitai.com/2026/07/456728.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-22T11:06:21+08:00"
-    },
-    {
       "id": "ce1cab87367b",
       "title": "Built in Fort Worth: Wistron Opens Advanced Manufacturing Plant to Produce NVIDIA AI Systems",
       "summary": "The AI era runs on AI infrastructure. Many of these advanced systems are built and tested in Texas. Wistron opened its first U.S. manufacturing facility today …",
@@ -113,17 +167,8 @@
       "published_at": "2026-07-22T06:35:45+08:00"
     },
     {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,650",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-22T05:31:00Z"
-    },
-    {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,171",
+      "title": "f/prompts.chat · ★ 166,198",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -140,22 +185,13 @@
       "published_at": "2026-07-22T01:00:00+08:00"
     },
     {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 81,637",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-22T00:29:12Z"
-    },
-    {
-      "id": "46c8265d2fae",
-      "title": "清华陶建华团队提出「自进化同策略蒸馏」SEED：让Agentic RL训练也懂事后监督",
-      "summary": "清华大学自动化系陶建华团队针对长程交互式Agent学习中强化学习存在的监督缺口问题，提出“事后复盘”机制。传统基于结果的RL仅能判断任务成败，无法识别失败轨迹中的有效行为或成功轨迹中的可复用策略。该研究旨在让Agent像人类一样反思中间过程，精准定位关键观察、动作与工具调用，提升长程任务建模与决策能力，突破现有RL在…",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MDE3OTA5NA==&mid=2247605993&idx=1&sn=cec98b8cc624906eba95c66f4364b757&chksm=ce5778c768d1c7d968cc11bf92560ae108ac230577ec4303d1eb93268d802d89b5bba978a4cf&scene=0&xtrack=1#rd",
+      "id": "d5d972b02ecd",
+      "title": "AI原生，可信为基——澜舟科技携LangClaw及三智产品矩阵重磅亮相WAIC 2026",
+      "summary": "7月17日至20日，2026世界人工智能大会在上海举行。澜舟科技以“AI原生，可信为基——智能体驱动企业新引擎”为主题亮相世博展览馆H1-C535展位，展示其企业智能体操作系统LangClaw、三智产品矩阵（智会、智库、智搭）及多行业智能体应用成果。作为国内最早聚焦大模型创业的企业之一，澜舟科技通过四天展期与观众深度…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5MjY2ODI4Nw==&mid=2247513641&idx=1&sn=033b016f022961ff40102f69328adc58&chksm=c147c5efaa4d601e2ba7d270ff62ca9489a5bea058201fe96397fe33813550053acabbec2fa2&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
-      "published_at": "2026-07-22 13:30 分享"
+      "published_at": "2026-07-22 20:50 分享"
     },
     {
       "id": "46165e640060",
@@ -212,26 +248,8 @@
       "published_at": "2026-07-20T23:00:53+08:00"
     },
     {
-      "id": "c1d126a13f15",
-      "title": "Bristol Myers Squibb Building Life Science Industry’s Most Advanced AI Factory on NVIDIA Vera Rubin",
-      "summary": "Erin Davis calls it the “SuperDuperPOD.” That’s two things in one name: pharmaceutical giant Bristol Myers Squibb (BMS) already runs one of the largest AI clus…",
-      "url": "https://blogs.nvidia.com/blog/bristol-myers-squibb-building-life-science-industrys-most-advanced-ai-factory-on-nvidia-vera-rubin/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-20T18:59:23+08:00"
-    },
-    {
-      "id": "d4ff9ec891b7",
-      "title": "Safety and alignment in an era of long-horizon models",
-      "summary": "OpenAI shares lessons from deploying long-running AI models, highlighting new safety risks, observed failures, and improved safeguards through iterative deploy…",
-      "url": "https://openai.com/index/safety-alignment-long-horizon-models",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-20T18:00:00+08:00"
-    },
-    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,172",
+      "title": "thedotmack/claude-mem · ★ 88,204",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -240,7 +258,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,066",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,099",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -255,15 +273,6 @@
       "source": "Google DeepMind",
       "category": "新工具上线",
       "published_at": "2026-07-17T23:00:11+08:00"
-    },
-    {
-      "id": "3ebda52fc80e",
-      "title": "A scorecard for the AI age",
-      "summary": "Sarah Friar, CFO of OpenAI, introduces a practical AI scorecard to measure ROI through useful work, cost per successful task, dependability, and return on comp…",
-      "url": "https://openai.com/index/a-scorecard-for-the-ai-age",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-17T18:00:00+08:00"
     },
     {
       "id": "a564401bb829",
@@ -302,15 +311,6 @@
       "published_at": null
     },
     {
-      "id": "e1061c59f24d",
-      "title": "谷歌密谋「焊死」Gemini！神秘芯片曝光，能效碾压TPU十倍",
-      "summary": "谷歌正秘密研发代号“Frozen v2”的新型服务器芯片，将Gemini模型部分底层架构直接蚀刻进硅片，实现硬件级AI固化。该芯片非运行模型，而是让模型“长在芯片里”，大幅提升能效。据内部估算，其每瓦特Token处理能力较最新TPU提升6–10倍。项目预计最快2028年部署。消息曝光后引发市场关注，Alphabet股…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714133&idx=2&sn=906bfd80f291039608be42419bcbf498&chksm=f05dbdabc6f54ded0b75d05f2ee090e6d8820cd9f43821f0ea24504c300f98c724e348768b3a&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
       "id": "ff1300aa6cce",
       "title": "Redeploying Claude Fable 5",
       "summary": "Redeploying Claude Fable 5",
@@ -338,29 +338,29 @@
       "published_at": null
     },
     {
-      "id": "e5304008609f",
-      "title": "静5杰出讲座回顾 | 谁说自然界是非定域的？",
-      "summary": "2025年图灵奖得主、量子密码学奠基人之一Gilles Brassard教授于2026年7月14日访问北京大学前沿计算研究中心，作题为“谁说自然界是非定域的？”的CFCS杰出讲座。报告由袁骁助理教授主持，聚焦量子非定域性这一核心概念，深入探讨贝尔不等式实验诠释、隐变量理论边界及量子关联的本质，质疑将量子纠缠简单等同于…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU0MjU5NjQ3NA==&mid=2247509329&idx=1&sn=6e44e177103e00bb537ec4c41a2378fc&chksm=fa1d83ef7a7018bf15cc1fc18a234cb7da3f122589504e055422f844e93bd621053a0ca3bd1c&scene=0&xtrack=1#rd",
+      "id": "910e7fe81e24",
+      "title": "HyperAI x 开源中国丨AI Coding 真香还是真坑？来现场和四个热门项目创作者聊聊",
+      "summary": "技术革命不断降低创造门槛，代码与工具日益丰富，但真正稀缺的是品味、判断力及对“值得创造之物”的信念，即“Taste Driven”。技术决定创造的规模与效率，品味则主导创造的方向与价值。源创会最新一期将于7月25日（周六）开幕，聚焦该主题，邀请多位长期践行AI创作的开发者，分享由兴趣、审美与灵感驱动的实践案例与思考，…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU3NTQ2NDIyOQ==&mid=2247529323&idx=2&sn=af55830d8b5ae7cbbe8e43b9dc4cccfe&chksm=fc007cafc078035d6f10192925efcf1bc24b08074e2096ee7876dd16b67f5fd38b68733b3f90&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "0d1351bcdbea",
-      "title": "焦点访谈｜人工智能发展的时代之问 中国给出答案",
-      "summary": "7月17日，习近平主席出席2026世界人工智能大会暨全球治理高级别会议开幕式并发表主旨讲话，深刻分析AI发展带来的机遇与挑战，系统提出推进全球人工智能发展与治理的中国主张和方案，强调坚持发展与安全并重、包容普惠、协同共治，倡导构建开放、公正、非歧视的国际治理框架，推动AI技术造福全人类，彰显中国作为负责任大国的担当与…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524551&idx=1&sn=8f086e992bd89e16225c4b98548c5784&chksm=fcc2648c992c5c9b15d95315768ba7cd83d504cce74e6daad266d4a121ff8cdebeeb0b6a65c8&scene=0&xtrack=1#rd",
+      "id": "c8ed7052e96f",
+      "title": "独家对话 Flova ：脸萌、剪映后郭列再创业，做视频 Agent、但学的是 Claude Code",
+      "summary": "Flova团队首次公开采访引发关注，主要因其强劲融资背景（红杉、IDG、云九资本两轮累计超8000万美元，为当前视频Agent领域最大融资）及创始人郭列的传奇履历：2013年创办脸萌，后推出FaceU激萌，2018年以3亿美元被字节跳动收购，并主导孵化轻颜相机、剪映、醒图等爆款产品；2025年再度创业，进军视频Age…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525302&idx=1&sn=cb17a17a81cb7f922b1f3a91d8174e66&chksm=c176c999ca939bfb12be5b647ea0b2147e0f685b030b6c9d59548ddeceb32ebc3a77fecf6b76&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "d9e5f0d463b7",
-      "title": "张益唐啃了多年的雅可比猜想，这回让Fable 5给推翻了......",
-      "summary": "数学界长期悬而未决的雅可比猜想，在世界杯决赛期间被Anthropic研究员Levent Alpöge借助Claude Fable 5发现反例，宣告其不成立。该猜想曾困扰数学家数十年，连张益唐等顶尖学者亦曾深入研究。Alpöge未依赖冗长证明，仅以一组三元多项式即推翻猜想，引发学界震动。这一突破凸显AI在基础数学探索中…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905462&idx=2&sn=8f63a04499ede64cbbfaca631169d29f&chksm=e91a3490c8c55bc2c8a718762781ac67e597b6247fb93de3477af1e800c8bdc3445e9e3d0d6b&scene=0&xtrack=1#rd",
-      "source": "量子位",
+      "id": "a43c03a4c47b",
+      "title": "ICML2026杰出论文｜一个反直觉发现，扩散模型“越灵活越吃亏”？清华大学，智源TALK",
+      "summary": "ICML 2026杰出论文揭示扩散语言模型中“任意生成顺序”的认知误区：看似灵活的随机解码实则陷入“灵活性陷阱”，因“先易后难”跳过关键token而收窄推理边界。清华大学倪赞林在智源Talk 369期分享该成果，提出极简方法JustGRPO——仅在强化学习后训练阶段切回自回归解码，无需修改模型结构或训练流程，显著提升…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MjkzNDMwNg==&mid=2247491972&idx=1&sn=17118b4a08fb634b6d76e7d767322700&chksm=fc9ad47eb3794468bdba2220171de2d274654c6e1c2d7694ac2dbde708d2f9e442b95a64f68e&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     }
