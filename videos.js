@@ -239,13 +239,14 @@ function sortVideoList(list, sort) {
 }
 
 /**
- * 按 3d→30d→100d 优先选片，去重后最多 PLATFORM_TOTAL_CAP 条；再按当前排序展示。
+ * 3d / 30d 直接输出，再用 100d 补齐；去重后最多 PLATFORM_TOTAL_CAP 条。
+ * 列表顺序保持 3d → 30d → 100d（组内按当前排序）。
  */
 function buildPlatformVideoList(batch, platform, sort) {
   const picked = [];
   const seen = new Set();
   for (const key of PLATFORM_PRIORITY_KEYS[platform]) {
-    const ranked = sortVideoList(videosFromCategoryKeys(batch, [key]), 'views');
+    const ranked = sortVideoList(videosFromCategoryKeys(batch, [key]), sort);
     for (const v of ranked) {
       if (picked.length >= PLATFORM_TOTAL_CAP) break;
       if (!v?.id || seen.has(v.id)) continue;
@@ -254,7 +255,7 @@ function buildPlatformVideoList(batch, platform, sort) {
     }
     if (picked.length >= PLATFORM_TOTAL_CAP) break;
   }
-  return sortVideoList(picked, sort);
+  return picked;
 }
 
 function renderFilteredGrid(videos) {
@@ -276,7 +277,7 @@ function renderPlatformBlock(label, key, videos) {
   `;
 }
 
-/** 3d→30d→100d 优先，合计 ≤10；按平台分组展示 */
+/** 3d/30d 直出 + 100d 补齐，合计 ≤10；按平台分组展示 */
 function renderBatch(batch, state) {
   const sortLabel = state.sort === 'recent' ? '按上传时间' : '按播放量';
   const fallbackNote = batch._fallback_count
@@ -421,7 +422,7 @@ async function loadDailyVideos() {
       const fallbackNote = display?._fallback_count
         ? ` · ${display._fallback_count} 组来源已回退至上一有效批次`
         : '';
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 3d Top3 + 30d Top5 + 100d Top10（合计≤10，均约≥100万）${fallbackNote}`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 3d Top3 + 30d Top5 直出，100d 补齐（合计≤10）${fallbackNote}`;
     }
 
     paintVideoList();
