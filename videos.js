@@ -165,7 +165,7 @@ function renderVideoCard(v, { compact = false, reveal = true } = {}) {
   const thumbSrc = v.thumbnail || '';
   const author = v.author || v.channel || '未知作者';
   const published = formatPublishDate(v.published_at);
-  // 虚拟列表异步插入的卡片若仍用 .reveal（opacity:0），滚动观察常已错过 → 空白
+  // 虚拟列表已移除：卡片随页面自然滚动展示
   const revealClass = reveal ? ' reveal' : '';
   return `
     <article class="video-card${revealClass}${compact ? ' video-card-compact' : ''}">
@@ -223,7 +223,7 @@ function renderFilteredGrid(videos) {
   if (!videos.length) {
     return '<p class="loading-hint">当前筛选条件下暂无视频。</p>';
   }
-  return `<div class="video-virtual-host" data-video-vl="single" data-vl-items="${videos.length}"></div>`;
+  return `<div class="video-grid" data-video-grid="single">${videos.map((v) => renderVideoCard(v)).join('')}</div>`;
 }
 
 function renderPlatformBlock(label, key, videos) {
@@ -233,7 +233,7 @@ function renderPlatformBlock(label, key, videos) {
   return `
     <div class="video-category">
       <h4 class="video-category-title">${escapeHtml(label)} <span class="video-day-count">${videos.length} 条</span></h4>
-      <div class="video-virtual-host" data-video-vl="${escapeHtml(key)}" data-vl-items="${videos.length}"></div>
+      <div class="video-grid" data-video-grid="${escapeHtml(key)}">${videos.map((v) => renderVideoCard(v)).join('')}</div>
     </div>
   `;
 }
@@ -285,84 +285,17 @@ function renderBatch(batch, state) {
   };
 }
 
-let videoVirtualLists = [];
-
-function destroyVideoVirtualLists() {
-  for (const vl of videoVirtualLists) {
-    try {
-      vl.destroy();
-    } catch {
-      /* ignore */
-    }
-  }
-  videoVirtualLists = [];
-}
-
-function mountVideoVirtualLists(root, groups) {
-  destroyVideoVirtualLists();
-  const create = window.BioAI?.createVirtualList;
-  const byKey = new Map((groups || []).map((g) => [g.key, g.items || []]));
-  const hosts = [...root.querySelectorAll('[data-video-vl]')];
-
-  function itemsForHost(host) {
-    const key = host.getAttribute('data-video-vl') || '';
-    if (byKey.has(key)) return byKey.get(key);
-    // 兼容旧 markup：无 key 时按 DOM 顺序回退
-    const idx = hosts.indexOf(host);
-    return groups[idx]?.items || [];
-  }
-
-  if (!create) {
-    // 无虚拟列表时回退：分片写入，避免一次 innerHTML 卡顿
-    const mapInChunks = window.BioAI?.mapInChunks;
-    hosts.forEach((host) => {
-      const items = itemsForHost(host);
-      if (!items.length) return;
-      const paint = (parts) => {
-        host.className = 'video-grid';
-        host.innerHTML = parts.join('');
-        window.refreshScrollReveal?.(host);
-      };
-      if (mapInChunks) {
-        mapInChunks(items, (v) => renderVideoCard(v), { chunkSize: 24 }).then(paint);
-      } else {
-        paint(items.map((v) => renderVideoCard(v)));
-      }
-    });
-    return;
-  }
-
-  hosts.forEach((host) => {
-    const items = itemsForHost(host);
-    if (!items.length) return;
-    const vl = create({
-      container: host,
-      items,
-      layout: 'grid',
-      itemHeight: 320,
-      minItemWidth: 280,
-      gap: 16,
-      overscan: 4,
-      // 虚拟列表项不做 scroll-reveal，避免异步绘制后永久 opacity:0
-      renderItem: (v) => renderVideoCard(v, { reveal: false }),
-    });
-    videoVirtualLists.push(vl);
-  });
-}
-
 function paintVideoList() {
   const root = document.getElementById('daily-video-list');
   if (!root || !videoState.rawData) return;
   const batches = videoState.rawData.batches || [];
   const latest = withCategoryFallback(batches);
   if (!latest) {
-    destroyVideoVirtualLists();
     root.innerHTML = '<p class="loading-hint">暂无视频数据，每日北京时间 0:00 自动更新。</p>';
     return;
   }
   const painted = renderBatch(latest, videoState);
   root.innerHTML = painted.html;
-  mountVideoVirtualLists(root, painted.groups);
   if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
 }
 

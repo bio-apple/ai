@@ -59,15 +59,6 @@
   color: var(--text-muted);
 }
 
-.video-virtual-host {
-  max-height: min(70vh, 720px);
-  min-height: 280px;
-}
-
-.video-virtual-host.vl-root {
-  padding-right: 4px;
-}
-
 .aicpb-table-body.vl-root {
   max-height: min(70vh, 640px);
   list-style: none;
