@@ -772,7 +772,7 @@ def main() -> int:
         "lead": (
             "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排；"
             "仅展示必推荐核心课（微软 / 谷歌 / 斯坦福 YouTube）。"
-            "斯坦福 CS231n / CS224n / CS336 链至 Stanford Online 最新学年讲座播放列表。"
+            "斯坦福 CS230 / CS231n / CS224n / CS336 链至 Stanford Online 最新学年讲座播放列表。"
             if required_only
             else (
                 "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排的免费课程；"

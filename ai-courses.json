@@ -1,14 +1,20 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-22 11:16:08+0800",
+  "updated_at": "2026-07-22 11:20:14+0800",
   "date": "2026-07-22",
   "cadence": "daily",
   "window_days": 180,
   "free_only": true,
   "required_only": true,
-  "track_order": ["入门", "机器学习", "深度学习", "LLM 大模型", "AI Agent"],
+  "track_order": [
+    "入门",
+    "机器学习",
+    "深度学习",
+    "LLM 大模型",
+    "AI Agent"
+  ],
   "title": "AI 课程资源",
-  "lead": "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排；仅展示必推荐核心课（微软 / 谷歌 / 斯坦福 YouTube）。斯坦福 CS231n / CS224n / CS336 链至 Stanford Online 最新学年讲座播放列表。",
+  "lead": "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排；仅展示必推荐核心课（微软 / 谷歌 / 斯坦福 YouTube）。斯坦福 CS230 / CS231n / CS224n / CS336 链至 Stanford Online 最新学年讲座播放列表。",
   "source_note": "数据源：config/courses-fetch.yaml → required（微软 / 谷歌 / 斯坦福 YouTube）。斯坦福课使用最新已公开学年播放列表；不自动抓取补充课。",
   "items": [
     {
@@ -38,6 +44,21 @@
       "is_free": true,
       "is_new": false,
       "required": true
+    },
+    {
+      "id": "stanford-cs230",
+      "title": "CS230 Deep Learning（斯坦福 · Autumn 2025）",
+      "url": "https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X",
+      "summary": "斯坦福 CS230 最新学年（Autumn 2025）讲座播放列表；深度学习基础与项目实践。",
+      "platform": "Stanford",
+      "track": "深度学习",
+      "format": "YouTube 公开课",
+      "published_at": "2026-07-22",
+      "language": "en",
+      "is_free": true,
+      "is_new": false,
+      "required": true,
+      "official_url": "https://cs230.stanford.edu/"
     },
     {
       "id": "stanford-cs231n",

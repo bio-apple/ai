@@ -3,7 +3,7 @@
 
 max_age_days: 180
 max_items: 16
-min_items: 5
+min_items: 6
 free_only: true
 required_only: true
 
@@ -42,6 +42,16 @@ required:
     track: 深度学习
     format: YouTube 公开课
     summary: 斯坦福 CS231n 最新学年（Spring 2025）完整讲座播放列表，计算机视觉深度学习。
+    language: en
+    year: 2025
+  - id: stanford-cs230
+    title: CS230 Deep Learning（斯坦福 · Autumn 2025）
+    url: https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X
+    official_url: https://cs230.stanford.edu/
+    platform: Stanford
+    track: 深度学习
+    format: YouTube 公开课
+    summary: 斯坦福 CS230 最新学年（Autumn 2025）讲座播放列表；深度学习基础与项目实践。
     language: en
     year: 2025
   - id: stanford-cs224n

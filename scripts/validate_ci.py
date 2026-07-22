@@ -250,6 +250,7 @@ REQUIRED_COURSE_URLS = (
     "https://microsoft.github.io/generative-ai-for-beginners",
     "https://developers.google.com/machine-learning/crash-course",
     "https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16",
+    "https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X",
     "https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D",
     "https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV",
 )
