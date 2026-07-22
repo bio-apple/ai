@@ -128,9 +128,10 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         self.assertEqual(len(out["youtube_recent_3d"]), 3)
         self.assertEqual(len(out["youtube_recent_30d"]), 5)
         self.assertEqual(len(out["youtube_recent_100d"]), 2)
+        # 100d 按播放量从高到低补：应取 i(4M)、j(3.9M)，而非更低的 k/l/m
         self.assertEqual(
-            {v["id"] for v in out["youtube_recent_100d"]},
-            {"youtube:i", "youtube:j"},
+            [v["id"] for v in out["youtube_recent_100d"]],
+            ["youtube:i", "youtube:j"],
         )
 
     def test_topup_platform_from_previous(self) -> None:

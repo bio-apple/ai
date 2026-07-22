@@ -887,34 +887,37 @@ def finalize_platform_top_by_views(
     *,
     limit: int = DEFAULT_PLATFORM_TOTAL_CAP,
 ) -> dict[str, list[dict]]:
-    """3d、30d 直接保留；再用 100d 补齐；去重后每平台总数不超过 limit。"""
+    """3d、30d 直接保留；100d 按播放量从高到低补齐；去重后每平台总数不超过 limit。"""
     for platform in PLATFORM_ORDER:
-        keys = platform_bucket_keys(platform)
+        key_3d, key_30, key_100 = platform_bucket_keys(platform)
         selected: list[tuple[str, dict]] = []
         selected_ids: set[str] = set()
 
-        for key in keys:
-            ranked = sorted(
-                buckets.get(key) or [],
-                key=lambda v: int(v.get("views") or 0),
-                reverse=True,
-            )
-            for video in ranked:
+        def take_from(key: str, *, by_views: bool = True) -> None:
+            items = list(buckets.get(key) or [])
+            if by_views:
+                items.sort(key=lambda v: int(v.get("views") or 0), reverse=True)
+            for video in items:
                 if len(selected) >= limit:
-                    break
+                    return
                 vid = video.get("id")
                 if not vid or vid in selected_ids:
                     continue
                 selected.append((key, video))
                 selected_ids.add(vid)
-            if len(selected) >= limit:
-                break
 
-        keep: dict[str, list[dict]] = {key: [] for key in keys}
+        # 1）3d 直出 2）30d 直出（组内仍按播放量排，便于稳定输出）
+        take_from(key_3d, by_views=True)
+        take_from(key_30, by_views=True)
+        # 3）100d 按播放量从大到小补齐剩余名额
+        take_from(key_100, by_views=True)
+
+        keep: dict[str, list[dict]] = {key_3d: [], key_30: [], key_100: []}
         for key, video in selected:
             keep[key].append(video)
-        for key in keys:
-            buckets[key] = keep[key]
+        buckets[key_3d] = keep[key_3d]
+        buckets[key_30] = keep[key_30]
+        buckets[key_100] = keep[key_100]
     return buckets
 
 

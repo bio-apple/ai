@@ -239,14 +239,15 @@ function sortVideoList(list, sort) {
 }
 
 /**
- * 3d / 30d 直接输出，再用 100d 补齐；去重后最多 PLATFORM_TOTAL_CAP 条。
- * 列表顺序保持 3d → 30d → 100d（组内按当前排序）。
+ * 3d / 30d 直接输出，再用 100d 按播放量从高到低补齐；合计 ≤ PLATFORM_TOTAL_CAP。
+ * 列表顺序：3d → 30d → 100d（3d/30d 组内跟当前排序；100d 组内固定按播放量）。
  */
 function buildPlatformVideoList(batch, platform, sort) {
   const picked = [];
   const seen = new Set();
   for (const key of PLATFORM_PRIORITY_KEYS[platform]) {
-    const ranked = sortVideoList(videosFromCategoryKeys(batch, [key]), sort);
+    const is100dFill = /_recent_100d$|_top_views$/.test(key);
+    const ranked = sortVideoList(videosFromCategoryKeys(batch, [key]), is100dFill ? 'views' : sort);
     for (const v of ranked) {
       if (picked.length >= PLATFORM_TOTAL_CAP) break;
       if (!v?.id || seen.has(v.id)) continue;
@@ -422,7 +423,7 @@ async function loadDailyVideos() {
       const fallbackNote = display?._fallback_count
         ? ` · ${display._fallback_count} 组来源已回退至上一有效批次`
         : '';
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 3d Top3 + 30d Top5 直出，100d 补齐（合计≤10）${fallbackNote}`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 3d/30d 直出，100d 按播放量补齐（合计≤10）${fallbackNote}`;
     }
 
     paintVideoList();

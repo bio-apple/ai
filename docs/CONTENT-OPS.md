@@ -220,9 +220,9 @@ DIST=dist python3 scripts/validate_ci.py news
 ```
 按六类候选抓取（YouTube / B站）
         ↓
-1）3d Top3（≥100 万）直出 2）30d Top5（≥100 万）直出 3）100d Top10（>100 万）补齐
+1）3d Top3（≥100 万）直出 2）30d Top5（≥100 万）直出 3）100d（>100 万）按播放量从高到低补齐
         ↓
-去重后每平台合计不超过 10（先保留 3d/30d，再用 100d 补足）
+去重后每平台合计不超过 10（先保留 3d/30d，再用 100d 按播放量补足）
         ↓
 yt-dlp 搜索 + AI 关键词过滤，分桶按播放量排序
         ↓
@@ -244,13 +244,13 @@ Actions 手动触发时可选 `force=true`。
 
 **核心配置项：**
 
-| 配置块                                       | 作用                                   |
-| -------------------------------------------- | -------------------------------------- |
-| `video_categories`                           | 3d/30d 直出 + 100d 补齐（约≥/>100万）  |
-| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）  |
-| `search_queries` / `bilibili_search_queries` | 搜索关键词                             |
-| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛） |
-| `summary.strip_patterns`                     | 摘要广告过滤正则                       |
+| 配置块                                       | 作用                                         |
+| -------------------------------------------- | -------------------------------------------- |
+| `video_categories`                           | 3d/30d 直出；100d 按播放量补齐（约≥/>100万） |
+| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）        |
+| `search_queries` / `bilibili_search_queries` | 搜索关键词                                   |
+| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）       |
+| `summary.strip_patterns`                     | 摘要广告过滤正则                             |
 
 **注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → 六类为空。
 
