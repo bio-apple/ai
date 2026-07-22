@@ -153,13 +153,6 @@
             },
             "top_count": 5
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -174,10 +167,17 @@
             },
             "top_count": 5
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3
           }
@@ -412,43 +412,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:Sl0XXm35JMo",
-              "platform": "youtube",
-              "title": "DSpark: DeepSeek-V4's Insane Compute Optimization Explained",
-              "summary": "Check out Make and get a 1-month free Pro Plan with 10,000 operations & no credit card required",
-              "url": "https://www.youtube.com/watch?v=Sl0XXm35JMo",
-              "thumbnail": "https://i.ytimg.com/vi/Sl0XXm35JMo/maxresdefault.jpg",
-              "channel": "bycloud",
-              "subscribers": 0,
-              "views": 34379,
-              "duration": "16:23",
-              "max_height": 1080,
-              "published_at": "2026-07-21T02:50:17+08:00"
-            },
-            {
-              "id": "youtube:mp0kqU9GyfQ",
-              "platform": "youtube",
-              "title": "Get 10X More Out of Claude",
-              "summary": "*Free Claude Guide:* I walk through how I use Claude like a pro with 12 simple and useful tools",
-              "url": "https://www.youtube.com/watch?v=mp0kqU9GyfQ",
-              "thumbnail": "https://i.ytimg.com/vi/mp0kqU9GyfQ/maxresdefault.jpg",
-              "channel": "Skill Leap AI",
-              "subscribers": 0,
-              "views": 6571,
-              "duration": "16:19",
-              "max_height": 1080,
-              "published_at": "2026-07-21T04:32:10+08:00"
-            }
-          ]
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -621,7 +584,44 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:Sl0XXm35JMo",
+              "platform": "youtube",
+              "title": "DSpark: DeepSeek-V4's Insane Compute Optimization Explained",
+              "summary": "Check out Make and get a 1-month free Pro Plan with 10,000 operations & no credit card required",
+              "url": "https://www.youtube.com/watch?v=Sl0XXm35JMo",
+              "thumbnail": "https://i.ytimg.com/vi/Sl0XXm35JMo/maxresdefault.jpg",
+              "channel": "bycloud",
+              "subscribers": 0,
+              "views": 34379,
+              "duration": "16:23",
+              "max_height": 1080,
+              "published_at": "2026-07-21T02:50:17+08:00"
+            },
+            {
+              "id": "youtube:mp0kqU9GyfQ",
+              "platform": "youtube",
+              "title": "Get 10X More Out of Claude",
+              "summary": "*Free Claude Guide:* I walk through how I use Claude like a pro with 12 simple and useful tools",
+              "url": "https://www.youtube.com/watch?v=mp0kqU9GyfQ",
+              "thumbnail": "https://i.ytimg.com/vi/mp0kqU9GyfQ/maxresdefault.jpg",
+              "channel": "Skill Leap AI",
+              "subscribers": 0,
+              "views": 6571,
+              "duration": "16:19",
+              "max_height": 1080,
+              "published_at": "2026-07-21T04:32:10+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -697,13 +697,6 @@
             },
             "top_count": 5
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -718,10 +711,17 @@
             },
             "top_count": 5
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3
           }
@@ -956,29 +956,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:3RWm4inkS2E",
-              "platform": "youtube",
-              "title": "A Complete Guide to the New Claude Design",
-              "summary": "*Free Claude Design Guide:* More from Futurepedia: 👉 Join the Skill Leap AI education platform",
-              "url": "https://www.youtube.com/watch?v=3RWm4inkS2E",
-              "thumbnail": "https://i.ytimg.com/vi/3RWm4inkS2E/maxresdefault.jpg",
-              "channel": "Futurepedia",
-              "subscribers": 0,
-              "views": 26121,
-              "duration": "16:29",
-              "max_height": 1080,
-              "published_at": "2026-07-20T02:45:51+08:00"
-            }
-          ]
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -1151,7 +1128,30 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:3RWm4inkS2E",
+              "platform": "youtube",
+              "title": "A Complete Guide to the New Claude Design",
+              "summary": "*Free Claude Design Guide:* More from Futurepedia: 👉 Join the Skill Leap AI education platform",
+              "url": "https://www.youtube.com/watch?v=3RWm4inkS2E",
+              "thumbnail": "https://i.ytimg.com/vi/3RWm4inkS2E/maxresdefault.jpg",
+              "channel": "Futurepedia",
+              "subscribers": 0,
+              "views": 26121,
+              "duration": "16:29",
+              "max_height": 1080,
+              "published_at": "2026-07-20T02:45:51+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -1227,13 +1227,6 @@
             },
             "top_count": 5
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -1248,10 +1241,17 @@
             },
             "top_count": 5
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3
           }
@@ -1486,29 +1486,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:29JiK407YAA",
-              "platform": "youtube",
-              "title": "Google Gemini’s New Updates Changed EVERYTHING! (NotebookLM Updates, Custom MCP & More)",
-              "summary": "This video shows you a bunch of new Google Gemini, Google Spark and Gemini NotebookLM updates that just got released",
-              "url": "https://www.youtube.com/watch?v=29JiK407YAA",
-              "thumbnail": "https://i.ytimg.com/vi/29JiK407YAA/maxresdefault.jpg",
-              "channel": "Rob The AI Guy",
-              "subscribers": 0,
-              "views": 8819,
-              "duration": "15:09",
-              "max_height": 1080,
-              "published_at": "2026-07-19T04:03:15+08:00"
-            }
-          ]
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -1681,7 +1658,30 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:29JiK407YAA",
+              "platform": "youtube",
+              "title": "Google Gemini’s New Updates Changed EVERYTHING! (NotebookLM Updates, Custom MCP & More)",
+              "summary": "This video shows you a bunch of new Google Gemini, Google Spark and Gemini NotebookLM updates that just got released",
+              "url": "https://www.youtube.com/watch?v=29JiK407YAA",
+              "thumbnail": "https://i.ytimg.com/vi/29JiK407YAA/maxresdefault.jpg",
+              "channel": "Rob The AI Guy",
+              "subscribers": 0,
+              "views": 8819,
+              "duration": "15:09",
+              "max_height": 1080,
+              "published_at": "2026-07-19T04:03:15+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -1757,13 +1757,6 @@
             },
             "top_count": 5
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -1778,10 +1771,17 @@
             },
             "top_count": 5
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3
           }
@@ -2016,43 +2016,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:GvJh_OfF6C0",
-              "platform": "youtube",
-              "title": "Ultimate Claude Guide: How to Use Claude AI for Beginners in 2026",
-              "summary": "# 🧠 Master AI workflows → Anthropic completely reshaped Claude",
-              "url": "https://www.youtube.com/watch?v=GvJh_OfF6C0",
-              "thumbnail": "https://i.ytimg.com/vi/GvJh_OfF6C0/maxresdefault.jpg",
-              "channel": "AI Master",
-              "subscribers": 0,
-              "views": 2557,
-              "duration": "30:45",
-              "max_height": 1080,
-              "published_at": "2026-07-18T15:15:18+08:00"
-            },
-            {
-              "id": "youtube:rjtZv2eXeR4",
-              "platform": "youtube",
-              "title": "The Ultimate Guide to Claude Skills (Beginner to Pro)",
-              "summary": "Join my AI Accelerator to get all my templates & tech help ⤵️ Get the Free prompts & skill mentioned in this video ⤵️ Get 1-on-1 …",
-              "url": "https://www.youtube.com/watch?v=rjtZv2eXeR4",
-              "thumbnail": "https://i.ytimg.com/vi/rjtZv2eXeR4/maxresdefault.jpg",
-              "channel": "Ben AI",
-              "subscribers": 0,
-              "views": 1780,
-              "duration": "30:56",
-              "max_height": 1080,
-              "published_at": "2026-07-18T15:48:39+08:00"
-            }
-          ]
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -2239,7 +2202,44 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:GvJh_OfF6C0",
+              "platform": "youtube",
+              "title": "Ultimate Claude Guide: How to Use Claude AI for Beginners in 2026",
+              "summary": "# 🧠 Master AI workflows → Anthropic completely reshaped Claude",
+              "url": "https://www.youtube.com/watch?v=GvJh_OfF6C0",
+              "thumbnail": "https://i.ytimg.com/vi/GvJh_OfF6C0/maxresdefault.jpg",
+              "channel": "AI Master",
+              "subscribers": 0,
+              "views": 2557,
+              "duration": "30:45",
+              "max_height": 1080,
+              "published_at": "2026-07-18T15:15:18+08:00"
+            },
+            {
+              "id": "youtube:rjtZv2eXeR4",
+              "platform": "youtube",
+              "title": "The Ultimate Guide to Claude Skills (Beginner to Pro)",
+              "summary": "Join my AI Accelerator to get all my templates & tech help ⤵️ Get the Free prompts & skill mentioned in this video ⤵️ Get 1-on-1 …",
+              "url": "https://www.youtube.com/watch?v=rjtZv2eXeR4",
+              "thumbnail": "https://i.ytimg.com/vi/rjtZv2eXeR4/maxresdefault.jpg",
+              "channel": "Ben AI",
+              "subscribers": 0,
+              "views": 1780,
+              "duration": "30:56",
+              "max_height": 1080,
+              "published_at": "2026-07-18T15:48:39+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -2315,13 +2315,6 @@
             },
             "top_count": 5
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -2336,10 +2329,17 @@
             },
             "top_count": 5
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3
           }
@@ -2574,14 +2574,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -2754,7 +2746,15 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -2830,13 +2830,6 @@
             },
             "top_count": 5
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -2851,10 +2844,17 @@
             },
             "top_count": 5
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3
           }
@@ -3089,43 +3089,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:FPnjYVcdoB8",
-              "platform": "youtube",
-              "title": "Stop Prompting. Start Looping. (full guide)",
-              "summary": "Sign up for the AI Edge Newsletter to grab the full loop engineering guide + my loop ideas list: 👉 1",
-              "url": "https://www.youtube.com/watch?v=FPnjYVcdoB8",
-              "thumbnail": "https://i.ytimg.com/vi/FPnjYVcdoB8/maxresdefault.jpg",
-              "channel": "AI Edge",
-              "subscribers": 0,
-              "views": 6896,
-              "duration": "21:37",
-              "max_height": 1080,
-              "published_at": "2026-07-17T02:02:58+08:00"
-            },
-            {
-              "id": "youtube:SsFU0w3KrI4",
-              "platform": "youtube",
-              "title": "Let's Learn GitHub Copilot App",
-              "summary": "Join this beginner-friendly virtual series to get started with the GitHub Copilot app, your all-in-one control center for managin…",
-              "url": "https://www.youtube.com/watch?v=SsFU0w3KrI4",
-              "thumbnail": "https://i.ytimg.com/vi/SsFU0w3KrI4/maxresdefault.jpg",
-              "channel": "GitHub",
-              "subscribers": 0,
-              "views": 3367,
-              "duration": "1:42:56",
-              "max_height": 1080,
-              "published_at": "2026-07-16T23:59:53+08:00"
-            }
-          ]
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -3326,7 +3289,44 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:FPnjYVcdoB8",
+              "platform": "youtube",
+              "title": "Stop Prompting. Start Looping. (full guide)",
+              "summary": "Sign up for the AI Edge Newsletter to grab the full loop engineering guide + my loop ideas list: 👉 1",
+              "url": "https://www.youtube.com/watch?v=FPnjYVcdoB8",
+              "thumbnail": "https://i.ytimg.com/vi/FPnjYVcdoB8/maxresdefault.jpg",
+              "channel": "AI Edge",
+              "subscribers": 0,
+              "views": 6896,
+              "duration": "21:37",
+              "max_height": 1080,
+              "published_at": "2026-07-17T02:02:58+08:00"
+            },
+            {
+              "id": "youtube:SsFU0w3KrI4",
+              "platform": "youtube",
+              "title": "Let's Learn GitHub Copilot App",
+              "summary": "Join this beginner-friendly virtual series to get started with the GitHub Copilot app, your all-in-one control center for managin…",
+              "url": "https://www.youtube.com/watch?v=SsFU0w3KrI4",
+              "thumbnail": "https://i.ytimg.com/vi/SsFU0w3KrI4/maxresdefault.jpg",
+              "channel": "GitHub",
+              "subscribers": 0,
+              "views": 3367,
+              "duration": "1:42:56",
+              "max_height": 1080,
+              "published_at": "2026-07-16T23:59:53+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -3402,13 +3402,6 @@
             },
             "top_count": 5
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -3423,10 +3416,17 @@
             },
             "top_count": 5
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3
           }
@@ -3447,14 +3447,6 @@
             "days": 30
           },
           "top_count": 5,
-          "videos": []
-        },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
           "videos": []
         },
         "bilibili_top_views": {
@@ -3657,7 +3649,15 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -3733,13 +3733,6 @@
             },
             "top_count": 5
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -3754,10 +3747,17 @@
             },
             "top_count": 5
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3
           }
@@ -3795,14 +3795,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -3819,7 +3811,15 @@
           "top_count": 5,
           "videos": []
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -3852,13 +3852,6 @@
             },
             "top_count": 5
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -3873,10 +3866,17 @@
             },
             "top_count": 5
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3
           }
@@ -3897,14 +3897,6 @@
             "days": 30
           },
           "top_count": 5,
-          "videos": []
-        },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
           "videos": []
         },
         "bilibili_top_views": {
@@ -4121,7 +4113,15 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -4405,29 +4405,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:6cRiP9g90PY",
-              "platform": "youtube",
-              "title": "ChatGPT 5.6 & Codex Tutorial with Real Use Cases Explained",
-              "summary": "#ChatGPTWork #Sol #Codex ChatGPT just released one of its biggest updates yet with the launch of ChatGPT Work and the GPT-5",
-              "url": "https://www.youtube.com/watch?v=6cRiP9g90PY",
-              "thumbnail": "https://i.ytimg.com/vi/6cRiP9g90PY/maxresdefault.jpg",
-              "channel": "The Cutting Edge School",
-              "subscribers": 712000,
-              "views": 7603,
-              "duration": "10:24",
-              "max_height": 1080,
-              "published_at": "2026-07-10T21:21:13+08:00"
-            }
-          ]
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -4656,7 +4633,30 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:6cRiP9g90PY",
+              "platform": "youtube",
+              "title": "ChatGPT 5.6 & Codex Tutorial with Real Use Cases Explained",
+              "summary": "#ChatGPTWork #Sol #Codex ChatGPT just released one of its biggest updates yet with the launch of ChatGPT Work and the GPT-5",
+              "url": "https://www.youtube.com/watch?v=6cRiP9g90PY",
+              "thumbnail": "https://i.ytimg.com/vi/6cRiP9g90PY/maxresdefault.jpg",
+              "channel": "The Cutting Edge School",
+              "subscribers": 712000,
+              "views": 7603,
+              "duration": "10:24",
+              "max_height": 1080,
+              "published_at": "2026-07-10T21:21:13+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -4734,14 +4734,6 @@
             "top_count": 5,
             "min_views": 10000
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3,
-            "min_views": 1000
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -4758,10 +4750,18 @@
             "top_count": 5,
             "min_views": 10000
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3,
+            "min_views": 1000
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3,
             "min_views": 1000
@@ -4997,29 +4997,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:6cRiP9g90PY",
-              "platform": "youtube",
-              "title": "ChatGPT 5.6 & Codex Tutorial with Real Use Cases Explained",
-              "summary": "#ChatGPTWork #Sol #Codex ChatGPT just released one of its biggest updates yet with the launch of ChatGPT Work and the GPT-5",
-              "url": "https://www.youtube.com/watch?v=6cRiP9g90PY",
-              "thumbnail": "https://i.ytimg.com/vi/6cRiP9g90PY/maxresdefault.jpg",
-              "channel": "The Cutting Edge School",
-              "subscribers": 712000,
-              "views": 7603,
-              "duration": "10:24",
-              "max_height": 1080,
-              "published_at": "2026-07-10T21:21:13+08:00"
-            }
-          ]
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -5177,7 +5154,30 @@
           "top_count": 5,
           "videos": []
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:6cRiP9g90PY",
+              "platform": "youtube",
+              "title": "ChatGPT 5.6 & Codex Tutorial with Real Use Cases Explained",
+              "summary": "#ChatGPTWork #Sol #Codex ChatGPT just released one of its biggest updates yet with the launch of ChatGPT Work and the GPT-5",
+              "url": "https://www.youtube.com/watch?v=6cRiP9g90PY",
+              "thumbnail": "https://i.ytimg.com/vi/6cRiP9g90PY/maxresdefault.jpg",
+              "channel": "The Cutting Edge School",
+              "subscribers": 712000,
+              "views": 7603,
+              "duration": "10:24",
+              "max_height": 1080,
+              "published_at": "2026-07-10T21:21:13+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
@@ -5212,14 +5212,6 @@
             "top_count": 5,
             "min_views": 10000
           },
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内上新 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3,
-            "min_views": 1000
-          },
           "bilibili_top_views": {
             "label": "B站：100 天内上新 Top 10",
             "window": {
@@ -5236,10 +5228,18 @@
             "top_count": 5,
             "min_views": 10000
           },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内上新 Top 3",
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内上新 Top 3",
             "window": {
-              "hours": 24
+              "days": 3
+            },
+            "top_count": 3,
+            "min_views": 1000
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内上新 Top 3",
+            "window": {
+              "days": 3
             },
             "top_count": 3,
             "min_views": 1000
@@ -5475,29 +5475,6 @@
             }
           ]
         },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:-MPGU2a67Ls",
-              "platform": "youtube",
-              "title": "Meet GPT-5.6",
-              "summary": "【OpenAI】讲解 AI 工具实战应用，围绕「Meet GPT-5.6」展示操作步骤与使用技巧。",
-              "url": "https://www.youtube.com/watch?v=-MPGU2a67Ls",
-              "thumbnail": "https://i.ytimg.com/vi/-MPGU2a67Ls/maxresdefault.jpg",
-              "channel": "OpenAI",
-              "subscribers": 1980000,
-              "views": 71308,
-              "duration": "1:59",
-              "max_height": 2160,
-              "published_at": "2026-07-10T01:55:26+08:00"
-            }
-          ]
-        },
         "bilibili_top_views": {
           "label": "B站：100 天内上新 Top 10",
           "window": {
@@ -5655,7 +5632,30 @@
           "top_count": 5,
           "videos": []
         },
-        "bilibili_recent_24h": {
+        "youtube_recent_3d": {
+          "label": "YouTube：24 小时内上新 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:-MPGU2a67Ls",
+              "platform": "youtube",
+              "title": "Meet GPT-5.6",
+              "summary": "【OpenAI】讲解 AI 工具实战应用，围绕「Meet GPT-5.6」展示操作步骤与使用技巧。",
+              "url": "https://www.youtube.com/watch?v=-MPGU2a67Ls",
+              "thumbnail": "https://i.ytimg.com/vi/-MPGU2a67Ls/maxresdefault.jpg",
+              "channel": "OpenAI",
+              "subscribers": 1980000,
+              "views": 71308,
+              "duration": "1:59",
+              "max_height": 2160,
+              "published_at": "2026-07-10T01:55:26+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
           "label": "B站：24 小时内上新 Top 3",
           "window": {
             "hours": 24
