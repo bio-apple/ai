@@ -58,7 +58,7 @@ jobs:
 
       - name: Open or update issue on broken links
         if: steps.lychee.outputs.exit_code != '0'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const fs = require('fs');

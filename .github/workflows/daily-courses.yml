@@ -60,7 +60,7 @@ jobs:
 
       - name: Trigger Pages deploy
         if: steps.commit.outputs.pushed == 'true'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -85,7 +85,7 @@ jobs:
 
       - name: Open issue on fetch failure
         if: failure()
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const title = '[ops] Daily AI courses fetch failed';
