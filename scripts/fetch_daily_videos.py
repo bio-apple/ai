@@ -271,6 +271,76 @@ def is_within_hours(upload_dt: datetime, now: datetime, hours: float) -> bool:
     return (now - upload_dt).total_seconds() <= hours * 3600
 
 
+CATEGORY_WINDOW_DAYS: dict[str, int] = {
+    "youtube_recent_3d": 3,
+    "youtube_recent_30d": 30,
+    "youtube_recent_100d": 100,
+    "youtube_top_views": 100,
+    "bilibili_recent_3d": 3,
+    "bilibili_recent_30d": 30,
+    "bilibili_recent_100d": 100,
+    "bilibili_top_views": 100,
+}
+
+
+def video_published_dt(video: dict) -> datetime | None:
+    raw = video.get("published_at") or video.get("upload_date")
+    if not raw:
+        return None
+    if isinstance(raw, (int, float)):
+        return datetime.fromtimestamp(raw, tz=TZ) if TZ else datetime.utcfromtimestamp(raw)
+    text = str(raw).strip()
+    if re.fullmatch(r"\d{8}", text):
+        dt = datetime.strptime(text, "%Y%m%d")
+        return dt.replace(tzinfo=TZ) if TZ else dt
+    try:
+        dt = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    if dt.tzinfo is None and TZ:
+        dt = dt.replace(tzinfo=TZ)
+    return dt
+
+
+def category_window_days(key: str, cfg: dict | None = None) -> int | None:
+    if cfg:
+        cat = (cfg.get("video_categories") or {}).get(key) or {}
+        if "days" in cat:
+            return int(cat["days"])
+        if "hours" in cat:
+            return max(1, int(round(float(cat["hours"]) / 24)))
+    return CATEGORY_WINDOW_DAYS.get(key)
+
+
+def filter_videos_for_category(
+    videos: list[dict],
+    key: str,
+    *,
+    cfg: dict | None = None,
+    now: datetime | None = None,
+    min_views: int | None = None,
+) -> list[dict]:
+    """按播放门槛 + 发布时间窗口过滤（无发布时间视为不合格）。"""
+    threshold = min_views
+    if threshold is None:
+        if cfg and key in (cfg.get("video_categories") or {}):
+            threshold = int((cfg["video_categories"][key] or {}).get("min_views") or 0)
+        else:
+            threshold = 0
+    days = category_window_days(key, cfg)
+    now = now or now_local()
+    kept: list[dict] = []
+    for video in videos:
+        if int(video.get("views") or 0) < threshold:
+            continue
+        if days is not None:
+            pub = video_published_dt(video)
+            if not pub or not is_within_hours(pub, now, float(days) * 24):
+                continue
+        kept.append(video)
+    return kept
+
+
 def composite_id(platform: str, video_id: str) -> str:
     return f"{platform}:{video_id}"
 
@@ -867,10 +937,17 @@ def finalize_platform_top_by_views(
     buckets: dict[str, list[dict]],
     *,
     limit: int = DEFAULT_PLATFORM_TOTAL_CAP,
+    cfg: dict | None = None,
 ) -> dict[str, list[dict]]:
-    """3d、30d 直接保留；100d 按播放量从高到低补齐；去重后每平台总数不超过 limit。"""
+    """3d、30d 直接保留；100d 按播放量从高到低补齐；并剔除超窗外视频。"""
+    now = now_local()
     for platform in PLATFORM_ORDER:
         key_3d, key_30, key_100 = platform_bucket_keys(platform)
+        for key in (key_3d, key_30, key_100):
+            buckets[key] = filter_videos_for_category(
+                list(buckets.get(key) or []), key, cfg=cfg, now=now
+            )
+
         selected: list[tuple[str, dict]] = []
         selected_ids: set[str] = set()
 
@@ -976,7 +1053,9 @@ def preserve_platform_from_previous(
                 continue
             min_views = int((cats_cfg.get(key) or {}).get("min_views") or 0)
             top_count = int((cats_cfg.get(key) or {}).get("top_count") or len(prev_videos))
-            filtered = [v for v in prev_videos if int(v.get("views") or 0) >= min_views]
+            filtered = filter_videos_for_category(
+                prev_videos, key, cfg=cfg, min_views=min_views
+            )
             ranked = sorted(filtered, key=lambda v: int(v.get("views") or 0), reverse=True)
             buckets[key] = [dict(v) for v in ranked[:top_count]]
         kept = platform_bucket_total(buckets, platform)
@@ -1033,7 +1112,7 @@ def topup_platform_from_previous(
                 vid = video.get("id")
                 if not vid or vid in existing:
                     continue
-                if int(video.get("views") or 0) < min_views:
+                if not filter_videos_for_category([video], fill_key, cfg=cfg, min_views=min_views):
                     continue
                 extras.append(dict(video))
                 existing[vid] = video
@@ -1136,7 +1215,7 @@ def main() -> int:
             print(f"警告：{label} 仅 {got} 条（目标 {need}）", file=sys.stderr)
 
     before_final = total_video_count(buckets)
-    buckets = finalize_platform_top_by_views(buckets, limit=total_cap)
+    buckets = finalize_platform_top_by_views(buckets, limit=total_cap, cfg=cfg)
     total = total_video_count(buckets)
     if before_final != total:
         print(

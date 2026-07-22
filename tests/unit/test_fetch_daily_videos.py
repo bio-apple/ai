@@ -5,6 +5,7 @@ from __future__ import annotations
 import importlib.util
 import sys
 import unittest
+from datetime import timedelta
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -21,6 +22,9 @@ spec.loader.exec_module(mod)
 
 
 class FetchDailyVideosHelpersTest(unittest.TestCase):
+    def ago(self, days: float) -> str:
+        return (mod.now_local() - timedelta(days=days)).isoformat()
+
     def test_parse_iso8601_duration(self) -> None:
         self.assertEqual(mod.parse_iso8601_duration("PT26M39S"), 26 * 60 + 39)
         self.assertEqual(mod.parse_iso8601_duration("PT1H2M3S"), 3600 + 120 + 3)
@@ -53,12 +57,30 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
                 {
                     "date": "2026-07-16",
                     "categories": {
-                        "youtube_recent_30d": {"videos": [{"id": "youtube:x1"}, {"id": "youtube:x2"}]},
+                        "youtube_recent_30d": {
+                            "videos": [
+                                {
+                                    "id": "youtube:x1",
+                                    "views": 2_000_000,
+                                    "published_at": self.ago(10),
+                                },
+                                {
+                                    "id": "youtube:x2",
+                                    "views": 1_500_000,
+                                    "published_at": self.ago(12),
+                                },
+                            ]
+                        },
                     },
                 }
             ]
         }
-        out = mod.preserve_youtube_from_previous(buckets, store, today="2026-07-17")
+        cfg = {
+            "video_categories": {
+                "youtube_recent_30d": {"min_views": 1_000_000, "top_count": 5, "days": 30},
+            }
+        }
+        out = mod.preserve_youtube_from_previous(buckets, store, today="2026-07-17", cfg=cfg)
         self.assertEqual(len(out["youtube_recent_30d"]), 2)
 
     def test_preserve_skips_when_today_has_youtube(self) -> None:
@@ -99,23 +121,24 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
     def test_finalize_platform_top_by_views(self) -> None:
         buckets = {key: [] for key in mod.CATEGORY_ORDER}
         buckets["youtube_recent_3d"] = [
-            {"id": "youtube:a", "views": 2_000_000},
-            {"id": "youtube:b", "views": 1_500_000},
-            {"id": "youtube:c3", "views": 1_200_000},
+            {"id": "youtube:a", "views": 2_000_000, "published_at": self.ago(1)},
+            {"id": "youtube:b", "views": 1_500_000, "published_at": self.ago(2)},
+            {"id": "youtube:c3", "views": 1_200_000, "published_at": self.ago(2.5)},
         ]
         buckets["youtube_recent_30d"] = [
-            {"id": "youtube:d", "views": 3_000_000},
-            {"id": "youtube:e", "views": 2_800_000},
-            {"id": "youtube:f", "views": 2_700_000},
-            {"id": "youtube:g", "views": 2_600_000},
-            {"id": "youtube:h", "views": 2_500_000},
+            {"id": "youtube:d", "views": 3_000_000, "published_at": self.ago(10)},
+            {"id": "youtube:e", "views": 2_800_000, "published_at": self.ago(12)},
+            {"id": "youtube:f", "views": 2_700_000, "published_at": self.ago(14)},
+            {"id": "youtube:g", "views": 2_600_000, "published_at": self.ago(16)},
+            {"id": "youtube:h", "views": 2_500_000, "published_at": self.ago(18)},
         ]
         buckets["youtube_recent_100d"] = [
-            {"id": "youtube:i", "views": 4_000_000},
-            {"id": "youtube:j", "views": 3_900_000},
-            {"id": "youtube:k", "views": 3_800_000},
-            {"id": "youtube:l", "views": 3_700_000},
-            {"id": "youtube:m", "views": 3_600_000},
+            {"id": "youtube:i", "views": 4_000_000, "published_at": self.ago(40)},
+            {"id": "youtube:j", "views": 3_900_000, "published_at": self.ago(50)},
+            {"id": "youtube:old", "views": 9_000_000, "published_at": "2020-10-01T00:00:00+08:00"},
+            {"id": "youtube:k", "views": 3_800_000, "published_at": self.ago(55)},
+            {"id": "youtube:l", "views": 3_700_000, "published_at": self.ago(60)},
+            {"id": "youtube:m", "views": 3_600_000, "published_at": self.ago(65)},
         ]
         out = mod.finalize_platform_top_by_views(buckets, limit=10)
         yt_ids = {
@@ -124,19 +147,33 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
             for v in out[key]
         }
         self.assertEqual(len(yt_ids), 10)
-        # 优先保留 3d 全部 + 30d 全部，再从 100d 补 2 条
         self.assertEqual(len(out["youtube_recent_3d"]), 3)
         self.assertEqual(len(out["youtube_recent_30d"]), 5)
         self.assertEqual(len(out["youtube_recent_100d"]), 2)
-        # 100d 按播放量从高到低补：应取 i(4M)、j(3.9M)，而非更低的 k/l/m
         self.assertEqual(
             [v["id"] for v in out["youtube_recent_100d"]],
             ["youtube:i", "youtube:j"],
         )
+        self.assertNotIn("youtube:old", yt_ids)
+
+    def test_filter_videos_for_category_rejects_outside_window(self) -> None:
+        videos = [
+            {"id": "new", "views": 2_000_000, "published_at": "2026-07-01T00:00:00+08:00"},
+            {"id": "old", "views": 18_000_000, "published_at": "2020-10-01T00:00:00+08:00"},
+        ]
+        kept = mod.filter_videos_for_category(
+            videos,
+            "bilibili_recent_100d",
+            now=mod.datetime(2026, 7, 22, tzinfo=mod.TZ),
+            min_views=1_000_001,
+        )
+        self.assertEqual([v["id"] for v in kept], ["new"])
 
     def test_topup_platform_from_previous(self) -> None:
         buckets = {key: [] for key in mod.CATEGORY_ORDER}
-        buckets["bilibili_recent_30d"] = [{"id": "bilibili:new", "views": 1_200_000}]
+        buckets["bilibili_recent_30d"] = [
+            {"id": "bilibili:new", "views": 1_200_000, "published_at": self.ago(10)}
+        ]
         store = {
             "batches": [
                 {
@@ -144,9 +181,26 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
                     "categories": {
                         "bilibili_top_views": {
                             "videos": [
-                                {"id": "bilibili:old1", "views": 2_000_000},
-                                {"id": "bilibili:old2", "views": 1_500_000},
-                                {"id": "bilibili:new", "views": 1_900_000},
+                                {
+                                    "id": "bilibili:old1",
+                                    "views": 2_000_000,
+                                    "published_at": self.ago(40),
+                                },
+                                {
+                                    "id": "bilibili:old2",
+                                    "views": 1_500_000,
+                                    "published_at": self.ago(50),
+                                },
+                                {
+                                    "id": "bilibili:new",
+                                    "views": 1_900_000,
+                                    "published_at": self.ago(55),
+                                },
+                                {
+                                    "id": "bilibili:ancient",
+                                    "views": 18_000_000,
+                                    "published_at": "2020-10-01T00:00:00+08:00",
+                                },
                             ]
                         }
                     },
@@ -155,7 +209,7 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         }
         cfg = {
             "video_categories": {
-                "bilibili_recent_100d": {"min_views": 1000001, "top_count": 10},
+                "bilibili_recent_100d": {"min_views": 1000001, "top_count": 10, "days": 100},
             }
         }
         out = mod.topup_platform_from_previous(
@@ -165,6 +219,7 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         self.assertIn("bilibili:old1", ids)
         self.assertIn("bilibili:old2", ids)
         self.assertNotIn("bilibili:new", ids)  # 已在 30d
+        self.assertNotIn("bilibili:ancient", ids)  # 超窗外
         self.assertEqual(mod.platform_bucket_total(out, "bilibili"), 3)
 
     def test_main_zero_total_preserves_history_without_write(self) -> None:

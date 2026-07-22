@@ -43,7 +43,7 @@ const LEGACY_CATEGORY_ALIASES = {
   bilibili_recent_100d: ['bilibili_recent_100d', 'bilibili_top_views'],
 };
 
-/** 与 config/video-fetch.yaml 对齐；回填与展示丢弃未达门槛视频 */
+/** 与 config/video-fetch.yaml 对齐；回填与展示丢弃未达门槛 / 超窗外视频 */
 const CATEGORY_MIN_VIEWS = {
   youtube_recent_3d: 1_000_000,
   youtube_recent_30d: 1_000_000,
@@ -55,6 +55,17 @@ const CATEGORY_MIN_VIEWS = {
   bilibili_top_views: 1_000_001,
 };
 
+const CATEGORY_MAX_DAYS = {
+  youtube_recent_3d: 3,
+  youtube_recent_30d: 30,
+  youtube_recent_100d: 100,
+  youtube_top_views: 100,
+  bilibili_recent_3d: 3,
+  bilibili_recent_30d: 30,
+  bilibili_recent_100d: 100,
+  bilibili_top_views: 100,
+};
+
 function categoryMinViews(key) {
   if (Object.prototype.hasOwnProperty.call(CATEGORY_MIN_VIEWS, key)) {
     return CATEGORY_MIN_VIEWS[key];
@@ -64,9 +75,27 @@ function categoryMinViews(key) {
   return 0;
 }
 
-function filterVideosByMinViews(videos, key) {
+function categoryMaxDays(key) {
+  if (Object.prototype.hasOwnProperty.call(CATEGORY_MAX_DAYS, key)) {
+    return CATEGORY_MAX_DAYS[key];
+  }
+  if (/_recent_3d$/.test(key)) return 3;
+  if (/_recent_30d$/.test(key)) return 30;
+  if (/_recent_100d$|_top_views$/.test(key)) return 100;
+  return null;
+}
+
+function filterVideosForCategory(videos, key, nowMs = Date.now()) {
   const min = categoryMinViews(key);
-  return (videos || []).filter((v) => (Number(v?.views) || 0) >= min);
+  const days = categoryMaxDays(key);
+  const maxAgeMs = days == null ? null : days * 24 * 60 * 60 * 1000;
+  return (videos || []).filter((v) => {
+    if ((Number(v?.views) || 0) < min) return false;
+    if (maxAgeMs == null) return true;
+    const t = v?.published_at ? Date.parse(v.published_at) : NaN;
+    if (!Number.isFinite(t)) return false;
+    return nowMs - t <= maxAgeMs;
+  });
 }
 
 let videoDataPromise = null;
@@ -106,14 +135,14 @@ function dedupeBatchCategories(batch) {
 
 function categoryVideosFromBatch(cats, key) {
   for (const alias of LEGACY_CATEGORY_ALIASES[key] || [key]) {
-    const videos = filterVideosByMinViews(cats?.[alias]?.videos || [], key);
+    const videos = filterVideosForCategory(cats?.[alias]?.videos || [], key);
     if (videos.length) return videos;
   }
-  return filterVideosByMinViews(cats?.[key]?.videos || [], key);
+  return filterVideosForCategory(cats?.[key]?.videos || [], key);
 }
 
 /**
- * 最新批次某分类为空时，向前找最近一个非空批次回填（须达当前播放门槛）。
+ * 最新批次某分类为空时，向前找最近一个非空批次回填（须达播放门槛且在时间窗内）。
  */
 function withCategoryFallback(batches) {
   if (!Array.isArray(batches) || !batches.length) return null;
@@ -124,7 +153,7 @@ function withCategoryFallback(batches) {
   let fallbackCount = 0;
   for (const key of Object.keys(latest.categories)) {
     const cat = latest.categories[key] || {};
-    const videos = filterVideosByMinViews(cat.videos || [], key);
+    const videos = filterVideosForCategory(cat.videos || [], key);
     if (videos.length) {
       categories[key] = { ...cat, videos: [...videos] };
       continue;
@@ -237,7 +266,7 @@ function videosFromCategoryKeys(batch, keys) {
   const seen = new Set();
   const items = [];
   for (const key of keys) {
-    for (const v of filterVideosByMinViews(cats[key]?.videos || [], key)) {
+    for (const v of filterVideosForCategory(cats[key]?.videos || [], key)) {
       if (!v?.id || seen.has(v.id)) continue;
       seen.add(v.id);
       items.push(v);

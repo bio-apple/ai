@@ -19,6 +19,17 @@ export const CATEGORY_MIN_VIEWS = {
   bilibili_top_views: 1_000_001,
 };
 
+export const CATEGORY_MAX_DAYS = {
+  youtube_recent_3d: 3,
+  youtube_recent_30d: 30,
+  youtube_recent_100d: 100,
+  youtube_top_views: 100,
+  bilibili_recent_3d: 3,
+  bilibili_recent_30d: 30,
+  bilibili_recent_100d: 100,
+  bilibili_top_views: 100,
+};
+
 export function categoryMinViews(key) {
   if (Object.prototype.hasOwnProperty.call(CATEGORY_MIN_VIEWS, key)) {
     return CATEGORY_MIN_VIEWS[key];
@@ -28,21 +39,51 @@ export function categoryMinViews(key) {
   return 0;
 }
 
-export function filterVideosByMinViews(videos, key) {
-  const min = categoryMinViews(key);
-  return (videos || []).filter((v) => intViews(v) >= min);
+export function categoryMaxDays(key) {
+  if (Object.prototype.hasOwnProperty.call(CATEGORY_MAX_DAYS, key)) {
+    return CATEGORY_MAX_DAYS[key];
+  }
+  if (/_recent_3d$/.test(key)) return 3;
+  if (/_recent_30d$/.test(key)) return 30;
+  if (/_recent_100d$|_top_views$/.test(key)) return 100;
+  return null;
 }
 
 function intViews(v) {
   return Number.parseInt(String(v?.views ?? 0), 10) || 0;
 }
 
+function publishedMs(v) {
+  const raw = v?.published_at;
+  if (!raw) return NaN;
+  const t = Date.parse(raw);
+  return Number.isFinite(t) ? t : NaN;
+}
+
+export function filterVideosForCategory(videos, key, nowMs = Date.now()) {
+  const min = categoryMinViews(key);
+  const days = categoryMaxDays(key);
+  const maxAgeMs = days == null ? null : days * 24 * 60 * 60 * 1000;
+  return (videos || []).filter((v) => {
+    if (intViews(v) < min) return false;
+    if (maxAgeMs == null) return true;
+    const t = publishedMs(v);
+    if (!Number.isFinite(t)) return false;
+    return nowMs - t <= maxAgeMs;
+  });
+}
+
+/** @deprecated use filterVideosForCategory */
+export function filterVideosByMinViews(videos, key) {
+  return filterVideosForCategory(videos, key);
+}
+
 function categoryVideosFromBatch(cats, key) {
   for (const alias of LEGACY_CATEGORY_ALIASES[key] || [key]) {
-    const videos = filterVideosByMinViews(cats?.[alias]?.videos || [], key);
+    const videos = filterVideosForCategory(cats?.[alias]?.videos || [], key);
     if (videos.length) return videos;
   }
-  return filterVideosByMinViews(cats?.[key]?.videos || [], key);
+  return filterVideosForCategory(cats?.[key]?.videos || [], key);
 }
 
 /** @param {Array<Record<string, unknown>> | null | undefined} batches */
@@ -55,7 +96,7 @@ export function withCategoryFallback(batches) {
   let fallbackCount = 0;
   for (const key of Object.keys(latest.categories)) {
     const cat = latest.categories[key] || {};
-    const videos = filterVideosByMinViews(cat.videos || [], key);
+    const videos = filterVideosForCategory(cat.videos || [], key);
     if (videos.length) {
       categories[key] = { ...cat, videos: videos.map((v) => ({ ...v })) };
       continue;
