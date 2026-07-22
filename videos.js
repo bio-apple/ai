@@ -37,11 +37,37 @@ const DEDUPE_PICK_ORDER = [
   'bilibili_top_views',
 ];
 
-/** 与 scripts/fetch_daily_videos.py 对齐：空 100d 可回退读旧 top_views */
+/** 与 scripts/fetch_daily_videos.py / video-fallback.mjs 对齐：空 100d 可回退读旧 top_views */
 const LEGACY_CATEGORY_ALIASES = {
   youtube_recent_100d: ['youtube_recent_100d', 'youtube_top_views'],
   bilibili_recent_100d: ['bilibili_recent_100d', 'bilibili_top_views'],
 };
+
+/** 与 config/video-fetch.yaml 对齐；回填与展示丢弃未达门槛视频 */
+const CATEGORY_MIN_VIEWS = {
+  youtube_recent_3d: 1_000_000,
+  youtube_recent_30d: 1_000_000,
+  youtube_recent_100d: 1_000_001,
+  youtube_top_views: 1_000_001,
+  bilibili_recent_3d: 1_000_000,
+  bilibili_recent_30d: 1_000_000,
+  bilibili_recent_100d: 1_000_001,
+  bilibili_top_views: 1_000_001,
+};
+
+function categoryMinViews(key) {
+  if (Object.prototype.hasOwnProperty.call(CATEGORY_MIN_VIEWS, key)) {
+    return CATEGORY_MIN_VIEWS[key];
+  }
+  if (/_recent_3d$|_recent_30d$/.test(key)) return 1_000_000;
+  if (/_recent_100d$|_top_views$/.test(key)) return 1_000_001;
+  return 0;
+}
+
+function filterVideosByMinViews(videos, key) {
+  const min = categoryMinViews(key);
+  return (videos || []).filter((v) => (Number(v?.views) || 0) >= min);
+}
 
 let videoDataPromise = null;
 /** 默认按播放量排序；平台内合并展示 */
@@ -80,14 +106,14 @@ function dedupeBatchCategories(batch) {
 
 function categoryVideosFromBatch(cats, key) {
   for (const alias of LEGACY_CATEGORY_ALIASES[key] || [key]) {
-    const videos = cats?.[alias]?.videos || [];
+    const videos = filterVideosByMinViews(cats?.[alias]?.videos || [], key);
     if (videos.length) return videos;
   }
-  return cats?.[key]?.videos || [];
+  return filterVideosByMinViews(cats?.[key]?.videos || [], key);
 }
 
 /**
- * 最新批次某分类为空时，向前找最近一个非空批次回填，并标记 fallback_from。
+ * 最新批次某分类为空时，向前找最近一个非空批次回填（须达当前播放门槛）。
  */
 function withCategoryFallback(batches) {
   if (!Array.isArray(batches) || !batches.length) return null;
@@ -98,7 +124,7 @@ function withCategoryFallback(batches) {
   let fallbackCount = 0;
   for (const key of Object.keys(latest.categories)) {
     const cat = latest.categories[key] || {};
-    const videos = cat.videos || [];
+    const videos = filterVideosByMinViews(cat.videos || [], key);
     if (videos.length) {
       categories[key] = { ...cat, videos: [...videos] };
       continue;
@@ -211,7 +237,7 @@ function videosFromCategoryKeys(batch, keys) {
   const seen = new Set();
   const items = [];
   for (const key of keys) {
-    for (const v of cats[key]?.videos || []) {
+    for (const v of filterVideosByMinViews(cats[key]?.videos || [], key)) {
       if (!v?.id || seen.has(v.id)) continue;
       seen.add(v.id);
       items.push(v);
