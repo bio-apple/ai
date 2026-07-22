@@ -101,39 +101,44 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         buckets["youtube_recent_3d"] = [
             {"id": "youtube:a", "views": 2_000_000},
             {"id": "youtube:b", "views": 1_500_000},
+            {"id": "youtube:keep3d", "views": 1_100_000},
         ]
         buckets["youtube_recent_30d"] = [
-            {"id": "youtube:c", "views": 900_000},
-            {"id": "youtube:d", "views": 800_000},
+            {"id": "youtube:c", "views": 3_000_000},
+            {"id": "youtube:d", "views": 2_500_000},
         ]
         buckets["youtube_recent_100d"] = [
-            {"id": "youtube:e", "views": 700_000},
-            {"id": "youtube:f", "views": 600_000},
-            {"id": "youtube:g", "views": 500_000},
-            {"id": "youtube:h", "views": 400_000},
-            {"id": "youtube:i", "views": 300_000},
-            {"id": "youtube:j", "views": 200_000},
-            {"id": "youtube:k", "views": 100_000},
+            {"id": "youtube:e", "views": 2_400_000},
+            {"id": "youtube:f", "views": 2_300_000},
+            {"id": "youtube:g", "views": 2_200_000},
+            {"id": "youtube:h", "views": 2_100_000},
+            {"id": "youtube:i", "views": 2_050_000},
+            {"id": "youtube:j", "views": 2_040_000},
+            {"id": "youtube:k", "views": 2_030_000},
+            {"id": "youtube:l", "views": 2_020_000},
+            {"id": "youtube:m", "views": 1_010_000},
         ]
+        buckets["bilibili_recent_3d"] = [{"id": "bilibili:hot", "views": 5_000_000}]
         buckets["bilibili_recent_30d"] = [
-            {"id": "bilibili:1", "views": 50},
-            {"id": "bilibili:2", "views": 40},
-            {"id": "bilibili:3", "views": 30},
+            {"id": "bilibili:1", "views": 1_200_000},
+            {"id": "bilibili:2", "views": 1_100_000},
         ]
         out = mod.finalize_platform_top_by_views(buckets, limit=10)
-        yt_ids = {
+        # 3d 直出不被截断
+        self.assertEqual(len(out["youtube_recent_3d"]), 3)
+        self.assertEqual(len(out["bilibili_recent_3d"]), 1)
+        yt_merged = {
             v["id"]
-            for key in mod.CATEGORY_ORDER
-            if key.startswith("youtube")
+            for key in ("youtube_recent_30d", "youtube_recent_100d")
             for v in out[key]
         }
-        self.assertEqual(len(yt_ids), 10)
-        self.assertNotIn("youtube:k", yt_ids)
-        self.assertEqual(len(out["bilibili_recent_30d"]), 3)
+        self.assertEqual(len(yt_merged), 10)
+        self.assertNotIn("youtube:m", yt_merged)  # 第 11 名被截断
+        self.assertNotIn("youtube:a", yt_merged)  # 3d 不进合并池
 
     def test_topup_platform_from_previous(self) -> None:
         buckets = {key: [] for key in mod.CATEGORY_ORDER}
-        buckets["bilibili_recent_30d"] = [{"id": "bilibili:new", "views": 200_000}]
+        buckets["bilibili_recent_30d"] = [{"id": "bilibili:new", "views": 1_200_000}]
         store = {
             "batches": [
                 {
@@ -143,7 +148,7 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
                             "videos": [
                                 {"id": "bilibili:old1", "views": 2_000_000},
                                 {"id": "bilibili:old2", "views": 1_500_000},
-                                {"id": "bilibili:new", "views": 900_000},
+                                {"id": "bilibili:new", "views": 1_900_000},
                             ]
                         }
                     },
@@ -152,7 +157,7 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         }
         cfg = {
             "video_categories": {
-                "bilibili_recent_100d": {"min_views": 100000, "top_count": 9},
+                "bilibili_recent_100d": {"min_views": 1000000, "top_count": 9},
             }
         }
         out = mod.topup_platform_from_previous(
@@ -162,7 +167,7 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         self.assertIn("bilibili:old1", ids)
         self.assertIn("bilibili:old2", ids)
         self.assertNotIn("bilibili:new", ids)  # 已在 30d
-        self.assertEqual(mod.platform_bucket_total(out, "bilibili"), 3)
+        self.assertEqual(mod.platform_merged_total(out, "bilibili"), 3)
 
     def test_main_zero_total_preserves_history_without_write(self) -> None:
         """total==0 且有历史批次时不应 exit 1（由 main 逻辑保证，此处测分支辅助函数语义）。"""

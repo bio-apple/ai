@@ -152,7 +152,7 @@
           "youtube",
           "bilibili"
         ],
-        "platform_final_top": 10,
+        "platform_merged_top": 10,
         "video_categories": {
           "youtube_recent_3d": {
             "label": "YouTube：3 天内播放量 Top 3",
@@ -168,7 +168,7 @@
               "days": 30
             },
             "top_count": 10,
-            "min_views": 100000
+            "min_views": 1000000
           },
           "youtube_recent_100d": {
             "label": "YouTube：100 天内播放量 Top 9",
@@ -176,7 +176,7 @@
               "days": 100
             },
             "top_count": 9,
-            "min_views": 100000
+            "min_views": 1000000
           },
           "bilibili_recent_3d": {
             "label": "B站：3 天内播放量 Top 3",
@@ -192,7 +192,7 @@
               "days": 30
             },
             "top_count": 10,
-            "min_views": 100000
+            "min_views": 1000000
           },
           "bilibili_recent_100d": {
             "label": "B站：100 天内播放量 Top 9",
@@ -200,7 +200,7 @@
               "days": 100
             },
             "top_count": 9,
-            "min_views": 100000
+            "min_views": 1000000
           }
         }
       },
@@ -219,22 +219,7 @@
             "days": 30
           },
           "top_count": 10,
-          "videos": [
-            {
-              "id": "youtube:m8uUUUsMD3Y",
-              "platform": "youtube",
-              "title": "Introducing the Codex Micro",
-              "summary": "See how the Codex Micro, a customizable keyboard built with Work Louder for Codex, helps you move through a build without leaving…",
-              "url": "https://www.youtube.com/watch?v=m8uUUUsMD3Y",
-              "thumbnail": "https://i.ytimg.com/vi/m8uUUUsMD3Y/maxresdefault.jpg",
-              "channel": "OpenAI",
-              "subscribers": 0,
-              "views": 223584,
-              "duration": "2:15",
-              "max_height": 1080,
-              "published_at": "2026-07-16T03:42:38+08:00"
-            }
-          ]
+          "videos": []
         },
         "youtube_recent_100d": {
           "label": "YouTube：100 天内播放量 Top 9",
@@ -243,6 +228,76 @@
           },
           "top_count": 9,
           "videos": [
+            {
+              "id": "youtube:Ez8F0nW6S-w",
+              "platform": "youtube",
+              "title": "Complete Git and GitHub Tutorial for Beginners",
+              "summary": "Link for GitHub Notes : Want to study for Tech Placements/Internships from us : Our Latest Placement Batches : Share your progres…",
+              "url": "https://www.youtube.com/watch?v=Ez8F0nW6S-w",
+              "thumbnail": "https://i.ytimg.com/vi/Ez8F0nW6S-w/maxresdefault.jpg",
+              "channel": "Apna College",
+              "subscribers": 7730000,
+              "views": 7543068,
+              "duration": "1:14:17",
+              "max_height": 1080,
+              "published_at": "2023-08-25T00:49:21+08:00"
+            },
+            {
+              "id": "youtube:Gaf_jCnA6mc",
+              "platform": "youtube",
+              "title": "ChatGPT Tutorial: How to Use Chat GPT For Beginners",
+              "summary": "^If you want to use the paid versions of all the AI models, get this",
+              "url": "https://www.youtube.com/watch?v=Gaf_jCnA6mc",
+              "thumbnail": "https://i.ytimg.com/vi/Gaf_jCnA6mc/maxresdefault.jpg",
+              "channel": "Charlie Chang",
+              "subscribers": 1440000,
+              "views": 4776524,
+              "duration": "27:51",
+              "max_height": 2160,
+              "published_at": "2023-04-05T02:09:53+08:00"
+            },
+            {
+              "id": "youtube:jC4v5AS4RIM",
+              "platform": "youtube",
+              "title": "Master the Perfect ChatGPT Prompt Formula (in just 8 minutes)!",
+              "summary": "Grab my AI Toolkit for free: Download my favorite prompts for productivity: Here are the 6 key components that make up the perfec…",
+              "url": "https://www.youtube.com/watch?v=jC4v5AS4RIM",
+              "thumbnail": "https://i.ytimg.com/vi/jC4v5AS4RIM/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 1800000,
+              "views": 3645824,
+              "duration": "8:30",
+              "max_height": 2160,
+              "published_at": "2023-08-01T21:00:26+08:00"
+            },
+            {
+              "id": "youtube:_ZvnD73m40o",
+              "platform": "youtube",
+              "title": "Prompt Engineering Tutorial – Master ChatGPT and LLM Responses",
+              "summary": "Learn prompt engineering techniques to get better results from ChatGPT and other LLMs",
+              "url": "https://www.youtube.com/watch?v=_ZvnD73m40o",
+              "thumbnail": "https://i.ytimg.com/vi/_ZvnD73m40o/maxresdefault.jpg",
+              "channel": "freeCodeCamp.org",
+              "subscribers": 11800000,
+              "views": 2723944,
+              "duration": "41:36",
+              "max_height": 1080,
+              "published_at": "2023-09-05T22:36:07+08:00"
+            },
+            {
+              "id": "youtube:loujaeBy8p0",
+              "platform": "youtube",
+              "title": "5 Hacks To Use ChatGPT So Well It’s Almost Unfair",
+              "summary": "Subscribe to my newsletter → In this video, I break down how I use ChatGPT, not as a chatbot or a junior assistant, but as a syst…",
+              "url": "https://www.youtube.com/watch?v=loujaeBy8p0",
+              "thumbnail": "https://i.ytimg.com/vi/loujaeBy8p0/maxresdefault.jpg",
+              "channel": "Sandeep Swadia",
+              "subscribers": 1240000,
+              "views": 2049337,
+              "duration": "16:23",
+              "max_height": 2160,
+              "published_at": "2026-02-18T22:30:45+08:00"
+            },
             {
               "id": "youtube:wZeOwqmSw84",
               "platform": "youtube",
@@ -256,6 +311,34 @@
               "duration": "15:13",
               "max_height": 1080,
               "published_at": "2026-05-21T21:01:30+08:00"
+            },
+            {
+              "id": "youtube:p09yRj47kNM",
+              "platform": "youtube",
+              "title": "Google's 9 Hour AI Prompt Engineering Course In 20 Minutes",
+              "summary": "Try out a free trial with StraighterLine to save thousands on tuition: Want to get ahead in your career using AI",
+              "url": "https://www.youtube.com/watch?v=p09yRj47kNM",
+              "thumbnail": "https://i.ytimg.com/vi/p09yRj47kNM/maxresdefault.jpg",
+              "channel": "Tina Huang",
+              "subscribers": 1250000,
+              "views": 1908873,
+              "duration": "20:17",
+              "max_height": 2160,
+              "published_at": "2024-12-09T21:30:33+08:00"
+            },
+            {
+              "id": "youtube:0vZ_UVLhSQQ",
+              "platform": "youtube",
+              "title": "Getting started with Claude.ai",
+              "summary": "Learn how to get the most out of chatting with Claude",
+              "url": "https://www.youtube.com/watch?v=0vZ_UVLhSQQ",
+              "thumbnail": "https://i.ytimg.com/vi/0vZ_UVLhSQQ/maxresdefault.jpg",
+              "channel": "Anthropic",
+              "subscribers": 728000,
+              "views": 1831916,
+              "duration": "5:19",
+              "max_height": 1080,
+              "published_at": "2025-12-02T23:55:00+08:00"
             },
             {
               "id": "youtube:28TGfTZweqw",
@@ -284,90 +367,6 @@
               "duration": "13:18",
               "max_height": 1080,
               "published_at": "2026-04-16T21:01:32+08:00"
-            },
-            {
-              "id": "youtube:sL5hPovH1vU",
-              "platform": "youtube",
-              "title": "1000+ hours of Learning Claude in 15 Minutes (Beginner to Pro)",
-              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
-              "url": "https://www.youtube.com/watch?v=sL5hPovH1vU",
-              "thumbnail": "https://i.ytimg.com/vi/sL5hPovH1vU/maxresdefault.jpg",
-              "channel": "Dan Martell",
-              "subscribers": 0,
-              "views": 762479,
-              "duration": "14:57",
-              "max_height": 1080,
-              "published_at": "2026-06-15T21:00:05+08:00"
-            },
-            {
-              "id": "youtube:Xg55nTrbYYY",
-              "platform": "youtube",
-              "title": "FULL Claude Tutorial For Beginners in 2026! (FULL COURSE)",
-              "summary": "🚀 Work with us - ✨ Join Ai Foundations - This is the only Claude tutorial you’ll ever need",
-              "url": "https://www.youtube.com/watch?v=Xg55nTrbYYY",
-              "thumbnail": "https://i.ytimg.com/vi/Xg55nTrbYYY/maxresdefault.jpg",
-              "channel": "Productive Dude",
-              "subscribers": 0,
-              "views": 734065,
-              "duration": "1:52:38",
-              "max_height": 1080,
-              "published_at": "2026-04-13T21:01:03+08:00"
-            },
-            {
-              "id": "youtube:r2vYObllqJU",
-              "platform": "youtube",
-              "title": "Claude AI Tutorial for Beginners (Step-by-Step)",
-              "summary": "Learn how to use Claude AI step-by-step to actually get real work done",
-              "url": "https://www.youtube.com/watch?v=r2vYObllqJU",
-              "thumbnail": "https://i.ytimg.com/vi/r2vYObllqJU/maxresdefault.jpg",
-              "channel": "Kevin Stratvert",
-              "subscribers": 0,
-              "views": 702471,
-              "duration": "8:37",
-              "max_height": 1080,
-              "published_at": "2026-04-30T15:00:55+08:00"
-            },
-            {
-              "id": "youtube:474wZZHoWN4",
-              "platform": "youtube",
-              "title": "Learn 95% of Codex in 30 minutes",
-              "summary": "Learn 95% of Codex in 28 minutes These are the 7 knowledge work capabilities",
-              "url": "https://www.youtube.com/watch?v=474wZZHoWN4",
-              "thumbnail": "https://i.ytimg.com/vi/474wZZHoWN4/maxresdefault.jpg",
-              "channel": "Riley Brown",
-              "subscribers": 0,
-              "views": 336936,
-              "duration": "28:50",
-              "max_height": 1080,
-              "published_at": "2026-04-29T10:08:15+08:00"
-            },
-            {
-              "id": "youtube:UV1WDNe4J5w",
-              "platform": "youtube",
-              "title": "My Honest Thoughts about Deepseek",
-              "summary": "Deepseek v4 is here and it's a little too impressive",
-              "url": "https://www.youtube.com/watch?v=UV1WDNe4J5w",
-              "thumbnail": "https://i.ytimg.com/vi/UV1WDNe4J5w/maxresdefault.jpg",
-              "channel": "Matthew Berman",
-              "subscribers": 0,
-              "views": 290430,
-              "duration": "17:21",
-              "max_height": 1080,
-              "published_at": "2026-04-26T00:30:55+08:00"
-            },
-            {
-              "id": "youtube:8ib4Qnh2HFE",
-              "platform": "youtube",
-              "title": "Full AI Prompting Course with Andrew Ng",
-              "summary": "Whatever your current skill level, this course will help you become an AI power user",
-              "url": "https://www.youtube.com/watch?v=8ib4Qnh2HFE",
-              "thumbnail": "https://i.ytimg.com/vi/8ib4Qnh2HFE/maxresdefault.jpg",
-              "channel": "DeepLearningAI",
-              "subscribers": 0,
-              "views": 238422,
-              "duration": "2:28:47",
-              "max_height": 1080,
-              "published_at": "2026-05-18T22:45:42+08:00"
             }
           ]
         },
@@ -394,6 +393,48 @@
           },
           "top_count": 9,
           "videos": [
+            {
+              "id": "bilibili:BV1fV41117NX",
+              "platform": "bilibili",
+              "title": "【AI视频生成入门教程】即梦+豆包+剪映，制作AI漫剧+AI短剧+AI动态漫+AI动画+ComfyUI全集AI漫剧零基础入门教程，AI教程零基础入门到精通",
+              "summary": "最新更新版~ AI视频生成入门教程，喜欢的小伙伴三连支持下，持续更新中哦！ 本套教程从AI视频零基础入门到案例实战，让作为新手的你也能快速入门掌握AI视频制作",
+              "url": "https://www.bilibili.com/video/BV1fV41117NX",
+              "thumbnail": "video-thumbs/bilibili/BV1fV41117NX.webp",
+              "channel": "AI视频生成入门教程",
+              "subscribers": 0,
+              "views": 18716352,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2020-10-01T20:06:22+08:00"
+            },
+            {
+              "id": "bilibili:BV1QN41127xC",
+              "platform": "bilibili",
+              "title": "AI绘画教程新手入门【ai绘画教程|ai绘画软件|AI绘画教程新手入门|ai绘画网站|ai绘画提示词|ai绘画培训课程|ai绘画无限制无审核|ai绘画模型】",
+              "summary": "AI高级人才培训课：戳👉 📚学完即接单，稿费合同保障💰 🏆获国家网信办算法备案✅ 💼服务华为/科大讯飞等2000+企业🌟 🚀技术稳居国内头部阵营💪 🤝真乙方公司，实战派教学📚 👉AI高薪赛道，转型趁现在！",
+              "url": "https://www.bilibili.com/video/BV1QN41127xC",
+              "thumbnail": "video-thumbs/bilibili/BV1QN41127xC.webp",
+              "channel": "梨子格格",
+              "subscribers": 0,
+              "views": 6860282,
+              "duration": "13:45",
+              "max_height": 720,
+              "published_at": "2023-07-21T19:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV11NHJzTEbE",
+              "platform": "bilibili",
+              "title": "【全30集】即梦+豆包+剪映，2小时快速掌握AI视频制作技巧，手把手教你从0到1制作AI短片！小白适用！学完即接单，带你玩转AI视频赛道！",
+              "summary": "【AI视频教程_】讲解 AI 工具实战应用，围绕「【全30集】即梦+豆包+剪映，2小时快速掌握AI视频制作技巧，手把手教你从0到1制作AI短片！小」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV11NHJzTEbE",
+              "thumbnail": "video-thumbs/bilibili/BV11NHJzTEbE.webp",
+              "channel": "AI视频教程_",
+              "subscribers": 0,
+              "views": 4864489,
+              "duration": "134:41",
+              "max_height": 720,
+              "published_at": "2025-10-01T13:12:41+08:00"
+            },
             {
               "id": "bilibili:BV1cwVG6qEEW",
               "platform": "bilibili",
@@ -491,48 +532,6 @@
               "duration": "94:36",
               "max_height": 720,
               "published_at": "2026-06-07T13:32:32+08:00"
-            },
-            {
-              "id": "bilibili:BV1RPET6tEp2",
-              "platform": "bilibili",
-              "title": "零基础Vibe Coding教程，vibecoding实战，Claude Code+Codex+Cursor",
-              "summary": "【配套资料】关注公众号：尚硅谷教育，回复“VibeCoding”免费获取 【课程简介】从零开始，用自然语言指挥AI开发真实软件项目！",
-              "url": "https://www.bilibili.com/video/BV1RPET6tEp2",
-              "thumbnail": "video-thumbs/bilibili/BV1RPET6tEp2.webp",
-              "channel": "尚硅谷",
-              "subscribers": 0,
-              "views": 914157,
-              "duration": "813:10",
-              "max_height": 720,
-              "published_at": "2026-06-09T10:00:00+08:00"
-            },
-            {
-              "id": "bilibili:BV192Tv6VErt",
-              "platform": "bilibili",
-              "title": "AI懂封面？我用1万个人，找到了封面密码",
-              "summary": "【GenJi是真想教会你】讲解 AI 工具实战应用，围绕「AI懂封面？我用1万个人，找到了封面密码」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV192Tv6VErt",
-              "thumbnail": "video-thumbs/bilibili/BV192Tv6VErt.webp",
-              "channel": "GenJi是真想教会你",
-              "subscribers": 0,
-              "views": 826053,
-              "duration": "14:46",
-              "max_height": 720,
-              "published_at": "2026-07-01T18:30:15+08:00"
-            },
-            {
-              "id": "bilibili:BV1XyTg6BE1y",
-              "platform": "bilibili",
-              "title": "【全100集】B站最全最细的AI漫剧零基础全套教程（包含剧本+分镜+视频生成+配音+剪辑等）手把手教你从入门到精通",
-              "summary": "创作不易，感谢大家的三连与支持！ 本套教程从最基础的AI漫剧核心开始到AIGC相关技术的宏观运用，全程结合项目实战，不仅适合零基础小白学习，也适合有一定基础的同学进阶提升、巩固学习。 如果觉得视频对你有帮助，就动手多多转发一下吧~",
-              "url": "https://www.bilibili.com/video/BV1XyTg6BE1y",
-              "thumbnail": "video-thumbs/bilibili/BV1XyTg6BE1y.webp",
-              "channel": "AI漫剧-浩浩",
-              "subscribers": 0,
-              "views": 688022,
-              "duration": "825:29",
-              "max_height": 720,
-              "published_at": "2026-06-28T20:12:01+08:00"
             }
           ]
         }
@@ -5706,5 +5705,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-22T21:49:53.408555+08:00"
+  "updated_at": "2026-07-22T21:57:08.866022+08:00"
 }
