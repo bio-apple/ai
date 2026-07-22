@@ -164,14 +164,6 @@ function formatPublishDate(iso) {
   }
 }
 
-function getBatchVideos(batch) {
-  const unique = dedupeBatchCategories(batch);
-  if (unique.categories) {
-    return getCategoryKeys(unique).flatMap((key) => unique.categories[key]?.videos || []);
-  }
-  return unique.videos || [];
-}
-
 function platformLabel(v) {
   if (v.platform === 'bilibili') return 'B站';
   if ((v.id || '').startsWith('bilibili:')) return 'B站';
@@ -180,10 +172,6 @@ function platformLabel(v) {
 
 function isBilibiliVideo(v) {
   return v.platform === 'bilibili' || String(v.id || '').startsWith('bilibili:');
-}
-
-function videoPlatform(v) {
-  return isBilibiliVideo(v) ? 'bilibili' : 'youtube';
 }
 
 function renderVideoCard(v, { compact = false, reveal = true } = {}) {
