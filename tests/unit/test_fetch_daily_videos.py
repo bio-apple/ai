@@ -109,6 +109,25 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         )
         self.assertNotIn("youtube:old", yt_ids)
 
+    def test_finalize_caps_each_platform_independently(self) -> None:
+        """YouTube / B站各自 ≤10，合计可达 20；不是两平台合计 ≤10。"""
+        buckets = {key: [] for key in mod.CATEGORY_ORDER}
+        for platform in ("youtube", "bilibili"):
+            buckets[f"{platform}_recent_100d"] = [
+                {
+                    "id": f"{platform}:{i}",
+                    "views": 3_000_000 - i * 1000,
+                    "published_at": self.ago(40 + i),
+                }
+                for i in range(15)
+            ]
+        out = mod.finalize_platform_top_by_views(buckets, limit=10)
+        yt_n = mod.platform_bucket_total(out, "youtube")
+        bi_n = mod.platform_bucket_total(out, "bilibili")
+        self.assertEqual(yt_n, 10)
+        self.assertEqual(bi_n, 10)
+        self.assertEqual(yt_n + bi_n, 20)
+
     def test_filter_videos_for_category_rejects_outside_window(self) -> None:
         videos = [
             {"id": "new", "views": 2_000_000, "published_at": "2026-07-01T00:00:00+08:00"},

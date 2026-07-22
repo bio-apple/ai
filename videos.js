@@ -1,7 +1,6 @@
 const VIDEO_JSON = 'daily-videos.latest.json';
 const VIDEO_JSON_FALLBACK = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
-/** 1+2+3 去重后每平台最多展示条数 */
 /** 每平台上限（YouTube / B站各自独立，不是两平台合计） */
 const PLATFORM_TOTAL_CAP = 10;
 const PLATFORM_PRIORITY_KEYS = {
@@ -356,13 +355,12 @@ function renderBatch(batch, state) {
 
   const youtube = buildPlatformVideoList(batch, 'youtube', state.sort);
   const bilibili = buildPlatformVideoList(batch, 'bilibili', state.sort);
-  const total = youtube.length + bilibili.length;
 
   return {
     html: `
     <section class="video-day">
       <h3 class="video-day-title">${escapeHtml(batch.date)} · ${sortLabel}
-        <span class="video-day-count">${total} 条</span>
+        <span class="video-day-count">YouTube ${youtube.length} · B站 ${bilibili.length}</span>
       </h3>
       ${fallbackNote}
       ${renderPlatformBlock('YouTube', 'youtube', youtube)}
