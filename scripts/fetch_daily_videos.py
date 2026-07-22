@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关视频（YouTube + B站：3d/30d 直出，100d 补齐，合计 ≤10）。"""
+"""每日抓取 AI 应用相关视频（YouTube / B站各自：3d/30d 直出，100d 补齐，每平台 ≤10）。"""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
-# 1）3d Top3(≥100万) 直出 2）30d Top5(≥100万) 直出 3）100d Top10(>100万) 补齐；合计 ≤10
+# 1）3d Top3(≥100万) 直出 2）30d Top5(≥100万) 直出 3）100d Top10(>100万) 补齐；每平台 ≤10
 CATEGORY_ORDER = (
     "youtube_recent_3d",
     "youtube_recent_30d",
@@ -1055,7 +1055,7 @@ def main() -> int:
     total = total_video_count(buckets)
     if before_final != total:
         print(
-            f"合并截断：候选 {before_final} → 3d/30d 直出 + 100d 补齐（≤{total_cap}）后 {total}",
+            f"合并截断：候选 {before_final} → 每平台 3d/30d 直出 + 100d 补齐（各≤{total_cap}）后共 {total}",
             file=sys.stderr,
         )
     min_total = len(PLATFORM_ORDER) * total_cap
@@ -1117,7 +1117,7 @@ def main() -> int:
         f"（YT {yt_n}=3d/{counts['youtube_recent_3d']}+30d/{counts['youtube_recent_30d']}"
         f"+100d/{counts['youtube_recent_100d']}；"
         f"B站 {bili_n}=3d/{counts['bilibili_recent_3d']}+30d/{counts['bilibili_recent_30d']}"
-        f"+100d/{counts['bilibili_recent_100d']}；3d/30d 直出+100d 补齐，合计≤{total_cap}）"
+        f"+100d/{counts['bilibili_recent_100d']}；每平台 3d/30d 直出+100d 补齐，各≤{total_cap}）"
         f" → {DATA_FILE}"
     )
     return 0

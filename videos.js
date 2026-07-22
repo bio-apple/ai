@@ -2,6 +2,7 @@ const VIDEO_JSON = 'daily-videos.latest.json';
 const VIDEO_JSON_FALLBACK = 'daily-videos.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
 /** 1+2+3 去重后每平台最多展示条数 */
+/** 每平台上限（YouTube / B站各自独立，不是两平台合计） */
 const PLATFORM_TOTAL_CAP = 10;
 const PLATFORM_PRIORITY_KEYS = {
   youtube: ['youtube_recent_3d', 'youtube_recent_30d', 'youtube_recent_100d', 'youtube_top_views'],
@@ -290,7 +291,7 @@ function sortVideoList(list, sort) {
 }
 
 /**
- * 3d / 30d 直接输出，再用 100d 按播放量从高到低补齐；合计 ≤ PLATFORM_TOTAL_CAP。
+ * 3d / 30d 直接输出，再用 100d 按播放量从高到低补齐；该平台合计 ≤ PLATFORM_TOTAL_CAP。
  * 列表顺序：3d → 30d → 100d（3d/30d 组内跟当前排序；100d 组内固定按播放量）。
  */
 function buildPlatformVideoList(batch, platform, sort) {
@@ -329,7 +330,7 @@ function renderPlatformBlock(label, key, videos) {
   `;
 }
 
-/** 3d/30d 直出 + 100d 补齐，合计 ≤10；按平台分组展示 */
+/** 3d/30d 直出 + 100d 补齐，每平台 ≤10；按平台分组展示 */
 function renderBatch(batch, state) {
   const sortLabel = state.sort === 'recent' ? '按上传时间' : '按播放量';
   const fallbackNote = batch._fallback_count
@@ -474,7 +475,7 @@ async function loadDailyVideos() {
       const fallbackNote = display?._fallback_count
         ? ` · ${display._fallback_count} 组来源已回退至上一有效批次`
         : '';
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 3d/30d 直出，100d 按播放量补齐（合计≤10）${fallbackNote}`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 3d/30d 直出，100d 按播放量补齐（每平台最多10条）${fallbackNote}`;
     }
 
     paintVideoList();
