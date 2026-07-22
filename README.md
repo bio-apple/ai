@@ -86,9 +86,8 @@ python3 scripts/fetch_daily_videos.py
 
 **入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent**
 
-- **仅免费**；每条路线最多 **5** 门推荐（必学/合集优先）
-- **必收录**：微软 Generative AI for Beginners、Google ML Crash Course、吴恩达 ML / Deep Learning Specialization、斯坦福 CS224n / CS231n / CS336、DeepLearning.AI 短课程合集
-- **去重**：URL/标题唯一；合集不与下属单课并列；新闻 GitHub 条目不重复出现在开源精选
+- **仅免费**；**只展示必推荐核心课**（关闭自动补充抓取）
+- **必推荐**：微软 Generative AI for Beginners、Google ML Crash Course、吴恩达 ML / Deep Learning Specialization、斯坦福 CS224n / CS231n / CS336（**YouTube 最新学年讲座**）、DeepLearning.AI 短课程合集
 
 配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 日更：`.github/workflows/daily-courses.yml`
 

@@ -60,15 +60,15 @@ dist/                 # 构建产物（不提交）
 
 - 仅收录 **免费** 课程
 - 五条路线：`入门` → `机器学习` → `深度学习` → `LLM 大模型` → `AI Agent`
-- 每条路线最多 **5** 门（`dedupe.max_per_track`）；必学 / 合集优先
-- 必收录核心课 + 近 180 天补充课（Hugging Face Learn / Coursera 免费课 / YouTube AI 向）
+- **`required_only: true`**：只写入 `required` + `hubs`，不抓 Coursera / HF / YouTube 补充课
+- 斯坦福课链至 **Stanford Online YouTube 播放列表**（标题标注最新已公开学年）
 
-**必收录 URL**（CI 校验）：
+**必推荐 URL**（CI 校验）：
 
 - Microsoft Generative AI for Beginners
 - Google Machine Learning Crash Course
 - Coursera：Machine Learning、Deep Learning Specialization
-- Stanford：CS231n、CS224n、CS336
+- Stanford Online YouTube：CS231n（2025）、CS224n（2024）、CS336（2026）
 - DeepLearning.AI 短课程合集（`hubs`，不与 `/courses/*` 单课并列）
 
 **去重规则**（抓取 + 前端 + CI）：

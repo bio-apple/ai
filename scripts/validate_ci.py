@@ -251,9 +251,9 @@ REQUIRED_COURSE_URLS = (
     "https://developers.google.com/machine-learning/crash-course",
     "https://www.coursera.org/learn/machine-learning",
     "https://www.coursera.org/specializations/deep-learning",
-    "https://cs231n.stanford.edu",
-    "https://web.stanford.edu/class/cs224n",
-    "https://cs336.stanford.edu",
+    "https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16",
+    "https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D",
+    "https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV",
     "https://www.deeplearning.ai/short-courses",
 )
 

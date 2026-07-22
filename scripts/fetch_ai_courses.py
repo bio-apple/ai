@@ -722,21 +722,29 @@ def main() -> int:
     }
 
     dedupe_cfg = cfg.get("dedupe") or {}
+    required_only = bool(cfg.get("required_only"))
     print(
-        f"规则：必收录 + 近 {max_age} 天免费补充 · 去重 · 每路线≤"
-        f"{int(dedupe_cfg.get('max_per_track') or 5)} · 最多 {max_items} 条"
+        (
+            f"规则：仅必推荐核心课 · 去重 · 每路线≤{int(dedupe_cfg.get('max_per_track') or 5)}"
+            if required_only
+            else (
+                f"规则：必收录 + 近 {max_age} 天免费补充 · 去重 · 每路线≤"
+                f"{int(dedupe_cfg.get('max_per_track') or 5)} · 最多 {max_items} 条"
+            )
+        )
     )
     required = fetch_required(cfg) + fetch_hubs(cfg)
     discovered: list[dict] = []
-    discovered += fetch_deeplearning_ai(cfg.get("deeplearning_ai") or {}, cutoff, keywords)
-    discovered += fetch_coursera(cfg.get("coursera") or {}, cutoff, keywords)
-    discovered += fetch_huggingface(cfg.get("huggingface_learn") or {}, cutoff, keywords)
-    discovered += fetch_youtube_courses(
-        cfg.get("youtube_courses") or {},
-        cutoff,
-        keywords,
-        ai_pattern=str(dedupe_cfg.get("youtube_ai_pattern") or "") or None,
-    )
+    if not required_only:
+        discovered += fetch_deeplearning_ai(cfg.get("deeplearning_ai") or {}, cutoff, keywords)
+        discovered += fetch_coursera(cfg.get("coursera") or {}, cutoff, keywords)
+        discovered += fetch_huggingface(cfg.get("huggingface_learn") or {}, cutoff, keywords)
+        discovered += fetch_youtube_courses(
+            cfg.get("youtube_courses") or {},
+            cutoff,
+            keywords,
+            ai_pattern=str(dedupe_cfg.get("youtube_ai_pattern") or "") or None,
+        )
 
     items = merge_and_sort(
         required,
@@ -752,15 +760,26 @@ def main() -> int:
         "cadence": "daily",
         "window_days": max_age,
         "free_only": True,
+        "required_only": required_only,
         "track_order": track_order,
         "title": "AI 课程资源",
         "lead": (
-            "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排的免费课程；"
-            "每条路线最多推荐 5 门；必收录微软 / 吴恩达 / 斯坦福 / Google 核心课。"
+            "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排；"
+            "仅展示必推荐核心课。斯坦福 CS231n / CS224n / CS336 链至 Stanford Online 最新学年 YouTube 讲座。"
+            if required_only
+            else (
+                "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排的免费课程；"
+                "每条路线最多推荐 5 门；必收录微软 / 吴恩达 / 斯坦福 / Google 核心课。"
+            )
         ),
         "source_note": (
-            "去重规则：URL/标题唯一；合集优先于下属单课；每条路线≤5 门（必学优先）；"
-            "同平台同路线限额。补充课来自 Coursera 免费课 / Hugging Face / YouTube（AI 向）。"
+            "数据源：config/courses-fetch.yaml → required + hubs。"
+            "斯坦福课使用 YouTube 播放列表（标注最新已公开学年）；不自动抓取补充课。"
+            if required_only
+            else (
+                "去重规则：URL/标题唯一；合集优先于下属单课；每条路线≤5 门（必学优先）；"
+                "同平台同路线限额。补充课来自 Coursera 免费课 / Hugging Face / YouTube（AI 向）。"
+            )
         ),
         "items": items,
     }

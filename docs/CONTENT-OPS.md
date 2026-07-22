@@ -123,15 +123,13 @@ sequenceDiagram
 **运行机制：**
 
 ```
-必收录 required + 合集 hubs
+必推荐 required + 合集 hubs
         ↓
-补充抓取：Coursera 免费课 / Hugging Face Learn / YouTube 频道
-        ↓
-按 track_keywords 映射到五条路线
+若 required_only=false：再抓 Coursera / HF / YouTube 补充课
         ↓
 去重合并（URL、标题、合集 vs 单课、每路线≤5）
         ↓
-校验必收录 URL 齐全、条数 ≥ min_items
+校验必推荐 URL 齐全、条数 ≥ min_items
         ↓
 写入 ai-courses.json
 ```
@@ -140,11 +138,12 @@ sequenceDiagram
 
 | 配置块                                               | 作用                                                             |
 | ---------------------------------------------------- | ---------------------------------------------------------------- |
+| `required_only`                                      | `true` 时仅写入必推荐，不抓补充源（当前默认）                    |
 | `track_order`                                        | 五条路线顺序：入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent |
-| `required[]`                                         | 必收录课程（不受 `max_age_days` 限制）                           |
+| `required[]`                                         | 必推荐课程；斯坦福课用最新学年 YouTube 播放列表                  |
 | `hubs[]`                                             | 合集入口（如 DeepLearning.AI 短课合集）                          |
 | `dedupe`                                             | `max_per_track: 5`、`prefer_hub_over_children` 等                |
-| `coursera` / `huggingface_learn` / `youtube_courses` | 补充源开关与参数                                                 |
+| `coursera` / `huggingface_learn` / `youtube_courses` | 补充源（当前均 `enabled: false`）                                |
 | `max_age_days`                                       | 补充课仅收录近 N 天（默认 180）                                  |
 | `min_items` / `max_items`                            | 总量下限/上限（失败阈值）                                        |
 

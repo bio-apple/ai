@@ -1,10 +1,11 @@
 # AI 课程资源（scripts/fetch_ai_courses.py）
-# 产品定义：免费课程；五条学习路线；每路线≤5 门；必收录 + 近 180 天补充；周更
+# 产品定义：仅收录「必推荐」核心课；斯坦福课用 Stanford Online 最新学年 YouTube 播放列表
 
 max_age_days: 180
-max_items: 80
+max_items: 16
 min_items: 8
 free_only: true
+required_only: true
 
 # 学习路线（展示与筛选顺序）
 track_order:
@@ -14,9 +15,7 @@ track_order:
   - LLM 大模型
   - AI Agent
 
-# 必收录（不受半年窗口限制；始终写入）
-# 说明：吴恩达系列以 ML + Deep Learning Specialization 为代表；
-# DeepLearning.AI 短课程合集不与单课同时进列表（见 dedupe.hubs）
+# 必推荐（唯一数据源；关闭自动补充抓取）
 required:
   - id: microsoft-genai-beginners
     title: Generative AI for Beginners（微软官方 AI 入门）
@@ -52,29 +51,32 @@ required:
     summary: 吴恩达深度学习专项：神经网络、CNN、序列模型与项目实践。
     language: en
   - id: stanford-cs231n
-    title: CS231n Deep Learning for Computer Vision（斯坦福）
-    url: https://cs231n.stanford.edu/
-    platform: Stanford
+    title: CS231n Deep Learning for Computer Vision（斯坦福 · Spring 2025）
+    url: https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16
+    platform: Stanford Online
     track: 深度学习
-    format: 大学公开课
-    summary: 斯坦福计算机视觉深度学习神课，CNN 与视觉表征经典路线。
+    format: YouTube 公开课
+    summary: 斯坦福 CS231n 最新学年（Spring 2025）完整讲座播放列表，计算机视觉深度学习。
     language: en
+    year: 2025
   - id: stanford-cs224n
-    title: CS224n NLP with Deep Learning（斯坦福）
-    url: https://web.stanford.edu/class/cs224n/
-    platform: Stanford
+    title: CS224n NLP with Deep Learning（斯坦福 · Spring 2024）
+    url: https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D
+    platform: Stanford Online
     track: LLM 大模型
-    format: 大学公开课
-    summary: 斯坦福 NLP / 深度学习公开课，Transformer 与语言模型基础。
+    format: YouTube 公开课
+    summary: 斯坦福 CS224n 最新已公开学年（Spring 2024）讲座播放列表；NLP / Transformer 基础。
     language: en
+    year: 2024
   - id: stanford-cs336
-    title: CS336 Language Modeling from Scratch（斯坦福）
-    url: https://cs336.stanford.edu/
-    platform: Stanford
+    title: CS336 Language Modeling from Scratch（斯坦福 · Spring 2026）
+    url: https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV
+    platform: Stanford Online
     track: LLM 大模型
-    format: 大学公开课
-    summary: 斯坦福从零构建语言模型课程，覆盖数据、架构、训练与推理。
+    format: YouTube 公开课
+    summary: 斯坦福 CS336 最新学年（Spring 2026）讲座播放列表；从零构建语言模型。
     language: en
+    year: 2026
 
 # 合集入口：只作外链说明，不与下属单课同时出现在 items
 hubs:
@@ -88,18 +90,14 @@ hubs:
     summary: DeepLearning.AI 短课程合集入口（RAG / Agent / 推理等）；不与下属单课重复罗列。
 
 dedupe:
-  # 合集已收录时，不再收录其下属单课（避免合集+清单重复）
   prefer_hub_over_children: true
-  # 每条学习路线最多推荐条数（必学/合集优先）
   max_per_track: 5
-  # 同一平台同一路线最多保留的非必收录条数
   max_per_platform_per_track: 2
-  # 同路线标题词重叠过高视为近重复
   title_jaccard: 0.5
   youtube_ai_pattern: "(ai|artificial intelligence|machine learning|deep learning|llm|gpt|neural|transformer|pytorch|agent|langchain|rag|prompt|diffusion|reinforcement|computer vision|nlp|大模型|人工智能|机器学习|深度学习)"
 
+# 以下补充源全部关闭：课程区仅展示上方必推荐
 deeplearning_ai:
-  # 合集优先时关闭单课抓取，避免与 hubs 重复
   enabled: false
   source: DeepLearning.AI
   url: https://www.deeplearning.ai/short-courses/
@@ -107,73 +105,25 @@ deeplearning_ai:
   free: true
 
 coursera:
-  enabled: true
+  enabled: false
   source: Coursera
   base_url: https://www.coursera.org
   free_only: true
-  queries:
-    - artificial intelligence
-    - generative ai
-    - large language models
-    - machine learning free
-    - prompt engineering
-  max_per_query: 12
+  queries: []
+  max_per_query: 0
   sort: NEW
 
 huggingface_learn:
-  enabled: true
+  enabled: false
   source: Hugging Face
   hub: https://huggingface.co/learn
-  courses:
-    - id: agents-course
-      name: AI Agents Course
-      url: https://huggingface.co/learn/agents-course
-      repo: huggingface/agents-course
-      track: AI Agent
-    - id: llm-course
-      name: LLM Course
-      url: https://huggingface.co/learn/llm-course
-      repo: huggingface/course
-      track: LLM 大模型
-    - id: smol-course
-      name: Smol Course
-      url: https://huggingface.co/learn/smol-course
-      repo: huggingface/smol-course
-      track: LLM 大模型
-    - id: diffusion-course
-      name: Diffusion Course
-      url: https://huggingface.co/learn/diffusion-course
-      repo: huggingface/diffusion-models-class
-      track: 深度学习
-    - id: deep-rl-course
-      name: Deep RL Course
-      url: https://huggingface.co/learn/deep-rl-course
-      repo: huggingface/deep-rl-class
-      track: 机器学习
-    - id: audio-course
-      name: Audio Course
-      url: https://huggingface.co/learn/audio-course
-      repo: huggingface/audio-transformers-course
-      track: 深度学习
-    - id: computer-vision-course
-      name: Computer Vision Course
-      url: https://huggingface.co/learn/computer-vision-course
-      repo: huggingface/computer-vision-course
-      track: 深度学习
+  courses: []
 
 youtube_courses:
-  enabled: true
+  enabled: false
   title_pattern: "(full course|complete course|crash course|bootcamp|课程|完整教程|从零|入门到)"
-  channels:
-    - name: freeCodeCamp.org
-      channel_id: UC8butISFwT-Wl7EV0hUK0BQ
-      source: freeCodeCamp
-    - name: Sentdex
-      channel_id: UCfzlCWGWYyIQ0aLC5w48gBQ
-      source: Sentdex
-      optional: true
+  channels: []
 
-# 自动抓取条目 → 路线映射（按优先级匹配）
 track_keywords:
   AI Agent: "(agent|agentic|mcp|tool use|多智能体|computer use|deploy|inference|mlops|llmops|production|vllm|sglang|ops|部署|评测|observability|serving)"
   LLM 大模型: "(llm|language model|gpt|claude|gemini|prompt|rag|retrieval|transformer|token|推理|工程)"
