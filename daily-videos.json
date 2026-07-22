@@ -145,14 +145,14 @@
         ],
         "video_categories": {
           "youtube_recent_30d": {
-            "label": "YouTube：30 天内上新 Top 10",
+            "label": "YouTube：近 30 天播放量 Top 10",
             "window": {
               "days": 30
             },
             "top_count": 10
           },
           "bilibili_recent_30d": {
-            "label": "B站：30 天内上新 Top 10",
+            "label": "B站：近 30 天播放量 Top 10",
             "window": {
               "days": 30
             },
@@ -162,7 +162,7 @@
       },
       "categories": {
         "youtube_recent_30d": {
-          "label": "YouTube：30 天内上新 Top 10",
+          "label": "YouTube：近 30 天播放量 Top 10",
           "window": {
             "days": 30
           },
@@ -199,7 +199,7 @@
           ]
         },
         "bilibili_recent_30d": {
-          "label": "B站：30 天内上新 Top 10",
+          "label": "B站：近 30 天播放量 Top 10",
           "window": {
             "days": 30
           },

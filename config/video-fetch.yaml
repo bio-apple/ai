@@ -1,17 +1,17 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# YouTube / B站 分别抓取：仅 30 天内上新 Top 10，最低播放 ≥10 万
+# YouTube / B站 分别抓取：近 30 天内播放量 Top 10，最低播放 ≥10 万
 # 内容门槛：仅保留 AI 关键词匹配
 # 各类结果按播放量从高到低排序
 video_categories:
   youtube_recent_30d:
-    label: "YouTube：30 天内上新 Top 10"
+    label: "YouTube：近 30 天播放量 Top 10"
     platform: youtube
     days: 30
     top_count: 10
     min_views: 100000
   bilibili_recent_30d:
-    label: "B站：30 天内上新 Top 10"
+    label: "B站：近 30 天播放量 Top 10"
     platform: bilibili
     days: 30
     top_count: 10
