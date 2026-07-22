@@ -132,7 +132,16 @@
     "bilibili:BV1RFTc62EaK",
     "bilibili:BV1YsNg6eEko",
     "bilibili:BV1RDj96REUp",
-    "bilibili:BV1U8K566Ezg"
+    "bilibili:BV1U8K566Ezg",
+    "bilibili:BV1ytKb6MEbB",
+    "bilibili:BV1whKb6TEuj",
+    "bilibili:BV1U9K46kEoU",
+    "bilibili:BV1rhKb6KESq",
+    "bilibili:BV1PTK866EKo",
+    "bilibili:BV1hsgz6REUF",
+    "bilibili:BV1BBKb6hEGz",
+    "bilibili:BV1sTK86rEF5",
+    "bilibili:BV1tBgC6aELq"
   ],
   "batches": [
     {
@@ -143,26 +152,69 @@
           "youtube",
           "bilibili"
         ],
+        "platform_final_top": 10,
         "video_categories": {
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内播放量 Top 3",
+            "window": {
+              "days": 3
+            },
+            "top_count": 3,
+            "min_views": 1000000
+          },
           "youtube_recent_30d": {
-            "label": "YouTube：近 30 天播放量 Top 10",
+            "label": "YouTube：30 天内播放量 Top 10",
             "window": {
               "days": 30
             },
-            "top_count": 10
+            "top_count": 10,
+            "min_views": 100000
+          },
+          "youtube_recent_100d": {
+            "label": "YouTube：100 天内播放量 Top 9",
+            "window": {
+              "days": 100
+            },
+            "top_count": 9,
+            "min_views": 100000
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内播放量 Top 3",
+            "window": {
+              "days": 3
+            },
+            "top_count": 3,
+            "min_views": 1000000
           },
           "bilibili_recent_30d": {
-            "label": "B站：近 30 天播放量 Top 10",
+            "label": "B站：30 天内播放量 Top 10",
             "window": {
               "days": 30
             },
-            "top_count": 10
+            "top_count": 10,
+            "min_views": 100000
+          },
+          "bilibili_recent_100d": {
+            "label": "B站：100 天内播放量 Top 9",
+            "window": {
+              "days": 100
+            },
+            "top_count": 9,
+            "min_views": 100000
           }
         }
       },
       "categories": {
+        "youtube_recent_3d": {
+          "label": "YouTube：3 天内播放量 Top 3",
+          "window": {
+            "days": 3
+          },
+          "top_count": 3,
+          "videos": []
+        },
         "youtube_recent_30d": {
-          "label": "YouTube：近 30 天播放量 Top 10",
+          "label": "YouTube：30 天内播放量 Top 10",
           "window": {
             "days": 30
           },
@@ -181,30 +233,223 @@
               "duration": "2:15",
               "max_height": 1080,
               "published_at": "2026-07-16T03:42:38+08:00"
-            },
-            {
-              "id": "youtube:eiQgljOrkWU",
-              "platform": "youtube",
-              "title": "Codex just got better for developers",
-              "summary": "Here’s what’s new in Codex for developers",
-              "url": "https://www.youtube.com/watch?v=eiQgljOrkWU",
-              "thumbnail": "https://i.ytimg.com/vi/eiQgljOrkWU/maxresdefault.jpg",
-              "channel": "OpenAI",
-              "subscribers": 0,
-              "views": 164612,
-              "duration": "7:13",
-              "max_height": 1080,
-              "published_at": "2026-07-15T07:30:19+08:00"
             }
           ]
         },
+        "youtube_recent_100d": {
+          "label": "YouTube：100 天内播放量 Top 9",
+          "window": {
+            "days": 100
+          },
+          "top_count": 9,
+          "videos": [
+            {
+              "id": "youtube:wZeOwqmSw84",
+              "platform": "youtube",
+              "title": "Learn 97% of Claude in Under 16 Minutes",
+              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
+              "url": "https://www.youtube.com/watch?v=wZeOwqmSw84",
+              "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
+              "channel": "Dan Martell",
+              "subscribers": 0,
+              "views": 1912891,
+              "duration": "15:13",
+              "max_height": 1080,
+              "published_at": "2026-05-21T21:01:30+08:00"
+            },
+            {
+              "id": "youtube:28TGfTZweqw",
+              "platform": "youtube",
+              "title": "How To Use Claude Better Than 99% Of People",
+              "summary": "Subscribe to my newsletter → Generate Video Ads right in Claude using Higgsfield MCP → Give Claude to two people and you’ll see t…",
+              "url": "https://www.youtube.com/watch?v=28TGfTZweqw",
+              "thumbnail": "https://i.ytimg.com/vi/28TGfTZweqw/maxresdefault.jpg",
+              "channel": "Sandeep Swadia",
+              "subscribers": 0,
+              "views": 1296852,
+              "duration": "19:30",
+              "max_height": 1080,
+              "published_at": "2026-05-22T20:00:02+08:00"
+            },
+            {
+              "id": "youtube:oXmofS-sjwI",
+              "platform": "youtube",
+              "title": "This Gemini/NotebookLM System Will Make You SO Smart It Feels Illegal",
+              "summary": "Subscribe to my newsletter → Most people are using AI wrong",
+              "url": "https://www.youtube.com/watch?v=oXmofS-sjwI",
+              "thumbnail": "https://i.ytimg.com/vi/oXmofS-sjwI/maxresdefault.jpg",
+              "channel": "Sandeep Swadia",
+              "subscribers": 0,
+              "views": 1058193,
+              "duration": "13:18",
+              "max_height": 1080,
+              "published_at": "2026-04-16T21:01:32+08:00"
+            },
+            {
+              "id": "youtube:sL5hPovH1vU",
+              "platform": "youtube",
+              "title": "1000+ hours of Learning Claude in 15 Minutes (Beginner to Pro)",
+              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
+              "url": "https://www.youtube.com/watch?v=sL5hPovH1vU",
+              "thumbnail": "https://i.ytimg.com/vi/sL5hPovH1vU/maxresdefault.jpg",
+              "channel": "Dan Martell",
+              "subscribers": 0,
+              "views": 762479,
+              "duration": "14:57",
+              "max_height": 1080,
+              "published_at": "2026-06-15T21:00:05+08:00"
+            },
+            {
+              "id": "youtube:Xg55nTrbYYY",
+              "platform": "youtube",
+              "title": "FULL Claude Tutorial For Beginners in 2026! (FULL COURSE)",
+              "summary": "🚀 Work with us - ✨ Join Ai Foundations - This is the only Claude tutorial you’ll ever need",
+              "url": "https://www.youtube.com/watch?v=Xg55nTrbYYY",
+              "thumbnail": "https://i.ytimg.com/vi/Xg55nTrbYYY/maxresdefault.jpg",
+              "channel": "Productive Dude",
+              "subscribers": 0,
+              "views": 734065,
+              "duration": "1:52:38",
+              "max_height": 1080,
+              "published_at": "2026-04-13T21:01:03+08:00"
+            },
+            {
+              "id": "youtube:r2vYObllqJU",
+              "platform": "youtube",
+              "title": "Claude AI Tutorial for Beginners (Step-by-Step)",
+              "summary": "Learn how to use Claude AI step-by-step to actually get real work done",
+              "url": "https://www.youtube.com/watch?v=r2vYObllqJU",
+              "thumbnail": "https://i.ytimg.com/vi/r2vYObllqJU/maxresdefault.jpg",
+              "channel": "Kevin Stratvert",
+              "subscribers": 0,
+              "views": 702471,
+              "duration": "8:37",
+              "max_height": 1080,
+              "published_at": "2026-04-30T15:00:55+08:00"
+            },
+            {
+              "id": "youtube:474wZZHoWN4",
+              "platform": "youtube",
+              "title": "Learn 95% of Codex in 30 minutes",
+              "summary": "Learn 95% of Codex in 28 minutes These are the 7 knowledge work capabilities",
+              "url": "https://www.youtube.com/watch?v=474wZZHoWN4",
+              "thumbnail": "https://i.ytimg.com/vi/474wZZHoWN4/maxresdefault.jpg",
+              "channel": "Riley Brown",
+              "subscribers": 0,
+              "views": 336936,
+              "duration": "28:50",
+              "max_height": 1080,
+              "published_at": "2026-04-29T10:08:15+08:00"
+            },
+            {
+              "id": "youtube:UV1WDNe4J5w",
+              "platform": "youtube",
+              "title": "My Honest Thoughts about Deepseek",
+              "summary": "Deepseek v4 is here and it's a little too impressive",
+              "url": "https://www.youtube.com/watch?v=UV1WDNe4J5w",
+              "thumbnail": "https://i.ytimg.com/vi/UV1WDNe4J5w/maxresdefault.jpg",
+              "channel": "Matthew Berman",
+              "subscribers": 0,
+              "views": 290430,
+              "duration": "17:21",
+              "max_height": 1080,
+              "published_at": "2026-04-26T00:30:55+08:00"
+            },
+            {
+              "id": "youtube:8ib4Qnh2HFE",
+              "platform": "youtube",
+              "title": "Full AI Prompting Course with Andrew Ng",
+              "summary": "Whatever your current skill level, this course will help you become an AI power user",
+              "url": "https://www.youtube.com/watch?v=8ib4Qnh2HFE",
+              "thumbnail": "https://i.ytimg.com/vi/8ib4Qnh2HFE/maxresdefault.jpg",
+              "channel": "DeepLearningAI",
+              "subscribers": 0,
+              "views": 238422,
+              "duration": "2:28:47",
+              "max_height": 1080,
+              "published_at": "2026-05-18T22:45:42+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
+          "label": "B站：3 天内播放量 Top 3",
+          "window": {
+            "days": 3
+          },
+          "top_count": 3,
+          "videos": []
+        },
         "bilibili_recent_30d": {
-          "label": "B站：近 30 天播放量 Top 10",
+          "label": "B站：30 天内播放量 Top 10",
           "window": {
             "days": 30
           },
           "top_count": 10,
+          "videos": []
+        },
+        "bilibili_recent_100d": {
+          "label": "B站：100 天内播放量 Top 9",
+          "window": {
+            "days": 100
+          },
+          "top_count": 9,
           "videos": [
+            {
+              "id": "bilibili:BV1cwVG6qEEW",
+              "platform": "bilibili",
+              "title": "【硬核教程】如何让一个J人红温？只需要给他做这份“发疯版NBTI”...",
+              "summary": "NBTI测试链接： 还在因为MBTI不是J人被面试官拒绝？别再掉进这个当代职场大坑了！ 本期视频，我用 Claude Code手搓了一个专属打工人的“NBTI”发疯测试！同时找来三位不同岗位的小伙伴，记录他们一周的工作实况，来验证测验的准确性。 还有满满干货…",
+              "url": "https://www.bilibili.com/video/BV1cwVG6qEEW",
+              "thumbnail": "video-thumbs/bilibili/BV1cwVG6qEEW.webp",
+              "channel": "GenJi是真想教会你",
+              "subscribers": 0,
+              "views": 1896297,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-05-30T18:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV1NvRyBzEhq",
+              "platform": "bilibili",
+              "title": "全网最全！60分钟全面掌握Claude Code～【附完整文档】",
+              "summary": "Claude Code保姆级教学【收藏起来不会错！】 从上手安装，到高级用法，这期一次讲全～ 花了三周做教程，希望能帮到你嘻嘻，感谢朋友们的三连+关注啦～",
+              "url": "https://www.bilibili.com/video/BV1NvRyBzEhq",
+              "thumbnail": "video-thumbs/bilibili/BV1NvRyBzEhq.webp",
+              "channel": "秋芝2046",
+              "subscribers": 0,
+              "views": 1410295,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-05-05T22:08:25+08:00"
+            },
+            {
+              "id": "bilibili:BV1ToGC6TEjH",
+              "platform": "bilibili",
+              "title": "别觉得 AI 离你很远，快递小哥都已经开始变现了",
+              "summary": "【钾子的不烦生活】讲解 AI 工具实战应用，围绕「别觉得 AI 离你很远，快递小哥都已经开始变现了」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1ToGC6TEjH",
+              "thumbnail": "video-thumbs/bilibili/BV1ToGC6TEjH.jpg",
+              "channel": "钾子的不烦生活",
+              "subscribers": 0,
+              "views": 1384134,
+              "duration": "3:57",
+              "max_height": 720,
+              "published_at": "2026-05-27T09:50:49+08:00"
+            },
+            {
+              "id": "bilibili:BV1Kk9kBAEJv",
+              "platform": "bilibili",
+              "title": "Codex (APP) 保姆级全攻略，海量实战教程， 一期精通Codex",
+              "summary": "最近Codex APP的能力越来越全面，变成了Codex四大形态里最强一个。 Codex APP 比起 Claude Code，额度更高，功能更全，免费账户也能用。而且不会出现限速、封号、降智等问题，用过的小伙伴直呼真香。本期视频带来一个Codex APP的…",
+              "url": "https://www.bilibili.com/video/BV1Kk9kBAEJv",
+              "thumbnail": "video-thumbs/bilibili/BV1Kk9kBAEJv.webp",
+              "channel": "技术爬爬虾",
+              "subscribers": 0,
+              "views": 1287856,
+              "duration": "38:13",
+              "max_height": 720,
+              "published_at": "2026-04-28T19:04:05+08:00"
+            },
             {
               "id": "bilibili:BV1j9MP6wEV9",
               "platform": "bilibili",
@@ -214,10 +459,52 @@
               "thumbnail": "video-thumbs/bilibili/BV1j9MP6wEV9.webp",
               "channel": "秋芝2046",
               "subscribers": 0,
-              "views": 1262904,
+              "views": 1254959,
               "duration": "13:13",
               "max_height": 720,
               "published_at": "2026-07-05T10:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV16YRLB7Exd",
+              "platform": "bilibili",
+              "title": "5分钟安装ClaudeCode并接入DeepSeek",
+              "summary": "5分钟教你安装ClaudeCode并接入DeepSeekV4 用到的命令： node版本检查：node -v npm版本检查：npm -v npm国内镜像：npm config set registry git版本检查：git -v ClaudeCode安装…",
+              "url": "https://www.bilibili.com/video/BV16YRLB7Exd",
+              "thumbnail": "video-thumbs/bilibili/BV16YRLB7Exd.webp",
+              "channel": "Yin_Code",
+              "subscribers": 0,
+              "views": 1252890,
+              "duration": "5:27",
+              "max_height": 720,
+              "published_at": "2026-05-02T16:14:12+08:00"
+            },
+            {
+              "id": "bilibili:BV1BVEs6LENZ",
+              "platform": "bilibili",
+              "title": "【2026最新Codex】Codex保姆级完整教程-Codex新手保姆级教程-最强AI助手！从入门到进阶，22分钟速通Codex！【附教程文档安装包】",
+              "summary": "最近Codex的能力越来越全面，变成了Codex四大形态里最强一个。 Codex APP 比起 Claude Code，额度更高，功能更全，免费账户也能用。而且不会出现限速、封号、降智等问题，用过的小伙伴直呼真香。本期视频带来一个Codex APP的完整教程",
+              "url": "https://www.bilibili.com/video/BV1BVEs6LENZ",
+              "thumbnail": "video-thumbs/bilibili/BV1BVEs6LENZ.webp",
+              "channel": "编程大佬陈悠秀",
+              "subscribers": 0,
+              "views": 1195505,
+              "duration": "94:36",
+              "max_height": 720,
+              "published_at": "2026-06-07T13:32:32+08:00"
+            },
+            {
+              "id": "bilibili:BV1RPET6tEp2",
+              "platform": "bilibili",
+              "title": "零基础Vibe Coding教程，vibecoding实战，Claude Code+Codex+Cursor",
+              "summary": "【配套资料】关注公众号：尚硅谷教育，回复“VibeCoding”免费获取 【课程简介】从零开始，用自然语言指挥AI开发真实软件项目！",
+              "url": "https://www.bilibili.com/video/BV1RPET6tEp2",
+              "thumbnail": "video-thumbs/bilibili/BV1RPET6tEp2.webp",
+              "channel": "尚硅谷",
+              "subscribers": 0,
+              "views": 914157,
+              "duration": "813:10",
+              "max_height": 720,
+              "published_at": "2026-06-09T10:00:00+08:00"
             },
             {
               "id": "bilibili:BV192Tv6VErt",
@@ -228,24 +515,10 @@
               "thumbnail": "video-thumbs/bilibili/BV192Tv6VErt.webp",
               "channel": "GenJi是真想教会你",
               "subscribers": 0,
-              "views": 827212,
+              "views": 826053,
               "duration": "14:46",
               "max_height": 720,
               "published_at": "2026-07-01T18:30:15+08:00"
-            },
-            {
-              "id": "bilibili:BV1mhKv68EPQ",
-              "platform": "bilibili",
-              "title": "豆包真能干活了！【豆包Agent入门教程】",
-              "summary": "这个视频让你的豆包技能噌噌上涨，还有“秋芝AI科普skill”帮你答疑～ 感谢朋友们的三连+关注~",
-              "url": "https://www.bilibili.com/video/BV1mhKv68EPQ",
-              "thumbnail": "video-thumbs/bilibili/BV1mhKv68EPQ.webp",
-              "channel": "秋芝2046",
-              "subscribers": 0,
-              "views": 795126,
-              "duration": "8:11",
-              "max_height": 720,
-              "published_at": "2026-07-19T11:00:00+08:00"
             },
             {
               "id": "bilibili:BV1XyTg6BE1y",
@@ -256,94 +529,10 @@
               "thumbnail": "video-thumbs/bilibili/BV1XyTg6BE1y.webp",
               "channel": "AI漫剧-浩浩",
               "subscribers": 0,
-              "views": 688196,
+              "views": 688022,
               "duration": "825:29",
               "max_height": 720,
               "published_at": "2026-06-28T20:12:01+08:00"
-            },
-            {
-              "id": "bilibili:BV1SRM86xEPE",
-              "platform": "bilibili",
-              "title": "一口气学会 Vibe Coding AI 编程！从开荒到做出第一个项目【附完整文档】【Cursor】【0基础教学】",
-              "summary": "安装包+全部配套课程源码+学习资料 领取方式：关注 + 私信【让我看看】！",
-              "url": "https://www.bilibili.com/video/BV1SRM86xEPE",
-              "thumbnail": "video-thumbs/bilibili/BV1SRM86xEPE.webp",
-              "channel": "Git源宝",
-              "subscribers": 0,
-              "views": 425263,
-              "duration": "41:43",
-              "max_height": 720,
-              "published_at": "2026-07-08T11:10:00+08:00"
-            },
-            {
-              "id": "bilibili:BV1RDj96REUp",
-              "platform": "bilibili",
-              "title": "几百人私信问的AI副业，今天把所有问题一次性说透",
-              "summary": "关于 AI 副业三个最实在的问题，我实话实说不忽悠",
-              "url": "https://www.bilibili.com/video/BV1RDj96REUp",
-              "thumbnail": "video-thumbs/bilibili/BV1RDj96REUp.webp",
-              "channel": "钾子的不烦生活",
-              "subscribers": 0,
-              "views": 394733,
-              "duration": "3:33",
-              "max_height": 720,
-              "published_at": "2026-06-24T10:49:57+08:00"
-            },
-            {
-              "id": "bilibili:BV1RFTc62EaK",
-              "platform": "bilibili",
-              "title": "黑马Vibe Coding零基础入门，vibecoding项目，涵盖Claude Code、Cursor、Codex、SDD、LangChain、Agent开发",
-              "summary": "本套视频教程所有配套资料领取方式如下： 关注黑马程序员公 粽 号，回复关键词：260701 【AI大模型学习路线图】展开查看更多内容 如何下载资料 AI大模型开发热门教程： AI大模型开发：BV1h1VbzHER2 Python语言进阶：BV1U2WmzfE…",
-              "url": "https://www.bilibili.com/video/BV1RFTc62EaK",
-              "thumbnail": "video-thumbs/bilibili/BV1RFTc62EaK.webp",
-              "channel": "黑马程序员",
-              "subscribers": 0,
-              "views": 337689,
-              "duration": "508:53",
-              "max_height": 720,
-              "published_at": "2026-07-01T10:00:00+08:00"
-            },
-            {
-              "id": "bilibili:BV1stN16JEkb",
-              "platform": "bilibili",
-              "title": "从零开始，让豆包帮你干活！",
-              "summary": "【林亦LYi】讲解 AI 工具实战应用，围绕「从零开始，让豆包帮你干活！」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1stN16JEkb",
-              "thumbnail": "video-thumbs/bilibili/BV1stN16JEkb.webp",
-              "channel": "林亦LYi",
-              "subscribers": 0,
-              "views": 256647,
-              "duration": "5:44",
-              "max_height": 720,
-              "published_at": "2026-07-15T20:00:00+08:00"
-            },
-            {
-              "id": "bilibili:BV1YsNg6eEko",
-              "platform": "bilibili",
-              "title": "新版Codex零基础入门：GPT‑5.6接入与国内配置完整教程",
-              "summary": "【枫枫知道】讲解 AI 工具实战应用，围绕「新版Codex零基础入门：GPT‑5.6接入与国内配置完整教程」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1YsNg6eEko",
-              "thumbnail": "video-thumbs/bilibili/BV1YsNg6eEko.webp",
-              "channel": "枫枫知道",
-              "subscribers": 0,
-              "views": 255578,
-              "duration": "46:25",
-              "max_height": 720,
-              "published_at": "2026-07-12T18:00:00+08:00"
-            },
-            {
-              "id": "bilibili:BV1U8K566Ezg",
-              "platform": "bilibili",
-              "title": "封神提示词！一条AI顶级指令，惊艳所有人",
-              "summary": "【秋叶AIPPT】讲解 AI 工具实战应用，围绕「封神提示词！一条AI顶级指令，惊艳所有人」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1U8K566Ezg",
-              "thumbnail": "video-thumbs/bilibili/BV1U8K566Ezg.webp",
-              "channel": "秋叶AIPPT",
-              "subscribers": 0,
-              "views": 157094,
-              "duration": "0:38",
-              "max_height": 720,
-              "published_at": "2026-07-16T19:47:19+08:00"
             }
           ]
         }
@@ -5517,5 +5706,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-22T21:05:37.049430+08:00"
+  "updated_at": "2026-07-22T21:49:53.408555+08:00"
 }

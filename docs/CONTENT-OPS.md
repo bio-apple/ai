@@ -218,7 +218,7 @@ DIST=dist python3 scripts/validate_ci.py news
 **运行机制：**
 
 ```
-按六类候选抓取（YouTube / B站 · 3d Top3≥100万 + 30d Top10 + 100d Top9）
+按六类候选抓取（YouTube / B站 · 3d Top3≥100万 + 30d Top10≥10万 + 100d Top9≥10万）
         ↓
 yt-dlp 搜索 + AI 关键词过滤，分桶按播放量排序
         ↓

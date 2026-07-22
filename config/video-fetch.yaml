@@ -16,11 +16,13 @@ video_categories:
     platform: youtube
     days: 30
     top_count: 10
+    min_views: 100000
   youtube_recent_100d:
     label: "YouTube：100 天内播放量 Top 9"
     platform: youtube
     days: 100
     top_count: 9
+    min_views: 100000
   bilibili_recent_3d:
     label: "B站：3 天内播放量 Top 3"
     platform: bilibili
@@ -32,11 +34,13 @@ video_categories:
     platform: bilibili
     days: 30
     top_count: 10
+    min_views: 100000
   bilibili_recent_100d:
     label: "B站：100 天内播放量 Top 9"
     platform: bilibili
     days: 100
     top_count: 9
+    min_views: 100000
 
 # 多平台搜索源（分类未写 min_views 时的回退值）
 search_sources:
@@ -55,7 +59,7 @@ search_sources:
 search_per_query: 20
 # B站/YouTube 每个关键词翻页数（热门排序下高播放常不在首页）
 search_pages: 5
-max_detail_checks: 640
+max_detail_checks: 960
 # 各平台三档合并去重后，按播放量保留条数
 platform_final_top: 10
 

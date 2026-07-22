@@ -75,6 +75,27 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         out = mod.preserve_youtube_from_previous(buckets, store, today="2026-07-17")
         self.assertEqual(out["youtube_recent_30d"][0]["id"], "youtube:new")
 
+    def test_rank_candidates_orders_by_views_not_window_first(self) -> None:
+        now = mod.now_local()
+        low = {
+            "id": "low",
+            "platform": "bilibili",
+            "view_count": 800,
+            "detail": {"timestamp": int(now.timestamp()) - 3600},
+        }
+        high = {
+            "id": "high",
+            "platform": "bilibili",
+            "view_count": 500_000,
+            "detail": {},  # 未知时间
+        }
+        ranked = mod.rank_candidates_for_bucket(
+            {"low": low, "high": high},
+            now,
+            require_hours=30 * 24,
+        )
+        self.assertEqual([x["id"] for x in ranked], ["high", "low"])
+
     def test_finalize_platform_top_by_views(self) -> None:
         buckets = {key: [] for key in mod.CATEGORY_ORDER}
         buckets["youtube_recent_3d"] = [
@@ -109,6 +130,39 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         self.assertEqual(len(yt_ids), 10)
         self.assertNotIn("youtube:k", yt_ids)
         self.assertEqual(len(out["bilibili_recent_30d"]), 3)
+
+    def test_topup_platform_from_previous(self) -> None:
+        buckets = {key: [] for key in mod.CATEGORY_ORDER}
+        buckets["bilibili_recent_30d"] = [{"id": "bilibili:new", "views": 200_000}]
+        store = {
+            "batches": [
+                {
+                    "date": "2026-07-16",
+                    "categories": {
+                        "bilibili_top_views": {
+                            "videos": [
+                                {"id": "bilibili:old1", "views": 2_000_000},
+                                {"id": "bilibili:old2", "views": 1_500_000},
+                                {"id": "bilibili:new", "views": 900_000},
+                            ]
+                        }
+                    },
+                }
+            ]
+        }
+        cfg = {
+            "video_categories": {
+                "bilibili_recent_100d": {"min_views": 100000, "top_count": 9},
+            }
+        }
+        out = mod.topup_platform_from_previous(
+            buckets, store, today="2026-07-17", platform="bilibili", cfg=cfg, limit=3
+        )
+        ids = {v["id"] for v in out["bilibili_recent_100d"]}
+        self.assertIn("bilibili:old1", ids)
+        self.assertIn("bilibili:old2", ids)
+        self.assertNotIn("bilibili:new", ids)  # 已在 30d
+        self.assertEqual(mod.platform_bucket_total(out, "bilibili"), 3)
 
     def test_main_zero_total_preserves_history_without_write(self) -> None:
         """total==0 且有历史批次时不应 exit 1（由 main 逻辑保证，此处测分支辅助函数语义）。"""
