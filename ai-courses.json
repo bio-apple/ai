@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "updated_at": "2026-07-22 11:36:04+0800",
+  "updated_at": "2026-07-22 12:30:19+0800",
   "date": "2026-07-22",
   "cadence": "daily",
   "window_days": 180,
@@ -8,8 +8,8 @@
   "required_only": true,
   "track_order": ["入门", "机器学习", "深度学习", "LLM 大模型", "AI Agent"],
   "title": "AI 课程资源",
-  "lead": "按学习路线精选免费课：微软与谷歌入门，斯坦福 CS230 / CS231n / CS224n / CS336（YouTube 最新学年讲座 + 官网）。",
-  "source_note": "仅收录微软、谷歌与斯坦福公开课；斯坦福同时给出 YouTube 播放列表与官方主页。",
+  "lead": "按学习路线精选免费课：微软与谷歌入门，斯坦福公开课，以及 DeepLearning.AI（提示词 / MLOps / Agentic AI）YouTube 实战课。",
+  "source_note": "微软 / 谷歌官网 + 斯坦福与 DeepLearning.AI 的 YouTube；斯坦福 / DL.AI 同时给官方主页。不收录与斯坦福重复的 DL Specialization / CNN / NLP 专项。",
   "items": [
     {
       "id": "microsoft-genai-beginners",
@@ -38,6 +38,21 @@
       "is_free": true,
       "is_new": false,
       "required": true
+    },
+    {
+      "id": "dlai-mlops",
+      "title": "Machine Learning Engineering for Production / MLOps（DeepLearning.AI）",
+      "url": "https://www.youtube.com/playlist?list=PLkDaE6sCZn6GMoA0wbpJLi3t34Gd8l0aK",
+      "summary": "DeepLearning.AI YouTube 完整 MLOps 课节；偏部署与生产，不与谷歌速成课 / 斯坦福理论课重复。",
+      "platform": "DeepLearning.AI",
+      "track": "机器学习",
+      "format": "YouTube 公开课",
+      "published_at": "2026-07-22",
+      "language": "en",
+      "is_free": true,
+      "is_new": false,
+      "required": true,
+      "official_url": "https://www.deeplearning.ai/courses/machine-learning-in-production"
     },
     {
       "id": "stanford-cs230",
@@ -98,6 +113,36 @@
       "is_new": false,
       "required": true,
       "official_url": "https://cs336.stanford.edu/"
+    },
+    {
+      "id": "dlai-ai-prompting",
+      "title": "Full AI Prompting Course（DeepLearning.AI · Andrew Ng）",
+      "url": "https://www.youtube.com/watch?v=8ib4Qnh2HFE",
+      "summary": "DeepLearning.AI YouTube 完整提示词课；补实践向能力，不与 CS224n / CS336 理论课重复。",
+      "platform": "DeepLearning.AI",
+      "track": "LLM 大模型",
+      "format": "YouTube 公开课",
+      "published_at": "2026-07-22",
+      "language": "en",
+      "is_free": true,
+      "is_new": false,
+      "required": true,
+      "official_url": "https://www.deeplearning.ai/courses/ai-prompting-for-everyone"
+    },
+    {
+      "id": "dlai-agentic-ai",
+      "title": "Agentic AI（DeepLearning.AI · Andrew Ng）",
+      "url": "https://www.youtube.com/watch?v=w7vqXL4PWEE",
+      "summary": "DeepLearning.AI Agentic AI 导学视频 + 官网完整课程；填补 Agent 路线，不与斯坦福 NLP/视觉课重复。",
+      "platform": "DeepLearning.AI",
+      "track": "AI Agent",
+      "format": "YouTube 公开课",
+      "published_at": "2026-07-22",
+      "language": "en",
+      "is_free": true,
+      "is_new": false,
+      "required": true,
+      "official_url": "https://www.deeplearning.ai/courses/agentic-ai"
     }
   ]
 }
