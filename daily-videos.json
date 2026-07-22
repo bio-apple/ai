@@ -145,6 +145,146 @@
   ],
   "batches": [
     {
+      "date": "2026-07-23",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 10,
+        "video_categories": {
+          "youtube_recent_3d": {
+            "label": "YouTube：3 天内 Top 3",
+            "window": {
+              "days": 3
+            },
+            "top_count": 3,
+            "min_views": 1000000
+          },
+          "youtube_recent_30d": {
+            "label": "YouTube：30 天内 Top 5",
+            "window": {
+              "days": 30
+            },
+            "top_count": 5,
+            "min_views": 1000000
+          },
+          "youtube_recent_100d": {
+            "label": "YouTube：100 天内 Top 10",
+            "window": {
+              "days": 100
+            },
+            "top_count": 10,
+            "min_views": 1000001
+          },
+          "bilibili_recent_3d": {
+            "label": "B站：3 天内 Top 3",
+            "window": {
+              "days": 3
+            },
+            "top_count": 3,
+            "min_views": 1000000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：30 天内 Top 5",
+            "window": {
+              "days": 30
+            },
+            "top_count": 5,
+            "min_views": 1000000
+          },
+          "bilibili_recent_100d": {
+            "label": "B站：100 天内 Top 10",
+            "window": {
+              "days": 100
+            },
+            "top_count": 10,
+            "min_views": 1000001
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_3d": {
+          "label": "YouTube：3 天内 Top 3",
+          "window": {
+            "days": 3
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_recent_30d": {
+          "label": "YouTube：30 天内 Top 5",
+          "window": {
+            "days": 30
+          },
+          "top_count": 5,
+          "videos": []
+        },
+        "youtube_recent_100d": {
+          "label": "YouTube：100 天内 Top 10",
+          "window": {
+            "days": 100
+          },
+          "top_count": 10,
+          "videos": [
+            {
+              "id": "youtube:wZeOwqmSw84",
+              "platform": "youtube",
+              "title": "Learn 97% of Claude in Under 16 Minutes",
+              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
+              "url": "https://www.youtube.com/watch?v=wZeOwqmSw84",
+              "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
+              "channel": "Dan Martell",
+              "subscribers": 0,
+              "views": 1928339,
+              "duration": "15:13",
+              "max_height": 1080,
+              "published_at": "2026-05-21T21:01:30+08:00"
+            },
+            {
+              "id": "youtube:28TGfTZweqw",
+              "platform": "youtube",
+              "title": "How To Use Claude Better Than 99% Of People",
+              "summary": "Subscribe to my newsletter → Generate Video Ads right in Claude using Higgsfield MCP → Give Claude to two people and you’ll see t…",
+              "url": "https://www.youtube.com/watch?v=28TGfTZweqw",
+              "thumbnail": "https://i.ytimg.com/vi/28TGfTZweqw/maxresdefault.jpg",
+              "channel": "Sandeep Swadia",
+              "subscribers": 0,
+              "views": 1336864,
+              "duration": "19:30",
+              "max_height": 1080,
+              "published_at": "2026-05-22T20:00:02+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_3d": {
+          "label": "B站：3 天内 Top 3",
+          "window": {
+            "days": 3
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：30 天内 Top 5",
+          "window": {
+            "days": 30
+          },
+          "top_count": 5,
+          "videos": []
+        },
+        "bilibili_recent_100d": {
+          "label": "B站：100 天内 Top 10",
+          "window": {
+            "days": 100
+          },
+          "top_count": 10,
+          "videos": []
+        }
+      }
+    },
+    {
       "date": "2026-07-22",
       "timezone": "Asia/Shanghai",
       "criteria": {
@@ -2567,5 +2707,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-22T22:26:24.611204+08:00"
+  "updated_at": "2026-07-23T01:08:53.881753+08:00"
 }
