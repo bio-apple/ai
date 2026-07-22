@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关视频（YouTube + B站，六类播放量/上新推荐）。"""
+"""每日抓取 AI 应用相关视频（YouTube + B站，八类播放量/上新推荐）。"""
 
 from __future__ import annotations
 
@@ -24,32 +24,33 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
-# 页面/写入顺序：各平台 100d → 30d → 3d
+# 页面/写入顺序：各平台 100d → 30d → 3d → 24h
 CATEGORY_ORDER = (
     "youtube_top_views",
     "youtube_recent_30d",
     "youtube_recent_3d",
+    "youtube_recent_24h",
     "bilibili_top_views",
     "bilibili_recent_30d",
     "bilibili_recent_3d",
+    "bilibili_recent_24h",
 )
 
 # 抓取填充顺序：先窄窗口再 100d Top，避免热门片同时占满多类
 PICK_ORDER = (
+    "youtube_recent_24h",
     "youtube_recent_3d",
     "youtube_recent_30d",
     "youtube_top_views",
+    "bilibili_recent_24h",
     "bilibili_recent_3d",
     "bilibili_recent_30d",
     "bilibili_top_views",
 )
 PLATFORM_ORDER = ("youtube", "bilibili")
 
-# 历史批次键 → 当前键（展示/YouTube 回退兼容）
-LEGACY_CATEGORY_ALIASES = {
-    "youtube_recent_3d": ("youtube_recent_3d", "youtube_recent_24h"),
-    "bilibili_recent_3d": ("bilibili_recent_3d", "bilibili_recent_24h"),
-}
+# 历史批次键兼容（当前键已包含 24h/3d，保留空映射结构便于扩展）
+LEGACY_CATEGORY_ALIASES: dict[str, tuple[str, ...]] = {}
 
 # ≤30 天视为「上新」窄窗口：按发布时间搜索
 NARROW_WINDOW_HOURS = 30 * 24
@@ -788,12 +789,12 @@ def collect_top_videos(
 
 
 def is_narrow_window(require_hours: float | None) -> bool:
-    """3d / 30d 上新为窄窗口；100d Top 等为宽窗口。"""
+    """24h / 3d / 30d 上新为窄窗口；100d Top 等为宽窗口。"""
     return require_hours is not None and require_hours <= NARROW_WINDOW_HOURS
 
 
 def category_videos_from_batch(cats: dict, key: str) -> list:
-    """读取某分类视频；兼容历史 24h → 3d 键名。"""
+    """读取某分类视频；兼容历史别名键。"""
     for alias in LEGACY_CATEGORY_ALIASES.get(key, (key,)):
         videos = (cats.get(alias) or {}).get("videos") or []
         if videos:
@@ -1027,9 +1028,10 @@ def main() -> int:
     counts = {key: len(buckets[key]) for key in CATEGORY_ORDER}
     print(
         f"已写入 {today} 视频 {total} 条"
-        f"（YT Top {counts['youtube_top_views']}, YT 30d {counts['youtube_recent_30d']},"
-        f" YT 3d {counts['youtube_recent_3d']}, B站 Top {counts['bilibili_top_views']},"
-        f" B站 30d {counts['bilibili_recent_30d']}, B站 3d {counts['bilibili_recent_3d']}）"
+        f"（YT 100d {counts['youtube_top_views']}, YT 30d {counts['youtube_recent_30d']},"
+        f" YT 3d {counts['youtube_recent_3d']}, YT 24h {counts['youtube_recent_24h']},"
+        f" B站 100d {counts['bilibili_top_views']}, B站 30d {counts['bilibili_recent_30d']},"
+        f" B站 3d {counts['bilibili_recent_3d']}, B站 24h {counts['bilibili_recent_24h']}）"
         f" → {DATA_FILE}"
     )
     return 0

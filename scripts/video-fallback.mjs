@@ -2,10 +2,7 @@
  * 与 videos.js `withCategoryFallback` 同算法，供构建产物与单测复用。
  */
 
-const LEGACY_CATEGORY_ALIASES = {
-  youtube_recent_3d: ['youtube_recent_3d', 'youtube_recent_24h'],
-  bilibili_recent_3d: ['bilibili_recent_3d', 'bilibili_recent_24h'],
-};
+const LEGACY_CATEGORY_ALIASES = {};
 
 function categoryVideosFromBatch(cats, key) {
   for (const alias of LEGACY_CATEGORY_ALIASES[key] || [key]) {
