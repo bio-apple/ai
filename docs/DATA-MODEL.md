@@ -324,16 +324,16 @@ nav: {
 **消费**：`app.js`（顶栏 / Hero 多实例）、`knowledge.js`  
 **校验**：`DIST=dist python3 scripts/validate_ci.py search`
 
-| 字段       | 类型      | 必填 | 说明                                                                                       |
-| ---------- | --------- | ---- | ------------------------------------------------------------------------------------------ |
-| `label`    | `string`  | ✅   | 显示标题（工具为原名，如 `ChatGPT`）                                                       |
-| `keywords` | `string`  | ✅   | Fuse 检索文本                                                                              |
+| 字段       | 类型      | 必填 | 说明                                                                                           |
+| ---------- | --------- | ---- | ---------------------------------------------------------------------------------------------- |
+| `label`    | `string`  | ✅   | 显示标题（工具为原名，如 `ChatGPT`）                                                           |
+| `keywords` | `string`  | ✅   | Fuse 检索文本                                                                                  |
 | `type`     | `string`  | —    | 工具 / 资讯 / 本地部署 / 课程 / 视频 / 模型 / 频道 / 导航 / 学习 / 场景 / 简报 / 推荐 / 对比 … |
-| `external` | `boolean` | —    | 外链（新标签打开）                                                                         |
+| `external` | `boolean` | —    | 外链（新标签打开）                                                                             |
 | `id`       | `string`  | —    | 内容 id（新闻/课程/本地部署等）                                                                |
-| `section`  | `string`  | *    | 首页 Tab id（与 `url` 二选一）                                                             |
-| `url`      | `string`  | *    | 独立页相对路径（工具为 `tools/{id}.html`）                                                 |
-| `anchor`   | `string`  | —    | 页内锚点                                                                                   |
+| `section`  | `string`  | *    | 首页 Tab id（与 `url` 二选一）                                                                 |
+| `url`      | `string`  | *    | 独立页相对路径（工具为 `tools/{id}.html`）                                                     |
+| `anchor`   | `string`  | —    | 页内锚点                                                                                       |
 
 **索引约定**：工具只写教程页 URL；工具中心对比表仅一条「导航」入口，**不**再为每个工具名写入 `#hub-compare` 重复项。运行时 `preferSearchHits` 进一步抬升精确匹配与站内教程。
 
@@ -422,12 +422,12 @@ nav: {
 **Schema**：`schemas/local-deploy.schema.json`  
 **维护**：手工编辑 `data/local-deploy.json`（非日更抓取）
 
-| 字段         | 类型     | 说明           |
-| ------------ | -------- | -------------- |
-| `title`      | `string` | 专区标题       |
-| `lead`       | `string` | 导语           |
-| `updated_at` | `string` | 精选更新日期   |
-| `categories` | `array`  | 分类列表       |
+| 字段         | 类型     | 说明         |
+| ------------ | -------- | ------------ |
+| `title`      | `string` | 专区标题     |
+| `lead`       | `string` | 导语         |
+| `updated_at` | `string` | 精选更新日期 |
+| `categories` | `array`  | 分类列表     |
 
 **`categories[]`**：`id`, `label`, `blurb`（可选）, `items[]`  
 **`items[]`**：`id`, `name`, `summary`, `url`（必填）；`tagline`, `docs_url`, `platforms[]`, `tags[]`（可选）

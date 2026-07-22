@@ -4,18 +4,18 @@
 
 ## 已落地项
 
-| 编号    | 项           | 实现                                                                           |
-| ------- | ------------ | ------------------------------------------------------------------------------ |
-| SEO-001 | Title        | `data/site.json` → `meta.title`，各页经 `SeoHead.astro` 输出                   |
-| SEO-002 | Description  | `meta.description` + 各页独立 `description` prop                               |
-| SEO-003 | Open Graph   | `SeoHead.astro`：og:title/description/image/url + Twitter Card + 微信 itemprop |
-| SEO-004 | Favicon      | 根目录 `favicon.svg` → `Favicon.astro`                                         |
-| SEO-005 | robots.txt   | 根目录 `robots.txt`，构建时同步至 `dist/`                                      |
-| SEO-006 | sitemap      | `@astrojs/sitemap` → `sitemap-index.xml`                                       |
-| SEO-007 | GitHub Repo  | 见下方维护者清单（需在 GitHub 设置）                                           |
-| SEO-008 | JSON-LD      | `src/lib/schema.ts` → Layout 注入 `application/ld+json`                        |
+| 编号    | 项               | 实现                                                                           |
+| ------- | ---------------- | ------------------------------------------------------------------------------ |
+| SEO-001 | Title            | `data/site.json` → `meta.title`，各页经 `SeoHead.astro` 输出                   |
+| SEO-002 | Description      | `meta.description` + 各页独立 `description` prop                               |
+| SEO-003 | Open Graph       | `SeoHead.astro`：og:title/description/image/url + Twitter Card + 微信 itemprop |
+| SEO-004 | Favicon          | 根目录 `favicon.svg` → `Favicon.astro`                                         |
+| SEO-005 | robots.txt       | 根目录 `robots.txt`，构建时同步至 `dist/`                                      |
+| SEO-006 | sitemap          | `@astrojs/sitemap` → `sitemap-index.xml`                                       |
+| SEO-007 | GitHub Repo      | 见下方维护者清单（需在 GitHub 设置）                                           |
+| SEO-008 | JSON-LD          | `src/lib/schema.ts` → Layout 注入 `application/ld+json`                        |
 | SEO-009 | 新闻/本地部署 LD | 新闻页 `NewsArticle` ItemList；首页本地部署 `ItemList` → `SoftwareApplication` |
-| SEO-010 | 可见面包屑   | UI：`Breadcrumb.astro`（专区 / 独立页）；结构化：各页 `BreadcrumbList`         |
+| SEO-010 | 可见面包屑       | UI：`Breadcrumb.astro`（专区 / 独立页）；结构化：各页 `BreadcrumbList`         |
 
 ## JSON-LD 结构化数据（SEO-008）
 

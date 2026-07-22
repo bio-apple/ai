@@ -26,15 +26,15 @@ flowchart LR
 
 ## 工作流一览
 
-| 工作流                                          | 触发                                      | 作用                                                                                       |
-| ----------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------ |
-| [`deploy.yml`](../.github/workflows/deploy.yml) | push `main` · 手动                        | **一键部署**：Lint → Build → Deploy Pages                                                  |
-| [`ci.yml`](../.github/workflows/ci.yml)         | push/PR `main` · 手动                     | **质量门禁**：Lint → 构建 → 单元测试 → 全量校验 → E2E                                      |
+| 工作流                                          | 触发                                      | 作用                                                                                  |
+| ----------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------- |
+| [`deploy.yml`](../.github/workflows/deploy.yml) | push `main` · 手动                        | **一键部署**：Lint → Build → Deploy Pages                                             |
+| [`ci.yml`](../.github/workflows/ci.yml)         | push/PR `main` · 手动                     | **质量门禁**：Lint → 构建 → 单元测试 → 全量校验 → E2E                                 |
 | `daily-refresh.yml`                             | 每日 **00:00**（北京）                    | **串行**刷新视频/课程/排行 → Prettier → push → **显式派发** Deploy；末步 lychee（软） |
-| `daily-news.yml`                                | **07:30 / 10:00 / 12:00 / 20:00**（北京） | 新闻热点多档刷新 → Prettier → push → 派发 Deploy                                           |
-| `daily-*.yml`（其它单频道）                     | 仅手动                                    | 救急重跑某一频道（同样 Prettier + 派发 Deploy）                                            |
-| `site-health.yml`                               | 定时                                      | 线上探针（videos/news/courses 新鲜度）                                                 |
-| `deploy-cloudflare.yml`                         | push `main`                               | 可选 Cloudflare Pages 镜像（需 Secrets）                                                   |
+| `daily-news.yml`                                | **07:30 / 10:00 / 12:00 / 20:00**（北京） | 新闻热点多档刷新 → Prettier → push → 派发 Deploy                                      |
+| `daily-*.yml`（其它单频道）                     | 仅手动                                    | 救急重跑某一频道（同样 Prettier + 派发 Deploy）                                       |
+| `site-health.yml`                               | 定时                                      | 线上探针（videos/news/courses 新鲜度）                                                |
+| `deploy-cloudflare.yml`                         | push `main`                               | 可选 Cloudflare Pages 镜像（需 Secrets）                                              |
 
 push `main` 时 **`ci.yml` 与 `deploy.yml` 并行**：
 

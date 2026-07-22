@@ -15,7 +15,7 @@
 | 下拉 | Hero / Nav 展开时均为 `position: fixed`，避免 sticky / overflow 裁切              |
 | 排序 | `preferSearchHits`：精确标签与 `tools/*.html` 优先，压低 `hub.html#hub-compare`   |
 | 索引 | 构建时 `scripts/build-artifacts.mjs` → `search-index.json`（约 150 条）           |
-| 覆盖 | 工具教程、对比、资讯、本地部署、课程、视频、排行榜模型名、频道/导航                   |
+| 覆盖 | 工具教程、对比、资讯、本地部署、课程、视频、排行榜模型名、频道/导航               |
 | 工具 | 条目来自 `tools.json`，`label` 为工具原名，`url` 为 `tools/{id}.html`             |
 | 联想 | 聚焦空输入显示 `site.hero.search_suggestions` chips                               |
 | 历史 | `localStorage` 键 `bioai.search.history.v1`（最多 8 条）                          |
@@ -32,7 +32,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 | 项     | 说明                                                                         |
 | ------ | ---------------------------------------------------------------------------- |
-| 位置   | 首页 `home-main`：推荐助手与 AI 简报之后（`#home-ai-map`）                     |
+| 位置   | 首页 `home-main`：推荐助手与 AI 简报之后（`#home-ai-map`）                   |
 | 形态   | 独立 section + 内联 SVG（全部闭合椭圆/圆），**不是** Hero 背景、不用断弧位图 |
 | 组件   | `HomeAiMap.astro` + `css/home.css`（`.ai-map*`）                             |
 | 策略   | 交叉用半透明叠色；主题色走 CSS 变量；窄屏矢量缩放                            |
@@ -44,12 +44,12 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 ## 3. 面包屑
 
-| 项       | 说明                                                               |
-| -------- | ------------------------------------------------------------------ |
-| 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用     |
+| 项       | 说明                                                                   |
+| -------- | ---------------------------------------------------------------------- |
+| 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用         |
 | 首页专区 | 本地部署 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
-| 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`             |
-| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                     |
+| 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                 |
+| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                         |
 
 ---
 

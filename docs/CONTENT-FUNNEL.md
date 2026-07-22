@@ -99,15 +99,15 @@ funnel.js → analytics.js → ux.js → app.js → …
 
 ### 5.2 发现 → 浏览
 
-| 事件                                  | 阶段 | 来源                                |
-| ------------------------------------- | ---- | ----------------------------------- |
-| `hero-cta-primary`                    | 1    | 首页 Hero                           |
-| `hero-cta-nav`                        | 2    | 浏览工具中心                        |
-| `nav-tab`                             | 2    | 顶栏 Tab                            |
-| `search_query`                        | 2    | 搜索输入（600ms 防抖）或 `?q=` 入站 |
-| `search_hit` / `search-goto`          | 2    | 搜索结果点击                        |
-| `search_empty`                        | 2    | 零结果                              |
-| `daily_panel_click`                   | 2    | Daily 面板                          |
+| 事件                                       | 阶段 | 来源                                |
+| ------------------------------------------ | ---- | ----------------------------------- |
+| `hero-cta-primary`                         | 1    | 首页 Hero                           |
+| `hero-cta-nav`                             | 2    | 浏览工具中心                        |
+| `nav-tab`                                  | 2    | 顶栏 Tab                            |
+| `search_query`                             | 2    | 搜索输入（600ms 防抖）或 `?q=` 入站 |
+| `search_hit` / `search-goto`               | 2    | 搜索结果点击                        |
+| `search_empty`                             | 2    | 零结果                              |
+| `daily_panel_click`                        | 2    | Daily 面板                          |
 | `home-filter-local` / `home-community-hub` | 2    | 首页区块 CTA                        |
 
 ### 5.3 浏览 → 深入
