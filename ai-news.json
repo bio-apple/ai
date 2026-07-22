@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-22T08:55:32.299419+08:00",
+  "updated_at": "2026-07-22T13:18:22.914680+08:00",
   "date": "2026-07-22",
   "cadence": "daily",
   "window_days": 7,
@@ -14,6 +14,96 @@
   },
   "items": [
     {
+      "id": "083b549aec47",
+      "title": "SysAdmin: Measuring Instrumental Power-Seeking in Frontier AI",
+      "summary": "arXiv:2607.18239v1 Announce Type: new Abstract: Power-seeking defined as behaviors where AI systems acquire resources, evade oversight, or resist termination b…",
+      "url": "https://arxiv.org/abs/2607.18239",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-22T12:00:00+08:00"
+    },
+    {
+      "id": "4c3e3797c50c",
+      "title": "Calibrated Selective Fact-Checking via Evidence Chain Evaluation",
+      "summary": "arXiv:2607.18240v1 Announce Type: new Abstract: Large language models (LLMs) can achieve strong fact-checking accuracy, yet forced binary decisions conceal a c…",
+      "url": "https://arxiv.org/abs/2607.18240",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-22T12:00:00+08:00"
+    },
+    {
+      "id": "634a3edcc62e",
+      "title": "BatchDAG: LLM-Planned Execution Graphs for Scalable Ad-Hoc Analysis Over Enterprise Data",
+      "summary": "arXiv:2607.18241v1 Announce Type: new Abstract: Large language models (LLMs) excel at analyzing individual documents but break down on exhaustive, cross-entity…",
+      "url": "https://arxiv.org/abs/2607.18241",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-22T12:00:00+08:00"
+    },
+    {
+      "id": "9286ed9b3062",
+      "title": "AI Tool Discovery at Scale: All You Need is DNS",
+      "summary": "arXiv:2607.18242v1 Announce Type: new Abstract: The coming era of autonomous AI agents demands a discovery mechanism capable of navigating millions of tools, y…",
+      "url": "https://arxiv.org/abs/2607.18242",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-07-22T12:00:00+08:00"
+    },
+    {
+      "id": "aa45004d05b1",
+      "title": "From Agent Failure Paths to Quantified Residual Risk: A Compositional Framework for Resilient Agentic AI",
+      "summary": "arXiv:2607.18243v1 Announce Type: new Abstract: Agentic AI is crossing trust boundaries faster than current risk models can represent. Existing approaches prov…",
+      "url": "https://arxiv.org/abs/2607.18243",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-22T12:00:00+08:00"
+    },
+    {
+      "id": "605c427ed74e",
+      "title": "懂你、能交付、专业操作：金山办公田然给出AI办公助理的三项标准",
+      "summary": "懂你、能交付、专业操作：金山办公田然给出AI办公助理的三项标准",
+      "url": "https://www.qbitai.com/2026/07/456910.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-22T11:24:37+08:00"
+    },
+    {
+      "id": "c85907bd5c17",
+      "title": "物理AI的闭环，终于有人跑通了：日冕+远图万台级部署计划官宣",
+      "summary": "按照规划，日冕和远图将首先在服务器制造场景验证超级工站能力，随后向更多生产环节扩展。2027年完成百台级部署，未来实现万台级具身智能产品部署。",
+      "url": "https://www.qbitai.com/2026/07/456728.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-22T11:06:21+08:00"
+    },
+    {
+      "id": "523cefa45dad",
+      "title": "AI医疗卷了10年终于悟了：不用替代医生，而是给医院装上超强buff",
+      "summary": "建一座「元医院」比造AI工具难多了。",
+      "url": "https://www.qbitai.com/2026/07/456555.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-22T10:59:28+08:00"
+    },
+    {
+      "id": "79075c996b6a",
+      "title": "酷哇科技亮相WAIC 2026，解密行业首个双层智能体世界模型",
+      "summary": "机器人真正需要的世界模型，并不是单一物理世界模型，而是物理世界模型与人类社会世界模型的统一",
+      "url": "https://www.qbitai.com/2026/07/456178.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-22T09:46:01+08:00"
+    },
+    {
+      "id": "42102891bab5",
+      "title": "小红书大模型IMO满分夺金，第三题解法让冠军选手直呼优雅",
+      "summary": "中国大模型首次获得IMO官方金牌水平认证",
+      "url": "https://www.qbitai.com/2026/07/456061.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-07-22T08:34:33+08:00"
+    },
+    {
       "id": "ce1cab87367b",
       "title": "Built in Fort Worth: Wistron Opens Advanced Manufacturing Plant to Produce NVIDIA AI Systems",
       "summary": "The AI era runs on AI infrastructure. Many of these advanced systems are built and tested in Texas. Wistron opened its first U.S. manufacturing facility today …",
@@ -23,6 +113,24 @@
       "published_at": "2026-07-22T06:35:45+08:00"
     },
     {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,649",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-22T05:12:42Z"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 166,171",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-22T04:07:26Z"
+    },
+    {
       "id": "d42362617c64",
       "title": "Introducing the ChatGPT for small business program",
       "summary": "OpenAI launches the ChatGPT for Small Businesses program, helping entrepreneurs build AI skills, automate work, and grow with ChatGPT Work.",
@@ -30,6 +138,24 @@
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-07-22T01:00:00+08:00"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 81,623",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-22T00:29:12Z"
+    },
+    {
+      "id": "ec3795864afd",
+      "title": "Nat. Rev. Drug Discov. | 从设计到模拟再到优化：模拟指导临床试验开启药物开发加速新范式",
+      "summary": "现代临床试验日益采用适应性设计、生物标志物指导入组、主方案及实时决策等创新策略，以加速药物研发并优化临床结局，但同时也显著提升设计与执行复杂度。模拟指导设计作为一种关键工具，可辅助识别最优试验架构，增进团队对设计实际运行行为的理解与沟通。通过临床试验模拟，能有效评估复杂设计的运行特性，包括I类错误率、假发现率控制及样…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514052&idx=1&sn=ea7f122d9f72cb0ed6cd0a319d5e0130&chksm=fd898d24eb38afeb63177487a96851b2840b38c82d9d95b84f6547b57beeb71c0400fc50ddb0&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-22 11:30 分享"
     },
     {
       "id": "46165e640060",
@@ -59,42 +185,6 @@
       "published_at": "2026-07-21T23:00:20+08:00"
     },
     {
-      "id": "156450f50c1b",
-      "title": "WAIC重磅成果｜上海仪电智算牵头成立“智算系统架构联盟”并发布《超节点系统架构规范》",
-      "summary": "WAIC重磅成果｜上海仪电智算牵头成立“智算系统架构联盟”并发布《超节点系统架构规范》",
-      "url": "https://www.qbitai.com/2026/07/456052.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-21T17:39:34+08:00"
-    },
-    {
-      "id": "d2db66f665da",
-      "title": "WAIC重磅成果｜上海市教育算力专区正式开启试运行",
-      "summary": "WAIC重磅成果｜上海市教育算力专区正式开启试运行",
-      "url": "https://www.qbitai.com/2026/07/456026.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-21T17:30:03+08:00"
-    },
-    {
-      "id": "e2fd057a37b7",
-      "title": "WAIC重磅成果｜智爱赛思全面升级并发布科研专属Token Plan",
-      "summary": "WAIC重磅成果｜智爱赛思全面升级并发布科研专属Token Plan",
-      "url": "https://www.qbitai.com/2026/07/456021.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-21T17:21:55+08:00"
-    },
-    {
-      "id": "ebe4450f927a",
-      "title": "WAIC重磅成果｜仪电智算云在国家人工智能应用中试基地建设中展现全栈服务能力",
-      "summary": "WAIC重磅成果｜仪电智算云在国家人工智能应用中试基地建设中展现全栈服务能力",
-      "url": "https://www.qbitai.com/2026/07/455998.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-21T17:15:50+08:00"
-    },
-    {
       "id": "20b0eb2d5c14",
       "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
       "summary": "OpenAI and Hugging Face share early findings from a security incident during AI model evaluation, highlighting advanced cyber capabilities and lessons for defe…",
@@ -102,60 +192,6 @@
       "source": "OpenAI",
       "category": "开源项目",
       "published_at": "2026-07-21T15:00:00+08:00"
-    },
-    {
-      "id": "f705053ddeec",
-      "title": "国内首个！阿里健康氢离子达成NEJM、JAMA、BMJ三大医学顶刊内容合作",
-      "summary": "国内首个！阿里健康氢离子达成NEJM、JAMA、BMJ三大医学顶刊内容合作",
-      "url": "https://www.qbitai.com/2026/07/455993.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-07-21T14:03:10+08:00"
-    },
-    {
-      "id": "92507309f7d6",
-      "title": "Rater State Bias in RLHF Preference Data: An Audit Framework",
-      "summary": "arXiv:2607.16195v1 Announce Type: new Abstract: We identify a structured confound in Reinforcement Learning from Human Feedback (RLHF). Pairwise preference lab…",
-      "url": "https://arxiv.org/abs/2607.16195",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-21T12:00:00+08:00"
-    },
-    {
-      "id": "e44c60aec285",
-      "title": "Design and Validation of a Lightweight 1D CNN for Affective Touch Classification in Soft Plush Companions",
-      "summary": "arXiv:2607.16196v1 Announce Type: new Abstract: Soft, sensorized companions offer a physically safe and emotionally intuitive interface for socially assistive …",
-      "url": "https://arxiv.org/abs/2607.16196",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-21T12:00:00+08:00"
-    },
-    {
-      "id": "cd9e3973ce3b",
-      "title": "Some Large Language Models Exhibit Consistent Risk Attitudes",
-      "summary": "arXiv:2607.16197v1 Announce Type: new Abstract: As artificial intelligence systems are deployed in open-ended, high-stakes settings, a critical dimension remai…",
-      "url": "https://arxiv.org/abs/2607.16197",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-21T12:00:00+08:00"
-    },
-    {
-      "id": "2b43a7bcda6a",
-      "title": "A Survey on GNN-based Link Prediction: Techniques, Applications, and Challenges",
-      "summary": "arXiv:2607.16198v1 Announce Type: new Abstract: Graph Neural Networks (GNNs) have emerged as the leading paradigm for link prediction, enabling the inference o…",
-      "url": "https://arxiv.org/abs/2607.16198",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-21T12:00:00+08:00"
-    },
-    {
-      "id": "a185a58e05eb",
-      "title": "PlanFlip: Attacking Multi-Agent LLM Systems via Planning-Phase Prompt Injection",
-      "summary": "arXiv:2607.16199v1 Announce Type: new Abstract: Multi-agent LLM systems increasingly rely on a Planner to decompose goals into sub-task sequences that downstre…",
-      "url": "https://arxiv.org/abs/2607.16199",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-21T12:00:00+08:00"
     },
     {
       "id": "40359dbf5a24",
@@ -195,7 +231,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,153",
+      "title": "thedotmack/claude-mem · ★ 88,169",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -204,7 +240,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,046",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,060",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -266,20 +302,11 @@
       "published_at": null
     },
     {
-      "id": "505203707460",
-      "title": "AI领走埃尔德什100美元赏金！44页顶刊没解的题，它一页纸答出",
-      "summary": "1991年，József Beck在《数学年刊》发表一篇44页的艰深论文，探讨单位圆上零点多项式的模问题，涉及埃尔德什猜想与差异理论。Beck是组合数学泰斗，提出Beck-Fiala定理，获Fulkerson奖并受邀ICM报告。近日，新智元报道一项突破：研究者仅用一页纸便重构并简化了该核心证明，大幅降低理解门槛，彰显…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714043&idx=2&sn=3d9fbc666ba65007c5dd7cf1b4b6b13e&chksm=f0b6e9c0f902e44bfbcd93fb091d81fe6b765303cb2454089b6c4768090f5198b308f03594fd&scene=0&xtrack=1#rd",
+      "id": "e1061c59f24d",
+      "title": "谷歌密谋「焊死」Gemini！神秘芯片曝光，能效碾压TPU十倍",
+      "summary": "谷歌正秘密研发代号“Frozen v2”的新型服务器芯片，将Gemini模型部分底层架构直接蚀刻进硅片，实现硬件级AI固化。该芯片非运行模型，而是让模型“长在芯片里”，大幅提升能效。据内部估算，其每瓦特Token处理能力较最新TPU提升6–10倍。项目预计最快2028年部署。消息曝光后引发市场关注，Alphabet股…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714133&idx=2&sn=906bfd80f291039608be42419bcbf498&chksm=f05dbdabc6f54ded0b75d05f2ee090e6d8820cd9f43821f0ea24504c300f98c724e348768b3a&scene=0&xtrack=1#rd",
       "source": "新智元",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "beec2b214a11",
-      "title": "环球时报｜走近前沿科技：在上海感受中国AI新势能",
-      "summary": "2026世界人工智能大会暨全球治理高级别会议在上海举行，现场展示覆盖食品、美容、医疗、金融、法律等多领域AI应用，凸显AI技术深度融合产业的热潮。清华大学梁正教授，兼任人工智能国际治理研究院副院长等多个要职，深度参与AI治理研究。《环球时报》记者实地探访展会，感受到AI技术加速落地与广泛渗透的强劲势头，折射出我国在推…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524551&idx=3&sn=750ecc3fff94b79f6d5edfee6c874516&chksm=fca66b2e62dc0c22859edaf6edf8e68882e35592fd9e0881aa323d6a48b03318b43668728547&scene=0&xtrack=1#rd",
-      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
@@ -311,29 +338,29 @@
       "published_at": null
     },
     {
-      "id": "917d5fa65764",
-      "title": "中兴通讯联合国产算力厂，拿下WAIC SAIL之星",
-      "summary": "今年WAIC的SAIL之星再次授予中兴通讯，其推出的国产高性能Matrix超节点方案（基于OEX+dOCS架构）获评SAIL奖，实现蝉联。该方案对标英伟达GB200 NVL72开创的超节点路径，凸显国产算力基础设施突破。超节点因高密度、高带宽、低延迟优势，正成为头部厂商竞相布局的关键方向。中兴此次成果标志着其在AI算…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247904823&idx=2&sn=a9532539070eb27cc27c2c18d83f4ec2&chksm=e9c1a001b7bd1c1eebc025bec6ee5e56d181f2645b10032f7d5cea4c2892061010d0de1c51c8&scene=0&xtrack=1#rd",
-      "source": "量子位",
+      "id": "e5304008609f",
+      "title": "静5杰出讲座回顾 | 谁说自然界是非定域的？",
+      "summary": "2025年图灵奖得主、量子密码学奠基人之一Gilles Brassard教授于2026年7月14日访问北京大学前沿计算研究中心，作题为“谁说自然界是非定域的？”的CFCS杰出讲座。报告由袁骁助理教授主持，聚焦量子非定域性这一核心概念，深入探讨贝尔不等式实验诠释、隐变量理论边界及量子关联的本质，质疑将量子纠缠简单等同于…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU0MjU5NjQ3NA==&mid=2247509329&idx=1&sn=6e44e177103e00bb537ec4c41a2378fc&chksm=fa1d83ef7a7018bf15cc1fc18a234cb7da3f122589504e055422f844e93bd621053a0ca3bd1c&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "77b540a98858",
-      "title": "AI医疗卷了10年终于悟了：不用替代医生，而是给医院装上超强buff",
-      "summary": "WAIC现场热闹非凡，300多款产品全球首发，1100余家企业参展。联影智能提出“元医院”概念，呼应昔日“元宇宙”热潮，但聚焦医疗场景：依托AI大模型、智能体（Agent）与多模态技术，构建覆盖诊疗、科研、管理的全链条智慧医疗新范式。它并非虚拟替代现实，而是深度融合影像、病理、基因等数据，实现精准诊断与个性化治疗。这…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905288&idx=1&sn=cab10872925a0a1fdb56ba2945a6483a&chksm=e9164d4b3e5d2fce65108ae84aa2b0739704e436cd438bf9160cbd6ab18807dc902097c08110&scene=126&sessionid=0#rd",
-      "source": "量子位",
+      "id": "0d1351bcdbea",
+      "title": "焦点访谈｜人工智能发展的时代之问 中国给出答案",
+      "summary": "7月17日，习近平主席出席2026世界人工智能大会暨全球治理高级别会议开幕式并发表主旨讲话，深刻分析AI发展带来的机遇与挑战，系统提出推进全球人工智能发展与治理的中国主张和方案，强调坚持发展与安全并重、包容普惠、协同共治，倡导构建开放、公正、非歧视的国际治理框架，推动AI技术造福全人类，彰显中国作为负责任大国的担当与…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524551&idx=1&sn=8f086e992bd89e16225c4b98548c5784&chksm=fcc2648c992c5c9b15d95315768ba7cd83d504cce74e6daad266d4a121ff8cdebeeb0b6a65c8&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "7708473095a0",
-      "title": "刚刚，中国AI首次赢了！一张8K东方长卷惊艳全场",
-      "summary": "在WAIC大会上，商汤科技发布新一代多模态大模型“日日新SenseNova-U1 Pro”，系中国首个直出8K长卷的AI模型，首次将“看懂、生成、动手”能力原生集成于同一多模态基座底层。徐立现场展示为WAIC九周年定制的8K超清长卷《智会世图》，展现2018至2026年间东方城市风貌，涵盖人物、山水、楼宇等丰富细节，…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652713777&idx=1&sn=8017bf3f5e66eaf4c26af2553f9432cb&chksm=f006424e4c58c53c777b04ac2d4bac87b29e7782457f7fc858f9e86f45175472fef04f6da5f6&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "d9e5f0d463b7",
+      "title": "张益唐啃了多年的雅可比猜想，这回让Fable 5给推翻了......",
+      "summary": "数学界长期悬而未决的雅可比猜想，在世界杯决赛期间被Anthropic研究员Levent Alpöge借助Claude Fable 5发现反例，宣告其不成立。该猜想曾困扰数学家数十年，连张益唐等顶尖学者亦曾深入研究。Alpöge未依赖冗长证明，仅以一组三元多项式即推翻猜想，引发学界震动。这一突破凸显AI在基础数学探索中…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905462&idx=2&sn=8f63a04499ede64cbbfaca631169d29f&chksm=e91a3490c8c55bc2c8a718762781ac67e597b6247fb93de3477af1e800c8bdc3445e9e3d0d6b&scene=0&xtrack=1#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     }
