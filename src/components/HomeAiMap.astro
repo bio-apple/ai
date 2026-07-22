@@ -1,29 +1,12 @@
 ---
 /**
- * 首页「AI 领域地图」— 原生 HTML 信息图（非位图）
- * - 桌面：嵌套层级 + 外围基础学科
- * - 移动：纵向堆叠，字号不随缩放变糊
- * - 跟随 data-theme，无需 WebP 栅格
+ * 首页「AI 领域地图」— 内联 SVG 关系图
+ * - 全部使用闭合 ellipse/circle（不用断弧），交叉靠半透明叠色表达
+ * - 跟随主题色；窄屏可读
  */
 import { asset } from '../lib/paths';
 
 const roadmapHref = asset('ai-learning-roadmap.html');
-
-const foundations = [
-  { zh: '数学', en: 'Mathematics' },
-  { zh: '神经科学', en: 'Neuroscience' },
-  { zh: '计算机科学', en: 'Computer Science' },
-  { zh: '物理学', en: 'Physics' },
-  { zh: '生物学', en: 'Biology' },
-  { zh: '心理学', en: 'Psychology' },
-];
-
-const apps = [
-  { zh: '计算机视觉', en: 'Vision' },
-  { zh: '自然语言', en: 'NLP' },
-  { zh: '语音识别', en: 'Speech' },
-  { zh: '机器人', en: 'Robotics' },
-];
 ---
 
 <section
@@ -46,55 +29,201 @@ const apps = [
       role="img"
       aria-label="AI 领域关系图：人工智能包含机器学习与深度学习，并与计算机视觉、机器人、自然语言处理、语音识别交叉；外围连接数学、神经科学、计算机科学、心理学、生物学与物理学。"
     >
-      <div class="ai-map-foundations" aria-hidden="true">
-        {
-          foundations.map((f) => (
-            <span class="ai-map-found">
-              <strong>{f.zh}</strong>
-              <em>{f.en}</em>
-            </span>
-          ))
-        }
-      </div>
+      <svg
+        class="ai-map-svg"
+        viewBox="0 0 1200 780"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <defs>
+          <linearGradient id="aiMapFound" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="var(--ai-map-found-a)"></stop>
+            <stop offset="100%" stop-color="var(--ai-map-found-b)"></stop>
+          </linearGradient>
+        </defs>
 
-      <div class="ai-map-core">
-        <div class="ai-map-layer ai-map-layer-ai">
-          <header class="ai-map-layer-head">
-            <strong>人工智能</strong>
-            <em>Artificial Intelligence</em>
-          </header>
+        <!-- Foundation connectors (under chips) -->
+        <g
+          class="ai-map-connectors"
+          stroke="var(--ai-map-found-stroke)"
+          stroke-width="1.6"
+          stroke-linecap="round"
+        >
+          <line x1="250" y1="118" x2="330" y2="200"></line>
+          <line x1="600" y1="88" x2="600" y2="168"></line>
+          <line x1="950" y1="118" x2="870" y2="200"></line>
+          <line x1="250" y1="662" x2="340" y2="590"></line>
+          <line x1="600" y1="692" x2="600" y2="620"></line>
+          <line x1="950" y1="662" x2="860" y2="590"></line>
+        </g>
 
-          <div class="ai-map-layer ai-map-layer-ml">
-            <header class="ai-map-layer-head">
-              <strong>机器学习</strong>
-              <em>Machine Learning</em>
-            </header>
+        <!-- Artificial Intelligence (closed) -->
+        <ellipse
+          class="ai-map-ring ai-map-ring-ai"
+          cx="600"
+          cy="390"
+          rx="330"
+          ry="255"
+          fill="var(--ai-map-ai-fill)"
+          stroke="var(--ai-map-ai-stroke)"
+          stroke-width="2.8"></ellipse>
+        <text class="ai-map-label-main" x="600" y="168" text-anchor="middle">人工智能</text>
+        <text class="ai-map-label-sub" x="600" y="190" text-anchor="middle"
+          >Artificial Intelligence</text
+        >
 
-            <div class="ai-map-layer ai-map-layer-dl">
-              <strong>深度学习</strong>
-              <em>Deep Learning</em>
-            </div>
+        <!-- Machine Learning (closed) -->
+        <ellipse
+          class="ai-map-ring ai-map-ring-ml"
+          cx="620"
+          cy="405"
+          rx="220"
+          ry="175"
+          fill="var(--ai-map-ml-fill)"
+          stroke="var(--ai-map-ai-stroke)"
+          stroke-width="2.4"></ellipse>
+        <text class="ai-map-label-main" x="620" y="268" text-anchor="middle" font-size="20"
+          >机器学习</text
+        >
+        <text class="ai-map-label-sub" x="620" y="288" text-anchor="middle">Machine Learning</text>
 
-            <p class="ai-map-apps-label">交叉应用</p>
-            <ul class="ai-map-apps">
-              {
-                apps.map((a) => (
-                  <li>
-                    <strong>{a.zh}</strong>
-                    <em>{a.en}</em>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
-        </div>
-      </div>
+        <!-- Deep Learning (closed) -->
+        <circle
+          class="ai-map-ring ai-map-ring-dl"
+          cx="640"
+          cy="395"
+          r="72"
+          fill="var(--ai-map-dl-fill)"
+          stroke="var(--ai-map-dl-stroke)"
+          stroke-width="2.4"></circle>
+        <text class="ai-map-label-main" x="640" y="392" text-anchor="middle" font-size="16"
+          >深度学习</text
+        >
+        <text class="ai-map-label-sub" x="640" y="412" text-anchor="middle">Deep Learning</text>
 
-      <p class="ai-map-hint" aria-hidden="true">AI ⊃ ML ⊃ DL</p>
+        <!-- Application domains: closed ellipses with translucent fill -->
+        <ellipse
+          cx="470"
+          cy="360"
+          rx="175"
+          ry="58"
+          fill="var(--ai-map-app-fill)"
+          stroke="var(--ai-map-ai-stroke)"
+          stroke-width="2"></ellipse>
+        <text class="ai-map-label-app" x="400" y="356" text-anchor="middle">计算机视觉</text>
+        <text class="ai-map-label-sub" x="400" y="374" text-anchor="middle">Computer Vision</text>
+
+        <ellipse
+          cx="390"
+          cy="305"
+          rx="88"
+          ry="62"
+          fill="var(--ai-map-app-fill)"
+          stroke="var(--ai-map-ai-stroke)"
+          stroke-width="2"></ellipse>
+        <text class="ai-map-label-app" x="390" y="302" text-anchor="middle">机器人</text>
+        <text class="ai-map-label-sub" x="390" y="320" text-anchor="middle">Robotics</text>
+
+        <ellipse
+          cx="610"
+          cy="520"
+          rx="168"
+          ry="58"
+          fill="var(--ai-map-app-fill)"
+          stroke="var(--ai-map-ai-stroke)"
+          stroke-width="2"></ellipse>
+        <text class="ai-map-label-app" x="610" y="516" text-anchor="middle">自然语言处理</text>
+        <text class="ai-map-label-sub" x="610" y="534" text-anchor="middle"
+          >Natural Language Processing</text
+        >
+
+        <ellipse
+          cx="730"
+          cy="455"
+          rx="98"
+          ry="48"
+          fill="var(--ai-map-app-fill)"
+          stroke="var(--ai-map-ai-stroke)"
+          stroke-width="2"></ellipse>
+        <text class="ai-map-label-app" x="730" y="452" text-anchor="middle">语音识别</text>
+        <text class="ai-map-label-sub" x="730" y="470" text-anchor="middle">Speech Recognition</text
+        >
+
+        <!-- Foundations (closed) -->
+        <g class="ai-map-foundations-svg">
+          <ellipse
+            cx="250"
+            cy="90"
+            rx="92"
+            ry="36"
+            fill="url(#aiMapFound)"
+            stroke="var(--ai-map-found-stroke)"
+            stroke-width="1.7"></ellipse>
+          <text class="ai-map-label-found" x="250" y="86" text-anchor="middle">数学</text>
+          <text class="ai-map-label-sub" x="250" y="104" text-anchor="middle">Mathematics</text>
+
+          <ellipse
+            cx="600"
+            cy="58"
+            rx="100"
+            ry="36"
+            fill="url(#aiMapFound)"
+            stroke="var(--ai-map-found-stroke)"
+            stroke-width="1.7"></ellipse>
+          <text class="ai-map-label-found" x="600" y="54" text-anchor="middle">神经科学</text>
+          <text class="ai-map-label-sub" x="600" y="72" text-anchor="middle">Neuroscience</text>
+
+          <ellipse
+            cx="950"
+            cy="90"
+            rx="108"
+            ry="36"
+            fill="url(#aiMapFound)"
+            stroke="var(--ai-map-found-stroke)"
+            stroke-width="1.7"></ellipse>
+          <text class="ai-map-label-found" x="950" y="86" text-anchor="middle">计算机科学</text>
+          <text class="ai-map-label-sub" x="950" y="104" text-anchor="middle">Computer Science</text
+          >
+
+          <ellipse
+            cx="250"
+            cy="690"
+            rx="78"
+            ry="34"
+            fill="url(#aiMapFound)"
+            stroke="var(--ai-map-found-stroke)"
+            stroke-width="1.7"></ellipse>
+          <text class="ai-map-label-found" x="250" y="686" text-anchor="middle">物理学</text>
+          <text class="ai-map-label-sub" x="250" y="704" text-anchor="middle">Physics</text>
+
+          <ellipse
+            cx="600"
+            cy="720"
+            rx="78"
+            ry="34"
+            fill="url(#aiMapFound)"
+            stroke="var(--ai-map-found-stroke)"
+            stroke-width="1.7"></ellipse>
+          <text class="ai-map-label-found" x="600" y="716" text-anchor="middle">生物学</text>
+          <text class="ai-map-label-sub" x="600" y="734" text-anchor="middle">Biology</text>
+
+          <ellipse
+            cx="950"
+            cy="690"
+            rx="88"
+            ry="34"
+            fill="url(#aiMapFound)"
+            stroke="var(--ai-map-found-stroke)"
+            stroke-width="1.7"></ellipse>
+          <text class="ai-map-label-found" x="950" y="686" text-anchor="middle">心理学</text>
+          <text class="ai-map-label-sub" x="950" y="704" text-anchor="middle">Psychology</text>
+        </g>
+      </svg>
     </div>
 
     <figcaption class="ai-map-caption">
-      用层级理解工具与课程落在哪一层；外围学科是长期地基。
+      圈均为闭合椭圆；交叉靠叠色表达，不再用断弧。用层级理解工具与课程落在哪一层。
       <a href={roadmapHref} class="ai-map-link" data-track="home-ai-map-roadmap">查看学习路线 →</a>
     </figcaption>
   </figure>
