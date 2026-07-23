@@ -24,7 +24,7 @@ jobs:
         run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
 
       - name: Restore lychee cache
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: .lycheecache
           key: lychee-${{ github.sha }}
