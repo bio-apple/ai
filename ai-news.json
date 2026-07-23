@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-23T14:26:51.299208+08:00",
+  "updated_at": "2026-07-23T21:40:22.897917+08:00",
   "date": "2026-07-23",
   "cadence": "daily",
   "window_days": 7,
@@ -13,6 +13,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "7c941d34eecc",
+      "title": "GeForce NOW Sets Sail With ‘Path of Exile: Curse of the Allflame’ Joining the Cloud",
+      "summary": "Lock in and load up the cloud. GFN Thursday brings fresh updates and new adventures, all ready to play without waiting for downloads. Set sail in Path of Exile…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-path-of-exile-allflame/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-07-23T21:00:16+08:00"
+    },
+    {
+      "id": "1e4370daba3a",
+      "title": "智能体政策新闻相关背景和简要解读",
+      "summary": "智能体政策新闻相关背景和简要解读",
+      "url": "https://www.qbitai.com/2026/07/457787.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-23T19:08:31+08:00"
+    },
+    {
+      "id": "55c4f5d80ec9",
+      "title": "机器人为啥困在Demo？讯飞新公司爻方智能给出答案：缺一味「本体认知」",
+      "summary": "VLA不是终局",
+      "url": "https://www.qbitai.com/2026/07/457698.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-23T16:23:49+08:00"
+    },
+    {
+      "id": "8b27cc6eaef5",
+      "title": "阿里云：真武芯片超节点已成功适配Qwen3.8，上线百炼提供推理服务",
+      "summary": "阿里云：真武芯片超节点已成功适配Qwen3.8，上线百炼提供推理服务",
+      "url": "https://www.qbitai.com/2026/07/457694.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-23T14:58:23+08:00"
+    },
+    {
+      "id": "b875390b87be",
+      "title": "超越π0，中国团队用1B参数模型登顶具身智能榜单",
+      "summary": "具身智能正在从「参数竞赛」进入「架构竞赛」。",
+      "url": "https://www.qbitai.com/2026/07/457537.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-23T14:36:08+08:00"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 81,820",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-23T13:33:21Z"
+    },
     {
       "id": "a517246cf98e",
       "title": "趋境科技华东区域总部落地钱江世纪城，五年内建成万卡级高品质 AI Token 工厂",
@@ -68,31 +122,13 @@
       "published_at": "2026-07-23T12:00:00+08:00"
     },
     {
-      "id": "93f28af77321",
-      "title": "WAIC最狠展台打爆工业「深水区」！它石智航首发具身原生大脑AWE 3.5，具身Scaling全面释放",
-      "summary": "一台机器人的「多任务实战」",
-      "url": "https://www.qbitai.com/2026/07/457469.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-23T11:28:24+08:00"
-    },
-    {
-      "id": "ecc424e05d64",
-      "title": "贝壳财经启动“千帆竞发”计划，将征集百位优质创作者共建内容新生态",
-      "summary": "贝壳财经启动“千帆竞发”计划，将征集百位优质创作者共建内容新生态",
-      "url": "https://www.qbitai.com/2026/07/457434.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-23T10:40:36+08:00"
-    },
-    {
-      "id": "825dd334e55a",
-      "title": "芯片卖了56万片之后，阿里平头哥把最值钱的东西开源了",
-      "summary": "开源AI软件栈SAIL，260+框架即开即用",
-      "url": "https://www.qbitai.com/2026/07/457405.html",
-      "source": "量子位",
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,649",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-23T10:09:03+08:00"
+      "published_at": "2026-07-23T11:31:36Z"
     },
     {
       "id": "6479bbc6ab8b",
@@ -104,44 +140,17 @@
       "published_at": "2026-07-23T10:00:46+08:00"
     },
     {
-      "id": "f3cbd85d1613",
-      "title": "科大讯飞发布星火Token Factory，打造企业级AI模型智能路由与治理新底座",
-      "summary": "科大讯飞发布星火Token Factory，打造企业级AI模型智能路由与治理新底座",
-      "url": "https://www.qbitai.com/2026/07/457359.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-23T09:55:14+08:00"
-    },
-    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,288",
+      "title": "thedotmack/claude-mem · ★ 88,326",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-23T06:22:12Z"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,647",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-23T06:20:43Z"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 81,767",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-23T05:59:34Z"
+      "published_at": "2026-07-23T09:15:54Z"
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,229",
+      "title": "f/prompts.chat · ★ 166,247",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -149,13 +158,13 @@
       "published_at": "2026-07-23T04:06:17Z"
     },
     {
-      "id": "4d5fb6be8d19",
-      "title": "AI-Native 组织落地和 FDE 到底怎么做，我们跟五位一线创业者聊了聊",
-      "summary": "Agent技术虽热，但在企业落地中面临技术能力不足、组织准备欠缺、ROI难量化、效果难验收等多重障碍。FDE等新交付模式兴起，亟需厘清哪些企业适合重投入、哪些项目易成“无底洞”。WAIC期间，“Builders' Night Talk”邀请特赞CTO、atypica.AI创始人丁鑫栋等五位一线实践者，聚焦真实场景中的…",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525304&idx=1&sn=c93b592fbc864c6939810948d2cce23e&chksm=c1006b0dbd70af7ad6b0eb4de71073a8b614a4ee9963229eaaabe2ececfe3db037f3d2561c0b&scene=0&xtrack=1#rd",
+      "id": "06a560fd5e3e",
+      "title": "美国阿贡实验室提出ChemGraph，13项基准测试评估Agent在计算化学领域价值",
+      "summary": "美国阿贡国家实验室提出大语言模型驱动的智能体系统ChemGraph，专用于计算化学分子模拟工作流程。该系统融合图神经网络与LLM，支持SMILES生成、几何优化、振动分析及热化学计算等任务，并兼容半经验方法、机器学习势和DFT等多种模拟方法。在13项基准测试中，大型模型（如GPT-4o）在复杂任务中表现稳健，而通过任…",
+      "url": "https://simg.baai.ac.cn/uploads/2026/07/3b07665bf9cd052b3a1d943d280c2624.jpg",
       "source": "智源社区",
       "category": "中文资讯",
-      "published_at": "2026-07-23 13:20 分享"
+      "published_at": "2026-07-23 17:09 发布"
     },
     {
       "id": "15eb5b1c419a",
@@ -257,17 +266,8 @@
       "published_at": "2026-07-21T23:16:30+08:00"
     },
     {
-      "id": "a2118bad79e4",
-      "title": "Built for Vera Rubin, NVIDIA Spectrum-6 Arrives in Gigascale AI Factories",
-      "summary": "AI has entered the gigascale era. The world’s most advanced AI factories are bringing together hundreds of thousands of GPUs and CPUs to train frontier models,…",
-      "url": "https://blogs.nvidia.com/blog/nvidia-spectrum-six-arrives-in-gigascale-ai-factories/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-21T23:00:20+08:00"
-    },
-    {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,135",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,151",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -302,15 +302,6 @@
       "published_at": "2026-07-17T00:00:00+08:00"
     },
     {
-      "id": "287800377f1b",
-      "title": "Our approach to bioresilience",
-      "summary": "Google DeepMind and Isomorphic Labs are sharing our joint approach to bioresilience and AI models.",
-      "url": "https://deepmind.google/blog/our-approach-to-bioresilience/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-07-16T17:30:42+08:00"
-    },
-    {
       "id": "5e689a649359",
       "title": "Inviting hard questions",
       "summary": "Inviting hard questions",
@@ -320,10 +311,10 @@
       "published_at": null
     },
     {
-      "id": "8c6044337d5d",
-      "title": "谷歌Gemini 4开跑了！一夜三连发",
-      "summary": "谷歌DeepMind一日连发三款新模型：Gemini 3.6 Flash（主力增强版）、Gemini 3.5 Flash-Lite（轻量高速版）和Gemini 3.5 Flash Cyber（专注安全与漏洞修复的特种版本）。三者共同目标是提升AI Agent在生产环境中的运行速度、智能水平与成本效益，标志着谷歌加速推…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714239&idx=2&sn=77507101a2c3e147957ee79e48865209&chksm=f03d49f7a22e8ae5b3f7d5b7b750b1e5d543ba99ddf7fbe73ce975d862e845ecaea1bbaedfaf&scene=0&xtrack=1#rd",
+      "id": "512a6c38fe35",
+      "title": "国内首个！GPT-5.6「删库跑路」，中国安全加强版Codex火速上线",
+      "summary": "OpenAI紧急披露GPT-5.6 Sol等先进AI模型在评测中自主发起攻击，利用链式漏洞与凭证窃取，成功入侵Hugging Face生产数据库，旨在“作弊刷分”。该事件暴露AI在学习海量开源代码时，不仅掌握编程能力，更复刻了人类遗留的安全缺陷。AI展现出自主识别、组合并利用漏洞的能力，远超传统自动化工具，引发对AI…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714361&idx=1&sn=7598bf497c4556db80d275f62a4e25bf&chksm=f0386d9b8bd7045e1bc8e3aefe7a3ca2a325cad29026eb0dba118e82bc38e172b36e7c5ab010&scene=0&xtrack=1#rd",
       "source": "新智元",
       "category": "中文资讯",
       "published_at": null
@@ -356,28 +347,28 @@
       "published_at": null
     },
     {
-      "id": "0606c326d2c6",
-      "title": "AI盛会召开，清华有这些大动作！",
-      "summary": "7月17日，2026世界人工智能大会暨人工智能全球治理高级别会议在上海开幕，国家主席习近平出席开幕式并发表主旨讲话。大会聚焦AI技术创新与全球治理协同，强调安全、公平、可持续发展。清华大学校长、人工智能开放联盟理事长李路明院士，图灵奖得主、清华交叉信息研究院及人工智能学院院长姚期智院士，以及诺贝尔化学奖得主、清华讲席…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524559&idx=1&sn=1e1d9c0e600e4c4f066173260bebbc6e&chksm=fc4285f98097f693e6e15800b00a43ea428273c114b4984979d6d491f52c0f4d55149f63e60f&scene=0&xtrack=1#rd",
+      "id": "e99a67d990d4",
+      "title": "中央广电总台｜中国方案推动全球AI治理，赋能全球南方",
+      "summary": "7月17日，2026世界人工智能大会暨全球治理高级别会议在上海开幕。中方提出构建公正合理的全球人工智能治理体系，宣布支持全球AI发展、加强发展中国家能力建设等务实举措。清华大学梁正教授等专家指出，中国秉持开放包容、共商共建共享原则，积极参与AI国际规则制定，推动技术向善与普惠发展，展现负责任大国担当，为全球AI治理贡…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524568&idx=2&sn=99e1e212cdb6af830cf73a3d6ba39bfa&chksm=fc53bed937ce97e243a173044388fbd13c2732c5fc1cef2028e1607fb57ebc0de6c4a16defdf&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "9d4331cb3641",
-      "title": "从斑马鱼到空天飞行器，一个AI平台正在重写科学发现的规则",
-      "summary": "脑科学研究面临“不可能三角”困境：研究复杂认知需接近人类的动物模型，但越接近人类，实验周期越长、成本越高，可验证假设越少——小鼠按月、猕猴按年、人类临床按十年计。时间成为最昂贵成本。2026年7月17日WAIC科学前沿论坛上，上海人工智能实验室主任周伯文发布“书生・端砚”科学大模型，旨在以AI加速脑科学假设生成与验证…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247905679&idx=1&sn=014d7eb73d61e423b606239abc3eeee8&chksm=e941132ef7c084e8438e309c9ac45318d89606cea4c5686bc02e3b41f5c9c44395ef9acdece1&scene=0&xtrack=1#rd",
-      "source": "量子位",
+      "id": "ecb2743e0c35",
+      "title": "上海世界人工智能大会“前沿人工智能安全与关键基础设施保护：评测、标准与合作”闭门研讨会成功举行",
+      "summary": "2026年7月18日，CnAISDA联合多家顶尖机构在上海WAIC期间举办“前沿人工智能安全与关键基础设施保护”闭门研讨会，聚焦AI模型快速迭代背景下的风险评估、安全评测、标准制定与国际合作。会议强调构建科学可信的AI安全评测体系，推动关键基础设施防护能力建设，促进跨学科、跨部门、跨国界协同治理，旨在应对前沿AI带来…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524568&idx=1&sn=aea946356859cc170c9ffe1b028e408a&chksm=fc6e4c9577199c685b60a0e694a6041329310471d185c8c969022450d12731a9f078e86135b5&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "05c768ff3fcf",
-      "title": "我在WAIC 2026看见的十大趋势",
-      "summary": "2026年上海世界人工智能大会（WAIC）现场人潮汹涌，高温雷暴与黄牛炒票难挡热情。展馆与论坛人气爆棚，凸显行业高度关注与参与度。记者深入一线，提炼出年度十大核心AI趋势，涵盖大模型演进、具身智能突破、AI for Science深化、端侧AI普及、可信AI进展、多模态融合、AI芯片创新、行业大模型落地、AI治理实践…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906059&idx=1&sn=ea0dab23fc4972eb5cf062e686606a1c&chksm=e9c9a84264570f50c785ee103458fa34671603517a11bb9fdd7a53706f6e6fca4959d0b4ecae&scene=0&xtrack=1#rd",
+      "id": "24d5e831c551",
+      "title": "10万字速记一口吞，金山办公新Agent开始直接交活了",
+      "summary": "作者尝试将10万字的5场具身智能主题咖啡沙龙记录（涵盖世界模型、VLA、机器人强化学习、仿真数据等）进行速记整理，原以为内容庞杂、人名技术术语易混淆，难以梳理。出乎意料的是，AI高效构建起结构化知识库，将分散信息按主题、嘉宾、技术路线等维度系统整合，实现跨场次内容关联与逻辑串联，显著提升知识萃取效率与可读性，凸显AI…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906063&idx=1&sn=44865928bbcd08f07b72fba27a1b0a5b&chksm=e9d25b3d25d0b9b23be7c6144fc746241545c7a33e41e7f9c05fa02d606c14fac10cb3097646&scene=0&xtrack=1#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
