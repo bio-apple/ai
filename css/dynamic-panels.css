@@ -50,21 +50,10 @@
   min-height: 24rem;
 }
 
-.oss-project-list:has(> .loading-hint),
-#oss-project-list:has(> .loading-hint) {
-  min-height: 32rem;
-}
-
-.home-oss-preview:has(> .loading-hint),
-#home-oss-preview:has(> .loading-hint) {
-  min-height: 17.5rem;
-}
-
 /* 错误块保持可点，不占大块空白 */
 .daily-video-list:has(> .data-error-block),
 .news-list:has(> .data-error-block),
-.courses-list:has(> .data-error-block),
-.oss-project-list:has(> .data-error-block) {
+.courses-list:has(> .data-error-block) {
   min-height: 5.5rem;
 }
 
@@ -82,16 +71,6 @@
   .courses-list:has(> .loading-hint),
   #courses-list:has(> .loading-hint) {
     min-height: 20rem;
-  }
-
-  .oss-project-list:has(> .loading-hint),
-  #oss-project-list:has(> .loading-hint) {
-    min-height: 26rem;
-  }
-
-  .home-oss-preview:has(> .loading-hint),
-  #home-oss-preview:has(> .loading-hint) {
-    min-height: 14rem;
   }
 }
 

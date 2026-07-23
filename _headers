@@ -24,8 +24,5 @@
 /daily-videos.latest.json
   Cache-Control: public, max-age=1800, stale-while-revalidate=300
 
-/daily-videos.json
-  Cache-Control: public, max-age=3600, stale-while-revalidate=600
-
 /local-deploy.json
   Cache-Control: public, max-age=86400, stale-while-revalidate=3600

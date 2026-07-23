@@ -65,6 +65,7 @@ dist/                 # 构建产物（不提交）
 | 排行榜         | `data/rankings.json` 或 `fetch_rankings.py`                                                        |
 | 新闻 / 视频源  | `config/news-fetch.yaml` / `config/video-fetch.yaml`                                               |
 
-站内链接统一用 `src/lib/paths.ts` 的 `asset()`（base `/ai/`）。
+站内链接统一用 `src/lib/paths.ts` 的 `asset()`（base `/ai/`）。  
+视频运行时只读 `daily-videos.latest.json`（`build-artifacts.mjs` 瘦身）；`knowledge.js` / Tab 业务脚本均为懒加载。
 
 推送 `main` → Actions 自动 Lint / Build / Deploy。日更与救急见 [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)。

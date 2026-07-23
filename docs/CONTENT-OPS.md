@@ -218,7 +218,7 @@ DIST=dist python3 scripts/validate_ci.py news
 **运行机制：**
 
 ```
-按六类候选抓取（YouTube / B站）
+按八类候选抓取（YouTube / B站各 4 档：24h · 3d · 30d · 100d）
         ↓
 1）24h Top3（≥10 万）直出 2）3d Top3（≥30 万）直出 3）30d Top3（≥80 万）直出 4）100d（>100 万）按播放量从高到低补齐
         ↓
@@ -252,7 +252,7 @@ Actions 手动触发时可选 `force=true`。
 | `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）                |
 | `summary.strip_patterns`                     | 摘要广告过滤正则                                      |
 
-**注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → 六类为空。
+**注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → YouTube 四档为空。
 
 **避免 YouTube 为空的措施（按推荐顺序）：**
 

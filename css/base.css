@@ -63,13 +63,11 @@ svg {
 }
 
 .local-grid,
-.oss-grid,
 .video-grid,
 .daily-grid,
 .news-feed,
 .aicpb-table-wrap,
-.course-grid,
-.library-list {
+.course-grid {
   max-width: 100%;
   overflow-x: hidden;
 }

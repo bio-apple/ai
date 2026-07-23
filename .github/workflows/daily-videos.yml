@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       force:
-        description: "强制重抓今日批次（升级六类结构时使用）"
+        description: "强制重抓今日批次（升级八类分桶 / 门槛时使用）"
         required: false
         default: "false"
         type: choice

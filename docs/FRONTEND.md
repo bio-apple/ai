@@ -150,6 +150,7 @@ Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 | ---- | ----------------------------------------------------------------------------------------------- |
 | 页面 | `#section-videos` · `videos.js`                                                                 |
 | 数据 | `daily-videos.latest.json`（构建时由完整 `daily-videos.json` 瘦身生成；完整文件不再发布到 CDN） |
+| 规则 | 每平台独立：24h/3d/30d Top3 直出 + 100d 按播放量补齐，合计 ≤10                                  |
 | 展示 | YouTube / B站分块网格，**整页平铺**（无内部滚动虚拟列表）                                       |
 | 筛选 | 平台（全部 / YouTube / B站）+ 排序（最新 / 热门）                                               |
 
@@ -196,17 +197,21 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ---
 
-## 13. 懒加载频道
+## 13. 懒加载与首屏脚本
 
 `lazy-sections.js`：进入 Tab 再加载业务脚本（`section-local` 为 SSG，不在此列）。
 
-| Section           | 脚本链       |
-| ----------------- | ------------ |
-| `section-videos`  | `videos.js`  |
-| `section-news`    | `news.js`    |
-| `section-courses` | `courses.js` |
+| Section           | 脚本链                             |
+| ----------------- | ---------------------------------- |
+| `section-videos`  | `lib/fetch-json.js` → `videos.js`  |
+| `section-news`    | `lib/fetch-json.js` → `news.js`    |
+| `section-courses` | `lib/fetch-json.js` → `courses.js` |
 
-共享前置：`lib/fetch-json.js`（首页 scripts 已带）。
+- `lib/fetch-json.js` **不**进首页首屏 `scripts`，由懒加载链按需注入。
+- 懒加载 URL 带 `?v=`（`window.__BIOAI_ASSET_V__`，Layout 注入）。
+- `knowledge.js`：idle（约 4s）或首次悬停/聚焦 FAB 再加载，不阻塞首屏。
+- 字体：`FontLoader.astro` 异步挂载 stylesheet（`preload` + 动态 `link`）。
+- 语义：首页/独立页内容包在 `<main id="main-content">`；404 仅加载 `analytics.js`。
 
 ---
 

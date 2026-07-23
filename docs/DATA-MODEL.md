@@ -9,22 +9,23 @@ Schema 源文件：`schemas/*.json`（JSON Schema Draft 2020-12）
 
 ## 1. 文件总览
 
-| 文件                    | 位置              | 维护方式      | Schema                        | CI 步骤          |
-| ----------------------- | ----------------- | ------------- | ----------------------------- | ---------------- |
-| `site.json`             | `data/`           | 手工          | 文档约定 + 可解析             | `data`           |
-| `tools.json`            | `data/`           | 手工          | 文档约定 + 可解析             | `data`           |
-| `compares.json`         | `data/`           | 手工          | 文档约定 + 可解析             | `data`           |
-| `rankings.json`         | `data/`           | 日更脚本      | 文档约定 + 可解析             | `data`           |
-| `tool-relations.json`   | `data/`           | 手工          | `tool-relations.schema.json`  | `tool-relations` |
-| `engagement.json`       | `data/`           | 手工          | `engagement.schema.json`      | `engagement`     |
-| `analytics.json`        | `data/`           | 手工          | 构建时检查                    | `analytics`      |
-| `local-deploy.json`     | `data/`           | 手工          | `local-deploy.schema.json`    | `local`          |
-| `ai-news.json`          | 根目录            | 日更脚本      | `ai-news.schema.json`         | `news`           |
-| `ai-courses.json`       | 根目录            | 日更脚本      | `ai-courses.schema.json`      | `courses`        |
-| `daily-videos.json`     | 根目录            | 日更脚本      | `daily-videos.schema.json`    | `videos`         |
-| `search-index.json`     | `public/`→`dist/` | prebuild 生成 | `search-index.schema.json`    | `search`         |
-| `recommend-rules.json`  | `public/`→`dist/` | prebuild 生成 | `recommend-rules.schema.json` | `recommend`      |
-| `analytics-config.json` | `public/`→`dist/` | prebuild 生成 | 运行时检查                    | `analytics`      |
+| 文件                       | 位置                    | 维护方式      | Schema                        | CI 步骤          |
+| -------------------------- | ----------------------- | ------------- | ----------------------------- | ---------------- |
+| `site.json`                | `data/`                 | 手工          | 文档约定 + 可解析             | `data`           |
+| `tools.json`               | `data/`                 | 手工          | 文档约定 + 可解析             | `data`           |
+| `compares.json`            | `data/`                 | 手工          | 文档约定 + 可解析             | `data`           |
+| `rankings.json`            | `data/`                 | 日更脚本      | 文档约定 + 可解析             | `data`           |
+| `tool-relations.json`      | `data/`                 | 手工          | `tool-relations.schema.json`  | `tool-relations` |
+| `engagement.json`          | `data/`                 | 手工          | `engagement.schema.json`      | `engagement`     |
+| `analytics.json`           | `data/`                 | 手工          | 构建时检查                    | `analytics`      |
+| `local-deploy.json`        | `data/`                 | 手工          | `local-deploy.schema.json`    | `local`          |
+| `ai-news.json`             | 根目录                  | 日更脚本      | `ai-news.schema.json`         | `news`           |
+| `ai-courses.json`          | 根目录                  | 日更脚本      | `ai-courses.schema.json`      | `courses`        |
+| `daily-videos.json`        | 根目录                  | 日更脚本      | `daily-videos.schema.json`    | `videos`         |
+| `daily-videos.latest.json` | `public/`→`dist/` / CDN | prebuild 瘦身 | 派生自全量（无 `seen_ids`）   | 随构建 / deploy  |
+| `search-index.json`        | `public/`→`dist/`       | prebuild 生成 | `search-index.schema.json`    | `search`         |
+| `recommend-rules.json`     | `public/`→`dist/`       | prebuild 生成 | `recommend-rules.schema.json` | `recommend`      |
+| `analytics-config.json`    | `public/`→`dist/`       | prebuild 生成 | 运行时检查                    | `analytics`      |
 
 **交叉引用规则（CI 强制）：**
 
@@ -406,14 +407,16 @@ nav: {
 **Schema**：`schemas/daily-videos.schema.json`  
 **脚本**：`scripts/fetch_daily_videos.py` · **配置**：`config/video-fetch.yaml`
 
-| 字段         | 类型       | 说明       |
-| ------------ | ---------- | ---------- |
-| `batches`    | `array`    | 按日期批次 |
-| `updated_at` | `string`   | 更新时间   |
-| `seen_ids`   | `string[]` | 去重 id    |
+| 字段         | 类型       | 说明                                                        |
+| ------------ | ---------- | ----------------------------------------------------------- |
+| `batches`    | `array`    | 按日期批次（新→旧）                                         |
+| `updated_at` | `string`   | 更新时间                                                    |
+| `seen_ids`   | `string[]` | 去重 id（**仅仓库全量文件**；CDN/浏览器瘦身副本不含此字段） |
 
-**批次** `batches[]`：`date`（`YYYY-MM-DD`）；`categories` 或旧版 `videos`  
+**批次** `batches[]`：`date`（`YYYY-MM-DD`）；`categories`（八类：YouTube/B站 × 24h/3d/30d/100d）  
 **视频项**：`id`, `title`, `url`, `summary`, `channel`, `published_at`, `thumbnail` 等
+
+**运行时瘦身**：`build-artifacts.mjs` → `daily-videos.latest.json`，仅 `{ updated_at, batches }`（展示层可含历史分类回退）。完整 `daily-videos.json` 留仓库，不进 CDN。
 
 **额外 CI 规则**：摘要禁止裸 URL；最新批次须覆盖配置中全部分类。
 

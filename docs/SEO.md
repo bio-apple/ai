@@ -1,4 +1,4 @@
-# SEO 优化（P0）
+# SEO 优化
 
 目标：提升 [bio-apple.github.io/ai/](https://bio-apple.github.io/ai/) 的搜索可发现性、品牌展示与社交分享效果。
 

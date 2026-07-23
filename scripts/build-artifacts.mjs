@@ -150,7 +150,7 @@ function buildSearchIndex(site, tools, compares) {
     label: '每日视频',
     type: '频道',
     section: 'section-videos',
-    keywords: '视频 youtube bilibili 教程 每日 3天 30天 100天 Top10',
+    keywords: '视频 youtube bilibili 教程 每日 24小时 3天 30天 100天 Top3 Top10',
   });
   items.push({
     label: 'AI 新闻',
@@ -412,7 +412,11 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
     const batches = full.batches || [];
     // 在完整历史上做分类回退后再瘦身：仅保留 2 批时 YouTube 常因近几日抓取失败而无法回退。
     const merged = withCategoryFallback(batches);
-    const slim = { ...full, batches: merged ? [merged] : [] };
+    // CDN 只发展示所需字段；seen_ids 仅仓库全量文件保留
+    const slim = {
+      updated_at: full.updated_at || null,
+      batches: merged ? [merged] : [],
+    };
     writeOut(outDir, 'daily-videos.latest.json', slim);
   }
 

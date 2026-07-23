@@ -191,7 +191,8 @@ flowchart TB
 | 虚拟列表 | `lib/virtual-list.js`           | 榜单 / GitHub 热门（视频区已改为整页网格）                    |
 | 链接兜底 | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404                              |
 | 本地部署 | `HomeLocalDeploy.astro`         | SSG 卡片（`data/local-deploy.json`）；`#section-local`        |
-| 懒加载   | `lazy-sections.js`              | Tab 进入后再拉业务脚本（不含 section-local）                  |
+| 懒加载   | `lazy-sections.js`              | Tab 进入后再拉 `fetch-json` + 业务脚本（不含 section-local）  |
+| 知识助手 | `knowledge.js`                  | idle / FAB 交互后再加载；面板内焦点陷阱                       |
 | 工具中心 | `hub.ts` + `hub.astro`          | 对比表「工具」列 → `tools/{id}.html`（含 jimeng）             |
 
 详见 [FRONTEND.md](./FRONTEND.md)。

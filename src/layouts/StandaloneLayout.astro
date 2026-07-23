@@ -40,10 +40,13 @@ const {
 } = Astro.props;
 
 const scriptList = [...scripts];
-if (includeKnowledge) {
-  if (!scriptList.includes('vendor/fuse.min.js')) scriptList.unshift('vendor/fuse.min.js');
-  if (!scriptList.includes('knowledge.js')) scriptList.push('knowledge.js');
+if (includeKnowledge && !scriptList.includes('vendor/fuse.min.js')) {
+  scriptList.unshift('vendor/fuse.min.js');
 }
+const knowledgeSrc = includeKnowledge ? assetVersioned('knowledge.js') : '';
+const knowledgeBoot = includeKnowledge
+  ? `(function(){var loaded=false,src=${JSON.stringify(knowledgeSrc)};function load(){if(loaded||!src)return;loaded=true;var s=document.createElement('script');s.src=src;s.defer=true;document.body.appendChild(s);}function arm(){var fab=document.getElementById('knowledge-fab');if(!fab)return;['pointerenter','focus','touchstart'].forEach(function(ev){fab.addEventListener(ev,load,{once:true,passive:true});});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',arm);else arm();if('requestIdleCallback' in window)requestIdleCallback(function(){load();},{timeout:4000});else setTimeout(load,2500);})();`
+  : '';
 
 const styleHref = assetVersioned('style.css');
 const home = homeHref();
@@ -96,6 +99,7 @@ const home = homeHref();
       <slot />
     </main>
     <Footer text={site.footer.text} />
+    {knowledgeBoot && <script is:inline set:html={knowledgeBoot} />}
     {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
   </body>
 </html>
