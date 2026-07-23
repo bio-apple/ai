@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-22T21:27:38.438749+08:00",
-  "date": "2026-07-22",
+  "updated_at": "2026-07-23T09:00:02.891291+08:00",
+  "date": "2026-07-23",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -13,6 +13,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "9aaeb4128ef5",
+      "title": "美图拿出1亿元，面向全行业寻找AI影像Builder",
+      "summary": "美图产品挑战赛（Meitu Hatch Catch）火热报名中",
+      "url": "https://www.qbitai.com/2026/07/457223.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-23T01:35:44+08:00"
+    },
+    {
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 88,262",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-23T00:42:59Z"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,649",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-23T00:30:37Z"
+    },
+    {
+      "id": "15eb5b1c419a",
+      "title": "Accelerating the frontiers of scientific discovery: Google’s $40M commitment to the Genesis Mission",
+      "summary": "Google commits $40M in AI tokens and credits for the Genesis Mission",
+      "url": "https://deepmind.google/blog/accelerating-the-frontiers-of-scientific-discovery-googles-40m-commitment-to-the-genesis-mission/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-07-22T21:38:54+08:00"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 81,732",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-22T21:34:16Z"
+    },
     {
       "id": "562676d43cd3",
       "title": "NVIDIA Open Sources First GPU-Accelerated Medical Physics Simulation Framework",
@@ -41,6 +86,24 @@
       "published_at": "2026-07-22T21:00:00+08:00"
     },
     {
+      "id": "130e23c4bd2f",
+      "title": "How news organizations are using AI to advance their vital missions",
+      "summary": "News organizations are using AI to strengthen reporting, grow audiences, and improve business operations, with OpenAI tools supporting journalists and publishe…",
+      "url": "https://openai.com/index/how-news-organizations-are-using-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-22T21:00:00+08:00"
+    },
+    {
+      "id": "fc3528d001b5",
+      "title": "Advancing the next era of national science",
+      "summary": "OpenAI outlines its commitment to advancing American science working with the U.S. Department of Energy and national labs to use frontier AI to accelerate disc…",
+      "url": "https://openai.com/index/advancing-the-next-era-of-national-science",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-22T20:00:00+08:00"
+    },
+    {
       "id": "52a0f5e0dbb9",
       "title": "百度文心助手任务Agent登顶国际权威榜单，超越Claude、GPT拿下全球智能体冠军",
       "summary": "百度文心助手任务Agent登顶国际权威榜单，超越Claude、GPT拿下全球智能体冠军",
@@ -66,24 +129,6 @@
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-07-22T13:30:00+08:00"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,650",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-22T13:23:50Z"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 81,688",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-22T12:17:50Z"
     },
     {
       "id": "54c4c7b3344e",
@@ -149,13 +194,13 @@
       "published_at": "2026-07-22T11:54:49+08:00"
     },
     {
-      "id": "85736c132a6d",
-      "title": "我在WAIC 2026看见的十大趋势",
-      "summary": "没有人因此热情减退",
-      "url": "https://www.qbitai.com/2026/07/456974.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-22T11:46:30+08:00"
+      "id": "ce627deb9928",
+      "title": "NTT DATA Group cuts incident analysis to 30 minutes with Codex",
+      "summary": "NTT DATA Group uses ChatGPT Enterprise and Codex to help 9,000 employees automate work, cut incident analysis to 30 minutes, and scale secure AI adoption.",
+      "url": "https://openai.com/index/ntt-data",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-22T08:00:00+08:00"
     },
     {
       "id": "ce1cab87367b",
@@ -168,21 +213,12 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,198",
+      "title": "f/prompts.chat · ★ 166,217",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-22T04:07:26Z"
-    },
-    {
-      "id": "d42362617c64",
-      "title": "Introducing the ChatGPT for small business program",
-      "summary": "OpenAI launches the ChatGPT for Small Businesses program, helping entrepreneurs build AI skills, automate work, and grow with ChatGPT Work.",
-      "url": "https://openai.com/index/introducing-chatgpt-small-business-program",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-07-22T01:00:00+08:00"
     },
     {
       "id": "d5d972b02ecd",
@@ -221,44 +257,17 @@
       "published_at": "2026-07-21T23:00:20+08:00"
     },
     {
-      "id": "20b0eb2d5c14",
-      "title": "OpenAI and Hugging Face partner to address security incident during model evaluation",
-      "summary": "OpenAI and Hugging Face share early findings from a security incident during AI model evaluation, highlighting advanced cyber capabilities and lessons for defe…",
-      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
-      "source": "OpenAI",
-      "category": "开源项目",
-      "published_at": "2026-07-21T15:00:00+08:00"
-    },
-    {
-      "id": "40359dbf5a24",
-      "title": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC",
-      "summary": "David Vélez and Robin Vince join the boards of the OpenAI Foundation and OpenAI Group PBC, bringing global leadership in finance, technology, and governance.",
-      "url": "https://openai.com/index/david-velez-robin-vince-join-openai-boards",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-21T08:00:00+08:00"
-    },
-    {
-      "id": "286358f33346",
-      "title": "At SIGGRAPH, NVIDIA Advances Graphics and Simulation With Agentic and Physical AI",
-      "summary": "From open models to real-time simulation, AI and graphics breakthroughs are transforming media, content creation and robotics.",
-      "url": "https://blogs.nvidia.com/blog/siggraph-news-2026/",
+      "id": "9195a1f4e0ca",
+      "title": "NVIDIA and Partners Build in America, for America",
+      "summary": "NVIDIA and its partners are investing in American manufacturing, supply chains, energy grids and skilled workforces so the U.S. can produce the infrastructure …",
+      "url": "https://blogs.nvidia.com/blog/nvidia-and-partners-build-in-america-for-america/",
       "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-20T23:00:53+08:00"
-    },
-    {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,204",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-20T16:32:51Z"
+      "category": "行业新闻",
+      "published_at": "2026-07-21T21:00:47+08:00"
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,099",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,128",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
