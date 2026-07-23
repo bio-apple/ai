@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-23T13:23:41.569583+08:00",
+  "updated_at": "2026-07-23T14:26:51.299208+08:00",
   "date": "2026-07-23",
   "cadence": "daily",
   "window_days": 7,
@@ -113,13 +113,13 @@
       "published_at": "2026-07-23T09:55:14+08:00"
     },
     {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,227",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 88,288",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-23T04:06:17Z"
+      "published_at": "2026-07-23T06:22:12Z"
     },
     {
       "id": "991cb8c74834",
@@ -128,16 +128,34 @@
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-23T01:54:50Z"
+      "published_at": "2026-07-23T06:20:43Z"
     },
     {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,284",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 81,767",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-23T00:42:59Z"
+      "published_at": "2026-07-23T05:59:34Z"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 166,229",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-23T04:06:17Z"
+    },
+    {
+      "id": "4d5fb6be8d19",
+      "title": "AI-Native 组织落地和 FDE 到底怎么做，我们跟五位一线创业者聊了聊",
+      "summary": "Agent技术虽热，但在企业落地中面临技术能力不足、组织准备欠缺、ROI难量化、效果难验收等多重障碍。FDE等新交付模式兴起，亟需厘清哪些企业适合重投入、哪些项目易成“无底洞”。WAIC期间，“Builders' Night Talk”邀请特赞CTO、atypica.AI创始人丁鑫栋等五位一线实践者，聚焦真实场景中的…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525304&idx=1&sn=c93b592fbc864c6939810948d2cce23e&chksm=c1006b0dbd70af7ad6b0eb4de71073a8b614a4ee9963229eaaabe2ececfe3db037f3d2561c0b&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-23 13:20 分享"
     },
     {
       "id": "15eb5b1c419a",
@@ -147,15 +165,6 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-07-22T21:38:54+08:00"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 81,760",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-22T21:34:16Z"
     },
     {
       "id": "562676d43cd3",
@@ -230,15 +239,6 @@
       "published_at": "2026-07-22T06:35:45+08:00"
     },
     {
-      "id": "d5d972b02ecd",
-      "title": "AI原生，可信为基——澜舟科技携LangClaw及三智产品矩阵重磅亮相WAIC 2026",
-      "summary": "7月17日至20日，2026世界人工智能大会在上海举行。澜舟科技以“AI原生，可信为基——智能体驱动企业新引擎”为主题亮相世博展览馆H1-C535展位，展示其企业智能体操作系统LangClaw、三智产品矩阵（智会、智库、智搭）及多行业智能体应用成果。作为国内最早聚焦大模型创业的企业之一，澜舟科技通过四天展期与观众深度…",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5MjY2ODI4Nw==&mid=2247513641&idx=1&sn=033b016f022961ff40102f69328adc58&chksm=c147c5efaa4d601e2ba7d270ff62ca9489a5bea058201fe96397fe33813550053acabbec2fa2&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-22 20:50 分享"
-    },
-    {
       "id": "46165e640060",
       "title": "NVIDIA Vera Rubin Driving Performance Per Watt, Lowest Token Cost for Partners Worldwide",
       "summary": "NVIDIA Vera Rubin is here, and it’s going gigascale. Vera Rubin NVL72 production is ramping up with racks running at partners CoreWeave, Google Cloud, Microsof…",
@@ -267,7 +267,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,133",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,135",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
