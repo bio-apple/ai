@@ -1175,3 +1175,25 @@ html[data-theme='dark'] .content-type-oss {
   text-align: center;
   font-size: 0.8rem;
 }
+
+.data-error-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.data-retry-btn {
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: var(--accent);
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--border));
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.data-retry-btn:hover {
+  background: rgba(37, 99, 235, 0.14);
+}
