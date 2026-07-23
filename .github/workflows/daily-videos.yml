@@ -129,7 +129,7 @@ jobs:
       # GITHUB_TOKEN 的 push 不会连锁触发其它 workflow，需显式派发 Pages（带重试）
       - name: Trigger Pages deploy
         if: steps.commit.outputs.pushed == 'true'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -154,7 +154,7 @@ jobs:
 
       - name: Open issue on hard failure
         if: steps.fetch.outcome == 'failure' || steps.metrics.outputs.level == '2'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const fetchFailed = '${{ steps.fetch.outcome }}' === 'failure';

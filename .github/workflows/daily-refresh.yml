@@ -195,7 +195,7 @@ jobs:
       - name: Trigger Pages deploy
         id: deploy_dispatch
         if: steps.push.outputs.pushed == 'true'
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         with:
           script: |
             const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -264,7 +264,7 @@ jobs:
       - name: Report channel / link failures
         id: report
         if: always()
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         env:
           FAILED_CHANNELS: ${{ env.failed_channels }}
           LYCHEE_EXIT: ${{ steps.lychee.outputs.exit_code }}
