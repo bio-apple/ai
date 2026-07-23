@@ -153,6 +153,7 @@
           "bilibili"
         ],
         "platform_total_cap": 10,
+        "source": "rebuild_plus_bilibili_refill",
         "video_categories": {
           "youtube_recent_3d": {
             "label": "YouTube：3 天内 Top 3",
@@ -160,15 +161,15 @@
               "days": 3
             },
             "top_count": 3,
-            "min_views": 1000000
+            "min_views": 300000
           },
           "youtube_recent_30d": {
-            "label": "YouTube：30 天内 Top 5",
+            "label": "YouTube：30 天内 Top 3",
             "window": {
               "days": 30
             },
-            "top_count": 5,
-            "min_views": 1000000
+            "top_count": 3,
+            "min_views": 800000
           },
           "youtube_recent_100d": {
             "label": "YouTube：100 天内 Top 10",
@@ -184,15 +185,15 @@
               "days": 3
             },
             "top_count": 3,
-            "min_views": 1000000
+            "min_views": 300000
           },
           "bilibili_recent_30d": {
-            "label": "B站：30 天内 Top 5",
+            "label": "B站：30 天内 Top 3",
             "window": {
               "days": 30
             },
-            "top_count": 5,
-            "min_views": 1000000
+            "top_count": 3,
+            "min_views": 800000
           },
           "bilibili_recent_100d": {
             "label": "B站：100 天内 Top 10",
@@ -214,11 +215,11 @@
           "videos": []
         },
         "youtube_recent_30d": {
-          "label": "YouTube：30 天内 Top 5",
+          "label": "YouTube：30 天内 Top 3",
           "window": {
             "days": 30
           },
-          "top_count": 5,
+          "top_count": 3,
           "videos": []
         },
         "youtube_recent_100d": {
@@ -255,6 +256,20 @@
               "duration": "19:30",
               "max_height": 1080,
               "published_at": "2026-05-22T20:00:02+08:00"
+            },
+            {
+              "id": "youtube:oXmofS-sjwI",
+              "platform": "youtube",
+              "title": "This Gemini/NotebookLM System Will Make You SO Smart It Feels Illegal",
+              "summary": "Subscribe to my newsletter → Most people are using AI wrong",
+              "url": "https://www.youtube.com/watch?v=oXmofS-sjwI",
+              "thumbnail": "https://i.ytimg.com/vi/oXmofS-sjwI/maxresdefault.jpg",
+              "channel": "Sandeep Swadia",
+              "subscribers": 0,
+              "views": 1058193,
+              "duration": "13:18",
+              "max_height": 1080,
+              "published_at": "2026-04-16T21:01:32+08:00"
             }
           ]
         },
@@ -267,12 +282,41 @@
           "videos": []
         },
         "bilibili_recent_30d": {
-          "label": "B站：30 天内 Top 5",
+          "label": "B站：30 天内 Top 3",
           "window": {
             "days": 30
           },
-          "top_count": 5,
-          "videos": []
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1j9MP6wEV9",
+              "platform": "bilibili",
+              "title": "从零开始，学会让桌面Agent帮你干活！【小白教程】",
+              "summary": "用不上codex的朋友们！新的国产Agent直接上手，来跑通8大用法～ 感谢朋友们的三连+关注～",
+              "url": "https://www.bilibili.com/video/BV1j9MP6wEV9",
+              "thumbnail": "video-thumbs/bilibili/BV1j9MP6wEV9.webp",
+              "channel": "秋芝2046",
+              "subscribers": 0,
+              "views": 1254959,
+              "duration": "13:13",
+              "max_height": 720,
+              "published_at": "2026-07-05T10:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV192Tv6VErt",
+              "platform": "bilibili",
+              "title": "AI懂封面？我用1万个人，找到了封面密码",
+              "summary": "【GenJi是真想教会你】讲解 AI 工具实战应用，围绕「AI懂封面？我用1万个人，找到了封面密码」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV192Tv6VErt",
+              "thumbnail": "video-thumbs/bilibili/BV192Tv6VErt.webp",
+              "channel": "GenJi是真想教会你",
+              "subscribers": 0,
+              "views": 826053,
+              "duration": "14:46",
+              "max_height": 720,
+              "published_at": "2026-07-01T18:30:15+08:00"
+            }
+          ]
         },
         "bilibili_recent_100d": {
           "label": "B站：100 天内 Top 10",
@@ -280,7 +324,92 @@
             "days": 100
           },
           "top_count": 10,
-          "videos": []
+          "videos": [
+            {
+              "id": "bilibili:BV1cwVG6qEEW",
+              "platform": "bilibili",
+              "title": "【硬核教程】如何让一个J人红温？只需要给他做这份“发疯版NBTI”...",
+              "summary": "NBTI测试链接： 还在因为MBTI不是J人被面试官拒绝？别再掉进这个当代职场大坑了！ 本期视频，我用 Claude Code手搓了一个专属打工人的“NBTI”发疯测试！同时找来三位不同岗位的小伙伴，记录他们一周的工作实况，来验证测验的准确性。 还有满满干货…",
+              "url": "https://www.bilibili.com/video/BV1cwVG6qEEW",
+              "thumbnail": "video-thumbs/bilibili/BV1cwVG6qEEW.webp",
+              "channel": "GenJi是真想教会你",
+              "subscribers": 0,
+              "views": 1896297,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-05-30T18:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV1NvRyBzEhq",
+              "platform": "bilibili",
+              "title": "全网最全！60分钟全面掌握Claude Code～【附完整文档】",
+              "summary": "Claude Code保姆级教学【收藏起来不会错！】 从上手安装，到高级用法，这期一次讲全～ 花了三周做教程，希望能帮到你嘻嘻，感谢朋友们的三连+关注啦～",
+              "url": "https://www.bilibili.com/video/BV1NvRyBzEhq",
+              "thumbnail": "video-thumbs/bilibili/BV1NvRyBzEhq.webp",
+              "channel": "秋芝2046",
+              "subscribers": 0,
+              "views": 1410295,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-05-05T22:08:25+08:00"
+            },
+            {
+              "id": "bilibili:BV1ToGC6TEjH",
+              "platform": "bilibili",
+              "title": "别觉得 AI 离你很远，快递小哥都已经开始变现了",
+              "summary": "【钾子的不烦生活】讲解 AI 工具实战应用，围绕「别觉得 AI 离你很远，快递小哥都已经开始变现了」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1ToGC6TEjH",
+              "thumbnail": "video-thumbs/bilibili/BV1ToGC6TEjH.jpg",
+              "channel": "钾子的不烦生活",
+              "subscribers": 0,
+              "views": 1384134,
+              "duration": "3:57",
+              "max_height": 720,
+              "published_at": "2026-05-27T09:50:49+08:00"
+            },
+            {
+              "id": "bilibili:BV1Kk9kBAEJv",
+              "platform": "bilibili",
+              "title": "Codex (APP) 保姆级全攻略，海量实战教程， 一期精通Codex",
+              "summary": "最近Codex APP的能力越来越全面，变成了Codex四大形态里最强一个。 Codex APP 比起 Claude Code，额度更高，功能更全，免费账户也能用。而且不会出现限速、封号、降智等问题，用过的小伙伴直呼真香。本期视频带来一个Codex APP的…",
+              "url": "https://www.bilibili.com/video/BV1Kk9kBAEJv",
+              "thumbnail": "video-thumbs/bilibili/BV1Kk9kBAEJv.webp",
+              "channel": "技术爬爬虾",
+              "subscribers": 0,
+              "views": 1287856,
+              "duration": "38:13",
+              "max_height": 720,
+              "published_at": "2026-04-28T19:04:05+08:00"
+            },
+            {
+              "id": "bilibili:BV16YRLB7Exd",
+              "platform": "bilibili",
+              "title": "5分钟安装ClaudeCode并接入DeepSeek",
+              "summary": "5分钟教你安装ClaudeCode并接入DeepSeekV4 用到的命令： node版本检查：node -v npm版本检查：npm -v npm国内镜像：npm config set registry git版本检查：git -v ClaudeCode安装…",
+              "url": "https://www.bilibili.com/video/BV16YRLB7Exd",
+              "thumbnail": "video-thumbs/bilibili/BV16YRLB7Exd.webp",
+              "channel": "Yin_Code",
+              "subscribers": 0,
+              "views": 1252890,
+              "duration": "5:27",
+              "max_height": 720,
+              "published_at": "2026-05-02T16:14:12+08:00"
+            },
+            {
+              "id": "bilibili:BV1BVEs6LENZ",
+              "platform": "bilibili",
+              "title": "【2026最新Codex】Codex保姆级完整教程-Codex新手保姆级教程-最强AI助手！从入门到进阶，22分钟速通Codex！【附教程文档安装包】",
+              "summary": "最近Codex的能力越来越全面，变成了Codex四大形态里最强一个。 Codex APP 比起 Claude Code，额度更高，功能更全，免费账户也能用。而且不会出现限速、封号、降智等问题，用过的小伙伴直呼真香。本期视频带来一个Codex APP的完整教程",
+              "url": "https://www.bilibili.com/video/BV1BVEs6LENZ",
+              "thumbnail": "video-thumbs/bilibili/BV1BVEs6LENZ.webp",
+              "channel": "编程大佬陈悠秀",
+              "subscribers": 0,
+              "views": 1195505,
+              "duration": "94:36",
+              "max_height": 720,
+              "published_at": "2026-06-07T13:32:32+08:00"
+            }
+          ]
         }
       }
     },
@@ -2707,5 +2836,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-23T01:08:53.881753+08:00"
+  "updated_at": "2026-07-23T08:55:59.450762+08:00"
 }
