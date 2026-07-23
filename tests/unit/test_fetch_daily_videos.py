@@ -82,8 +82,6 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
             {"id": "youtube:d", "views": 3_000_000, "published_at": self.ago(10)},
             {"id": "youtube:e", "views": 2_800_000, "published_at": self.ago(12)},
             {"id": "youtube:f", "views": 2_700_000, "published_at": self.ago(14)},
-            {"id": "youtube:g", "views": 2_600_000, "published_at": self.ago(16)},
-            {"id": "youtube:h", "views": 2_500_000, "published_at": self.ago(18)},
         ]
         buckets["youtube_recent_100d"] = [
             {"id": "youtube:i", "views": 4_000_000, "published_at": self.ago(40)},
@@ -101,11 +99,11 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         }
         self.assertEqual(len(yt_ids), 10)
         self.assertEqual(len(out["youtube_recent_3d"]), 3)
-        self.assertEqual(len(out["youtube_recent_30d"]), 5)
-        self.assertEqual(len(out["youtube_recent_100d"]), 2)
+        self.assertEqual(len(out["youtube_recent_30d"]), 3)
+        self.assertEqual(len(out["youtube_recent_100d"]), 4)
         self.assertEqual(
             [v["id"] for v in out["youtube_recent_100d"]],
-            ["youtube:i", "youtube:j"],
+            ["youtube:i", "youtube:j", "youtube:k", "youtube:l"],
         )
         self.assertNotIn("youtube:old", yt_ids)
 

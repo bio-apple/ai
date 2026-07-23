@@ -1,8 +1,8 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
 # YouTube / B站 分别抓取：
-#   1）3 天内 Top 3（≥100 万）直接输出
-#   2）30 天内 Top 5（≥100 万）直接输出
+#   1）3 天内 Top 3（≥30 万）直接输出
+#   2）30 天内 Top 3（≥80 万）直接输出
 #   3）100 天内 Top 10（>100 万）按播放量从高到低补齐
 # 1+2+3 去重后「每平台」最多 10 条（先保留 3d/30d，再用 100d 按播放量补足；YouTube / B站各自独立）
 # 内容门槛：仅保留 AI 关键词匹配
@@ -12,13 +12,13 @@ video_categories:
     platform: youtube
     days: 3
     top_count: 3
-    min_views: 1000000
+    min_views: 300000
   youtube_recent_30d:
-    label: "YouTube：30 天内 Top 5"
+    label: "YouTube：30 天内 Top 3"
     platform: youtube
     days: 30
-    top_count: 5
-    min_views: 1000000
+    top_count: 3
+    min_views: 800000
   youtube_recent_100d:
     label: "YouTube：100 天内 Top 10"
     platform: youtube
@@ -31,13 +31,13 @@ video_categories:
     platform: bilibili
     days: 3
     top_count: 3
-    min_views: 1000000
+    min_views: 300000
   bilibili_recent_30d:
-    label: "B站：30 天内 Top 5"
+    label: "B站：30 天内 Top 3"
     platform: bilibili
     days: 30
-    top_count: 5
-    min_views: 1000000
+    top_count: 3
+    min_views: 800000
   bilibili_recent_100d:
     label: "B站：100 天内 Top 10"
     platform: bilibili

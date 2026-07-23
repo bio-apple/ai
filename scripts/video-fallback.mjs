@@ -9,12 +9,12 @@ const LEGACY_CATEGORY_ALIASES = {
 
 /** 与 config/video-fetch.yaml 对齐；回填/展示时丢弃未达门槛的历史脏数据 */
 export const CATEGORY_MIN_VIEWS = {
-  youtube_recent_3d: 1_000_000,
-  youtube_recent_30d: 1_000_000,
+  youtube_recent_3d: 300_000,
+  youtube_recent_30d: 800_000,
   youtube_recent_100d: 1_000_001,
   youtube_top_views: 1_000_001,
-  bilibili_recent_3d: 1_000_000,
-  bilibili_recent_30d: 1_000_000,
+  bilibili_recent_3d: 300_000,
+  bilibili_recent_30d: 800_000,
   bilibili_recent_100d: 1_000_001,
   bilibili_top_views: 1_000_001,
 };
@@ -34,7 +34,8 @@ export function categoryMinViews(key) {
   if (Object.prototype.hasOwnProperty.call(CATEGORY_MIN_VIEWS, key)) {
     return CATEGORY_MIN_VIEWS[key];
   }
-  if (/_recent_3d$|_recent_30d$/.test(key)) return 1_000_000;
+  if (/_recent_3d$/.test(key)) return 300_000;
+  if (/_recent_30d$/.test(key)) return 800_000;
   if (/_recent_100d$|_top_views$/.test(key)) return 1_000_001;
   return 0;
 }

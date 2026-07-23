@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关视频（YouTube / B站各自：3d/30d 直出，100d 补齐，每平台 ≤10）。"""
+"""每日抓取 AI 应用相关视频（YouTube / B站各自：3d/30d Top3 直出，100d 补齐，每平台 ≤10）。"""
 
 from __future__ import annotations
 
@@ -24,7 +24,7 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
-# 1）3d Top3(≥100万) 直出 2）30d Top5(≥100万) 直出 3）100d Top10(>100万) 补齐；每平台 ≤10
+# 1）3d Top3(≥30万) 直出 2）30d Top3(≥80万) 直出 3）100d Top10(>100万) 补齐；每平台 ≤10
 CATEGORY_ORDER = (
     "youtube_recent_3d",
     "youtube_recent_30d",
