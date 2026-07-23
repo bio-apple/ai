@@ -9,14 +9,21 @@ const LEGACY_CATEGORY_ALIASES = {
 
 /** 与 config/video-fetch.yaml 对齐；回填/展示时丢弃未达门槛的历史脏数据 */
 export const CATEGORY_MIN_VIEWS = {
+  youtube_recent_24h: 100_000,
   youtube_recent_3d: 300_000,
   youtube_recent_30d: 800_000,
   youtube_recent_100d: 1_000_001,
   youtube_top_views: 1_000_001,
+  bilibili_recent_24h: 100_000,
   bilibili_recent_3d: 300_000,
   bilibili_recent_30d: 800_000,
   bilibili_recent_100d: 1_000_001,
   bilibili_top_views: 1_000_001,
+};
+
+export const CATEGORY_MAX_HOURS = {
+  youtube_recent_24h: 24,
+  bilibili_recent_24h: 24,
 };
 
 export const CATEGORY_MAX_DAYS = {
@@ -34,20 +41,31 @@ export function categoryMinViews(key) {
   if (Object.prototype.hasOwnProperty.call(CATEGORY_MIN_VIEWS, key)) {
     return CATEGORY_MIN_VIEWS[key];
   }
+  if (/_recent_24h$/.test(key)) return 100_000;
   if (/_recent_3d$/.test(key)) return 300_000;
   if (/_recent_30d$/.test(key)) return 800_000;
   if (/_recent_100d$|_top_views$/.test(key)) return 1_000_001;
   return 0;
 }
 
-export function categoryMaxDays(key) {
-  if (Object.prototype.hasOwnProperty.call(CATEGORY_MAX_DAYS, key)) {
-    return CATEGORY_MAX_DAYS[key];
+export function categoryMaxAgeMs(key) {
+  if (Object.prototype.hasOwnProperty.call(CATEGORY_MAX_HOURS, key)) {
+    return CATEGORY_MAX_HOURS[key] * 60 * 60 * 1000;
   }
-  if (/_recent_3d$/.test(key)) return 3;
-  if (/_recent_30d$/.test(key)) return 30;
-  if (/_recent_100d$|_top_views$/.test(key)) return 100;
-  return null;
+  if (/_recent_24h$/.test(key)) return 24 * 60 * 60 * 1000;
+  let days = null;
+  if (Object.prototype.hasOwnProperty.call(CATEGORY_MAX_DAYS, key)) {
+    days = CATEGORY_MAX_DAYS[key];
+  } else if (/_recent_3d$/.test(key)) days = 3;
+  else if (/_recent_30d$/.test(key)) days = 30;
+  else if (/_recent_100d$|_top_views$/.test(key)) days = 100;
+  return days == null ? null : days * 24 * 60 * 60 * 1000;
+}
+
+/** @deprecated use categoryMaxAgeMs */
+export function categoryMaxDays(key) {
+  const ms = categoryMaxAgeMs(key);
+  return ms == null ? null : Math.round(ms / (24 * 60 * 60 * 1000));
 }
 
 function intViews(v) {
@@ -63,8 +81,7 @@ function publishedMs(v) {
 
 export function filterVideosForCategory(videos, key, nowMs = Date.now()) {
   const min = categoryMinViews(key);
-  const days = categoryMaxDays(key);
-  const maxAgeMs = days == null ? null : days * 24 * 60 * 60 * 1000;
+  const maxAgeMs = categoryMaxAgeMs(key);
   return (videos || []).filter((v) => {
     if (intViews(v) < min) return false;
     if (maxAgeMs == null) return true;

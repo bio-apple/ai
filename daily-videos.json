@@ -153,8 +153,16 @@
           "bilibili"
         ],
         "platform_total_cap": 10,
-        "source": "rebuild_plus_bilibili_refill",
+        "source": "rebuild_with_24h",
         "video_categories": {
+          "youtube_recent_24h": {
+            "label": "YouTube：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 100000
+          },
           "youtube_recent_3d": {
             "label": "YouTube：3 天内 Top 3",
             "window": {
@@ -178,6 +186,14 @@
             },
             "top_count": 10,
             "min_views": 1000001
+          },
+          "bilibili_recent_24h": {
+            "label": "B站：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 100000
           },
           "bilibili_recent_3d": {
             "label": "B站：3 天内 Top 3",
@@ -206,6 +222,14 @@
         }
       },
       "categories": {
+        "youtube_recent_24h": {
+          "label": "YouTube：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
         "youtube_recent_3d": {
           "label": "YouTube：3 天内 Top 3",
           "window": {
@@ -272,6 +296,14 @@
               "published_at": "2026-04-16T21:01:32+08:00"
             }
           ]
+        },
+        "bilibili_recent_24h": {
+          "label": "B站：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
         },
         "bilibili_recent_3d": {
           "label": "B站：3 天内 Top 3",
@@ -2836,5 +2868,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-23T08:55:59.450762+08:00"
+  "updated_at": "2026-07-23T09:17:07.696705+08:00"
 }

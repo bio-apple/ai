@@ -73,6 +73,11 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
 
     def test_finalize_platform_top_by_views(self) -> None:
         buckets = {key: [] for key in mod.CATEGORY_ORDER}
+        buckets["youtube_recent_24h"] = [
+            {"id": "youtube:h1", "views": 400_000, "published_at": self.ago(0.2)},
+            {"id": "youtube:h2", "views": 350_000, "published_at": self.ago(0.4)},
+            {"id": "youtube:h3", "views": 320_000, "published_at": self.ago(0.5)},
+        ]
         buckets["youtube_recent_3d"] = [
             {"id": "youtube:a", "views": 2_000_000, "published_at": self.ago(1)},
             {"id": "youtube:b", "views": 1_500_000, "published_at": self.ago(2)},
@@ -94,18 +99,41 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         out = mod.finalize_platform_top_by_views(buckets, limit=10)
         yt_ids = {
             v["id"]
-            for key in ("youtube_recent_3d", "youtube_recent_30d", "youtube_recent_100d")
+            for key in (
+                "youtube_recent_24h",
+                "youtube_recent_3d",
+                "youtube_recent_30d",
+                "youtube_recent_100d",
+            )
             for v in out[key]
         }
         self.assertEqual(len(yt_ids), 10)
+        self.assertEqual(len(out["youtube_recent_24h"]), 3)
         self.assertEqual(len(out["youtube_recent_3d"]), 3)
         self.assertEqual(len(out["youtube_recent_30d"]), 3)
-        self.assertEqual(len(out["youtube_recent_100d"]), 4)
-        self.assertEqual(
-            [v["id"] for v in out["youtube_recent_100d"]],
-            ["youtube:i", "youtube:j", "youtube:k", "youtube:l"],
-        )
+        self.assertEqual(len(out["youtube_recent_100d"]), 1)
+        self.assertEqual([v["id"] for v in out["youtube_recent_100d"]], ["youtube:i"])
         self.assertNotIn("youtube:old", yt_ids)
+
+    def test_filter_videos_for_category_24h_window(self) -> None:
+        now = mod.datetime(2026, 7, 23, 12, 0, tzinfo=mod.TZ)
+        videos = [
+            {"id": "in", "views": 150_000, "published_at": "2026-07-23T01:00:00+08:00"},
+            {"id": "out", "views": 900_000, "published_at": "2026-07-21T11:00:00+08:00"},
+            {"id": "low", "views": 50_000, "published_at": "2026-07-23T10:00:00+08:00"},
+        ]
+        kept = mod.filter_videos_for_category(
+            videos,
+            "bilibili_recent_24h",
+            now=now,
+            min_views=100_000,
+            cfg={
+                "video_categories": {
+                    "bilibili_recent_24h": {"hours": 24, "min_views": 100000},
+                }
+            },
+        )
+        self.assertEqual([v["id"] for v in kept], ["in"])
 
     def test_finalize_caps_each_platform_independently(self) -> None:
         """YouTube / B站各自 ≤10，合计可达 20；不是两平台合计 ≤10。"""
