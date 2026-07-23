@@ -34,7 +34,7 @@ jobs:
           cache: pip
 
       # yt-dlp 抓 YouTube 搜索需要 JS runtime，否则 Actions 上常整类为空
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version-file: ".nvmrc"
           cache: npm
