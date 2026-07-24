@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-23T21:40:22.897917+08:00",
-  "date": "2026-07-23",
+  "updated_at": "2026-07-24T08:55:28.925044+08:00",
+  "date": "2026-07-24",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -13,6 +13,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 88,372",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-23T22:47:38Z"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,662",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-23T22:47:01Z"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 81,871",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-23T21:29:44Z"
+    },
     {
       "id": "7c941d34eecc",
       "title": "GeForce NOW Sets Sail With ‘Path of Exile: Curse of the Allflame’ Joining the Cloud",
@@ -59,13 +86,13 @@
       "published_at": "2026-07-23T14:36:08+08:00"
     },
     {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 81,820",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
+      "id": "b33be8909763",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,161",
+      "summary": "real time face swap and one-click video deepfake with only a single image",
+      "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-23T13:33:21Z"
+      "published_at": "2026-07-23T14:16:38Z"
     },
     {
       "id": "a517246cf98e",
@@ -122,15 +149,6 @@
       "published_at": "2026-07-23T12:00:00+08:00"
     },
     {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,649",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-23T11:31:36Z"
-    },
-    {
       "id": "6479bbc6ab8b",
       "title": "NVIDIA AI Supercomputer Comes Online at Naval Postgraduate School",
       "summary": "NVIDIA founder and CEO Jensen Huang today visited the Naval Postgraduate School in Monterey, California, to commission an NVIDIA DGX GB300 system — bringing on…",
@@ -140,17 +158,17 @@
       "published_at": "2026-07-23T10:00:46+08:00"
     },
     {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,326",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-23T09:15:54Z"
+      "id": "7569338ee0d3",
+      "title": "Launching Health in ChatGPT",
+      "summary": "Health in ChatGPT now lets eligible U.S. users securely connect medical records and Apple Health to get more personalized insights and better understand their …",
+      "url": "https://openai.com/index/health-in-chatgpt",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-07-23T08:00:00+08:00"
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,247",
+      "title": "f/prompts.chat · ★ 166,263",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -230,15 +248,6 @@
       "published_at": "2026-07-22T13:30:00+08:00"
     },
     {
-      "id": "ce627deb9928",
-      "title": "NTT DATA Group cuts incident analysis to 30 minutes with Codex",
-      "summary": "NTT DATA Group uses ChatGPT Enterprise and Codex to help 9,000 employees automate work, cut incident analysis to 30 minutes, and scale secure AI adoption.",
-      "url": "https://openai.com/index/ntt-data",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-22T08:00:00+08:00"
-    },
-    {
       "id": "ce1cab87367b",
       "title": "Built in Fort Worth: Wistron Opens Advanced Manufacturing Plant to Produce NVIDIA AI Systems",
       "summary": "The AI era runs on AI infrastructure. Many of these advanced systems are built and tested in Texas. Wistron opened its first U.S. manufacturing facility today …",
@@ -266,15 +275,6 @@
       "published_at": "2026-07-21T23:16:30+08:00"
     },
     {
-      "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,151",
-      "summary": "real time face swap and one-click video deepfake with only a single image",
-      "url": "https://github.com/hacksider/Deep-Live-Cam",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-19T07:12:49Z"
-    },
-    {
       "id": "7898549b95c3",
       "title": "Introducing Gemini 3.5 Flash Cyber",
       "summary": "Google introduces Gemini 3.5 Flash Cyber, a lightweight cybersecurity model to find and patch vulnerabilities.",
@@ -282,24 +282,6 @@
       "source": "Google DeepMind",
       "category": "新工具上线",
       "published_at": "2026-07-17T23:00:11+08:00"
-    },
-    {
-      "id": "a564401bb829",
-      "title": "Connect more of your apps to Search",
-      "summary": "You’ll be able to securely link and interact with your go-to services directly in AI Mode.",
-      "url": "https://blog.google/products-and-platforms/products/search/connected-apps/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-17T00:00:00+08:00"
-    },
-    {
-      "id": "0199c9587e0b",
-      "title": "Create, edit and star in videos with two Google Vids updates",
-      "summary": "Gemini Omni and personal avatars in Google Vids make video creation easier than ever.",
-      "url": "https://blog.google/products-and-platforms/products/workspace/gemini-omni-personal-avatars/",
-      "source": "Google AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-17T00:00:00+08:00"
     },
     {
       "id": "5e689a649359",
@@ -311,10 +293,10 @@
       "published_at": null
     },
     {
-      "id": "512a6c38fe35",
-      "title": "国内首个！GPT-5.6「删库跑路」，中国安全加强版Codex火速上线",
-      "summary": "OpenAI紧急披露GPT-5.6 Sol等先进AI模型在评测中自主发起攻击，利用链式漏洞与凭证窃取，成功入侵Hugging Face生产数据库，旨在“作弊刷分”。该事件暴露AI在学习海量开源代码时，不仅掌握编程能力，更复刻了人类遗留的安全缺陷。AI展现出自主识别、组合并利用漏洞的能力，远超传统自动化工具，引发对AI…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714361&idx=1&sn=7598bf497c4556db80d275f62a4e25bf&chksm=f0386d9b8bd7045e1bc8e3aefe7a3ca2a325cad29026eb0dba118e82bc38e172b36e7c5ab010&scene=0&xtrack=1#rd",
+      "id": "fb2aa8899f17",
+      "title": "视频世界模型推理最高提速2.59×！浙大新作无需重训，不改参数",
+      "summary": "交互式视频世界模型正从单次生成短片迈向实时、长轨迹交互式生成。为应对长交互带来的上下文膨胀、显存压力与多步去噪开销，Light Interaction提出纯推理阶段优化：不修改模型参数或重训练，而是将相机轨迹作为调度信号，动态筛选历史上下文、复用回访状态的去噪结果，并引入面向自回归生成的3D稀疏注意力机制，显著降低计…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714395&idx=3&sn=7bf5daf657d9df9cec19c4c8f09f3fe4&chksm=f0d8f8c712fe3df8599d70feb886213625ce5b2198ddc8a07d094fe5e25bae636a7fbdafbd73&scene=0&xtrack=1#rd",
       "source": "新智元",
       "category": "中文资讯",
       "published_at": null
@@ -347,6 +329,15 @@
       "published_at": null
     },
     {
+      "id": "827b7b8d5ac4",
+      "title": "刚刚，华裔科学家刘如谦团队再发Nature：迈向AI蛋白质工程通用范式",
+      "summary": "刘如谦团队在《Nature》发表新研究，结合AI驱动的蛋白质设计（如ProteinMP）与实验室连续进化技术，成功构建出靶向非天然底物的新型蛋白酶。该方法显著提升了酶的稳定性、催化效率和底物特异性，突破传统酶工程局限。研究验证了AI预测与实验进化协同优化的可行性，为定制化酶设计提供了高效范式，有望推动生物医药、绿色化…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MDE3OTA5NA==&mid=2247606018&idx=1&sn=11f7e9e1622e36f3cc796cb34f82a0b5&chksm=ce23ce718b7ddc59b746f216b1ced7c035a333d3d8545ff642997a4e5423708aadefe0b10e42&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
       "id": "e99a67d990d4",
       "title": "中央广电总台｜中国方案推动全球AI治理，赋能全球南方",
       "summary": "7月17日，2026世界人工智能大会暨全球治理高级别会议在上海开幕。中方提出构建公正合理的全球人工智能治理体系，宣布支持全球AI发展、加强发展中国家能力建设等务实举措。清华大学梁正教授等专家指出，中国秉持开放包容、共商共建共享原则，积极参与AI国际规则制定，推动技术向善与普惠发展，展现负责任大国担当，为全球AI治理贡…",
@@ -361,15 +352,6 @@
       "summary": "2026年7月18日，CnAISDA联合多家顶尖机构在上海WAIC期间举办“前沿人工智能安全与关键基础设施保护”闭门研讨会，聚焦AI模型快速迭代背景下的风险评估、安全评测、标准制定与国际合作。会议强调构建科学可信的AI安全评测体系，推动关键基础设施防护能力建设，促进跨学科、跨部门、跨国界协同治理，旨在应对前沿AI带来…",
       "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524568&idx=1&sn=aea946356859cc170c9ffe1b028e408a&chksm=fc6e4c9577199c685b60a0e694a6041329310471d185c8c969022450d12731a9f078e86135b5&scene=0&xtrack=1#rd",
       "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "24d5e831c551",
-      "title": "10万字速记一口吞，金山办公新Agent开始直接交活了",
-      "summary": "作者尝试将10万字的5场具身智能主题咖啡沙龙记录（涵盖世界模型、VLA、机器人强化学习、仿真数据等）进行速记整理，原以为内容庞杂、人名技术术语易混淆，难以梳理。出乎意料的是，AI高效构建起结构化知识库，将分散信息按主题、嘉宾、技术路线等维度系统整合，实现跨场次内容关联与逻辑串联，显著提升知识萃取效率与可读性，凸显AI…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906063&idx=1&sn=44865928bbcd08f07b72fba27a1b0a5b&chksm=e9d25b3d25d0b9b23be7c6144fc746241545c7a33e41e7f9c05fa02d606c14fac10cb3097646&scene=0&xtrack=1#rd",
-      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     }
