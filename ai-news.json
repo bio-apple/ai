@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-24T08:55:28.925044+08:00",
+  "updated_at": "2026-07-24T13:19:28.211653+08:00",
   "date": "2026-07-24",
   "cadence": "daily",
   "window_days": 7,
@@ -14,13 +14,103 @@
   },
   "items": [
     {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,372",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
+      "id": "7a9ded228ecc",
+      "title": "At AI Summit, South Korea Outlines Its AI Future With NVIDIA and Partners",
+      "summary": "At this week’s AI Summit in San Francisco, South Korean President Jae Myung Lee and some of the country’s top business leaders and researchers are meeting with…",
+      "url": "https://blogs.nvidia.com/blog/ai-summit-korea-partners-and-nvidia/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-24T12:34:27+08:00"
+    },
+    {
+      "id": "2af82956cffb",
+      "title": "WAIC看了一圈，这家公司的机器人在认真打工",
+      "summary": "WAIC看了一圈，这家公司的机器人在认真打工",
+      "url": "https://www.qbitai.com/2026/07/458348.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-24T12:19:34+08:00"
+    },
+    {
+      "id": "46d41b5281a9",
+      "title": "AINTMA: Agentic AI Architecture for Autonomous Test Management with Generative Intelligence, Secure Cloud Communication and Adaptive Quality Analytics",
+      "summary": "arXiv:2607.20452v1 Announce Type: new Abstract: Modern software quality assurance demands intelligent, autonomous systems capable of adaptive decision-making a…",
+      "url": "https://arxiv.org/abs/2607.20452",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-24T12:00:00+08:00"
+    },
+    {
+      "id": "341e0a3f7888",
+      "title": "Marking the Wrong Symptoms: Evaluating LLM Watermarks in Medical Texts",
+      "summary": "arXiv:2607.20462v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly integrated into clinical workflows, stressing the need for reliab…",
+      "url": "https://arxiv.org/abs/2607.20462",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-07-24T12:00:00+08:00"
+    },
+    {
+      "id": "8092459feae0",
+      "title": "ClickGuard: Detecting and Spoiling Clickbait News with Informativeness Measures and Large Language Models",
+      "summary": "arXiv:2607.20463v1 Announce Type: new Abstract: This paper presents an AI-driven browser extension that identifies clickbait to help users avoid misleading Int…",
+      "url": "https://arxiv.org/abs/2607.20463",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-24T12:00:00+08:00"
+    },
+    {
+      "id": "4fdb1d3870fe",
+      "title": "Stochastic Sampling is Epistemically Shallow: The Dimensionality Gap Between Temperature Variation and Model Diversity in LLMs",
+      "summary": "arXiv:2607.20464v1 Announce Type: new Abstract: When a language model gives different answers on repeated runs, does that variation reveal what it does not kno…",
+      "url": "https://arxiv.org/abs/2607.20464",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-24T12:00:00+08:00"
+    },
+    {
+      "id": "31c8a50f4a7f",
+      "title": "JAXBench: Benchmarking Autonomous TPU Kernel Optimization",
+      "summary": "arXiv:2607.20466v1 Announce Type: new Abstract: Rigorous benchmarks have driven progress in autonomous GPU kernel performance optimization by establishing a sh…",
+      "url": "https://arxiv.org/abs/2607.20466",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-07-24T12:00:00+08:00"
+    },
+    {
+      "id": "711c093bcf2a",
+      "title": "李飞飞学生发起国际具身人类数据标准，光轮智能成唯一参与中国企业",
+      "summary": "李飞飞学生发起国际具身人类数据标准，光轮智能成唯一参与中国企业",
+      "url": "https://www.qbitai.com/2026/07/457920.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-24T11:27:38+08:00"
+    },
+    {
+      "id": "fae247c9c170",
+      "title": "北大「双菲」：天才们的鲜活人生",
+      "summary": "菲尔兹奖得主王虹、邓煜创造中国历史！这是他们的故事。",
+      "url": "https://www.qbitai.com/2026/07/457922.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-24T11:23:41+08:00"
+    },
+    {
+      "id": "08f208a357ad",
+      "title": "新晋菲尔兹奖得主，当天宣布加入OpenAI",
+      "summary": "他的学生刚用Fable 5推翻87年悬案",
+      "url": "https://www.qbitai.com/2026/07/457792.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-24T09:48:11+08:00"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 166,274",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-23T22:47:38Z"
+      "published_at": "2026-07-24T04:06:04Z"
     },
     {
       "id": "991cb8c74834",
@@ -29,11 +119,20 @@
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-23T22:47:01Z"
+      "published_at": "2026-07-24T03:18:32Z"
+    },
+    {
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 88,395",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-23T22:47:38Z"
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 81,871",
+      "title": "OpenHands/OpenHands · ★ 81,897",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
@@ -59,94 +158,13 @@
       "published_at": "2026-07-23T19:08:31+08:00"
     },
     {
-      "id": "55c4f5d80ec9",
-      "title": "机器人为啥困在Demo？讯飞新公司爻方智能给出答案：缺一味「本体认知」",
-      "summary": "VLA不是终局",
-      "url": "https://www.qbitai.com/2026/07/457698.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-23T16:23:49+08:00"
-    },
-    {
-      "id": "8b27cc6eaef5",
-      "title": "阿里云：真武芯片超节点已成功适配Qwen3.8，上线百炼提供推理服务",
-      "summary": "阿里云：真武芯片超节点已成功适配Qwen3.8，上线百炼提供推理服务",
-      "url": "https://www.qbitai.com/2026/07/457694.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-23T14:58:23+08:00"
-    },
-    {
-      "id": "b875390b87be",
-      "title": "超越π0，中国团队用1B参数模型登顶具身智能榜单",
-      "summary": "具身智能正在从「参数竞赛」进入「架构竞赛」。",
-      "url": "https://www.qbitai.com/2026/07/457537.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-23T14:36:08+08:00"
-    },
-    {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,161",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,167",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-23T14:16:38Z"
-    },
-    {
-      "id": "a517246cf98e",
-      "title": "趋境科技华东区域总部落地钱江世纪城，五年内建成万卡级高品质 AI Token 工厂",
-      "summary": "推进华东区域业务布局的重要一步",
-      "url": "https://www.qbitai.com/2026/07/457534.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-23T12:42:52+08:00"
-    },
-    {
-      "id": "512d58a28c78",
-      "title": "FineServe: A Fine-Grained Dataset and Characterization of Global LLM Serving Workloads",
-      "summary": "arXiv:2607.19349v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly deployed as always-on online services, making efficient LLM servi…",
-      "url": "https://arxiv.org/abs/2607.19349",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-23T12:00:00+08:00"
-    },
-    {
-      "id": "5f0f9145b683",
-      "title": "Hybrid LSTM-Graph Neural Framework for Robust Financial Fraud Detection and Adversarial Resilience",
-      "summary": "arXiv:2607.19350v1 Announce Type: new Abstract: Financial institutions face significant challenges in detecting sophisticated money laundering patterns, such a…",
-      "url": "https://arxiv.org/abs/2607.19350",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-23T12:00:00+08:00"
-    },
-    {
-      "id": "404ae51a7170",
-      "title": "OpenEvoShield: Dual Non-Stationary Continual Defense for Open-World Multi-Agent System Attacks",
-      "summary": "arXiv:2607.19351v1 Announce Type: new Abstract: LLM-based multi-agent systems (LLM-MAS) are increasingly deployed in safety-critical applications, where advers…",
-      "url": "https://arxiv.org/abs/2607.19351",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-23T12:00:00+08:00"
-    },
-    {
-      "id": "2088cc721ccf",
-      "title": "Benchmarking Confidential GPU Inference on NVIDIA H100 under Intel TDX",
-      "summary": "arXiv:2607.19353v1 Announce Type: new Abstract: Confidential computing is becoming a practical deployment requirement for AI inference workloads that process s…",
-      "url": "https://arxiv.org/abs/2607.19353",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-23T12:00:00+08:00"
-    },
-    {
-      "id": "38b93ff2a0f9",
-      "title": "FormulaSPIN: Self-Play Fine-Tuning for Natural Language to Spreadsheet Formula Generation",
-      "summary": "arXiv:2607.19354v1 Announce Type: new Abstract: Spreadsheet applications are used by hundreds of millions worldwide, yet writing formulas remains a significant…",
-      "url": "https://arxiv.org/abs/2607.19354",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-23T12:00:00+08:00"
     },
     {
       "id": "6479bbc6ab8b",
@@ -165,15 +183,6 @@
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-07-23T08:00:00+08:00"
-    },
-    {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,263",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-23T04:06:17Z"
     },
     {
       "id": "06a560fd5e3e",
@@ -255,15 +264,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-07-22T06:35:45+08:00"
-    },
-    {
-      "id": "46165e640060",
-      "title": "NVIDIA Vera Rubin Driving Performance Per Watt, Lowest Token Cost for Partners Worldwide",
-      "summary": "NVIDIA Vera Rubin is here, and it’s going gigascale. Vera Rubin NVL72 production is ramping up with racks running at partners CoreWeave, Google Cloud, Microsof…",
-      "url": "https://blogs.nvidia.com/blog/vera-rubin/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-21T23:36:43+08:00"
     },
     {
       "id": "8985407e5ef9",
