@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-24T14:22:07.903607+08:00",
+  "updated_at": "2026-07-24T21:23:04.202478+08:00",
   "date": "2026-07-24",
   "cadence": "daily",
   "window_days": 7,
@@ -14,22 +14,49 @@
   },
   "items": [
     {
-      "id": "30586abadd5a",
-      "title": "OPC创业者看过来，最高10万美元云资源等你拿",
-      "summary": "OPC创业者看过来，最高10万美元云资源等你拿",
-      "url": "https://www.qbitai.com/2026/07/458622.html",
+      "id": "b89fa069e89b",
+      "title": "菲尔兹奖得主王虹，也发过NeurIPS",
+      "summary": "王虹主页唯一没挂链接的论文",
+      "url": "https://www.qbitai.com/2026/07/460042.html",
       "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-24T13:05:38+08:00"
+      "category": "学术论文",
+      "published_at": "2026-07-24T19:10:26+08:00"
     },
     {
-      "id": "cb9c95138bbd",
-      "title": "10万字速记一口吞，金山办公新Agent开始直接交活了",
-      "summary": "重做一遍WPS",
-      "url": "https://www.qbitai.com/2026/07/458438.html",
+      "id": "dd2eff264975",
+      "title": "抢跑！全球化新品牌进入AI时刻，何以定胜负？ | 2026全球化新品牌AI竞争力大会实录",
+      "summary": "AI抢跑期，我们看见了全球化新品牌的下一程",
+      "url": "https://www.qbitai.com/2026/07/459432.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-07-24T12:45:28+08:00"
+      "published_at": "2026-07-24T17:57:35+08:00"
+    },
+    {
+      "id": "4288add1b37e",
+      "title": "领克07GT重磅上市，以越级驾趣+全场景拓展生态掀翻旅行车市场",
+      "summary": "领克07GT重磅上市，以越级驾趣+全场景拓展生态掀翻旅行车市场",
+      "url": "https://www.qbitai.com/2026/07/459402.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-24T16:50:26+08:00"
+    },
+    {
+      "id": "7bb0fdae518d",
+      "title": "近百名玩家涌入具身数据：一年融资44.7亿，谁能真靠“卖数据”赚钱？",
+      "summary": "近百名玩家涌入具身数据：一年融资44.7亿，谁能真靠“卖数据”赚钱？",
+      "url": "https://www.qbitai.com/2026/07/459262.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-07-24T15:49:44+08:00"
+    },
+    {
+      "id": "f74aa919f7d0",
+      "title": "世界模型“六小龙”在WAIC吵起来了！行业红利就在非共识里",
+      "summary": "世界模型“六小龙”在WAIC吵起来了！行业红利就在非共识里",
+      "url": "https://www.qbitai.com/2026/07/458617.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-24T15:29:57+08:00"
     },
     {
       "id": "7a9ded228ecc",
@@ -39,24 +66,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-07-24T12:34:27+08:00"
-    },
-    {
-      "id": "5df96844f74c",
-      "title": "嚯！35家大型央国企实测后，因果世界模型落地了",
-      "summary": "嚯！35家大型央国企实测后，因果世界模型落地了",
-      "url": "https://www.qbitai.com/2026/07/458357.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-24T12:21:28+08:00"
-    },
-    {
-      "id": "2af82956cffb",
-      "title": "WAIC看了一圈，这家公司的机器人在认真打工",
-      "summary": "WAIC看了一圈，这家公司的机器人在认真打工",
-      "url": "https://www.qbitai.com/2026/07/458348.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-24T12:19:34+08:00"
     },
     {
       "id": "46d41b5281a9",
@@ -104,17 +113,26 @@
       "published_at": "2026-07-24T12:00:00+08:00"
     },
     {
-      "id": "711c093bcf2a",
-      "title": "李飞飞学生发起国际具身人类数据标准，光轮智能成唯一参与中国企业",
-      "summary": "李飞飞学生发起国际具身人类数据标准，光轮智能成唯一参与中国企业",
-      "url": "https://www.qbitai.com/2026/07/457920.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-24T11:27:38+08:00"
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 81,937",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-24T10:26:05Z"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,674",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-24T07:51:18Z"
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,273",
+      "title": "f/prompts.chat · ★ 166,289",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -122,40 +140,13 @@
       "published_at": "2026-07-24T04:06:04Z"
     },
     {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,662",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-24T03:18:32Z"
-    },
-    {
-      "id": "f0fd5d5f88f8",
-      "title": "IMAX大战AI！诺兰刚封神，马斯克官宣Grok重拍《奥德赛》",
-      "summary": "一段由创作者Heavy Pulp使用Grok Imagine生成的3分钟AI短片，再现《奥德赛》中卡吕普索挽留奥德修斯的经典场景，凭借细腻的海风、岩洞、光影与人物微表情，配合多机位剪辑和成熟镜头语言引发轰动。X平台评论区盛赞其为“AI电影的iPhone时刻”，称荷马会为之骄傲，观众表示高度契合文学想象。该作品标志着A…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714447&idx=2&sn=0c98a8b6477fe42807c4fc40e0cf890c&chksm=f0c2295bf35f066ec8343899e9e1d3c318061b735a7c1537028a0c89bcfd456feb83cc90df09&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": "2026-07-24 13:50 分享"
-    },
-    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,401",
+      "title": "thedotmack/claude-mem · ★ 88,432",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-23T22:47:38Z"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 81,903",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-23T21:29:44Z"
     },
     {
       "id": "7c941d34eecc",
@@ -168,7 +159,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,170",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,184",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -293,10 +284,19 @@
       "published_at": null
     },
     {
-      "id": "b0c1762e9992",
-      "title": "真实工作流，正在成为下一代训练数据",
-      "summary": "数据市场正迈入新周期，Real-world Data（真实世界数据）成为AI实验室争相争夺的核心资源，因其源自企业实际工作流程，如GitHub完整记录问题从产生到解决的全过程，具备高真实性和时效性。相较之下，当前多数Human Data公司仍依赖人工构造的数据，质量与实用性受限。本文基于一线从业者的观察与复盘，梳理了…",
-      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525314&idx=1&sn=c87ecacf2b836355f7389093534aface&chksm=c141858de0192f5c3a3b192ce748828d7f0850ba96f6e27d04c20d22a271b4a9e6c7f650bbc9&scene=126&sessionid=0#rd",
+      "id": "11c5c6ed4ad7",
+      "title": "小红书笔记，长出「App」了！16万人手搓，00后打头阵",
+      "summary": "小红书上线Builder Hub创作者工具平台，支持用户零门槛快速创建互动小工具（如“通勤人格测试”），无需注册开发者账号或上架应用商店。创作者仅需三步：在创作者中心进入Builder Hub，选择“小工具”模板，填写名称与内容即可发布。该功能嵌入笔记底部，用户点击即用，支持分享与互动，显著降低轻量级应用开发门槛，赋…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714584&idx=1&sn=5b73ed44259ee888a504f54746cef766&chksm=f0a71245a74f69a3a6ac244a17673c8d2df82976bd3a6fd4033d21bb6e8b1d37f74bf0e6807d&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "14ed47c064f4",
+      "title": "山海夜话｜2分钟看懂:AI主体如何负责任地用好技术",
+      "summary": "《人工智能应用伦理安全指引1.0》在当前人工智能治理体系中具有承前启后的桥梁作用，标志着我国AI治理从原则倡导迈向主体责任细化阶段。该指引首次系统明确开发者、使用者、服务提供者等多元主体的伦理与安全责任，强化全链条风险防控。它既承接既有伦理原则共识，又为后续立法、标准制定及行业实践提供操作性框架，助力我国平稳迈入智能…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MTY2MzUyNA==&mid=2247600583&idx=3&sn=ba09c2951d0f3ea5cd57ae968e84c8a0&chksm=ce0a286053e8a65d6915ad6b8910fb66945b355202048628441a8f5f809972dd5f3909efadb4&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
@@ -329,20 +329,29 @@
       "published_at": null
     },
     {
-      "id": "8794a566189b",
-      "title": "AI PPT一改就崩？MemSlides登顶抱抱脸，让Agent记住你的改稿习惯",
-      "summary": "AI生成PPT的真正痛点并非初稿失败，而是修改环节失控：用户仅调整第8页局部，却引发第3页标题层级、第12页配色等连锁错乱，导致反复调试的风格被破坏。这揭示当前工具缺乏精准可控的局部编辑能力与上下文一致性维护。实际工作流中，“改稿”远比“生成”更耗时费力。行业进步虽快，但核心挑战已从“能否生成”转向“能否精准响应个性…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714514&idx=3&sn=5bb9b83e8925752ce4d72877c010b9e3&chksm=f0667318ff60eeb7795f418e8ce87ab5a83e9fb4f6c4f9cb7940edc7afe7d35f94cd1a73207b&scene=0&xtrack=1#rd",
+      "id": "cb08b47c5896",
+      "title": "Claude Agent突然大更新！狂塞500个技能，网友直呼疯狂",
+      "summary": "过去45天，Anthropic密集发布多项更新：Fable 5与Mythos 5落地，Sonnet 5降价，Claude Code高频迭代；最新在托管智能体平台（CMA）推出六大升级——技能上限从20提升至500，支持企业级知识库集成；思考力度五档可调，兼顾效率与深度推理；新增种子会话功能，一键生成含50条初始交互的…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714514&idx=2&sn=821d99b44f0440868bc13b3e16dbd9da&chksm=f0ad8f2f25f10a76697bf8d4caebfc9b600a8bc6c4a67ecd40c1977fff352f235ab998a2c0ed&scene=0&xtrack=1#rd",
       "source": "新智元",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "8ecf98bbfc84",
-      "title": "GPT-5.6推翻近30年数学猜想，全程对话公开：提示词只有58个单词？？？",
-      "summary": "GPT-5.6 Pro近日成功推翻图论领域存在近30年的Dinitz-Garg-Goemans猜想，发现其反例。研究者Dmitry Rybin仅用4条简洁提示（共58个英文单词），如“继续研究”“继续找”等，未依赖复杂提示工程或数学公式，全程由模型自主推理完成。该成果凸显大模型在前沿数学探索中的潜力，引发学界对AI辅…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906293&idx=2&sn=5e735380f01255dfd2c78dd256045292&chksm=e97f73098b99821bcb54fb5d6621e7f9e153a43fa858b7e4f4ef2b06610211b10e9d725098f2&scene=0&xtrack=1#rd",
+      "id": "24b0ca5d8018",
+      "title": "WAIC最狠展台打爆工业「深水区」！它石智航首发具身原生大脑AWE 3.5，具身Scaling全面释放",
+      "summary": "线束车间是工业自动化“深水区”，环境嘈杂、劳动强度大，员工流失率高。2026年WAIC上，石智航展出1:1还原的环形线束流水线，首次实现多机器人集群协同作业，依托具身智能技术突破传统瓶颈，完成从人工密集到自主柔性生产的跃迁，标志着汽车线束制造迈入全自主智能时代。",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906260&idx=1&sn=05727a15c96edb09d6c6b868f678adff&chksm=e9791667ad745fbd227c7825b9dece380c3b74049905da0cfe5aee8786213826edf8445682e9&scene=0&xtrack=1#rd",
       "source": "量子位",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "98ae531d0846",
+      "title": "Science | 基于结构与进化信息设计最小化RNA引导核酸酶",
+      "summary": "RNA引导核酸酶（如CRISPR-Cas）是基因编辑核心工具，但天然酶受进化限制，存在蛋白尺寸大、结构复杂、催化效率低等瓶颈。突破自然约束、设计更优新型酶成为蛋白质工程重大挑战。本研究提出融合蛋白质三维结构信息与多序列进化约束的AI驱动设计策略，聚焦最小RNA引导核酸酶Tn，成功构建性能增强、体积更小、特异性更高的非…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514064&idx=1&sn=e57514f22de312c2c4717ad2c469e7e4&chksm=fdb3ac0d833b8bb0e834e5c3857b08c01df7f4edd663543bde1a0598e2854215c61083f3591d&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     }
