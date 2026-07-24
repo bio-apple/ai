@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-24T13:19:28.211653+08:00",
+  "updated_at": "2026-07-24T14:22:07.903607+08:00",
   "date": "2026-07-24",
   "cadence": "daily",
   "window_days": 7,
@@ -14,6 +14,24 @@
   },
   "items": [
     {
+      "id": "30586abadd5a",
+      "title": "OPC创业者看过来，最高10万美元云资源等你拿",
+      "summary": "OPC创业者看过来，最高10万美元云资源等你拿",
+      "url": "https://www.qbitai.com/2026/07/458622.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-24T13:05:38+08:00"
+    },
+    {
+      "id": "cb9c95138bbd",
+      "title": "10万字速记一口吞，金山办公新Agent开始直接交活了",
+      "summary": "重做一遍WPS",
+      "url": "https://www.qbitai.com/2026/07/458438.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-24T12:45:28+08:00"
+    },
+    {
       "id": "7a9ded228ecc",
       "title": "At AI Summit, South Korea Outlines Its AI Future With NVIDIA and Partners",
       "summary": "At this week’s AI Summit in San Francisco, South Korean President Jae Myung Lee and some of the country’s top business leaders and researchers are meeting with…",
@@ -21,6 +39,15 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-07-24T12:34:27+08:00"
+    },
+    {
+      "id": "5df96844f74c",
+      "title": "嚯！35家大型央国企实测后，因果世界模型落地了",
+      "summary": "嚯！35家大型央国企实测后，因果世界模型落地了",
+      "url": "https://www.qbitai.com/2026/07/458357.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-24T12:21:28+08:00"
     },
     {
       "id": "2af82956cffb",
@@ -86,26 +113,8 @@
       "published_at": "2026-07-24T11:27:38+08:00"
     },
     {
-      "id": "fae247c9c170",
-      "title": "北大「双菲」：天才们的鲜活人生",
-      "summary": "菲尔兹奖得主王虹、邓煜创造中国历史！这是他们的故事。",
-      "url": "https://www.qbitai.com/2026/07/457922.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-24T11:23:41+08:00"
-    },
-    {
-      "id": "08f208a357ad",
-      "title": "新晋菲尔兹奖得主，当天宣布加入OpenAI",
-      "summary": "他的学生刚用Fable 5推翻87年悬案",
-      "url": "https://www.qbitai.com/2026/07/457792.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-24T09:48:11+08:00"
-    },
-    {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,274",
+      "title": "f/prompts.chat · ★ 166,273",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -122,8 +131,17 @@
       "published_at": "2026-07-24T03:18:32Z"
     },
     {
+      "id": "f0fd5d5f88f8",
+      "title": "IMAX大战AI！诺兰刚封神，马斯克官宣Grok重拍《奥德赛》",
+      "summary": "一段由创作者Heavy Pulp使用Grok Imagine生成的3分钟AI短片，再现《奥德赛》中卡吕普索挽留奥德修斯的经典场景，凭借细腻的海风、岩洞、光影与人物微表情，配合多机位剪辑和成熟镜头语言引发轰动。X平台评论区盛赞其为“AI电影的iPhone时刻”，称荷马会为之骄傲，观众表示高度契合文学想象。该作品标志着A…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714447&idx=2&sn=0c98a8b6477fe42807c4fc40e0cf890c&chksm=f0c2295bf35f066ec8343899e9e1d3c318061b735a7c1537028a0c89bcfd456feb83cc90df09&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": "2026-07-24 13:50 分享"
+    },
+    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,395",
+      "title": "thedotmack/claude-mem · ★ 88,401",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -132,7 +150,7 @@
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 81,897",
+      "title": "OpenHands/OpenHands · ★ 81,903",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
@@ -149,17 +167,8 @@
       "published_at": "2026-07-23T21:00:16+08:00"
     },
     {
-      "id": "1e4370daba3a",
-      "title": "智能体政策新闻相关背景和简要解读",
-      "summary": "智能体政策新闻相关背景和简要解读",
-      "url": "https://www.qbitai.com/2026/07/457787.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-23T19:08:31+08:00"
-    },
-    {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,167",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,170",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -183,15 +192,6 @@
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-07-23T08:00:00+08:00"
-    },
-    {
-      "id": "06a560fd5e3e",
-      "title": "美国阿贡实验室提出ChemGraph，13项基准测试评估Agent在计算化学领域价值",
-      "summary": "美国阿贡国家实验室提出大语言模型驱动的智能体系统ChemGraph，专用于计算化学分子模拟工作流程。该系统融合图神经网络与LLM，支持SMILES生成、几何优化、振动分析及热化学计算等任务，并兼容半经验方法、机器学习势和DFT等多种模拟方法。在13项基准测试中，大型模型（如GPT-4o）在复杂任务中表现稳健，而通过任…",
-      "url": "https://simg.baai.ac.cn/uploads/2026/07/3b07665bf9cd052b3a1d943d280c2624.jpg",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-23 17:09 发布"
     },
     {
       "id": "15eb5b1c419a",
@@ -293,11 +293,11 @@
       "published_at": null
     },
     {
-      "id": "fb2aa8899f17",
-      "title": "视频世界模型推理最高提速2.59×！浙大新作无需重训，不改参数",
-      "summary": "交互式视频世界模型正从单次生成短片迈向实时、长轨迹交互式生成。为应对长交互带来的上下文膨胀、显存压力与多步去噪开销，Light Interaction提出纯推理阶段优化：不修改模型参数或重训练，而是将相机轨迹作为调度信号，动态筛选历史上下文、复用回访状态的去噪结果，并引入面向自回归生成的3D稀疏注意力机制，显著降低计…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714395&idx=3&sn=7bf5daf657d9df9cec19c4c8f09f3fe4&chksm=f0d8f8c712fe3df8599d70feb886213625ce5b2198ddc8a07d094fe5e25bae636a7fbdafbd73&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "b0c1762e9992",
+      "title": "真实工作流，正在成为下一代训练数据",
+      "summary": "数据市场正迈入新周期，Real-world Data（真实世界数据）成为AI实验室争相争夺的核心资源，因其源自企业实际工作流程，如GitHub完整记录问题从产生到解决的全过程，具备高真实性和时效性。相较之下，当前多数Human Data公司仍依赖人工构造的数据，质量与实用性受限。本文基于一线从业者的观察与复盘，梳理了…",
+      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525314&idx=1&sn=c87ecacf2b836355f7389093534aface&chksm=c141858de0192f5c3a3b192ce748828d7f0850ba96f6e27d04c20d22a271b4a9e6c7f650bbc9&scene=126&sessionid=0#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
@@ -329,29 +329,20 @@
       "published_at": null
     },
     {
-      "id": "827b7b8d5ac4",
-      "title": "刚刚，华裔科学家刘如谦团队再发Nature：迈向AI蛋白质工程通用范式",
-      "summary": "刘如谦团队在《Nature》发表新研究，结合AI驱动的蛋白质设计（如ProteinMP）与实验室连续进化技术，成功构建出靶向非天然底物的新型蛋白酶。该方法显著提升了酶的稳定性、催化效率和底物特异性，突破传统酶工程局限。研究验证了AI预测与实验进化协同优化的可行性，为定制化酶设计提供了高效范式，有望推动生物医药、绿色化…",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MDE3OTA5NA==&mid=2247606018&idx=1&sn=11f7e9e1622e36f3cc796cb34f82a0b5&chksm=ce23ce718b7ddc59b746f216b1ced7c035a333d3d8545ff642997a4e5423708aadefe0b10e42&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "8794a566189b",
+      "title": "AI PPT一改就崩？MemSlides登顶抱抱脸，让Agent记住你的改稿习惯",
+      "summary": "AI生成PPT的真正痛点并非初稿失败，而是修改环节失控：用户仅调整第8页局部，却引发第3页标题层级、第12页配色等连锁错乱，导致反复调试的风格被破坏。这揭示当前工具缺乏精准可控的局部编辑能力与上下文一致性维护。实际工作流中，“改稿”远比“生成”更耗时费力。行业进步虽快，但核心挑战已从“能否生成”转向“能否精准响应个性…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714514&idx=3&sn=5bb9b83e8925752ce4d72877c010b9e3&chksm=f0667318ff60eeb7795f418e8ce87ab5a83e9fb4f6c4f9cb7940edc7afe7d35f94cd1a73207b&scene=0&xtrack=1#rd",
+      "source": "新智元",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "e99a67d990d4",
-      "title": "中央广电总台｜中国方案推动全球AI治理，赋能全球南方",
-      "summary": "7月17日，2026世界人工智能大会暨全球治理高级别会议在上海开幕。中方提出构建公正合理的全球人工智能治理体系，宣布支持全球AI发展、加强发展中国家能力建设等务实举措。清华大学梁正教授等专家指出，中国秉持开放包容、共商共建共享原则，积极参与AI国际规则制定，推动技术向善与普惠发展，展现负责任大国担当，为全球AI治理贡…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524568&idx=2&sn=99e1e212cdb6af830cf73a3d6ba39bfa&chksm=fc53bed937ce97e243a173044388fbd13c2732c5fc1cef2028e1607fb57ebc0de6c4a16defdf&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "ecb2743e0c35",
-      "title": "上海世界人工智能大会“前沿人工智能安全与关键基础设施保护：评测、标准与合作”闭门研讨会成功举行",
-      "summary": "2026年7月18日，CnAISDA联合多家顶尖机构在上海WAIC期间举办“前沿人工智能安全与关键基础设施保护”闭门研讨会，聚焦AI模型快速迭代背景下的风险评估、安全评测、标准制定与国际合作。会议强调构建科学可信的AI安全评测体系，推动关键基础设施防护能力建设，促进跨学科、跨部门、跨国界协同治理，旨在应对前沿AI带来…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524568&idx=1&sn=aea946356859cc170c9ffe1b028e408a&chksm=fc6e4c9577199c685b60a0e694a6041329310471d185c8c969022450d12731a9f078e86135b5&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "8ecf98bbfc84",
+      "title": "GPT-5.6推翻近30年数学猜想，全程对话公开：提示词只有58个单词？？？",
+      "summary": "GPT-5.6 Pro近日成功推翻图论领域存在近30年的Dinitz-Garg-Goemans猜想，发现其反例。研究者Dmitry Rybin仅用4条简洁提示（共58个英文单词），如“继续研究”“继续找”等，未依赖复杂提示工程或数学公式，全程由模型自主推理完成。该成果凸显大模型在前沿数学探索中的潜力，引发学界对AI辅…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906293&idx=2&sn=5e735380f01255dfd2c78dd256045292&chksm=e97f73098b99821bcb54fb5d6621e7f9e153a43fa858b7e4f4ef2b06610211b10e9d725098f2&scene=0&xtrack=1#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     }
