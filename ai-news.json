@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-25T13:13:33.509251+08:00",
+  "updated_at": "2026-07-25T14:12:11.474253+08:00",
   "date": "2026-07-25",
   "cadence": "daily",
   "window_days": 7,
@@ -33,7 +33,7 @@
     },
     {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,681",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,683",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
@@ -42,21 +42,12 @@
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,004",
+      "title": "OpenHands/OpenHands · ★ 82,009",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-25T02:14:51Z"
-    },
-    {
-      "id": "dc6d4da74a92",
-      "title": "8 月初、新加坡，4 场创业者闭门小局",
-      "summary": "8 月初、新加坡，4 场创业者闭门小局",
-      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525371&idx=1&sn=44f971d8c63b42e3159131c36696581a&chksm=c1a7166283a1231c9daa6e9ccaa6c0fb90d532af9c99a7c7928631a620052693b99447a32a6b&scene=126&sessionid=0#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-25 13:00 分享"
     },
     {
       "id": "4263095b36d2",
@@ -105,7 +96,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,490",
+      "title": "thedotmack/claude-mem · ★ 88,497",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -123,7 +114,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,201",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,202",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -248,6 +239,15 @@
       "published_at": null
     },
     {
+      "id": "b7b745a7ffb0",
+      "title": "【论坛全程回顾】2026世界人工智能大会“从共识到行动：全球人工智能治理的可能路径”",
+      "summary": "2026年7月18日，世界人工智能大会“从共识到行动：全球人工智能治理的可能路径”论坛在上海举行。清华大学人工智能国际治理研究院联合联合国开发计划署、儿童基金会、教科文组织、联合国大学及国际人工智能治理联盟、华为等中外机构，围绕联合国全球数字契约框架下的治理新机制、AI伦理与能力建设、多利益攸关方协同治理等核心议题展…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524572&idx=1&sn=14824d8dcf57a7ca2c6291c463ef3f2d&chksm=fc9652d862d3559faf9193fed0d144a23a7f9e9ee090651e7514ab1d111c9500b446454ab452&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
       "id": "5e689a649359",
       "title": "Inviting hard questions",
       "summary": "Inviting hard questions",
@@ -293,11 +293,11 @@
       "published_at": null
     },
     {
-      "id": "b7b745a7ffb0",
-      "title": "【论坛全程回顾】2026世界人工智能大会“从共识到行动：全球人工智能治理的可能路径”",
-      "summary": "2026年7月18日，世界人工智能大会“从共识到行动：全球人工智能治理的可能路径”论坛在上海举行。清华大学人工智能国际治理研究院联合联合国开发计划署、儿童基金会、教科文组织、联合国大学及国际人工智能治理联盟、华为等中外机构，围绕联合国全球数字契约框架下的治理新机制、AI伦理与能力建设、多利益攸关方协同治理等核心议题展…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524572&idx=1&sn=14824d8dcf57a7ca2c6291c463ef3f2d&chksm=fc9652d862d3559faf9193fed0d144a23a7f9e9ee090651e7514ab1d111c9500b446454ab452&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "b4d768bcdacd",
+      "title": "AI能拿菲尔兹了？Grok摸鱼8分钟，破解30年数学猜想！马斯克秒转",
+      "summary": "一个AI智能体在Slack群聊中偶然看到关于图论猜想的讨论，未经人工指令或提示词设计，自主推翻了困扰数学界30年的猜想。该事件发生于7月23日，由Capy.ai联合创始人Justin在X平台披露：团队仅随手转发帖子至内部群，AI研究智能体Capy主动介入并完成证明。整个过程仅耗时8分钟，堪称数学史上“最随意的突破”，…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714648&idx=1&sn=b3eb5c7519d182ca4c15dc5661731ebb&chksm=f08be7269a8df3efde4e53ccba57eb0f89668ce379e66ebc63942da3fba30a37c614eddbd552&scene=0&xtrack=1#rd",
+      "source": "新智元",
       "category": "中文资讯",
       "published_at": null
     }
