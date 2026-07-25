@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-25T14:12:11.474253+08:00",
+  "updated_at": "2026-07-25T21:08:15.507761+08:00",
   "date": "2026-07-25",
   "cadence": "daily",
   "window_days": 7,
@@ -14,6 +14,15 @@
   },
   "items": [
     {
+      "id": "5cfd85026080",
+      "title": "北京说Agent已经能造世界，杭州却说它是刚发明的电灯泡",
+      "summary": "工业圈和学术圈“唱反调”",
+      "url": "https://www.qbitai.com/2026/07/460186.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-25T19:07:25+08:00"
+    },
+    {
       "id": "53ae954806d8",
       "title": "全新统一流式架构，Vivix灵动时刻正式发布首个实时互动模型",
       "summary": "单卡突破10000 video tokens/s，Vivix打通实时多模态生成全链路",
@@ -24,7 +33,7 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,323",
+      "title": "f/prompts.chat · ★ 166,342",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -33,7 +42,7 @@
     },
     {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,683",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,679",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
@@ -42,12 +51,21 @@
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,009",
+      "title": "OpenHands/OpenHands · ★ 82,033",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-25T02:14:51Z"
+    },
+    {
+      "id": "b2b7bcc85f4f",
+      "title": "刚刚，亚洲黑马交卷了！把千亿大模型搬回本地，迈向Token自由",
+      "summary": "WAIC 2026上兴起的“Agent Computer”概念正从展示走向工程落地。当前挑战已不限于本地运行大模型，而在于支撑Agentic AI持续执行文件读取、记忆保留、工具调用及后台长期运行。这对端侧芯片提出更高要求：需在功耗、延迟与成本约束下保持稳定性能。传统芯片评价体系或将被重塑，以适应Agent对实时性、…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714735&idx=1&sn=1aeb73445f9c6cdfd2277d6b034dc321&chksm=f09f3469bd9651481d4cb3da9e2dbb30b35b325374b5ebcfae44400ae4fb40dda342b01dbf8c&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": "2026-07-25 18:50 分享"
     },
     {
       "id": "4263095b36d2",
@@ -77,15 +95,6 @@
       "published_at": "2026-07-24T19:10:26+08:00"
     },
     {
-      "id": "dd2eff264975",
-      "title": "抢跑！全球化新品牌进入AI时刻，何以定胜负？ | 2026全球化新品牌AI竞争力大会实录",
-      "summary": "AI抢跑期，我们看见了全球化新品牌的下一程",
-      "url": "https://www.qbitai.com/2026/07/459432.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-24T17:57:35+08:00"
-    },
-    {
       "id": "7a9ded228ecc",
       "title": "At AI Summit, South Korea Outlines Its AI Future With NVIDIA and Partners",
       "summary": "At this week’s AI Summit in San Francisco, South Korean President Jae Myung Lee and some of the country’s top business leaders and researchers are meeting with…",
@@ -96,7 +105,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,497",
+      "title": "thedotmack/claude-mem · ★ 88,523",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -114,7 +123,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,202",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,213",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -230,19 +239,10 @@
       "published_at": null
     },
     {
-      "id": "b9404f4ea690",
-      "title": "梁文锋押注的方向，中国00后团队先交卷了！性能直逼Opus 4.8",
-      "summary": "7月15日，前OpenAI CTO Mira Murati发布新创公司Thinking Machines Lab的首个大模型Inkling，参数达975B，获20亿美元融资，团队仅100人；同日，强化学习先驱、2024年图灵奖得主Richard Sutton（近七十岁）宣布创办AI公司Oak。两大重磅消息几乎同步引爆…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714682&idx=1&sn=29a4ccc9646bbc2fd7fad014bd436ce3&chksm=f069db63ef794f8588b3df7d17f23a163fde73ca467e4aa2f029e64ede5fa494f9cfbb6a6952&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "b7b745a7ffb0",
-      "title": "【论坛全程回顾】2026世界人工智能大会“从共识到行动：全球人工智能治理的可能路径”",
-      "summary": "2026年7月18日，世界人工智能大会“从共识到行动：全球人工智能治理的可能路径”论坛在上海举行。清华大学人工智能国际治理研究院联合联合国开发计划署、儿童基金会、教科文组织、联合国大学及国际人工智能治理联盟、华为等中外机构，围绕联合国全球数字契约框架下的治理新机制、AI伦理与能力建设、多利益攸关方协同治理等核心议题展…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524572&idx=1&sn=14824d8dcf57a7ca2c6291c463ef3f2d&chksm=fc9652d862d3559faf9193fed0d144a23a7f9e9ee090651e7514ab1d111c9500b446454ab452&scene=0&xtrack=1#rd",
+      "id": "84f958008783",
+      "title": "Nature | AI重新设计的起始序列与进化产物促进蛋白质进化",
+      "summary": "定向进化虽能提升酶性能，但天然蛋白稳定性差，易在突变中失活，制约进化深度。为此，研究人员创新性融合AI蛋白设计与连续定向进化：先用ProteinMPNN重设计天然蛋白序列，增强其稳定性与可表达性；再以此AI优化蛋白为起点，开展噬菌体辅助连续进化（PACE）。以肉毒毒素（BoNT）蛋白酶为模型验证，显著拓展了进化空间与…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514070&idx=1&sn=db83e3e70babac58f2f94721717c9f08&chksm=fd6de5bfa875974fed50f4a88131ea1b3d277945d39ff08e3b76747c9d6f134fc7efd3368145&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
@@ -275,29 +275,29 @@
       "published_at": null
     },
     {
-      "id": "c3eb5dc924f6",
-      "title": "长内容创作者苦AI失忆久矣，这个新Agent漂亮填坑！门槛低到只需要会用键盘打字",
-      "summary": "长文本处理难题并非单纯由模型上下文长度限制导致，而是源于模型缺乏有效信息组织与长期记忆能力。即便上下文窗口扩大，内存增加也不等于逻辑连贯性提升——伏笔遗忘、人设崩塌、引用失序等问题本质是模型对长程依赖建模不足、注意力机制难以聚焦关键信息所致。当前技术仍面临信息衰减、焦点偏移和结构化推理薄弱等瓶颈，需结合记忆增强、分层…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906883&idx=1&sn=5d7b8dd544174c8d559ceba86656189f&chksm=e91e10e25252bbc90f4e3fbf91acf473a34103272e6e6f2c434e5752b0592d617623de875003&scene=126&sessionid=0#rd",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "9532454a788f",
-      "title": "新晋菲尔兹奖得主，当天宣布加入OpenAI",
-      "summary": "数学家Jacob Tsimerman刚获数学界最高荣誉，随即宣布加入OpenAI，引发广泛关注。其身份充满反差：一方面坚信“AI可能导致人类灭绝”，并曾撰文探讨AI灭绝风险；另一方面却投身全球顶尖AI企业。这一抉择凸显其对AI发展复杂性的深刻认知——既警惕极端风险，又主张通过深度参与推动安全可控的技术演进。他的转向并…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906848&idx=1&sn=c53896e084e3a7441c386a8017b2dec1&chksm=e90582c95828ecb3bedee6e877c99d596c90fdd5c9ec803bc7b24ea9852f660ffaf3170cd0e2&scene=126&sessionid=0#rd",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "b4d768bcdacd",
-      "title": "AI能拿菲尔兹了？Grok摸鱼8分钟，破解30年数学猜想！马斯克秒转",
-      "summary": "一个AI智能体在Slack群聊中偶然看到关于图论猜想的讨论，未经人工指令或提示词设计，自主推翻了困扰数学界30年的猜想。该事件发生于7月23日，由Capy.ai联合创始人Justin在X平台披露：团队仅随手转发帖子至内部群，AI研究智能体Capy主动介入并完成证明。整个过程仅耗时8分钟，堪称数学史上“最随意的突破”，…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714648&idx=1&sn=b3eb5c7519d182ca4c15dc5661731ebb&chksm=f08be7269a8df3efde4e53ccba57eb0f89668ce379e66ebc63942da3fba30a37c614eddbd552&scene=0&xtrack=1#rd",
+      "id": "86d229dbeac7",
+      "title": "刚获菲尔兹奖，Ta转身就跳槽OpenAI",
+      "summary": "2026年国际数学家大会宣布邓煜、John Pardon、Jacob Tsimerman和王虹共同获得菲尔兹奖。其中，邓煜与王虹均为中国籍数学家，实现中国在该奖90年历史上零的突破，首次同时有两位中国籍获奖者。这一历史性成就引发国内广泛关注与热议，彰显中国数学研究的国际影响力显著提升，也标志着本土培养与海外深耕的数学…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714734&idx=2&sn=d76e2af830ff4f46324629ec4f78d179&chksm=f022b6b31eaf3caeb47d555edee02dc94dfff5ce1e5b49f21630fd2ae145c0977bcaff69dff2&scene=0&xtrack=1#rd",
       "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "933c195acecf",
+      "title": "2个月估值从88亿暴涨到680亿！最大AI中转站OpenRouter要被收购了",
+      "summary": "Stripe正就收购AI模型市场平台OpenRouter展开谈判，交易估值或达100亿美元（约680亿元人民币）。OpenRouter作为热门AI模型聚合平台，提供多模型API接入服务，广受开发者欢迎。此次收购若达成，将显著增强Stripe在AI基础设施领域的布局，拓展其面向开发者的云服务生态，并可能推动支付与AI应…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714735&idx=2&sn=4d5451ed211def815d59725e61403393&chksm=f0d657d199d6b45f5c9a3806c38a8172762f6ac6638f34b7a47a3864f7d2d2636dbe5ca57251&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "8c56f6be4d94",
+      "title": "文本/LaTeX/HTML表格一步搞定！OvisOCR2实现端到端文档智能解析；三元量化重塑大模型部署：Ternary Bonsai 27B实现9.4倍压缩",
+      "summary": "OvisOCR2是ATH-MaaS、阿里等团队于2026年7月发布的轻量级端到端文档解析模型，参数仅0.8B（约1.7GB），基于Qwen3.5-0.8B构建。它可直接将文档图像转化为保持自然阅读顺序的结构化Markdown，精准识别文本、公式、表格及可视区域。依托创新混合数据引擎与多阶段训练（SFT、RL、OPD）…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU3NTQ2NDIyOQ==&mid=2247529378&idx=2&sn=05e87b64c2c9d33206ea90fc0bbd9476&chksm=fc71b5a0d024e97ce41fefd5e4d6b51fc9e82fc38892c2f516bf145f67c7379da5e8a707fabb&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     }
