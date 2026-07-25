@@ -1,7 +1,7 @@
 {
   "month": "2026-06",
   "month_label": "Jun 2026",
-  "updated_at": "2026-07-25",
+  "updated_at": "2026-07-26",
   "cadence": "daily",
   "title": "2026 AI 工具排行榜（每日更新）",
   "lead": "同步 AICPB、LMSYS Chatbot Arena Elo，以及 Artificial Analysis Intelligence Index；各榜展示 Top 10。",
@@ -267,6 +267,26 @@
       "items": [
         {
           "rank": 1,
+          "name": "Claude Opus 5 (max)",
+          "description": "Anthropic",
+          "visits": "60.7",
+          "mom": "Anthropic",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/claude-opus-5",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 2,
+          "name": "Claude Opus 5 (xhigh)",
+          "description": "Anthropic",
+          "visits": "60.1",
+          "mom": "Anthropic",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/claude-opus-5-xhigh",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 3,
           "name": "Claude Fable 5 (with fallback)",
           "description": "Anthropic",
           "visits": "59.9",
@@ -276,7 +296,7 @@
           "source": "Artificial Analysis"
         },
         {
-          "rank": 2,
+          "rank": 4,
           "name": "GPT-5.6 Sol (max)",
           "description": "OpenAI",
           "visits": "58.9",
@@ -286,7 +306,17 @@
           "source": "Artificial Analysis"
         },
         {
-          "rank": 3,
+          "rank": 5,
+          "name": "Claude Opus 5 (high)",
+          "description": "Anthropic",
+          "visits": "58.9",
+          "mom": "Anthropic",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/claude-opus-5-high",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 6,
           "name": "GPT-5.6 Sol (xhigh)",
           "description": "OpenAI",
           "visits": "57.7",
@@ -296,7 +326,7 @@
           "source": "Artificial Analysis"
         },
         {
-          "rank": 4,
+          "rank": 7,
           "name": "Kimi K3",
           "description": "Kimi",
           "visits": "57.1",
@@ -306,7 +336,17 @@
           "source": "Artificial Analysis"
         },
         {
-          "rank": 5,
+          "rank": 8,
+          "name": "Claude Opus 5 (medium)",
+          "description": "Anthropic",
+          "visits": "56.3",
+          "mom": "Anthropic",
+          "mom_bar_pct": 0,
+          "url": "https://artificialanalysis.ai/models/claude-opus-5-medium",
+          "source": "Artificial Analysis"
+        },
+        {
+          "rank": 9,
           "name": "GPT-5.6 Sol (high)",
           "description": "OpenAI",
           "visits": "55.9",
@@ -316,53 +356,13 @@
           "source": "Artificial Analysis"
         },
         {
-          "rank": 6,
+          "rank": 10,
           "name": "Claude Opus 4.8 (max)",
           "description": "Anthropic",
           "visits": "55.7",
           "mom": "Anthropic",
           "mom_bar_pct": 0,
           "url": "https://artificialanalysis.ai/models/claude-opus-4-8",
-          "source": "Artificial Analysis"
-        },
-        {
-          "rank": 7,
-          "name": "GPT-5.6 Terra (max)",
-          "description": "OpenAI",
-          "visits": "55.0",
-          "mom": "OpenAI",
-          "mom_bar_pct": 0,
-          "url": "https://artificialanalysis.ai/models/gpt-5-6-terra",
-          "source": "Artificial Analysis"
-        },
-        {
-          "rank": 8,
-          "name": "GPT-5.5 (xhigh)",
-          "description": "OpenAI",
-          "visits": "54.8",
-          "mom": "OpenAI",
-          "mom_bar_pct": 0,
-          "url": "https://artificialanalysis.ai/models/gpt-5-5",
-          "source": "Artificial Analysis"
-        },
-        {
-          "rank": 9,
-          "name": "Grok 4.5 (high)",
-          "description": "SpaceXAI",
-          "visits": "53.8",
-          "mom": "SpaceXAI",
-          "mom_bar_pct": 0,
-          "url": "https://artificialanalysis.ai/models/grok-4-5",
-          "source": "Artificial Analysis"
-        },
-        {
-          "rank": 10,
-          "name": "GPT-5.6 Sol (medium)",
-          "description": "OpenAI",
-          "visits": "53.6",
-          "mom": "OpenAI",
-          "mom_bar_pct": 0,
-          "url": "https://artificialanalysis.ai/models/gpt-5-6-sol-medium",
           "source": "Artificial Analysis"
         }
       ]
@@ -383,9 +383,9 @@
     },
     {
       "medal": "📈",
-      "name": "Claude Fable 5 (with fallback)",
+      "name": "Claude Opus 5 (max)",
       "dimension": "Artificial Analysis Intelligence Index Top 1",
-      "url": "https://artificialanalysis.ai/models/claude-fable-5"
+      "url": "https://artificialanalysis.ai/models/claude-opus-5"
     }
   ]
 }
