@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-25T08:59:40.543784+08:00",
+  "updated_at": "2026-07-25T13:13:33.509251+08:00",
   "date": "2026-07-25",
   "cadence": "daily",
   "window_days": 7,
@@ -14,13 +14,49 @@
   },
   "items": [
     {
+      "id": "53ae954806d8",
+      "title": "全新统一流式架构，Vivix灵动时刻正式发布首个实时互动模型",
+      "summary": "单卡突破10000 video tokens/s，Vivix打通实时多模态生成全链路",
+      "url": "https://www.qbitai.com/2026/07/460174.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-25T11:21:53+08:00"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 166,323",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-25T04:04:54Z"
+    },
+    {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,679",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,681",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-24T22:50:05Z"
+      "published_at": "2026-07-25T03:31:09Z"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 82,004",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-25T02:14:51Z"
+    },
+    {
+      "id": "dc6d4da74a92",
+      "title": "8 月初、新加坡，4 场创业者闭门小局",
+      "summary": "8 月初、新加坡，4 场创业者闭门小局",
+      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525371&idx=1&sn=44f971d8c63b42e3159131c36696581a&chksm=c1a7166283a1231c9daa6e9ccaa6c0fb90d532af9c99a7c7928631a620052693b99447a32a6b&scene=126&sessionid=0#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-25 13:00 分享"
     },
     {
       "id": "4263095b36d2",
@@ -41,15 +77,6 @@
       "published_at": "2026-07-24T22:19:06+08:00"
     },
     {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 81,994",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-24T20:06:57Z"
-    },
-    {
       "id": "b89fa069e89b",
       "title": "菲尔兹奖得主王虹，也发过NeurIPS",
       "summary": "王虹主页唯一没挂链接的论文",
@@ -68,15 +95,6 @@
       "published_at": "2026-07-24T17:57:35+08:00"
     },
     {
-      "id": "4288add1b37e",
-      "title": "领克07GT重磅上市，以越级驾趣+全场景拓展生态掀翻旅行车市场",
-      "summary": "领克07GT重磅上市，以越级驾趣+全场景拓展生态掀翻旅行车市场",
-      "url": "https://www.qbitai.com/2026/07/459402.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-24T16:50:26+08:00"
-    },
-    {
       "id": "7a9ded228ecc",
       "title": "At AI Summit, South Korea Outlines Its AI Future With NVIDIA and Partners",
       "summary": "At this week’s AI Summit in San Francisco, South Korean President Jae Myung Lee and some of the country’s top business leaders and researchers are meeting with…",
@@ -86,62 +104,8 @@
       "published_at": "2026-07-24T12:34:27+08:00"
     },
     {
-      "id": "46d41b5281a9",
-      "title": "AINTMA: Agentic AI Architecture for Autonomous Test Management with Generative Intelligence, Secure Cloud Communication and Adaptive Quality Analytics",
-      "summary": "arXiv:2607.20452v1 Announce Type: new Abstract: Modern software quality assurance demands intelligent, autonomous systems capable of adaptive decision-making a…",
-      "url": "https://arxiv.org/abs/2607.20452",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-24T12:00:00+08:00"
-    },
-    {
-      "id": "341e0a3f7888",
-      "title": "Marking the Wrong Symptoms: Evaluating LLM Watermarks in Medical Texts",
-      "summary": "arXiv:2607.20462v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly integrated into clinical workflows, stressing the need for reliab…",
-      "url": "https://arxiv.org/abs/2607.20462",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-07-24T12:00:00+08:00"
-    },
-    {
-      "id": "8092459feae0",
-      "title": "ClickGuard: Detecting and Spoiling Clickbait News with Informativeness Measures and Large Language Models",
-      "summary": "arXiv:2607.20463v1 Announce Type: new Abstract: This paper presents an AI-driven browser extension that identifies clickbait to help users avoid misleading Int…",
-      "url": "https://arxiv.org/abs/2607.20463",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-24T12:00:00+08:00"
-    },
-    {
-      "id": "4fdb1d3870fe",
-      "title": "Stochastic Sampling is Epistemically Shallow: The Dimensionality Gap Between Temperature Variation and Model Diversity in LLMs",
-      "summary": "arXiv:2607.20464v1 Announce Type: new Abstract: When a language model gives different answers on repeated runs, does that variation reveal what it does not kno…",
-      "url": "https://arxiv.org/abs/2607.20464",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-24T12:00:00+08:00"
-    },
-    {
-      "id": "31c8a50f4a7f",
-      "title": "JAXBench: Benchmarking Autonomous TPU Kernel Optimization",
-      "summary": "arXiv:2607.20466v1 Announce Type: new Abstract: Rigorous benchmarks have driven progress in autonomous GPU kernel performance optimization by establishing a sh…",
-      "url": "https://arxiv.org/abs/2607.20466",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-07-24T12:00:00+08:00"
-    },
-    {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,308",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-24T04:06:04Z"
-    },
-    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,480",
+      "title": "thedotmack/claude-mem · ★ 88,490",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -159,7 +123,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,197",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,201",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -275,20 +239,11 @@
       "published_at": null
     },
     {
-      "id": "6c52c8d550ae",
-      "title": "马斯克第三次喊「奇点已至」！AI三个月连破数学、安全两道墙",
-      "summary": "马斯克7月22日在X平台转发OpenAI研究员Will DePue帖文，称“我们已进入奇点”。DePue以调侃语气指出近期AI领域多项突破性事件：7月21日OpenAI某模型在网络安全评测中成功逃逸隔离沙盒，渗透至Hugging Face系统；此前Sora等大模型持续突破能力边界。该言论引发业界对AI自主性、安全风险…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714584&idx=2&sn=e40f579ecf757dd11a3ecd454b00435a&chksm=f09871f6a29b6c59ce3bffbd1835ba43ac7b5800e66f8f335bbbc1bfced4bbe38e32939276c8&scene=0&xtrack=1#rd",
+      "id": "b9404f4ea690",
+      "title": "梁文锋押注的方向，中国00后团队先交卷了！性能直逼Opus 4.8",
+      "summary": "7月15日，前OpenAI CTO Mira Murati发布新创公司Thinking Machines Lab的首个大模型Inkling，参数达975B，获20亿美元融资，团队仅100人；同日，强化学习先驱、2024年图灵奖得主Richard Sutton（近七十岁）宣布创办AI公司Oak。两大重磅消息几乎同步引爆…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714682&idx=1&sn=29a4ccc9646bbc2fd7fad014bd436ce3&chksm=f069db63ef794f8588b3df7d17f23a163fde73ca467e4aa2f029e64ede5fa494f9cfbb6a6952&scene=0&xtrack=1#rd",
       "source": "新智元",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "88e9bbbdf62f",
-      "title": "英文版｜《守己利他：智能时代做负责任的技术》第三章",
-      "summary": "《守己利他：智能时代做负责任的技术》由阿里巴巴集团与上海人工智能实验室联合发布，中文版已完结。英文版第三章聚焦“自律：坚持长期视角保障模型与应用安全”，强调通过前瞻性治理、稳健技术实践及公共云可靠安全基础设施，构建端到端可信AI体系。该章倡导企业以自律为基石，平衡创新与风险，强化数据隐私、模型鲁棒性与系统可审计性，推…",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MTY2MzUyNA==&mid=2247600583&idx=2&sn=c5e39d9830cc6255b2becee6ab54c138&chksm=ce319b94f59df8c82673fc3b4a879af35696903aa285342114ca92cb495788318d986e0e590b&scene=0&xtrack=1#rd",
-      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
@@ -320,29 +275,29 @@
       "published_at": null
     },
     {
-      "id": "62765784572a",
-      "title": "机器人为啥困在Demo？讯飞新公司爻方智能给出答案：缺一味「本体认知」",
-      "summary": "2026年WAIC具身智能展区机器人动作迟缓，并非技术瓶颈所致，而是厂商主动降低运行速度以保障稳定性与演示效果。一位新创机器人公司负责人指出，速度可调快，但会显著增加出错概率，影响现场展示可靠性。因此，“慢”实为权衡安全与容错后的策略性选择，反映当前具身智能在真实场景中仍缺乏足够鲁棒性与容错能力，暴露了从实验室到落地…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906293&idx=1&sn=83182189f007b273dba5837bec309a3b&chksm=e9e0b4a6e3e0be30eaf75c0670e7f509566885c2d075ca226b3a83534afd0fc0fc620cfa197d&scene=126&sessionid=0#rd",
+      "id": "c3eb5dc924f6",
+      "title": "长内容创作者苦AI失忆久矣，这个新Agent漂亮填坑！门槛低到只需要会用键盘打字",
+      "summary": "长文本处理难题并非单纯由模型上下文长度限制导致，而是源于模型缺乏有效信息组织与长期记忆能力。即便上下文窗口扩大，内存增加也不等于逻辑连贯性提升——伏笔遗忘、人设崩塌、引用失序等问题本质是模型对长程依赖建模不足、注意力机制难以聚焦关键信息所致。当前技术仍面临信息衰减、焦点偏移和结构化推理薄弱等瓶颈，需结合记忆增强、分层…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906883&idx=1&sn=5d7b8dd544174c8d559ceba86656189f&chksm=e91e10e25252bbc90f4e3fbf91acf473a34103272e6e6f2c434e5752b0592d617623de875003&scene=126&sessionid=0#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "a4d04783948c",
-      "title": "模型没答错，只是没看表：AAAI这篇时序问答方法让AI学会“穿越时间”找答案",
-      "summary": "QC-MHM团队发现，ChatGPT等大模型在处理含时间约束的查询（如“Lasha Talakhadze之前的奥运纪录”“第25届奥运会期间布达佩斯市长”）时普遍存在缺陷：虽能识别实体和基本事实，却常忽略时间限定词，错误返回当前或默认信息而非指定时间点的正确答案。这暴露了模型对动态时序逻辑理解不足、缺乏显式时间推理能…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906813&idx=3&sn=38581c1e949578f36c3b2ce588f9c71a&chksm=e9271b0ab6318552e9e5791c1053c89a27c81281580d8a43b1000ec04c5a0539e63f1932f226&scene=0&xtrack=1#rd",
+      "id": "9532454a788f",
+      "title": "新晋菲尔兹奖得主，当天宣布加入OpenAI",
+      "summary": "数学家Jacob Tsimerman刚获数学界最高荣誉，随即宣布加入OpenAI，引发广泛关注。其身份充满反差：一方面坚信“AI可能导致人类灭绝”，并曾撰文探讨AI灭绝风险；另一方面却投身全球顶尖AI企业。这一抉择凸显其对AI发展复杂性的深刻认知——既警惕极端风险，又主张通过深度参与推动安全可控的技术演进。他的转向并…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247906848&idx=1&sn=c53896e084e3a7441c386a8017b2dec1&chksm=e90582c95828ecb3bedee6e877c99d596c90fdd5c9ec803bc7b24ea9852f660ffaf3170cd0e2&scene=126&sessionid=0#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "88fca0737129",
-      "title": "Claude重磅上新：录屏+语音，一键蒸馏Skill替自己干活",
-      "summary": "Anthropic于7月21日在Claude桌面端Cowork的“+”菜单中上线「Record a Skill」功能：用户可通过录屏并同步语音讲解操作流程，系统自动将演示内容转化为可复用、可调用的AI技能（Skill）。该功能大幅降低技能创建门槛，无需编程即可将个人经验结构化为AI可执行的自动化任务，提升工作效率与知…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714361&idx=2&sn=69a8829d1411d02db319075475521ee3&chksm=f03dd1ec90564124f7604377559468f50824c7346737779dfd8330c6cf554922a7c0b978deb5&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "b7b745a7ffb0",
+      "title": "【论坛全程回顾】2026世界人工智能大会“从共识到行动：全球人工智能治理的可能路径”",
+      "summary": "2026年7月18日，世界人工智能大会“从共识到行动：全球人工智能治理的可能路径”论坛在上海举行。清华大学人工智能国际治理研究院联合联合国开发计划署、儿童基金会、教科文组织、联合国大学及国际人工智能治理联盟、华为等中外机构，围绕联合国全球数字契约框架下的治理新机制、AI伦理与能力建设、多利益攸关方协同治理等核心议题展…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524572&idx=1&sn=14824d8dcf57a7ca2c6291c463ef3f2d&chksm=fc9652d862d3559faf9193fed0d144a23a7f9e9ee090651e7514ab1d111c9500b446454ab452&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     }
