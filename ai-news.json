@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-25T21:08:15.507761+08:00",
-  "date": "2026-07-25",
+  "updated_at": "2026-07-26T09:05:49.277859+08:00",
+  "date": "2026-07-26",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -14,6 +14,51 @@
   },
   "items": [
     {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 82,078",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-25T20:44:13Z"
+    },
+    {
+      "id": "c84e5590a1f5",
+      "title": "100%开源！吴恩达做了个个人桌面Agent",
+      "summary": "开源、隐私、本地优先、模型无关",
+      "url": "https://www.qbitai.com/2026/07/460892.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-07-25T20:35:34+08:00"
+    },
+    {
+      "id": "c15d933d3848",
+      "title": "美国具身也没成熟！PI：中国公司何必总当“中国版XX”｜RSS 2026",
+      "summary": "这是机器人领域最好的时代",
+      "url": "https://www.qbitai.com/2026/07/460542.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-25T20:24:27+08:00"
+    },
+    {
+      "id": "9d3cc9b4b37e",
+      "title": "半价干翻Fable 5？Opus 5实测炸场，网友：差点从椅子上摔下来",
+      "summary": "模型变强，Claude Code系统提示词都精简了",
+      "url": "https://www.qbitai.com/2026/07/460253.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-07-25T20:11:39+08:00"
+    },
+    {
+      "id": "22668fba1dd4",
+      "title": "具身智能的「ChatGPT时刻」还没到，科沃斯先把机器人拆开了",
+      "summary": "不做人形，抓住真实用户需求",
+      "url": "https://www.qbitai.com/2026/07/460234.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-07-25T19:54:44+08:00"
+    },
+    {
       "id": "5cfd85026080",
       "title": "北京说Agent已经能造世界，杭州却说它是刚发明的电灯泡",
       "summary": "工业圈和学术圈“唱反调”",
@@ -23,76 +68,22 @@
       "published_at": "2026-07-25T19:07:25+08:00"
     },
     {
-      "id": "53ae954806d8",
-      "title": "全新统一流式架构，Vivix灵动时刻正式发布首个实时互动模型",
-      "summary": "单卡突破10000 video tokens/s，Vivix打通实时多模态生成全链路",
-      "url": "https://www.qbitai.com/2026/07/460174.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-25T11:21:53+08:00"
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,683",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-25T16:23:15Z"
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,342",
+      "title": "f/prompts.chat · ★ 166,361",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-25T04:04:54Z"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,679",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-25T03:31:09Z"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,033",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-25T02:14:51Z"
-    },
-    {
-      "id": "b2b7bcc85f4f",
-      "title": "刚刚，亚洲黑马交卷了！把千亿大模型搬回本地，迈向Token自由",
-      "summary": "WAIC 2026上兴起的“Agent Computer”概念正从展示走向工程落地。当前挑战已不限于本地运行大模型，而在于支撑Agentic AI持续执行文件读取、记忆保留、工具调用及后台长期运行。这对端侧芯片提出更高要求：需在功耗、延迟与成本约束下保持稳定性能。传统芯片评价体系或将被重塑，以适应Agent对实时性、…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714735&idx=1&sn=1aeb73445f9c6cdfd2277d6b034dc321&chksm=f09f3469bd9651481d4cb3da9e2dbb30b35b325374b5ebcfae44400ae4fb40dda342b01dbf8c&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": "2026-07-25 18:50 分享"
-    },
-    {
-      "id": "4263095b36d2",
-      "title": "合肥又押中AI独角兽：多模态赛道，3个月融了21亿",
-      "summary": "跑出原生全模态新路径",
-      "url": "https://www.qbitai.com/2026/07/460154.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-24T22:42:32+08:00"
-    },
-    {
-      "id": "3c030e2d2a5e",
-      "title": "国产世界模型登顶李飞飞团队榜单！适配国产昇腾算力、代码权重全开源",
-      "summary": "给它一张图，还你整个世界",
-      "url": "https://www.qbitai.com/2026/07/460041.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-07-24T22:19:06+08:00"
-    },
-    {
-      "id": "b89fa069e89b",
-      "title": "菲尔兹奖得主王虹，也发过NeurIPS",
-      "summary": "王虹主页唯一没挂链接的论文",
-      "url": "https://www.qbitai.com/2026/07/460042.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-07-24T19:10:26+08:00"
     },
     {
       "id": "7a9ded228ecc",
@@ -105,7 +96,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,523",
+      "title": "thedotmack/claude-mem · ★ 88,560",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -123,7 +114,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,213",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,244",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -239,10 +230,19 @@
       "published_at": null
     },
     {
-      "id": "84f958008783",
-      "title": "Nature | AI重新设计的起始序列与进化产物促进蛋白质进化",
-      "summary": "定向进化虽能提升酶性能，但天然蛋白稳定性差，易在突变中失活，制约进化深度。为此，研究人员创新性融合AI蛋白设计与连续定向进化：先用ProteinMPNN重设计天然蛋白序列，增强其稳定性与可表达性；再以此AI优化蛋白为起点，开展噬菌体辅助连续进化（PACE）。以肉毒毒素（BoNT）蛋白酶为模型验证，显著拓展了进化空间与…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514070&idx=1&sn=db83e3e70babac58f2f94721717c9f08&chksm=fd6de5bfa875974fed50f4a88131ea1b3d277945d39ff08e3b76747c9d6f134fc7efd3368145&scene=0&xtrack=1#rd",
+      "id": "86d229dbeac7",
+      "title": "刚获菲尔兹奖，Ta转身就跳槽OpenAI",
+      "summary": "2026年国际数学家大会宣布邓煜、John Pardon、Jacob Tsimerman和王虹共同获得菲尔兹奖。其中，邓煜与王虹均为中国籍数学家，实现中国在该奖90年历史上零的突破，首次同时有两位中国籍获奖者。这一历史性成就引发国内广泛关注与热议，彰显中国数学研究的国际影响力显著提升，也标志着本土培养与海外深耕的数学…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714734&idx=2&sn=d76e2af830ff4f46324629ec4f78d179&chksm=f022b6b31eaf3caeb47d555edee02dc94dfff5ce1e5b49f21630fd2ae145c0977bcaff69dff2&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "5c1b95cd1cfc",
+      "title": "新华社·肖茜｜未来全球AI治理要管控风险，更要创造机会",
+      "summary": "7月17日，2026世界人工智能大会暨全球治理高级别会议在上海开幕。清华大学人工智能国际治理研究院副院长肖茜指出，当前全球AI发展面临机遇与风险并存的双重挑战，应秉持平衡务实的治理理念，坚持开放合作、加强能力建设，推动AI向普惠性、安全性与可持续性方向实现全球化发展。她强调，唯有协同治理、共建共享，才能有效应对技术不…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524581&idx=2&sn=36436c2bef420cb0974af141f92769bd&chksm=fc15d55b787964d8da49bab6c99b9da1a2016efb598b89823fb220854a6ac232386b8706fa3b&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
@@ -275,28 +275,19 @@
       "published_at": null
     },
     {
-      "id": "86d229dbeac7",
-      "title": "刚获菲尔兹奖，Ta转身就跳槽OpenAI",
-      "summary": "2026年国际数学家大会宣布邓煜、John Pardon、Jacob Tsimerman和王虹共同获得菲尔兹奖。其中，邓煜与王虹均为中国籍数学家，实现中国在该奖90年历史上零的突破，首次同时有两位中国籍获奖者。这一历史性成就引发国内广泛关注与热议，彰显中国数学研究的国际影响力显著提升，也标志着本土培养与海外深耕的数学…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714734&idx=2&sn=d76e2af830ff4f46324629ec4f78d179&chksm=f022b6b31eaf3caeb47d555edee02dc94dfff5ce1e5b49f21630fd2ae145c0977bcaff69dff2&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "273cb6de54ab",
+      "title": "人民日报海外版｜梁正等：当技术挑战伦理，治理如何跟上",
+      "summary": "人工智能引发多重伦理挑战，包括隐私泄露与数据安全风险、算法偏见导致的歧视问题、深度伪造技术引发的信息操纵与信任危机等。例如，人脸识别滥用侵犯个人隐私，招聘算法因训练数据偏差加剧性别或种族歧视，AI生成虚假音视频扰乱舆论秩序。专家指出，其中最需警惕的是AI对社会信任基础、民主机制及人类自主性的潜在侵蚀，亟需构建跨学科、…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524581&idx=1&sn=4a1a6f554d642df7215de874a1c2fb3d&chksm=fc44ec6b3a41507d9a76a6e387822739bb84295c43fef6c89d6cbf8924d877ec318e83a1adc3&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "933c195acecf",
-      "title": "2个月估值从88亿暴涨到680亿！最大AI中转站OpenRouter要被收购了",
-      "summary": "Stripe正就收购AI模型市场平台OpenRouter展开谈判，交易估值或达100亿美元（约680亿元人民币）。OpenRouter作为热门AI模型聚合平台，提供多模型API接入服务，广受开发者欢迎。此次收购若达成，将显著增强Stripe在AI基础设施领域的布局，拓展其面向开发者的云服务生态，并可能推动支付与AI应…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714735&idx=2&sn=4d5451ed211def815d59725e61403393&chksm=f0d657d199d6b45f5c9a3806c38a8172762f6ac6638f34b7a47a3864f7d2d2636dbe5ca57251&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "8c56f6be4d94",
-      "title": "文本/LaTeX/HTML表格一步搞定！OvisOCR2实现端到端文档智能解析；三元量化重塑大模型部署：Ternary Bonsai 27B实现9.4倍压缩",
-      "summary": "OvisOCR2是ATH-MaaS、阿里等团队于2026年7月发布的轻量级端到端文档解析模型，参数仅0.8B（约1.7GB），基于Qwen3.5-0.8B构建。它可直接将文档图像转化为保持自然阅读顺序的结构化Markdown，精准识别文本、公式、表格及可视区域。依托创新混合数据引擎与多阶段训练（SFT、RL、OPD）…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU3NTQ2NDIyOQ==&mid=2247529378&idx=2&sn=05e87b64c2c9d33206ea90fc0bbd9476&chksm=fc71b5a0d024e97ce41fefd5e4d6b51fc9e82fc38892c2f516bf145f67c7379da5e8a707fabb&scene=0&xtrack=1#rd",
+      "id": "84f958008783",
+      "title": "Nature | AI重新设计的起始序列与进化产物促进蛋白质进化",
+      "summary": "定向进化虽能提升酶性能，但天然蛋白稳定性差，易在突变中失活，制约进化深度。为此，研究人员创新性融合AI蛋白设计与连续定向进化：先用ProteinMPNN重设计天然蛋白序列，增强其稳定性与可表达性；再以此AI优化蛋白为起点，开展噬菌体辅助连续进化（PACE）。以肉毒毒素（BoNT）蛋白酶为模型验证，显著拓展了进化空间与…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514070&idx=1&sn=db83e3e70babac58f2f94721717c9f08&chksm=fd6de5bfa875974fed50f4a88131ea1b3d277945d39ff08e3b76747c9d6f134fc7efd3368145&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
