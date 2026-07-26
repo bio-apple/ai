@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-26T13:30:03.967847+08:00",
+  "updated_at": "2026-07-26T14:32:16.548507+08:00",
   "date": "2026-07-26",
   "cadence": "daily",
   "window_days": 7,
@@ -14,17 +14,17 @@
   },
   "items": [
     {
-      "id": "32139762c481",
-      "title": "清华弄了个镜像错觉艺术生成器，支持3D打印 | CVPR'26亮点",
-      "summary": "清华大学团队研发AutoMIA系统，可将任意两张图片转化为具镜像错觉效果的3D艺术品，实现正反两面呈现不同图案（如“CVPR”与“2026”、“山”与“水”），突破传统镜像对称限制。该系统通过算法生成非对称3D结构，使同一物体在镜中反射出预设的另一图像，并支持3D打印落地。技术核心在于建模光路与表面几何关系，精准控制…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714734&idx=3&sn=cebd2da28f59a494a9b5178084805572&chksm=f0c7379d7f77789ee4f92fccc92bfdd4933b75106d3d87bddf2bdeeae4b47c36677d566b023b&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "09bb06378933",
+      "title": "Nat. Biomed. Eng. | 融合临床概念的可审计放射学基础模型",
+      "summary": "DRUGONE指出，当前医学影像基础模型多为“黑箱”，缺乏可解释性，难以识别数据偏倚与混杂因素。为此，研究人员提出新型放射学基础模型CLEAR（Concept-Level Embeddings for Auditable Radiology），首次将临床概念直接嵌入模型内部表示，实现预测过程的可审计性与可解释性，支持…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514078&idx=2&sn=240076daa41aa8d5c0ddabf183eab380&chksm=fdae8c13be5984074f87b77667f9235eb1e0a3257e3fe94a758831204839b8f64fcd53a9c8a9&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
-      "published_at": "2026-07-26 11:20 分享"
+      "published_at": "2026-07-26 14:00 分享"
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,090",
+      "title": "OpenHands/OpenHands · ★ 82,094",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
@@ -78,7 +78,7 @@
     },
     {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,690",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,691",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
@@ -87,7 +87,7 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,364",
+      "title": "f/prompts.chat · ★ 166,369",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -105,7 +105,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,567",
+      "title": "thedotmack/claude-mem · ★ 88,572",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -239,11 +239,11 @@
       "published_at": null
     },
     {
-      "id": "2ad21373c976",
-      "title": "【研修班通知】关于邀请参加人工智能技术转移转化与产业创新高级研修班的通知（第三轮）",
-      "summary": "面向“十五五”，人工智能正加速引领科技革命与产业变革，成为重塑全球竞争格局和培育新质生产力的核心引擎。为贯彻党的二十届四中全会精神，推进高水平科技自立自强，促进科技创新与产业创新深度融合，中国科学学与科技政策研究会将于2026年7月31日至8月3日在成都电子科技大学举办专题活动，聚焦AI时代技术转移转化的前沿趋势、政…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524585&idx=1&sn=62ef325aa0ac65bc8306b5289ce771e9&chksm=fcf58e47a36250c1f891b5289e624d9a207475a4c0c3b04564a2940cbf0160fd31e1db54028e&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "9c9daece2447",
+      "title": "深度｜开源大战全面开打：老黄+小扎 vs 奥特曼+达里奥",
+      "summary": "黄仁勋罕见注册X账号，首条动态发布题为《Open Weights and American AI Leadership》的公开信，强调开放权重（Open Weights）对美国AI领导地位的重要性。该信由微软牵头发起，英伟达作为25家联署方之一参与。签署方涵盖科技企业、学术机构与行业组织，主张在保障安全前提下推动模型…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714797&idx=2&sn=bee09222085804c7d3b1e8fecd9d7aa5&chksm=f0a3b800c1fd9c4750aae4f9271339b3bd8f2b11122932ee20a81bf90cf084af8f8e8a73bfbf&scene=0&xtrack=1#rd",
+      "source": "新智元",
       "category": "中文资讯",
       "published_at": null
     },
@@ -275,20 +275,20 @@
       "published_at": null
     },
     {
-      "id": "053ea9057688",
-      "title": "Kimi K3设计榜登顶焚诀公开：就藏在思维链里",
-      "summary": "Kimi K3在Design Arena前端生成榜单中以1414分登顶，超越Fable 5和GPT-5.6 Sol，展现显著代际进步。其优势并非源于传统编程能力，而在于前端设计表现力，标志着从“写代码”向“做设计”的能力跃迁。相比前代K2.6/K2.7 Code，K3在UI理解、视觉逻辑与交互生成上实现突破。Desi…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907198&idx=2&sn=b55245da62f29873943aac42ea368300&chksm=e94418d9e962b8daf820c2e5d62816a05aeb2ae2eb6dfdff362835b02a3e7c7b080e4662211e&scene=126&sessionid=0#rd",
-      "source": "量子位",
+      "id": "38d0674ac86d",
+      "title": "Sutton、OpenAI 联创押注的持续学习，有中国团队带着模型进场了",
+      "summary": "7月15日，明星创业公司Thinking Machines Lab发布首款开放权重模型Inkling，聚焦持续学习场景；同月，图灵奖得主、强化学习先驱Richard Sutton入局持续学习Agent创业。该方向迅速成为硅谷热门赛道，吸引众多初创企业布局。国内亦有新创公司跟进，陆续推出相关产品，标志着持续学习正从学术…",
+      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525393&idx=1&sn=1cdde3b70bcabe489057c74a8e8d79e4&chksm=c15d26c7eb8f221d91dd3467e18cc690d6e9bfe71a35327d961afc10c0dd3d65545be5c2c370&scene=126&sessionid=0#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "bdd74e3db3f1",
-      "title": "重写手机AI安全边界！首个MoAI攻防SoK，系统梳理三大安全支柱",
-      "summary": "移动AI长期依赖云端推理，虽便于扩展与管理，但存在隐私泄露、网络延迟及弱网下功能降级三大痛点。随着终端硬件性能提升和模型轻量化技术进步，端侧AI正成为新路径。墨尔本大学、RMIT大学与南洋理工大学等机构正推动高效小模型、硬件协同优化与隐私保护推理，加速AI能力下沉至手机等终端设备，实现低延迟、高安全、离线可用的智能服…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714775&idx=3&sn=a424ea10db1220c915b112ce2be141aa&chksm=f0af2b85d0db2ee5b8dab7c143eb7cdc4149811cab7dcabb620e99dc0eeef5497c8bf6d01eaf&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "3352a0b66487",
+      "title": "LLM后训练太烧钱？清华&腾讯有了破解法门：关键是得会Rollout",
+      "summary": "大模型在Agentic场景下进行强化学习后训练时，最易被低估的成本是rollout开销。不同于普通数学题仅需生成推理链，Agentic任务要求模型持续思考、调用工具、接收环境反馈并动态决策，每次完整交互即为一次rollout。长任务、高频工具调用与复杂反馈显著增加计算负担，导致rollout预算迅速耗尽，成为制约训练…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907199&idx=3&sn=db62b221aeb50a9dfff1af69803b2787&chksm=e90d31b1a388efb4d9a11416b119301188764549804aab9af5219fc74437f73f631164a866a1&scene=0&xtrack=1#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     }
