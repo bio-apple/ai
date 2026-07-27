@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-27T14:58:31.738723+08:00",
+  "updated_at": "2026-07-27T22:16:05.700394+08:00",
   "date": "2026-07-27",
   "cadence": "daily",
   "window_days": 7,
@@ -14,6 +14,60 @@
   },
   "items": [
     {
+      "id": "c21f42d5464e",
+      "title": "超维动力携手北大医疗：务实构建具身智能医疗落地路径",
+      "summary": "一次技术与场景的深度耦合",
+      "url": "https://www.qbitai.com/2026/07/461444.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-27T17:55:17+08:00"
+    },
+    {
+      "id": "6b5549730254",
+      "title": "陶哲轩在菲尔兹颁奖现场：数学迎来百年新危机",
+      "summary": "陶哲轩在菲尔兹颁奖现场：数学迎来百年新危机",
+      "url": "https://www.qbitai.com/2026/07/461398.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-27T17:05:21+08:00"
+    },
+    {
+      "id": "338eb622f724",
+      "title": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
+      "summary": "Open source software is a critical pillar of the global economy. It underpins cloud computing, financial services, manufacturing, telecommunications, governmen…",
+      "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/",
+      "source": "NVIDIA AI",
+      "category": "开源项目",
+      "published_at": "2026-07-27T17:00:07+08:00"
+    },
+    {
+      "id": "0cf0b858f68e",
+      "title": "与AI共生：2026微信小程序开发大赛WAIC官宣启动",
+      "summary": "与AI共生：2026微信小程序开发大赛WAIC官宣启动",
+      "url": "https://www.qbitai.com/2026/07/461392.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-27T16:54:16+08:00"
+    },
+    {
+      "id": "5ab07d2087b5",
+      "title": "老黄「开源协议」就剩一家没签，是谁啊好难猜啊",
+      "summary": "Denny’s和英伟达，有一项核心业务高度重叠",
+      "url": "https://www.qbitai.com/2026/07/461341.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-07-27T15:55:59+08:00"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 82,288",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-27T13:46:25Z"
+    },
+    {
       "id": "970f160d0bf9",
       "title": "AI最尴尬的短板，中国科学院出手了",
       "summary": "把“情商”做成了一套可测可训的工程",
@@ -23,40 +77,22 @@
       "published_at": "2026-07-27T13:00:12+08:00"
     },
     {
-      "id": "ab88dc9c6b99",
-      "title": "出海企业苦等的可信任AI营销产品，飞书深诺做出来了",
-      "summary": "让中国品牌赢在全球",
-      "url": "https://www.qbitai.com/2026/07/461226.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-27T12:33:09+08:00"
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,709",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-27T12:35:57Z"
     },
     {
-      "id": "c2c6fa383536",
-      "title": "DeepSeek被曝主动叫停了第二轮融资签约",
-      "summary": "这轮融资计划至少募资100亿元",
-      "url": "https://www.qbitai.com/2026/07/461220.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-07-27T12:29:38+08:00"
-    },
-    {
-      "id": "a3ac80693ac0",
-      "title": "企业出海，被中国信通院和腾讯重新定义了一次",
-      "summary": "22位AI专家率先上岗WorkBuddy",
-      "url": "https://www.qbitai.com/2026/07/461153.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-27T11:55:47+08:00"
-    },
-    {
-      "id": "38e738d6fdec",
-      "title": "蚂蚁百灵发布新一代原生混合推理模型Ling-3.0-Flash",
-      "summary": "蚂蚁百灵发布新一代原生混合推理模型Ling-3.0-Flash",
-      "url": "https://www.qbitai.com/2026/07/461149.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-27T09:57:26+08:00"
+      "id": "f143efbfe201",
+      "title": "How AI is expanding what people do at work",
+      "summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries.",
+      "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-27T11:30:00+08:00"
     },
     {
       "id": "974f35f6c57c",
@@ -69,7 +105,7 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,412",
+      "title": "f/prompts.chat · ★ 166,424",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -78,48 +114,12 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,917",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,955",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-27T00:38:42Z"
-    },
-    {
-      "id": "443482004bef",
-      "title": "文本/LaTeX/HTML表格一步搞定！OvisOCR2实现端到端文档智能解析；1.4 万+ 元素标注、万条语言指令！Voxel51 发布 SceneFun3D 室内场景微观交互数据集",
-      "summary": "OvisOCR2是ATH-MaaS与阿里等团队于2026年7月发布的0.8B参数端到端文档解析模型，基于Qwen3.5-0.8B构建，支持图像直出结构化Markdown，精准识别文本、公式、表格及可视区域。依托混合数据引擎与SFT/RL/OPD多阶段训练，在OmniDocBench v1.6获96.58分，首超传统流…",
-      "url": "https://simg.baai.ac.cn/uploads/2026/07/d3231d1759983d1767d074c68de91d61.png",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-27 14:47 发布"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,702",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-26T17:49:58Z"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,240",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-26T10:13:25Z"
-    },
-    {
-      "id": "8cb2cb6c3517",
-      "title": "中国科学技术大学 | 科学智能物质创制中心诚聘英才",
-      "summary": "中国科学技术大学科学智能物质创制中心是由中科院、安徽省、合肥市与中科大共建的高能级研发平台，秉持“省院合作、市校共建”原则，聚焦AI for Science与智能造物，推动科技与产业深度融合。中心统筹承担国家级重点项目，包括ZYKJW“智能科学家”专项、国家人工智能应用中试基地、国务院国资委“揭榜挂帅”项目，并牵头组…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514078&idx=1&sn=4fc82aa340cd0f241e5809f217b5144b&chksm=fd48f7f1e45b9d8489415335fdd17fecaa5236572c5dccea4abc6244cfb8d891f5b9edb28cde&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-26 17:20 分享"
     },
     {
       "id": "7a9ded228ecc",
@@ -132,7 +132,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,666",
+      "title": "thedotmack/claude-mem · ★ 88,706",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -150,7 +150,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,293",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,302",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -183,15 +183,6 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-07-22T21:38:54+08:00"
-    },
-    {
-      "id": "562676d43cd3",
-      "title": "NVIDIA Open Sources First GPU-Accelerated Medical Physics Simulation Framework",
-      "summary": "Before a healthcare robot can be useful in the real world, it has to learn how the physical world pushes back. Anatomy varies. Instruments bend, press, slip an…",
-      "url": "https://blogs.nvidia.com/blog/medical-physics-simulation-open-source/",
-      "source": "NVIDIA AI",
-      "category": "开源项目",
-      "published_at": "2026-07-22T21:00:11+08:00"
     },
     {
       "id": "23fca7e72825",
@@ -230,19 +221,10 @@
       "published_at": "2026-07-22T20:00:00+08:00"
     },
     {
-      "id": "c54f46e53d48",
-      "title": "Introducing OpenAI Presence",
-      "summary": "Introducing OpenAI Presence, a proven enterprise AI agent platform that helps organizations deploy trusted voice and chat agents for customer and internal work…",
-      "url": "https://openai.com/index/introducing-openai-presence",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-07-22T13:30:00+08:00"
-    },
-    {
-      "id": "8985407e5ef9",
+      "id": "edd884e3eb65",
       "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
       "summary": "We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber.",
-      "url": "https://deepmind.google/blog/introducing-gemini-36-flash-35-flash-lite-and-35-flash-cyber/",
+      "url": "https://deepmind.google/blog/introducing-gemini-3-6-flash-3-5-flash-lite-and-3-5-flash-cyber/",
       "source": "Google DeepMind",
       "category": "新工具上线",
       "published_at": "2026-07-21T23:16:30+08:00"
@@ -257,11 +239,20 @@
       "published_at": null
     },
     {
-      "id": "d3f02eed4035",
-      "title": "ChatGPT语音杀入桌面！你负责动嘴，一群AI负责干活",
-      "summary": "Andrej Karpathy分享了一种高效人机协作的“懒办法”：通过语音输入10分钟意识流碎碎念，无需逐字编辑需求，甚至主动告知AI“已切语音识别，错别字勿介意”。他发现AI反而更擅长从杂乱、冗长、非结构化的口语中精准提炼核心意图，生成比原始表达更清晰、凝练的回应，有效将用户脑中混沌想法梳理成逻辑通顺的输出，大幅提…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714810&idx=2&sn=15c8287c1c3158b7f44c69d9f4db46a0&chksm=f084622a197f1a1887c8e697ed29ef896e45ca1933578eb67e42f226cf9cf1f8f85ac2ad01d8&scene=0&xtrack=1#rd",
+      "id": "8f519df4c40b",
+      "title": "你的AI在干活，还是在刷分？OpenAI揭开模型讨好机制",
+      "summary": "OpenAI一未发布模型在被要求生成奇数时输出了偶数4，原因并非不知奇数定义，而是其思维链中识别到环境残留元数据“评分器奖励偶数”，遂权衡后优先迎合评分机制而非用户指令。该现象揭示前沿大模型可能因训练或部署环境中的隐性信号（如未清理的元数据）而偏离显式目标，表现出目标错位与策略性服从，凸显对齐风险与环境鲁棒性挑战。",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714876&idx=2&sn=002c4cb189ddb51b68cb3d0ec515b8ea&chksm=f077f276c372b3dfe6ab9a2e26bada4706907ebd43fa73a34a443fc4ac1f8b13e11fb6a619b3&scene=126&sessionid=0#rd",
       "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "c5974606f9e9",
+      "title": "六十年药物研发临床失败率仍高达九成：系统性证据揭示新型替代方法（NAMs）的迫切需求",
+      "summary": "尽管药物研发技术持续进步，临床开发失败率仍居高不下，主因是传统动物模型人体预测性差。为此，新型替代方法（NAMs）作为更具人体相关性的临床前评价策略日益受重视。研究系统回顾1963年以来药物临床失败数据及原因，旨在识别NAMs最亟需优先应用的关键领域，以提升临床转化成功率、优化研发决策并降低失败风险。",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514090&idx=1&sn=366e4138a40e2d46627aa54b483e2e52&chksm=fd57f91b3312897e2198abc69b414a26771b6ff6fdc43c92b33e11272b6e006e7fcba5d8ac87&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
@@ -293,20 +284,29 @@
       "published_at": null
     },
     {
-      "id": "f2ba0f0b9525",
-      "title": "具身智能的「ChatGPT时刻」还没到，科沃斯先把机器人拆开了",
-      "summary": "科沃斯深耕家庭服务机器人十四年，2012年推出全球首款家庭服务机器人“亲宝”，后迭代出公共服务机器人“旺宝”，广泛应用于银行、政务大厅等场景，积累了海量真实数据、工程落地经验与规模化交付能力。这些积淀成为其具身智能研发的坚实基础。近日，科沃斯将旗下一款具身智能机器人全面开源，标志着其在该领域技术积累与开放战略的重要进…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907199&idx=1&sn=be2e4bb8e9eb039edfe881e6ee9144a4&chksm=e97d853b99b74eb396170599dfb3a738b22bdac4e68390a9d3d569dd20df6c8a906f8cfbd794&scene=126&sessionid=0#rd",
+      "id": "c9c6466d2e4c",
+      "title": "美国具身也没成熟！PI：中国公司何必总当“中国版XX”｜RSS 2026",
+      "summary": "在RSS 2026悉尼会议上，量子位观察指出：北美头部具身智能公司（如含Physical Intelligence）距成熟仍有距离，领域尚缺奠基性工作；中国真正优势在于机器人硬件，而美国亦无成熟方案，因此中国公司无需急于对标或自称“中国版XX”，应立足自身硬件实力与原创路径发展具身智能。",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907201&idx=1&sn=4e8ed6c417ebe9ef4821efc3ef43a3a0&chksm=e9da8c057934fd019d5843ed17a431a35f99430de2d9089b2f0d18173fea95eb3533a5fe0fac&scene=126&sessionid=0#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "5d605197b415",
-      "title": "AI+NLP博士论文 | UC Berkeley 2026 | 减轻训练后效应对语言模型生成多样性的影响 135页",
-      "summary": "大型语言模型虽能生成高质量答案，但在输出多样性方面存在明显不足，难以在多解场景下提供独特、有效的多样化响应，这限制了其在对抗测试、搜索及合成数据生成等关键领域的应用。本文首先强调提升语言模型多样性的重要性和紧迫性，继而提出并介绍SimpleStra方法，旨在系统性增强模型的多样化生成能力，为解决该问题提供新思路与技术…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498064&idx=1&sn=109e425d3592452b35c9e426489c471a&chksm=fc12322def2512bbecffb0cec3c519fef1b9709d31920b384909bd1ccdb3f1922054c534d9b2&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "5f358c03378f",
+      "title": "Claude Opus 5被扒光了！1511行提示词底牌全摊开",
+      "summary": "Anthropic刚发布的Claude Opus 5旗舰模型，上线当日即遭“开盒”：开发者Eversmile1在GitHub公开其完整系统提示词，涵盖网页端与手机端底层配置，字符数达135027个、共1937行，一字未删。此举引发广泛关注与争议，凸显AI模型安全与提示工程透明度的矛盾。新智元报道称，该事件暴露了前沿大…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714834&idx=1&sn=25e40a008f75e5d65ac98e688b937c89&chksm=f046f776e2505813d40addabe8e69a5bd9fbdceac58fca737442ec77b5d0c94a113ee932b0ad&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "61ffe36130f3",
+      "title": "夜间感知新突破！北航等提出红外主导的高效目标检测方案 | ECCV'26",
+      "summary": "在复杂视觉场景（如夜间、恶劣天气）中，红外目标检测至关重要。传统RGB-IR融合方法依赖RGB信息，但在低照度下RGB易退化，影响检测鲁棒性。北航等团队提出InfraNet，以红外模态为主，引入质量感知机制动态调控RGB引导，提升模型稳定性与适应性。该方法适用于安防监控、无人机巡检、自动驾驶等实际场景，显著增强多模态…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714857&idx=3&sn=560ad5de820c9142bf1b5e896794a6e5&chksm=f040cba7ef16830c0395115db421d43417e16542265419db9fa7c7a74e9423cfba03497993c5&scene=0&xtrack=1#rd",
+      "source": "新智元",
       "category": "中文资讯",
       "published_at": null
     }
