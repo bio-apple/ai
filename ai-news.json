@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-26T21:05:23.554723+08:00",
-  "date": "2026-07-26",
+  "updated_at": "2026-07-27T09:07:27.562724+08:00",
+  "date": "2026-07-27",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -14,6 +14,33 @@
   },
   "items": [
     {
+      "id": "974f35f6c57c",
+      "title": "NVIDIA Harnesses Vera CPU to Speed Up Design of Next-Generation CPUs and GPUs",
+      "summary": "The complexity of modern chip design continues to grow as engineering teams work to develop increasingly sophisticated CPUs, GPUs and AI systems. To help meet …",
+      "url": "https://blogs.nvidia.com/blog/vera-cpu-eda/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-27T08:45:42+08:00"
+    },
+    {
+      "id": "1f1bc03a707a",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,892",
+      "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
+      "url": "https://github.com/rasbt/LLMs-from-scratch",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-27T00:38:42Z"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,700",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-26T17:49:58Z"
+    },
+    {
       "id": "64e4cd7599eb",
       "title": "3万小时触觉数据补齐具身智能“手感”！新智具身&复旦报告三连发",
       "summary": "项目数据模型均开源",
@@ -24,21 +51,12 @@
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,132",
+      "title": "OpenHands/OpenHands · ★ 82,195",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-26T10:13:25Z"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,694",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-26T10:07:17Z"
     },
     {
       "id": "8cb2cb6c3517",
@@ -87,7 +105,7 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,381",
+      "title": "f/prompts.chat · ★ 166,395",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -105,7 +123,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,613",
+      "title": "thedotmack/claude-mem · ★ 88,647",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -123,7 +141,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,253",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,278",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -210,15 +228,6 @@
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-07-22T13:30:00+08:00"
-    },
-    {
-      "id": "ce1cab87367b",
-      "title": "Built in Fort Worth: Wistron Opens Advanced Manufacturing Plant to Produce NVIDIA AI Systems",
-      "summary": "The AI era runs on AI infrastructure. Many of these advanced systems are built and tested in Texas. Wistron opened its first U.S. manufacturing facility today …",
-      "url": "https://blogs.nvidia.com/blog/wistron-manufacturing-texas/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-22T06:35:45+08:00"
     },
     {
       "id": "8985407e5ef9",
