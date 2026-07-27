@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-27T13:48:10.809069+08:00",
+  "updated_at": "2026-07-27T14:58:31.738723+08:00",
   "date": "2026-07-27",
   "cadence": "daily",
   "window_days": 7,
@@ -69,7 +69,7 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,410",
+      "title": "f/prompts.chat · ★ 166,412",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -78,7 +78,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,914",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,917",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -86,8 +86,17 @@
       "published_at": "2026-07-27T00:38:42Z"
     },
     {
+      "id": "443482004bef",
+      "title": "文本/LaTeX/HTML表格一步搞定！OvisOCR2实现端到端文档智能解析；1.4 万+ 元素标注、万条语言指令！Voxel51 发布 SceneFun3D 室内场景微观交互数据集",
+      "summary": "OvisOCR2是ATH-MaaS与阿里等团队于2026年7月发布的0.8B参数端到端文档解析模型，基于Qwen3.5-0.8B构建，支持图像直出结构化Markdown，精准识别文本、公式、表格及可视区域。依托混合数据引擎与SFT/RL/OPD多阶段训练，在OmniDocBench v1.6获96.58分，首超传统流…",
+      "url": "https://simg.baai.ac.cn/uploads/2026/07/d3231d1759983d1767d074c68de91d61.png",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-27 14:47 发布"
+    },
+    {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,705",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,702",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
@@ -96,7 +105,7 @@
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,223",
+      "title": "OpenHands/OpenHands · ★ 82,240",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
@@ -123,7 +132,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,667",
+      "title": "thedotmack/claude-mem · ★ 88,666",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -297,15 +306,6 @@
       "title": "AI+NLP博士论文 | UC Berkeley 2026 | 减轻训练后效应对语言模型生成多样性的影响 135页",
       "summary": "大型语言模型虽能生成高质量答案，但在输出多样性方面存在明显不足，难以在多解场景下提供独特、有效的多样化响应，这限制了其在对抗测试、搜索及合成数据生成等关键领域的应用。本文首先强调提升语言模型多样性的重要性和紧迫性，继而提出并介绍SimpleStra方法，旨在系统性增强模型的多样化生成能力，为解决该问题提供新思路与技术…",
       "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498064&idx=1&sn=109e425d3592452b35c9e426489c471a&chksm=fc12322def2512bbecffb0cec3c519fef1b9709d31920b384909bd1ccdb3f1922054c534d9b2&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "f5ee8a598ddf",
-      "title": "守望者 | 20060816 | 《李亚鹏的女儿》",
-      "summary": "《神州夜航·夜空守望者》是中央人民广播电台中国之声一档深夜人文类节目，由主持人林白（林中白狼）倾情主持。节目以诗意语言叩问人生际遇——“谁曾迎面走来，谁已离你而去……谁倾听，谁诉说”，在冬与春、田野与街道、守望与穿越的意象中，传递孤独、温情与哲思。内容细腻深沉，富有文学性与共情力。音频资源已汇总于百度网盘，另设专属微…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498064&idx=2&sn=2894b86ce35ba59cc117edb9c64ebeef&chksm=fca0e5f39d667664a5147531a065f8a026bc90d7ba8cfe7639daa2bdf95705a8b2d2fd877014&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
