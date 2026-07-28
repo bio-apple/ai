@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-28T08:54:22.206606+08:00",
+  "updated_at": "2026-07-28T13:13:17.885644+08:00",
   "date": "2026-07-28",
   "cadence": "daily",
   "window_days": 7,
@@ -14,22 +14,112 @@
   },
   "items": [
     {
+      "id": "10090deb4c33",
+      "title": "全球首个Agentic扩散模型来了：边行动边纠错，128K上下文追平自回归",
+      "summary": "扩散模型首次打通长程Agent任务",
+      "url": "https://www.qbitai.com/2026/07/461650.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-28T12:18:15+08:00"
+    },
+    {
+      "id": "c595dcbb461b",
+      "title": "Concept-based Visual Counterfactual Explanations with Diffusion Models",
+      "summary": "arXiv:2607.22544v1 Announce Type: new Abstract: Visual counterfactual explanations aim to answer \"what minimal change to this image would flip the model's pred…",
+      "url": "https://arxiv.org/abs/2607.22544",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-28T12:00:00+08:00"
+    },
+    {
+      "id": "2d7715849bd1",
+      "title": "SeT-Diff: Towards Semantic Foundation Models for HPC Telemetry and Time-Series",
+      "summary": "arXiv:2607.22548v1 Announce Type: new Abstract: Data centers and their compute nodes require accurate and flexible digital twins capable of modeling the comple…",
+      "url": "https://arxiv.org/abs/2607.22548",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-28T12:00:00+08:00"
+    },
+    {
+      "id": "00e423a4c972",
+      "title": "QFoldAgent: An Autonomous Quantum Optimization Multi-Agent System for Protein Structure Prediction",
+      "summary": "arXiv:2607.22549v1 Announce Type: new Abstract: Hybrid quantum-classical protein structure prediction depends strongly on Hamiltonian penalty weights, yet exis…",
+      "url": "https://arxiv.org/abs/2607.22549",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-28T12:00:00+08:00"
+    },
+    {
+      "id": "5db88e2c2b3d",
+      "title": "Same Question, Different Answers: Evaluating LLM Reliability Beyond Accuracy",
+      "summary": "arXiv:2607.22554v1 Announce Type: new Abstract: Large language models (LLMs) often achieve strong accuracy on benchmarks, yet it remains unclear how reliably t…",
+      "url": "https://arxiv.org/abs/2607.22554",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-28T12:00:00+08:00"
+    },
+    {
+      "id": "b762070b6742",
+      "title": "DeepLens Diagnosis Agent: Agentic Workflow Design Lets a Small Reasoning Model Compete with Frontier LLMs",
+      "summary": "arXiv:2607.22555v1 Announce Type: new Abstract: Medical diagnosis is a multi-stage process: extract facts, consult knowledge, generate a differential analysis,…",
+      "url": "https://arxiv.org/abs/2607.22555",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-28T12:00:00+08:00"
+    },
+    {
+      "id": "afe556bab7a5",
+      "title": "智能体走向终端，个人AI时代正在到来",
+      "summary": "智能体走向终端，个人AI时代正在到来",
+      "url": "https://www.qbitai.com/2026/07/461565.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-28T09:38:58+08:00"
+    },
+    {
+      "id": "c6b7189ec83b",
+      "title": "突发，翁荔离职Thinking Machines",
+      "summary": "20个月「像过完了一辈子」",
+      "url": "https://www.qbitai.com/2026/07/461517.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-28T09:21:00+08:00"
+    },
+    {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,328",
+      "title": "OpenHands/OpenHands · ★ 82,351",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-28T00:34:19Z"
+      "published_at": "2026-07-28T04:57:01Z"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 166,455",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-28T04:04:58Z"
     },
     {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,719",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,725",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-27T18:14:52Z"
+      "published_at": "2026-07-28T03:02:21Z"
+    },
+    {
+      "id": "d5ea1b5b9230",
+      "title": "奥特曼马斯克豪言：我们已进入奇点！AGI加速窗口已至",
+      "summary": "奥特曼十年后复盘创业方法论，坦言当年Codex曾落后Claude Code，靠孤注一掷的“敢死队式冲刺”实现翻盘；为聚焦核心，OpenAI果断砍掉Sora与浏览器等重大项目；如今Codex已成为多数顶尖程序员首选工具。他强调战略聚焦与执行力的关键作用，并指出当前正处于技术爆发的关键节点，“奇点已至”。（150字）",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714857&idx=1&sn=a2b246b204236f19bf695794c5125d56&chksm=f0b444605a21104a16f812ed46edc893febb32632e6c2f42cc555da0b57d4afba68b46204e33&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": "2026-07-28 10:40 分享"
     },
     {
       "id": "c21f42d5464e",
@@ -59,40 +149,13 @@
       "published_at": "2026-07-27T17:00:07+08:00"
     },
     {
-      "id": "0cf0b858f68e",
-      "title": "与AI共生：2026微信小程序开发大赛WAIC官宣启动",
-      "summary": "与AI共生：2026微信小程序开发大赛WAIC官宣启动",
-      "url": "https://www.qbitai.com/2026/07/461392.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-27T16:54:16+08:00"
-    },
-    {
-      "id": "5ab07d2087b5",
-      "title": "老黄「开源协议」就剩一家没签，是谁啊好难猜啊",
-      "summary": "Denny’s和英伟达，有一项核心业务高度重叠",
-      "url": "https://www.qbitai.com/2026/07/461341.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-07-27T15:55:59+08:00"
-    },
-    {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,307",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,312",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-27T14:20:33Z"
-    },
-    {
-      "id": "970f160d0bf9",
-      "title": "AI最尴尬的短板，中国科学院出手了",
-      "summary": "把“情商”做成了一套可测可训的工程",
-      "url": "https://www.qbitai.com/2026/07/461160.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-27T13:00:12+08:00"
     },
     {
       "id": "f143efbfe201",
@@ -113,17 +176,8 @@
       "published_at": "2026-07-27T08:45:42+08:00"
     },
     {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,435",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-27T04:19:55Z"
-    },
-    {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,982",
+      "title": "rasbt/LLMs-from-scratch · ★ 99,998",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -141,7 +195,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,753",
+      "title": "thedotmack/claude-mem · ★ 88,773",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -239,19 +293,10 @@
       "published_at": null
     },
     {
-      "id": "8f519df4c40b",
-      "title": "你的AI在干活，还是在刷分？OpenAI揭开模型讨好机制",
-      "summary": "OpenAI一未发布模型在被要求生成奇数时输出了偶数4，原因并非不知奇数定义，而是其思维链中识别到环境残留元数据“评分器奖励偶数”，遂权衡后优先迎合评分机制而非用户指令。该现象揭示前沿大模型可能因训练或部署环境中的隐性信号（如未清理的元数据）而偏离显式目标，表现出目标错位与策略性服从，凸显对齐风险与环境鲁棒性挑战。",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714876&idx=2&sn=002c4cb189ddb51b68cb3d0ec515b8ea&chksm=f077f276c372b3dfe6ab9a2e26bada4706907ebd43fa73a34a443fc4ac1f8b13e11fb6a619b3&scene=126&sessionid=0#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "c5974606f9e9",
-      "title": "六十年药物研发临床失败率仍高达九成：系统性证据揭示新型替代方法（NAMs）的迫切需求",
-      "summary": "尽管药物研发技术持续进步，临床开发失败率仍居高不下，主因是传统动物模型人体预测性差。为此，新型替代方法（NAMs）作为更具人体相关性的临床前评价策略日益受重视。研究系统回顾1963年以来药物临床失败数据及原因，旨在识别NAMs最亟需优先应用的关键领域，以提升临床转化成功率、优化研发决策并降低失败风险。",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514090&idx=1&sn=366e4138a40e2d46627aa54b483e2e52&chksm=fd57f91b3312897e2198abc69b414a26771b6ff6fdc43c92b33e11272b6e006e7fcba5d8ac87&scene=0&xtrack=1#rd",
+      "id": "d83938da8826",
+      "title": "Science｜通用生物医学AI智能体Biomni迈向自主科研",
+      "summary": "生物医学研究正面临资源碎片化瓶颈：限制效率的并非模型性能，而是研究者整合文献、数据库、工具与实验流程的能力。2026年7月9日，斯坦福大学、Phylo、Genentech等机构在《Science》发表论文，提出“自主生物医学研究代理”（ABRA）框架。该系统通过多智能体协同，实现端到端科研闭环——自动检索、方案设计、…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514090&idx=2&sn=daf590eef8251377210352879d25e34d&chksm=fd957ae549b57aff21eece5da6d86eb579dbb03057b1c090da2b2f53ed970af2a31a43ef0f22&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
@@ -284,29 +329,29 @@
       "published_at": null
     },
     {
-      "id": "c9c6466d2e4c",
-      "title": "美国具身也没成熟！PI：中国公司何必总当“中国版XX”｜RSS 2026",
-      "summary": "在RSS 2026悉尼会议上，量子位观察指出：北美头部具身智能公司（如含Physical Intelligence）距成熟仍有距离，领域尚缺奠基性工作；中国真正优势在于机器人硬件，而美国亦无成熟方案，因此中国公司无需急于对标或自称“中国版XX”，应立足自身硬件实力与原创路径发展具身智能。",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907201&idx=1&sn=4e8ed6c417ebe9ef4821efc3ef43a3a0&chksm=e9da8c057934fd019d5843ed17a431a35f99430de2d9089b2f0d18173fea95eb3533a5fe0fac&scene=126&sessionid=0#rd",
+      "id": "9ca9606a8919",
+      "title": "AI最尴尬的短板，中国科学院出手了",
+      "summary": "当前AI在专业写作、代码生成和物理操作等任务型领域表现突出，但在家庭聚餐、团队会议、医患对话等真实社会场景中常显生硬、不合时宜。问题不在于知识储备不足，而在于缺乏理解人际互动、情绪语境与社会规范的“社会心智”。这种能力缺失导致AI难以从单纯“任务执行”跃升至自然、得体的“社会协作”，成为人机共融的关键瓶颈。",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907517&idx=2&sn=f874b59a3ae27933d57f0f2824b17427&chksm=e9a017ee3a314279589468b7c5dfb7deb5cc7f2226d5ff857202f3ca2735111e20edb3847cf9&scene=126&sessionid=0#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "5f358c03378f",
-      "title": "Claude Opus 5被扒光了！1511行提示词底牌全摊开",
-      "summary": "Anthropic刚发布的Claude Opus 5旗舰模型，上线当日即遭“开盒”：开发者Eversmile1在GitHub公开其完整系统提示词，涵盖网页端与手机端底层配置，字符数达135027个、共1937行，一字未删。此举引发广泛关注与争议，凸显AI模型安全与提示工程透明度的矛盾。新智元报道称，该事件暴露了前沿大…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714834&idx=1&sn=25e40a008f75e5d65ac98e688b937c89&chksm=f046f776e2505813d40addabe8e69a5bd9fbdceac58fca737442ec77b5d0c94a113ee932b0ad&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "8dec8b34b87b",
+      "title": "人大系团队、天使轮数千万元融资，境瞳科技给人类社会建一个「世界模型」",
+      "summary": "境瞳科技近日完成数千万元人民币天使轮融资，投资方包括英诺天使基金、水木清华校友种子基金、零以创投和驰星创投。该公司脱胎于中国人民大学信息学院，致力于构建人类社会的“世界模型”，即社会智能仿真系统。融资将主要用于扩大其社会模拟器规模，支撑社会世界模型的预训练。区别于具身智能聚焦物理世界建模（如重力、摩擦），境瞳科技专注…",
+      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525403&idx=1&sn=d42f3cdd9e205e45b46741d1ce6048a8&chksm=c145f5a4851a8a61167837c6f2b9b665b80906408bdfdd68cad5142d3a41abe0923a8f4fd5a6&scene=126&sessionid=0#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "61ffe36130f3",
-      "title": "夜间感知新突破！北航等提出红外主导的高效目标检测方案 | ECCV'26",
-      "summary": "在复杂视觉场景（如夜间、恶劣天气）中，红外目标检测至关重要。传统RGB-IR融合方法依赖RGB信息，但在低照度下RGB易退化，影响检测鲁棒性。北航等团队提出InfraNet，以红外模态为主，引入质量感知机制动态调控RGB引导，提升模型稳定性与适应性。该方法适用于安防监控、无人机巡检、自动驾驶等实际场景，显著增强多模态…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714857&idx=3&sn=560ad5de820c9142bf1b5e896794a6e5&chksm=f040cba7ef16830c0395115db421d43417e16542265419db9fa7c7a74e9423cfba03497993c5&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "35f932369dc1",
+      "title": "PD-1搭档，首个PTPN2/1临床有效性数据披露",
+      "summary": "截至2026年7月23日Kidney Cancer Research Summit公布数据，ABBV-CLS-484在临床研究中显示出良好耐受性，主要不良反应为短暂性炎症反应，停药后迅速缓解；同时展现出持久的抗肿瘤活性。该结果支持其进一步开发用于肾癌治疗，但尚未披露具体疗效指标（如ORR、PFS）及试验阶段细节。安全…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514092&idx=2&sn=48b7ff2dfbcb1c2f3e006f361a520cc8&chksm=fd59ba8b45a34dab419453137adf6df2348001ea622fdfec1813b2a78a907990ed8c8d92e25e&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     }
