@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-28T13:13:17.885644+08:00",
+  "updated_at": "2026-07-28T14:21:48.283037+08:00",
   "date": "2026-07-28",
   "cadence": "daily",
   "window_days": 7,
@@ -13,6 +13,24 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "705e913db700",
+      "title": "Ilya获黄仁勋50亿美元押注：“是时候Scaling了”",
+      "summary": "迷人的Scaling曲线",
+      "url": "https://www.qbitai.com/2026/07/461911.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-28T13:46:59+08:00"
+    },
+    {
+      "id": "c7bb1df1e5a8",
+      "title": "世界模型有触觉了！50万小时视频，训出首个隐式触觉世界动作模型",
+      "summary": "世界模型有触觉了！50万小时视频，训出首个隐式触觉世界动作模型",
+      "url": "https://www.qbitai.com/2026/07/461827.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-28T13:25:31+08:00"
+    },
     {
       "id": "10090deb4c33",
       "title": "全球首个Agentic扩散模型来了：边行动边纠错，128K上下文追平自回归",
@@ -87,7 +105,7 @@
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,351",
+      "title": "OpenHands/OpenHands · ★ 82,356",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
@@ -96,7 +114,7 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,455",
+      "title": "f/prompts.chat · ★ 166,458",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -105,7 +123,7 @@
     },
     {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,725",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,727",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
@@ -122,24 +140,6 @@
       "published_at": "2026-07-28 10:40 分享"
     },
     {
-      "id": "c21f42d5464e",
-      "title": "超维动力携手北大医疗：务实构建具身智能医疗落地路径",
-      "summary": "一次技术与场景的深度耦合",
-      "url": "https://www.qbitai.com/2026/07/461444.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-27T17:55:17+08:00"
-    },
-    {
-      "id": "6b5549730254",
-      "title": "陶哲轩在菲尔兹颁奖现场：数学迎来百年新危机",
-      "summary": "陶哲轩在菲尔兹颁奖现场：数学迎来百年新危机",
-      "url": "https://www.qbitai.com/2026/07/461398.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-27T17:05:21+08:00"
-    },
-    {
       "id": "338eb622f724",
       "title": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
       "summary": "Open source software is a critical pillar of the global economy. It underpins cloud computing, financial services, manufacturing, telecommunications, governmen…",
@@ -150,7 +150,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,312",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,313",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -177,7 +177,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 99,998",
+      "title": "rasbt/LLMs-from-scratch · ★ 100,004",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -195,7 +195,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,773",
+      "title": "thedotmack/claude-mem · ★ 88,780",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
