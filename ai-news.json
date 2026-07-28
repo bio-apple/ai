@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-28T14:21:48.283037+08:00",
+  "updated_at": "2026-07-28T21:47:49.075520+08:00",
   "date": "2026-07-28",
   "cadence": "daily",
   "window_days": 7,
@@ -14,6 +14,51 @@
   },
   "items": [
     {
+      "id": "7c8ae2784e8b",
+      "title": "5 ways AI Mode in Search helps you enjoy the real world",
+      "summary": "It might sound counterintuitive, but Search's AI tools can actually help you make the most of your time offline whether you want to book concert tickets or fin…",
+      "url": "https://blog.google/products-and-platforms/products/search/ai-mode-real-world-tips/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-28T21:00:00+08:00"
+    },
+    {
+      "id": "61b149676fcb",
+      "title": "5 ways to host the ultimate dinner party with Google Search",
+      "summary": "These AI features can help you craft a menu, design a tablescape, and handle other party-planning tasks.",
+      "url": "https://blog.google/products-and-platforms/products/search/dinner-party-hosting-tips/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-28T21:00:00+08:00"
+    },
+    {
+      "id": "199bd74cf2bb",
+      "title": "豆包搜索，走出了豆包",
+      "summary": "把搜索能力开放给Agent了",
+      "url": "https://www.qbitai.com/2026/07/461961.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-28T18:12:52+08:00"
+    },
+    {
+      "id": "1968889ac84c",
+      "title": "Kimi K3、Unlimited OCR包揽全球前二，中国开源模型持续刷屏海外",
+      "summary": "Kimi K3、Unlimited OCR包揽全球前二，中国开源模型持续刷屏海外",
+      "url": "https://www.qbitai.com/2026/07/461949.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-07-28T16:17:05+08:00"
+    },
+    {
+      "id": "faed39fb9a8e",
+      "title": "当AI学会“仿真思维”，教师才能回归育人本质",
+      "summary": "从“工具效率”到“认知理解”，教育AI进入深水区",
+      "url": "https://www.qbitai.com/2026/07/461939.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-28T15:32:47+08:00"
+    },
+    {
       "id": "705e913db700",
       "title": "Ilya获黄仁勋50亿美元押注：“是时候Scaling了”",
       "summary": "迷人的Scaling曲线",
@@ -21,6 +66,15 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-07-28T13:46:59+08:00"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,733",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-28T13:44:40Z"
     },
     {
       "id": "c7bb1df1e5a8",
@@ -32,13 +86,22 @@
       "published_at": "2026-07-28T13:25:31+08:00"
     },
     {
-      "id": "10090deb4c33",
-      "title": "全球首个Agentic扩散模型来了：边行动边纠错，128K上下文追平自回归",
-      "summary": "扩散模型首次打通长程Agent任务",
-      "url": "https://www.qbitai.com/2026/07/461650.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-28T12:18:15+08:00"
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 82,391",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-28T13:12:23Z"
+    },
+    {
+      "id": "b33be8909763",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,321",
+      "summary": "real time face swap and one-click video deepfake with only a single image",
+      "url": "https://github.com/hacksider/Deep-Live-Cam",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-28T12:59:37Z"
     },
     {
       "id": "c595dcbb461b",
@@ -86,58 +149,13 @@
       "published_at": "2026-07-28T12:00:00+08:00"
     },
     {
-      "id": "afe556bab7a5",
-      "title": "智能体走向终端，个人AI时代正在到来",
-      "summary": "智能体走向终端，个人AI时代正在到来",
-      "url": "https://www.qbitai.com/2026/07/461565.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-28T09:38:58+08:00"
-    },
-    {
-      "id": "c6b7189ec83b",
-      "title": "突发，翁荔离职Thinking Machines",
-      "summary": "20个月「像过完了一辈子」",
-      "url": "https://www.qbitai.com/2026/07/461517.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-28T09:21:00+08:00"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,356",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-28T04:57:01Z"
-    },
-    {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,458",
+      "title": "f/prompts.chat · ★ 166,477",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-28T04:04:58Z"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,727",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-28T03:02:21Z"
-    },
-    {
-      "id": "d5ea1b5b9230",
-      "title": "奥特曼马斯克豪言：我们已进入奇点！AGI加速窗口已至",
-      "summary": "奥特曼十年后复盘创业方法论，坦言当年Codex曾落后Claude Code，靠孤注一掷的“敢死队式冲刺”实现翻盘；为聚焦核心，OpenAI果断砍掉Sora与浏览器等重大项目；如今Codex已成为多数顶尖程序员首选工具。他强调战略聚焦与执行力的关键作用，并指出当前正处于技术爆发的关键节点，“奇点已至”。（150字）",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714857&idx=1&sn=a2b246b204236f19bf695794c5125d56&chksm=f0b444605a21104a16f812ed46edc893febb32632e6c2f42cc555da0b57d4afba68b46204e33&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": "2026-07-28 10:40 分享"
     },
     {
       "id": "338eb622f724",
@@ -147,15 +165,6 @@
       "source": "NVIDIA AI",
       "category": "开源项目",
       "published_at": "2026-07-27T17:00:07+08:00"
-    },
-    {
-      "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,313",
-      "summary": "real time face swap and one-click video deepfake with only a single image",
-      "url": "https://github.com/hacksider/Deep-Live-Cam",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-27T14:20:33Z"
     },
     {
       "id": "f143efbfe201",
@@ -177,7 +186,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 100,004",
+      "title": "rasbt/LLMs-from-scratch · ★ 100,032",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -195,7 +204,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,780",
+      "title": "thedotmack/claude-mem · ★ 88,821",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -239,15 +248,6 @@
       "published_at": "2026-07-22T21:38:54+08:00"
     },
     {
-      "id": "23fca7e72825",
-      "title": "3 Google updates from Galaxy Unpacked 2026",
-      "summary": "We shared how Samsung users can boost productivity and get time back on new foldables, watches, and glasses coming soon.",
-      "url": "https://blog.google/products-and-platforms/platforms/android/galaxy-unpacked-2026/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-22T21:00:00+08:00"
-    },
-    {
       "id": "bd6ce42035f5",
       "title": "Building AI infrastructure with the Effingham County community",
       "summary": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex.",
@@ -263,6 +263,15 @@
       "url": "https://openai.com/index/how-news-organizations-are-using-ai",
       "source": "OpenAI",
       "category": "新模型发布",
+      "published_at": "2026-07-22T21:00:00+08:00"
+    },
+    {
+      "id": "23fca7e72825",
+      "title": "3 Google updates from Galaxy Unpacked 2026",
+      "summary": "We shared how Samsung users can boost productivity and get time back on new foldables, watches, and glasses coming soon.",
+      "url": "https://blog.google/products-and-platforms/platforms/android/galaxy-unpacked-2026/",
+      "source": "Google AI",
+      "category": "行业新闻",
       "published_at": "2026-07-22T21:00:00+08:00"
     },
     {
@@ -293,10 +302,10 @@
       "published_at": null
     },
     {
-      "id": "d83938da8826",
-      "title": "Science｜通用生物医学AI智能体Biomni迈向自主科研",
-      "summary": "生物医学研究正面临资源碎片化瓶颈：限制效率的并非模型性能，而是研究者整合文献、数据库、工具与实验流程的能力。2026年7月9日，斯坦福大学、Phylo、Genentech等机构在《Science》发表论文，提出“自主生物医学研究代理”（ABRA）框架。该系统通过多智能体协同，实现端到端科研闭环——自动检索、方案设计、…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514090&idx=2&sn=daf590eef8251377210352879d25e34d&chksm=fd957ae549b57aff21eece5da6d86eb579dbb03057b1c090da2b2f53ed970af2a31a43ef0f22&scene=0&xtrack=1#rd",
+      "id": "bc1cf6c140f6",
+      "title": "白宫《科学：新的黄金时代》报告解读 【战略洞察】",
+      "summary": "2026年7月21日，美国白宫科技政策办公室主任迈克尔·克拉齐奥斯向总统提交百页报告《科学：新的黄金时代》，并联合发布《2028财年联邦研发预算优先事项备忘录》，强调加大基础研究、人工智能、量子技术、生物技术和气候科学投入。次日，克拉齐奥斯出席众议院科学委员会听证会，阐释政策愿景。该报告被视作对1945年范内瓦·布什…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524590&idx=2&sn=85a98ecd325952bd39a8c15e632b5bcc&chksm=fc22802e1e7e6fcf5b7a0056e59159e8c135e2237c84c6b114e20c4644b07b98681643041ccf&scene=0&xtrack=1#rd",
       "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
@@ -329,29 +338,38 @@
       "published_at": null
     },
     {
-      "id": "9ca9606a8919",
-      "title": "AI最尴尬的短板，中国科学院出手了",
-      "summary": "当前AI在专业写作、代码生成和物理操作等任务型领域表现突出，但在家庭聚餐、团队会议、医患对话等真实社会场景中常显生硬、不合时宜。问题不在于知识储备不足，而在于缺乏理解人际互动、情绪语境与社会规范的“社会心智”。这种能力缺失导致AI难以从单纯“任务执行”跃升至自然、得体的“社会协作”，成为人机共融的关键瓶颈。",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907517&idx=2&sn=f874b59a3ae27933d57f0f2824b17427&chksm=e9a017ee3a314279589468b7c5dfb7deb5cc7f2226d5ff857202f3ca2735111e20edb3847cf9&scene=126&sessionid=0#rd",
+      "id": "2335895531c8",
+      "title": "王净宇、梁正｜风险类型与国际公共产品供给模式——全球人工智能安全治理的分析框架",
+      "summary": "人工智能风险加速累积，全球安全治理面临风险治理需求与国际公共产品供给之间的失衡与错配。当前核心矛盾在于多元主体参与下治理效能不足。需秉持“力求实效”“标本兼治”理念，依据风险属性差异，构建适配不同风险类型的国际公共产品最优供给理论框架，提升全球AI安全治理的系统性、精准性与协同性，推动形成权责清晰、响应及时、可持续的…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524590&idx=1&sn=f9c6706ce47262b14ec3c779d673bd91&chksm=fc4850fbdcf1d596cda5527ef5fce8f30c9de00eed78c9acdb8090c887b3cbe1afd04d46f88f&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "5b8b8d2bb4c5",
+      "title": "明日直播｜让AI自己\"攒技能\"，MUSE框架实现智能体自进化，字节跳动 & 美国罗切斯特理工学院，智源TALK",
+      "summary": "MUSE-AutoSkill是一种面向智能体自我进化的新型框架，突破传统大语言模型将技能视为孤立静态工具的局限，通过技能创建、记忆、管理与评估四大核心机制，实现任务经验的持续复用与长期能力提升。该框架支持智能体在交互中自动提炼可复用技能、持久化存储、动态调度优化，并建立量化评估体系以驱动迭代进化。林华伟博士在智源Ta…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MjkzNDMwNg==&mid=2247491997&idx=2&sn=90653a3d5c676b694b4e7b80b3ae8fa7&chksm=fcca8bd87381c0c4284ad0c631ac790aba9ba46f1d2b8c462875c5748742be0f3d4bba5b731a&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "48efda9c4c8c",
+      "title": "Claude Code狂删80%提示词，Opus 5反手加回去了",
+      "summary": "Anthropic刚宣布删除Opus 5等模型超80%系统提示词，随即被网友陈成实测“打脸”：Opus 5在删减提示词后性能反弹达72%。该结果引发热议，凸显大模型对冗余提示词的依赖及优化空间。官方删减本意或为简化系统、提升泛化性，但实测显示部分提示词虽被移除，模型反而表现更优，暗示原有提示存在低效甚至干扰成分。这一…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907527&idx=2&sn=8357d758bc23ed41f343742d00fbff34&chksm=e9f60da46534fefc471e8794524bd0508ae9352648ec70e5e63b3eec0671e8ab8e0094da487f&scene=126&sessionid=0#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "8dec8b34b87b",
-      "title": "人大系团队、天使轮数千万元融资，境瞳科技给人类社会建一个「世界模型」",
-      "summary": "境瞳科技近日完成数千万元人民币天使轮融资，投资方包括英诺天使基金、水木清华校友种子基金、零以创投和驰星创投。该公司脱胎于中国人民大学信息学院，致力于构建人类社会的“世界模型”，即社会智能仿真系统。融资将主要用于扩大其社会模拟器规模，支撑社会世界模型的预训练。区别于具身智能聚焦物理世界建模（如重力、摩擦），境瞳科技专注…",
-      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525403&idx=1&sn=d42f3cdd9e205e45b46741d1ce6048a8&chksm=c145f5a4851a8a61167837c6f2b9b665b80906408bdfdd68cad5142d3a41abe0923a8f4fd5a6&scene=126&sessionid=0#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "35f932369dc1",
-      "title": "PD-1搭档，首个PTPN2/1临床有效性数据披露",
-      "summary": "截至2026年7月23日Kidney Cancer Research Summit公布数据，ABBV-CLS-484在临床研究中显示出良好耐受性，主要不良反应为短暂性炎症反应，停药后迅速缓解；同时展现出持久的抗肿瘤活性。该结果支持其进一步开发用于肾癌治疗，但尚未披露具体疗效指标（如ORR、PFS）及试验阶段细节。安全…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514092&idx=2&sn=48b7ff2dfbcb1c2f3e006f361a520cc8&chksm=fd59ba8b45a34dab419453137adf6df2348001ea622fdfec1813b2a78a907990ed8c8d92e25e&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "b77f8c890ad0",
+      "title": "DeepSeek被曝主动叫停了第二轮融资签约",
+      "summary": "DeepSeek第二轮融资在签约前突然暂停，原计划募资至少100亿元，投前估值不低于4800亿元。公司已口头通知部分潜在投资方暂缓签署投资协议。暂停发生在融资临门一脚之际，导火索疑似一份 leaked 内部交流备忘录外泄，引发公司对声誉与合规风险的担忧。此举或反映监管关注、内部治理审慎考量或市场环境变化。目前尚未公布…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907425&idx=2&sn=9282dc1842e045f6674f16119c219f95&chksm=e9c5f14b4bb6f433ff93280078189099f3f1f7ba2c98045c48c91b9c8a82c3577202ee0d99cf&scene=126&sessionid=0#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     }
