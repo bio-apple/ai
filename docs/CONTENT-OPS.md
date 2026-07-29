@@ -220,7 +220,7 @@ DIST=dist python3 scripts/validate_ci.py news
 ```
 按六类候选抓取（YouTube / B站各 3 档：24h · 30d · 100d）
         ↓
-1）24h Top3（≥10 万） 2）30d Top3（≥80 万） 3）100d Top4（>100 万）
+1）24h Top3 2）30d Top3 3）100d Top4（无最低播放量门槛）
         ↓
 去重后 YouTube / B站各自不超过 10（先保留 24h/30d，再用 100d；不是两平台合计）
         ↓
@@ -244,13 +244,13 @@ Actions 手动触发时可选 `force=true`。
 
 **核心配置项：**
 
-| 配置块                                       | 作用                                          |
-| -------------------------------------------- | --------------------------------------------- |
-| `video_categories`                           | 24h≥10万 Top3、30d≥80万 Top3、100d>100万 Top4 |
-| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）         |
-| `search_queries` / `bilibili_search_queries` | 搜索关键词                                    |
-| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）        |
-| `summary.strip_patterns`                     | 摘要广告过滤正则                              |
+| 配置块                                       | 作用                                    |
+| -------------------------------------------- | --------------------------------------- |
+| `video_categories`                           | 24h/30d Top3、100d Top4（无 min_views） |
+| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）   |
+| `search_queries` / `bilibili_search_queries` | 搜索关键词                              |
+| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）  |
+| `summary.strip_patterns`                     | 摘要广告过滤正则                        |
 
 **注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → YouTube 三档为空。
 

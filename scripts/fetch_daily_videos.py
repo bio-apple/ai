@@ -24,7 +24,7 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
-# 1）24h Top3(≥10万) 2）30d Top3(≥80万) 3）100d Top4(>100万)；每平台 ≤10
+# 1）24h Top3 2）30d Top3 3）100d Top4；无最低播放量；每平台 ≤10
 CATEGORY_ORDER = (
     "youtube_recent_24h",
     "youtube_recent_30d",
@@ -323,7 +323,7 @@ def filter_videos_for_category(
     now: datetime | None = None,
     min_views: int | None = None,
 ) -> list[dict]:
-    """按播放门槛 + 发布时间窗口过滤（无发布时间视为不合格）。"""
+    """按发布时间窗口过滤（无发布时间视为不合格）；min_views 默认 0。"""
     threshold = min_views
     if threshold is None:
         if cfg and key in (cfg.get("video_categories") or {}):

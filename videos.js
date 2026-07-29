@@ -54,18 +54,18 @@ const LEGACY_CATEGORY_ALIASES = {
   bilibili_recent_100d: ['bilibili_recent_100d', 'bilibili_top_views'],
 };
 
-/** 与 config/video-fetch.yaml 对齐；回填与展示丢弃未达门槛 / 超窗外视频 */
+/** 与 config/video-fetch.yaml 对齐：各分桶无最低播放量门槛，仅按时间窗过滤 */
 const CATEGORY_MIN_VIEWS = {
-  youtube_recent_24h: 100_000,
-  youtube_recent_30d: 800_000,
-  youtube_recent_100d: 1_000_001,
-  youtube_top_views: 1_000_001,
-  youtube_recent_3d: 300_000,
-  bilibili_recent_24h: 100_000,
-  bilibili_recent_30d: 800_000,
-  bilibili_recent_100d: 1_000_001,
-  bilibili_top_views: 1_000_001,
-  bilibili_recent_3d: 300_000,
+  youtube_recent_24h: 0,
+  youtube_recent_30d: 0,
+  youtube_recent_100d: 0,
+  youtube_top_views: 0,
+  youtube_recent_3d: 0,
+  bilibili_recent_24h: 0,
+  bilibili_recent_30d: 0,
+  bilibili_recent_100d: 0,
+  bilibili_top_views: 0,
+  bilibili_recent_3d: 0,
 };
 
 /** 24h 用小时；其余用天。filter 统一换算为毫秒 */
@@ -89,10 +89,6 @@ function categoryMinViews(key) {
   if (Object.prototype.hasOwnProperty.call(CATEGORY_MIN_VIEWS, key)) {
     return CATEGORY_MIN_VIEWS[key];
   }
-  if (/_recent_24h$/.test(key)) return 100_000;
-  if (/_recent_3d$/.test(key)) return 300_000;
-  if (/_recent_30d$/.test(key)) return 800_000;
-  if (/_recent_100d$|_top_views$/.test(key)) return 1_000_001;
   return 0;
 }
 
@@ -166,7 +162,7 @@ function categoryVideosFromBatch(cats, key) {
 }
 
 /**
- * 最新批次某分类为空时，向前找最近一个非空批次回填（须达播放门槛且在时间窗内）。
+ * 最新批次某分类为空时，向前找最近一个非空批次回填（须在时间窗内）。
  */
 function withCategoryFallback(batches) {
   if (!Array.isArray(batches) || !batches.length) return null;

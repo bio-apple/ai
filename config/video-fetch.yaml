@@ -1,9 +1,9 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# YouTube / B站 分别抓取（各自独立）：
-#   1）24 小时内 Top 3（≥10 万）
-#   2）30 天内 Top 3（≥80 万）
-#   3）100 天内 Top 4（>100 万）
+# YouTube / B站 分别抓取（各自独立，无最低播放量门槛）：
+#   1）24 小时内 Top 3
+#   2）30 天内 Top 3
+#   3）100 天内 Top 4
 # 去重后「每平台」最多 10 条（先保留 24h/30d，再用 100d；YouTube / B站各自独立）
 # 内容门槛：仅保留 AI 关键词匹配
 video_categories:
@@ -12,38 +12,37 @@ video_categories:
     platform: youtube
     hours: 24
     top_count: 3
-    min_views: 100000
+    min_views: 0
   youtube_recent_30d:
     label: "YouTube：30 天内 Top 3"
     platform: youtube
     days: 30
     top_count: 3
-    min_views: 800000
+    min_views: 0
   youtube_recent_100d:
     label: "YouTube：100 天内 Top 4"
     platform: youtube
     days: 100
     top_count: 4
-    # >100 万 → 严格大于，用 1000001 作为门槛
-    min_views: 1000001
+    min_views: 0
   bilibili_recent_24h:
     label: "B站：24 小时内 Top 3"
     platform: bilibili
     hours: 24
     top_count: 3
-    min_views: 100000
+    min_views: 0
   bilibili_recent_30d:
     label: "B站：30 天内 Top 3"
     platform: bilibili
     days: 30
     top_count: 3
-    min_views: 800000
+    min_views: 0
   bilibili_recent_100d:
     label: "B站：100 天内 Top 4"
     platform: bilibili
     days: 100
     top_count: 4
-    min_views: 1000001
+    min_views: 0
 
 # 多平台搜索源（分类未写 min_views 时的回退值）
 search_sources:
