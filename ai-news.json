@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-29T08:56:10.565033+08:00",
+  "updated_at": "2026-07-29T13:19:54.843549+08:00",
   "date": "2026-07-29",
   "cadence": "daily",
   "window_days": 7,
@@ -13,6 +13,105 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "5f8449b50a00",
+      "title": "Do Models Fake Alignment Without Clear Consequences?",
+      "summary": "arXiv:2607.24758v1 Announce Type: new Abstract: Large language models are capable of recognizing evaluation contexts and altering their behavior to reflect eva…",
+      "url": "https://arxiv.org/abs/2607.24758",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-29T12:00:00+08:00"
+    },
+    {
+      "id": "3a089eb3b0fb",
+      "title": "Beyond Memory: A Templated Substrate for Heterogeneous Collaborative Knowledge Work with LLM Agents",
+      "summary": "arXiv:2607.24759v1 Announce Type: new Abstract: Research projects, educational efforts, and adjacent knowledge work accumulate findings, decisions, and reasoni…",
+      "url": "https://arxiv.org/abs/2607.24759",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-29T12:00:00+08:00"
+    },
+    {
+      "id": "f914ce76f855",
+      "title": "Kernel Forge: An Agent Harness for LLM-based Generation and Optimization of CUDA Kernels",
+      "summary": "arXiv:2607.24762v1 Announce Type: new Abstract: Machine learning models are increasingly embedded in everyday software, and most of their runtime is spent in a…",
+      "url": "https://arxiv.org/abs/2607.24762",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-29T12:00:00+08:00"
+    },
+    {
+      "id": "6bb448c977c3",
+      "title": "CaRE Compute-aware Remasking Evaluation Protocol for Masked Diffusion Language Models",
+      "summary": "arXiv:2607.24763v1 Announce Type: new Abstract: Masked diffusion language models (MDLMs) are advancing rapidly, yet the evaluation standards needed to reliably…",
+      "url": "https://arxiv.org/abs/2607.24763",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-07-29T12:00:00+08:00"
+    },
+    {
+      "id": "efd658ea5172",
+      "title": "GrocLM: Grocery Category Recommendation in E-Commerce with Large Language Models",
+      "summary": "arXiv:2607.24764v1 Announce Type: new Abstract: The rapid growth of online grocery shopping requires recommendation systems that capture cyclical purchasing be…",
+      "url": "https://arxiv.org/abs/2607.24764",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-29T12:00:00+08:00"
+    },
+    {
+      "id": "784e31a8b096",
+      "title": "首个鸿蒙PC开源AI统一工作台JiuwenSwarm，办公编程一站式搞定",
+      "summary": "让多智能体团队随时随地为你干活",
+      "url": "https://www.qbitai.com/2026/07/462065.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-07-29T11:29:59+08:00"
+    },
+    {
+      "id": "02510969a1ac",
+      "title": "周鸿祎发布纳米Work：新一代企业智能体工作平台，为企业而生",
+      "summary": "周鸿祎发布纳米Work：新一代企业智能体工作平台，为企业而生",
+      "url": "https://www.qbitai.com/2026/07/462062.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-07-29T09:53:15+08:00"
+    },
+    {
+      "id": "c57c419013a8",
+      "title": "九章云极Alaya Token完成Kimi K3适配 全球首个开源3T级模型入驻Token工厂",
+      "summary": "九章云极Alaya Token完成Kimi K3适配 全球首个开源3T级模型入驻Token工厂",
+      "url": "https://www.qbitai.com/2026/07/462058.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-07-29T09:45:36+08:00"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 166,491",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-29T04:05:58Z"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,738",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-29T03:37:40Z"
+    },
+    {
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 88,894",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-29T03:01:17Z"
+    },
     {
       "id": "df22037e3e0f",
       "title": "Scientific computing in the age of agentic AI",
@@ -32,17 +131,8 @@
       "published_at": "2026-07-29T00:00:00+08:00"
     },
     {
-      "id": "1dae0a443f3d",
-      "title": "AI+生物论文 | Nature 2026 | 通用细胞包埋技术为细胞生物学提供了一个基础模型",
-      "summary": "本文提出构建跨物种通用细胞表征空间，以统一刻画不同物种间细胞类型的巨大分子多样性，有望推动细胞生物学变革。依托单细胞转录组学产生的海量细胞图谱数据，作者开发了“通用细胞嵌入”（ce）方法，通过深度学习整合多物种、多组织的单细胞转录组数据，学习出具有生物学意义且可迁移的低维细胞表示。该嵌入空间能准确聚类同源细胞类型、预…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498084&idx=1&sn=0ba29ab4d49521eda4a5693d2a580a11&chksm=fc8d4202b2e7a580658ae9d30a36b3fabaa3dec1cae1d620b11c5f57c2055252aaf04b192da5&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-29 00:50 分享"
-    },
-    {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,430",
+      "title": "OpenHands/OpenHands · ★ 82,448",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
@@ -60,7 +150,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,332",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,336",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -104,105 +194,6 @@
       "published_at": "2026-07-28T16:17:05+08:00"
     },
     {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,741",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-28T16:14:04Z"
-    },
-    {
-      "id": "faed39fb9a8e",
-      "title": "当AI学会“仿真思维”，教师才能回归育人本质",
-      "summary": "从“工具效率”到“认知理解”，教育AI进入深水区",
-      "url": "https://www.qbitai.com/2026/07/461939.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-28T15:32:47+08:00"
-    },
-    {
-      "id": "705e913db700",
-      "title": "Ilya获黄仁勋50亿美元押注：“是时候Scaling了”",
-      "summary": "迷人的Scaling曲线",
-      "url": "https://www.qbitai.com/2026/07/461911.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-28T13:46:59+08:00"
-    },
-    {
-      "id": "c7bb1df1e5a8",
-      "title": "世界模型有触觉了！50万小时视频，训出首个隐式触觉世界动作模型",
-      "summary": "世界模型有触觉了！50万小时视频，训出首个隐式触觉世界动作模型",
-      "url": "https://www.qbitai.com/2026/07/461827.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-28T13:25:31+08:00"
-    },
-    {
-      "id": "c595dcbb461b",
-      "title": "Concept-based Visual Counterfactual Explanations with Diffusion Models",
-      "summary": "arXiv:2607.22544v1 Announce Type: new Abstract: Visual counterfactual explanations aim to answer \"what minimal change to this image would flip the model's pred…",
-      "url": "https://arxiv.org/abs/2607.22544",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-28T12:00:00+08:00"
-    },
-    {
-      "id": "2d7715849bd1",
-      "title": "SeT-Diff: Towards Semantic Foundation Models for HPC Telemetry and Time-Series",
-      "summary": "arXiv:2607.22548v1 Announce Type: new Abstract: Data centers and their compute nodes require accurate and flexible digital twins capable of modeling the comple…",
-      "url": "https://arxiv.org/abs/2607.22548",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-28T12:00:00+08:00"
-    },
-    {
-      "id": "00e423a4c972",
-      "title": "QFoldAgent: An Autonomous Quantum Optimization Multi-Agent System for Protein Structure Prediction",
-      "summary": "arXiv:2607.22549v1 Announce Type: new Abstract: Hybrid quantum-classical protein structure prediction depends strongly on Hamiltonian penalty weights, yet exis…",
-      "url": "https://arxiv.org/abs/2607.22549",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-28T12:00:00+08:00"
-    },
-    {
-      "id": "5db88e2c2b3d",
-      "title": "Same Question, Different Answers: Evaluating LLM Reliability Beyond Accuracy",
-      "summary": "arXiv:2607.22554v1 Announce Type: new Abstract: Large language models (LLMs) often achieve strong accuracy on benchmarks, yet it remains unclear how reliably t…",
-      "url": "https://arxiv.org/abs/2607.22554",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-28T12:00:00+08:00"
-    },
-    {
-      "id": "b762070b6742",
-      "title": "DeepLens Diagnosis Agent: Agentic Workflow Design Lets a Small Reasoning Model Compete with Frontier LLMs",
-      "summary": "arXiv:2607.22555v1 Announce Type: new Abstract: Medical diagnosis is a multi-stage process: extract facts, consult knowledge, generate a differential analysis,…",
-      "url": "https://arxiv.org/abs/2607.22555",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-28T12:00:00+08:00"
-    },
-    {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,485",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-28T04:04:58Z"
-    },
-    {
-      "id": "dee896240f82",
-      "title": "ACL2026杰出论文｜让AI学会选择性\"失忆\"，PALU框架做到了，模型安全可控，智源TALK",
-      "summary": "ACL2026杰出论文提出PALU框架，针对大模型遗忘学习中全局优化损害通用能力的瓶颈，创新性地聚焦关键位置局部熵最大化。该方法发现仅抑制敏感前缀即可切断目标知识的因果生成链路，并通过对关键logits进行选择性平坦化提升不确定性，实现精准、高效、低损的遗忘。中科大翟乃鑫在智源Talk371期对此进行了线上分享，凸显…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MjkzNDMwNg==&mid=2247491997&idx=4&sn=f58c520ed6f92c85000c529e4fdb47a2&chksm=fc64bc5d66e33ec2ad9cfab94a32719dfa72f92679750fbf26d0df7cbd9c391a26f9edac01fc&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-28 22:20 分享"
-    },
-    {
       "id": "338eb622f724",
       "title": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
       "summary": "Open source software is a critical pillar of the global economy. It underpins cloud computing, financial services, manufacturing, telecommunications, governmen…",
@@ -231,7 +222,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 100,058",
+      "title": "rasbt/LLMs-from-scratch · ★ 100,069",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -246,15 +237,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-07-24T12:34:27+08:00"
-    },
-    {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,877",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-23T22:47:38Z"
     },
     {
       "id": "7c941d34eecc",
@@ -320,11 +302,20 @@
       "published_at": null
     },
     {
-      "id": "ca93bbb696a7",
-      "title": "Claude设计师被工程师卷到掉队，反手造出百万用户工具",
-      "summary": "Claude Design是Anthropic工程师与设计师在Opus 4.5发布后“卷”出的副项目，由产品设计师Nate Parrott与两名工程师共同打造。当时Parrott是Claude Code VS Code插件中唯一的设计师，三人协作突破资源限制，以极简高效方式完成设计系统构建。Nate在官方博客以第一人…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714996&idx=2&sn=aa3010f1391dc1ca3c4dfce7a7d6f124&chksm=f079948de5ddbebf3a584dcefb81d517e7f7e8c4bf13085ba94aa63e7e8bd3413c86cef3089a&scene=0&xtrack=1#rd",
+      "id": "82042391ca46",
+      "title": "换个地面/身体，机器人策略就失灵？让扩散策略读懂「动力学」| ICML'26",
+      "summary": "扩散策略正成为机器人控制新范式，将动作生成建模为逐步去噪过程。但真实环境动力学多变（如摩擦、质量、阻尼等），导致固定模型泛化差。为此，UC Berkeley、北大、CMU与清华联合提出DADP（域自适应扩散策略），通过在线域自适应机制，实时校准扩散过程中的噪声预测与动作分布，无需额外微调即可适配新环境。实验表明其在多…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714996&idx=3&sn=900e7ad630dd25920a02fc79f6dbf84d&chksm=f02f58de6ba89c5b96c0ad700f350a831dc7c0ef25ba70ebe0ce7c47f7ff94c7cb58b989f9f5&scene=0&xtrack=1#rd",
       "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "ca6745f62a62",
+      "title": "Cell | 中南大学李敏团队联合腾讯AI for Life Sciences Lab姚建华团队推出UniPert-G2CP:连接遗传与化学筛选的统一表型建模框架",
+      "summary": "中南大学李敏团队联合腾讯AI提出人工智能虚拟细胞（AIVC）新范式，旨在统一建模遗传与化学筛选数据。针对二者在扰动对象、分子表征、实验体系及数据规模上的显著差异，团队构建了首个跨模态统一计算框架，实现多源扰动数据的协同建模与表型预测。该框架突破传统建模局限，显著提升药物靶点发现、作用机制解析与个体化治疗预测能力，为A…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514104&idx=1&sn=d307149551208a7ec11aca3d6b17eb7c&chksm=fd86b5b1e48930cada8a7d0193cca426bb9018327c57c996c9df1edf0bb8c0d55245f47254fc&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
@@ -356,20 +347,29 @@
       "published_at": null
     },
     {
-      "id": "2297c45682b3",
-      "title": "陶哲轩在菲尔兹颁奖现场：数学迎来百年新危机",
-      "summary": "陶哲轩在王虹、邓煜获菲尔兹奖后，于同一会场直言数学正面临“百年危机”，称其进入价值观与实践方式的基础性动荡期。这位13岁获IMO金牌、06年菲尔兹奖得主强调，危机源于数学日益依赖大型协作、计算机验证及超长证明，导致可理解性、可信度与传承性下降。他警示学界需反思何为“好数学”、如何评估深度与意义，呼吁重建严谨性、直觉与…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907618&idx=1&sn=bd8179f4bd9dc279496625d2cf3cdf45&chksm=e955540172924a5d98d0f015f0f7998d47b5470c295bcd6ff28eeb424117e8754234fe38cce3&scene=126&sessionid=0#rd",
-      "source": "量子位",
+      "id": "fc2f86a2ead6",
+      "title": "明日直播丨ACL2026杰出论文，让AI学会选择性\"失忆\"",
+      "summary": "ACL2026杰出论文提出PALU框架，针对大模型遗忘学习中全局优化损害通用能力的瓶颈，创新性地采用前缀感知策略：仅抑制与敏感知识相关的关键前缀，即可切断其因果生成链路；同时对关键位置logits实施局部熵最大化（平坦化），精准提升模型不确定性，实现高效、低损的定向遗忘。该方法兼顾遗忘效果与模型泛化能力，由中科大翟乃…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU5ODg0MTAwMw==&mid=2247557332&idx=2&sn=ab19820263c0f0a5b858bfe1170ae498&chksm=ff9f1306786a9c5e95e6551697eaef25ae1f51ad2eda8a408803db78eafd99bae1ec9d3b4e2a&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "bc1cf6c140f6",
-      "title": "白宫《科学：新的黄金时代》报告解读 【战略洞察】",
-      "summary": "2026年7月21日，美国白宫科技政策办公室主任迈克尔·克拉齐奥斯向总统提交百页报告《科学：新的黄金时代》，并联合发布《2028财年联邦研发预算优先事项备忘录》，强调加大基础研究、人工智能、量子技术、生物技术和气候科学投入。次日，克拉齐奥斯出席众议院科学委员会听证会，阐释政策愿景。该报告被视作对1945年范内瓦·布什…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524590&idx=2&sn=85a98ecd325952bd39a8c15e632b5bcc&chksm=fc22802e1e7e6fcf5b7a0056e59159e8c135e2237c84c6b114e20c4644b07b98681643041ccf&scene=0&xtrack=1#rd",
+      "id": "3dcdda11a10c",
+      "title": "Nat. Commun. | 大型语言模型驱动的多中心急性肾损伤预测与可解释风险归因",
+      "summary": "急性肾损伤（AKI）是住院患者常见且严重的并发症，早期识别高危患者对降低死亡率至关重要。现有AI预测模型虽判别能力较好，但假阳性率高、临床解释性差，易致“报警疲劳”，制约其临床落地。为此，研究人员开展覆盖我国四家不同地区医院的多中心回顾性队列研究，旨在构建更精准、可解释、适用于真实临床环境的AKI预测模型。",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514104&idx=2&sn=837e6de8bcb84642deda48639b5401d0&chksm=fdf2887c90055a3ef5f176d0ea37cc8029a0330985b253174e7550b4ab1644b5bf2c7ccf68d9&scene=0&xtrack=1#rd",
       "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "5763bd15b142",
+      "title": "全球首个Agentic扩散模型来了：边行动边纠错，128K上下文追平自回归",
+      "summary": "扩散模型首次在Agent领域取得突破，打破自回归（AR）模型长期垄断局面。以往主流Agent如ChatGPT、Claude均依赖因果自回归大语言模型，虽生成稳定但速度慢。蚂蚁集团inclusionAI团队另辟蹊径，推出LLaDA系列扩散架构Agent模型，最新开源版本标志着扩散模型正式进军智能体核心推理层，为高效、并…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907748&idx=1&sn=e7b21953daac0c94f593ae5575359ef9&chksm=e9c64ad05c627c8ee3838debf28d392ca9921967e1e0263a75c1b04cff11bfdbffa38aa67785&scene=126&sessionid=0#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     }
