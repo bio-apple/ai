@@ -1,51 +1,56 @@
 const VIDEO_JSON = 'daily-videos.latest.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
 /** 每平台上限（YouTube / B站各自独立，不是两平台合计） */
-const PLATFORM_TOTAL_CAP = 10;
+const PLATFORM_TOTAL_CAP = 16;
 const PLATFORM_PRIORITY_KEYS = {
   youtube: [
     'youtube_recent_24h',
+    'youtube_recent_3d',
+    'youtube_recent_7d',
     'youtube_recent_30d',
     'youtube_recent_100d',
     'youtube_top_views',
-    // 历史兼容：旧批次曾有 3d
-    'youtube_recent_3d',
   ],
   bilibili: [
     'bilibili_recent_24h',
+    'bilibili_recent_3d',
+    'bilibili_recent_7d',
     'bilibili_recent_30d',
     'bilibili_recent_100d',
     'bilibili_top_views',
-    'bilibili_recent_3d',
   ],
 };
 /** 抓取分桶键（含历史兼容键；页面按平台展示） */
 const CATEGORY_ORDER = [
   'youtube_recent_24h',
+  'youtube_recent_3d',
+  'youtube_recent_7d',
   'youtube_recent_30d',
   'youtube_recent_100d',
   'bilibili_recent_24h',
+  'bilibili_recent_3d',
+  'bilibili_recent_7d',
   'bilibili_recent_30d',
   'bilibili_recent_100d',
-  // 历史键：旧批次 100 天曾用 *_top_views；3d 桶已废弃
+  // 历史键：旧批次 100 天曾用 *_top_views
   'youtube_top_views',
   'bilibili_top_views',
-  'youtube_recent_3d',
-  'bilibili_recent_3d',
 ];
 
 /** 与抓取脚本一致：近 → 远；历史键仍参与去重优先级 */
 const DEDUPE_PICK_ORDER = [
   'youtube_recent_24h',
+  'youtube_recent_3d',
+  'youtube_recent_7d',
   'youtube_recent_30d',
   'youtube_recent_100d',
   'youtube_top_views',
-  'youtube_recent_3d',
   'bilibili_recent_24h',
+  'bilibili_recent_3d',
+  'bilibili_recent_7d',
   'bilibili_recent_30d',
   'bilibili_recent_100d',
   'bilibili_top_views',
-  'bilibili_recent_3d',
 ];
 
 /** 与 scripts/fetch_daily_videos.py / video-fallback.mjs 对齐：空 100d 可回退读旧 top_views */
@@ -54,18 +59,20 @@ const LEGACY_CATEGORY_ALIASES = {
   bilibili_recent_100d: ['bilibili_recent_100d', 'bilibili_top_views'],
 };
 
-/** 与 config/video-fetch.yaml 对齐：各分桶最低播放量 10000，仅按时间窗过滤 */
+/** 与 config/video-fetch.yaml 对齐：24h/3d/7d/30d/100d 分桶最低播放量 */
 const CATEGORY_MIN_VIEWS = {
-  youtube_recent_24h: 10_000,
-  youtube_recent_30d: 10_000,
-  youtube_recent_100d: 10_000,
-  youtube_top_views: 10_000,
-  youtube_recent_3d: 10_000,
-  bilibili_recent_24h: 10_000,
-  bilibili_recent_30d: 10_000,
-  bilibili_recent_100d: 10_000,
-  bilibili_top_views: 10_000,
-  bilibili_recent_3d: 10_000,
+  youtube_recent_24h: 1_000,
+  youtube_recent_3d: 5_000,
+  youtube_recent_7d: 10_000,
+  youtube_recent_30d: 100_000,
+  youtube_recent_100d: 1_000_000,
+  youtube_top_views: 1_000_000,
+  bilibili_recent_24h: 1_000,
+  bilibili_recent_3d: 5_000,
+  bilibili_recent_7d: 10_000,
+  bilibili_recent_30d: 100_000,
+  bilibili_recent_100d: 1_000_000,
+  bilibili_top_views: 1_000_000,
 };
 
 /** 24h 用小时；其余用天。filter 统一换算为毫秒 */
@@ -75,21 +82,23 @@ const CATEGORY_MAX_HOURS = {
 };
 
 const CATEGORY_MAX_DAYS = {
+  youtube_recent_3d: 3,
+  youtube_recent_7d: 7,
   youtube_recent_30d: 30,
   youtube_recent_100d: 100,
   youtube_top_views: 100,
-  youtube_recent_3d: 3,
+  bilibili_recent_3d: 3,
+  bilibili_recent_7d: 7,
   bilibili_recent_30d: 30,
   bilibili_recent_100d: 100,
   bilibili_top_views: 100,
-  bilibili_recent_3d: 3,
 };
 
 function categoryMinViews(key) {
   if (Object.prototype.hasOwnProperty.call(CATEGORY_MIN_VIEWS, key)) {
     return CATEGORY_MIN_VIEWS[key];
   }
-  return 10_000;
+  return 1_000;
 }
 
 function categoryMaxAgeMs(key) {
@@ -101,6 +110,7 @@ function categoryMaxAgeMs(key) {
   if (Object.prototype.hasOwnProperty.call(CATEGORY_MAX_DAYS, key)) {
     days = CATEGORY_MAX_DAYS[key];
   } else if (/_recent_3d$/.test(key)) days = 3;
+  else if (/_recent_7d$/.test(key)) days = 7;
   else if (/_recent_30d$/.test(key)) days = 30;
   else if (/_recent_100d$|_top_views$/.test(key)) days = 100;
   return days == null ? null : days * 24 * 60 * 60 * 1000;
@@ -310,16 +320,16 @@ function sortVideoList(list, sort) {
 }
 
 /**
- * 24h Top3、30d Top3、100d Top4；该平台合计 ≤ PLATFORM_TOTAL_CAP。
- * 列表顺序：24h → 30d → 100d（窄窗组内跟当前排序；100d 组内固定按播放量）。
+ * 24h Top1、3d Top3、7d Top3、30d Top3、100d Top6；该平台合计 ≤ PLATFORM_TOTAL_CAP。
+ * 列表顺序：24h → 3d → 7d → 30d → 100d（100d 组内固定按播放量）。
  */
 function buildPlatformVideoList(batch, platform, sort) {
   const bucketCap = (key) => {
-    if (/_recent_24h$/.test(key)) return 3;
+    if (/_recent_24h$/.test(key)) return 1;
+    if (/_recent_3d$/.test(key)) return 3;
+    if (/_recent_7d$/.test(key)) return 3;
     if (/_recent_30d$/.test(key)) return 3;
-    if (/_recent_100d$|_top_views$/.test(key)) return 4;
-    // 废弃的 3d 桶不再纳入展示
-    if (/_recent_3d$/.test(key)) return 10_000;
+    if (/_recent_100d$|_top_views$/.test(key)) return 6;
     return 3;
   };
   const picked = [];
@@ -361,7 +371,7 @@ function renderPlatformBlock(label, key, videos) {
   `;
 }
 
-/** 24h/30d Top3 + 100d Top4，每平台 ≤10；按平台分组展示 */
+/** 24h Top1 + 3d/7d/30d Top3 + 100d Top6，每平台 ≤16；按平台分组展示 */
 function renderBatch(batch, state) {
   const sortLabel = state.sort === 'recent' ? '按上传时间' : '按播放量';
   const fallbackNote = batch._fallback_count
