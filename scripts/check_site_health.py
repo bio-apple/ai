@@ -27,13 +27,15 @@ def fetch(url: str) -> tuple[int, bytes, dict]:
         return resp.status, resp.read(), dict(resp.headers)
 
 
-def check_http(path: str, expect_substr: bytes | None = None) -> None:
+def check_http(path: str, expect_substr: str | bytes | None = None) -> None:
     url = f"{SITE_BASE}{path}"
     status, body, _ = fetch(url)
     if status != 200:
         raise RuntimeError(f"HTTP:{path}:{status}")
-    if expect_substr and expect_substr not in body:
-        raise RuntimeError(f"CONTENT:{path}:missing expected marker")
+    if expect_substr is not None:
+        needle = expect_substr.encode("utf-8") if isinstance(expect_substr, str) else expect_substr
+        if needle not in body:
+            raise RuntimeError(f"CONTENT:{path}:missing expected marker")
     print(f"✓ {url} ({len(body)} bytes)")
 
 
@@ -161,15 +163,15 @@ def emit_outputs(*, fail_code: str = "", remediation: str = "") -> None:
 def main() -> int:
     notes: list[str] = []
     try:
-        check_http("/", expect_substr=b"Bio AI Lab")
+        check_http("/", expect_substr="Bio AI Lab")
         notes.append("- index OK")
         check_http("/style.css")
         notes.append("- style.css OK")
-        check_http("/index.html", expect_substr=b"html")
+        check_http("/index.html", expect_substr="html")
         notes.append("- index.html OK")
-        check_http("/tools/hub.html", expect_substr=b"工具中心")
+        check_http("/tools/hub.html", expect_substr="工具中心")
         notes.append("- tools hub OK")
-        check_http("/recommend-rules.json", expect_substr=b"schema_version")
+        check_http("/recommend-rules.json", expect_substr="schema_version")
         notes.append("- recommend-rules OK")
         check_json_freshness(
             "/daily-videos.latest.json",
