@@ -141,7 +141,9 @@
     "bilibili:BV1hsgz6REUF",
     "bilibili:BV1BBKb6hEGz",
     "bilibili:BV1sTK86rEF5",
-    "bilibili:BV1tBgC6aELq"
+    "bilibili:BV1tBgC6aELq",
+    "youtube:Wq-zQM8NbfI",
+    "youtube:WrMt6T8yu18"
   ],
   "batches": [
     {
@@ -160,7 +162,7 @@
               "hours": 24
             },
             "top_count": 3,
-            "min_views": 100000
+            "min_views": 0
           },
           "youtube_recent_30d": {
             "label": "YouTube：30 天内 Top 3",
@@ -168,7 +170,7 @@
               "days": 30
             },
             "top_count": 3,
-            "min_views": 800000
+            "min_views": 0
           },
           "youtube_recent_100d": {
             "label": "YouTube：100 天内 Top 4",
@@ -176,7 +178,7 @@
               "days": 100
             },
             "top_count": 4,
-            "min_views": 1000001
+            "min_views": 0
           },
           "bilibili_recent_24h": {
             "label": "B站：24 小时内 Top 3",
@@ -184,7 +186,7 @@
               "hours": 24
             },
             "top_count": 3,
-            "min_views": 100000
+            "min_views": 0
           },
           "bilibili_recent_30d": {
             "label": "B站：30 天内 Top 3",
@@ -192,7 +194,7 @@
               "days": 30
             },
             "top_count": 3,
-            "min_views": 800000
+            "min_views": 0
           },
           "bilibili_recent_100d": {
             "label": "B站：100 天内 Top 4",
@@ -200,7 +202,7 @@
               "days": 100
             },
             "top_count": 4,
-            "min_views": 1000001
+            "min_views": 0
           }
         }
       },
@@ -211,7 +213,36 @@
             "hours": 24
           },
           "top_count": 3,
-          "videos": []
+          "videos": [
+            {
+              "id": "youtube:WrMt6T8yu18",
+              "platform": "youtube",
+              "title": "Write your first prompt in the GitHub Copilot app | Tutorial for beginners",
+              "summary": "Opening a new tool can feel intimidating, but starting a session in the GitHub Copilot app is simple",
+              "url": "https://www.youtube.com/watch?v=WrMt6T8yu18",
+              "thumbnail": "https://i.ytimg.com/vi/WrMt6T8yu18/maxresdefault.jpg",
+              "channel": "GitHub",
+              "subscribers": 0,
+              "views": 1067,
+              "duration": "3:14",
+              "max_height": 1080,
+              "published_at": "2026-07-28T23:00:30+08:00"
+            },
+            {
+              "id": "youtube:Wq-zQM8NbfI",
+              "platform": "youtube",
+              "title": "Master ChatGPT Work Full Tutorial: Everything You Need To Try",
+              "summary": "Download this Free Guide, '11 Ready-to-Install AI Skills for Knowledge Workers' from Hubspot here: In this video, I use ChatGPT W…",
+              "url": "https://www.youtube.com/watch?v=Wq-zQM8NbfI",
+              "thumbnail": "https://i.ytimg.com/vi/Wq-zQM8NbfI/maxresdefault.jpg",
+              "channel": "Enovair",
+              "subscribers": 0,
+              "views": 614,
+              "duration": "17:56",
+              "max_height": 1080,
+              "published_at": "2026-07-29T06:15:24+08:00"
+            }
+          ]
         },
         "youtube_recent_30d": {
           "label": "YouTube：30 天内 Top 3",
@@ -219,7 +250,50 @@
             "days": 30
           },
           "top_count": 3,
-          "videos": []
+          "videos": [
+            {
+              "id": "youtube:m8uUUUsMD3Y",
+              "platform": "youtube",
+              "title": "Introducing the Codex Micro",
+              "summary": "See how the Codex Micro, a customizable keyboard built with Work Louder for Codex, helps you move through a build without leaving…",
+              "url": "https://www.youtube.com/watch?v=m8uUUUsMD3Y",
+              "thumbnail": "https://i.ytimg.com/vi/m8uUUUsMD3Y/maxresdefault.jpg",
+              "channel": "OpenAI",
+              "subscribers": 0,
+              "views": 251603,
+              "duration": "2:15",
+              "max_height": 1080,
+              "published_at": "2026-07-16T03:42:38+08:00"
+            },
+            {
+              "id": "youtube:mFysqIcP7So",
+              "platform": "youtube",
+              "title": "How To Master The New ChatGPT Work (Free Course)",
+              "summary": "Download ChatGPT Work: This video is not ChatGPT Work can handle multi-step tasks with local files, plugins, scheduled workflows,…",
+              "url": "https://www.youtube.com/watch?v=mFysqIcP7So",
+              "thumbnail": "https://i.ytimg.com/vi/mFysqIcP7So/maxresdefault.jpg",
+              "channel": "Paul J Lipsky",
+              "subscribers": 0,
+              "views": 125139,
+              "duration": "19:49",
+              "max_height": 1080,
+              "published_at": "2026-07-13T21:00:06+08:00"
+            },
+            {
+              "id": "youtube:CC-BicbKeMU",
+              "platform": "youtube",
+              "title": "FULL 3 HOUR COURSE: Automate Your Business With Claude AI (2026)",
+              "summary": "🫴🏼 🔶 USEFUL LINKS: - download my Level 1 CLAUDE",
+              "url": "https://www.youtube.com/watch?v=CC-BicbKeMU",
+              "thumbnail": "https://i.ytimg.com/vi/CC-BicbKeMU/maxresdefault.jpg",
+              "channel": "KJ Rainey",
+              "subscribers": 0,
+              "views": 100468,
+              "duration": "2:53:54",
+              "max_height": 1080,
+              "published_at": "2026-07-03T07:14:04+08:00"
+            }
+          ]
         },
         "youtube_recent_100d": {
           "label": "YouTube：100 天内 Top 4",
@@ -237,7 +311,7 @@
               "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
               "channel": "Dan Martell",
               "subscribers": 0,
-              "views": 1967027,
+              "views": 1967086,
               "duration": "15:13",
               "max_height": 1080,
               "published_at": "2026-05-21T21:01:30+08:00"
@@ -251,10 +325,38 @@
               "thumbnail": "https://i.ytimg.com/vi/28TGfTZweqw/maxresdefault.jpg",
               "channel": "Sandeep Swadia",
               "subscribers": 0,
-              "views": 1449921,
+              "views": 1450045,
               "duration": "19:30",
               "max_height": 1080,
               "published_at": "2026-05-22T20:00:02+08:00"
+            },
+            {
+              "id": "youtube:sL5hPovH1vU",
+              "platform": "youtube",
+              "title": "1000+ hours of Learning Claude in 15 Minutes (Beginner to Pro)",
+              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
+              "url": "https://www.youtube.com/watch?v=sL5hPovH1vU",
+              "thumbnail": "https://i.ytimg.com/vi/sL5hPovH1vU/maxresdefault.jpg",
+              "channel": "Dan Martell",
+              "subscribers": 0,
+              "views": 833271,
+              "duration": "14:57",
+              "max_height": 1080,
+              "published_at": "2026-06-15T21:00:05+08:00"
+            },
+            {
+              "id": "youtube:r2vYObllqJU",
+              "platform": "youtube",
+              "title": "Claude AI Tutorial for Beginners (Step-by-Step)",
+              "summary": "Learn how to use Claude AI step-by-step to actually get real work done",
+              "url": "https://www.youtube.com/watch?v=r2vYObllqJU",
+              "thumbnail": "https://i.ytimg.com/vi/r2vYObllqJU/maxresdefault.jpg",
+              "channel": "Kevin Stratvert",
+              "subscribers": 0,
+              "views": 754336,
+              "duration": "8:37",
+              "max_height": 1080,
+              "published_at": "2026-04-30T15:00:55+08:00"
             }
           ]
         },
@@ -3854,5 +3956,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-29T12:24:42.121857+08:00"
+  "updated_at": "2026-07-29T12:40:06.149327+08:00"
 }
