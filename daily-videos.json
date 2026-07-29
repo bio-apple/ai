@@ -162,14 +162,6 @@
             "top_count": 3,
             "min_views": 100000
           },
-          "youtube_recent_3d": {
-            "label": "YouTube：3 天内 Top 3",
-            "window": {
-              "days": 3
-            },
-            "top_count": 3,
-            "min_views": 300000
-          },
           "youtube_recent_30d": {
             "label": "YouTube：30 天内 Top 3",
             "window": {
@@ -179,11 +171,11 @@
             "min_views": 800000
           },
           "youtube_recent_100d": {
-            "label": "YouTube：100 天内 Top 10",
+            "label": "YouTube：100 天内 Top 4",
             "window": {
               "days": 100
             },
-            "top_count": 10,
+            "top_count": 4,
             "min_views": 1000001
           },
           "bilibili_recent_24h": {
@@ -194,14 +186,6 @@
             "top_count": 3,
             "min_views": 100000
           },
-          "bilibili_recent_3d": {
-            "label": "B站：3 天内 Top 3",
-            "window": {
-              "days": 3
-            },
-            "top_count": 3,
-            "min_views": 300000
-          },
           "bilibili_recent_30d": {
             "label": "B站：30 天内 Top 3",
             "window": {
@@ -211,11 +195,11 @@
             "min_views": 800000
           },
           "bilibili_recent_100d": {
-            "label": "B站：100 天内 Top 10",
+            "label": "B站：100 天内 Top 4",
             "window": {
               "days": 100
             },
-            "top_count": 10,
+            "top_count": 4,
             "min_views": 1000001
           }
         }
@@ -253,7 +237,7 @@
               "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
               "channel": "Dan Martell",
               "subscribers": 0,
-              "views": 1964038,
+              "views": 1967027,
               "duration": "15:13",
               "max_height": 1080,
               "published_at": "2026-05-21T21:01:30+08:00"
@@ -267,7 +251,7 @@
               "thumbnail": "https://i.ytimg.com/vi/28TGfTZweqw/maxresdefault.jpg",
               "channel": "Sandeep Swadia",
               "subscribers": 0,
-              "views": 1442537,
+              "views": 1449921,
               "duration": "19:30",
               "max_height": 1080,
               "published_at": "2026-05-22T20:00:02+08:00"
@@ -3870,5 +3854,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-29T11:26:57.488635+08:00"
+  "updated_at": "2026-07-29T12:24:42.121857+08:00"
 }
