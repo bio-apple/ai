@@ -13,7 +13,7 @@ const relations = resolveToolRelations(tool.id);
 const hasRelations = relations.alternatives.length > 0 || relations.complements.length > 0;
 ---
 
-<main class="standalone-page">
+<div class="standalone-page">
   <StandalonePageHeader
     crumbs={[
       { label: '首页', href: home },
@@ -174,4 +174,4 @@ const hasRelations = relations.alternatives.length > 0 || relations.complements.
     <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">浏览工具中心</a>
     <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline">查看工具排行</a>
   </div>
-</main>
+</div>

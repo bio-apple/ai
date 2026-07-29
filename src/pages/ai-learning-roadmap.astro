@@ -29,7 +29,7 @@ const schema = buildPageSchema(
   ogType="website"
   scripts={['vendor/fuse.min.js', 'funnel.js', 'analytics.js', 'ux.js', 'app.js', 'progress.js']}
 >
-  <main class="standalone-page">
+  <div class="standalone-page">
     <StandalonePageHeader
       crumbs={[{ label: '首页', href: home }, { label: 'AI 学习路线' }]}
       title={page.h1}
@@ -80,5 +80,5 @@ const schema = buildPageSchema(
       <a href={asset('guides/beginner.html')} class="cta-btn cta-btn-outline">零基础指南</a>
       <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline">查看工具排行</a>
     </div>
-  </main>
+  </div>
 </StandaloneLayout>

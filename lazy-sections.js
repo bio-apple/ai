@@ -14,7 +14,26 @@
     'section-courses': ['courses.js'],
   };
 
+  const SECTION_DATA = {
+    'section-videos': 'daily-videos.latest.json',
+    'section-news': 'ai-news.json',
+    'section-courses': 'ai-courses.json',
+  };
+
   const LIB_SCRIPTS = ['lib/fetch-json.js'];
+  const prefetched = new Set();
+
+  function prefetchSectionData(sectionId) {
+    const file = SECTION_DATA[sectionId];
+    if (!file || prefetched.has(file)) return;
+    prefetched.add(file);
+    const link = document.createElement('link');
+    link.rel = 'prefetch';
+    link.href = base + file;
+    link.as = 'fetch';
+    link.crossOrigin = 'anonymous';
+    document.head.appendChild(link);
+  }
 
   function versionedSrc(name) {
     const versions =
@@ -68,6 +87,7 @@
   }
 
   function loadForSection(sectionId) {
+    prefetchSectionData(sectionId);
     const files = SECTION_SCRIPTS[sectionId] || [];
     const chain = [...LIB_SCRIPTS, ...files.filter((f) => !LIB_SCRIPTS.includes(f))];
     return chain.reduce((p, name) => p.then(() => ensureScript(name)), Promise.resolve());
@@ -78,7 +98,21 @@
     if (id) loadForSection(id);
   });
 
+  function armNavPrefetch() {
+    document
+      .querySelectorAll('[data-tool="videos"], [data-tool="news"], [data-tool="courses"]')
+      .forEach((el) => {
+        const map = { videos: 'section-videos', news: 'section-news', courses: 'section-courses' };
+        const sid = map[el.getAttribute('data-tool')];
+        if (!sid) return;
+        ['pointerenter', 'focus'].forEach((ev) => {
+          el.addEventListener(ev, () => prefetchSectionData(sid), { once: true, passive: true });
+        });
+      });
+  }
+
   function boot() {
+    armNavPrefetch();
     const active = document.querySelector('.section.active');
     if (active && active.id) loadForSection(active.id);
   }

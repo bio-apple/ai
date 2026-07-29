@@ -41,6 +41,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-ai-map .ai-map-svg circle')).toHaveCount(1);
     await expect(page.locator('#home-ai-map .ai-map-svg')).toContainText('人工智能');
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
+    await expect(page.locator('main#main-content')).toHaveCount(1);
+    await expect(page.locator('main')).toHaveCount(1);
     await expect(page.locator('.hero-brand')).toContainText('Bio AI Lab');
     await expect(page.locator('.hero-ai-map')).toHaveCount(0);
     await expect(page.locator('.hero-content-scrim')).toHaveCount(0);
@@ -147,11 +149,14 @@ test.describe('Bio AI Lab 关键路径', () => {
   test('独立页面包屑', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('tools/hub.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('main#main-content')).toHaveCount(1);
+    await expect(page.locator('main')).toHaveCount(1);
     const hubCrumb = page.locator('.breadcrumb');
     await expect(hubCrumb).toContainText('首页');
     await expect(hubCrumb).toContainText('工具中心');
 
     await page.goto('tools/chatgpt.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('main')).toHaveCount(1);
     const toolCrumb = page.locator('.breadcrumb');
     await expect(toolCrumb).toContainText('工具中心');
     await expect(toolCrumb).toContainText('ChatGPT');
@@ -358,5 +363,18 @@ test.describe('Bio AI Lab 关键路径', () => {
       .toBeTruthy();
     const meta = await page.locator('#video-update-meta').innerText();
     expect(meta).toMatch(/最近更新|暂无|回退/);
+  });
+
+  test('404 页：单一 main、noindex、主题切换可用', async ({ page }) => {
+    await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
+    await page.goto('404.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('main#main-content')).toHaveCount(1);
+    await expect(page.locator('main')).toHaveCount(1);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/i);
+    await expect(page.locator('h1')).toContainText('找不到');
+    const theme = page.locator('.theme-toggle, [data-theme-toggle], #theme-toggle').first();
+    if (await theme.count()) {
+      await expect(theme).toBeVisible();
+    }
   });
 });

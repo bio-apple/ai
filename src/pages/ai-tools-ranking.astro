@@ -42,7 +42,7 @@ const boards = (rankings.boards || []).map((board) => ({
     'ranking-tabs.js',
   ]}
 >
-  <main class="standalone-page ranking-page aicpb-ranking-page">
+  <div class="standalone-page ranking-page aicpb-ranking-page">
     <StandalonePageHeader
       crumbs={[{ label: '首页', href: home }, { label: 'AI 工具排行榜' }]}
       title={rankings.title}
@@ -81,5 +81,5 @@ const boards = (rankings.boards || []).map((board) => ({
       <a href={home} class="cta-btn">返回首页</a>
       <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">工具中心</a>
     </div>
-  </main>
+  </div>
 </StandaloneLayout>

@@ -297,6 +297,7 @@
   function setOpen(open) {
     panel.classList.toggle('open', open);
     panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    fab.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.classList.toggle('knowledge-panel-open', open);
     if (open) {
       syncMobileViewport();

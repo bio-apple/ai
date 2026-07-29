@@ -104,7 +104,7 @@ const lazyAssetBoot = `window.__BIOAI_ASSET_V__=${JSON.stringify(lazyAssetVersio
     <UxWidgets />
     {includeKnowledge && <KnowledgeAssistant />}
     <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer text={site.footer.text} />

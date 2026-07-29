@@ -565,10 +565,14 @@ header {
   min-width: 720px;
 }
 
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px 80px;
+/* 页面内容区：由 Layout 的 #main-content 作唯一 landmark，不设版心以免与
+   .section-panel / .home-main / .standalone-page 叠出双 padding */
+#main-content {
+  display: block;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .section {

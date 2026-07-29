@@ -38,7 +38,7 @@ const home = homeHref();
     'news.js',
   ]}
 >
-  <main class="standalone-page">
+  <div class="standalone-page">
     <StandalonePageHeader
       crumbs={[{ label: '首页', href: home }, { label: '新闻热点' }]}
       title={page.h1}
@@ -56,5 +56,5 @@ const home = homeHref();
       <a href={homeHref('#section-news')} class="cta-btn">返回站内新闻</a>
       <a href={home} class="cta-btn cta-btn-outline">返回首页</a>
     </div>
-  </main>
+  </div>
 </StandaloneLayout>

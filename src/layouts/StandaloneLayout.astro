@@ -20,6 +20,8 @@ interface Props {
   scripts?: string[];
   ogType?: string;
   includeKnowledge?: boolean;
+  showSearch?: boolean;
+  robots?: string;
 }
 
 const {
@@ -37,6 +39,8 @@ const {
   ],
   ogType = 'article',
   includeKnowledge = false,
+  showSearch = true,
+  robots,
 } = Astro.props;
 
 const scriptList = [...scripts];
@@ -67,6 +71,7 @@ const home = homeHref();
       ogImage={site.meta.og_image}
       ogImageAlt={site.meta.og_image_alt || title}
       siteName={site.meta.site_name || 'Bio AI Lab'}
+      robots={robots}
     />
     <Favicon />
     <FontLoader />
@@ -94,8 +99,14 @@ const home = homeHref();
     <a class="skip-link" href="#main-content">跳到主要内容</a>
     <UxWidgets />
     {includeKnowledge && <KnowledgeAssistant />}
-    <Nav nav={site.nav} standalone={true} homeHref={home} navPrefix={BASE} />
-    <main id="main-content">
+    <Nav
+      nav={site.nav}
+      standalone={true}
+      homeHref={home}
+      navPrefix={BASE}
+      showSearch={showSearch}
+    />
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer text={site.footer.text} />

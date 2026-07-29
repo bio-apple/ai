@@ -12,6 +12,7 @@ interface Props {
   ogImage?: string;
   ogImageAlt?: string;
   siteName?: string;
+  robots?: string;
 }
 
 const {
@@ -23,6 +24,7 @@ const {
   ogImage = '',
   ogImageAlt = title,
   siteName = 'Bio AI Lab',
+  robots,
 } = Astro.props;
 
 const image = ogImage || 'https://bio-apple.github.io/ai/og-image.jpg';
@@ -31,6 +33,7 @@ const image = ogImage || 'https://bio-apple.github.io/ai/og-image.jpg';
 <title>{title}</title>
 <meta name="description" content={description} />
 {keywords && <meta name="keywords" content={keywords} />}
+{robots && <meta name="robots" content={robots} />}
 <meta name="author" content="Bio-Apple · Bio AI Lab" />
 <meta name="theme-color" content="#2563eb" />
 <link rel="canonical" href={canonical} />

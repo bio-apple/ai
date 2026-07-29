@@ -9,7 +9,7 @@ const { tool } = Astro.props;
 ---
 
 <section id={tool.section_id} class={`section ${tool.id}-section`}>
-  <main>
+  <div class="tool-section-body">
     <div class="tool-header">
       <div class={`tool-icon ${tool.id}`}>{tool.icon}</div>
       <div>
@@ -103,5 +103,5 @@ const { tool } = Astro.props;
         </>
       )
     }
-  </main>
+  </div>
 </section>
