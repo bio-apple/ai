@@ -34,7 +34,6 @@ const schema = mergeSchemaGraphs(
   canonical={site.meta.canonical}
   schema={schema}
   scripts={[
-    'lib/virtual-list.js',
     'vendor/fuse.min.js',
     'funnel.js',
     'analytics.js',
@@ -93,12 +92,7 @@ const schema = mergeSchemaGraphs(
           <h2 class="section-title" id="home-community-title">AI 工具中心</h2>
         </div>
         <div class="community-links">
-          <a
-            href={asset('tools/hub.html')}
-            class="community-card"
-            data-track="home-community-hub"
-            aria-label="进入 AI 工具中心"
-          >
+          <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
             <span class="community-card-kicker">对比 · 排行</span>
             <strong>AI 工具中心</strong>
             <span>精选对比表与三榜排行（AICPB / LMSYS / AA）。</span>
@@ -186,8 +180,8 @@ const schema = mergeSchemaGraphs(
         </div>
       </div>
       <div class="video-toolbar" id="video-toolbar">
-        <div class="video-toolbar-group">
-          <span class="video-toolbar-label">平台</span>
+        <div class="video-toolbar-group" role="group" aria-label="视频平台">
+          <span class="video-toolbar-label" id="video-platform-label">平台</span>
           <button
             type="button"
             class="video-filter active"
@@ -207,8 +201,8 @@ const schema = mergeSchemaGraphs(
             aria-pressed="false">B站</button
           >
         </div>
-        <div class="video-toolbar-group">
-          <span class="video-toolbar-label">排序</span>
+        <div class="video-toolbar-group" role="group" aria-label="视频排序">
+          <span class="video-toolbar-label" id="video-sort-label">排序</span>
           <button
             type="button"
             class="video-sort active"

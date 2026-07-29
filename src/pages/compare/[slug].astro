@@ -47,14 +47,20 @@ const home = homeHref();
       </div>
       <div class="table-wrap" role="region" aria-label="工具对比表" tabindex="0">
         <table class="compare-table">
-          <thead><tr>{compare.table.headers.map((h) => <th>{h}</th>)}</tr></thead>
+          <thead>
+            <tr>
+              {compare.table.headers.map((h) => (
+                <th scope="col">{h}</th>
+              ))}
+            </tr>
+          </thead>
           <tbody>
             {
               compare.table.rows.map((row) => (
                 <tr>
-                  {row.map((cell) => (
-                    <td>{cell}</td>
-                  ))}
+                  {row.map((cell, i) =>
+                    i === 0 ? <th scope="row">{cell}</th> : <td>{cell}</td>,
+                  )}
                 </tr>
               ))
             }

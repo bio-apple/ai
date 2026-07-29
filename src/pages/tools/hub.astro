@@ -54,9 +54,11 @@ const rankMeta = hubRankingMeta();
       lead={page.lead}
       meta={`${toolCount} 款精选 · 多源排行更新 ${rankMeta.updated_at}`}
     >
-      <div slot="hero-extra" class="hub-quick-links" aria-label="本页目录">
-        <a href="#hub-compare" class="recommend-link">精选对比</a>
-        <a href="#hub-ranking" class="recommend-link">多源排行</a>
+      <div slot="hero-extra" class="hub-quick-links">
+        <nav aria-label="本页目录">
+          <a href="#hub-compare" class="recommend-link">精选对比</a>
+          <a href="#hub-ranking" class="recommend-link">多源排行</a>
+        </nav>
       </div>
     </StandalonePageHeader>
 

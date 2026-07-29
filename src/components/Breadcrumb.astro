@@ -13,17 +13,26 @@ const { crumbs } = Astro.props;
 
 <nav class="breadcrumb" aria-label="面包屑">
   {
-    crumbs.map((crumb, index) => (
-      <>
-        {index > 0 && ' / '}
-        {crumb.href || crumb.tool ? (
-          <a href={crumb.href || '#'} {...(crumb.tool ? { 'data-tool': crumb.tool } : {})}>
-            {crumb.label}
-          </a>
-        ) : (
-          crumb.label
-        )}
-      </>
-    ))
+    crumbs.map((crumb, index) => {
+      const isLast = index === crumbs.length - 1;
+      return (
+        <>
+          {index > 0 && ' / '}
+          {crumb.href || crumb.tool ? (
+            <a
+              href={crumb.href || '#'}
+              {...(crumb.tool ? { 'data-tool': crumb.tool } : {})}
+              {...(isLast ? { 'aria-current': 'page' } : {})}
+            >
+              {crumb.label}
+            </a>
+          ) : isLast ? (
+            <span aria-current="page">{crumb.label}</span>
+          ) : (
+            crumb.label
+          )}
+        </>
+      );
+    })
   }
 </nav>

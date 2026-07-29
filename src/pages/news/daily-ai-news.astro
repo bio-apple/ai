@@ -20,6 +20,18 @@ const schema = mergeSchemaGraphs(
   ),
 );
 const home = homeHref();
+const ssrItems = (newsPayload.items || []).slice(0, 12);
+
+function formatNewsDate(raw: string | undefined) {
+  if (!raw) return '';
+  const d = new Date(raw);
+  if (Number.isNaN(d.getTime())) return String(raw).slice(0, 10);
+  return d.toLocaleDateString('zh-CN', {
+    month: 'numeric',
+    day: 'numeric',
+    timeZone: 'Asia/Shanghai',
+  });
+}
 ---
 
 <StandaloneLayout
@@ -27,6 +39,7 @@ const home = homeHref();
   description={page.lead}
   canonical={`${base}news/daily-ai-news.html`}
   schema={schema}
+  ogType="website"
   scripts={[
     'lib/fetch-json.js',
     'lib/link-guard.js',
@@ -48,7 +61,39 @@ const home = homeHref();
 
     <section class="page-section">
       <div id="daily-news-list" class="news-list">
-        <p class="loading-hint">加载 AI 新闻…</p>
+        {
+          ssrItems.length ? (
+            <ul class="news-feed-list" data-ssr-news>
+              {ssrItems.map((item) => (
+                <li class="news-row">
+                  <a
+                    class="news-row-main"
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="news-click"
+                  >
+                    <span class="news-row-title">
+                      <span class="content-type-badge content-type-news" aria-hidden="true">
+                        资讯
+                      </span>{' '}
+                      {item.title}
+                    </span>
+                    <span class="news-row-meta">
+                      {item.source && <span class="news-row-source">{item.source}</span>}
+                      {item.published_at && (
+                        <span class="news-row-date">{formatNewsDate(item.published_at)}</span>
+                      )}
+                    </span>
+                  </a>
+                  {item.summary && <p class="news-row-summary">{item.summary}</p>}
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <p class="loading-hint">加载 AI 新闻…</p>
+          )
+        }
       </div>
     </section>
 

@@ -337,10 +337,14 @@ a.hub-compare-link:focus-visible {
   white-space: nowrap;
 }
 
-.hub-quick-links {
+.hub-quick-links,
+.hub-quick-links nav {
   display: flex;
   flex-wrap: wrap;
   gap: 12px 18px;
+}
+
+.hub-quick-links {
   margin-top: 16px;
 }
 

@@ -58,7 +58,8 @@ body.knowledge-panel-open {
   background: var(--bg-subtle, var(--bg));
 }
 
-.knowledge-header h3 {
+.knowledge-header h3,
+.knowledge-title {
   margin: 0;
   font-size: 0.95rem;
   font-weight: 700;

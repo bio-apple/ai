@@ -54,8 +54,10 @@ function initReadingProgress() {
     const pct = height > 0 ? Math.min(100, Math.round((scrollTop / height) * 100)) : 0;
     bar.style.width = `${pct}%`;
     if (label) {
+      const visible = scrollTop > 120;
       label.textContent = `阅读进度 ${pct}%`;
-      label.classList.toggle('visible', scrollTop > 120);
+      label.classList.toggle('visible', visible);
+      label.setAttribute('aria-hidden', visible ? 'false' : 'true');
     }
   }
 
@@ -83,16 +85,6 @@ function initBackToTop() {
 
 const TOC_PRIMARY = [
   { id: 'section-home', label: '首页' },
-  { id: 'section-chatgpt', label: 'ChatGPT' },
-  { id: 'section-claude', label: 'Claude' },
-  { id: 'section-gemini', label: 'Gemini' },
-  { id: 'section-deepseek', label: 'DeepSeek' },
-  { id: 'section-kimi', label: 'Kimi' },
-  { id: 'section-qwen', label: '通义千问' },
-  { id: 'section-doubao', label: '豆包' },
-  { id: 'section-cursor', label: 'Cursor' },
-  { id: 'section-codex', label: 'Codex' },
-  { id: 'section-copilot', label: 'Copilot' },
   { id: 'section-local', label: '本地部署' },
   { id: 'section-courses', label: '课程资源' },
   { id: 'section-news', label: '新闻热点' },

@@ -140,48 +140,6 @@ code {
   box-shadow: none;
 }
 
-/* Quick find */
-.quick-find-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
-  margin-bottom: 28px;
-}
-
-.quick-find-card {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 4px;
-  padding: 16px 18px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  cursor: pointer;
-  text-align: left;
-  transition: all 0.2s;
-}
-
-.quick-find-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
-}
-
-.quick-find-icon {
-  font-size: 1.4rem;
-}
-
-.quick-find-card strong {
-  font-size: 0.95rem;
-  color: var(--text);
-}
-
-.quick-find-card span:last-child {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-}
-
 /* 内容类型视觉标识 */
 .content-type-badge {
   display: inline-flex;
@@ -206,11 +164,6 @@ code {
   color: #0f766e;
 }
 
-.content-type-oss {
-  background: rgba(13, 140, 109, 0.12);
-  color: #0f766e;
-}
-
 .content-type-video {
   position: absolute;
   top: 8px;
@@ -225,8 +178,7 @@ html[data-theme='dark'] .content-type-news {
   color: #c7d2fe;
 }
 
-html[data-theme='dark'] .content-type-local,
-html[data-theme='dark'] .content-type-oss {
+html[data-theme='dark'] .content-type-local {
   background: rgba(6, 182, 212, 0.2);
   color: #a5f3fc;
 }

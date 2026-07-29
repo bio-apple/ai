@@ -1529,12 +1529,12 @@ html[data-theme='dark'] .ai-map-label-sub {
     grid-area: visits;
     text-align: left;
     font-size: 0.82rem;
-    color: #6b7280;
+    color: var(--text-muted);
   }
 
   .aicpb-visits::before {
     content: '访问量 ';
-    color: #9ca3af;
+    color: var(--text-muted);
     font-weight: 500;
   }
 

@@ -137,7 +137,11 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
   }
 
   document.querySelector('.nav-menu')?.classList.remove('open');
-  document.querySelector('.nav-toggle')?.setAttribute('aria-expanded', 'false');
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navToggle) {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', '打开导航');
+  }
   document.body.style.overflow = '';
 
   window.dispatchEvent(
@@ -215,6 +219,7 @@ function initMobileNav() {
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    toggle.setAttribute('aria-label', open ? '关闭导航' : '打开导航');
     document.body.style.overflow = open ? 'hidden' : '';
   });
 }
@@ -407,17 +412,18 @@ function isExternalHit(item) {
   return Boolean(item.external || (item.url && /^https?:\/\//i.test(String(item.url))));
 }
 
-function renderSearchHit(item, query) {
+function renderSearchHit(item, query, optionId) {
   const label = highlightMatch(item.label, query);
   const meta = item.type ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>` : '';
   const qAttr = escapeHtml(query.slice(0, 80));
   const external = isExternalHit(item);
   const extMark = external ? '<span class="search-hit-ext" aria-hidden="true">↗</span>' : '';
+  const idAttr = optionId ? ` id="${escapeHtml(optionId)}"` : '';
   if (item.url) {
     const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
-    return `<a href="${escapeHtml(resolveSearchUrl(item.url))}" class="search-hit"${attrs} data-track="search_hit" data-search-query="${qAttr}">${label}${meta}${extMark}</a>`;
+    return `<a href="${escapeHtml(resolveSearchUrl(item.url))}" class="search-hit" role="option"${idAttr}${attrs} data-track="search_hit" data-search-query="${qAttr}">${label}${meta}${extMark}</a>`;
   }
-  return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit" data-search-query="${qAttr}">${label}${meta}</button>`;
+  return `<button type="button" class="search-hit" role="option"${idAttr} data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit" data-search-query="${qAttr}">${label}${meta}</button>`;
 }
 
 function renderSuggestionsPanel(wrap, input, results) {
@@ -534,13 +540,18 @@ function renderSearchResults(wrap, input, results, rawQuery) {
     grouped.get(type).push(hit);
   }
 
+  let optionSeq = 0;
   results.innerHTML = [...grouped.entries()]
-    .map(
-      ([type, items]) => `<div class="search-group">
-        <p class="search-group-label">${escapeHtml(type)}</p>
-        ${items.map((item) => renderSearchHit(item, query)).join('')}
-      </div>`,
-    )
+    .map(([type, items]) => {
+      let html = `<div class="search-group">
+        <p class="search-group-label">${escapeHtml(type)}</p>`;
+      for (const item of items) {
+        const optionId = `search-opt-${optionSeq++}`;
+        html += renderSearchHit(item, query, optionId);
+      }
+      html += '</div>';
+      return html;
+    })
     .join('');
   setSearchDropdownOpen(wrap, input, results, true);
   bindSearchHitActions(wrap, input, results, query);
@@ -575,9 +586,16 @@ function initSearchWrap(wrap) {
 
   function updateActiveHit() {
     const hits = [...results.querySelectorAll('.search-hit')];
-    hits.forEach((el, i) => el.classList.toggle('search-hit-active', i === activeIndex));
+    hits.forEach((el, i) => {
+      const on = i === activeIndex;
+      el.classList.toggle('search-hit-active', on);
+      el.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
     if (activeIndex >= 0 && hits[activeIndex]) {
       hits[activeIndex].scrollIntoView({ block: 'nearest' });
+      input.setAttribute('aria-activedescendant', hits[activeIndex].id || '');
+    } else {
+      input.removeAttribute('aria-activedescendant');
     }
   }
 

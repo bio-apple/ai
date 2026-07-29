@@ -15,6 +15,21 @@
 /*.js
   Cache-Control: public, max-age=604800, stale-while-revalidate=86400
 
+/lib/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/vendor/*
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
+/video-thumbs/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/favicon.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/og-image.jpg
+  Cache-Control: public, max-age=604800, stale-while-revalidate=86400
+
 /ai-courses.json
   Cache-Control: public, max-age=3600, stale-while-revalidate=600
 
@@ -25,4 +40,16 @@
   Cache-Control: public, max-age=1800, stale-while-revalidate=300
 
 /local-deploy.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+
+/search-index.json
+  Cache-Control: public, max-age=3600, stale-while-revalidate=600
+
+/engagement.json
+  Cache-Control: public, max-age=1800, stale-while-revalidate=300
+
+/recommend-rules.json
+  Cache-Control: public, max-age=86400, stale-while-revalidate=3600
+
+/analytics-config.json
   Cache-Control: public, max-age=86400, stale-while-revalidate=3600

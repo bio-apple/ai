@@ -29,11 +29,11 @@ const hasRelations = relations.alternatives.length > 0 || relations.complements.
   <section class="page-section">
     <div class="grid-2">
       <div class="card">
-        <h3><span class="dot"></span> 快速入门</h3>
+        <h2><span class="dot"></span> 快速入门</h2>
         <ol class="steps">{tool.getting_started_steps.map((step) => <li set:html={step} />)}</ol>
       </div>
       <div class="card">
-        <h3><span class="dot"></span> 核心功能</h3>
+        <h2><span class="dot"></span> 核心功能</h2>
         <ul class="features">
           {
             tool.features.map((f) => (

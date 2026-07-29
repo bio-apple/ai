@@ -63,8 +63,16 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-favorites')).toHaveCount(0);
     await expect(page.locator('#home-learning')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toBeVisible();
-    await expect(page.locator('a.logo')).toHaveAttribute('aria-label', '返回首页');
+    await expect(page.locator('a.logo')).toHaveAttribute('aria-label', 'Bio AI Lab 首页');
     await expect(page.locator('a.logo')).toHaveAttribute('href', /index\.html$/);
+    await expect(page.locator('.nav-toggle')).toHaveAttribute('aria-controls', 'site-nav-menu');
+    await expect(page.locator('#site-nav-menu')).toHaveCount(1);
+    await expect(page.locator('#knowledge-panel')).toHaveAttribute(
+      'aria-labelledby',
+      'knowledge-panel-title',
+    );
+    await expect(page.locator('#knowledge-panel-title')).toHaveCount(1);
+    await expect(page.locator('.reading-progress-label')).toHaveAttribute('aria-hidden', 'true');
   });
 
   test('今日热度本机实时累加', async ({ page }) => {

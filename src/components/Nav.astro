@@ -21,7 +21,7 @@ const {
 
 <header>
   <nav class="nav">
-    <a href={homeHref} class="logo" data-tool="all" aria-label="返回首页">
+    <a href={homeHref} class="logo" data-tool="all" aria-label="Bio AI Lab 首页">
       <div class="logo-icon" aria-hidden="true">{nav.logo.icon}</div>
       <div class="logo-text">
         <span class="logo-brand">{nav.logo.brand}</span>
@@ -35,10 +35,16 @@ const {
         </div>
       )
     }
-    <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="打开导航"
+      aria-expanded="false"
+      aria-controls="site-nav-menu"
+    >
       <span></span><span></span><span></span>
     </button>
-    <div class="nav-menu">
+    <div class="nav-menu" id="site-nav-menu">
       {
         nav.menu.map((item) => {
           if (item.type === 'dropdown') {

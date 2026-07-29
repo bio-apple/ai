@@ -53,6 +53,32 @@ jobs:
           CLOUDFLARE_BEACON_TOKEN: ${{ secrets.CLOUDFLARE_BEACON_TOKEN }}
         run: ASTRO_TELEMETRY_DISABLED=1 npm run build
 
+      - name: Check dist artifacts
+        if: steps.cf.outputs.ready == 'true'
+        run: |
+          test -f dist/index.html
+          test -f dist/recommend-rules.json
+          test -f dist/daily-videos.latest.json
+          test -f dist/lib/fetch-json.js
+          test -f dist/ai-courses.json
+          test -f dist/engagement.json
+          test -f dist/_headers
+          test -f dist/favicon.svg
+          test -f dist/og-image.jpg
+
+      - uses: actions/setup-python@v6
+        if: steps.cf.outputs.ready == 'true'
+        id: setup-python
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Validate dist
+        if: steps.cf.outputs.ready == 'true'
+        run: |
+          ${{ steps.setup-python.outputs.python-path }} -m pip install -r requirements.txt
+          DIST=dist ${{ steps.setup-python.outputs.python-path }} scripts/validate_ci.py
+
       - name: Publish to Cloudflare Pages
         if: steps.cf.outputs.ready == 'true'
         uses: cloudflare/wrangler-action@v3
