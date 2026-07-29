@@ -402,14 +402,15 @@ CI 仍会通过 `report_fetch_metrics.py` 告警，但**不会因单次 API 抖�
 
 ## 8. 常见问题
 
-| 症状                  | 原因                 | 处理                                                                          |
-| --------------------- | -------------------- | ----------------------------------------------------------------------------- |
-| Tab 有数据但线上没有  | deploy 未跑或失败    | 查 [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) |
-| 本地有数据线上空      | 未 push 或未 build   | `git push` + 等 deploy                                                        |
-| 课程必收录缺失        | 源站 URL 变更        | 更新 `courses-fetch.yaml` → `required`                                        |
-| YouTube 视频类为空    | CI 环境 yt-dlp 限制  | 配置 `YOUTUBE_API_KEY`；`force=true` 重试；B站有货仍会更新                    |
-| 改了分桶/门槛云端不变 | 今日批次已存在被跳过 | Actions → Daily Videos → **`force=true`**（见 §4.3）                          |
-| Site Health 假失败    | 探针脚本语法错误等   | 查 `scripts/check_site_health.py`；本地 `npm run health:live` 复现            |
+| 症状                           | 原因                        | 处理                                                                          |
+| ------------------------------ | --------------------------- | ----------------------------------------------------------------------------- |
+| Tab 有数据但线上没有           | deploy 未跑或失败           | 查 [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) |
+| 本地有数据线上空               | 未 push 或未 build          | `git push` + 等 deploy                                                        |
+| 课程必收录缺失                 | 源站 URL 变更               | 更新 `courses-fetch.yaml` → `required`                                        |
+| YouTube 视频类为空             | CI 环境 yt-dlp 限制         | 配置 `YOUTUBE_API_KEY`；`force=true` 重试；B站有货仍会更新                    |
+| 改了分桶/门槛云端不变          | 今日批次已存在被跳过        | Actions → Daily Videos → **`force=true`**（见 §4.3）                          |
+| Daily Videos 抓取成功但 job 红 | push 与 main 撞车（非快进） | workflow 已加 `git pull --rebase`；再跑一次 `force=true` 即可落库             |
+| Site Health 假失败             | 探针脚本语法错误等          | 查 `scripts/check_site_health.py`；本地 `npm run health:live` 复现            |
 
 ---
 

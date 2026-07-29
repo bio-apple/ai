@@ -55,7 +55,8 @@ jobs:
           fi
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
           git commit -m "chore: daily AI course resources $DATE"
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
           echo "pushed=true" >> "$GITHUB_OUTPUT"
 
       - name: Trigger Pages deploy

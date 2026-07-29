@@ -123,7 +123,9 @@ jobs:
           fi
           DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
           git commit -m "chore: daily AI videos $DATE"
-          git push
+          # 抓取较久，push 前 rebase，避免与其它 main 提交撞车导致非快进失败
+          git pull --rebase origin main
+          git push origin HEAD:main
           echo "pushed=true" >> "$GITHUB_OUTPUT"
 
       # GITHUB_TOKEN 的 push 不会连锁触发其它 workflow，需显式派发 Pages（带重试）
