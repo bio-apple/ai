@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-28T21:47:49.075520+08:00",
-  "date": "2026-07-28",
+  "updated_at": "2026-07-29T08:56:10.565033+08:00",
+  "date": "2026-07-29",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -13,6 +13,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "df22037e3e0f",
+      "title": "Scientific computing in the age of agentic AI",
+      "summary": "A new field report shows how scientists use AI coding agents to modernize scientific computing, accelerating software development and discovery in genomics and…",
+      "url": "https://openai.com/index/scientific-computing-agentic-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-29T01:00:00+08:00"
+    },
+    {
+      "id": "be3ca53745f6",
+      "title": "Gemini API Managed Agents: 3.6 Flash, hooks, and more",
+      "summary": "We’re announcing even more new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-29T00:00:00+08:00"
+    },
+    {
+      "id": "1dae0a443f3d",
+      "title": "AI+生物论文 | Nature 2026 | 通用细胞包埋技术为细胞生物学提供了一个基础模型",
+      "summary": "本文提出构建跨物种通用细胞表征空间，以统一刻画不同物种间细胞类型的巨大分子多样性，有望推动细胞生物学变革。依托单细胞转录组学产生的海量细胞图谱数据，作者开发了“通用细胞嵌入”（ce）方法，通过深度学习整合多物种、多组织的单细胞转录组数据，学习出具有生物学意义且可迁移的低维细胞表示。该嵌入空间能准确聚类同源细胞类型、预…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498084&idx=1&sn=0ba29ab4d49521eda4a5693d2a580a11&chksm=fc8d4202b2e7a580658ae9d30a36b3fabaa3dec1cae1d620b11c5f57c2055252aaf04b192da5&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-29 00:50 分享"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 82,430",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-28T23:59:53Z"
+    },
+    {
+      "id": "543fd515859a",
+      "title": "Powerful Compute So Compact, It’s Clutch — Build AI Anywhere With NVIDIA Jetson",
+      "summary": "As a discerning AI investor who values style and substance, Sarah Guo knows this season’s standout accessory isn’t the latest designer purse — but what’s insid…",
+      "url": "https://blogs.nvidia.com/blog/build-ai-with-nvidia-jetson/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-28T23:00:19+08:00"
+    },
+    {
+      "id": "b33be8909763",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,332",
+      "summary": "real time face swap and one-click video deepfake with only a single image",
+      "url": "https://github.com/hacksider/Deep-Live-Cam",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-28T21:22:32Z"
+    },
     {
       "id": "7c8ae2784e8b",
       "title": "5 ways AI Mode in Search helps you enjoy the real world",
@@ -50,6 +104,15 @@
       "published_at": "2026-07-28T16:17:05+08:00"
     },
     {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,741",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-28T16:14:04Z"
+    },
+    {
       "id": "faed39fb9a8e",
       "title": "当AI学会“仿真思维”，教师才能回归育人本质",
       "summary": "从“工具效率”到“认知理解”，教育AI进入深水区",
@@ -68,15 +131,6 @@
       "published_at": "2026-07-28T13:46:59+08:00"
     },
     {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,733",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-28T13:44:40Z"
-    },
-    {
       "id": "c7bb1df1e5a8",
       "title": "世界模型有触觉了！50万小时视频，训出首个隐式触觉世界动作模型",
       "summary": "世界模型有触觉了！50万小时视频，训出首个隐式触觉世界动作模型",
@@ -84,24 +138,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-07-28T13:25:31+08:00"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,391",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-28T13:12:23Z"
-    },
-    {
-      "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,321",
-      "summary": "real time face swap and one-click video deepfake with only a single image",
-      "url": "https://github.com/hacksider/Deep-Live-Cam",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-28T12:59:37Z"
     },
     {
       "id": "c595dcbb461b",
@@ -150,12 +186,21 @@
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,477",
+      "title": "f/prompts.chat · ★ 166,485",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-28T04:04:58Z"
+    },
+    {
+      "id": "dee896240f82",
+      "title": "ACL2026杰出论文｜让AI学会选择性\"失忆\"，PALU框架做到了，模型安全可控，智源TALK",
+      "summary": "ACL2026杰出论文提出PALU框架，针对大模型遗忘学习中全局优化损害通用能力的瓶颈，创新性地聚焦关键位置局部熵最大化。该方法发现仅抑制敏感前缀即可切断目标知识的因果生成链路，并通过对关键logits进行选择性平坦化提升不确定性，实现精准、高效、低损的遗忘。中科大翟乃鑫在智源Talk371期对此进行了线上分享，凸显…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MjkzNDMwNg==&mid=2247491997&idx=4&sn=f58c520ed6f92c85000c529e4fdb47a2&chksm=fc64bc5d66e33ec2ad9cfab94a32719dfa72f92679750fbf26d0df7cbd9c391a26f9edac01fc&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-28 22:20 分享"
     },
     {
       "id": "338eb622f724",
@@ -186,7 +231,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 100,032",
+      "title": "rasbt/LLMs-from-scratch · ★ 100,058",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -204,7 +249,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,821",
+      "title": "thedotmack/claude-mem · ★ 88,877",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -219,15 +264,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-07-23T21:00:16+08:00"
-    },
-    {
-      "id": "6479bbc6ab8b",
-      "title": "NVIDIA AI Supercomputer Comes Online at Naval Postgraduate School",
-      "summary": "NVIDIA founder and CEO Jensen Huang today visited the Naval Postgraduate School in Monterey, California, to commission an NVIDIA DGX GB300 system — bringing on…",
-      "url": "https://blogs.nvidia.com/blog/naval-postgraduate-school-dgx-ai-supercomputer/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-23T10:00:46+08:00"
     },
     {
       "id": "7569338ee0d3",
@@ -275,24 +311,6 @@
       "published_at": "2026-07-22T21:00:00+08:00"
     },
     {
-      "id": "fc3528d001b5",
-      "title": "Advancing the next era of national science",
-      "summary": "OpenAI outlines its commitment to advancing American science working with the U.S. Department of Energy and national labs to use frontier AI to accelerate disc…",
-      "url": "https://openai.com/index/advancing-the-next-era-of-national-science",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-22T20:00:00+08:00"
-    },
-    {
-      "id": "edd884e3eb65",
-      "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
-      "summary": "We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber.",
-      "url": "https://deepmind.google/blog/introducing-gemini-3-6-flash-3-5-flash-lite-and-3-5-flash-cyber/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-07-21T23:16:30+08:00"
-    },
-    {
       "id": "e75df1016aa1",
       "title": "Introducing Claude Opus 5",
       "summary": "Introducing Claude Opus 5",
@@ -302,11 +320,11 @@
       "published_at": null
     },
     {
-      "id": "bc1cf6c140f6",
-      "title": "白宫《科学：新的黄金时代》报告解读 【战略洞察】",
-      "summary": "2026年7月21日，美国白宫科技政策办公室主任迈克尔·克拉齐奥斯向总统提交百页报告《科学：新的黄金时代》，并联合发布《2028财年联邦研发预算优先事项备忘录》，强调加大基础研究、人工智能、量子技术、生物技术和气候科学投入。次日，克拉齐奥斯出席众议院科学委员会听证会，阐释政策愿景。该报告被视作对1945年范内瓦·布什…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524590&idx=2&sn=85a98ecd325952bd39a8c15e632b5bcc&chksm=fc22802e1e7e6fcf5b7a0056e59159e8c135e2237c84c6b114e20c4644b07b98681643041ccf&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "ca93bbb696a7",
+      "title": "Claude设计师被工程师卷到掉队，反手造出百万用户工具",
+      "summary": "Claude Design是Anthropic工程师与设计师在Opus 4.5发布后“卷”出的副项目，由产品设计师Nate Parrott与两名工程师共同打造。当时Parrott是Claude Code VS Code插件中唯一的设计师，三人协作突破资源限制，以极简高效方式完成设计系统构建。Nate在官方博客以第一人…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714996&idx=2&sn=aa3010f1391dc1ca3c4dfce7a7d6f124&chksm=f079948de5ddbebf3a584dcefb81d517e7f7e8c4bf13085ba94aa63e7e8bd3413c86cef3089a&scene=0&xtrack=1#rd",
+      "source": "新智元",
       "category": "中文资讯",
       "published_at": null
     },
@@ -338,38 +356,20 @@
       "published_at": null
     },
     {
-      "id": "2335895531c8",
-      "title": "王净宇、梁正｜风险类型与国际公共产品供给模式——全球人工智能安全治理的分析框架",
-      "summary": "人工智能风险加速累积，全球安全治理面临风险治理需求与国际公共产品供给之间的失衡与错配。当前核心矛盾在于多元主体参与下治理效能不足。需秉持“力求实效”“标本兼治”理念，依据风险属性差异，构建适配不同风险类型的国际公共产品最优供给理论框架，提升全球AI安全治理的系统性、精准性与协同性，推动形成权责清晰、响应及时、可持续的…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524590&idx=1&sn=f9c6706ce47262b14ec3c779d673bd91&chksm=fc4850fbdcf1d596cda5527ef5fce8f30c9de00eed78c9acdb8090c887b3cbe1afd04d46f88f&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "5b8b8d2bb4c5",
-      "title": "明日直播｜让AI自己\"攒技能\"，MUSE框架实现智能体自进化，字节跳动 & 美国罗切斯特理工学院，智源TALK",
-      "summary": "MUSE-AutoSkill是一种面向智能体自我进化的新型框架，突破传统大语言模型将技能视为孤立静态工具的局限，通过技能创建、记忆、管理与评估四大核心机制，实现任务经验的持续复用与长期能力提升。该框架支持智能体在交互中自动提炼可复用技能、持久化存储、动态调度优化，并建立量化评估体系以驱动迭代进化。林华伟博士在智源Ta…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MjkzNDMwNg==&mid=2247491997&idx=2&sn=90653a3d5c676b694b4e7b80b3ae8fa7&chksm=fcca8bd87381c0c4284ad0c631ac790aba9ba46f1d2b8c462875c5748742be0f3d4bba5b731a&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "48efda9c4c8c",
-      "title": "Claude Code狂删80%提示词，Opus 5反手加回去了",
-      "summary": "Anthropic刚宣布删除Opus 5等模型超80%系统提示词，随即被网友陈成实测“打脸”：Opus 5在删减提示词后性能反弹达72%。该结果引发热议，凸显大模型对冗余提示词的依赖及优化空间。官方删减本意或为简化系统、提升泛化性，但实测显示部分提示词虽被移除，模型反而表现更优，暗示原有提示存在低效甚至干扰成分。这一…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907527&idx=2&sn=8357d758bc23ed41f343742d00fbff34&chksm=e9f60da46534fefc471e8794524bd0508ae9352648ec70e5e63b3eec0671e8ab8e0094da487f&scene=126&sessionid=0#rd",
+      "id": "2297c45682b3",
+      "title": "陶哲轩在菲尔兹颁奖现场：数学迎来百年新危机",
+      "summary": "陶哲轩在王虹、邓煜获菲尔兹奖后，于同一会场直言数学正面临“百年危机”，称其进入价值观与实践方式的基础性动荡期。这位13岁获IMO金牌、06年菲尔兹奖得主强调，危机源于数学日益依赖大型协作、计算机验证及超长证明，导致可理解性、可信度与传承性下降。他警示学界需反思何为“好数学”、如何评估深度与意义，呼吁重建严谨性、直觉与…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907618&idx=1&sn=bd8179f4bd9dc279496625d2cf3cdf45&chksm=e955540172924a5d98d0f015f0f7998d47b5470c295bcd6ff28eeb424117e8754234fe38cce3&scene=126&sessionid=0#rd",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "b77f8c890ad0",
-      "title": "DeepSeek被曝主动叫停了第二轮融资签约",
-      "summary": "DeepSeek第二轮融资在签约前突然暂停，原计划募资至少100亿元，投前估值不低于4800亿元。公司已口头通知部分潜在投资方暂缓签署投资协议。暂停发生在融资临门一脚之际，导火索疑似一份 leaked 内部交流备忘录外泄，引发公司对声誉与合规风险的担忧。此举或反映监管关注、内部治理审慎考量或市场环境变化。目前尚未公布…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907425&idx=2&sn=9282dc1842e045f6674f16119c219f95&chksm=e9c5f14b4bb6f433ff93280078189099f3f1f7ba2c98045c48c91b9c8a82c3577202ee0d99cf&scene=126&sessionid=0#rd",
-      "source": "量子位",
+      "id": "bc1cf6c140f6",
+      "title": "白宫《科学：新的黄金时代》报告解读 【战略洞察】",
+      "summary": "2026年7月21日，美国白宫科技政策办公室主任迈克尔·克拉齐奥斯向总统提交百页报告《科学：新的黄金时代》，并联合发布《2028财年联邦研发预算优先事项备忘录》，强调加大基础研究、人工智能、量子技术、生物技术和气候科学投入。次日，克拉齐奥斯出席众议院科学委员会听证会，阐释政策愿景。该报告被视作对1945年范内瓦·布什…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524590&idx=2&sn=85a98ecd325952bd39a8c15e632b5bcc&chksm=fc22802e1e7e6fcf5b7a0056e59159e8c135e2237c84c6b114e20c4644b07b98681643041ccf&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     }
