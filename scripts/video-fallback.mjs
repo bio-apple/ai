@@ -92,16 +92,16 @@ export function filterVideosByMinViews(videos, key) {
   return filterVideosForCategory(videos, key);
 }
 
-function categoryVideosFromBatch(cats, key) {
+function categoryVideosFromBatch(cats, key, nowMs = Date.now()) {
   for (const alias of LEGACY_CATEGORY_ALIASES[key] || [key]) {
-    const videos = filterVideosForCategory(cats?.[alias]?.videos || [], key);
+    const videos = filterVideosForCategory(cats?.[alias]?.videos || [], key, nowMs);
     if (videos.length) return videos;
   }
-  return filterVideosForCategory(cats?.[key]?.videos || [], key);
+  return filterVideosForCategory(cats?.[key]?.videos || [], key, nowMs);
 }
 
 /** @param {Array<Record<string, unknown>> | null | undefined} batches */
-export function withCategoryFallback(batches) {
+export function withCategoryFallback(batches, nowMs = Date.now()) {
   if (!Array.isArray(batches) || !batches.length) return null;
   const latest = batches[0];
   if (!latest?.categories) return latest;
@@ -110,7 +110,7 @@ export function withCategoryFallback(batches) {
   let fallbackCount = 0;
   for (const key of Object.keys(latest.categories)) {
     const cat = latest.categories[key] || {};
-    const videos = filterVideosForCategory(cat.videos || [], key);
+    const videos = filterVideosForCategory(cat.videos || [], key, nowMs);
     if (videos.length) {
       categories[key] = { ...cat, videos: videos.map((v) => ({ ...v })) };
       continue;
@@ -118,7 +118,7 @@ export function withCategoryFallback(batches) {
     let filled = null;
     let fromDate = null;
     for (let i = 1; i < batches.length; i += 1) {
-      const prevVideos = categoryVideosFromBatch(batches[i]?.categories || {}, key);
+      const prevVideos = categoryVideosFromBatch(batches[i]?.categories || {}, key, nowMs);
       if (prevVideos.length) {
         filled = prevVideos;
         fromDate = batches[i].date || null;
