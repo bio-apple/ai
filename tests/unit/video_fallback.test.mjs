@@ -88,7 +88,7 @@ test('two empty YouTube days still backfill when full history is available at bu
   assert.equal(out.categories.youtube_top_views.fallback_from, '2026-07-13');
 });
 
-test('fallback keeps historical videos regardless of view count', () => {
+test('fallback strips historical videos below min views 10000', () => {
   const out = withCategoryFallback(
     [
       {
@@ -121,8 +121,8 @@ test('fallback keeps historical videos regardless of view count', () => {
     ],
     NOW,
   );
-  assert.equal(out.categories.bilibili_recent_30d.videos.length, 3);
-  assert.equal(out.categories.bilibili_recent_30d.fallback_from, '2026-07-21');
+  assert.equal(out.categories.bilibili_recent_30d.videos.length, 0);
+  assert.equal(out.categories.bilibili_recent_30d.fallback_from, undefined);
   assert.equal(out.categories.bilibili_recent_100d.videos[0].id, 'ok');
 });
 
@@ -165,7 +165,7 @@ test('fallback skips historical videos outside 100d window', () => {
   );
 });
 
-test('latest low-view videos are kept when min views is zero', () => {
+test('latest low-view videos below 10000 are filtered', () => {
   const out = withCategoryFallback(
     [
       {
@@ -184,6 +184,6 @@ test('latest low-view videos are kept when min views is zero', () => {
   );
   assert.deepEqual(
     out.categories.bilibili_recent_30d.videos.map((v) => v.id),
-    ['low1', 'hot'],
+    ['hot'],
   );
 });

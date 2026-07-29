@@ -220,7 +220,7 @@ DIST=dist python3 scripts/validate_ci.py news
 ```
 按六类候选抓取（YouTube / B站 × 24h · 30d · 100d）
         ↓
-各档按播放量取 Top：24h×3、30d×3、100d×4（min_views=0，无播放量门槛）
+各档按播放量取 Top：24h×3、30d×3、100d×4（min_views=10000，最低播放量 ≥10000）
         ↓
 去重后 YouTube / B站各自不超过 10（先保留 24h/30d，再用 100d；不是两平台合计）
         ↓
@@ -235,11 +235,11 @@ B站缩略图下载到 video-thumbs/（构建前转 WebP）
 
 **当前分桶（`config/video-fetch.yaml`）：**
 
-| 分桶            | Top | 时间窗  | 最低播放量  |
-| --------------- | --- | ------- | ----------- |
-| `*_recent_24h`  | 3   | 24 小时 | **无（0）** |
-| `*_recent_30d`  | 3   | 30 天   | **无（0）** |
-| `*_recent_100d` | 4   | 100 天  | **无（0）** |
+| 分桶            | Top | 时间窗  | 最低播放量 |
+| --------------- | --- | ------- | ---------- |
+| `*_recent_24h`  | 3   | 24 小时 | **≥10000** |
+| `*_recent_30d`  | 3   | 30 天   | **≥10000** |
+| `*_recent_100d` | 4   | 100 天  | **≥10000** |
 
 规则变更后请用 `--force` / Actions `force=true` 重抓今日批次，否则会跳过已有今日数据。
 
@@ -254,13 +254,13 @@ Actions 手动触发时可选 `force=true`。
 
 **核心配置项：**
 
-| 配置块                                       | 作用                                                      |
-| -------------------------------------------- | --------------------------------------------------------- |
-| `video_categories`                           | 六类分桶：24h/30d Top3、100d Top4；`min_views` 均为 **0** |
-| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）                     |
-| `search_queries` / `bilibili_search_queries` | 搜索关键词                                                |
-| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（**唯一内容门槛**；不再卡播放量）  |
-| `summary.strip_patterns`                     | 摘要广告过滤正则                                          |
+| 配置块                                       | 作用                                                           |
+| -------------------------------------------- | -------------------------------------------------------------- |
+| `video_categories`                           | 六类分桶：24h/30d Top3、100d Top4；`min_views` 均为 **≥10000** |
+| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）                          |
+| `search_queries` / `bilibili_search_queries` | 搜索关键词                                                     |
+| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（**唯一内容门槛**；不再卡播放量）       |
+| `summary.strip_patterns`                     | 摘要广告过滤正则                                               |
 
 **注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → YouTube 三档为空。
 

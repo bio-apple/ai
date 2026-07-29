@@ -1,6 +1,6 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# YouTube / B站 分别抓取（各自独立，无最低播放量门槛）：
+# YouTube / B站 分别抓取（各自独立，最低播放量统一 ≥10000）：
 #   1）24 小时内 Top 3
 #   2）30 天内 Top 3
 #   3）100 天内 Top 4
@@ -12,37 +12,37 @@ video_categories:
     platform: youtube
     hours: 24
     top_count: 3
-    min_views: 0
+    min_views: 10000
   youtube_recent_30d:
     label: "YouTube：30 天内 Top 3"
     platform: youtube
     days: 30
     top_count: 3
-    min_views: 0
+    min_views: 10000
   youtube_recent_100d:
     label: "YouTube：100 天内 Top 4"
     platform: youtube
     days: 100
     top_count: 4
-    min_views: 0
+    min_views: 10000
   bilibili_recent_24h:
     label: "B站：24 小时内 Top 3"
     platform: bilibili
     hours: 24
     top_count: 3
-    min_views: 0
+    min_views: 10000
   bilibili_recent_30d:
     label: "B站：30 天内 Top 3"
     platform: bilibili
     days: 30
     top_count: 3
-    min_views: 0
+    min_views: 10000
   bilibili_recent_100d:
     label: "B站：100 天内 Top 4"
     platform: bilibili
     days: 100
     top_count: 4
-    min_views: 0
+    min_views: 10000
 
 # 多平台搜索源（分类未写 min_views 时的回退值）
 search_sources:
@@ -50,13 +50,13 @@ search_sources:
     enabled: true
     label: YouTube
     search_prefix: ytsearch
-    min_views: 0
-    recent_min_views: 0
+    min_views: 10000
+    recent_min_views: 10000
   bilibili:
     enabled: true
     label: B站
-    min_views: 0
-    recent_min_views: 0
+    min_views: 10000
+    recent_min_views: 10000
 
 search_per_query: 20
 # B站/YouTube 每个关键词翻页数（热门排序下高播放常不在首页）

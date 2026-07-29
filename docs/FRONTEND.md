@@ -146,15 +146,15 @@ Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 
 ## 9. AI 视频
 
-| 项   | 说明                                                                                            |
-| ---- | ----------------------------------------------------------------------------------------------- |
-| 页面 | `#section-videos` · `videos.js`                                                                 |
-| 数据 | `daily-videos.latest.json`（构建时由完整 `daily-videos.json` 瘦身生成；完整文件不再发布到 CDN） |
-| 规则 | YouTube / B站**各自独立**：24h Top3、30d Top3、100d Top4；**无最低播放量**；每平台去重后 ≤10    |
-| 过滤 | 仅时间窗 + AI 关键词；展示/回填不再按播放量丢弃                                                 |
-| 展示 | YouTube / B站分块网格，**整页平铺**（无内部滚动虚拟列表）                                       |
-| 筛选 | 平台（全部 / YouTube / B站）+ 排序（最新 / 热门）                                               |
-| 配置 | `config/video-fetch.yaml`（`min_views: 0`）；抓取见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3     |
+| 项   | 说明                                                                                              |
+| ---- | ------------------------------------------------------------------------------------------------- |
+| 页面 | `#section-videos` · `videos.js`                                                                   |
+| 数据 | `daily-videos.latest.json`（构建时由完整 `daily-videos.json` 瘦身生成；完整文件不再发布到 CDN）   |
+| 规则 | YouTube / B站**各自独立**：24h Top3、30d Top3、100d Top4；**最低播放量 ≥10000**；每平台去重后 ≤10 |
+| 过滤 | 仅时间窗 + AI 关键词；展示/回填不再按播放量丢弃                                                   |
+| 展示 | YouTube / B站分块网格，**整页平铺**（无内部滚动虚拟列表）                                         |
+| 筛选 | 平台（全部 / YouTube / B站）+ 排序（最新 / 热门）                                                 |
+| 配置 | `config/video-fetch.yaml`（`min_views: 10000`）；抓取见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3   |
 
 ---
 

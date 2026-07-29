@@ -126,27 +126,27 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         videos = [
             {"id": "in", "views": 150_000, "published_at": "2026-07-23T01:00:00+08:00"},
             {"id": "out", "views": 900_000, "published_at": "2026-07-21T11:00:00+08:00"},
-            {"id": "low", "views": 50_000, "published_at": "2026-07-23T10:00:00+08:00"},
+            {"id": "low", "views": 5_000, "published_at": "2026-07-23T10:00:00+08:00"},
         ]
         kept = mod.filter_videos_for_category(
             videos,
             "bilibili_recent_24h",
             now=now,
-            min_views=0,
+            min_views=10_000,
             cfg={
                 "video_categories": {
-                    "bilibili_recent_24h": {"hours": 24, "min_views": 0},
+                    "bilibili_recent_24h": {"hours": 24, "min_views": 10_000},
                 }
             },
         )
-        self.assertEqual([v["id"] for v in kept], ["in", "low"])
+        self.assertEqual([v["id"] for v in kept], ["in"])
 
     def test_filter_videos_for_category_optional_min_views(self) -> None:
         """显式传入 min_views>0 时仍可按门槛过滤（兼容旧调用）。"""
         now = mod.datetime(2026, 7, 23, 12, 0, tzinfo=mod.TZ)
         videos = [
             {"id": "in", "views": 150_000, "published_at": "2026-07-23T01:00:00+08:00"},
-            {"id": "low", "views": 50_000, "published_at": "2026-07-23T10:00:00+08:00"},
+            {"id": "low", "views": 5_000, "published_at": "2026-07-23T10:00:00+08:00"},
         ]
         kept = mod.filter_videos_for_category(
             videos,
@@ -214,7 +214,7 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
             videos,
             "bilibili_recent_100d",
             now=mod.datetime(2026, 7, 22, tzinfo=mod.TZ),
-            min_views=0,
+            min_views=10_000,
         )
         self.assertEqual([v["id"] for v in kept], ["new"])
 

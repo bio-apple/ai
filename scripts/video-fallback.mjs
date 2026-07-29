@@ -7,18 +7,18 @@ const LEGACY_CATEGORY_ALIASES = {
   bilibili_recent_100d: ['bilibili_recent_100d', 'bilibili_top_views'],
 };
 
-/** 与 config/video-fetch.yaml 对齐：各分桶无最低播放量门槛，仅按时间窗过滤 */
+/** 与 config/video-fetch.yaml 对齐：各分桶最低播放量 10000，仅按时间窗过滤 */
 export const CATEGORY_MIN_VIEWS = {
-  youtube_recent_24h: 0,
-  youtube_recent_30d: 0,
-  youtube_recent_100d: 0,
-  youtube_top_views: 0,
-  youtube_recent_3d: 0,
-  bilibili_recent_24h: 0,
-  bilibili_recent_30d: 0,
-  bilibili_recent_100d: 0,
-  bilibili_top_views: 0,
-  bilibili_recent_3d: 0,
+  youtube_recent_24h: 10_000,
+  youtube_recent_30d: 10_000,
+  youtube_recent_100d: 10_000,
+  youtube_top_views: 10_000,
+  youtube_recent_3d: 10_000,
+  bilibili_recent_24h: 10_000,
+  bilibili_recent_30d: 10_000,
+  bilibili_recent_100d: 10_000,
+  bilibili_top_views: 10_000,
+  bilibili_recent_3d: 10_000,
 };
 
 export const CATEGORY_MAX_HOURS = {
@@ -41,7 +41,7 @@ export function categoryMinViews(key) {
   if (Object.prototype.hasOwnProperty.call(CATEGORY_MIN_VIEWS, key)) {
     return CATEGORY_MIN_VIEWS[key];
   }
-  return 0;
+  return 10_000;
 }
 
 export function categoryMaxAgeMs(key) {
