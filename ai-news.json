@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-29T14:26:55.759164+08:00",
+  "updated_at": "2026-07-29T21:52:53.087481+08:00",
   "date": "2026-07-29",
   "cadence": "daily",
   "window_days": 7,
@@ -13,6 +13,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "7a46f32d4020",
+      "title": "中科院院士对话北电数智AI专家：以 AI 与数学 “乘法效应” 开辟产业落地新路径",
+      "summary": "中科院、北电数智等专家共探数学与AI边界",
+      "url": "https://www.qbitai.com/2026/07/462943.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-29T19:25:21+08:00"
+    },
+    {
+      "id": "d5500493b419",
+      "title": "超越OpenAI、Anthropic！国产AI安全智能体杀进全球前四、国内第一",
+      "summary": "AI开始组团“挖漏洞”",
+      "url": "https://www.qbitai.com/2026/07/462447.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-29T16:13:03+08:00"
+    },
+    {
+      "id": "a3a32287c049",
+      "title": "Opus 5游戏提示词爆火！24小时复刻3A巨作",
+      "summary": "百万网友已玩疯",
+      "url": "https://www.qbitai.com/2026/07/462384.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-29T16:04:50+08:00"
+    },
+    {
+      "id": "cb61eb1c5387",
+      "title": "OceanBase回应融资报道：全力投入AI数据创新，与资本市场保持开放沟通",
+      "summary": "OceanBase回应融资报道：全力投入AI数据创新，与资本市场保持开放沟通",
+      "url": "https://www.qbitai.com/2026/07/462380.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-07-29T14:39:43+08:00"
+    },
+    {
+      "id": "ee1b83497fe0",
+      "title": "空中具身操作：让蜘蛛侠们安全落地",
+      "summary": "空中具身操作：让蜘蛛侠们安全落地",
+      "url": "https://www.qbitai.com/2026/07/462301.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-29T14:29:26+08:00"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 82,492",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-29T13:07:12Z"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,741",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-29T12:54:24Z"
+    },
     {
       "id": "5f8449b50a00",
       "title": "Do Models Fake Alignment Without Clear Consequences?",
@@ -59,35 +122,8 @@
       "published_at": "2026-07-29T12:00:00+08:00"
     },
     {
-      "id": "784e31a8b096",
-      "title": "首个鸿蒙PC开源AI统一工作台JiuwenSwarm，办公编程一站式搞定",
-      "summary": "让多智能体团队随时随地为你干活",
-      "url": "https://www.qbitai.com/2026/07/462065.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-07-29T11:29:59+08:00"
-    },
-    {
-      "id": "02510969a1ac",
-      "title": "周鸿祎发布纳米Work：新一代企业智能体工作平台，为企业而生",
-      "summary": "周鸿祎发布纳米Work：新一代企业智能体工作平台，为企业而生",
-      "url": "https://www.qbitai.com/2026/07/462062.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-29T09:53:15+08:00"
-    },
-    {
-      "id": "c57c419013a8",
-      "title": "九章云极Alaya Token完成Kimi K3适配 全球首个开源3T级模型入驻Token工厂",
-      "summary": "九章云极Alaya Token完成Kimi K3适配 全球首个开源3T级模型入驻Token工厂",
-      "url": "https://www.qbitai.com/2026/07/462058.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-07-29T09:45:36+08:00"
-    },
-    {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,493",
+      "title": "f/prompts.chat · ★ 166,482",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -95,17 +131,8 @@
       "published_at": "2026-07-29T04:05:58Z"
     },
     {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,740",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-29T03:37:40Z"
-    },
-    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,899",
+      "title": "thedotmack/claude-mem · ★ 88,932",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -131,13 +158,49 @@
       "published_at": "2026-07-29T00:00:00+08:00"
     },
     {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,453",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-28T23:59:53Z"
+      "id": "284f7fe6364a",
+      "title": "对话洪小平：从大疆出来，做一台「电动轮椅」，终局是具身机器人",
+      "summary": "若创科技成立3年，首款产品Strutt ev¹（国内名“昂首EV1”）于今年4月量产、6月交付，并启动国内首批试驾报名。创始人洪小平为伯克利物理学博士，曾主导大疆全球首个量产车规级激光雷达研发，后任教南方科技大学三年，2023年创业。公司聚焦机器人方向，强调产品须具现实社会价值。",
+      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525434&idx=1&sn=a9bbf158f497b0b6632797882be344a4&chksm=c1102ddbbab3ae64f0649d1d633fd9beef7a34a17d49fd179d8babc21176a00c5d01eb3cbb7c&scene=126&sessionid=0#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-29 18:20 分享"
+    },
+    {
+      "id": "395dac6e8caf",
+      "title": "老黄版「曼哈顿计划」来了！砸50亿给Ilya，又批2500亿天价担保OpenAI",
+      "summary": "Ilya Sutskever隐身两年后现身，其创立的安全超级智能实验室（SSI）与英伟达达成战略合作伙伴关系：英伟达将投资50亿美元，并在未来12个月内助SSI算力提升10倍。此举远超常规硬件采购，凸显双方在安全超级智能领域的深度协同，旨在加速构建可靠、可控的下一代AI系统。业界普遍视其为AI安全发展的重要里程碑，标…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652715200&idx=1&sn=813f101a5db9cc1a015fec35fdf1f4a2&chksm=f059e0cff1645f6964356ed3162c86babc9775307fb7d9aaa9894338c1a0b87ff2f471c95715&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": "2026-07-29 17:50 分享"
+    },
+    {
+      "id": "a4d8f16f64f0",
+      "title": "从流程自动化到认知智能化：LangClaw 携手澜舟智库打造业务决策型数字专家",
+      "summary": "三个月前，某头部投资机构投研总监反映其数字员工存在三大痛点：一是缺乏专业领域理解，面对“科创板上市条件”等业务问题仅检索泛泛科普，脱离实际需求；二是无法遵循企业内部分析框架，自由发挥导致产出需大量返工；三是知识与经验无法沉淀复用，同一类报告每次均需从零构建。此类问题在深度使用者中普遍存在，凸显数字员工在专业适配、流程…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5MjY2ODI4Nw==&mid=2247513674&idx=1&sn=ffc5e2e21241aab7605d3ba793a740f6&chksm=c1c1a3e6ba55a3ecc94435902140acd66111c5386490f9830793214d05e0de58eff67ac2cce8&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-29 17:20 分享"
+    },
+    {
+      "id": "406e1e21ed86",
+      "title": "自指与AI读书会启动：从大模型自我改进到意识研究｜主讲招募中",
+      "summary": "近两年AI行业重心转向进化智能体研发，OpenAI、DeepMind、阿里等机构聚焦可自主迭代优化的系统，但现有基于强化学习与演化算法的方法尚无法实现真正的无人干预递归自改进（RSI）。Shumailov等人提出的“模型塌缩”现象揭示：当训练数据混入AI生成内容并多次迭代时，模型性能将不可逆衰退，表现为多样性丧失、错…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzMjQyNzQ5MA==&mid=2247734508&idx=1&sn=dce0d2462843b5c4f7c4c21d730d312f&chksm=e9ae06f40a3192874caad2e149ba65ff4c5ccf01a645a400997fb3dc6396b3573c723428dc5c&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-29 16:20 分享"
+    },
+    {
+      "id": "b4c1e18bcd75",
+      "title": "LeCun连续转发！新作VISReg攻克JEPA世界模型「表征坍塌」核心难题",
+      "summary": "JEPA世界模型基于Yann LeCun自2017年倡导的自监督学习（SSL），旨在无需人工标注从海量数据中学习通用表征。然而，SSL普遍面临“表征坍塌”难题——模型将不同输入映射到相同或极少数向量，丧失判别能力。为抑制坍塌，研究者需设计有效机制确保表征多样性与语义区分性，这是JEPA模型构建鲁棒世界表征的关键挑战。",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652715178&idx=3&sn=b6c9dde70a4ab7acf8dfcc7e5a97be99&chksm=f0653dc2bc01215167fc4688f2855a753ebc355616309c2c78a559d9d5452862c756f8128abb&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": "2026-07-29 16:10 分享"
     },
     {
       "id": "543fd515859a",
@@ -150,7 +213,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,339",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,354",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -174,24 +237,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-07-28T21:00:00+08:00"
-    },
-    {
-      "id": "199bd74cf2bb",
-      "title": "豆包搜索，走出了豆包",
-      "summary": "把搜索能力开放给Agent了",
-      "url": "https://www.qbitai.com/2026/07/461961.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-28T18:12:52+08:00"
-    },
-    {
-      "id": "1968889ac84c",
-      "title": "Kimi K3、Unlimited OCR包揽全球前二，中国开源模型持续刷屏海外",
-      "summary": "Kimi K3、Unlimited OCR包揽全球前二，中国开源模型持续刷屏海外",
-      "url": "https://www.qbitai.com/2026/07/461949.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-07-28T16:17:05+08:00"
     },
     {
       "id": "338eb622f724",
@@ -222,7 +267,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 100,073",
+      "title": "rasbt/LLMs-from-scratch · ★ 100,093",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -257,66 +302,12 @@
       "published_at": "2026-07-23T08:00:00+08:00"
     },
     {
-      "id": "15eb5b1c419a",
-      "title": "Accelerating the frontiers of scientific discovery: Google’s $40M commitment to the Genesis Mission",
-      "summary": "Google commits $40M in AI tokens and credits for the Genesis Mission",
-      "url": "https://deepmind.google/blog/accelerating-the-frontiers-of-scientific-discovery-googles-40m-commitment-to-the-genesis-mission/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-07-22T21:38:54+08:00"
-    },
-    {
-      "id": "bd6ce42035f5",
-      "title": "Building AI infrastructure with the Effingham County community",
-      "summary": "OpenAI announces Project Camellia in Effingham County, Georgia, with commitments to responsible energy, community investment, jobs, and access to Codex.",
-      "url": "https://openai.com/index/building-ai-infrastructure-with-the-effingham-county-community",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-22T21:00:00+08:00"
-    },
-    {
-      "id": "130e23c4bd2f",
-      "title": "How news organizations are using AI to advance their vital missions",
-      "summary": "News organizations are using AI to strengthen reporting, grow audiences, and improve business operations, with OpenAI tools supporting journalists and publishe…",
-      "url": "https://openai.com/index/how-news-organizations-are-using-ai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-22T21:00:00+08:00"
-    },
-    {
-      "id": "23fca7e72825",
-      "title": "3 Google updates from Galaxy Unpacked 2026",
-      "summary": "We shared how Samsung users can boost productivity and get time back on new foldables, watches, and glasses coming soon.",
-      "url": "https://blog.google/products-and-platforms/platforms/android/galaxy-unpacked-2026/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-22T21:00:00+08:00"
-    },
-    {
       "id": "e75df1016aa1",
       "title": "Introducing Claude Opus 5",
       "summary": "Introducing Claude Opus 5",
       "url": "https://www.anthropic.com/news/claude-opus-5",
       "source": "Anthropic",
       "category": "新模型发布",
-      "published_at": null
-    },
-    {
-      "id": "82042391ca46",
-      "title": "换个地面/身体，机器人策略就失灵？让扩散策略读懂「动力学」| ICML'26",
-      "summary": "扩散策略正成为机器人控制新范式，将动作生成建模为逐步去噪过程。但真实环境动力学多变（如摩擦、质量、阻尼等），导致固定模型泛化差。为此，UC Berkeley、北大、CMU与清华联合提出DADP（域自适应扩散策略），通过在线域自适应机制，实时校准扩散过程中的噪声预测与动作分布，无需额外微调即可适配新环境。实验表明其在多…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652714996&idx=3&sn=900e7ad630dd25920a02fc79f6dbf84d&chksm=f02f58de6ba89c5b96c0ad700f350a831dc7c0ef25ba70ebe0ce7c47f7ff94c7cb58b989f9f5&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "ca6745f62a62",
-      "title": "Cell | 中南大学李敏团队联合腾讯AI for Life Sciences Lab姚建华团队推出UniPert-G2CP:连接遗传与化学筛选的统一表型建模框架",
-      "summary": "中南大学李敏团队联合腾讯AI提出人工智能虚拟细胞（AIVC）新范式，旨在统一建模遗传与化学筛选数据。针对二者在扰动对象、分子表征、实验体系及数据规模上的显著差异，团队构建了首个跨模态统一计算框架，实现多源扰动数据的协同建模与表型预测。该框架突破传统建模局限，显著提升药物靶点发现、作用机制解析与个体化治疗预测能力，为A…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514104&idx=1&sn=d307149551208a7ec11aca3d6b17eb7c&chksm=fd86b5b1e48930cada8a7d0193cca426bb9018327c57c996c9df1edf0bb8c0d55245f47254fc&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
       "published_at": null
     },
     {
@@ -344,33 +335,6 @@
       "url": "https://www.anthropic.com/news/claude-sonnet-5",
       "source": "Anthropic",
       "category": "新模型发布",
-      "published_at": null
-    },
-    {
-      "id": "fc2f86a2ead6",
-      "title": "明日直播丨ACL2026杰出论文，让AI学会选择性\"失忆\"",
-      "summary": "ACL2026杰出论文提出PALU框架，针对大模型遗忘学习中全局优化损害通用能力的瓶颈，创新性地采用前缀感知策略：仅抑制与敏感知识相关的关键前缀，即可切断其因果生成链路；同时对关键位置logits实施局部熵最大化（平坦化），精准提升模型不确定性，实现高效、低损的定向遗忘。该方法兼顾遗忘效果与模型泛化能力，由中科大翟乃…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU5ODg0MTAwMw==&mid=2247557332&idx=2&sn=ab19820263c0f0a5b858bfe1170ae498&chksm=ff9f1306786a9c5e95e6551697eaef25ae1f51ad2eda8a408803db78eafd99bae1ec9d3b4e2a&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "3dcdda11a10c",
-      "title": "Nat. Commun. | 大型语言模型驱动的多中心急性肾损伤预测与可解释风险归因",
-      "summary": "急性肾损伤（AKI）是住院患者常见且严重的并发症，早期识别高危患者对降低死亡率至关重要。现有AI预测模型虽判别能力较好，但假阳性率高、临床解释性差，易致“报警疲劳”，制约其临床落地。为此，研究人员开展覆盖我国四家不同地区医院的多中心回顾性队列研究，旨在构建更精准、可解释、适用于真实临床环境的AKI预测模型。",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514104&idx=2&sn=837e6de8bcb84642deda48639b5401d0&chksm=fdf2887c90055a3ef5f176d0ea37cc8029a0330985b253174e7550b4ab1644b5bf2c7ccf68d9&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "5763bd15b142",
-      "title": "全球首个Agentic扩散模型来了：边行动边纠错，128K上下文追平自回归",
-      "summary": "扩散模型首次在Agent领域取得突破，打破自回归（AR）模型长期垄断局面。以往主流Agent如ChatGPT、Claude均依赖因果自回归大语言模型，虽生成稳定但速度慢。蚂蚁集团inclusionAI团队另辟蹊径，推出LLaDA系列扩散架构Agent模型，最新开源版本标志着扩散模型正式进军智能体核心推理层，为高效、并…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907748&idx=1&sn=e7b21953daac0c94f593ae5575359ef9&chksm=e9c64ad05c627c8ee3838debf28d392ca9921967e1e0263a75c1b04cff11bfdbffa38aa67785&scene=126&sessionid=0#rd",
-      "source": "量子位",
-      "category": "中文资讯",
       "published_at": null
     }
   ],
