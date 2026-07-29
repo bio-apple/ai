@@ -8,14 +8,6 @@ export default defineConfig({
   build: {
     format: 'file',
   },
-  // GitHub Pages 不读 _redirects；用 Astro 生成静态跳转页对齐旧路径
-  redirects: {
-    '/labs': '/tools/hub.html',
-    '/labs/index.html': '/tools/hub.html',
-    '/cases': '/tools/hub.html',
-    '/cases/index.html': '/tools/hub.html',
-    '/prompts/library.html': '/index.html#section-local',
-  },
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/404'),
