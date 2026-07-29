@@ -220,7 +220,7 @@ flowchart LR
 | `daily-*.yml`       | 单频道脚本（仅手动）    | 救急重跑某一频道（视频规则变更请 `force=true`）    |
 | `site-health.yml`   | `check_site_health.py`  | 线上 JSON 新鲜度探针                               |
 
-视频分桶由 `config/video-fetch.yaml` 定义：YouTube/B站各自 24h/30d Top3 + 100d Top4，**无最低播放量**，每平台 ≤10。详见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3。
+视频分桶由 `config/video-fetch.yaml` 定义：YouTube/B站各自 24h Top1、3d/7d/30d Top3、100d Top6（阈值 1000/5000/10000/100000/1000000），每平台 ≤16。详见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3。
 
 `daily-refresh.yml` 于北京 **00:00** 启动；频道**顺序执行**（上一频道完成后再开下一频道），全部抓取结束后统一推送并派发一次 `deploy.yml`。新闻热点由 `daily-news.yml` 于北京 **07:30 / 10:00 / 12:00 / 20:00** 多档刷新。
 
@@ -266,7 +266,7 @@ flowchart TB
 
 push `main` 时 **ci.yml 与 deploy.yml 并行**；deploy 不推 `gh-pages` 分支，而是使用官方 `actions/deploy-pages` 制品部署。
 
-详见 [CI-CD.md](./CI-CD.md)。
+
 
 ---
 
@@ -290,7 +290,7 @@ flowchart LR
 
 `secrets` → `data` → `tool-relations` → `local` → `videos` → `news` → `courses` → `runtime` → `recommend` → `sitemap` → `opengraph` → `jsonld` → `search` → `analytics` → `engagement` → `links`
 
-另：CI Lint 前跑 **gitleaks**；日更末步 **lychee** 扫外链（见 [CI-CD.md](./CI-CD.md)）。
+另：CI Lint 前跑 **gitleaks**；日更末步 **lychee** 扫外链。
 
 Schema 文件位于 `schemas/`；手工维护的 `site.json` / `tools.json` 校验 **JSON 可解析 + 交叉引用**（如 `tool-relations` 的 id 必须存在于 `tools.json`）。
 
@@ -338,6 +338,4 @@ public/               # prebuild 中间产物（不提交）
 
 - [DATA-MODEL.md](./DATA-MODEL.md) — 核心 JSON 字段与 Schema
 - [FRONTEND.md](./FRONTEND.md) — 浏览器端能力（含漏斗埋点）
-- [DEVELOPER.md](../DEVELOPER.md) — 开发速查
-- [CI-CD.md](./CI-CD.md) — 部署流程
-- [SECURITY.md](./SECURITY.md) — API Key 与静态站安全
+

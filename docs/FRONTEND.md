@@ -49,7 +49,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 | 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用         |
 | 首页专区 | 本地部署 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
 | 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                 |
-| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                         |
+| SEO      | JSON-LD `BreadcrumbList`（`src/lib/schema.ts`）                         |
 
 ---
 
@@ -105,7 +105,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 2. **GA4** / **Clarity**（可选，需 Secrets）
 3. 未配置时：仅 `window.__clickStats`（浏览器内存，不持久）
 
-配置：`data/analytics.json` 或 GitHub Secrets → prebuild 生成 `analytics-config.json`。详见 [CI-CD.md](./CI-CD.md)、[SECURITY.md](./SECURITY.md)。
+配置：`data/analytics.json` 或 GitHub Secrets → prebuild 生成 `analytics-config.json`。
 
 ### 6.3 本地调试
 
@@ -219,7 +219,6 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ## 相关文档
 
-- [SEO.md](./SEO.md) — TDK / OG / JSON-LD
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构
 - [SETUP.md](./SETUP.md) — 本地环境
 - [CONTENT-OPS.md](./CONTENT-OPS.md) — 内容运营与救急

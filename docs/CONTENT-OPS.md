@@ -261,7 +261,7 @@ Actions 手动触发时可选 `force=true`。
 | `video_categories`                           | 十类分桶：24h Top1、3d/7d/30d Top3、100d Top6（YouTube/B站）；`min_views` 按 1000/5000/10000/100000/1000000 |
 | `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）                          |
 | `search_queries` / `bilibili_search_queries` | 搜索关键词                                                     |
-| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（**唯一内容门槛**；不再卡播放量）       |
+| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（**唯一内容门槛**；按分桶阈值过滤）       |
 | `summary.strip_patterns`                     | 摘要广告过滤正则                                               |
 
 **注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → YouTube 三档为空。
@@ -493,5 +493,4 @@ git commit -m "revert: 回滚坏批次" && git push
 - [DATA-MODEL.md](./DATA-MODEL.md) — JSON 字段定义
 - [FRONTEND.md](./FRONTEND.md) — 搜索 / 漏斗 / 虚拟列表
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 数据流与构建架构
-- [DEVELOPER.md](../DEVELOPER.md) — 开发速查
-- [CI-CD.md](./CI-CD.md) — 部署流程
+

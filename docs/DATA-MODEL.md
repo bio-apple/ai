@@ -478,5 +478,4 @@ npm run build && DIST=dist python3 scripts/validate_ci.py data tool-relations li
 ## 相关文档
 
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构与数据流
-- [DEVELOPER.md](../DEVELOPER.md) — 开发速查
 - `schemas/` — 机器可读 Schema 源文件

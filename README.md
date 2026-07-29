@@ -15,10 +15,6 @@
 | [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)     | 数据模型                           |
 | [docs/FRONTEND.md](./docs/FRONTEND.md)         | 前端能力（搜索 / 推荐 / 漏斗埋点） |
 | [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)   | 内容运营、日更抓取与故障救急       |
-| [DEVELOPER.md](./DEVELOPER.md)                 | 开发速查与常见改动                 |
-| [docs/SEO.md](./docs/SEO.md)                   | TDK / OG / JSON-LD                 |
-| [docs/SECURITY.md](./docs/SECURITY.md)         | 安全与 CSP                         |
-| [docs/CI-CD.md](./docs/CI-CD.md)               | CI/CD 与部署                       |
 
 ## 快速开始
 
