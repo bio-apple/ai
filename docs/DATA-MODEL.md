@@ -413,7 +413,7 @@ nav: {
 | `updated_at` | `string`   | 更新时间                                                    |
 | `seen_ids`   | `string[]` | 去重 id（**仅仓库全量文件**；CDN/浏览器瘦身副本不含此字段） |
 
-**批次** `batches[]`：`date`（`YYYY-MM-DD`）；`categories`（八类：YouTube/B站 × 24h/3d/30d/100d）  
+**批次** `batches[]`：`date`（`YYYY-MM-DD`）；`categories`（六类：YouTube/B站 × 24h/30d/100d）  
 **视频项**：`id`, `title`, `url`, `summary`, `channel`, `published_at`, `thumbnail` 等
 
 **运行时瘦身**：`build-artifacts.mjs` → `daily-videos.latest.json`，仅 `{ updated_at, batches }`（展示层可含历史分类回退）。完整 `daily-videos.json` 留仓库，不进 CDN。

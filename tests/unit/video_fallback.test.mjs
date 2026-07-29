@@ -83,7 +83,7 @@ test('fallback skips historical videos below current min views', () => {
     {
       date: '2026-07-22',
       categories: {
-        bilibili_recent_3d: { videos: [] },
+        bilibili_recent_30d: { videos: [] },
         bilibili_recent_100d: {
           videos: [{ id: 'ok', views: 1_200_000, published_at: '2026-05-01T00:00:00+08:00' }],
         },
@@ -92,19 +92,19 @@ test('fallback skips historical videos below current min views', () => {
     {
       date: '2026-07-21',
       categories: {
-        bilibili_recent_3d: {
+        bilibili_recent_30d: {
           videos: [
-            { id: 'low1', views: 4065, title: 'RAG', published_at: '2026-07-20T00:00:00+08:00' },
-            { id: 'low2', views: 3075, title: '漫剧', published_at: '2026-07-20T00:00:00+08:00' },
-            { id: 'low3', views: 2358, title: 'Claude', published_at: '2026-07-20T00:00:00+08:00' },
+            { id: 'low1', views: 4065, title: 'RAG', published_at: '2026-07-10T00:00:00+08:00' },
+            { id: 'low2', views: 3075, title: '漫剧', published_at: '2026-07-10T00:00:00+08:00' },
+            { id: 'low3', views: 2358, title: 'Claude', published_at: '2026-07-10T00:00:00+08:00' },
           ],
         },
         bilibili_recent_100d: { videos: [] },
       },
     },
   ]);
-  assert.equal(out.categories.bilibili_recent_3d.videos.length, 0);
-  assert.equal(out.categories.bilibili_recent_3d.fallback_from, undefined);
+  assert.equal(out.categories.bilibili_recent_30d.videos.length, 0);
+  assert.equal(out.categories.bilibili_recent_30d.fallback_from, undefined);
   assert.equal(out.categories.bilibili_recent_100d.videos[0].id, 'ok');
 });
 
@@ -149,17 +149,17 @@ test('latest dirty low-view videos are stripped by min views', () => {
     {
       date: '2026-07-22',
       categories: {
-        bilibili_recent_3d: {
+        bilibili_recent_30d: {
           videos: [
-            { id: 'low1', views: 4065, published_at: '2026-07-21T00:00:00+08:00' },
-            { id: 'hot', views: 1_500_000, published_at: '2026-07-21T00:00:00+08:00' },
+            { id: 'low1', views: 4065, published_at: '2026-07-10T00:00:00+08:00' },
+            { id: 'hot', views: 1_500_000, published_at: '2026-07-10T00:00:00+08:00' },
           ],
         },
       },
     },
   ]);
   assert.deepEqual(
-    out.categories.bilibili_recent_3d.videos.map((v) => v.id),
+    out.categories.bilibili_recent_30d.videos.map((v) => v.id),
     ['hot'],
   );
 });

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""每日抓取 AI 应用相关视频（YouTube / B站各自：24h/3d/30d Top3 直出，100d 补齐，每平台 ≤10）。"""
+"""每日抓取 AI 应用相关视频（YouTube / B站各自：24h Top3、30d Top3、100d Top4，每平台 ≤10）。"""
 
 from __future__ import annotations
 
@@ -24,14 +24,12 @@ DATA_FILE = ROOT / "daily-videos.json"
 CONFIG_FILE = ROOT / "config" / "video-fetch.yaml"
 BILIBILI_THUMB_DIR = ROOT / "video-thumbs" / "bilibili"
 TZ_NAME = "Asia/Shanghai"
-# 1）24h Top3(≥10万) 2）3d Top3(≥30万) 3）30d Top3(≥80万) 直出；4）100d Top10(>100万) 补齐；每平台 ≤10
+# 1）24h Top3(≥10万) 2）30d Top3(≥80万) 3）100d Top4(>100万)；每平台 ≤10
 CATEGORY_ORDER = (
     "youtube_recent_24h",
-    "youtube_recent_3d",
     "youtube_recent_30d",
     "youtube_recent_100d",
     "bilibili_recent_24h",
-    "bilibili_recent_3d",
     "bilibili_recent_30d",
     "bilibili_recent_100d",
 )
@@ -39,11 +37,9 @@ CATEGORY_ORDER = (
 # 抓取填充顺序：先 B站（详情稳）再 YouTube，避免 YT 反爬耗尽 detail 配额
 PICK_ORDER = (
     "bilibili_recent_24h",
-    "bilibili_recent_3d",
     "bilibili_recent_30d",
     "bilibili_recent_100d",
     "youtube_recent_24h",
-    "youtube_recent_3d",
     "youtube_recent_30d",
     "youtube_recent_100d",
 )
@@ -271,12 +267,10 @@ def is_within_hours(upload_dt: datetime, now: datetime, hours: float) -> bool:
 
 CATEGORY_WINDOW_DAYS: dict[str, int] = {
     "youtube_recent_24h": 1,
-    "youtube_recent_3d": 3,
     "youtube_recent_30d": 30,
     "youtube_recent_100d": 100,
     "youtube_top_views": 100,
     "bilibili_recent_24h": 1,
-    "bilibili_recent_3d": 3,
     "bilibili_recent_30d": 30,
     "bilibili_recent_100d": 100,
     "bilibili_top_views": 100,
@@ -854,7 +848,7 @@ def collect_top_videos(
 
 
 def is_narrow_window(require_hours: float | None) -> bool:
-    """3d / 30d 为窄窗口；100d 为宽窗口。"""
+    """24h / 30d 为窄窗口；100d 为宽窗口。"""
     return require_hours is not None and require_hours <= NARROW_WINDOW_HOURS
 
 
@@ -925,10 +919,9 @@ def platform_total_cap(cfg: dict | None = None) -> int:
     return DEFAULT_PLATFORM_TOTAL_CAP
 
 
-def platform_bucket_keys(platform: str) -> tuple[str, str, str, str]:
+def platform_bucket_keys(platform: str) -> tuple[str, str, str]:
     return (
         f"{platform}_recent_24h",
-        f"{platform}_recent_3d",
         f"{platform}_recent_30d",
         f"{platform}_recent_100d",
     )
@@ -940,11 +933,12 @@ def finalize_platform_top_by_views(
     limit: int = DEFAULT_PLATFORM_TOTAL_CAP,
     cfg: dict | None = None,
 ) -> dict[str, list[dict]]:
-    """24h/3d/30d 直接保留；100d 按播放量从高到低补齐；并剔除超窗外视频。"""
+    """24h Top3、30d Top3、100d Top4 按桶配额保留；跨桶去重；并剔除超窗外视频。"""
     now = now_local()
+    limits = bucket_limits(cfg) if cfg else {}
     for platform in PLATFORM_ORDER:
-        key_24, key_3d, key_30, key_100 = platform_bucket_keys(platform)
-        for key in (key_24, key_3d, key_30, key_100):
+        key_24, key_30, key_100 = platform_bucket_keys(platform)
+        for key in (key_24, key_30, key_100):
             buckets[key] = filter_videos_for_category(
                 list(buckets.get(key) or []), key, cfg=cfg, now=now
             )
@@ -952,30 +946,30 @@ def finalize_platform_top_by_views(
         selected: list[tuple[str, dict]] = []
         selected_ids: set[str] = set()
 
-        def take_from(key: str, *, by_views: bool = True) -> None:
+        def take_from(key: str, *, max_n: int, by_views: bool = True) -> None:
             items = list(buckets.get(key) or [])
             if by_views:
                 items.sort(key=lambda v: int(v.get("views") or 0), reverse=True)
+            taken = 0
             for video in items:
-                if len(selected) >= limit:
+                if len(selected) >= limit or taken >= max_n:
                     return
                 vid = video.get("id")
                 if not vid or vid in selected_ids:
                     continue
                 selected.append((key, video))
                 selected_ids.add(vid)
+                taken += 1
 
-        # 1）24h 2）3d 3）30d 直出；4）100d 按播放量补齐
-        take_from(key_24, by_views=True)
-        take_from(key_3d, by_views=True)
-        take_from(key_30, by_views=True)
-        take_from(key_100, by_views=True)
+        # 1）24h Top3 2）30d Top3 3）100d Top4（固定配额，不再用 100d 补齐到 cap）
+        take_from(key_24, max_n=int(limits.get(key_24) or 3), by_views=True)
+        take_from(key_30, max_n=int(limits.get(key_30) or 3), by_views=True)
+        take_from(key_100, max_n=int(limits.get(key_100) or 4), by_views=True)
 
-        keep: dict[str, list[dict]] = {key_24: [], key_3d: [], key_30: [], key_100: []}
+        keep: dict[str, list[dict]] = {key_24: [], key_30: [], key_100: []}
         for key, video in selected:
             keep[key].append(video)
         buckets[key_24] = keep[key_24]
-        buckets[key_3d] = keep[key_3d]
         buckets[key_30] = keep[key_30]
         buckets[key_100] = keep[key_100]
     return buckets
@@ -1072,7 +1066,7 @@ def main() -> int:
     total = total_video_count(buckets)
     if before_final != total:
         print(
-            f"合并截断：候选 {before_final} → 每平台 3d/30d 直出 + 100d 补齐（各≤{total_cap}）后共 {total}",
+            f"合并截断：候选 {before_final} → 每平台 24h/30d Top3 + 100d Top4（各≤{total_cap}）后共 {total}",
             file=sys.stderr,
         )
     min_total = len(PLATFORM_ORDER) * total_cap
@@ -1131,11 +1125,11 @@ def main() -> int:
     bili_n = platform_bucket_total(buckets, "bilibili")
     print(
         f"已写入 {today} 视频 {total} 条"
-        f"（YT {yt_n}=24h/{counts['youtube_recent_24h']}+3d/{counts['youtube_recent_3d']}"
+        f"（YT {yt_n}=24h/{counts['youtube_recent_24h']}"
         f"+30d/{counts['youtube_recent_30d']}+100d/{counts['youtube_recent_100d']}；"
-        f"B站 {bili_n}=24h/{counts['bilibili_recent_24h']}+3d/{counts['bilibili_recent_3d']}"
+        f"B站 {bili_n}=24h/{counts['bilibili_recent_24h']}"
         f"+30d/{counts['bilibili_recent_30d']}+100d/{counts['bilibili_recent_100d']}；"
-        f"每平台 24h/3d/30d 直出+100d 补齐，各≤{total_cap}）"
+        f"每平台 24h/30d Top3 + 100d Top4，各≤{total_cap}）"
         f" → {DATA_FILE}"
     )
     return 0

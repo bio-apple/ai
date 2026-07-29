@@ -10,15 +10,15 @@ const LEGACY_CATEGORY_ALIASES = {
 /** 与 config/video-fetch.yaml 对齐；回填/展示时丢弃未达门槛的历史脏数据 */
 export const CATEGORY_MIN_VIEWS = {
   youtube_recent_24h: 100_000,
-  youtube_recent_3d: 300_000,
   youtube_recent_30d: 800_000,
   youtube_recent_100d: 1_000_001,
   youtube_top_views: 1_000_001,
+  youtube_recent_3d: 300_000,
   bilibili_recent_24h: 100_000,
-  bilibili_recent_3d: 300_000,
   bilibili_recent_30d: 800_000,
   bilibili_recent_100d: 1_000_001,
   bilibili_top_views: 1_000_001,
+  bilibili_recent_3d: 300_000,
 };
 
 export const CATEGORY_MAX_HOURS = {
@@ -27,14 +27,14 @@ export const CATEGORY_MAX_HOURS = {
 };
 
 export const CATEGORY_MAX_DAYS = {
-  youtube_recent_3d: 3,
   youtube_recent_30d: 30,
   youtube_recent_100d: 100,
   youtube_top_views: 100,
-  bilibili_recent_3d: 3,
+  youtube_recent_3d: 3,
   bilibili_recent_30d: 30,
   bilibili_recent_100d: 100,
   bilibili_top_views: 100,
+  bilibili_recent_3d: 3,
 };
 
 export function categoryMinViews(key) {
