@@ -107,7 +107,12 @@ test('fallback keeps historical videos regardless of view count', () => {
             videos: [
               { id: 'low1', views: 4065, title: 'RAG', published_at: '2026-07-10T00:00:00+08:00' },
               { id: 'low2', views: 3075, title: '漫剧', published_at: '2026-07-10T00:00:00+08:00' },
-              { id: 'low3', views: 2358, title: 'Claude', published_at: '2026-07-10T00:00:00+08:00' },
+              {
+                id: 'low3',
+                views: 2358,
+                title: 'Claude',
+                published_at: '2026-07-10T00:00:00+08:00',
+              },
             ],
           },
           bilibili_recent_100d: { videos: [] },
