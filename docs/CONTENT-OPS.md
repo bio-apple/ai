@@ -218,20 +218,30 @@ DIST=dist python3 scripts/validate_ci.py news
 **运行机制：**
 
 ```
-按六类候选抓取（YouTube / B站各 3 档：24h · 30d · 100d）
+按六类候选抓取（YouTube / B站 × 24h · 30d · 100d）
         ↓
-1）24h Top3 2）30d Top3 3）100d Top4（无最低播放量门槛）
+各档按播放量取 Top：24h×3、30d×3、100d×4（min_views=0，无播放量门槛）
         ↓
 去重后 YouTube / B站各自不超过 10（先保留 24h/30d，再用 100d；不是两平台合计）
         ↓
-yt-dlp 搜索 + AI 关键词过滤，分桶按播放量排序
+yt-dlp 搜索 + AI 关键词过滤（唯一内容门槛）
         ↓
 摘要清洗（去广告、短链）
         ↓
 插入今日新批次到 batches[0]（保留近 60 批历史）
         ↓
-B站缩略图下载到 video-thumbs/
+B站缩略图下载到 video-thumbs/（构建前转 WebP）
 ```
+
+**当前分桶（`config/video-fetch.yaml`）：**
+
+| 分桶            | Top | 时间窗  | 最低播放量  |
+| --------------- | --- | ------- | ----------- |
+| `*_recent_24h`  | 3   | 24 小时 | **无（0）** |
+| `*_recent_30d`  | 3   | 30 天   | **无（0）** |
+| `*_recent_100d` | 4   | 100 天  | **无（0）** |
+
+规则变更后请用 `--force` / Actions `force=true` 重抓今日批次，否则会跳过已有今日数据。
 
 **命令行参数：**
 
@@ -244,13 +254,13 @@ Actions 手动触发时可选 `force=true`。
 
 **核心配置项：**
 
-| 配置块                                       | 作用                                    |
-| -------------------------------------------- | --------------------------------------- |
-| `video_categories`                           | 24h/30d Top3、100d Top4（无 min_views） |
-| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）   |
-| `search_queries` / `bilibili_search_queries` | 搜索关键词                              |
-| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（唯一内容门槛）  |
-| `summary.strip_patterns`                     | 摘要广告过滤正则                        |
+| 配置块                                       | 作用                                                      |
+| -------------------------------------------- | --------------------------------------------------------- |
+| `video_categories`                           | 六类分桶：24h/30d Top3、100d Top4；`min_views` 均为 **0** |
+| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）                     |
+| `search_queries` / `bilibili_search_queries` | 搜索关键词                                                |
+| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（**唯一内容门槛**；不再卡播放量）  |
+| `summary.strip_patterns`                     | 摘要广告过滤正则                                          |
 
 **注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → YouTube 三档为空。
 
@@ -392,12 +402,14 @@ CI 仍会通过 `report_fetch_metrics.py` 告警，但**不会因单次 API 抖�
 
 ## 8. 常见问题
 
-| 症状                 | 原因                | 处理                                                                          |
-| -------------------- | ------------------- | ----------------------------------------------------------------------------- |
-| Tab 有数据但线上没有 | deploy 未跑或失败   | 查 [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) |
-| 本地有数据线上空     | 未 push 或未 build  | `git push` + 等 deploy                                                        |
-| 课程必收录缺失       | 源站 URL 变更       | 更新 `courses-fetch.yaml` → `required`                                        |
-| YouTube 视频类为空   | CI 环境 yt-dlp 限制 | 用 `force=true` 重试；B站有货仍会更新                                         |
+| 症状                  | 原因                 | 处理                                                                          |
+| --------------------- | -------------------- | ----------------------------------------------------------------------------- |
+| Tab 有数据但线上没有  | deploy 未跑或失败    | 查 [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) |
+| 本地有数据线上空      | 未 push 或未 build   | `git push` + 等 deploy                                                        |
+| 课程必收录缺失        | 源站 URL 变更        | 更新 `courses-fetch.yaml` → `required`                                        |
+| YouTube 视频类为空    | CI 环境 yt-dlp 限制  | 配置 `YOUTUBE_API_KEY`；`force=true` 重试；B站有货仍会更新                    |
+| 改了分桶/门槛云端不变 | 今日批次已存在被跳过 | Actions → Daily Videos → **`force=true`**（见 §4.3）                          |
+| Site Health 假失败    | 探针脚本语法错误等   | 查 `scripts/check_site_health.py`；本地 `npm run health:live` 复现            |
 
 ---
 

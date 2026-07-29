@@ -151,9 +151,21 @@ cp ai-news.json ai-courses.json daily-videos.json public/
 npm run build
 ```
 
-### 3.3 YouTube 视频抓取（本地 / CI）
+### 3.3 YouTube / B站视频抓取（本地 / CI）
 
-每日视频依赖 `scripts/fetch_daily_videos.py`。B 站通常正常；**YouTube 在数据中心 IP 上常被反爬**，需按下列步骤配置：
+每日视频依赖 `scripts/fetch_daily_videos.py` + `config/video-fetch.yaml`。
+
+**当前分桶规则（YouTube / B站各自独立）：**
+
+| 档位 | 条数  | 时间窗    | 播放量 |
+| ---- | ----- | --------- | ------ |
+| 24h  | Top 3 | 24 小时内 | 无门槛 |
+| 30d  | Top 3 | 30 天内   | 无门槛 |
+| 100d | Top 4 | 100 天内  | 无门槛 |
+
+去重后每平台最多 10 条；内容仅要求匹配 `ai_keyword_pattern`。规则或门槛变更后务必 `--force` 重抓。
+
+B 站通常正常；**YouTube 在数据中心 IP 上常被反爬**，需按下列步骤配置：
 
 **一次性配置（推荐）**
 

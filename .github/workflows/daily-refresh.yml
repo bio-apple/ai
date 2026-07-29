@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
     inputs:
       force_videos:
-        description: "强制重抓今日视频批次"
+        description: "强制重抓今日视频批次（分桶/门槛变更后建议 true）"
         required: false
         default: "false"
         type: choice
