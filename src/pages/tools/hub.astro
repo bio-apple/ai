@@ -42,16 +42,8 @@ const rankMeta = hubRankingMeta();
   <div class="standalone-page tools-hub-page hub-compare-page aicpb-ranking-page">
     <StandalonePageHeader
       crumbs={[{ label: '首页', href: homeHref() }, { label: '工具中心' }]}
-      title={page.h1}
-      lead={page.lead}
-      meta={`三榜 Top ${HUB_RANKING_TOP_N} · 多源排行更新 ${rankMeta.updated_at}`}
-    >
-      <div slot="hero-extra" class="hub-quick-links">
-        <nav aria-label="本页目录">
-          <a href="#hub-ranking" class="recommend-link">多源排行</a>
-        </nav>
-      </div>
-    </StandalonePageHeader>
+      meta={`更新 ${rankMeta.updated_at}`}
+    />
 
     <section
       class="hub-ranking-section page-section"

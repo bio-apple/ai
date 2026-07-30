@@ -9,7 +9,7 @@ export type StandaloneCrumb = Crumb;
 
 interface Props {
   crumbs: StandaloneCrumb[];
-  title: string;
+  title?: string;
   lead?: string;
   meta?: string;
   metaId?: string;
@@ -31,7 +31,7 @@ const { crumbs, title, lead, meta, metaId, icon, iconClass, class: className } =
           {icon}
         </div>
         <div class="standalone-hero-text">
-          <h1>{title}</h1>
+          {title && <h1>{title}</h1>}
           {lead && <p class="standalone-lead">{lead}</p>}
           {meta && (
             <p class="standalone-meta" id={metaId}>
@@ -43,7 +43,7 @@ const { crumbs, title, lead, meta, metaId, icon, iconClass, class: className } =
       </div>
     ) : (
       <>
-        <h1>{title}</h1>
+        {title && <h1>{title}</h1>}
         {lead && <p class="standalone-lead">{lead}</p>}
         {meta && (
           <p class="standalone-meta" id={metaId}>

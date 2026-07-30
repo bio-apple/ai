@@ -262,7 +262,7 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.nav-link-page', { hasText: 'AI工具中心' })).toBeVisible();
     await expect(page.locator('.nav-link-page', { hasText: '实战案例' })).toHaveCount(0);
     await page.locator('.nav-link-page', { hasText: 'AI工具中心' }).click();
-    await expect(page.locator('h1')).toContainText('工具中心');
+    await expect(page.locator('.standalone-meta')).toContainText(/更新 \d{4}-\d{2}-\d{2}/);
     await expect(page.locator('#hub-compare')).toHaveCount(0);
     await expect(page.locator('#hub-ranking')).toBeVisible();
     await expect(page.locator('#hub-panel-aicpb .aicpb-table-row')).toHaveCount(10);
