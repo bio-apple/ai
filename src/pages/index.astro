@@ -20,43 +20,16 @@ const schema = mergeSchemaGraphs(
   buildCoursesSchema(coursesPayload, site.meta.canonical),
 );
 const brief = pickAiDailyBrief({ models: 3, industry: 2, github: 12, learn: 2 });
-const githubAll = brief.githubAll?.length ? brief.githubAll : brief.github;
 const AGENT_FRAMEWORKS = site.oss_frameworks || [];
-const parseStars = (title = '') => {
-  const m = String(title).match(/★\s*([\d,]+)/);
-  return m ? Number(String(m[1]).replace(/,/g, '')) || 0 : 0;
-};
-const byRepoInNews = new Map(
-  githubAll
-    .filter((item) => /github\.com\//i.test(String(item.url || '')))
-    .map((item) => {
-      const normalized = String(item.url || '')
-        .trim()
-        .replace(/\/+$/, '')
-        .toLowerCase();
-      return [normalized, item] as const;
-    }),
-);
-const frameworkItems = AGENT_FRAMEWORKS.map((fw, idx) => {
-  const directUrl = `https://github.com/${fw.repo}`;
-  const hit = byRepoInNews.get(directUrl.toLowerCase());
-  return (
-    hit || {
-      title: `${fw.repo}`,
-      url: directUrl,
-      source: 'GitHub',
-      category: 'Agent Framework',
-      _order: idx,
-    }
-  );
-})
-  .sort((a, b) => {
-    const byStar = parseStars(b.title) - parseStars(a.title);
-    if (byStar) return byStar;
-    return (a._order || 0) - (b._order || 0);
-  })
+const formatStars = (n = 0) => new Intl.NumberFormat('en-US').format(n);
+const openSourceItems = AGENT_FRAMEWORKS.map((fw) => ({
+  repo: fw.repo,
+  name: fw.name,
+  stars: Number(fw.stars || 0),
+  url: `https://github.com/${fw.repo}`,
+}))
+  .sort((a, b) => b.stars - a.stars)
   .slice(0, 10);
-const openSourceItems = frameworkItems.slice(0, 10);
 ---
 
 <HomeLayout
@@ -162,16 +135,16 @@ const openSourceItems = frameworkItems.slice(0, 10);
                   target="_blank"
                   rel="noopener noreferrer"
                   data-track="oss-click"
-                  aria-label={`第 ${index + 1} 名：${item.title}`}
+                  aria-label={`第 ${index + 1} 名：${item.name}，${formatStars(item.stars)} stars`}
                 >
                   <span class="news-row-title">
                     <span class="content-type-badge content-type-news" aria-hidden="true">
                       开源
                     </span>{' '}
-                    {item.title}
+                    {item.name}（{item.repo}）
                   </span>
                   <span class="news-row-meta">
-                    <span class="news-row-source">{item.source || 'GitHub'}</span>
+                    <span class="news-row-source">GitHub · ★ {formatStars(item.stars)}</span>
                   </span>
                 </a>
               </li>

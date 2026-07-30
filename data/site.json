@@ -588,15 +588,15 @@
     "lead": "先对比能力与场景（工具名可进教程），再看 AICPB、LMSYS Chatbot Arena Elo 与 Artificial Analysis Intelligence Index。"
   },
   "oss_frameworks": [
-    { "repo": "microsoft/autogen", "name": "AutoGen" },
-    { "repo": "langchain-ai/langgraph", "name": "LangGraph" },
-    { "repo": "crewAIInc/crewAI", "name": "CrewAI" },
-    { "repo": "microsoft/semantic-kernel", "name": "Semantic Kernel" },
-    { "repo": "OpenBMB/ChatDev", "name": "ChatDev" },
-    { "repo": "geekan/MetaGPT", "name": "MetaGPT" },
-    { "repo": "All-Hands-AI/OpenHands", "name": "OpenHands" },
-    { "repo": "Significant-Gravitas/AutoGPT", "name": "AutoGPT" },
-    { "repo": "langgenius/dify", "name": "Dify" },
-    { "repo": "huggingface/smolagents", "name": "smolagents" }
+    { "repo": "Significant-Gravitas/AutoGPT", "name": "AutoGPT", "stars": 185748 },
+    { "repo": "langgenius/dify", "name": "Dify", "stars": 150781 },
+    { "repo": "All-Hands-AI/OpenHands", "name": "OpenHands", "stars": 82576 },
+    { "repo": "geekan/MetaGPT", "name": "MetaGPT", "stars": 69594 },
+    { "repo": "microsoft/autogen", "name": "AutoGen", "stars": 60099 },
+    { "repo": "crewAIInc/crewAI", "name": "CrewAI", "stars": 56368 },
+    { "repo": "langchain-ai/langgraph", "name": "LangGraph", "stars": 38490 },
+    { "repo": "OpenBMB/ChatDev", "name": "ChatDev", "stars": 33866 },
+    { "repo": "huggingface/smolagents", "name": "smolagents", "stars": 28590 },
+    { "repo": "microsoft/semantic-kernel", "name": "Semantic Kernel", "stars": 28390 }
   ]
 }
