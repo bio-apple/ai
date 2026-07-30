@@ -327,17 +327,6 @@ export function writeLocalDeployGuides(outFile = OUT_FILE, dir = CONTENT_DIR) {
   });
 }
 
-export function writeAgentHubGuides(
-  outFile = path.join(ROOT, 'data', 'agent-hub-guides.json'),
-  dir = path.join(ROOT, 'content', 'agent-hub'),
-) {
-  return writeGuidesFromDir({
-    dir,
-    outFile,
-    source_dir: 'content/agent-hub',
-  });
-}
-
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
   const payload = writeLocalDeployGuides();

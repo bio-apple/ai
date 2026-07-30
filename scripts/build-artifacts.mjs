@@ -85,50 +85,17 @@ function appendLocalDeploySearchItems(items, guidesPayload) {
   }
 }
 
-function appendAgentHubSearchItems(items, hub, guidesPayload) {
-  for (const category of hub?.categories || []) {
-    for (const item of category.items || []) {
-      if (!item?.name || !item?.href) continue;
-      const href = String(item.href);
-      const internal = !/^https?:\/\//i.test(href);
-      items.push({
-        id: `agent-hub-${item.id || item.name}`,
-        label: item.name,
-        type: 'Agent智能体',
-        url: internal ? href : href,
-        external: !internal,
-        keywords: [
-          item.name,
-          item.tagline,
-          item.summary,
-          category.label,
-          ...(item.tags || []),
-          'Agent',
-          '智能体',
-          'Agent智能体',
-        ]
-          .filter(Boolean)
-          .join(' '),
-      });
-    }
-  }
-  for (const guide of guidesPayload?.guides || []) {
-    if (!guide?.id || !guide?.title) continue;
+function appendOpenSourceSearchItems(items, aiNews, { limit = 20 } = {}) {
+  const githubItems = (aiNews?.items || []).filter((item) => /GitHub/i.test(item?.source || ''));
+  for (const item of githubItems.slice(0, limit)) {
+    if (!item?.title || !item?.url) continue;
     items.push({
-      id: `agent-guide-${guide.id}`,
-      label: guide.title,
-      type: 'Agent智能体',
-      url: `agent/${guide.id}.html`,
-      keywords: [
-        guide.title,
-        guide.lead,
-        guide.audience,
-        ...(guide.stack || []),
-        'Agent',
-        '智能体',
-        'Agent智能体',
-        guide.source,
-      ]
+      id: `oss-${item.id || item.url}`,
+      label: item.title,
+      type: '开源精选',
+      url: item.url,
+      external: true,
+      keywords: [item.title, item.summary, item.source, item.category, '开源精选', 'GitHub 热门']
         .filter(Boolean)
         .join(' '),
     });
@@ -218,10 +185,10 @@ function buildSearchIndex(site, tools, compares) {
       '实战案例 Ollama LM Studio llama.cpp vLLM Open WebUI Jan GPT4All LocalAI MLX 私有化 本机大模型 部署',
   });
   items.push({
-    label: 'Agent智能体',
+    label: '开源精选',
     type: '频道',
-    section: 'section-agent',
-    keywords: 'Agent 智能体 Cursor Copilot Codex 工具调用 工作流 LangGraph Dify 自主规划 多步任务',
+    section: 'section-oss',
+    keywords: '开源精选 GitHub 热门 开源项目 AutoGPT OpenHands',
   });
   items.push({
     label: 'AI 课程资源',
@@ -434,15 +401,12 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const compares = readJson('compares.json');
   const rankings = readJson('rankings.json');
   const searchIndex = buildSearchIndex(site, tools, compares);
+  const aiNews = readRootJson('ai-news.json');
   appendHubBoardSearchItems(searchIndex);
-  appendNewsSearchItems(searchIndex, readRootJson('ai-news.json'));
+  appendNewsSearchItems(searchIndex, aiNews);
+  appendOpenSourceSearchItems(searchIndex, aiNews);
   appendCoursesSearchItems(searchIndex, readRootJson('ai-courses.json'));
   appendLocalDeploySearchItems(searchIndex, readJsonOptional('local-deploy-guides.json'));
-  appendAgentHubSearchItems(
-    searchIndex,
-    readJsonOptional('agent-hub.json'),
-    readJsonOptional('agent-hub-guides.json'),
-  );
   appendVideoSearchItems(searchIndex, readRootJson('daily-videos.json'));
   appendRankingSearchItems(searchIndex, rankings);
   const recommendRules = buildRecommendRules(site);
@@ -465,15 +429,6 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   if (fs.existsSync(localGuidesSrc)) {
     fs.copyFileSync(localGuidesSrc, path.join(outDir, 'local-deploy-guides.json'));
   }
-  const agentHubSrc = path.join(DATA, 'agent-hub.json');
-  if (fs.existsSync(agentHubSrc)) {
-    fs.copyFileSync(agentHubSrc, path.join(outDir, 'agent-hub.json'));
-  }
-  const agentGuidesSrc = path.join(DATA, 'agent-hub-guides.json');
-  if (fs.existsSync(agentGuidesSrc)) {
-    fs.copyFileSync(agentGuidesSrc, path.join(outDir, 'agent-hub-guides.json'));
-  }
-
   const videosSrc = path.join(ROOT, 'daily-videos.json');
   if (fs.existsSync(videosSrc)) {
     const full = JSON.parse(fs.readFileSync(videosSrc, 'utf8'));

@@ -40,8 +40,8 @@ python3 scripts/fetch_rankings.py
 ## 目录要点
 
 ```
-data/                 # 手工内容源（site / tools / agent-hub …）
-content/              # Markdown 文稿（agent-hub / local-deploy）
+data/                 # 手工内容源（site / tools / local-deploy …）
+content/              # Markdown 文稿（local-deploy）
 src/pages|components  # Astro 页面与组件
 css/ + *.js           # 样式与运行时（courses / news / videos / funnel …）
 lib/                  # fetch-json / virtual-list / link-guard
@@ -53,19 +53,19 @@ dist/                 # 构建产物（不提交）
 
 ## 常见改动
 
-| 目标           | 改哪里                                                                                             |
-| -------------- | -------------------------------------------------------------------------------------------------- |
-| 导航 / 文案    | `data/site.json`                                                                                   |
-| 新工具教程     | `data/tools.json` + `site.home_tool_categories` + `tool-relations.json`                            |
-| 工具中心排行   | `data/rankings.json`；展示条数 `src/lib/hub.ts` → `HUB_RANKING_TOP_N`                              |
-| 对比专题       | `data/compares.json`（独立页，非工具中心 hub）                                                     |
-| 推荐现实实例   | `site.ai_picker.options[].examples`                                                                |
-| Agent 专区卡片 | `data/agent-hub.json`；文稿 `content/agent-hub/*.md`                                               |
-| 实战案例文稿   | `content/local-deploy/*.md` → `local/{id}.html`                                                    |
-| 必学课程       | `config/courses-fetch.yaml` → `required` / `hubs`；更新 `validate_ci.py` 中 `REQUIRED_COURSE_URLS` |
-| 课程路线       | `track_order` / `track_keywords` → 重跑 `fetch_ai_courses.py`                                      |
-| AI 领域地图    | `HomeAiMap.astro` / `css/home.css`（`#home-ai-map`）                                               |
-| 新闻 / 视频源  | `config/news-fetch.yaml` / `config/video-fetch.yaml`                                               |
+| 目标          | 改哪里                                                                                             |
+| ------------- | -------------------------------------------------------------------------------------------------- |
+| 导航 / 文案   | `data/site.json`                                                                                   |
+| 新工具教程    | `data/tools.json` + `site.home_tool_categories` + `tool-relations.json`                            |
+| 工具中心排行  | `data/rankings.json`；展示条数 `src/lib/hub.ts` → `HUB_RANKING_TOP_N`                              |
+| 对比专题      | `data/compares.json`（独立页，非工具中心 hub）                                                     |
+| 推荐现实实例  | `site.ai_picker.options[].examples`                                                                |
+| 开源精选入口  | 首页 `#section-oss`（数据源：`ai-news.json` 的 GitHub 条目）                                       |
+| 实战案例文稿  | `content/local-deploy/*.md` → `local/{id}.html`                                                    |
+| 必学课程      | `config/courses-fetch.yaml` → `required` / `hubs`；更新 `validate_ci.py` 中 `REQUIRED_COURSE_URLS` |
+| 课程路线      | `track_order` / `track_keywords` → 重跑 `fetch_ai_courses.py`                                      |
+| AI 领域地图   | `HomeAiMap.astro` / `css/home.css`（`#home-ai-map`）                                               |
+| 新闻 / 视频源 | `config/news-fetch.yaml` / `config/video-fetch.yaml`                                               |
 
 站内链接统一用 `src/lib/paths.ts` 的 `asset()`（base `/ai/`）。  
 视频运行时只读 `daily-videos.latest.json`（`build-artifacts.mjs` 瘦身）；`knowledge.js` / Tab 业务脚本均为懒加载。

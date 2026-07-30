@@ -5,7 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { loadEnvLocal } from './load-env-local.mjs';
 import { buildArtifacts } from './build-artifacts.mjs';
-import { writeLocalDeployGuides, writeAgentHubGuides } from './build-local-guides.mjs';
+import { writeLocalDeployGuides } from './build-local-guides.mjs';
 import { syncPublic } from './sync-public.mjs';
 import { bundleCss } from './bundle-css.mjs';
 import { syncHeadersCsp } from './csp-policy.mjs';
@@ -19,7 +19,7 @@ function writeLegacyRedirects(outDir) {
     { rel: 'labs/index.html', to: '/ai/tools/hub.html', label: 'AI 工具中心' },
     { rel: 'cases/index.html', to: '/ai/tools/hub.html', label: 'AI 工具中心' },
     { rel: 'prompts/library.html', to: '/ai/local/ollama-open-webui.html', label: '实战案例' },
-    { rel: 'local/agent.html', to: '/ai/agent/agent.html', label: 'Agent智能体' },
+    { rel: 'local/agent.html', to: '/ai/index.html#section-oss', label: '开源精选' },
   ];
   for (const stub of stubs) {
     const dest = path.join(outDir, stub.rel);
@@ -67,9 +67,5 @@ bundleCss({
 {
   const guides = writeLocalDeployGuides();
   console.log(`✓ local-deploy guides (${guides.guides.length} 篇)`);
-}
-{
-  const guides = writeAgentHubGuides();
-  console.log(`✓ agent-hub guides (${guides.guides.length} 篇)`);
 }
 buildArtifacts(publicDir);

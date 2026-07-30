@@ -180,7 +180,7 @@ document.querySelectorAll('[data-goto]').forEach((btn) => {
   btn.addEventListener('click', () => {
     const target = btn.dataset.goto;
     if (target === 'prompts' || target === 'oss') {
-      showSection(resolveGoto('local'));
+      showSection(resolveGoto('oss'));
       return;
     }
     showSection(resolveGoto(target));

@@ -27,7 +27,7 @@ async function waitSearchReady(page) {
 }
 
 test.describe('Bio AI Lab 关键路径', () => {
-  test('首页主路径：推荐 · 简报 · Agent入口（无热门/更多工具）', async ({ page }) => {
+  test('首页主路径：推荐 · 简报 · 开源入口（无热门/更多工具）', async ({ page }) => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('AI 工作流');
     await expect(page.locator('#home-ai-map')).toBeVisible();
@@ -58,8 +58,7 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.ops-live-dot')).toBeVisible();
     await expect(page.locator('#home-tools')).toHaveCount(0);
     await expect(page.locator('#home-categories')).toHaveCount(0);
-    await expect(page.locator('#home-oss')).toHaveCount(0);
-    await expect(page.locator('#section-oss')).toHaveCount(0);
+    await expect(page.locator('#section-oss')).toHaveCount(1);
     await expect(page.locator('#home-favorites')).toHaveCount(0);
     await expect(page.locator('#home-learning')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toBeVisible();
@@ -164,11 +163,6 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.breadcrumb')).toContainText('新闻热点');
     await expect(page.locator('.breadcrumb [aria-current="page"]')).toContainText('新闻热点');
     await expect(page.locator('#daily-news-list .news-row').first()).toBeVisible();
-
-    await page.goto('agent/agent.html', { waitUntil: 'domcontentloaded' });
-    const agentGuideCrumb = page.locator('.breadcrumb');
-    await expect(agentGuideCrumb).toContainText('Agent智能体');
-    await expect(page.locator('.local-guide-html')).toBeVisible();
 
     await page.goto('local/ollama-open-webui.html', { waitUntil: 'domcontentloaded' });
     const guideCrumb = page.locator('.breadcrumb');

@@ -1,6 +1,6 @@
 # Bio AI Lab
 
-**Bio-Apple · AI 工具导航 · Agent智能体 · 实战案例 · 课程 · 热点 · 视频**
+**Bio-Apple · AI 工具导航 · 开源精选 · 实战案例 · 课程 · 热点 · 视频**
 
 [![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
 [![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions)
@@ -50,14 +50,14 @@ python3 scripts/fetch_daily_videos.py
 
 顶栏导航（`data/site.json` → `nav.menu`）：
 
-| 入口        | 类型   | 说明                                                                           |
-| ----------- | ------ | ------------------------------------------------------------------------------ |
-| 首页        | Tab    | Hero、推荐助手、AI 简报、领域地图、工具中心入口                                |
-| AI工具中心  | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                                            |
-| Agent智能体 | Tab    | IDE / 对话 Agent 选型卡片 + 实战文稿列表                                       |
-| 课程资源    | Tab    | 免费 AI 课程（微软、谷歌、斯坦福核心课）                                       |
-| 新闻热点    | Tab    | 近 7 天 AI 热点（多档日更）                                                    |
-| AI 视频     | Tab    | YouTube/B站各自：24h Top3、30d Top3、100d Top4（最低播放量 10000），每平台 ≤10 |
+| 入口       | 类型   | 说明                                                                           |
+| ---------- | ------ | ------------------------------------------------------------------------------ |
+| 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图、工具中心入口                                |
+| AI工具中心 | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                                            |
+| 开源精选   | Tab    | GitHub 热门 AI 开源项目精选与外链入口                                          |
+| 课程资源   | Tab    | 免费 AI 课程（微软、谷歌、斯坦福核心课）                                       |
+| 新闻热点   | Tab    | 近 7 天 AI 热点（多档日更）                                                    |
+| AI 视频    | Tab    | YouTube/B站各自：24h Top3、30d Top3、100d Top4（最低播放量 10000），每平台 ≤10 |
 
 独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题 · 实战案例详情（`local/*.html`）
 
@@ -71,7 +71,7 @@ python3 scripts/fetch_daily_videos.py
 | 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                         |
 | 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等           |
 | 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                    |
-| Agent智能体  | `HomeAgentHub`：分类卡片 + 文稿列表（`#section-agent`）                    |
+| 开源精选     | 首页专区：GitHub 热门开源项目列表（`#section-oss`）                        |
 | 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示               |
 | SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / Agent）+ BreadcrumbList         |
 
@@ -90,19 +90,19 @@ python3 scripts/fetch_daily_videos.py
 
 ## 改内容
 
-| 想改什么     | 改哪里                                                           |
-| ------------ | ---------------------------------------------------------------- |
-| 文案 / 导航  | `data/site.json`                                                 |
-| 工具 / 关系  | `data/tools.json` · `data/tool-relations.json`                   |
-| 对比专题     | `data/compares.json`（独立 `compare/*.html` 页）                 |
-| 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                     |
-| 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；00:00 日更）       |
-| 热度基准     | `data/engagement.json`                                           |
-| Agent智能体  | `data/agent-hub.json`（专区卡片）；文稿 `content/agent-hub/*.md` |
-| 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`）     |
-| 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`         |
-| 新闻源       | `config/news-fetch.yaml`                                         |
-| 视频源       | `config/video-fetch.yaml`                                        |
+| 想改什么     | 改哪里                                                       |
+| ------------ | ------------------------------------------------------------ |
+| 文案 / 导航  | `data/site.json`                                             |
+| 工具 / 关系  | `data/tools.json` · `data/tool-relations.json`               |
+| 对比专题     | `data/compares.json`（独立 `compare/*.html` 页）             |
+| 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                 |
+| 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；00:00 日更）   |
+| 热度基准     | `data/engagement.json`                                       |
+| 开源精选     | `ai-news.json` 中 GitHub 来源条目（首页 `#section-oss`）     |
+| 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`） |
+| 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`     |
+| 新闻源       | `config/news-fetch.yaml`                                     |
+| 视频源       | `config/video-fetch.yaml`                                    |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
 
