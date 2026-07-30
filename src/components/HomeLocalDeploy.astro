@@ -1,5 +1,6 @@
 ---
 import localDeploy from '../../data/local-deploy.json';
+import localGuidesPayload from '../../data/local-deploy-guides.json';
 
 type LocalItem = {
   id: string;
@@ -8,6 +9,7 @@ type LocalItem = {
   summary: string;
   url: string;
   docs_url?: string;
+  guide_anchor?: string;
   platforms?: string[];
   tags?: string[];
 };
@@ -19,7 +21,19 @@ type LocalCategory = {
   items: LocalItem[];
 };
 
+type MdGuide = {
+  id: string;
+  title: string;
+  lead?: string;
+  audience?: string;
+  stack?: string[];
+  html: string;
+};
+
 const categories = (localDeploy.categories || []) as LocalCategory[];
+const guides = ((localGuidesPayload as { guides?: MdGuide[] }).guides || []).filter(
+  (g) => g?.id && g?.title && g?.html,
+);
 const updatedAt = localDeploy.updated_at || '';
 ---
 
@@ -31,6 +45,7 @@ const updatedAt = localDeploy.updated_at || '';
       </p>
     )
   }
+
   {
     categories.length === 0 ? (
       <p class="loading-hint">暂无本地部署条目。</p>
@@ -91,12 +106,48 @@ const updatedAt = localDeploy.updated_at || '';
                       文档
                     </a>
                   )}
+                  {item.guide_anchor && (
+                    <a
+                      class="local-link-btn local-link-btn-muted"
+                      href={`#${item.guide_anchor}`}
+                      data-track="local-guide"
+                    >
+                      部署文稿
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
           </div>
         </section>
       ))
+    )
+  }
+
+  {
+    guides.length > 0 && (
+      <div class="local-guides" aria-label="本地部署实战文稿">
+        {guides.map((guide) => (
+          <article
+            class="local-guide"
+            id={`local-guide-${guide.id}`}
+            aria-labelledby={`local-guide-title-${guide.id}`}
+          >
+            <header class="local-guide-header">
+              <p class="local-guide-kicker">实战文稿</p>
+              <h3 class="local-guide-title" id={`local-guide-title-${guide.id}`}>
+                {guide.title}
+              </h3>
+              {guide.lead && <p class="local-guide-lead">{guide.lead}</p>}
+              <div class="local-guide-meta">
+                {guide.audience && <span>{guide.audience}</span>}
+                {guide.stack?.length ? <span>{guide.stack.join(' · ')}</span> : null}
+              </div>
+            </header>
+            <div class="local-guide-html" set:html={guide.html} />
+          </article>
+        ))}
+      </div>
     )
   }
 </div>

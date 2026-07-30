@@ -1,7 +1,7 @@
 {
   "title": "本地部署",
   "lead": "在本机或私有环境跑大模型：一键客户端、推理引擎与 Web UI。",
-  "updated_at": "2026-07-22",
+  "updated_at": "2026-07-30",
   "categories": [
     {
       "id": "desktop",
@@ -12,9 +12,10 @@
           "id": "ollama",
           "name": "Ollama",
           "tagline": "命令行一键拉模型",
-          "summary": "跨平台本地运行时，`ollama run` 即可对话；生态大、与 Open WebUI 等搭配常见。",
+          "summary": "跨平台本地运行时，`ollama run` 即可对话；生态大、与 Open WebUI 等搭配常见。Linux 服务器 systemd 部署见本页「实战文稿」。",
           "url": "https://ollama.com",
-          "docs_url": "https://github.com/ollama/ollama",
+          "docs_url": "https://docs.ollama.com/linux",
+          "guide_anchor": "local-guide-ollama-open-webui",
           "platforms": ["macOS", "Windows", "Linux"],
           "tags": ["入门", "CLI"]
         },
@@ -106,9 +107,10 @@
           "id": "open-webui",
           "name": "Open WebUI",
           "tagline": "对接 Ollama / OpenAI API",
-          "summary": "功能完整的自托管聊天前端：多用户、知识库、工具调用，常与 Ollama / vLLM 组合。",
+          "summary": "功能完整的自托管聊天前端：多用户、知识库、工具调用，常与 Ollama / vLLM 组合。与 Ollama 同机 systemd 部署见本页「实战文稿」。",
           "url": "https://openwebui.com",
           "docs_url": "https://docs.openwebui.com",
+          "guide_anchor": "local-guide-ollama-open-webui",
           "platforms": ["Docker", "自托管"],
           "tags": ["Web UI", "推荐"]
         },

@@ -134,11 +134,14 @@ trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型'
 
 ## 8. 本地部署
 
-`HomeLocalDeploy.astro` 构建期 SSG 渲染（`data/local-deploy.json`）：
+`HomeLocalDeploy.astro` 构建期 SSG 渲染：
 
-- **平台** / **标签** / **一句话定位**
-- 官网与文档外链按钮
+- 工具精选：`data/local-deploy.json`
+- **实战文稿**：自动扫描 `content/local-deploy/*.md` → `data/local-deploy-guides.json`（`scripts/build-local-guides.mjs`，prebuild 调用）
+- 官网 / 文档外链；有文稿的条目可跳转 `#local-guide-{id}`
 - 类型徽章「本地」
+
+新增文稿：把 Markdown 放入 `content/local-deploy/`，执行 `npm run build`（或 `node scripts/build-local-guides.mjs`）。详见该目录 `README.md`。
 
 Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 
