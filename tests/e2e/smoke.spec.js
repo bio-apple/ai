@@ -143,6 +143,12 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#section-local .local-card')).toHaveCount(0);
     await expect(page.locator('#section-local .local-guide-html')).toHaveCount(0);
     await expect(page.locator('.nav-tab', { hasText: '实战案例' })).toBeVisible();
+    await expect(page.locator('.nav-tab', { hasText: 'Agent智能体' })).toBeVisible();
+
+    await page.locator('.nav-tab', { hasText: 'Agent智能体' }).click();
+    await expect(page.locator('#section-agent')).toHaveClass(/active/);
+    await expect(page.locator('#section-agent .breadcrumb')).toContainText('Agent智能体');
+    await expect(page.locator('#section-agent .agent-card').first()).toBeVisible();
 
     await page.locator('.nav-tab', { hasText: '课程资源' }).click();
     await expect(page.locator('#section-courses')).toHaveClass(/active/);
@@ -177,6 +183,11 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.breadcrumb')).toContainText('新闻热点');
     await expect(page.locator('.breadcrumb [aria-current="page"]')).toContainText('新闻热点');
     await expect(page.locator('#daily-news-list .news-row').first()).toBeVisible();
+
+    await page.goto('agent/agent.html', { waitUntil: 'domcontentloaded' });
+    const agentGuideCrumb = page.locator('.breadcrumb');
+    await expect(agentGuideCrumb).toContainText('Agent智能体');
+    await expect(page.locator('.local-guide-html')).toBeVisible();
 
     await page.goto('local/ollama-open-webui.html', { waitUntil: 'domcontentloaded' });
     const guideCrumb = page.locator('.breadcrumb');

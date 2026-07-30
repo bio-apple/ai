@@ -302,6 +302,47 @@ export function buildLocalDeploySchema(
   };
 }
 
+/** Agent 智能体：CollectionPage + 文稿 ItemList */
+export function buildAgentHubSchema(
+  hub: {
+    title?: string;
+    lead?: string;
+  },
+  baseUrl: string,
+  guides?: { id: string; title: string; lead?: string }[],
+) {
+  const sectionUrl = `${baseUrl}#section-agent`;
+  const items = (guides || []).filter((g) => g?.id && g?.title);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${sectionUrl}#agent`,
+        name: hub.title || 'Agent智能体',
+        description: hub.lead || 'AI Agent 选型与实践目录',
+        url: sectionUrl,
+        inLanguage: 'zh-CN',
+        isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },
+        mainEntity: {
+          '@type': 'ItemList',
+          numberOfItems: items.length,
+          itemListElement: items.map((guide, index) => ({
+            '@type': 'ListItem',
+            position: index + 1,
+            item: {
+              '@type': 'TechArticle',
+              headline: guide.title,
+              description: guide.lead || guide.title,
+              url: `${baseUrl}agent/${guide.id}.html`,
+            },
+          })),
+        },
+      },
+    ],
+  };
+}
+
 export function buildCompareSchema(
   compare: { title: string; meta_description: string; slug: string },
   baseUrl: string,

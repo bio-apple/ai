@@ -224,7 +224,7 @@ function slugFromFilename(name) {
     .replace(/[^a-z0-9\u4e00-\u9fff_-]+/g, '-');
 }
 
-export function buildGuideFromMarkdown(filename, raw) {
+export function buildGuideFromMarkdown(filename, raw, sourcePrefix = 'content/local-deploy') {
   const { meta, body } = parseFrontmatter(raw);
   if (meta.draft === true) return null;
   const id = String(meta.id || slugFromFilename(filename)).trim();
@@ -245,12 +245,12 @@ export function buildGuideFromMarkdown(filename, raw) {
     audience: meta.audience ? String(meta.audience) : undefined,
     stack,
     order: typeof meta.order === 'number' ? meta.order : 100,
-    source: `content/local-deploy/${filename}`,
+    source: `${sourcePrefix}/${filename}`,
     html: markdownToHtml(body),
   };
 }
 
-export function scanLocalDeployGuides(dir = CONTENT_DIR) {
+export function scanGuidesInDir(dir = CONTENT_DIR, sourcePrefix = 'content/local-deploy') {
   if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir, { recursive: true });
     return [];
@@ -262,23 +262,51 @@ export function scanLocalDeployGuides(dir = CONTENT_DIR) {
   const guides = [];
   for (const file of files) {
     const raw = fs.readFileSync(path.join(dir, file), 'utf8');
-    const guide = buildGuideFromMarkdown(file, raw);
+    const guide = buildGuideFromMarkdown(file, raw, sourcePrefix);
     if (guide) guides.push(guide);
   }
   guides.sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));
   return guides;
 }
 
-export function writeLocalDeployGuides(outFile = OUT_FILE, dir = CONTENT_DIR) {
-  const guides = scanLocalDeployGuides(dir);
+/** @deprecated 使用 scanGuidesInDir */
+export function scanLocalDeployGuides(dir = CONTENT_DIR) {
+  return scanGuidesInDir(dir, 'content/local-deploy');
+}
+
+export function writeGuidesFromDir({
+  dir,
+  outFile,
+  source_dir: sourceDir = 'content/local-deploy',
+}) {
+  const guides = scanGuidesInDir(dir, sourceDir);
   const payload = {
     generated_at: new Date().toISOString(),
-    source_dir: 'content/local-deploy',
+    source_dir: sourceDir,
     guides,
   };
   fs.mkdirSync(path.dirname(outFile), { recursive: true });
   fs.writeFileSync(outFile, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
   return payload;
+}
+
+export function writeLocalDeployGuides(outFile = OUT_FILE, dir = CONTENT_DIR) {
+  return writeGuidesFromDir({
+    dir,
+    outFile,
+    source_dir: 'content/local-deploy',
+  });
+}
+
+export function writeAgentHubGuides(
+  outFile = path.join(ROOT, 'data', 'agent-hub-guides.json'),
+  dir = path.join(ROOT, 'content', 'agent-hub'),
+) {
+  return writeGuidesFromDir({
+    dir,
+    outFile,
+    source_dir: 'content/agent-hub',
+  });
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

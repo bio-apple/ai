@@ -1,0 +1,124 @@
+---
+import agentHub from '../../data/agent-hub.json';
+import agentGuidesPayload from '../../data/agent-hub-guides.json';
+import { asset } from '../lib/paths';
+
+type HubItem = {
+  id: string;
+  name: string;
+  tagline?: string;
+  summary: string;
+  href: string;
+  tags?: string[];
+};
+
+type HubCategory = {
+  id: string;
+  label: string;
+  blurb?: string;
+  items: HubItem[];
+};
+
+type MdGuide = {
+  id: string;
+  title: string;
+  lead?: string;
+  audience?: string;
+  stack?: string[];
+  html: string;
+};
+
+const categories = (agentHub.categories || []) as HubCategory[];
+const guides = ((agentGuidesPayload as { guides?: MdGuide[] }).guides || []).filter(
+  (g) => g?.id && g?.title && g?.html,
+);
+const updatedAt = agentHub.updated_at || '';
+
+function itemHref(href: string): string {
+  const cleaned = String(href || '').trim();
+  if (/^(https?:|\/|#)/i.test(cleaned)) return cleaned;
+  return asset(cleaned.replace(/^\//, ''));
+}
+
+function guidePageHref(guideId: string): string {
+  return asset(`agent/${encodeURIComponent(guideId)}.html`);
+}
+---
+
+<div class="agent-hub" data-ssg="1">
+  {
+    updatedAt && (
+      <p class="video-update-meta" id="agent-update-meta">
+        目录更新于 {updatedAt}
+      </p>
+    )
+  }
+
+  {
+    categories.map((cat) => (
+      <section class="agent-cat" aria-labelledby={`agent-cat-${cat.id}`}>
+        <h3 class="agent-cat-title" id={`agent-cat-${cat.id}`}>
+          {cat.label}
+        </h3>
+        {cat.blurb && <p class="agent-cat-blurb">{cat.blurb}</p>}
+        <div class="agent-grid">
+          {cat.items.map((item) => (
+            <article class="agent-card">
+              <div class="agent-card-head">
+                <span class="content-type-badge content-type-agent" aria-hidden="true">
+                  Agent
+                </span>
+                {(item.tags || []).slice(0, 2).map((tag) => (
+                  <span class="agent-tag">{tag}</span>
+                ))}
+              </div>
+              <h4 class="agent-card-title">
+                <a href={itemHref(item.href)} data-track="agent-hub-click">
+                  {item.name}
+                </a>
+              </h4>
+              {item.tagline && <p class="agent-tagline">{item.tagline}</p>}
+              <p class="agent-summary">{item.summary}</p>
+              <div class="agent-card-actions">
+                <a class="agent-link-btn" href={itemHref(item.href)} data-track="agent-hub-visit">
+                  查看详情 <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+
+  {
+    guides.length > 0 && (
+      <div class="local-guides agent-guides" aria-label="Agent 实战文稿">
+        <header class="local-guides-head">
+          <h3 class="local-guides-title">实战文稿</h3>
+          <p class="local-guides-hint">点击标题阅读 Agent 落地步骤与排障说明。</p>
+        </header>
+        <ul class="local-guide-list">
+          {guides.map((guide) => (
+            <li>
+              <a
+                class="local-guide-item"
+                href={guidePageHref(guide.id)}
+                data-track="agent-guide-list"
+              >
+                <span class="local-guide-item-title">{guide.title}</span>
+                {guide.lead ? <span class="local-guide-item-lead">{guide.lead}</span> : null}
+                {(guide.audience || guide.stack?.length) && (
+                  <span class="local-guide-item-meta">
+                    {guide.audience ? <span>{guide.audience}</span> : null}
+                    {guide.stack?.length ? <span>{guide.stack.join(' · ')}</span> : null}
+                  </span>
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )
+  }
+</div>
