@@ -57,6 +57,7 @@ Schema 源文件：`schemas/*.json`（JSON Schema Draft 2020-12）
 | `guides`               | `object` | ✅   | 指南页 `beginner` / `advanced`                 |
 | `roadmap_page`         | `object` | —    | 学习路线图页                                   |
 | `faq`                  | `array`  | —    | 首页 FAQ（JSON-LD）                            |
+| `oss_frameworks`       | `array`  | —    | 开源精选 Top10（首页 `#section-oss`）          |
 | `footer`               | `object` | ✅   | 页脚文案                                       |
 | `recommend_fallback`   | `object` | ✅   | 推荐无匹配时的兜底                             |
 | `tools_hub_page`       | `object` | ✅   | 工具中心页 TDK                                 |
@@ -168,7 +169,21 @@ nav: {
 **`guides.{slug}`**：`slug`, `title`, `h1`, `lead`  
 **`roadmap_page.phases[]`**：`phase`, `title`, `tools[]`, `tasks[]`  
 **`faq[]`**：`question`, `answer`  
+**`oss_frameworks[]`**：见下方  
 **`recommend_fallback`**：`tools[]`, `guide`, `path_title`, `steps[]`
+
+### 2.9 `oss_frameworks[]`（开源精选）
+
+首页 `#section-oss` 数据源，在 `src/pages/index.astro` 按 `stars` 降序取 Top 10，渲染 `.oss-card*`。
+
+| 字段      | 类型     | 必填 | 说明                          |
+| --------- | -------- | ---- | ----------------------------- |
+| `repo`    | `string` | ✅   | GitHub `owner/name`           |
+| `name`    | `string` | ✅   | 显示名                        |
+| `stars`   | `number` | ✅   | Star 数（排序依据）           |
+| `summary` | `string` | —    | 一句话摘要（卡片与 JSON-LD）  |
+
+JSON-LD：`buildHomeSchema` 将 Top10 写入 OSS `ItemList`（见 [SEO.md](./SEO.md)）。
 
 ---
 
@@ -329,7 +344,7 @@ nav: {
 | ---------- | --------- | ---- | ---------------------------------------------------------------------------------------------- |
 | `label`    | `string`  | ✅   | 显示标题（工具为原名，如 `ChatGPT`）                                                           |
 | `keywords` | `string`  | ✅   | Fuse 检索文本                                                                                  |
-| `type`     | `string`  | —    | 工具 / 资讯 / 实战案例 / 课程 / 视频 / 模型 / 频道 / 导航 / 学习 / 场景 / 简报 / 推荐 / 对比 … |
+| `type`     | `string`  | —    | 工具 / 资讯 / 实战案例 / 开源精选 / 课程 / 视频 / 模型 / 频道 / 导航 / 学习 / 场景 / 简报 / 推荐 / 对比 … |
 | `external` | `boolean` | —    | 外链（新标签打开）                                                                             |
 | `id`       | `string`  | —    | 内容 id（新闻/课程/实战案例等）                                                                |
 | `section`  | `string`  | *    | 首页 Tab id（与 `url` 二选一）                                                                 |
@@ -434,22 +449,6 @@ nav: {
 
 **Markdown 文稿**：`content/local-deploy/*.md` → `data/local-deploy-guides.json`（`guides[]`：`id` / `title` / `html` / `created_at` 等）。详情页 `local/{id}.html`；首页不再展示列表。约定见该目录 `README.md`。
 
-### 9.5 `agent-hub.json` + Markdown 文稿
-
-**Schema**：`schemas/agent-hub.schema.json`  
-**维护**：编辑 `data/agent-hub.json`（专区标题 / 分类卡片）；文稿放 `content/agent-hub/*.md`
-
-| 字段         | 类型     | 说明         |
-| ------------ | -------- | ------------ |
-| `title`      | `string` | 专区标题     |
-| `lead`       | `string` | 导语         |
-| `updated_at` | `string` | 专区更新日期 |
-| `categories` | `array`  | 分类卡片列表 |
-
-**Markdown 文稿**：`content/agent-hub/*.md` → `data/agent-hub-guides.json`。首页 `#section-agent` 展示列表，全文在 `agent/{id}.html`。
-
-校验：`DIST=dist python3 scripts/validate_ci.py agent`
-
 校验：`DIST=dist python3 scripts/validate_ci.py local`
 
 ---
@@ -485,6 +484,7 @@ npm run build && DIST=dist python3 scripts/validate_ci.py data tool-relations li
 | 推荐场景芯片    | `site.json` → `ai_picker`              | 重建后更新 `recommend-rules` |
 | 新对比专题      | `compares.json`                        | 新增 `slug` 自动生成页面     |
 | 排行榜数据      | `rankings.json` 或 `fetch_rankings.py` |                              |
+| 开源精选 Top10  | `site.json` → `oss_frameworks`         | 按 stars 排序；见 §2.9       |
 | 新闻源          | `config/news-fetch.yaml`               | 非 `ai-news.json` 直接改     |
 
 ---

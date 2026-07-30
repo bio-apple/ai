@@ -15,7 +15,7 @@
 | 下拉 | Hero / Nav 展开时均为 `position: fixed`，避免 sticky / overflow 裁切              |
 | 排序 | `preferSearchHits`：精确标签与 `tools/*.html` 优先                                |
 | 索引 | 构建时 `scripts/build-artifacts.mjs` → `search-index.json`（约 150 条）           |
-| 覆盖 | 工具教程、对比专题、资讯、实战案例、Agent、课程、视频、排行榜模型名、频道/导航    |
+| 覆盖 | 工具教程、对比专题、资讯、实战案例、开源精选、课程、视频、排行榜模型名、频道/导航 |
 | 工具 | 条目来自 `tools.json`，`label` 为工具原名，`url` 为 `tools/{id}.html`             |
 | 联想 | 聚焦空输入显示 `site.hero.search_suggestions` chips                               |
 | 历史 | `localStorage` 键 `bioai.search.history.v1`（最多 8 条）                          |
@@ -47,7 +47,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 | 项       | 说明                                                                      |
 | -------- | ------------------------------------------------------------------------- |
 | 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用            |
-| 首页专区 | Agent智能体 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
+| 首页专区 | 开源精选 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
 | 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                    |
 | SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                            |
 
@@ -134,15 +134,14 @@ trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型'
 
 ---
 
-## 8. Agent智能体
+## 8. 开源精选
 
-`HomeAgentHub.astro` 构建期 SSG 渲染：
+首页 `#section-oss`（nav id `oss`）在 `src/pages/index.astro` 构建期 SSG 渲染：
 
-- 专区元信息与分类卡片：`data/agent-hub.json`
-- **实战文稿列表**：`content/agent-hub/*.md` → `data/agent-hub-guides.json`（`scripts/build-local-guides.mjs`）
-- **详情页**：`agent/{id}.html`（`src/pages/agent/[slug].astro`）
-
-Tab：`#section-agent`（nav id `agent`）；无需懒加载脚本。
+- 数据：`data/site.json` → `oss_frameworks[]`（`repo` / `name` / `stars` / `summary`）
+- 排序：按 `stars` 降序，取 Top 10
+- UI：`.oss-card*` 卡片（仓库名、Star、摘要、GitHub 外链）
+- 无需懒加载脚本
 
 ---
 
@@ -200,10 +199,10 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 | 组件                     | 作用                                      |
 | ------------------------ | ----------------------------------------- |
 | `HomeAiMap.astro`        | AI 领域嵌套层级图（原生 HTML，简报后）    |
-| `HomeQuickFilters.astro` | 快筛：Agent智能体 / AI 资讯 / 工具教程    |
+| `HomeQuickFilters.astro` | 快筛：开源精选 / AI 资讯 / 工具教程       |
 | `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
 | `HomeRecommend.astro`    | AI 推荐助手（含现实实例）                 |
-| `HomeAgentHub.astro`     | Agent智能体（SSG，`#section-agent`）      |
+| `#section-oss`（index）  | 开源精选 Top10（SSG，`oss_frameworks`）   |
 | `Breadcrumb.astro`       | 专区页「首页 / …」面包屑                  |
 | 新闻列表                 | `今日` / `本周` 时间过滤 + 分类筛选       |
 
@@ -213,7 +212,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ## 14. 懒加载与首屏脚本
 
-`lazy-sections.js`：进入 Tab 再加载业务脚本（`section-agent` 为 SSG，不在此列）。
+`lazy-sections.js`：进入 Tab 再加载业务脚本（`section-oss` 为 SSG，不在此列）。
 
 | Section           | 脚本链                             |
 | ----------------- | ---------------------------------- |

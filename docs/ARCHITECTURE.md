@@ -178,7 +178,7 @@ flowchart TB
 | **运行时** | `search-index.json`                           | `app.js`、`knowledge.js`、顶栏搜索   | Fuse.js 全文检索（工具/资讯/实战案例/课程/视频/模型）     |
 | **运行时** | `recommend-rules.json`                        | `recommend.js`                       | 场景关键词 → 工具 + 现实实例 + 步骤                       |
 
-首页是 **混合模式**：Hero / 导航 / 推荐场景 / Agent智能体 / 面包屑在构建期渲染；新闻/视频/课程 Tab 由 JS 懒加载对应 JSON。
+首页是 **混合模式**：Hero / 导航 / 推荐场景 / 开源精选 / 面包屑在构建期渲染；新闻/视频/课程 Tab 由 JS 懒加载对应 JSON。
 
 ### 3.4 客户端模块（浏览器）
 
@@ -190,8 +190,8 @@ flowchart TB
 | 漏斗        | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich                               |
 | 虚拟列表    | `lib/virtual-list.js`           | 榜单 / GitHub 热门（视频区已改为整页网格）                        |
 | 链接兜底    | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404                                  |
-| Agent智能体 | `HomeAgentHub.astro`            | SSG 分类卡片 + 文稿列表；全文 `agent/{id}.html`；`#section-agent` |
-| 懒加载      | `lazy-sections.js`              | Tab 进入后再拉 `fetch-json` + 业务脚本（不含 section-agent）      |
+| 开源精选    | `index.astro` `#section-oss`    | `site.json` → `oss_frameworks`；按 stars Top10；`.oss-card*`      |
+| 懒加载      | `lazy-sections.js`              | Tab 进入后再拉 `fetch-json` + 业务脚本（不含 section-oss）        |
 | 知识助手    | `knowledge.js`                  | idle / FAB 交互后再加载；面板内焦点陷阱                           |
 | 工具中心    | `hub.ts` + `hub.astro`          | 三榜 Top 10 排行（AICPB / LMSYS / AA）                            |
 
@@ -322,7 +322,7 @@ data/                 # 手工内容源（见 DATA-MODEL.md）
 config/               # 抓取规则 YAML + csp.json
 schemas/              # JSON Schema（CI 门禁）
 src/pages/            # Astro 路由 → HTML
-src/components/       # HomeAiMap / HomeAgentHub / Breadcrumb / GlobalSearch / SeoHead …
+src/components/       # HomeAiMap / Breadcrumb / GlobalSearch / SeoHead …
 src/layouts/          # 页面壳
 src/lib/              # data 加载、路径、hub 对比映射、Schema.org（schema.ts）
 lib/                  # 浏览器共享：fetch-json / virtual-list / link-guard

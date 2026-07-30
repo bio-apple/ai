@@ -54,7 +54,7 @@ python3 scripts/fetch_daily_videos.py
 | ---------- | ------ | ------------------------------------------------------------------------------ |
 | 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图、工具中心入口                                |
 | AI工具中心 | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                                            |
-| 开源精选   | Tab    | GitHub 热门 AI 开源项目精选与外链入口                                          |
+| 开源精选   | Tab    | `site.json` → `oss_frameworks`，按 Star Top10（`#section-oss`）                |
 | 课程资源   | Tab    | 免费 AI 课程（微软、谷歌、斯坦福核心课）                                       |
 | 新闻热点   | Tab    | 近 7 天 AI 热点（多档日更）                                                    |
 | AI 视频    | Tab    | YouTube/B站各自：24h Top3、30d Top3、100d Top4（最低播放量 10000），每平台 ≤10 |
@@ -71,9 +71,9 @@ python3 scripts/fetch_daily_videos.py
 | 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                         |
 | 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等           |
 | 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                    |
-| 开源精选     | 首页专区：GitHub 热门开源项目列表（`#section-oss`）                        |
+| 开源精选     | 首页专区：`oss_frameworks` Top10 卡片（`#section-oss` · `.oss-card*`）     |
 | 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示               |
-| SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / Agent）+ BreadcrumbList         |
+| SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 开源精选 ItemList）+ BreadcrumbList |
 
 详见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
 
@@ -98,7 +98,7 @@ python3 scripts/fetch_daily_videos.py
 | 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                 |
 | 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；00:00 日更）   |
 | 热度基准     | `data/engagement.json`                                       |
-| 开源精选     | `ai-news.json` 中 GitHub 来源条目（首页 `#section-oss`）     |
+| 开源精选     | `data/site.json` → `oss_frameworks`（首页 `#section-oss`）   |
 | 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`） |
 | 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`     |
 | 新闻源       | `config/news-fetch.yaml`                                     |
