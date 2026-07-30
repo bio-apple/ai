@@ -25,6 +25,7 @@ const OSS_CATEGORY_LABELS: Record<string, string> = {
   eval: '评测工具',
   local: '本地部署',
 };
+const OSS_CATEGORY_ORDER = ['agent', 'inference', 'vector', 'eval', 'local'] as const;
 const OSS_FRAMEWORKS = site.oss_frameworks || [];
 const formatStars = (n = 0) => new Intl.NumberFormat('en-US').format(n);
 const openSourceItems = OSS_FRAMEWORKS.map((fw) => {
@@ -39,6 +40,11 @@ const openSourceItems = OSS_FRAMEWORKS.map((fw) => {
     url: `https://github.com/${fw.repo}`,
   };
 }).sort((a, b) => b.stars - a.stars);
+const ossCategoryLegend = OSS_CATEGORY_ORDER.map((id) => ({
+  id,
+  label: OSS_CATEGORY_LABELS[id],
+  count: openSourceItems.filter((item) => item.category === id).length,
+})).filter((row) => row.count > 0);
 const faqItems = site.faq || [];
 ---
 
@@ -169,44 +175,54 @@ const faqItems = site.faq || [];
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">◎</div>
         <div>
           <h2>开源精选</h2>
-          <p class="desc">
-            Agent 框架 · 推理引擎 · 向量库 · 评测工具 · 本地部署——按 Star 排序的多元开源清单。
-          </p>
+          <p class="desc">Agent · 推理 · 向量库 · 评测 · 本地部署——按 Star 排序的多元开源清单。</p>
         </div>
       </div>
-      <div class="news-feed">
-        <ol class="news-feed-list oss-card-grid" aria-label="开源精选仓库">
+      {
+        ossCategoryLegend.length > 0 && (
+          <ul class="oss-cat-legend" aria-label="开源类别">
+            {ossCategoryLegend.map((row) => (
+              <li>
+                <span class={`oss-chip oss-chip-${row.id}`}>{row.label}</span>
+                <span class="oss-cat-count">{row.count}</span>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      <div class="oss-feed">
+        <ol class="oss-card-grid" aria-label="开源精选仓库">
           {
             openSourceItems.map((item, index) => (
-              <li class="news-row oss-card-item">
-                <article class="oss-card">
-                  <div class="oss-card-head">
-                    <span class="oss-card-source">GitHub</span>
-                    <span class="oss-card-stars">★ {formatStars(item.stars)}</span>
-                  </div>
-                  <h3 class="oss-card-title">
-                    #{index + 1} {item.name}
-                  </h3>
-                  <p class="oss-card-repo">{item.repo}</p>
-                  <div class="oss-card-chips">
+              <li class="oss-card-item" style={`--oss-i:${index}`}>
+                <a
+                  class={`oss-card oss-card--${item.category}`}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track="oss-click"
+                  aria-label={`${item.name}，${item.categoryLabel}，${formatStars(item.stars)} stars，在 GitHub 打开`}
+                >
+                  <div class="oss-card-top">
                     <span class={`oss-chip oss-chip-${item.category}`}>{item.categoryLabel}</span>
+                    <span class="oss-card-stars" title="GitHub Stars">
+                      <span aria-hidden="true">★</span> {formatStars(item.stars)}
+                    </span>
+                  </div>
+                  <div class="oss-card-identity">
+                    <span class="oss-card-rank">#{index + 1}</span>
+                    <h3 class="oss-card-title">{item.name}</h3>
                     {index < 3 && <span class="oss-chip oss-chip-top">TOP {index + 1}</span>}
                   </div>
+                  <p class="oss-card-repo">{item.repo}</p>
                   <p class="oss-card-summary">
                     {item.summary ||
                       `GitHub Star：★ ${formatStars(item.stars)}，${item.categoryLabel}相关开源仓库。`}
                   </p>
-                  <a
-                    class="oss-card-link"
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-track="oss-click"
-                    aria-label={`第 ${index + 1} 名：${item.name}，${item.categoryLabel}，${formatStars(item.stars)} stars`}
-                  >
-                    打开项目 →
-                  </a>
-                </article>
+                  <span class="oss-card-cta">
+                    在 GitHub 打开 <span aria-hidden="true">→</span>
+                  </span>
+                </a>
               </li>
             ))
           }
