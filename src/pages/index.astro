@@ -20,7 +20,28 @@ const schema = mergeSchemaGraphs(
   buildCoursesSchema(coursesPayload, site.meta.canonical),
 );
 const brief = pickAiDailyBrief({ models: 3, industry: 2, github: 12, learn: 2 });
-const openSourceItems = (brief.githubAll?.length ? brief.githubAll : brief.github).slice(0, 12);
+const githubAll = brief.githubAll?.length ? brief.githubAll : brief.github;
+const AGENT_KEYWORDS = [
+  /agent/i,
+  /autogpt/i,
+  /openhands/i,
+  /langgraph/i,
+  /dify/i,
+  /crewai/i,
+  /smolagents/i,
+  /智能体/u,
+];
+const parseStars = (title = '') => {
+  const m = String(title).match(/★\s*([\d,]+)/);
+  return m ? Number(String(m[1]).replace(/,/g, '')) || 0 : 0;
+};
+const isAgentRepo = (item: { title?: string; summary?: string; source?: string; category?: string }) => {
+  const haystack = `${item.title || ''} ${item.summary || ''} ${item.category || ''}`;
+  return AGENT_KEYWORDS.some((re) => re.test(haystack));
+};
+const agentItems = githubAll.filter(isAgentRepo).sort((a, b) => parseStars(b.title) - parseStars(a.title));
+const fillItems = githubAll.filter((item) => !agentItems.some((x) => x.url === item.url));
+const openSourceItems = [...agentItems, ...fillItems].slice(0, 10);
 ---
 
 <HomeLayout
@@ -107,7 +128,7 @@ const openSourceItems = (brief.githubAll?.length ? brief.githubAll : brief.githu
         <div class="tool-icon" style="background:rgba(124,58,237,0.12);color:#7c3aed">◎</div>
         <div>
           <h2>开源精选</h2>
-          <p class="desc">聚合 GitHub 热门 AI 开源项目，按最新动态持续更新。</p>
+          <p class="desc">聚合 GitHub 热门 Agent 项目，按 star 排序展示 Top10。</p>
           {
             brief.updatedAt && (
               <p class="video-update-meta">更新于 {formatNewsDate(brief.updatedAt)} · 日更</p>
