@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** 本地开发：从根目录 .env.local 加载环境变量（不提交 Git；见 docs/SECURITY.md） */
+/** 本地开发：从根目录 .env.local 加载环境变量（不提交 Git；见 .env.local.example / README） */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';

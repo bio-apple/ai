@@ -413,11 +413,11 @@ nav: {
 | `updated_at` | `string`   | 更新时间                                                    |
 | `seen_ids`   | `string[]` | 去重 id（**仅仓库全量文件**；CDN/浏览器瘦身副本不含此字段） |
 
-**批次** `batches[]`：`date`（`YYYY-MM-DD`）；`criteria.video_categories`（配置快照，含 `top_count` / 可选 `min_views`）；`categories`（六类：YouTube/B站 × 24h/30d/100d）  
-**当前规则**：各分桶 `min_views`：1000/5000/10000/100000/1000000；仅时间窗 + AI 关键词；每平台 Top 合计 ≤16。  
+**批次** `batches[]`：`date`（`YYYY-MM-DD`）；`criteria.video_categories`（配置快照，含 `top_count` / `min_views`）；`categories`（十类：YouTube/B站 × 24h/3d/7d/30d/100d）  
+**当前规则**：各分桶 `min_views`：1000/5000/10000/100000/1000000；时间窗 + AI 关键词 + 播放量门槛；每平台 Top 合计 ≤16。  
 **视频项**：`id`, `title`, `url`, `summary`, `channel`, `published_at`, `thumbnail`, `views` 等
 
-**运行时瘦身**：`build-artifacts.mjs` → `daily-videos.latest.json`，仅 `{ updated_at, batches }`（展示层可含历史分类回退；回填同样**不**再按播放量过滤）。完整 `daily-videos.json` 留仓库，不进 CDN。
+**运行时瘦身**：`build-artifacts.mjs` → `daily-videos.latest.json`，仅 `{ updated_at, batches }`（展示层可含历史分类回退；回填同样按分桶 `min_views` + 时间窗过滤）。完整 `daily-videos.json` 留仓库，不进 CDN。
 
 **额外 CI 规则**：摘要禁止裸 URL；最新批次须覆盖配置中全部分类。
 

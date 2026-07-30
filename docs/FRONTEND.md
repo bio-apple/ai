@@ -151,7 +151,7 @@ Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 | 页面 | `#section-videos` · `videos.js`                                                                   |
 | 数据 | `daily-videos.latest.json`（构建时由完整 `daily-videos.json` 瘦身生成；完整文件不再发布到 CDN）   |
 | 规则 | YouTube / B站**各自独立**：24h Top1、3d Top3、7d Top3、30d Top3、100d Top6；对应最低播放量 1000/5000/10000/100000/1000000；每平台去重后 ≤16 |
-| 过滤 | 仅时间窗 + AI 关键词；展示/回填不再按播放量丢弃                                                   |
+| 过滤 | 时间窗 + 分桶最低播放量 + AI 关键词；展示/历史回填均按对应 `min_views` 过滤                       |
 | 展示 | YouTube / B站分块网格，**整页平铺**（无内部滚动虚拟列表）                                         |
 | 筛选 | 平台（全部 / YouTube / B站）+ 排序（最新 / 热门）                                                 |
 | 配置 | `config/video-fetch.yaml`（24h/3d/7d/30d/100d 对应阈值：1000/5000/10000/100000/1000000）；抓取见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3   |

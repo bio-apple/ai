@@ -218,13 +218,14 @@ DIST=dist python3 scripts/validate_ci.py news
 **运行机制：**
 
 ```
-按六类候选抓取（YouTube / B站 × 24h · 30d · 100d）
+按十类候选抓取（YouTube / B站 × 24h · 3d · 7d · 30d · 100d）
         ↓
-各档按播放量取 Top：24h×1、3d×3、7d×3、30d×3、100d×6（min_views=1000/5000/10000/100000/1000000）
+各档按播放量取 Top：24h×1、3d×3、7d×3、30d×3、100d×6
+（min_views=1000 / 5000 / 10000 / 100000 / 1000000）
         ↓
-去重后 YouTube / B站各自不超过 10（先保留 24h/30d，再用 100d；不是两平台合计）
+去重后 YouTube / B站各自不超过 16（近窗优先，100d 补齐；不是两平台合计）
         ↓
-yt-dlp 搜索 + AI 关键词过滤（唯一内容门槛）
+yt-dlp / YouTube API 取详情 + AI 关键词 + 分桶 min_views 过滤
         ↓
 摘要清洗（去广告、短链）
         ↓
@@ -259,12 +260,12 @@ Actions 手动触发时可选 `force=true`。
 | 配置块                                       | 作用                                                           |
 | -------------------------------------------- | -------------------------------------------------------------- |
 | `video_categories`                           | 十类分桶：24h Top1、3d/7d/30d Top3、100d Top6（YouTube/B站）；`min_views` 按 1000/5000/10000/100000/1000000 |
-| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）                          |
+| `platform_total_cap`                         | 去重后每平台最多条数（默认 **16** = 1+3+3+3+6）                 |
 | `search_queries` / `bilibili_search_queries` | 搜索关键词                                                     |
-| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（**唯一内容门槛**；按分桶阈值过滤）       |
+| `ai_keyword_pattern`                         | 标题/描述须匹配的 AI 关键词（与分桶 `min_views` 共同过滤）       |
 | `summary.strip_patterns`                     | 摘要广告过滤正则                                               |
 
-**注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → YouTube 三档为空。
+**注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → YouTube 各档为空。
 
 **避免 YouTube 为空的措施（按推荐顺序）：**
 

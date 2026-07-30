@@ -165,7 +165,7 @@ npm run build
 | 30d  | Top 3 | 30 天内   | ≥100000 |
 | 100d | Top 6 | 100 天内  | ≥1000000 |
 
-去重后每平台最多 16 条；内容仅要求匹配 `ai_keyword_pattern`。规则或门槛变更后务必 `--force` 重抓。
+去重后每平台最多 16 条；内容须匹配 `ai_keyword_pattern`，并满足各档 `min_views`。规则或门槛变更后务必 `--force` 重抓。
 
 B 站通常正常；**YouTube 在数据中心 IP 上常被反爬**，需按下列步骤配置：
 

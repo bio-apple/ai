@@ -99,9 +99,11 @@ python3 scripts/fetch_daily_videos.py
 | 新闻源       | `config/news-fetch.yaml`                                                  |
 | 视频源       | `config/video-fetch.yaml`                                                 |
 
-推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
+推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages；日更见 [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)。
 
 **工程实践**：`lib/fetch-json.js` / `virtual-list.js` / `link-guard.js` · 视频 slim JSON · 资源 `?v=` 哈希 · CI（Schema / OG / JSON-LD / 搜索 / gitleaks）· 日更末步 lychee 死链（软告警）。
+
+**安全要点**：勿提交 LLM/`API_KEY`；本地用 `.env.local`（见 `.env.local.example`）；CSP 见 `config/csp.json`。
 
 ## License
 
