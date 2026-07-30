@@ -224,7 +224,34 @@ function slugFromFilename(name) {
     .replace(/[^a-z0-9\u4e00-\u9fff_-]+/g, '-');
 }
 
-export function buildGuideFromMarkdown(filename, raw, sourcePrefix = 'content/local-deploy') {
+function normalizeDate(value) {
+  if (value instanceof Date && !Number.isNaN(value.getTime())) {
+    return value.toISOString().slice(0, 10);
+  }
+  if (typeof value === 'number' && Number.isFinite(value)) {
+    return new Date(value).toISOString().slice(0, 10);
+  }
+  const s = String(value || '').trim();
+  if (!s) return '';
+  const m = s.match(/^(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : '';
+}
+
+function fileCreatedDate(filePath) {
+  try {
+    const stat = fs.statSync(filePath);
+    return normalizeDate(stat.birthtime || stat.mtime) || normalizeDate(stat.mtime);
+  } catch {
+    return '';
+  }
+}
+
+export function buildGuideFromMarkdown(
+  filename,
+  raw,
+  sourcePrefix = 'content/local-deploy',
+  filePath = '',
+) {
   const { meta, body } = parseFrontmatter(raw);
   if (meta.draft === true) return null;
   const id = String(meta.id || slugFromFilename(filename)).trim();
@@ -242,6 +269,7 @@ export function buildGuideFromMarkdown(filename, raw, sourcePrefix = 'content/lo
     id,
     title,
     lead: meta.lead ? String(meta.lead) : undefined,
+    created_at: normalizeDate(meta.created_at) || fileCreatedDate(filePath) || undefined,
     audience: meta.audience ? String(meta.audience) : undefined,
     stack,
     order: typeof meta.order === 'number' ? meta.order : 100,
@@ -261,8 +289,9 @@ export function scanGuidesInDir(dir = CONTENT_DIR, sourcePrefix = 'content/local
     .sort((a, b) => a.localeCompare(b, 'en'));
   const guides = [];
   for (const file of files) {
-    const raw = fs.readFileSync(path.join(dir, file), 'utf8');
-    const guide = buildGuideFromMarkdown(file, raw, sourcePrefix);
+    const filePath = path.join(dir, file);
+    const raw = fs.readFileSync(filePath, 'utf8');
+    const guide = buildGuideFromMarkdown(file, raw, sourcePrefix, filePath);
     if (guide) guides.push(guide);
   }
   guides.sort((a, b) => a.order - b.order || a.id.localeCompare(b.id));

@@ -23,6 +23,7 @@ type MdGuide = {
   id: string;
   title: string;
   lead?: string;
+  created_at?: string;
   audience?: string;
   stack?: string[];
   html: string;
@@ -108,8 +109,9 @@ function guidePageHref(guideId: string): string {
               >
                 <span class="local-guide-item-title">{guide.title}</span>
                 {guide.lead ? <span class="local-guide-item-lead">{guide.lead}</span> : null}
-                {(guide.audience || guide.stack?.length) && (
+                {(guide.created_at || guide.audience || guide.stack?.length) && (
                   <span class="local-guide-item-meta">
+                    {guide.created_at ? <span>创建 {guide.created_at}</span> : null}
                     {guide.audience ? <span>{guide.audience}</span> : null}
                     {guide.stack?.length ? <span>{guide.stack.join(' · ')}</span> : null}
                   </span>
