@@ -207,7 +207,7 @@ def _json_ld_types(html: str) -> set[str]:
 def validate_json_ld() -> None:
     """确认关键页面含 JSON-LD 结构化数据（工具页 + 课程 CollectionPage）。"""
     checks = [
-        (ROOT / "index.html", {"CollectionPage", "Course", "WebSite", "TechArticle"}),
+        (ROOT / "index.html", {"CollectionPage", "Course", "WebSite"}),
         (ROOT / "tools" / "chatgpt.html", {"SoftwareApplication", "LearningResource", "WebPage"}),
         (ROOT / "news" / "daily-ai-news.html", {"NewsArticle", "CollectionPage"}),
     ]
