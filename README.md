@@ -3,13 +3,27 @@
 **Bio-Apple · AI 工具导航 · 开源精选 · 实战案例 · 课程 · 热点 · 视频**
 
 [![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
-[![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions)
+[![Stars](https://img.shields.io/github/stars/bio-apple/ai?style=flat-square&logo=github)](https://github.com/bio-apple/ai/stargazers)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/deploy.yml?branch=main&style=flat-square&label=Deploy)](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions/workflows/ci.yml)
+[![Last commit](https://img.shields.io/github/last-commit/bio-apple/ai?style=flat-square)](https://github.com/bio-apple/ai/commits/main)
+[![Node](https://img.shields.io/badge/Node-22.x-339933?style=flat-square&logo=nodedotjs&logoColor=white)](./.nvmrc)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](./requirements.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0d8c6d?style=flat-square)](./LICENSE)
 
-站点：https://bio-apple.github.io/ai/
+站点：https://bio-apple.github.io/ai/ · 贡献：[CONTRIBUTING.md](./CONTRIBUTING.md)
+
+## 预览
+
+| 首页 Hero                                 | AI 工具中心                                 | 推荐助手                                           |
+| ----------------------------------------- | ------------------------------------------- | -------------------------------------------------- |
+| ![首页 Hero](./docs/images/home-hero.png) | ![AI 工具中心](./docs/images/tools-hub.png) | ![推荐助手](./docs/images/recommend-assistant.png) |
+
+## 文档
 
 | 文档                                           | 说明                               |
 | ---------------------------------------------- | ---------------------------------- |
+| [CONTRIBUTING.md](./CONTRIBUTING.md)           | 贡献指南与内容快速路径             |
 | [docs/SETUP.md](./docs/SETUP.md)               | 环境搭建与本地预览                 |
 | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构                           |
 | [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)     | 数据模型                           |
@@ -103,6 +117,8 @@ python3 scripts/fetch_daily_videos.py
 | 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`     |
 | 新闻源       | `config/news-fetch.yaml`                                     |
 | 视频源       | `config/video-fetch.yaml`                                    |
+
+分步说明（工具 / 课程 / 对比专题等）→ **[CONTRIBUTING.md](./CONTRIBUTING.md)**。
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
 
