@@ -1,0 +1,84 @@
+{
+  "title": "Agent智能体",
+  "lead": "自主规划、工具调用与多步执行：IDE、对话与工作流形态的 Agent 选型与实践入口。",
+  "updated_at": "2026-07-30",
+  "categories": [
+    {
+      "id": "ide",
+      "label": "IDE Agent",
+      "blurb": "在编辑器内跨文件改代码、跑命令、修 bug。",
+      "items": [
+        {
+          "id": "cursor",
+          "name": "Cursor",
+          "tagline": "AI 原生编辑器",
+          "summary": "Agent 模式跨文件改动、Plan 模式与 Rules，适合从 0 到 1 搭功能。",
+          "href": "tools/cursor.html",
+          "tags": ["Agent", "编程"]
+        },
+        {
+          "id": "copilot",
+          "name": "GitHub Copilot",
+          "tagline": "VS Code 生态",
+          "summary": "Copilot Chat 与 Agent 能力，补全成熟，适合已有 VS Code 工作流。",
+          "href": "tools/copilot.html",
+          "tags": ["Agent", "补全"]
+        },
+        {
+          "id": "codex",
+          "name": "OpenAI Codex",
+          "tagline": "云端编程 Agent",
+          "summary": "OpenAI 编程 Agent，适合 PR 级任务与云端执行场景。",
+          "href": "tools/codex.html",
+          "tags": ["Agent", "云端"]
+        }
+      ]
+    },
+    {
+      "id": "chat",
+      "label": "对话 Agent",
+      "blurb": "浏览器内多轮对话 + 工具 / 插件 / 深度研究。",
+      "items": [
+        {
+          "id": "chatgpt",
+          "name": "ChatGPT",
+          "tagline": "通用助手",
+          "summary": "GPT 系列 + 工具调用、Canvas、Deep Research 等 Agent 能力。",
+          "href": "tools/chatgpt.html",
+          "tags": ["工具调用", "多模态"]
+        },
+        {
+          "id": "claude",
+          "name": "Claude",
+          "tagline": "长文档推理",
+          "summary": "Claude Projects、Artifacts 与 Computer Use 等 Agent 向能力。",
+          "href": "tools/claude.html",
+          "tags": ["长文档", "推理"]
+        },
+        {
+          "id": "gemini",
+          "name": "Gemini",
+          "tagline": "Google 生态",
+          "summary": "Deep Research、Gems 与多模态，适合 Google 工作流。",
+          "href": "tools/gemini.html",
+          "tags": ["研究", "多模态"]
+        }
+      ]
+    },
+    {
+      "id": "compare",
+      "label": "选型对比",
+      "blurb": "常见 Agent 组合与编程助手对比。",
+      "items": [
+        {
+          "id": "cursor-vs-copilot",
+          "name": "Cursor vs Copilot",
+          "tagline": "编程 Agent 怎么选",
+          "summary": "Agent 跨文件 vs 成熟补全：3 分钟看懂差异与适用场景。",
+          "href": "compare/cursor-vs-copilot.html",
+          "tags": ["对比", "编程"]
+        }
+      ]
+    }
+  ]
+}

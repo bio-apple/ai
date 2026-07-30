@@ -85,6 +85,56 @@ function appendLocalDeploySearchItems(items, guidesPayload) {
   }
 }
 
+function appendAgentHubSearchItems(items, hub, guidesPayload) {
+  for (const category of hub?.categories || []) {
+    for (const item of category.items || []) {
+      if (!item?.name || !item?.href) continue;
+      const href = String(item.href);
+      const internal = !/^https?:\/\//i.test(href);
+      items.push({
+        id: `agent-hub-${item.id || item.name}`,
+        label: item.name,
+        type: 'Agent智能体',
+        url: internal ? href : href,
+        external: !internal,
+        keywords: [
+          item.name,
+          item.tagline,
+          item.summary,
+          category.label,
+          ...(item.tags || []),
+          'Agent',
+          '智能体',
+          'Agent智能体',
+        ]
+          .filter(Boolean)
+          .join(' '),
+      });
+    }
+  }
+  for (const guide of guidesPayload?.guides || []) {
+    if (!guide?.id || !guide?.title) continue;
+    items.push({
+      id: `agent-guide-${guide.id}`,
+      label: guide.title,
+      type: 'Agent智能体',
+      url: `agent/${guide.id}.html`,
+      keywords: [
+        guide.title,
+        guide.lead,
+        guide.audience,
+        ...(guide.stack || []),
+        'Agent',
+        '智能体',
+        'Agent智能体',
+        guide.source,
+      ]
+        .filter(Boolean)
+        .join(' '),
+    });
+  }
+}
+
 function appendVideoSearchItems(items, dailyVideos, { limitPerCategory = 2, maxTotal = 24 } = {}) {
   const batches = dailyVideos?.batches || [];
   const merged = withCategoryFallback(batches);
@@ -166,6 +216,12 @@ function buildSearchIndex(site, tools, compares) {
     section: 'section-local',
     keywords:
       '实战案例 Ollama LM Studio llama.cpp vLLM Open WebUI Jan GPT4All LocalAI MLX 私有化 本机大模型 部署',
+  });
+  items.push({
+    label: 'Agent智能体',
+    type: '频道',
+    section: 'section-agent',
+    keywords: 'Agent 智能体 Cursor Copilot Codex 工具调用 工作流 LangGraph Dify 自主规划 多步任务',
   });
   items.push({
     label: 'AI 课程资源',
@@ -388,6 +444,11 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   appendNewsSearchItems(searchIndex, readRootJson('ai-news.json'));
   appendCoursesSearchItems(searchIndex, readRootJson('ai-courses.json'));
   appendLocalDeploySearchItems(searchIndex, readJsonOptional('local-deploy-guides.json'));
+  appendAgentHubSearchItems(
+    searchIndex,
+    readJsonOptional('agent-hub.json'),
+    readJsonOptional('agent-hub-guides.json'),
+  );
   appendVideoSearchItems(searchIndex, readRootJson('daily-videos.json'));
   appendRankingSearchItems(searchIndex, rankings);
   const recommendRules = buildRecommendRules(site);
@@ -409,6 +470,14 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const localGuidesSrc = path.join(DATA, 'local-deploy-guides.json');
   if (fs.existsSync(localGuidesSrc)) {
     fs.copyFileSync(localGuidesSrc, path.join(outDir, 'local-deploy-guides.json'));
+  }
+  const agentHubSrc = path.join(DATA, 'agent-hub.json');
+  if (fs.existsSync(agentHubSrc)) {
+    fs.copyFileSync(agentHubSrc, path.join(outDir, 'agent-hub.json'));
+  }
+  const agentGuidesSrc = path.join(DATA, 'agent-hub-guides.json');
+  if (fs.existsSync(agentGuidesSrc)) {
+    fs.copyFileSync(agentGuidesSrc, path.join(outDir, 'agent-hub-guides.json'));
   }
 
   const videosSrc = path.join(ROOT, 'daily-videos.json');

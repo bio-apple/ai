@@ -8,17 +8,21 @@ import HomeQuickFilters from '../components/HomeQuickFilters.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import HomeAiMap from '../components/HomeAiMap.astro';
 import HomeLocalDeploy from '../components/HomeLocalDeploy.astro';
+import HomeAgentHub from '../components/HomeAgentHub.astro';
 import { site } from '../lib/data';
 import {
   buildHomeSchema,
   buildCoursesSchema,
   buildLocalDeploySchema,
+  buildAgentHubSchema,
   mergeSchemaGraphs,
 } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
 import coursesPayload from '../../ai-courses.json';
 import localDeployPayload from '../../data/local-deploy.json';
 import localGuidesPayload from '../../data/local-deploy-guides.json';
+import agentHubPayload from '../../data/agent-hub.json';
+import agentGuidesPayload from '../../data/agent-hub-guides.json';
 
 const homeCrumb = { label: '首页', href: homeHref(), tool: 'all' };
 
@@ -26,6 +30,7 @@ const schema = mergeSchemaGraphs(
   buildHomeSchema(site),
   buildCoursesSchema(coursesPayload, site.meta.canonical),
   buildLocalDeploySchema(localDeployPayload, site.meta.canonical, localGuidesPayload.guides || []),
+  buildAgentHubSchema(agentHubPayload, site.meta.canonical, agentGuidesPayload.guides || []),
 );
 ---
 
@@ -117,6 +122,20 @@ const schema = mergeSchemaGraphs(
         </div>
       </div>
       <HomeLocalDeploy />
+    </div>
+  </section>
+
+  <section id="section-agent" class="section agent-section">
+    <div class="section-panel">
+      <Breadcrumb crumbs={[homeCrumb, { label: 'Agent智能体' }]} />
+      <div class="tool-header">
+        <div class="tool-icon" style="background:rgba(124,58,237,0.12);color:#7c3aed">◎</div>
+        <div>
+          <h2>Agent智能体</h2>
+          <p class="desc">{agentHubPayload.lead}</p>
+        </div>
+      </div>
+      <HomeAgentHub />
     </div>
   </section>
 

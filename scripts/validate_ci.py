@@ -317,13 +317,13 @@ def validate_search_index() -> None:
     data = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
     Draft202012Validator(_load_schema("search-index.schema.json")).validate(data)
     types = {item.get("type") for item in data if isinstance(item, dict)}
-    required_types = {"课程", "资讯", "实战案例", "视频", "模型", "工具"}
+    required_types = {"课程", "资讯", "实战案例", "Agent智能体", "视频", "模型", "工具"}
     missing = required_types - types
     if missing:
         raise ValueError(f"search-index 缺少内容类型: {', '.join(sorted(missing))}")
     if len(data) < 80:
         raise ValueError(f"search-index 条目过少: {len(data)}")
-    print(f"✓ search-index.json schema ({len(data)} 条 · 含课程/资讯/实战案例/视频/模型)")
+    print(f"✓ search-index.json schema ({len(data)} 条 · 含课程/资讯/实战案例/Agent智能体/视频/模型)")
 
 
 def validate_recommend_rules() -> None:
@@ -482,6 +482,37 @@ def validate_local_deploy() -> None:
         print("✓ local-deploy guides（无 Markdown 文稿）")
 
 
+def validate_agent_hub() -> None:
+    path = REPO / "data" / "agent-hub.json"
+    if not path.exists():
+        raise FileNotFoundError("data/agent-hub.json 缺失")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("agent-hub.schema.json")).validate(data)
+    print(f"✓ agent-hub.json schema ({data.get('title', '')})")
+
+    content_dir = REPO / "content" / "agent-hub"
+    md_files = sorted(
+        p.name
+        for p in content_dir.glob("*.md")
+        if p.name.lower() != "readme.md"
+    ) if content_dir.is_dir() else []
+    guides_path = REPO / "data" / "agent-hub-guides.json"
+    if md_files and not guides_path.exists():
+        raise FileNotFoundError(
+            "发现 content/agent-hub/*.md 但缺少 data/agent-hub-guides.json；"
+            "请先运行 npm run build"
+        )
+    if guides_path.exists():
+        guides_data = json.loads(guides_path.read_text(encoding="utf-8"))
+        guides = guides_data.get("guides") or []
+        for g in guides:
+            if not g.get("id") or not g.get("title") or not g.get("html"):
+                raise ValueError(f"agent-hub guide 字段不完整: {g.get('id')}")
+        print(f"✓ agent-hub-guides.json ({len(guides)} 篇 · content md={len(md_files)})")
+    elif not md_files:
+        print("✓ agent-hub guides（无 Markdown 文稿）")
+
+
 def validate_data_json() -> None:
     for name in (
         "site.json",
@@ -489,6 +520,7 @@ def validate_data_json() -> None:
         "compares.json",
         "analytics.json",
         "local-deploy.json",
+        "agent-hub.json",
         "rankings.json",
         "tool-relations.json",
         "engagement.json",
@@ -578,6 +610,7 @@ STEPS = (
     ("data", validate_data_json),
     ("tool-relations", validate_tool_relations),
     ("local", validate_local_deploy),
+    ("agent", validate_agent_hub),
     ("videos", validate_daily_videos),
     ("news", validate_ai_news),
     ("courses", validate_ai_courses),
