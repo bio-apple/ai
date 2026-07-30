@@ -1,11 +1,11 @@
 {
   "meta": {
-    "title": "Bio AI Lab | AI 工具导航 · 实战案例 · 课程与热点",
-    "description": "Bio AI Lab：对比 ChatGPT、Claude、Cursor 等 AI 工具，收录实战案例、免费课程、一周热点与每日视频，帮你快速选型并搭建工作流。",
-    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,实战案例,Ollama,AI热点",
+    "title": "Bio AI Lab | AI 工具导航 · 开源精选 · 课程与热点",
+    "description": "Bio AI Lab：对比 ChatGPT、Claude、Cursor 等 AI 工具，收录 Agent 框架开源精选、免费课程、一周热点与每日视频，帮你快速选型并搭建工作流。",
+    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,开源精选,Agent框架,AI热点",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
-    "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与实战案例",
+    "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与开源精选",
     "site_name": "Bio AI Lab",
     "base_url": "https://bio-apple.github.io/ai/"
   },
@@ -586,5 +586,17 @@
     "title": "AI 工具中心 | Bio AI Lab",
     "h1": "AI 工具中心",
     "lead": "先对比能力与场景（工具名可进教程），再看 AICPB、LMSYS Chatbot Arena Elo 与 Artificial Analysis Intelligence Index。"
-  }
+  },
+  "oss_frameworks": [
+    { "repo": "microsoft/autogen", "name": "AutoGen" },
+    { "repo": "langchain-ai/langgraph", "name": "LangGraph" },
+    { "repo": "crewAIInc/crewAI", "name": "CrewAI" },
+    { "repo": "microsoft/semantic-kernel", "name": "Semantic Kernel" },
+    { "repo": "OpenBMB/ChatDev", "name": "ChatDev" },
+    { "repo": "geekan/MetaGPT", "name": "MetaGPT" },
+    { "repo": "All-Hands-AI/OpenHands", "name": "OpenHands" },
+    { "repo": "Significant-Gravitas/AutoGPT", "name": "AutoGPT" },
+    { "repo": "langgenius/dify", "name": "Dify" },
+    { "repo": "huggingface/smolagents", "name": "smolagents" }
+  ]
 }

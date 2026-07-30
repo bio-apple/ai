@@ -21,40 +21,41 @@ const schema = mergeSchemaGraphs(
 );
 const brief = pickAiDailyBrief({ models: 3, industry: 2, github: 12, learn: 2 });
 const githubAll = brief.githubAll?.length ? brief.githubAll : brief.github;
-const AGENT_FRAMEWORKS = [
-  { repo: 'microsoft/autogen', name: 'AutoGen' },
-  { repo: 'langchain-ai/langgraph', name: 'LangGraph' },
-  { repo: 'crewAIInc/crewAI', name: 'CrewAI' },
-  { repo: 'microsoft/semantic-kernel', name: 'Semantic Kernel' },
-  { repo: 'OpenBMB/ChatDev', name: 'ChatDev' },
-  { repo: 'geekan/MetaGPT', name: 'MetaGPT' },
-  { repo: 'All-Hands-AI/OpenHands', name: 'OpenHands' },
-  { repo: 'Significant-Gravitas/AutoGPT', name: 'AutoGPT' },
-  { repo: 'langgenius/dify', name: 'Dify' },
-  { repo: 'huggingface/smolagents', name: 'smolagents' },
-];
+const AGENT_FRAMEWORKS = site.oss_frameworks || [];
 const parseStars = (title = '') => {
   const m = String(title).match(/★\s*([\d,]+)/);
   return m ? Number(String(m[1]).replace(/,/g, '')) || 0 : 0;
 };
-const frameworkItems = AGENT_FRAMEWORKS.map((fw) => {
+const byRepoInNews = new Map(
+  githubAll
+    .filter((item) => /github\.com\//i.test(String(item.url || '')))
+    .map((item) => {
+      const normalized = String(item.url || '')
+        .trim()
+        .replace(/\/+$/, '')
+        .toLowerCase();
+      return [normalized, item] as const;
+    }),
+);
+const frameworkItems = AGENT_FRAMEWORKS.map((fw, idx) => {
   const directUrl = `https://github.com/${fw.repo}`;
-  const hit = githubAll.find(
-    (item) =>
-      String(item.url || '').toLowerCase() === directUrl.toLowerCase() ||
-      String(item.title || '')
-        .toLowerCase()
-        .includes(fw.repo.toLowerCase()),
-  );
+  const hit = byRepoInNews.get(directUrl.toLowerCase());
   return (
     hit || {
-      title: fw.repo,
+      title: `${fw.repo}`,
       url: directUrl,
       source: 'GitHub',
       category: 'Agent Framework',
+      _order: idx,
     }
   );
-}).sort((a, b) => parseStars(b.title) - parseStars(a.title));
+})
+  .sort((a, b) => {
+    const byStar = parseStars(b.title) - parseStars(a.title);
+    if (byStar) return byStar;
+    return (a._order || 0) - (b._order || 0);
+  })
+  .slice(0, 10);
 const openSourceItems = frameworkItems.slice(0, 10);
 ---
 
@@ -151,9 +152,9 @@ const openSourceItems = frameworkItems.slice(0, 10);
         </div>
       </div>
       <div class="news-feed">
-        <ul class="news-feed-list">
+        <ol class="news-feed-list" aria-label="GitHub Agent 框架 Top10">
           {
-            openSourceItems.map((item) => (
+            openSourceItems.map((item, index) => (
               <li class="news-row">
                 <a
                   class="news-row-main"
@@ -161,6 +162,7 @@ const openSourceItems = frameworkItems.slice(0, 10);
                   target="_blank"
                   rel="noopener noreferrer"
                   data-track="oss-click"
+                  aria-label={`第 ${index + 1} 名：${item.title}`}
                 >
                   <span class="news-row-title">
                     <span class="content-type-badge content-type-news" aria-hidden="true">
@@ -175,7 +177,7 @@ const openSourceItems = frameworkItems.slice(0, 10);
               </li>
             ))
           }
-        </ul>
+        </ol>
         {openSourceItems.length === 0 && <p class="loading-hint">暂无开源项目数据。</p>}
       </div>
     </div>
