@@ -8,6 +8,10 @@ import { withCategoryFallback } from './video-fallback.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
 
+function readJson(name) {
+  return JSON.parse(fs.readFileSync(path.join(DATA, name), 'utf8'));
+}
+
 function readJsonOptional(name) {
   const p = path.join(DATA, name);
   if (!fs.existsSync(p)) return null;
