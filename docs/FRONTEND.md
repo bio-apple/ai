@@ -145,7 +145,6 @@ trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型'
 
 Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 
-
 ---
 
 ## 9. AI 视频
