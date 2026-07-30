@@ -8,8 +8,10 @@ import { withCategoryFallback } from './video-fallback.mjs';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = path.join(ROOT, 'data');
 
-function readJson(name) {
-  return JSON.parse(fs.readFileSync(path.join(DATA, name), 'utf8'));
+function readJsonOptional(name) {
+  const p = path.join(DATA, name);
+  if (!fs.existsSync(p)) return null;
+  return JSON.parse(fs.readFileSync(p, 'utf8'));
 }
 
 function writeOut(outDir, name, data) {
@@ -56,7 +58,7 @@ function appendCoursesSearchItems(items, courses) {
   }
 }
 
-function appendLocalDeploySearchItems(items, local) {
+function appendLocalDeploySearchItems(items, local, guidesPayload) {
   for (const category of local?.categories || []) {
     for (const tool of category.items || []) {
       if (!tool?.name || !tool?.url) continue;
@@ -81,6 +83,27 @@ function appendLocalDeploySearchItems(items, local) {
           .join(' '),
       });
     }
+  }
+  for (const guide of guidesPayload?.guides || []) {
+    if (!guide?.id || !guide?.title) continue;
+    items.push({
+      id: `local-guide-${guide.id}`,
+      label: guide.title,
+      type: '本地部署',
+      section: 'section-local',
+      anchor: `local-guide-${guide.id}`,
+      keywords: [
+        guide.title,
+        guide.lead,
+        guide.audience,
+        ...(guide.stack || []),
+        '本地部署',
+        '实战文稿',
+        guide.source,
+      ]
+        .filter(Boolean)
+        .join(' '),
+    });
   }
 }
 
@@ -178,14 +201,6 @@ function buildSearchIndex(site, tools, compares) {
     type: '本地部署',
     section: 'section-local',
     keywords: 'Ollama 本地部署 本机跑模型 Open WebUI llama.cpp LM Studio',
-  });
-  items.push({
-    label: 'Linux 部署 Ollama + Open WebUI',
-    type: '本地部署',
-    section: 'section-local',
-    anchor: 'local-guide-ollama-open-webui',
-    keywords:
-      'Ollama Open WebUI systemd Linux 服务器 本地部署 私有化 ollama.service open-webui.service 开机自启',
   });
   items.push({
     label: 'AI 工具中心',
@@ -394,7 +409,11 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   appendHubBoardSearchItems(searchIndex);
   appendNewsSearchItems(searchIndex, readRootJson('ai-news.json'));
   appendCoursesSearchItems(searchIndex, readRootJson('ai-courses.json'));
-  appendLocalDeploySearchItems(searchIndex, readJson('local-deploy.json'));
+  appendLocalDeploySearchItems(
+    searchIndex,
+    readJson('local-deploy.json'),
+    readJsonOptional('local-deploy-guides.json'),
+  );
   appendVideoSearchItems(searchIndex, readRootJson('daily-videos.json'));
   appendRankingSearchItems(searchIndex, rankings);
   const recommendRules = buildRecommendRules(site);
@@ -412,6 +431,10 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const localSrc = path.join(DATA, 'local-deploy.json');
   if (fs.existsSync(localSrc)) {
     fs.copyFileSync(localSrc, path.join(outDir, 'local-deploy.json'));
+  }
+  const localGuidesSrc = path.join(DATA, 'local-deploy-guides.json');
+  if (fs.existsSync(localGuidesSrc)) {
+    fs.copyFileSync(localGuidesSrc, path.join(outDir, 'local-deploy-guides.json'));
   }
 
   const videosSrc = path.join(ROOT, 'daily-videos.json');

@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { loadEnvLocal } from './load-env-local.mjs';
 import { buildArtifacts } from './build-artifacts.mjs';
+import { writeLocalDeployGuides } from './build-local-guides.mjs';
 import { syncPublic } from './sync-public.mjs';
 import { bundleCss } from './bundle-css.mjs';
 import { syncHeadersCsp } from './csp-policy.mjs';
@@ -62,4 +63,8 @@ bundleCss({
   entry: path.join(ROOT, 'style.css'),
   outFile: path.join(publicDir, 'style.css'),
 });
+{
+  const guides = writeLocalDeployGuides();
+  console.log(`✓ local-deploy guides (${guides.guides.length} 篇)`);
+}
 buildArtifacts(publicDir);

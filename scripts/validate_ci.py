@@ -461,6 +461,28 @@ def validate_local_deploy() -> None:
     items = sum(len(c.get("items") or []) for c in cats)
     print(f"✓ local-deploy.json schema ({len(cats)} 分类 / {items} 条目)")
 
+    content_dir = REPO / "content" / "local-deploy"
+    md_files = sorted(
+        p.name
+        for p in content_dir.glob("*.md")
+        if p.name.lower() != "readme.md"
+    ) if content_dir.is_dir() else []
+    guides_path = REPO / "data" / "local-deploy-guides.json"
+    if md_files and not guides_path.exists():
+        raise FileNotFoundError(
+            "发现 content/local-deploy/*.md 但缺少 data/local-deploy-guides.json；"
+            "请先运行 node scripts/build-local-guides.mjs 或 npm run build"
+        )
+    if guides_path.exists():
+        guides_data = json.loads(guides_path.read_text(encoding="utf-8"))
+        guides = guides_data.get("guides") or []
+        for g in guides:
+            if not g.get("id") or not g.get("title") or not g.get("html"):
+                raise ValueError(f"local-deploy guide 字段不完整: {g.get('id')}")
+        print(f"✓ local-deploy-guides.json ({len(guides)} 篇 · content md={len(md_files)})")
+    elif not md_files:
+        print("✓ local-deploy guides（无 Markdown 文稿）")
+
 
 def validate_data_json() -> None:
     for name in (

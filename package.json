@@ -20,7 +20,8 @@
     "test:e2e": "playwright test",
     "test:e2e:install": "playwright install chromium",
     "health:live": "python3 scripts/check_site_health.py",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "guides:local": "node scripts/build-local-guides.mjs"
   },
   "dependencies": {
     "astro": "^5.7.10"

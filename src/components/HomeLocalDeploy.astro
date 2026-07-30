@@ -1,5 +1,6 @@
 ---
 import localDeploy from '../../data/local-deploy.json';
+import localGuidesPayload from '../../data/local-deploy-guides.json';
 
 type LocalItem = {
   id: string;
@@ -20,26 +21,19 @@ type LocalCategory = {
   items: LocalItem[];
 };
 
-type GuideSection = {
-  id: string;
-  heading: string;
-  body?: string[];
-  code?: string;
-  code_lang?: string;
-};
-
-type LocalGuide = {
+type MdGuide = {
   id: string;
   title: string;
   lead?: string;
   audience?: string;
   stack?: string[];
-  sections: GuideSection[];
-  notes?: string[];
+  html: string;
 };
 
 const categories = (localDeploy.categories || []) as LocalCategory[];
-const guide = (localDeploy as { guide?: LocalGuide }).guide;
+const guides = ((localGuidesPayload as { guides?: MdGuide[] }).guides || []).filter(
+  (g) => g?.id && g?.title && g?.html,
+);
 const updatedAt = localDeploy.updated_at || '';
 ---
 
@@ -131,55 +125,29 @@ const updatedAt = localDeploy.updated_at || '';
   }
 
   {
-    guide && (
-      <article
-        class="local-guide"
-        id={`local-guide-${guide.id}`}
-        aria-labelledby={`local-guide-title-${guide.id}`}
-      >
-        <header class="local-guide-header">
-          <p class="local-guide-kicker">实战文稿</p>
-          <h3 class="local-guide-title" id={`local-guide-title-${guide.id}`}>
-            {guide.title}
-          </h3>
-          {guide.lead && <p class="local-guide-lead">{guide.lead}</p>}
-          <div class="local-guide-meta">
-            {guide.audience && <span>{guide.audience}</span>}
-            {guide.stack?.length ? <span>{guide.stack.join(' · ')}</span> : null}
-          </div>
-        </header>
-
-        {guide.sections.map((section) => (
-          <section
-            class="local-guide-section"
-            id={`local-guide-sec-${section.id}`}
-            aria-labelledby={`local-guide-h-${section.id}`}
+    guides.length > 0 && (
+      <div class="local-guides" aria-label="本地部署实战文稿">
+        {guides.map((guide) => (
+          <article
+            class="local-guide"
+            id={`local-guide-${guide.id}`}
+            aria-labelledby={`local-guide-title-${guide.id}`}
           >
-            <h4 class="local-guide-heading" id={`local-guide-h-${section.id}`}>
-              {section.heading}
-            </h4>
-            {(section.body || []).map((p) => (
-              <p class="local-guide-body">{p}</p>
-            ))}
-            {section.code && (
-              <pre class="local-guide-code">
-                <code class={`language-${section.code_lang || 'text'}`}>{section.code}</code>
-              </pre>
-            )}
-          </section>
+            <header class="local-guide-header">
+              <p class="local-guide-kicker">实战文稿</p>
+              <h3 class="local-guide-title" id={`local-guide-title-${guide.id}`}>
+                {guide.title}
+              </h3>
+              {guide.lead && <p class="local-guide-lead">{guide.lead}</p>}
+              <div class="local-guide-meta">
+                {guide.audience && <span>{guide.audience}</span>}
+                {guide.stack?.length ? <span>{guide.stack.join(' · ')}</span> : null}
+              </div>
+            </header>
+            <div class="local-guide-html" set:html={guide.html} />
+          </article>
         ))}
-
-        {guide.notes?.length ? (
-          <aside class="local-guide-notes" aria-label="注意事项">
-            <h4 class="local-guide-heading">注意事项</h4>
-            <ul>
-              {guide.notes.map((note) => (
-                <li>{note}</li>
-              ))}
-            </ul>
-          </aside>
-        ) : null}
-      </article>
+      </div>
     )
   }
 </div>
