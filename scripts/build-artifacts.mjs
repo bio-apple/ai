@@ -180,6 +180,14 @@ function buildSearchIndex(site, tools, compares) {
     keywords: 'Ollama 本地部署 本机跑模型 Open WebUI llama.cpp LM Studio',
   });
   items.push({
+    label: 'Linux 部署 Ollama + Open WebUI',
+    type: '本地部署',
+    section: 'section-local',
+    anchor: 'local-guide-ollama-open-webui',
+    keywords:
+      'Ollama Open WebUI systemd Linux 服务器 本地部署 私有化 ollama.service open-webui.service 开机自启',
+  });
+  items.push({
     label: 'AI 工具中心',
     type: '导航',
     url: 'tools/hub.html',

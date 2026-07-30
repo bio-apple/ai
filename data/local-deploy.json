@@ -1,7 +1,86 @@
 {
   "title": "本地部署",
   "lead": "在本机或私有环境跑大模型：一键客户端、推理引擎与 Web UI。",
-  "updated_at": "2026-07-22",
+  "updated_at": "2026-07-30",
+  "guide": {
+    "id": "ollama-open-webui",
+    "title": "Linux 服务器部署 Ollama + Open WebUI",
+    "lead": "用 systemd 在 Linux 上常驻 Ollama 推理服务，并用 Open WebUI 提供浏览器聊天界面。以下路径请按实际安装位置替换。",
+    "audience": "Linux 服务器 / 私有化环境",
+    "stack": ["Ollama", "Open WebUI", "systemd"],
+    "sections": [
+      {
+        "id": "install-ollama",
+        "heading": "1. 安装 Ollama",
+        "body": [
+          "官方文档：https://docs.ollama.com/linux",
+          "若命令行下载不稳定，可在本地浏览器下载安装包后上传到服务器再解压。"
+        ],
+        "code": "curl -fsSL https://ollama.com/download/ollama-linux-amd64.tar.zst | sudo tar x -C /usr",
+        "code_lang": "bash"
+      },
+      {
+        "id": "models-dir",
+        "heading": "2. 建立模型存储目录",
+        "body": ["单独目录存放大模型文件，便于扩容与备份。示例使用 `/path/to/ollama/models/`："],
+        "code": "mkdir -p /path/to/ollama/models/",
+        "code_lang": "bash"
+      },
+      {
+        "id": "ollama-service",
+        "heading": "3. 配置 ollama.service",
+        "body": [
+          "将下方内容保存为 `/etc/systemd/system/ollama.service`。",
+          "`ExecStart`、`PATH`、`OLLAMA_MODELS` 中的路径需与实际安装目录一致；`OLLAMA_HOST=0.0.0.0:11434` 表示监听所有网卡（仅内网时可改为 `127.0.0.1:11434`）。"
+        ],
+        "code": "[Unit]\nDescription=Ollama Service\nAfter=network-online.target\n\n[Service]\nType=simple\n\nExecStart=/path/to/ollama/bin/ollama serve\n\nUser=root\nGroup=root\n\nRestart=always\nRestartSec=5\n\nEnvironment=\"OLLAMA_HOST=0.0.0.0:11434\"\nEnvironment=\"PATH=/path/to/ollama/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin\"\nEnvironment=\"OLLAMA_MODELS=/path/to/ollama/models/\"\n\n[Install]\nWantedBy=multi-user.target",
+        "code_lang": "ini"
+      },
+      {
+        "id": "install-open-webui",
+        "heading": "4. 安装 Open WebUI",
+        "body": [
+          "推荐在独立虚拟环境中安装，避免污染系统 Python：",
+          "安装完成后，确认 `open-webui` 可执行文件路径（下文记为 `/path/to/open-webui/bin/open-webui`）。"
+        ],
+        "code": "python3 -m venv /path/to/open-webui\n/path/to/open-webui/bin/pip install -U pip\n/path/to/open-webui/bin/pip install open-webui",
+        "code_lang": "bash"
+      },
+      {
+        "id": "open-webui-service",
+        "heading": "5. 配置 open-webui.service",
+        "body": [
+          "将下方内容保存为 `/etc/systemd/system/open-webui.service`。",
+          "`After=ollama.service` 保证先起推理服务；`OLLAMA_BASE_URL` 指向本机 Ollama API。"
+        ],
+        "code": "[Unit]\nDescription=Open WebUI Service\nAfter=network-online.target ollama.service\n\n[Service]\nType=simple\n\nUser=root\nGroup=root\n\nWorkingDirectory=/path/to/open-webui\n\nExecStart=/path/to/open-webui/bin/open-webui serve --port 3000\n\nRestart=always\nRestartSec=5\n\nEnvironment=\"PATH=/path/to/open-webui/bin:/usr/local/bin:/usr/bin\"\nEnvironment=\"OLLAMA_BASE_URL=http://127.0.0.1:11434\"\n\n[Install]\nWantedBy=multi-user.target",
+        "code_lang": "ini"
+      },
+      {
+        "id": "enable-start",
+        "heading": "6. 拷贝 unit、开机自启并启动",
+        "body": ["两个 `.service` 文件需位于 `/etc/systemd/system/`，然后执行："],
+        "code": "sudo systemctl daemon-reload\nsudo systemctl enable ollama\nsudo systemctl enable open-webui\nsudo systemctl start ollama.service\nsudo systemctl start open-webui.service",
+        "code_lang": "bash"
+      },
+      {
+        "id": "verify",
+        "heading": "7. 验证与常用操作",
+        "body": [
+          "浏览器访问：`http://服务器IP:3000`（Open WebUI）。",
+          "拉取模型示例：`ollama pull qwen2.5:7b`（在已配置好的 Ollama 环境中执行）。",
+          "排障：`systemctl status ollama`、`systemctl status open-webui`、`journalctl -u ollama -f`。"
+        ],
+        "code": "systemctl status ollama\nsystemctl status open-webui\ncurl -s http://127.0.0.1:11434/api/tags",
+        "code_lang": "bash"
+      }
+    ],
+    "notes": [
+      "生产环境建议使用非 root 专用用户运行服务，并配合防火墙仅放行必要端口。",
+      "若官方 tar 安装到 `/usr`，可执行文件可能为 `/usr/bin/ollama`，请相应修改 `ExecStart` 与 `PATH`。",
+      "Open WebUI 也可用 Docker 部署；本文以 pip + systemd 与 Ollama 同机搭配为例。"
+    ]
+  },
   "categories": [
     {
       "id": "desktop",
@@ -12,9 +91,10 @@
           "id": "ollama",
           "name": "Ollama",
           "tagline": "命令行一键拉模型",
-          "summary": "跨平台本地运行时，`ollama run` 即可对话；生态大、与 Open WebUI 等搭配常见。",
+          "summary": "跨平台本地运行时，`ollama run` 即可对话；生态大、与 Open WebUI 等搭配常见。Linux 服务器 systemd 部署见本页「实战文稿」。",
           "url": "https://ollama.com",
-          "docs_url": "https://github.com/ollama/ollama",
+          "docs_url": "https://docs.ollama.com/linux",
+          "guide_anchor": "local-guide-ollama-open-webui",
           "platforms": ["macOS", "Windows", "Linux"],
           "tags": ["入门", "CLI"]
         },
@@ -106,9 +186,10 @@
           "id": "open-webui",
           "name": "Open WebUI",
           "tagline": "对接 Ollama / OpenAI API",
-          "summary": "功能完整的自托管聊天前端：多用户、知识库、工具调用，常与 Ollama / vLLM 组合。",
+          "summary": "功能完整的自托管聊天前端：多用户、知识库、工具调用，常与 Ollama / vLLM 组合。与 Ollama 同机 systemd 部署见本页「实战文稿」。",
           "url": "https://openwebui.com",
           "docs_url": "https://docs.openwebui.com",
+          "guide_anchor": "local-guide-ollama-open-webui",
           "platforms": ["Docker", "自托管"],
           "tags": ["Web UI", "推荐"]
         },

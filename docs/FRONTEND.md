@@ -136,8 +136,9 @@ trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型'
 
 `HomeLocalDeploy.astro` 构建期 SSG 渲染（`data/local-deploy.json`）：
 
+- 顶部可选 **实战文稿**（如 Linux 部署 Ollama + Open WebUI + systemd）
 - **平台** / **标签** / **一句话定位**
-- 官网与文档外链按钮
+- 官网、文档外链；有文稿的条目可跳转 `#local-guide-…`
 - 类型徽章「本地」
 
 Tab：`#section-local`（nav id `local`）；无需懒加载脚本。

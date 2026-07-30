@@ -426,15 +426,18 @@ nav: {
 **Schema**：`schemas/local-deploy.schema.json`  
 **维护**：手工编辑 `data/local-deploy.json`（非日更抓取）
 
-| 字段         | 类型     | 说明         |
-| ------------ | -------- | ------------ |
-| `title`      | `string` | 专区标题     |
-| `lead`       | `string` | 导语         |
-| `updated_at` | `string` | 精选更新日期 |
-| `categories` | `array`  | 分类列表     |
+| 字段         | 类型     | 说明                                           |
+| ------------ | -------- | ---------------------------------------------- |
+| `title`      | `string` | 专区标题                                       |
+| `lead`       | `string` | 导语                                           |
+| `updated_at` | `string` | 精选更新日期                                   |
+| `guide`      | `object` | 可选：专区内实战文稿（如 Ollama + Open WebUI） |
+| `categories` | `array`  | 分类列表                                       |
 
+**`guide`（可选）**：`id`, `title`, `sections[]`（必填）；`lead`, `audience`, `stack[]`, `notes[]`（可选）  
+**`guide.sections[]`**：`id`, `heading`；可选 `body[]`, `code`, `code_lang`  
 **`categories[]`**：`id`, `label`, `blurb`（可选）, `items[]`  
-**`items[]`**：`id`, `name`, `summary`, `url`（必填）；`tagline`, `docs_url`, `platforms[]`, `tags[]`（可选）
+**`items[]`**：`id`, `name`, `summary`, `url`（必填）；`tagline`, `docs_url`, `guide_anchor`, `platforms[]`, `tags[]`（可选）
 
 校验：`DIST=dist python3 scripts/validate_ci.py local`
 
