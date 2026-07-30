@@ -35,11 +35,18 @@ const parseStars = (title = '') => {
   const m = String(title).match(/★\s*([\d,]+)/);
   return m ? Number(String(m[1]).replace(/,/g, '')) || 0 : 0;
 };
-const isAgentRepo = (item: { title?: string; summary?: string; source?: string; category?: string }) => {
+const isAgentRepo = (item: {
+  title?: string;
+  summary?: string;
+  source?: string;
+  category?: string;
+}) => {
   const haystack = `${item.title || ''} ${item.summary || ''} ${item.category || ''}`;
   return AGENT_KEYWORDS.some((re) => re.test(haystack));
 };
-const agentItems = githubAll.filter(isAgentRepo).sort((a, b) => parseStars(b.title) - parseStars(a.title));
+const agentItems = githubAll
+  .filter(isAgentRepo)
+  .sort((a, b) => parseStars(b.title) - parseStars(a.title));
 const fillItems = githubAll.filter((item) => !agentItems.some((x) => x.url === item.url));
 const openSourceItems = [...agentItems, ...fillItems].slice(0, 10);
 ---
