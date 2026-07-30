@@ -462,12 +462,11 @@
   padding: 18px 18px 16px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background:
-    linear-gradient(
-      165deg,
-      color-mix(in srgb, var(--oss-accent) 8%, var(--bg-card)) 0%,
-      var(--bg-card) 42%
-    );
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--oss-accent) 8%, var(--bg-card)) 0%,
+    var(--bg-card) 42%
+  );
   box-shadow: inset 3px 0 0 var(--oss-accent);
   text-decoration: none;
   color: inherit;
