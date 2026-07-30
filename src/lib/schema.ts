@@ -283,7 +283,13 @@ export function buildHomeSchema(site: {
   meta: { canonical: string; description: string };
   faq?: { question: string; answer: string }[];
   rankings?: { name: string; dimension: string }[];
-  oss_frameworks?: { repo: string; name: string; stars?: number; summary?: string }[];
+  oss_frameworks?: {
+    repo: string;
+    name: string;
+    stars?: number;
+    summary?: string;
+    category?: string;
+  }[];
 }) {
   const graph: Record<string, unknown>[] = [
     {
@@ -327,12 +333,11 @@ export function buildHomeSchema(site: {
       ...fw,
       stars: Number(fw.stars || 0),
     }))
-    .sort((a, b) => b.stars - a.stars)
-    .slice(0, 10);
+    .sort((a, b) => b.stars - a.stars);
   if (oss.length) {
     graph.push({
       '@type': 'ItemList',
-      name: '开源精选 · AI agent frameworks Top10',
+      name: '开源精选 · Agent / 推理 / 向量库 / 评测 / 本地部署',
       itemListElement: oss.map((fw, i) => ({
         '@type': 'ListItem',
         position: i + 1,

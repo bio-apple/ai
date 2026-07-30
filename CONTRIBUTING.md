@@ -52,7 +52,7 @@ Schema：`schemas/tools.schema.json`（CI 会校验）。
 
 路线顺序与「每条路线最多 5 门」等规则见 README「课程资源」与 [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)。
 
-### 4. 开源精选（AI agent frameworks Top10）
+### 4. 开源精选（多元仓库清单）
 
 编辑 [`data/site.json`](./data/site.json) → `oss_frameworks`：
 
@@ -61,11 +61,20 @@ Schema：`schemas/tools.schema.json`（CI 会校验）。
   "repo": "org/name",
   "name": "显示名",
   "stars": 12345,
+  "category": "agent | inference | vector | eval | local",
   "summary": "一句话简介"
 }
 ```
 
-首页 `#section-oss` 按 `stars` 降序取 Top10。
+| `category`  | 展示标签   |
+| ----------- | ---------- |
+| `agent`     | Agent 框架 |
+| `inference` | 推理框架   |
+| `vector`    | 向量库     |
+| `eval`      | 评测工具   |
+| `local`     | 本地部署   |
+
+首页 `#section-oss` 按 `stars` 降序展示全部条目（建议每类 2–3 个，避免同质化）。
 
 ### 5. 实战案例文稿
 

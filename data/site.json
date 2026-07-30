@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "Bio AI Lab | AI 工具导航 · 开源精选 · 课程与热点",
-    "description": "Bio AI Lab：对比 ChatGPT、Claude、Cursor 等 AI 工具，收录 Agent 框架开源精选、免费课程、一周热点与每日视频，帮你快速选型并搭建工作流。",
-    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,开源精选,Agent框架,AI热点",
+    "description": "Bio AI Lab：对比 ChatGPT、Claude、Cursor 等 AI 工具，收录 Agent / 推理 / 向量库 / 评测 / 本地部署等开源精选、免费课程、一周热点与每日视频，帮你快速选型并搭建工作流。",
+    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,开源精选,Agent框架,vLLM,Ollama,向量库,AI热点",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
     "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与开源精选",
@@ -596,64 +596,109 @@
   },
   "oss_frameworks": [
     {
-      "repo": "Significant-Gravitas/AutoGPT",
-      "name": "AutoGPT",
-      "stars": 185748,
-      "summary": "自主目标拆解与执行的经典 Agent 框架，适合探索自动化任务编排。"
+      "repo": "ollama/ollama",
+      "name": "Ollama",
+      "stars": 177287,
+      "category": "local",
+      "summary": "本机一键跑开源大模型，API 简单，适合本地原型与私有化试用。"
     },
     {
       "repo": "langgenius/dify",
       "name": "Dify",
-      "stars": 150781,
+      "stars": 150800,
+      "category": "agent",
       "summary": "开源 LLM 应用平台，可视化编排 Agent、RAG 与工作流。"
     },
     {
-      "repo": "All-Hands-AI/OpenHands",
-      "name": "OpenHands",
-      "stars": 82576,
-      "summary": "面向软件工程的开源 coding agent，可在沙箱中读写代码与执行命令。"
+      "repo": "open-webui/open-webui",
+      "name": "Open WebUI",
+      "stars": 147318,
+      "category": "local",
+      "summary": "面向 Ollama / OpenAI 兼容接口的本地 Chat UI，易部署可扩展。"
     },
     {
-      "repo": "geekan/MetaGPT",
-      "name": "MetaGPT",
-      "stars": 69594,
-      "summary": "多角色协作的软件公司式 Agent，把需求拆成可执行研发流程。"
+      "repo": "ggerganov/llama.cpp",
+      "name": "llama.cpp",
+      "stars": 122095,
+      "category": "inference",
+      "summary": "CPU/GPU 高效推理库，GGUF 生态核心，边缘与桌面部署常用。"
+    },
+    {
+      "repo": "vllm-project/vllm",
+      "name": "vLLM",
+      "stars": 87687,
+      "category": "inference",
+      "summary": "高吞吐 LLM 推理引擎，PagedAttention，适合生产级服务端部署。"
     },
     {
       "repo": "microsoft/autogen",
       "name": "AutoGen",
-      "stars": 60099,
+      "stars": 60105,
+      "category": "agent",
       "summary": "微软多 Agent 对话框架，支持自定义角色与人机协同。"
     },
     {
-      "repo": "crewAIInc/crewAI",
-      "name": "CrewAI",
-      "stars": 56368,
-      "summary": "以「船员」角色编排多 Agent 任务流，上手快、生态活跃。"
+      "repo": "mudler/LocalAI",
+      "name": "LocalAI",
+      "stars": 48026,
+      "category": "local",
+      "summary": "OpenAI 兼容的本地推理网关，可接多种后端模型与模态。"
+    },
+    {
+      "repo": "milvus-io/milvus",
+      "name": "Milvus",
+      "stars": 45428,
+      "category": "vector",
+      "summary": "云原生向量数据库，大规模相似度检索与 RAG 基础设施。"
     },
     {
       "repo": "langchain-ai/langgraph",
       "name": "LangGraph",
-      "stars": 38490,
+      "stars": 38501,
+      "category": "agent",
       "summary": "LangChain 生态的有状态图编排，适合可控、可循环的 Agent 工作流。"
     },
     {
-      "repo": "OpenBMB/ChatDev",
-      "name": "ChatDev",
-      "stars": 33866,
-      "summary": "虚拟软件公司多 Agent 协作，通过对话完成设计与开发。"
+      "repo": "qdrant/qdrant",
+      "name": "Qdrant",
+      "stars": 33677,
+      "category": "vector",
+      "summary": "Rust 实现的向量搜索引擎，过滤与混合检索能力强。"
     },
     {
-      "repo": "huggingface/smolagents",
-      "name": "smolagents",
-      "stars": 28590,
-      "summary": "Hugging Face 轻量 Agent 库，代码优先、易嵌入现有 Python 项目。"
+      "repo": "sgl-project/sglang",
+      "name": "SGLang",
+      "stars": 30966,
+      "category": "inference",
+      "summary": "结构化生成与高吞吐推理运行时，适合复杂 decoding 场景。"
     },
     {
-      "repo": "microsoft/semantic-kernel",
-      "name": "Semantic Kernel",
-      "stars": 28390,
-      "summary": "微软企业向 AI 编排 SDK，插件、规划与多模型集成。"
+      "repo": "chroma-core/chroma",
+      "name": "Chroma",
+      "stars": 28910,
+      "category": "vector",
+      "summary": "嵌入优先的开发者向量库，本地起步快，常用于 RAG 原型。"
+    },
+    {
+      "repo": "promptfoo/promptfoo",
+      "name": "promptfoo",
+      "stars": 23755,
+      "category": "eval",
+      "summary": "提示词与 LLM 应用评测框架，支持红队、回归与 CI 集成。"
+    },
+    {
+      "repo": "confident-ai/deepeval",
+      "name": "DeepEval",
+      "stars": 17277,
+      "category": "eval",
+      "summary": "类 Pytest 的 LLM 评测库，覆盖幻觉、相关性等常见指标。"
+    },
+    {
+      "repo": "EleutherAI/lm-evaluation-harness",
+      "name": "LM Evaluation Harness",
+      "stars": 13470,
+      "category": "eval",
+      "summary": "EleutherAI 基准评测套件，学术与开源模型对比的事实标准之一。"
     }
   ]
 }

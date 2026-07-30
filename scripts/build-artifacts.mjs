@@ -85,10 +85,39 @@ function appendLocalDeploySearchItems(items, guidesPayload) {
   }
 }
 
-function appendOpenSourceSearchItems(items, aiNews, { limit = 20 } = {}) {
+const OSS_CATEGORY_LABELS = {
+  agent: 'Agent 框架',
+  inference: '推理框架',
+  vector: '向量库',
+  eval: '评测工具',
+  local: '本地部署',
+};
+
+function appendOpenSourceSearchItems(items, site, aiNews, { limit = 20 } = {}) {
+  const curated = site?.oss_frameworks || [];
+  for (const fw of curated) {
+    if (!fw?.repo || !fw?.name) continue;
+    const category = fw.category || 'agent';
+    const categoryLabel = OSS_CATEGORY_LABELS[category] || '开源项目';
+    items.push({
+      id: `oss-pick-${fw.repo}`,
+      label: fw.name,
+      type: '开源精选',
+      url: `https://github.com/${fw.repo}`,
+      external: true,
+      keywords: [fw.name, fw.repo, fw.summary, category, categoryLabel, '开源精选', 'GitHub']
+        .filter(Boolean)
+        .join(' '),
+    });
+  }
+
   const githubItems = (aiNews?.items || []).filter((item) => /GitHub/i.test(item?.source || ''));
+  const seen = new Set(curated.map((fw) => String(fw.repo || '').toLowerCase()));
   for (const item of githubItems.slice(0, limit)) {
     if (!item?.title || !item?.url) continue;
+    const repoMatch = String(item.url).match(/github\.com\/([^/]+\/[^/#?]+)/i);
+    const repoKey = repoMatch ? repoMatch[1].toLowerCase() : '';
+    if (repoKey && seen.has(repoKey)) continue;
     items.push({
       id: `oss-${item.id || item.url}`,
       label: item.title,
@@ -188,7 +217,7 @@ function buildSearchIndex(site, tools, compares) {
     label: '开源精选',
     type: '频道',
     section: 'section-oss',
-    keywords: '开源精选 GitHub 热门 开源项目 AutoGPT OpenHands',
+    keywords: '开源精选 GitHub Ollama vLLM Dify Milvus 向量库 推理 评测 本地部署',
   });
   items.push({
     label: 'AI 课程资源',
@@ -404,7 +433,7 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const aiNews = readRootJson('ai-news.json');
   appendHubBoardSearchItems(searchIndex);
   appendNewsSearchItems(searchIndex, aiNews);
-  appendOpenSourceSearchItems(searchIndex, aiNews);
+  appendOpenSourceSearchItems(searchIndex, site, aiNews);
   appendCoursesSearchItems(searchIndex, readRootJson('ai-courses.json'));
   appendLocalDeploySearchItems(searchIndex, readJsonOptional('local-deploy-guides.json'));
   appendVideoSearchItems(searchIndex, readRootJson('daily-videos.json'));

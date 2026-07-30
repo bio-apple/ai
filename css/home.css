@@ -499,6 +499,36 @@
   border-color: color-mix(in srgb, #22c55e 28%, var(--border));
 }
 
+.oss-chip-agent {
+  color: color-mix(in srgb, #7c3aed 65%, var(--text));
+  background: color-mix(in srgb, #7c3aed 12%, var(--bg-card));
+  border-color: color-mix(in srgb, #7c3aed 24%, var(--border));
+}
+
+.oss-chip-inference {
+  color: color-mix(in srgb, #2563eb 70%, var(--text));
+  background: color-mix(in srgb, #2563eb 12%, var(--bg-card));
+  border-color: color-mix(in srgb, #2563eb 24%, var(--border));
+}
+
+.oss-chip-vector {
+  color: color-mix(in srgb, #0d9488 70%, var(--text));
+  background: color-mix(in srgb, #14b8a6 12%, var(--bg-card));
+  border-color: color-mix(in srgb, #14b8a6 24%, var(--border));
+}
+
+.oss-chip-eval {
+  color: color-mix(in srgb, #c2410c 70%, var(--text));
+  background: color-mix(in srgb, #f97316 12%, var(--bg-card));
+  border-color: color-mix(in srgb, #f97316 24%, var(--border));
+}
+
+.oss-chip-local {
+  color: color-mix(in srgb, #0369a1 70%, var(--text));
+  background: color-mix(in srgb, #0ea5e9 12%, var(--bg-card));
+  border-color: color-mix(in srgb, #0ea5e9 24%, var(--border));
+}
+
 .oss-card-summary {
   margin: 14px 0 0;
   color: var(--text-muted);

@@ -138,9 +138,10 @@ trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型'
 
 首页 `#section-oss`（nav id `oss`）在 `src/pages/index.astro` 构建期 SSG 渲染：
 
-- 数据：`data/site.json` → `oss_frameworks[]`（`repo` / `name` / `stars` / `summary`）
-- 排序：按 `stars` 降序，取 Top 10
-- UI：`.oss-card*` 卡片（仓库名、Star、摘要、GitHub 外链）
+- 数据：`data/site.json` → `oss_frameworks[]`（`repo` / `name` / `stars` / `category` / `summary`）
+- 类别：`agent`（Agent 框架）· `inference`（推理）· `vector`（向量库）· `eval`（评测）· `local`（本地部署）
+- 排序：按 `stars` 降序展示全部精选条目（建议每类 2–3 个，避免同质化）
+- UI：`.oss-card*` 卡片（类别 chip、仓库名、Star、摘要、GitHub 外链）
 - 无需懒加载脚本
 
 ---
@@ -202,7 +203,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 | `HomeQuickFilters.astro` | 快筛：开源精选 / AI 资讯 / 工具教程       |
 | `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
 | `HomeRecommend.astro`    | AI 推荐助手（含现实实例）                 |
-| `#section-oss`（index）  | 开源精选 Top10（SSG，`oss_frameworks`）   |
+| `#section-oss`（index）  | 开源精选多类别（SSG，`oss_frameworks`）   |
 | `Breadcrumb.astro`       | 专区页「首页 / …」面包屑                  |
 | 新闻列表                 | `今日` / `本周` 时间过滤 + 分类筛选       |
 

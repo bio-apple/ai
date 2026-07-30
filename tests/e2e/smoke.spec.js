@@ -59,7 +59,12 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-tools')).toHaveCount(0);
     await expect(page.locator('#home-categories')).toHaveCount(0);
     await expect(page.locator('#section-oss')).toHaveCount(1);
-    await expect(page.locator('#section-oss .news-row')).toHaveCount(10);
+    await expect(page.locator('#section-oss .news-row')).toHaveCount(15);
+    await expect(page.locator('#section-oss .oss-chip-agent')).toHaveCount(3);
+    await expect(page.locator('#section-oss .oss-chip-inference')).toHaveCount(3);
+    await expect(page.locator('#section-oss .oss-chip-vector')).toHaveCount(3);
+    await expect(page.locator('#section-oss .oss-chip-eval')).toHaveCount(3);
+    await expect(page.locator('#section-oss .oss-chip-local')).toHaveCount(3);
     await expect(page.locator('#home-favorites')).toHaveCount(0);
     await expect(page.locator('#home-learning')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toBeVisible();

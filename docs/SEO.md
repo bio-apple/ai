@@ -14,18 +14,18 @@
 | SEO-006 | sitemap      | `@astrojs/sitemap` → `sitemap-index.xml`                                       |
 | SEO-007 | GitHub Repo  | 见下方维护者清单（需在 GitHub 设置）                                           |
 | SEO-008 | JSON-LD      | `src/lib/schema.ts` → Layout 注入 `application/ld+json`                        |
-| SEO-009 | 新闻/开源 LD | 新闻页 `NewsArticle` ItemList；首页 OSS `ItemList`（`oss_frameworks` Top10）   |
+| SEO-009 | 新闻/开源 LD | 新闻页 `NewsArticle` ItemList；首页 OSS `ItemList`（`oss_frameworks` 多类别）  |
 | SEO-010 | 可见面包屑   | UI：`Breadcrumb.astro`（专区 / 独立页）；结构化：各页 `BreadcrumbList`         |
 
 ## JSON-LD 结构化数据（SEO-008）
 
-| 页面          | Schema 类型                                                                   | 生成函数（`src/lib/schema.ts`）          | 说明                              |
-| ------------- | ----------------------------------------------------------------------------- | ---------------------------------------- | --------------------------------- |
-| 首页          | `WebSite` + `FAQPage`（有 faq 时）+ 排行榜 `ItemList`（三榜）+ OSS `ItemList` | `buildHomeSchema`                        | 排行徽章 + `oss_frameworks` Top10 |
-| 首页课程 Tab  | `CollectionPage` → `ItemList` → `Course`                                      | `buildCoursesSchema`                     | 自 `ai-courses.json`              |
-| 新闻页 / 热点 | `ItemList` → `NewsArticle`                                                    | `buildNewsSchema`                        | 自 `ai-news.json`                 |
-| 工具独立页    | `WebPage` + `SoftwareApplication` + `LearningResource` + `BreadcrumbList`     | `buildToolSchema`                        | 官方链取 `type_class=official`    |
-| 对比 / 指南等 | `WebPage` / `Article`                                                         | `buildPageSchema` / `buildCompareSchema` | —                                 |
+| 页面          | Schema 类型                                                                   | 生成函数（`src/lib/schema.ts`）          | 说明                               |
+| ------------- | ----------------------------------------------------------------------------- | ---------------------------------------- | ---------------------------------- |
+| 首页          | `WebSite` + `FAQPage`（有 faq 时）+ 排行榜 `ItemList`（三榜）+ OSS `ItemList` | `buildHomeSchema`                        | 排行徽章 + `oss_frameworks` 多类别 |
+| 首页课程 Tab  | `CollectionPage` → `ItemList` → `Course`                                      | `buildCoursesSchema`                     | 自 `ai-courses.json`               |
+| 新闻页 / 热点 | `ItemList` → `NewsArticle`                                                    | `buildNewsSchema`                        | 自 `ai-news.json`                  |
+| 工具独立页    | `WebPage` + `SoftwareApplication` + `LearningResource` + `BreadcrumbList`     | `buildToolSchema`                        | 官方链取 `type_class=official`     |
+| 对比 / 指南等 | `WebPage` / `Article`                                                         | `buildPageSchema` / `buildCompareSchema` | —                                  |
 
 多段 Schema 可用 `mergeSchemaGraphs` 合并为 `@graph` 注入。
 

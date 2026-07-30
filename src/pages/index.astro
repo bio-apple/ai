@@ -18,17 +18,27 @@ const schema = mergeSchemaGraphs(
   buildHomeSchema(site),
   buildCoursesSchema(coursesPayload, site.meta.canonical),
 );
+const OSS_CATEGORY_LABELS: Record<string, string> = {
+  agent: 'Agent 框架',
+  inference: '推理框架',
+  vector: '向量库',
+  eval: '评测工具',
+  local: '本地部署',
+};
 const OSS_FRAMEWORKS = site.oss_frameworks || [];
 const formatStars = (n = 0) => new Intl.NumberFormat('en-US').format(n);
-const openSourceItems = OSS_FRAMEWORKS.map((fw) => ({
-  repo: fw.repo,
-  name: fw.name,
-  stars: Number(fw.stars || 0),
-  summary: 'summary' in fw && fw.summary ? String(fw.summary) : '',
-  url: `https://github.com/${fw.repo}`,
-}))
-  .sort((a, b) => b.stars - a.stars)
-  .slice(0, 10);
+const openSourceItems = OSS_FRAMEWORKS.map((fw) => {
+  const category = 'category' in fw && fw.category ? String(fw.category) : 'agent';
+  return {
+    repo: fw.repo,
+    name: fw.name,
+    stars: Number(fw.stars || 0),
+    summary: 'summary' in fw && fw.summary ? String(fw.summary) : '',
+    category,
+    categoryLabel: OSS_CATEGORY_LABELS[category] || '开源项目',
+    url: `https://github.com/${fw.repo}`,
+  };
+}).sort((a, b) => b.stars - a.stars);
 const faqItems = site.faq || [];
 ---
 
@@ -111,7 +121,7 @@ const faqItems = site.faq || [];
           >
             <span class="community-card-kicker">开源</span>
             <strong>开源精选</strong>
-            <span>GitHub 热门 AI agent frameworks Top10。</span>
+            <span>Agent、推理、向量库、评测与本地部署精选仓库。</span>
             <em class="community-card-cta">查看精选 →</em>
           </a>
           <a
@@ -159,11 +169,13 @@ const faqItems = site.faq || [];
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">◎</div>
         <div>
           <h2>开源精选</h2>
-          <p class="desc">按 GitHub Star 排序的 AI agent frameworks Top10。</p>
+          <p class="desc">
+            Agent 框架 · 推理引擎 · 向量库 · 评测工具 · 本地部署——按 Star 排序的多元开源清单。
+          </p>
         </div>
       </div>
       <div class="news-feed">
-        <ol class="news-feed-list oss-card-grid" aria-label="AI agent frameworks Top10">
+        <ol class="news-feed-list oss-card-grid" aria-label="开源精选仓库">
           {
             openSourceItems.map((item, index) => (
               <li class="news-row oss-card-item">
@@ -177,12 +189,12 @@ const faqItems = site.faq || [];
                   </h3>
                   <p class="oss-card-repo">{item.repo}</p>
                   <div class="oss-card-chips">
-                    <span class="oss-chip">AI Agent Framework</span>
+                    <span class={`oss-chip oss-chip-${item.category}`}>{item.categoryLabel}</span>
                     {index < 3 && <span class="oss-chip oss-chip-top">TOP {index + 1}</span>}
                   </div>
                   <p class="oss-card-summary">
                     {item.summary ||
-                      `GitHub Star：★ ${formatStars(item.stars)}，持续维护的 AI agent frameworks 仓库。`}
+                      `GitHub Star：★ ${formatStars(item.stars)}，${item.categoryLabel}相关开源仓库。`}
                   </p>
                   <a
                     class="oss-card-link"
@@ -190,7 +202,7 @@ const faqItems = site.faq || [];
                     target="_blank"
                     rel="noopener noreferrer"
                     data-track="oss-click"
-                    aria-label={`第 ${index + 1} 名：${item.name}，${formatStars(item.stars)} stars`}
+                    aria-label={`第 ${index + 1} 名：${item.name}，${item.categoryLabel}，${formatStars(item.stars)} stars`}
                   >
                     打开项目 →
                   </a>
