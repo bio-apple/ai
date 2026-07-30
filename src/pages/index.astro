@@ -18,13 +18,14 @@ import {
 import { asset, homeHref } from '../lib/paths';
 import coursesPayload from '../../ai-courses.json';
 import localDeployPayload from '../../data/local-deploy.json';
+import localGuidesPayload from '../../data/local-deploy-guides.json';
 
 const homeCrumb = { label: '首页', href: homeHref(), tool: 'all' };
 
 const schema = mergeSchemaGraphs(
   buildHomeSchema(site),
   buildCoursesSchema(coursesPayload, site.meta.canonical),
-  buildLocalDeploySchema(localDeployPayload, site.meta.canonical),
+  buildLocalDeploySchema(localDeployPayload, site.meta.canonical, localGuidesPayload.guides || []),
 );
 ---
 

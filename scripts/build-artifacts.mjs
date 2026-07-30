@@ -62,40 +62,14 @@ function appendCoursesSearchItems(items, courses) {
   }
 }
 
-function appendLocalDeploySearchItems(items, local, guidesPayload) {
-  for (const category of local?.categories || []) {
-    for (const tool of category.items || []) {
-      if (!tool?.name || !tool?.url) continue;
-      items.push({
-        id: tool.id,
-        label: tool.name,
-        type: '本地部署',
-        url: tool.url,
-        external: true,
-        keywords: [
-          tool.name,
-          tool.tagline,
-          tool.summary,
-          category.label,
-          ...(tool.platforms || []),
-          ...(tool.tags || []),
-          '本地部署',
-          'Ollama',
-          '私有化',
-        ]
-          .filter(Boolean)
-          .join(' '),
-      });
-    }
-  }
+function appendLocalDeploySearchItems(items, guidesPayload) {
   for (const guide of guidesPayload?.guides || []) {
     if (!guide?.id || !guide?.title) continue;
     items.push({
       id: `local-guide-${guide.id}`,
       label: guide.title,
       type: '本地部署',
-      section: 'section-local',
-      anchor: `local-guide-${guide.id}`,
+      url: `local/${guide.id}.html`,
       keywords: [
         guide.title,
         guide.lead,
@@ -413,11 +387,7 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   appendHubBoardSearchItems(searchIndex);
   appendNewsSearchItems(searchIndex, readRootJson('ai-news.json'));
   appendCoursesSearchItems(searchIndex, readRootJson('ai-courses.json'));
-  appendLocalDeploySearchItems(
-    searchIndex,
-    readJson('local-deploy.json'),
-    readJsonOptional('local-deploy-guides.json'),
-  );
+  appendLocalDeploySearchItems(searchIndex, readJsonOptional('local-deploy-guides.json'));
   appendVideoSearchItems(searchIndex, readRootJson('daily-videos.json'));
   appendRankingSearchItems(searchIndex, rankings);
   const recommendRules = buildRecommendRules(site);

@@ -1,0 +1,75 @@
+---
+import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
+import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
+import localGuidesPayload from '../../../data/local-deploy-guides.json';
+import { site } from '../../lib/data';
+import { buildPageSchema } from '../../lib/schema';
+import { asset, homeHref } from '../../lib/paths';
+
+type MdGuide = {
+  id: string;
+  title: string;
+  lead?: string;
+  audience?: string;
+  stack?: string[];
+  html: string;
+};
+
+export function getStaticPaths() {
+  const guides = ((localGuidesPayload as { guides?: MdGuide[] }).guides || []).filter(
+    (g) => g?.id && g?.title && g?.html,
+  );
+  return guides.map((guide) => ({
+    params: { slug: guide.id },
+    props: { guide },
+  }));
+}
+
+const { guide } = Astro.props as { guide: MdGuide };
+const base = site.meta.base_url;
+const pageUrl = `${base}local/${guide.id}.html`;
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: '本地部署', url: `${base}index.html#section-local` },
+  { name: guide.title, url: pageUrl },
+];
+const description = guide.lead || `${guide.title} · 本地部署实战文稿`;
+const schema = buildPageSchema(guide.title, description, pageUrl, breadcrumbs);
+const home = homeHref();
+const localHome = homeHref('#section-local');
+---
+
+<StandaloneLayout
+  title={`${guide.title} | Bio AI Lab`}
+  description={description}
+  canonical={pageUrl}
+  schema={schema}
+>
+  <div class="standalone-page local-guide-page">
+    <StandalonePageHeader
+      crumbs={[
+        { label: '首页', href: home },
+        { label: '本地部署', href: localHome },
+        { label: guide.title },
+      ]}
+      title={guide.title}
+      lead={guide.lead || ''}
+    />
+
+    {
+      (guide.audience || guide.stack?.length) && (
+        <p class="local-guide-meta local-guide-page-meta">
+          {guide.audience && <span>{guide.audience}</span>}
+          {guide.stack?.length ? <span>{guide.stack.join(' · ')}</span> : null}
+        </p>
+      )
+    }
+
+    <article class="local-guide-html local-guide-page-body" set:html={guide.html} />
+
+    <div class="standalone-cta">
+      <a href={localHome} class="cta-btn">返回本地部署</a>
+      <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">浏览工具中心</a>
+    </div>
+  </div>
+</StandaloneLayout>

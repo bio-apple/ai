@@ -1,25 +1,7 @@
 ---
 import localDeploy from '../../data/local-deploy.json';
 import localGuidesPayload from '../../data/local-deploy-guides.json';
-
-type LocalItem = {
-  id: string;
-  name: string;
-  tagline?: string;
-  summary: string;
-  url: string;
-  docs_url?: string;
-  guide_anchor?: string;
-  platforms?: string[];
-  tags?: string[];
-};
-
-type LocalCategory = {
-  id: string;
-  label: string;
-  blurb?: string;
-  items: LocalItem[];
-};
+import { asset } from '../lib/paths';
 
 type MdGuide = {
   id: string;
@@ -30,11 +12,14 @@ type MdGuide = {
   html: string;
 };
 
-const categories = (localDeploy.categories || []) as LocalCategory[];
 const guides = ((localGuidesPayload as { guides?: MdGuide[] }).guides || []).filter(
   (g) => g?.id && g?.title && g?.html,
 );
 const updatedAt = localDeploy.updated_at || '';
+
+function guidePageHref(guideId: string): string {
+  return asset(`local/${encodeURIComponent(guideId)}.html`);
+}
 ---
 
 <div class="local-deploy" data-ssg="1">
@@ -47,106 +32,34 @@ const updatedAt = localDeploy.updated_at || '';
   }
 
   {
-    categories.length === 0 ? (
-      <p class="loading-hint">暂无本地部署条目。</p>
+    guides.length === 0 ? (
+      <p class="loading-hint">暂无部署文稿。</p>
     ) : (
-      categories.map((cat) => (
-        <section class="local-cat" aria-labelledby={`local-cat-${cat.id}`}>
-          <h3 class="local-cat-title" id={`local-cat-${cat.id}`}>
-            {cat.label}
-          </h3>
-          {cat.blurb && <p class="local-cat-blurb">{cat.blurb}</p>}
-          <div class="local-grid">
-            {cat.items.map((item) => (
-              <article class="local-card">
-                <div class="local-card-head">
-                  <span class="content-type-badge content-type-local" aria-hidden="true">
-                    本地
+      <div class="local-guides" aria-label="本地部署文稿列表">
+        <header class="local-guides-head">
+          <h3 class="local-guides-title">部署文稿</h3>
+          <p class="local-guides-hint">点击标题阅读完整步骤与排障说明。</p>
+        </header>
+        <ul class="local-guide-list">
+          {guides.map((guide) => (
+            <li>
+              <a
+                class="local-guide-item"
+                href={guidePageHref(guide.id)}
+                data-track="local-guide-list"
+              >
+                <span class="local-guide-item-title">{guide.title}</span>
+                {guide.lead ? <span class="local-guide-item-lead">{guide.lead}</span> : null}
+                {(guide.audience || guide.stack?.length) && (
+                  <span class="local-guide-item-meta">
+                    {guide.audience ? <span>{guide.audience}</span> : null}
+                    {guide.stack?.length ? <span>{guide.stack.join(' · ')}</span> : null}
                   </span>
-                  {(item.tags || []).slice(0, 2).map((tag) => (
-                    <span class="local-tag">{tag}</span>
-                  ))}
-                </div>
-                <h4 class="local-card-title">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-track="local-click"
-                  >
-                    {item.name}
-                  </a>
-                </h4>
-                {item.tagline && <p class="local-tagline">{item.tagline}</p>}
-                <p class="local-summary">{item.summary}</p>
-                {item.platforms?.length ? (
-                  <p class="local-platforms">
-                    <span class="local-platforms-label">平台</span>
-                    {item.platforms.join(' · ')}
-                  </p>
-                ) : null}
-                <div class="local-card-actions">
-                  <a
-                    class="local-link-btn"
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-track="local-visit"
-                  >
-                    官网 <span aria-hidden="true">↗</span>
-                  </a>
-                  {item.docs_url && (
-                    <a
-                      class="local-link-btn local-link-btn-muted"
-                      href={item.docs_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-track="local-docs"
-                    >
-                      文档
-                    </a>
-                  )}
-                  {item.guide_anchor && (
-                    <a
-                      class="local-link-btn local-link-btn-muted"
-                      href={`#${item.guide_anchor}`}
-                      data-track="local-guide"
-                    >
-                      部署文稿
-                    </a>
-                  )}
-                </div>
-              </article>
-            ))}
-          </div>
-        </section>
-      ))
-    )
-  }
-
-  {
-    guides.length > 0 && (
-      <div class="local-guides" aria-label="本地部署实战文稿">
-        {guides.map((guide) => (
-          <article
-            class="local-guide"
-            id={`local-guide-${guide.id}`}
-            aria-labelledby={`local-guide-title-${guide.id}`}
-          >
-            <header class="local-guide-header">
-              <p class="local-guide-kicker">实战文稿</p>
-              <h3 class="local-guide-title" id={`local-guide-title-${guide.id}`}>
-                {guide.title}
-              </h3>
-              {guide.lead && <p class="local-guide-lead">{guide.lead}</p>}
-              <div class="local-guide-meta">
-                {guide.audience && <span>{guide.audience}</span>}
-                {guide.stack?.length ? <span>{guide.stack.join(' · ')}</span> : null}
-              </div>
-            </header>
-            <div class="local-guide-html" set:html={guide.html} />
-          </article>
-        ))}
+                )}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     )
   }
