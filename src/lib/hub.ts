@@ -1,8 +1,8 @@
 import rankings from '../../data/rankings.json';
 import site from '../../data/site.json';
 
-/** 工具中心排行区：各榜展示条数（完整 Top10 见排行榜页） */
-export const HUB_RANKING_TOP_N = 5;
+/** 工具中心排行区：各榜展示条数 */
+export const HUB_RANKING_TOP_N = 10;
 
 /** AI 工具中心仅比较这 10 个产品（localId → 站内教程页 tools/{id}.html） */
 export const HUB_FEATURED_TOOLS = [

@@ -333,18 +333,12 @@ function appendHubBoardSearchItems(items) {
     'cursor',
     '即梦 AI｜剪映',
   ];
-  // 仅索引导航入口；各工具名已由 tools.json 指向教程页，勿再写入对比表锚点以免抢占搜索首位
-  items.push({
-    label: '工具中心：对比表',
-    type: '导航',
-    url: 'tools/hub.html#hub-compare',
-    keywords: ['对比表', '选型', ...featured, '官方教程'].join(' '),
-  });
+  // 仅索引排行入口；各工具名已由 tools.json 指向教程页
   items.push({
     label: '工具中心：AICPB 排行',
     type: '导航',
     url: 'tools/hub.html#hub-ranking',
-    keywords: 'AICPB AI产品榜 排行 Global China Vibe Coding Video PPT Top5',
+    keywords: `AICPB LMSYS Chatbot Arena Elo Artificial Analysis Intelligence Index AI产品榜 排行 Top10 ${featured.join(' ')}`,
   });
 }
 

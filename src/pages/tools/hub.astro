@@ -3,13 +3,7 @@ import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import RankingBoardPanels from '../../components/RankingBoardPanels.astro';
 import { site } from '../../lib/data';
-import {
-  buildHubCompareRows,
-  buildHubRankingBoards,
-  hubFeaturedCount,
-  hubRankingMeta,
-  HUB_RANKING_TOP_N,
-} from '../../lib/hub';
+import { buildHubRankingBoards, hubRankingMeta, HUB_RANKING_TOP_N } from '../../lib/hub';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
@@ -20,12 +14,10 @@ const breadcrumbs = [
   { name: '工具中心', url: `${base}tools/hub.html` },
 ];
 const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`, breadcrumbs);
-const rows = buildHubCompareRows();
 const boards = buildHubRankingBoards(HUB_RANKING_TOP_N).map((board) => ({
   ...board,
   subtitle: `${board.subtitle} · Top ${board.items.length}`,
 }));
-const toolCount = hubFeaturedCount();
 const rankMeta = hubRankingMeta();
 ---
 
@@ -52,68 +44,14 @@ const rankMeta = hubRankingMeta();
       crumbs={[{ label: '首页', href: homeHref() }, { label: '工具中心' }]}
       title={page.h1}
       lead={page.lead}
-      meta={`${toolCount} 款精选 · 多源排行更新 ${rankMeta.updated_at}`}
+      meta={`三榜 Top ${HUB_RANKING_TOP_N} · 多源排行更新 ${rankMeta.updated_at}`}
     >
       <div slot="hero-extra" class="hub-quick-links">
         <nav aria-label="本页目录">
-          <a href="#hub-compare" class="recommend-link">精选对比</a>
           <a href="#hub-ranking" class="recommend-link">多源排行</a>
         </nav>
       </div>
     </StandalonePageHeader>
-
-    <section
-      class="hub-compare-section page-section"
-      id="hub-compare"
-      aria-labelledby="hub-compare-title"
-    >
-      <div class="section-head">
-        <h2 class="section-title" id="hub-compare-title">精选 AI 工具对比</h2>
-        <p class="section-desc">类型、优势、场景与定价一表看清；点击「工具」列进入站内教程。</p>
-      </div>
-
-      <div class="hub-compare-wrap" role="region" aria-label="AI 工具对比表" tabindex="0">
-        <table class="hub-compare-table">
-          <thead>
-            <tr>
-              <th scope="col">工具</th>
-              <th scope="col">类型</th>
-              <th scope="col">核心优势</th>
-              <th scope="col">适合场景</th>
-              <th scope="col">定价</th>
-            </tr>
-          </thead>
-          <tbody>
-            {
-              rows.map((row) => (
-                <tr>
-                  <th scope="row">
-                    {row.tutorialHref ? (
-                      <a
-                        class="hub-compare-name hub-compare-link"
-                        href={asset(row.tutorialHref)}
-                        data-track={`hub-compare-tutorial-${row.localId || 'unknown'}`}
-                      >
-                        {row.name}
-                        <span class="hub-compare-tutorial-hint">教程</span>
-                      </a>
-                    ) : (
-                      <span class="hub-compare-name">{row.name}</span>
-                    )}
-                  </th>
-                  <td>
-                    <span class="hub-compare-type">{row.type}</span>
-                  </td>
-                  <td>{row.strength}</td>
-                  <td>{row.scenario}</td>
-                  <td>{row.pricing}</td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-    </section>
 
     <section
       class="hub-ranking-section page-section"
@@ -128,6 +66,16 @@ const rankMeta = hubRankingMeta();
           }
         </p>
       </div>
+      <ul class="ranking-method-list">
+        <li><strong>AICPB</strong>：基于 AI 产品站点访问量与月环比的热度排行，偏应用流量视角。</li>
+        <li>
+          <strong>LMSYS Chatbot Arena Elo</strong>：来自真人盲测对战的 Elo 分数，偏对话质量视角。
+        </li>
+        <li>
+          <strong>Artificial Analysis Intelligence Index</strong>
+          ：综合公开基准评测得到的智能分数，偏模型能力视角。
+        </li>
+      </ul>
 
       <div class="hub-ranking-shell">
         <RankingBoardPanels
@@ -150,8 +98,8 @@ const rankMeta = hubRankingMeta();
       </div>
       <ul class="ranking-method-list">
         <li>
-          对比表用于能力与场景选型；排行仅展示 AICPB、LMSYS Chatbot Arena Elo、Artificial Analysis
-          Intelligence Index 三榜。
+          工具中心仅保留排行视图，展示 AICPB、LMSYS Chatbot Arena Elo、Artificial Analysis
+          Intelligence Index 三榜 Top {HUB_RANKING_TOP_N}。
         </li>
         <li>热度与榜单分数不等于适合你：先看场景与定价，再用排行交叉验证。</li>
       </ul>
