@@ -218,13 +218,14 @@ DIST=dist python3 scripts/validate_ci.py news
 **运行机制：**
 
 ```
-按六类候选抓取（YouTube / B站 × 24h · 30d · 100d）
+按十类候选抓取（YouTube / B站 × 24h · 3d · 7d · 30d · 100d）
         ↓
-各档按播放量取 Top：24h×3、30d×3、100d×4（min_views=10000，最低播放量 ≥10000）
+各档按播放量取 Top：24h×1、3d×3、7d×3、30d×3、100d×6
+（min_views=1000 / 5000 / 10000 / 100000 / 1000000）
         ↓
-去重后 YouTube / B站各自不超过 10（先保留 24h/30d，再用 100d；不是两平台合计）
+去重后 YouTube / B站各自不超过 16（近窗优先，100d 补齐；不是两平台合计）
         ↓
-yt-dlp 搜索 + AI 关键词过滤（唯一内容门槛）
+yt-dlp / YouTube API 取详情 + AI 关键词 + 分桶 min_views 过滤
         ↓
 摘要清洗（去广告、短链）
         ↓
@@ -237,9 +238,11 @@ B站缩略图下载到 video-thumbs/（构建前转 WebP）
 
 | 分桶            | Top | 时间窗  | 最低播放量 |
 | --------------- | --- | ------- | ---------- |
-| `*_recent_24h`  | 3   | 24 小时 | **≥10000** |
-| `*_recent_30d`  | 3   | 30 天   | **≥10000** |
-| `*_recent_100d` | 4   | 100 天  | **≥10000** |
+| `*_recent_24h`  | 1   | 24 小时 | **≥1000** |
+| `*_recent_3d`   | 3   | 3 天    | **≥5000** |
+| `*_recent_7d`   | 3   | 7 天    | **≥10000** |
+| `*_recent_30d`  | 3   | 30 天   | **≥100000** |
+| `*_recent_100d` | 6   | 100 天  | **≥1000000** |
 
 规则变更后请用 `--force` / Actions `force=true` 重抓今日批次，否则会跳过已有今日数据。
 
@@ -256,13 +259,13 @@ Actions 手动触发时可选 `force=true`。
 
 | 配置块                                       | 作用                                                           |
 | -------------------------------------------- | -------------------------------------------------------------- |
-| `video_categories`                           | 六类分桶：24h/30d Top3、100d Top4；`min_views` 均为 **≥10000** |
-| `platform_total_cap`                         | 1+2+3 去重后每平台最多条数（默认 10）                          |
+| `video_categories`                           | 十类分桶：24h Top1、3d/7d/30d Top3、100d Top6（YouTube/B站）；`min_views` 按 1000/5000/10000/100000/1000000 |
+| `platform_total_cap`                         | 去重后每平台最多条数（默认 **16** = 1+3+3+3+6）                 |
 | `search_queries` / `bilibili_search_queries` | 搜索关键词                                                     |
-| `ai_keyword_pattern`                         | 标题须匹配的 AI 关键词（**唯一内容门槛**；不再卡播放量）       |
+| `ai_keyword_pattern`                         | 标题/描述须匹配的 AI 关键词（与分桶 `min_views` 共同过滤）       |
 | `summary.strip_patterns`                     | 摘要广告过滤正则                                               |
 
-**注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → YouTube 三档为空。
+**注意：** YouTube 在 CI/数据中心 IP 上常被反爬（`Sign in to confirm you're not a bot`），导致 **搜索有结果、详情全失败** → YouTube 各档为空。
 
 **避免 YouTube 为空的措施（按推荐顺序）：**
 
@@ -476,7 +479,7 @@ git commit -m "revert: 回滚坏批次" && git push
 - [ ] [site-health](https://github.com/bio-apple/ai/actions/workflows/site-health.yml) 无失败
 - [ ] 「AI 视频」「新闻热点」最新批次为今日或昨日
 - [ ] 「课程资源」「排行榜」`updated_at` 在 2 天内
-- [ ] 「课程资源」五条路线均有课（每路线 ≤5）
+- [ ] 「课程资源」五条路线表完整；每路线 ≤5；必推荐覆盖入门/ML/DL/LLM（AI Agent 可暂空）
 - [ ] 「本地部署」条目与外链可访问（`data/local-deploy.json`）
 - [ ] 无未关闭的 `[ops]` Issue（含 Dead Link / 抓取失败）
 - [ ] [daily-refresh](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) 无未处理失败
@@ -491,5 +494,4 @@ git commit -m "revert: 回滚坏批次" && git push
 - [DATA-MODEL.md](./DATA-MODEL.md) — JSON 字段定义
 - [FRONTEND.md](./FRONTEND.md) — 搜索 / 漏斗 / 虚拟列表
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 数据流与构建架构
-- [DEVELOPER.md](../DEVELOPER.md) — 开发速查
-- [CI-CD.md](./CI-CD.md) — 部署流程
+

@@ -514,7 +514,7 @@ def validate_no_secrets() -> None:
         extra = f"\n  … 另有 {len(hits) - 12} 处" if len(hits) > 12 else ""
         raise ValueError(
             "检测到疑似硬编码密钥，请移除并改用 .env.local / GitHub Secrets：\n"
-            f"{sample}{extra}\n详见 docs/SECURITY.md"
+            f"{sample}{extra}\n详见 README「安全要点」与 .env.local.example"
         )
     print("✓ 无硬编码 API Key（secrets 扫描）")
 

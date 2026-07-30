@@ -88,7 +88,7 @@ test('two empty YouTube days still backfill when full history is available at bu
   assert.equal(out.categories.youtube_top_views.fallback_from, '2026-07-13');
 });
 
-test('fallback strips historical videos below min views 10000', () => {
+test('fallback strips historical videos below min views 100000', () => {
   const out = withCategoryFallback(
     [
       {
@@ -96,7 +96,7 @@ test('fallback strips historical videos below min views 10000', () => {
         categories: {
           bilibili_recent_30d: { videos: [] },
           bilibili_recent_100d: {
-            videos: [{ id: 'ok', views: 1_200_000, published_at: '2026-05-01T00:00:00+08:00' }],
+            videos: [{ id: 'ok', views: 1_500_000, published_at: '2026-05-01T00:00:00+08:00' }],
           },
         },
       },
@@ -165,7 +165,7 @@ test('fallback skips historical videos outside 100d window', () => {
   );
 });
 
-test('latest low-view videos below 10000 are filtered', () => {
+test('latest low-view videos below 100000 are filtered', () => {
   const out = withCategoryFallback(
     [
       {
@@ -174,7 +174,7 @@ test('latest low-view videos below 10000 are filtered', () => {
           bilibili_recent_30d: {
             videos: [
               { id: 'low1', views: 4065, published_at: '2026-07-10T00:00:00+08:00' },
-              { id: 'hot', views: 1_500_000, published_at: '2026-07-10T00:00:00+08:00' },
+              { id: 'hot', views: 150_000, published_at: '2026-07-10T00:00:00+08:00' },
             ],
           },
         },

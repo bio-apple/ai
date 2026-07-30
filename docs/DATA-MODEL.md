@@ -320,7 +320,7 @@ nav: {
 ### 8.1 `search-index.json`
 
 **Schema**：`schemas/search-index.schema.json`  
-**类型**：`array`（当前构建约 **150** 条，CI 下限 ≥10）  
+**类型**：`array`（当前构建约 **120+** 条，随内容浮动；CI 下限 ≥80）  
 **生成**：`scripts/build-artifacts.mjs` ← `tools.json`（教程页）+ `site.json`（导航/场景/对比入口）+ `ai-news.json` + `local-deploy.json` + `ai-courses.json` + `daily-videos.json` + 排行榜模型名  
 **消费**：`app.js`（顶栏 / Hero 多实例）、`knowledge.js`  
 **校验**：`DIST=dist python3 scripts/validate_ci.py search`
@@ -369,7 +369,7 @@ nav: {
 
 ---
 
-## 9. 脚本抓取的 JSON
+## 9. 运行时频道 JSON（抓取产出 + 相关手工数据）
 
 ### 9.1 `ai-news.json`
 
@@ -413,18 +413,18 @@ nav: {
 | `updated_at` | `string`   | 更新时间                                                    |
 | `seen_ids`   | `string[]` | 去重 id（**仅仓库全量文件**；CDN/浏览器瘦身副本不含此字段） |
 
-**批次** `batches[]`：`date`（`YYYY-MM-DD`）；`criteria.video_categories`（配置快照，含 `top_count` / 可选 `min_views`）；`categories`（六类：YouTube/B站 × 24h/30d/100d）  
-**当前规则**：各分桶 `min_views=10000`（最低播放量 ≥10000）；仅时间窗 + AI 关键词；每平台 Top 合计 ≤10。  
+**批次** `batches[]`：`date`（`YYYY-MM-DD`）；`criteria.video_categories`（配置快照，含 `top_count` / `min_views`）；`categories`（十类：YouTube/B站 × 24h/3d/7d/30d/100d）  
+**当前规则**：各分桶 `min_views`：1000/5000/10000/100000/1000000；时间窗 + AI 关键词 + 播放量门槛；每平台 Top 合计 ≤16。  
 **视频项**：`id`, `title`, `url`, `summary`, `channel`, `published_at`, `thumbnail`, `views` 等
 
-**运行时瘦身**：`build-artifacts.mjs` → `daily-videos.latest.json`，仅 `{ updated_at, batches }`（展示层可含历史分类回退；回填同样**不**再按播放量过滤）。完整 `daily-videos.json` 留仓库，不进 CDN。
+**运行时瘦身**：`build-artifacts.mjs` → `daily-videos.latest.json`，仅 `{ updated_at, batches }`（展示层可含历史分类回退；回填同样按分桶 `min_views` + 时间窗过滤）。完整 `daily-videos.json` 留仓库，不进 CDN。
 
 **额外 CI 规则**：摘要禁止裸 URL；最新批次须覆盖配置中全部分类。
 
-### 9.4 `local-deploy.json`
+### 9.4 `local-deploy.json`（手工，非抓取）
 
 **Schema**：`schemas/local-deploy.schema.json`  
-**维护**：手工编辑 `data/local-deploy.json`（非日更抓取）
+**维护**：手工编辑 `data/local-deploy.json`（不属于日更抓取产物；放此节便于与频道 JSON 对照）
 
 | 字段         | 类型     | 说明         |
 | ------------ | -------- | ------------ |
@@ -478,5 +478,4 @@ npm run build && DIST=dist python3 scripts/validate_ci.py data tool-relations li
 ## 相关文档
 
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构与数据流
-- [DEVELOPER.md](../DEVELOPER.md) — 开发速查
 - `schemas/` — 机器可读 Schema 源文件

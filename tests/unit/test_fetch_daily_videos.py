@@ -76,7 +76,16 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         buckets["youtube_recent_24h"] = [
             {"id": "youtube:h1", "views": 400_000, "published_at": self.ago(0.2)},
             {"id": "youtube:h2", "views": 350_000, "published_at": self.ago(0.4)},
-            {"id": "youtube:h3", "views": 320_000, "published_at": self.ago(0.5)},
+        ]
+        buckets["youtube_recent_3d"] = [
+            {"id": "youtube:d3a", "views": 2_900_000, "published_at": self.ago(1)},
+            {"id": "youtube:d3b", "views": 2_800_000, "published_at": self.ago(2)},
+            {"id": "youtube:d3c", "views": 2_700_000, "published_at": self.ago(2.5)},
+        ]
+        buckets["youtube_recent_7d"] = [
+            {"id": "youtube:d7a", "views": 2_600_000, "published_at": self.ago(4)},
+            {"id": "youtube:d7b", "views": 2_500_000, "published_at": self.ago(5)},
+            {"id": "youtube:d7c", "views": 2_400_000, "published_at": self.ago(6)},
         ]
         buckets["youtube_recent_30d"] = [
             {"id": "youtube:d", "views": 3_000_000, "published_at": self.ago(10)},
@@ -90,34 +99,41 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
             {"id": "youtube:k", "views": 3_800_000, "published_at": self.ago(55)},
             {"id": "youtube:l", "views": 3_700_000, "published_at": self.ago(60)},
             {"id": "youtube:m", "views": 3_600_000, "published_at": self.ago(65)},
+            {"id": "youtube:n", "views": 3_500_000, "published_at": self.ago(70)},
         ]
         cfg = {
             "video_categories": {
-                "youtube_recent_24h": {"top_count": 3},
+                "youtube_recent_24h": {"top_count": 1},
+                "youtube_recent_3d": {"top_count": 3},
+                "youtube_recent_7d": {"top_count": 3},
                 "youtube_recent_30d": {"top_count": 3},
-                "youtube_recent_100d": {"top_count": 4},
-                "bilibili_recent_24h": {"top_count": 3},
+                "youtube_recent_100d": {"top_count": 6},
+                "bilibili_recent_24h": {"top_count": 1},
+                "bilibili_recent_3d": {"top_count": 3},
+                "bilibili_recent_7d": {"top_count": 3},
                 "bilibili_recent_30d": {"top_count": 3},
-                "bilibili_recent_100d": {"top_count": 4},
+                "bilibili_recent_100d": {"top_count": 6},
             }
         }
-        out = mod.finalize_platform_top_by_views(buckets, limit=10, cfg=cfg)
+        out = mod.finalize_platform_top_by_views(buckets, limit=16, cfg=cfg)
         yt_ids = {
             v["id"]
             for key in (
                 "youtube_recent_24h",
+                "youtube_recent_3d",
+                "youtube_recent_7d",
                 "youtube_recent_30d",
                 "youtube_recent_100d",
             )
             for v in out[key]
         }
-        self.assertEqual(len(yt_ids), 10)
-        self.assertEqual(len(out["youtube_recent_24h"]), 3)
+        self.assertEqual(len(yt_ids), 16)
+        self.assertEqual(len(out["youtube_recent_24h"]), 1)
         self.assertEqual(len(out["youtube_recent_30d"]), 3)
-        self.assertEqual(len(out["youtube_recent_100d"]), 4)
+        self.assertEqual(len(out["youtube_recent_100d"]), 6)
         self.assertEqual(
             [v["id"] for v in out["youtube_recent_100d"]],
-            ["youtube:i", "youtube:j", "youtube:k", "youtube:l"],
+            ["youtube:i", "youtube:j", "youtube:k", "youtube:l", "youtube:m", "youtube:n"],
         )
         self.assertNotIn("youtube:old", yt_ids)
 
@@ -132,14 +148,14 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
             videos,
             "bilibili_recent_24h",
             now=now,
-            min_views=10_000,
+            min_views=1_000,
             cfg={
                 "video_categories": {
-                    "bilibili_recent_24h": {"hours": 24, "min_views": 10_000},
+                    "bilibili_recent_24h": {"hours": 24, "min_views": 1_000},
                 }
             },
         )
-        self.assertEqual([v["id"] for v in kept], ["in"])
+        self.assertEqual([v["id"] for v in kept], ["in", "low"])
 
     def test_filter_videos_for_category_optional_min_views(self) -> None:
         """显式传入 min_views>0 时仍可按门槛过滤（兼容旧调用）。"""
@@ -158,16 +174,20 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         self.assertEqual([v["id"] for v in kept], ["in"])
 
     def test_finalize_caps_each_platform_independently(self) -> None:
-        """YouTube / B站各自 ≤10，合计可达 20；不是两平台合计 ≤10。"""
+        """YouTube / B站各自 ≤16，合计可达 32；不是两平台合计 ≤16。"""
         buckets = {key: [] for key in mod.CATEGORY_ORDER}
         cfg = {
             "video_categories": {
-                "youtube_recent_24h": {"top_count": 3},
+                "youtube_recent_24h": {"top_count": 1},
+                "youtube_recent_3d": {"top_count": 3},
+                "youtube_recent_7d": {"top_count": 3},
                 "youtube_recent_30d": {"top_count": 3},
-                "youtube_recent_100d": {"top_count": 4},
-                "bilibili_recent_24h": {"top_count": 3},
+                "youtube_recent_100d": {"top_count": 6},
+                "bilibili_recent_24h": {"top_count": 1},
+                "bilibili_recent_3d": {"top_count": 3},
+                "bilibili_recent_7d": {"top_count": 3},
                 "bilibili_recent_30d": {"top_count": 3},
-                "bilibili_recent_100d": {"top_count": 4},
+                "bilibili_recent_100d": {"top_count": 6},
             }
         }
         for platform in ("youtube", "bilibili"):
@@ -176,6 +196,22 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
                     "id": f"{platform}:h{i}",
                     "views": 500_000 - i * 1000,
                     "published_at": self.ago(0.1 * (i + 1)),
+                }
+                for i in range(5)
+            ]
+            buckets[f"{platform}_recent_3d"] = [
+                {
+                    "id": f"{platform}:d3{i}",
+                    "views": 2_600_000 - i * 1000,
+                    "published_at": self.ago(1 + i * 0.3),
+                }
+                for i in range(5)
+            ]
+            buckets[f"{platform}_recent_7d"] = [
+                {
+                    "id": f"{platform}:d7{i}",
+                    "views": 2_300_000 - i * 1000,
+                    "published_at": self.ago(4 + i * 0.5),
                 }
                 for i in range(5)
             ]
@@ -195,15 +231,15 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
                 }
                 for i in range(10)
             ]
-        out = mod.finalize_platform_top_by_views(buckets, limit=10, cfg=cfg)
+        out = mod.finalize_platform_top_by_views(buckets, limit=16, cfg=cfg)
         yt_n = mod.platform_bucket_total(out, "youtube")
         bi_n = mod.platform_bucket_total(out, "bilibili")
-        self.assertEqual(yt_n, 10)
-        self.assertEqual(bi_n, 10)
-        self.assertEqual(yt_n + bi_n, 20)
-        self.assertEqual(len(out["youtube_recent_24h"]), 3)
+        self.assertEqual(yt_n, 16)
+        self.assertEqual(bi_n, 16)
+        self.assertEqual(yt_n + bi_n, 32)
+        self.assertEqual(len(out["youtube_recent_24h"]), 1)
         self.assertEqual(len(out["youtube_recent_30d"]), 3)
-        self.assertEqual(len(out["youtube_recent_100d"]), 4)
+        self.assertEqual(len(out["youtube_recent_100d"]), 6)
 
     def test_filter_videos_for_category_rejects_outside_window(self) -> None:
         videos = [
@@ -214,7 +250,7 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
             videos,
             "bilibili_recent_100d",
             now=mod.datetime(2026, 7, 22, tzinfo=mod.TZ),
-            min_views=10_000,
+            min_views=1_000,
         )
         self.assertEqual([v["id"] for v in kept], ["new"])
 

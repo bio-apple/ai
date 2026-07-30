@@ -1,6 +1,6 @@
 # 环境搭建与本地预览
 
-本文是开发文档的一部分：从零配置开发环境、启动本地预览，以及常见故障排除。开发速查见 [DEVELOPER.md](../DEVELOPER.md)。
+本文是开发文档的一部分：从零配置开发环境、启动本地预览，以及常见故障排除。
 
 线上站点：https://bio-apple.github.io/ai/（纯静态，无 `/api/*`）
 
@@ -147,8 +147,7 @@ npm run build                          # prebuild 会同步到 public/ → dist/
 或手动同步后重建：
 
 ```bash
-cp ai-news.json ai-courses.json daily-videos.json public/
-npm run build
+npm run build   # prebuild 同步新闻/课程 JSON，并生成 daily-videos.latest.json（完整 daily-videos.json 不进 public/CDN）
 ```
 
 ### 3.3 YouTube / B站视频抓取（本地 / CI）
@@ -159,11 +158,13 @@ npm run build
 
 | 档位 | 条数  | 时间窗    | 播放量 |
 | ---- | ----- | --------- | ------ |
-| 24h  | Top 3 | 24 小时内 | ≥10000 |
-| 30d  | Top 3 | 30 天内   | ≥10000 |
-| 100d | Top 4 | 100 天内  | ≥10000 |
+| 24h  | Top 1 | 24 小时内 | ≥1000 |
+| 3d   | Top 3 | 3 天内    | ≥5000 |
+| 7d   | Top 3 | 7 天内    | ≥10000 |
+| 30d  | Top 3 | 30 天内   | ≥100000 |
+| 100d | Top 6 | 100 天内  | ≥1000000 |
 
-去重后每平台最多 10 条；内容仅要求匹配 `ai_keyword_pattern`。规则或门槛变更后务必 `--force` 重抓。
+去重后每平台最多 16 条；内容须匹配 `ai_keyword_pattern`，并满足各档 `min_views`。规则或门槛变更后务必 `--force` 重抓。
 
 B 站通常正常；**YouTube 在数据中心 IP 上常被反爬**，需按下列步骤配置：
 
@@ -188,7 +189,7 @@ npm run build
 
 未配置 API Key 时：今日 YouTube 可能抓取为空；脚本不会从历史批次补进今日结果（合计为 0 时不覆盖已有文件）。构建时 `daily-videos.latest.json` 仍可能做展示层历史回退。
 
-**首次部署**：仓库若尚无可用批次，在 Actions 手动触发 Daily Videos 并勾选 `force=true`（勿再依赖已移除的 `daily-videos.example.json`；空结构由脚本 `empty_store()` 保证）。详见 [CONTENT-OPS.md](./CONTENT-OPS.md)。
+**首次部署**：仓库若尚无可用批次，在 Actions 手动触发 Daily Videos 并勾选 `force=true`（勿再依赖已移除的 `daily-videos.example.json`；缺文件时 `load_store()` 返回空 `seen_ids`/`batches`）。详见 [CONTENT-OPS.md](./CONTENT-OPS.md)。
 
 ### 3.4 停止预览服务
 
@@ -366,9 +367,6 @@ git push -u origin main
 
 ## 相关文档
 
-- [DEVELOPER.md](../DEVELOPER.md) — 开发速查与常见改动
 - [FRONTEND.md](./FRONTEND.md) — 前端能力
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构
-- [SECURITY.md](./SECURITY.md) — `.env.local` 与安全规范
-- [CI-CD.md](./CI-CD.md) — 推送与自动部署
 - [CONTENT-OPS.md](./CONTENT-OPS.md) — 抓取与运营

@@ -48,7 +48,7 @@ flowchart TB
 | 层级   | 技术                   | 职责                                                         |
 | ------ | ---------------------- | ------------------------------------------------------------ |
 | 内容层 | `data/` + 抓取脚本     | 站点文案、工具、对比、排行、本地部署；新闻/视频/课程定时刷新 |
-| 构建层 | Astro 5 SSG + prebuild | 编译 ~22 个 HTML 页，打包 CSS/JS，生成搜索索引               |
+| 构建层 | Astro 5 SSG + prebuild | 编译约 23–26 个 HTML 页（含 404 / legacy redirects），打包 CSS/JS，生成搜索索引 |
 | 交付层 | GitHub Pages           | 托管 `dist/`，无服务端运行时                                 |
 | 交互层 | 原生 JS + Fuse.js      | Tab、全站搜索、推荐、漏斗埋点、虚拟列表、链接兜底            |
 
@@ -86,7 +86,7 @@ flowchart LR
 
 | 布局                     | 用于                          | 特点                                         |
 | ------------------------ | ----------------------------- | -------------------------------------------- |
-| `HomeLayout.astro`       | `index.astro`                 | SPA 式 Tab、Hero AI 图、知识库 FAB、推荐助手 |
+| `HomeLayout.astro`       | `index.astro`                 | SPA 式 Tab、Hero、知识库 FAB、推荐助手（领域地图在简报后，非 Hero） |
 | `StandaloneLayout.astro` | 工具页 / 对比 / 指南 / 排行等 | 独立 `<main>`、面包屑、可选知识库 FAB        |
 
 关键组件：`HomeAiMap.astro`（领域地图）、`Breadcrumb.astro` / `StandalonePageHeader.astro`、`GlobalSearch.astro`。
@@ -110,18 +110,22 @@ sequenceDiagram
   participant D as dist/
 
   Dev->>PB: npm run build
+  Note over PB: optimize-images · CSP · sync · redirects · CSS · artifacts
   PB->>SP: 同步 JS/CSS/vendor/JSON → public/
   PB->>BC: style.css 打包
-  PB->>BA: search-index / recommend-rules / analytics-config
+  PB->>BA: search-index / recommend-rules / analytics-config / videos.latest
   PB->>AS: public/ + src/ → 编译
   AS->>D: *.html + 静态资源 + sitemap
 ```
 
-**prebuild 三步**（`scripts/prebuild.mjs`）：
+**prebuild 流水线**（`scripts/prebuild.mjs`）：
 
-1. **sync-public** — 根目录 `*.js`、抓取 JSON、`lib/`、`vendor/`、`_headers` 等复制到 `public/`
-2. **bundle-css** — `style.css` 合并 `css/*.css` 为单文件
-3. **build-artifacts** — 从 `data/` 生成运行时 JSON（搜索索引、推荐规则、分析配置）
+1. **optimize-images** — 构建前将残留 JPG/PNG 封面压成 WebP
+2. **CSP headers** — `config/csp.json` → `_headers`
+3. **sync-public** — 根目录 `*.js`、抓取 JSON、`lib/`、`vendor/`、`_headers` 等复制到 `public/`
+4. **legacy redirects** — 写入旧路径跳转页（`labs/` / `cases/` / `prompts/`）
+5. **bundle-css** — `style.css` 合并 `css/*.css` 为单文件
+6. **build-artifacts** — 生成搜索索引、推荐规则、分析配置、视频瘦身 JSON
 
 Astro 随后将 `public/` 与 `src/pages` 编译进 `dist/`。
 
@@ -185,7 +189,7 @@ flowchart TB
 | 模块     | 文件                            | 职责                                                          |
 | -------- | ------------------------------- | ------------------------------------------------------------- |
 | 搜索     | `app.js` + `GlobalSearch.astro` | 多实例 Fuse；fixed 下拉；`preferSearchHits`；提交按钮 / Enter |
-| 领域地图 | `HomeAiMap.astro`               | 简报后原生 HTML 嵌套层级图；跟主题 / 窄屏；非 Hero、非位图    |
+| 领域地图 | `HomeAiMap.astro`               | 简报后内联 SVG 闭合椭圆关系图；跟主题 / 窄屏；非 Hero、非位图 |
 | 面包屑   | `Breadcrumb.astro`              | 专区「首页 / …」；独立页经 `StandalonePageHeader`             |
 | 漏斗     | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich                           |
 | 虚拟列表 | `lib/virtual-list.js`           | 榜单 / GitHub 热门（视频区已改为整页网格）                    |
@@ -217,10 +221,10 @@ flowchart LR
 | ------------------- | ----------------------- | -------------------------------------------------- |
 | `daily-refresh.yml` | 串行调用各 `fetch_*.py` | 视频→课程→排行；一次 push + deploy；lychee         |
 | `daily-news.yml`    | `fetch_ai_news.py`      | 北京 07:30/10:00/12:00/20:00 刷新新闻并派发 deploy |
-| `daily-*.yml`       | 单频道脚本（仅手动）    | 救急重跑某一频道（视频规则变更请 `force=true`）    |
+| `daily-videos/courses/rankings/link-check.yml` | 单频道（仅手动） | 救急重跑；视频规则变更请 `force=true`（不含已定时的 refresh/news） |
 | `site-health.yml`   | `check_site_health.py`  | 线上 JSON 新鲜度探针                               |
 
-视频分桶由 `config/video-fetch.yaml` 定义：YouTube/B站各自 24h/30d Top3 + 100d Top4，**无最低播放量**，每平台 ≤10。详见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3。
+视频分桶由 `config/video-fetch.yaml` 定义：YouTube/B站各自 24h Top1、3d/7d/30d Top3、100d Top6（阈值 1000/5000/10000/100000/1000000），每平台 ≤16。详见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3。
 
 `daily-refresh.yml` 于北京 **00:00** 启动；频道**顺序执行**（上一频道完成后再开下一频道），全部抓取结束后统一推送并派发一次 `deploy.yml`。新闻热点由 `daily-news.yml` 于北京 **07:30 / 10:00 / 12:00 / 20:00** 多档刷新。
 
@@ -266,7 +270,7 @@ flowchart TB
 
 push `main` 时 **ci.yml 与 deploy.yml 并行**；deploy 不推 `gh-pages` 分支，而是使用官方 `actions/deploy-pages` 制品部署。
 
-详见 [CI-CD.md](./CI-CD.md)。
+
 
 ---
 
@@ -290,7 +294,7 @@ flowchart LR
 
 `secrets` → `data` → `tool-relations` → `local` → `videos` → `news` → `courses` → `runtime` → `recommend` → `sitemap` → `opengraph` → `jsonld` → `search` → `analytics` → `engagement` → `links`
 
-另：CI Lint 前跑 **gitleaks**；日更末步 **lychee** 扫外链（见 [CI-CD.md](./CI-CD.md)）。
+另：CI Lint 前跑 **gitleaks**；日更末步 **lychee** 扫外链。
 
 Schema 文件位于 `schemas/`；手工维护的 `site.json` / `tools.json` 校验 **JSON 可解析 + 交叉引用**（如 `tool-relations` 的 id 必须存在于 `tools.json`）。
 
@@ -338,6 +342,4 @@ public/               # prebuild 中间产物（不提交）
 
 - [DATA-MODEL.md](./DATA-MODEL.md) — 核心 JSON 字段与 Schema
 - [FRONTEND.md](./FRONTEND.md) — 浏览器端能力（含漏斗埋点）
-- [DEVELOPER.md](../DEVELOPER.md) — 开发速查
-- [CI-CD.md](./CI-CD.md) — 部署流程
-- [SECURITY.md](./SECURITY.md) — API Key 与静态站安全
+

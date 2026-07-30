@@ -15,10 +15,6 @@
 | [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)     | 数据模型                           |
 | [docs/FRONTEND.md](./docs/FRONTEND.md)         | 前端能力（搜索 / 推荐 / 漏斗埋点） |
 | [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)   | 内容运营、日更抓取与故障救急       |
-| [DEVELOPER.md](./DEVELOPER.md)                 | 开发速查与常见改动                 |
-| [docs/SEO.md](./docs/SEO.md)                   | TDK / OG / JSON-LD                 |
-| [docs/SECURITY.md](./docs/SECURITY.md)         | 安全与 CSP                         |
-| [docs/CI-CD.md](./docs/CI-CD.md)               | CI/CD 与部署                       |
 
 ## 快速开始
 
@@ -57,7 +53,7 @@ python3 scripts/fetch_daily_videos.py
 | 本地部署   | Tab    | Ollama / LM Studio / vLLM 等本机与私有化部署精选                               |
 | 课程资源   | Tab    | 免费 AI 课程（微软、谷歌、斯坦福核心课）                                       |
 | 新闻热点   | Tab    | 近 7 天 AI 热点（多档日更）                                                    |
-| AI 视频    | Tab    | YouTube/B站各自：24h Top3、30d Top3、100d Top4（最低播放量 10000），每平台 ≤10 |
+| AI 视频    | Tab    | YouTube/B站各自：24h Top1(≥1000)、3d Top3(≥5000)、7d Top3(≥10000)、30d Top3(≥100000)、100d Top6(≥1000000)，每平台 ≤16 |
 
 独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题
 
@@ -81,12 +77,12 @@ python3 scripts/fetch_daily_videos.py
 
 学习路线（顺序固定）：
 
-**入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent → AI 工程实践**
+**入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent**
 
 - **仅免费**；**每条路线最多推荐 5 门**（必学 / 合集优先）
 - **必推荐**：微软 Generative AI for Beginners、Google ML Crash Course、斯坦福 CS230 / CS224n / CS231n / CS336（**YouTube 最新学年讲座**）
 
-配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 日更：`.github/workflows/daily-courses.yml`
+配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 日更：`daily-refresh.yml`（串行第 2 步；救急手动 `daily-courses.yml`）
 
 ## 改内容
 
@@ -103,9 +99,11 @@ python3 scripts/fetch_daily_videos.py
 | 新闻源       | `config/news-fetch.yaml`                                                  |
 | 视频源       | `config/video-fetch.yaml`                                                 |
 
-推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
+推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages；日更见 [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)。
 
 **工程实践**：`lib/fetch-json.js` / `virtual-list.js` / `link-guard.js` · 视频 slim JSON · 资源 `?v=` 哈希 · CI（Schema / OG / JSON-LD / 搜索 / gitleaks）· 日更末步 lychee 死链（软告警）。
+
+**安全要点**：勿提交 LLM/`API_KEY`；本地用 `.env.local`（见 `.env.local.example`）；CSP 见 `config/csp.json`。
 
 ## License
 

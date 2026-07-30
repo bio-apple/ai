@@ -14,7 +14,7 @@
 | 提交 | 输入框右侧放大镜按钮（`.site-search-submit`）；支持 Enter / `search` 事件跳转首条 |
 | 下拉 | Hero / Nav 展开时均为 `position: fixed`，避免 sticky / overflow 裁切              |
 | 排序 | `preferSearchHits`：精确标签与 `tools/*.html` 优先，压低 `hub.html#hub-compare`   |
-| 索引 | 构建时 `scripts/build-artifacts.mjs` → `search-index.json`（约 150 条）           |
+| 索引 | 构建时 `scripts/build-artifacts.mjs` → `search-index.json`（约 120+ 条，随内容浮动） |
 | 覆盖 | 工具教程、对比、资讯、本地部署、课程、视频、排行榜模型名、频道/导航               |
 | 工具 | 条目来自 `tools.json`，`label` 为工具原名，`url` 为 `tools/{id}.html`             |
 | 联想 | 聚焦空输入显示 `site.hero.search_suggestions` chips                               |
@@ -49,7 +49,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 | 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用         |
 | 首页专区 | 本地部署 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
 | 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                 |
-| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                         |
+| SEO      | JSON-LD `BreadcrumbList`（`src/lib/schema.ts`）                         |
 
 ---
 
@@ -105,7 +105,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 2. **GA4** / **Clarity**（可选，需 Secrets）
 3. 未配置时：仅 `window.__clickStats`（浏览器内存，不持久）
 
-配置：`data/analytics.json` 或 GitHub Secrets → prebuild 生成 `analytics-config.json`。详见 [CI-CD.md](./CI-CD.md)、[SECURITY.md](./SECURITY.md)。
+配置：`data/analytics.json` 或 GitHub Secrets → prebuild 生成 `analytics-config.json`。
 
 ### 6.3 本地调试
 
@@ -150,11 +150,11 @@ Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 | ---- | ------------------------------------------------------------------------------------------------- |
 | 页面 | `#section-videos` · `videos.js`                                                                   |
 | 数据 | `daily-videos.latest.json`（构建时由完整 `daily-videos.json` 瘦身生成；完整文件不再发布到 CDN）   |
-| 规则 | YouTube / B站**各自独立**：24h Top3、30d Top3、100d Top4；**最低播放量 ≥10000**；每平台去重后 ≤10 |
-| 过滤 | 仅时间窗 + AI 关键词；展示/回填不再按播放量丢弃                                                   |
+| 规则 | YouTube / B站**各自独立**：24h Top1、3d Top3、7d Top3、30d Top3、100d Top6；对应最低播放量 1000/5000/10000/100000/1000000；每平台去重后 ≤16 |
+| 过滤 | 展示/历史回填：时间窗 + 分桶 `min_views`；AI 关键词仅在抓取阶段过滤                               |
 | 展示 | YouTube / B站分块网格，**整页平铺**（无内部滚动虚拟列表）                                         |
 | 筛选 | 平台（全部 / YouTube / B站）+ 排序（最新 / 热门）                                                 |
-| 配置 | `config/video-fetch.yaml`（`min_views: 10000`）；抓取见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3   |
+| 配置 | `config/video-fetch.yaml`（24h/3d/7d/30d/100d 对应阈值：1000/5000/10000/100000/1000000）；抓取见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3   |
 
 ---
 
@@ -187,7 +187,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 | 组件                     | 作用                                      |
 | ------------------------ | ----------------------------------------- |
-| `HomeAiMap.astro`        | AI 领域嵌套层级图（原生 HTML，简报后）    |
+| `HomeAiMap.astro`        | AI 领域关系图（内联 SVG 闭合椭圆，简报后） |
 | `HomeQuickFilters.astro` | 快筛：本地部署 / AI 资讯 / 工具教程       |
 | `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
 | `HomeRecommend.astro`    | AI 推荐助手（含现实实例）                 |
@@ -219,7 +219,6 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ## 相关文档
 
-- [SEO.md](./SEO.md) — TDK / OG / JSON-LD
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构
 - [SETUP.md](./SETUP.md) — 本地环境
 - [CONTENT-OPS.md](./CONTENT-OPS.md) — 内容运营与救急
