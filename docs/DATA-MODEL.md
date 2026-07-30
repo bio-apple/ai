@@ -320,7 +320,7 @@ nav: {
 ### 8.1 `search-index.json`
 
 **Schema**：`schemas/search-index.schema.json`  
-**类型**：`array`（当前构建约 **150** 条，CI 下限 ≥10）  
+**类型**：`array`（当前构建约 **120+** 条，随内容浮动；CI 下限 ≥80）  
 **生成**：`scripts/build-artifacts.mjs` ← `tools.json`（教程页）+ `site.json`（导航/场景/对比入口）+ `ai-news.json` + `local-deploy.json` + `ai-courses.json` + `daily-videos.json` + 排行榜模型名  
 **消费**：`app.js`（顶栏 / Hero 多实例）、`knowledge.js`  
 **校验**：`DIST=dist python3 scripts/validate_ci.py search`
@@ -369,7 +369,7 @@ nav: {
 
 ---
 
-## 9. 脚本抓取的 JSON
+## 9. 运行时频道 JSON（抓取产出 + 相关手工数据）
 
 ### 9.1 `ai-news.json`
 
@@ -421,10 +421,10 @@ nav: {
 
 **额外 CI 规则**：摘要禁止裸 URL；最新批次须覆盖配置中全部分类。
 
-### 9.4 `local-deploy.json`
+### 9.4 `local-deploy.json`（手工，非抓取）
 
 **Schema**：`schemas/local-deploy.schema.json`  
-**维护**：手工编辑 `data/local-deploy.json`（非日更抓取）
+**维护**：手工编辑 `data/local-deploy.json`（不属于日更抓取产物；放此节便于与频道 JSON 对照）
 
 | 字段         | 类型     | 说明         |
 | ------------ | -------- | ------------ |

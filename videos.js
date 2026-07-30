@@ -509,7 +509,7 @@ async function loadDailyVideos() {
       const fallbackNote = display?._fallback_count
         ? ` · ${display._fallback_count} 组来源已回退至上一有效批次`
         : '';
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 24h/30d Top3 + 100d Top4（每平台最多10条）${fallbackNote}`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 24h Top1 · 3d/7d/30d Top3 · 100d Top6（每平台最多16条）${fallbackNote}`;
     }
 
     paintVideoList();

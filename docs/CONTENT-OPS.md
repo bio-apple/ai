@@ -479,7 +479,7 @@ git commit -m "revert: 回滚坏批次" && git push
 - [ ] [site-health](https://github.com/bio-apple/ai/actions/workflows/site-health.yml) 无失败
 - [ ] 「AI 视频」「新闻热点」最新批次为今日或昨日
 - [ ] 「课程资源」「排行榜」`updated_at` 在 2 天内
-- [ ] 「课程资源」五条路线均有课（每路线 ≤5）
+- [ ] 「课程资源」五条路线表完整；每路线 ≤5；必推荐覆盖入门/ML/DL/LLM（AI Agent 可暂空）
 - [ ] 「本地部署」条目与外链可访问（`data/local-deploy.json`）
 - [ ] 无未关闭的 `[ops]` Issue（含 Dead Link / 抓取失败）
 - [ ] [daily-refresh](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) 无未处理失败

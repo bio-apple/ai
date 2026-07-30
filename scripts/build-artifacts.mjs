@@ -150,7 +150,7 @@ function buildSearchIndex(site, tools, compares) {
     label: '每日视频',
     type: '频道',
     section: 'section-videos',
-    keywords: '视频 youtube bilibili 教程 每日 24小时 30天 100天 Top3 Top4',
+    keywords: '视频 youtube bilibili 教程 每日 24小时 3天 7天 30天 100天 Top1 Top3 Top6',
   });
   items.push({
     label: 'AI 新闻',

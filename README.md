@@ -77,12 +77,12 @@ python3 scripts/fetch_daily_videos.py
 
 学习路线（顺序固定）：
 
-**入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent → AI 工程实践**
+**入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent**
 
 - **仅免费**；**每条路线最多推荐 5 门**（必学 / 合集优先）
 - **必推荐**：微软 Generative AI for Beginners、Google ML Crash Course、斯坦福 CS230 / CS224n / CS231n / CS336（**YouTube 最新学年讲座**）
 
-配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 日更：`.github/workflows/daily-courses.yml`
+配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 日更：`daily-refresh.yml`（串行第 2 步；救急手动 `daily-courses.yml`）
 
 ## 改内容
 

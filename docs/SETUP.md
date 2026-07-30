@@ -147,8 +147,7 @@ npm run build                          # prebuild 会同步到 public/ → dist/
 或手动同步后重建：
 
 ```bash
-cp ai-news.json ai-courses.json daily-videos.json public/
-npm run build
+npm run build   # prebuild 同步新闻/课程 JSON，并生成 daily-videos.latest.json（完整 daily-videos.json 不进 public/CDN）
 ```
 
 ### 3.3 YouTube / B站视频抓取（本地 / CI）
@@ -190,7 +189,7 @@ npm run build
 
 未配置 API Key 时：今日 YouTube 可能抓取为空；脚本不会从历史批次补进今日结果（合计为 0 时不覆盖已有文件）。构建时 `daily-videos.latest.json` 仍可能做展示层历史回退。
 
-**首次部署**：仓库若尚无可用批次，在 Actions 手动触发 Daily Videos 并勾选 `force=true`（勿再依赖已移除的 `daily-videos.example.json`；空结构由脚本 `empty_store()` 保证）。详见 [CONTENT-OPS.md](./CONTENT-OPS.md)。
+**首次部署**：仓库若尚无可用批次，在 Actions 手动触发 Daily Videos 并勾选 `force=true`（勿再依赖已移除的 `daily-videos.example.json`；缺文件时 `load_store()` 返回空 `seen_ids`/`batches`）。详见 [CONTENT-OPS.md](./CONTENT-OPS.md)。
 
 ### 3.4 停止预览服务
 
