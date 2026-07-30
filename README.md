@@ -1,6 +1,6 @@
 # Bio AI Lab
 
-**Bio-Apple · AI 工具导航 · 本地部署 · 课程 · 热点 · 视频**
+**Bio-Apple · AI 工具导航 · 实战案例 · 课程 · 热点 · 视频**
 
 [![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
 [![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions)
@@ -54,7 +54,7 @@ python3 scripts/fetch_daily_videos.py
 | ---------- | ------ | ------------------------------------------------------------------------------ |
 | 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图                                              |
 | AI工具中心 | 独立页 | 对比表（链到教程）、AICPB 排行、各工具教程（含即梦）                           |
-| 本地部署   | Tab    | Ollama / LM Studio / vLLM 等本机与私有化部署精选                               |
+| 实战案例   | Tab    | Ollama / LM Studio / vLLM 等本机与私有化部署精选                               |
 | 课程资源   | Tab    | 免费 AI 课程（微软、谷歌、斯坦福核心课）                                       |
 | 新闻热点   | Tab    | 近 7 天 AI 热点（多档日更）                                                    |
 | AI 视频    | Tab    | YouTube/B站各自：24h Top3、30d Top3、100d Top4（最低播放量 10000），每平台 ≤10 |
@@ -71,9 +71,9 @@ python3 scripts/fetch_daily_videos.py
 | 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                         |
 | 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等           |
 | 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                    |
-| 本地部署     | 桌面客户端 / 推理引擎 / Web UI（`HomeLocalDeploy`）                        |
+| 实战案例     | 桌面客户端 / 推理引擎 / Web UI（`HomeLocalDeploy`）                        |
 | 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示               |
-| SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 本地部署）+ BreadcrumbList      |
+| SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 实战案例）+ BreadcrumbList      |
 
 详见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
 
@@ -98,7 +98,7 @@ python3 scripts/fetch_daily_videos.py
 | 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                              |
 | 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；00:00 日更）                |
 | 热度基准     | `data/engagement.json`                                                    |
-| 本地部署     | `data/local-deploy.json`（专区元信息）；文稿 `content/local-deploy/*.md`  |
+| 实战案例     | `data/local-deploy.json`（专区元信息）；文稿 `content/local-deploy/*.md`  |
 | 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                  |
 | 新闻源       | `config/news-fetch.yaml`                                                  |
 | 视频源       | `config/video-fetch.yaml`                                                 |

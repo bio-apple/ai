@@ -261,7 +261,7 @@ export function buildNewsSchema(
   };
 }
 
-/** 本地部署：CollectionPage + 文稿 ItemList */
+/** 实战案例：CollectionPage + 文稿 ItemList */
 export function buildLocalDeploySchema(
   local: {
     title?: string;
@@ -278,8 +278,8 @@ export function buildLocalDeploySchema(
       {
         '@type': 'CollectionPage',
         '@id': `${sectionUrl}#local`,
-        name: local.title || '本地部署',
-        description: local.lead || '本机与私有环境大模型部署实战文稿',
+        name: local.title || '实战案例',
+        description: local.lead || '真实场景的 AI 落地实践与部署案例',
         url: sectionUrl,
         inLanguage: 'zh-CN',
         isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },

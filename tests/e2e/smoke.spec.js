@@ -27,7 +27,7 @@ async function waitSearchReady(page) {
 }
 
 test.describe('Bio AI Lab 关键路径', () => {
-  test('首页主路径：推荐 · 简报 · 本地部署入口（无热门/更多工具）', async ({ page }) => {
+  test('首页主路径：推荐 · 简报 · 实战案例入口（无热门/更多工具）', async ({ page }) => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('AI 工作流');
     await expect(page.locator('#home-ai-map')).toBeVisible();
@@ -135,14 +135,14 @@ test.describe('Bio AI Lab 关键路径', () => {
     const localCrumb = page.locator('#section-local .breadcrumb');
     await expect(localCrumb).toBeVisible();
     await expect(localCrumb).toContainText('首页');
-    await expect(localCrumb).toContainText('本地部署');
+    await expect(localCrumb).toContainText('实战案例');
     await expect(localCrumb.locator('a', { hasText: '首页' })).toBeVisible();
     await expect(
       page.locator('#section-local .local-guide-list .local-guide-item').first(),
     ).toBeVisible();
     await expect(page.locator('#section-local .local-card')).toHaveCount(0);
     await expect(page.locator('#section-local .local-guide-html')).toHaveCount(0);
-    await expect(page.locator('.nav-tab', { hasText: '本地部署' })).toBeVisible();
+    await expect(page.locator('.nav-tab', { hasText: '实战案例' })).toBeVisible();
 
     await page.locator('.nav-tab', { hasText: '课程资源' }).click();
     await expect(page.locator('#section-courses')).toHaveClass(/active/);
@@ -180,7 +180,7 @@ test.describe('Bio AI Lab 关键路径', () => {
 
     await page.goto('local/ollama-open-webui.html', { waitUntil: 'domcontentloaded' });
     const guideCrumb = page.locator('.breadcrumb');
-    await expect(guideCrumb).toContainText('本地部署');
+    await expect(guideCrumb).toContainText('实战案例');
     await expect(page.locator('.local-guide-html')).toBeVisible();
   });
 

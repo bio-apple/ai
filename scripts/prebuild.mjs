@@ -18,7 +18,7 @@ function writeLegacyRedirects(outDir) {
   const stubs = [
     { rel: 'labs/index.html', to: '/ai/tools/hub.html', label: 'AI 工具中心' },
     { rel: 'cases/index.html', to: '/ai/tools/hub.html', label: 'AI 工具中心' },
-    { rel: 'prompts/library.html', to: '/ai/index.html#section-local', label: '本地部署' },
+    { rel: 'prompts/library.html', to: '/ai/index.html#section-local', label: '实战案例' },
   ];
   for (const stub of stubs) {
     const dest = path.join(outDir, stub.rel);

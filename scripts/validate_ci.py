@@ -205,7 +205,7 @@ def _json_ld_types(html: str) -> set[str]:
 
 
 def validate_json_ld() -> None:
-    """确认关键页面含 JSON-LD 结构化数据（工具页 + 课程/本地部署 CollectionPage）。"""
+    """确认关键页面含 JSON-LD 结构化数据（工具页 + 课程/实战案例 CollectionPage）。"""
     checks = [
         (ROOT / "index.html", {"CollectionPage", "Course", "WebSite", "TechArticle"}),
         (ROOT / "tools" / "chatgpt.html", {"SoftwareApplication", "LearningResource", "WebPage"}),
@@ -221,7 +221,7 @@ def validate_json_ld() -> None:
             raise ValueError(
                 f"{path.name} JSON-LD 缺少 @type: {', '.join(sorted(missing))}（已有: {', '.join(sorted(found)) or '无'}）"
             )
-    print("✓ JSON-LD 结构化数据（首页课程/本地部署 + 工具页 + 新闻）")
+    print("✓ JSON-LD 结构化数据（首页课程/实战案例 + 工具页 + 新闻）")
 
 
 def _load_schema(name: str) -> dict:
@@ -317,13 +317,13 @@ def validate_search_index() -> None:
     data = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
     Draft202012Validator(_load_schema("search-index.schema.json")).validate(data)
     types = {item.get("type") for item in data if isinstance(item, dict)}
-    required_types = {"课程", "资讯", "本地部署", "视频", "模型", "工具"}
+    required_types = {"课程", "资讯", "实战案例", "视频", "模型", "工具"}
     missing = required_types - types
     if missing:
         raise ValueError(f"search-index 缺少内容类型: {', '.join(sorted(missing))}")
     if len(data) < 80:
         raise ValueError(f"search-index 条目过少: {len(data)}")
-    print(f"✓ search-index.json schema ({len(data)} 条 · 含课程/资讯/本地部署/视频/模型)")
+    print(f"✓ search-index.json schema ({len(data)} 条 · 含课程/资讯/实战案例/视频/模型)")
 
 
 def validate_recommend_rules() -> None:

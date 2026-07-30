@@ -1,4 +1,4 @@
-# 本地部署文稿（Markdown）
+# 实战案例文稿（Markdown）
 
 把 `.md` 文件放进本目录后，执行：
 
@@ -10,7 +10,7 @@ node scripts/build-local-guides.mjs
 
 构建会自动扫描本目录，生成 `data/local-deploy-guides.json`。
 
-首页「本地部署」专区只展示**文稿列表**（标题、摘要、元信息），点击进入独立详情页：`/ai/local/{id}.html`。
+首页「实战案例」专区只展示**文稿列表**（标题、摘要、元信息），点击进入独立详情页：`/ai/local/{id}.html`。
 
 ## 约定
 
