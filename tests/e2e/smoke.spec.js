@@ -138,6 +138,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(localCrumb).toContainText('本地部署');
     await expect(localCrumb.locator('a', { hasText: '首页' })).toBeVisible();
     await expect(page.locator('#section-local .local-card').first()).toBeVisible();
+    await expect(page.locator('#section-local .local-guide-list .local-guide-item').first()).toBeVisible();
+    await expect(page.locator('#section-local .local-guide-html')).toHaveCount(0);
     await expect(page.locator('.nav-tab', { hasText: '本地部署' })).toBeVisible();
 
     await page.locator('.nav-tab', { hasText: '课程资源' }).click();
@@ -173,6 +175,11 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.breadcrumb')).toContainText('新闻热点');
     await expect(page.locator('.breadcrumb [aria-current="page"]')).toContainText('新闻热点');
     await expect(page.locator('#daily-news-list .news-row').first()).toBeVisible();
+
+    await page.goto('local/ollama-open-webui.html', { waitUntil: 'domcontentloaded' });
+    const guideCrumb = page.locator('.breadcrumb');
+    await expect(guideCrumb).toContainText('本地部署');
+    await expect(page.locator('.local-guide-html')).toBeVisible();
   });
 
   test('站内搜索与规则产物', async ({ page }) => {

@@ -8,16 +8,19 @@ npm run build
 node scripts/build-local-guides.mjs
 ```
 
-构建会自动扫描本目录，生成 `data/local-deploy-guides.json`，并在首页 **本地部署** 专区展示。
+构建会自动扫描本目录，生成 `data/local-deploy-guides.json`。
+
+首页「本地部署」专区只展示**文稿列表**（标题、摘要、元信息），点击进入独立详情页：`/ai/local/{id}.html`。
 
 ## 约定
 
-| 项            | 说明                                                   |
-| ------------- | ------------------------------------------------------ |
-| 文件名        | `*.md`（`README.md` 不会被收录）                       |
-| `id`          | 默认取文件名（不含扩展名），可用 frontmatter `id` 覆盖 |
-| 锚点          | `#local-guide-{id}`，可供工具卡片 `guide_anchor` 跳转  |
-| `draft: true` | 跳过，不发布                                           |
+| 项            | 说明                                                             |
+| ------------- | ---------------------------------------------------------------- |
+| 文件名        | `*.md`（`README.md` 不会被收录）                                 |
+| `id`          | 默认取文件名（不含扩展名），可用 frontmatter `id` 覆盖           |
+| 详情页        | `local/{id}.html`（`src/pages/local/[slug].astro`）              |
+| 卡片链接      | `data/local-deploy.json` 的 `guide_href`（如 `local/{id}.html`） |
+| `draft: true` | 跳过，不发布                                                     |
 
 ## Frontmatter 示例
 

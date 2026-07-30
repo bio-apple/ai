@@ -63,6 +63,8 @@
                 "summary": { "type": "string", "minLength": 1 },
                 "url": { "type": "string", "format": "uri" },
                 "docs_url": { "type": "string", "format": "uri" },
+                "guide_href": { "type": "string", "minLength": 1 },
+                "guide_anchor": { "type": "string", "minLength": 1 },
                 "platforms": {
                   "type": "array",
                   "items": { "type": "string" }

@@ -137,8 +137,9 @@ trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型'
 `HomeLocalDeploy.astro` 构建期 SSG 渲染：
 
 - 工具精选：`data/local-deploy.json`
-- **实战文稿**：自动扫描 `content/local-deploy/*.md` → `data/local-deploy-guides.json`（`scripts/build-local-guides.mjs`，prebuild 调用）
-- 官网 / 文档外链；有文稿的条目可跳转 `#local-guide-{id}`
+- **实战文稿列表**：自动扫描 `content/local-deploy/*.md` → `data/local-deploy-guides.json`（`scripts/build-local-guides.mjs`，prebuild 调用）；首页只列标题/摘要，不内嵌全文
+- **详情页**：`local/{id}.html`（`src/pages/local/[slug].astro`）
+- 官网 / 文档外链；有文稿的条目经 `guide_href` 跳转详情页
 - 类型徽章「本地」
 
 新增文稿：把 Markdown 放入 `content/local-deploy/`，执行 `npm run build`（或 `node scripts/build-local-guides.mjs`）。详见该目录 `README.md`。

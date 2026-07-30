@@ -94,8 +94,7 @@ function appendLocalDeploySearchItems(items, local, guidesPayload) {
       id: `local-guide-${guide.id}`,
       label: guide.title,
       type: '本地部署',
-      section: 'section-local',
-      anchor: `local-guide-${guide.id}`,
+      url: `local/${guide.id}.html`,
       keywords: [
         guide.title,
         guide.lead,
