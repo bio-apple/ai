@@ -27,7 +27,7 @@ async function waitSearchReady(page) {
 }
 
 test.describe('Bio AI Lab 关键路径', () => {
-  test('首页主路径：推荐 · 简报 · 实战案例入口（无热门/更多工具）', async ({ page }) => {
+  test('首页主路径：推荐 · 简报 · Agent入口（无热门/更多工具）', async ({ page }) => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('AI 工作流');
     await expect(page.locator('#home-ai-map')).toBeVisible();
@@ -130,19 +130,6 @@ test.describe('Bio AI Lab 关键路径', () => {
   test('专区页面包屑', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.route('**/*fonts.gstatic.com/**', (route) => route.abort());
-    await page.goto('index.html#section-local', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('#section-local')).toHaveClass(/active/);
-    const localCrumb = page.locator('#section-local .breadcrumb');
-    await expect(localCrumb).toBeVisible();
-    await expect(localCrumb).toContainText('首页');
-    await expect(localCrumb).toContainText('实战案例');
-    await expect(localCrumb.locator('a', { hasText: '首页' })).toBeVisible();
-    await expect(
-      page.locator('#section-local .local-guide-list .local-guide-item').first(),
-    ).toBeVisible();
-    await expect(page.locator('#section-local .local-card')).toHaveCount(0);
-    await expect(page.locator('#section-local .local-guide-html')).toHaveCount(0);
-    await expect(page.locator('.nav-tab', { hasText: '实战案例' })).toBeVisible();
     await expect(page.locator('.nav-tab', { hasText: 'Agent智能体' })).toBeVisible();
 
     await page.locator('.nav-tab', { hasText: 'Agent智能体' }).click();

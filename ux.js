@@ -85,7 +85,6 @@ function initBackToTop() {
 
 const TOC_PRIMARY = [
   { id: 'section-home', label: '首页' },
-  { id: 'section-local', label: '实战案例' },
   { id: 'section-agent', label: 'Agent智能体' },
   { id: 'section-courses', label: '课程资源' },
   { id: 'section-news', label: '新闻热点' },
