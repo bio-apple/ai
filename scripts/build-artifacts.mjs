@@ -221,8 +221,7 @@ function buildSearchIndex(site, tools, compares) {
     label: 'Agent智能体',
     type: '频道',
     section: 'section-agent',
-    keywords:
-      'Agent 智能体 Cursor Copilot Codex 工具调用 工作流 LangGraph Dify 自主规划 多步任务',
+    keywords: 'Agent 智能体 Cursor Copilot Codex 工具调用 工作流 LangGraph Dify 自主规划 多步任务',
   });
   items.push({
     label: 'AI 课程资源',

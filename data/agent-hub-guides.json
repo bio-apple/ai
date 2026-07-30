@@ -7,12 +7,7 @@
       "title": "Agent",
       "lead": "从单轮对话到可执行工作流：用 Agent 串联工具调用、检索与多步任务，落地自动化与研发提效。",
       "audience": "开发者 / 产品团队",
-      "stack": [
-        "Agent",
-        "工具调用",
-        "RAG",
-        "工作流"
-      ],
+      "stack": ["Agent", "工具调用", "RAG", "工作流"],
       "order": 5,
       "source": "content/agent-hub/agent.md",
       "html": "<h4 class=\"local-guide-heading\">1. 什么时候用 Agent</h4>\n<p class=\"local-guide-body\">适合需要<strong>多步推理、调用外部工具、读写文件或查知识库</strong>的任务，例如：</p>\n<ul>\n<li>按需求改多个代码文件并本地验证</li>\n<li>检索文档后生成报告或邮件草稿</li>\n<li>拉取 API / 数据库结果再做汇总分析</li>\n</ul>\n<p class=\"local-guide-body\">若只是单次问答或固定模板生成，普通聊天或单次提示词通常更简单。</p>\n<h4 class=\"local-guide-heading\">2. 常见落地形态</h4>\n<ul>\n<li><strong>IDE Agent</strong>：跨文件改代码、跑命令、修 bug（如 Cursor、Copilot Agent）</li>\n<li><strong>对话 + 工具</strong>：浏览器内查资料、调 API、写文件（ChatGPT、Claude、豆包等开启工具/插件）</li>\n<li><strong>自托管工作流</strong>：私有化、可编排多节点（Open WebUI 工具、LangGraph、Dify 工作流）</li>\n</ul>\n<p class=\"local-guide-body\">站内工具教程可参考 <a href=\"https://bio-apple.github.io/ai/tools/cursor.html\" target=\"_blank\" rel=\"noopener noreferrer\">Cursor</a>、<a href=\"https://bio-apple.github.io/ai/tools/chatgpt.html\" target=\"_blank\" rel=\"noopener noreferrer\">ChatGPT</a> 等页面。</p>\n<h4 class=\"local-guide-heading\">3. 最小可行流程（通用）</h4>\n<ol>\n<li><strong>明确目标与边界</strong>：输入、输出、可用工具、禁止操作（如不得删库）。</li>\n<li><strong>准备上下文</strong>：项目说明、API 文档、示例数据或 RAG 知识库。</li>\n<li><strong>拆成可验证步骤</strong>：每步有成功标准（文件已改、命令 exit 0、JSON 字段齐全）。</li>\n<li><strong>人工复核关键动作</strong>：写库、发邮件、合并 PR 前保留确认点。</li>\n<li><strong>记录提示词与规则</strong>：团队共享 Rules / 系统提示，减少漂移。</li>\n</ol>\n<h4 class=\"local-guide-heading\">4. Cursor Agent 快速示例</h4>\n<p class=\"local-guide-body\">在 Cursor 中可用自然语言描述任务，由 Agent 搜索代码库并编辑相关文件：</p>\n<pre class=\"local-guide-code\"><code class=\"language-text\">在 src/utils 下新增 formatDate(ts)，并在首页引用展示「今日」。\n改完后说明改了哪些文件。</code></pre>\n<p class=\"local-guide-body\">建议配合项目 <code>.cursor/rules</code> 或 README 说明技术栈与目录约定。</p>\n<h4 class=\"local-guide-heading\">5. 自托管侧：Ollama + 工具</h4>\n<p class=\"local-guide-body\">若模型跑在本机（见 <a href=\"https://bio-apple.github.io/ai/local/ollama-open-webui.html\" target=\"_blank\" rel=\"noopener noreferrer\">Ollama + Open WebUI 部署案例</a>），可：</p>\n<ul>\n<li>为 Open WebUI 配置<strong>工具 / 函数</strong>或外部 API</li>\n<li>用 RAG 挂载内部文档，减少幻觉</li>\n<li>限制 Agent 仅能访问白名单域名与路径</li>\n</ul>\n<h4 class=\"local-guide-heading\">6. 排障要点</h4>\n<ul>\n<li><strong>循环空转</strong>：缩小工具集、要求每步输出结构化状态。</li>\n<li><strong>胡编 API</strong>：强制先检索文档或只读探测，再执行写操作。</li>\n<li><strong>上下文爆炸</strong>：分阶段任务，中间结果落盘或写入会话摘要。</li>\n</ul>\n<blockquote class=\"local-guide-notes\"><p>本文是 Agent 实战导读；具体工具版本与界面以各产品文档为准。欢迎按你的场景补充子案例 Markdown 到本目录。</p></blockquote>"
