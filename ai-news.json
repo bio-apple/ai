@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-30T08:53:35.662174+08:00",
+  "updated_at": "2026-07-30T12:56:40.170386+08:00",
   "date": "2026-07-30",
   "cadence": "daily",
   "window_days": 7,
@@ -14,13 +14,76 @@
   },
   "items": [
     {
+      "id": "5f8449b50a00",
+      "title": "Do Models Fake Alignment Without Clear Consequences?",
+      "summary": "arXiv:2607.24758v2 Announce Type: new Abstract: Large language models are capable of recognizing evaluation contexts and altering their behavior to reflect eva…",
+      "url": "https://arxiv.org/abs/2607.24758",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-30T12:00:00+08:00"
+    },
+    {
+      "id": "3a089eb3b0fb",
+      "title": "Beyond Memory: A Templated Substrate for Heterogeneous Collaborative Knowledge Work with LLM Agents",
+      "summary": "arXiv:2607.24759v1 Announce Type: new Abstract: Research projects, educational efforts, and adjacent knowledge work accumulate findings, decisions, and reasoni…",
+      "url": "https://arxiv.org/abs/2607.24759",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-30T12:00:00+08:00"
+    },
+    {
+      "id": "f914ce76f855",
+      "title": "Kernel Forge: An Agent Harness for LLM-based Generation and Optimization of CUDA Kernels",
+      "summary": "arXiv:2607.24762v1 Announce Type: new Abstract: Machine learning models are increasingly embedded in everyday software, and most of their runtime is spent in a…",
+      "url": "https://arxiv.org/abs/2607.24762",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-30T12:00:00+08:00"
+    },
+    {
+      "id": "6bb448c977c3",
+      "title": "CaRE Compute-aware Remasking Evaluation Protocol for Masked Diffusion Language Models",
+      "summary": "arXiv:2607.24763v1 Announce Type: new Abstract: Masked diffusion language models (MDLMs) are advancing rapidly, yet the evaluation standards needed to reliably…",
+      "url": "https://arxiv.org/abs/2607.24763",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-07-30T12:00:00+08:00"
+    },
+    {
+      "id": "efd658ea5172",
+      "title": "GrocLM: Grocery Category Recommendation in E-Commerce with Large Language Models",
+      "summary": "arXiv:2607.24764v1 Announce Type: new Abstract: The rapid growth of online grocery shopping requires recommendation systems that capture cyclical purchasing be…",
+      "url": "https://arxiv.org/abs/2607.24764",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-30T12:00:00+08:00"
+    },
+    {
+      "id": "a19f9976e140",
+      "title": "这这这…翁荔光速回OpenAI上班了",
+      "summary": "6位联合创始人——只剩2名。",
+      "url": "https://www.qbitai.com/2026/07/462947.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-30T08:31:19+08:00"
+    },
+    {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,536",
+      "title": "OpenHands/OpenHands · ★ 82,555",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-30T00:45:23Z"
+      "published_at": "2026-07-30T04:12:52Z"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 166,509",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-30T04:04:17Z"
     },
     {
       "id": "705bd6c095e8",
@@ -32,8 +95,17 @@
       "published_at": "2026-07-30T00:02:10+08:00"
     },
     {
+      "id": "a4cc9e4f0ede",
+      "title": "中美无人车大战伦敦！超20亿人市场，一夜开抢",
+      "summary": "伦敦出租车司机需通过严苛的“The Knowledge”考试，始于1865年，旨在规范导游服务。考生须熟记25000条街道、20000个地标及320条标准路线，备考长达三四年，淘汰率近80%。考核内容涵盖道路方向、单行限制、地标位置及最优行车路径，全程口试，无地图或电子设备辅助。大脑海马体因长期空间记忆训练显著增大，…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652715288&idx=1&sn=91767b414305900d65c066b7720b8382&chksm=f01e7ebac413e870bc837d92f01fa8ac2774096d1cbd38ef90c226be644d176ecf3101595074&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": "2026-07-30 12:50 分享"
+    },
+    {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,739",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,742",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
@@ -51,7 +123,7 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 100,114",
+      "title": "rasbt/LLMs-from-scratch · ★ 100,125",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
@@ -104,60 +176,6 @@
       "published_at": "2026-07-29T14:39:43+08:00"
     },
     {
-      "id": "ee1b83497fe0",
-      "title": "空中具身操作：让蜘蛛侠们安全落地",
-      "summary": "空中具身操作：让蜘蛛侠们安全落地",
-      "url": "https://www.qbitai.com/2026/07/462301.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-29T14:29:26+08:00"
-    },
-    {
-      "id": "5f8449b50a00",
-      "title": "Do Models Fake Alignment Without Clear Consequences?",
-      "summary": "arXiv:2607.24758v1 Announce Type: new Abstract: Large language models are capable of recognizing evaluation contexts and altering their behavior to reflect eva…",
-      "url": "https://arxiv.org/abs/2607.24758",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-29T12:00:00+08:00"
-    },
-    {
-      "id": "3a089eb3b0fb",
-      "title": "Beyond Memory: A Templated Substrate for Heterogeneous Collaborative Knowledge Work with LLM Agents",
-      "summary": "arXiv:2607.24759v1 Announce Type: new Abstract: Research projects, educational efforts, and adjacent knowledge work accumulate findings, decisions, and reasoni…",
-      "url": "https://arxiv.org/abs/2607.24759",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-29T12:00:00+08:00"
-    },
-    {
-      "id": "f914ce76f855",
-      "title": "Kernel Forge: An Agent Harness for LLM-based Generation and Optimization of CUDA Kernels",
-      "summary": "arXiv:2607.24762v1 Announce Type: new Abstract: Machine learning models are increasingly embedded in everyday software, and most of their runtime is spent in a…",
-      "url": "https://arxiv.org/abs/2607.24762",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-29T12:00:00+08:00"
-    },
-    {
-      "id": "6bb448c977c3",
-      "title": "CaRE Compute-aware Remasking Evaluation Protocol for Masked Diffusion Language Models",
-      "summary": "arXiv:2607.24763v1 Announce Type: new Abstract: Masked diffusion language models (MDLMs) are advancing rapidly, yet the evaluation standards needed to reliably…",
-      "url": "https://arxiv.org/abs/2607.24763",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-07-29T12:00:00+08:00"
-    },
-    {
-      "id": "efd658ea5172",
-      "title": "GrocLM: Grocery Category Recommendation in E-Commerce with Large Language Models",
-      "summary": "arXiv:2607.24764v1 Announce Type: new Abstract: The rapid growth of online grocery shopping requires recommendation systems that capture cyclical purchasing be…",
-      "url": "https://arxiv.org/abs/2607.24764",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-07-29T12:00:00+08:00"
-    },
-    {
       "id": "6d964f10c333",
       "title": "How GPT-5.6 fuses frontier intelligence with frontier efficiency",
       "summary": "GPT-5.6 improves AI efficiency across models, inference, and agentic workflows, helping deliver more useful intelligence per dollar.",
@@ -167,17 +185,8 @@
       "published_at": "2026-07-29T08:00:00+08:00"
     },
     {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,495",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-29T04:05:58Z"
-    },
-    {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 88,978",
+      "title": "thedotmack/claude-mem · ★ 88,998",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -203,33 +212,6 @@
       "published_at": "2026-07-29T00:00:00+08:00"
     },
     {
-      "id": "284f7fe6364a",
-      "title": "对话洪小平：从大疆出来，做一台「电动轮椅」，终局是具身机器人",
-      "summary": "若创科技成立3年，首款产品Strutt ev¹（国内名“昂首EV1”）于今年4月量产、6月交付，并启动国内首批试驾报名。创始人洪小平为伯克利物理学博士，曾主导大疆全球首个量产车规级激光雷达研发，后任教南方科技大学三年，2023年创业。公司聚焦机器人方向，强调产品须具现实社会价值。",
-      "url": "http://mp.weixin.qq.com/s?__biz=Mzg5NTc0MjgwMw==&mid=2247525434&idx=1&sn=a9bbf158f497b0b6632797882be344a4&chksm=c1102ddbbab3ae64f0649d1d633fd9beef7a34a17d49fd179d8babc21176a00c5d01eb3cbb7c&scene=126&sessionid=0#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-29 18:20 分享"
-    },
-    {
-      "id": "395dac6e8caf",
-      "title": "老黄版「曼哈顿计划」来了！砸50亿给Ilya，又批2500亿天价担保OpenAI",
-      "summary": "Ilya Sutskever隐身两年后现身，其创立的安全超级智能实验室（SSI）与英伟达达成战略合作伙伴关系：英伟达将投资50亿美元，并在未来12个月内助SSI算力提升10倍。此举远超常规硬件采购，凸显双方在安全超级智能领域的深度协同，旨在加速构建可靠、可控的下一代AI系统。业界普遍视其为AI安全发展的重要里程碑，标…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652715200&idx=1&sn=813f101a5db9cc1a015fec35fdf1f4a2&chksm=f059e0cff1645f6964356ed3162c86babc9775307fb7d9aaa9894338c1a0b87ff2f471c95715&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": "2026-07-29 17:50 分享"
-    },
-    {
-      "id": "a4d8f16f64f0",
-      "title": "从流程自动化到认知智能化：LangClaw 携手澜舟智库打造业务决策型数字专家",
-      "summary": "三个月前，某头部投资机构投研总监反映其数字员工存在三大痛点：一是缺乏专业领域理解，面对“科创板上市条件”等业务问题仅检索泛泛科普，脱离实际需求；二是无法遵循企业内部分析框架，自由发挥导致产出需大量返工；三是知识与经验无法沉淀复用，同一类报告每次均需从零构建。此类问题在深度使用者中普遍存在，凸显数字员工在专业适配、流程…",
-      "url": "https://mp.weixin.qq.com/s?__biz=Mzg5MjY2ODI4Nw==&mid=2247513674&idx=1&sn=ffc5e2e21241aab7605d3ba793a740f6&chksm=c1c1a3e6ba55a3ecc94435902140acd66111c5386490f9830793214d05e0de58eff67ac2cce8&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-29 17:20 分享"
-    },
-    {
       "id": "543fd515859a",
       "title": "Powerful Compute So Compact, It’s Clutch — Build AI Anywhere With NVIDIA Jetson",
       "summary": "As a discerning AI investor who values style and substance, Sarah Guo knows this season’s standout accessory isn’t the latest designer purse — but what’s insid…",
@@ -240,7 +222,7 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,373",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,376",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
@@ -320,6 +302,15 @@
       "published_at": null
     },
     {
+      "id": "94213dacfa90",
+      "title": "研究实锤：世界模型根本不懂物理定律，属于它的“ChatGPT时刻”还很远",
+      "summary": "近年来，视频生成模型（如Sora、Genie、Cosmos、V-JEPA）推动“世界模型”发展，旨在通过海量视频学习形成物理直觉与世界理解。但现有评估基准难以验证其是否真正遵循物理定律，抑或仅凭统计规律生成表面合理结果。模型缺乏可解释性与因果推理能力，无法像人类（如牛顿）那样抽象出普适物理规律。当前研究亟需构建能检验…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MDE3OTA5NA==&mid=2247606078&idx=1&sn=e2cc7c423cba73ee3c5fa0056fff1d8e&chksm=ce8db6699e8c86d8c7d0b32d6cd24c1547407e06fd157d665b9c3f8020a3a00e4dac70348d3d&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
       "id": "5e689a649359",
       "title": "Inviting hard questions",
       "summary": "Inviting hard questions",
@@ -347,20 +338,29 @@
       "published_at": null
     },
     {
-      "id": "e339f716a02f",
-      "title": "AI+Science论文 | ACL 2026 | EvoSci：一种用于科学发现演化的仿生多智能体框架",
-      "summary": "EvoSci是一个面向科学发现的多智能体协作框架，旨在解决大语言模型在科研工作流程整合与多角色协同方面的不足。该框架通过模拟科学家、工程师、评审者等多元角色，构建动态、可演化的协作机制，支持假设生成、实验设计、结果验证与知识整合等全流程任务。其核心创新在于引入进化式任务分解与角色自适应机制，提升跨学科协作效率与发现质…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU4NTQyNjc5Mg==&mid=2247498104&idx=1&sn=0b348be4183b06d25369b0304caeafe3&chksm=fcd134a31346f122567ebe550de388b2fc25dc6fecda20fe608ed0d541a0becd1f443aee41bc&scene=0&xtrack=1#rd",
-      "source": "智源社区",
+      "id": "ca82959b5057",
+      "title": "国产AI登上《Cell》主刊！搭建统一生物表征空间实现虚拟试药",
+      "summary": "《Cell》主刊发表中国团队UniPert–G2CP研究成果，首次提出解决“化学扰动×细胞特异性响应”难题的AI虚拟细胞算法。该研究突破性地建模了药物在不同遗传背景与细胞类型中的差异化响应机制，为药物研发中长期存在的疗效与毒性预测难题提供新范式。作为国内首个在《Cell》主刊发表的AI虚拟细胞研究，其融合多组学数据与…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907924&idx=3&sn=654ebf40eb186cf7ff0653d51ed2af96&chksm=e9a5b3acf780e64cfdcab638ed6546ebd28946169dea982a6e1b0df23db43125b8ed48d2749a&scene=0&xtrack=1#rd",
+      "source": "量子位",
       "category": "中文资讯",
       "published_at": null
     },
     {
-      "id": "e173e4b35183",
-      "title": "微软CEO纳德拉最新警告：单押一个大模型，是把公司命门交出去",
-      "summary": "微软CEO纳德拉在CNN节目中警告：企业若将AI决策权完全外包给单一通用大模型，丧失对数据、记忆及使用记录的控制，将危及自身存续。他强调，AI不应替代企业核心思考能力，而需作为增强工具；依赖“一个模型包打天下”存在巨大风险，可能导致企业失去自主性与竞争力。纳德拉呼吁企业保持数据主权与AI治理主导权，避免技术依赖带来的…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907924&idx=2&sn=9355c603598cc732cacc6171c375641f&chksm=e9c7931fb0b9ab32897c7eff38458c32707f7dc9506ac8517cb1c97c377077f1cd6e8bfa83a9&scene=0&xtrack=1#rd",
+      "id": "1b4e67f7fe9d",
+      "title": "一年连融三轮数亿元！字节+清华姚班，重构企业软件工程",
+      "summary": "词元无限（Tokens Infinity AI）成立仅一年，已连续完成三轮融资，总金额达数亿元；最新一轮由临芯投资领投、华控基金加码。公司聚焦企业软件工程领域的AI Agent基础设施建设。CEO杨萍曾就职字节跳动，主导开发MarsCode与Trae，并推动数万人级研发体系AI化改造。",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907990&idx=1&sn=412dad7ee674aa61032a84cf575add4e&chksm=e92c0afbfca99db0a35937754a02f878f944ea8d55780fc4f7b03ffa1a4cd38a84f8db71b5b3&scene=126&sessionid=0#rd",
       "source": "量子位",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "85a6c9d2419d",
+      "title": "发展北京·鲁俊群｜从“根技术”到“新范式”的五个问答",
+      "summary": "北京市出台《关于加快智能体引领发展的若干措施》，强调“持续提升基础模型能力”为首要任务。清华大学人工智能国际治理研究院秘书长鲁俊群指出，基础模型是智能体发展的“根技术”，因其直接支撑自主决策、工具调用与长程任务执行等核心能力。作为底层技术基石，基础模型的性能决定智能体的泛化性、可靠性与适应性。政策聚焦算力供给、数据资…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524602&idx=2&sn=fb4a7e1ed98cc4de253d847f80a91064&chksm=fccd89f56334bb36cfbda93da0ced1ef403eb9f3c7d05a4db9ff77ef3184aedfb718d3716259&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     }
