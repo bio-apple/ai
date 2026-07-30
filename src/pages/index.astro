@@ -22,6 +22,9 @@ const schema = mergeSchemaGraphs(
 const brief = pickAiDailyBrief({ models: 3, industry: 2, github: 12, learn: 2 });
 const AGENT_FRAMEWORKS = site.oss_frameworks || [];
 const formatStars = (n = 0) => new Intl.NumberFormat('en-US').format(n);
+const ossUpdatedDate = brief.updatedAt
+  ? new Date(brief.updatedAt).toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' })
+  : '';
 const openSourceItems = AGENT_FRAMEWORKS.map((fw) => ({
   repo: fw.repo,
   name: fw.name,
@@ -128,31 +131,35 @@ const openSourceItems = AGENT_FRAMEWORKS.map((fw) => ({
         <ol class="news-feed-list" aria-label="GitHub Agent 框架 Top10">
           {
             openSourceItems.map((item, index) => (
-              <li class="news-row oss-rank-item">
-                <a
-                  class="news-row-main oss-rank-link"
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-track="oss-click"
-                  aria-label={`第 ${index + 1} 名：${item.name}，${formatStars(item.stars)} stars`}
-                >
-                  <span class="oss-rank-left">
-                    <span class="oss-rank-badge" aria-hidden="true">
-                      #{index + 1}
-                    </span>
-                    <span class="news-row-title oss-rank-title">
-                      <span class="content-type-badge content-type-news" aria-hidden="true">
-                        开源
-                      </span>{' '}
-                      {item.name}
-                      <small class="oss-rank-repo">{item.repo}</small>
-                    </span>{' '}
-                  </span>
-                  <span class="news-row-meta oss-rank-meta">
-                    <span class="news-row-source">GitHub · ★ {formatStars(item.stars)}</span>
-                  </span>
-                </a>
+              <li class="news-row oss-card-item">
+                <article class="oss-card">
+                  <div class="oss-card-head">
+                    <span class="oss-card-source">GitHub</span>
+                    {ossUpdatedDate && <time datetime={brief.updatedAt}>{ossUpdatedDate}</time>}
+                  </div>
+                  <h3 class="oss-card-title">
+                    #{index + 1} {item.name}
+                  </h3>
+                  <p class="oss-card-repo">{item.repo}</p>
+                  <div class="oss-card-chips">
+                    <span class="oss-chip">AI Agent Framework</span>
+                    <span class="oss-chip">开源项目</span>
+                    {index < 3 && <span class="oss-chip oss-chip-top">TOP {index + 1}</span>}
+                  </div>
+                  <p class="oss-card-summary">
+                    GitHub Star：★ {formatStars(item.stars)}，持续维护的 AI agent frameworks 仓库。
+                  </p>
+                  <a
+                    class="oss-card-link"
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="oss-click"
+                    aria-label={`第 ${index + 1} 名：${item.name}，${formatStars(item.stars)} stars`}
+                  >
+                    打开项目 →
+                  </a>
+                </article>
               </li>
             ))
           }
