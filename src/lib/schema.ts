@@ -261,47 +261,6 @@ export function buildNewsSchema(
   };
 }
 
-/** 实战案例：CollectionPage + 文稿 ItemList */
-export function buildLocalDeploySchema(
-  local: {
-    title?: string;
-    lead?: string;
-  },
-  baseUrl: string,
-  guides?: { id: string; title: string; lead?: string }[],
-) {
-  const sectionUrl = `${baseUrl}#section-local`;
-  const items = (guides || []).filter((g) => g?.id && g?.title);
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'CollectionPage',
-        '@id': `${sectionUrl}#local`,
-        name: local.title || '实战案例',
-        description: local.lead || '真实场景的 AI 落地实践与部署案例',
-        url: sectionUrl,
-        inLanguage: 'zh-CN',
-        isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },
-        mainEntity: {
-          '@type': 'ItemList',
-          numberOfItems: items.length,
-          itemListElement: items.map((guide, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            item: {
-              '@type': 'TechArticle',
-              headline: guide.title,
-              description: guide.lead || guide.title,
-              url: `${baseUrl}local/${guide.id}.html`,
-            },
-          })),
-        },
-      },
-    ],
-  };
-}
-
 /** Agent 智能体：CollectionPage + 文稿 ItemList */
 export function buildAgentHubSchema(
   hub: {

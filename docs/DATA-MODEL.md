@@ -161,7 +161,7 @@ nav: {
 | `scenario` | `string` | 适合场景                    |
 | `pricing`  | `string` | 定价说明                    |
 
-构建期由 `src/lib/hub.ts` 的 `buildHubCompareRows()` 为每行附加 `tutorialHref` / `localId`（含即梦 `jimeng`），对比表「工具」列链到 `tools/{id}.html`。
+构建期由 `site.json` → `compare_table` 提供对比专题数据；独立页 `compare/{slug}.html` 消费 `data/compares.json`。工具中心 hub 仅展示三榜排行，不再内嵌对比表。
 
 ### 2.8 其他页面块
 
@@ -336,7 +336,7 @@ nav: {
 | `url`      | `string`  | *    | 独立页相对路径（工具为 `tools/{id}.html`）                                                     |
 | `anchor`   | `string`  | —    | 页内锚点                                                                                       |
 
-**索引约定**：工具只写教程页 URL；工具中心对比表仅一条「导航」入口，**不**再为每个工具名写入 `#hub-compare` 重复项。运行时 `preferSearchHits` 进一步抬升精确匹配与站内教程。
+**索引约定**：工具只写教程页 URL；工具中心仅一条「导航」入口（`tools/hub.html`）。运行时 `preferSearchHits` 进一步抬升精确匹配与站内教程。
 
 联想词不在索引内，而在 `site.hero.search_suggestions`；搜索历史键：`bioai.search.history.v1`。
 
@@ -424,7 +424,7 @@ nav: {
 ### 9.4 `local-deploy.json` + Markdown 文稿
 
 **Schema**：`schemas/local-deploy.schema.json`  
-**维护**：编辑 `data/local-deploy.json`（专区标题 / 导语）；实战文稿放 `content/local-deploy/*.md`（构建生成 `data/local-deploy-guides.json`）
+**维护**：`data/local-deploy.json` 保留专区元信息（可选）；实战文稿放 `content/local-deploy/*.md`（构建生成 `data/local-deploy-guides.json`）
 
 | 字段         | 类型     | 说明         |
 | ------------ | -------- | ------------ |
@@ -432,7 +432,23 @@ nav: {
 | `lead`       | `string` | 导语         |
 | `updated_at` | `string` | 专区更新日期 |
 
-**Markdown 文稿**：`content/local-deploy/*.md` → `data/local-deploy-guides.json`（`guides[]`：`id` / `title` / `html` 等）。首页以列表展示，全文在 `local/{id}.html`。约定见该目录 `README.md`。
+**Markdown 文稿**：`content/local-deploy/*.md` → `data/local-deploy-guides.json`（`guides[]`：`id` / `title` / `html` / `created_at` 等）。详情页 `local/{id}.html`；首页不再展示列表。约定见该目录 `README.md`。
+
+### 9.5 `agent-hub.json` + Markdown 文稿
+
+**Schema**：`schemas/agent-hub.schema.json`  
+**维护**：编辑 `data/agent-hub.json`（专区标题 / 分类卡片）；文稿放 `content/agent-hub/*.md`
+
+| 字段         | 类型     | 说明         |
+| ------------ | -------- | ------------ |
+| `title`      | `string` | 专区标题     |
+| `lead`       | `string` | 导语         |
+| `updated_at` | `string` | 专区更新日期 |
+| `categories` | `array`  | 分类卡片列表 |
+
+**Markdown 文稿**：`content/agent-hub/*.md` → `data/agent-hub-guides.json`。首页 `#section-agent` 展示列表，全文在 `agent/{id}.html`。
+
+校验：`DIST=dist python3 scripts/validate_ci.py agent`
 
 校验：`DIST=dist python3 scripts/validate_ci.py local`
 

@@ -18,7 +18,7 @@ function writeLegacyRedirects(outDir) {
   const stubs = [
     { rel: 'labs/index.html', to: '/ai/tools/hub.html', label: 'AI 工具中心' },
     { rel: 'cases/index.html', to: '/ai/tools/hub.html', label: 'AI 工具中心' },
-    { rel: 'prompts/library.html', to: '/ai/index.html#section-local', label: '实战案例' },
+    { rel: 'prompts/library.html', to: '/ai/local/ollama-open-webui.html', label: '实战案例' },
     { rel: 'local/agent.html', to: '/ai/agent/agent.html', label: 'Agent智能体' },
   ];
   for (const stub of stubs) {

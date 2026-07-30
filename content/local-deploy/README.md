@@ -8,9 +8,9 @@ npm run build
 node scripts/build-local-guides.mjs
 ```
 
-构建会自动扫描本目录，生成 `data/local-deploy-guides.json`。
+构建会自动扫描本目录，生成 `data/local-deploy-guides.json`，并为每篇文稿生成独立详情页：`/ai/local/{id}.html`。
 
-首页「实战案例」专区只展示**文稿列表**（标题、摘要、元信息），点击进入独立详情页：`/ai/local/{id}.html`。
+文稿可通过站内搜索与内链访问；首页不再展示实战案例列表专区。
 
 ## 约定
 
@@ -30,10 +30,11 @@ lead: 一句话摘要
 order: 10
 audience: Linux 服务器
 stack: [Ollama, systemd]
+created_at: 2026-07-30
 draft: false
 ---
 
 正文支持标题、段落、列表、引用与 ``` 代码块。
 ````
 
-`order` 越小越靠前（默认 `100`）。
+`order` 越小越靠前（默认 `100`）。`created_at` 可省略，构建时会从文件元数据自动补全。

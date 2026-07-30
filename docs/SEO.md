@@ -4,35 +4,35 @@
 
 ## 已落地项
 
-| 编号    | 项               | 实现                                                                           |
-| ------- | ---------------- | ------------------------------------------------------------------------------ |
-| SEO-001 | Title            | `data/site.json` → `meta.title`，各页经 `SeoHead.astro` 输出                   |
-| SEO-002 | Description      | `meta.description` + 各页独立 `description` prop                               |
-| SEO-003 | Open Graph       | `SeoHead.astro`：og:title/description/image/url + Twitter Card + 微信 itemprop |
-| SEO-004 | Favicon          | 根目录 `favicon.svg` → `Favicon.astro`                                         |
-| SEO-005 | robots.txt       | 根目录 `robots.txt`，构建时同步至 `dist/`                                      |
-| SEO-006 | sitemap          | `@astrojs/sitemap` → `sitemap-index.xml`                                       |
-| SEO-007 | GitHub Repo      | 见下方维护者清单（需在 GitHub 设置）                                           |
-| SEO-008 | JSON-LD          | `src/lib/schema.ts` → Layout 注入 `application/ld+json`                        |
-| SEO-009 | 新闻/实战案例 LD | 新闻页 `NewsArticle` ItemList；首页实战案例 `ItemList` → `SoftwareApplication` |
-| SEO-010 | 可见面包屑       | UI：`Breadcrumb.astro`（专区 / 独立页）；结构化：各页 `BreadcrumbList`         |
+| 编号    | 项            | 实现                                                                           |
+| ------- | ------------- | ------------------------------------------------------------------------------ |
+| SEO-001 | Title         | `data/site.json` → `meta.title`，各页经 `SeoHead.astro` 输出                   |
+| SEO-002 | Description   | `meta.description` + 各页独立 `description` prop                               |
+| SEO-003 | Open Graph    | `SeoHead.astro`：og:title/description/image/url + Twitter Card + 微信 itemprop |
+| SEO-004 | Favicon       | 根目录 `favicon.svg` → `Favicon.astro`                                         |
+| SEO-005 | robots.txt    | 根目录 `robots.txt`，构建时同步至 `dist/`                                      |
+| SEO-006 | sitemap       | `@astrojs/sitemap` → `sitemap-index.xml`                                       |
+| SEO-007 | GitHub Repo   | 见下方维护者清单（需在 GitHub 设置）                                           |
+| SEO-008 | JSON-LD       | `src/lib/schema.ts` → Layout 注入 `application/ld+json`                        |
+| SEO-009 | 新闻/Agent LD | 新闻页 `NewsArticle` ItemList；首页 Agent `ItemList` → `TechArticle`           |
+| SEO-010 | 可见面包屑    | UI：`Breadcrumb.astro`（专区 / 独立页）；结构化：各页 `BreadcrumbList`         |
 
 ## JSON-LD 结构化数据（SEO-008）
 
-| 页面          | Schema 类型                                                               | 生成函数（`src/lib/schema.ts`）          | 说明                           |
-| ------------- | ------------------------------------------------------------------------- | ---------------------------------------- | ------------------------------ |
-| 首页          | `WebSite` + `FAQPage` + `ItemList` + …                                    | `buildHomeSchema` 等                     | 全站 + 排行榜 FAQ              |
-| 首页课程 Tab  | `CollectionPage` → `ItemList` → `Course`                                  | `buildCoursesSchema`                     | 自 `ai-courses.json`           |
-| 首页实战案例  | `ItemList` → `TechArticle`                                                | `buildLocalDeploySchema`                 | 自 `local-deploy-guides.json`  |
-| 新闻页 / 热点 | `ItemList` → `NewsArticle`                                                | `buildNewsSchema`                        | 自 `ai-news.json`              |
-| 工具独立页    | `WebPage` + `SoftwareApplication` + `LearningResource` + `BreadcrumbList` | `buildToolSchema`                        | 官方链取 `type_class=official` |
-| 对比 / 指南等 | `WebPage` / `Article`                                                     | `buildPageSchema` / `buildCompareSchema` | —                              |
+| 页面           | Schema 类型                                                               | 生成函数（`src/lib/schema.ts`）          | 说明                           |
+| -------------- | ------------------------------------------------------------------------- | ---------------------------------------- | ------------------------------ |
+| 首页           | `WebSite` + `FAQPage` + `ItemList` + …                                    | `buildHomeSchema` 等                     | 全站 + 排行榜 FAQ              |
+| 首页课程 Tab   | `CollectionPage` → `ItemList` → `Course`                                  | `buildCoursesSchema`                     | 自 `ai-courses.json`           |
+| 首页 Agent Tab | `CollectionPage` → `ItemList` → `TechArticle`                             | `buildAgentHubSchema`                    | 自 `agent-hub-guides.json`     |
+| 新闻页 / 热点  | `ItemList` → `NewsArticle`                                                | `buildNewsSchema`                        | 自 `ai-news.json`              |
+| 工具独立页     | `WebPage` + `SoftwareApplication` + `LearningResource` + `BreadcrumbList` | `buildToolSchema`                        | 官方链取 `type_class=official` |
+| 对比 / 指南等  | `WebPage` / `Article`                                                     | `buildPageSchema` / `buildCompareSchema` | —                              |
 
 多段 Schema 可用 `mergeSchemaGraphs` 合并为 `@graph` 注入。
 
 注入位置：`HomeLayout.astro`、`StandaloneLayout.astro` 的 `<script type="application/ld+json">`。
 
-**可见面包屑（UX）**与 JSON-LD 并列：首页专区（实战案例/课程/新闻/视频）与独立页通过 `Breadcrumb.astro` / `StandalonePageHeader` 展示「首页 / …」；详见 [FRONTEND.md](./FRONTEND.md)。
+**可见面包屑（UX）**与 JSON-LD 并列：首页专区（Agent / 课程 / 新闻 / 视频）与独立页通过 `Breadcrumb.astro` / `StandalonePageHeader` 展示「首页 / …」；详见 [FRONTEND.md](./FRONTEND.md)。
 
 验收：
 
@@ -83,7 +83,7 @@ https://bio-apple.github.io/ai/
 - [ ] `https://bio-apple.github.io/ai/robots.txt` 可访问
 - [ ] `https://bio-apple.github.io/ai/sitemap-index.xml` 可访问
 - [ ] Lighthouse SEO ≥ 90（本地 `npm run build` 后测 `dist/index.html`）
-- [ ] 首页含 `Course` / `CollectionPage` / 实战案例 `SoftwareApplication`；工具页含 `SoftwareApplication`；新闻含 `NewsArticle`（`validate_ci.py jsonld`）
+- [ ] 首页含 `Course` / `CollectionPage` / Agent `TechArticle`；工具页含 `SoftwareApplication`；新闻含 `NewsArticle`（`validate_ci.py jsonld`）
 - [ ] 首页与关键独立页含完整 OG / Twitter Card（`validate_ci.py opengraph`）
 
 ## 禁止事项

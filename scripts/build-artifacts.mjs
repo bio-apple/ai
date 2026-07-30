@@ -213,7 +213,7 @@ function buildSearchIndex(site, tools, compares) {
   items.push({
     label: '实战案例',
     type: '频道',
-    section: 'section-local',
+    url: 'local/ollama-open-webui.html',
     keywords:
       '实战案例 Ollama LM Studio llama.cpp vLLM Open WebUI Jan GPT4All LocalAI MLX 私有化 本机大模型 部署',
   });
@@ -233,7 +233,7 @@ function buildSearchIndex(site, tools, compares) {
   items.push({
     label: 'Ollama 本地大模型',
     type: '实战案例',
-    section: 'section-local',
+    url: 'local/ollama-open-webui.html',
     keywords: 'Ollama 实战案例 本机跑模型 Open WebUI llama.cpp LM Studio 部署',
   });
   items.push({
@@ -241,7 +241,7 @@ function buildSearchIndex(site, tools, compares) {
     type: '导航',
     url: 'tools/hub.html',
     keywords:
-      '工具中心 对比表 AICPB AI产品榜 排行 ChatGPT New Bing Gemini Claude DeepSeek 豆包 Kimi Copilot cursor 即梦 官方教程',
+      '工具中心 AICPB AI产品榜 排行 ChatGPT New Bing Gemini Claude DeepSeek 豆包 Kimi Copilot cursor 即梦 官方教程',
   });
   items.push({
     label: 'AI 学习路线图',

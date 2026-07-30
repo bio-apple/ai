@@ -13,15 +13,15 @@
 | 入口 | 顶栏（全站）+ 首页 Hero（`GlobalSearch.astro`）                                   |
 | 提交 | 输入框右侧放大镜按钮（`.site-search-submit`）；支持 Enter / `search` 事件跳转首条 |
 | 下拉 | Hero / Nav 展开时均为 `position: fixed`，避免 sticky / overflow 裁切              |
-| 排序 | `preferSearchHits`：精确标签与 `tools/*.html` 优先，压低 `hub.html#hub-compare`   |
+| 排序 | `preferSearchHits`：精确标签与 `tools/*.html` 优先                                |
 | 索引 | 构建时 `scripts/build-artifacts.mjs` → `search-index.json`（约 150 条）           |
-| 覆盖 | 工具教程、对比、资讯、实战案例、课程、视频、排行榜模型名、频道/导航               |
+| 覆盖 | 工具教程、对比专题、资讯、实战案例、Agent、课程、视频、排行榜模型名、频道/导航    |
 | 工具 | 条目来自 `tools.json`，`label` 为工具原名，`url` 为 `tools/{id}.html`             |
 | 联想 | 聚焦空输入显示 `site.hero.search_suggestions` chips                               |
 | 历史 | `localStorage` 键 `bioai.search.history.v1`（最多 8 条）                          |
 | 引擎 | Fuse.js（`vendor/fuse.min.js`）                                                   |
 
-**注意**：工具中心对比表只写入一条「导航」索引；**不再**为每个工具名写入指向 `#hub-compare` 的重复「工具」项，避免搜「ChatGPT」误跳对比表。
+**注意**：工具中心仅写入一条「导航」索引（`tools/hub.html`），工具名直达各自教程页。
 
 本地验收：`npm run build && DIST=dist python3 scripts/validate_ci.py search`  
 E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
@@ -44,23 +44,25 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 ## 3. 面包屑
 
-| 项       | 说明                                                                   |
-| -------- | ---------------------------------------------------------------------- |
-| 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用         |
-| 首页专区 | 实战案例 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
-| 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                 |
-| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                         |
+| 项       | 说明                                                                      |
+| -------- | ------------------------------------------------------------------------- |
+| 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用            |
+| 首页专区 | Agent智能体 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
+| 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                    |
+| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                            |
 
 ---
 
-## 4. 工具中心对比表
+## 4. 工具中心排行
 
-| 项   | 说明                                                                   |
-| ---- | ---------------------------------------------------------------------- |
-| 页面 | `tools/hub.html`（`src/pages/tools/hub.astro`）                        |
-| 逻辑 | `src/lib/hub.ts` → `buildHubCompareRows()` 映射工具名 → `tutorialHref` |
-| UI   | 「工具」列链到站内教程 `tools/{id}.html`（含 **即梦** `jimeng`）       |
-| 样式 | `.hub-compare-link`（`css/labs.css`）                                  |
+| 项   | 说明                                                      |
+| ---- | --------------------------------------------------------- |
+| 页面 | `tools/hub.html`（`src/pages/tools/hub.astro`）           |
+| 逻辑 | `src/lib/hub.ts` → `buildHubRankingBoards()`，各榜 Top 10 |
+| UI   | 三榜 Tab（AICPB / LMSYS / AA）+ 中文方法说明              |
+| 样式 | `css/labs.css`（`.hub-ranking-*`）                        |
+
+对比专题见独立页 `compare/{slug}.html`（`data/compares.json`），不在工具中心 hub 展示。
 
 ---
 
@@ -132,21 +134,29 @@ trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型'
 
 ---
 
-## 8. 实战案例
+## 8. Agent智能体
 
-`HomeLocalDeploy.astro` 构建期 SSG 渲染：
+`HomeAgentHub.astro` 构建期 SSG 渲染：
 
-- 专区元信息：`data/local-deploy.json`（标题 / 导语 / 更新日）
-- **实战文稿列表**：自动扫描 `content/local-deploy/*.md` → `data/local-deploy-guides.json`（`scripts/build-local-guides.mjs`，prebuild 调用）；首页只列标题/摘要，不内嵌全文
-- **详情页**：`local/{id}.html`（`src/pages/local/[slug].astro`）
+- 专区元信息与分类卡片：`data/agent-hub.json`
+- **实战文稿列表**：`content/agent-hub/*.md` → `data/agent-hub-guides.json`（`scripts/build-local-guides.mjs`）
+- **详情页**：`agent/{id}.html`（`src/pages/agent/[slug].astro`）
 
-新增文稿：把 Markdown 放入 `content/local-deploy/`，执行 `npm run build`（或 `node scripts/build-local-guides.mjs`）。详见该目录 `README.md`。
-
-Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
+Tab：`#section-agent`（nav id `agent`）；无需懒加载脚本。
 
 ---
 
-## 9. AI 视频
+## 9. 实战案例（独立详情页）
+
+- 文稿：`content/local-deploy/*.md` → `data/local-deploy-guides.json`
+- 详情页：`local/{id}.html`（`src/pages/local/[slug].astro`）
+- 首页不再展示列表专区；通过搜索与内链访问
+
+新增文稿：把 Markdown 放入对应目录，执行 `npm run build`。详见各目录 `README.md`。
+
+---
+
+## 10. AI 视频
 
 | 项   | 说明                                                                                              |
 | ---- | ------------------------------------------------------------------------------------------------- |
@@ -160,7 +170,7 @@ Tab：`#section-local`（nav id `local`）；无需懒加载脚本。
 
 ---
 
-## 10. 链接安全与失效兜底
+## 11. 链接安全与失效兜底
 
 `lib/link-guard.js`（全站 Layout 默认加载）：
 
@@ -172,7 +182,7 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ---
 
-## 11. 响应式与首屏
+## 12. 响应式与首屏
 
 | 项       | 实现                                                       |
 | -------- | ---------------------------------------------------------- |
@@ -185,15 +195,15 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ---
 
-## 12. 首页产品入口
+## 13. 首页产品入口
 
 | 组件                     | 作用                                      |
 | ------------------------ | ----------------------------------------- |
 | `HomeAiMap.astro`        | AI 领域嵌套层级图（原生 HTML，简报后）    |
-| `HomeQuickFilters.astro` | 快筛：实战案例 / AI 资讯 / 工具教程       |
+| `HomeQuickFilters.astro` | 快筛：Agent智能体 / AI 资讯 / 工具教程    |
 | `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
 | `HomeRecommend.astro`    | AI 推荐助手（含现实实例）                 |
-| `HomeLocalDeploy.astro`  | 实战案例（SSG，`#section-local`）         |
+| `HomeAgentHub.astro`     | Agent智能体（SSG，`#section-agent`）      |
 | `Breadcrumb.astro`       | 专区页「首页 / …」面包屑                  |
 | 新闻列表                 | `今日` / `本周` 时间过滤 + 分类筛选       |
 
@@ -201,9 +211,9 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ---
 
-## 13. 懒加载与首屏脚本
+## 14. 懒加载与首屏脚本
 
-`lazy-sections.js`：进入 Tab 再加载业务脚本（`section-local` 为 SSG，不在此列）。
+`lazy-sections.js`：进入 Tab 再加载业务脚本（`section-agent` 为 SSG，不在此列）。
 
 | Section           | 脚本链                             |
 | ----------------- | ---------------------------------- |
