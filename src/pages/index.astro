@@ -31,6 +31,18 @@ const AGENT_KEYWORDS = [
   /smolagents/i,
   /智能体/u,
 ];
+const AGENT_FALLBACK = [
+  { title: 'microsoft/autogen', url: 'https://github.com/microsoft/autogen' },
+  { title: 'langchain-ai/langgraph', url: 'https://github.com/langchain-ai/langgraph' },
+  { title: 'crewAIInc/crewAI', url: 'https://github.com/crewAIInc/crewAI' },
+  { title: 'microsoft/semantic-kernel', url: 'https://github.com/microsoft/semantic-kernel' },
+  { title: 'OpenBMB/ChatDev', url: 'https://github.com/OpenBMB/ChatDev' },
+  { title: 'geekan/MetaGPT', url: 'https://github.com/geekan/MetaGPT' },
+  { title: 'All-Hands-AI/OpenHands', url: 'https://github.com/All-Hands-AI/OpenHands' },
+  { title: 'Significant-Gravitas/AutoGPT', url: 'https://github.com/Significant-Gravitas/AutoGPT' },
+  { title: 'langgenius/dify', url: 'https://github.com/langgenius/dify' },
+  { title: 'huggingface/smolagents', url: 'https://github.com/huggingface/smolagents' },
+];
 const parseStars = (title = '') => {
   const m = String(title).match(/★\s*([\d,]+)/);
   return m ? Number(String(m[1]).replace(/,/g, '')) || 0 : 0;
@@ -47,8 +59,14 @@ const isAgentRepo = (item: {
 const agentItems = githubAll
   .filter(isAgentRepo)
   .sort((a, b) => parseStars(b.title) - parseStars(a.title));
-const fillItems = githubAll.filter((item) => !agentItems.some((x) => x.url === item.url));
-const openSourceItems = [...agentItems, ...fillItems].slice(0, 10);
+const fallbackItems = AGENT_FALLBACK.filter(
+  (item) => !agentItems.some((x) => x.url === item.url),
+).map((item) => ({
+  title: item.title,
+  url: item.url,
+  source: 'GitHub',
+}));
+const openSourceItems = [...agentItems, ...fallbackItems].slice(0, 10);
 ---
 
 <HomeLayout
