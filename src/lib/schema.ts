@@ -261,28 +261,17 @@ export function buildNewsSchema(
   };
 }
 
-/** 本地部署：ItemList(SoftwareApplication) */
+/** 本地部署：CollectionPage + 文稿 ItemList */
 export function buildLocalDeploySchema(
   local: {
     title?: string;
     lead?: string;
-    categories?: {
-      label: string;
-      items?: {
-        name: string;
-        url: string;
-        summary?: string;
-        tagline?: string;
-        platforms?: string[];
-      }[];
-    }[];
   },
   baseUrl: string,
+  guides?: { id: string; title: string; lead?: string }[],
 ) {
   const sectionUrl = `${baseUrl}#section-local`;
-  const items = (local.categories || []).flatMap((c) =>
-    (c.items || []).map((p) => ({ ...p, category: c.label })),
-  );
+  const items = (guides || []).filter((g) => g?.id && g?.title);
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -290,23 +279,21 @@ export function buildLocalDeploySchema(
         '@type': 'CollectionPage',
         '@id': `${sectionUrl}#local`,
         name: local.title || '本地部署',
-        description: local.lead || '本机与私有环境大模型部署工具',
+        description: local.lead || '本机与私有环境大模型部署实战文稿',
         url: sectionUrl,
         inLanguage: 'zh-CN',
         isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },
         mainEntity: {
           '@type': 'ItemList',
           numberOfItems: items.length,
-          itemListElement: items.map((p, index) => ({
+          itemListElement: items.map((guide, index) => ({
             '@type': 'ListItem',
             position: index + 1,
             item: {
-              '@type': 'SoftwareApplication',
-              name: p.name,
-              description: p.summary || p.tagline || p.name,
-              url: p.url,
-              applicationCategory: 'DeveloperApplication',
-              operatingSystem: (p.platforms || []).join(', ') || undefined,
+              '@type': 'TechArticle',
+              headline: guide.title,
+              description: guide.lead || guide.title,
+              url: `${baseUrl}local/${guide.id}.html`,
             },
           })),
         },

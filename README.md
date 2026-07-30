@@ -98,7 +98,7 @@ python3 scripts/fetch_daily_videos.py
 | 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                              |
 | 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；00:00 日更）                |
 | 热度基准     | `data/engagement.json`                                                    |
-| 本地部署     | `data/local-deploy.json`；实战文稿放 `content/local-deploy/*.md`          |
+| 本地部署     | `data/local-deploy.json`（专区元信息）；文稿 `content/local-deploy/*.md` |
 | 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                  |
 | 新闻源       | `config/news-fetch.yaml`                                                  |
 | 视频源       | `config/video-fetch.yaml`                                                 |

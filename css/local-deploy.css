@@ -111,9 +111,9 @@
 }
 
 .local-guides {
-  margin-top: 28px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
 }
 
 .local-guides-head {

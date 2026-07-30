@@ -11,7 +11,7 @@ const OUT = path.join(ROOT, '.tmp-search-index-test');
 test('buildArtifacts expands search index with content types', () => {
   fs.rmSync(OUT, { recursive: true, force: true });
   const { searchIndex } = buildArtifacts(OUT);
-  assert.ok(searchIndex.length >= 120, `expected >=120 entries, got ${searchIndex.length}`);
+  assert.ok(searchIndex.length >= 110, `expected >=110 entries, got ${searchIndex.length}`);
 
   const types = new Set(searchIndex.map((item) => item.type));
   for (const expected of ['课程', '资讯', '本地部署', '视频', '模型']) {

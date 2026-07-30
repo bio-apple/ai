@@ -424,18 +424,15 @@ nav: {
 ### 9.4 `local-deploy.json` + Markdown 文稿
 
 **Schema**：`schemas/local-deploy.schema.json`  
-**维护**：工具精选编辑 `data/local-deploy.json`；实战文稿放 `content/local-deploy/*.md`（构建生成 `data/local-deploy-guides.json`）
+**维护**：编辑 `data/local-deploy.json`（专区标题 / 导语）；实战文稿放 `content/local-deploy/*.md`（构建生成 `data/local-deploy-guides.json`）
 
 | 字段         | 类型     | 说明         |
 | ------------ | -------- | ------------ |
 | `title`      | `string` | 专区标题     |
 | `lead`       | `string` | 导语         |
-| `updated_at` | `string` | 精选更新日期 |
-| `categories` | `array`  | 分类列表     |
+| `updated_at` | `string` | 专区更新日期 |
 
-**Markdown 文稿**：`content/local-deploy/*.md` → `data/local-deploy-guides.json`（`guides[]`：`id` / `title` / `html` 等）。首页以列表展示，全文在 `local/{id}.html`。约定见该目录 `README.md`。  
-**`categories[]`**：`id`, `label`, `blurb`（可选）, `items[]`  
-**`items[]`**：`id`, `name`, `summary`, `url`（必填）；`tagline`, `docs_url`, `guide_href`（如 `local/{id}.html`）, `platforms[]`, `tags[]`（可选）
+**Markdown 文稿**：`content/local-deploy/*.md` → `data/local-deploy-guides.json`（`guides[]`：`id` / `title` / `html` 等）。首页以列表展示，全文在 `local/{id}.html`。约定见该目录 `README.md`。
 
 校验：`DIST=dist python3 scripts/validate_ci.py local`
 

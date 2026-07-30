@@ -23,7 +23,7 @@
 | ------------- | ------------------------------------------------------------------------- | ---------------------------------------- | ------------------------------ |
 | 首页          | `WebSite` + `FAQPage` + `ItemList` + …                                    | `buildHomeSchema` 等                     | 全站 + 排行榜 FAQ              |
 | 首页课程 Tab  | `CollectionPage` → `ItemList` → `Course`                                  | `buildCoursesSchema`                     | 自 `ai-courses.json`           |
-| 首页本地部署  | `ItemList` → `SoftwareApplication`                                        | `buildLocalDeploySchema`                 | 自 `local-deploy.json`         |
+| 首页本地部署  | `ItemList` → `TechArticle`                                                | `buildLocalDeploySchema`                 | 自 `local-deploy-guides.json`  |
 | 新闻页 / 热点 | `ItemList` → `NewsArticle`                                                | `buildNewsSchema`                        | 自 `ai-news.json`              |
 | 工具独立页    | `WebPage` + `SoftwareApplication` + `LearningResource` + `BreadcrumbList` | `buildToolSchema`                        | 官方链取 `type_class=official` |
 | 对比 / 指南等 | `WebPage` / `Article`                                                     | `buildPageSchema` / `buildCompareSchema` | —                              |

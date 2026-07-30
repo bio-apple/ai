@@ -457,9 +457,7 @@ def validate_local_deploy() -> None:
         raise FileNotFoundError("data/local-deploy.json 缺失")
     data = json.loads(path.read_text(encoding="utf-8"))
     Draft202012Validator(_load_schema("local-deploy.schema.json")).validate(data)
-    cats = data.get("categories") or []
-    items = sum(len(c.get("items") or []) for c in cats)
-    print(f"✓ local-deploy.json schema ({len(cats)} 分类 / {items} 条目)")
+    print(f"✓ local-deploy.json schema ({data.get('title', '')})")
 
     content_dir = REPO / "content" / "local-deploy"
     md_files = sorted(

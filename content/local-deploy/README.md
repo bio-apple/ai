@@ -14,13 +14,12 @@ node scripts/build-local-guides.mjs
 
 ## 约定
 
-| 项            | 说明                                                             |
-| ------------- | ---------------------------------------------------------------- |
-| 文件名        | `*.md`（`README.md` 不会被收录）                                 |
-| `id`          | 默认取文件名（不含扩展名），可用 frontmatter `id` 覆盖           |
-| 详情页        | `local/{id}.html`（`src/pages/local/[slug].astro`）              |
-| 卡片链接      | `data/local-deploy.json` 的 `guide_href`（如 `local/{id}.html`） |
-| `draft: true` | 跳过，不发布                                                     |
+| 项            | 说明                                                   |
+| ------------- | ------------------------------------------------------ |
+| 文件名        | `*.md`（`README.md` 不会被收录）                       |
+| `id`          | 默认取文件名（不含扩展名），可用 frontmatter `id` 覆盖 |
+| 详情页        | `local/{id}.html`（`src/pages/local/[slug].astro`）    |
+| `draft: true` | 跳过，不发布                                           |
 
 ## Frontmatter 示例
 

@@ -137,10 +137,10 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(localCrumb).toContainText('首页');
     await expect(localCrumb).toContainText('本地部署');
     await expect(localCrumb.locator('a', { hasText: '首页' })).toBeVisible();
-    await expect(page.locator('#section-local .local-card').first()).toBeVisible();
     await expect(
       page.locator('#section-local .local-guide-list .local-guide-item').first(),
     ).toBeVisible();
+    await expect(page.locator('#section-local .local-card')).toHaveCount(0);
     await expect(page.locator('#section-local .local-guide-html')).toHaveCount(0);
     await expect(page.locator('.nav-tab', { hasText: '本地部署' })).toBeVisible();
 
