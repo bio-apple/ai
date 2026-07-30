@@ -195,9 +195,14 @@
     return el;
   }
 
+  function siteBase() {
+    const raw = document.documentElement?.dataset?.base || '/ai/';
+    return raw.endsWith('/') ? raw : `${raw}/`;
+  }
+
   async function loadIndex() {
     try {
-      const res = await fetch('search-index.json', { cache: 'default' });
+      const res = await fetch(`${siteBase()}search-index.json`, { cache: 'default' });
       if (!res.ok) return;
       index = await res.json();
       if (typeof Fuse !== 'undefined' && Array.isArray(index) && index.length) {

@@ -806,13 +806,6 @@
 }
 
 /* Scroll animations — 具体过渡见 css/motion.css（translate3d） */
-.fade-in {
-  opacity: 0;
-}
-
-.fade-in.visible {
-  opacity: 1;
-}
 
 .recommend-card-lead {
   font-size: 0.72rem;

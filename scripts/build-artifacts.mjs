@@ -30,7 +30,9 @@ function readRootJson(name) {
 }
 
 function appendNewsSearchItems(items, aiNews, { limit = 50 } = {}) {
-  for (const item of (aiNews?.items || []).slice(0, limit)) {
+  // GitHub Trending 已进「开源精选」索引，避免同 URL 重复命中
+  const rows = (aiNews?.items || []).filter((item) => !/GitHub/i.test(item?.source || ''));
+  for (const item of rows.slice(0, limit)) {
     if (!item?.title) continue;
     const isModel =
       item.category === '新模型发布' ||
@@ -274,7 +276,7 @@ function buildSearchIndex(site, tools, compares) {
     type: '场景',
     section: 'section-home',
     keywords: '编程 写代码 开发 Cursor Copilot Codex',
-    anchor: 'home-tools',
+    anchor: 'home-recommend',
   });
   items.push({
     label: '写作翻译办公',
@@ -288,7 +290,7 @@ function buildSearchIndex(site, tools, compares) {
     type: '场景',
     section: 'section-home',
     keywords: '免费 DeepSeek 豆包 Kimi',
-    anchor: 'home-tools',
+    anchor: 'home-recommend',
   });
   items.push({
     label: '今日 AI 简报',
