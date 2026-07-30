@@ -21,52 +21,41 @@ const schema = mergeSchemaGraphs(
 );
 const brief = pickAiDailyBrief({ models: 3, industry: 2, github: 12, learn: 2 });
 const githubAll = brief.githubAll?.length ? brief.githubAll : brief.github;
-const AGENT_KEYWORDS = [
-  /agent/i,
-  /autogpt/i,
-  /openhands/i,
-  /langgraph/i,
-  /dify/i,
-  /crewai/i,
-  /smolagents/i,
-  /智能体/u,
-];
-const AGENT_FALLBACK = [
-  { title: 'microsoft/autogen', url: 'https://github.com/microsoft/autogen' },
-  { title: 'langchain-ai/langgraph', url: 'https://github.com/langchain-ai/langgraph' },
-  { title: 'crewAIInc/crewAI', url: 'https://github.com/crewAIInc/crewAI' },
-  { title: 'microsoft/semantic-kernel', url: 'https://github.com/microsoft/semantic-kernel' },
-  { title: 'OpenBMB/ChatDev', url: 'https://github.com/OpenBMB/ChatDev' },
-  { title: 'geekan/MetaGPT', url: 'https://github.com/geekan/MetaGPT' },
-  { title: 'All-Hands-AI/OpenHands', url: 'https://github.com/All-Hands-AI/OpenHands' },
-  { title: 'Significant-Gravitas/AutoGPT', url: 'https://github.com/Significant-Gravitas/AutoGPT' },
-  { title: 'langgenius/dify', url: 'https://github.com/langgenius/dify' },
-  { title: 'huggingface/smolagents', url: 'https://github.com/huggingface/smolagents' },
+const AGENT_FRAMEWORKS = [
+  { repo: 'microsoft/autogen', name: 'AutoGen' },
+  { repo: 'langchain-ai/langgraph', name: 'LangGraph' },
+  { repo: 'crewAIInc/crewAI', name: 'CrewAI' },
+  { repo: 'microsoft/semantic-kernel', name: 'Semantic Kernel' },
+  { repo: 'OpenBMB/ChatDev', name: 'ChatDev' },
+  { repo: 'geekan/MetaGPT', name: 'MetaGPT' },
+  { repo: 'All-Hands-AI/OpenHands', name: 'OpenHands' },
+  { repo: 'Significant-Gravitas/AutoGPT', name: 'AutoGPT' },
+  { repo: 'langgenius/dify', name: 'Dify' },
+  { repo: 'huggingface/smolagents', name: 'smolagents' },
 ];
 const parseStars = (title = '') => {
   const m = String(title).match(/★\s*([\d,]+)/);
   return m ? Number(String(m[1]).replace(/,/g, '')) || 0 : 0;
 };
-const isAgentRepo = (item: {
-  title?: string;
-  summary?: string;
-  source?: string;
-  category?: string;
-}) => {
-  const haystack = `${item.title || ''} ${item.summary || ''} ${item.category || ''}`;
-  return AGENT_KEYWORDS.some((re) => re.test(haystack));
-};
-const agentItems = githubAll
-  .filter(isAgentRepo)
-  .sort((a, b) => parseStars(b.title) - parseStars(a.title));
-const fallbackItems = AGENT_FALLBACK.filter(
-  (item) => !agentItems.some((x) => x.url === item.url),
-).map((item) => ({
-  title: item.title,
-  url: item.url,
-  source: 'GitHub',
-}));
-const openSourceItems = [...agentItems, ...fallbackItems].slice(0, 10);
+const frameworkItems = AGENT_FRAMEWORKS.map((fw) => {
+  const directUrl = `https://github.com/${fw.repo}`;
+  const hit = githubAll.find(
+    (item) =>
+      String(item.url || '').toLowerCase() === directUrl.toLowerCase() ||
+      String(item.title || '')
+        .toLowerCase()
+        .includes(fw.repo.toLowerCase()),
+  );
+  return (
+    hit || {
+      title: fw.repo,
+      url: directUrl,
+      source: 'GitHub',
+      category: 'Agent Framework',
+    }
+  );
+}).sort((a, b) => parseStars(b.title) - parseStars(a.title));
+const openSourceItems = frameworkItems.slice(0, 10);
 ---
 
 <HomeLayout
