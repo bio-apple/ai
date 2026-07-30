@@ -16,7 +16,7 @@ flowchart TB
     M3["data/compares.json — 对比专题"]
     M4["data/rankings.json — 排行榜（可脚本刷新）"]
     M5["data/engagement.json — 热度基准"]
-    M6["data/local-deploy.json — 本地部署精选"]
+    M6["data/local-deploy.json — 实战案例精选"]
   end
 
   subgraph auto["自动抓取（定时 / 手动脚本）"]
@@ -41,7 +41,7 @@ flowchart TB
 | ------------- | ------------------------ | ----------------------- | ------------------------------- |
 | **站点配置**  | `data/site.json`         | 运营/开发               | push `main` → 自动构建部署      |
 | **工具教程**  | `data/tools.json`        | 运营/开发               | 同上                            |
-| **本地部署**  | `data/local-deploy.json` | 运营/开发               | 同上（手工精选，非日更抓取）    |
+| **实战案例**  | `data/local-deploy.json` | 运营/开发               | 同上（手工精选，非日更抓取）    |
 | **动态频道**  | `ai-news.json` 等        | GitHub Actions 定时抓取 | 脚本 commit → 触发 `deploy.yml` |
 | **搜索/推荐** | `search-index.json`      | 构建时自动生成          | `npm run build` 时产出          |
 
@@ -313,7 +313,7 @@ git add data/rankings.json && git commit -m "chore: refresh rankings" && git pus
 | 推荐场景芯片 / 现实实例 | `site.json` → `ai_picker.options`（含 `examples[]`）                        | 重建后更新 `recommend-rules.json`                    |
 | 工具中心对比表          | `site.json` → `compare_table`                                               | hub 构建时链到 `tools/{id}.html`                     |
 | 热度展示基准            | `data/engagement.json`                                                      | `tools[].id` 不可重复                                |
-| 本地部署                | `data/local-deploy.json`（元信息）；文稿 Markdown → `content/local-deploy/` | 手工维护；改 `updated_at`；CI `validate_ci.py local` |
+| 实战案例                | `data/local-deploy.json`（元信息）；文稿 Markdown → `content/local-deploy/` | 手工维护；改 `updated_at`；CI `validate_ci.py local` |
 | AI 领域地图             | `HomeAiMap.astro` + `.ai-map*`                                              | 首页 `#home-ai-map` 原生层级图；见 FRONTEND.md       |
 
 字段定义详见 [DATA-MODEL.md](./DATA-MODEL.md)。
@@ -477,7 +477,7 @@ git commit -m "revert: 回滚坏批次" && git push
 - [ ] 「AI 视频」「新闻热点」最新批次为今日或昨日
 - [ ] 「课程资源」「排行榜」`updated_at` 在 2 天内
 - [ ] 「课程资源」五条路线均有课（每路线 ≤5）
-- [ ] 「本地部署」文稿列表与详情页可访问（`content/local-deploy/*.md`）
+- [ ] 「实战案例」文稿列表与详情页可访问（`content/local-deploy/*.md`）
 - [ ] 无未关闭的 `[ops]` Issue（含 Dead Link / 抓取失败）
 - [ ] [daily-refresh](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) 无未处理失败
 - [ ] 本地或 CI 构建后搜索可用（顶栏 / Hero 联想与「ChatGPT」→ 教程页）

@@ -47,7 +47,7 @@ flowchart TB
 
 | 层级   | 技术                   | 职责                                                         |
 | ------ | ---------------------- | ------------------------------------------------------------ |
-| 内容层 | `data/` + 抓取脚本     | 站点文案、工具、对比、排行、本地部署；新闻/视频/课程定时刷新 |
+| 内容层 | `data/` + 抓取脚本     | 站点文案、工具、对比、排行、实战案例；新闻/视频/课程定时刷新 |
 | 构建层 | Astro 5 SSG + prebuild | 编译 ~22 个 HTML 页，打包 CSS/JS，生成搜索索引               |
 | 交付层 | GitHub Pages           | 托管 `dist/`，无服务端运行时                                 |
 | 交互层 | 原生 JS + Fuse.js      | Tab、全站搜索、推荐、漏斗埋点、虚拟列表、链接兜底            |
@@ -175,10 +175,10 @@ flowchart TB
 | ---------- | --------------------------------------------- | ------------------------------------ | --------------------------------------------------------- |
 | **构建期** | `data/site.json` 等                           | Astro 页面、`src/lib/*.ts`           | `import` 进 HTML，SEO/结构化数据在 SSG 时固化             |
 | **运行时** | `ai-news.json`、`daily-videos.latest.json` 等 | `news.js`、`videos.js`、`courses.js` | 页面加载后 `fetch`；视频仅发布瘦身 latest，完整历史留仓库 |
-| **运行时** | `search-index.json`                           | `app.js`、`knowledge.js`、顶栏搜索   | Fuse.js 全文检索（工具/资讯/本地部署/课程/视频/模型）     |
+| **运行时** | `search-index.json`                           | `app.js`、`knowledge.js`、顶栏搜索   | Fuse.js 全文检索（工具/资讯/实战案例/课程/视频/模型）     |
 | **运行时** | `recommend-rules.json`                        | `recommend.js`                       | 场景关键词 → 工具 + 现实实例 + 步骤                       |
 
-首页是 **混合模式**：Hero / 导航 / 推荐场景 / 本地部署 / 面包屑在构建期渲染；新闻/视频/课程 Tab 由 JS 懒加载对应 JSON。
+首页是 **混合模式**：Hero / 导航 / 推荐场景 / 实战案例 / 面包屑在构建期渲染；新闻/视频/课程 Tab 由 JS 懒加载对应 JSON。
 
 ### 3.4 客户端模块（浏览器）
 
@@ -190,7 +190,7 @@ flowchart TB
 | 漏斗     | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich                           |
 | 虚拟列表 | `lib/virtual-list.js`           | 榜单 / GitHub 热门（视频区已改为整页网格）                    |
 | 链接兜底 | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404                              |
-| 本地部署 | `HomeLocalDeploy.astro`         | SSG 文稿列表；全文 `local/{id}.html`；`#section-local`        |
+| 实战案例 | `HomeLocalDeploy.astro`         | SSG 文稿列表；全文 `local/{id}.html`；`#section-local`        |
 | 懒加载   | `lazy-sections.js`              | Tab 进入后再拉 `fetch-json` + 业务脚本（不含 section-local）  |
 | 知识助手 | `knowledge.js`                  | idle / FAB 交互后再加载；面板内焦点陷阱                       |
 | 工具中心 | `hub.ts` + `hub.astro`          | 对比表「工具」列 → `tools/{id}.html`（含 jimeng）             |

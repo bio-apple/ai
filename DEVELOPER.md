@@ -58,7 +58,7 @@ dist/                 # 构建产物（不提交）
 | 新工具教程     | `data/tools.json` + `site.home_tool_categories` / `compare_table` + `tool-relations.json`          |
 | 工具中心对比行 | `site.compare_table`（`src/lib/hub.ts` 映射名→id）                                                 |
 | 推荐现实实例   | `site.ai_picker.options[].examples`                                                                |
-| 本地部署条目   | `data/local-deploy.json`                                                                           |
+| 实战案例条目   | `data/local-deploy.json`                                                                           |
 | 必学课程       | `config/courses-fetch.yaml` → `required` / `hubs`；更新 `validate_ci.py` 中 `REQUIRED_COURSE_URLS` |
 | 课程路线       | `track_order` / `track_keywords` → 重跑 `fetch_ai_courses.py`                                      |
 | AI 领域地图    | `HomeAiMap.astro` / `css/home.css`（`#home-ai-map`）                                               |

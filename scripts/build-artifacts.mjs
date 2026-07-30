@@ -68,14 +68,14 @@ function appendLocalDeploySearchItems(items, guidesPayload) {
     items.push({
       id: `local-guide-${guide.id}`,
       label: guide.title,
-      type: '本地部署',
+      type: '实战案例',
       url: `local/${guide.id}.html`,
       keywords: [
         guide.title,
         guide.lead,
         guide.audience,
         ...(guide.stack || []),
-        '本地部署',
+        '实战案例',
         '实战文稿',
         guide.source,
       ]
@@ -161,11 +161,11 @@ function buildSearchIndex(site, tools, compares) {
       'AI新闻 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace arXiv GitHub Trending 机器之心 量子位 新智元 智源 每周',
   });
   items.push({
-    label: '本地部署',
+    label: '实战案例',
     type: '频道',
     section: 'section-local',
     keywords:
-      '本地部署 Ollama LM Studio llama.cpp vLLM Open WebUI Jan GPT4All LocalAI MLX 私有化 本机大模型',
+      '实战案例 Ollama LM Studio llama.cpp vLLM Open WebUI Jan GPT4All LocalAI MLX 私有化 本机大模型 部署',
   });
   items.push({
     label: 'AI 课程资源',
@@ -176,9 +176,9 @@ function buildSearchIndex(site, tools, compares) {
   });
   items.push({
     label: 'Ollama 本地大模型',
-    type: '本地部署',
+    type: '实战案例',
     section: 'section-local',
-    keywords: 'Ollama 本地部署 本机跑模型 Open WebUI llama.cpp LM Studio',
+    keywords: 'Ollama 实战案例 本机跑模型 Open WebUI llama.cpp LM Studio 部署',
   });
   items.push({
     label: 'AI 工具中心',

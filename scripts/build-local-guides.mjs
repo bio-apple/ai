@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * 扫描 content/local-deploy/*.md → data/local-deploy-guides.json
- * 放入 Markdown 后执行 npm run build（或 prebuild）即可出现在「本地部署」专区。
+ * 放入 Markdown 后执行 npm run build（或 prebuild）即可出现在「实战案例」专区。
  */
 import fs from 'node:fs';
 import path from 'node:path';

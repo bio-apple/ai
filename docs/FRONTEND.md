@@ -15,7 +15,7 @@
 | 下拉 | Hero / Nav 展开时均为 `position: fixed`，避免 sticky / overflow 裁切              |
 | 排序 | `preferSearchHits`：精确标签与 `tools/*.html` 优先，压低 `hub.html#hub-compare`   |
 | 索引 | 构建时 `scripts/build-artifacts.mjs` → `search-index.json`（约 150 条）           |
-| 覆盖 | 工具教程、对比、资讯、本地部署、课程、视频、排行榜模型名、频道/导航               |
+| 覆盖 | 工具教程、对比、资讯、实战案例、课程、视频、排行榜模型名、频道/导航               |
 | 工具 | 条目来自 `tools.json`，`label` 为工具原名，`url` 为 `tools/{id}.html`             |
 | 联想 | 聚焦空输入显示 `site.hero.search_suggestions` chips                               |
 | 历史 | `localStorage` 键 `bioai.search.history.v1`（最多 8 条）                          |
@@ -47,7 +47,7 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 | 项       | 说明                                                                   |
 | -------- | ---------------------------------------------------------------------- |
 | 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用         |
-| 首页专区 | 本地部署 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
+| 首页专区 | 实战案例 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
 | 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                 |
 | SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                         |
 
@@ -132,7 +132,7 @@ trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型'
 
 ---
 
-## 8. 本地部署
+## 8. 实战案例
 
 `HomeLocalDeploy.astro` 构建期 SSG 渲染：
 
@@ -190,10 +190,10 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 | 组件                     | 作用                                      |
 | ------------------------ | ----------------------------------------- |
 | `HomeAiMap.astro`        | AI 领域嵌套层级图（原生 HTML，简报后）    |
-| `HomeQuickFilters.astro` | 快筛：本地部署 / AI 资讯 / 工具教程       |
+| `HomeQuickFilters.astro` | 快筛：实战案例 / AI 资讯 / 工具教程       |
 | `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
 | `HomeRecommend.astro`    | AI 推荐助手（含现实实例）                 |
-| `HomeLocalDeploy.astro`  | 本地部署（SSG，`#section-local`）         |
+| `HomeLocalDeploy.astro`  | 实战案例（SSG，`#section-local`）         |
 | `Breadcrumb.astro`       | 专区页「首页 / …」面包屑                  |
 | 新闻列表                 | `今日` / `本周` 时间过滤 + 分类筛选       |
 
