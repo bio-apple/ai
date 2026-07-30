@@ -55,6 +55,10 @@
 }
 
 .daily-vl-row .daily-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
   font-size: 0.72rem;
   color: var(--text-muted);
 }

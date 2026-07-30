@@ -22,6 +22,7 @@ import yaml
 from fetch_resilience import atomic_write_json, fetch_url_bytes, load_json
 from news_dedupe import (
     assert_news_unique,
+    clean_news_items,
     dedupe_news_items,
     news_recency_key,
     normalize_news_title,
@@ -474,8 +475,8 @@ def main() -> int:
     collected.extend(parse_github_trending(cfg))
 
     recent = filter_recent(collected, cfg)
-    # 去重 → 多样性挑选 → 再次去重兜底，写入前再断言唯一
-    items = dedupe_news_items(select_diverse_items(dedupe_news_items(recent), cfg))
+    # 去重 → 多样性挑选 → 再次去重兜底 → 剥离标题尾部源站名 → 写入前再断言唯一
+    items = clean_news_items(dedupe_news_items(select_diverse_items(dedupe_news_items(recent), cfg)))
     assert_news_unique(items)
 
     today = datetime.now(TZ).strftime("%Y-%m-%d")

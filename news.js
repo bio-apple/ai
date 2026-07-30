@@ -78,6 +78,97 @@ function normalizeNewsTitle(title) {
     .replace(/\s+/g, ' ');
 }
 
+const KNOWN_TRAILING_SOURCES = [
+  'OpenAI',
+  'Anthropic',
+  '量子位',
+  '机器之心',
+  '新智元',
+  '智源社区',
+  '智源',
+  'Google DeepMind',
+  'DeepMind',
+  'Google AI',
+  'NVIDIA AI',
+  'NVIDIA Blog',
+  'Hugging Face',
+  'HuggingFace',
+  'TechCrunch',
+  'The Verge',
+  'VentureBeat',
+  'arXiv cs.AI',
+  'arXiv',
+  'GitHub Trending',
+  'GitHub',
+];
+
+const TRAILING_SOURCE_SEP = /[\s|/·•・\-–—｜：:]+$/;
+
+function sourceAliases(source) {
+  const raw = String(source || '')
+    .normalize('NFKC')
+    .trim();
+  if (!raw) return [];
+  const aliases = new Set([raw]);
+  const parts = raw.split(/\s+/);
+  if (parts.length > 1) {
+    aliases.add(parts[0]);
+    aliases.add(parts[parts.length - 1]);
+  }
+  for (const suffix of [' Blog', ' News', ' 社区']) {
+    if (raw.endsWith(suffix) && raw.length > suffix.length + 1) {
+      aliases.add(raw.slice(0, -suffix.length).trim());
+    }
+  }
+  return [...aliases].sort((a, b) => b.length - a.length);
+}
+
+/** 去掉标题尾部粘连的源站名，留给独立 badge */
+function stripTrailingSource(title, source = '') {
+  let text = String(title || '')
+    .replace(/\u3000/g, ' ')
+    .trim();
+  if (!text) return text;
+
+  const seen = new Set();
+  const candidates = [];
+  for (const alias of [...sourceAliases(source), ...KNOWN_TRAILING_SOURCES]) {
+    const key = alias.toLowerCase();
+    if (!alias || seen.has(key)) continue;
+    seen.add(key);
+    candidates.push(alias);
+  }
+
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const alias of candidates) {
+      const esc = alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const sepRe = new RegExp(`(?:[\\s|/·•・\\-–—｜：:]+)${esc}\\s*$`, 'i');
+      let m = text.match(sepRe);
+      if (m) {
+        text = text.slice(0, m.index).replace(TRAILING_SOURCE_SEP, '').trim();
+        changed = true;
+        break;
+      }
+      if (/[\u4e00-\u9fff]/.test(alias)) {
+        const cjkRe = new RegExp(`(?<=[\\u4e00-\\u9fff\\W])${esc}\\s*$`);
+        m = text.match(cjkRe);
+        if (m) {
+          text = text.slice(0, m.index).replace(TRAILING_SOURCE_SEP, '').trim();
+          changed = true;
+          break;
+        }
+      }
+    }
+  }
+  return text.trim();
+}
+
+function displayNewsTitle(item) {
+  return stripTrailingSource(item?.title || '', item?.source || '');
+}
+
 /** 标题或 URL 相同只保留最新 published_at（与 scripts/news_dedupe.py 一致） */
 function dedupeNewsItems(items) {
   const sorted = [...(items || [])].sort((a, b) => {
@@ -137,9 +228,12 @@ function groupNewsBySource(items) {
 
 function renderNewsRow(item, { hideSource = false } = {}) {
   const summary = truncateText(item.summary, 68);
+  const title = displayNewsTitle(item);
   const metaParts = [];
   if (!hideSource && item.source) {
-    metaParts.push(`<span class="news-row-source">${escapeHtml(item.source)}</span>`);
+    metaParts.push(
+      `<span class="news-row-source news-source-badge">${escapeHtml(item.source)}</span>`,
+    );
   }
   if (item.published_at) {
     metaParts.push(
@@ -149,7 +243,7 @@ function renderNewsRow(item, { hideSource = false } = {}) {
   return `
     <li class="news-row${hideSource ? ' news-row-in-source' : ''}">
       <a class="news-row-main" href="${escapeHtml(item.url)}" target="_blank" rel="${extRel()}" data-track="news-click">
-        <span class="news-row-title"><span class="content-type-badge content-type-news" aria-hidden="true">资讯</span> ${escapeHtml(item.title)}</span>
+        <span class="news-row-title"><span class="content-type-badge content-type-news" aria-hidden="true">资讯</span> ${escapeHtml(title)}</span>
         ${metaParts.length ? `<span class="news-row-meta">${metaParts.join('')}</span>` : ''}
       </a>
       ${summary ? `<p class="news-row-summary">${escapeHtml(summary)}</p>` : ''}

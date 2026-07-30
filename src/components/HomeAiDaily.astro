@@ -1,5 +1,10 @@
 ---
-import { pickAiDailyBrief, formatNewsDate, formatPublishDate } from '../lib/runtime';
+import {
+  pickAiDailyBrief,
+  formatNewsDate,
+  formatPublishDate,
+  displayNewsTitle,
+} from '../lib/runtime';
 import { asset } from '../lib/paths';
 
 const brief = pickAiDailyBrief();
@@ -33,8 +38,12 @@ const brief = pickAiDailyBrief();
                 data-track="daily_panel_click"
                 data-track-panel="models"
               >
-                <span class="daily-item-title">{item.title}</span>
-                <span class="daily-item-meta">{item.source || item.category || ''}</span>
+                <span class="daily-item-title">{displayNewsTitle(item)}</span>
+                {(item.source || item.category) && (
+                  <span class="daily-item-meta">
+                    <span class="news-source-badge">{item.source || item.category}</span>
+                  </span>
+                )}
               </a>
             </li>
           ))
@@ -50,7 +59,7 @@ const brief = pickAiDailyBrief();
         id="daily-github-data"
         set:html={JSON.stringify(
           (brief.githubAll?.length ? brief.githubAll : brief.github).map((item) => ({
-            title: item.title,
+            title: displayNewsTitle(item),
             url: item.url,
             meta: item.category || item.source || 'GitHub',
           })),
@@ -73,8 +82,12 @@ const brief = pickAiDailyBrief();
                   data-track="daily_panel_click"
                   data-track-panel="github"
                 >
-                  <span class="daily-item-title">{item.title}</span>
-                  <span class="daily-item-meta">{item.category || item.source || 'GitHub'}</span>
+                  <span class="daily-item-title">{displayNewsTitle(item)}</span>
+                  <span class="daily-item-meta">
+                    <span class="news-source-badge">
+                      {item.category || item.source || 'GitHub'}
+                    </span>
+                  </span>
                 </a>
               </li>
             ))
@@ -106,8 +119,12 @@ const brief = pickAiDailyBrief();
                 data-track="daily_panel_click"
                 data-track-panel="industry"
               >
-                <span class="daily-item-title">{item.title}</span>
-                <span class="daily-item-meta">{item.source || ''}</span>
+                <span class="daily-item-title">{displayNewsTitle(item)}</span>
+                {item.source && (
+                  <span class="daily-item-meta">
+                    <span class="news-source-badge">{item.source}</span>
+                  </span>
+                )}
               </a>
             </li>
           ))
@@ -134,12 +151,12 @@ const brief = pickAiDailyBrief();
               >
                 <span class="daily-item-title">{v.title}</span>
                 <span class="daily-item-meta">
-                  {[
-                    v.platform === 'bilibili' ? 'B站' : 'YouTube',
-                    formatPublishDate(v.published_at),
-                  ]
-                    .filter(Boolean)
-                    .join(' · ')}
+                  <span class="news-source-badge">
+                    {v.platform === 'bilibili' ? 'B站' : 'YouTube'}
+                  </span>
+                  {formatPublishDate(v.published_at) && (
+                    <span class="daily-item-date">{formatPublishDate(v.published_at)}</span>
+                  )}
                 </span>
               </a>
             </li>

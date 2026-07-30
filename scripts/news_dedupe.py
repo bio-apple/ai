@@ -5,15 +5,129 @@
 
 from __future__ import annotations
 
-import json
+import re
 import unicodedata
 from typing import Any
+
+# 标题尾部常见源站名（OG/RSS 常写成「标题 | OpenAI」）
+_KNOWN_TRAILING_SOURCES = (
+    "OpenAI",
+    "Anthropic",
+    "量子位",
+    "机器之心",
+    "新智元",
+    "智源社区",
+    "智源",
+    "Google DeepMind",
+    "DeepMind",
+    "Google AI",
+    "NVIDIA AI",
+    "NVIDIA Blog",
+    "Hugging Face",
+    "HuggingFace",
+    "TechCrunch",
+    "The Verge",
+    "VentureBeat",
+    "arXiv cs.AI",
+    "arXiv",
+    "GitHub Trending",
+    "GitHub",
+)
+
+_TRAILING_SEP = r"[\s\|/·•・\-–—\uFF5C\uFF0F\uFF1A:：]+"
 
 
 def normalize_news_title(title: str) -> str:
     text = unicodedata.normalize("NFKC", title or "")
     text = text.replace("\u3000", " ")
     return " ".join(text.split()).casefold()
+
+
+def _source_aliases(source: str) -> list[str]:
+    raw = unicodedata.normalize("NFKC", source or "").strip()
+    if not raw:
+        return []
+    aliases = {raw}
+    parts = raw.split()
+    if len(parts) > 1:
+        aliases.add(parts[0])
+        aliases.add(parts[-1])
+    # 去掉常见后缀词
+    for suffix in (" Blog", " News", " 社区"):
+        if raw.endswith(suffix) and len(raw) > len(suffix) + 1:
+            aliases.add(raw[: -len(suffix)].strip())
+    return sorted(aliases, key=len, reverse=True)
+
+
+def strip_trailing_source(title: str, source: str = "") -> str:
+    """去掉标题尾部粘连的源站名（「… | OpenAI」「…量子位」），留给独立 badge。"""
+    # 不整串 NFKC：以免把全角「！」等改成半角，改变展示文案
+    text = (title or "").replace("\u3000", " ").strip()
+    if not text:
+        return text
+
+    candidates: list[str] = []
+    seen: set[str] = set()
+    for alias in [*_source_aliases(source), *_KNOWN_TRAILING_SOURCES]:
+        key = alias.casefold()
+        if not alias or key in seen:
+            continue
+        seen.add(key)
+        candidates.append(alias)
+
+    changed = True
+    while changed:
+        changed = False
+        for alias in candidates:
+            # 带分隔符：「Title | OpenAI」「Title - 量子位」
+            pat_sep = re.compile(
+                rf"(?:{_TRAILING_SEP}){re.escape(alias)}\s*$",
+                re.IGNORECASE,
+            )
+            match = pat_sep.search(text)
+            if match:
+                text = text[: match.start()].rstrip(" \t|-·•–—｜：:/")
+                changed = True
+                break
+
+            # 中文源站无分隔符粘连：「……量子位」
+            if re.search(r"[\u4e00-\u9fff]", alias):
+                pat_cjk = re.compile(rf"(?<=[\u4e00-\u9fff\W]){re.escape(alias)}\s*$")
+                match = pat_cjk.search(text)
+                if match:
+                    text = text[: match.start()].rstrip(" \t|-·•–—｜：:/")
+                    changed = True
+                    break
+
+            # 英文源站：仅当前一字符为空白/标点时剥离（避免误伤 SomethingOpenAI）
+            if re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9 .&+-]*", alias):
+                pat_lat = re.compile(
+                    rf"(?<=[\s\|/·•・\-–—\uFF5C:：]){re.escape(alias)}\s*$",
+                    re.IGNORECASE,
+                )
+                match = pat_lat.search(text)
+                if match:
+                    text = text[: match.start()].rstrip(" \t|-·•–—｜：:/")
+                    changed = True
+                    break
+
+    return text.strip()
+
+
+def clean_news_item_title(item: dict[str, Any]) -> dict[str, Any]:
+    """返回标题已剥离尾部源站名的浅拷贝。"""
+    title = str(item.get("title") or "")
+    source = str(item.get("source") or "")
+    cleaned = strip_trailing_source(title, source)
+    if cleaned == title:
+        return item
+    out = dict(item)
+    out["title"] = cleaned
+    return out
+
+
+def clean_news_items(items: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [clean_news_item_title(item) for item in items]
 
 
 def news_recency_key(item: dict[str, Any]) -> str:

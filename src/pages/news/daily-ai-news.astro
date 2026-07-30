@@ -4,6 +4,7 @@ import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import { site } from '../../lib/data';
 import { buildNewsSchema, mergeSchemaGraphs, buildPageSchema } from '../../lib/schema';
 import { homeHref } from '../../lib/paths';
+import { displayNewsTitle } from '../../lib/runtime';
 import newsPayload from '../../../ai-news.json';
 
 const page = site.news_page;
@@ -77,10 +78,12 @@ function formatNewsDate(raw: string | undefined) {
                       <span class="content-type-badge content-type-news" aria-hidden="true">
                         资讯
                       </span>{' '}
-                      {item.title}
+                      {displayNewsTitle(item)}
                     </span>
                     <span class="news-row-meta">
-                      {item.source && <span class="news-row-source">{item.source}</span>}
+                      {item.source && (
+                        <span class="news-row-source news-source-badge">{item.source}</span>
+                      )}
                       {item.published_at && (
                         <span class="news-row-date">{formatNewsDate(item.published_at)}</span>
                       )}

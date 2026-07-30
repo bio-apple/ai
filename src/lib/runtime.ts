@@ -88,6 +88,93 @@ export function formatPublishDate(iso?: string): string {
   }
 }
 
+const KNOWN_TRAILING_SOURCES = [
+  'OpenAI',
+  'Anthropic',
+  '量子位',
+  '机器之心',
+  '新智元',
+  '智源社区',
+  '智源',
+  'Google DeepMind',
+  'DeepMind',
+  'Google AI',
+  'NVIDIA AI',
+  'NVIDIA Blog',
+  'Hugging Face',
+  'HuggingFace',
+  'TechCrunch',
+  'The Verge',
+  'VentureBeat',
+  'arXiv cs.AI',
+  'arXiv',
+  'GitHub Trending',
+  'GitHub',
+] as const;
+
+function sourceAliases(source: string): string[] {
+  const raw = (source || '').normalize('NFKC').trim();
+  if (!raw) return [];
+  const aliases = new Set<string>([raw]);
+  const parts = raw.split(/\s+/);
+  if (parts.length > 1) {
+    aliases.add(parts[0]);
+    aliases.add(parts[parts.length - 1]);
+  }
+  for (const suffix of [' Blog', ' News', ' 社区']) {
+    if (raw.endsWith(suffix) && raw.length > suffix.length + 1) {
+      aliases.add(raw.slice(0, -suffix.length).trim());
+    }
+  }
+  return [...aliases].sort((a, b) => b.length - a.length);
+}
+
+/** 去掉标题尾部粘连的源站名（「… | OpenAI」「…量子位」） */
+export function stripTrailingSource(title: string, source = ''): string {
+  // 不整串 NFKC，避免全角标点被改成半角
+  let text = (title || '').replace(/\u3000/g, ' ').trim();
+  if (!text) return text;
+
+  const seen = new Set<string>();
+  const candidates: string[] = [];
+  for (const alias of [...sourceAliases(source), ...KNOWN_TRAILING_SOURCES]) {
+    const key = alias.toLowerCase();
+    if (!alias || seen.has(key)) continue;
+    seen.add(key);
+    candidates.push(alias);
+  }
+
+  const trimEnd = (s: string) => s.replace(/[\s|/·•・\-–—｜：:]+$/u, '').trim();
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const alias of candidates) {
+      const esc = alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const sepRe = new RegExp(`(?:[\\s|/·•・\\-–—｜：:]+)${esc}\\s*$`, 'i');
+      let m = text.match(sepRe);
+      if (m && m.index != null) {
+        text = trimEnd(text.slice(0, m.index));
+        changed = true;
+        break;
+      }
+      if (/[\u4e00-\u9fff]/u.test(alias)) {
+        const cjkRe = new RegExp(`(?<=[\\u4e00-\\u9fff\\W])${esc}\\s*$`, 'u');
+        m = text.match(cjkRe);
+        if (m && m.index != null) {
+          text = trimEnd(text.slice(0, m.index));
+          changed = true;
+          break;
+        }
+      }
+    }
+  }
+  return text.trim();
+}
+
+export function displayNewsTitle(item: Pick<NewsItem, 'title' | 'source'>): string {
+  return stripTrailingSource(item.title || '', item.source || '');
+}
+
 export function dedupeNewsItems(items: NewsItem[]): NewsItem[] {
   const sorted = [...items].sort((a, b) => {
     const ta = a.published_at ? Date.parse(a.published_at) : 0;

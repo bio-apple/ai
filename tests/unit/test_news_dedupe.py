@@ -14,12 +14,39 @@ from news_dedupe import (  # noqa: E402
     dedupe_news_items,
     find_news_duplicates,
     normalize_news_title,
+    strip_trailing_source,
 )
 
 
 class NewsDedupeTest(unittest.TestCase):
     def test_normalize_title_nfkc_and_casefold(self):
         self.assertEqual(normalize_news_title("  ＡＩ\u3000News  "), "ai news")
+
+    def test_strip_trailing_source_with_separator(self):
+        self.assertEqual(
+            strip_trailing_source("How GPT-5.6 fuses efficiency | OpenAI", "OpenAI"),
+            "How GPT-5.6 fuses efficiency",
+        )
+        self.assertEqual(
+            strip_trailing_source("国产AI登上《Cell》主刊！ - 量子位", "量子位"),
+            "国产AI登上《Cell》主刊！",
+        )
+
+    def test_strip_trailing_source_cjk_glued(self):
+        self.assertEqual(
+            strip_trailing_source("一年连融三轮数亿元！字节+清华姚班量子位", "量子位"),
+            "一年连融三轮数亿元！字节+清华姚班",
+        )
+
+    def test_strip_keeps_mid_title_brand(self):
+        self.assertEqual(
+            strip_trailing_source("这这这…翁荔光速回OpenAI上班了", "量子位"),
+            "这这这…翁荔光速回OpenAI上班了",
+        )
+        self.assertEqual(
+            strip_trailing_source("Introducing Claude Opus 5", "Anthropic"),
+            "Introducing Claude Opus 5",
+        )
 
     def test_dedupe_keeps_newer_by_url(self):
         items = [
