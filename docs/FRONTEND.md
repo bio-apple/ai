@@ -44,12 +44,12 @@ E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
 
 ## 3. 面包屑
 
-| 项       | 说明                                                                      |
-| -------- | ------------------------------------------------------------------------- |
-| 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用            |
+| 项       | 说明                                                                   |
+| -------- | ---------------------------------------------------------------------- |
+| 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用         |
 | 首页专区 | 开源精选 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
-| 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                    |
-| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                            |
+| 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                 |
+| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                         |
 
 ---
 

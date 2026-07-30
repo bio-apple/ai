@@ -182,18 +182,18 @@ flowchart TB
 
 ### 3.4 客户端模块（浏览器）
 
-| 模块        | 文件                            | 职责                                                              |
-| ----------- | ------------------------------- | ----------------------------------------------------------------- |
-| 搜索        | `app.js` + `GlobalSearch.astro` | 多实例 Fuse；fixed 下拉；`preferSearchHits`；提交按钮 / Enter     |
-| 领域地图    | `HomeAiMap.astro`               | 简报后原生 HTML 嵌套层级图；跟主题 / 窄屏；非 Hero、非位图        |
-| 面包屑      | `Breadcrumb.astro`              | 专区「首页 / …」；独立页经 `StandalonePageHeader`                 |
-| 漏斗        | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich                               |
-| 虚拟列表    | `lib/virtual-list.js`           | 榜单 / GitHub 热门（视频区已改为整页网格）                        |
-| 链接兜底    | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404                                  |
-| 开源精选    | `index.astro` `#section-oss`    | `site.json` → `oss_frameworks`；按 stars Top10；`.oss-card*`      |
-| 懒加载      | `lazy-sections.js`              | Tab 进入后再拉 `fetch-json` + 业务脚本（不含 section-oss）        |
-| 知识助手    | `knowledge.js`                  | idle / FAB 交互后再加载；面板内焦点陷阱                           |
-| 工具中心    | `hub.ts` + `hub.astro`          | 三榜 Top 10 排行（AICPB / LMSYS / AA）                            |
+| 模块     | 文件                            | 职责                                                          |
+| -------- | ------------------------------- | ------------------------------------------------------------- |
+| 搜索     | `app.js` + `GlobalSearch.astro` | 多实例 Fuse；fixed 下拉；`preferSearchHits`；提交按钮 / Enter |
+| 领域地图 | `HomeAiMap.astro`               | 简报后原生 HTML 嵌套层级图；跟主题 / 窄屏；非 Hero、非位图    |
+| 面包屑   | `Breadcrumb.astro`              | 专区「首页 / …」；独立页经 `StandalonePageHeader`             |
+| 漏斗     | `funnel.js` → `analytics.js`    | `journey_id` / `funnel_step` enrich                           |
+| 虚拟列表 | `lib/virtual-list.js`           | 榜单 / GitHub 热门（视频区已改为整页网格）                    |
+| 链接兜底 | `lib/link-guard.js`             | noreferrer、图片兜底、GitHub 404                              |
+| 开源精选 | `index.astro` `#section-oss`    | `site.json` → `oss_frameworks`；按 stars Top10；`.oss-card*`  |
+| 懒加载   | `lazy-sections.js`              | Tab 进入后再拉 `fetch-json` + 业务脚本（不含 section-oss）    |
+| 知识助手 | `knowledge.js`                  | idle / FAB 交互后再加载；面板内焦点陷阱                       |
+| 工具中心 | `hub.ts` + `hub.astro`          | 三榜 Top 10 排行（AICPB / LMSYS / AA）                        |
 
 详见 [FRONTEND.md](./FRONTEND.md)。
 

@@ -63,16 +63,16 @@ python3 scripts/fetch_daily_videos.py
 
 ### 前端能力（摘要）
 
-| 能力         | 说明                                                                       |
-| ------------ | -------------------------------------------------------------------------- |
-| 全站搜索     | 顶栏 + Hero；fixed 下拉；工具名直达 `tools/*.html`；联想 / 历史 / 搜索按钮 |
-| 首页领域地图 | `HomeAiMap`：闭合椭圆 SVG 关系图（简报后，跟主题）                         |
-| 面包屑       | 专区与独立页统一「首页 / …」                                               |
-| 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                         |
-| 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等           |
-| 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                    |
-| 开源精选     | 首页专区：`oss_frameworks` Top10 卡片（`#section-oss` · `.oss-card*`）     |
-| 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示               |
+| 能力         | 说明                                                                           |
+| ------------ | ------------------------------------------------------------------------------ |
+| 全站搜索     | 顶栏 + Hero；fixed 下拉；工具名直达 `tools/*.html`；联想 / 历史 / 搜索按钮     |
+| 首页领域地图 | `HomeAiMap`：闭合椭圆 SVG 关系图（简报后，跟主题）                             |
+| 面包屑       | 专区与独立页统一「首页 / …」                                                   |
+| 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                             |
+| 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等               |
+| 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                        |
+| 开源精选     | 首页专区：`oss_frameworks` Top10 卡片（`#section-oss` · `.oss-card*`）         |
+| 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示                   |
 | SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 开源精选 ItemList）+ BreadcrumbList |
 
 详见 [docs/FRONTEND.md](./docs/FRONTEND.md)。

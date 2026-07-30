@@ -60,7 +60,7 @@ dist/                 # 构建产物（不提交）
 | 工具中心排行  | `data/rankings.json`；展示条数 `src/lib/hub.ts` → `HUB_RANKING_TOP_N`                              |
 | 对比专题      | `data/compares.json`（独立页，非工具中心 hub）                                                     |
 | 推荐现实实例  | `site.ai_picker.options[].examples`                                                                |
-| 开源精选入口  | `data/site.json` → `oss_frameworks`（首页 `#section-oss`，按 stars Top10） |
+| 开源精选入口  | `data/site.json` → `oss_frameworks`（首页 `#section-oss`，按 stars Top10）                         |
 | 实战案例文稿  | `content/local-deploy/*.md` → `local/{id}.html`                                                    |
 | 必学课程      | `config/courses-fetch.yaml` → `required` / `hubs`；更新 `validate_ci.py` 中 `REQUIRED_COURSE_URLS` |
 | 课程路线      | `track_order` / `track_keywords` → 重跑 `fetch_ai_courses.py`                                      |

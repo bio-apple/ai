@@ -176,12 +176,12 @@ nav: {
 
 首页 `#section-oss` 数据源，在 `src/pages/index.astro` 按 `stars` 降序取 Top 10，渲染 `.oss-card*`。
 
-| 字段      | 类型     | 必填 | 说明                          |
-| --------- | -------- | ---- | ----------------------------- |
-| `repo`    | `string` | ✅   | GitHub `owner/name`           |
-| `name`    | `string` | ✅   | 显示名                        |
-| `stars`   | `number` | ✅   | Star 数（排序依据）           |
-| `summary` | `string` | —    | 一句话摘要（卡片与 JSON-LD）  |
+| 字段      | 类型     | 必填 | 说明                         |
+| --------- | -------- | ---- | ---------------------------- |
+| `repo`    | `string` | ✅   | GitHub `owner/name`          |
+| `name`    | `string` | ✅   | 显示名                       |
+| `stars`   | `number` | ✅   | Star 数（排序依据）          |
+| `summary` | `string` | —    | 一句话摘要（卡片与 JSON-LD） |
 
 JSON-LD：`buildHomeSchema` 将 Top10 写入 OSS `ItemList`（见 [SEO.md](./SEO.md)）。
 
@@ -340,16 +340,16 @@ JSON-LD：`buildHomeSchema` 将 Top10 写入 OSS `ItemList`（见 [SEO.md](./SEO
 **消费**：`app.js`（顶栏 / Hero 多实例）、`knowledge.js`  
 **校验**：`DIST=dist python3 scripts/validate_ci.py search`
 
-| 字段       | 类型      | 必填 | 说明                                                                                           |
-| ---------- | --------- | ---- | ---------------------------------------------------------------------------------------------- |
-| `label`    | `string`  | ✅   | 显示标题（工具为原名，如 `ChatGPT`）                                                           |
-| `keywords` | `string`  | ✅   | Fuse 检索文本                                                                                  |
+| 字段       | 类型      | 必填 | 说明                                                                                                      |
+| ---------- | --------- | ---- | --------------------------------------------------------------------------------------------------------- |
+| `label`    | `string`  | ✅   | 显示标题（工具为原名，如 `ChatGPT`）                                                                      |
+| `keywords` | `string`  | ✅   | Fuse 检索文本                                                                                             |
 | `type`     | `string`  | —    | 工具 / 资讯 / 实战案例 / 开源精选 / 课程 / 视频 / 模型 / 频道 / 导航 / 学习 / 场景 / 简报 / 推荐 / 对比 … |
-| `external` | `boolean` | —    | 外链（新标签打开）                                                                             |
-| `id`       | `string`  | —    | 内容 id（新闻/课程/实战案例等）                                                                |
-| `section`  | `string`  | *    | 首页 Tab id（与 `url` 二选一）                                                                 |
-| `url`      | `string`  | *    | 独立页相对路径（工具为 `tools/{id}.html`）                                                     |
-| `anchor`   | `string`  | —    | 页内锚点                                                                                       |
+| `external` | `boolean` | —    | 外链（新标签打开）                                                                                        |
+| `id`       | `string`  | —    | 内容 id（新闻/课程/实战案例等）                                                                           |
+| `section`  | `string`  | *    | 首页 Tab id（与 `url` 二选一）                                                                            |
+| `url`      | `string`  | *    | 独立页相对路径（工具为 `tools/{id}.html`）                                                                |
+| `anchor`   | `string`  | —    | 页内锚点                                                                                                  |
 
 **索引约定**：工具只写教程页 URL；工具中心仅一条「导航」入口（`tools/hub.html`）。运行时 `preferSearchHits` 进一步抬升精确匹配与站内教程。
 
