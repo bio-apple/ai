@@ -128,22 +128,28 @@ const openSourceItems = AGENT_FRAMEWORKS.map((fw) => ({
         <ol class="news-feed-list" aria-label="GitHub Agent 框架 Top10">
           {
             openSourceItems.map((item, index) => (
-              <li class="news-row">
+              <li class="news-row oss-rank-item">
                 <a
-                  class="news-row-main"
+                  class="news-row-main oss-rank-link"
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
                   data-track="oss-click"
                   aria-label={`第 ${index + 1} 名：${item.name}，${formatStars(item.stars)} stars`}
                 >
-                  <span class="news-row-title">
-                    <span class="content-type-badge content-type-news" aria-hidden="true">
-                      开源
+                  <span class="oss-rank-left">
+                    <span class="oss-rank-badge" aria-hidden="true">
+                      #{index + 1}
+                    </span>
+                    <span class="news-row-title oss-rank-title">
+                      <span class="content-type-badge content-type-news" aria-hidden="true">
+                        开源
+                      </span>{' '}
+                      {item.name}
+                      <small class="oss-rank-repo">{item.repo}</small>
                     </span>{' '}
-                    {item.name}（{item.repo}）
                   </span>
-                  <span class="news-row-meta">
+                  <span class="news-row-meta oss-rank-meta">
                     <span class="news-row-source">GitHub · ★ {formatStars(item.stars)}</span>
                   </span>
                 </a>
