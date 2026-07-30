@@ -396,6 +396,12 @@
   margin-bottom: 14px;
 }
 
+.oss-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
 .oss-card {
   border: 1px solid var(--border);
   border-radius: 20px;
@@ -492,12 +498,22 @@
 }
 
 @media (max-width: 640px) {
+  .oss-card-grid {
+    grid-template-columns: 1fr;
+  }
+
   .oss-card {
     padding: 16px;
   }
 
   .oss-card-title {
     font-size: 1.18rem;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 641px) {
+  .oss-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
