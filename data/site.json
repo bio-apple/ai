@@ -569,7 +569,14 @@
     }
   ],
   "footer": {
-    "text": "Bio AI Lab · Discover. Learn. Create with AI."
+    "text": "Bio AI Lab · Discover. Learn. Create with AI.",
+    "links": [
+      { "label": "AI 工具中心", "href": "tools/hub.html" },
+      { "label": "开源精选", "href": "index.html#section-oss" },
+      { "label": "课程资源", "href": "index.html#section-courses" },
+      { "label": "新手指南", "href": "guides/beginner.html" },
+      { "label": "学习路线", "href": "ai-learning-roadmap.html" }
+    ]
   },
   "recommend_fallback": {
     "tools": ["chatgpt", "claude", "cursor"],
@@ -585,18 +592,68 @@
   "tools_hub_page": {
     "title": "AI 工具中心 | Bio AI Lab",
     "h1": "AI 工具中心",
-    "lead": "先对比能力与场景（工具名可进教程），再看 AICPB、LMSYS Chatbot Arena Elo 与 Artificial Analysis Intelligence Index。"
+    "lead": "AICPB、LMSYS Chatbot Arena Elo 与 Artificial Analysis Intelligence Index 三榜 Top 10，帮你从流量、对战与基准多视角选型。"
   },
   "oss_frameworks": [
-    { "repo": "Significant-Gravitas/AutoGPT", "name": "AutoGPT", "stars": 185748 },
-    { "repo": "langgenius/dify", "name": "Dify", "stars": 150781 },
-    { "repo": "All-Hands-AI/OpenHands", "name": "OpenHands", "stars": 82576 },
-    { "repo": "geekan/MetaGPT", "name": "MetaGPT", "stars": 69594 },
-    { "repo": "microsoft/autogen", "name": "AutoGen", "stars": 60099 },
-    { "repo": "crewAIInc/crewAI", "name": "CrewAI", "stars": 56368 },
-    { "repo": "langchain-ai/langgraph", "name": "LangGraph", "stars": 38490 },
-    { "repo": "OpenBMB/ChatDev", "name": "ChatDev", "stars": 33866 },
-    { "repo": "huggingface/smolagents", "name": "smolagents", "stars": 28590 },
-    { "repo": "microsoft/semantic-kernel", "name": "Semantic Kernel", "stars": 28390 }
+    {
+      "repo": "Significant-Gravitas/AutoGPT",
+      "name": "AutoGPT",
+      "stars": 185748,
+      "summary": "自主目标拆解与执行的经典 Agent 框架，适合探索自动化任务编排。"
+    },
+    {
+      "repo": "langgenius/dify",
+      "name": "Dify",
+      "stars": 150781,
+      "summary": "开源 LLM 应用平台，可视化编排 Agent、RAG 与工作流。"
+    },
+    {
+      "repo": "All-Hands-AI/OpenHands",
+      "name": "OpenHands",
+      "stars": 82576,
+      "summary": "面向软件工程的开源 coding agent，可在沙箱中读写代码与执行命令。"
+    },
+    {
+      "repo": "geekan/MetaGPT",
+      "name": "MetaGPT",
+      "stars": 69594,
+      "summary": "多角色协作的软件公司式 Agent，把需求拆成可执行研发流程。"
+    },
+    {
+      "repo": "microsoft/autogen",
+      "name": "AutoGen",
+      "stars": 60099,
+      "summary": "微软多 Agent 对话框架，支持自定义角色与人机协同。"
+    },
+    {
+      "repo": "crewAIInc/crewAI",
+      "name": "CrewAI",
+      "stars": 56368,
+      "summary": "以「船员」角色编排多 Agent 任务流，上手快、生态活跃。"
+    },
+    {
+      "repo": "langchain-ai/langgraph",
+      "name": "LangGraph",
+      "stars": 38490,
+      "summary": "LangChain 生态的有状态图编排，适合可控、可循环的 Agent 工作流。"
+    },
+    {
+      "repo": "OpenBMB/ChatDev",
+      "name": "ChatDev",
+      "stars": 33866,
+      "summary": "虚拟软件公司多 Agent 协作，通过对话完成设计与开发。"
+    },
+    {
+      "repo": "huggingface/smolagents",
+      "name": "smolagents",
+      "stars": 28590,
+      "summary": "Hugging Face 轻量 Agent 库，代码优先、易嵌入现有 Python 项目。"
+    },
+    {
+      "repo": "microsoft/semantic-kernel",
+      "name": "Semantic Kernel",
+      "stars": 28390,
+      "summary": "微软企业向 AI 编排 SDK，插件、规划与多模型集成。"
+    }
   ]
 }

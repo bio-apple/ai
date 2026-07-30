@@ -433,10 +433,12 @@
   color: var(--accent);
 }
 
+.oss-card-stars,
 .oss-card-head time {
   font-size: 0.82rem;
   color: var(--text-muted);
   font-weight: 600;
+  font-variant-numeric: tabular-nums;
 }
 
 .oss-card-title {
@@ -468,13 +470,15 @@
   border-radius: 999px;
   font-size: 0.8rem;
   font-weight: 700;
-  color: #5b6b84;
-  background: #eaf0fb;
+  color: color-mix(in srgb, var(--accent) 72%, var(--text));
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
 }
 
 .oss-chip-top {
-  background: #dff4e8;
-  color: #157347;
+  color: color-mix(in srgb, #157347 70%, var(--text));
+  background: color-mix(in srgb, #22c55e 14%, var(--bg-card));
+  border-color: color-mix(in srgb, #22c55e 28%, var(--border));
 }
 
 .oss-card-summary {
@@ -917,12 +921,11 @@
   color: var(--text-muted);
 }
 
-/* Community links — 工具中心 */
+/* Community links — 继续探索 */
 .community-links {
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  max-width: 520px;
 }
 
 .community-card {
@@ -1366,6 +1369,43 @@ html[data-theme='dark'] .ai-map-label-sub {
   .community-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+@media (max-width: 640px) {
+  .community-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+.home-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 760px;
+}
+
+.home-faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  padding: 4px 16px;
+}
+
+.home-faq-item summary {
+  cursor: pointer;
+  font-weight: 700;
+  padding: 12px 0;
+  list-style: none;
+}
+
+.home-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-faq-item p {
+  margin: 0 0 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
 }
 
 /* AICPB-style ranking boards */

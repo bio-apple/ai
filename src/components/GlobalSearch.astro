@@ -41,6 +41,10 @@ const suggestionsJson = JSON.stringify(suggestions);
       class="site-search site-search-input"
       placeholder={placeholder}
       aria-label="全站搜索"
+      role="combobox"
+      aria-autocomplete="list"
+      aria-controls={resultsId}
+      aria-expanded="false"
       autocomplete="off"
       enterkeyhint="search"
       data-search-ready="0"
@@ -58,5 +62,5 @@ const suggestionsJson = JSON.stringify(suggestions);
       </svg>
     </button>
   </div>
-  <div id={resultsId} class="site-search-results" hidden></div>
+  <div id={resultsId} class="site-search-results" role="listbox" hidden></div>
 </div>

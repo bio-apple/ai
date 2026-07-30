@@ -45,71 +45,91 @@ const {
       <span></span><span></span><span></span>
     </button>
     <div class="nav-menu" id="site-nav-menu">
-      {
-        nav.menu.map((item) => {
-          if (item.type === 'dropdown') {
-            return (
-              <div class="nav-dropdown">
-                <button type="button" class="nav-dropdown-trigger" aria-haspopup="true">
-                  {item.label} <span class="nav-chevron">▾</span>
-                </button>
-                <div class="nav-dropdown-menu" role="menu">
-                  {item.children?.map((sub) => {
-                    const href = 'href' in sub && sub.href ? String(sub.href) : '';
-                    if (href) {
-                      return (
-                        <a href={`${navPrefix}${href}`} class="nav-dropdown-item" role="menuitem">
+      <div class="nav-tabs" role="tablist" aria-label="站点分区">
+        {
+          nav.menu.map((item) => {
+            if (item.type === 'dropdown') {
+              return (
+                <div class="nav-dropdown">
+                  <button
+                    type="button"
+                    class="nav-dropdown-trigger"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    {item.label} <span class="nav-chevron">▾</span>
+                  </button>
+                  <div class="nav-dropdown-menu" role="menu">
+                    {item.children?.map((sub) => {
+                      const href = 'href' in sub && sub.href ? String(sub.href) : '';
+                      if (href) {
+                        return (
+                          <a href={`${navPrefix}${href}`} class="nav-dropdown-item" role="menuitem">
+                            {sub.label}
+                          </a>
+                        );
+                      }
+                      if (!('id' in sub) || !sub.id) return null;
+                      return standalone ? (
+                        <a
+                          href={`${homeHref}#section-${sub.id}`}
+                          class="nav-dropdown-item"
+                          role="menuitem"
+                        >
                           {sub.label}
                         </a>
+                      ) : (
+                        <button
+                          type="button"
+                          class="nav-dropdown-item"
+                          data-tool={sub.id}
+                          role="menuitem"
+                        >
+                          {sub.label}
+                        </button>
                       );
-                    }
-                    if (!('id' in sub) || !sub.id) return null;
-                    return standalone ? (
-                      <a
-                        href={`${homeHref}#section-${sub.id}`}
-                        class="nav-dropdown-item"
-                        role="menuitem"
-                      >
-                        {sub.label}
-                      </a>
-                    ) : (
-                      <button
-                        type="button"
-                        class="nav-dropdown-item"
-                        data-tool={sub.id}
-                        role="menuitem"
-                      >
-                        {sub.label}
-                      </button>
-                    );
-                  })}
+                    })}
+                  </div>
                 </div>
-              </div>
-            );
-          }
-          if (item.type === 'page') {
+              );
+            }
+            if (item.type === 'page') {
+              return (
+                <a href={`${navPrefix}${item.href}`} class="nav-link-page">
+                  {item.label}
+                </a>
+              );
+            }
+            const active = item.id === 'all';
+            const controls = item.id === 'all' ? 'section-home' : `section-${item.id}`;
+            if (standalone) {
+              const href = item.id === 'all' ? homeHref : `${homeHref}#section-${item.id}`;
+              return (
+                <a
+                  href={href}
+                  class:list={['nav-tab', { active }]}
+                  role="tab"
+                  aria-selected={active ? 'true' : 'false'}
+                >
+                  {item.label}
+                </a>
+              );
+            }
             return (
-              <a href={`${navPrefix}${item.href}`} class="nav-link-page">
+              <button
+                type="button"
+                class:list={['nav-tab', { active }]}
+                data-tool={item.id}
+                role="tab"
+                aria-selected={active ? 'true' : 'false'}
+                aria-controls={controls}
+              >
                 {item.label}
-              </a>
+              </button>
             );
-          }
-          const active = item.id === 'all';
-          if (standalone) {
-            const href = item.id === 'all' ? homeHref : `${homeHref}#section-${item.id}`;
-            return (
-              <a href={href} class:list={['nav-tab', { active }]}>
-                {item.label}
-              </a>
-            );
-          }
-          return (
-            <button type="button" class:list={['nav-tab', { active }]} data-tool={item.id}>
-              {item.label}
-            </button>
-          );
-        })
-      }
+          })
+        }
+      </div>
       <button type="button" class="theme-toggle" aria-label="切换主题">☾</button>
     </div>
   </nav>

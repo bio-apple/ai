@@ -26,8 +26,18 @@ export type ResolvedToolRelations = {
 
 export function toolLookup() {
   const found: Record<string, Record<string, unknown>> = {};
+  // 首页分类卡片优先（含 tagline），再用 tools.json 补全（如即梦）
   for (const cat of site.home_tool_categories) {
     for (const tool of cat.tools) found[tool.id] = tool;
+  }
+  for (const tool of tools) {
+    if (found[tool.id]) continue;
+    found[tool.id] = {
+      id: tool.id,
+      name: tool.name,
+      tagline: tool.description?.slice(0, 48) || '',
+      icon: tool.icon,
+    };
   }
   return found;
 }

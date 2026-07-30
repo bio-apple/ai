@@ -10,7 +10,6 @@ import HomeAiMap from '../components/HomeAiMap.astro';
 import { site } from '../lib/data';
 import { buildHomeSchema, buildCoursesSchema, mergeSchemaGraphs } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
-import { pickAiDailyBrief, formatNewsDate } from '../lib/runtime';
 import coursesPayload from '../../ai-courses.json';
 
 const homeCrumb = { label: '首页', href: homeHref(), tool: 'all' };
@@ -19,20 +18,18 @@ const schema = mergeSchemaGraphs(
   buildHomeSchema(site),
   buildCoursesSchema(coursesPayload, site.meta.canonical),
 );
-const brief = pickAiDailyBrief({ models: 3, industry: 2, github: 12, learn: 2 });
-const AGENT_FRAMEWORKS = site.oss_frameworks || [];
+const OSS_FRAMEWORKS = site.oss_frameworks || [];
 const formatStars = (n = 0) => new Intl.NumberFormat('en-US').format(n);
-const ossUpdatedDate = brief.updatedAt
-  ? new Date(brief.updatedAt).toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' })
-  : '';
-const openSourceItems = AGENT_FRAMEWORKS.map((fw) => ({
+const openSourceItems = OSS_FRAMEWORKS.map((fw) => ({
   repo: fw.repo,
   name: fw.name,
   stars: Number(fw.stars || 0),
+  summary: 'summary' in fw && fw.summary ? String(fw.summary) : '',
   url: `https://github.com/${fw.repo}`,
 }))
   .sort((a, b) => b.stars - a.stars)
   .slice(0, 10);
+const faqItems = site.faq || [];
 ---
 
 <HomeLayout
@@ -96,7 +93,8 @@ const openSourceItems = AGENT_FRAMEWORKS.map((fw) => ({
         aria-labelledby="home-community-title"
       >
         <div class="section-head">
-          <h2 class="section-title" id="home-community-title">AI 工具中心</h2>
+          <h2 class="section-title" id="home-community-title">继续探索</h2>
+          <p class="section-desc">从排行、开源到学习路径，按需深入。</p>
         </div>
         <div class="community-links">
           <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
@@ -105,37 +103,72 @@ const openSourceItems = AGENT_FRAMEWORKS.map((fw) => ({
             <span>AICPB / LMSYS / AA 三榜 Top 10。</span>
             <em class="community-card-cta">浏览工具 →</em>
           </a>
+          <a
+            href="#section-oss"
+            class="community-card"
+            data-goto="oss"
+            data-track="home-community-oss"
+          >
+            <span class="community-card-kicker">开源</span>
+            <strong>开源精选</strong>
+            <span>GitHub 热门 AI agent frameworks Top10。</span>
+            <em class="community-card-cta">查看精选 →</em>
+          </a>
+          <a
+            href={asset('ai-learning-roadmap.html')}
+            class="community-card"
+            data-track="home-community-roadmap"
+          >
+            <span class="community-card-kicker">学习</span>
+            <strong>AI 学习路线</strong>
+            <span>从入门到工作流的分阶段路径。</span>
+            <em class="community-card-cta">打开路线 →</em>
+          </a>
         </div>
       </section>
+
+      {
+        faqItems.length > 0 && (
+          <section class="home-section fade-in" id="home-faq" aria-labelledby="home-faq-title">
+            <div class="section-head">
+              <h2 class="section-title" id="home-faq-title">常见问题</h2>
+              <p class="section-desc">快速回答选型与上手问题。</p>
+            </div>
+            <div class="home-faq-list">
+              {faqItems.map((item) => (
+                <details class="home-faq-item">
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )
+      }
 
       <HomeOps />
     </div>
   </section>
 
-  <section id="section-oss" class="section agent-section">
+  <section id="section-oss" class="section oss-section">
     <div class="section-panel">
       <Breadcrumb crumbs={[homeCrumb, { label: '开源精选' }]} />
       <div class="tool-header">
-        <div class="tool-icon" style="background:rgba(124,58,237,0.12);color:#7c3aed">◎</div>
+        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">◎</div>
         <div>
           <h2>开源精选</h2>
-          <p class="desc">聚合 GitHub 热门 AI agent frameworks，按 star 排序展示 Top10。</p>
-          {
-            brief.updatedAt && (
-              <p class="video-update-meta">更新于 {formatNewsDate(brief.updatedAt)} · 日更</p>
-            )
-          }
+          <p class="desc">按 GitHub Star 排序的 AI agent frameworks Top10。</p>
         </div>
       </div>
       <div class="news-feed">
-        <ol class="news-feed-list oss-card-grid" aria-label="GitHub Agent 框架 Top10">
+        <ol class="news-feed-list oss-card-grid" aria-label="AI agent frameworks Top10">
           {
             openSourceItems.map((item, index) => (
               <li class="news-row oss-card-item">
                 <article class="oss-card">
                   <div class="oss-card-head">
                     <span class="oss-card-source">GitHub</span>
-                    {ossUpdatedDate && <time datetime={brief.updatedAt}>{ossUpdatedDate}</time>}
+                    <span class="oss-card-stars">★ {formatStars(item.stars)}</span>
                   </div>
                   <h3 class="oss-card-title">
                     #{index + 1} {item.name}
@@ -143,11 +176,11 @@ const openSourceItems = AGENT_FRAMEWORKS.map((fw) => ({
                   <p class="oss-card-repo">{item.repo}</p>
                   <div class="oss-card-chips">
                     <span class="oss-chip">AI Agent Framework</span>
-                    <span class="oss-chip">开源项目</span>
                     {index < 3 && <span class="oss-chip oss-chip-top">TOP {index + 1}</span>}
                   </div>
                   <p class="oss-card-summary">
-                    GitHub Star：★ {formatStars(item.stars)}，持续维护的 AI agent frameworks 仓库。
+                    {item.summary ||
+                      `GitHub Star：★ ${formatStars(item.stars)}，持续维护的 AI agent frameworks 仓库。`}
                   </p>
                   <a
                     class="oss-card-link"

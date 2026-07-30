@@ -107,7 +107,7 @@ const lazyAssetBoot = `window.__BIOAI_ASSET_V__=${JSON.stringify(lazyAssetVersio
     <main id="main-content" tabindex="-1">
       <slot />
     </main>
-    <Footer text={site.footer.text} />
+    <Footer text={site.footer.text} links={site.footer.links || []} />
     <script is:inline set:html={lazyAssetBoot} />
     {knowledgeBoot && <script is:inline set:html={knowledgeBoot} />}
     {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}

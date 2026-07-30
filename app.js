@@ -96,6 +96,9 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
     const tabId = t.dataset.tool;
     const match = tabId === 'all' ? id === 'section-home' : tabId === toolId;
     t.classList.toggle('active', match);
+    if (t.getAttribute('role') === 'tab') {
+      t.setAttribute('aria-selected', match ? 'true' : 'false');
+    }
   });
 
   document.querySelectorAll('.nav-dropdown-item').forEach((item) => {
@@ -177,8 +180,10 @@ document.querySelectorAll('a.logo[data-tool]').forEach(bindNavItem);
 document.querySelectorAll('.breadcrumb a[data-tool]').forEach(bindNavItem);
 
 document.querySelectorAll('[data-goto]').forEach((btn) => {
-  btn.addEventListener('click', () => {
+  btn.addEventListener('click', (e) => {
     const target = btn.dataset.goto;
+    if (!target) return;
+    e.preventDefault();
     if (target === 'prompts' || target === 'oss') {
       showSection(resolveGoto('oss'));
       return;

@@ -1,12 +1,44 @@
 ---
+import { asset, homeHref } from '../lib/paths';
+
+interface FooterLink {
+  label: string;
+  href: string;
+}
+
 interface Props {
   text: string;
+  links?: FooterLink[];
 }
-const { text } = Astro.props;
+
+const { text, links = [] } = Astro.props;
+
+function resolveHref(href: string) {
+  if (!href) return homeHref();
+  if (/^(https?:|mailto:|#)/i.test(href)) return href;
+  if (href.startsWith('index.html')) {
+    const hash = href.includes('#') ? href.slice(href.indexOf('#')) : '';
+    return `${homeHref()}${hash}`;
+  }
+  return asset(href);
+}
 ---
 
 <footer class="site-footer">
   <div class="site-footer-inner">
+    {
+      links.length > 0 && (
+        <nav class="site-footer-nav" aria-label="页脚导航">
+          <ul class="site-footer-links">
+            {links.map((link) => (
+              <li>
+                <a href={resolveHref(link.href)}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      )
+    }
     <p class="site-footer-copy">{text}</p>
   </div>
 </footer>

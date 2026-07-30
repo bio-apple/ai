@@ -283,8 +283,9 @@ export function buildHomeSchema(site: {
   meta: { canonical: string; description: string };
   faq?: { question: string; answer: string }[];
   rankings?: { name: string; dimension: string }[];
+  oss_frameworks?: { repo: string; name: string; stars?: number; summary?: string }[];
 }) {
-  const graph = [
+  const graph: Record<string, unknown>[] = [
     {
       '@type': 'WebSite',
       name: BRAND,
@@ -298,16 +299,8 @@ export function buildHomeSchema(site: {
       },
     },
     {
-      '@type': 'FAQPage',
-      mainEntity: (site.faq || []).map((q) => ({
-        '@type': 'Question',
-        name: q.question,
-        acceptedAnswer: { '@type': 'Answer', text: q.answer },
-      })),
-    },
-    {
       '@type': 'ItemList',
-      name: '2026 AI 工具排行榜（AICPB 五榜 Top 10）',
+      name: 'AI 工具排行榜（AICPB / LMSYS / Artificial Analysis 三榜）',
       itemListElement: (site.rankings || []).map((row, i) => ({
         '@type': 'ListItem',
         position: i + 1,
@@ -316,5 +309,39 @@ export function buildHomeSchema(site: {
       })),
     },
   ];
+
+  const faq = site.faq || [];
+  if (faq.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      mainEntity: faq.map((q) => ({
+        '@type': 'Question',
+        name: q.question,
+        acceptedAnswer: { '@type': 'Answer', text: q.answer },
+      })),
+    });
+  }
+
+  const oss = [...(site.oss_frameworks || [])]
+    .map((fw) => ({
+      ...fw,
+      stars: Number(fw.stars || 0),
+    }))
+    .sort((a, b) => b.stars - a.stars)
+    .slice(0, 10);
+  if (oss.length) {
+    graph.push({
+      '@type': 'ItemList',
+      name: '开源精选 · AI agent frameworks Top10',
+      itemListElement: oss.map((fw, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: fw.name,
+        url: `https://github.com/${fw.repo}`,
+        description: fw.summary || `${fw.repo} · ★ ${fw.stars}`,
+      })),
+    });
+  }
+
   return { '@context': 'https://schema.org', '@graph': graph };
 }

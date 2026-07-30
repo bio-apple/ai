@@ -40,6 +40,7 @@ const rankMeta = hubRankingMeta();
   ]}
 >
   <div class="standalone-page tools-hub-page hub-compare-page aicpb-ranking-page">
+    <h1 class="visually-hidden">{page.h1}</h1>
     <StandalonePageHeader
       crumbs={[{ label: '首页', href: homeHref() }, { label: '工具中心' }]}
       meta={`更新 ${rankMeta.updated_at}`}
