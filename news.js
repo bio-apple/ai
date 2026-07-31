@@ -1,19 +1,51 @@
-const NEWS_DATA_URL = (typeof document !== 'undefined' && document.documentElement.dataset.base
-  ? document.documentElement.dataset.base.replace(/\/?$/, '/')
-  : (window.location.pathname.includes('/news/') ? '../' : '')) + 'ai-news.json';
+const NEWS_JSON = 'ai-news.json';
 
 const NEWS_CATEGORY_ORDER = ['新模型发布', '新工具上线', '开源项目', '行业新闻', '中文资讯'];
 
 let newsDataPromise = null;
-let newsState = { category: 'all', items: [], watchSources: [] };
+let newsState = { category: 'all', window: 'week', items: [], watchSources: [] };
+
+function parseNewsTime(raw) {
+  if (!raw) return 0;
+  const t = Date.parse(raw);
+  return Number.isNaN(t) ? 0 : t;
+}
+
+function filterByTimeWindow(items, window) {
+  if (window === 'today') {
+    const start = new Date();
+    start.setHours(0, 0, 0, 0);
+    const t0 = start.getTime();
+    return (items || []).filter((i) => parseNewsTime(i.published_at) >= t0);
+  }
+  // week（默认）：近 7 天
+  const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  return (items || []).filter((i) => {
+    const t = parseNewsTime(i.published_at);
+    return !t || t >= cutoff;
+  });
+}
+
+function escapeHtml(s) {
+  return window.BioAI?.escapeHtml ? window.BioAI.escapeHtml(s) : String(s ?? '');
+}
+
+function extRel() {
+  return window.BioAI?.externalRel ? window.BioAI.externalRel() : 'noopener noreferrer';
+}
 
 function formatNewsDateShort(raw) {
   if (!raw) return '';
-  const cleaned = String(raw).replace(/\s*分享\s*$/u, '').trim();
+  const cleaned = String(raw)
+    .replace(/\s*分享\s*$/u, '')
+    .trim();
   try {
     let d = new Date(cleaned);
     if (Number.isNaN(d.getTime()) && /^\d{4}-\d{2}-\d{2}/.test(cleaned)) {
-      d = new Date(cleaned.replace(' ', 'T') + (cleaned.includes('+') || cleaned.endsWith('Z') ? '' : '+08:00'));
+      d = new Date(
+        cleaned.replace(' ', 'T') +
+          (cleaned.includes('+') || cleaned.endsWith('Z') ? '' : '+08:00'),
+      );
     }
     if (!Number.isNaN(d.getTime())) {
       return d.toLocaleDateString('zh-CN', {
@@ -29,7 +61,9 @@ function formatNewsDateShort(raw) {
 }
 
 function truncateText(text, max = 72) {
-  const t = String(text || '').replace(/\s+/g, ' ').trim();
+  const t = String(text || '')
+    .replace(/\s+/g, ' ')
+    .trim();
   if (t.length <= max) return t;
   return `${t.slice(0, max - 1)}…`;
 }
@@ -42,6 +76,97 @@ function normalizeNewsTitle(title) {
     .trim()
     .toLowerCase()
     .replace(/\s+/g, ' ');
+}
+
+const KNOWN_TRAILING_SOURCES = [
+  'OpenAI',
+  'Anthropic',
+  '量子位',
+  '机器之心',
+  '新智元',
+  '智源社区',
+  '智源',
+  'Google DeepMind',
+  'DeepMind',
+  'Google AI',
+  'NVIDIA AI',
+  'NVIDIA Blog',
+  'Hugging Face',
+  'HuggingFace',
+  'TechCrunch',
+  'The Verge',
+  'VentureBeat',
+  'arXiv cs.AI',
+  'arXiv',
+  'GitHub Trending',
+  'GitHub',
+];
+
+const TRAILING_SOURCE_SEP = /[\s|/·•・\-–—｜：:]+$/;
+
+function sourceAliases(source) {
+  const raw = String(source || '')
+    .normalize('NFKC')
+    .trim();
+  if (!raw) return [];
+  const aliases = new Set([raw]);
+  const parts = raw.split(/\s+/);
+  if (parts.length > 1) {
+    aliases.add(parts[0]);
+    aliases.add(parts[parts.length - 1]);
+  }
+  for (const suffix of [' Blog', ' News', ' 社区']) {
+    if (raw.endsWith(suffix) && raw.length > suffix.length + 1) {
+      aliases.add(raw.slice(0, -suffix.length).trim());
+    }
+  }
+  return [...aliases].sort((a, b) => b.length - a.length);
+}
+
+/** 去掉标题尾部粘连的源站名，留给独立 badge */
+function stripTrailingSource(title, source = '') {
+  let text = String(title || '')
+    .replace(/\u3000/g, ' ')
+    .trim();
+  if (!text) return text;
+
+  const seen = new Set();
+  const candidates = [];
+  for (const alias of [...sourceAliases(source), ...KNOWN_TRAILING_SOURCES]) {
+    const key = alias.toLowerCase();
+    if (!alias || seen.has(key)) continue;
+    seen.add(key);
+    candidates.push(alias);
+  }
+
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const alias of candidates) {
+      const esc = alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const sepRe = new RegExp(`(?:[\\s|/·•・\\-–—｜：:]+)${esc}\\s*$`, 'i');
+      let m = text.match(sepRe);
+      if (m) {
+        text = text.slice(0, m.index).replace(TRAILING_SOURCE_SEP, '').trim();
+        changed = true;
+        break;
+      }
+      if (/[\u4e00-\u9fff]/.test(alias)) {
+        const cjkRe = new RegExp(`(?<=[\\u4e00-\\u9fff\\W])${esc}\\s*$`);
+        m = text.match(cjkRe);
+        if (m) {
+          text = text.slice(0, m.index).replace(TRAILING_SOURCE_SEP, '').trim();
+          changed = true;
+          break;
+        }
+      }
+    }
+  }
+  return text.trim();
+}
+
+function displayNewsTitle(item) {
+  return stripTrailingSource(item?.title || '', item?.source || '');
 }
 
 /** 标题或 URL 相同只保留最新 published_at（与 scripts/news_dedupe.py 一致） */
@@ -80,19 +205,64 @@ function groupNewsByCategory(items) {
   return keys.map((key) => ({ category: key, items: map.get(key) }));
 }
 
-function renderNewsRow(item) {
+/** 同类新闻再按来源聚合：OpenAI 等多条合并为一个来源块 */
+function groupNewsBySource(items) {
+  const map = new Map();
+  for (const item of items || []) {
+    const source = String(item.source || '').trim() || '其他来源';
+    if (!map.has(source)) map.set(source, []);
+    map.get(source).push(item);
+  }
+  const groups = [...map.entries()].map(([source, list]) => {
+    const sorted = [...list].sort((a, b) => {
+      const ta = a.published_at ? Date.parse(a.published_at) : 0;
+      const tb = b.published_at ? Date.parse(b.published_at) : 0;
+      return tb - ta;
+    });
+    const latest = sorted[0]?.published_at ? Date.parse(sorted[0].published_at) : 0;
+    return { source, items: sorted, latest };
+  });
+  groups.sort((a, b) => b.latest - a.latest || a.source.localeCompare(b.source, 'zh'));
+  return groups;
+}
+
+function renderNewsRow(item, { hideSource = false } = {}) {
   const summary = truncateText(item.summary, 68);
+  const title = displayNewsTitle(item);
+  const metaParts = [];
+  if (!hideSource && item.source) {
+    metaParts.push(
+      `<span class="news-row-source news-source-badge">${escapeHtml(item.source)}</span>`,
+    );
+  }
+  if (item.published_at) {
+    metaParts.push(
+      `<span class="news-row-date">${escapeHtml(formatNewsDateShort(item.published_at))}</span>`,
+    );
+  }
   return `
-    <li class="news-row">
-      <a class="news-row-main" href="${escapeHtml(item.url)}" target="_blank" rel="noopener" data-track="news-click">
-        <span class="news-row-title">${escapeHtml(item.title)}</span>
-        <span class="news-row-meta">
-          <span class="news-row-source">${escapeHtml(item.source || '')}</span>
-          ${item.published_at ? `<span class="news-row-date">${escapeHtml(formatNewsDateShort(item.published_at))}</span>` : ''}
-        </span>
+    <li class="news-row${hideSource ? ' news-row-in-source' : ''}">
+      <a class="news-row-main" href="${escapeHtml(item.url)}" target="_blank" rel="${extRel()}" data-track="news-click">
+        <span class="news-row-title"><span class="content-type-badge content-type-news" aria-hidden="true">资讯</span> ${escapeHtml(title)}</span>
+        ${metaParts.length ? `<span class="news-row-meta">${metaParts.join('')}</span>` : ''}
       </a>
       ${summary ? `<p class="news-row-summary">${escapeHtml(summary)}</p>` : ''}
     </li>
+  `;
+}
+
+function renderSourceGroup(group) {
+  const multi = group.items.length > 1;
+  return `
+    <div class="news-source-group${multi ? ' news-source-group-multi' : ''}">
+      <div class="news-source-head">
+        <span class="news-source-name">${escapeHtml(group.source)}</span>
+        <span class="news-source-count">${group.items.length}</span>
+      </div>
+      <ul class="news-feed-list news-feed-list-source">
+        ${group.items.map((item) => renderNewsRow(item, { hideSource: true })).join('')}
+      </ul>
+    </div>
   `;
 }
 
@@ -101,22 +271,27 @@ function renderNewsFeed(items) {
     return '<p class="loading-hint">当前分类暂无新闻。</p>';
   }
   const groups = groupNewsByCategory(items);
-  return groups.map((group) => `
+  return groups
+    .map((group) => {
+      const bySource = groupNewsBySource(group.items);
+      return `
     <section class="news-group">
       <h3 class="news-group-title">
         ${escapeHtml(group.category)}
         <span class="news-group-count">${group.items.length}</span>
       </h3>
-      <ul class="news-feed-list">
-        ${group.items.map(renderNewsRow).join('')}
-      </ul>
+      <div class="news-source-stack">
+        ${bySource.map(renderSourceGroup).join('')}
+      </div>
     </section>
-  `).join('');
+  `;
+    })
+    .join('');
 }
 
-function renderNewsToolbar(items) {
-  const counts = new Map([['all', items.length]]);
-  for (const item of items) {
+function renderNewsToolbar(itemsInWindow) {
+  const counts = new Map([['all', itemsInWindow.length]]);
+  for (const item of itemsInWindow) {
     const cat = item.category || '其他';
     counts.set(cat, (counts.get(cat) || 0) + 1);
   }
@@ -125,22 +300,38 @@ function renderNewsToolbar(items) {
     ...NEWS_CATEGORY_ORDER.filter((k) => counts.has(k)),
     ...[...counts.keys()].filter((k) => k !== 'all' && !NEWS_CATEGORY_ORDER.includes(k)),
   ];
-  const buttons = cats.map((cat) => {
-    const label = cat === 'all' ? '全部' : cat;
-    const active = newsState.category === cat ? ' active' : '';
-    return `<button type="button" class="news-filter${active}" data-news-category="${escapeHtml(cat)}">${escapeHtml(label)} <span>${counts.get(cat) || 0}</span></button>`;
-  }).join('');
-  return `<div class="news-toolbar" role="toolbar" aria-label="新闻分类筛选">${buttons}</div>`;
+  const catButtons = cats
+    .map((cat) => {
+      const label = cat === 'all' ? '全部' : cat;
+      const active = newsState.category === cat;
+      return `<button type="button" class="news-filter${active ? ' active' : ''}" data-news-category="${escapeHtml(cat)}" aria-pressed="${active}">${escapeHtml(label)} <span>${counts.get(cat) || 0}</span></button>`;
+    })
+    .join('');
+  const timeButtons = [
+    { id: 'today', label: '今日' },
+    { id: 'week', label: '本周' },
+  ]
+    .map((t) => {
+      const active = newsState.window === t.id;
+      return `<button type="button" class="news-filter news-filter-time${active ? ' active' : ''}" data-news-window="${t.id}" aria-pressed="${active}">${t.label}</button>`;
+    })
+    .join('');
+  return `
+    <div class="news-toolbar news-toolbar-time" role="toolbar" aria-label="时间过滤">${timeButtons}</div>
+    <div class="news-toolbar" role="toolbar" aria-label="新闻分类筛选">${catButtons}</div>
+  `;
 }
 
 function paintNewsList() {
   const root = document.getElementById('daily-news-list');
   if (!root) return;
-  const filtered = newsState.category === 'all'
-    ? newsState.items
-    : newsState.items.filter((i) => (i.category || '其他') === newsState.category);
+  const inWindow = filterByTimeWindow(newsState.items, newsState.window);
+  const filtered =
+    newsState.category === 'all'
+      ? inWindow
+      : inWindow.filter((i) => (i.category || '其他') === newsState.category);
   root.innerHTML = `
-    ${renderNewsToolbar(newsState.items)}
+    ${renderNewsToolbar(inWindow)}
     <div class="news-feed">${renderNewsFeed(filtered)}</div>
   `;
   root.querySelectorAll('[data-news-category]').forEach((btn) => {
@@ -152,31 +343,45 @@ function paintNewsList() {
       }
     });
   });
+  root.querySelectorAll('[data-news-window]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      newsState.window = btn.dataset.newsWindow || 'week';
+      newsState.category = 'all';
+      paintNewsList();
+      if (typeof trackEvent === 'function') {
+        trackEvent('news_filter_window', { window: newsState.window });
+      }
+    });
+  });
 }
 
 function fetchNewsData() {
   if (!newsDataPromise) {
-    newsDataPromise = fetch(NEWS_DATA_URL, { cache: 'no-store' })
-      .then((res) => {
-        if (!res.ok) throw new Error('无法加载新闻数据');
-        return res.json();
-      })
-      .catch((err) => {
-        newsDataPromise = null;
-        throw err;
-      });
+    if (!window.BioAI?.fetchJson) {
+      return Promise.reject(new Error('加载器未就绪，请稍后重试'));
+    }
+    newsDataPromise = window.BioAI.fetchJson(NEWS_JSON, { label: '新闻' });
   }
   return newsDataPromise;
 }
 
+function resetNewsFetch() {
+  window.BioAI?.invalidateFetch?.(NEWS_JSON);
+  newsDataPromise = null;
+}
+
 function renderWatchSources(sources) {
   if (!sources?.length) return '';
-  const links = sources.map((src) => {
-    const parts = [];
-    if (src.blog) parts.push(`<a href="${escapeHtml(src.blog)}" target="_blank" rel="noopener">博客</a>`);
-    if (src.x) parts.push(`<a href="${escapeHtml(src.x)}" target="_blank" rel="noopener">X</a>`);
-    return `<li><strong>${escapeHtml(src.name)}</strong> ${parts.join(' · ')}</li>`;
-  }).join('');
+  const links = sources
+    .map((src) => {
+      const parts = [];
+      if (src.blog)
+        parts.push(`<a href="${escapeHtml(src.blog)}" target="_blank" rel="${extRel()}">博客</a>`);
+      if (src.x)
+        parts.push(`<a href="${escapeHtml(src.x)}" target="_blank" rel="${extRel()}">X</a>`);
+      return `<li><strong>${escapeHtml(src.name)}</strong> ${parts.join(' · ')}</li>`;
+    })
+    .join('');
   return `
     <details class="news-watch-panel">
       <summary>持续关注的来源（${sources.length}）</summary>
@@ -187,7 +392,8 @@ function renderWatchSources(sources) {
 
 async function loadDailyNews() {
   const root = document.getElementById('daily-news-list');
-  const meta = document.getElementById('news-update-meta') || document.getElementById('news-page-meta');
+  const meta =
+    document.getElementById('news-update-meta') || document.getElementById('news-page-meta');
   const watchRoot = document.getElementById('news-watch-sources');
   if (!root) return;
 
@@ -204,15 +410,22 @@ async function loadDailyNews() {
     }
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      const cadence = data.cadence === 'weekly' ? '每周一' : '最近';
-      meta.textContent = `${cadence}更新 · ${updated.toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' })} · ${newsState.items.length} 条`;
+      const windowDays = Number(data.window_days) > 0 ? Number(data.window_days) : 7;
+      const stamp = updated.toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' });
+      meta.textContent = `一周内热点 · 每天更新 · 近 ${windowDays} 天 · ${stamp} · ${newsState.items.length} 条`;
     }
     paintNewsList();
     if (watchRoot) {
       watchRoot.innerHTML = renderWatchSources(newsState.watchSources);
     }
   } catch (err) {
-    handleDataError(root, 'news-section');
+    root.innerHTML = window.BioAI?.renderErrorBlock
+      ? window.BioAI.renderErrorBlock(err.message || '加载失败')
+      : `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    window.BioAI?.bindRetry?.(root, () => {
+      resetNewsFetch();
+      loadDailyNews();
+    });
   }
 }
 

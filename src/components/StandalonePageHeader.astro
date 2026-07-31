@@ -1,0 +1,57 @@
+---
+/**
+ * 独立页统一页头：面包屑 + Hero（与工具中心 hub 一致）
+ */
+import Breadcrumb from './Breadcrumb.astro';
+import type { Crumb } from './Breadcrumb.astro';
+
+export type StandaloneCrumb = Crumb;
+
+interface Props {
+  crumbs: StandaloneCrumb[];
+  title?: string;
+  lead?: string;
+  meta?: string;
+  metaId?: string;
+  icon?: string;
+  iconClass?: string;
+  class?: string;
+}
+
+const { crumbs, title, lead, meta, metaId, icon, iconClass, class: className } = Astro.props;
+---
+
+<Breadcrumb crumbs={crumbs} />
+
+<div class:list={['standalone-hero', { 'standalone-hero--with-icon': Boolean(icon) }, className]}>
+  {
+    icon ? (
+      <div class="standalone-hero-row">
+        <div class={`tool-icon ${iconClass || ''}`} aria-hidden="true">
+          {icon}
+        </div>
+        <div class="standalone-hero-text">
+          {title && <h1>{title}</h1>}
+          {lead && <p class="standalone-lead">{lead}</p>}
+          {meta && (
+            <p class="standalone-meta" id={metaId}>
+              {meta}
+            </p>
+          )}
+          <slot name="hero-extra" />
+        </div>
+      </div>
+    ) : (
+      <>
+        {title && <h1>{title}</h1>}
+        {lead && <p class="standalone-lead">{lead}</p>}
+        {meta && (
+          <p class="standalone-meta" id={metaId}>
+            {meta}
+          </p>
+        )}
+        <slot name="hero-extra" />
+      </>
+    )
+  }
+</div>

@@ -1,24 +1,12 @@
 const navTabs = document.querySelectorAll('.nav-tab');
-const navItems = document.querySelectorAll('.nav-tab, .nav-dropdown-item');
+const _navItems = document.querySelectorAll('.nav-tab, .nav-dropdown-item');
 const sections = document.querySelectorAll('.section');
-
-let searchIndex = [];
-let fuseSearch = null;
 
 function escapeHtml(s) {
   const d = document.createElement('div');
   d.textContent = s;
   return d.innerHTML;
 }
-window.escapeHtml = escapeHtml;
-
-/** 统一数据加载错误处理：在容器中展示错误提示，并上报分析事件 */
-function handleDataError(root, source) {
-  if (!root) return;
-  root.innerHTML = '<p class="loading-hint error-hint">数据加载失败，请稍后刷新重试。</p>';
-  if (typeof trackEvent === 'function') trackEvent('data_load_error', { source });
-}
-window.handleDataError = handleDataError;
 
 function highlightMatch(text, query) {
   if (!query) return escapeHtml(text);
@@ -30,39 +18,97 @@ function highlightMatch(text, query) {
   return `${escapeHtml(before)}<strong>${escapeHtml(match)}</strong>${escapeHtml(after)}`;
 }
 
-function gotoSearchHit(item) {
-  if (item.url) {
-    window.location.href = item.url;
-    return;
-  }
-  showSection(item.section, { anchor: item.anchor || null });
-  trackEvent('search-goto', { section: item.section, anchor: item.anchor || '' });
+function resolveSearchUrl(url) {
+  if (!url) return url;
+  if (/^(https?:|\/|#)/.test(url)) return url;
+  return `${siteBase()}${String(url).replace(/^\//, '')}`;
 }
 
-let activeToolFilter = 'all';
-let activeScenarioFilter = 'all';
+function isNavSearchWrap(wrap) {
+  return Boolean(wrap?.classList?.contains('nav-search'));
+}
+
+/** 下拉改为 fixed，避免 sticky/overflow 裁切（顶栏与 Hero 通用） */
+function syncSearchDropdown(wrap, input, results) {
+  if (results.hidden) {
+    results.style.cssText = '';
+    return;
+  }
+  const rect = input.getBoundingClientRect();
+  const field = wrap.querySelector('.site-search-field') || input;
+  const fieldRect = field.getBoundingClientRect();
+  const vw = document.documentElement.clientWidth;
+  const width = Math.min(Math.round(fieldRect.width || rect.width), vw - 16);
+  let left = Math.round(fieldRect.left || rect.left);
+  left = Math.max(8, Math.min(left, vw - width - 8));
+  results.style.position = 'fixed';
+  results.style.top = `${Math.round(rect.bottom + 6)}px`;
+  results.style.left = `${left}px`;
+  results.style.width = `${width}px`;
+  results.style.right = 'auto';
+  results.style.zIndex = isNavSearchWrap(wrap) ? '1000' : '80';
+}
+
+function setSearchDropdownOpen(wrap, input, results, open) {
+  results.hidden = !open;
+  input.setAttribute('aria-expanded', open ? 'true' : 'false');
+  syncSearchDropdown(wrap, input, results);
+}
+
+function gotoSearchHit(item, query = '') {
+  const q = query.trim();
+  if (q) pushSearchHistory(q);
+
+  if (item.url) {
+    const url = resolveSearchUrl(item.url);
+    const external = item.external || /^https?:\/\//i.test(String(item.url));
+    if (external) {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } else {
+      window.location.href = url;
+    }
+    return;
+  }
+
+  if (item.section) {
+    const onHome = Boolean(document.getElementById(item.section));
+    if (!onHome) {
+      const base = siteBase();
+      const u = new URL(`${base}index.html`, location.origin);
+      u.hash = item.section;
+      if (item.anchor) u.searchParams.set('anchor', item.anchor);
+      window.location.href = `${u.pathname}${u.search}${u.hash}`;
+      return;
+    }
+    showSection(item.section, { anchor: item.anchor || null });
+    trackEvent('search-goto', { section: item.section, anchor: item.anchor || '' });
+  }
+}
 
 function showSection(id, { updateHash = true, anchor = null } = {}) {
   const target = document.getElementById(id);
   // 只切换顶层 .section，避免 #home-daily 等锚点误当作整页 section
   if (!target || !target.classList.contains('section')) return;
-  sections.forEach(s => s.classList.toggle('active', s.id === id));
+  sections.forEach((s) => s.classList.toggle('active', s.id === id));
   const toolId = id === 'section-home' ? 'all' : id.replace('section-', '');
 
-  navTabs.forEach(t => {
+  navTabs.forEach((t) => {
     const tabId = t.dataset.tool;
-    const match = tabId === 'all'
-      ? id === 'section-home'
-      : tabId === toolId;
+    const match = tabId === 'all' ? id === 'section-home' : tabId === toolId;
     t.classList.toggle('active', match);
+    if (t.getAttribute('role') === 'tab') {
+      t.setAttribute('aria-selected', match ? 'true' : 'false');
+    }
   });
 
-  document.querySelectorAll('.nav-dropdown-item').forEach(item => {
+  document.querySelectorAll('.nav-dropdown-item').forEach((item) => {
     item.classList.toggle('active', item.dataset.tool === toolId);
   });
 
-  document.querySelectorAll('.nav-dropdown').forEach(drop => {
-    const hasActive = [...drop.querySelectorAll('.nav-dropdown-item')].some(i => i.classList.contains('active'));
+  document.querySelectorAll('.nav-dropdown').forEach((drop) => {
+    const hasActive = [...drop.querySelectorAll('.nav-dropdown-item')].some((i) =>
+      i.classList.contains('active'),
+    );
     drop.classList.toggle('has-active', hasActive);
   });
 
@@ -84,7 +130,6 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
     requestAnimationFrame(() => {
       const el = document.getElementById(anchor);
       if (el) {
-        if (el.classList.contains('case-card')) el.classList.add('open');
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         return;
       }
@@ -95,18 +140,22 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
   }
 
   document.querySelector('.nav-menu')?.classList.remove('open');
-  document.querySelector('.nav-toggle')?.setAttribute('aria-expanded', 'false');
+  const navToggle = document.querySelector('.nav-toggle');
+  if (navToggle) {
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.setAttribute('aria-label', '打开导航');
+  }
+  document.body.style.overflow = '';
 
-  window.dispatchEvent(new CustomEvent('bioai:section-change', { detail: { sectionId: id, anchor } }));
+  window.dispatchEvent(
+    new CustomEvent('bioai:section-change', { detail: { sectionId: id, anchor } }),
+  );
   if (typeof window.updatePageToc === 'function') window.updatePageToc(id);
 }
 
 window.showSection = showSection;
 
 function resolveGoto(target) {
-  if (target === 'cases' || target === 'videos' || target === 'news' || target === 'create' || target === 'prompts' || target === 'oss') {
-    return `section-${target}`;
-  }
   if (target === 'all' || target === 'home') return 'section-home';
   return `section-${target}`;
 }
@@ -116,37 +165,27 @@ function bindNavItem(el) {
     e.stopPropagation();
     const tool = el.dataset.tool;
     if (!tool) return;
-    showSection(tool === 'all' ? 'section-home' : `section-${tool}`);
+    const sectionId = tool === 'all' ? 'section-home' : `section-${tool}`;
+    const target = document.getElementById(sectionId);
+    if (!target || !target.classList.contains('section')) return;
+    e.preventDefault();
+    showSection(sectionId);
     trackEvent('nav-tab', { tool });
   });
 }
 
 navTabs.forEach(bindNavItem);
 document.querySelectorAll('.nav-dropdown-item').forEach(bindNavItem);
+document.querySelectorAll('a.logo[data-tool]').forEach(bindNavItem);
+document.querySelectorAll('.breadcrumb a[data-tool]').forEach(bindNavItem);
 
-document.querySelectorAll('.tool-card-v2, .ranking-card[data-tool]').forEach(card => {
-  card.addEventListener('click', (e) => {
-    if (e.target.closest('.tool-card-btn')) return;
-    const tool = card.dataset.tool;
-    if (!tool) return;
-    showSection(`section-${tool}`);
-    trackEvent('tool-card', { tool });
-  });
-});
-
-document.querySelectorAll('.tool-card-btn[data-tool]').forEach(btn => {
+document.querySelectorAll('[data-goto]').forEach((btn) => {
   btn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    showSection(`section-${btn.dataset.tool}`);
-    trackEvent('tool-card-btn', { tool: btn.dataset.tool });
-  });
-});
-
-document.querySelectorAll('[data-goto]').forEach(btn => {
-  btn.addEventListener('click', () => {
     const target = btn.dataset.goto;
-    if (target === 'prompts') {
-      window.location.href = 'prompts/library.html';
+    if (!target) return;
+    e.preventDefault();
+    if (target === 'prompts' || target === 'oss') {
+      showSection(resolveGoto('oss'));
       return;
     }
     showSection(resolveGoto(target));
@@ -154,17 +193,27 @@ document.querySelectorAll('[data-goto]').forEach(btn => {
 });
 
 function initNavDropdowns() {
-  document.querySelectorAll('.nav-dropdown-trigger').forEach(trigger => {
+  document.querySelectorAll('.nav-dropdown-trigger').forEach((trigger) => {
+    trigger.setAttribute('aria-expanded', 'false');
     trigger.addEventListener('click', (e) => {
       e.stopPropagation();
       const drop = trigger.closest('.nav-dropdown');
       const wasOpen = drop.classList.contains('open');
-      document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
-      if (!wasOpen) drop.classList.add('open');
+      document.querySelectorAll('.nav-dropdown').forEach((d) => {
+        d.classList.remove('open');
+        d.querySelector('.nav-dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        drop.classList.add('open');
+        trigger.setAttribute('aria-expanded', 'true');
+      }
     });
   });
   document.addEventListener('click', () => {
-    document.querySelectorAll('.nav-dropdown').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.nav-dropdown').forEach((d) => {
+      d.classList.remove('open');
+      d.querySelector('.nav-dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+    });
   });
 }
 
@@ -175,59 +224,37 @@ function initMobileNav() {
   toggle.addEventListener('click', () => {
     const open = menu.classList.toggle('open');
     toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-}
-
-function initAiPicker() {
-  const options = document.querySelectorAll('.ai-picker-option');
-  const groups = document.querySelectorAll('.ai-picker-tool-group');
-  if (!options.length) return;
-
-  options.forEach(opt => {
-    opt.addEventListener('click', () => {
-      const id = opt.dataset.picker;
-      options.forEach(o => {
-        o.classList.toggle('active', o === opt);
-        o.setAttribute('aria-pressed', o === opt ? 'true' : 'false');
-      });
-      groups.forEach(g => g.classList.toggle('active', g.dataset.pickerResult === id));
-      trackEvent('ai-picker', { choice: id });
-    });
-  });
-
-  document.querySelectorAll('.ai-picker-tool[data-tool]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      showSection(`section-${btn.dataset.tool}`);
-      trackEvent('ai-picker-tool', { tool: btn.dataset.tool });
-    });
+    toggle.setAttribute('aria-label', open ? '关闭导航' : '打开导航');
+    document.body.style.overflow = open ? 'hidden' : '';
   });
 }
 
 function initScrollAnimations() {
   const targets = document.querySelectorAll('.fade-in');
   if (!targets.length || !('IntersectionObserver' in window)) {
-    targets.forEach(el => el.classList.add('visible'));
+    targets.forEach((el) => el.classList.add('visible'));
     return;
   }
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-  targets.forEach(el => observer.observe(el));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' },
+  );
+  targets.forEach((el) => observer.observe(el));
 }
 
 const HOME_HASH_ANCHORS = new Set([
   'home-daily',
   'home-recommend',
-  'home-favorites',
-  'home-tools',
+  'home-ops',
   'home-community',
-  'home-categories',
-  'home-oss',
+  'home-ai-map',
 ]);
 
 function siteBase() {
@@ -235,20 +262,9 @@ function siteBase() {
   return raw.endsWith('/') ? raw : `${raw}/`;
 }
 
-function casesLibraryUrl(anchor) {
-  const hash = anchor ? `#${encodeURIComponent(anchor)}` : '';
-  return `${siteBase()}cases/index.html${hash}`;
-}
-
 function applyLocationHash() {
   const hash = location.hash.replace('#', '');
   const anchor = new URLSearchParams(location.search).get('anchor');
-
-  // 案例已迁出首页 SPA → 独立页
-  if (hash === 'section-cases' || (anchor && String(anchor).startsWith('case-'))) {
-    window.location.replace(casesLibraryUrl(anchor && String(anchor).startsWith('case-') ? anchor : null));
-    return;
-  }
 
   if (hash && HOME_HASH_ANCHORS.has(hash)) {
     showSection('section-home', { updateHash: false });
@@ -275,118 +291,64 @@ function initHashRouting() {
 
 window.addEventListener('hashchange', applyLocationHash);
 
-/* Case accordion */
-document.querySelectorAll('.case-header').forEach(header => {
-  const toggle = () => {
-    const card = header.closest('.case-card');
-    const wasOpen = card.classList.contains('open');
-    document.querySelectorAll('.case-card').forEach(c => c.classList.remove('open'));
-    if (!wasOpen) {
-      card.classList.add('open');
-      trackEvent('case-expand', { tool: card.dataset.tool });
-    }
-  };
-  header.addEventListener('click', toggle);
-  header.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
-  });
-});
-
-/* Case filter */
-const filters = document.querySelectorAll('.case-filter');
-const caseCards = document.querySelectorAll('.case-card[data-tool]');
-
-function applyCaseFilters() {
-  caseCards.forEach(card => {
-    const toolMatch = activeToolFilter === 'all' || card.dataset.tool === activeToolFilter;
-    const scenarios = (card.dataset.scenario || '').split(' ');
-    const scenarioMatch = activeScenarioFilter === 'all' || scenarios.includes(activeScenarioFilter);
-    card.classList.toggle('hidden', !(toolMatch && scenarioMatch));
-  });
-}
-
-filters.forEach(btn => {
-  btn.addEventListener('click', () => {
-    filters.forEach(f => f.classList.remove('active'));
-    btn.classList.add('active');
-    activeToolFilter = btn.dataset.filter;
-    applyCaseFilters();
-    trackEvent('case-filter-tool', { filter: activeToolFilter });
-  });
-});
-
-document.querySelectorAll('.case-scenario').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.case-scenario').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeScenarioFilter = btn.dataset.scenario;
-    applyCaseFilters();
-    trackEvent('case-filter-scenario', { scenario: activeScenarioFilter });
-  });
-});
-
-document.querySelectorAll('.case-tag').forEach(tag => {
-  tag.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const map = { '写作': 'writing', '编程': 'coding', '入门': 'beginner' };
-    const scenario = map[tag.textContent.trim()];
-    if (!scenario) return;
-    document.querySelectorAll('.case-scenario').forEach(b => {
-      b.classList.toggle('active', b.dataset.scenario === scenario);
-    });
-    activeScenarioFilter = scenario;
-    applyCaseFilters();
-    showSection('section-home', { updateHash: true });
-    trackEvent('case-tag-click', { scenario });
-    window.location.href = casesLibraryUrl();
-  });
-});
-
-document.querySelectorAll('[data-goto-case]').forEach(card => {
-  card.addEventListener('click', () => {
-    const anchor = card.dataset.gotoCase;
-    trackEvent('case-preview-click', { anchor });
-    window.location.href = casesLibraryUrl(anchor);
-  });
-});
-
-function initCasesLibraryFilter() {
-  const toolbar = document.getElementById('cases-toolbar');
-  if (!toolbar) return;
-  toolbar.querySelectorAll('[data-case-tool]').forEach(btn => {
-    btn.addEventListener('click', () => {
-      toolbar.querySelectorAll('[data-case-tool]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const tool = btn.dataset.caseTool;
-      document.querySelectorAll('.case-library-card').forEach(card => {
-        const match = tool === 'all' || card.dataset.tool === tool;
-        card.style.display = match ? '' : 'none';
-      });
-    });
-  });
-}
-
-/* Copy prompt */
-document.querySelectorAll('.prompt-block').forEach(block => {
-  block.addEventListener('click', async () => {
-    try {
-      await navigator.clipboard.writeText(block.textContent.replace('点击复制', '').trim());
-      block.classList.add('copied');
-      setTimeout(() => block.classList.remove('copied'), 2000);
-      trackEvent('prompt-copy');
-    } catch {
-      /* fallback: ignore */
-    }
-  });
-});
-
 /* Site search */
+const SEARCH_HISTORY_KEY = 'bioai.search.history.v1';
+const SEARCH_HISTORY_MAX = 8;
+const SEARCH_RESULT_LIMIT = 15;
+const DEFAULT_SUGGESTIONS = ['ChatGPT', 'Cursor', 'DeepSeek', 'Claude', 'Ollama', 'RAG'];
+
+let searchIndex = [];
+let fuseSearch = null;
 let searchIndexStatus = 'loading'; // loading | ready | error
+
+function loadSearchHistory() {
+  try {
+    const raw = JSON.parse(localStorage.getItem(SEARCH_HISTORY_KEY) || '[]');
+    return Array.isArray(raw) ? raw.filter((q) => typeof q === 'string' && q.trim()) : [];
+  } catch {
+    return [];
+  }
+}
+
+function pushSearchHistory(query) {
+  const q = query.trim();
+  if (!q || q.length < 2) return;
+  const next = [q, ...loadSearchHistory().filter((item) => item !== q)].slice(
+    0,
+    SEARCH_HISTORY_MAX,
+  );
+  try {
+    localStorage.setItem(SEARCH_HISTORY_KEY, JSON.stringify(next));
+  } catch {
+    /* private mode */
+  }
+}
+
+function clearSearchHistory() {
+  try {
+    localStorage.removeItem(SEARCH_HISTORY_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+
+function getCuratedSuggestions(wrap) {
+  try {
+    const raw = wrap?.dataset?.searchSuggestions;
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed) && parsed.length) return parsed.map(String);
+    }
+  } catch {
+    /* ignore */
+  }
+  return DEFAULT_SUGGESTIONS;
+}
 
 async function loadSearchIndex() {
   searchIndexStatus = 'loading';
   try {
-    const res = await fetch('search-index.json', { cache: 'default' });
+    const res = await fetch(`${siteBase()}search-index.json`, { cache: 'default' });
     if (!res.ok) throw new Error('search index unavailable');
     const data = await res.json();
     if (Array.isArray(data) && data.length) {
@@ -396,6 +358,7 @@ async function loadSearchIndex() {
           keys: [
             { name: 'label', weight: 0.55 },
             { name: 'keywords', weight: 0.45 },
+            { name: 'type', weight: 0.12 },
           ],
           threshold: 0.38,
           ignoreLocation: true,
@@ -413,23 +376,212 @@ async function loadSearchIndex() {
   }
 }
 
+function preferSearchHits(hits, query) {
+  const q = query.trim().toLowerCase();
+  if (!q || hits.length < 2) return hits;
+  const rank = (item) => {
+    const label = String(item.label || '').toLowerCase();
+    let score = 0;
+    if (label === q) score += 100;
+    else if (label.startsWith(q)) score += 60;
+    else if (label.includes(q)) score += 30;
+    const url = String(item.url || '');
+    if (/^tools\/[^/]+\.html$/i.test(url)) score += 40;
+    if (item.type === '工具') score += 12;
+    if (item.external) score -= 8;
+    if (/hub\.html#hub-compare/i.test(url)) score -= 20;
+    return score;
+  };
+  return [...hits].sort((a, b) => rank(b) - rank(a));
+}
+
 function runSearch(query) {
   const q = query.trim();
   if (!q) return [];
+  let hits;
   if (fuseSearch) {
-    return fuseSearch.search(q, { limit: 10 }).map(r => r.item);
+    hits = fuseSearch.search(q, { limit: SEARCH_RESULT_LIMIT }).map((r) => r.item);
+  } else {
+    const lower = q.toLowerCase();
+    hits = searchIndex
+      .filter(
+        (item) =>
+          item.label.toLowerCase().includes(lower) || item.keywords.toLowerCase().includes(lower),
+      )
+      .slice(0, SEARCH_RESULT_LIMIT);
   }
-  const lower = q.toLowerCase();
-  return searchIndex.filter(item =>
-    item.label.toLowerCase().includes(lower) ||
-    item.keywords.toLowerCase().includes(lower)
-  ).slice(0, 10);
+  return preferSearchHits(hits, q);
 }
 
-function initSiteSearch() {
-  const input = document.getElementById('site-search');
-  const results = document.getElementById('site-search-results');
+function isExternalHit(item) {
+  return Boolean(item.external || (item.url && /^https?:\/\//i.test(String(item.url))));
+}
+
+function renderSearchHit(item, query, optionId) {
+  const label = highlightMatch(item.label, query);
+  const meta = item.type ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>` : '';
+  const qAttr = escapeHtml(query.slice(0, 80));
+  const external = isExternalHit(item);
+  const extMark = external ? '<span class="search-hit-ext" aria-hidden="true">↗</span>' : '';
+  const idAttr = optionId ? ` id="${escapeHtml(optionId)}"` : '';
+  if (item.url) {
+    const attrs = external ? ' target="_blank" rel="noopener noreferrer"' : '';
+    return `<a href="${escapeHtml(resolveSearchUrl(item.url))}" class="search-hit" role="option"${idAttr}${attrs} data-track="search_hit" data-search-query="${qAttr}">${label}${meta}${extMark}</a>`;
+  }
+  return `<button type="button" class="search-hit" role="option"${idAttr} data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit" data-search-query="${qAttr}">${label}${meta}</button>`;
+}
+
+function renderSuggestionsPanel(wrap, input, results) {
+  const history = loadSearchHistory();
+  const curated = getCuratedSuggestions(wrap);
+  let html = '';
+
+  if (history.length) {
+    html += `<div class="search-panel-section">
+      <div class="search-panel-head">
+        <p class="search-panel-label">最近搜索</p>
+        <button type="button" class="search-panel-clear" data-action="clear-history">清除</button>
+      </div>
+      <div class="search-suggest-row">${history
+        .map(
+          (q) =>
+            `<button type="button" class="search-suggest-chip search-history-chip" data-query="${escapeHtml(q)}">${escapeHtml(q)}</button>`,
+        )
+        .join('')}</div>
+    </div>`;
+  }
+
+  html += `<div class="search-panel-section">
+    <p class="search-panel-label">搜索联想</p>
+    <div class="search-suggest-row">${curated
+      .map(
+        (q) =>
+          `<button type="button" class="search-suggest-chip" data-query="${escapeHtml(q)}">${escapeHtml(q)}</button>`,
+      )
+      .join('')}</div>
+  </div>`;
+
+  results.innerHTML = html;
+  setSearchDropdownOpen(wrap, input, results, true);
+
+  results.querySelector('[data-action="clear-history"]')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    clearSearchHistory();
+    renderSuggestionsPanel(wrap, input, results);
+  });
+
+  results.querySelectorAll('[data-query]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      input.value = btn.dataset.query || '';
+      renderSearchResults(wrap, input, results, input.value);
+      input.focus();
+    });
+  });
+}
+
+function bindSearchHitActions(wrap, input, results, query) {
+  results.querySelectorAll('button.search-hit').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      gotoSearchHit(
+        {
+          section: btn.dataset.section,
+          anchor: btn.dataset.anchor || null,
+        },
+        query,
+      );
+      input.value = '';
+      setSearchDropdownOpen(wrap, input, results, false);
+    });
+  });
+
+  results.querySelectorAll('a.search-hit').forEach((link) => {
+    link.addEventListener('click', () => {
+      pushSearchHistory(query);
+      setSearchDropdownOpen(wrap, input, results, false);
+    });
+  });
+}
+
+function renderSearchResults(wrap, input, results, rawQuery) {
+  const query = rawQuery.trim();
+  if (!query) {
+    renderSuggestionsPanel(wrap, input, results);
+    return;
+  }
+
+  if (searchIndexStatus === 'loading') {
+    results.innerHTML = '<p class="search-empty search-loading">搜索索引加载中…</p>';
+    setSearchDropdownOpen(wrap, input, results, true);
+    return;
+  }
+
+  if (searchIndexStatus === 'error') {
+    results.innerHTML = '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
+    setSearchDropdownOpen(wrap, input, results, true);
+    if (typeof trackEvent === 'function') trackEvent('search_error', { q: query.slice(0, 40) });
+    return;
+  }
+
+  const hits = runSearch(query);
+
+  if (!hits.length) {
+    results.innerHTML = `
+      <div class="search-empty">
+        <p>未找到「${escapeHtml(query)}」相关内容</p>
+        <div class="search-empty-actions">
+          <a href="#home-recommend" class="search-empty-link" data-track="search_empty_recommend">试试 AI 推荐助手</a>
+          <a href="${escapeHtml(siteBase())}tools/hub.html" class="search-empty-link" data-track="search_empty_hub">浏览工具中心</a>
+        </div>
+      </div>`;
+    setSearchDropdownOpen(wrap, input, results, true);
+    if (typeof trackEvent === 'function') trackEvent('search_empty', { q: query.slice(0, 40) });
+    return;
+  }
+
+  const grouped = new Map();
+  for (const hit of hits) {
+    const type = hit.type || '其他';
+    if (!grouped.has(type)) grouped.set(type, []);
+    grouped.get(type).push(hit);
+  }
+
+  let optionSeq = 0;
+  results.innerHTML = [...grouped.entries()]
+    .map(([type, items]) => {
+      let html = `<div class="search-group">
+        <p class="search-group-label">${escapeHtml(type)}</p>`;
+      for (const item of items) {
+        const optionId = `search-opt-${optionSeq++}`;
+        html += renderSearchHit(item, query, optionId);
+      }
+      html += '</div>';
+      return html;
+    })
+    .join('');
+  setSearchDropdownOpen(wrap, input, results, true);
+  bindSearchHitActions(wrap, input, results, query);
+}
+
+function initSearchWrap(wrap) {
+  const input = wrap.querySelector('.site-search-input');
+  const results = wrap.querySelector('.site-search-results');
   if (!input || !results) return;
+
+  let searchQueryTimer = null;
+  let lastTrackedQuery = '';
+  let activeIndex = -1;
+
+  function scheduleSearchQueryTrack(query, resultCount) {
+    const q = query.trim();
+    if (!q || q === lastTrackedQuery) return;
+    clearTimeout(searchQueryTimer);
+    searchQueryTimer = setTimeout(() => {
+      lastTrackedQuery = q;
+      if (typeof trackEvent === 'function') {
+        trackEvent('search_query', { q: q.slice(0, 80), result_count: resultCount });
+      }
+    }, 600);
+  }
 
   function markReady() {
     input.dataset.searchReady = searchIndexStatus === 'ready' ? '1' : '0';
@@ -437,94 +589,124 @@ function initSiteSearch() {
   }
   markReady();
 
-  function renderResults(q) {
-    const query = q.trim();
-    if (!query) {
-      results.hidden = true;
-      results.innerHTML = '';
-      return;
-    }
-
-    if (searchIndexStatus === 'loading') {
-      results.innerHTML = '<p class="search-empty search-loading">搜索索引加载中…</p>';
-      results.hidden = false;
-      return;
-    }
-
-    if (searchIndexStatus === 'error') {
-      results.innerHTML = '<p class="search-empty search-error">搜索暂不可用，请刷新页面后重试。</p>';
-      results.hidden = false;
-      if (typeof trackEvent === 'function') trackEvent('search_error', { q: query.slice(0, 40) });
-      return;
-    }
-
-    const hits = runSearch(query);
-
-    if (!hits.length) {
-      results.innerHTML = `
-        <div class="search-empty">
-          <p>未找到「${escapeHtml(query)}」相关内容</p>
-          <div class="search-empty-actions">
-            <a href="#home-recommend" class="search-empty-link" data-track="search_empty_recommend">试试 AI 推荐助手</a>
-            <a href="tools/hub.html" class="search-empty-link" data-track="search_empty_hub">浏览工具中心</a>
-          </div>
-        </div>`;
-      results.hidden = false;
-      if (typeof trackEvent === 'function') trackEvent('search_empty', { q: query.slice(0, 40) });
-      return;
-    }
-
-    results.innerHTML = hits.map(item => {
-      const label = highlightMatch(item.label, query);
-      const meta = item.type ? `<span class="search-hit-meta">${escapeHtml(item.type)}</span>` : '';
-      if (item.url) {
-        return `<a href="${escapeHtml(item.url)}" class="search-hit" data-track="search_hit">${label}${meta}</a>`;
-      }
-      return `<button type="button" class="search-hit" data-section="${escapeHtml(item.section)}" data-anchor="${escapeHtml(item.anchor || '')}" data-track="search_hit">${label}${meta}</button>`;
-    }).join('');
-    results.hidden = false;
-
-    results.querySelectorAll('button.search-hit').forEach(btn => {
-      btn.addEventListener('click', () => {
-        gotoSearchHit({
-          section: btn.dataset.section,
-          anchor: btn.dataset.anchor || null,
-        });
-        input.value = '';
-        results.hidden = true;
-      });
+  function updateActiveHit() {
+    const hits = [...results.querySelectorAll('.search-hit')];
+    hits.forEach((el, i) => {
+      const on = i === activeIndex;
+      el.classList.toggle('search-hit-active', on);
+      el.setAttribute('aria-selected', on ? 'true' : 'false');
     });
+    if (activeIndex >= 0 && hits[activeIndex]) {
+      hits[activeIndex].scrollIntoView({ block: 'nearest' });
+      input.setAttribute('aria-activedescendant', hits[activeIndex].id || '');
+    } else {
+      input.removeAttribute('aria-activedescendant');
+    }
   }
 
+  function renderResults(rawQuery) {
+    activeIndex = -1;
+    renderSearchResults(wrap, input, results, rawQuery);
+    const q = rawQuery.trim();
+    if (q && searchIndexStatus === 'ready') {
+      scheduleSearchQueryTrack(q, runSearch(q).length);
+    }
+  }
+
+  input.setAttribute('role', 'combobox');
+  input.setAttribute('aria-autocomplete', 'list');
+  input.setAttribute('aria-controls', results.id || 'site-search-results');
+  input.setAttribute('aria-expanded', 'false');
+  results.setAttribute('role', 'listbox');
+
   input.addEventListener('input', () => renderResults(input.value));
+  input.addEventListener('focus', () => {
+    if (!input.value.trim()) renderSuggestionsPanel(wrap, input, results);
+    else renderResults(input.value);
+  });
+  input.addEventListener('search', () => {
+    // type=search 的清除/回车会触发 search；空值时收起，有值时走提交
+    if (!input.value.trim()) {
+      setSearchDropdownOpen(wrap, input, results, false);
+      return;
+    }
+    activatePrimaryHit();
+  });
+
+  function activatePrimaryHit() {
+    renderResults(input.value);
+    const hits = [...results.querySelectorAll('.search-hit')];
+    const target = activeIndex >= 0 && hits[activeIndex] ? hits[activeIndex] : hits[0] || null;
+    if (target) {
+      target.click();
+      return true;
+    }
+    if (!input.value.trim()) renderSuggestionsPanel(wrap, input, results);
+    return false;
+  }
+
+  const submitBtn = wrap.querySelector('.site-search-submit');
+  submitBtn?.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (!input.value.trim()) {
+      input.focus();
+      renderSuggestionsPanel(wrap, input, results);
+      return;
+    }
+    activatePrimaryHit();
+  });
+
   input.addEventListener('keydown', (e) => {
+    const hits = [...results.querySelectorAll('.search-hit')];
     if (e.key === 'Escape') {
       input.value = '';
-      results.hidden = true;
+      setSearchDropdownOpen(wrap, input, results, false);
+      activeIndex = -1;
+      return;
+    }
+    if (e.key === 'ArrowDown' && hits.length && !results.hidden) {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, hits.length - 1);
+      updateActiveHit();
+      return;
+    }
+    if (e.key === 'ArrowUp' && hits.length && !results.hidden) {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      updateActiveHit();
+      return;
     }
     if (e.key === 'Enter') {
-      const first = results.querySelector('.search-hit');
-      if (first && !results.hidden) {
-        e.preventDefault();
-        first.click();
-      }
+      e.preventDefault();
+      activatePrimaryHit();
     }
   });
+
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.site-search-wrap')) results.hidden = true;
+    if (!wrap.contains(e.target) && !results.contains(e.target)) {
+      setSearchDropdownOpen(wrap, input, results, false);
+    }
   });
+
+  const reposition = () => {
+    if (!results.hidden) syncSearchDropdown(wrap, input, results);
+  };
+  window.addEventListener('scroll', reposition, { passive: true });
+  window.addEventListener('resize', reposition);
 
   const params = new URLSearchParams(location.search);
   const q = params.get('q');
-  if (q) {
+  if (q && wrap.querySelector('#site-search, #nav-site-search') === input) {
     input.value = q;
     renderResults(q);
+    if (typeof trackEvent === 'function') {
+      trackEvent('search_query', { q: q.slice(0, 80), entry_source: 'url_param' });
+    }
   }
 
-  // 索引异步完成后刷新就绪标记与当前查询
-  const _origMark = markReady;
   const poll = setInterval(() => {
-    _origMark();
+    markReady();
     if (searchIndexStatus !== 'loading') {
       clearInterval(poll);
       if (input.value.trim()) renderResults(input.value);
@@ -532,19 +714,20 @@ function initSiteSearch() {
   }, 50);
 }
 
+function initSiteSearch() {
+  document.querySelectorAll('.site-search-wrap').forEach((wrap) => initSearchWrap(wrap));
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initHashRouting();
   initNavDropdowns();
   initMobileNav();
-  initAiPicker();
   initScrollAnimations();
-  initCasesLibraryFilter();
   loadSearchIndex().finally(() => {
-    const input = document.getElementById('site-search');
-    if (input) {
+    document.querySelectorAll('.site-search-input').forEach((input) => {
       input.dataset.searchReady = searchIndexStatus === 'ready' ? '1' : '0';
       input.dataset.searchStatus = searchIndexStatus;
-    }
+    });
     initSiteSearch();
   });
 });

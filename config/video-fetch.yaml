@@ -1,44 +1,48 @@
 # 每日视频抓取配置（scripts/fetch_daily_videos.py 读取）
 
-# 六类推荐（同平台跨分类去重：先填 24h → 30d → 100d Top，避免同一视频重复出现）
-# 播放量门槛：24h≥1000 · 30d≥10000 · 100d≥100000
+# YouTube / B站 分别抓取（各自独立，最低播放量统一 ≥10000）：
+#   1）24 小时内 Top 3
+#   2）30 天内 Top 3
+#   3）100 天内 Top 4
+# 去重后「每平台」最多 10 条（先保留 24h/30d，再用 100d；YouTube / B站各自独立）
+# 内容门槛：仅保留 AI 关键词匹配
 video_categories:
-  youtube_top_views:
-    label: "YouTube：100 天内上新 Top 10"
-    platform: youtube
-    days: 100
-    top_count: 10
-    min_views: 100000
-  youtube_recent_30d:
-    label: "YouTube：30 天内上新 Top 5"
-    platform: youtube
-    days: 30
-    top_count: 5
-    min_views: 10000
   youtube_recent_24h:
-    label: "YouTube：24 小时内上新 Top 3"
+    label: "YouTube：24 小时内 Top 3"
     platform: youtube
     hours: 24
     top_count: 3
-    min_views: 1000
-  bilibili_top_views:
-    label: "B站：100 天内上新 Top 10"
-    platform: bilibili
-    days: 100
-    top_count: 10
-    min_views: 100000
-  bilibili_recent_30d:
-    label: "B站：30 天内上新 Top 5"
-    platform: bilibili
+    min_views: 10000
+  youtube_recent_30d:
+    label: "YouTube：30 天内 Top 3"
+    platform: youtube
     days: 30
-    top_count: 5
+    top_count: 3
+    min_views: 10000
+  youtube_recent_100d:
+    label: "YouTube：100 天内 Top 4"
+    platform: youtube
+    days: 100
+    top_count: 4
     min_views: 10000
   bilibili_recent_24h:
-    label: "B站：24 小时内上新 Top 3"
+    label: "B站：24 小时内 Top 3"
     platform: bilibili
     hours: 24
     top_count: 3
-    min_views: 1000
+    min_views: 10000
+  bilibili_recent_30d:
+    label: "B站：30 天内 Top 3"
+    platform: bilibili
+    days: 30
+    top_count: 3
+    min_views: 10000
+  bilibili_recent_100d:
+    label: "B站：100 天内 Top 4"
+    platform: bilibili
+    days: 100
+    top_count: 4
+    min_views: 10000
 
 # 多平台搜索源（分类未写 min_views 时的回退值）
 search_sources:
@@ -46,21 +50,20 @@ search_sources:
     enabled: true
     label: YouTube
     search_prefix: ytsearch
-    min_height: 1080
-    min_views: 8000
-    recent_min_views: 1000
-    min_subscribers: 1000
+    min_views: 10000
+    recent_min_views: 10000
   bilibili:
     enabled: true
     label: B站
-    min_height: 720
-    min_views: 500
-    recent_min_views: 1000
-    min_subscribers: 0
+    min_views: 10000
+    recent_min_views: 10000
 
 search_per_query: 20
-# YouTube 无发布时间时会消耗 detail 配额；过低会导致 B 站分类被饿死
-max_detail_checks: 640
+# B站/YouTube 每个关键词翻页数（热门排序下高播放常不在首页）
+search_pages: 5
+max_detail_checks: 960
+# 1+2+3 去重后「每平台」最多条数（YouTube≤10 且 B站≤10，不是两平台合计）
+platform_total_cap: 10
 
 search_queries:
   - "ChatGPT tutorial 2026"

@@ -1,207 +1,129 @@
 # Bio AI Lab
 
-**AI 工具 · 开源 · 新闻 · 视频** — 国内国际热门工具分类/排行/对比、GitHub Stars 四领域、每周资讯与六类每日视频。
+**Bio-Apple · AI 工具导航 · 开源精选 · 实战案例 · 课程 · 热点 · 视频**
 
-**Website:** https://bio-apple.github.io/ai/
+[![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
+[![Stars](https://img.shields.io/github/stars/bio-apple/ai?style=flat-square&logo=github)](https://github.com/bio-apple/ai/stargazers)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/deploy.yml?branch=main&style=flat-square&label=Deploy)](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)
+[![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions/workflows/ci.yml)
+[![Last commit](https://img.shields.io/github/last-commit/bio-apple/ai?style=flat-square)](https://github.com/bio-apple/ai/commits/main)
+[![Node](https://img.shields.io/badge/Node-22.x-339933?style=flat-square&logo=nodedotjs&logoColor=white)](./.nvmrc)
+[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](./requirements.txt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-0d8c6d?style=flat-square)](./LICENSE)
 
-[![Website](https://img.shields.io/badge/Website-bio--apple.github.io%2Fai-6366F1?style=for-the-badge)](https://bio-apple.github.io/ai/)
-[![Documentation](https://img.shields.io/badge/Documentation-DEVELOPER.md-06B6D4?style=for-the-badge)](./DEVELOPER.md)
-[![Vision 2.0](https://img.shields.io/badge/Vision-2.0-8B5CF6?style=for-the-badge)](./docs/VISION-2.0.md)
-[![GitHub](https://img.shields.io/badge/GitHub-bio--apple%2Fai-111827?style=for-the-badge)](https://github.com/bio-apple/ai)
+站点：https://bio-apple.github.io/ai/ · 贡献：[CONTRIBUTING.md](./CONTRIBUTING.md)
 
-## Screenshot
+## 预览
 
-| 首页 Hero | 工具与排行 | 视频 / 开源 / 新闻 |
-|-----------|------------|-------------------|
-| ![首页](og-image.jpg) | 国内国际分类 + 排行对比 | 六类视频 · Stars · 每周热点 |
+| 首页 Hero                                 | AI 工具中心                                 | 推荐助手                                           |
+| ----------------------------------------- | ------------------------------------------- | -------------------------------------------------- |
+| ![首页 Hero](./docs/images/home-hero.png) | ![AI 工具中心](./docs/images/tools-hub.png) | ![推荐助手](./docs/images/recommend-assistant.png) |
 
-> 线上预览：[https://bio-apple.github.io/ai/](https://bio-apple.github.io/ai/)
+## 文档
 
-## Features
-
-| 功能 | 支持 |
-|------|------|
-| 国内/国际 AI 工具分类、排行与对比 | ✅ |
-| 工具详情教程页 | ✅ |
-| GitHub Stars 开源精选（4 大领域，每领域 ≥1） | ✅ |
-| 每周 AI 新闻（清单信源 + 关注面板） | ✅ |
-| 每日六类视频（YouTube + B站 100d / 30d / 24h） | ✅ |
-| 站内搜索（Fuse.js） | ✅ |
-| Astro SSG + GitHub Pages | ✅ |
-
-> Prompt 库 / 案例库 / 学习路线等为 **独立页 / Labs 入口**，**不进首页主栏与主导航「案例」**（SEO 页仍保留）。
-
-## 生产说明
-
-**GitHub Pages 线上为纯静态站，没有 `/api/*`。** Docker / Render / 本地 FastAPI（`./start.sh`）仅用于本机或自建预览，勿默认当成线上能力。
-
-## 涵盖工具
-
-| 类型 | 工具 |
-|------|------|
-| 国际对话 AI | ChatGPT、Claude、Gemini |
-| 国内对话 AI | Kimi、通义千问、豆包、DeepSeek |
-| 编程与开发 AI | Cursor、Codex、Copilot |
-
-## 内容模块
-
-### 1. AI 视频（每日更新）
-
-北京时间每日 0:00 自动抓取，分 **六类推荐**（页面展示顺序：各平台 **100d → 30d → 24h**；同平台跨分类去重）：
-
-| 平台 | 分类 | 数量 | 最低播放量 |
-|------|------|------|------------|
-| YouTube | 100 天内上新 Top 10 | 10 | 10 万 |
-| YouTube | 30 天内上新 Top 5 | 5 | 1 万 |
-| YouTube | 24 小时内上新 Top 3 | 3 | 1000 |
-| B站 | 100 天内上新 Top 10 | 10 | 10 万 |
-| B站 | 30 天内上新 Top 5 | 5 | 1 万 |
-| B站 | 24 小时内上新 Top 3 | 3 | 1000 |
-
-### 2. 工具、分类、排行与比较
-
-- 首页：国际/国内/编程三大类工具卡片
-- 2026 AI 工具排行榜 + 首页对比表预览
-- 独立对比专题页（Cursor vs Copilot、ChatGPT vs DeepSeek 等）
-
-### 3. GitHub Stars 开源精选（每周刷新 Star）
-
-四大应用领域：
-
-| 领域 | 代表项目 |
-|------|----------|
-| Agent 框架 | Dify、AutoGen、LangGraph |
-| 推理框架 | llama.cpp、vLLM |
-| 向量库 | Milvus |
-| 本地部署 | Ollama、Open WebUI、LocalAI |
-
-### 4. AI 新闻（每周更新）
-
-北京时间每周一 6:00 自动汇总：
-
-- **公司动态**：OpenAI、Anthropic、Google DeepMind、Google AI、NVIDIA、Microsoft（RSS / 官网）
-- **中文媒体**：智源社区聚合、量子位 RSS；关注面板含机器之心、新智元
-- **关注面板**：Meta AI、Hugging Face 等（博客 + X）
-- **技术源**：GitHub Trending、arXiv（cs.AI / cs.LG / cs.CL / cs.CV）
-
-## 页面结构
-
-```
-首页主路径
-├── Hero + 站内搜索
-├── 推荐助手 → AI 简报 → 收藏
-├── 热门工具 + 更多分类
-├── 开源预览
-└── 继续深入（工具中心 / Labs / 排行 / 案例 + 对比卡）
-
-Tab / 分区（同页 SPA）
-├── 各工具详情教程
-├── 开源精选完整列表
-├── AI 新闻 + 持续关注源
-└── 六类视频完整列表
-
-独立页
-├── /tools/{tool}.html · /tools/hub.html
-├── /labs/ · /cases/ · /prompts/ · /ai-learning-roadmap.html
-├── /ai-tools-ranking.html
-├── /news/daily-ai-news.html
-└── /compare/*.html
-```
+| 文档                                           | 说明                               |
+| ---------------------------------------------- | ---------------------------------- |
+| [CONTRIBUTING.md](./CONTRIBUTING.md)           | 贡献指南与内容快速路径             |
+| [docs/SETUP.md](./docs/SETUP.md)               | 环境搭建与本地预览                 |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构                           |
+| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)     | 数据模型                           |
+| [docs/FRONTEND.md](./docs/FRONTEND.md)         | 前端能力（搜索 / 推荐 / 漏斗埋点） |
+| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)   | 内容运营、日更抓取与故障救急       |
+| [DEVELOPER.md](./DEVELOPER.md)                 | 开发速查与常见改动                 |
+| [docs/SEO.md](./docs/SEO.md)                   | TDK / OG / JSON-LD                 |
+| [docs/SECURITY.md](./docs/SECURITY.md)         | 安全与 CSP                         |
+| [docs/CI-CD.md](./docs/CI-CD.md)               | CI/CD 与部署                       |
 
 ## 快速开始
 
-### 本地预览
-
 ```bash
-cd ai
-npm ci
-pip install -r requirements.txt
-./build.sh          # Astro SSG → dist/
-./start.sh          # FastAPI 预览 dist/
+git clone https://github.com/bio-apple/ai.git && cd ai
+nvm use                    # Node 22，见 .nvmrc
+npm ci && pip install -r requirements.txt
+./build.sh && ./start.sh
 ```
 
-访问 http://127.0.0.1:8765/ai/（`/` 会重定向到 `/ai/`）
-
-### 本地校验与 E2E
-
-```bash
-npm run build
-DIST=dist python3 scripts/validate_ci.py          # 全量校验（与 CI 一致，10 步）
-DIST=dist python3 scripts/validate_ci.py links    # 单步：HTML 内部链接（含 /ai/ 绝对路径）
-npm run test:unit                                 # Node + Python 轻量单测
-npx playwright install chromium                   # 首次运行 E2E 需安装浏览器
-npm run test:e2e                                  # Playwright 冒烟（约 12 项；失败会红 CI）
-```
-
-> **必绿（合并 / Pages）**：`validate_ci.py`。  
-> **必绿（CI job）**：另含单元测 + FastAPI smoke + Playwright E2E（E2E 失败会使 CI 失败；**Pages 工作流不跑 E2E**，避免浏览器不稳挡发版）。  
-> **分析**：仓库默认可空 GA ID；在 GitHub Secrets 设 `GA_MEASUREMENT_ID` / `CLARITY_PROJECT_ID` 后构建即启用（见 `docs/ANALYTICS-EVENTS.md`）。  
-> 线上健康：`npm run health:live` 或定时 `site-health.yml`（内容过期会开 Issue）。
-
-### 手动刷新动态数据
+本地预览：**http://127.0.0.1:8765/ai/**  
+校验：`npm run quality && npm run build && DIST=dist python3 scripts/validate_ci.py`
 
 ```bash
-pip install yt-dlp pyyaml
-python scripts/fetch_daily_videos.py   # 每日视频
-python scripts/fetch_ai_news.py        # 每周新闻
-python scripts/fetch_oss_stars.py      # 开源 Star 数
+# 仅构建静态站（不启本地 API）
+npm run build && npx astro preview --host 127.0.0.1 --port 8766
+
+# 刷新数据（按需）
+python3 scripts/fetch_ai_news.py
+python3 scripts/fetch_ai_courses.py
+python3 scripts/fetch_daily_videos.py
 ```
 
-**开发者文档**：[DEVELOPER.md](./DEVELOPER.md)（架构、数据格式、CI/CD、故障排查）
+> **环境要求**：Node.js **22.x**（`.nvmrc`）· Python **3.12**（抓取/校验/本地 API）  
+> **部署**：GitHub Pages 强制 HTTPS，静态资源由 CDN 提供 Gzip/Brotli；JS/CSS 带内容哈希 `?v=` 防缓存脏读。  
+> 详尽搭建、三种预览模式与故障排除 → **[docs/SETUP.md](./docs/SETUP.md)**
 
-## 自动更新
+## 做什么
 
-| 内容 | 时间（北京时间） | 工作流 |
-|------|------------------|--------|
-| AI 视频（六类） | 每日 00:00 | `daily-videos.yml` |
-| AI 新闻 + 开源 Star | 每周一 06:00 | `weekly-news.yml` |
+顶栏导航（`data/site.json` → `nav.menu`）：
 
-推送 `main` 后，GitHub Actions 自动构建 `dist/` 并部署到 GitHub Pages。
+| 入口       | 类型   | 说明                                                                           |
+| ---------- | ------ | ------------------------------------------------------------------------------ |
+| 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图、工具中心入口                                |
+| AI工具中心 | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                                            |
+| 开源精选   | Tab    | `site.json` → `oss_frameworks`（Agent / 推理 / 向量库 / 评测 / 本地部署）      |
+| 课程资源   | Tab    | 免费 AI 课程（微软、谷歌、斯坦福核心课）                                       |
+| 新闻热点   | Tab    | 近 7 天 AI 热点（多档日更）                                                    |
+| AI 视频    | Tab    | YouTube/B站各自：24h Top3、30d Top3、100d Top4（最低播放量 10000），每平台 ≤10 |
 
-## 质量保障与 CI
+独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题 · 实战案例详情（`local/*.html`）
 
-`push` / `PR` 触发 [`.github/workflows/ci.yml`](.github/workflows/ci.yml)：
+### 前端能力（摘要）
 
-| 阶段 | 说明 |
-|------|------|
-| Astro 构建 | `npm ci && npm run build` → `dist/`（Secrets 可注入 GA/Clarity） |
-| 单元测试 | `npm run test:unit`（paths / 视频回退 / 新闻去重） |
-| 数据校验（10 步） | `validate_ci.py`：data · oss · videos · news · runtime · **recommend** · sitemap · search · analytics · **links** |
-| API 冒烟 | `scripts/smoke_api.py`（本地 FastAPI；生产 Pages **无** `/api/*`） |
-| E2E | Playwright 冒烟 ≈12 项；**失败会使 CI 红**；Pages 部署流水线不跑 E2E |
+| 能力         | 说明                                                                           |
+| ------------ | ------------------------------------------------------------------------------ |
+| 全站搜索     | 顶栏 + Hero；fixed 下拉；工具名直达 `tools/*.html`；联想 / 历史 / 搜索按钮     |
+| 首页领域地图 | `HomeAiMap`：闭合椭圆 SVG 关系图（简报后，跟主题）                             |
+| 面包屑       | 专区与独立页统一「首页 / …」                                                   |
+| 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                             |
+| 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等               |
+| 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                        |
+| 开源精选     | 首页专区：`oss_frameworks` 多类别卡片（`#section-oss` · `.oss-card*`）         |
+| 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示                   |
+| SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 开源精选 ItemList）+ BreadcrumbList |
 
-`main` 推送触发 [`.github/workflows/pages.yml`](.github/workflows/pages.yml)：`build + validate` → 上传 `dist` artifact → 部署。**不跑 E2E**，避免浏览器不稳定挡住内容上线。
+详见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
 
-**链接约定**：站内资源与回首页统一使用 Astro `base`（`/ai/...`），由 `src/lib/paths.ts` 的 `asset()` 生成；勿再硬编码相对 `tools/...` 而不带 base。
+## 课程资源（概要）
 
-## 技术栈
+学习路线（顺序固定）：
 
-| 层级 | 技术 |
-|------|------|
-| 构建 | Astro 5 SSG |
-| 内容 | `data/*.json` |
-| 样式/交互 | 原生 CSS + JavaScript |
-| 搜索 | Fuse.js + `search-index.json` |
-| 动态数据 | `daily-videos.json` · `ai-news.json` · `oss-projects.json` |
-| 部署 | GitHub Pages + GitHub Actions |
+**入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent → AI 工程实践**
 
-## Roadmap
+- **仅免费**；**每条路线最多推荐 5 门**（必学 / 合集优先）
+- **必推荐**：微软 Generative AI for Beginners、Google ML Crash Course、斯坦福 CS230 / CS224n / CS231n / CS336（**YouTube 最新学年讲座**）
 
-| 阶段 | 内容 | 状态 |
-|------|------|------|
-| Phase 1 | 首页重构、新导航、工具卡片、UI 升级 | ✅ 已完成 |
-| Phase 2 | 排行榜、选择助手、新闻、创作区、指南页 | ✅ 已完成 |
-| Phase 2.5 | Prompt 库、案例库、视频筛选、JSON 导出 | ✅ 已完成 |
-| Phase 3 | Astro SSG、六类视频、开源精选、每周新闻扩展信源 | ✅ 已完成 |
-| Phase 3.5 | 智源社区聚合、新闻信源多样性、CI 校验 + API smoke + Playwright E2E | ✅ 已完成 |
-| Phase 3.6 | Pages/E2E 解耦、`/ai` 本地对齐、资源路径统一、懒加载与缓存 | ✅ 已完成 |
-| Phase 3.7 | 运维健康探针、抓取告警、Dependabot、CI 信号治理 | ✅ 已完成 |
-| Phase 3.8 | 首页瘦身 + 新闻/开源/视频预览 SSG 内联 | ✅ 已完成 |
-| Phase 3.9 | 主路径：推荐 → 简报 → 工具 → 收藏（学习/案例入 Labs·独立页） | ✅ 已完成 |
-| Phase 3.10 | GA Secrets 注入、a11y、asset() 统一、单元测 + E2E 边角 | ✅ 已完成 |
-| Phase 4 | 本地收藏、搜索增强、对话式推荐、AI Labs、工具中心 | ✅ 已完成 |
-| Phase 5 | 云端账户 / 向量 RAG / 真 LLM Agent（需独立托管） | 🔜 规划中 |
+配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 日更：`.github/workflows/daily-courses.yml`
+
+## 改内容
+
+| 想改什么     | 改哪里                                                       |
+| ------------ | ------------------------------------------------------------ |
+| 文案 / 导航  | `data/site.json`                                             |
+| 工具 / 关系  | `data/tools.json` · `data/tool-relations.json`               |
+| 对比专题     | `data/compares.json`（独立 `compare/*.html` 页）             |
+| 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                 |
+| 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；00:00 日更）   |
+| 热度基准     | `data/engagement.json`                                       |
+| 开源精选     | `data/site.json` → `oss_frameworks`（首页 `#section-oss`）   |
+| 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`） |
+| 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`     |
+| 新闻源       | `config/news-fetch.yaml`                                     |
+| 视频源       | `config/video-fetch.yaml`                                    |
+
+分步说明（工具 / 课程 / 对比专题等）→ **[CONTRIBUTING.md](./CONTRIBUTING.md)**。
+
+推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
+
+**工程实践**：`lib/fetch-json.js` / `virtual-list.js` / `link-guard.js` · 视频 slim JSON · 资源 `?v=` 哈希 · CI（Schema / OG / JSON-LD / 搜索 / gitleaks）· 日更末步 lychee 死链（软告警）。
 
 ## License
 
-MIT — see [GitHub repository](https://github.com/bio-apple/ai).
+MIT

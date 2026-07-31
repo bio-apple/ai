@@ -28,10 +28,7 @@
             "description": "旧版批次结构，仅用于向后兼容"
           }
         },
-        "oneOf": [
-          { "required": ["categories"] },
-          { "required": ["videos"] }
-        ]
+        "oneOf": [{ "required": ["categories"] }, { "required": ["videos"] }]
       }
     }
   },
@@ -56,10 +53,7 @@
           "items": { "$ref": "#/$defs/videoItem" }
         }
       },
-      "anyOf": [
-        { "required": ["top_count"] },
-        { "required": ["min_count"] }
-      ]
+      "anyOf": [{ "required": ["top_count"] }, { "required": ["min_count"] }]
     },
     "videoItem": {
       "type": "object",

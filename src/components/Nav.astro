@@ -1,67 +1,135 @@
 ---
 import type { site as SiteType } from '../../data/site.json';
+import GlobalSearch from './GlobalSearch.astro';
 
 interface Props {
   nav: typeof SiteType.nav;
   standalone?: boolean;
   homeHref?: string;
   navPrefix?: string;
+  showSearch?: boolean;
 }
 
-const { nav, standalone = false, homeHref = 'index.html', navPrefix = '' } = Astro.props;
+const {
+  nav,
+  standalone = false,
+  homeHref = 'index.html',
+  navPrefix = '',
+  showSearch = true,
+} = Astro.props;
 ---
+
 <header>
   <nav class="nav">
-    {standalone ? (
-      <a href={homeHref} class="logo">
-        <div class="logo-icon">{nav.logo.icon}</div>
-        <div class="logo-text">
-          <span class="logo-brand">{nav.logo.brand}</span>
-          <span class="logo-tagline">{nav.logo.tagline}</span>
-        </div>
-      </a>
-    ) : (
-      <div class="logo" role="banner">
-        <div class="logo-icon">{nav.logo.icon}</div>
-        <div class="logo-text">
-          <span class="logo-brand">{nav.logo.brand}</span>
-          <span class="logo-tagline">{nav.logo.tagline}</span>
-        </div>
+    <a href={homeHref} class="logo" data-tool="all" aria-label="Bio AI Lab 首页">
+      <div class="logo-icon" aria-hidden="true">{nav.logo.icon}</div>
+      <div class="logo-text">
+        <span class="logo-brand">{nav.logo.brand}</span>
+        <span class="logo-tagline">{nav.logo.tagline}</span>
       </div>
-    )}
-    <button class="nav-toggle" type="button" aria-label="打开导航" aria-expanded="false">
+    </a>
+    {
+      showSearch && (
+        <div class="nav-search-col">
+          <GlobalSearch variant="nav" />
+        </div>
+      )
+    }
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-label="打开导航"
+      aria-expanded="false"
+      aria-controls="site-nav-menu"
+    >
       <span></span><span></span><span></span>
     </button>
-    <div class="nav-menu">
-      {nav.menu.map((item) => {
-        if (item.type === 'dropdown') {
-          return (
-            <div class="nav-dropdown">
-              <button type="button" class="nav-dropdown-trigger" aria-haspopup="true">
-                {item.label} <span class="nav-chevron">▾</span>
+    <div class="nav-menu" id="site-nav-menu">
+      <div class="nav-tabs" role="tablist" aria-label="站点分区">
+        {
+          nav.menu.map((item) => {
+            if (item.type === 'dropdown') {
+              return (
+                <div class="nav-dropdown">
+                  <button
+                    type="button"
+                    class="nav-dropdown-trigger"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    {item.label} <span class="nav-chevron">▾</span>
+                  </button>
+                  <div class="nav-dropdown-menu" role="menu">
+                    {item.children?.map((sub) => {
+                      const href = 'href' in sub && sub.href ? String(sub.href) : '';
+                      if (href) {
+                        return (
+                          <a href={`${navPrefix}${href}`} class="nav-dropdown-item" role="menuitem">
+                            {sub.label}
+                          </a>
+                        );
+                      }
+                      if (!('id' in sub) || !sub.id) return null;
+                      return standalone ? (
+                        <a
+                          href={`${homeHref}#section-${sub.id}`}
+                          class="nav-dropdown-item"
+                          role="menuitem"
+                        >
+                          {sub.label}
+                        </a>
+                      ) : (
+                        <button
+                          type="button"
+                          class="nav-dropdown-item"
+                          data-tool={sub.id}
+                          role="menuitem"
+                        >
+                          {sub.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
+              );
+            }
+            if (item.type === 'page') {
+              return (
+                <a href={`${navPrefix}${item.href}`} class="nav-link-page">
+                  {item.label}
+                </a>
+              );
+            }
+            const active = item.id === 'all';
+            const controls = item.id === 'all' ? 'section-home' : `section-${item.id}`;
+            if (standalone) {
+              const href = item.id === 'all' ? homeHref : `${homeHref}#section-${item.id}`;
+              return (
+                <a
+                  href={href}
+                  class:list={['nav-tab', { active }]}
+                  role="tab"
+                  aria-selected={active ? 'true' : 'false'}
+                >
+                  {item.label}
+                </a>
+              );
+            }
+            return (
+              <button
+                type="button"
+                class:list={['nav-tab', { active }]}
+                data-tool={item.id}
+                role="tab"
+                aria-selected={active ? 'true' : 'false'}
+                aria-controls={controls}
+              >
+                {item.label}
               </button>
-              <div class="nav-dropdown-menu" role="menu">
-                {item.children?.map((sub) =>
-                  standalone ? (
-                    <a href={`${homeHref}#section-${sub.id}`} class="nav-dropdown-item" role="menuitem">{sub.label}</a>
-                  ) : (
-                    <button type="button" class="nav-dropdown-item" data-tool={sub.id} role="menuitem">{sub.label}</button>
-                  )
-                )}
-              </div>
-            </div>
-          );
+            );
+          })
         }
-        if (item.type === 'page') {
-          return <a href={`${navPrefix}${item.href}`} class="nav-link-page">{item.label}</a>;
-        }
-        const active = item.id === 'all';
-        if (standalone) {
-          const href = item.id === 'all' ? homeHref : `${homeHref}#section-${item.id}`;
-          return <a href={href} class:list={['nav-tab', { active }]}>{item.label}</a>;
-        }
-        return <button type="button" class:list={['nav-tab', { active }]} data-tool={item.id}>{item.label}</button>;
-      })}
+      </div>
       <button type="button" class="theme-toggle" aria-label="切换主题">☾</button>
     </div>
   </nav>

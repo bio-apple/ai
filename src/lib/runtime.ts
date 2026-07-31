@@ -31,27 +31,6 @@ export type NewsPayload = {
   items?: NewsItem[];
 };
 
-export type OssProject = {
-  name: string;
-  repo: string;
-  url: string;
-  description?: string;
-  language?: string;
-  stars?: number;
-};
-
-export type OssDomain = {
-  id: string;
-  label: string;
-  description?: string;
-  projects?: OssProject[];
-};
-
-export type OssPayload = {
-  updated_at?: string;
-  domains?: OssDomain[];
-};
-
 export type VideoItem = {
   id: string;
   title: string;
@@ -109,6 +88,93 @@ export function formatPublishDate(iso?: string): string {
   }
 }
 
+const KNOWN_TRAILING_SOURCES = [
+  'OpenAI',
+  'Anthropic',
+  '量子位',
+  '机器之心',
+  '新智元',
+  '智源社区',
+  '智源',
+  'Google DeepMind',
+  'DeepMind',
+  'Google AI',
+  'NVIDIA AI',
+  'NVIDIA Blog',
+  'Hugging Face',
+  'HuggingFace',
+  'TechCrunch',
+  'The Verge',
+  'VentureBeat',
+  'arXiv cs.AI',
+  'arXiv',
+  'GitHub Trending',
+  'GitHub',
+] as const;
+
+function sourceAliases(source: string): string[] {
+  const raw = (source || '').normalize('NFKC').trim();
+  if (!raw) return [];
+  const aliases = new Set<string>([raw]);
+  const parts = raw.split(/\s+/);
+  if (parts.length > 1) {
+    aliases.add(parts[0]);
+    aliases.add(parts[parts.length - 1]);
+  }
+  for (const suffix of [' Blog', ' News', ' 社区']) {
+    if (raw.endsWith(suffix) && raw.length > suffix.length + 1) {
+      aliases.add(raw.slice(0, -suffix.length).trim());
+    }
+  }
+  return [...aliases].sort((a, b) => b.length - a.length);
+}
+
+/** 去掉标题尾部粘连的源站名（「… | OpenAI」「…量子位」） */
+export function stripTrailingSource(title: string, source = ''): string {
+  // 不整串 NFKC，避免全角标点被改成半角
+  let text = (title || '').replace(/\u3000/g, ' ').trim();
+  if (!text) return text;
+
+  const seen = new Set<string>();
+  const candidates: string[] = [];
+  for (const alias of [...sourceAliases(source), ...KNOWN_TRAILING_SOURCES]) {
+    const key = alias.toLowerCase();
+    if (!alias || seen.has(key)) continue;
+    seen.add(key);
+    candidates.push(alias);
+  }
+
+  const trimEnd = (s: string) => s.replace(/[\s|/·•・\-–—｜：:]+$/u, '').trim();
+  let changed = true;
+  while (changed) {
+    changed = false;
+    for (const alias of candidates) {
+      const esc = alias.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const sepRe = new RegExp(`(?:[\\s|/·•・\\-–—｜：:]+)${esc}\\s*$`, 'i');
+      let m = text.match(sepRe);
+      if (m && m.index != null) {
+        text = trimEnd(text.slice(0, m.index));
+        changed = true;
+        break;
+      }
+      if (/[\u4e00-\u9fff]/u.test(alias)) {
+        const cjkRe = new RegExp(`(?<=[\\u4e00-\\u9fff\\W])${esc}\\s*$`, 'u');
+        m = text.match(cjkRe);
+        if (m && m.index != null) {
+          text = trimEnd(text.slice(0, m.index));
+          changed = true;
+          break;
+        }
+      }
+    }
+  }
+  return text.trim();
+}
+
+export function displayNewsTitle(item: Pick<NewsItem, 'title' | 'source'>): string {
+  return stripTrailingSource(item.title || '', item.source || '');
+}
+
 export function dedupeNewsItems(items: NewsItem[]): NewsItem[] {
   const sorted = [...items].sort((a, b) => {
     const ta = a.published_at ? Date.parse(a.published_at) : 0;
@@ -138,17 +204,6 @@ export function dedupeNewsItems(items: NewsItem[]): NewsItem[] {
 export function pickHomeNews(limit = 4): NewsItem[] {
   const data = loadRuntimeJson<NewsPayload>('ai-news.json');
   return dedupeNewsItems(data?.items || []).slice(0, limit);
-}
-
-export function pickHomeOss(limit = 6): Array<{ project: OssProject; domainLabel: string; domainId: string }> {
-  const data = loadRuntimeJson<OssPayload>('oss-projects.json');
-  const items: Array<{ project: OssProject; domainLabel: string; domainId: string }> = [];
-  for (const domain of data?.domains || []) {
-    for (const project of domain.projects || []) {
-      items.push({ project, domainLabel: domain.label, domainId: domain.id });
-    }
-  }
-  return items.sort((a, b) => (b.project.stars || 0) - (a.project.stars || 0)).slice(0, limit);
 }
 
 export function pickHomeVideos(limit = 3): VideoItem[] {
@@ -186,7 +241,8 @@ export type AiDailyBrief = {
   models: NewsItem[];
   industry: NewsItem[];
   github: NewsItem[];
-  oss: Array<{ project: OssProject; domainLabel: string }>;
+  /** 全量 GitHub 源资讯（供虚拟列表，可远大于 github 预览条数） */
+  githubAll?: NewsItem[];
   learn: VideoItem[];
 };
 
@@ -198,8 +254,10 @@ function pickNewsBy(
   return items.filter(pred).slice(0, limit);
 }
 
-/** 首页 AI Daily：聚合新闻 / Trending / 开源 / 视频学习 */
-export function pickAiDailyBrief(limits = { models: 3, industry: 2, github: 3, oss: 2, learn: 2 }): AiDailyBrief {
+/** 首页 AI Daily：聚合新闻 / Trending / 视频学习 */
+export function pickAiDailyBrief(
+  limits = { models: 3, industry: 2, github: 3, learn: 2 },
+): AiDailyBrief {
   const news = loadRuntimeJson<NewsPayload>('ai-news.json');
   const items = dedupeNewsItems(news?.items || []);
   const models = pickNewsBy(
@@ -212,15 +270,16 @@ export function pickAiDailyBrief(limits = { models: 3, industry: 2, github: 3, o
     (i) => /行业|中文|工具/.test(i.category || '') && !models.includes(i),
     limits.industry,
   );
-  // 不把 OSS 精选回填进 GitHub 面板，避免与首页「开源项目精选」重复
-  const github = pickNewsBy(items, (i) => /GitHub/i.test(i.source || ''), limits.github);
-  const oss = pickHomeOss(limits.oss);
+  const githubAll = items.filter((i) => /GitHub/i.test(i.source || ''));
+  const github = githubAll.slice(0, limits.github);
   return {
     updatedAt: news?.updated_at,
     models: models.length ? models : items.slice(0, limits.models),
-    industry: industry.length ? industry : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
+    industry: industry.length
+      ? industry
+      : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
     github,
-    oss,
+    githubAll,
     learn: pickHomeVideos(limits.learn),
   };
 }

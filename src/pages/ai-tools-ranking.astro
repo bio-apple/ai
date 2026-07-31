@@ -1,54 +1,85 @@
 ---
 import StandaloneLayout from '../layouts/StandaloneLayout.astro';
-import { site } from '../lib/data';
+import StandalonePageHeader from '../components/StandalonePageHeader.astro';
+import RankingBoardPanels from '../components/RankingBoardPanels.astro';
+import { site, rankings } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
 
-const page = site.ranking_page;
 const base = site.meta.base_url;
-const schema = buildPageSchema(page.title, page.lead, `${base}ai-tools-ranking.html`);
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: 'AI 工具排行榜', url: `${base}ai-tools-ranking.html` },
+];
+const schema = buildPageSchema(
+  `${rankings.title} | Bio AI Lab`,
+  rankings.lead,
+  `${base}ai-tools-ranking.html`,
+  breadcrumbs,
+);
 const home = homeHref();
+const boards = (rankings.boards || []).map((board) => ({
+  ...board,
+  columns: board.columns || { name: '产品名', primary: '访问量', secondary: '月环比' },
+  show_bar: board.show_bar !== false,
+  source_name: board.source_name || board.label,
+}));
 ---
+
 <StandaloneLayout
-  title={page.title}
-  description={page.lead}
-  pageType="ranking"
+  title={`${rankings.title} | Bio AI Lab`}
+  description={rankings.lead}
   canonical={`${base}ai-tools-ranking.html`}
   schema={schema}
+  scripts={[
+    'lib/virtual-list.js',
+    'lib/link-guard.js',
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'ux.js',
+    'app.js',
+    'ranking-tabs.js',
+  ]}
 >
-  <main class="standalone-page">
-    <nav class="breadcrumb"><a href={home}>首页</a> / AI 工具排行榜</nav>
-    <div class="standalone-hero">
-      <h1>{page.h1}</h1>
-      <p class="standalone-lead">{page.lead}</p>
-      <p class="standalone-meta">更新于 {page.updated}</p>
-    </div>
-    <div class="ranking-grid ranking-grid-full">
-      {site.rankings.map((item) => (
-        <article class="ranking-card ranking-card-lg">
-          <span class="ranking-medal">{item.medal}</span>
-          <h2>{item.name}</h2>
-          <p class="ranking-dimension">{item.dimension}</p>
-          <p class="ranking-score">{item.score}</p>
-          <div class="tool-stars">{Array.from({ length: item.stars }, () => '★').join('')}</div>
-          <a href={asset(`tools/${item.id}.html`)} class="cta-btn cta-btn-sm">查看 {item.name} 教程</a>
-        </article>
-      ))}
-    </div>
-    <h2 class="resources-title">完整工具对比表</h2>
-    <div class="compare-wrap">
-      <table class="compare-table">
-        <thead><tr><th>工具</th><th>类型</th><th>核心优势</th><th>适合场景</th><th>入门</th></tr></thead>
-        <tbody>
-          {site.compare_table.rows.map((row) => (
-            <tr><td>{row.tool}</td><td>{row.type}</td><td>{row.strength}</td><td>{row.scenario}</td><td>{row.pricing}</td></tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+  <div class="standalone-page ranking-page aicpb-ranking-page">
+    <StandalonePageHeader
+      crumbs={[{ label: '首页', href: home }, { label: 'AI 工具排行榜' }]}
+      title={rankings.title}
+      lead={rankings.lead}
+      meta={`${rankings.month_label || rankings.month} · 三榜 Top 10 · 更新 ${rankings.updated_at}`}
+      class="aicpb-ranking-hero"
+    />
+
+    <section class="page-section hub-ranking-section">
+      <RankingBoardPanels boards={boards} panelIdPrefix="panel" headingLevel="h2" />
+    </section>
+
+    <section class="ranking-method aicpb-ranking-note page-section" aria-label="引用说明">
+      <div class="section-head">
+        <h2 class="section-title">引用说明</h2>
+      </div>
+      <ul class="ranking-method-list">
+        {rankings.methodology.map((line) => <li>{line}</li>)}
+      </ul>
+      <p class="aicpb-attribution">
+        数据版权归
+        <a href="https://www.aicpb.com/" target="_blank" rel="noopener noreferrer">AICPB</a>、
+        <a href="https://arena.ai/leaderboard/text" target="_blank" rel="noopener noreferrer"
+          >LMSYS Chatbot Arena</a
+        >、
+        <a
+          href="https://artificialanalysis.ai/leaderboards/models"
+          target="_blank"
+          rel="noopener noreferrer">Artificial Analysis</a
+        >
+        各自所有，本站仅作摘录展示。
+      </p>
+    </section>
+
     <div class="standalone-cta">
       <a href={home} class="cta-btn">返回首页</a>
-      <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline">查看学习路线</a>
+      <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline">工具中心</a>
     </div>
-  </main>
+  </div>
 </StandaloneLayout>

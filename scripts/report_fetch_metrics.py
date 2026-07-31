@@ -10,8 +10,20 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
-YT_KEYS = ("youtube_top_views", "youtube_recent_30d", "youtube_recent_24h")
-BILI_KEYS = ("bilibili_top_views", "bilibili_recent_30d", "bilibili_recent_24h")
+YT_KEYS = (
+    "youtube_recent_24h",
+    "youtube_recent_30d",
+    "youtube_recent_100d",
+    "youtube_recent_3d",  # 历史键
+    "youtube_top_views",  # 历史键
+)
+BILI_KEYS = (
+    "bilibili_recent_24h",
+    "bilibili_recent_30d",
+    "bilibili_recent_100d",
+    "bilibili_recent_3d",  # 历史键
+    "bilibili_top_views",  # 历史键
+)
 
 
 def append_summary(md: str) -> None:
@@ -67,7 +79,7 @@ def report_news() -> int:
     items = data.get("items") or []
     watch = data.get("watch_sources") or []
     append_summary(
-        "### Weekly news\n\n"
+        "### Daily news\n\n"
         f"- updated_at: `{data.get('updated_at')}`\n"
         f"- items: **{len(items)}**\n"
         f"- watch_sources: {len(watch)}\n"
@@ -100,7 +112,7 @@ def main() -> int:
             "\n**严重不足 · 建议处置**\n\n"
             "1. 打开本 workflow 日志确认分类为空原因（配额 / 网络 / 解析 / 缺 JS runtime）\n"
             "2. `workflow_dispatch` 重跑；视频可勾选 force\n"
-            "3. 仍失败：按 `docs/OPS-RUNBOOK.md` 回滚上一好批次\n"
+            "3. 仍失败：按 `docs/CONTENT-OPS.md` §9 回滚上一好批次\n"
         )
     elif code == 1:
         append_summary(

@@ -1,8 +1,9 @@
 # AI 新闻抓取配置（scripts/fetch_ai_news.py）
-# 更新频次：每周一次（见 .github/workflows/weekly-news.yml）
+# 产品定义：一周内 AI 热点；更新频次：每天一次（见 .github/workflows/daily-news.yml）
 
 max_items: 48
 max_per_feed: 5
+# 保留近 7 天内容（一周内），由日更 workflow 刷新
 max_age_days: 7
 min_per_source: 1
 
@@ -31,15 +32,6 @@ feeds:
     category: 行业新闻
   - source: arXiv cs.AI
     url: https://arxiv.org/rss/cs.AI
-    category: 学术论文
-  - source: arXiv cs.LG
-    url: https://arxiv.org/rss/cs.LG
-    category: 学术论文
-  - source: arXiv cs.CL
-    url: https://arxiv.org/rss/cs.CL
-    category: 学术论文
-  - source: arXiv cs.CV
-    url: https://arxiv.org/rss/cs.CV
     category: 学术论文
   - source: 量子位
     url: https://www.qbitai.com/feed

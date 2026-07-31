@@ -17,6 +17,47 @@ from bs4 import BeautifulSoup
 REPO = Path(__file__).resolve().parents[1]
 ROOT = Path(os.environ.get("DIST", REPO / "dist")).resolve()
 
+# 密钥扫描：排除构建产物、依赖与锁文件（避免误报）
+SECRET_SCAN_SKIP_DIRS = {
+    ".git",
+    ".venv",
+    "node_modules",
+    "dist",
+    "public",
+    ".astro",
+    "playwright-report",
+    "test-results",
+    ".pw-browsers",
+}
+SECRET_SCAN_SKIP_FILES = {
+    "package-lock.json",
+    "pnpm-lock.yaml",
+    "yarn.lock",
+}
+SECRET_PATTERNS: tuple[tuple[re.Pattern[str], str], ...] = (
+    (re.compile(r"sk-[a-zA-Z0-9]{20,}"), "疑似 OpenAI API Key (sk-…)"),
+    (re.compile(r"sk-ant-api[a-zA-Z0-9_-]{20,}"), "疑似 Anthropic API Key"),
+    (
+        re.compile(
+            r"(?i)(openai|anthropic|deepseek|gemini|cohere|mistral)_api_key\s*=\s*['\"][^'\"\\s]{8,}['\"]"
+        ),
+        "硬编码 LLM API Key 环境变量赋值",
+    ),
+    (
+        re.compile(r"(?i)api[_-]?key\s*[:=]\s*['\"]sk-[a-zA-Z0-9_-]{10,}['\"]"),
+        "硬编码 sk- API Key",
+    ),
+    (re.compile(r"AIza[0-9A-Za-z_-]{35}"), "疑似 Google / YouTube Data API Key"),
+    (
+        re.compile(r"(?i)(youtube|google)[_-]?api[_-]?key\s*=\s*['\"][^'\"\\s]{8,}['\"]"),
+        "硬编码 YouTube / Google API Key 赋值",
+    ),
+    (
+        re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
+        "疑似私钥块",
+    ),
+)
+
 from news_dedupe import assert_news_unique, find_news_duplicates  # noqa: E402  # same scripts/ package style
 
 
@@ -78,14 +119,109 @@ def validate_sitemap_robots() -> None:
     sitemap_files = sorted(ROOT.glob("sitemap*.xml"))
     if not sitemap_files:
         raise FileNotFoundError("dist 中未找到 sitemap*.xml")
-    sitemap = sitemap_files[0].read_text(encoding="utf-8")
+    # Prefer the urlset file (sitemap-0.xml) over the index
+    urlset = next((p for p in sitemap_files if "<urlset" in p.read_text(encoding="utf-8")[:200] or p.name != "sitemap-index.xml"), sitemap_files[0])
+    sitemap = urlset.read_text(encoding="utf-8")
+    if urlset.name == "sitemap-index.xml":
+        # fall back: read first child sitemap
+        child = ROOT / "sitemap-0.xml"
+        if child.exists():
+            sitemap = child.read_text(encoding="utf-8")
+            urlset = child
     if "Sitemap:" not in robots:
         raise ValueError("robots.txt 缺少 Sitemap 声明")
     if ("<urlset" not in sitemap and "<sitemapindex" not in sitemap) or "<loc>" not in sitemap:
         raise ValueError("sitemap 格式无效")
-    if "https://bio-apple.github.io/ai/" not in sitemap:
+    locs = re.findall(r"<loc>([^<]+)</loc>", sitemap)
+    if not any(u.rstrip("/").endswith("/ai") or u.endswith("/ai/") or u.endswith("/ai/index.html") for u in locs):
         raise ValueError("sitemap 缺少首页 URL")
-    print(f"✓ robots.txt + {sitemap_files[0].name}")
+    page_locs = [
+        u for u in locs
+        if not u.endswith("sitemap-0.xml")
+        and not u.endswith("sitemap-index.xml")
+        and not u.rstrip("/").endswith("/ai")
+        and not u.endswith("/ai/")
+    ]
+    missing_html = [u for u in page_locs if "/ai/" in u and not u.endswith(".html")]
+    if missing_html:
+        raise ValueError("sitemap 页面 URL 缺少 .html 后缀: " + ", ".join(missing_html[:5]))
+    if not any(u.endswith("tools/chatgpt.html") for u in locs):
+        raise ValueError("sitemap 缺少 tools/chatgpt.html（format=file 应对齐 canonical）")
+    print(f"✓ robots.txt + {urlset.name} ({len(locs)} loc)")
+
+
+def validate_open_graph() -> None:
+    """确认关键页面含 Open Graph / Twitter Card，便于 X / LinkedIn / 微信分享预览。"""
+    samples = [
+        ROOT / "index.html",
+        ROOT / "tools" / "chatgpt.html",
+    ]
+    required_og = ("og:title", "og:description", "og:image", "og:url")
+    required_twitter = ("twitter:card", "twitter:title", "twitter:image")
+    for path in samples:
+        if not path.exists():
+            raise FileNotFoundError(f"OG 校验缺少页面: {path.relative_to(ROOT)}")
+        html = path.read_text(encoding="utf-8")
+        soup = BeautifulSoup(html, "html.parser")
+        for prop in required_og:
+            tag = soup.find("meta", attrs={"property": prop})
+            content = (tag.get("content") or "").strip() if tag else ""
+            if not content:
+                raise ValueError(f"{path.name} 缺少 meta property={prop!r}")
+            if prop == "og:image" and not content.startswith("https://"):
+                raise ValueError(f"{path.name} og:image 须为绝对 HTTPS URL")
+        for name in required_twitter:
+            tag = soup.find("meta", attrs={"name": name})
+            content = (tag.get("content") or "").strip() if tag else ""
+            if not content:
+                raise ValueError(f"{path.name} 缺少 meta name={name!r}")
+    print("✓ Open Graph / Twitter Card（首页 + 工具页）")
+
+
+def _json_ld_types(html: str) -> set[str]:
+    soup = BeautifulSoup(html, "html.parser")
+    types: set[str] = set()
+    for tag in soup.find_all("script", attrs={"type": "application/ld+json"}):
+        raw = (tag.string or tag.get_text() or "").strip()
+        if not raw:
+            continue
+        data = json.loads(raw)
+
+        def walk(node: object) -> None:
+            if isinstance(node, dict):
+                t = node.get("@type")
+                if isinstance(t, str):
+                    types.add(t)
+                elif isinstance(t, list):
+                    types.update(x for x in t if isinstance(x, str))
+                for value in node.values():
+                    walk(value)
+            elif isinstance(node, list):
+                for item in node:
+                    walk(item)
+
+        walk(data)
+    return types
+
+
+def validate_json_ld() -> None:
+    """确认关键页面含 JSON-LD 结构化数据（工具页 + 课程 CollectionPage）。"""
+    checks = [
+        (ROOT / "index.html", {"CollectionPage", "Course", "WebSite"}),
+        (ROOT / "tools" / "chatgpt.html", {"SoftwareApplication", "LearningResource", "WebPage"}),
+        (ROOT / "news" / "daily-ai-news.html", {"NewsArticle", "CollectionPage"}),
+    ]
+    for path, required in checks:
+        if not path.exists():
+            raise FileNotFoundError(f"JSON-LD 校验缺少页面: {path.relative_to(ROOT)}")
+        html = path.read_text(encoding="utf-8")
+        found = _json_ld_types(html)
+        missing = required - found
+        if missing:
+            raise ValueError(
+                f"{path.name} JSON-LD 缺少 @type: {', '.join(sorted(missing))}（已有: {', '.join(sorted(found)) or '无'}）"
+            )
+    print("✓ JSON-LD 结构化数据（首页课程 + 工具页 + 新闻）")
 
 
 def _load_schema(name: str) -> dict:
@@ -110,10 +246,84 @@ def validate_ai_news() -> None:
     print(f"✓ ai-news.json schema + 去重 ({len(items)} 条)")
 
 
+REQUIRED_COURSE_URLS = (
+    "https://microsoft.github.io/generative-ai-for-beginners",
+    "https://developers.google.com/machine-learning/crash-course",
+    "https://www.youtube.com/playlist?list=PLoROMvodv4rOmsNzYBMe0gJY2XS8AQg16",
+    "https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X",
+    "https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D",
+    "https://www.youtube.com/playlist?list=PLoROMvodv4rMqXOcazWaTUHhq-yembLCV",
+)
+
+HUB_CHILD_PREFIXES = ()
+
+
+MAX_COURSES_PER_TRACK = 5
+
+
+def validate_ai_courses() -> None:
+    path = ROOT / "ai-courses.json"
+    if not path.exists():
+        path = REPO / "ai-courses.json"
+    if not path.exists():
+        raise FileNotFoundError("ai-courses.json 缺失，请先运行 scripts/fetch_ai_courses.py")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("ai-courses.schema.json")).validate(data)
+    items = data.get("items") or []
+    if not items:
+        raise ValueError("ai-courses.json items 为空")
+    if data.get("free_only") is not True:
+        raise ValueError("ai-courses.json 必须 free_only=true（仅免费资源）")
+    if not data.get("track_order"):
+        raise ValueError("ai-courses.json 缺少 track_order")
+    paid = [i.get("title") for i in items if i.get("is_free") is not True]
+    if paid:
+        raise ValueError("ai-courses.json 含非免费条目: " + ", ".join(str(t) for t in paid[:5]))
+    urls = [str(i.get("url") or "").strip().rstrip("/") for i in items]
+    if len(urls) != len(set(urls)):
+        raise ValueError("ai-courses.json 存在重复 URL")
+    titles = [" ".join(str(i.get("title") or "").lower().split()) for i in items]
+    if len(titles) != len(set(titles)):
+        raise ValueError("ai-courses.json 存在重复标题")
+    present = set(urls)
+    missing = [u for u in REQUIRED_COURSE_URLS if u not in present]
+    if missing:
+        raise ValueError("ai-courses.json 缺少必收录课程: " + ", ".join(missing))
+    for hub, prefix in HUB_CHILD_PREFIXES:
+        if hub in present:
+            children = [u for u in urls if u.startswith(prefix)]
+            if children:
+                raise ValueError(
+                    "ai-courses.json 合集与下属单课重复: "
+                    + ", ".join(children[:5])
+                )
+    from collections import Counter
+
+    by_track = Counter(str(i.get("track") or "其他") for i in items)
+    over = {t: n for t, n in by_track.items() if n > MAX_COURSES_PER_TRACK}
+    if over:
+        detail = ", ".join(f"{t}×{n}" for t, n in sorted(over.items()))
+        raise ValueError(f"ai-courses.json 单条路线超过 {MAX_COURSES_PER_TRACK} 门: {detail}")
+    window = int(data.get("window_days") or 180)
+    if window < 1:
+        raise ValueError("window_days 无效")
+    print(
+        f"✓ ai-courses.json schema ({len(items)} 门免费 · 每路线≤{MAX_COURSES_PER_TRACK} · "
+        f"路线 {len(data.get('track_order') or [])})"
+    )
+
+
 def validate_search_index() -> None:
     data = json.loads((ROOT / "search-index.json").read_text(encoding="utf-8"))
     Draft202012Validator(_load_schema("search-index.schema.json")).validate(data)
-    print(f"✓ search-index.json schema ({len(data)} 条)")
+    types = {item.get("type") for item in data if isinstance(item, dict)}
+    required_types = {"课程", "资讯", "实战案例", "开源精选", "视频", "模型", "工具"}
+    missing = required_types - types
+    if missing:
+        raise ValueError(f"search-index 缺少内容类型: {', '.join(sorted(missing))}")
+    if len(data) < 80:
+        raise ValueError(f"search-index 条目过少: {len(data)}")
+    print(f"✓ search-index.json schema ({len(data)} 条 · 含课程/资讯/实战案例/开源精选/视频/模型)")
 
 
 def validate_recommend_rules() -> None:
@@ -126,18 +336,13 @@ def validate_recommend_rules() -> None:
 
 
 def validate_runtime_json() -> None:
-    for name in ("prompts.json", "tutorials.json", "recommend-rules.json"):
-        path = ROOT / name
-        if not path.exists():
-            raise FileNotFoundError(f"{name} 缺失，请先运行 npm run build")
-        data = json.loads(path.read_text(encoding="utf-8"))
-        if name == "prompts.json" and not data.get("prompts"):
-            raise ValueError("prompts.json prompts 为空")
-        if name == "tutorials.json" and not data.get("tutorials"):
-            raise ValueError("tutorials.json tutorials 为空")
-        if name == "recommend-rules.json" and not data.get("options"):
-            raise ValueError("recommend-rules.json options 为空")
-    print("✓ prompts.json + tutorials.json + recommend-rules.json")
+    path = ROOT / "recommend-rules.json"
+    if not path.exists():
+        raise FileNotFoundError("recommend-rules.json 缺失，请先运行 npm run build")
+    data = json.loads(path.read_text(encoding="utf-8"))
+    if not data.get("options"):
+        raise ValueError("recommend-rules.json options 为空")
+    print("✓ recommend-rules.json")
 
 
 SITE_BASE = "/ai/"
@@ -172,9 +377,6 @@ def validate_html_links() -> None:
         *ROOT.glob("compare/*.html"),
         *ROOT.glob("news/*.html"),
         *ROOT.glob("guides/*.html"),
-        *ROOT.glob("prompts/*.html"),
-        *ROOT.glob("cases/**/*.html"),
-        *ROOT.glob("labs/**/*.html"),
     ]
     missing = []
     checked = 0
@@ -199,7 +401,7 @@ def validate_html_links() -> None:
                 continue
             if not target.exists():
                 missing.append(f"{fp.relative_to(ROOT)} -> {href}")
-    for asset in ("style.css", "app.js", "search-index.json", "recommend-rules.json", "recommend.js", "favorites.js"):
+    for asset in ("style.css", "app.js", "search-index.json", "recommend-rules.json", "recommend.js"):
         if not (ROOT / asset).exists():
             missing.append(f"(dist root) -> {asset}")
     if missing:
@@ -212,34 +414,85 @@ def validate_analytics_config() -> None:
     if not path.exists():
         raise FileNotFoundError("analytics-config.json 缺失，请先运行 npm run build")
     data = json.loads(path.read_text(encoding="utf-8"))
-    for key in ("ga_measurement_id", "clarity_project_id", "track_engagement"):
+    for key in (
+        "ga_measurement_id",
+        "clarity_project_id",
+        "umami_script_url",
+        "umami_website_id",
+        "cloudflare_beacon_token",
+        "track_engagement",
+    ):
         if key not in data:
             raise ValueError(f"analytics-config.json 缺少 {key}")
     ga = str(data.get("ga_measurement_id") or "").strip()
     clarity = str(data.get("clarity_project_id") or "").strip()
+    umami_script = str(data.get("umami_script_url") or "").strip()
+    umami_id = str(data.get("umami_website_id") or "").strip()
+    cf_beacon = str(data.get("cloudflare_beacon_token") or "").strip()
     if ga and not ga.startswith("G-"):
         raise ValueError(f"ga_measurement_id 格式应为 G-xxxxxxxxxx，当前：{ga!r}")
-    if not ga and not clarity:
-        print("⚠ analytics：GA/Clarity 未配置（允许；Secrets 或 data/analytics.json 可启用）")
+    if (umami_script and not umami_id) or (umami_id and not umami_script):
+        raise ValueError("Umami 需同时配置 umami_script_url 与 umami_website_id")
+    if umami_script and not (
+        umami_script.startswith("https://") or umami_script.startswith("http://")
+    ):
+        raise ValueError(f"umami_script_url 应为 http(s) URL，当前：{umami_script!r}")
+    privacy_on = bool((umami_script and umami_id) or cf_beacon)
+    if not ga and not clarity and not privacy_on:
+        print(
+            "⚠ analytics：Umami/CF/GA/Clarity 未配置（允许；Secrets 或 data/analytics.json 可启用）"
+        )
     print(
-        f"✓ analytics-config.json（GA={'on' if ga else 'off'} Clarity={'on' if clarity else 'off'}）"
+        "✓ analytics-config.json（"
+        f"Umami={'on' if umami_script and umami_id else 'off'} "
+        f"CF={'on' if cf_beacon else 'off'} "
+        f"GA={'on' if ga else 'off'} "
+        f"Clarity={'on' if clarity else 'off'}）"
     )
 
 
-def validate_oss_projects() -> None:
-    path = REPO / "data" / "oss-projects.json"
+def validate_local_deploy() -> None:
+    path = REPO / "data" / "local-deploy.json"
     if not path.exists():
-        raise FileNotFoundError("data/oss-projects.json 缺失")
+        raise FileNotFoundError("data/local-deploy.json 缺失")
     data = json.loads(path.read_text(encoding="utf-8"))
-    Draft202012Validator(_load_schema("oss-projects.schema.json")).validate(data)
-    runtime = ROOT / "oss-projects.json"
-    if not runtime.exists() and not (REPO / "oss-projects.json").exists():
-        raise FileNotFoundError("oss-projects.json 运行时副本缺失")
-    print(f"✓ oss-projects.json schema ({len(data.get('domains') or [])} 领域)")
+    Draft202012Validator(_load_schema("local-deploy.schema.json")).validate(data)
+    print(f"✓ local-deploy.json schema ({data.get('title', '')})")
+
+    content_dir = REPO / "content" / "local-deploy"
+    md_files = sorted(
+        p.name
+        for p in content_dir.glob("*.md")
+        if p.name.lower() != "readme.md"
+    ) if content_dir.is_dir() else []
+    guides_path = REPO / "data" / "local-deploy-guides.json"
+    if md_files and not guides_path.exists():
+        raise FileNotFoundError(
+            "发现 content/local-deploy/*.md 但缺少 data/local-deploy-guides.json；"
+            "请先运行 node scripts/build-local-guides.mjs 或 npm run build"
+        )
+    if guides_path.exists():
+        guides_data = json.loads(guides_path.read_text(encoding="utf-8"))
+        guides = guides_data.get("guides") or []
+        for g in guides:
+            if not g.get("id") or not g.get("title") or not g.get("html"):
+                raise ValueError(f"local-deploy guide 字段不完整: {g.get('id')}")
+        print(f"✓ local-deploy-guides.json ({len(guides)} 篇 · content md={len(md_files)})")
+    elif not md_files:
+        print("✓ local-deploy guides（无 Markdown 文稿）")
 
 
 def validate_data_json() -> None:
-    for name in ("site.json", "tools.json", "cases.json", "compares.json", "prompts.json", "tutorials.json", "videos.json", "analytics.json", "oss-projects.json"):
+    for name in (
+        "site.json",
+        "tools.json",
+        "compares.json",
+        "analytics.json",
+        "local-deploy.json",
+        "rankings.json",
+        "tool-relations.json",
+        "engagement.json",
+    ):
         path = REPO / "data" / name
         if not path.exists():
             raise FileNotFoundError(path)
@@ -247,16 +500,95 @@ def validate_data_json() -> None:
     print("✓ data/*.json 可解析")
 
 
+def validate_no_secrets() -> None:
+    """扫描仓库源码，禁止硬编码 LLM / 服务商 API Key。"""
+    hits: list[str] = []
+    for path in sorted(REPO.rglob("*")):
+        if not path.is_file():
+            continue
+        rel = path.relative_to(REPO)
+        if rel.parts and rel.parts[0] in SECRET_SCAN_SKIP_DIRS:
+            continue
+        if any(part in SECRET_SCAN_SKIP_DIRS for part in rel.parts):
+            continue
+        if rel.name in SECRET_SCAN_SKIP_FILES:
+            continue
+        if rel.name == ".env.local" or (
+            rel.name.startswith(".env") and rel.name.endswith(".local") and rel.name != ".env.local.example"
+        ):
+            hits.append(f"{rel}: 不得提交 .env.local（请加入 .gitignore）")
+            continue
+        if rel.suffix.lower() in {".png", ".jpg", ".jpeg", ".gif", ".webp", ".ico", ".woff", ".woff2"}:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (UnicodeDecodeError, OSError):
+            continue
+        for line_no, line in enumerate(text.splitlines(), 1):
+            for pattern, label in SECRET_PATTERNS:
+                if pattern.search(line):
+                    hits.append(f"{rel}:{line_no}: {label}")
+                    break
+    if hits:
+        sample = "\n".join(f"  - {h}" for h in hits[:12])
+        extra = f"\n  … 另有 {len(hits) - 12} 处" if len(hits) > 12 else ""
+        raise ValueError(
+            "检测到疑似硬编码密钥，请移除并改用 .env.local / GitHub Secrets：\n"
+            f"{sample}{extra}\n详见 docs/SECURITY.md"
+        )
+    print("✓ 无硬编码 API Key（secrets 扫描）")
+
+
+def validate_engagement() -> None:
+    path = REPO / "data" / "engagement.json"
+    data = json.loads(path.read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("engagement.schema.json")).validate(data)
+    runtime = ROOT / "engagement.json"
+    if not runtime.exists():
+        raise FileNotFoundError("engagement.json 缺失，请先运行 npm run build")
+    ids = [t.get("id") for t in data.get("tools") or []]
+    if len(ids) != len(set(ids)):
+        raise ValueError("engagement.json tools.id 重复")
+    print(f"✓ engagement.json schema ({len(ids)} 工具热度)")
+
+
+def validate_tool_relations() -> None:
+    data = json.loads((REPO / "data/tool-relations.json").read_text(encoding="utf-8"))
+    Draft202012Validator(_load_schema("tool-relations.schema.json")).validate(data)
+    tools = json.loads((REPO / "data/tools.json").read_text(encoding="utf-8"))
+    known = {t["id"] for t in tools}
+    unknown: list[str] = []
+    for source_id, rel in data.items():
+        if source_id not in known:
+            unknown.append(f"source:{source_id}")
+        for kind in ("alternatives", "complements"):
+            for edge in rel.get(kind) or []:
+                target = edge.get("id")
+                if target not in known:
+                    unknown.append(f"{source_id}.{kind}:{target}")
+                if target == source_id:
+                    raise AssertionError(f"self-relation forbidden: {source_id}.{kind}")
+    if unknown:
+        raise AssertionError(f"tool-relations unknown ids: {', '.join(unknown)}")
+    print(f"✓ tool-relations.json schema + ids ({len(data)} 工具)")
+
+
 STEPS = (
+    ("secrets", validate_no_secrets),
     ("data", validate_data_json),
-    ("oss", validate_oss_projects),
+    ("tool-relations", validate_tool_relations),
+    ("local", validate_local_deploy),
     ("videos", validate_daily_videos),
     ("news", validate_ai_news),
+    ("courses", validate_ai_courses),
     ("runtime", validate_runtime_json),
     ("recommend", validate_recommend_rules),
     ("sitemap", validate_sitemap_robots),
+    ("opengraph", validate_open_graph),
+    ("jsonld", validate_json_ld),
     ("search", validate_search_index),
     ("analytics", validate_analytics_config),
+    ("engagement", validate_engagement),
     ("links", validate_html_links),
 )
 

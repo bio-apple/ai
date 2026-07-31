@@ -6,25 +6,29 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
-const COPY_DIRS = ['css', 'vendor', 'video-thumbs'];
+// css/ 仅作 bundle-css 源；页面只加载打包后的 style.css，勿整目录拷贝
+const COPY_DIRS = ['vendor', 'video-thumbs', 'lib'];
 const COPY_FILES = [
-  'style.css',
+  'funnel.js',
   'analytics.js',
   'app.js',
   'ux.js',
   'lazy-sections.js',
   'videos.js',
   'news.js',
-  'oss.js',
-  'prompts.js',
+  'courses.js',
   'knowledge.js',
   'recommend.js',
-  'favorites.js',
+  'progress.js',
+  'engagement.js',
+  'ranking-tabs.js',
   'robots.txt',
-  'daily-videos.json',
+  '_headers',
+  '_redirects',
+  // 完整 daily-videos.json 仅留仓库；客户端用 build-artifacts 生成的 daily-videos.latest.json
   'ai-news.json',
-  'oss-projects.json',
-  'og-image.png',
+  'ai-courses.json',
+  'favicon.svg',
   'og-image.jpg',
 ];
 
@@ -39,6 +43,8 @@ function copyRecursive(src, dest) {
 }
 
 export function syncPublic(outDir = path.join(ROOT, 'public')) {
+  // 清空后再同步，避免历史产物（整包 css/、已废弃 JSON）残留进 dist
+  fs.rmSync(outDir, { recursive: true, force: true });
   fs.mkdirSync(outDir, { recursive: true });
   for (const dir of COPY_DIRS) {
     const src = path.join(ROOT, dir);

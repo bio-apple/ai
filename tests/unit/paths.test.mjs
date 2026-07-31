@@ -26,7 +26,10 @@ test('asset joins base and relative path', () => {
 
 test('asset does not double-prefix /ai', () => {
   assert.equal(asset('/ai/', '/ai/tools/hub.html'), '/ai/tools/hub.html');
-  assert.equal(asset('/ai/', 'ai/compare/cursor-vs-copilot.html'), '/ai/compare/cursor-vs-copilot.html');
+  assert.equal(
+    asset('/ai/', 'ai/compare/cursor-vs-copilot.html'),
+    '/ai/compare/cursor-vs-copilot.html',
+  );
 });
 
 test('homeHref keeps hash', () => {

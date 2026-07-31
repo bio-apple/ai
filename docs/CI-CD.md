@@ -1,0 +1,88 @@
+# CI/CD 与一键部署
+
+本项目为纯前端静态站点，采用 **GitHub Actions** 在代码合并至 `main` 后自动构建并部署至 [GitHub Pages](https://bio-apple.github.io/ai/)。
+
+## 部署流程
+
+```mermaid
+flowchart LR
+  A[本地开发] --> B[合并至 main]
+  B --> C[deploy.yml]
+  C --> D[Lint & Format]
+  D --> E[Build]
+  E --> F[Deploy]
+  F --> G[bio-apple.github.io/ai/]
+```
+
+1. **本地开发**：`npm run build` 生成 `dist/`（不提交）。
+2. **合并 `main`**：push 或合并 PR 后自动触发 [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)。
+3. **Lint & Format**：Prettier + ESLint。
+4. **Build**：`prebuild` → Astro SSG → `dist/`，并运行 `validate_ci.py`（含 `secrets` / Schema / `opengraph` / `jsonld` / `search` / 内部链接等）。
+5. **Deploy**：上传构建制品，由 `actions/deploy-pages` 发布至 GitHub Pages 环境。
+
+> **密钥扫描**：`ci.yml` / `deploy.yml` 在 Lint 前另跑 **gitleaks**（`.gitleaks.toml`），与 `validate_ci.py secrets` 双重拦截。
+
+> **说明**：本站使用 GitHub 官方 **Actions 制品部署**（`upload-pages-artifact` + `deploy-pages`），**不维护**独立的 `gh-pages` 分支。产物仅存在于 Actions 制品与 Pages CDN，与 `main` 源码分离。
+
+## 工作流一览
+
+| 工作流                                          | 触发                                      | 作用                                                                                  |
+| ----------------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------- |
+| [`deploy.yml`](../.github/workflows/deploy.yml) | push `main` · 手动                        | **一键部署**：Lint → Build → Deploy Pages                                             |
+| [`ci.yml`](../.github/workflows/ci.yml)         | push/PR `main` · 手动                     | **质量门禁**：Lint → 构建 → 单元测试 → 全量校验 → E2E                                 |
+| `daily-refresh.yml`                             | 每日 **00:00**（北京）                    | **串行**刷新视频/课程/排行 → Prettier → push → **显式派发** Deploy；末步 lychee（软） |
+| `daily-news.yml`                                | **07:30 / 10:00 / 12:00 / 20:00**（北京） | 新闻热点多档刷新 → Prettier → push → 派发 Deploy                                      |
+| `daily-*.yml`（其它单频道）                     | 仅手动                                    | 救急重跑某一频道（同样 Prettier + 派发 Deploy）                                       |
+| `site-health.yml`                               | 定时                                      | 线上探针（videos/news/courses 新鲜度）                                                |
+| `deploy-cloudflare.yml`                         | push `main`                               | 可选 Cloudflare Pages 镜像（需 Secrets）                                              |
+
+push `main` 时 **`ci.yml` 与 `deploy.yml` 并行**：
+
+- `ci.yml`：更重的测试（单元 + Playwright E2E），PR 也会运行。
+- `deploy.yml`：精简路径，校验通过后尽快上线。
+
+## 本地一键构建（部署前自检）
+
+```bash
+npm ci && pip install -r requirements.txt
+cp .env.local.example .env.local   # 可选
+npm run quality                    # Prettier + ESLint
+npm run scan:secrets               # 与 CI 对齐的密钥扫描
+npm run build                      # prebuild → Astro → dist/
+DIST=dist python3 scripts/validate_ci.py
+# 常用分步：jsonld | opengraph | search | links | courses | news
+npm run test:unit && npm run test:e2e   # 与 CI 对齐
+```
+
+通过后再 push `main`，Actions 将自动完成线上部署。
+
+**Dead Link（可选本地）**：`npm run build && lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'`（与 `daily-refresh.yml` 末步一致）。
+
+## 手动重新部署
+
+无需改代码时，可在 GitHub **Actions → Deploy → Run workflow** 手动触发 `deploy.yml`。
+
+定时内容：`daily-refresh.yml` 北京 **00:00** 串行（视频/课程/排行）；新闻由 `daily-news.yml` 北京 **07:30 / 10:00 / 12:00 / 20:00**（对应 UTC **23:30 / 02:00 / 04:00 / 12:00**）多档刷新。有数据变更时均 **显式** 派发 `deploy.yml`（带重试）。勿依赖 `GITHUB_TOKEN` push 自动触发 Deploy。
+
+## 构建 Secrets（可选）
+
+部署构建阶段可注入分析统计 ID（**非 LLM API Key**），配置于 GitHub Repository Secrets：
+
+- `GA_MEASUREMENT_ID` · `CLARITY_PROJECT_ID`
+- `UMAMI_SCRIPT_URL` · `UMAMI_WEBSITE_ID`
+- `CLOUDFLARE_BEACON_TOKEN`
+
+本地开发同名变量写入 `.env.local`（见 [SECURITY.md](./SECURITY.md)）。
+
+## 故障排查
+
+部署失败或线上 404 → 查看 [Deploy 工作流](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) 与 [CI 工作流](https://github.com/bio-apple/ai/actions/workflows/ci.yml)，本地复现 `npm run build && DIST=dist python3 scripts/validate_ci.py`。详见 [CONTENT-OPS.md](./CONTENT-OPS.md) §9。
+
+日更 / 死链告警 → [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) artifact + 本地 lychee。
+
+## 相关文档
+
+- [SETUP.md](./SETUP.md) — 本地环境
+- [SECURITY.md](./SECURITY.md) — CSP / gitleaks
+- [FRONTEND.md](./FRONTEND.md) — 前端能力
+- [SEO.md](./SEO.md) — OG / JSON-LD

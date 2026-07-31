@@ -1,11 +1,16 @@
 ---
 import ThemeBoot from '../components/ThemeBoot.astro';
+import SecurityMeta from '../components/SecurityMeta.astro';
+import SeoHead from '../components/SeoHead.astro';
+import Favicon from '../components/Favicon.astro';
+import FontLoader from '../components/FontLoader.astro';
 import UxWidgets from '../components/UxWidgets.astro';
 import KnowledgeAssistant from '../components/KnowledgeAssistant.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/data';
-import { BASE, asset } from '../lib/paths';
+import { BASE, asset, assetVersioned } from '../lib/paths';
+import { stringifyJsonLd } from '../lib/schema';
 
 interface Props {
   title: string;
@@ -21,53 +26,90 @@ const {
   description,
   canonical = site.meta.canonical,
   schema,
-  scripts = ['analytics.js', 'ux.js', 'app.js'],
+  scripts = [
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'lib/link-guard.js',
+    'ux.js',
+    'app.js',
+  ],
   includeKnowledge = false,
 } = Astro.props;
 
 const scriptList = [...scripts];
-if (includeKnowledge) {
-  if (!scriptList.includes('vendor/fuse.min.js')) scriptList.unshift('vendor/fuse.min.js');
-  if (!scriptList.includes('knowledge.js')) scriptList.push('knowledge.js');
+if (includeKnowledge && !scriptList.includes('vendor/fuse.min.js')) {
+  scriptList.unshift('vendor/fuse.min.js');
 }
+// knowledge.js 改为 idle / 首次悬停时再加载，见文末 boot 脚本
+const knowledgeSrc = includeKnowledge ? assetVersioned('knowledge.js') : '';
+const knowledgeBoot = includeKnowledge
+  ? `(function(){var loaded=false,src=${JSON.stringify(knowledgeSrc)};function load(){if(loaded||!src)return;loaded=true;var s=document.createElement('script');s.src=src;s.defer=true;document.body.appendChild(s);}function arm(){var fab=document.getElementById('knowledge-fab');if(!fab)return;['pointerenter','focus','touchstart'].forEach(function(ev){fab.addEventListener(ev,load,{once:true,passive:true});});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',arm);else arm();if('requestIdleCallback' in window)requestIdleCallback(function(){load();},{timeout:4000});else setTimeout(load,2500);})();`
+  : '';
 
-const styleHref = asset('style.css');
+const styleHref = assetVersioned('style.css');
+
+/** 懒加载 Tab 脚本的内容哈希，供 lazy-sections.js 拼 ?v= */
+const LAZY_ASSET_PATHS = ['lib/fetch-json.js', 'videos.js', 'news.js', 'courses.js'] as const;
+const lazyAssetVersions = Object.fromEntries(
+  LAZY_ASSET_PATHS.map((p) => {
+    const href = assetVersioned(p);
+    const v = href.includes('?v=') ? href.slice(href.indexOf('?v=') + 3) : '';
+    return [p, v];
+  }),
+);
+const lazyAssetBoot = `window.__BIOAI_ASSET_V__=${JSON.stringify(lazyAssetVersions)};`;
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="zh-CN" data-base={BASE}>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{title}</title>
-  <meta name="description" content={description}>
-  <meta name="keywords" content={site.meta.keywords}>
-  <link rel="canonical" href={canonical}>
-  <meta property="og:type" content="website">
-  <meta property="og:url" content={canonical}>
-  <meta property="og:title" content={title}>
-  <meta property="og:description" content={description}>
-  <meta property="og:image" content={site.meta.og_image}>
-  <meta property="og:locale" content="zh_CN">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content={title}>
-  <meta name="twitter:description" content={description}>
-  <meta name="twitter:image" content={site.meta.og_image}>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&family=Outfit:wght@450;550;650;750&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href={styleHref}>
-  <ThemeBoot assetPrefix={BASE} />
-  {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
-</head>
-<body>
-  <a class="skip-link" href="#main-content">跳到主要内容</a>
-  <UxWidgets />
-  {includeKnowledge && <KnowledgeAssistant />}
-  <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
-  <div id="main-content">
-    <slot />
-  </div>
-  <Footer text={site.footer.text} github={site.footer.github} />
-  {scriptList.map((src) => <script src={asset(src)}></script>)}
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SecurityMeta />
+    <SeoHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      keywords={site.meta.keywords}
+      ogType="website"
+      ogImage={site.meta.og_image}
+      ogImageAlt={site.meta.og_image_alt || title}
+      siteName={site.meta.site_name || 'Bio AI Lab'}
+    />
+    <Favicon />
+    <FontLoader />
+    <style is:inline>
+      html {
+        overflow-x: hidden;
+        max-width: 100%;
+      }
+      body {
+        margin: 0;
+        background: #eef3fb;
+        color: #1a2234;
+        font-family: system-ui, sans-serif;
+      }
+      #main-content {
+        min-height: 40vh;
+      }
+    </style>
+    <link rel="preload" href={styleHref} as="style" />
+    <link rel="stylesheet" href={styleHref} />
+    <ThemeBoot assetPrefix={BASE} />
+    {schema && <script type="application/ld+json" set:html={stringifyJsonLd(schema)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+    <UxWidgets />
+    {includeKnowledge && <KnowledgeAssistant />}
+    <Nav nav={site.nav} standalone={false} homeHref={asset('index.html')} navPrefix={BASE} />
+    <main id="main-content" tabindex="-1">
+      <slot />
+    </main>
+    <Footer text={site.footer.text} links={site.footer.links || []} />
+    <script is:inline set:html={lazyAssetBoot} />
+    {knowledgeBoot && <script is:inline set:html={knowledgeBoot} />}
+    {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
+  </body>
 </html>

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bio-apple.github.io/ai/schemas/local-deploy.schema.json",
+  "title": "LocalDeploy",
+  "type": "object",
+  "required": ["title"],
+  "additionalProperties": true,
+  "properties": {
+    "title": { "type": "string", "minLength": 1 },
+    "lead": { "type": "string" },
+    "updated_at": { "type": "string" }
+  }
+}

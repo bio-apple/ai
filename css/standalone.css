@@ -1,0 +1,147 @@
+/* 独立页版式 — 与首页 .home-main、工具中心 hub 对齐（max-width 1200px） */
+.standalone-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 24px 80px;
+}
+
+.breadcrumb {
+  margin: 0 0 20px;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.breadcrumb a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.standalone-hero {
+  margin-bottom: 40px;
+}
+
+.standalone-hero h1,
+.standalone-page > h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.65rem, 4vw, 2.1rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.22;
+}
+
+.standalone-lead {
+  margin: 0;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 52rem;
+}
+
+.standalone-meta {
+  margin: 10px 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.standalone-hero-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.standalone-hero-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.standalone-hero--with-icon .standalone-hero-row .tool-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  margin: 0;
+}
+
+/* 与 hub .hub-compare-section / .home-section 间距一致 */
+.page-section {
+  margin-bottom: 48px;
+}
+
+.page-section .section-head {
+  margin-bottom: 20px;
+}
+
+/* 表格容器 — 与 hub-compare-wrap 同款 */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrap .compare-table {
+  margin: 0;
+  min-width: 720px;
+}
+
+.answer-box {
+  margin: 0 0 40px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
+  background: color-mix(in srgb, var(--accent) 6%, var(--bg-card));
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.answer-box strong {
+  color: var(--accent);
+}
+
+.standalone-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 48px;
+  padding-top: 8px;
+}
+
+/* 工具详情页已改用 StandalonePageHeader，不再依赖旧 tool-header 分割线 */
+
+.hub-quick-links,
+.hub-quick-links nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+}
+
+.hub-quick-links {
+  margin-top: 16px;
+}
+
+@media (max-width: 640px) {
+  .standalone-page {
+    padding: 20px 16px 56px;
+  }
+
+  .standalone-cta {
+    flex-direction: column;
+  }
+
+  .standalone-cta .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .standalone-hero-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

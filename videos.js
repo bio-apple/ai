@@ -1,42 +1,135 @@
-const VIDEO_DATA_URL = (typeof document !== 'undefined' && document.documentElement.dataset.base
-  ? document.documentElement.dataset.base.replace(/\/?$/, '/')
-  : '') + 'daily-videos.json';
+const VIDEO_JSON = 'daily-videos.latest.json';
 const HOT_VIEWS_THRESHOLD = 1_000_000;
-/** 页面展示顺序：各平台 100d → 30d → 24h */
+/** 每平台上限（YouTube / B站各自独立，不是两平台合计） */
+const PLATFORM_TOTAL_CAP = 10;
+const PLATFORM_PRIORITY_KEYS = {
+  youtube: [
+    'youtube_recent_24h',
+    'youtube_recent_30d',
+    'youtube_recent_100d',
+    'youtube_top_views',
+    // 历史兼容：旧批次曾有 3d
+    'youtube_recent_3d',
+  ],
+  bilibili: [
+    'bilibili_recent_24h',
+    'bilibili_recent_30d',
+    'bilibili_recent_100d',
+    'bilibili_top_views',
+    'bilibili_recent_3d',
+  ],
+};
+/** 抓取分桶键（含历史兼容键；页面按平台展示） */
 const CATEGORY_ORDER = [
-  'youtube_top_views',
-  'youtube_recent_30d',
   'youtube_recent_24h',
-  'bilibili_top_views',
-  'bilibili_recent_30d',
+  'youtube_recent_30d',
+  'youtube_recent_100d',
   'bilibili_recent_24h',
-  'top_views',
-  'recent_7d',
-  'recent_24h',
-  'last_6m',
+  'bilibili_recent_30d',
+  'bilibili_recent_100d',
+  // 历史键：旧批次 100 天曾用 *_top_views；3d 桶已废弃
+  'youtube_top_views',
+  'bilibili_top_views',
+  'youtube_recent_3d',
+  'bilibili_recent_3d',
 ];
 
-/** 与抓取脚本一致：窄窗口优先占坑，展示时去掉跨分类重复 */
+/** 与抓取脚本一致：近 → 远；历史键仍参与去重优先级 */
 const DEDUPE_PICK_ORDER = [
   'youtube_recent_24h',
   'youtube_recent_30d',
+  'youtube_recent_100d',
   'youtube_top_views',
+  'youtube_recent_3d',
   'bilibili_recent_24h',
   'bilibili_recent_30d',
+  'bilibili_recent_100d',
   'bilibili_top_views',
+  'bilibili_recent_3d',
 ];
 
+/** 与 scripts/fetch_daily_videos.py / video-fallback.mjs 对齐：空 100d 可回退读旧 top_views */
+const LEGACY_CATEGORY_ALIASES = {
+  youtube_recent_100d: ['youtube_recent_100d', 'youtube_top_views'],
+  bilibili_recent_100d: ['bilibili_recent_100d', 'bilibili_top_views'],
+};
+
+/** 与 config/video-fetch.yaml 对齐：各分桶最低播放量 10000，仅按时间窗过滤 */
+const CATEGORY_MIN_VIEWS = {
+  youtube_recent_24h: 10_000,
+  youtube_recent_30d: 10_000,
+  youtube_recent_100d: 10_000,
+  youtube_top_views: 10_000,
+  youtube_recent_3d: 10_000,
+  bilibili_recent_24h: 10_000,
+  bilibili_recent_30d: 10_000,
+  bilibili_recent_100d: 10_000,
+  bilibili_top_views: 10_000,
+  bilibili_recent_3d: 10_000,
+};
+
+/** 24h 用小时；其余用天。filter 统一换算为毫秒 */
+const CATEGORY_MAX_HOURS = {
+  youtube_recent_24h: 24,
+  bilibili_recent_24h: 24,
+};
+
+const CATEGORY_MAX_DAYS = {
+  youtube_recent_30d: 30,
+  youtube_recent_100d: 100,
+  youtube_top_views: 100,
+  youtube_recent_3d: 3,
+  bilibili_recent_30d: 30,
+  bilibili_recent_100d: 100,
+  bilibili_top_views: 100,
+  bilibili_recent_3d: 3,
+};
+
+function categoryMinViews(key) {
+  if (Object.prototype.hasOwnProperty.call(CATEGORY_MIN_VIEWS, key)) {
+    return CATEGORY_MIN_VIEWS[key];
+  }
+  return 10_000;
+}
+
+function categoryMaxAgeMs(key) {
+  if (Object.prototype.hasOwnProperty.call(CATEGORY_MAX_HOURS, key)) {
+    return CATEGORY_MAX_HOURS[key] * 60 * 60 * 1000;
+  }
+  if (/_recent_24h$/.test(key)) return 24 * 60 * 60 * 1000;
+  let days = null;
+  if (Object.prototype.hasOwnProperty.call(CATEGORY_MAX_DAYS, key)) {
+    days = CATEGORY_MAX_DAYS[key];
+  } else if (/_recent_3d$/.test(key)) days = 3;
+  else if (/_recent_30d$/.test(key)) days = 30;
+  else if (/_recent_100d$|_top_views$/.test(key)) days = 100;
+  return days == null ? null : days * 24 * 60 * 60 * 1000;
+}
+
+function filterVideosForCategory(videos, key, nowMs = Date.now()) {
+  const min = categoryMinViews(key);
+  const maxAgeMs = categoryMaxAgeMs(key);
+  return (videos || []).filter((v) => {
+    if ((Number(v?.views) || 0) < min) return false;
+    if (maxAgeMs == null) return true;
+    const t = v?.published_at ? Date.parse(v.published_at) : NaN;
+    if (!Number.isFinite(t)) return false;
+    return nowMs - t <= maxAgeMs;
+  });
+}
+
 let videoDataPromise = null;
+/** 默认按播放量排序；平台内合并展示 */
 let videoState = { platform: 'all', sort: 'views', rawData: null };
 
 function getCategoryKeys(batch) {
   if (!batch.categories) return [];
-  const preferred = CATEGORY_ORDER.filter(key => batch.categories[key]);
+  const preferred = CATEGORY_ORDER.filter((key) => batch.categories[key]);
   if (preferred.length) return preferred;
   return Object.keys(batch.categories);
 }
 
-/** 同一视频只保留在优先级最高的分类中（24h > 30d > 100d） */
+/** 同一视频只保留在优先级最高的分类中 */
 function dedupeBatchCategories(batch) {
   if (!batch?.categories) return batch;
   const claim = new Map();
@@ -60,8 +153,16 @@ function dedupeBatchCategories(batch) {
   return { ...batch, categories };
 }
 
+function categoryVideosFromBatch(cats, key) {
+  for (const alias of LEGACY_CATEGORY_ALIASES[key] || [key]) {
+    const videos = filterVideosForCategory(cats?.[alias]?.videos || [], key);
+    if (videos.length) return videos;
+  }
+  return filterVideosForCategory(cats?.[key]?.videos || [], key);
+}
+
 /**
- * 最新批次某分类为空时，向前找最近一个非空批次回填，并标记 fallback_from。
+ * 最新批次某分类为空时，向前找最近一个非空批次回填（须在时间窗内）。
  */
 function withCategoryFallback(batches) {
   if (!Array.isArray(batches) || !batches.length) return null;
@@ -72,7 +173,7 @@ function withCategoryFallback(batches) {
   let fallbackCount = 0;
   for (const key of Object.keys(latest.categories)) {
     const cat = latest.categories[key] || {};
-    const videos = cat.videos || [];
+    const videos = filterVideosForCategory(cat.videos || [], key);
     if (videos.length) {
       categories[key] = { ...cat, videos: [...videos] };
       continue;
@@ -80,7 +181,7 @@ function withCategoryFallback(batches) {
     let filled = null;
     let fromDate = null;
     for (let i = 1; i < batches.length; i += 1) {
-      const prevVideos = batches[i]?.categories?.[key]?.videos || [];
+      const prevVideos = categoryVideosFromBatch(batches[i]?.categories || {}, key);
       if (prevVideos.length) {
         filled = prevVideos;
         fromDate = batches[i].date || null;
@@ -99,6 +200,16 @@ function withCategoryFallback(batches) {
     }
   }
   return { ...latest, categories, _fallback_count: fallbackCount };
+}
+
+function extRel() {
+  return window.BioAI?.externalRel ? window.BioAI.externalRel() : 'noopener noreferrer';
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
 }
 
 function formatNumber(n) {
@@ -125,14 +236,6 @@ function formatPublishDate(iso) {
   }
 }
 
-function getBatchVideos(batch) {
-  const unique = dedupeBatchCategories(batch);
-  if (unique.categories) {
-    return getCategoryKeys(unique).flatMap(key => unique.categories[key]?.videos || []);
-  }
-  return unique.videos || [];
-}
-
 function platformLabel(v) {
   if (v.platform === 'bilibili') return 'B站';
   if ((v.id || '').startsWith('bilibili:')) return 'B站';
@@ -143,11 +246,7 @@ function isBilibiliVideo(v) {
   return v.platform === 'bilibili' || String(v.id || '').startsWith('bilibili:');
 }
 
-function videoPlatform(v) {
-  return isBilibiliVideo(v) ? 'bilibili' : 'youtube';
-}
-
-function renderVideoCard(v, { compact = false } = {}) {
+function renderVideoCard(v, { compact = false, reveal = true } = {}) {
   const hot = v.views >= HOT_VIEWS_THRESHOLD;
   const track = compact ? 'home-video-click' : 'video-click';
   const platform = platformLabel(v);
@@ -155,10 +254,13 @@ function renderVideoCard(v, { compact = false } = {}) {
   const thumbSrc = v.thumbnail || '';
   const author = v.author || v.channel || '未知作者';
   const published = formatPublishDate(v.published_at);
+  // 虚拟列表已移除：卡片随页面自然滚动展示
+  const revealClass = reveal ? ' reveal' : '';
   return `
-    <article class="video-card reveal${compact ? ' video-card-compact' : ''}">
-      <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">
-        <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(v.title)}" loading="lazy"${thumbPolicy}>
+    <article class="video-card${revealClass}${compact ? ' video-card-compact' : ''}">
+      <a class="video-thumb" href="${escapeHtml(v.url)}" target="_blank" rel="${extRel()}" data-track="${track}">
+        <img src="${escapeHtml(thumbSrc)}" alt="${escapeHtml(v.title)}" loading="lazy" decoding="async" width="640" height="360"${thumbPolicy}>
+        <span class="content-type-badge content-type-video" aria-hidden="true">视频</span>
         <span class="video-play-btn" aria-hidden="true">▶ 观看</span>
         ${v.duration ? `<span class="video-duration">${escapeHtml(v.duration)}</span>` : ''}
         <span class="video-quality">${v.max_height}p</span>
@@ -166,7 +268,7 @@ function renderVideoCard(v, { compact = false } = {}) {
         ${hot ? '<span class="video-hot">热门</span>' : ''}
       </a>
       <div class="video-body">
-        <h4><a href="${escapeHtml(v.url)}" target="_blank" rel="noopener" data-track="${track}">${escapeHtml(v.title)}</a></h4>
+        <h4><a href="${escapeHtml(v.url)}" target="_blank" rel="${extRel()}" data-track="${track}">${escapeHtml(v.title)}</a></h4>
         <p class="video-summary">${escapeHtml(formatSummary(v))}</p>
         <div class="video-meta">
           <span>${escapeHtml(author)}</span>
@@ -178,109 +280,130 @@ function renderVideoCard(v, { compact = false } = {}) {
   `;
 }
 
-function flattenLatestVideos(batch) {
+function videosFromCategoryKeys(batch, keys) {
+  const unique = dedupeBatchCategories(batch);
+  const cats = unique.categories || {};
   const seen = new Set();
   const items = [];
-  for (const v of getBatchVideos(batch)) {
-    if (seen.has(v.id)) continue;
-    seen.add(v.id);
-    items.push(v);
+  for (const key of keys) {
+    for (const v of filterVideosForCategory(cats[key]?.videos || [], key)) {
+      if (!v?.id || seen.has(v.id)) continue;
+      seen.add(v.id);
+      items.push(v);
+    }
   }
   return items;
 }
 
-function filterAndSortVideos(videos, { platform, sort }) {
-  let list = [...videos];
-  if (platform !== 'all') {
-    list = list.filter(v => videoPlatform(v) === platform);
-  }
+function sortVideoList(list, sort) {
+  const out = [...list];
   if (sort === 'recent') {
-    list.sort((a, b) => {
+    out.sort((a, b) => {
       const ta = a.published_at ? Date.parse(a.published_at) : 0;
       const tb = b.published_at ? Date.parse(b.published_at) : 0;
       return tb - ta;
     });
   } else {
-    list.sort((a, b) => (b.views || 0) - (a.views || 0));
+    out.sort((a, b) => (b.views || 0) - (a.views || 0));
   }
-  return list;
+  return out;
+}
+
+/**
+ * 24h Top3、30d Top3、100d Top4；该平台合计 ≤ PLATFORM_TOTAL_CAP。
+ * 列表顺序：24h → 30d → 100d（窄窗组内跟当前排序；100d 组内固定按播放量）。
+ */
+function buildPlatformVideoList(batch, platform, sort) {
+  const bucketCap = (key) => {
+    if (/_recent_24h$/.test(key)) return 3;
+    if (/_recent_30d$/.test(key)) return 3;
+    if (/_recent_100d$|_top_views$/.test(key)) return 4;
+    // 废弃的 3d 桶不再纳入展示
+    if (/_recent_3d$/.test(key)) return 10_000;
+    return 3;
+  };
+  const picked = [];
+  const seen = new Set();
+  for (const key of PLATFORM_PRIORITY_KEYS[platform]) {
+    const maxN = bucketCap(key);
+    if (maxN <= 0) continue;
+    const is100d = /_recent_100d$|_top_views$/.test(key);
+    const ranked = sortVideoList(videosFromCategoryKeys(batch, [key]), is100d ? 'views' : sort);
+    let taken = 0;
+    for (const v of ranked) {
+      if (picked.length >= PLATFORM_TOTAL_CAP || taken >= maxN) break;
+      if (!v?.id || seen.has(v.id)) continue;
+      seen.add(v.id);
+      picked.push(v);
+      taken += 1;
+    }
+    if (picked.length >= PLATFORM_TOTAL_CAP) break;
+  }
+  return picked;
 }
 
 function renderFilteredGrid(videos) {
   if (!videos.length) {
     return '<p class="loading-hint">当前筛选条件下暂无视频。</p>';
   }
-  return `<div class="video-grid">${videos.map(v => renderVideoCard(v)).join('')}</div>`;
+  return `<div class="video-grid" data-video-grid="single">${videos.map((v) => renderVideoCard(v)).join('')}</div>`;
 }
 
-function renderCategory(cat) {
-  const videos = cat.videos || [];
-  const fallbackNote = cat.fallback_from
-    ? `<p class="video-fallback-note">今日该分类抓取为空，已回退展示 <strong>${escapeHtml(cat.fallback_from)}</strong> 批次内容（备选）。</p>`
-    : '';
+function renderPlatformBlock(label, key, videos) {
   if (!videos.length) {
-    return `<div class="video-category video-category-empty"><h4 class="video-category-title">${escapeHtml(cat.label)}</h4><p class="loading-hint">暂无符合该分类的推荐</p></div>`;
+    return `<div class="video-category video-category-empty"><h4 class="video-category-title">${escapeHtml(label)}</h4><p class="loading-hint">暂无该平台推荐</p></div>`;
   }
   return `
-    <div class="video-category${cat.fallback_from ? ' video-category-fallback' : ''}">
-      <h4 class="video-category-title">${escapeHtml(cat.label)} <span class="video-day-count">${videos.length} 条</span>${cat.fallback_from ? '<span class="video-fallback-badge">回退批次</span>' : ''}</h4>
-      ${fallbackNote}
-      <div class="video-grid">${videos.map(v => renderVideoCard(v)).join('')}</div>
+    <div class="video-category">
+      <h4 class="video-category-title">${escapeHtml(label)} <span class="video-day-count">${videos.length} 条</span></h4>
+      <div class="video-grid" data-video-grid="${escapeHtml(key)}">${videos.map((v) => renderVideoCard(v)).join('')}</div>
     </div>
   `;
 }
 
+/** 24h/30d Top3 + 100d Top4，每平台 ≤10；按平台分组展示 */
 function renderBatch(batch, state) {
-  const flat = flattenLatestVideos(batch);
-  const filtered = filterAndSortVideos(flat, state);
+  const sortLabel = state.sort === 'recent' ? '按上传时间' : '按播放量';
+  const fallbackNote = batch._fallback_count
+    ? `<p class="video-fallback-note">有 ${batch._fallback_count} 组来源今日为空，已用上一有效批次补齐。</p>`
+    : '';
 
-  if (state.platform !== 'all' || state.sort !== 'views') {
-    const label = state.sort === 'recent' ? '最新排序' : '热门排序';
-    const platformLabelText = state.platform === 'all' ? '全部平台' : (state.platform === 'bilibili' ? 'B站' : 'YouTube');
-    return `
+  if (state.platform !== 'all') {
+    const filtered = buildPlatformVideoList(batch, state.platform, state.sort);
+    const platformLabelText = state.platform === 'bilibili' ? 'B站' : 'YouTube';
+    return {
+      html: `
       <section class="video-day">
-        <h3 class="video-day-title">${escapeHtml(batch.date)} · ${platformLabelText} · ${label}
+        <h3 class="video-day-title">${platformLabelText} · ${sortLabel}
           <span class="video-day-count">${filtered.length} 条</span>
         </h3>
+        ${fallbackNote}
         ${renderFilteredGrid(filtered)}
       </section>
-    `;
+    `,
+      groups: [{ key: 'single', items: filtered }],
+    };
   }
 
-  const unique = dedupeBatchCategories(batch);
-  const count = getBatchVideos(unique).length;
-  if (unique.categories) {
-    const categories = getCategoryKeys(unique).map(key => unique.categories[key]);
-    return `
-      <section class="video-day">
-        <h3 class="video-day-title">${escapeHtml(unique.date)} <span class="video-day-count">${count} 条</span></h3>
-        ${categories.map(renderCategory).join('')}
-      </section>
-    `;
-  }
+  const youtube = buildPlatformVideoList(batch, 'youtube', state.sort);
+  const bilibili = buildPlatformVideoList(batch, 'bilibili', state.sort);
 
-  const videos = batch.videos || [];
-  return `
+  return {
+    html: `
     <section class="video-day">
-      <h3 class="video-day-title">${escapeHtml(batch.date)} <span class="video-day-count">${videos.length} 条</span></h3>
-      <div class="video-grid">${videos.map(v => renderVideoCard(v)).join('')}</div>
+      <h3 class="video-day-title">${sortLabel}
+        <span class="video-day-count">YouTube ${youtube.length} · B站 ${bilibili.length}</span>
+      </h3>
+      ${fallbackNote}
+      ${renderPlatformBlock('YouTube', 'youtube', youtube)}
+      ${renderPlatformBlock('B站', 'bilibili', bilibili)}
     </section>
-  `;
-}
-
-function fetchVideoData() {
-  if (!videoDataPromise) {
-    videoDataPromise = fetch(VIDEO_DATA_URL, { cache: 'no-store' })
-      .then(res => {
-        if (!res.ok) throw new Error('无法加载视频数据');
-        return res.json();
-      })
-      .catch(err => {
-        videoDataPromise = null;
-        throw err;
-      });
-  }
-  return videoDataPromise;
+  `,
+    groups: [
+      { key: 'youtube', items: youtube },
+      { key: 'bilibili', items: bilibili },
+    ],
+  };
 }
 
 function paintVideoList() {
@@ -292,33 +415,63 @@ function paintVideoList() {
     root.innerHTML = '<p class="loading-hint">暂无视频数据，每日北京时间 0:00 自动更新。</p>';
     return;
   }
-  // 只展示最新一批推荐（空分类已从前序批次回填），不渲染历史日期整页
-  root.innerHTML = renderBatch(latest, videoState);
+  const painted = renderBatch(latest, videoState);
+  root.innerHTML = painted.html;
   if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
+}
+
+function fetchVideoData() {
+  if (!videoDataPromise) {
+    if (!window.BioAI?.fetchJson) {
+      return Promise.reject(new Error('加载器未就绪，请稍后重试'));
+    }
+    videoDataPromise = window.BioAI.fetchJson(VIDEO_JSON, { label: '视频' });
+  }
+  return videoDataPromise;
+}
+
+function resetVideoFetch() {
+  window.BioAI?.invalidateFetch?.(VIDEO_JSON);
+  videoDataPromise = null;
 }
 
 function initVideoToolbar() {
   const toolbar = document.getElementById('video-toolbar');
-  if (!toolbar) return;
+  if (!toolbar || toolbar.dataset.bound === '1') return;
+  toolbar.dataset.bound = '1';
 
-  toolbar.querySelectorAll('[data-video-platform]').forEach(btn => {
+  toolbar.querySelectorAll('[data-video-platform]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      toolbar.querySelectorAll('[data-video-platform]').forEach(b => b.classList.remove('active'));
+      toolbar.querySelectorAll('[data-video-platform]').forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       videoState.platform = btn.dataset.videoPlatform;
       paintVideoList();
-      if (typeof trackEvent === 'function') trackEvent('video-filter-platform', { platform: videoState.platform });
+      if (typeof trackEvent === 'function')
+        trackEvent('video-filter-platform', { platform: videoState.platform });
     });
   });
 
-  toolbar.querySelectorAll('[data-video-sort]').forEach(btn => {
+  toolbar.querySelectorAll('[data-video-sort]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      toolbar.querySelectorAll('[data-video-sort]').forEach(b => b.classList.remove('active'));
+      toolbar.querySelectorAll('[data-video-sort]').forEach((b) => {
+        b.classList.remove('active');
+        b.setAttribute('aria-pressed', 'false');
+      });
       btn.classList.add('active');
+      btn.setAttribute('aria-pressed', 'true');
       videoState.sort = btn.dataset.videoSort;
       paintVideoList();
-      if (typeof trackEvent === 'function') trackEvent('video-filter-sort', { sort: videoState.sort });
+      if (typeof trackEvent === 'function')
+        trackEvent('video-filter-sort', { sort: videoState.sort });
     });
+  });
+
+  toolbar.querySelectorAll('[data-video-platform], [data-video-sort]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
   });
 }
 
@@ -344,15 +497,21 @@ async function loadDailyVideos() {
       const updated = new Date(data.updated_at);
       const day = display?.date ? ` · 推荐日期 ${display.date}` : '';
       const fallbackNote = display?._fallback_count
-        ? ` · ${display._fallback_count} 个分类已回退至上一有效批次`
+        ? ` · ${display._fallback_count} 组来源已回退至上一有效批次`
         : '';
-      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · 仅展示最新一批${fallbackNote}`;
+      meta.textContent = `最近更新：${updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' })}（北京时间）${day} · YouTube / B站 · 24h/30d Top3 + 100d Top4（每平台最多10条）${fallbackNote}`;
     }
 
     paintVideoList();
     initVideoToolbar();
   } catch (err) {
-    handleDataError(root, 'videos-section');
+    root.innerHTML = window.BioAI?.renderErrorBlock
+      ? window.BioAI.renderErrorBlock(err.message || '加载失败')
+      : `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    window.BioAI?.bindRetry?.(root, () => {
+      resetVideoFetch();
+      loadDailyVideos();
+    });
   }
 }
 

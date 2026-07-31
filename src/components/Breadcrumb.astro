@@ -1,0 +1,38 @@
+---
+/**
+ * 统一面包屑：首页 / 当前页（与工具中心一致）
+ */
+export type Crumb = { label: string; href?: string; tool?: string };
+
+interface Props {
+  crumbs: Crumb[];
+}
+
+const { crumbs } = Astro.props;
+---
+
+<nav class="breadcrumb" aria-label="面包屑">
+  {
+    crumbs.map((crumb, index) => {
+      const isLast = index === crumbs.length - 1;
+      return (
+        <>
+          {index > 0 && ' / '}
+          {crumb.href || crumb.tool ? (
+            <a
+              href={crumb.href || '#'}
+              {...(crumb.tool ? { 'data-tool': crumb.tool } : {})}
+              {...(isLast ? { 'aria-current': 'page' } : {})}
+            >
+              {crumb.label}
+            </a>
+          ) : isLast ? (
+            <span aria-current="page">{crumb.label}</span>
+          ) : (
+            crumb.label
+          )}
+        </>
+      );
+    })
+  }
+</nav>

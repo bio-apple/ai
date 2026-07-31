@@ -1,40 +1,70 @@
 ---
 import HomeLayout from '../layouts/HomeLayout.astro';
-import ToolSection from '../components/ToolSection.astro';
-import HomeOssPreview from '../components/HomeOssPreview.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
-import HomeFavorites from '../components/HomeFavorites.astro';
-import {
-  site, tools, buildHotToolCards,
-} from '../lib/data';
-import { buildHomeSchema } from '../lib/schema';
-import { asset } from '../lib/paths';
+import HomeOps from '../components/HomeOps.astro';
+import GlobalSearch from '../components/GlobalSearch.astro';
+import HomeQuickFilters from '../components/HomeQuickFilters.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+import HomeAiMap from '../components/HomeAiMap.astro';
+import { site } from '../lib/data';
+import { buildHomeSchema, buildCoursesSchema, mergeSchemaGraphs } from '../lib/schema';
+import { asset, homeHref } from '../lib/paths';
+import coursesPayload from '../../ai-courses.json';
 
-const hotToolCards = buildHotToolCards();
-const hotToolIds = new Set(site.hot_tools || []);
-const categoryBlocks = site.home_tool_categories
-  .map((cat) => ({
-    ...cat,
-    tools: cat.tools.filter((t) => !hotToolIds.has(t.id)),
-  }))
-  .filter((cat) => cat.tools.length > 0);
-const schema = buildHomeSchema(site);
+const homeCrumb = { label: '首页', href: homeHref(), tool: 'all' };
 
-const recommendKind: Record<string, string> = {
-  '最推荐': 'top',
-  '新手必学': 'beginner',
-  '开发者': 'dev',
-  '企业版': 'enterprise',
-  '免费': 'free',
+const schema = mergeSchemaGraphs(
+  buildHomeSchema(site),
+  buildCoursesSchema(coursesPayload, site.meta.canonical),
+);
+const OSS_CATEGORY_LABELS: Record<string, string> = {
+  agent: 'Agent 框架',
+  inference: '推理框架',
+  vector: '向量库',
+  eval: '评测工具',
+  local: '本地部署',
 };
+const OSS_CATEGORY_ORDER = ['agent', 'inference', 'vector', 'eval', 'local'] as const;
+const OSS_FRAMEWORKS = site.oss_frameworks || [];
+const formatStars = (n = 0) => new Intl.NumberFormat('en-US').format(n);
+const openSourceItems = OSS_FRAMEWORKS.map((fw) => {
+  const category = 'category' in fw && fw.category ? String(fw.category) : 'agent';
+  return {
+    repo: fw.repo,
+    name: fw.name,
+    stars: Number(fw.stars || 0),
+    summary: 'summary' in fw && fw.summary ? String(fw.summary) : '',
+    category,
+    categoryLabel: OSS_CATEGORY_LABELS[category] || '开源项目',
+    url: `https://github.com/${fw.repo}`,
+  };
+}).sort((a, b) => b.stars - a.stars);
+const ossCategoryLegend = OSS_CATEGORY_ORDER.map((id) => ({
+  id,
+  label: OSS_CATEGORY_LABELS[id],
+  count: openSourceItems.filter((item) => item.category === id).length,
+})).filter((row) => row.count > 0);
+const faqItems = site.faq || [];
 ---
+
 <HomeLayout
   title={site.meta.title}
   description={site.meta.description}
   canonical={site.meta.canonical}
   schema={schema}
-  scripts={['vendor/fuse.min.js', 'analytics.js', 'ux.js', 'app.js', 'recommend.js', 'favorites.js', 'lazy-sections.js']}
+  scripts={[
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'lib/link-guard.js',
+    'lib/virtual-list.js',
+    'ux.js',
+    'app.js',
+    'recommend.js',
+    'engagement.js',
+    'lazy-sections.js',
+  ]}
   includeKnowledge={true}
 >
   <section id="section-home" class="section active">
@@ -44,7 +74,7 @@ const recommendKind: Record<string, string> = {
         <div class="hero-orb hero-orb-a"></div>
         <div class="hero-orb hero-orb-b"></div>
       </div>
-      <div class="hero-content fade-in">
+      <div class="hero-content">
         <div class="hero-brand-mark">
           <span class="hero-logo-icon" aria-hidden="true">{site.nav.logo.icon}</span>
           <p class="hero-brand">{site.hero.eyebrow}</p>
@@ -52,154 +82,187 @@ const recommendKind: Record<string, string> = {
         <h1>{site.hero.title}</h1>
         <p class="hero-subtitle">{site.hero.subtitle}</p>
         <div class="hero-cta">
-          <a href="#home-recommend" class="cta-btn" data-track="hero-cta-primary">获取 AI 推荐</a>
-          <a href="#home-tools" class="cta-btn cta-btn-outline" data-track="hero-cta-nav">浏览热门工具</a>
+          <a
+            href={site.hero.cta_primary?.href || '#home-recommend'}
+            class="cta-btn"
+            data-track="hero-cta-primary">{site.hero.cta_primary?.label || '获取 AI 推荐'}</a
+          >
         </div>
-        <div class="site-search-wrap hero-search">
-          <label class="hero-search-label" for="site-search">全站搜索</label>
-          <input type="search" id="site-search" class="site-search" placeholder={site.hero.search_placeholder} aria-label="站内搜索" data-search-ready="0" data-search-status="loading">
-          <div id="site-search-results" class="site-search-results" hidden></div>
-        </div>
+        <p class="hero-secondary-link">
+          <a
+            href={asset(site.hero.cta_secondary?.href || 'tools/hub.html')}
+            data-track="hero-cta-nav">{site.hero.cta_secondary?.label || '浏览工具中心'} →</a
+          >
+        </p>
+        <GlobalSearch variant="hero" />
+        <HomeQuickFilters />
       </div>
     </div>
 
-    <main class="home-main">
+    <div class="home-main">
       <HomeRecommend />
       <HomeAiDaily />
-      <HomeFavorites />
+      <HomeAiMap />
 
-      <section class="home-section fade-in" id="home-tools">
+      <section
+        class="home-section fade-in"
+        id="home-community"
+        aria-labelledby="home-community-title"
+      >
         <div class="section-head">
-          <h2 class="section-title">热门 AI 工具</h2>
-          <p class="section-desc">优先推荐 · 三秒定位你要学的工具</p>
-        </div>
-        <div class="tool-cards tool-cards-grid tool-cards-hot">
-          {hotToolCards.map((tool) => (
-            <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
-              <div class="tool-card-top">
-                <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
-                <span class="badge">{tool.badge}</span>
-                <button type="button" class="fav-star" data-fav-toggle={tool.id} aria-label="收藏工具" aria-pressed="false" title="收藏工具">☆</button>
-              </div>
-              {(tool.recommend || []).length > 0 && (
-                <ul class="recommend-badges">
-                  {tool.recommend.map((r) => (
-                    <li class="recommend-badge" data-kind={recommendKind[r] || 'top'}>{r}</li>
-                  ))}
-                </ul>
-              )}
-              <h3>{tool.name}</h3>
-              <p class="tool-tagline">{tool.tagline}</p>
-              <ul class="tool-tags">{tool.tags.map((tag) => <li>{tag}</li>)}</ul>
-              <button type="button" class="tool-card-btn" data-tool={tool.id}>查看教程 →</button>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section class="home-section fade-in" id="home-categories">
-        <div class="section-head">
-          <h2 class="section-title">更多工具</h2>
-          <p class="section-desc">热门工具已在上方；此处按场景补充其余入口</p>
-        </div>
-        {categoryBlocks.map((cat) => (
-          <>
-            <p class="category-label">{cat.label}</p>
-            <div class="tool-cards tool-cards-grid">
-              {cat.tools.map((tool) => (
-                <article class={`tool-card-v2 ${tool.id}`} data-tool={tool.id}>
-                  <div class="tool-card-top">
-                    <div class={`tool-card-logo ${tool.id}`}>{tool.icon}</div>
-                    <span class="badge">{tool.badge}</span>
-                    <button type="button" class="fav-star" data-fav-toggle={tool.id} aria-label="收藏工具" aria-pressed="false" title="收藏工具">☆</button>
-                  </div>
-                  <h3>{tool.name}</h3>
-                  <p class="tool-tagline">{tool.tagline}</p>
-                  <button type="button" class="tool-card-btn" data-tool={tool.id}>查看教程 →</button>
-                </article>
-              ))}
-            </div>
-          </>
-        ))}
-        <div class="section-cta">
-          <a href={asset('tools/hub.html')} class="cta-btn cta-btn-outline" data-track="home-categories-hub">完整工具中心 →</a>
-        </div>
-      </section>
-
-      <section class="home-section fade-in" id="home-oss">
-        <div class="section-head">
-          <h2 class="section-title">开源项目精选</h2>
-          <p class="section-desc">每领域代表项目 · 完整列表在开源专区</p>
-        </div>
-        <HomeOssPreview />
-        <div class="section-cta">
-          <button class="cta-btn cta-btn-outline" data-goto="oss" data-track="home-all-oss">查看全部开源项目 →</button>
-        </div>
-      </section>
-
-      <section class="home-section fade-in" id="home-community">
-        <div class="section-head">
-          <p class="section-kicker">继续深入</p>
-          <h2 class="section-title">工具中心 · Labs · 排行 · 案例</h2>
-          <p class="section-desc">主路径：推荐 → 简报 → 工具 → 收藏；案例详情在独立页</p>
+          <h2 class="section-title" id="home-community-title">继续探索</h2>
+          <p class="section-desc">从排行、开源到学习路径，按需深入。</p>
         </div>
         <div class="community-links">
           <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
+            <span class="community-card-kicker">排行</span>
             <strong>AI 工具中心</strong>
-            <span>分类目录与工作流入口</span>
+            <span>AICPB / LMSYS / AA 三榜 Top 10。</span>
+            <em class="community-card-cta">浏览工具 →</em>
           </a>
-          <a href={asset('labs/index.html')} class="community-card" data-track="home-community-labs">
-            <strong>AI Labs</strong>
-            <span>Prompt · 案例 · 模型体验</span>
+          <a
+            href="#section-oss"
+            class="community-card"
+            data-goto="oss"
+            data-track="home-community-oss"
+          >
+            <span class="community-card-kicker">开源</span>
+            <strong>开源精选</strong>
+            <span>Agent、推理、向量库、评测与本地部署精选仓库。</span>
+            <em class="community-card-cta">查看精选 →</em>
           </a>
-          <a href={asset('ai-tools-ranking.html')} class="community-card" data-track="home-community-rank">
-            <strong>2026 工具排行榜</strong>
-            <span>综合 · 长文本 · 性价比 · 编程</span>
+          <a
+            href={asset('ai-learning-roadmap.html')}
+            class="community-card"
+            data-track="home-community-roadmap"
+          >
+            <span class="community-card-kicker">学习</span>
+            <strong>AI 学习路线</strong>
+            <span>从入门到工作流的分阶段路径。</span>
+            <em class="community-card-cta">打开路线 →</em>
           </a>
-          <a href={asset('cases/index.html')} class="community-card" data-track="home-community-cases">
-            <strong>实战案例</strong>
-            <span>独立页 · Prompt 在 Labs</span>
-          </a>
-        </div>
-        <div class="section-cta compare-guide-grid" style="margin-top:1.25rem">
-          {site.compare_guides.map((g) => (
-            <a href={asset(g.href)} class="compare-guide-card" data-track={g.track}>
-              <span class="compare-guide-tag">{g.tag}</span>
-              <h4>{g.title}</h4>
-              <p>{g.description}</p>
-            </a>
-          ))}
         </div>
       </section>
-    </main>
+
+      {
+        faqItems.length > 0 && (
+          <section class="home-section fade-in" id="home-faq" aria-labelledby="home-faq-title">
+            <div class="section-head">
+              <h2 class="section-title" id="home-faq-title">
+                常见问题
+              </h2>
+              <p class="section-desc">快速回答选型与上手问题。</p>
+            </div>
+            <div class="home-faq-list">
+              {faqItems.map((item) => (
+                <details class="home-faq-item">
+                  <summary>{item.question}</summary>
+                  <p>{item.answer}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+        )
+      }
+
+      <HomeOps />
+    </div>
   </section>
 
-  {tools.map((tool) => <ToolSection tool={tool} />)}
-
   <section id="section-oss" class="section oss-section">
-    <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载开源精选。</p></noscript>
-    <main>
+    <div class="section-panel">
+      <Breadcrumb crumbs={[homeCrumb, { label: '开源精选' }]} />
       <div class="tool-header">
-        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">⭐</div>
+        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">◎</div>
         <div>
-          <h2>GitHub Stars 开源精选</h2>
-          <p class="desc">四领域代表仓库，Star 数每周刷新。首页仅展示抽样。</p>
-          <p class="video-update-meta" id="oss-update-meta"></p>
+          <h2>开源精选</h2>
+          <p class="desc">Agent · 推理 · 向量库 · 评测 · 本地部署——按 Star 排序的多元开源清单。</p>
         </div>
       </div>
-      <div id="oss-project-list" class="oss-project-list">
-        <p class="loading-hint">加载 GitHub 开源精选…</p>
+      {
+        ossCategoryLegend.length > 0 && (
+          <ul class="oss-cat-legend" aria-label="开源类别">
+            {ossCategoryLegend.map((row) => (
+              <li>
+                <span class={`oss-chip oss-chip-${row.id}`}>{row.label}</span>
+                <span class="oss-cat-count">{row.count}</span>
+              </li>
+            ))}
+          </ul>
+        )
+      }
+      <div class="oss-feed">
+        <ol class="oss-card-grid" aria-label="开源精选仓库">
+          {
+            openSourceItems.map((item, index) => (
+              <li class="oss-card-item" style={`--oss-i:${index}`}>
+                <a
+                  class={`oss-card oss-card--${item.category}`}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-track="oss-click"
+                  aria-label={`${item.name}，${item.categoryLabel}，${formatStars(item.stars)} stars，在 GitHub 打开`}
+                >
+                  <div class="oss-card-top">
+                    <span class={`oss-chip oss-chip-${item.category}`}>{item.categoryLabel}</span>
+                    <span class="oss-card-stars" title="GitHub Stars">
+                      <span aria-hidden="true">★</span> {formatStars(item.stars)}
+                    </span>
+                  </div>
+                  <div class="oss-card-identity">
+                    <span class="oss-card-rank">#{index + 1}</span>
+                    <h3 class="oss-card-title">{item.name}</h3>
+                    {index < 3 && <span class="oss-chip oss-chip-top">TOP {index + 1}</span>}
+                  </div>
+                  <p class="oss-card-repo">{item.repo}</p>
+                  <p class="oss-card-summary">
+                    {item.summary ||
+                      `GitHub Star：★ ${formatStars(item.stars)}，${item.categoryLabel}相关开源仓库。`}
+                  </p>
+                  <span class="oss-card-cta">
+                    在 GitHub 打开 <span aria-hidden="true">→</span>
+                  </span>
+                </a>
+              </li>
+            ))
+          }
+        </ol>
+        {openSourceItems.length === 0 && <p class="loading-hint">暂无开源项目数据。</p>}
       </div>
-    </main>
+    </div>
+  </section>
+
+  <section id="section-courses" class="section courses-section">
+    <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载课程资源。</p></noscript>
+    <div class="section-panel">
+      <Breadcrumb crumbs={[homeCrumb, { label: '课程资源' }]} />
+      <div class="tool-header">
+        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📚</div>
+        <div>
+          <h2>AI 课程资源</h2>
+          <p class="desc" id="courses-lead">
+            按学习路线精选免费课：微软与谷歌入门，斯坦福 CS230 / CS231n / CS224n / CS336（YouTube
+            最新学年讲座 + 官网）。
+          </p>
+          <p class="video-update-meta" id="courses-update-meta"></p>
+        </div>
+      </div>
+      <div class="video-toolbar" id="courses-toolbar"></div>
+      <div id="courses-list" class="courses-list">
+        <p class="loading-hint">加载课程资源…</p>
+      </div>
+    </div>
   </section>
 
   <section id="section-news" class="section">
-    <main>
+    <div class="section-panel">
+      <Breadcrumb crumbs={[homeCrumb, { label: '新闻热点' }]} />
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📰</div>
         <div>
-          <h2>本周 AI 热点</h2>
-          <p class="desc">按分类浏览本周条目；点击标题阅读原文。</p>
+          <h2>一周内 AI 热点</h2>
+          <p class="desc">近 7 天热点，按分类浏览。</p>
           <p class="video-update-meta" id="news-update-meta"></p>
         </div>
       </div>
@@ -209,38 +272,66 @@ const recommendKind: Record<string, string> = {
       </div>
       <div id="news-watch-sources" class="news-watch-sources"></div>
       <div class="section-cta">
-        <a href={asset('news/daily-ai-news.html')} class="cta-btn cta-btn-outline">查看新闻归档页 →</a>
+        <a href={asset('news/daily-ai-news.html')} class="cta-btn cta-btn-outline"
+          >查看新闻归档页 →</a
+        >
       </div>
-    </main>
+    </div>
   </section>
 
   <section id="section-videos" class="section videos-section">
-    <main>
+    <div class="section-panel">
+      <Breadcrumb crumbs={[homeCrumb, { label: 'AI 视频' }]} />
       <div class="tool-header">
         <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
         <div>
-          <h2>每日 AI 视频推荐</h2>
-          <p class="desc">日更完整列表（六类 · 100d → 30d → 24h）。上方简报仅摘 2 条。</p>
+          <h2>近期热门AI视频推荐</h2>
+          <p class="desc">
+            YouTube 与 B站分别：24 小时 Top3、30 天 Top3、100 天 Top4，每平台最多 10
+            条，按播放量排序，日更。
+          </p>
           <p class="video-update-meta" id="video-update-meta"></p>
         </div>
       </div>
       <div class="video-toolbar" id="video-toolbar">
-        <div class="video-toolbar-group">
-          <span class="video-toolbar-label">平台</span>
-          <button type="button" class="video-filter active" data-video-platform="all">全部</button>
-          <button type="button" class="video-filter" data-video-platform="youtube">YouTube</button>
-          <button type="button" class="video-filter" data-video-platform="bilibili">B站</button>
+        <div class="video-toolbar-group" role="group" aria-label="视频平台">
+          <span class="video-toolbar-label" id="video-platform-label">平台</span>
+          <button
+            type="button"
+            class="video-filter active"
+            data-video-platform="all"
+            aria-pressed="true">全部</button
+          >
+          <button
+            type="button"
+            class="video-filter"
+            data-video-platform="youtube"
+            aria-pressed="false">YouTube</button
+          >
+          <button
+            type="button"
+            class="video-filter"
+            data-video-platform="bilibili"
+            aria-pressed="false">B站</button
+          >
         </div>
-        <div class="video-toolbar-group">
-          <span class="video-toolbar-label">排序</span>
-          <button type="button" class="video-sort active" data-video-sort="views">热门</button>
-          <button type="button" class="video-sort" data-video-sort="recent">最新</button>
+        <div class="video-toolbar-group" role="group" aria-label="视频排序">
+          <span class="video-toolbar-label" id="video-sort-label">排序</span>
+          <button
+            type="button"
+            class="video-sort active"
+            data-video-sort="views"
+            aria-pressed="true">热门</button
+          >
+          <button type="button" class="video-sort" data-video-sort="recent" aria-pressed="false"
+            >最新</button
+          >
         </div>
       </div>
       <div id="daily-video-list" class="daily-video-list">
         <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载视频。</p></noscript>
         <p class="loading-hint">加载视频推荐…</p>
       </div>
-    </main>
+    </div>
   </section>
 </HomeLayout>

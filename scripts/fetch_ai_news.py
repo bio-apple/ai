@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""从 RSS / 官方页面 / GitHub API 抓取 AI 新闻，写入 ai-news.json 与 content/news/daily-ai-news.md。"""
+"""从 RSS / 官方页面 / GitHub API 抓取 AI 新闻，写入 ai-news.json。"""
 
 from __future__ import annotations
 
@@ -19,12 +19,18 @@ from urllib.request import Request, urlopen
 
 import yaml
 
-from news_dedupe import assert_news_unique, dedupe_news_items, normalize_news_title, news_recency_key
+from fetch_resilience import atomic_write_json, fetch_url_bytes, load_json
+from news_dedupe import (
+    assert_news_unique,
+    clean_news_items,
+    dedupe_news_items,
+    news_recency_key,
+    normalize_news_title,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_FILE = ROOT / "config" / "news-fetch.yaml"
 DATA_FILE = ROOT / "ai-news.json"
-MD_FILE = ROOT / "content" / "news" / "daily-ai-news.md"
 TZ = timezone(timedelta(hours=8))
 USER_AGENT = "BioAI-Lab-NewsBot/1.0"
 
@@ -38,38 +44,8 @@ def ssl_context() -> ssl.SSLContext:
         return ssl.create_default_context()
 
 
-def fetch_bytes(url: str, retries: int = 3) -> bytes | None:
-    last_err: Exception | None = None
-    for attempt in range(1, retries + 1):
-        try:
-            req = Request(url, headers={"User-Agent": USER_AGENT})
-            with urlopen(req, timeout=25, context=ssl_context()) as resp:
-                return resp.read()
-        except Exception as urllib_err:
-            last_err = urllib_err
-            try:
-                proc = subprocess.run(
-                    [
-                        "curl",
-                        "-sL",
-                        "--max-time",
-                        "25",
-                        "-A",
-                        USER_AGENT,
-                        url,
-                    ],
-                    capture_output=True,
-                    timeout=30,
-                )
-                if proc.returncode == 0 and proc.stdout:
-                    return proc.stdout
-            except Exception as curl_err:
-                last_err = curl_err
-            if attempt < retries:
-                continue
-    if last_err:
-        print(f"fetch failed ({retries}x): {url} → {last_err}", file=sys.stderr)
-    return None
+def fetch_bytes(url: str, retries: int = 4) -> bytes | None:
+    return fetch_url_bytes(url, timeout=25, max_attempts=retries, user_agent=USER_AGENT)
 
 
 def fetch_text(url: str) -> str | None:
@@ -489,28 +465,6 @@ def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
     return picked[:max_items]
 
 
-def write_markdown(items: list[dict], today: str) -> None:
-    MD_FILE.parent.mkdir(parents=True, exist_ok=True)
-    lines = [
-        f"# 本周 AI 热点 — {today}",
-        "",
-        "> 每周汇总 OpenAI、Anthropic、Google DeepMind、NVIDIA、Microsoft、arXiv、GitHub Trending 与中文 AI 媒体动态。",
-        "",
-    ]
-    for i, item in enumerate(items[:12], 1):
-        lines.append(f"## {i}. {item['title']}")
-        lines.append("")
-        lines.append(f"- **来源**：{item['source']}")
-        lines.append(f"- **分类**：{item['category']}")
-        if item.get("published_at"):
-            lines.append(f"- **时间**：{item['published_at']}")
-        lines.append(f"- **链接**：{item['url']}")
-        lines.append("")
-        lines.append(item["summary"])
-        lines.append("")
-    MD_FILE.write_text("\n".join(lines) + "\n", encoding="utf-8")
-
-
 def main() -> int:
     cfg = load_config()
     collected: list[dict] = []
@@ -521,27 +475,33 @@ def main() -> int:
     collected.extend(parse_github_trending(cfg))
 
     recent = filter_recent(collected, cfg)
-    # 去重 → 多样性挑选 → 再次去重兜底，写入前再断言唯一
-    items = dedupe_news_items(select_diverse_items(dedupe_news_items(recent), cfg))
+    # 去重 → 多样性挑选 → 再次去重兜底 → 剥离标题尾部源站名 → 写入前再断言唯一
+    items = clean_news_items(dedupe_news_items(select_diverse_items(dedupe_news_items(recent), cfg)))
     assert_news_unique(items)
-    if not items:
-        print("未抓取到 AI 新闻", file=sys.stderr)
-        return 1
 
     today = datetime.now(TZ).strftime("%Y-%m-%d")
+    window_days = int(cfg.get("max_age_days", 7))
     payload = {
         "updated_at": datetime.now(TZ).isoformat(),
         "date": today,
-        "cadence": "weekly",
+        "cadence": "daily",
+        "window_days": window_days,
+        "title": "一周内 AI 热点",
         "schema_version": 1,
         "dedupe": {"by": ["title", "url"], "keep": "latest_published_at"},
         "items": items,
         "watch_sources": cfg.get("watch_sources", []),
     }
-    DATA_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    write_markdown(items, today)
-    print(f"✓ ai-news.json ({len(items)} 条) → {DATA_FILE}")
-    print(f"✓ {MD_FILE}")
+
+    if not items:
+        if load_json(DATA_FILE) is not None:
+            print("警告：未抓取到 AI 新闻，保留现有 ai-news.json", file=sys.stderr)
+            return 0
+        print("未抓取到 AI 新闻", file=sys.stderr)
+        return 1
+
+    atomic_write_json(DATA_FILE, payload)
+    print(f"✓ ai-news.json ({len(items)} 条 · 窗口 {window_days} 天 · 日更) → {DATA_FILE}")
     return 0
 
 

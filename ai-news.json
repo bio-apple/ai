@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-07-31T09:03:25.690235+08:00",
-  "date": "2026-07-31",
+  "updated_at": "2026-07-30T14:22:48.531002+08:00",
+  "date": "2026-07-30",
   "cadence": "daily",
   "window_days": 7,
   "title": "一周内 AI 热点",
@@ -14,112 +14,13 @@
   },
   "items": [
     {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,756",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-31T01:00:31Z"
-    },
-    {
-      "id": "9125598dea5b",
-      "title": "Echoverse: Deep, evolving environments for computer-use agents",
-      "summary": "Computer-use AI agents struggle with multi-step workflows like email and customer support. Echoverse trains agents in realistic environments rather than simply…",
-      "url": "https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-31T01:00:00+08:00"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 82,622",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-31T00:35:56Z"
-    },
-    {
-      "id": "12f3d41f1fa0",
-      "title": "EvoLib: Turning experience into evolving knowledge",
-      "summary": "LLMs do not get smarter just by remembering more. EvoLib turns experience into evolving knowledge, taking reusable skills and insights that help models learn a…",
-      "url": "https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/",
-      "source": "Microsoft AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-31T00:00:00+08:00"
-    },
-    {
-      "id": "06b8d0ad6f63",
-      "title": "Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration",
-      "summary": "Gemini Robotics ER 2 helps robots reason, collaborate, and solve real-world tasks. It represents a step change in video understanding, tool orchestration, and …",
-      "url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-07-30T23:00:59+08:00"
-    },
-    {
-      "id": "734a3d20137a",
-      "title": "Best in Class: Stream PC Games and Study on the Same Laptop With GeForce NOW",
-      "summary": "Back to school means balancing assignments, deadlines and downtime. GeForce NOW makes it easy to have it all. With cloud gaming, everyday laptops used for clas…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-back-to-school-2026/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-30T21:00:20+08:00"
-    },
-    {
-      "id": "fc362ba711f5",
-      "title": "Advancing the price-performance frontier with GPT-5.6",
-      "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
-      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-30T18:00:00+08:00"
-    },
-    {
-      "id": "17fe0af9fd4f",
-      "title": "Claude Code之父：Harness保质期只有半年，解开缰绳吧",
-      "summary": "Claude code之父：大模型是有机生物，做好AI产品疏胜于堵",
-      "url": "https://www.qbitai.com/2026/07/463433.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-07-30T16:57:55+08:00"
-    },
-    {
-      "id": "3c39338603b8",
-      "title": "终端市场的下一个增长点，高通押在了“个人AI”上",
-      "summary": "靠“堆参数换销量\"的逻辑，不再管用了",
-      "url": "https://www.qbitai.com/2026/07/463204.html",
+      "id": "746d29053ea4",
+      "title": "WorkBuddy重大升级，AI时代的Office来了",
+      "summary": "WorkBuddy已成为国内最受欢迎的效率智能体工具之一",
+      "url": "https://www.qbitai.com/2026/07/462979.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-07-30T16:06:47+08:00"
-    },
-    {
-      "id": "38ff6669b5a2",
-      "title": "GPT-5.6自己优化自己实锤了，新的左脚踩右脚已经出现",
-      "summary": "OpenAI的RSI焚诀，它来了！",
-      "url": "https://www.qbitai.com/2026/07/463297.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-07-30T15:51:14+08:00"
-    },
-    {
-      "id": "32f37cd6a72d",
-      "title": "李飞飞的世界模型，终于开始训练机器人了",
-      "summary": "李飞飞老师的World Labs，补了块关键拼图",
-      "url": "https://www.qbitai.com/2026/07/463217.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-30T15:47:37+08:00"
-    },
-    {
-      "id": "c456ae1f2f67",
-      "title": "“接力跑”盘活全国算力，PD分离终于破局：延迟砍半、成本直降近40%！",
-      "summary": "最新完整技术报告出炉",
-      "url": "https://www.qbitai.com/2026/07/463012.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-30T14:14:43+08:00"
+      "published_at": "2026-07-30T13:30:06+08:00"
     },
     {
       "id": "5f8449b50a00",
@@ -167,8 +68,35 @@
       "published_at": "2026-07-30T12:00:00+08:00"
     },
     {
+      "id": "a19f9976e140",
+      "title": "这这这…翁荔光速回OpenAI上班了",
+      "summary": "6位联合创始人——只剩2名。",
+      "url": "https://www.qbitai.com/2026/07/462947.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-30T08:31:19+08:00"
+    },
+    {
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,743",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-30T06:18:15Z"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 82,560",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-30T04:12:52Z"
+    },
+    {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 166,537",
+      "title": "f/prompts.chat · ★ 166,512",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
@@ -185,22 +113,13 @@
       "published_at": "2026-07-30T00:02:10+08:00"
     },
     {
-      "id": "62a35efe572a",
-      "title": "贾扬清离开英伟达再创业！GLM-5.2速度飙6.3倍，一句话造的推理引擎",
-      "summary": "贾扬清加入英伟达一年后创立Intent Lab，推出核心产品Fleet——首个将用户意图自动转化为生产级软件的生成引擎。首批成果包括：当前最快的GLM 5.2推理引擎、支持一句话生成的数据库引擎，以及具备形式化验证能力的文件系统。三者均基于Fleet构建，旨在实现从自然语言指令到可部署软件系统的端到端自动化，聚焦AI…",
-      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907980&idx=1&sn=e13f099525d69cfbc5c1158106c9d738&chksm=e9c950e267cb8d214531e95da26be1d955a5553673b5886879178669b7e984e33936cd564467&scene=126&sessionid=0#rd",
-      "source": "量子位",
+      "id": "a4cc9e4f0ede",
+      "title": "中美无人车大战伦敦！超20亿人市场，一夜开抢",
+      "summary": "伦敦出租车司机需通过严苛的“The Knowledge”考试，始于1865年，旨在规范导游服务。考生须熟记25000条街道、20000个地标及320条标准路线，备考长达三四年，淘汰率近80%。考核内容涵盖道路方向、单行限制、地标位置及最优行车路径，全程口试，无地图或电子设备辅助。大脑海马体因长期空间记忆训练显著增大，…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652715288&idx=1&sn=91767b414305900d65c066b7720b8382&chksm=f01e7ebac413e870bc837d92f01fa8ac2774096d1cbd38ef90c226be644d176ecf3101595074&scene=0&xtrack=1#rd",
+      "source": "新智元",
       "category": "中文资讯",
-      "published_at": "2026-07-30 18:30 分享"
-    },
-    {
-      "id": "4f03299d5e33",
-      "title": "Nat. Commun. | 基于AlphaFold结构模型的蛋白质功能注释预测流程",
-      "summary": "DRUGONE蛋白质功能注释是生命科学、代谢网络解析及合成生物学研究的基础。当前主流自动注释方法依赖序列同源性，但进化距离增大时，功能相似蛋白的序列差异显著，导致远缘同源蛋白易被遗漏。AlphaFold实现大规模高精度蛋白质结构预测，为功能注释提供全新路径——通过三维结构比对识别功能保守性，突破序列相似性局限，提升远…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514106&idx=1&sn=314565c9e88fc7281ee0a86d94430d8b&chksm=fd53ef6c3b69632f121c5f772b8d1401e95987bbb72cf4b1507fcba5d8306203d0a08781e897&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-30 17:30 分享"
+      "published_at": "2026-07-30 12:50 分享"
     },
     {
       "id": "cc8e132c6199",
@@ -213,12 +132,21 @@
     },
     {
       "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 100,182",
+      "title": "rasbt/LLMs-from-scratch · ★ 100,133",
       "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
       "url": "https://github.com/rasbt/LLMs-from-scratch",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-29T21:23:45Z"
+    },
+    {
+      "id": "7a46f32d4020",
+      "title": "中科院院士对话北电数智AI专家：以 AI 与数学 “乘法效应” 开辟产业落地新路径",
+      "summary": "中科院、北电数智等专家共探数学与AI边界",
+      "url": "https://www.qbitai.com/2026/07/462943.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-29T19:25:21+08:00"
     },
     {
       "id": "14fd05ad34f9",
@@ -228,6 +156,24 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-07-29T18:00:00+08:00"
+    },
+    {
+      "id": "d5500493b419",
+      "title": "超越OpenAI、Anthropic！国产AI安全智能体杀进全球前四、国内第一",
+      "summary": "AI开始组团“挖漏洞”",
+      "url": "https://www.qbitai.com/2026/07/462447.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-29T16:13:03+08:00"
+    },
+    {
+      "id": "a3a32287c049",
+      "title": "Opus 5游戏提示词爆火！24小时复刻3A巨作",
+      "summary": "百万网友已玩疯",
+      "url": "https://www.qbitai.com/2026/07/462384.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-29T16:04:50+08:00"
     },
     {
       "id": "6d964f10c333",
@@ -240,7 +186,7 @@
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 89,085",
+      "title": "thedotmack/claude-mem · ★ 89,004",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
@@ -276,21 +222,12 @@
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,417",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,379",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
       "category": "开源项目",
       "published_at": "2026-07-28T21:22:32Z"
-    },
-    {
-      "id": "7909c613945e",
-      "title": "Gemini Robotics 2 brings whole body intelligence to robots",
-      "summary": "Gemini Robotics 2 brings whole body intelligence to robots",
-      "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-07-28T21:21:37+08:00"
     },
     {
       "id": "7c8ae2784e8b",
@@ -320,6 +257,15 @@
       "published_at": "2026-07-27T17:00:07+08:00"
     },
     {
+      "id": "f143efbfe201",
+      "title": "How AI is expanding what people do at work",
+      "summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries.",
+      "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-27T11:30:00+08:00"
+    },
+    {
       "id": "974f35f6c57c",
       "title": "NVIDIA Harnesses Vera CPU to Speed Up Design of Next-Generation CPUs and GPUs",
       "summary": "The complexity of modern chip design continues to grow as engineering teams work to develop increasingly sophisticated CPUs, GPUs and AI systems. To help meet …",
@@ -338,6 +284,15 @@
       "published_at": "2026-07-24T12:34:27+08:00"
     },
     {
+      "id": "7c941d34eecc",
+      "title": "GeForce NOW Sets Sail With ‘Path of Exile: Curse of the Allflame’ Joining the Cloud",
+      "summary": "Lock in and load up the cloud. GFN Thursday brings fresh updates and new adventures, all ready to play without waiting for downloads. Set sail in Path of Exile…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-path-of-exile-allflame/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-07-23T21:00:16+08:00"
+    },
+    {
       "id": "e75df1016aa1",
       "title": "Introducing Claude Opus 5",
       "summary": "Introducing Claude Opus 5",
@@ -347,11 +302,11 @@
       "published_at": null
     },
     {
-      "id": "0413deb77cdf",
-      "title": "Claude最大规模MCP升级，月下载狂飙破4亿！",
-      "summary": "Anthropic发布MCP 2026-07-28重大更新，为迄今最大规模升级：核心架构转为“无状态”，显著提升灵活性与可扩展性；企业级安全能力全面增强；月度SDK下载量突破4亿次，彰显广泛采用。此次更新彻底打破原有开发限制，推动AI智能体深度融入全球应用生态，标志着MCP正式确立为AI智能体互联的行业标准。",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652715338&idx=1&sn=94f2b6ce793fab364bc35a76e3af5211&chksm=f0a870fed4cf4a45bd81a0a191367194c7b55fc14824fd8d05b88b3e185462c8c244c9aa5d4c&scene=0&xtrack=1#rd",
-      "source": "新智元",
+      "id": "94213dacfa90",
+      "title": "研究实锤：世界模型根本不懂物理定律，属于它的“ChatGPT时刻”还很远",
+      "summary": "近年来，视频生成模型（如Sora、Genie、Cosmos、V-JEPA）推动“世界模型”发展，旨在通过海量视频学习形成物理直觉与世界理解。但现有评估基准难以验证其是否真正遵循物理定律，抑或仅凭统计规律生成表面合理结果。模型缺乏可解释性与因果推理能力，无法像人类（如牛顿）那样抽象出普适物理规律。当前研究亟需构建能检验…",
+      "url": "https://mp.weixin.qq.com/s?__biz=Mzg4MDE3OTA5NA==&mid=2247606078&idx=1&sn=e2cc7c423cba73ee3c5fa0056fff1d8e&chksm=ce8db6699e8c86d8c7d0b32d6cd24c1547407e06fd157d665b9c3f8020a3a00e4dac70348d3d&scene=0&xtrack=1#rd",
+      "source": "智源社区",
       "category": "中文资讯",
       "published_at": null
     },
@@ -380,6 +335,33 @@
       "url": "https://www.anthropic.com/news/claude-sonnet-5",
       "source": "Anthropic",
       "category": "新模型发布",
+      "published_at": null
+    },
+    {
+      "id": "ca82959b5057",
+      "title": "国产AI登上《Cell》主刊！搭建统一生物表征空间实现虚拟试药",
+      "summary": "《Cell》主刊发表中国团队UniPert–G2CP研究成果，首次提出解决“化学扰动×细胞特异性响应”难题的AI虚拟细胞算法。该研究突破性地建模了药物在不同遗传背景与细胞类型中的差异化响应机制，为药物研发中长期存在的疗效与毒性预测难题提供新范式。作为国内首个在《Cell》主刊发表的AI虚拟细胞研究，其融合多组学数据与…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907924&idx=3&sn=654ebf40eb186cf7ff0653d51ed2af96&chksm=e9a5b3acf780e64cfdcab638ed6546ebd28946169dea982a6e1b0df23db43125b8ed48d2749a&scene=0&xtrack=1#rd",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "1b4e67f7fe9d",
+      "title": "一年连融三轮数亿元！字节+清华姚班，重构企业软件工程",
+      "summary": "词元无限（Tokens Infinity AI）成立仅一年，已连续完成三轮融资，总金额达数亿元；最新一轮由临芯投资领投、华控基金加码。公司聚焦企业软件工程领域的AI Agent基础设施建设。CEO杨萍曾就职字节跳动，主导开发MarsCode与Trae，并推动数万人级研发体系AI化改造。",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907990&idx=1&sn=412dad7ee674aa61032a84cf575add4e&chksm=e92c0afbfca99db0a35937754a02f878f944ea8d55780fc4f7b03ffa1a4cd38a84f8db71b5b3&scene=126&sessionid=0#rd",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": null
+    },
+    {
+      "id": "85a6c9d2419d",
+      "title": "发展北京·鲁俊群｜从“根技术”到“新范式”的五个问答",
+      "summary": "北京市出台《关于加快智能体引领发展的若干措施》，强调“持续提升基础模型能力”为首要任务。清华大学人工智能国际治理研究院秘书长鲁俊群指出，基础模型是智能体发展的“根技术”，因其直接支撑自主决策、工具调用与长程任务执行等核心能力。作为底层技术基石，基础模型的性能决定智能体的泛化性、可靠性与适应性。政策聚焦算力供给、数据资…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU4MzYxOTIwOQ==&mid=2247524602&idx=2&sn=fb4a7e1ed98cc4de253d847f80a91064&chksm=fccd89f56334bb36cfbda93da0ced1ef403eb9f3c7d05a4db9ff77ef3184aedfb718d3716259&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
       "published_at": null
     }
   ],

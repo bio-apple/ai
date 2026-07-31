@@ -1,76 +1,119 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
-import { site, toolLookup } from '../../lib/data';
+import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
+import RankingBoardPanels from '../../components/RankingBoardPanels.astro';
+import { site } from '../../lib/data';
+import { buildHubRankingBoards, hubRankingMeta, HUB_RANKING_TOP_N } from '../../lib/hub';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
 const page = site.tools_hub_page;
 const base = site.meta.base_url;
-const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`);
-const lookup = toolLookup();
-const hub = site.tool_hub || [];
-const urls = site.tool_urls || {};
+const breadcrumbs = [
+  { name: '首页', url: `${base}` },
+  { name: '工具中心', url: `${base}tools/hub.html` },
+];
+const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`, breadcrumbs);
+const boards = buildHubRankingBoards(HUB_RANKING_TOP_N).map((board) => ({
+  ...board,
+  subtitle: `${board.subtitle} · Top ${board.items.length}`,
+}));
+const rankMeta = hubRankingMeta();
 ---
+
 <StandaloneLayout
   title={page.title}
   description={page.lead}
   canonical={`${base}tools/hub.html`}
   schema={schema}
-  pageType="tools-hub"
+  ogType="website"
+  includeKnowledge={true}
+  scripts={[
+    'lib/virtual-list.js',
+    'lib/link-guard.js',
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'ux.js',
+    'app.js',
+    'ranking-tabs.js',
+  ]}
 >
-  <main class="standalone-page tools-hub-page">
-    <nav class="breadcrumb"><a href={homeHref()}>首页</a> / 工具中心</nav>
-    <div class="standalone-hero">
-      <h1>{page.h1}</h1>
-      <p class="standalone-lead">{page.lead}</p>
-    </div>
+  <div class="standalone-page tools-hub-page hub-compare-page aicpb-ranking-page">
+    <h1 class="visually-hidden">{page.h1}</h1>
+    <StandalonePageHeader
+      crumbs={[{ label: '首页', href: homeHref() }, { label: '工具中心' }]}
+      meta={`更新 ${rankMeta.updated_at}`}
+    />
 
-    {hub.map((cat) => (
-      <section class="hub-category" id={`hub-${cat.id}`}>
-        <div class="section-head">
-          <h2 class="section-title">{cat.label}</h2>
-          <p class="section-desc">{cat.description}</p>
-        </div>
-        <div class="hub-tool-grid">
-          {cat.tools.map((id) => {
-            const t = lookup[id] as { name?: string; tagline?: string; summary?: string; icon?: string } | undefined;
-            return (
-              <article class="hub-tool-card">
-                <div class="hub-tool-top">
-                  <span class={`tool-card-logo ${id}`}>{t?.icon || id.slice(0, 1).toUpperCase()}</span>
-                  <h3>{t?.name || id}</h3>
-                </div>
-                <p>{t?.tagline || t?.summary || ''}</p>
-                <div class="hub-tool-actions">
-                  <a href={asset(`tools/${id}.html`)} class="recommend-link">教程页 →</a>
-                  {urls[id] && (
-                    <a href={urls[id]} class="recommend-link" target="_blank" rel="noopener">官网 →</a>
-                  )}
-                  <a href={homeHref(`#section-${id}`)} class="recommend-link">站内详解 →</a>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-        {(cat.external || []).length > 0 && (
-          <div class="hub-external">
-            <p class="recommend-card-lead">延伸推荐</p>
-            <ul>
-              {cat.external.map((ext) => (
-                <li>
-                  <a href={ext.url} target="_blank" rel="noopener">{ext.name}</a>
-                  {ext.note && <span> — {ext.note}</span>}
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </section>
-    ))}
+    <section
+      class="hub-ranking-section page-section"
+      id="hub-ranking"
+      aria-labelledby="hub-ranking-title"
+    >
+      <div class="section-head">
+        <h2 class="section-title" id="hub-ranking-title">AI 工具排行</h2>
+        <p class="section-desc">
+          AICPB · LMSYS Chatbot Arena Elo · Artificial Analysis Intelligence Index · Top {
+            HUB_RANKING_TOP_N
+          }
+        </p>
+      </div>
+      <ul class="ranking-method-list">
+        <li><strong>AICPB</strong>：基于 AI 产品站点访问量与月环比的热度排行，偏应用流量视角。</li>
+        <li>
+          <strong>LMSYS Chatbot Arena Elo</strong>：来自真人盲测对战的 Elo 分数，偏对话质量视角。
+        </li>
+        <li>
+          <strong>Artificial Analysis Intelligence Index</strong>
+          ：综合公开基准评测得到的智能分数，偏模型能力视角。
+        </li>
+      </ul>
+
+      <div class="hub-ranking-shell">
+        <RankingBoardPanels
+          boards={boards}
+          panelIdPrefix="hub-panel"
+          headingLevel="h3"
+          footerSuffix="完整榜单 →"
+        />
+      </div>
+
+      <p class="hub-ranking-footnote">
+        完整 Top 10 与引用说明见
+        <a href={asset('ai-tools-ranking.html')}>站内排行榜页</a>。
+      </p>
+    </section>
+
+    <section class="ranking-method page-section" aria-label="说明">
+      <div class="section-head">
+        <h2 class="section-title">说明</h2>
+      </div>
+      <ul class="ranking-method-list">
+        <li>
+          工具中心仅保留排行视图，展示 AICPB、LMSYS Chatbot Arena Elo、Artificial Analysis
+          Intelligence Index 三榜 Top {HUB_RANKING_TOP_N}。
+        </li>
+        <li>热度与榜单分数不等于适合你：先看场景与定价，再用排行交叉验证。</li>
+      </ul>
+      <p class="aicpb-attribution">
+        数据版权归
+        <a href="https://www.aicpb.com/" target="_blank" rel="noopener noreferrer">AICPB</a>、
+        <a href="https://arena.ai/leaderboard/text" target="_blank" rel="noopener noreferrer"
+          >LMSYS Arena</a
+        >、
+        <a
+          href="https://artificialanalysis.ai/leaderboards/models"
+          target="_blank"
+          rel="noopener noreferrer">Artificial Analysis</a
+        >
+        各自所有，本站仅作摘录展示。
+      </p>
+    </section>
 
     <div class="standalone-cta">
-      <a href={asset('ai-tools-ranking.html')} class="cta-btn">查看排行榜 →</a>
-      <a href={asset('labs/index.html')} class="cta-btn cta-btn-outline">进入 AI Labs →</a>
+      <a href={homeHref()} class="cta-btn">返回首页</a>
+      <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline">完整排行榜 →</a>
     </div>
-  </main>
+  </div>
 </StandaloneLayout>

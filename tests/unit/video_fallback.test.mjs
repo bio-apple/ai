@@ -1,71 +1,189 @@
 /**
  * 与 videos.js `withCategoryFallback` 同算法的轻量单测。
+ * 固定 nowMs，避免时间窗单测随「今天」漂移失败。
  */
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { withCategoryFallback } from '../../scripts/video-fallback.mjs';
 
-function withCategoryFallback(batches) {
-  if (!Array.isArray(batches) || !batches.length) return null;
-  const latest = batches[0];
-  if (!latest?.categories) return latest;
-
-  const categories = {};
-  let fallbackCount = 0;
-  for (const key of Object.keys(latest.categories)) {
-    const cat = latest.categories[key] || {};
-    const videos = cat.videos || [];
-    if (videos.length) {
-      categories[key] = { ...cat, videos: [...videos] };
-      continue;
-    }
-    let filled = null;
-    let fromDate = null;
-    for (let i = 1; i < batches.length; i += 1) {
-      const prevVideos = batches[i]?.categories?.[key]?.videos || [];
-      if (prevVideos.length) {
-        filled = prevVideos;
-        fromDate = batches[i].date || null;
-        break;
-      }
-    }
-    if (filled) {
-      fallbackCount += 1;
-      categories[key] = {
-        ...cat,
-        videos: filled.map((v) => ({ ...v })),
-        fallback_from: fromDate,
-      };
-    } else {
-      categories[key] = { ...cat, videos: [] };
-    }
-  }
-  return { ...latest, categories, _fallback_count: fallbackCount };
-}
+/** 锚定在批次日期当天，避免 CI 数日后因时间窗过滤误伤 */
+const NOW = Date.parse('2026-07-22T12:00:00+08:00');
 
 test('empty latest category falls back to previous batch', () => {
-  const out = withCategoryFallback([
-    {
-      date: '2026-07-14',
-      categories: {
-        yt_top10: { videos: [] },
-        bilibili_top10: { videos: [{ id: 'b1' }] },
+  const out = withCategoryFallback(
+    [
+      {
+        date: '2026-07-14',
+        categories: {
+          youtube_recent_100d: { videos: [] },
+          bilibili_recent_100d: {
+            videos: [{ id: 'b1', views: 2_000_000, published_at: '2026-05-01T00:00:00+08:00' }],
+          },
+        },
       },
-    },
-    {
-      date: '2026-07-13',
-      categories: {
-        yt_top10: { videos: [{ id: 'y1' }] },
-        bilibili_top10: { videos: [{ id: 'b0' }] },
+      {
+        date: '2026-07-13',
+        categories: {
+          youtube_recent_100d: {
+            videos: [{ id: 'y1', views: 1_500_000, published_at: '2026-05-01T00:00:00+08:00' }],
+          },
+          bilibili_recent_100d: {
+            videos: [{ id: 'b0', views: 1_200_000, published_at: '2026-05-01T00:00:00+08:00' }],
+          },
+        },
       },
-    },
-  ]);
+    ],
+    NOW,
+  );
   assert.equal(out._fallback_count, 1);
-  assert.equal(out.categories.yt_top10.videos[0].id, 'y1');
-  assert.equal(out.categories.yt_top10.fallback_from, '2026-07-13');
-  assert.equal(out.categories.bilibili_top10.videos[0].id, 'b1');
-  assert.equal(out.categories.bilibili_top10.fallback_from, undefined);
+  assert.equal(out.categories.youtube_recent_100d.videos[0].id, 'y1');
+  assert.equal(out.categories.youtube_recent_100d.fallback_from, '2026-07-13');
+  assert.equal(out.categories.bilibili_recent_100d.videos[0].id, 'b1');
+  assert.equal(out.categories.bilibili_recent_100d.fallback_from, undefined);
 });
 
 test('no batches returns null', () => {
   assert.equal(withCategoryFallback([]), null);
+});
+
+test('two empty YouTube days still backfill when full history is available at build', () => {
+  const out = withCategoryFallback(
+    [
+      {
+        date: '2026-07-17',
+        categories: {
+          youtube_top_views: { videos: [] },
+          bilibili_top_views: {
+            videos: [{ id: 'b1', views: 2_000_000, published_at: '2026-05-01T00:00:00+08:00' }],
+          },
+        },
+      },
+      {
+        date: '2026-07-16',
+        categories: {
+          youtube_top_views: { videos: [] },
+          bilibili_top_views: {
+            videos: [{ id: 'b0', views: 1_500_000, published_at: '2026-05-01T00:00:00+08:00' }],
+          },
+        },
+      },
+      {
+        date: '2026-07-13',
+        categories: {
+          youtube_top_views: {
+            videos: [
+              { id: 'y1', views: 2_000_000, published_at: '2026-05-01T00:00:00+08:00' },
+              { id: 'y2', views: 1_500_000, published_at: '2026-05-10T00:00:00+08:00' },
+            ],
+          },
+          bilibili_top_views: {
+            videos: [{ id: 'b-old', views: 1_200_000, published_at: '2026-05-01T00:00:00+08:00' }],
+          },
+        },
+      },
+    ],
+    NOW,
+  );
+  assert.equal(out.categories.youtube_top_views.videos.length, 2);
+  assert.equal(out.categories.youtube_top_views.fallback_from, '2026-07-13');
+});
+
+test('fallback strips historical videos below min views 10000', () => {
+  const out = withCategoryFallback(
+    [
+      {
+        date: '2026-07-22',
+        categories: {
+          bilibili_recent_30d: { videos: [] },
+          bilibili_recent_100d: {
+            videos: [{ id: 'ok', views: 1_200_000, published_at: '2026-05-01T00:00:00+08:00' }],
+          },
+        },
+      },
+      {
+        date: '2026-07-21',
+        categories: {
+          bilibili_recent_30d: {
+            videos: [
+              { id: 'low1', views: 4065, title: 'RAG', published_at: '2026-07-10T00:00:00+08:00' },
+              { id: 'low2', views: 3075, title: '漫剧', published_at: '2026-07-10T00:00:00+08:00' },
+              {
+                id: 'low3',
+                views: 2358,
+                title: 'Claude',
+                published_at: '2026-07-10T00:00:00+08:00',
+              },
+            ],
+          },
+          bilibili_recent_100d: { videos: [] },
+        },
+      },
+    ],
+    NOW,
+  );
+  assert.equal(out.categories.bilibili_recent_30d.videos.length, 0);
+  assert.equal(out.categories.bilibili_recent_30d.fallback_from, undefined);
+  assert.equal(out.categories.bilibili_recent_100d.videos[0].id, 'ok');
+});
+
+test('fallback skips historical videos outside 100d window', () => {
+  const out = withCategoryFallback(
+    [
+      {
+        date: '2026-07-22',
+        categories: {
+          bilibili_recent_100d: { videos: [] },
+        },
+      },
+      {
+        date: '2026-07-21',
+        categories: {
+          bilibili_recent_100d: {
+            videos: [
+              {
+                id: 'ancient',
+                views: 18_700_000,
+                published_at: '2020-10-01T20:06:22+08:00',
+                title: '即梦',
+              },
+              {
+                id: 'ok',
+                views: 1_500_000,
+                published_at: '2026-05-01T00:00:00+08:00',
+                title: '新片',
+              },
+            ],
+          },
+        },
+      },
+    ],
+    NOW,
+  );
+  assert.deepEqual(
+    out.categories.bilibili_recent_100d.videos.map((v) => v.id),
+    ['ok'],
+  );
+});
+
+test('latest low-view videos below 10000 are filtered', () => {
+  const out = withCategoryFallback(
+    [
+      {
+        date: '2026-07-22',
+        categories: {
+          bilibili_recent_30d: {
+            videos: [
+              { id: 'low1', views: 4065, published_at: '2026-07-10T00:00:00+08:00' },
+              { id: 'hot', views: 1_500_000, published_at: '2026-07-10T00:00:00+08:00' },
+            ],
+          },
+        },
+      },
+    ],
+    NOW,
+  );
+  assert.deepEqual(
+    out.categories.bilibili_recent_30d.videos.map((v) => v.id),
+    ['hot'],
+  );
 });

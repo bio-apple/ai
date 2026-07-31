@@ -20,7 +20,8 @@
           "keywords": { "type": "array", "items": { "type": "string" } },
           "guide": { "type": ["string", "null"] },
           "path_title": { "type": ["string", "null"] },
-          "steps": { "type": "array", "items": { "type": "string" } }
+          "steps": { "type": "array", "items": { "type": "string" } },
+          "examples": { "type": "array", "items": { "type": "string" } }
         }
       }
     },
@@ -32,6 +33,36 @@
         "guide": { "type": "string" },
         "path_title": { "type": "string" },
         "steps": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "relations": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "alternatives": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "note"],
+              "properties": {
+                "id": { "type": "string" },
+                "note": { "type": "string" }
+              }
+            }
+          },
+          "complements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "note"],
+              "properties": {
+                "id": { "type": "string" },
+                "note": { "type": "string" }
+              }
+            }
+          }
+        }
       }
     }
   }

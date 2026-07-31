@@ -51,14 +51,6 @@ def load_tools() -> list[dict]:
     return _load_cached("tools", DATA / "tools.json", [])
 
 
-def load_prompts_runtime() -> dict:
-    return _load_cached("prompts", runtime_path("prompts.json"), {"prompts": []})
-
-
-def load_tutorials_runtime() -> dict:
-    return _load_cached("tutorials", runtime_path("tutorials.json"), {"tutorials": []})
-
-
 def load_daily_videos() -> dict:
     path = runtime_path("daily-videos.json")
     return _load_cached("videos", path, {"batches": []})

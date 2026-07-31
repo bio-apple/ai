@@ -12,7 +12,8 @@ from datetime import datetime, timezone
 
 SITE_BASE = os.environ.get("SITE_BASE", "https://bio-apple.github.io/ai").rstrip("/")
 VIDEO_MAX_AGE_DAYS = int(os.environ.get("VIDEO_MAX_AGE_DAYS", "2"))
-NEWS_MAX_AGE_DAYS = int(os.environ.get("NEWS_MAX_AGE_DAYS", "10"))
+NEWS_MAX_AGE_DAYS = int(os.environ.get("NEWS_MAX_AGE_DAYS", "2"))
+COURSES_MAX_AGE_DAYS = int(os.environ.get("COURSES_MAX_AGE_DAYS", "2"))
 TIMEOUT = int(os.environ.get("PROBE_TIMEOUT", "20"))
 REPO_ACTIONS = os.environ.get(
     "REPO_ACTIONS_URL",
@@ -26,13 +27,15 @@ def fetch(url: str) -> tuple[int, bytes, dict]:
         return resp.status, resp.read(), dict(resp.headers)
 
 
-def check_http(path: str, expect_substr: bytes | None = None) -> None:
+def check_http(path: str, expect_substr: str | bytes | None = None) -> None:
     url = f"{SITE_BASE}{path}"
     status, body, _ = fetch(url)
     if status != 200:
         raise RuntimeError(f"HTTP:{path}:{status}")
-    if expect_substr and expect_substr not in body:
-        raise RuntimeError(f"CONTENT:{path}:missing expected marker")
+    if expect_substr is not None:
+        needle = expect_substr.encode("utf-8") if isinstance(expect_substr, str) else expect_substr
+        if needle not in body:
+            raise RuntimeError(f"CONTENT:{path}:missing expected marker")
     print(f"✓ {url} ({len(body)} bytes)")
 
 
@@ -81,7 +84,7 @@ def remediation_for(exc: BaseException) -> list[str]:
         "## 建议处置（可复制）",
         "",
         f"- Actions: {REPO_ACTIONS}",
-        "- Runbook: `docs/OPS-RUNBOOK.md`",
+        "- Runbook: `docs/CONTENT-OPS.md` §9",
         "",
     ]
     if msg.startswith("HTTP:") or "URLError" in type(exc).__name__:
@@ -103,9 +106,16 @@ def remediation_for(exc: BaseException) -> list[str]:
     elif msg.startswith("STALE:ai-news") or ("ai-news" in msg and "STALE" in msg):
         lines += [
             "### P1 · 新闻过期",
-            f"1. 手动重跑：{REPO_ACTIONS}/workflows/weekly-news.yml → Run workflow",
-            "2. 检查 `ai-news.json` / `content/news/daily-ai-news.md` 是否写入",
+            f"1. 手动重跑：{REPO_ACTIONS}/workflows/daily-news.yml → Run workflow",
+            "2. 检查 `ai-news.json` 是否写入",
             "3. 必要时回滚新闻 JSON",
+            "",
+        ]
+    elif msg.startswith("STALE:ai-courses") or ("ai-courses" in msg and "STALE" in msg):
+        lines += [
+            "### P1 · 课程过期",
+            f"1. 优先重跑：{REPO_ACTIONS}/workflows/daily-refresh.yml（串行日更）",
+            f"2. 或单跑：{REPO_ACTIONS}/workflows/daily-courses.yml",
             "",
         ]
     elif msg.startswith("CONTENT:"):
@@ -120,7 +130,7 @@ def remediation_for(exc: BaseException) -> list[str]:
         lines += [
             "### 通用",
             "1. 打开失败的 workflow run 日志",
-            "2. 对照 `docs/OPS-RUNBOOK.md` 告警分级表",
+            "2. 对照 `docs/CONTENT-OPS.md` §9 告警分级表",
             "3. 修复后手动 `workflow_dispatch` 复检",
             "",
         ]
@@ -153,20 +163,18 @@ def emit_outputs(*, fail_code: str = "", remediation: str = "") -> None:
 def main() -> int:
     notes: list[str] = []
     try:
-        check_http("/", expect_substr=b"Bio AI Lab")
+        check_http("/", expect_substr="Bio AI Lab")
         notes.append("- index OK")
         check_http("/style.css")
         notes.append("- style.css OK")
-        check_http("/index.html", expect_substr=b"html")
+        check_http("/index.html", expect_substr="html")
         notes.append("- index.html OK")
-        check_http("/tools/hub.html", expect_substr=b"工具中心")
+        check_http("/tools/hub.html", expect_substr="工具中心")
         notes.append("- tools hub OK")
-        check_http("/labs/index.html", expect_substr=b"AI Labs")
-        notes.append("- labs OK")
-        check_http("/recommend-rules.json", expect_substr=b"schema_version")
+        check_http("/recommend-rules.json", expect_substr="schema_version")
         notes.append("- recommend-rules OK")
         check_json_freshness(
-            "/daily-videos.json",
+            "/daily-videos.latest.json",
             ["updated_at", "batches.0.date"],
             VIDEO_MAX_AGE_DAYS,
             "daily-videos",
@@ -179,6 +187,13 @@ def main() -> int:
             "ai-news",
         )
         notes.append(f"- news fresh ≤{NEWS_MAX_AGE_DAYS}d")
+        check_json_freshness(
+            "/ai-courses.json",
+            ["updated_at", "date"],
+            COURSES_MAX_AGE_DAYS,
+            "ai-courses",
+        )
+        notes.append(f"- courses fresh ≤{COURSES_MAX_AGE_DAYS}d")
         write_summary("\n".join(notes))
         print("全部健康检查通过")
         return 0

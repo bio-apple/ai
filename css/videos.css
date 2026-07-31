@@ -5,7 +5,9 @@
   color: var(--text-muted);
 }
 
-.daily-video-list { margin-top: 8px; }
+.daily-video-list {
+  margin-top: 8px;
+}
 
 .video-toolbar {
   display: flex;
@@ -53,7 +55,9 @@
   background: rgba(37, 99, 235, 0.08);
 }
 
-.video-day { margin-bottom: 40px; }
+.video-day {
+  margin-bottom: 40px;
+}
 
 .video-day-title {
   font-size: 1.1rem;
@@ -127,7 +131,9 @@
   border: 1px solid var(--border);
   border-radius: var(--radius);
   overflow: hidden;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  transition:
+    box-shadow 0.2s,
+    border-color 0.2s;
 }
 
 .video-card:hover {
@@ -161,8 +167,13 @@
   background: rgba(0, 0, 0, 0.72);
 }
 
-.video-duration { left: 8px; }
-.video-quality { right: 8px; background: rgba(37, 99, 235, 0.85); }
+.video-duration {
+  left: 8px;
+}
+.video-quality {
+  right: 8px;
+  background: rgba(37, 99, 235, 0.85);
+}
 
 .video-platform {
   position: absolute;
@@ -176,10 +187,16 @@
   background: rgba(0, 0, 0, 0.72);
 }
 
-.video-platform-bilibili { background: rgba(251, 114, 153, 0.92); }
-.video-platform-youtube { background: rgba(220, 38, 38, 0.9); }
+.video-platform-bilibili {
+  background: rgba(251, 114, 153, 0.92);
+}
+.video-platform-youtube {
+  background: rgba(220, 38, 38, 0.9);
+}
 
-.video-body { padding: 14px 16px 16px; }
+.video-body {
+  padding: 14px 16px 16px;
+}
 
 .video-body h4 {
   font-size: 0.95rem;
@@ -187,7 +204,9 @@
   margin-bottom: 8px;
 }
 
-.video-body h4 a:hover { color: var(--accent); }
+.video-body h4 a:hover {
+  color: var(--accent);
+}
 
 .video-summary {
   font-size: 0.8rem;
@@ -214,6 +233,10 @@
   border-radius: 8px;
 }
 
-
-.tool-page-link { margin-top: 8px; font-size: 0.82rem; }
-.tool-page-link a { color: var(--accent); }
+.tool-page-link {
+  margin-top: 8px;
+  font-size: 0.82rem;
+}
+.tool-page-link a {
+  color: var(--accent);
+}

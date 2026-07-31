@@ -30,8 +30,7 @@
 button:focus-visible,
 .cta-btn:focus-visible,
 .nav-tab:focus-visible,
-.tool-card-btn:focus-visible,
-.fav-star:focus-visible {
+.tool-card-btn:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 2px;
 }

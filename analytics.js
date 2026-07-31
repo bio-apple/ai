@@ -1,17 +1,36 @@
-/* 点击追踪：从 analytics-config.json 读取 GA4 / Clarity 配置 */
+/* 分析：隐私优先 Umami / Cloudflare Web Analytics；可选 GA4 / Clarity */
 let analyticsConfig = {
   ga_measurement_id: '',
   clarity_project_id: '',
+  umami_script_url: '',
+  umami_website_id: '',
+  cloudflare_beacon_token: '',
   track_engagement: true,
 };
 
 function trackEvent(name, params = {}) {
+  const payload =
+    typeof window.bioFunnel?.enrich === 'function' ? window.bioFunnel.enrich(name, params) : params;
   const gaId = analyticsConfig.ga_measurement_id;
   if (gaId && typeof gtag === 'function') {
-    gtag('event', name, params);
+    gtag('event', name, payload);
+  }
+  if (typeof window.umami?.track === 'function') {
+    try {
+      window.umami.track(name, payload);
+    } catch {
+      /* ignore */
+    }
   }
   if (typeof window.__clickStats !== 'object') window.__clickStats = {};
   window.__clickStats[name] = (window.__clickStats[name] || 0) + 1;
+  if (typeof window.bioEngagement?.onEvent === 'function') {
+    try {
+      window.bioEngagement.onEvent(name, payload);
+    } catch {
+      /* ignore */
+    }
+  }
 }
 
 function initGA4() {
@@ -22,7 +41,9 @@ function initGA4() {
   s.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
   document.head.appendChild(s);
   window.dataLayer = window.dataLayer || [];
-  window.gtag = function gtag() { window.dataLayer.push(arguments); };
+  window.gtag = function gtag() {
+    window.dataLayer.push(arguments);
+  };
   gtag('js', new Date());
   gtag('config', gaId, { send_page_view: true });
 }
@@ -30,19 +51,47 @@ function initGA4() {
 function initClarity() {
   const clarityId = (analyticsConfig.clarity_project_id || '').trim();
   if (!clarityId) return;
-  window.clarity = window.clarity || function clarityStub() {
-    (window.clarity.q = window.clarity.q || []).push(arguments);
-  };
+  window.clarity =
+    window.clarity ||
+    function clarityStub() {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
   const s = document.createElement('script');
   s.async = true;
   s.src = `https://www.clarity.ms/tag/${clarityId}`;
   document.head.appendChild(s);
 }
 
+/** 无 cookie：Umami（自托管或 cloud.umami.is） */
+function initUmami() {
+  const scriptUrl = (analyticsConfig.umami_script_url || '').trim();
+  const websiteId = (analyticsConfig.umami_website_id || '').trim();
+  if (!scriptUrl || !websiteId) return;
+  const s = document.createElement('script');
+  s.defer = true;
+  s.src = scriptUrl;
+  s.dataset.websiteId = websiteId;
+  s.dataset.autoTrack = 'true';
+  document.head.appendChild(s);
+}
+
+/** 无 cookie：Cloudflare Web Analytics beacon */
+function initCloudflareWebAnalytics() {
+  const token = (analyticsConfig.cloudflare_beacon_token || '').trim();
+  if (!token) return;
+  const s = document.createElement('script');
+  s.defer = true;
+  s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+  s.setAttribute('data-cf-beacon', JSON.stringify({ token }));
+  document.head.appendChild(s);
+}
+
 function initEngagementTracking() {
   if (!analyticsConfig.track_engagement) return;
-  const gaId = (analyticsConfig.ga_measurement_id || '').trim();
-  if (!gaId) return;
+  const hasSink =
+    (analyticsConfig.ga_measurement_id || '').trim() ||
+    (analyticsConfig.umami_website_id || '').trim();
+  if (!hasSink) return;
 
   let visibleMs = 0;
   let visibleSince = document.visibilityState === 'visible' ? Date.now() : null;
@@ -71,9 +120,10 @@ function initEngagementTracking() {
 }
 
 async function loadAnalyticsConfig() {
-  const base = document.body?.dataset?.assetBase || '';
+  const base = document.documentElement?.dataset?.base || document.body?.dataset?.assetBase || '';
+  const prefix = String(base).replace(/\/?$/, '/');
   try {
-    const res = await fetch(`${base}analytics-config.json`, { cache: 'default' });
+    const res = await fetch(`${prefix}analytics-config.json`, { cache: 'default' });
     if (res.ok) {
       const data = await res.json();
       analyticsConfig = { ...analyticsConfig, ...data };
@@ -93,12 +143,17 @@ function bindClickTracking() {
     };
     if (el.dataset.trackPanel) params.panel = el.dataset.trackPanel;
     if (el.dataset.tool) params.tool = el.dataset.tool;
+    if (el.dataset.courseTitle) params.course_title = el.dataset.courseTitle.slice(0, 80);
+    if (el.dataset.courseTrack) params.course_track = el.dataset.courseTrack.slice(0, 40);
+    if (el.dataset.searchQuery) params.q = el.dataset.searchQuery.slice(0, 80);
     trackEvent(el.dataset.track, params);
   });
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
   await loadAnalyticsConfig();
+  initUmami();
+  initCloudflareWebAnalytics();
   initGA4();
   initClarity();
   initEngagementTracking();
