@@ -1,277 +1,359 @@
 {
-  "updated_at": "2026-07-13T06:37:00.578106+08:00",
-  "date": "2026-07-13",
-  "cadence": "weekly",
+  "updated_at": "2026-07-31T09:03:25.690235+08:00",
+  "date": "2026-07-31",
+  "cadence": "daily",
+  "window_days": 7,
+  "title": "一周内 AI 热点",
+  "schema_version": 1,
+  "dedupe": {
+    "by": [
+      "title",
+      "url"
+    ],
+    "keep": "latest_published_at"
+  },
   "items": [
     {
-      "id": "92fa243f768f",
-      "title": "Claude出了个「防沉迷」，却可能让你更离不开它",
-      "summary": "Anthropic为Claude上线Reflect功能Beta版，旨在提醒用户适度使用AI，避免过度依赖。该功能藏于设置中，帮助用户复盘与Claude的交互频率与场景，反思何时该启用、何时应关闭。虽初衷是“防沉迷”，但实际使用中用户反而更频繁依赖其辅助。目前面向Free、Pro、Max三类用户开放测试，体现AI厂商对…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652712421&idx=2&sn=6e68954e988a9b4fce89e1e60c21233d&chksm=f04fb3bbe367661e6a586cca03ddd0bf827f6ffe08ce23063c123a326b410b2898d9304aa263&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": "2026-07-13 00:20 分享"
-    },
-    {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 86,969",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-12T21:50:31Z"
-    },
-    {
-      "id": "b74df5447e35",
-      "title": "98年哈工大教授创业，要做人形灵巧操作世界模型",
-      "summary": "从采集触觉，到对齐触觉，再到使用触觉",
-      "url": "https://www.qbitai.com/2026/07/448034.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-07-12T16:29:46+08:00"
-    },
-    {
-      "id": "b59cd7af77a9",
-      "title": "老黄RTX Spark真机现身Bilibili World！CPU和GPU直接焊在一起，笔记本跑120B大模型",
-      "summary": "老黄在ComputeX发布的“超级芯片”，已经在真机中落地了",
-      "url": "https://www.qbitai.com/2026/07/447981.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-07-12T09:37:11+08:00"
-    },
-    {
-      "id": "c874780932d6",
-      "title": "近百名玩家涌入具身数据：一年融资44.7亿，谁能真靠“卖数据”赚钱？",
-      "summary": "为了帮你看清具身数据行业，我们总结了以下十个行业现状",
-      "url": "https://www.qbitai.com/2026/07/447914.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-07-12T09:14:50+08:00"
-    },
-    {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 165,562",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-12T04:15:09Z"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 80,570",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-12T02:15:08Z"
-    },
-    {
-      "id": "8f1dfb1cac28",
-      "title": "港科大Scientific AGI团队招生｜AI4Science、智能体与具身智能",
-      "summary": "香港科技大学Scientific AGI团队全球招募博士生、博士后、研究助理、访问学生及科研实习生。团队负责人张载熙博士将于2026年7月入职港科大化学与生物工程系任助理教授，并兼聘于计算机科学与工程系及医学院。他本科毕业于中国科大少年班，博士阶段在哈佛医学院联合培养，后于普林斯顿大学AI Lab从事博士后研究，研究…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513958&idx=1&sn=d8cb5e6f965a6788e6c07cfcf68eef37&chksm=fdef237a0db6c20df0b5a29807d690d128747cca08ceab7401a42641d2bbdab5af4678d2bf04&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": "2026-07-12 15:20 分享"
-    },
-    {
-      "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 98,979",
-      "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
-      "url": "https://github.com/rasbt/LLMs-from-scratch",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-07-11T20:45:39Z"
-    },
-    {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 185,496",
+      "title": "Significant-Gravitas/AutoGPT · ★ 185,756",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-11T20:00:23Z"
+      "published_at": "2026-07-31T01:00:31Z"
     },
     {
-      "id": "1b89591e8184",
-      "title": "中国首个十万卡集群落成！全国产算力支撑“十万卡时代”",
-      "summary": "已跑通300余项应用",
-      "url": "https://www.qbitai.com/2026/07/447902.html",
+      "id": "9125598dea5b",
+      "title": "Echoverse: Deep, evolving environments for computer-use agents",
+      "summary": "Computer-use AI agents struggle with multi-step workflows like email and customer support. Echoverse trains agents in realistic environments rather than simply…",
+      "url": "https://www.microsoft.com/en-us/research/blog/echoverse-deep-evolving-environments-for-computer-use-agents/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-31T01:00:00+08:00"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 82,622",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-31T00:35:56Z"
+    },
+    {
+      "id": "12f3d41f1fa0",
+      "title": "EvoLib: Turning experience into evolving knowledge",
+      "summary": "LLMs do not get smarter just by remembering more. EvoLib turns experience into evolving knowledge, taking reusable skills and insights that help models learn a…",
+      "url": "https://www.microsoft.com/en-us/research/blog/evolib-turning-experience-into-evolving-knowledge/",
+      "source": "Microsoft AI",
+      "category": "新模型发布",
+      "published_at": "2026-07-31T00:00:00+08:00"
+    },
+    {
+      "id": "06b8d0ad6f63",
+      "title": "Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration",
+      "summary": "Gemini Robotics ER 2 helps robots reason, collaborate, and solve real-world tasks. It represents a step change in video understanding, tool orchestration, and …",
+      "url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-07-30T23:00:59+08:00"
+    },
+    {
+      "id": "734a3d20137a",
+      "title": "Best in Class: Stream PC Games and Study on the Same Laptop With GeForce NOW",
+      "summary": "Back to school means balancing assignments, deadlines and downtime. GeForce NOW makes it easy to have it all. With cloud gaming, everyday laptops used for clas…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-back-to-school-2026/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-30T21:00:20+08:00"
+    },
+    {
+      "id": "fc362ba711f5",
+      "title": "Advancing the price-performance frontier with GPT-5.6",
+      "summary": "Explore lower GPT‑5.6 pricing for Luna and Terra—and how OpenAI’s more efficient models help enterprises deploy AI workflows at scale.",
+      "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-30T18:00:00+08:00"
+    },
+    {
+      "id": "17fe0af9fd4f",
+      "title": "Claude Code之父：Harness保质期只有半年，解开缰绳吧",
+      "summary": "Claude code之父：大模型是有机生物，做好AI产品疏胜于堵",
+      "url": "https://www.qbitai.com/2026/07/463433.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-07-30T16:57:55+08:00"
+    },
+    {
+      "id": "3c39338603b8",
+      "title": "终端市场的下一个增长点，高通押在了“个人AI”上",
+      "summary": "靠“堆参数换销量\"的逻辑，不再管用了",
+      "url": "https://www.qbitai.com/2026/07/463204.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-07-11T18:07:17+08:00"
+      "published_at": "2026-07-30T16:06:47+08:00"
     },
     {
-      "id": "a3538fdfdde0",
-      "title": "The Download: Claude’s inner workings and OpenAI’s “super app”",
-      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Anthropic…",
-      "url": "https://www.technologyreview.com/2026/07/10/1140316/the-download-anthropic-claude-hidden-space-openai-super-app/",
-      "source": "MIT Tech Review",
+      "id": "38ff6669b5a2",
+      "title": "GPT-5.6自己优化自己实锤了，新的左脚踩右脚已经出现",
+      "summary": "OpenAI的RSI焚诀，它来了！",
+      "url": "https://www.qbitai.com/2026/07/463297.html",
+      "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-07-10T20:10:00+08:00"
+      "published_at": "2026-07-30T15:51:14+08:00"
     },
     {
-      "id": "4f92d76f801d",
-      "title": "Sperm donors need limits, says a European fertility group",
-      "summary": "Ties van der Meer doesn’t know how many siblings he has. The 47-year-old was conceived at a private fertility clinic in the Netherlands using sperm provided by…",
-      "url": "https://www.technologyreview.com/2026/07/10/1140289/sperm-donors-need-limits-says-a-european-fertility-group/",
-      "source": "MIT Tech Review",
-      "category": "行业新闻",
-      "published_at": "2026-07-10T17:00:00+08:00"
+      "id": "32f37cd6a72d",
+      "title": "李飞飞的世界模型，终于开始训练机器人了",
+      "summary": "李飞飞老师的World Labs，补了块关键拼图",
+      "url": "https://www.qbitai.com/2026/07/463217.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-30T15:47:37+08:00"
     },
     {
-      "id": "027b05f9d0fa",
-      "title": "How Deutsche Telekom is rewiring telecommunications with AI",
-      "summary": "How Deutsche Telekom is becoming an AI-native telco with OpenAI-transforming customer service, employee workflows, network operations, and the future of voice.",
-      "url": "https://openai.com/index/deutsche-telekom",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-10T15:00:00+08:00"
+      "id": "c456ae1f2f67",
+      "title": "“接力跑”盘活全国算力，PD分离终于破局：延迟砍半、成本直降近40%！",
+      "summary": "最新完整技术报告出炉",
+      "url": "https://www.qbitai.com/2026/07/463012.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-30T14:14:43+08:00"
     },
     {
-      "id": "ffdf99aeb53c",
-      "title": "Anthropic found a hidden space where Claude puzzles over concepts",
-      "summary": "The AI firm Anthropic has developed a technique that has given it the clearest glimpse yet at what’s really going on inside large language models as they answe…",
-      "url": "https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/",
-      "source": "MIT Tech Review",
-      "category": "新模型发布",
-      "published_at": "2026-07-10T04:22:28+08:00"
-    },
-    {
-      "id": "6647cb6f53c6",
-      "title": "Aurora 1.5: Extending open foundation models for weather and Earth-system applications",
-      "summary": "Aurora 1.5 adds 22 more variables, hourly temporal resolution, and probabilistic ensemble forecasting to the Aurora foundation model, making it more useful for…",
-      "url": "https://www.microsoft.com/en-us/research/blog/aurora-1-5-extending-open-foundation-models-for-weather-and-earth-system-applications/",
-      "source": "Microsoft AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-10T00:46:22+08:00"
-    },
-    {
-      "id": "5bb297bb60d9",
-      "title": "GeForce NOW Turns Up the Heat With New GeForce RTX 5080-Powered Toronto Server",
-      "summary": "This GFN Thursday brings more games, more power and more ways to play on GeForce NOW. The cloud gaming service is expanding with a new GeForce RTX 5080-powered…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-toronto-expansion/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-07-09T21:00:55+08:00"
-    },
-    {
-      "id": "e799563c0958",
-      "title": "GPT-5.6 is now the preferred model in Microsoft 365 Copilot",
-      "summary": "Learn how GPT-5.6 powers Microsoft 365 Copilot with stronger AI capabilities across Word, Excel, PowerPoint, Chat, and Cowork for faster, higher-quality work.",
-      "url": "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-09T21:00:00+08:00"
-    },
-    {
-      "id": "701f122b3334",
-      "title": "The Download: a nuclear landmark, and China eyes Nvidia chips",
-      "summary": "This is today&#8217;s edition of The Download, our weekday newsletter that provides a daily dose of what&#8217;s going on in the world of technology. Four nucl…",
-      "url": "https://www.technologyreview.com/2026/07/09/1140283/the-download-nuclear-power-milestone-nvidia-china-ai-chips/",
-      "source": "MIT Tech Review",
-      "category": "行业新闻",
-      "published_at": "2026-07-09T20:10:00+08:00"
-    },
-    {
-      "id": "54ee76ae9206",
-      "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
-      "summary": "More intelligence from every token, stronger performance per dollar, and more capability on demand for your hardest work.",
-      "url": "https://openai.com/index/gpt-5-6",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-09T18:00:00+08:00"
-    },
-    {
-      "id": "5941cef110c0",
-      "title": "ChatGPT is now a partner for your most ambitious work",
-      "summary": "ChatGPT Work is an agent that can take action across your apps and files, stay with a project for hours if needed, and turn a goal into finished work.",
-      "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-09T18:00:00+08:00"
-    },
-    {
-      "id": "8fd74bd3f519",
-      "title": "GPT-5.5 Bio Bug Bounty",
-      "summary": "Details about the OpenAI Bio Bounty program",
-      "url": "https://openai.com/index/bio-bug-bounty",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-07-09T18:00:00+08:00"
-    },
-    {
-      "id": "2abdc6f86826",
-      "title": "Four nuclear reactors hit a big milestone in the US",
-      "summary": "I was really looking forward to July 4, and not just because I love a poolside barbecue. This year the American holiday also marked a big symbolic deadline for…",
-      "url": "https://www.technologyreview.com/2026/07/09/1140235/nuclear-reactor-milestone-criticality/",
-      "source": "MIT Tech Review",
-      "category": "行业新闻",
-      "published_at": "2026-07-09T16:00:00+08:00"
-    },
-    {
-      "id": "6767f70689b4",
-      "title": "Flint: A visualization language for the AI era",
-      "summary": "Short chart specifications are easy to write, but often produce uninspiring results. Flint is an open-source visualization language that offers a middle path, …",
-      "url": "https://www.microsoft.com/en-us/research/blog/flint-a-visualization-language-for-the-ai-era/",
-      "source": "Microsoft AI",
+      "id": "5f8449b50a00",
+      "title": "Do Models Fake Alignment Without Clear Consequences?",
+      "summary": "arXiv:2607.24758v2 Announce Type: new Abstract: Large language models are capable of recognizing evaluation contexts and altering their behavior to reflect eva…",
+      "url": "https://arxiv.org/abs/2607.24758",
+      "source": "arXiv cs.AI",
       "category": "开源项目",
-      "published_at": "2026-07-09T00:00:00+08:00"
+      "published_at": "2026-07-30T12:00:00+08:00"
     },
     {
-      "id": "cecc787bcc8b",
-      "title": "NVIDIA Nemotron Achieves Benchmark-Leading Performance With LangChain Deep Agents Harness",
-      "summary": "NVIDIA Nemotron 3 Ultra is offering leading performance at lower cost than top closed models with the largest and most widely adopted AI agent orchestration pl…",
-      "url": "https://blogs.nvidia.com/blog/nemotron-langchain-agents-open-stack/",
-      "source": "NVIDIA AI",
+      "id": "3a089eb3b0fb",
+      "title": "Beyond Memory: A Templated Substrate for Heterogeneous Collaborative Knowledge Work with LLM Agents",
+      "summary": "arXiv:2607.24759v1 Announce Type: new Abstract: Research projects, educational efforts, and adjacent knowledge work accumulate findings, decisions, and reasoni…",
+      "url": "https://arxiv.org/abs/2607.24759",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-30T12:00:00+08:00"
+    },
+    {
+      "id": "f914ce76f855",
+      "title": "Kernel Forge: An Agent Harness for LLM-based Generation and Optimization of CUDA Kernels",
+      "summary": "arXiv:2607.24762v1 Announce Type: new Abstract: Machine learning models are increasingly embedded in everyday software, and most of their runtime is spent in a…",
+      "url": "https://arxiv.org/abs/2607.24762",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-30T12:00:00+08:00"
+    },
+    {
+      "id": "6bb448c977c3",
+      "title": "CaRE Compute-aware Remasking Evaluation Protocol for Masked Diffusion Language Models",
+      "summary": "arXiv:2607.24763v1 Announce Type: new Abstract: Masked diffusion language models (MDLMs) are advancing rapidly, yet the evaluation standards needed to reliably…",
+      "url": "https://arxiv.org/abs/2607.24763",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-07-30T12:00:00+08:00"
+    },
+    {
+      "id": "efd658ea5172",
+      "title": "GrocLM: Grocery Category Recommendation in E-Commerce with Large Language Models",
+      "summary": "arXiv:2607.24764v1 Announce Type: new Abstract: The rapid growth of online grocery shopping requires recommendation systems that capture cyclical purchasing be…",
+      "url": "https://arxiv.org/abs/2607.24764",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-07-30T12:00:00+08:00"
+    },
+    {
+      "id": "951e467dcf0c",
+      "title": "f/prompts.chat · ★ 166,537",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
+      "url": "https://github.com/f/prompts.chat",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-30T04:04:17Z"
+    },
+    {
+      "id": "705bd6c095e8",
+      "title": "We’re launching Lyria 3.5 in Google Flow Music, with advances across musicality, lyrics, vocals, and creative control",
+      "summary": "We’re launching Lyria 3.5 in Google Flow Music, with advances across musicality, lyrics, vocals, and creative control",
+      "url": "https://deepmind.google/blog/were-launching-lyria-35-in-google-flow-music-with-advances-across-musicality-lyrics-vocals-and-creative-control/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-07-30T00:02:10+08:00"
+    },
+    {
+      "id": "62a35efe572a",
+      "title": "贾扬清离开英伟达再创业！GLM-5.2速度飙6.3倍，一句话造的推理引擎",
+      "summary": "贾扬清加入英伟达一年后创立Intent Lab，推出核心产品Fleet——首个将用户意图自动转化为生产级软件的生成引擎。首批成果包括：当前最快的GLM 5.2推理引擎、支持一句话生成的数据库引擎，以及具备形式化验证能力的文件系统。三者均基于Fleet构建，旨在实现从自然语言指令到可部署软件系统的端到端自动化，聚焦AI…",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzIzNjc1NzUzMw==&mid=2247907980&idx=1&sn=e13f099525d69cfbc5c1158106c9d738&chksm=e9c950e267cb8d214531e95da26be1d955a5553673b5886879178669b7e984e33936cd564467&scene=126&sessionid=0#rd",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-07-30 18:30 分享"
+    },
+    {
+      "id": "4f03299d5e33",
+      "title": "Nat. Commun. | 基于AlphaFold结构模型的蛋白质功能注释预测流程",
+      "summary": "DRUGONE蛋白质功能注释是生命科学、代谢网络解析及合成生物学研究的基础。当前主流自动注释方法依赖序列同源性，但进化距离增大时，功能相似蛋白的序列差异显著，导致远缘同源蛋白易被遗漏。AlphaFold实现大规模高精度蛋白质结构预测，为功能注释提供全新路径——通过三维结构比对识别功能保守性，突破序列相似性局限，提升远…",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247514106&idx=1&sn=314565c9e88fc7281ee0a86d94430d8b&chksm=fd53ef6c3b69632f121c5f772b8d1401e95987bbb72cf4b1507fcba5d8306203d0a08781e897&scene=0&xtrack=1#rd",
+      "source": "智源社区",
+      "category": "中文资讯",
+      "published_at": "2026-07-30 17:30 分享"
+    },
+    {
+      "id": "cc8e132c6199",
+      "title": "How enabling two settings tripled our scores on the ARC-AGI-3 benchmark",
+      "summary": "How two API settings improved GPT-5.6 performance on ARC-AGI-3, boosting scores and efficiency by retaining reasoning and enabling compaction.",
+      "url": "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores",
+      "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-07-08T23:00:27+08:00"
+      "published_at": "2026-07-29T23:00:00+08:00"
     },
     {
-      "id": "90857c29ae6e",
-      "title": "AI Innovators Adopt NVIDIA Vera — Why Max Single-Threaded CPU at Scale Matters",
-      "summary": "Max single-threaded CPUs at scale are a new category of CPUs built for the agentic AI era. Across the creation and deployment of an agentic system, the CPU is …",
-      "url": "https://blogs.nvidia.com/blog/nvidia-vera-max-single-threaded-cpu-at-scale/",
-      "source": "NVIDIA AI",
+      "id": "1f1bc03a707a",
+      "title": "rasbt/LLMs-from-scratch · ★ 100,182",
+      "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
+      "url": "https://github.com/rasbt/LLMs-from-scratch",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-29T21:23:45Z"
+    },
+    {
+      "id": "14fd05ad34f9",
+      "title": "Accelerating scientific discovery with ChatGPT for Academic Researchers",
+      "summary": "OpenAI is giving 100,000 academic researchers free access to ChatGPT's most advanced AI models to accelerate scientific research, collaboration, and discovery.",
+      "url": "https://openai.com/index/chatgpt-for-academic-researchers",
+      "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-07-07T23:00:52+08:00"
+      "published_at": "2026-07-29T18:00:00+08:00"
     },
     {
-      "id": "73fd78c4847c",
-      "title": "Expanding Managed Agents in Gemini API: background tasks, remote MCP and more",
-      "summary": "We’re announcing new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
+      "id": "6d964f10c333",
+      "title": "How GPT-5.6 fuses frontier intelligence with frontier efficiency",
+      "summary": "GPT-5.6 improves AI efficiency across models, inference, and agentic workflows, helping deliver more useful intelligence per dollar.",
+      "url": "https://openai.com/index/gpt-5-6-frontier-intelligence-efficiency",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-29T08:00:00+08:00"
+    },
+    {
+      "id": "b8da10635efb",
+      "title": "thedotmack/claude-mem · ★ 89,085",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
+      "url": "https://github.com/thedotmack/claude-mem",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-07-29T03:01:17Z"
+    },
+    {
+      "id": "df22037e3e0f",
+      "title": "Scientific computing in the age of agentic AI",
+      "summary": "A new field report shows how scientists use AI coding agents to modernize scientific computing, accelerating software development and discovery in genomics and…",
+      "url": "https://openai.com/index/scientific-computing-agentic-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-07-29T01:00:00+08:00"
+    },
+    {
+      "id": "be3ca53745f6",
+      "title": "Gemini API Managed Agents: 3.6 Flash, hooks, and more",
+      "summary": "We’re announcing even more new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api-3-6-flash-hooks/",
       "source": "Google AI",
       "category": "新模型发布",
-      "published_at": "2026-07-07T16:54:00+08:00"
+      "published_at": "2026-07-29T00:00:00+08:00"
     },
     {
-      "id": "fbe5464e4eef",
-      "title": "NVIDIA and Hugging Face Bring New Models and Frameworks to LeRobot for the Open Robotics Community",
-      "summary": "Open source AI has shown how quickly developers can innovate when models, data and tools are shared. Robotics has the same opportunity, but advancements in phy…",
-      "url": "https://blogs.nvidia.com/blog/hugging-face-lerobot-models-frameworks-open-robotics/",
+      "id": "543fd515859a",
+      "title": "Powerful Compute So Compact, It’s Clutch — Build AI Anywhere With NVIDIA Jetson",
+      "summary": "As a discerning AI investor who values style and substance, Sarah Guo knows this season’s standout accessory isn’t the latest designer purse — but what’s insid…",
+      "url": "https://blogs.nvidia.com/blog/build-ai-with-nvidia-jetson/",
       "source": "NVIDIA AI",
-      "category": "开源项目",
-      "published_at": "2026-07-07T14:00:26+08:00"
-    },
-    {
-      "id": "0c57e47a6db2",
-      "title": "How Open Models Are Driving AI Research",
-      "summary": "Every year, the International Conference on Machine Learning (ICML) reveals where thousands of AI researchers have decided to put their work. This year’s accep…",
-      "url": "https://blogs.nvidia.com/blog/open-models-icml-2026/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-07-07T00:00:00+08:00"
+      "category": "行业新闻",
+      "published_at": "2026-07-28T23:00:19+08:00"
     },
     {
       "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 94,837",
+      "title": "hacksider/Deep-Live-Cam · ★ 95,417",
       "summary": "real time face swap and one-click video deepfake with only a single image",
       "url": "https://github.com/hacksider/Deep-Live-Cam",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-07-06T20:55:43Z"
+      "published_at": "2026-07-28T21:22:32Z"
+    },
+    {
+      "id": "7909c613945e",
+      "title": "Gemini Robotics 2 brings whole body intelligence to robots",
+      "summary": "Gemini Robotics 2 brings whole body intelligence to robots",
+      "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-07-28T21:21:37+08:00"
+    },
+    {
+      "id": "7c8ae2784e8b",
+      "title": "5 ways AI Mode in Search helps you enjoy the real world",
+      "summary": "It might sound counterintuitive, but Search's AI tools can actually help you make the most of your time offline whether you want to book concert tickets or fin…",
+      "url": "https://blog.google/products-and-platforms/products/search/ai-mode-real-world-tips/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-28T21:00:00+08:00"
+    },
+    {
+      "id": "61b149676fcb",
+      "title": "5 ways to host the ultimate dinner party with Google Search",
+      "summary": "These AI features can help you craft a menu, design a tablescape, and handle other party-planning tasks.",
+      "url": "https://blog.google/products-and-platforms/products/search/dinner-party-hosting-tips/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-28T21:00:00+08:00"
+    },
+    {
+      "id": "338eb622f724",
+      "title": "Industry Leaders Unite in Open Secure AI Alliance for AI Safety and Security",
+      "summary": "Open source software is a critical pillar of the global economy. It underpins cloud computing, financial services, manufacturing, telecommunications, governmen…",
+      "url": "https://blogs.nvidia.com/blog/open-secure-ai-alliance/",
+      "source": "NVIDIA AI",
+      "category": "开源项目",
+      "published_at": "2026-07-27T17:00:07+08:00"
+    },
+    {
+      "id": "974f35f6c57c",
+      "title": "NVIDIA Harnesses Vera CPU to Speed Up Design of Next-Generation CPUs and GPUs",
+      "summary": "The complexity of modern chip design continues to grow as engineering teams work to develop increasingly sophisticated CPUs, GPUs and AI systems. To help meet …",
+      "url": "https://blogs.nvidia.com/blog/vera-cpu-eda/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-27T08:45:42+08:00"
+    },
+    {
+      "id": "7a9ded228ecc",
+      "title": "At AI Summit, South Korea Outlines Its AI Future With NVIDIA and Partners",
+      "summary": "At this week’s AI Summit in San Francisco, South Korean President Jae Myung Lee and some of the country’s top business leaders and researchers are meeting with…",
+      "url": "https://blogs.nvidia.com/blog/ai-summit-korea-partners-and-nvidia/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-07-24T12:34:27+08:00"
+    },
+    {
+      "id": "e75df1016aa1",
+      "title": "Introducing Claude Opus 5",
+      "summary": "Introducing Claude Opus 5",
+      "url": "https://www.anthropic.com/news/claude-opus-5",
+      "source": "Anthropic",
+      "category": "新模型发布",
+      "published_at": null
+    },
+    {
+      "id": "0413deb77cdf",
+      "title": "Claude最大规模MCP升级，月下载狂飙破4亿！",
+      "summary": "Anthropic发布MCP 2026-07-28重大更新，为迄今最大规模升级：核心架构转为“无状态”，显著提升灵活性与可扩展性；企业级安全能力全面增强；月度SDK下载量突破4亿次，彰显广泛采用。此次更新彻底打破原有开发限制，推动AI智能体深度融入全球应用生态，标志着MCP正式确立为AI智能体互联的行业标准。",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652715338&idx=1&sn=94f2b6ce793fab364bc35a76e3af5211&chksm=f0a870fed4cf4a45bd81a0a191367194c7b55fc14824fd8d05b88b3e185462c8c244c9aa5d4c&scene=0&xtrack=1#rd",
+      "source": "新智元",
+      "category": "中文资讯",
+      "published_at": null
     },
     {
       "id": "5e689a649359",
@@ -298,42 +380,6 @@
       "url": "https://www.anthropic.com/news/claude-sonnet-5",
       "source": "Anthropic",
       "category": "新模型发布",
-      "published_at": null
-    },
-    {
-      "id": "d5f7bd1f6df8",
-      "title": "Claude Science, an AI workbench for scientists",
-      "summary": "Claude Science, an AI workbench for scientists",
-      "url": "https://www.anthropic.com/news/claude-science-ai-workbench",
-      "source": "Anthropic",
-      "category": "新模型发布",
-      "published_at": null
-    },
-    {
-      "id": "aae5bb7414e2",
-      "title": "开营周将至｜一次看见AI4S全景，DeeCamp开营日重磅开启",
-      "summary": "本次开营日聚焦AI for Science（AI4S）多元前沿场景，涵盖AI脑机、AI量子、AI生命科学、AI核聚变及AI地球物理五大关键领域。吕宝粮、龙桂鲁、韩敬东、吴泰霖、李伟昌等各领域权威专家将分享实践案例与技术突破，展现人工智能深度赋能基础科研的真实路径。活动旨在帮助学员系统理解AI如何实质性介入科学研究全流…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513959&idx=1&sn=6c580989fd5323ae808ef3bbb2472653&chksm=fded1e8299f4c5ba3732f1d27cfc18c5e4c0d283b2d79d15dcceac333ac606f1c5a07fba86e4&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "554f4f52d685",
-      "title": "上线几小时，马斯克Grok 4.5被攻破！1.5万亿参数防线全失守",
-      "summary": "马斯克刚发布的Grok-4.5大模型上线数小时内即遭黑客攻破，其号称拥有1.5万亿参数、基于V9新架构的“顶级”模型暴露出严重安全漏洞：不仅被诱导生成制毒、造爆、提取致命毒素等违法有害内容，还被植入远程木马。尽管马斯克宣称其在代码与推理能力上已超越Opus 4.8，但实际防护能力形同虚设，引发对AI模型安全审核与内容…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzI3MTA0MTk1MA==&mid=2652712296&idx=1&sn=0ab12a94e7ee16e4147ea6f6f2c6317c&chksm=f0f3f5290c09e26f9da0f23e363f6da1af836e4354774b654a36916da62d32749fed358fe93c&scene=0&xtrack=1#rd",
-      "source": "新智元",
-      "category": "中文资讯",
-      "published_at": null
-    },
-    {
-      "id": "82b46c55b648",
-      "title": "Nature | 通用细胞嵌入构建细胞生物学基础模型",
-      "summary": "随着单细胞RNA测序技术发展，大规模多组织、多发育阶段、多物种细胞图谱为构建统一细胞表示空间奠定基础。但因实验平台、组织来源及物种间存在显著批次效应和基因组成差异，现有方法需为每个新数据集重新训练模型，通用性差。为此，研究者提出Universal Cell Embedding（UCE），旨在建立跨平台、跨组织、跨物种…",
-      "url": "https://mp.weixin.qq.com/s?__biz=MzU2ODU3Mzc4Nw==&mid=2247513959&idx=2&sn=209afcb709fad89534d26b8347f93af5&chksm=fd35c7ed4daffe0991b0079fbce731074a3d3c1b8beb0101ed59c20ba021b2adec55fb69843d&scene=0&xtrack=1#rd",
-      "source": "智源社区",
-      "category": "中文资讯",
       "published_at": null
     }
   ],
@@ -393,13 +439,5 @@
       "blog": "https://hub.baai.ac.cn/",
       "x": "https://x.com/baai_ac"
     }
-  ],
-  "schema_version": 1,
-  "dedupe": {
-    "by": [
-      "title",
-      "url"
-    ],
-    "keep": "latest_published_at"
-  }
+  ]
 }
