@@ -11,7 +11,7 @@
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](./requirements.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0d8c6d?style=flat-square)](./LICENSE)
 
-站点：https://bio-apple.github.io/ai/ · 贡献：[CONTRIBUTING.md](./CONTRIBUTING.md)
+站点：https://bio-apple.github.io/ai/
 
 ## 预览
 
@@ -23,7 +23,6 @@
 
 | 文档                                           | 说明                               |
 | ---------------------------------------------- | ---------------------------------- |
-| [CONTRIBUTING.md](./CONTRIBUTING.md)           | 贡献指南与内容快速路径             |
 | [docs/SETUP.md](./docs/SETUP.md)               | 环境搭建与本地预览                 |
 | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构                           |
 | [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)     | 数据模型                           |
@@ -117,8 +116,6 @@ python3 scripts/fetch_daily_videos.py
 | 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`     |
 | 新闻源       | `config/news-fetch.yaml`                                     |
 | 视频源       | `config/video-fetch.yaml`                                    |
-
-分步说明（工具 / 课程 / 对比专题等）→ **[CONTRIBUTING.md](./CONTRIBUTING.md)**。
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
 

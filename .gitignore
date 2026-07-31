@@ -15,15 +15,11 @@ dist/
 /compare/
 /guides/
 /news/
-/prompts/
-/cases/
 /ai-tools-ranking.html
 /ai-learning-roadmap.html
 /search-index.json
 /sitemap.xml
 /analytics-config.json
-/prompts.json
-/tutorials.json
 .DS_Store
 .pw-browsers/
 # 本地短视频制作素材（非站点产物）

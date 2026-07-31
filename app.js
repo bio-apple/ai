@@ -184,10 +184,6 @@ document.querySelectorAll('[data-goto]').forEach((btn) => {
     const target = btn.dataset.goto;
     if (!target) return;
     e.preventDefault();
-    if (target === 'prompts' || target === 'oss') {
-      showSection(resolveGoto('oss'));
-      return;
-    }
     showSection(resolveGoto(target));
   });
 });

@@ -7,7 +7,6 @@
 
 | 文档                                           | 用途                              |
 | ---------------------------------------------- | --------------------------------- |
-| [CONTRIBUTING.md](./CONTRIBUTING.md)           | 贡献指南、添加工具/课程/对比路径  |
 | [docs/SETUP.md](./docs/SETUP.md)               | 环境搭建、三种预览模式、排错      |
 | [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构、构建流水线、数据流      |
 | [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)     | JSON 字段、Schema、交叉引用       |
