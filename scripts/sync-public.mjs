@@ -17,6 +17,7 @@ const COPY_FILES = [
   'videos.js',
   'news.js',
   'courses.js',
+  'oss.js',
   'knowledge.js',
   'recommend.js',
   'progress.js',
