@@ -1,155 +1,120 @@
 {
-  "updated_at": "2026-07-13",
+  "updated_at": "2026-07-31",
   "title": "GitHub Stars 开源精选",
   "lead": "按 AI 应用领域筛选 GitHub 上最受欢迎的开源项目，每周更新 Star 数。",
   "domains": [
     {
-      "id": "ai-agent",
-      "label": "AI Agent",
-      "description": "自主规划、工具调用与多步任务编排",
-      "projects": [
-        {
-          "id": "langgraph",
-          "repo": "langchain-ai/langgraph",
-          "name": "LangGraph",
-          "description": "低层级 Agent 编排框架，支持有状态、可循环的多步工作流。",
-          "stars": 37109,
-          "url": "https://github.com/langchain-ai/langgraph",
-          "language": "Python"
-        },
-        {
-          "id": "crewai",
-          "repo": "crewAIInc/crewAI",
-          "name": "crewAI",
-          "description": "多 Agent 协作框架，适合角色分工与任务流水线。",
-          "stars": 55390,
-          "url": "https://github.com/crewAIInc/crewAI",
-          "language": "Python"
-        }
-      ]
-    },
-    {
-      "id": "llm-apps",
-      "label": "LLM 应用开发",
-      "description": "RAG、工作流与可视化 LLM 应用搭建",
+      "id": "agent-framework",
+      "label": "Agent 框架",
+      "description": "多 Agent 协作、工作流编排与工具调用",
       "projects": [
         {
           "id": "dify",
           "repo": "langgenius/dify",
           "name": "Dify",
-          "description": "开源 LLM 应用开发平台，支持 RAG、Agent 与工作流编排。",
-          "stars": 148607,
+          "description": "开源 LLM 应用平台，可视化编排 Agent、RAG 与工作流。",
+          "stars": 150800,
           "url": "https://github.com/langgenius/dify",
           "language": "TypeScript"
         },
         {
-          "id": "llamaindex",
-          "repo": "run-llama/llama_index",
-          "name": "LlamaIndex",
-          "description": "数据连接与 RAG 框架，快速构建知识库问答应用。",
-          "stars": 50798,
-          "url": "https://github.com/run-llama/llama_index",
+          "id": "autogen",
+          "repo": "microsoft/autogen",
+          "name": "AutoGen",
+          "description": "微软多 Agent 对话框架，支持自定义角色与人机协同。",
+          "stars": 60105,
+          "url": "https://github.com/microsoft/autogen",
+          "language": "Python"
+        },
+        {
+          "id": "langgraph",
+          "repo": "langchain-ai/langgraph",
+          "name": "LangGraph",
+          "description": "LangChain 生态的有状态图编排，适合可控、可循环的 Agent 工作流。",
+          "stars": 38501,
+          "url": "https://github.com/langchain-ai/langgraph",
           "language": "Python"
         }
       ]
     },
     {
-      "id": "local-llm",
-      "label": "本地大模型",
-      "description": "端侧推理、模型量化与本地部署",
+      "id": "inference-framework",
+      "label": "推理框架",
+      "description": "大模型推理加速与生产级部署引擎",
+      "projects": [
+        {
+          "id": "llamacpp",
+          "repo": "ggerganov/llama.cpp",
+          "name": "llama.cpp",
+          "description": "CPU/GPU 高效推理库，GGUF 生态核心，边缘与桌面部署常用。",
+          "stars": 122095,
+          "url": "https://github.com/ggerganov/llama.cpp",
+          "language": "C++"
+        },
+        {
+          "id": "vllm",
+          "repo": "vllm-project/vllm",
+          "name": "vLLM",
+          "description": "高吞吐 LLM 推理引擎，PagedAttention，适合生产级服务端部署。",
+          "stars": 87687,
+          "url": "https://github.com/vllm-project/vllm",
+          "language": "Python"
+        }
+      ]
+    },
+    {
+      "id": "vector-db",
+      "label": "向量库",
+      "description": "向量检索、相似度计算与 RAG 基础设施",
+      "projects": [
+        {
+          "id": "milvus",
+          "repo": "milvus-io/milvus",
+          "name": "Milvus",
+          "description": "云原生向量数据库，大规模相似度检索与 RAG 基础设施。",
+          "stars": 45428,
+          "url": "https://github.com/milvus-io/milvus",
+          "language": "Go"
+        }
+      ]
+    },
+    {
+      "id": "eval-benchmark",
+      "label": "评测工具",
+      "description": "大模型能力评测与基准测试",
+      "projects": []
+    },
+    {
+      "id": "local-deployment",
+      "label": "本地部署",
+      "description": "本地运行大模型与私有化部署方案",
       "projects": [
         {
           "id": "ollama",
           "repo": "ollama/ollama",
           "name": "Ollama",
-          "description": "一键在本地运行 Llama、Qwen、DeepSeek 等开源模型。",
-          "stars": 175996,
+          "description": "本机一键跑开源大模型，API简单，适合本地原型与私有化试用。",
+          "stars": 177287,
           "url": "https://github.com/ollama/ollama",
           "language": "Go"
         },
         {
-          "id": "llamacpp",
-          "repo": "ggml-org/llama.cpp",
-          "name": "llama.cpp",
-          "description": "高性能 C/C++ 推理引擎，支持 CPU/GPU 量化部署。",
-          "stars": 120165,
-          "url": "https://github.com/ggml-org/llama.cpp",
-          "language": "C++"
-        }
-      ]
-    },
-    {
-      "id": "ai-art",
-      "label": "AI 绘画",
-      "description": "Stable Diffusion 工作流与图像生成",
-      "projects": [
-        {
-          "id": "comfyui",
-          "repo": "comfyanonymous/ComfyUI",
-          "name": "ComfyUI",
-          "description": "节点式 Stable Diffusion 工作流，灵活组合 ControlNet 与 LoRA。",
-          "stars": 120481,
-          "url": "https://github.com/comfyanonymous/ComfyUI",
-          "language": "Python"
+          "id": "open-webui",
+          "repo": "open-webui/open-webui",
+          "name": "Open WebUI",
+          "description": "面向 Ollama / OpenAI 兼容接口的本地 Chat UI，易部署可扩展。",
+          "stars": 147318,
+          "url": "https://github.com/open-webui/open-webui",
+          "language": "JavaScript"
         },
         {
-          "id": "sd-webui",
-          "repo": "AUTOMATIC1111/stable-diffusion-webui",
-          "name": "Stable Diffusion WebUI",
-          "description": "最流行的 SD 图形界面，插件生态丰富。",
-          "stars": 164199,
-          "url": "https://github.com/AUTOMATIC1111/stable-diffusion-webui",
-          "language": "Python"
-        }
-      ]
-    },
-    {
-      "id": "multimodal",
-      "label": "多模态",
-      "description": "视觉-语言理解与跨模态推理",
-      "projects": [
-        {
-          "id": "llava",
-          "repo": "haotian-liu/LLaVA",
-          "name": "LLaVA",
-          "description": "视觉指令微调大模型，图像理解与对话问答。",
-          "stars": 24926,
-          "url": "https://github.com/haotian-liu/LLaVA",
-          "language": "Python"
-        },
-        {
-          "id": "transformers-vision",
-          "repo": "huggingface/transformers",
-          "name": "Transformers",
-          "description": "Hugging Face 多模态模型库，覆盖 VLM、ASR 与视觉任务。",
-          "stars": 162546,
-          "url": "https://github.com/huggingface/transformers",
-          "language": "Python"
-        }
-      ]
-    },
-    {
-      "id": "ml-framework",
-      "label": "机器学习框架",
-      "description": "深度学习训练与推理基础设施",
-      "projects": [
-        {
-          "id": "pytorch",
-          "repo": "pytorch/pytorch",
-          "name": "PyTorch",
-          "description": "主流深度学习框架，研究与生产部署首选。",
-          "stars": 101777,
-          "url": "https://github.com/pytorch/pytorch",
-          "language": "Python"
-        },
-        {
-          "id": "jax",
-          "repo": "google/jax",
-          "name": "JAX",
-          "description": "Google 高性能数值计算与自动微分框架。",
-          "stars": 0,
-          "url": "https://github.com/google/jax",
-          "language": "Python"
+          "id": "localai",
+          "repo": "mudler/LocalAI",
+          "name": "LocalAI",
+          "description": "OpenAI 兼容的本地推理网关，可接多种后端模型与模态。",
+          "stars": 48026,
+          "url": "https://github.com/mudler/LocalAI",
+          "language": "Go"
         }
       ]
     }

@@ -140,12 +140,12 @@ export function pickHomeNews(limit = 4): NewsItem[] {
   return dedupeNewsItems(data?.items || []).slice(0, limit);
 }
 
-export function pickHomeOss(limit = 6): Array<{ project: OssProject; domainLabel: string }> {
+export function pickHomeOss(limit = 6): Array<{ project: OssProject; domainLabel: string; domainId: string }> {
   const data = loadRuntimeJson<OssPayload>('oss-projects.json');
-  const items: Array<{ project: OssProject; domainLabel: string }> = [];
+  const items: Array<{ project: OssProject; domainLabel: string; domainId: string }> = [];
   for (const domain of data?.domains || []) {
     for (const project of domain.projects || []) {
-      items.push({ project, domainLabel: domain.label });
+      items.push({ project, domainLabel: domain.label, domainId: domain.id });
     }
   }
   return items.sort((a, b) => (b.project.stars || 0) - (a.project.stars || 0)).slice(0, limit);

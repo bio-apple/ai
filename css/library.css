@@ -273,8 +273,8 @@
   font-size: 0.72rem;
   padding: 4px 10px;
   border-radius: 999px;
-  background: rgba(37, 99, 235, 0.1);
-  color: var(--accent);
+  background: color-mix(in srgb, var(--domain-color, var(--accent)) 12%, transparent);
+  color: var(--domain-color, var(--accent));
   font-weight: 600;
 }
 
@@ -285,8 +285,33 @@
 }
 
 .oss-card h4 {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.oss-card h4 a {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.oss-rank {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+
+.oss-top-badge {
+  font-size: 0.65rem;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--domain-color, var(--accent)) 16%, transparent);
+  color: var(--domain-color, var(--accent));
+  border: 1px solid color-mix(in srgb, var(--domain-color, var(--accent)) 40%, transparent);
+  font-weight: 700;
 }
 
 .oss-repo {
@@ -303,17 +328,22 @@
 
 .oss-read {
   font-size: 0.8rem;
-  color: var(--accent);
+  color: var(--domain-color, var(--accent));
   font-weight: 500;
 }
 
 .oss-domain-block {
   margin-bottom: 28px;
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--domain-color, var(--accent)) 4%, transparent);
+  border-left: 3px solid var(--domain-color, var(--accent));
 }
 
 .oss-domain-title {
   font-size: 1rem;
   margin: 0 0 14px;
+  color: var(--domain-color, var(--text));
 }
 
 .oss-domain-desc {

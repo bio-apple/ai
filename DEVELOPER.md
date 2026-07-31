@@ -229,9 +229,9 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
   "title": "GitHub Stars 开源精选",
   "domains": [
     {
-      "id": "ai-agent",
-      "label": "AI Agent",
-      "description": "自主规划、工具调用与多步任务编排",
+      "id": "agent-framework",
+      "label": "Agent 框架",
+      "description": "多 Agent 协作、工作流编排与工具调用",
       "projects": [
         {
           "id": "langgraph",
@@ -248,7 +248,7 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 }
 ```
 
-**六大领域**（每领域至少 1 个项目）：`ai-agent`、`llm-apps`、`local-llm`、`ai-art`、`multimodal`、`ml-framework`。
+**五大领域**：`agent-framework`、`inference-framework`、`vector-db`、`eval-benchmark`、`local-deployment`。
 
 维护：编辑 `data/oss-projects.json` 后运行 `python3 scripts/fetch_oss_stars.py` 刷新 Star 数；脚本会同步写入根目录 `oss-projects.json`。优先读取环境变量 `GITHUB_TOKEN` / `GH_TOKEN`（Actions 已注入），避免匿名 API 限流。
 

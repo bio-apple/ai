@@ -2,27 +2,45 @@ const OSS_DATA_URL = (typeof document !== 'undefined' && document.documentElemen
   ? document.documentElement.dataset.base.replace(/\/?$/, '/')
   : '') + 'oss-projects.json';
 
+const DOMAIN_COLORS = {
+  'agent-framework': '#2563eb',
+  'inference-framework': '#10b981',
+  'vector-db': '#f59e0b',
+  'eval-benchmark': '#f43f5e',
+  'local-deployment': '#8b5cf6',
+};
+
 let ossDataPromise = null;
 
 function formatStars(n) {
   if (!n) return '—';
-  if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
-  if (n >= 10_000) return (n / 10_000).toFixed(1) + '万';
-  if (n >= 1_000) return (n / 1_000).toFixed(1) + 'K';
-  return String(n);
+  return n.toLocaleString('zh-CN');
 }
 
-function renderOssCard(project, domainLabel) {
+function computeGlobalRanks(data) {
+  const items = flattenProjects(data);
+  const ranks = new Map();
+  items.forEach(({ project }, idx) => {
+    ranks.set(project.id, idx + 1);
+  });
+  return ranks;
+}
+
+function renderOssCard(project, domainLabel, domainId, rank) {
+  const color = DOMAIN_COLORS[domainId] || '';
+  const style = color ? `style="--domain-color:${color}"` : '';
+  const rankHtml = rank ? `<span class="oss-rank">#${rank}</span>` : '';
+  const topBadge = rank && rank <= 3 ? `<span class="oss-top-badge">TOP${rank}</span>` : '';
   return `
-    <article class="oss-card">
+    <article class="oss-card" ${style}>
       <div class="oss-card-head">
         <span class="oss-domain-badge">${escapeHtml(domainLabel)}</span>
         <span class="oss-stars">★ ${escapeHtml(formatStars(project.stars))}</span>
       </div>
-      <h4><a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" data-track="oss-click">${escapeHtml(project.name)}</a></h4>
-      <p class="oss-repo">${escapeHtml(project.repo)}${project.language ? ` · ${escapeHtml(project.language)}` : ''}</p>
+      <h4>${rankHtml}<a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" data-track="oss-click">${escapeHtml(project.name)}</a>${topBadge}</h4>
+      <p class="oss-repo">${escapeHtml(project.repo)}</p>
       <p class="oss-summary">${escapeHtml(project.description || '')}</p>
-      <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" class="oss-read" data-track="oss-read">查看仓库 →</a>
+      <a href="${escapeHtml(project.url)}" target="_blank" rel="noopener" class="oss-read" data-track="oss-read">在 GitHub 打开 →</a>
     </article>
   `;
 }
@@ -52,31 +70,39 @@ function flattenProjects(data) {
   return items.sort((a, b) => (b.project.stars || 0) - (a.project.stars || 0));
 }
 
-function renderOssGrid(items, { limit = 0 } = {}) {
-  const list = limit ? items.slice(0, limit) : items;
-  if (!list.length) {
+function renderOssGrid(items, ranks) {
+  if (!items.length) {
     return '<p class="loading-hint">暂无开源项目数据。</p>';
   }
-  return `<div class="oss-grid">${list.map(({ project, domain }) => renderOssCard(project, domain.label)).join('')}</div>`;
+  return `<div class="oss-grid">${items.map(({ project, domain }) => renderOssCard(project, domain.label, domain.id, ranks.get(project.id))).join('')}</div>`;
 }
 
 function renderOssByDomain(data, activeDomain = 'all') {
   const domains = data.domains || [];
+  const ranks = computeGlobalRanks(data);
+  const allActive = activeDomain === 'all' ? 'active' : '';
   const toolbar = `
     <div class="library-toolbar oss-toolbar" id="oss-toolbar">
-      <button type="button" class="library-filter active" data-oss-domain="all">全部领域</button>
-      ${domains.map(d => `<button type="button" class="library-filter" data-oss-domain="${escapeHtml(d.id)}">${escapeHtml(d.label)}</button>`).join('')}
+      <button type="button" class="library-filter ${allActive}" data-oss-domain="all">全部领域</button>
+      ${domains.map(d => {
+        const active = d.id === activeDomain ? 'active' : '';
+        return `<button type="button" class="library-filter ${active}" data-oss-domain="${escapeHtml(d.id)}">${escapeHtml(d.label)} (${d.projects?.length || 0})</button>`;
+      }).join('')}
     </div>
   `;
 
   if (activeDomain === 'all') {
     const blocks = domains.map(domain => {
       const projects = domain.projects || [];
-      if (!projects.length) return '';
+      const color = DOMAIN_COLORS[domain.id] || '';
+      const style = color ? `style="--domain-color:${color}"` : '';
+      const grid = projects.length
+        ? `<div class="oss-grid">${projects.map(p => renderOssCard(p, domain.label, domain.id, ranks.get(p.id))).join('')}</div>`
+        : '<p class="loading-hint">该分类下暂无项目。</p>';
       return `
-        <div class="oss-domain-block" data-oss-block="${escapeHtml(domain.id)}">
+        <div class="oss-domain-block" data-oss-block="${escapeHtml(domain.id)}" ${style}>
           <h4 class="oss-domain-title">${escapeHtml(domain.label)} <span class="oss-domain-desc">${escapeHtml(domain.description || '')}</span></h4>
-          <div class="oss-grid">${projects.map(p => renderOssCard(p, domain.label)).join('')}</div>
+          ${grid}
         </div>
       `;
     }).join('');
@@ -85,10 +111,16 @@ function renderOssByDomain(data, activeDomain = 'all') {
 
   const domain = domains.find(d => d.id === activeDomain);
   if (!domain) return toolbar + '<p class="loading-hint">暂无该领域项目。</p>';
+  const color = DOMAIN_COLORS[domain.id] || '';
+  const style = color ? `style="--domain-color:${color}"` : '';
+  const projects = domain.projects || [];
+  const grid = projects.length
+    ? `<div class="oss-grid">${projects.map(p => renderOssCard(p, domain.label, domain.id, ranks.get(p.id))).join('')}</div>`
+    : '<p class="loading-hint">该分类下暂无项目。</p>';
   return toolbar + `
-    <div class="oss-domain-block">
+    <div class="oss-domain-block" ${style}>
       <h4 class="oss-domain-title">${escapeHtml(domain.label)} <span class="oss-domain-desc">${escapeHtml(domain.description || '')}</span></h4>
-      <div class="oss-grid">${(domain.projects || []).map(p => renderOssCard(p, domain.label)).join('')}</div>
+      ${grid}
     </div>
   `;
 }
@@ -116,7 +148,8 @@ async function loadHomeOssPreview() {
   try {
     const data = await fetchOssData();
     const items = flattenProjects(data);
-    root.innerHTML = renderOssGrid(items, { limit: 6 });
+    const ranks = computeGlobalRanks(data);
+    root.innerHTML = renderOssGrid(items.slice(0, 6), ranks);
     if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
   } catch {
     root.innerHTML = '<p class="loading-hint">开源项目加载失败，请稍后刷新。</p>';
