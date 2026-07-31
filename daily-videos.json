@@ -284,7 +284,23 @@
             }
           ]
         },
-        "youtube_recent_100d": {
+        "bilibili_recent_24h": {
+          "label": "B站：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：30 天内 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_top_views": {
           "label": "YouTube：100 天内 Top 4",
           "window": {
             "days": 100
@@ -349,23 +365,7 @@
             }
           ]
         },
-        "bilibili_recent_24h": {
-          "label": "B站：24 小时内 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_30d": {
-          "label": "B站：30 天内 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_100d": {
+        "bilibili_top_views": {
           "label": "B站：100 天内 Top 4",
           "window": {
             "days": 100
