@@ -2,8 +2,7 @@
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import RankingBoardPanels from '../../components/RankingBoardPanels.astro';
-import VibeCodingCompare from '../../components/VibeCodingCompare.astro';
-import { site, vibeCodingTools } from '../../lib/data';
+import { site } from '../../lib/data';
 import { buildHubRankingBoards, hubRankingMeta, HUB_RANKING_TOP_N } from '../../lib/hub';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
@@ -86,15 +85,14 @@ const rankMeta = hubRankingMeta();
       </p>
     </section>
 
-    <VibeCodingCompare
-      title={vibeCodingTools.title}
-      lead={vibeCodingTools.lead}
-      headers={vibeCodingTools.headers}
-      tools={vibeCodingTools.tools}
-      updated_at={vibeCodingTools.updated_at}
-      source_url={vibeCodingTools.source_url}
-      source_name={vibeCodingTools.source_name}
-    />
+    <section class="page-section" aria-labelledby="vibe-coding-title">
+      <div class="section-head">
+        <h2 class="section-title" id="vibe-coding-title">主流 Vibe Coding 工具对比</h2>
+        <p class="section-desc">
+          查看 <a href="https://www.aicpb.com/ai-rankings/products/vibe-coding-rankings" target="_blank" rel="noopener noreferrer">AICPB AI Vibe Coding Rankings</a> 完整榜单
+        </p>
+      </div>
+    </section>
 
     <section class="ranking-method page-section" aria-label="说明">
       <div class="section-head">
