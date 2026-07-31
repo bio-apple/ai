@@ -6,7 +6,6 @@ const DOMAIN_COLORS = {
   'agent-framework': '#2563eb',
   'inference-framework': '#10b981',
   'vector-db': '#f59e0b',
-  'eval-benchmark': '#f43f5e',
   'local-deployment': '#8b5cf6',
 };
 

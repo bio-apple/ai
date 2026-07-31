@@ -79,12 +79,6 @@
       ]
     },
     {
-      "id": "eval-benchmark",
-      "label": "评测工具",
-      "description": "大模型能力评测与基准测试",
-      "projects": []
-    },
-    {
       "id": "local-deployment",
       "label": "本地部署",
       "description": "本地运行大模型与私有化部署方案",

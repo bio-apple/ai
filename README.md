@@ -1,6 +1,6 @@
 # Bio AI Lab
 
-**AI 工具 · 开源 · 新闻 · 视频** — 国内国际热门工具分类/排行/对比、GitHub Stars 五领域、每周资讯与六类每日视频。
+**AI 工具 · 开源 · 新闻 · 视频** — 国内国际热门工具分类/排行/对比、GitHub Stars 四领域、每周资讯与六类每日视频。
 
 **Website:** https://bio-apple.github.io/ai/
 
@@ -23,7 +23,7 @@
 |------|------|
 | 国内/国际 AI 工具分类、排行与对比 | ✅ |
 | 工具详情教程页 | ✅ |
-| GitHub Stars 开源精选（5 大领域，每领域 ≥0） | ✅ |
+| GitHub Stars 开源精选（4 大领域，每领域 ≥1） | ✅ |
 | 每周 AI 新闻（清单信源 + 关注面板） | ✅ |
 | 每日六类视频（YouTube + B站 100d / 30d / 24h） | ✅ |
 | 站内搜索（Fuse.js） | ✅ |
@@ -66,14 +66,13 @@
 
 ### 3. GitHub Stars 开源精选（每周刷新 Star）
 
-五大应用领域：
+四大应用领域：
 
 | 领域 | 代表项目 |
 |------|----------|
 | Agent 框架 | Dify、AutoGen、LangGraph |
 | 推理框架 | llama.cpp、vLLM |
 | 向量库 | Milvus |
-| 评测工具 | 待补充 |
 | 本地部署 | Ollama、Open WebUI、LocalAI |
 
 ### 4. AI 新闻（每周更新）

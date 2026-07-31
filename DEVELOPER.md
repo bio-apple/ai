@@ -248,7 +248,7 @@ GitHub Stars 开源精选，按 AI 应用领域分组：
 }
 ```
 
-**五大领域**：`agent-framework`、`inference-framework`、`vector-db`、`eval-benchmark`、`local-deployment`。
+**四大领域**：`agent-framework`、`inference-framework`、`vector-db`、`local-deployment`。
 
 维护：编辑 `data/oss-projects.json` 后运行 `python3 scripts/fetch_oss_stars.py` 刷新 Star 数；脚本会同步写入根目录 `oss-projects.json`。优先读取环境变量 `GITHUB_TOKEN` / `GH_TOKEN`（Actions 已注入），避免匿名 API 限流。
 
