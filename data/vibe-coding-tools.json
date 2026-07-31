@@ -1,21 +1,16 @@
 {
   "updated_at": "2026-07-31",
   "title": "主流 Vibe Coding 工具对比",
-  "lead": "覆盖国内外主流 AI 编程工具，从 Cursor、Copilot 到 Trae、通义灵码，帮你按场景选型。",
-  "headers": ["工具", "类型", "基础模型", "核心能力", "中文体验", "免费额度"],
+  "lead": "数据来源 AICPB AI Vibe Coding Rankings（2026-06 访问量） + 国内工具补充，帮你按场景选型。",
+  "source_url": "https://www.aicpb.com/ai-rankings/products/vibe-coding-rankings",
+  "source_name": "AICPB",
+  "headers": ["工具", "AICPB", "类型", "基础模型", "核心能力", "中文体验", "免费额度"],
   "tools": [
     {
-      "name": "Cursor",
-      "type": "IDE",
-      "models": "GPT-5 / Claude 4 / Gemini",
-      "features": "Agent 跨文件、Plan 模式、Rules 固化、Tab 补全",
-      "cn": "一般",
-      "free": "免费版（有限额度）",
-      "url": "https://cursor.com/",
-      "region": "国际"
-    },
-    {
       "name": "GitHub Copilot",
+      "aicpb_rank": 1,
+      "aicpb_visits": "371.18M",
+      "aicpb_mom": "-3.28%",
       "type": "插件",
       "models": "GPT-5 / Claude 4",
       "features": "行级补全、Chat、Agent 模式、PR Review",
@@ -25,7 +20,23 @@
       "region": "国际"
     },
     {
+      "name": "Cursor",
+      "aicpb_rank": 7,
+      "aicpb_visits": "23.18M",
+      "aicpb_mom": "+7.22%",
+      "type": "IDE",
+      "models": "GPT-5 / Claude 4 / Gemini",
+      "features": "Agent 跨文件、Plan 模式、Rules 固化、Tab 补全",
+      "cn": "一般",
+      "free": "免费版（有限额度）",
+      "url": "https://cursor.com/",
+      "region": "国际"
+    },
+    {
       "name": "Windsurf",
+      "aicpb_rank": null,
+      "aicpb_visits": null,
+      "aicpb_mom": null,
       "type": "IDE",
       "models": "Claude / GPT / DeepSeek",
       "features": "Cascade 流式 Agent、多模型切换、Rules",
@@ -36,6 +47,9 @@
     },
     {
       "name": "Cline",
+      "aicpb_rank": null,
+      "aicpb_visits": null,
+      "aicpb_mom": null,
       "type": "插件",
       "models": "多模型 BYOK",
       "features": "VS Code 插件、兼容多种 API、自定义 Prompt",
@@ -46,6 +60,9 @@
     },
     {
       "name": "Trae",
+      "aicpb_rank": null,
+      "aicpb_visits": null,
+      "aicpb_mom": null,
       "type": "IDE",
       "models": "豆包 / DeepSeek",
       "features": "AI IDE（字节）、Builder 模式、中文对话优化",
@@ -56,6 +73,9 @@
     },
     {
       "name": "通义灵码",
+      "aicpb_rank": null,
+      "aicpb_visits": null,
+      "aicpb_mom": null,
       "type": "插件",
       "models": "Qwen 通义",
       "features": "VS Code / JetBrains 插件、单元测试生成、代码审查",
@@ -66,6 +86,9 @@
     },
     {
       "name": "CodeBuddy",
+      "aicpb_rank": null,
+      "aicpb_visits": null,
+      "aicpb_mom": null,
       "type": "插件",
       "models": "混元",
       "features": "腾讯云 AI 代码助手、微信小程序适配",
@@ -76,6 +99,9 @@
     },
     {
       "name": "文心快码",
+      "aicpb_rank": null,
+      "aicpb_visits": null,
+      "aicpb_mom": null,
       "type": "插件",
       "models": "文心",
       "features": "百度 AI 编程助手、对话式编码、代码解释",
@@ -86,6 +112,9 @@
     },
     {
       "name": "豆包 MarsCode",
+      "aicpb_rank": null,
+      "aicpb_visits": null,
+      "aicpb_mom": null,
       "type": "IDE",
       "models": "豆包",
       "features": "云 IDE + 插件、AI 问答、一键部署",
@@ -96,6 +125,9 @@
     },
     {
       "name": "Qwen Code",
+      "aicpb_rank": null,
+      "aicpb_visits": null,
+      "aicpb_mom": null,
       "type": "CLI",
       "models": "Qwen3-Coder",
       "features": "终端 AI Agent、项目级编辑、Git 原生集成",

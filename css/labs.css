@@ -389,6 +389,47 @@ a.hub-compare-link:focus-visible {
   background: rgba(202, 138, 4, 0.12);
 }
 
+.vibe-rank-cell {
+  white-space: nowrap;
+}
+
+.vibe-aicpb-rank {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.82rem;
+  line-height: 1.3;
+}
+
+.vibe-aicpb-rank-num {
+  font-weight: 800;
+  color: var(--text);
+}
+
+.vibe-aicpb-visits {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.vibe-aicpb-mom {
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.vibe-aicpb-mom.is-up {
+  color: #16a34a;
+}
+
+.vibe-aicpb-mom.is-down {
+  color: #dc2626;
+}
+
+.vibe-aicpb-na {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
 @media (max-width: 900px) {
   .community-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));

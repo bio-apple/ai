@@ -8,6 +8,9 @@ interface VibeTool {
   free: string;
   url: string;
   region: string;
+  aicpb_rank: number | null;
+  aicpb_visits: string | null;
+  aicpb_mom: string | null;
 }
 
 interface Props {
@@ -16,9 +19,11 @@ interface Props {
   headers: string[];
   tools: VibeTool[];
   updated_at: string;
+  source_url: string;
+  source_name: string;
 }
 
-const { title, lead, headers, tools, updated_at } = Astro.props;
+const { title, lead, headers, tools, updated_at, source_url, source_name } = Astro.props;
 ---
 
 <section class="vibe-coding-section page-section" aria-labelledby="vibe-coding-title">
@@ -52,6 +57,19 @@ const { title, lead, headers, tools, updated_at } = Astro.props;
                 <span class="hub-compare-type">{tool.region}</span>
               </span>
             </th>
+            <td class="vibe-rank-cell">
+              {tool.aicpb_rank != null ? (
+                <span class="vibe-aicpb-rank">
+                  <span class="vibe-aicpb-rank-num">#{tool.aicpb_rank}</span>
+                  <span class="vibe-aicpb-visits">{tool.aicpb_visits}</span>
+                  <span class:list={['vibe-aicpb-mom', tool.aicpb_mom?.startsWith('+') ? 'is-up' : 'is-down']}>
+                    {tool.aicpb_mom}
+                  </span>
+                </span>
+              ) : (
+                <span class="vibe-aicpb-na">未收录</span>
+              )}
+            </td>
             <td>{tool.type}</td>
             <td>{tool.models}</td>
             <td class="vibe-features-cell">{tool.features}</td>
@@ -68,6 +86,7 @@ const { title, lead, headers, tools, updated_at } = Astro.props;
   </div>
 
   <p class="hub-ranking-footnote">
-    工具信息截至 {updated_at}，以各官网最新公示为准。国内工具无需特殊网络即可使用。
+    排名数据来自 <a href={source_url} target="_blank" rel="noopener noreferrer">{source_name} AI Vibe Coding Rankings</a>（2026-06 月访问量）。
+    国内工具暂未收录于 AICPB，已手动补充。工具信息以各官网最新公示为准。
   </p>
 </section>
