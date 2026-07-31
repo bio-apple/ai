@@ -10,6 +10,15 @@ function escapeHtml(s) {
   d.textContent = s;
   return d.innerHTML;
 }
+window.escapeHtml = escapeHtml;
+
+/** 统一数据加载错误处理：在容器中展示错误提示，并上报分析事件 */
+function handleDataError(root, source) {
+  if (!root) return;
+  root.innerHTML = '<p class="loading-hint error-hint">数据加载失败，请稍后刷新重试。</p>';
+  if (typeof trackEvent === 'function') trackEvent('data_load_error', { source });
+}
+window.handleDataError = handleDataError;
 
 function highlightMatch(text, query) {
   if (!query) return escapeHtml(text);

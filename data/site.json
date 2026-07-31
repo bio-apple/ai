@@ -932,5 +932,6 @@
     "title": "AI 工具中心 | Bio AI Lab",
     "h1": "AI 工具中心",
     "lead": "按助手、编程、写作、图片、视频、音频、办公与 Agent 分类发现工具。"
-  }
+  },
+  "schema_version": 1
 }

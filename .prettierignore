@@ -1,0 +1,14 @@
+dist/
+public/
+node_modules/
+.astro/
+vendor/
+playwright-report/
+test-results/
+*.json
+*.yml
+*.yaml
+*.css
+*.astro
+*.py
+*.html

@@ -22,6 +22,7 @@ const home = homeHref();
   description={guide.lead}
   canonical={`${base}guides/${guide.slug}.html`}
   schema={schema}
+  pageType={`guide-${guide.slug}`}
 >
   <main class="standalone-page">
     <nav class="breadcrumb"><a href={home}>首页</a> / 学习指南 / {guide.h1}</nav>

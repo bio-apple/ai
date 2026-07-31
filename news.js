@@ -7,12 +7,6 @@ const NEWS_CATEGORY_ORDER = ['新模型发布', '新工具上线', '开源项目
 let newsDataPromise = null;
 let newsState = { category: 'all', items: [], watchSources: [] };
 
-function escapeHtml(s) {
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
-}
-
 function formatNewsDateShort(raw) {
   if (!raw) return '';
   const cleaned = String(raw).replace(/\s*分享\s*$/u, '').trim();
@@ -218,8 +212,7 @@ async function loadDailyNews() {
       watchRoot.innerHTML = renderWatchSources(newsState.watchSources);
     }
   } catch (err) {
-    root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
-    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'news-section' });
+    handleDataError(root, 'news-section');
   }
 }
 

@@ -101,12 +101,6 @@ function withCategoryFallback(batches) {
   return { ...latest, categories, _fallback_count: fallbackCount };
 }
 
-function escapeHtml(s) {
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
-}
-
 function formatNumber(n) {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
   if (n >= 10_000) return (n / 10_000).toFixed(1) + '万';
@@ -358,8 +352,7 @@ async function loadDailyVideos() {
     paintVideoList();
     initVideoToolbar();
   } catch (err) {
-    root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
-    if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'videos-section' });
+    handleDataError(root, 'videos-section');
   }
 }
 

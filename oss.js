@@ -4,12 +4,6 @@ const OSS_DATA_URL = (typeof document !== 'undefined' && document.documentElemen
 
 let ossDataPromise = null;
 
-function escapeHtml(s) {
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
-}
-
 function formatStars(n) {
   if (!n) return '—';
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + 'M';
@@ -146,7 +140,7 @@ async function loadOssSection() {
     bindOssToolbar(data);
     if (typeof window.refreshScrollReveal === 'function') window.refreshScrollReveal(root);
   } catch (err) {
-    root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    handleDataError(root, 'oss-section');
   }
 }
 

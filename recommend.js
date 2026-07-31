@@ -28,7 +28,9 @@
     .then((rules) => {
       if (rules) applyRules(rules);
     })
-    .catch(() => {});
+    .catch(() => {
+      if (typeof trackEvent === 'function') trackEvent('data_load_error', { source: 'recommend-rules' });
+    });
 
   function matchOption(query) {
     const q = query.trim().toLowerCase();

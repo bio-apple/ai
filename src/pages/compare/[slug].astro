@@ -18,6 +18,7 @@ const home = homeHref();
   description={compare.meta_description}
   canonical={`${base}compare/${compare.slug}.html`}
   schema={schema}
+  pageType={`compare-${compare.slug}`}
 >
   <main class="standalone-page">
     <nav class="breadcrumb"><a href={home}>首页</a> / 选型指南 / {compare.breadcrumb}</nav>

@@ -27,6 +27,17 @@ jobs:
       - name: Unit tests
         run: npm run test:unit
 
+      - name: Lint JS
+        continue-on-error: true
+        run: npm run lint
+
+      - name: Format check
+        continue-on-error: true
+        run: npm run format
+
+      - name: Security audit
+        run: npm audit --production --audit-level=high
+
       - name: Upload dist preview (PR)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v6

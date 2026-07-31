@@ -14,12 +14,6 @@ const CATEGORY_LABELS = {
 let promptsDataPromise = null;
 let activePromptCategory = 'all';
 
-function escapeHtml(s) {
-  const d = document.createElement('div');
-  d.textContent = s;
-  return d.innerHTML;
-}
-
 function fetchPromptsData() {
   if (!promptsDataPromise) {
     promptsDataPromise = fetch(PROMPTS_DATA_URL, { cache: 'default' })
@@ -29,6 +23,7 @@ function fetchPromptsData() {
       })
       .catch(err => {
         promptsDataPromise = null;
+        handleDataError(null, 'prompts-section');
         throw err;
       });
   }
@@ -131,7 +126,7 @@ async function loadPromptLibrary() {
     renderPromptsList(data, activePromptCategory);
     initPromptFilters();
   } catch (err) {
-    root.innerHTML = `<p class="loading-hint error-hint">${escapeHtml(err.message)}</p>`;
+    handleDataError(root, 'prompts-section');
   }
 }
 
