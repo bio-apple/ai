@@ -12,6 +12,7 @@
     'section-videos': ['videos.js'],
     'section-news': ['news.js'],
     'section-courses': ['courses.js'],
+    'section-oss': ['oss.js'],
   };
 
   const SECTION_DATA = {
@@ -100,9 +101,9 @@
 
   function armNavPrefetch() {
     document
-      .querySelectorAll('[data-tool="videos"], [data-tool="news"], [data-tool="courses"]')
+      .querySelectorAll('[data-tool="videos"], [data-tool="news"], [data-tool="courses"], [data-tool="oss"]')
       .forEach((el) => {
-        const map = { videos: 'section-videos', news: 'section-news', courses: 'section-courses' };
+        const map = { videos: 'section-videos', news: 'section-news', courses: 'section-courses', oss: 'section-oss' };
         const sid = map[el.getAttribute('data-tool')];
         if (!sid) return;
         ['pointerenter', 'focus'].forEach((ev) => {

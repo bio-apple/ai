@@ -50,7 +50,7 @@ const knowledgeBoot = includeKnowledge
 const styleHref = assetVersioned('style.css');
 
 /** 懒加载 Tab 脚本的内容哈希，供 lazy-sections.js 拼 ?v= */
-const LAZY_ASSET_PATHS = ['lib/fetch-json.js', 'videos.js', 'news.js', 'courses.js'] as const;
+const LAZY_ASSET_PATHS = ['lib/fetch-json.js', 'videos.js', 'news.js', 'courses.js', 'oss.js'] as const;
 const lazyAssetVersions = Object.fromEntries(
   LAZY_ASSET_PATHS.map((p) => {
     const href = assetVersioned(p);

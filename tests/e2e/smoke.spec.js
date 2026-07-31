@@ -59,13 +59,12 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-tools')).toHaveCount(0);
     await expect(page.locator('#home-categories')).toHaveCount(0);
     await expect(page.locator('#section-oss')).toHaveCount(1);
-    await expect(page.locator('#section-oss .oss-card-item')).toHaveCount(15);
-    await expect(page.locator('#section-oss .oss-cat-legend li')).toHaveCount(5);
-    await expect(page.locator('#section-oss .oss-chip-agent')).toHaveCount(4); // 3 cards + 1 legend
-    await expect(page.locator('#section-oss .oss-card--inference')).toHaveCount(3);
-    await expect(page.locator('#section-oss .oss-card--vector')).toHaveCount(3);
-    await expect(page.locator('#section-oss .oss-card--eval')).toHaveCount(3);
-    await expect(page.locator('#section-oss .oss-card--local')).toHaveCount(3);
+    await page.locator('.nav-tab', { hasText: '开源精选' }).click();
+    await expect(page.locator('#section-oss')).toHaveClass(/active/);
+    await expect(page.locator('#oss-toolbar .video-filter').first()).toBeVisible();
+    await expect(page.locator('#oss-list .oss-card-item').first()).toBeVisible();
+    const ossCards = page.locator('#oss-list .oss-card-item');
+    await expect(ossCards).toHaveCount(15);
     await expect(page.locator('#home-favorites')).toHaveCount(0);
     await expect(page.locator('#home-learning')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toBeVisible();
