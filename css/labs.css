@@ -348,6 +348,33 @@ a.hub-compare-link:focus-visible {
   margin-top: 16px;
 }
 
+/* vibe coding Top 10 */
+
+.vibe-coding-section {
+  margin-bottom: 0;
+}
+
+.vibe-rank-num {
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.vibe-mom {
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.vibe-mom.is-up {
+  color: #16a34a;
+}
+
+.vibe-mom.is-down {
+  color: #dc2626;
+}
+
 @media (max-width: 900px) {
   .community-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
