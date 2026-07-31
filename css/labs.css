@@ -348,6 +348,47 @@ a.hub-compare-link:focus-visible {
   margin-top: 16px;
 }
 
+/* vibe coding 工具对比 */
+
+.vibe-coding-section {
+  margin-bottom: 0;
+}
+
+.vibe-coding-table tbody td {
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.vibe-features-cell {
+  max-width: 220px;
+}
+
+.vibe-free-cell {
+  white-space: nowrap;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.vibe-cn-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.vibe-cn-badge.is-good {
+  color: #16a34a;
+  background: rgba(22, 163, 74, 0.1);
+}
+
+.vibe-cn-badge.is-ok {
+  color: #ca8a04;
+  background: rgba(202, 138, 4, 0.12);
+}
+
 @media (max-width: 900px) {
   .community-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));

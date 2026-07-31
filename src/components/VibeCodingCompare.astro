@@ -1,0 +1,73 @@
+---
+interface VibeTool {
+  name: string;
+  type: string;
+  models: string;
+  features: string;
+  cn: string;
+  free: string;
+  url: string;
+  region: string;
+}
+
+interface Props {
+  title: string;
+  lead: string;
+  headers: string[];
+  tools: VibeTool[];
+  updated_at: string;
+}
+
+const { title, lead, headers, tools, updated_at } = Astro.props;
+---
+
+<section class="vibe-coding-section page-section" aria-labelledby="vibe-coding-title">
+  <div class="section-head">
+    <h2 class="section-title" id="vibe-coding-title">{title}</h2>
+    <p class="section-desc">{lead} · 更新于 {updated_at}</p>
+  </div>
+
+  <div class="hub-compare-wrap">
+    <table class="hub-compare-table vibe-coding-table">
+      <thead>
+        <tr>
+          {headers.map((h) => <th>{h}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {tools.map((tool) => (
+          <tr>
+            <th>
+              <span class="hub-compare-name">
+                <a
+                  href={tool.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="hub-compare-link"
+                  data-track="vibe-coding-click"
+                  data-tool={tool.name}
+                >
+                  {tool.name}
+                </a>
+                <span class="hub-compare-type">{tool.region}</span>
+              </span>
+            </th>
+            <td>{tool.type}</td>
+            <td>{tool.models}</td>
+            <td class="vibe-features-cell">{tool.features}</td>
+            <td>
+              <span class:list={['vibe-cn-badge', tool.cn === '优秀' ? 'is-good' : 'is-ok']}>
+                {tool.cn}
+              </span>
+            </td>
+            <td class="vibe-free-cell">{tool.free}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <p class="hub-ranking-footnote">
+    工具信息截至 {updated_at}，以各官网最新公示为准。国内工具无需特殊网络即可使用。
+  </p>
+</section>

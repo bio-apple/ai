@@ -3,10 +3,11 @@ import tools from '../../data/tools.json';
 import compares from '../../data/compares.json';
 import rankings from '../../data/rankings.json';
 import toolRelations from '../../data/tool-relations.json';
+import vibeCodingTools from '../../data/vibe-coding-tools.json';
 import { asset } from './paths';
 
 export const BRAND = 'Bio AI Lab';
-export { site, tools, compares, rankings, toolRelations };
+export { site, tools, compares, rankings, toolRelations, vibeCodingTools };
 
 export type Tool = (typeof tools)[number];
 export type Compare = (typeof compares)[number];

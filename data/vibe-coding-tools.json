@@ -1,0 +1,108 @@
+{
+  "updated_at": "2026-07-31",
+  "title": "主流 Vibe Coding 工具对比",
+  "lead": "覆盖国内外主流 AI 编程工具，从 Cursor、Copilot 到 Trae、通义灵码，帮你按场景选型。",
+  "headers": ["工具", "类型", "基础模型", "核心能力", "中文体验", "免费额度"],
+  "tools": [
+    {
+      "name": "Cursor",
+      "type": "IDE",
+      "models": "GPT-5 / Claude 4 / Gemini",
+      "features": "Agent 跨文件、Plan 模式、Rules 固化、Tab 补全",
+      "cn": "一般",
+      "free": "免费版（有限额度）",
+      "url": "https://cursor.com/",
+      "region": "国际"
+    },
+    {
+      "name": "GitHub Copilot",
+      "type": "插件",
+      "models": "GPT-5 / Claude 4",
+      "features": "行级补全、Chat、Agent 模式、PR Review",
+      "cn": "一般",
+      "free": "免费版 / Pro $10/月",
+      "url": "https://github.com/features/copilot",
+      "region": "国际"
+    },
+    {
+      "name": "Windsurf",
+      "type": "IDE",
+      "models": "Claude / GPT / DeepSeek",
+      "features": "Cascade 流式 Agent、多模型切换、Rules",
+      "cn": "一般",
+      "free": "免费版 / Pro $15/月",
+      "url": "https://codeium.com/windsurf",
+      "region": "国际"
+    },
+    {
+      "name": "Cline",
+      "type": "插件",
+      "models": "多模型 BYOK",
+      "features": "VS Code 插件、兼容多种 API、自定义 Prompt",
+      "cn": "一般",
+      "free": "免费（自备 API Key）",
+      "url": "https://github.com/cline/cline",
+      "region": "国际"
+    },
+    {
+      "name": "Trae",
+      "type": "IDE",
+      "models": "豆包 / DeepSeek",
+      "features": "AI IDE（字节）、Builder 模式、中文对话优化",
+      "cn": "优秀",
+      "free": "免费",
+      "url": "https://www.trae.ai/",
+      "region": "国内"
+    },
+    {
+      "name": "通义灵码",
+      "type": "插件",
+      "models": "Qwen 通义",
+      "features": "VS Code / JetBrains 插件、单元测试生成、代码审查",
+      "cn": "优秀",
+      "free": "免费",
+      "url": "https://tongyi.aliyun.com/lingma",
+      "region": "国内"
+    },
+    {
+      "name": "CodeBuddy",
+      "type": "插件",
+      "models": "混元",
+      "features": "腾讯云 AI 代码助手、微信小程序适配",
+      "cn": "优秀",
+      "free": "免费",
+      "url": "https://copilot.tencent.com/",
+      "region": "国内"
+    },
+    {
+      "name": "文心快码",
+      "type": "插件",
+      "models": "文心",
+      "features": "百度 AI 编程助手、对话式编码、代码解释",
+      "cn": "优秀",
+      "free": "免费",
+      "url": "https://comate.baidu.com/",
+      "region": "国内"
+    },
+    {
+      "name": "豆包 MarsCode",
+      "type": "IDE",
+      "models": "豆包",
+      "features": "云 IDE + 插件、AI 问答、一键部署",
+      "cn": "优秀",
+      "free": "免费",
+      "url": "https://www.marscode.cn/",
+      "region": "国内"
+    },
+    {
+      "name": "Qwen Code",
+      "type": "CLI",
+      "models": "Qwen3-Coder",
+      "features": "终端 AI Agent、项目级编辑、Git 原生集成",
+      "cn": "优秀",
+      "free": "开源 / 免费",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "region": "国内"
+    }
+  ]
+}

@@ -2,7 +2,8 @@
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import RankingBoardPanels from '../../components/RankingBoardPanels.astro';
-import { site } from '../../lib/data';
+import VibeCodingCompare from '../../components/VibeCodingCompare.astro';
+import { site, vibeCodingTools } from '../../lib/data';
 import { buildHubRankingBoards, hubRankingMeta, HUB_RANKING_TOP_N } from '../../lib/hub';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
@@ -84,6 +85,14 @@ const rankMeta = hubRankingMeta();
         <a href={asset('ai-tools-ranking.html')}>站内排行榜页</a>。
       </p>
     </section>
+
+    <VibeCodingCompare
+      title={vibeCodingTools.title}
+      lead={vibeCodingTools.lead}
+      headers={vibeCodingTools.headers}
+      tools={vibeCodingTools.tools}
+      updated_at={vibeCodingTools.updated_at}
+    />
 
     <section class="ranking-method page-section" aria-label="说明">
       <div class="section-head">
