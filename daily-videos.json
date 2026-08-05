@@ -145,9 +145,136 @@
     "youtube:Wq-zQM8NbfI",
     "youtube:WrMt6T8yu18",
     "youtube:VeWf0l4ci6Y",
-    "youtube:nExo3f75EAs"
+    "youtube:nExo3f75EAs",
+    "bilibili:BV1tqM66UErZ"
   ],
   "batches": [
+    {
+      "date": "2026-08-06",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 10,
+        "video_categories": {
+          "youtube_recent_24h": {
+            "label": "YouTube：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "youtube_recent_30d": {
+            "label": "YouTube：30 天内 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "youtube_recent_100d": {
+            "label": "YouTube：100 天内 Top 4",
+            "window": {
+              "days": 100
+            },
+            "top_count": 4,
+            "min_views": 10000
+          },
+          "bilibili_recent_24h": {
+            "label": "B站：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：30 天内 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_100d": {
+            "label": "B站：100 天内 Top 4",
+            "window": {
+              "days": 100
+            },
+            "top_count": 4,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_24h": {
+          "label": "YouTube：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_recent_30d": {
+          "label": "YouTube：30 天内 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_recent_100d": {
+          "label": "YouTube：100 天内 Top 4",
+          "window": {
+            "days": 100
+          },
+          "top_count": 4,
+          "videos": []
+        },
+        "bilibili_recent_24h": {
+          "label": "B站：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1tqM66UErZ",
+              "platform": "bilibili",
+              "title": "同事炒股亏了 29 万，我用 AI 找到了背后的原因！",
+              "summary": "我的同事炒股亏了钱，我把4年的交易记录，10672行数据交给AI，试图还原29万亏损背后的真实原因。 最后我发现，所有指标都是马后炮，唯有人性，才是账户里最难止损的变量。",
+              "url": "https://www.bilibili.com/video/BV1tqM66UErZ",
+              "thumbnail": "video-thumbs/bilibili/BV1tqM66UErZ.jpg",
+              "channel": "如何评价_AI",
+              "subscribers": 0,
+              "views": 207917,
+              "duration": "5:35",
+              "max_height": 720,
+              "published_at": "2026-08-05T17:00:00+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：30 天内 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_100d": {
+          "label": "B站：100 天内 Top 4",
+          "window": {
+            "days": 100
+          },
+          "top_count": 4,
+          "videos": []
+        }
+      }
+    },
     {
       "date": "2026-07-30",
       "timezone": "Asia/Shanghai",
@@ -4140,5 +4267,5 @@
       }
     }
   ],
-  "updated_at": "2026-07-30T01:06:20.439174+08:00"
+  "updated_at": "2026-08-06T01:29:00.195301+08:00"
 }
