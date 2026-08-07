@@ -146,9 +146,136 @@
     "youtube:WrMt6T8yu18",
     "youtube:VeWf0l4ci6Y",
     "youtube:nExo3f75EAs",
-    "bilibili:BV1tqM66UErZ"
+    "bilibili:BV1tqM66UErZ",
+    "youtube:6lc-ZY4tzl4"
   ],
   "batches": [
+    {
+      "date": "2026-08-08",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 10,
+        "video_categories": {
+          "youtube_recent_24h": {
+            "label": "YouTube：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "youtube_recent_30d": {
+            "label": "YouTube：30 天内 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "youtube_recent_100d": {
+            "label": "YouTube：100 天内 Top 4",
+            "window": {
+              "days": 100
+            },
+            "top_count": 4,
+            "min_views": 10000
+          },
+          "bilibili_recent_24h": {
+            "label": "B站：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：30 天内 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_100d": {
+            "label": "B站：100 天内 Top 4",
+            "window": {
+              "days": 100
+            },
+            "top_count": 4,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_24h": {
+          "label": "YouTube：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_recent_30d": {
+          "label": "YouTube：30 天内 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_recent_100d": {
+          "label": "YouTube：100 天内 Top 4",
+          "window": {
+            "days": 100
+          },
+          "top_count": 4,
+          "videos": [
+            {
+              "id": "youtube:6lc-ZY4tzl4",
+              "platform": "youtube",
+              "title": "Claude AI Tutorial for Beginners (2026) — Step-by-Step Guide - Claude Ai Full Course",
+              "summary": "🚀 Want to learn Claude AI from scratch",
+              "url": "https://www.youtube.com/watch?v=6lc-ZY4tzl4",
+              "thumbnail": "https://i.ytimg.com/vi/6lc-ZY4tzl4/sddefault.jpg",
+              "channel": "WebbyFans",
+              "subscribers": 168000,
+              "views": 14432,
+              "duration": "31:57",
+              "max_height": 360,
+              "published_at": "2026-07-01T00:00:00+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_24h": {
+          "label": "B站：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：30 天内 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_100d": {
+          "label": "B站：100 天内 Top 4",
+          "window": {
+            "days": 100
+          },
+          "top_count": 4,
+          "videos": []
+        }
+      }
+    },
     {
       "date": "2026-08-06",
       "timezone": "Asia/Shanghai",
@@ -4267,5 +4394,5 @@
       }
     }
   ],
-  "updated_at": "2026-08-06T01:29:00.195301+08:00"
+  "updated_at": "2026-08-08T00:50:24.859148+08:00"
 }
