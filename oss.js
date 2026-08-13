@@ -23,13 +23,7 @@ function formatStars(n) {
 }
 
 function uniqueCategories(items) {
-  return [
-    ...new Set(
-      (items || [])
-        .map((i) => i.category)
-        .filter(Boolean),
-    ),
-  ];
+  return [...new Set((items || []).map((i) => i.category).filter(Boolean))];
 }
 
 function filterOssItems(items) {
@@ -109,7 +103,7 @@ function renderToolbar(items) {
 
   const catHtml = categories
     .map((c) => {
-      const label = c === 'all' ? '全部类别' : (OSS_CATEGORY_LABELS[c] || c);
+      const label = c === 'all' ? '全部类别' : OSS_CATEGORY_LABELS[c] || c;
       const count = c === 'all' ? items.length : items.filter((i) => i.category === c).length;
       const active = ossState.category === c;
       return `<button type="button" class="video-filter${active ? ' active' : ''}" data-oss-category="${html(c)}" aria-pressed="${active}">${html(label)} · ${count}</button>`;
@@ -168,7 +162,9 @@ function initOssSection() {
   try {
     const raw = document.getElementById('oss-data');
     if (!raw) {
-      list.innerHTML = '<p class="loading-hint error-hint">数据未加载，请刷新页面后重试。</p>';
+      if (!list.querySelector('[data-ssr-oss], .oss-card-item')) {
+        list.innerHTML = '<p class="loading-hint error-hint">数据未加载，请刷新页面后重试。</p>';
+      }
       return;
     }
     const data = JSON.parse(raw.textContent || '[]');

@@ -26,9 +26,10 @@
   --radius-lg: 18px;
   --shadow: 0 4px 20px rgba(30, 50, 100, 0.08);
   --shadow-hover: 0 8px 28px rgba(30, 50, 100, 0.12);
-  /* 系统中文优先出字，Outfit / Noto 异步增强（见 layouts 字体加载） */
+  /* 系统中文优先出字（见 FontLoader / layouts） */
   --font-sans:
-    'Outfit', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', 'Noto Sans SC', sans-serif;
 }
 
 * {

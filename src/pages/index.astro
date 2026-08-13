@@ -4,41 +4,16 @@ import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
 import HomeOps from '../components/HomeOps.astro';
 import GlobalSearch from '../components/GlobalSearch.astro';
-import HomeQuickFilters from '../components/HomeQuickFilters.astro';
-import Breadcrumb from '../components/Breadcrumb.astro';
 import HomeAiMap from '../components/HomeAiMap.astro';
 import { site } from '../lib/data';
 import { buildHomeSchema, buildCoursesSchema, mergeSchemaGraphs } from '../lib/schema';
-import { asset, homeHref } from '../lib/paths';
+import { asset } from '../lib/paths';
 import coursesPayload from '../../ai-courses.json';
-
-const homeCrumb = { label: '首页', href: homeHref(), tool: 'all' };
 
 const schema = mergeSchemaGraphs(
   buildHomeSchema(site),
-  buildCoursesSchema(coursesPayload, site.meta.canonical),
+  buildCoursesSchema(coursesPayload, `${site.meta.base_url}courses.html`),
 );
-const OSS_CATEGORY_LABELS: Record<string, string> = {
-  agent: 'Agent 框架',
-  inference: '推理框架',
-  vector: '向量库',
-  eval: '评测工具',
-  local: '本地部署',
-};
-const OSS_CATEGORY_ORDER = ['agent', 'inference', 'vector', 'eval', 'local'] as const;
-const OSS_FRAMEWORKS = site.oss_frameworks || [];
-const openSourceItems = OSS_FRAMEWORKS.map((fw) => {
-  const category = 'category' in fw && fw.category ? String(fw.category) : 'agent';
-  return {
-    repo: fw.repo,
-    name: fw.name,
-    stars: Number(fw.stars || 0),
-    summary: 'summary' in fw && fw.summary ? String(fw.summary) : '',
-    category,
-    categoryLabel: OSS_CATEGORY_LABELS[category] || '开源项目',
-    url: `https://github.com/${fw.repo}`,
-  };
-}).sort((a, b) => b.stars - a.stars);
 const faqItems = site.faq || [];
 ---
 
@@ -47,18 +22,7 @@ const faqItems = site.faq || [];
   description={site.meta.description}
   canonical={site.meta.canonical}
   schema={schema}
-  scripts={[
-    'vendor/fuse.min.js',
-    'funnel.js',
-    'analytics.js',
-    'lib/link-guard.js',
-    'lib/virtual-list.js',
-    'ux.js',
-    'app.js',
-    'recommend.js',
-    'engagement.js',
-    'lazy-sections.js',
-  ]}
+  scripts={['lib/link-guard.js', 'ux.js', 'app.js']}
   includeKnowledge={true}
 >
   <section id="section-home" class="section active">
@@ -81,22 +45,19 @@ const faqItems = site.faq || [];
             class="cta-btn"
             data-track="hero-cta-primary">{site.hero.cta_primary?.label || '获取 AI 推荐'}</a
           >
-        </div>
-        <p class="hero-secondary-link">
           <a
             href={asset(site.hero.cta_secondary?.href || 'tools/hub.html')}
-            data-track="hero-cta-nav">{site.hero.cta_secondary?.label || '浏览工具中心'} →</a
+            class="cta-btn cta-btn-outline"
+            data-track="hero-cta-nav">{site.hero.cta_secondary?.label || '浏览工具中心'}</a
           >
-        </p>
+        </div>
         <GlobalSearch variant="hero" />
-        <HomeQuickFilters />
       </div>
     </div>
 
     <div class="home-main">
       <HomeRecommend />
       <HomeAiDaily />
-      <HomeAiMap />
 
       <section
         class="home-section fade-in"
@@ -114,16 +75,37 @@ const faqItems = site.faq || [];
             <span>AICPB / LMSYS / AA 三榜 Top 10。</span>
             <em class="community-card-cta">浏览工具 →</em>
           </a>
-          <a
-            href="#section-oss"
-            class="community-card"
-            data-goto="oss"
-            data-track="home-community-oss"
-          >
+          <a href={asset('oss.html')} class="community-card" data-track="home-community-oss">
             <span class="community-card-kicker">开源</span>
             <strong>开源精选</strong>
             <span>Agent、推理、向量库、评测与本地部署精选仓库。</span>
             <em class="community-card-cta">查看精选 →</em>
+          </a>
+          <a
+            href={asset('courses.html')}
+            class="community-card"
+            data-track="home-community-courses"
+          >
+            <span class="community-card-kicker">课程</span>
+            <strong>AI 课程资源</strong>
+            <span>微软、谷歌与斯坦福免费公开课。</span>
+            <em class="community-card-cta">打开课程 →</em>
+          </a>
+          <a
+            href={asset('news/daily-ai-news.html')}
+            class="community-card"
+            data-track="home-community-news"
+          >
+            <span class="community-card-kicker">资讯</span>
+            <strong>AI 新闻热点</strong>
+            <span>当前时刻往前 7×24 小时，日更抓取。</span>
+            <em class="community-card-cta">阅读新闻 →</em>
+          </a>
+          <a href={asset('videos.html')} class="community-card" data-track="home-community-videos">
+            <span class="community-card-kicker">视频</span>
+            <strong>热门 AI 视频</strong>
+            <span>YouTube / B站分桶日更推荐。</span>
+            <em class="community-card-cta">观看视频 →</em>
           </a>
           <a
             href={asset('ai-learning-roadmap.html')}
@@ -159,129 +141,12 @@ const faqItems = site.faq || [];
         )
       }
 
-      <HomeOps />
-    </div>
-  </section>
+      <details class="home-section fade-in home-ops-details" id="home-ops-wrap">
+        <summary class="home-ops-summary">今日热度（可选查看）</summary>
+        <HomeOps />
+      </details>
 
-  <section id="section-oss" class="section oss-section">
-    <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载开源精选。</p></noscript>
-    <div class="section-panel">
-      <Breadcrumb crumbs={[homeCrumb, { label: '开源精选' }]} />
-      <div class="tool-header">
-        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">◎</div>
-        <div>
-          <h2>开源精选</h2>
-          <p class="desc" id="oss-lead">Agent · 推理 · 向量库 · 评测 · 本地部署——按 Star 排序的多元开源清单。</p>
-          <p class="video-update-meta" id="oss-update-meta"></p>
-        </div>
-      </div>
-      <div class="video-toolbar" id="oss-toolbar"></div>
-      <div id="oss-list" class="oss-list">
-        <p class="loading-hint">加载开源精选…</p>
-      </div>
-      <script type="application/json" id="oss-data" set:html={JSON.stringify(openSourceItems)}></script>
-    </div>
-  </section>
-
-  <section id="section-courses" class="section courses-section">
-    <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载课程资源。</p></noscript>
-    <div class="section-panel">
-      <Breadcrumb crumbs={[homeCrumb, { label: '课程资源' }]} />
-      <div class="tool-header">
-        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📚</div>
-        <div>
-          <h2>AI 课程资源</h2>
-          <p class="desc" id="courses-lead">
-            按学习路线精选免费课：微软与谷歌入门，斯坦福 CS230 / CS231n / CS224n / CS336（YouTube
-            最新学年讲座 + 官网）。
-          </p>
-          <p class="video-update-meta" id="courses-update-meta"></p>
-        </div>
-      </div>
-      <div class="video-toolbar" id="courses-toolbar"></div>
-      <div id="courses-list" class="courses-list">
-        <p class="loading-hint">加载课程资源…</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="section-news" class="section">
-    <div class="section-panel">
-      <Breadcrumb crumbs={[homeCrumb, { label: '新闻热点' }]} />
-      <div class="tool-header">
-        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">📰</div>
-        <div>
-          <h2>一周内 AI 热点</h2>
-          <p class="desc">近 7 天热点，按分类浏览。</p>
-          <p class="video-update-meta" id="news-update-meta"></p>
-        </div>
-      </div>
-      <div id="daily-news-list" class="news-list">
-        <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载新闻。</p></noscript>
-        <p class="loading-hint">加载 AI 新闻…</p>
-      </div>
-      <div id="news-watch-sources" class="news-watch-sources"></div>
-      <div class="section-cta">
-        <a href={asset('news/daily-ai-news.html')} class="cta-btn cta-btn-outline"
-          >查看新闻归档页 →</a
-        >
-      </div>
-    </div>
-  </section>
-
-  <section id="section-videos" class="section videos-section">
-    <div class="section-panel">
-      <Breadcrumb crumbs={[homeCrumb, { label: 'AI 视频' }]} />
-      <div class="tool-header">
-        <div class="tool-icon" style="background:rgba(37,99,235,0.12);color:var(--accent)">▶</div>
-        <div>
-          <h2>近期热门AI视频推荐</h2>
-          <p class="desc">
-            YouTube 与 B站分别：24 小时 Top3、30 天 Top3、100 天 Top4，每平台最多 10
-            条，按播放量排序，日更。
-          </p>
-          <p class="video-update-meta" id="video-update-meta"></p>
-        </div>
-      </div>
-      <div class="video-toolbar" id="video-toolbar">
-        <div class="video-toolbar-group" role="group" aria-label="视频平台">
-          <span class="video-toolbar-label" id="video-platform-label">平台</span>
-          <button
-            type="button"
-            class="video-filter active"
-            data-video-platform="all"
-            aria-pressed="true">全部</button
-          >
-          <button
-            type="button"
-            class="video-filter"
-            data-video-platform="youtube"
-            aria-pressed="false">YouTube</button
-          >
-          <button
-            type="button"
-            class="video-filter"
-            data-video-platform="bilibili"
-            aria-pressed="false">B站</button
-          >
-        </div>
-        <div class="video-toolbar-group" role="group" aria-label="视频排序">
-          <span class="video-toolbar-label" id="video-sort-label">排序</span>
-          <button
-            type="button"
-            class="video-sort active"
-            data-video-sort="views"
-            aria-pressed="true">热门</button
-          >
-          <button type="button" class="video-sort" data-video-sort="recent" aria-pressed="false"
-            >最新</button
-          >
-        </div>
-      </div>
-      <div id="daily-video-list" class="daily-video-list">
-        <noscript><p class="loading-hint error-hint">请启用 JavaScript 以加载视频。</p></noscript>
-        <p class="loading-hint">加载视频推荐…</p>
-      </div>
+      <HomeAiMap />
     </div>
   </section>
 </HomeLayout>

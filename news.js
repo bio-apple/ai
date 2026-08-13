@@ -3,7 +3,14 @@ const NEWS_JSON = 'ai-news.json';
 const NEWS_CATEGORY_ORDER = ['新模型发布', '新工具上线', '开源项目', '行业新闻', '中文资讯'];
 
 let newsDataPromise = null;
-let newsState = { category: 'all', window: 'week', items: [], watchSources: [] };
+let newsState = {
+  category: 'all',
+  window: 'week',
+  items: [],
+  watchSources: [],
+  /** 滚动窗口小时数；默认 7×24，可由 ai-news.json.window_hours 覆盖 */
+  windowHours: 7 * 24,
+};
 
 function parseNewsTime(raw) {
   if (!raw) return 0;
@@ -13,16 +20,19 @@ function parseNewsTime(raw) {
 
 function filterByTimeWindow(items, window) {
   if (window === 'today') {
-    const start = new Date();
-    start.setHours(0, 0, 0, 0);
-    const t0 = start.getTime();
-    return (items || []).filter((i) => parseNewsTime(i.published_at) >= t0);
+    // 近 24 小时（滚动），与「日」日历日对齐需求不同：产品定义用滚动窗
+    const cutoff = Date.now() - 24 * 60 * 60 * 1000;
+    return (items || []).filter((i) => {
+      const t = parseNewsTime(i.published_at);
+      return t >= cutoff;
+    });
   }
-  // week（默认）：近 7 天
-  const cutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  // week（默认）：从当前时刻往前 windowHours（默认 7×24）小时
+  const hours = Number(newsState.windowHours) > 0 ? Number(newsState.windowHours) : 7 * 24;
+  const cutoff = Date.now() - hours * 60 * 60 * 1000;
   return (items || []).filter((i) => {
     const t = parseNewsTime(i.published_at);
-    return !t || t >= cutoff;
+    return t >= cutoff;
   });
 }
 
@@ -308,8 +318,8 @@ function renderNewsToolbar(itemsInWindow) {
     })
     .join('');
   const timeButtons = [
-    { id: 'today', label: '今日' },
-    { id: 'week', label: '本周' },
+    { id: 'today', label: '近 24h' },
+    { id: 'week', label: '近 7×24h' },
   ]
     .map((t) => {
       const active = newsState.window === t.id;
@@ -397,22 +407,30 @@ async function loadDailyNews() {
   const watchRoot = document.getElementById('news-watch-sources');
   if (!root) return;
 
-  root.innerHTML = '<p class="loading-hint">加载 AI 新闻…</p>';
+  const hasSsr = Boolean(root.querySelector('[data-ssr-news]'));
+  if (!hasSsr) {
+    root.innerHTML = '<p class="loading-hint">加载 AI 新闻…</p>';
+  }
 
   try {
     const data = await fetchNewsData();
     newsState.items = dedupeNewsItems(data.items || []);
     newsState.watchSources = data.watch_sources || [];
     newsState.category = 'all';
+    if (Number(data.window_hours) > 0) {
+      newsState.windowHours = Number(data.window_hours);
+    } else if (Number(data.window_days) > 0) {
+      newsState.windowHours = Number(data.window_days) * 24;
+    }
     if (!newsState.items.length) {
       root.innerHTML = '<p class="loading-hint">暂无新闻数据。</p>';
       return;
     }
     if (meta && data.updated_at) {
       const updated = new Date(data.updated_at);
-      const windowDays = Number(data.window_days) > 0 ? Number(data.window_days) : 7;
-      const stamp = updated.toLocaleDateString('zh-CN', { timeZone: 'Asia/Shanghai' });
-      meta.textContent = `一周内热点 · 每天更新 · 近 ${windowDays} 天 · ${stamp} · ${newsState.items.length} 条`;
+      const hours = Number(newsState.windowHours) > 0 ? Number(newsState.windowHours) : 7 * 24;
+      const stamp = updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
+      meta.textContent = `滚动近 ${hours} 小时（${hours / 24}×24h）· 日更 · 更新于 ${stamp} · ${newsState.items.length} 条`;
     }
     paintNewsList();
     if (watchRoot) {

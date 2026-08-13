@@ -49,12 +49,12 @@ flowchart TB
 
 ## 2. 定时任务一览（北京时间）
 
-| 工作流                                                                                   | Cron（北京）                      | 说明                                                                |
-| ---------------------------------------------------------------------------------------- | --------------------------------- | ------------------------------------------------------------------- |
-| [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) | 每日 **00:00**                    | **串行**刷新：视频 → 课程 → 排行 → 一次推送/部署 → 死链（不含新闻） |
-| [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)       | **07:30 / 10:00 / 12:00 / 20:00** | 新闻热点多档刷新并派发 Deploy                                       |
-| [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)     | 每日 **08:00 / 20:00**            | 线上 JSON 新鲜度探针（不改数据）                                    |
-| `daily-videos.yml` / `daily-courses.yml` / `daily-rankings.yml` / `daily-link-check.yml` | 无 cron（仅手动）                 | 单频道救急重跑                                                      |
+| 工作流                                                                                    | Cron（北京）                      | 说明                                          |
+| ----------------------------------------------------------------------------------------- | --------------------------------- | --------------------------------------------- |
+| [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml) 等 | 北京 00:00–03:00 分频道           | 视频 / 新闻 / 课程 / 排行独立日更并派发 Pages |
+| [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)        | **07:30 / 10:00 / 12:00 / 20:00** | 新闻热点多档刷新并派发 Deploy                 |
+| [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)      | 每日 **08:00 / 20:00**            | 线上 JSON 新鲜度探针（不改数据）              |
+| `daily-videos.yml` / `daily-courses.yml` / `daily-rankings.yml` / `daily-link-check.yml`  | 无 cron（仅手动）                 | 单频道救急重跑                                |
 
 > `daily-refresh` 在 **00:00** 串行编排（不含新闻）：上一频道抓取并本地 commit 完成后，才开始下一频道。  
 > **搜索索引**在每次 `npm run build`（prebuild）由 `build-artifacts.mjs` 重新生成，无需单独抓取。
@@ -67,7 +67,7 @@ flowchart TB
 
 | 角色            | 职责                                                                                  | 落点                                       |
 | --------------- | ------------------------------------------------------------------------------------- | ------------------------------------------ |
-| **数据 / 后端** | 00:00 串行三频道 + 新闻多档（07:30/10:00/12:00/20:00）；频道失败 → job hard-fail      | `daily-refresh.yml` / `daily-news.yml`     |
+| **数据 / 后端** | 分频道日更（视频/新闻/课程/排行）；频道失败 → job hard-fail                           | `daily-*.yml`                              |
 | **前端工程**    | 提交前 `prettier --write` 日更 JSON，避免 Deploy Prettier 门禁卡死次日数据            | 各频道 Commit 步骤                         |
 | **DevOps**      | push 后 **带重试** 派发 `deploy.yml`；rebase 防非快进丢提交                           | Push + Trigger Pages deploy                |
 | **QA / 探针**   | 北京 08:00 / 20:00 查线上 videos/news/courses 新鲜度 ≤2 天                            | `site-health.yml` + `check_site_health.py` |
@@ -419,14 +419,14 @@ CI 仍会通过 `report_fetch_metrics.py` 告警，但**不会因单次 API 抖�
 ### 9.1 告警怎么处理
 
 1. **首页 / JSON 404** → 查 [CI](https://github.com/bio-apple/ai/actions/workflows/ci.yml) / [Deploy](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) → 本地 `npm run build && DIST=dist python3 scripts/validate_ci.py` → 重部署
-2. **多频道过期 / 串行日更失败** → 查 [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml)（北京 00:00 串行）→ 可手动 **Run workflow** 重跑全链路。仅 lychee 软告警时：数据应已上线，修外链即可
+2. **多频道过期 / 串行日更失败** → 分别重跑 [daily-videos](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml) / [daily-news](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml) / [daily-courses](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml) / [daily-rankings](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)。死链见 weekly-link-check
 3. **仓库已更新但线上仍昨日** → 确认 `deploy.yml` 是否被派发成功（`GITHUB_TOKEN` push **不会**自动触发 Deploy）→ 手动 Run [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)
 4. **视频仍显示昨日** → 确认 `main` 上 `daily-videos.json` 的 `batches[0].date`；仅视频坏 → [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（`force=true`）
    - YouTube 全空：配置 **`YOUTUBE_API_KEY`** 后重跑
 5. **新闻过期** → [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)（定时北京 **07:30 / 10:00 / 12:00 / 20:00**；可手动 Run）
 6. **课程资源异常** → [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)
 7. **排行榜异常** → [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)
-8. **Dead Link 告警** → [daily-refresh.yml](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) artifact（或手动 [daily-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/daily-link-check.yml)）；不阻断日更上线
+8. **Dead Link 告警** → [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml)；不阻断日更上线
 9. **Deploy Prettier 失败** → 日更已在提交前格式化；若仍失败，本地 `npx prettier --write <json>` 后 push
 
 ### 9.2 死链：用户侧 vs 日检
@@ -451,7 +451,10 @@ DIST=dist python3 scripts/validate_ci.py courses
 
 ### 9.4 工作流快捷入口
 
-- [Daily Content Refresh（00:00 串行）](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml)
+- [Daily news](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)
+- [Daily videos](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)
+- [Daily courses](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)
+- [Daily rankings](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)
 - [Daily videos](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（手动）
 - [Daily news](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)（**07:30 / 10:00 / 12:00 / 20:00** / 手动）
 - [Daily courses](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)（手动）
@@ -479,7 +482,7 @@ git commit -m "revert: 回滚坏批次" && git push
 - [ ] 「课程资源」五条路线均有课（每路线 ≤5）
 - [ ] 开源精选 `#section-oss` 展示多类别清单；实战案例详情页可访问（`content/local-deploy/*.md`）
 - [ ] 无未关闭的 `[ops]` Issue（含 Dead Link / 抓取失败）
-- [ ] [daily-refresh](https://github.com/bio-apple/ai/actions/workflows/daily-refresh.yml) 无未处理失败
+- [ ] 各 `daily-*.yml` 无未处理失败
 - [ ] 本地或 CI 构建后搜索可用（顶栏 / Hero 联想与「ChatGPT」→ 教程页）
 - [ ] 首页专区与工具中心可见「首页 / …」面包屑
 - [ ] 首页 `#home-ai-map` 层级图清晰可读（窄屏字号正常），Hero 无信息图叠字

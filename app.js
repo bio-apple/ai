@@ -71,6 +71,12 @@ function gotoSearchHit(item, query = '') {
   }
 
   if (item.section) {
+    const page = SECTION_PAGE_MAP[item.section];
+    if (page) {
+      window.location.href = `${siteBase()}${page}`;
+      trackEvent('search-goto', { section: item.section, page });
+      return;
+    }
     const onHome = Boolean(document.getElementById(item.section));
     if (!onHome) {
       const base = siteBase();
@@ -85,7 +91,27 @@ function gotoSearchHit(item, query = '') {
   }
 }
 
+/** 旧 hash Tab → 独立专区页（兼容书签 / 外链） */
+const SECTION_PAGE_MAP = {
+  'section-oss': 'oss.html',
+  'section-courses': 'courses.html',
+  'section-news': 'news/daily-ai-news.html',
+  'section-videos': 'videos.html',
+};
+
+function redirectLegacySection(hash) {
+  const id = String(hash || '')
+    .replace(/^#/, '')
+    .split('?')[0];
+  const page = SECTION_PAGE_MAP[id];
+  if (!page) return false;
+  window.location.replace(`${siteBase()}${page}`);
+  return true;
+}
+
 function showSection(id, { updateHash = true, anchor = null } = {}) {
+  if (redirectLegacySection(id)) return;
+
   const target = document.getElementById(id);
   // 只切换顶层 .section，避免 #home-daily 等锚点误当作整页 section
   if (!target || !target.classList.contains('section')) return;
@@ -131,6 +157,7 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
       const el = document.getElementById(anchor);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        el.focus?.({ preventScroll: true });
         return;
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -138,6 +165,17 @@ function showSection(id, { updateHash = true, anchor = null } = {}) {
   } else {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  // 键盘用户：切区后焦点落入目标 section / 主内容
+  requestAnimationFrame(() => {
+    const focusTarget = target.querySelector('h1, h2, [tabindex]:not([tabindex="-1"])') || target;
+    if (focusTarget && typeof focusTarget.focus === 'function') {
+      if (!focusTarget.hasAttribute('tabindex')) focusTarget.setAttribute('tabindex', '-1');
+      focusTarget.focus({ preventScroll: true });
+    } else {
+      document.getElementById('main-content')?.focus({ preventScroll: true });
+    }
+  });
 
   document.querySelector('.nav-menu')?.classList.remove('open');
   const navToggle = document.querySelector('.nav-toggle');
@@ -183,8 +221,14 @@ document.querySelectorAll('[data-goto]').forEach((btn) => {
   btn.addEventListener('click', (e) => {
     const target = btn.dataset.goto;
     if (!target) return;
+    const sectionId = resolveGoto(target);
+    if (SECTION_PAGE_MAP[sectionId]) {
+      e.preventDefault();
+      window.location.href = `${siteBase()}${SECTION_PAGE_MAP[sectionId]}`;
+      return;
+    }
     e.preventDefault();
-    showSection(resolveGoto(target));
+    showSection(sectionId);
   });
 });
 
@@ -261,6 +305,8 @@ function siteBase() {
 function applyLocationHash() {
   const hash = location.hash.replace('#', '');
   const anchor = new URLSearchParams(location.search).get('anchor');
+
+  if (hash && redirectLegacySection(hash)) return;
 
   if (hash && HOME_HASH_ANCHORS.has(hash)) {
     showSection('section-home', { updateHash: false });

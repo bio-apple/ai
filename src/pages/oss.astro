@@ -1,0 +1,56 @@
+---
+import StandaloneLayout from '../layouts/StandaloneLayout.astro';
+import StandalonePageHeader from '../components/StandalonePageHeader.astro';
+import SsrOssList from '../components/SsrOssList.astro';
+import { site } from '../lib/data';
+import { buildPageSchema } from '../lib/schema';
+import { homeHref } from '../lib/paths';
+import { buildOssItems } from '../lib/ssr-lists';
+
+const base = site.meta.base_url;
+const title = '开源精选';
+const lead =
+  'Agent · 推理 · 向量库 · 评测 · 本地部署——按 Star 排序的多元开源清单。';
+const items = buildOssItems(site.oss_frameworks || []);
+const canonical = `${base}oss.html`;
+const schema = buildPageSchema(title, lead, canonical, [
+  { name: '首页', url: base },
+  { name: title, url: canonical },
+]);
+---
+
+<StandaloneLayout
+  title={`${title} | Bio AI Lab`}
+  description={lead}
+  canonical={canonical}
+  schema={schema}
+  ogType="website"
+  scripts={[
+    'lib/link-guard.js',
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'ux.js',
+    'app.js',
+    'oss.js',
+  ]}
+>
+  <div class="standalone-page">
+    <StandalonePageHeader
+      crumbs={[{ label: '首页', href: homeHref() }, { label: title }]}
+      title={title}
+      lead={lead}
+      metaId="oss-update-meta"
+    />
+    <section class="page-section">
+      <div class="video-toolbar" id="oss-toolbar"></div>
+      <div id="oss-list" class="oss-list">
+        <SsrOssList items={items} />
+      </div>
+      <script type="application/json" id="oss-data" set:html={JSON.stringify(items)} />
+    </section>
+    <div class="standalone-cta">
+      <a href={homeHref()} class="cta-btn cta-btn-outline">返回首页</a>
+    </div>
+  </div>
+</StandaloneLayout>

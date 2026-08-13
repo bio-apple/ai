@@ -26,22 +26,12 @@ const {
   description,
   canonical = site.meta.canonical,
   schema,
-  scripts = [
-    'vendor/fuse.min.js',
-    'funnel.js',
-    'analytics.js',
-    'lib/link-guard.js',
-    'ux.js',
-    'app.js',
-  ],
+  scripts = ['lib/link-guard.js', 'ux.js', 'app.js'],
   includeKnowledge = false,
 } = Astro.props;
 
 const scriptList = [...scripts];
-if (includeKnowledge && !scriptList.includes('vendor/fuse.min.js')) {
-  scriptList.unshift('vendor/fuse.min.js');
-}
-// knowledge.js 改为 idle / 首次悬停时再加载，见文末 boot 脚本
+
 const knowledgeSrc = includeKnowledge ? assetVersioned('knowledge.js') : '';
 const knowledgeBoot = includeKnowledge
   ? `(function(){var loaded=false,src=${JSON.stringify(knowledgeSrc)};function load(){if(loaded||!src)return;loaded=true;var s=document.createElement('script');s.src=src;s.defer=true;document.body.appendChild(s);}function arm(){var fab=document.getElementById('knowledge-fab');if(!fab)return;['pointerenter','focus','touchstart'].forEach(function(ev){fab.addEventListener(ev,load,{once:true,passive:true});});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',arm);else arm();if('requestIdleCallback' in window)requestIdleCallback(function(){load();},{timeout:4000});else setTimeout(load,2500);})();`
@@ -49,16 +39,28 @@ const knowledgeBoot = includeKnowledge
 
 const styleHref = assetVersioned('style.css');
 
-/** 懒加载 Tab 脚本的内容哈希，供 lazy-sections.js 拼 ?v= */
-const LAZY_ASSET_PATHS = ['lib/fetch-json.js', 'videos.js', 'news.js', 'courses.js', 'oss.js'] as const;
-const lazyAssetVersions = Object.fromEntries(
-  LAZY_ASSET_PATHS.map((p) => {
-    const href = assetVersioned(p);
-    const v = href.includes('?v=') ? href.slice(href.indexOf('?v=') + 3) : '';
-    return [p, v];
-  }),
-);
-const lazyAssetBoot = `window.__BIOAI_ASSET_V__=${JSON.stringify(lazyAssetVersions)};`;
+/** 次要脚本：idle / 搜索聚焦 / 热度展开时再加载，缩短首屏关键路径 */
+const DEFERRED = {
+  fuse: assetVersioned('vendor/fuse.min.js'),
+  funnel: assetVersioned('funnel.js'),
+  analytics: assetVersioned('analytics.js'),
+  recommend: assetVersioned('recommend.js'),
+  engagement: assetVersioned('engagement.js'),
+};
+const deferredBoot = `(function(){
+  var loaded={};
+  function load(src,key){if(!src||loaded[key])return Promise.resolve();loaded[key]=1;return new Promise(function(res,rej){var s=document.createElement('script');s.src=src;s.defer=true;s.onload=function(){res();};s.onerror=rej;document.body.appendChild(s);});}
+  var D=${JSON.stringify(DEFERRED)};
+  function idleBundle(){load(D.funnel,'funnel');load(D.analytics,'analytics');load(D.recommend,'recommend');}
+  function ensureFuse(){return load(D.fuse,'fuse');}
+  function ensureEngagement(){return load(D.engagement,'engagement');}
+  window.__BIOAI_ensureFuse=ensureFuse;
+  window.__BIOAI_ensureEngagement=ensureEngagement;
+  function armSearch(){document.querySelectorAll('.site-search-input').forEach(function(el){['focus','pointerdown'].forEach(function(ev){el.addEventListener(ev,function(){ensureFuse();},{once:true,passive:true});});});}
+  function armOps(){var wrap=document.getElementById('home-ops-wrap');if(!wrap)return;wrap.addEventListener('toggle',function(){if(wrap.open)ensureEngagement();});}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){armSearch();armOps();});else{armSearch();armOps();}
+  if('requestIdleCallback' in window)requestIdleCallback(function(){idleBundle();ensureFuse();},{timeout:3500});else setTimeout(function(){idleBundle();ensureFuse();},2000);
+})();`;
 ---
 
 <!doctype html>
@@ -93,6 +95,21 @@ const lazyAssetBoot = `window.__BIOAI_ASSET_V__=${JSON.stringify(lazyAssetVersio
       #main-content {
         min-height: 40vh;
       }
+      .home-ops-details {
+        margin: 1.5rem 0;
+        border: 1px solid var(--border, #d5ddea);
+        border-radius: 14px;
+        background: var(--bg-card, #fff);
+        padding: 0.75rem 1rem;
+      }
+      .home-ops-summary {
+        cursor: pointer;
+        font-weight: 600;
+        list-style: none;
+      }
+      .home-ops-summary::-webkit-details-marker {
+        display: none;
+      }
     </style>
     <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />
@@ -108,7 +125,7 @@ const lazyAssetBoot = `window.__BIOAI_ASSET_V__=${JSON.stringify(lazyAssetVersio
       <slot />
     </main>
     <Footer text={site.footer.text} links={site.footer.links || []} />
-    <script is:inline set:html={lazyAssetBoot} />
+    <script is:inline set:html={deferredBoot} />
     {knowledgeBoot && <script is:inline set:html={knowledgeBoot} />}
     {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
   </body>

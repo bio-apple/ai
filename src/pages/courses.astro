@@ -1,0 +1,65 @@
+---
+import StandaloneLayout from '../layouts/StandaloneLayout.astro';
+import StandalonePageHeader from '../components/StandalonePageHeader.astro';
+import SsrCoursesList from '../components/SsrCoursesList.astro';
+import { site } from '../lib/data';
+import { buildCoursesSchema, buildPageSchema, mergeSchemaGraphs } from '../lib/schema';
+import { asset, homeHref } from '../lib/paths';
+import { prepareCourses } from '../lib/ssr-lists';
+import coursesPayload from '../../ai-courses.json';
+
+const base = site.meta.base_url;
+const title = coursesPayload.title || 'AI 课程资源';
+const lead =
+  coursesPayload.lead ||
+  '按学习路线精选免费课：微软与谷歌入门，斯坦福核心课（YouTube + 官网）。';
+const prepared = prepareCourses(coursesPayload);
+const canonical = `${base}courses.html`;
+const schema = mergeSchemaGraphs(
+  buildPageSchema(title, lead, canonical, [
+    { name: '首页', url: base },
+    { name: title, url: canonical },
+  ]),
+  buildCoursesSchema(coursesPayload, canonical),
+);
+---
+
+<StandaloneLayout
+  title={`${title} | Bio AI Lab`}
+  description={lead}
+  canonical={canonical}
+  schema={schema}
+  ogType="website"
+  scripts={[
+    'lib/fetch-json.js',
+    'lib/link-guard.js',
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'ux.js',
+    'app.js',
+    'courses.js',
+  ]}
+>
+  <div class="standalone-page">
+    <StandalonePageHeader
+      crumbs={[{ label: '首页', href: homeHref() }, { label: '课程资源' }]}
+      title={title}
+      lead={lead}
+      metaId="courses-update-meta"
+    />
+    <section class="page-section">
+      <p class="desc" id="courses-lead" hidden>{lead}</p>
+      <div class="video-toolbar" id="courses-toolbar"></div>
+      <div id="courses-list" class="courses-list">
+        <SsrCoursesList groups={prepared.groups} />
+      </div>
+    </section>
+    <div class="standalone-cta">
+      <a href={homeHref()} class="cta-btn cta-btn-outline">返回首页</a>
+      <a href={asset('ai-learning-roadmap.html')} class="cta-btn" data-track="courses-to-roadmap"
+        >查看学习路线 →</a
+      >
+    </div>
+  </div>
+</StandaloneLayout>

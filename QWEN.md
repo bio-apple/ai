@@ -3,6 +3,7 @@
 Web开发Agent。
 
 职责：
+
 - 修改本地代码
 - 保持项目可运行
 - 确保线上页面 https://bio-apple.github.io/ai 正常加载
@@ -80,7 +81,6 @@ Web开发Agent。
 
 Commit: [type]: 简短描述
 
-
 ---
 
 # Examples
@@ -93,7 +93,6 @@ Commit: [type]: 简短描述
 - src/data/tools.json: 更新数据
 
 Commit: fix: update homepage
-
 
 错误：
 

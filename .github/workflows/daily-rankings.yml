@@ -1,0 +1,98 @@
+name: Daily AI Rankings Update
+
+on:
+  schedule:
+    # 北京时间 03:00
+    - cron: "0 19 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+  actions: write
+
+concurrency:
+  group: daily-rankings
+  cancel-in-progress: false
+
+jobs:
+  update-rankings:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Fetch rankings
+        id: fetch
+        run: python scripts/fetch_rankings.py
+
+      - name: Commit and push
+        id: commit
+        if: steps.fetch.outcome == 'success'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/rankings.json
+          if git diff --staged --quiet; then
+            echo "No rankings updates today"
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          DATE=$(TZ=Asia/Shanghai date +%Y-%m-%d)
+          npx --yes prettier@3.9.5 --write data/rankings.json || true
+          git add data/rankings.json
+          git commit -m "chore: daily AI rankings $DATE"
+          git push
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Trigger Pages deploy
+        if: steps.commit.outputs.pushed == 'true'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            await github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'pages.yml',
+              ref: 'main',
+            });
+
+      - name: Open issue on fetch failure
+        if: failure()
+        uses: actions/github-script@v8
+        with:
+          script: |
+            const title = '[ops] Daily rankings fetch failed';
+            const body = [
+              '每日排行榜刷新失败。',
+              '',
+              `- Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}`,
+              '',
+              '<!-- daily-rankings-fetch -->',
+            ].join('\n');
+            const { data: issues } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              per_page: 30,
+            });
+            const existing = issues.find(i => i.title === title);
+            if (existing) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+              });
+            }

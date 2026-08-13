@@ -151,9 +151,11 @@ export function buildToolSchema(
   return withBreadcrumbs({ '@context': 'https://schema.org', '@graph': graph }, breadcrumbs);
 }
 
-/** 首页课程 Tab：CollectionPage + ItemList(Course) */
-export function buildCoursesSchema(courses: CoursesSchemaInput, baseUrl: string) {
-  const sectionUrl = `${baseUrl}#section-courses`;
+/** 课程专区页：CollectionPage + ItemList(Course) */
+export function buildCoursesSchema(courses: CoursesSchemaInput, pageUrl: string) {
+  const sectionUrl = pageUrl.includes('.html')
+    ? pageUrl
+    : `${pageUrl.replace(/\/?$/, '/')}courses.html`;
   const title = courses.title || 'AI 课程资源';
   const description =
     courses.lead ||
@@ -200,7 +202,11 @@ export function buildCoursesSchema(courses: CoursesSchemaInput, baseUrl: string)
         description,
         url: sectionUrl,
         inLanguage: 'zh-CN',
-        isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },
+        isPartOf: {
+          '@type': 'WebSite',
+          name: BRAND,
+          url: sectionUrl.replace(/courses\.html$/, '').replace(/\/?$/, '/'),
+        },
         mainEntity: {
           '@type': 'ItemList',
           name: title,
@@ -235,8 +241,8 @@ export function buildNewsSchema(
       {
         '@type': 'CollectionPage',
         '@id': `${pageUrl}#news`,
-        name: news.title || '一周内 AI 热点',
-        description: news.lead || '近一周 AI 资讯精选',
+        name: news.title || '近 7×24 小时 AI 热点',
+        description: news.lead || '从更新时刻往前 168 小时内的 AI 资讯精选',
         url: pageUrl,
         inLanguage: 'zh-CN',
         isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },

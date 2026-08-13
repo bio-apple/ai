@@ -213,16 +213,16 @@ flowchart LR
   MAIN --> DEPLOY
 ```
 
-| 工作流              | 脚本 / 动作             | 产出 / 作用                                        |
-| ------------------- | ----------------------- | -------------------------------------------------- |
-| `daily-refresh.yml` | 串行调用各 `fetch_*.py` | 视频→课程→排行；一次 push + deploy；lychee         |
-| `daily-news.yml`    | `fetch_ai_news.py`      | 北京 07:30/10:00/12:00/20:00 刷新新闻并派发 deploy |
-| `daily-*.yml`       | 单频道脚本（仅手动）    | 救急重跑某一频道（视频规则变更请 `force=true`）    |
-| `site-health.yml`   | `check_site_health.py`  | 线上 JSON 新鲜度探针                               |
+| 工作流                                                                             | 脚本 / 动作                  | 产出 / 作用                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------- | -------------------------------------------------- |
+| `daily-videos.yml` / `daily-courses.yml` / `daily-rankings.yml` / `daily-news.yml` | 各频道独立 cron + 派发 Pages | 视频/课程/排行/新闻日更                            |
+| `daily-news.yml`                                                                   | `fetch_ai_news.py`           | 北京 07:30/10:00/12:00/20:00 刷新新闻并派发 deploy |
+| `daily-*.yml`                                                                      | 单频道脚本（仅手动）         | 救急重跑某一频道（视频规则变更请 `force=true`）    |
+| `site-health.yml`                                                                  | `check_site_health.py`       | 线上 JSON 新鲜度探针                               |
 
 视频分桶由 `config/video-fetch.yaml` 定义：YouTube/B站各自 24h/30d Top3 + 100d Top4，**无最低播放量**，每平台 ≤10。详见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3。
 
-`daily-refresh.yml` 于北京 **00:00** 启动；频道**顺序执行**（上一频道完成后再开下一频道），全部抓取结束后统一推送并派发一次 `deploy.yml`。新闻热点由 `daily-news.yml` 于北京 **07:30 / 10:00 / 12:00 / 20:00** 多档刷新。
+各频道独立日更：`daily-videos`（北京 00:00）、`daily-news`（01:00）、`daily-courses`（02:00）、`daily-rankings`（03:00）；有变更时显式派发 `pages.yml`。
 
 ---
 
@@ -257,12 +257,12 @@ flowchart TB
   D --> LIVE["bio-apple.github.io/ai/"]
 ```
 
-| 工作流                | 触发                                                                    | 目的                                             |
-| --------------------- | ----------------------------------------------------------------------- | ------------------------------------------------ |
-| **ci.yml**            | push/PR `main`                                                          | 完整质量门禁（含 E2E），PR 上传 `dist` 预览      |
-| **deploy.yml**        | push `main`、手动                                                       | 精简路径：校验通过后尽快发布 Pages               |
-| **daily-refresh.yml** | cron 00:00（北京）                                                      | 串行日更（视频/课程/排行）+ 一次 deploy + lychee |
-| **daily-news.yml**    | cron 07:30/10:00/12:00/20:00（北京）= UTC 23:30 / 02:00 / 04:00 / 12:00 | 新闻热点多档刷新 + deploy                        |
+| 工作流             | 触发                                                                    | 目的                                           |
+| ------------------ | ----------------------------------------------------------------------- | ---------------------------------------------- |
+| **ci.yml**         | push/PR `main`                                                          | 完整质量门禁（含 E2E），PR 上传 `dist` 预览    |
+| **deploy.yml**     | push `main`、手动                                                       | 精简路径：校验通过后尽快发布 Pages             |
+| **daily-\*.yml**   | 分频道 cron（北京 00:00–03:00）                                         | 视频 / 新闻 / 课程 / 排行独立日更 + 派发 Pages |
+| **daily-news.yml** | cron 07:30/10:00/12:00/20:00（北京）= UTC 23:30 / 02:00 / 04:00 / 12:00 | 新闻热点多档刷新 + deploy                      |
 
 push `main` 时 **ci.yml 与 deploy.yml 并行**；deploy 不推 `gh-pages` 分支，而是使用官方 `actions/deploy-pages` 制品部署。
 

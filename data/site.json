@@ -27,24 +27,24 @@
         "href": "tools/hub.html"
       },
       {
-        "type": "tab",
-        "id": "oss",
-        "label": "开源精选"
+        "type": "page",
+        "label": "开源精选",
+        "href": "oss.html"
       },
       {
-        "type": "tab",
-        "id": "courses",
-        "label": "课程资源"
+        "type": "page",
+        "label": "课程资源",
+        "href": "courses.html"
       },
       {
-        "type": "tab",
-        "id": "news",
-        "label": "新闻热点"
+        "type": "page",
+        "label": "新闻热点",
+        "href": "news/daily-ai-news.html"
       },
       {
-        "type": "tab",
-        "id": "videos",
-        "label": "AI 视频"
+        "type": "page",
+        "label": "AI 视频",
+        "href": "videos.html"
       }
     ]
   },
@@ -505,9 +505,9 @@
     }
   ],
   "news_page": {
-    "title": "一周内 AI 热点 | Bio AI Lab",
-    "h1": "一周内 AI 热点",
-    "lead": "一周内 AI 热点精选：模型发布、产品动态与行业资讯，每日自动更新。"
+    "title": "近 7×24 小时 AI 热点 | Bio AI Lab",
+    "h1": "近 7×24 小时 AI 热点",
+    "lead": "从更新时刻往前 168 小时内的 AI 新闻热点：模型发布、产品动态与行业资讯；每天自动抓取。"
   },
   "guides": {
     "beginner": {
@@ -572,8 +572,9 @@
     "text": "Bio AI Lab · Discover. Learn. Create with AI.",
     "links": [
       { "label": "AI 工具中心", "href": "tools/hub.html" },
-      { "label": "开源精选", "href": "index.html#section-oss" },
-      { "label": "课程资源", "href": "index.html#section-courses" },
+      { "label": "开源精选", "href": "oss.html" },
+      { "label": "课程资源", "href": "courses.html" },
+      { "label": "AI 视频", "href": "videos.html" },
       { "label": "新手指南", "href": "guides/beginner.html" },
       { "label": "学习路线", "href": "ai-learning-roadmap.html" }
     ]

@@ -93,8 +93,10 @@ function buildToolSchema(tool, baseUrl, breadcrumbs) {
   return withBreadcrumbs({ '@context': 'https://schema.org', '@graph': graph }, breadcrumbs);
 }
 
-function buildCoursesSchema(courses, baseUrl) {
-  const sectionUrl = `${baseUrl}#section-courses`;
+function buildCoursesSchema(courses, pageUrl) {
+  const sectionUrl = pageUrl.includes('.html')
+    ? pageUrl
+    : `${String(pageUrl).replace(/\/?$/, '/')}courses.html`;
   const title = courses.title || 'AI 课程资源';
   const description =
     courses.lead ||
@@ -128,7 +130,11 @@ function buildCoursesSchema(courses, baseUrl) {
         description,
         url: sectionUrl,
         inLanguage: 'zh-CN',
-        isPartOf: { '@type': 'WebSite', name: BRAND, url: baseUrl },
+        isPartOf: {
+          '@type': 'WebSite',
+          name: BRAND,
+          url: sectionUrl.replace(/courses\.html$/, '').replace(/\/?$/, '/'),
+        },
         mainEntity: {
           '@type': 'ItemList',
           name: title,
@@ -180,6 +186,7 @@ test('buildCoursesSchema emits Course ItemList', () => {
   );
   const page = schema['@graph'][0];
   assert.equal(page['@type'], 'CollectionPage');
+  assert.equal(page.url, 'https://bio-apple.github.io/ai/courses.html');
   assert.equal(page.mainEntity.itemListElement.length, 1);
   assert.equal(page.mainEntity.itemListElement[0].item['@type'], 'Course');
 });
