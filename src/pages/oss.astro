@@ -10,7 +10,7 @@ import { buildOssItems } from '../lib/ssr-lists';
 const base = site.meta.base_url;
 const title = '开源精选';
 const lead =
-  'Agent · 推理 · 向量库 · 评测 · 本地部署——按 Star 排序的多元开源清单。';
+  '收集近期 GitHub 上正在升温的 AI 开源项目（非纯 Star 榜）。数据源：GitHub Trending + Search/API；重点：Agent / MCP / Coding Agent / Agent Harness / Skills / Memory；每天更新，每方向最多 Top 3。';
 const items = buildOssItems(site.oss_frameworks || []);
 const canonical = `${base}oss.html`;
 const schema = buildPageSchema(title, lead, canonical, [

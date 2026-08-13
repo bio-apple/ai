@@ -112,7 +112,10 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.goto('oss.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('开源精选');
     await expect(page.locator('#oss-list .oss-card-item').first()).toBeVisible();
-    await expect(page.locator('#oss-list .oss-card-item')).toHaveCount(15);
+    await expect
+      .poll(async () => page.locator('#oss-list .oss-card-item').count())
+      .toBeGreaterThanOrEqual(6);
+    await expect(page.locator('#oss-list .oss-cat-block-title').first()).toBeVisible();
 
     await page.goto('courses.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('课程资源');

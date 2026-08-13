@@ -88,11 +88,12 @@ function appendLocalDeploySearchItems(items, guidesPayload) {
 }
 
 const OSS_CATEGORY_LABELS = {
-  agent: 'Agent 框架',
-  inference: '推理框架',
-  vector: '向量库',
-  eval: '评测工具',
-  local: '本地部署',
+  agent: 'Agent',
+  mcp: 'MCP',
+  coding_agent: 'Coding Agent',
+  agent_harness: 'Agent Harness',
+  skills: 'Skills',
+  memory: 'Memory',
 };
 
 function appendOpenSourceSearchItems(items, site, aiNews, { limit = 20 } = {}) {
@@ -219,7 +220,7 @@ function buildSearchIndex(site, tools, compares) {
     label: '开源精选',
     type: '频道',
     url: 'oss.html',
-    keywords: '开源精选 GitHub Ollama vLLM Dify Milvus 向量库 推理 评测 本地部署',
+    keywords: '开源精选 GitHub Trending Agent MCP Coding Agent Harness Skills Memory',
   });
   items.push({
     label: 'AI 课程资源',

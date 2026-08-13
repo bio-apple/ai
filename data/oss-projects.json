@@ -1,0 +1,292 @@
+{
+  "updated_at": "2026-08-13T21:00:47.328941+08:00",
+  "window": {
+    "max_per_direction": 3,
+    "sources": [
+      "github_trending",
+      "github_search"
+    ],
+    "focus": [
+      "Agent",
+      "MCP",
+      "Coding Agent",
+      "Agent Harness",
+      "Skills",
+      "Memory"
+    ]
+  },
+  "items": [
+    {
+      "repo": "langgenius/dify",
+      "name": "dify",
+      "stars": 152333,
+      "category": "agent",
+      "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on c…",
+      "heat_score": 62.69,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T20:54:58+08:00",
+      "rank": 1
+    },
+    {
+      "repo": "teng-lin/notebooklm-py",
+      "name": "notebooklm-py",
+      "stars": 18676,
+      "category": "agent",
+      "summary": "Unofficial Python API and agentic skill for Google Gemini Notebook. Full programmatic access to NotebookLM's features—i…",
+      "heat_score": 59.7,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T20:57:54+08:00",
+      "rank": 2
+    },
+    {
+      "repo": "ifixai-ai/iFixAi",
+      "name": "iFixAi",
+      "stars": 8489,
+      "category": "agent",
+      "summary": "Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agen…",
+      "heat_score": 59.02,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T20:52:19+08:00",
+      "rank": 3
+    },
+    {
+      "repo": "vitali87/code-graph-rag",
+      "name": "code-graph-rag",
+      "stars": 4159,
+      "category": "mcp",
+      "summary": "The ultimate RAG for your monorepo. Query, understand, and edit multi-language codebases with the power of AI and knowl…",
+      "heat_score": 88.06,
+      "sources": [
+        "search",
+        "trending:weekly"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": 6,
+      "pushed_at": "2026-08-13T20:55:32+08:00",
+      "rank": 1
+    },
+    {
+      "repo": "t8y2/dbx",
+      "name": "dbx",
+      "stars": 14423,
+      "category": "mcp",
+      "summary": "20 MB lightweight cross-platform database client for 70+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB…",
+      "heat_score": 63.33,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T20:51:03+08:00",
+      "rank": 2
+    },
+    {
+      "repo": "n8n-io/n8n",
+      "name": "n8n",
+      "stars": 200472,
+      "category": "mcp",
+      "summary": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host…",
+      "heat_score": 58.84,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T20:57:22+08:00",
+      "rank": 3
+    },
+    {
+      "repo": "holaboss-ai/holaOS",
+      "name": "holaOS",
+      "stars": 6191,
+      "category": "coding_agent",
+      "summary": "Open-source All in One AI agent workspace. Run any agent — Claude Code, Codex — across your tools (100+ integrations + …",
+      "heat_score": 135.26,
+      "sources": [
+        "trending:daily"
+      ],
+      "trending_daily_rank": 11,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-12T19:10:17+08:00",
+      "rank": 1
+    },
+    {
+      "repo": "huangruiteng/loopx",
+      "name": "loopx",
+      "stars": 4548,
+      "category": "coding_agent",
+      "summary": "Lightweight loop engineering state kernel for long-running AI agent teams. Agent-loop agnostic across Codex, Claude Cod…",
+      "heat_score": 100.58,
+      "sources": [
+        "trending:weekly"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": 7,
+      "pushed_at": "2026-08-13T20:59:52+08:00",
+      "rank": 2
+    },
+    {
+      "repo": "esengine/DeepSeek-Reasonix",
+      "name": "DeepSeek-Reasonix",
+      "stars": 34382,
+      "category": "coding_agent",
+      "summary": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
+      "heat_score": 100.0,
+      "sources": [
+        "search",
+        "trending:weekly"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": 12,
+      "pushed_at": "2026-08-13T20:40:19+08:00",
+      "rank": 3
+    },
+    {
+      "repo": "ruvnet/ruflo",
+      "name": "ruflo",
+      "stars": 67758,
+      "category": "agent_harness",
+      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T20:41:15+08:00",
+      "rank": 1
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "name": "impeccable",
+      "stars": 58740,
+      "category": "agent_harness",
+      "summary": "The design language that makes your AI harness better at design.",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T20:29:47+08:00",
+      "rank": 2
+    },
+    {
+      "repo": "Hmbown/CodeWhale",
+      "name": "CodeWhale",
+      "stars": 40726,
+      "category": "agent_harness",
+      "summary": "Open-source, community-driven agent harness",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T20:56:18+08:00",
+      "rank": 3
+    },
+    {
+      "repo": "anthropics/skills",
+      "name": "skills",
+      "stars": 168752,
+      "category": "skills",
+      "summary": "Public repository for Agent Skills",
+      "heat_score": 169.0,
+      "sources": [
+        "trending:daily"
+      ],
+      "trending_daily_rank": 3,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-08T01:14:15+08:00",
+      "rank": 1
+    },
+    {
+      "repo": "kepano/obsidian-skills",
+      "name": "obsidian-skills",
+      "stars": 45342,
+      "category": "skills",
+      "summary": "Agent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats including Markdown, Bases, JSON Canvas.",
+      "heat_score": 124.0,
+      "sources": [
+        "trending:daily"
+      ],
+      "trending_daily_rank": 12,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-06-09T00:12:01+08:00",
+      "rank": 2
+    },
+    {
+      "repo": "google/skills",
+      "name": "skills",
+      "stars": 17999,
+      "category": "skills",
+      "summary": "Agent Skills for Google products and technologies",
+      "heat_score": 112.72,
+      "sources": [
+        "trending:weekly"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": 3,
+      "pushed_at": "2026-08-13T02:27:18+08:00",
+      "rank": 3
+    },
+    {
+      "repo": "TencentCloud/TencentDB-Agent-Memory",
+      "name": "TencentDB-Agent-Memory",
+      "stars": 21027,
+      "category": "memory",
+      "summary": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusa…",
+      "heat_score": 110.5,
+      "sources": [
+        "trending:weekly"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": 5,
+      "pushed_at": "2026-08-11T20:12:06+08:00",
+      "rank": 1
+    },
+    {
+      "repo": "mem0ai/mem0",
+      "name": "mem0",
+      "stars": 63189,
+      "category": "memory",
+      "summary": "Universal memory layer for AI Agents",
+      "heat_score": 56.19,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T20:56:59+08:00",
+      "rank": 2
+    },
+    {
+      "repo": "EverMind-AI/EverOS",
+      "name": "EverOS",
+      "stars": 11990,
+      "category": "memory",
+      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
+      "heat_score": 54.0,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-13T15:16:26+08:00",
+      "rank": 3
+    }
+  ]
+}

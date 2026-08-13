@@ -1,14 +1,22 @@
 /** 专区 SSG 列表：与 courses.js / oss.js / news.js / videos.js 展示结构对齐 */
 
 export const OSS_CATEGORY_LABELS: Record<string, string> = {
-  agent: 'Agent 框架',
-  inference: '推理框架',
-  vector: '向量库',
-  eval: '评测工具',
-  local: '本地部署',
+  agent: 'Agent',
+  mcp: 'MCP',
+  coding_agent: 'Coding Agent',
+  agent_harness: 'Agent Harness',
+  skills: 'Skills',
+  memory: 'Memory',
 };
 
-export const OSS_CATEGORY_ORDER = ['agent', 'inference', 'vector', 'eval', 'local'] as const;
+export const OSS_CATEGORY_ORDER = [
+  'agent',
+  'mcp',
+  'coding_agent',
+  'agent_harness',
+  'skills',
+  'memory',
+] as const;
 
 export type OssItem = {
   repo: string;
@@ -18,6 +26,9 @@ export type OssItem = {
   category: string;
   categoryLabel: string;
   url: string;
+  heatScore: number;
+  sources: string[];
+  rank?: number;
 };
 
 export function buildOssItems(
@@ -27,6 +38,9 @@ export function buildOssItems(
     stars?: number;
     summary?: string;
     category?: string;
+    heat_score?: number;
+    sources?: string[];
+    rank?: number;
   }>,
 ): OssItem[] {
   return frameworks
@@ -40,9 +54,21 @@ export function buildOssItems(
         category,
         categoryLabel: OSS_CATEGORY_LABELS[category] || '开源项目',
         url: `https://github.com/${fw.repo}`,
+        heatScore: Number(fw.heat_score || 0),
+        sources: Array.isArray(fw.sources) ? fw.sources.map(String) : [],
+        rank: fw.rank != null ? Number(fw.rank) : undefined,
       };
     })
-    .sort((a, b) => b.stars - a.stars);
+    .sort((a, b) => {
+      const oa = OSS_CATEGORY_ORDER.indexOf(a.category as (typeof OSS_CATEGORY_ORDER)[number]);
+      const ob = OSS_CATEGORY_ORDER.indexOf(b.category as (typeof OSS_CATEGORY_ORDER)[number]);
+      const ia = oa === -1 ? 999 : oa;
+      const ib = ob === -1 ? 999 : ob;
+      if (ia !== ib) return ia - ib;
+      if ((a.rank || 99) !== (b.rank || 99)) return (a.rank || 99) - (b.rank || 99);
+      if (b.heatScore !== a.heatScore) return b.heatScore - a.heatScore;
+      return b.stars - a.stars;
+    });
 }
 
 export function groupOssByCategory(items: OssItem[]) {
