@@ -114,8 +114,8 @@ def remediation_for(exc: BaseException) -> list[str]:
     elif msg.startswith("STALE:ai-courses") or ("ai-courses" in msg and "STALE" in msg):
         lines += [
             "### P1 · 课程过期",
-            f"1. 优先重跑：{REPO_ACTIONS}/workflows/daily-refresh.yml（串行日更）",
-            f"2. 或单跑：{REPO_ACTIONS}/workflows/daily-courses.yml",
+            f"1. 优先重跑：{REPO_ACTIONS}/workflows/daily-courses.yml",
+            f"2. 或并行检查：{REPO_ACTIONS}/workflows/daily-news.yml / daily-videos.yml",
             "",
         ]
     elif msg.startswith("CONTENT:"):

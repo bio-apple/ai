@@ -1,25 +1,14 @@
 ---
 /**
- * 字体策略：
- * - display=swap 防 FOIT
- * - 仅 2 档字重（Outfit 500/700 + Noto SC 400/600）
- * - 异步挂载 stylesheet，避免阻塞首屏（CSP 禁 script-src-attr，故不用 onload 属性）
+ * 字体策略：系统字体栈优先，避免外链 Google Fonts（DNS / CSP / 首屏阻塞）。
+ * 中文优先 PingFang / 微软雅黑；拉丁回落到系统 UI 字体。
  */
-const FONT_HREF =
-  'https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Noto+Sans+SC:wght@400;600&display=swap';
 ---
 
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preload" as="style" href={FONT_HREF} />
-<script is:inline define:vars={{ FONT_HREF }}>
-  (function () {
-    var link = document.createElement('link');
-    link.rel = 'stylesheet';
-    link.href = FONT_HREF;
-    document.head.appendChild(link);
-  })();
-</script>
-<noscript>
-  <link rel="stylesheet" href={FONT_HREF} />
-</noscript>
+<style is:inline>
+  :root {
+    --font-sans:
+      ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+      'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+  }
+</style>

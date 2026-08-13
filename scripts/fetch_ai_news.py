@@ -407,14 +407,22 @@ def parse_feed(feed_cfg: dict, cfg: dict) -> list[dict]:
     return items
 
 
+def window_timedelta(cfg: dict) -> timedelta:
+    """滚动窗口：优先 max_age_hours（默认 7×24=168），否则 max_age_days。"""
+    hours = cfg.get("max_age_hours")
+    if hours is not None:
+        return timedelta(hours=int(hours))
+    days = int(cfg.get("max_age_days", 7))
+    return timedelta(hours=days * 24)
+
+
 def filter_recent(items: list[dict], cfg: dict) -> list[dict]:
-    max_age = timedelta(days=cfg.get("max_age_days", 14))
-    cutoff = datetime.now(TZ) - max_age
+    """保留 published_at ∈ [now − 窗口, now] 的条目（无时间戳的条目丢弃，避免窗口外渗漏）。"""
+    cutoff = datetime.now(TZ) - window_timedelta(cfg)
     kept: list[dict] = []
     for item in items:
         pub = item.get("published_at")
         if not pub:
-            kept.append(item)
             continue
         try:
             dt = datetime.fromisoformat(pub.replace("Z", "+00:00"))
@@ -423,7 +431,7 @@ def filter_recent(items: list[dict], cfg: dict) -> list[dict]:
             if dt.astimezone(TZ) >= cutoff:
                 kept.append(item)
         except ValueError:
-            kept.append(item)
+            continue
     return kept
 
 
@@ -479,14 +487,18 @@ def main() -> int:
     items = clean_news_items(dedupe_news_items(select_diverse_items(dedupe_news_items(recent), cfg)))
     assert_news_unique(items)
 
-    today = datetime.now(TZ).strftime("%Y-%m-%d")
-    window_days = int(cfg.get("max_age_days", 7))
+    now = datetime.now(TZ)
+    today = now.strftime("%Y-%m-%d")
+    window = window_timedelta(cfg)
+    window_hours = int(window.total_seconds() // 3600)
+    window_days = max(1, (window_hours + 23) // 24)
     payload = {
-        "updated_at": datetime.now(TZ).isoformat(),
+        "updated_at": now.isoformat(),
         "date": today,
         "cadence": "daily",
+        "window_hours": window_hours,
         "window_days": window_days,
-        "title": "一周内 AI 热点",
+        "title": "近 7×24 小时 AI 热点",
         "schema_version": 1,
         "dedupe": {"by": ["title", "url"], "keep": "latest_published_at"},
         "items": items,
@@ -501,7 +513,9 @@ def main() -> int:
         return 1
 
     atomic_write_json(DATA_FILE, payload)
-    print(f"✓ ai-news.json ({len(items)} 条 · 窗口 {window_days} 天 · 日更) → {DATA_FILE}")
+    print(
+        f"✓ ai-news.json ({len(items)} 条 · 滚动窗口 {window_hours}h · 日更) → {DATA_FILE}"
+    )
     return 0
 
 

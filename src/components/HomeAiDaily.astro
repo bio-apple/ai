@@ -96,7 +96,7 @@ const brief = pickAiDailyBrief();
             brief.github.length === 0 && (
               <li class="daily-empty">
                 暂无 GitHub 动态 ·{' '}
-                <a href="#section-oss" data-goto="oss" data-track="daily_empty_oss">
+                <a href={asset('oss.html')} data-track="daily_empty_oss">
                   看开源精选
                 </a>
               </li>
@@ -164,8 +164,8 @@ const brief = pickAiDailyBrief();
         }
         {brief.learn.length === 0 && <li class="daily-empty">暂无视频条目</li>}
       </ul>
-      <button type="button" class="daily-more" data-goto="videos" data-track="daily_videos_more"
-        >热门视频 →</button
+      <a class="daily-more" href={asset('videos.html')} data-track="daily_videos_more"
+        >热门视频 →</a
       >
     </article>
   </div>

@@ -10,6 +10,7 @@
     "date": { "type": "string" },
     "cadence": { "type": "string" },
     "window_days": { "type": "integer", "minimum": 1 },
+    "window_hours": { "type": "integer", "minimum": 1 },
     "title": { "type": "string" },
     "items": {
       "type": "array",

@@ -1,0 +1,83 @@
+---
+import { type CourseItem, formatZhDate } from '../lib/ssr-lists';
+
+interface Props {
+  groups: Array<[string, CourseItem[]]>;
+}
+
+const { groups } = Astro.props;
+---
+
+{
+  groups.length ? (
+    <div data-ssr-courses>
+      {groups.map(([track, list]) => (
+        <section class="courses-track-block">
+          <h3 class="courses-track-title">{track}</h3>
+          <div class="courses-grid">
+            {list.map((item) => {
+              const primaryIsYoutube = /youtube\.com|youtu\.be/i.test(String(item.url || ''));
+              const primaryLabel = primaryIsYoutube ? 'YouTube 讲座 →' : '打开课程 →';
+              return (
+                <article class="course-card">
+                  <div class="course-card-head">
+                    <span class="course-platform">{item.platform || ''}</span>
+                    <span class="course-date">{formatZhDate(item.published_at)}</span>
+                  </div>
+                  <h4>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-track="course-click"
+                      data-course-title={item.title}
+                      data-course-track={item.track || ''}
+                    >
+                      {item.title}
+                    </a>
+                    {item.required && <span class="course-required-badge">必学</span>}
+                    <span class="course-free-badge">免费</span>
+                    {item.is_new && <span class="course-new-badge">新</span>}
+                  </h4>
+                  <p class="course-meta">
+                    {item.track && <span>{item.track}</span>}
+                    {item.format && <span>{item.format}</span>}
+                  </p>
+                  {item.summary && <p class="course-summary">{item.summary}</p>}
+                  <div class="course-actions">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="course-read"
+                      data-track="course-read"
+                      data-course-title={item.title}
+                      data-course-track={item.track || ''}
+                    >
+                      {primaryLabel}
+                    </a>
+                    {item.official_url && (
+                      <a
+                        href={item.official_url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="course-read course-read-secondary"
+                        data-track="course-official"
+                        data-course-title={item.title}
+                        data-course-track={item.track || ''}
+                      >
+                        官方主页 →
+                      </a>
+                    )}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ))}
+    </div>
+  ) : (
+    <p class="loading-hint">暂无课程数据。</p>
+  )
+}

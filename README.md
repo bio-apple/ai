@@ -63,14 +63,14 @@ python3 scripts/fetch_daily_videos.py
 
 顶栏导航（`data/site.json` → `nav.menu`）：
 
-| 入口       | 类型   | 说明                                                                           |
-| ---------- | ------ | ------------------------------------------------------------------------------ |
-| 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图、工具中心入口                                |
-| AI工具中心 | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                                            |
-| 开源精选   | Tab    | `site.json` → `oss_frameworks`（Agent / 推理 / 向量库 / 评测 / 本地部署）      |
-| 课程资源   | Tab    | 免费 AI 课程（微软、谷歌、斯坦福核心课）                                       |
-| 新闻热点   | Tab    | 近 7 天 AI 热点（多档日更）                                                    |
-| AI 视频    | Tab    | YouTube/B站各自：24h Top3、30d Top3、100d Top4（最低播放量 10000），每平台 ≤10 |
+| 入口       | 类型   | 说明                                                       |
+| ---------- | ------ | ---------------------------------------------------------- |
+| 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图、专区入口                |
+| AI工具中心 | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                        |
+| 开源精选   | 独立页 | `oss.html` · Agent / 推理 / 向量库 / 评测 / 本地部署       |
+| 课程资源   | 独立页 | `courses.html` · 免费 AI 课程                              |
+| 新闻热点   | 独立页 | `news/daily-ai-news.html` · 当前时刻往前 7×24 小时（日更） |
+| AI 视频    | 独立页 | `videos.html` · YouTube/B站 24h/30d/100d 分桶日更          |
 
 独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题 · 实战案例详情（`local/*.html`）
 
@@ -101,21 +101,25 @@ python3 scripts/fetch_daily_videos.py
 
 配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 日更：`.github/workflows/daily-courses.yml`
 
+新闻：`config/news-fetch.yaml` · `scripts/fetch_ai_news.py` · `ai-news.json` · 日更：`.github/workflows/daily-news.yml`
+
+排行榜：`data/rankings.json`（`scripts/fetch_rankings.py`；日更：`.github/workflows/daily-rankings.yml`）
+
 ## 改内容
 
-| 想改什么     | 改哪里                                                       |
-| ------------ | ------------------------------------------------------------ |
-| 文案 / 导航  | `data/site.json`                                             |
-| 工具 / 关系  | `data/tools.json` · `data/tool-relations.json`               |
-| 对比专题     | `data/compares.json`（独立 `compare/*.html` 页）             |
-| 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                 |
-| 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；00:00 日更）   |
-| 热度基准     | `data/engagement.json`                                       |
-| 开源精选     | `data/site.json` → `oss_frameworks`（首页 `#section-oss`）   |
-| 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`） |
-| 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`     |
-| 新闻源       | `config/news-fetch.yaml`                                     |
-| 视频源       | `config/video-fetch.yaml`                                    |
+| 想改什么     | 改哪里                                                                    |
+| ------------ | ------------------------------------------------------------------------- |
+| 文案 / 导航  | `data/site.json`                                                          |
+| 工具 / 关系  | `data/tools.json` · `data/tool-relations.json`                            |
+| 对比专题     | `data/compares.json`（独立 `compare/*.html` 页）                          |
+| 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                              |
+| 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；日更 `daily-rankings.yml`） |
+| 热度基准     | `data/engagement.json`                                                    |
+| 开源精选     | `data/site.json` → `oss_frameworks`（首页 `#section-oss`）                |
+| 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`）              |
+| 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                  |
+| 新闻源       | `config/news-fetch.yaml`                                                  |
+| 视频源       | `config/video-fetch.yaml`                                                 |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
 

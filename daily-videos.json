@@ -258,7 +258,7 @@
               "title": "还没有AI 和提示词的年代，我们都是这样一帧一帧去手搓的...",
               "summary": "【阿梓蔗-手搓】讲解 AI 工具实战应用，围绕「还没有AI 和提示词的年代，我们都是这样一帧一帧去手搓的...」展示操作步骤与使用技巧。",
               "url": "https://www.bilibili.com/video/BV1gUGu6yEhw",
-              "thumbnail": "video-thumbs/bilibili/BV1gUGu6yEhw.jpg",
+              "thumbnail": "video-thumbs/bilibili/BV1gUGu6yEhw.webp",
               "channel": "阿梓蔗-手搓",
               "subscribers": 0,
               "views": 1339106,
@@ -272,7 +272,7 @@
               "title": "Vibe Coding竞赛，Claude遗憾落败?",
               "summary": "我和源宝打了个赌：半天时间，vibe coding一个活动社交App，看谁做的更好？最后Claude Code居然遗憾落败？这期视频，我们将用秒哒手把手带你走完，从一个简单的想法到App上架应用商店的全套流程！开发过程又发生了哪些趣事？一起来看看～",
               "url": "https://www.bilibili.com/video/BV1khMX63EjU",
-              "thumbnail": "video-thumbs/bilibili/BV1khMX63EjU.jpg",
+              "thumbnail": "video-thumbs/bilibili/BV1khMX63EjU.webp",
               "channel": "GenJi是真想教会你",
               "subscribers": 0,
               "views": 1011473,
@@ -286,7 +286,7 @@
               "title": "豆包真能干活了！【豆包Agent入门教程】",
               "summary": "这个视频让你的豆包技能噌噌上涨，还有“秋芝AI科普skill”帮你答疑～ 感谢朋友们的三连+关注~",
               "url": "https://www.bilibili.com/video/BV1mhKv68EPQ",
-              "thumbnail": "video-thumbs/bilibili/BV1mhKv68EPQ.jpg",
+              "thumbnail": "video-thumbs/bilibili/BV1mhKv68EPQ.webp",
               "channel": "秋芝2046",
               "subscribers": 0,
               "views": 977373,
@@ -446,22 +446,7 @@
             "days": 100
           },
           "top_count": 4,
-          "videos": [
-            {
-              "id": "youtube:6lc-ZY4tzl4",
-              "platform": "youtube",
-              "title": "Claude AI Tutorial for Beginners (2026) — Step-by-Step Guide - Claude Ai Full Course",
-              "summary": "🚀 Want to learn Claude AI from scratch",
-              "url": "https://www.youtube.com/watch?v=6lc-ZY4tzl4",
-              "thumbnail": "https://i.ytimg.com/vi/6lc-ZY4tzl4/sddefault.jpg",
-              "channel": "WebbyFans",
-              "subscribers": 168000,
-              "views": 14432,
-              "duration": "31:57",
-              "max_height": 360,
-              "published_at": "2026-07-01T00:00:00+08:00"
-            }
-          ]
+          "videos": []
         },
         "bilibili_recent_24h": {
           "label": "B站：24 小时内 Top 3",
@@ -587,7 +572,7 @@
               "title": "同事炒股亏了 29 万，我用 AI 找到了背后的原因！",
               "summary": "我的同事炒股亏了钱，我把4年的交易记录，10672行数据交给AI，试图还原29万亏损背后的真实原因。 最后我发现，所有指标都是马后炮，唯有人性，才是账户里最难止损的变量。",
               "url": "https://www.bilibili.com/video/BV1tqM66UErZ",
-              "thumbnail": "video-thumbs/bilibili/BV1tqM66UErZ.jpg",
+              "thumbnail": "video-thumbs/bilibili/BV1tqM66UErZ.webp",
               "channel": "如何评价_AI",
               "subscribers": 0,
               "views": 207917,

@@ -1,10 +1,11 @@
 ---
 /**
  * 数据运营：浏览量 / 点击量 + 今日热榜（engagement.js 填充）
+ * 默认收在 details 内，降低首页噪音。
  */
 ---
 
-<section class="home-section fade-in" id="home-ops" data-ops-ready="0">
+<section class="home-section" id="home-ops" data-ops-ready="0">
   <div class="section-head section-head-row">
     <div>
       <h2 class="section-title">今日热度</h2>
@@ -12,7 +13,7 @@
     </div>
     <p class="ops-updated" id="ops-updated" aria-live="polite">
       <span class="ops-live-dot" aria-hidden="true"></span>
-      <span id="ops-updated-text">同步中…</span>
+      <span id="ops-updated-text">打开后同步…</span>
     </p>
   </div>
 
@@ -33,7 +34,7 @@
       <span class="ops-trend-hint">按今日点击排序</span>
     </div>
     <ul class="ops-trend-list" id="ops-trend-list">
-      <li class="ops-trend-empty">加载热度数据…</li>
+      <li class="ops-trend-empty">展开后加载热度…</li>
     </ul>
   </div>
 </section>

@@ -1,0 +1,44 @@
+---
+import { type NewsItem, formatZhDate } from '../lib/ssr-lists';
+import { displayNewsTitle } from '../lib/runtime';
+
+interface Props {
+  items: NewsItem[];
+}
+
+const { items } = Astro.props;
+---
+
+{
+  items.length ? (
+    <ul class="news-feed-list" data-ssr-news>
+      {items.map((item) => (
+        <li class="news-row">
+          <a
+            class="news-row-main"
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-track="news-click"
+          >
+            <span class="news-row-title">
+              <span class="content-type-badge content-type-news" aria-hidden="true">
+                资讯
+              </span>{' '}
+              {displayNewsTitle(item)}
+            </span>
+            <span class="news-row-meta">
+              {item.source && <span class="news-row-source news-source-badge">{item.source}</span>}
+              {item.published_at && (
+                <span class="news-row-date">{formatZhDate(item.published_at)}</span>
+              )}
+            </span>
+          </a>
+          {item.summary && <p class="news-row-summary">{item.summary}</p>}
+        </li>
+      ))}
+    </ul>
+  ) : (
+    <p class="loading-hint">暂无新闻数据。</p>
+  )
+}

@@ -198,15 +198,15 @@ function buildSearchIndex(site, tools, compares) {
   items.push({
     label: '每日视频',
     type: '频道',
-    section: 'section-videos',
+    url: 'videos.html',
     keywords: '视频 youtube bilibili 教程 每日 24小时 30天 100天 Top3 Top4',
   });
   items.push({
     label: 'AI 新闻',
     type: '频道',
-    section: 'section-news',
+    url: 'news/daily-ai-news.html',
     keywords:
-      'AI新闻 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace arXiv GitHub Trending 机器之心 量子位 新智元 智源 每周',
+      'AI新闻 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace arXiv GitHub Trending 机器之心 量子位 新智元 智源 每日',
   });
   items.push({
     label: '实战案例',
@@ -218,13 +218,13 @@ function buildSearchIndex(site, tools, compares) {
   items.push({
     label: '开源精选',
     type: '频道',
-    section: 'section-oss',
+    url: 'oss.html',
     keywords: '开源精选 GitHub Ollama vLLM Dify Milvus 向量库 推理 评测 本地部署',
   });
   items.push({
     label: 'AI 课程资源',
     type: '频道',
-    section: 'section-courses',
+    url: 'courses.html',
     keywords:
       '课程资源 免费 学习路线 入门 机器学习 深度学习 LLM Agent 微软 吴恩达 斯坦福 Google DeepLearning.AI',
   });
@@ -269,7 +269,7 @@ function buildSearchIndex(site, tools, compares) {
     label: '一周内 AI 热点',
     type: '频道',
     url: 'news/daily-ai-news.html',
-    keywords: 'AI新闻 热点 一周内 每天更新 OpenAI Anthropic arXiv',
+    keywords: 'AI新闻 热点 近7天 7x24 滚动窗口 每天更新 OpenAI Anthropic arXiv',
   });
   items.push({
     label: '编程 AI 工具',

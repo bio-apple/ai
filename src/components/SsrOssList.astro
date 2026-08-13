@@ -1,0 +1,68 @@
+---
+import {
+  type OssItem,
+  groupOssByCategory,
+  formatStars,
+  OSS_CATEGORY_LABELS,
+} from '../lib/ssr-lists';
+
+interface Props {
+  items: OssItem[];
+}
+
+const { items } = Astro.props;
+const groups = groupOssByCategory(items);
+---
+
+{
+  items.length ? (
+    <div data-ssr-oss>
+      {groups.map(([cat, list]) => (
+        <section class="oss-cat-block">
+          <h3 class="oss-cat-block-title">{OSS_CATEGORY_LABELS[cat] || cat}</h3>
+          <div class="oss-grid">
+            {list.map((item) => (
+              <article class="oss-card-item">
+                <div class="oss-card-item-head">
+                  <span class={`oss-chip oss-chip--${item.category}`}>{item.categoryLabel}</span>
+                  <span class="oss-card-stars" title="GitHub Stars">
+                    <span aria-hidden="true">★</span> {formatStars(item.stars)}
+                  </span>
+                </div>
+                <h4>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-track="oss-click"
+                    data-oss-name={item.name}
+                    data-oss-category={item.category}
+                  >
+                    {item.name}
+                  </a>
+                </h4>
+                <p class="oss-card-item-repo">{item.repo}</p>
+                {item.summary && <p class="oss-card-item-summary">{item.summary}</p>}
+                <div class="oss-card-item-actions">
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="oss-card-item-link"
+                    data-track="oss-open"
+                    data-oss-name={item.name}
+                    data-oss-category={item.category}
+                  >
+                    在 GitHub 打开 →
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  ) : (
+    <p class="loading-hint">暂无开源项目数据。</p>
+  )
+}

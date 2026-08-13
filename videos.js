@@ -480,7 +480,10 @@ async function loadDailyVideos() {
   const meta = document.getElementById('video-update-meta');
   if (!root) return;
 
-  root.innerHTML = '<p class="loading-hint">加载视频推荐…</p>';
+  const hasSsr = Boolean(root.querySelector('[data-ssr-videos], .video-card'));
+  if (!hasSsr) {
+    root.innerHTML = '<p class="loading-hint">加载视频推荐…</p>';
+  }
 
   try {
     const data = await fetchVideoData();
