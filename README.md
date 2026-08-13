@@ -63,14 +63,14 @@ python3 scripts/fetch_daily_videos.py
 
 顶栏导航（`data/site.json` → `nav.menu`）：
 
-| 入口       | 类型   | 说明                                                       |
-| ---------- | ------ | ---------------------------------------------------------- |
-| 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图、专区入口                |
-| AI工具中心 | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                        |
+| 入口       | 类型   | 说明                                                                                          |
+| ---------- | ------ | --------------------------------------------------------------------------------------------- |
+| 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图、专区入口                                                   |
+| AI工具中心 | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                                                           |
 | 开源精选   | 独立页 | `oss.html` · 日更加热：Agent / MCP / Coding Agent / Harness / Skills / Memory（每方向 Top 3） |
-| 课程资源   | 独立页 | `courses.html` · 免费 AI 课程                              |
-| 新闻热点   | 独立页 | `news/daily-ai-news.html` · 当前时刻往前 7×24 小时（日更） |
-| AI 视频    | 独立页 | `videos.html` · YouTube/B站 24h/30d/100d 分桶日更          |
+| 课程资源   | 独立页 | `courses.html` · 免费 AI 课程                                                                 |
+| 新闻热点   | 独立页 | `news/daily-ai-news.html` · 当前时刻往前 7×24 小时（日更）                                    |
+| AI 视频    | 独立页 | `videos.html` · YouTube/B站 24h/30d/100d 分桶日更                                             |
 
 独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题 · 实战案例详情（`local/*.html`）
 
@@ -84,7 +84,7 @@ python3 scripts/fetch_daily_videos.py
 | 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                             |
 | 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等               |
 | 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                        |
-| 开源精选     | 独立页：`oss_frameworks` 按方向加热精选（`oss.html` · `.oss-card*`）          |
+| 开源精选     | 独立页：`oss_frameworks` 按方向加热精选（`oss.html` · `.oss-card*`）           |
 | 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示                   |
 | SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 开源精选 ItemList）+ BreadcrumbList |
 
@@ -109,19 +109,19 @@ python3 scripts/fetch_daily_videos.py
 
 ## 改内容
 
-| 想改什么     | 改哪里                                                                    |
-| ------------ | ------------------------------------------------------------------------- |
-| 文案 / 导航  | `data/site.json`                                                          |
-| 工具 / 关系  | `data/tools.json` · `data/tool-relations.json`                            |
-| 对比专题     | `data/compares.json`（独立 `compare/*.html` 页）                          |
-| 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                              |
-| 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；日更 `daily-rankings.yml`） |
-| 热度基准     | `data/engagement.json`                                                    |
+| 想改什么     | 改哪里                                                                                    |
+| ------------ | ----------------------------------------------------------------------------------------- |
+| 文案 / 导航  | `data/site.json`                                                                          |
+| 工具 / 关系  | `data/tools.json` · `data/tool-relations.json`                                            |
+| 对比专题     | `data/compares.json`（独立 `compare/*.html` 页）                                          |
+| 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                                              |
+| 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；日更 `daily-rankings.yml`）                 |
+| 热度基准     | `data/engagement.json`                                                                    |
 | 开源精选     | `config/oss-fetch.yaml` → `fetch_oss_heating.py` → `data/oss-projects.json` / `site.json` |
-| 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`）              |
-| 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                  |
-| 新闻源       | `config/news-fetch.yaml`                                                  |
-| 视频源       | `config/video-fetch.yaml`                                                 |
+| 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`）                              |
+| 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                                  |
+| 新闻源       | `config/news-fetch.yaml`                                                                  |
+| 视频源       | `config/video-fetch.yaml`                                                                 |
 
 推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
 

@@ -1,11 +1,4 @@
-const OSS_CATEGORY_ORDER = [
-  'agent',
-  'mcp',
-  'coding_agent',
-  'agent_harness',
-  'skills',
-  'memory',
-];
+const OSS_CATEGORY_ORDER = ['agent', 'mcp', 'coding_agent', 'agent_harness', 'skills', 'memory'];
 const OSS_CATEGORY_LABELS = {
   agent: 'Agent',
   mcp: 'MCP',

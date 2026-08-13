@@ -305,16 +305,16 @@ git add data/rankings.json && git commit -m "chore: refresh rankings" && git pus
 
 适合运营直接编辑、随 `main` 发布的内容：
 
-| 想改什么                | 文件                                                                              | 注意事项                                       |
-| ----------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------- |
-| 首页文案 / 导航 / FAQ   | `data/site.json`                                                                  | 改完 `npm run build` 本地预览                  |
-| 工具教程页              | `data/tools.json`                                                                 | `id` 唯一；与 `tool-relations.json` 一致       |
-| 对比专题                | `data/compares.json`                                                              | 每篇一个 `slug`                                |
-| 推荐场景芯片 / 现实实例 | `site.json` → `ai_picker.options`（含 `examples[]`）                              | 重建后更新 `recommend-rules.json`              |
-| 工具中心排行            | `data/rankings.json`；展示条数 `HUB_RANKING_TOP_N`（`src/lib/hub.ts`）            |
+| 想改什么                | 文件                                                                                                                 | 注意事项                                       |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| 首页文案 / 导航 / FAQ   | `data/site.json`                                                                                                     | 改完 `npm run build` 本地预览                  |
+| 工具教程页              | `data/tools.json`                                                                                                    | `id` 唯一；与 `tool-relations.json` 一致       |
+| 对比专题                | `data/compares.json`                                                                                                 | 每篇一个 `slug`                                |
+| 推荐场景芯片 / 现实实例 | `site.json` → `ai_picker.options`（含 `examples[]`）                                                                 | 重建后更新 `recommend-rules.json`              |
+| 工具中心排行            | `data/rankings.json`；展示条数 `HUB_RANKING_TOP_N`（`src/lib/hub.ts`）                                               |
 | 开源精选                | `data/oss-projects.json` + `site.json` → `oss_frameworks[]`（加热分 / 每方向 Top 3；方向见 `config/oss-fetch.yaml`） |
-| 实战案例                | 文稿 Markdown → `content/local-deploy/`（详情页 `local/{id}.html`）               |
-| AI 领域地图             | `HomeAiMap.astro` + `.ai-map*`                                                    | 首页 `#home-ai-map` 原生层级图；见 FRONTEND.md |
+| 实战案例                | 文稿 Markdown → `content/local-deploy/`（详情页 `local/{id}.html`）                                                  |
+| AI 领域地图             | `HomeAiMap.astro` + `.ai-map*`                                                                                       | 首页 `#home-ai-map` 原生层级图；见 FRONTEND.md |
 
 字段定义详见 [DATA-MODEL.md](./DATA-MODEL.md)。
 
