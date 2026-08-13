@@ -25,6 +25,13 @@ const groups = groupOssByCategory(items);
               <article class="oss-card-item">
                 <div class="oss-card-item-head">
                   <span class={`oss-chip oss-chip--${item.category}`}>{item.categoryLabel}</span>
+                  {
+                    item.sources?.some((s) => String(s).startsWith('trending')) && (
+                      <span class="oss-card-heat" title="来自 GitHub Trending">
+                        升温
+                      </span>
+                    )
+                  }
                   <span class="oss-card-stars" title="GitHub Stars">
                     <span aria-hidden="true">★</span> {formatStars(item.stars)}
                   </span>

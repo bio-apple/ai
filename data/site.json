@@ -1,8 +1,8 @@
 {
   "meta": {
     "title": "Bio AI Lab | AI 工具导航 · 开源精选 · 课程与热点",
-    "description": "Bio AI Lab：对比 ChatGPT、Claude、Cursor 等 AI 工具，收录 Agent / 推理 / 向量库 / 评测 / 本地部署等开源精选、免费课程、一周热点与每日视频，帮你快速选型并搭建工作流。",
-    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,开源精选,Agent框架,vLLM,Ollama,向量库,AI热点",
+    "description": "Bio AI Lab：对比 ChatGPT、Claude、Cursor 等 AI 工具，日更收集 GitHub 升温中的 Agent / MCP / Coding Agent / Harness / Skills / Memory 开源精选（每方向 Top 3），以及免费课程、热点与视频。",
+    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,开源精选,Agent,MCP,Coding Agent,Skills,Memory,GitHub Trending,AI热点",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
     "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与开源精选",
@@ -84,8 +84,15 @@
           "tagline": "通用 AI 助手",
           "summary": "最普及的 AI 助手，写作、学习、编程、图像生成全能。",
           "stars": 5,
-          "tags": ["写作", "编程", "图片"],
-          "recommend": ["最推荐", "新手必学"]
+          "tags": [
+            "写作",
+            "编程",
+            "图片"
+          ],
+          "recommend": [
+            "最推荐",
+            "新手必学"
+          ]
         },
         {
           "id": "claude",
@@ -95,8 +102,15 @@
           "tagline": "深度推理专家",
           "summary": "深度推理与长文档分析，Projects 知识库与 Claude Code。",
           "stars": 5,
-          "tags": ["长文档", "写作", "编程"],
-          "recommend": ["最推荐", "企业版"]
+          "tags": [
+            "长文档",
+            "写作",
+            "编程"
+          ],
+          "recommend": [
+            "最推荐",
+            "企业版"
+          ]
         },
         {
           "id": "gemini",
@@ -106,8 +120,14 @@
           "tagline": "Google 生态 AI",
           "summary": "深度整合 Google 生态，多模态、Deep Research、Gems。",
           "stars": 4,
-          "tags": ["搜索", "多模态", "研究"],
-          "recommend": ["企业版"]
+          "tags": [
+            "搜索",
+            "多模态",
+            "研究"
+          ],
+          "recommend": [
+            "企业版"
+          ]
         },
         {
           "id": "new-bing",
@@ -117,8 +137,14 @@
           "tagline": "联网搜索 AI",
           "summary": "微软 Bing AI 搜索对话入口，联网问答与网页摘要，AICPB 全球总榜前列。",
           "stars": 4,
-          "tags": ["搜索", "联网", "免费"],
-          "recommend": ["新手必学"]
+          "tags": [
+            "搜索",
+            "联网",
+            "免费"
+          ],
+          "recommend": [
+            "新手必学"
+          ]
         }
       ]
     },
@@ -133,8 +159,15 @@
           "tagline": "长文档分析",
           "summary": "超长上下文与文件解析，联网搜索，国产长文档分析首选。",
           "stars": 5,
-          "tags": ["长文档", "联网", "中文"],
-          "recommend": ["新手必学", "免费"]
+          "tags": [
+            "长文档",
+            "联网",
+            "中文"
+          ],
+          "recommend": [
+            "新手必学",
+            "免费"
+          ]
         },
         {
           "id": "qwen",
@@ -144,8 +177,14 @@
           "tagline": "企业级大模型",
           "summary": "Qwen 大模型全家桶，网页/App/API 与阿里云生态深度整合。",
           "stars": 4,
-          "tags": ["API", "多模态", "企业"],
-          "recommend": ["企业版"]
+          "tags": [
+            "API",
+            "多模态",
+            "企业"
+          ],
+          "recommend": [
+            "企业版"
+          ]
         },
         {
           "id": "doubao",
@@ -155,8 +194,14 @@
           "tagline": "免费多模态助手",
           "summary": "免费好用的多模态助手，联动扣子 Coze 搭建 AI 应用。",
           "stars": 4,
-          "tags": ["免费", "创作", "Coze"],
-          "recommend": ["免费"]
+          "tags": [
+            "免费",
+            "创作",
+            "Coze"
+          ],
+          "recommend": [
+            "免费"
+          ]
         },
         {
           "id": "deepseek",
@@ -166,8 +211,15 @@
           "tagline": "高性价比推理",
           "summary": "高性价比推理模型，免费网页版 + 开发者友好 API。",
           "stars": 5,
-          "tags": ["编程", "推理", "免费"],
-          "recommend": ["新手必学", "免费"]
+          "tags": [
+            "编程",
+            "推理",
+            "免费"
+          ],
+          "recommend": [
+            "新手必学",
+            "免费"
+          ]
         }
       ]
     },
@@ -182,8 +234,14 @@
           "tagline": "AI 原生 IDE",
           "summary": "AI 原生代码编辑器，Agent 模式与 Tab 智能补全。",
           "stars": 5,
-          "tags": ["编程", "Agent", "补全"],
-          "recommend": ["开发者"]
+          "tags": [
+            "编程",
+            "Agent",
+            "补全"
+          ],
+          "recommend": [
+            "开发者"
+          ]
         },
         {
           "id": "codex",
@@ -193,8 +251,14 @@
           "tagline": "编程代理",
           "summary": "端到端编程代理，CLI、IDE 扩展与 GitHub 自动化。",
           "stars": 4,
-          "tags": ["自动化", "PR", "CLI"],
-          "recommend": ["开发者"]
+          "tags": [
+            "自动化",
+            "PR",
+            "CLI"
+          ],
+          "recommend": [
+            "开发者"
+          ]
         },
         {
           "id": "copilot",
@@ -204,8 +268,15 @@
           "tagline": "IDE 智能补全",
           "summary": "GitHub Copilot 代码补全 + Microsoft 365 办公 AI 助手。",
           "stars": 4,
-          "tags": ["编程", "Office", "GitHub"],
-          "recommend": ["开发者", "企业版"]
+          "tags": [
+            "编程",
+            "Office",
+            "GitHub"
+          ],
+          "recommend": [
+            "开发者",
+            "企业版"
+          ]
         }
       ]
     }
@@ -236,7 +307,11 @@
         "id": "writing",
         "label": "写文章",
         "icon": "✍",
-        "tools": ["chatgpt", "claude", "kimi"],
+        "tools": [
+          "chatgpt",
+          "claude",
+          "kimi"
+        ],
         "examples": [
           "把会议纪要改成可读的产品周报",
           "按目标读者重写公众号/官网长文",
@@ -272,7 +347,11 @@
         "id": "coding",
         "label": "写代码",
         "icon": "💻",
-        "tools": ["cursor", "copilot", "codex"],
+        "tools": [
+          "cursor",
+          "copilot",
+          "codex"
+        ],
         "examples": [
           "用 Cursor Agent 搭落地页并修交互 bug",
           "在 VS Code 用 Copilot 补 API 与单测",
@@ -310,7 +389,11 @@
         "id": "ppt",
         "label": "制作 PPT",
         "icon": "📊",
-        "tools": ["chatgpt", "copilot", "doubao"],
+        "tools": [
+          "chatgpt",
+          "copilot",
+          "doubao"
+        ],
         "examples": [
           "季度业务复盘：大纲 → 讲稿 → 幻灯片要点",
           "融资路演 10 页：问题、方案、数据、团队",
@@ -342,7 +425,11 @@
         "id": "video",
         "label": "做视频",
         "icon": "🎬",
-        "tools": ["jimeng", "doubao", "chatgpt"],
+        "tools": [
+          "jimeng",
+          "doubao",
+          "chatgpt"
+        ],
         "examples": [
           "抖音口播：脚本 → 即梦出镜 → 剪映成片",
           "产品演示短片：分镜表 + 文生视频镜头",
@@ -376,7 +463,11 @@
         "id": "data",
         "label": "数据分析",
         "icon": "📈",
-        "tools": ["chatgpt", "claude", "copilot"],
+        "tools": [
+          "chatgpt",
+          "claude",
+          "copilot"
+        ],
         "examples": [
           "上传 CSV：漏斗转化与异常波动解读",
           "Excel 销售表：透视结论与一页管理摘要",
@@ -531,7 +622,11 @@
       {
         "phase": "第 1 周",
         "title": "建立 AI 基础认知",
-        "tools": ["chatgpt", "doubao", "deepseek"],
+        "tools": [
+          "chatgpt",
+          "doubao",
+          "deepseek"
+        ],
         "tasks": [
           "注册并体验 2 个对话 AI",
           "学会写清晰的提示词",
@@ -541,20 +636,43 @@
       {
         "phase": "第 2-3 周",
         "title": "掌握长文档与深度分析",
-        "tools": ["kimi", "claude", "qwen"],
-        "tasks": ["上传 PDF 并生成摘要", "用 AI 分析合同或论文", "建立个人知识库（Projects）"]
+        "tools": [
+          "kimi",
+          "claude",
+          "qwen"
+        ],
+        "tasks": [
+          "上传 PDF 并生成摘要",
+          "用 AI 分析合同或论文",
+          "建立个人知识库（Projects）"
+        ]
       },
       {
         "phase": "第 4-6 周",
         "title": "编程与自动化",
-        "tools": ["cursor", "copilot", "codex"],
-        "tasks": ["配置 Cursor Rules", "用 Agent 完成一个小功能", "尝试 Codex PR 自动化"]
+        "tools": [
+          "cursor",
+          "copilot",
+          "codex"
+        ],
+        "tasks": [
+          "配置 Cursor Rules",
+          "用 Agent 完成一个小功能",
+          "尝试 Codex PR 自动化"
+        ]
       },
       {
         "phase": "持续进阶",
         "title": "多工具协同工作流",
-        "tools": ["gemini", "doubao"],
-        "tasks": ["按场景选择最优工具组合", "保存并复用高效提示词", "跟进本站每日视频与热点"]
+        "tools": [
+          "gemini",
+          "doubao"
+        ],
+        "tasks": [
+          "按场景选择最优工具组合",
+          "保存并复用高效提示词",
+          "跟进本站每日视频与热点"
+        ]
       }
     ]
   },
@@ -571,16 +689,38 @@
   "footer": {
     "text": "Bio AI Lab · Discover. Learn. Create with AI.",
     "links": [
-      { "label": "AI 工具中心", "href": "tools/hub.html" },
-      { "label": "开源精选", "href": "oss.html" },
-      { "label": "课程资源", "href": "courses.html" },
-      { "label": "AI 视频", "href": "videos.html" },
-      { "label": "新手指南", "href": "guides/beginner.html" },
-      { "label": "学习路线", "href": "ai-learning-roadmap.html" }
+      {
+        "label": "AI 工具中心",
+        "href": "tools/hub.html"
+      },
+      {
+        "label": "开源精选",
+        "href": "oss.html"
+      },
+      {
+        "label": "课程资源",
+        "href": "courses.html"
+      },
+      {
+        "label": "AI 视频",
+        "href": "videos.html"
+      },
+      {
+        "label": "新手指南",
+        "href": "guides/beginner.html"
+      },
+      {
+        "label": "学习路线",
+        "href": "ai-learning-roadmap.html"
+      }
     ]
   },
   "recommend_fallback": {
-    "tools": ["chatgpt", "claude", "cursor"],
+    "tools": [
+      "chatgpt",
+      "claude",
+      "cursor"
+    ],
     "guide": "guides/beginner.html",
     "path_title": "现实路径",
     "steps": [
@@ -597,109 +737,222 @@
   },
   "oss_frameworks": [
     {
-      "repo": "ollama/ollama",
-      "name": "Ollama",
-      "stars": 177287,
-      "category": "local",
-      "summary": "本机一键跑开源大模型，API 简单，适合本地原型与私有化试用。"
-    },
-    {
       "repo": "langgenius/dify",
-      "name": "Dify",
-      "stars": 150800,
+      "name": "dify",
+      "stars": 152333,
       "category": "agent",
-      "summary": "开源 LLM 应用平台，可视化编排 Agent、RAG 与工作流。"
+      "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on c…",
+      "heat_score": 62.69,
+      "sources": [
+        "search"
+      ],
+      "rank": 1
     },
     {
-      "repo": "open-webui/open-webui",
-      "name": "Open WebUI",
-      "stars": 147318,
-      "category": "local",
-      "summary": "面向 Ollama / OpenAI 兼容接口的本地 Chat UI，易部署可扩展。"
-    },
-    {
-      "repo": "ggerganov/llama.cpp",
-      "name": "llama.cpp",
-      "stars": 122095,
-      "category": "inference",
-      "summary": "CPU/GPU 高效推理库，GGUF 生态核心，边缘与桌面部署常用。"
-    },
-    {
-      "repo": "vllm-project/vllm",
-      "name": "vLLM",
-      "stars": 87687,
-      "category": "inference",
-      "summary": "高吞吐 LLM 推理引擎，PagedAttention，适合生产级服务端部署。"
-    },
-    {
-      "repo": "microsoft/autogen",
-      "name": "AutoGen",
-      "stars": 60105,
+      "repo": "teng-lin/notebooklm-py",
+      "name": "notebooklm-py",
+      "stars": 18676,
       "category": "agent",
-      "summary": "微软多 Agent 对话框架，支持自定义角色与人机协同。"
+      "summary": "Unofficial Python API and agentic skill for Google Gemini Notebook. Full programmatic access to NotebookLM's features—i…",
+      "heat_score": 59.7,
+      "sources": [
+        "search"
+      ],
+      "rank": 2
     },
     {
-      "repo": "mudler/LocalAI",
-      "name": "LocalAI",
-      "stars": 48026,
-      "category": "local",
-      "summary": "OpenAI 兼容的本地推理网关，可接多种后端模型与模态。"
-    },
-    {
-      "repo": "milvus-io/milvus",
-      "name": "Milvus",
-      "stars": 45428,
-      "category": "vector",
-      "summary": "云原生向量数据库，大规模相似度检索与 RAG 基础设施。"
-    },
-    {
-      "repo": "langchain-ai/langgraph",
-      "name": "LangGraph",
-      "stars": 38501,
+      "repo": "ifixai-ai/iFixAi",
+      "name": "iFixAi",
+      "stars": 8489,
       "category": "agent",
-      "summary": "LangChain 生态的有状态图编排，适合可控、可循环的 Agent 工作流。"
+      "summary": "Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agen…",
+      "heat_score": 59.02,
+      "sources": [
+        "search"
+      ],
+      "rank": 3
     },
     {
-      "repo": "qdrant/qdrant",
-      "name": "Qdrant",
-      "stars": 33677,
-      "category": "vector",
-      "summary": "Rust 实现的向量搜索引擎，过滤与混合检索能力强。"
+      "repo": "vitali87/code-graph-rag",
+      "name": "code-graph-rag",
+      "stars": 4159,
+      "category": "mcp",
+      "summary": "The ultimate RAG for your monorepo. Query, understand, and edit multi-language codebases with the power of AI and knowl…",
+      "heat_score": 88.06,
+      "sources": [
+        "search",
+        "trending:weekly"
+      ],
+      "rank": 1
     },
     {
-      "repo": "sgl-project/sglang",
-      "name": "SGLang",
-      "stars": 30966,
-      "category": "inference",
-      "summary": "结构化生成与高吞吐推理运行时，适合复杂 decoding 场景。"
+      "repo": "t8y2/dbx",
+      "name": "dbx",
+      "stars": 14423,
+      "category": "mcp",
+      "summary": "20 MB lightweight cross-platform database client for 70+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB…",
+      "heat_score": 63.33,
+      "sources": [
+        "search"
+      ],
+      "rank": 2
     },
     {
-      "repo": "chroma-core/chroma",
-      "name": "Chroma",
-      "stars": 28910,
-      "category": "vector",
-      "summary": "嵌入优先的开发者向量库，本地起步快，常用于 RAG 原型。"
+      "repo": "n8n-io/n8n",
+      "name": "n8n",
+      "stars": 200472,
+      "category": "mcp",
+      "summary": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host…",
+      "heat_score": 58.84,
+      "sources": [
+        "search"
+      ],
+      "rank": 3
     },
     {
-      "repo": "promptfoo/promptfoo",
-      "name": "promptfoo",
-      "stars": 23755,
-      "category": "eval",
-      "summary": "提示词与 LLM 应用评测框架，支持红队、回归与 CI 集成。"
+      "repo": "holaboss-ai/holaOS",
+      "name": "holaOS",
+      "stars": 6191,
+      "category": "coding_agent",
+      "summary": "Open-source All in One AI agent workspace. Run any agent — Claude Code, Codex — across your tools (100+ integrations + …",
+      "heat_score": 135.26,
+      "sources": [
+        "trending:daily"
+      ],
+      "rank": 1
     },
     {
-      "repo": "confident-ai/deepeval",
-      "name": "DeepEval",
-      "stars": 17277,
-      "category": "eval",
-      "summary": "类 Pytest 的 LLM 评测库，覆盖幻觉、相关性等常见指标。"
+      "repo": "huangruiteng/loopx",
+      "name": "loopx",
+      "stars": 4548,
+      "category": "coding_agent",
+      "summary": "Lightweight loop engineering state kernel for long-running AI agent teams. Agent-loop agnostic across Codex, Claude Cod…",
+      "heat_score": 100.58,
+      "sources": [
+        "trending:weekly"
+      ],
+      "rank": 2
     },
     {
-      "repo": "EleutherAI/lm-evaluation-harness",
-      "name": "LM Evaluation Harness",
-      "stars": 13470,
-      "category": "eval",
-      "summary": "EleutherAI 基准评测套件，学术与开源模型对比的事实标准之一。"
+      "repo": "esengine/DeepSeek-Reasonix",
+      "name": "DeepSeek-Reasonix",
+      "stars": 34382,
+      "category": "coding_agent",
+      "summary": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
+      "heat_score": 100.0,
+      "sources": [
+        "search",
+        "trending:weekly"
+      ],
+      "rank": 3
+    },
+    {
+      "repo": "ruvnet/ruflo",
+      "name": "ruflo",
+      "stars": 67758,
+      "category": "agent_harness",
+      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 1
+    },
+    {
+      "repo": "pbakaus/impeccable",
+      "name": "impeccable",
+      "stars": 58740,
+      "category": "agent_harness",
+      "summary": "The design language that makes your AI harness better at design.",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 2
+    },
+    {
+      "repo": "Hmbown/CodeWhale",
+      "name": "CodeWhale",
+      "stars": 40726,
+      "category": "agent_harness",
+      "summary": "Open-source, community-driven agent harness",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 3
+    },
+    {
+      "repo": "anthropics/skills",
+      "name": "skills",
+      "stars": 168752,
+      "category": "skills",
+      "summary": "Public repository for Agent Skills",
+      "heat_score": 169.0,
+      "sources": [
+        "trending:daily"
+      ],
+      "rank": 1
+    },
+    {
+      "repo": "kepano/obsidian-skills",
+      "name": "obsidian-skills",
+      "stars": 45342,
+      "category": "skills",
+      "summary": "Agent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats including Markdown, Bases, JSON Canvas.",
+      "heat_score": 124.0,
+      "sources": [
+        "trending:daily"
+      ],
+      "rank": 2
+    },
+    {
+      "repo": "google/skills",
+      "name": "skills",
+      "stars": 17999,
+      "category": "skills",
+      "summary": "Agent Skills for Google products and technologies",
+      "heat_score": 112.72,
+      "sources": [
+        "trending:weekly"
+      ],
+      "rank": 3
+    },
+    {
+      "repo": "TencentCloud/TencentDB-Agent-Memory",
+      "name": "TencentDB-Agent-Memory",
+      "stars": 21027,
+      "category": "memory",
+      "summary": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusa…",
+      "heat_score": 110.5,
+      "sources": [
+        "trending:weekly"
+      ],
+      "rank": 1
+    },
+    {
+      "repo": "mem0ai/mem0",
+      "name": "mem0",
+      "stars": 63189,
+      "category": "memory",
+      "summary": "Universal memory layer for AI Agents",
+      "heat_score": 56.19,
+      "sources": [
+        "search"
+      ],
+      "rank": 2
+    },
+    {
+      "repo": "EverMind-AI/EverOS",
+      "name": "EverOS",
+      "stars": 11990,
+      "category": "memory",
+      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
+      "heat_score": 54.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 3
     }
   ]
 }

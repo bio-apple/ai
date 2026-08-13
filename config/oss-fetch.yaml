@@ -1,0 +1,67 @@
+# 开源精选：收集近期升温的 AI 开源（非纯 Star 榜）
+# 数据源：GitHub Trending HTML + GitHub Search API
+# 每天更新；每个方向最多 top3
+
+max_per_direction: 3
+summary_max_length: 120
+min_stars: 80
+exclude_archived: true
+exclude_forks: true
+
+# Trending 页面（真正的 github.com/trending）
+trending:
+  enabled: true
+  since: [daily, weekly]
+  # 不限语言，靠关键词/方向匹配归类
+  spoken_language_code: ""
+
+# Search API：按方向发现近期活跃仓库（pushed 近 30 天）
+search:
+  enabled: true
+  pushed_within_days: 30
+  per_page: 15
+  # 加热排序辅助：updated 优先于纯 stars
+  sort: updated
+
+directions:
+  - id: agent
+    label: Agent
+    search_queries:
+      - "AI agent OR multi-agent OR autonomous agent language:Python"
+      - "topic:ai-agents OR topic:llm-agent"
+    match: "(?i)\\b(multi[- ]?agent|ai[- ]?agent|agentic|autogen|crewai|langgraph|swarm)\\b"
+
+  - id: mcp
+    label: MCP
+    search_queries:
+      - "mcp-server OR \"mcp server\" OR \"model context protocol\""
+      - "\"mcp sdk\" OR \"mcp client\" OR mcp-use"
+    match: "(?i)(model[- ]context[- ]protocol|\\bmcp[-_ ]?(server|client|use|sdk|hub|protocol)s?\\b|(^|/)mcp[-_/]|[-_]mcp([-/]|$))"
+
+  - id: coding_agent
+    label: Coding Agent
+    search_queries:
+      - "coding agent OR code agent OR software engineer agent OR SWE-agent"
+      - "\"openhands\" OR aider OR continue.dev OR \"claude code\" agent"
+    match: "(?i)\\b(coding[- ]?agent|code[- ]?agent|swe[- ]?agent|openhands|aider|continue\\b|devin|codex)\\b"
+
+  - id: agent_harness
+    label: Agent Harness
+    search_queries:
+      - "\"agent harness\" OR better-harness OR agent-harness"
+      - "browser-use OR \"computer use\" agent OR \"agent runtime\""
+    match: "(?i)\\b(harness|browser[- ]?use|computer[- ]?use|agent[- ]?runtime|tool[- ]?call)\\b"
+
+  - id: skills
+    label: Skills
+    search_queries:
+      - "agent skills OR \"claude skills\" OR SKILL.md OR cursor skills"
+      - "\"agent skill\" OR skills marketplace OR skill pack"
+    match: "(?i)(skill\\.md|\\bagent[-_ ]?skills?\\b|\\bclaude[-_ ]?skills?\\b|\\bcursor[-_ ]?skills?\\b|[-_]skills?$)"
+
+  - id: memory
+    label: Memory
+    search_queries:
+      - "agent memory OR long-term memory LLM OR mem0 OR memory layer"
+      - "topic:ai-memory OR \"vector memory\" agent OR conversational memory"
+    match: "(?i)\\b(mem0|long[- ]?term[- ]?memory|agent[- ]?memory|memory[- ]?(layer|store|bank))\\b"

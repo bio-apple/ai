@@ -295,6 +295,7 @@ export function buildHomeSchema(site: {
     stars?: number;
     summary?: string;
     category?: string;
+    heat_score?: number;
   }[];
 }) {
   const graph: Record<string, unknown>[] = [
@@ -338,12 +339,13 @@ export function buildHomeSchema(site: {
     .map((fw) => ({
       ...fw,
       stars: Number(fw.stars || 0),
+      heat_score: Number(fw.heat_score || 0),
     }))
-    .sort((a, b) => b.stars - a.stars);
+    .sort((a, b) => b.heat_score - a.heat_score || b.stars - a.stars);
   if (oss.length) {
     graph.push({
       '@type': 'ItemList',
-      name: '开源精选 · Agent / 推理 / 向量库 / 评测 / 本地部署',
+      name: '开源精选 · Agent / MCP / Coding Agent / Harness / Skills / Memory',
       itemListElement: oss.map((fw, i) => ({
         '@type': 'ListItem',
         position: i + 1,

@@ -19,6 +19,8 @@ interface Props {
 }
 
 const { crumbs, title, lead, meta, metaId, icon, iconClass, class: className } = Astro.props;
+const leadId = metaId ? metaId.replace(/-meta$/, '-lead') : undefined;
+const showMeta = Boolean(meta || metaId);
 ---
 
 <Breadcrumb crumbs={crumbs} />
@@ -32,10 +34,14 @@ const { crumbs, title, lead, meta, metaId, icon, iconClass, class: className } =
         </div>
         <div class="standalone-hero-text">
           {title && <h1>{title}</h1>}
-          {lead && <p class="standalone-lead">{lead}</p>}
-          {meta && (
+          {lead && (
+            <p class="standalone-lead" id={leadId}>
+              {lead}
+            </p>
+          )}
+          {showMeta && (
             <p class="standalone-meta" id={metaId}>
-              {meta}
+              {meta || ''}
             </p>
           )}
           <slot name="hero-extra" />
@@ -44,10 +50,14 @@ const { crumbs, title, lead, meta, metaId, icon, iconClass, class: className } =
     ) : (
       <>
         {title && <h1>{title}</h1>}
-        {lead && <p class="standalone-lead">{lead}</p>}
-        {meta && (
+        {lead && (
+          <p class="standalone-lead" id={leadId}>
+            {lead}
+          </p>
+        )}
+        {showMeta && (
           <p class="standalone-meta" id={metaId}>
-            {meta}
+            {meta || ''}
           </p>
         )}
         <slot name="hero-extra" />

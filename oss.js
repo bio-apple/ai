@@ -1,10 +1,18 @@
-const OSS_CATEGORY_ORDER = ['agent', 'inference', 'vector', 'eval', 'local'];
+const OSS_CATEGORY_ORDER = [
+  'agent',
+  'mcp',
+  'coding_agent',
+  'agent_harness',
+  'skills',
+  'memory',
+];
 const OSS_CATEGORY_LABELS = {
-  agent: 'Agent 框架',
-  inference: '推理框架',
-  vector: '向量库',
-  eval: '评测工具',
-  local: '本地部署',
+  agent: 'Agent',
+  mcp: 'MCP',
+  coding_agent: 'Coding Agent',
+  agent_harness: 'Agent Harness',
+  skills: 'Skills',
+  memory: 'Memory',
 };
 
 let ossState = { category: 'all', items: [] };
@@ -33,6 +41,15 @@ function filterOssItems(items) {
   });
 }
 
+function sourceBadge(item) {
+  const sources = item.sources || [];
+  const hasTrending = sources.some((s) => String(s).startsWith('trending'));
+  if (hasTrending) {
+    return '<span class="oss-card-heat" title="来自 GitHub Trending">升温</span>';
+  }
+  return '';
+}
+
 function renderOssCard(item) {
   const starsHtml = `
     <span class="oss-card-stars" title="GitHub Stars">
@@ -42,6 +59,7 @@ function renderOssCard(item) {
     <article class="oss-card-item">
       <div class="oss-card-item-head">
         <span class="oss-chip oss-chip--${html(item.category)}">${html(item.categoryLabel || '')}</span>
+        ${sourceBadge(item)}
         ${starsHtml}
       </div>
       <h4>
@@ -103,7 +121,7 @@ function renderToolbar(items) {
 
   const catHtml = categories
     .map((c) => {
-      const label = c === 'all' ? '全部类别' : OSS_CATEGORY_LABELS[c] || c;
+      const label = c === 'all' ? '全部方向' : OSS_CATEGORY_LABELS[c] || c;
       const count = c === 'all' ? items.length : items.filter((i) => i.category === c).length;
       const active = ossState.category === c;
       return `<button type="button" class="video-filter${active ? ' active' : ''}" data-oss-category="${html(c)}" aria-pressed="${active}">${html(label)} · ${count}</button>`;
@@ -112,7 +130,7 @@ function renderToolbar(items) {
 
   toolbar.innerHTML = `
     <div class="video-toolbar-group">
-      <span class="video-toolbar-label">类别</span>
+      <span class="video-toolbar-label">方向</span>
       ${catHtml}
     </div>
   `;
@@ -144,15 +162,18 @@ function renderOssMeta(data) {
   const n = (data || []).length;
   const catCounts = OSS_CATEGORY_ORDER.map((cat) => {
     const count = (data || []).filter((i) => i.category === cat).length;
-    return count ? `${OSS_CATEGORY_LABELS[cat]} ${count} 个` : '';
+    return count ? `${OSS_CATEGORY_LABELS[cat]} ${count}` : '';
   })
     .filter(Boolean)
     .join(' · ');
-  if (leadEl && catCounts) {
-    leadEl.textContent = `${catCounts}——按 Star 排序的多元开源清单。`;
+  if (leadEl) {
+    leadEl.textContent =
+      '收集近期 GitHub 上正在升温的 AI 开源项目（非纯 Star 榜）。数据源：GitHub Trending + Search/API；方向：Agent / MCP / Coding Agent / Agent Harness / Skills / Memory；每天更新，每方向最多 Top 3。';
   }
   if (meta) {
-    meta.textContent = `精选 ${n} 个开源仓库 · 按 GitHub Stars 排序`;
+    meta.textContent = catCounts
+      ? `日更加热精选 ${n} 个 · ${catCounts}`
+      : `日更加热精选 ${n} 个 · 每方向 Top 3`;
   }
 }
 

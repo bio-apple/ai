@@ -67,7 +67,7 @@ python3 scripts/fetch_daily_videos.py
 | ---------- | ------ | ---------------------------------------------------------- |
 | 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图、专区入口                |
 | AI工具中心 | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                        |
-| 开源精选   | 独立页 | `oss.html` · Agent / 推理 / 向量库 / 评测 / 本地部署       |
+| 开源精选   | 独立页 | `oss.html` · 日更加热：Agent / MCP / Coding Agent / Harness / Skills / Memory（每方向 Top 3） |
 | 课程资源   | 独立页 | `courses.html` · 免费 AI 课程                              |
 | 新闻热点   | 独立页 | `news/daily-ai-news.html` · 当前时刻往前 7×24 小时（日更） |
 | AI 视频    | 独立页 | `videos.html` · YouTube/B站 24h/30d/100d 分桶日更          |
@@ -84,7 +84,7 @@ python3 scripts/fetch_daily_videos.py
 | 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                             |
 | 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等               |
 | 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                        |
-| 开源精选     | 首页专区：`oss_frameworks` 多类别卡片（`#section-oss` · `.oss-card*`）         |
+| 开源精选     | 独立页：`oss_frameworks` 按方向加热精选（`oss.html` · `.oss-card*`）          |
 | 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示                   |
 | SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 开源精选 ItemList）+ BreadcrumbList |
 
@@ -103,6 +103,8 @@ python3 scripts/fetch_daily_videos.py
 
 新闻：`config/news-fetch.yaml` · `scripts/fetch_ai_news.py` · `ai-news.json` · 日更：`.github/workflows/daily-news.yml`
 
+开源精选：`config/oss-fetch.yaml` · `scripts/fetch_oss_heating.py` · `data/oss-projects.json`（同步 `site.json` → `oss_frameworks`）· 日更：`.github/workflows/daily-oss.yml`
+
 排行榜：`data/rankings.json`（`scripts/fetch_rankings.py`；日更：`.github/workflows/daily-rankings.yml`）
 
 ## 改内容
@@ -115,7 +117,7 @@ python3 scripts/fetch_daily_videos.py
 | 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                              |
 | 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；日更 `daily-rankings.yml`） |
 | 热度基准     | `data/engagement.json`                                                    |
-| 开源精选     | `data/site.json` → `oss_frameworks`（首页 `#section-oss`）                |
+| 开源精选     | `config/oss-fetch.yaml` → `fetch_oss_heating.py` → `data/oss-projects.json` / `site.json` |
 | 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`）              |
 | 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                  |
 | 新闻源       | `config/news-fetch.yaml`                                                  |

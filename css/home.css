@@ -540,28 +540,49 @@
   border-color: color-mix(in srgb, #7c3aed 24%, var(--border));
 }
 
-.oss-chip--inference {
+.oss-chip--mcp {
+  color: color-mix(in srgb, #0f766e 70%, var(--text));
+  background: color-mix(in srgb, #14b8a6 12%, var(--bg-card));
+  border-color: color-mix(in srgb, #14b8a6 24%, var(--border));
+}
+
+.oss-chip--coding_agent {
   color: color-mix(in srgb, #2563eb 70%, var(--text));
   background: color-mix(in srgb, #2563eb 12%, var(--bg-card));
   border-color: color-mix(in srgb, #2563eb 24%, var(--border));
 }
 
-.oss-chip--vector {
-  color: color-mix(in srgb, #0d9488 70%, var(--text));
-  background: color-mix(in srgb, #14b8a6 12%, var(--bg-card));
-  border-color: color-mix(in srgb, #14b8a6 24%, var(--border));
-}
-
-.oss-chip--eval {
+.oss-chip--agent_harness {
   color: color-mix(in srgb, #c2410c 70%, var(--text));
   background: color-mix(in srgb, #f97316 12%, var(--bg-card));
   border-color: color-mix(in srgb, #f97316 24%, var(--border));
 }
 
-.oss-chip--local {
+.oss-chip--skills {
+  color: color-mix(in srgb, #a16207 70%, var(--text));
+  background: color-mix(in srgb, #eab308 12%, var(--bg-card));
+  border-color: color-mix(in srgb, #eab308 24%, var(--border));
+}
+
+.oss-chip--memory {
   color: color-mix(in srgb, #0369a1 70%, var(--text));
   background: color-mix(in srgb, #0ea5e9 12%, var(--bg-card));
   border-color: color-mix(in srgb, #0ea5e9 24%, var(--border));
+}
+
+.oss-card-heat {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 8px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, #b45309 75%, var(--text));
+  background: color-mix(in srgb, #f59e0b 14%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, #f59e0b 28%, var(--border));
 }
 
 @media (max-width: 640px) {
