@@ -737,106 +737,81 @@
   },
   "oss_frameworks": [
     {
+      "repo": "NousResearch/hermes-agent",
+      "name": "hermes-agent",
+      "stars": 230155,
+      "category": "agent",
+      "summary": "The agent that grows with you",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 1
+    },
+    {
+      "repo": "google-gemini/gemini-cli",
+      "name": "gemini-cli",
+      "stars": 106511,
+      "category": "agent",
+      "summary": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 2
+    },
+    {
       "repo": "langgenius/dify",
       "name": "dify",
-      "stars": 152333,
+      "stars": 152379,
       "category": "agent",
       "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on c…",
       "heat_score": 62.69,
       "sources": [
         "search"
       ],
+      "rank": 3
+    },
+    {
+      "repo": "koala73/worldmonitor",
+      "name": "worldmonitor",
+      "stars": 81600,
+      "category": "mcp",
+      "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
       "rank": 1
     },
     {
-      "repo": "teng-lin/notebooklm-py",
-      "name": "notebooklm-py",
-      "stars": 18676,
-      "category": "agent",
-      "summary": "Unofficial Python API and agentic skill for Google Gemini Notebook. Full programmatic access to NotebookLM's features—i…",
-      "heat_score": 59.7,
+      "repo": "headroomlabs-ai/headroom",
+      "name": "headroom",
+      "stars": 66237,
+      "category": "mcp",
+      "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95…",
+      "heat_score": 64.0,
       "sources": [
         "search"
       ],
       "rank": 2
     },
     {
-      "repo": "ifixai-ai/iFixAi",
-      "name": "iFixAi",
-      "stars": 8489,
-      "category": "agent",
-      "summary": "Independent Auditing of AI Agents. Run by human or the agent itself, to answer the most crucial question in the AI Agen…",
-      "heat_score": 59.02,
+      "repo": "DeusData/codebase-memory-mcp",
+      "name": "codebase-memory-mcp",
+      "stars": 38847,
+      "category": "mcp",
+      "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
+      "heat_score": 64.0,
       "sources": [
         "search"
       ],
       "rank": 3
-    },
-    {
-      "repo": "vitali87/code-graph-rag",
-      "name": "code-graph-rag",
-      "stars": 4159,
-      "category": "mcp",
-      "summary": "The ultimate RAG for your monorepo. Query, understand, and edit multi-language codebases with the power of AI and knowl…",
-      "heat_score": 88.06,
-      "sources": [
-        "search",
-        "trending:weekly"
-      ],
-      "rank": 1
-    },
-    {
-      "repo": "t8y2/dbx",
-      "name": "dbx",
-      "stars": 14423,
-      "category": "mcp",
-      "summary": "20 MB lightweight cross-platform database client for 70+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB…",
-      "heat_score": 63.33,
-      "sources": [
-        "search"
-      ],
-      "rank": 2
-    },
-    {
-      "repo": "n8n-io/n8n",
-      "name": "n8n",
-      "stars": 200472,
-      "category": "mcp",
-      "summary": "Fair-code workflow automation platform with native AI capabilities. Combine visual building with custom code, self-host…",
-      "heat_score": 58.84,
-      "sources": [
-        "search"
-      ],
-      "rank": 3
-    },
-    {
-      "repo": "holaboss-ai/holaOS",
-      "name": "holaOS",
-      "stars": 6191,
-      "category": "coding_agent",
-      "summary": "Open-source All in One AI agent workspace. Run any agent — Claude Code, Codex — across your tools (100+ integrations + …",
-      "heat_score": 135.26,
-      "sources": [
-        "trending:daily"
-      ],
-      "rank": 1
-    },
-    {
-      "repo": "huangruiteng/loopx",
-      "name": "loopx",
-      "stars": 4548,
-      "category": "coding_agent",
-      "summary": "Lightweight loop engineering state kernel for long-running AI agent teams. Agent-loop agnostic across Codex, Claude Cod…",
-      "heat_score": 100.58,
-      "sources": [
-        "trending:weekly"
-      ],
-      "rank": 2
     },
     {
       "repo": "esengine/DeepSeek-Reasonix",
       "name": "DeepSeek-Reasonix",
-      "stars": 34382,
+      "stars": 34487,
       "category": "coding_agent",
       "summary": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
       "heat_score": 100.0,
@@ -844,26 +819,14 @@
         "search",
         "trending:weekly"
       ],
-      "rank": 3
-    },
-    {
-      "repo": "ruvnet/ruflo",
-      "name": "ruflo",
-      "stars": 67758,
-      "category": "agent_harness",
-      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
       "rank": 1
     },
     {
-      "repo": "pbakaus/impeccable",
-      "name": "impeccable",
-      "stars": 58740,
-      "category": "agent_harness",
-      "summary": "The design language that makes your AI harness better at design.",
+      "repo": "anomalyco/opencode",
+      "name": "opencode",
+      "stars": 197128,
+      "category": "coding_agent",
+      "summary": "The open source coding agent.",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -871,11 +834,48 @@
       "rank": 2
     },
     {
-      "repo": "Hmbown/CodeWhale",
-      "name": "CodeWhale",
-      "stars": 40726,
+      "repo": "openai/codex",
+      "name": "codex",
+      "stars": 105766,
+      "category": "coding_agent",
+      "summary": "Lightweight coding agent that runs in your terminal",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 3
+    },
+    {
+      "repo": "infiniflow/ragflow",
+      "name": "ragflow",
+      "stars": 88041,
       "category": "agent_harness",
-      "summary": "Open-source, community-driven agent harness",
+      "summary": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent cap…",
+      "heat_score": 123.11,
+      "sources": [
+        "search",
+        "trending:daily"
+      ],
+      "rank": 1
+    },
+    {
+      "repo": "affaan-m/ECC",
+      "name": "ECC",
+      "stars": 239988,
+      "category": "agent_harness",
+      "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 2
+    },
+    {
+      "repo": "code-yeongyu/oh-my-openagent",
+      "name": "oh-my-openagent",
+      "stars": 67838,
+      "category": "agent_harness",
+      "summary": "omo/lazycodex: The coding agent for tokenmaxxers;the one and only agent harness for complex codebases. For your Codex, …",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -885,7 +885,7 @@
     {
       "repo": "anthropics/skills",
       "name": "skills",
-      "stars": 168752,
+      "stars": 169051,
       "category": "skills",
       "summary": "Public repository for Agent Skills",
       "heat_score": 169.0,
@@ -897,7 +897,7 @@
     {
       "repo": "kepano/obsidian-skills",
       "name": "obsidian-skills",
-      "stars": 45342,
+      "stars": 45802,
       "category": "skills",
       "summary": "Agent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats including Markdown, Bases, JSON Canvas.",
       "heat_score": 124.0,
@@ -909,7 +909,7 @@
     {
       "repo": "google/skills",
       "name": "skills",
-      "stars": 17999,
+      "stars": 18078,
       "category": "skills",
       "summary": "Agent Skills for Google products and technologies",
       "heat_score": 112.72,
@@ -921,7 +921,7 @@
     {
       "repo": "TencentCloud/TencentDB-Agent-Memory",
       "name": "TencentDB-Agent-Memory",
-      "stars": 21027,
+      "stars": 21245,
       "category": "memory",
       "summary": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusa…",
       "heat_score": 110.5,
@@ -933,7 +933,7 @@
     {
       "repo": "mem0ai/mem0",
       "name": "mem0",
-      "stars": 63189,
+      "stars": 63211,
       "category": "memory",
       "summary": "Universal memory layer for AI Agents",
       "heat_score": 56.19,
@@ -945,10 +945,10 @@
     {
       "repo": "EverMind-AI/EverOS",
       "name": "EverOS",
-      "stars": 11990,
+      "stars": 12003,
       "category": "memory",
       "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
-      "heat_score": 54.0,
+      "heat_score": 53.99,
       "sources": [
         "search"
       ],
