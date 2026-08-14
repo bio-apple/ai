@@ -739,7 +739,7 @@
     {
       "repo": "NousResearch/hermes-agent",
       "name": "hermes-agent",
-      "stars": 230216,
+      "stars": 230570,
       "category": "agent",
       "summary": "The agent that grows with you",
       "heat_score": 64.0,
@@ -749,24 +749,24 @@
       "rank": 1
     },
     {
-      "repo": "google-gemini/gemini-cli",
-      "name": "gemini-cli",
-      "stars": 106511,
+      "repo": "langgenius/dify",
+      "name": "dify",
+      "stars": 152451,
       "category": "agent",
-      "summary": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
-      "heat_score": 64.0,
+      "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on c…",
+      "heat_score": 62.68,
       "sources": [
         "search"
       ],
       "rank": 2
     },
     {
-      "repo": "HKUDS/nanobot",
-      "name": "nanobot",
-      "stars": 46960,
+      "repo": "xbtlin/ai-berkshire",
+      "name": "ai-berkshire",
+      "stars": 15535,
       "category": "agent",
-      "summary": "Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP, multi…",
-      "heat_score": 64.0,
+      "summary": "AI 时代的伯克希尔：基于 Claude Code / Codex 的价值投资研究框架。巴菲特·芒格·段永平·李录四大师方法论 + 多Agent并行研究。| AI-era Berkshire: a value investing rese…",
+      "heat_score": 62.38,
       "sources": [
         "search"
       ],
@@ -775,7 +775,7 @@
     {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 81628,
+      "stars": 81847,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
@@ -787,7 +787,7 @@
     {
       "repo": "headroomlabs-ai/headroom",
       "name": "headroom",
-      "stars": 66256,
+      "stars": 66354,
       "category": "mcp",
       "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95…",
       "heat_score": 64.0,
@@ -799,7 +799,7 @@
     {
       "repo": "DeusData/codebase-memory-mcp",
       "name": "codebase-memory-mcp",
-      "stars": 38855,
+      "stars": 38934,
       "category": "mcp",
       "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
       "heat_score": 64.0,
@@ -809,22 +809,21 @@
       "rank": 3
     },
     {
-      "repo": "esengine/DeepSeek-Reasonix",
-      "name": "DeepSeek-Reasonix",
-      "stars": 34515,
+      "repo": "citrolabs/ego-lite",
+      "name": "ego-lite",
+      "stars": 10258,
       "category": "coding_agent",
-      "summary": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
-      "heat_score": 100.0,
+      "summary": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your A…",
+      "heat_score": 155.66,
       "sources": [
-        "search",
-        "trending:weekly"
+        "trending:daily"
       ],
       "rank": 1
     },
     {
       "repo": "anomalyco/opencode",
       "name": "opencode",
-      "stars": 197192,
+      "stars": 197478,
       "category": "coding_agent",
       "summary": "The open source coding agent.",
       "heat_score": 64.0,
@@ -836,7 +835,7 @@
     {
       "repo": "farion1231/cc-switch",
       "name": "cc-switch",
-      "stars": 127079,
+      "stars": 127272,
       "category": "coding_agent",
       "summary": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Grok Build & Hermes Agent. On…",
       "heat_score": 64.0,
@@ -848,10 +847,10 @@
     {
       "repo": "infiniflow/ragflow",
       "name": "ragflow",
-      "stars": 88097,
+      "stars": 88353,
       "category": "agent_harness",
       "summary": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent cap…",
-      "heat_score": 123.11,
+      "heat_score": 144.13,
       "sources": [
         "search",
         "trending:daily"
@@ -861,7 +860,7 @@
     {
       "repo": "affaan-m/ECC",
       "name": "ECC",
-      "stars": 240008,
+      "stars": 240135,
       "category": "agent_harness",
       "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
       "heat_score": 64.0,
@@ -873,7 +872,7 @@
     {
       "repo": "bytedance/deer-flow",
       "name": "deer-flow",
-      "stars": 79972,
+      "stars": 80011,
       "category": "agent_harness",
       "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memorie…",
       "heat_score": 64.0,
@@ -883,48 +882,49 @@
       "rank": 3
     },
     {
-      "repo": "anthropics/skills",
-      "name": "skills",
-      "stars": 169116,
-      "category": "skills",
-      "summary": "Public repository for Agent Skills",
-      "heat_score": 169.0,
-      "sources": [
-        "trending:daily"
-      ],
-      "rank": 1
-    },
-    {
-      "repo": "kepano/obsidian-skills",
-      "name": "obsidian-skills",
-      "stars": 45884,
-      "category": "skills",
-      "summary": "Agent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats including Markdown, Bases, JSON Canvas.",
-      "heat_score": 124.0,
-      "sources": [
-        "trending:daily"
-      ],
-      "rank": 2
-    },
-    {
       "repo": "google/skills",
       "name": "skills",
-      "stars": 18087,
+      "stars": 18168,
       "category": "skills",
       "summary": "Agent Skills for Google products and technologies",
       "heat_score": 112.72,
       "sources": [
+        "search",
         "trending:weekly"
+      ],
+      "rank": 1
+    },
+    {
+      "repo": "addyosmani/agent-skills",
+      "name": "agent-skills",
+      "stars": 87229,
+      "category": "skills",
+      "summary": "Production-grade engineering skills for AI coding agents.",
+      "heat_score": 104.5,
+      "sources": [
+        "trending:weekly"
+      ],
+      "rank": 2
+    },
+    {
+      "repo": "mvanhorn/last30days-skill",
+      "name": "last30days-skill",
+      "stars": 58191,
+      "category": "skills",
+      "summary": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a gr…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
       ],
       "rank": 3
     },
     {
       "repo": "TencentCloud/TencentDB-Agent-Memory",
       "name": "TencentDB-Agent-Memory",
-      "stars": 21328,
+      "stars": 21654,
       "category": "memory",
       "summary": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusa…",
-      "heat_score": 110.5,
+      "heat_score": 103.0,
       "sources": [
         "trending:weekly"
       ],
@@ -933,10 +933,10 @@
     {
       "repo": "volcengine/OpenViking",
       "name": "OpenViking",
-      "stars": 28402,
+      "stars": 28439,
       "category": "memory",
       "summary": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
-      "heat_score": 62.92,
+      "heat_score": 62.9,
       "sources": [
         "search"
       ],
@@ -945,7 +945,7 @@
     {
       "repo": "mem0ai/mem0",
       "name": "mem0",
-      "stars": 63217,
+      "stars": 63257,
       "category": "memory",
       "summary": "Universal memory layer for AI Agents",
       "heat_score": 56.19,
