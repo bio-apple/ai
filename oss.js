@@ -161,7 +161,7 @@ function renderOssMeta(data) {
     .join(' · ');
   if (leadEl) {
     leadEl.textContent =
-      '收集近期 GitHub 上正在升温的 AI 开源项目（非纯 Star 榜）。数据源：GitHub Trending + Search/API；方向：Agent / MCP / Coding Agent / Agent Harness / Skills / Memory；每天更新，每方向最多 Top 3。';
+      '收集近期 GitHub 上正在升温的 AI 开源项目（非纯 Star 榜，入选至少 ★1 万）。数据源：GitHub Trending + Search/API；方向：Agent / MCP / Coding Agent / Agent Harness / Skills / Memory；每天更新，每方向最多 Top 3。';
   }
   if (meta) {
     meta.textContent = catCounts

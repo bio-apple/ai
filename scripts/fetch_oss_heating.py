@@ -181,7 +181,7 @@ def collect_search(cfg: dict[str, Any], directions: list[dict[str, Any]]) -> lis
     pushed = (now_cst() - timedelta(days=pushed_days)).strftime("%Y-%m-%d")
     sort = scfg.get("sort", "updated")
     per_page = int(scfg.get("per_page", 15))
-    min_stars = int(cfg.get("min_stars", 80))
+    min_stars = int(cfg.get("min_stars", 10000))
     out: list[dict[str, Any]] = []
     for direction in directions:
         did = direction["id"]
@@ -363,7 +363,7 @@ def merge_candidates(
         if i < len(need_hydrate) - 1:
             time.sleep(0.35)
 
-    min_stars = int(cfg.get("min_stars", 80))
+    min_stars = int(cfg.get("min_stars", 10000))
     classified: dict[str, dict[str, Any]] = {}
     for key, row in bucket.items():
         if cfg.get("exclude_archived") and (row.get("api") or {}).get("archived"):
@@ -371,8 +371,7 @@ def merge_candidates(
         if cfg.get("exclude_forks") and (row.get("api") or {}).get("fork"):
             continue
         stars = int(row.get("stars") or 0)
-        # trending 可豁免 min_stars，避免漏掉刚起飞的仓
-        if stars < min_stars and not (row["trending_daily_rank"] or row["trending_weekly_rank"]):
+        if stars < min_stars:
             continue
         category = classify_direction(
             full_name=row["full_name"],

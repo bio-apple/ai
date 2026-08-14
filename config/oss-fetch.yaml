@@ -4,7 +4,7 @@
 
 max_per_direction: 3
 summary_max_length: 120
-min_stars: 80
+min_stars: 10000
 exclude_archived: true
 exclude_forks: true
 
