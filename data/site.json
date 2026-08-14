@@ -739,7 +739,7 @@
     {
       "repo": "NousResearch/hermes-agent",
       "name": "hermes-agent",
-      "stars": 230155,
+      "stars": 230216,
       "category": "agent",
       "summary": "The agent that grows with you",
       "heat_score": 64.0,
@@ -761,12 +761,12 @@
       "rank": 2
     },
     {
-      "repo": "langgenius/dify",
-      "name": "dify",
-      "stars": 152379,
+      "repo": "HKUDS/nanobot",
+      "name": "nanobot",
+      "stars": 46960,
       "category": "agent",
-      "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on c…",
-      "heat_score": 62.69,
+      "summary": "Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP, multi…",
+      "heat_score": 64.0,
       "sources": [
         "search"
       ],
@@ -775,7 +775,7 @@
     {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 81600,
+      "stars": 81628,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
@@ -787,7 +787,7 @@
     {
       "repo": "headroomlabs-ai/headroom",
       "name": "headroom",
-      "stars": 66237,
+      "stars": 66256,
       "category": "mcp",
       "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95…",
       "heat_score": 64.0,
@@ -799,7 +799,7 @@
     {
       "repo": "DeusData/codebase-memory-mcp",
       "name": "codebase-memory-mcp",
-      "stars": 38847,
+      "stars": 38855,
       "category": "mcp",
       "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
       "heat_score": 64.0,
@@ -811,7 +811,7 @@
     {
       "repo": "esengine/DeepSeek-Reasonix",
       "name": "DeepSeek-Reasonix",
-      "stars": 34487,
+      "stars": 34515,
       "category": "coding_agent",
       "summary": "DeepSeek-native AI coding agent for your terminal. Engineered around prefix-cache stability — leave it running.",
       "heat_score": 100.0,
@@ -824,7 +824,7 @@
     {
       "repo": "anomalyco/opencode",
       "name": "opencode",
-      "stars": 197128,
+      "stars": 197192,
       "category": "coding_agent",
       "summary": "The open source coding agent.",
       "heat_score": 64.0,
@@ -834,11 +834,11 @@
       "rank": 2
     },
     {
-      "repo": "openai/codex",
-      "name": "codex",
-      "stars": 105766,
+      "repo": "farion1231/cc-switch",
+      "name": "cc-switch",
+      "stars": 127079,
       "category": "coding_agent",
-      "summary": "Lightweight coding agent that runs in your terminal",
+      "summary": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Grok Build & Hermes Agent. On…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -848,7 +848,7 @@
     {
       "repo": "infiniflow/ragflow",
       "name": "ragflow",
-      "stars": 88041,
+      "stars": 88097,
       "category": "agent_harness",
       "summary": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent cap…",
       "heat_score": 123.11,
@@ -861,7 +861,7 @@
     {
       "repo": "affaan-m/ECC",
       "name": "ECC",
-      "stars": 239988,
+      "stars": 240008,
       "category": "agent_harness",
       "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
       "heat_score": 64.0,
@@ -871,11 +871,11 @@
       "rank": 2
     },
     {
-      "repo": "code-yeongyu/oh-my-openagent",
-      "name": "oh-my-openagent",
-      "stars": 67838,
+      "repo": "bytedance/deer-flow",
+      "name": "deer-flow",
+      "stars": 79972,
       "category": "agent_harness",
-      "summary": "omo/lazycodex: The coding agent for tokenmaxxers;the one and only agent harness for complex codebases. For your Codex, …",
+      "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memorie…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -885,7 +885,7 @@
     {
       "repo": "anthropics/skills",
       "name": "skills",
-      "stars": 169051,
+      "stars": 169116,
       "category": "skills",
       "summary": "Public repository for Agent Skills",
       "heat_score": 169.0,
@@ -897,7 +897,7 @@
     {
       "repo": "kepano/obsidian-skills",
       "name": "obsidian-skills",
-      "stars": 45802,
+      "stars": 45884,
       "category": "skills",
       "summary": "Agent skills for Obsidian. Teach your agent to use Obsidian CLI and open formats including Markdown, Bases, JSON Canvas.",
       "heat_score": 124.0,
@@ -909,7 +909,7 @@
     {
       "repo": "google/skills",
       "name": "skills",
-      "stars": 18078,
+      "stars": 18087,
       "category": "skills",
       "summary": "Agent Skills for Google products and technologies",
       "heat_score": 112.72,
@@ -921,7 +921,7 @@
     {
       "repo": "TencentCloud/TencentDB-Agent-Memory",
       "name": "TencentDB-Agent-Memory",
-      "stars": 21245,
+      "stars": 21328,
       "category": "memory",
       "summary": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusa…",
       "heat_score": 110.5,
@@ -931,24 +931,24 @@
       "rank": 1
     },
     {
-      "repo": "mem0ai/mem0",
-      "name": "mem0",
-      "stars": 63211,
+      "repo": "volcengine/OpenViking",
+      "name": "OpenViking",
+      "stars": 28402,
       "category": "memory",
-      "summary": "Universal memory layer for AI Agents",
-      "heat_score": 56.19,
+      "summary": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
+      "heat_score": 62.92,
       "sources": [
         "search"
       ],
       "rank": 2
     },
     {
-      "repo": "EverMind-AI/EverOS",
-      "name": "EverOS",
-      "stars": 12003,
+      "repo": "mem0ai/mem0",
+      "name": "mem0",
+      "stars": 63217,
       "category": "memory",
-      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
-      "heat_score": 53.99,
+      "summary": "Universal memory layer for AI Agents",
+      "heat_score": 56.19,
       "sources": [
         "search"
       ],

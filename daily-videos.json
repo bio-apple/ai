@@ -153,6 +153,217 @@
   ],
   "batches": [
     {
+      "date": "2026-08-14",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 10,
+        "video_categories": {
+          "youtube_recent_24h": {
+            "label": "YouTube：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "youtube_recent_30d": {
+            "label": "YouTube：30 天内 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "youtube_recent_100d": {
+            "label": "YouTube：100 天内 Top 4",
+            "window": {
+              "days": 100
+            },
+            "top_count": 4,
+            "min_views": 10000
+          },
+          "bilibili_recent_24h": {
+            "label": "B站：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：30 天内 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_100d": {
+            "label": "B站：100 天内 Top 4",
+            "window": {
+              "days": 100
+            },
+            "top_count": 4,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_24h": {
+          "label": "YouTube：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_recent_30d": {
+          "label": "YouTube：30 天内 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_recent_100d": {
+          "label": "YouTube：100 天内 Top 4",
+          "window": {
+            "days": 100
+          },
+          "top_count": 4,
+          "videos": []
+        },
+        "bilibili_recent_24h": {
+          "label": "B站：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：30 天内 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1gUGu6yEhw",
+              "platform": "bilibili",
+              "title": "还没有AI 和提示词的年代，我们都是这样一帧一帧去手搓的...",
+              "summary": "【阿梓蔗-手搓】讲解 AI 工具实战应用，围绕「还没有AI 和提示词的年代，我们都是这样一帧一帧去手搓的...」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1gUGu6yEhw",
+              "thumbnail": "video-thumbs/bilibili/BV1gUGu6yEhw.webp",
+              "channel": "阿梓蔗-手搓",
+              "subscribers": 0,
+              "views": 1346905,
+              "duration": "0:16",
+              "max_height": 720,
+              "published_at": "2026-08-01T10:43:26+08:00"
+            },
+            {
+              "id": "bilibili:BV1khMX63EjU",
+              "platform": "bilibili",
+              "title": "Vibe Coding竞赛，Claude遗憾落败?",
+              "summary": "我和源宝打了个赌：半天时间，vibe coding一个活动社交App，看谁做的更好？最后Claude Code居然遗憾落败？这期视频，我们将用秒哒手把手带你走完，从一个简单的想法到App上架应用商店的全套流程！开发过程又发生了哪些趣事？一起来看看～",
+              "url": "https://www.bilibili.com/video/BV1khMX63EjU",
+              "thumbnail": "video-thumbs/bilibili/BV1khMX63EjU.webp",
+              "channel": "GenJi是真想教会你",
+              "subscribers": 0,
+              "views": 1011876,
+              "duration": "13:14",
+              "max_height": 720,
+              "published_at": "2026-08-05T18:30:00+08:00"
+            },
+            {
+              "id": "bilibili:BV1mhKv68EPQ",
+              "platform": "bilibili",
+              "title": "豆包真能干活了！【豆包Agent入门教程】",
+              "summary": "这个视频让你的豆包技能噌噌上涨，还有“秋芝AI科普skill”帮你答疑～ 感谢朋友们的三连+关注~",
+              "url": "https://www.bilibili.com/video/BV1mhKv68EPQ",
+              "thumbnail": "video-thumbs/bilibili/BV1mhKv68EPQ.webp",
+              "channel": "秋芝2046",
+              "subscribers": 0,
+              "views": 981142,
+              "duration": "8:11",
+              "max_height": 720,
+              "published_at": "2026-07-19T11:00:00+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_100d": {
+          "label": "B站：100 天内 Top 4",
+          "window": {
+            "days": 100
+          },
+          "top_count": 4,
+          "videos": [
+            {
+              "id": "bilibili:BV1BVEs6LENZ",
+              "platform": "bilibili",
+              "title": "【2026最新Codex】Codex保姆级完整教程-Codex新手保姆级教程-最强AI助手！从入门到进阶，22分钟速通Codex！【附教程文档安装包】",
+              "summary": "最近Codex的能力越来越全面，变成了Codex四大形态里最强一个。 Codex APP 比起 Claude Code，额度更高，功能更全，免费账户也能用。而且不会出现限速、封号、降智等问题，用过的小伙伴直呼真香。本期视频带来一个Codex APP的完整教程",
+              "url": "https://www.bilibili.com/video/BV1BVEs6LENZ",
+              "thumbnail": "video-thumbs/bilibili/BV1BVEs6LENZ.webp",
+              "channel": "编程大佬陈悠秀",
+              "subscribers": 0,
+              "views": 1983336,
+              "duration": "94:36",
+              "max_height": 720,
+              "published_at": "2026-06-07T13:32:32+08:00"
+            },
+            {
+              "id": "bilibili:BV1cwVG6qEEW",
+              "platform": "bilibili",
+              "title": "【硬核教程】如何让一个J人红温？只需要给他做这份“发疯版NBTI”...",
+              "summary": "NBTI测试链接： 还在因为MBTI不是J人被面试官拒绝？别再掉进这个当代职场大坑了！ 本期视频，我用 Claude Code手搓了一个专属打工人的“NBTI”发疯测试！同时找来三位不同岗位的小伙伴，记录他们一周的工作实况，来验证测验的准确性。 还有满满干货…",
+              "url": "https://www.bilibili.com/video/BV1cwVG6qEEW",
+              "thumbnail": "video-thumbs/bilibili/BV1cwVG6qEEW.webp",
+              "channel": "GenJi是真想教会你",
+              "subscribers": 0,
+              "views": 1897021,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-05-30T18:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV1ToGC6TEjH",
+              "platform": "bilibili",
+              "title": "别觉得 AI 离你很远，快递小哥都已经开始变现了",
+              "summary": "【钾子的不烦生活】讲解 AI 工具实战应用，围绕「别觉得 AI 离你很远，快递小哥都已经开始变现了」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1ToGC6TEjH",
+              "thumbnail": "video-thumbs/bilibili/BV1ToGC6TEjH.webp",
+              "channel": "钾子的不烦生活",
+              "subscribers": 0,
+              "views": 1438846,
+              "duration": "3:57",
+              "max_height": 720,
+              "published_at": "2026-05-27T09:50:49+08:00"
+            },
+            {
+              "id": "bilibili:BV1j9MP6wEV9",
+              "platform": "bilibili",
+              "title": "从零开始，学会让桌面Agent帮你干活！【小白教程】",
+              "summary": "用不上codex的朋友们！新的国产Agent直接上手，来跑通8大用法～ 感谢朋友们的三连+关注～",
+              "url": "https://www.bilibili.com/video/BV1j9MP6wEV9",
+              "thumbnail": "video-thumbs/bilibili/BV1j9MP6wEV9.webp",
+              "channel": "秋芝2046",
+              "subscribers": 0,
+              "views": 1326973,
+              "duration": "13:13",
+              "max_height": 720,
+              "published_at": "2026-07-05T10:00:00+08:00"
+            }
+          ]
+        }
+      }
+    },
+    {
       "date": "2026-08-13",
       "timezone": "Asia/Shanghai",
       "criteria": {
@@ -4592,5 +4803,5 @@
       }
     }
   ],
-  "updated_at": "2026-08-13T00:57:30.826241+08:00"
+  "updated_at": "2026-08-14T00:55:49.223907+08:00"
 }
