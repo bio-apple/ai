@@ -149,9 +149,136 @@
     "bilibili:BV1tqM66UErZ",
     "youtube:6lc-ZY4tzl4",
     "bilibili:BV1khMX63EjU",
-    "bilibili:BV1gUGu6yEhw"
+    "bilibili:BV1gUGu6yEhw",
+    "bilibili:BV1o4gP6iEeo"
   ],
   "batches": [
+    {
+      "date": "2026-08-15",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 10,
+        "video_categories": {
+          "youtube_recent_24h": {
+            "label": "YouTube：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "youtube_recent_30d": {
+            "label": "YouTube：30 天内 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "youtube_recent_100d": {
+            "label": "YouTube：100 天内 Top 4",
+            "window": {
+              "days": 100
+            },
+            "top_count": 4,
+            "min_views": 10000
+          },
+          "bilibili_recent_24h": {
+            "label": "B站：24 小时内 Top 3",
+            "window": {
+              "hours": 24
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：30 天内 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_100d": {
+            "label": "B站：100 天内 Top 4",
+            "window": {
+              "days": 100
+            },
+            "top_count": 4,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_24h": {
+          "label": "YouTube：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_recent_30d": {
+          "label": "YouTube：30 天内 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "youtube_recent_100d": {
+          "label": "YouTube：100 天内 Top 4",
+          "window": {
+            "days": 100
+          },
+          "top_count": 4,
+          "videos": []
+        },
+        "bilibili_recent_24h": {
+          "label": "B站：24 小时内 Top 3",
+          "window": {
+            "hours": 24
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1o4gP6iEeo",
+              "platform": "bilibili",
+              "title": "首发！DeepSeek Harness保姆级速通教程，及Codex Kimi 对比测试",
+              "summary": "连夜实测DeepSeek Harness开发者预览版；这期从安装、到购买API，以及Harness到底怎么用？最后我们还拉上了Kimi和Codex三个AI同台对决，从生成速度、设计、功能完整性逐项对比！看完你会明白，便宜，可能只是它最不起眼的优点～",
+              "url": "https://www.bilibili.com/video/BV1o4gP6iEeo",
+              "thumbnail": "video-thumbs/bilibili/BV1o4gP6iEeo.jpg",
+              "channel": "GenJi是真想教会你",
+              "subscribers": 0,
+              "views": 64585,
+              "duration": "7:22",
+              "max_height": 720,
+              "published_at": "2026-08-14T20:59:40+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：30 天内 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": []
+        },
+        "bilibili_recent_100d": {
+          "label": "B站：100 天内 Top 4",
+          "window": {
+            "days": 100
+          },
+          "top_count": 4,
+          "videos": []
+        }
+      }
+    },
     {
       "date": "2026-08-14",
       "timezone": "Asia/Shanghai",
@@ -4803,5 +4930,5 @@
       }
     }
   ],
-  "updated_at": "2026-08-14T00:55:49.223907+08:00"
+  "updated_at": "2026-08-15T00:48:13.571272+08:00"
 }
