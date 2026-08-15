@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-15T02:38:28.766180+08:00",
+  "updated_at": "2026-08-16T02:11:13.504968+08:00",
   "window": {
     "max_per_direction": 3,
     "sources": [
@@ -19,7 +19,7 @@
     {
       "repo": "NousResearch/hermes-agent",
       "name": "hermes-agent",
-      "stars": 230570,
+      "stars": 230990,
       "category": "agent",
       "summary": "The agent that grows with you",
       "heat_score": 64.0,
@@ -28,13 +28,28 @@
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T02:22:17+08:00",
+      "pushed_at": "2026-08-16T02:08:30+08:00",
       "rank": 1
+    },
+    {
+      "repo": "HKUDS/nanobot",
+      "name": "nanobot",
+      "stars": 47030,
+      "category": "agent",
+      "summary": "Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP, multi…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-16T01:55:59+08:00",
+      "rank": 2
     },
     {
       "repo": "langgenius/dify",
       "name": "dify",
-      "stars": 152451,
+      "stars": 152526,
       "category": "agent",
       "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on c…",
       "heat_score": 62.68,
@@ -43,28 +58,13 @@
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-14T23:47:30+08:00",
-      "rank": 2
-    },
-    {
-      "repo": "xbtlin/ai-berkshire",
-      "name": "ai-berkshire",
-      "stars": 15535,
-      "category": "agent",
-      "summary": "AI 时代的伯克希尔：基于 Claude Code / Codex 的价值投资研究框架。巴菲特·芒格·段永平·李录四大师方法论 + 多Agent并行研究。| AI-era Berkshire: a value investing rese…",
-      "heat_score": 62.38,
-      "sources": [
-        "search"
-      ],
-      "trending_daily_rank": null,
-      "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T02:22:17+08:00",
+      "pushed_at": "2026-08-15T23:30:59+08:00",
       "rank": 3
     },
     {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 81847,
+      "stars": 82090,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
@@ -73,28 +73,13 @@
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T02:36:46+08:00",
+      "pushed_at": "2026-08-16T02:10:35+08:00",
       "rank": 1
-    },
-    {
-      "repo": "headroomlabs-ai/headroom",
-      "name": "headroom",
-      "stars": 66354,
-      "category": "mcp",
-      "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95…",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
-      "trending_daily_rank": null,
-      "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T02:35:51+08:00",
-      "rank": 2
     },
     {
       "repo": "DeusData/codebase-memory-mcp",
       "name": "codebase-memory-mcp",
-      "stars": 38934,
+      "stars": 39025,
       "category": "mcp",
       "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
       "heat_score": 64.0,
@@ -103,28 +88,43 @@
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T02:07:21+08:00",
+      "pushed_at": "2026-08-15T23:23:00+08:00",
+      "rank": 2
+    },
+    {
+      "repo": "t8y2/dbx",
+      "name": "dbx",
+      "stars": 14957,
+      "category": "mcp",
+      "summary": "20 MB lightweight cross-platform database client for 70+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB…",
+      "heat_score": 63.46,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-16T02:04:43+08:00",
       "rank": 3
     },
     {
       "repo": "citrolabs/ego-lite",
       "name": "ego-lite",
-      "stars": 10258,
+      "stars": 10793,
       "category": "coding_agent",
       "summary": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your A…",
-      "heat_score": 155.66,
+      "heat_score": 135.0,
       "sources": [
         "trending:daily"
       ],
-      "trending_daily_rank": 6,
+      "trending_daily_rank": 13,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-14T22:38:07+08:00",
+      "pushed_at": "2026-08-15T17:56:46+08:00",
       "rank": 1
     },
     {
       "repo": "anomalyco/opencode",
       "name": "opencode",
-      "stars": 197478,
+      "stars": 197744,
       "category": "coding_agent",
       "summary": "The open source coding agent.",
       "heat_score": 64.0,
@@ -133,44 +133,28 @@
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T02:31:16+08:00",
+      "pushed_at": "2026-08-16T02:01:53+08:00",
       "rank": 2
     },
     {
-      "repo": "farion1231/cc-switch",
-      "name": "cc-switch",
-      "stars": 127272,
+      "repo": "ruvnet/ruflo",
+      "name": "ruflo",
+      "stars": 67917,
       "category": "coding_agent",
-      "summary": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Grok Build & Hermes Agent. On…",
+      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T00:32:54+08:00",
+      "pushed_at": "2026-08-15T23:34:06+08:00",
       "rank": 3
-    },
-    {
-      "repo": "infiniflow/ragflow",
-      "name": "ragflow",
-      "stars": 88353,
-      "category": "agent_harness",
-      "summary": "RAGFlow is a leading open-source Retrieval-Augmented Generation (RAG) engine that fuses cutting-edge RAG with Agent cap…",
-      "heat_score": 144.13,
-      "sources": [
-        "search",
-        "trending:daily"
-      ],
-      "trending_daily_rank": 10,
-      "trending_weekly_rank": null,
-      "pushed_at": "2026-08-14T22:26:58+08:00",
-      "rank": 1
     },
     {
       "repo": "affaan-m/ECC",
       "name": "ECC",
-      "stars": 240135,
+      "stars": 240255,
       "category": "agent_harness",
       "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
       "heat_score": 64.0,
@@ -179,74 +163,88 @@
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-14T06:58:25+08:00",
-      "rank": 2
+      "pushed_at": "2026-08-16T01:41:00+08:00",
+      "rank": 1
     },
     {
-      "repo": "bytedance/deer-flow",
-      "name": "deer-flow",
-      "stars": 80011,
+      "repo": "browser-use/browser-use",
+      "name": "browser-use",
+      "stars": 109321,
       "category": "agent_harness",
-      "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memorie…",
+      "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T00:08:42+08:00",
-      "rank": 3
+      "pushed_at": "2026-08-16T01:07:06+08:00",
+      "rank": 2
     },
     {
-      "repo": "google/skills",
-      "name": "skills",
-      "stars": 18168,
-      "category": "skills",
-      "summary": "Agent Skills for Google products and technologies",
-      "heat_score": 112.72,
+      "repo": "nexu-io/open-design",
+      "name": "open-design",
+      "stars": 86862,
+      "category": "agent_harness",
+      "summary": "🎨 The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your coding agent becomes the design engine…",
+      "heat_score": 64.0,
       "sources": [
-        "search",
-        "trending:weekly"
+        "search"
       ],
       "trending_daily_rank": null,
-      "trending_weekly_rank": 3,
-      "pushed_at": "2026-08-15T02:05:11+08:00",
-      "rank": 1
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-16T00:05:47+08:00",
+      "rank": 3
     },
     {
       "repo": "addyosmani/agent-skills",
       "name": "agent-skills",
-      "stars": 87229,
+      "stars": 87445,
       "category": "skills",
       "summary": "Production-grade engineering skills for AI coding agents.",
-      "heat_score": 104.5,
+      "heat_score": 101.5,
       "sources": [
         "trending:weekly"
       ],
       "trending_daily_rank": null,
-      "trending_weekly_rank": 9,
-      "pushed_at": "2026-08-12T03:48:56+08:00",
+      "trending_weekly_rank": 11,
+      "pushed_at": "2026-08-15T02:51:33+08:00",
+      "rank": 1
+    },
+    {
+      "repo": "google/skills",
+      "name": "skills",
+      "stars": 18297,
+      "category": "skills",
+      "summary": "Agent Skills for Google products and technologies",
+      "heat_score": 96.22,
+      "sources": [
+        "trending:weekly"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": 14,
+      "pushed_at": "2026-08-15T03:19:17+08:00",
       "rank": 2
     },
     {
-      "repo": "mvanhorn/last30days-skill",
-      "name": "last30days-skill",
-      "stars": 58191,
+      "repo": "zhaoxuya520/reverse-skill",
+      "name": "reverse-skill",
+      "stars": 25450,
       "category": "skills",
-      "summary": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a gr…",
+      "summary": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-dema…",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T01:24:34+08:00",
+      "pushed_at": "2026-08-15T08:58:40+08:00",
       "rank": 3
     },
     {
       "repo": "TencentCloud/TencentDB-Agent-Memory",
       "name": "TencentDB-Agent-Memory",
-      "stars": 21654,
+      "stars": 21919,
       "category": "memory",
       "summary": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusa…",
       "heat_score": 103.0,
@@ -255,37 +253,37 @@
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": 10,
-      "pushed_at": "2026-08-14T20:12:31+08:00",
+      "pushed_at": "2026-08-15T18:06:58+08:00",
       "rank": 1
-    },
-    {
-      "repo": "volcengine/OpenViking",
-      "name": "OpenViking",
-      "stars": 28439,
-      "category": "memory",
-      "summary": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
-      "heat_score": 62.9,
-      "sources": [
-        "search"
-      ],
-      "trending_daily_rank": null,
-      "trending_weekly_rank": null,
-      "pushed_at": "2026-08-15T02:09:12+08:00",
-      "rank": 2
     },
     {
       "repo": "mem0ai/mem0",
       "name": "mem0",
-      "stars": 63257,
+      "stars": 63323,
       "category": "memory",
       "summary": "Universal memory layer for AI Agents",
-      "heat_score": 56.19,
+      "heat_score": 56.2,
       "sources": [
         "search"
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-08-14T21:54:53+08:00",
+      "pushed_at": "2026-08-15T18:43:29+08:00",
+      "rank": 2
+    },
+    {
+      "repo": "MemoriLabs/Memori",
+      "name": "Memori",
+      "stars": 16123,
+      "category": "memory",
+      "summary": "Memori is agent-native memory infrastructure. A LLM-agnostic layer that turns agent execution and conversation into str…",
+      "heat_score": 54.02,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-08-15T09:01:48+08:00",
       "rank": 3
     }
   ]
