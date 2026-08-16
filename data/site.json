@@ -739,7 +739,7 @@
     {
       "repo": "NousResearch/hermes-agent",
       "name": "hermes-agent",
-      "stars": 230990,
+      "stars": 231416,
       "category": "agent",
       "summary": "The agent that grows with you",
       "heat_score": 64.0,
@@ -751,7 +751,7 @@
     {
       "repo": "HKUDS/nanobot",
       "name": "nanobot",
-      "stars": 47030,
+      "stars": 47066,
       "category": "agent",
       "summary": "Ultra-lightweight, open-source, self-hosted personal AI agent framework in Python with WebUI, tools, memory, MCP, multi…",
       "heat_score": 64.0,
@@ -763,7 +763,7 @@
     {
       "repo": "langgenius/dify",
       "name": "dify",
-      "stars": 152526,
+      "stars": 152608,
       "category": "agent",
       "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on c…",
       "heat_score": 62.68,
@@ -775,7 +775,7 @@
     {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 82090,
+      "stars": 82346,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
@@ -785,47 +785,47 @@
       "rank": 1
     },
     {
+      "repo": "headroomlabs-ai/headroom",
+      "name": "headroom",
+      "stars": 66516,
+      "category": "mcp",
+      "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 2
+    },
+    {
       "repo": "DeusData/codebase-memory-mcp",
       "name": "codebase-memory-mcp",
-      "stars": 39025,
+      "stars": 39112,
       "category": "mcp",
       "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
-      "rank": 2
-    },
-    {
-      "repo": "t8y2/dbx",
-      "name": "dbx",
-      "stars": 14957,
-      "category": "mcp",
-      "summary": "20 MB lightweight cross-platform database client for 70+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB…",
-      "heat_score": 63.46,
-      "sources": [
-        "search"
-      ],
       "rank": 3
-    },
-    {
-      "repo": "citrolabs/ego-lite",
-      "name": "ego-lite",
-      "stars": 10793,
-      "category": "coding_agent",
-      "summary": "The fastest browser for AI agents to run browser automation, built for sharing your logged-in browser state with your A…",
-      "heat_score": 135.0,
-      "sources": [
-        "trending:daily"
-      ],
-      "rank": 1
     },
     {
       "repo": "anomalyco/opencode",
       "name": "opencode",
-      "stars": 197744,
+      "stars": 198065,
       "category": "coding_agent",
       "summary": "The open source coding agent.",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 1
+    },
+    {
+      "repo": "farion1231/cc-switch",
+      "name": "cc-switch",
+      "stars": 127588,
+      "category": "coding_agent",
+      "summary": "A cross-platform desktop All-in-One assistant for Claude Code, Codex, OpenCode, OpenClaw, Grok Build & Hermes Agent. On…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -833,11 +833,11 @@
       "rank": 2
     },
     {
-      "repo": "ruvnet/ruflo",
-      "name": "ruflo",
-      "stars": 67917,
+      "repo": "thedotmack/claude-mem",
+      "name": "claude-mem",
+      "stars": 90887,
       "category": "coding_agent",
-      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -847,7 +847,7 @@
     {
       "repo": "affaan-m/ECC",
       "name": "ECC",
-      "stars": 240255,
+      "stars": 240435,
       "category": "agent_harness",
       "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
       "heat_score": 64.0,
@@ -857,11 +857,11 @@
       "rank": 1
     },
     {
-      "repo": "browser-use/browser-use",
-      "name": "browser-use",
-      "stars": 109321,
+      "repo": "nexu-io/open-design",
+      "name": "open-design",
+      "stars": 87429,
       "category": "agent_harness",
-      "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+      "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your c…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -869,11 +869,11 @@
       "rank": 2
     },
     {
-      "repo": "nexu-io/open-design",
-      "name": "open-design",
-      "stars": 86862,
+      "repo": "bytedance/deer-flow",
+      "name": "deer-flow",
+      "stars": 80094,
       "category": "agent_harness",
-      "summary": "🎨 The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your coding agent becomes the design engine…",
+      "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memorie…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -883,31 +883,31 @@
     {
       "repo": "addyosmani/agent-skills",
       "name": "agent-skills",
-      "stars": 87445,
+      "stars": 87696,
       "category": "skills",
       "summary": "Production-grade engineering skills for AI coding agents.",
-      "heat_score": 101.5,
+      "heat_score": 103.0,
       "sources": [
         "trending:weekly"
       ],
       "rank": 1
     },
     {
-      "repo": "google/skills",
-      "name": "skills",
-      "stars": 18297,
+      "repo": "sickn33/agentic-awesome-skills",
+      "name": "agentic-awesome-skills",
+      "stars": 45015,
       "category": "skills",
-      "summary": "Agent Skills for Google products and technologies",
-      "heat_score": 96.22,
+      "summary": "AAS Core is the local, agent-first control plane for complete catalog discovery, agent-owned selection, stack validatio…",
+      "heat_score": 64.0,
       "sources": [
-        "trending:weekly"
+        "search"
       ],
       "rank": 2
     },
     {
       "repo": "zhaoxuya520/reverse-skill",
       "name": "reverse-skill",
-      "stars": 25450,
+      "stars": 25648,
       "category": "skills",
       "summary": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-dema…",
       "heat_score": 64.0,
@@ -919,34 +919,34 @@
     {
       "repo": "TencentCloud/TencentDB-Agent-Memory",
       "name": "TencentDB-Agent-Memory",
-      "stars": 21919,
+      "stars": 22192,
       "category": "memory",
       "summary": "TencentDB Agent Memory is a team-level memory hub for AI Agents — turning conversations, docs, and code into four reusa…",
-      "heat_score": 103.0,
+      "heat_score": 97.0,
       "sources": [
         "trending:weekly"
       ],
       "rank": 1
     },
     {
-      "repo": "mem0ai/mem0",
-      "name": "mem0",
-      "stars": 63323,
+      "repo": "volcengine/OpenViking",
+      "name": "OpenViking",
+      "stars": 28650,
       "category": "memory",
-      "summary": "Universal memory layer for AI Agents",
-      "heat_score": 56.2,
+      "summary": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
+      "heat_score": 62.89,
       "sources": [
         "search"
       ],
       "rank": 2
     },
     {
-      "repo": "MemoriLabs/Memori",
-      "name": "Memori",
-      "stars": 16123,
+      "repo": "mem0ai/mem0",
+      "name": "mem0",
+      "stars": 63376,
       "category": "memory",
-      "summary": "Memori is agent-native memory infrastructure. A LLM-agnostic layer that turns agent execution and conversation into str…",
-      "heat_score": 54.02,
+      "summary": "Universal memory layer for AI Agents",
+      "heat_score": 56.2,
       "sources": [
         "search"
       ],
