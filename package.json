@@ -24,7 +24,7 @@
     "guides:local": "node scripts/build-local-guides.mjs"
   },
   "dependencies": {
-    "astro": "^7.2.1"
+    "astro": "^7.2.2"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.3",
