@@ -737,13 +737,14 @@
   },
   "oss_frameworks": [
     {
-      "repo": "bojieli/ai-agent-book",
-      "name": "ai-agent-book",
-      "stars": 39021,
+      "repo": "obra/superpowers",
+      "name": "superpowers",
+      "stars": 274134,
       "category": "agent",
-      "summary": "《深入理解 AI Agent：设计原理与工程实践》（李博杰 著）开源主仓库：全书正文、编译版 PDF 与按章配套代码",
-      "heat_score": 142.93,
+      "summary": "An agentic skills framework & software development methodology that works.",
+      "heat_score": 154.0,
       "sources": [
+        "search",
         "trending:daily"
       ],
       "rank": 1
@@ -751,7 +752,7 @@
     {
       "repo": "NousResearch/hermes-agent",
       "name": "hermes-agent",
-      "stars": 232459,
+      "stars": 232978,
       "category": "agent",
       "summary": "The agent that grows with you",
       "heat_score": 64.0,
@@ -763,7 +764,7 @@
     {
       "repo": "google-gemini/gemini-cli",
       "name": "gemini-cli",
-      "stars": 106560,
+      "stars": 106579,
       "category": "agent",
       "summary": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
       "heat_score": 64.0,
@@ -775,7 +776,7 @@
     {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 82921,
+      "stars": 83170,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
@@ -787,7 +788,7 @@
     {
       "repo": "headroomlabs-ai/headroom",
       "name": "headroom",
-      "stars": 66772,
+      "stars": 66882,
       "category": "mcp",
       "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95…",
       "heat_score": 64.0,
@@ -797,83 +798,83 @@
       "rank": 2
     },
     {
-      "repo": "DeusData/codebase-memory-mcp",
-      "name": "codebase-memory-mcp",
-      "stars": 39393,
+      "repo": "ChromeDevTools/chrome-devtools-mcp",
+      "name": "chrome-devtools-mcp",
+      "stars": 49411,
       "category": "mcp",
-      "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
-      "heat_score": 64.0,
+      "summary": "Chrome DevTools for coding agents",
+      "heat_score": 63.83,
       "sources": [
         "search"
       ],
       "rank": 3
     },
     {
+      "repo": "santifer/career-ops",
+      "name": "career-ops",
+      "stars": 65598,
+      "category": "coding_agent",
+      "summary": "Open-source AI job search: scan job portals, evaluate listings with a structured A-F rubric into a 1.0-5.0 score, tailo…",
+      "heat_score": 148.0,
+      "sources": [
+        "trending:daily"
+      ],
+      "rank": 1
+    },
+    {
+      "repo": "CodebuffAI/freebuff",
+      "name": "freebuff",
+      "stars": 10047,
+      "category": "coding_agent",
+      "summary": "The free coding agent",
+      "heat_score": 76.63,
+      "sources": [
+        "trending:weekly"
+      ],
+      "rank": 2
+    },
+    {
       "repo": "anomalyco/opencode",
       "name": "opencode",
-      "stars": 198773,
+      "stars": 199157,
       "category": "coding_agent",
       "summary": "The open source coding agent.",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
-      "rank": 1
-    },
-    {
-      "repo": "openai/codex",
-      "name": "codex",
-      "stars": 106659,
-      "category": "coding_agent",
-      "summary": "Lightweight coding agent that runs in your terminal",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
-      "rank": 2
-    },
-    {
-      "repo": "earendil-works/pi",
-      "name": "pi",
-      "stars": 93064,
-      "category": "coding_agent",
-      "summary": "AI agent toolkit: unified LLM API, agent loop, TUI, coding agent CLI",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
       "rank": 3
+    },
+    {
+      "repo": "browser-use/browser-use",
+      "name": "browser-use",
+      "stars": 109762,
+      "category": "agent_harness",
+      "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 1
     },
     {
       "repo": "nexu-io/open-design",
       "name": "open-design",
-      "stars": 88829,
+      "stars": 89280,
       "category": "agent_harness",
       "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your c…",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
-      "rank": 1
+      "rank": 2
     },
     {
       "repo": "bytedance/deer-flow",
       "name": "deer-flow",
-      "stars": 80257,
+      "stars": 80326,
       "category": "agent_harness",
       "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memorie…",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
-      "rank": 2
-    },
-    {
-      "repo": "shareAI-lab/learn-claude-code",
-      "name": "learn-claude-code",
-      "stars": 74572,
-      "category": "agent_harness",
-      "summary": "Bash is all you need - A nano claude code–like 「agent harness」, built from 0 to 1",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -883,21 +884,21 @@
     {
       "repo": "mukul975/Anthropic-Cybersecurity-Skills",
       "name": "Anthropic-Cybersecurity-Skills",
-      "stars": 29011,
+      "stars": 29701,
       "category": "skills",
       "summary": "817 structured cybersecurity skills for AI agents · Mapped to 6 frameworks: MITRE ATT&CK, NIST CSF 2.0, MITRE ATLAS, D3…",
-      "heat_score": 153.0,
+      "heat_score": 156.0,
       "sources": [
         "trending:daily"
       ],
       "rank": 1
     },
     {
-      "repo": "anthropics/skills",
-      "name": "skills",
-      "stars": 170250,
+      "repo": "zhaoxuya520/reverse-skill",
+      "name": "reverse-skill",
+      "stars": 26682,
       "category": "skills",
-      "summary": "Public repository for Agent Skills",
+      "summary": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-dema…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -905,12 +906,12 @@
       "rank": 2
     },
     {
-      "repo": "mvanhorn/last30days-skill",
-      "name": "last30days-skill",
-      "stars": 58601,
+      "repo": "mksglu/context-mode",
+      "name": "context-mode",
+      "stars": 19983,
       "category": "skills",
-      "summary": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a gr…",
-      "heat_score": 64.0,
+      "summary": "Context window optimization for AI coding agents. Sandboxes tool output (98% reduction), persists session memory, and e…",
+      "heat_score": 61.86,
       "sources": [
         "search"
       ],
@@ -919,20 +920,21 @@
     {
       "repo": "volcengine/OpenViking",
       "name": "OpenViking",
-      "stars": 29226,
+      "stars": 30035,
       "category": "memory",
       "summary": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
-      "heat_score": 164.98,
+      "heat_score": 222.16,
       "sources": [
         "search",
-        "trending:daily"
+        "trending:daily",
+        "trending:weekly"
       ],
       "rank": 1
     },
     {
       "repo": "mem0ai/mem0",
       "name": "mem0",
-      "stars": 63536,
+      "stars": 63607,
       "category": "memory",
       "summary": "Universal memory layer for AI Agents",
       "heat_score": 56.2,
@@ -942,12 +944,12 @@
       "rank": 2
     },
     {
-      "repo": "MemoriLabs/Memori",
-      "name": "Memori",
-      "stars": 16128,
+      "repo": "EverMind-AI/EverOS",
+      "name": "EverOS",
+      "stars": 12203,
       "category": "memory",
-      "summary": "Memori is agent-native memory infrastructure. A LLM-agnostic layer that turns agent execution and conversation into str…",
-      "heat_score": 53.96,
+      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
+      "heat_score": 53.97,
       "sources": [
         "search"
       ],
