@@ -739,7 +739,7 @@
     {
       "repo": "obra/superpowers",
       "name": "superpowers",
-      "stars": 274814,
+      "stars": 275526,
       "category": "agent",
       "summary": "An agentic skills framework & software development methodology that works.",
       "heat_score": 166.0,
@@ -751,7 +751,7 @@
     {
       "repo": "NousResearch/hermes-agent",
       "name": "hermes-agent",
-      "stars": 233478,
+      "stars": 233906,
       "category": "agent",
       "summary": "The agent that grows with you",
       "heat_score": 64.0,
@@ -761,12 +761,12 @@
       "rank": 2
     },
     {
-      "repo": "langgenius/dify",
-      "name": "dify",
-      "stars": 153040,
+      "repo": "google-gemini/gemini-cli",
+      "name": "gemini-cli",
+      "stars": 106598,
       "category": "agent",
-      "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on c…",
-      "heat_score": 62.68,
+      "summary": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
+      "heat_score": 64.0,
       "sources": [
         "search"
       ],
@@ -775,7 +775,7 @@
     {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 83443,
+      "stars": 83652,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
@@ -785,11 +785,11 @@
       "rank": 1
     },
     {
-      "repo": "headroomlabs-ai/headroom",
-      "name": "headroom",
-      "stars": 66993,
+      "repo": "DeusData/codebase-memory-mcp",
+      "name": "codebase-memory-mcp",
+      "stars": 39794,
       "category": "mcp",
-      "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95…",
+      "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -797,12 +797,12 @@
       "rank": 2
     },
     {
-      "repo": "DeusData/codebase-memory-mcp",
-      "name": "codebase-memory-mcp",
-      "stars": 39691,
+      "repo": "t8y2/dbx",
+      "name": "dbx",
+      "stars": 16188,
       "category": "mcp",
-      "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
-      "heat_score": 64.0,
+      "summary": "20 MB lightweight cross-platform database client for 90+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB…",
+      "heat_score": 63.66,
       "sources": [
         "search"
       ],
@@ -811,7 +811,7 @@
     {
       "repo": "santifer/career-ops",
       "name": "career-ops",
-      "stars": 66464,
+      "stars": 67303,
       "category": "coding_agent",
       "summary": "Open-source AI job search: scan job portals, evaluate listings with a structured A-F rubric into a 1.0-5.0 score, tailo…",
       "heat_score": 160.0,
@@ -823,7 +823,7 @@
     {
       "repo": "cathrynlavery/diagram-design",
       "name": "diagram-design",
-      "stars": 24164,
+      "stars": 24887,
       "category": "coding_agent",
       "summary": "38 editorial diagram types for Claude Code, Codex, and Pi. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
       "heat_score": 116.5,
@@ -835,21 +835,21 @@
     {
       "repo": "CodebuffAI/freebuff",
       "name": "freebuff",
-      "stars": 10236,
+      "stars": 10422,
       "category": "coding_agent",
       "summary": "The free coding agent",
-      "heat_score": 72.26,
+      "heat_score": 73.88,
       "sources": [
         "trending:weekly"
       ],
       "rank": 3
     },
     {
-      "repo": "affaan-m/ECC",
-      "name": "ECC",
-      "stars": 241382,
+      "repo": "nexu-io/open-design",
+      "name": "open-design",
+      "stars": 90104,
       "category": "agent_harness",
-      "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
+      "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your c…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -857,11 +857,11 @@
       "rank": 1
     },
     {
-      "repo": "nexu-io/open-design",
-      "name": "open-design",
-      "stars": 89689,
+      "repo": "code-yeongyu/oh-my-openagent",
+      "name": "oh-my-openagent",
+      "stars": 68192,
       "category": "agent_harness",
-      "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your c…",
+      "summary": "omo/lazycodex: The coding agent for tokenmaxxers;the one and only agent harness for complex codebases. For your Codex, …",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -869,11 +869,11 @@
       "rank": 2
     },
     {
-      "repo": "ruvnet/ruflo",
-      "name": "ruflo",
-      "stars": 68466,
+      "repo": "pbakaus/impeccable",
+      "name": "impeccable",
+      "stars": 61334,
       "category": "agent_harness",
-      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
+      "summary": "The design language that makes your AI harness better at design.",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -881,11 +881,11 @@
       "rank": 3
     },
     {
-      "repo": "sickn33/agentic-awesome-skills",
-      "name": "agentic-awesome-skills",
-      "stars": 45185,
+      "repo": "anthropics/skills",
+      "name": "skills",
+      "stars": 170838,
       "category": "skills",
-      "summary": "AAS Core is the local, agent-first control plane for complete catalog discovery, agent-owned selection, stack validatio…",
+      "summary": "Public repository for Agent Skills",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -893,11 +893,11 @@
       "rank": 1
     },
     {
-      "repo": "mukul975/Anthropic-Cybersecurity-Skills",
-      "name": "Anthropic-Cybersecurity-Skills",
-      "stars": 30302,
+      "repo": "addyosmani/agent-skills",
+      "name": "agent-skills",
+      "stars": 88924,
       "category": "skills",
-      "summary": "817 structured cybersecurity skills for AI agents · Mapped to 6 frameworks: MITRE ATT&CK, NIST CSF 2.0, MITRE ATLAS, D3…",
+      "summary": "Production-grade engineering skills for AI coding agents.",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -905,11 +905,11 @@
       "rank": 2
     },
     {
-      "repo": "zhaoxuya520/reverse-skill",
-      "name": "reverse-skill",
-      "stars": 26978,
+      "repo": "Leonxlnx/taste-skill",
+      "name": "taste-skill",
+      "stars": 78936,
       "category": "skills",
-      "summary": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-dema…",
+      "summary": "Taste-Skill - gives your AI good taste. stops the AI from generating boring, generic slop",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -919,36 +919,35 @@
     {
       "repo": "volcengine/OpenViking",
       "name": "OpenViking",
-      "stars": 30901,
+      "stars": 31553,
       "category": "memory",
       "summary": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
-      "heat_score": 195.35,
+      "heat_score": 198.48,
       "sources": [
-        "search",
         "trending:daily",
         "trending:weekly"
       ],
       "rank": 1
     },
     {
-      "repo": "vectorize-io/hindsight",
-      "name": "hindsight",
-      "stars": 20648,
+      "repo": "mem0ai/mem0",
+      "name": "mem0",
+      "stars": 63761,
       "category": "memory",
-      "summary": "Hindsight: Agent Memory That Learns",
-      "heat_score": 58.12,
+      "summary": "Universal memory layer for AI Agents",
+      "heat_score": 56.21,
       "sources": [
         "search"
       ],
       "rank": 2
     },
     {
-      "repo": "mem0ai/mem0",
-      "name": "mem0",
-      "stars": 63696,
+      "repo": "EverMind-AI/EverOS",
+      "name": "EverOS",
+      "stars": 12311,
       "category": "memory",
-      "summary": "Universal memory layer for AI Agents",
-      "heat_score": 56.21,
+      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
+      "heat_score": 53.98,
       "sources": [
         "search"
       ],
