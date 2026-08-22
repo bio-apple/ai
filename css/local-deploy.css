@@ -327,7 +327,7 @@
   font-weight: 700;
   padding: 2px 7px;
   border-radius: 999px;
-  background: rgba(37, 99, 235, 0.08);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
   color: var(--accent);
 }
 
@@ -384,12 +384,12 @@
   border-radius: 8px;
   font-size: 0.8rem;
   font-weight: 700;
-  background: rgba(37, 99, 235, 0.1);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
   color: var(--accent);
 }
 
 .local-link-btn:hover {
-  background: rgba(37, 99, 235, 0.16);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
 }
 
 .local-link-btn-muted {

@@ -4,7 +4,7 @@ header {
   top: 0;
   z-index: 200;
   overflow: visible;
-  background: rgba(255, 255, 255, 0.88);
+  background: color-mix(in srgb, var(--bg-elevated) 92%, transparent);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
 }
@@ -40,9 +40,10 @@ header {
 }
 
 .logo-brand {
-  font-size: 1.05rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
 }
 
 .logo-tagline {
@@ -52,16 +53,23 @@ header {
 }
 
 .logo-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--claude), var(--codex), var(--cursor));
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  flex-shrink: 0;
-  color: #fff;
+}
+
+.logo-icon svg {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.logo-icon:empty {
+  display: none;
 }
 
 .nav-toggle {
@@ -222,107 +230,93 @@ header {
   position: relative;
   /* 勿用 overflow:hidden，否则会裁切站内搜索下拉（绝对定位） */
   overflow: visible;
-  min-height: min(92vh, 820px);
+  min-height: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
-  padding: 96px 24px 72px;
-  text-align: center;
+  padding: 48px 24px 40px;
+  text-align: left;
 }
 
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  background:
-    radial-gradient(ellipse 90% 70% at 50% -20%, rgba(37, 99, 235, 0.14), transparent 55%),
-    radial-gradient(ellipse 45% 40% at 15% 85%, rgba(13, 140, 109, 0.09), transparent 50%),
-    linear-gradient(180deg, #eef3fb 0%, #f4f7fc 45%, #eef2f8 100%);
+  display: none;
 }
 
-.hero-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px);
-  background-size: 48px 48px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 20%, transparent 75%);
-  animation: heroGridDrift 18s linear infinite;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
 }
 
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(40px);
-  opacity: 0.38;
-  animation: heroOrb 10s ease-in-out infinite alternate;
+.hero-ledger-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px 16px;
+  margin-bottom: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
 }
 
-.hero-orb-a {
-  width: 280px;
-  height: 280px;
-  top: 12%;
-  right: 8%;
-  background: rgba(37, 99, 235, 0.22);
+.hero-ledger-date {
+  color: var(--text);
 }
 
-.hero-orb-b {
-  width: 220px;
-  height: 220px;
-  bottom: 18%;
-  left: 10%;
-  background: rgba(13, 140, 109, 0.18);
-  animation-delay: -4s;
+.hero-heat {
+  color: var(--heat);
+  font-weight: 600;
+}
+
+.hero-heat a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .hero-brand-mark {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: 8px;
+  margin-bottom: 10px;
 }
 
 .hero-brand {
-  font-family: var(--font-sans);
-  font-size: clamp(2.6rem, 8vw, 4.25rem);
-  font-weight: 750;
-  letter-spacing: -0.045em;
-  line-height: 1;
-  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+  color: var(--text-muted);
 }
 
 .hero-logo-icon {
-  font-size: clamp(1.4rem, 3vw, 1.9rem);
-  color: var(--codex);
+  display: none;
 }
 
 .hero h1 {
-  font-family: var(--font-sans);
-  font-size: clamp(1.35rem, 3.4vw, 2rem);
-  font-weight: 650;
-  letter-spacing: -0.025em;
-  margin-bottom: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(1.85rem, 4.5vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
   line-height: 1.25;
   color: var(--text);
 }
 
 .hero-subtitle {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-muted);
-  max-width: 560px;
-  margin: 0 auto 28px;
-  line-height: 1.7;
+  max-width: 40rem;
+  margin: 0 0 28px;
+  line-height: 1.65;
 }
 
 .hero-cta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  justify-content: center;
-  margin-bottom: 12px;
+  display: none;
 }
 
 .hero-secondary-link {
@@ -441,18 +435,20 @@ header {
 }
 
 .section-kicker {
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: 6px;
 }
 
 .section-title {
-  font-size: 1.5rem;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
   margin-bottom: 6px;
 }
 
@@ -792,17 +788,6 @@ footer a:hover {
   }
   .hero {
     min-height: auto;
-    padding: 72px 20px 56px;
+    padding: 36px 20px 32px;
   }
-  .hero-cta .cta-btn {
-    width: 100%;
-    justify-content: center;
-  }
-}
-
-html[data-theme='dark'] .hero-bg {
-  background:
-    radial-gradient(ellipse 90% 70% at 50% -20%, rgba(99, 102, 241, 0.18), transparent 55%),
-    radial-gradient(ellipse 45% 40% at 15% 85%, rgba(6, 182, 212, 0.1), transparent 50%),
-    linear-gradient(180deg, #050505 0%, #0b1220 45%, #111827 100%);
 }

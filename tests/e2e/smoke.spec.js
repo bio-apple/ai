@@ -42,7 +42,7 @@ async function openHomeOps(page) {
 test.describe('Bio AI Lab 关键路径', () => {
   test('首页主路径：推荐 · 简报 · 独立专区入口', async ({ page }) => {
     await gotoHome(page);
-    await expect(page.locator('h1')).toContainText('AI 工作流');
+    await expect(page.locator('h1')).toContainText('先说要做什么');
     await expect(page.locator('#home-ai-map')).toBeVisible();
     await expect(page.locator('#home-ai-map .ai-map')).toBeVisible();
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');

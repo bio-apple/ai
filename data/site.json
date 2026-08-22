@@ -11,9 +11,9 @@
   },
   "nav": {
     "logo": {
-      "icon": "✦",
+      "icon": "",
       "brand": "Bio AI Lab",
-      "tagline": "发现 · 学习 · 构建"
+      "tagline": "实验台账"
     },
     "menu": [
       {
@@ -50,14 +50,14 @@
   },
   "hero": {
     "eyebrow": "Bio AI Lab",
-    "title": "让每个人拥有自己的 AI 工作流",
-    "subtitle": "对比选型、开源精选、课程资源、热点与视频——搭好你的 AI 工作流。",
+    "title": "先说要做什么",
+    "subtitle": "点一个场景，或写下今天的任务。",
     "cta_primary": {
-      "label": "获取 AI 推荐",
+      "label": "开始匹配",
       "href": "#home-recommend"
     },
     "cta_secondary": {
-      "label": "浏览工具中心",
+      "label": "打开工具中心",
       "href": "tools/hub.html"
     },
     "search_placeholder": "搜索工具、模型、开源、课程、视频…",
@@ -299,8 +299,8 @@
     }
   ],
   "ai_picker": {
-    "title": "你想使用 AI 做什么？",
-    "lead": "描述目标或点选场景，立刻拿到工具与下一步。",
+    "title": "先说要做什么",
+    "lead": "点选场景或写下任务，立刻看到工具链与下一步。",
     "placeholder": "例如：写产品周报 / 用 Cursor 改落地页 / 即梦出短视频分镜",
     "options": [
       {
@@ -687,7 +687,7 @@
     }
   ],
   "footer": {
-    "text": "Bio AI Lab · Discover. Learn. Create with AI.",
+    "text": "Bio AI Lab · 实验台账",
     "links": [
       {
         "label": "AI 工具中心",

@@ -1,11 +1,20 @@
-/* AI 工具中心 / 推荐查询 */
+/* AI 工具中心 / 推荐匹配 */
+
+.recommend-section--hero {
+  margin: 0;
+  padding: 0;
+}
+
+.recommend-section--hero .recommend-composer {
+  margin-bottom: 16px;
+}
 
 .recommend-composer {
   margin-bottom: 20px;
   padding: 16px 18px 18px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: linear-gradient(180deg, rgba(37, 99, 235, 0.04), transparent 48%), var(--bg-card);
+  background: var(--bg-card);
 }
 
 .recommend-query {
@@ -17,15 +26,17 @@
 
 .recommend-suggest-label {
   margin: 0 0 8px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: var(--text-muted);
 }
 
 .recommend-chips {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 8px;
 }
 
@@ -34,11 +45,13 @@
   border: 1px solid var(--border);
   background: var(--bg);
   color: var(--text);
-  border-radius: 10px;
-  padding: 7px 12px;
+  border-radius: var(--radius);
+  padding: 12px 10px;
+  min-height: 48px;
   font-size: 0.86rem;
   font-weight: 600;
   cursor: pointer;
+  text-align: center;
   transition:
     border-color 0.15s,
     color 0.15s,
@@ -55,7 +68,7 @@
 .recommend-chip.is-active {
   border-color: var(--accent);
   color: var(--accent);
-  background: rgba(37, 99, 235, 0.08);
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg-card));
 }
 
 .recommend-input {
@@ -63,15 +76,25 @@
   min-height: 48px;
   padding: 12px 16px;
   border: 1px solid var(--border);
-  border-radius: 12px;
+  border-radius: var(--radius);
   background: var(--bg);
   color: var(--text);
   font-size: 0.95rem;
 }
 
 .recommend-input:focus {
-  outline: 2px solid rgba(37, 99, 235, 0.35);
+  outline: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
   border-color: var(--accent);
+}
+
+.recommend-empty-hint {
+  margin: 0 0 8px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+}
+
+.recommend-empty-hint[hidden] {
+  display: none !important;
 }
 
 .recommend-result {
@@ -79,7 +102,7 @@
   padding: 18px 20px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: rgba(37, 99, 235, 0.04);
+  background: var(--bg-card);
 }
 
 .recommend-result[hidden] {
@@ -94,12 +117,14 @@
   display: inline-block;
   margin: 0 0 8px;
   padding: 4px 10px;
-  border-radius: 8px;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--accent);
-  background: rgba(37, 99, 235, 0.1);
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--border));
 }
 
 .recommend-result-meta {
@@ -156,16 +181,93 @@
   line-height: 1.5;
 }
 
+/* 签名：嫁接路径 */
+.graft-path {
+  list-style: none;
+  margin: 0 0 18px;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0;
+  animation: graftGrow var(--motion-slow, 560ms) var(--ease-out, ease) both;
+}
+
+.graft-node {
+  flex: 1 1 140px;
+  min-width: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+}
+
+.graft-node-label {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.graft-node--task strong {
+  display: block;
+  padding: 12px 14px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.graft-tool {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  height: 100%;
+}
+
+.graft-tool .recommend-tool-cta {
+  margin-left: 0;
+  margin-top: 6px;
+}
+
+.graft-edge {
+  flex: 0 0 28px;
+  align-self: center;
+  height: 2px;
+  margin-top: 28px;
+  background: var(--accent);
+  position: relative;
+  list-style: none;
+}
+
+.graft-edge::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--accent);
+  border-top: 2px solid var(--accent);
+  transform: translateY(-50%) rotate(45deg);
+}
+
 .daily-cadence {
   display: inline-block;
   margin-left: 6px;
   padding: 2px 8px;
-  border-radius: 999px;
+  border-radius: var(--radius);
+  font-family: var(--font-mono);
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.04em;
-  color: var(--accent);
-  background: rgba(37, 99, 235, 0.08);
+  color: var(--heat);
+  background: color-mix(in srgb, var(--heat) 10%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, var(--heat) 28%, var(--border));
   vertical-align: middle;
 }
 
@@ -173,6 +275,28 @@
   margin-top: 8px;
   padding-top: 12px;
   border-top: 1px solid var(--border);
+}
+
+@media (max-width: 720px) {
+  .recommend-chips {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .graft-path {
+    flex-direction: column;
+  }
+  .graft-edge {
+    flex: 0 0 16px;
+    width: 2px;
+    height: 16px;
+    margin: 4px 0 4px 24px;
+  }
+  .graft-edge::after {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -2px;
+    transform: translateX(-50%) rotate(135deg);
+  }
 }
 
 @media (max-width: 640px) {
@@ -190,18 +314,9 @@
   }
 }
 
-.community-links {
-  /* columns set in home.css / labs.css */
-}
-
 .hub-compare-section {
   margin-bottom: 0;
 }
-
-.hub-ranking-section {
-  margin-bottom: 0;
-}
-
 .hub-ranking-shell {
   margin-top: 8px;
 }
@@ -226,7 +341,7 @@
 .tools-hub-page .aicpb-board-header h3 {
   margin: 0 0 6px;
   font-size: 1.05rem;
-  color: #fff;
+  color: var(--text);
 }
 
 .tools-hub-page .aicpb-attribution {
@@ -263,7 +378,7 @@
   position: sticky;
   top: 0;
   z-index: 1;
-  background: color-mix(in srgb, var(--bg-card) 88%, rgba(37, 99, 235, 0.08));
+  background: color-mix(in srgb, var(--bg-card) 88%, color-mix(in srgb, var(--accent) 10%, transparent));
   color: var(--text-muted);
   font-size: 0.76rem;
   font-weight: 700;
@@ -284,7 +399,7 @@
 
 .hub-compare-table tbody tr:hover th,
 .hub-compare-table tbody tr:hover td {
-  background: rgba(37, 99, 235, 0.04);
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
 }
 
 .hub-compare-name {
@@ -316,7 +431,7 @@ a.hub-compare-link:focus-visible {
   font-weight: 700;
   letter-spacing: 0.02em;
   color: var(--accent);
-  background: rgba(37, 99, 235, 0.1);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
   vertical-align: middle;
 }
 
@@ -327,7 +442,7 @@ a.hub-compare-link:focus-visible {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--accent);
-  background: rgba(37, 99, 235, 0.1);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
   white-space: nowrap;
 }
 

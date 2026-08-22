@@ -22,7 +22,14 @@ const {
 <header>
   <nav class="nav">
     <a href={homeHref} class="logo" data-tool="all" aria-label="Bio AI Lab 首页">
-      <div class="logo-icon" aria-hidden="true">{nav.logo.icon}</div>
+      <div class="logo-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+          <path d="M12 3v10"></path>
+          <path d="M12 13l-6 7"></path>
+          <path d="M12 13l6 7"></path>
+          <circle cx="12" cy="3" r="1.5" fill="currentColor" stroke="none"></circle>
+        </svg>
+      </div>
       <div class="logo-text">
         <span class="logo-brand">{nav.logo.brand}</span>
         <span class="logo-tagline">{nav.logo.tagline}</span>

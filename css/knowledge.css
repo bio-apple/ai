@@ -11,20 +11,19 @@ body.knowledge-panel-open {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 1px solid var(--border);
-  background: linear-gradient(135deg, var(--accent), var(--secondary, #7c3aed));
-  color: #fff;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #f4f6f3;
   font-size: 1.35rem;
   cursor: pointer;
-  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  box-shadow: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .knowledge-fab:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px rgba(37, 99, 235, 0.45);
+  background: color-mix(in srgb, var(--accent) 88%, #000);
+  border-color: color-mix(in srgb, var(--accent) 88%, #000);
+  box-shadow: none;
 }
 
 .knowledge-panel {
@@ -112,7 +111,7 @@ body.knowledge-panel-open {
 
 .knowledge-msg.user .knowledge-msg-body {
   align-self: flex-end;
-  background: rgba(37, 99, 235, 0.12);
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
   color: var(--text);
 }
 

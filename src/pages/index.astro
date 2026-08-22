@@ -3,7 +3,6 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
 import HomeOps from '../components/HomeOps.astro';
-import GlobalSearch from '../components/GlobalSearch.astro';
 import HomeAiMap from '../components/HomeAiMap.astro';
 import { site } from '../lib/data';
 import { buildHomeSchema, buildCoursesSchema, mergeSchemaGraphs } from '../lib/schema';
@@ -15,6 +14,10 @@ const schema = mergeSchemaGraphs(
   buildCoursesSchema(coursesPayload, `${site.meta.base_url}courses.html`),
 );
 const faqItems = site.faq || [];
+const ledgerDate = new Date().toISOString().slice(0, 10);
+const heatItem = [...(site.oss_frameworks || [])].sort(
+  (a, b) => (b.heat_score || 0) - (a.heat_score || 0),
+)[0];
 ---
 
 <HomeLayout
@@ -27,37 +30,32 @@ const faqItems = site.faq || [];
 >
   <section id="section-home" class="section active">
     <div class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="hero-grid"></div>
-        <div class="hero-orb hero-orb-a"></div>
-        <div class="hero-orb hero-orb-b"></div>
-      </div>
       <div class="hero-content">
+        <div class="hero-ledger-meta">
+          <span class="hero-ledger-date">{ledgerDate}</span>
+          {
+            heatItem && (
+              <span class="hero-heat">
+                今日升温{' '}
+                <a href={asset('oss.html')} data-track="hero-heat-oss">
+                  {heatItem.repo || heatItem.name}
+                </a>
+              </span>
+            )
+          }
+        </div>
         <div class="hero-brand-mark">
-          <span class="hero-logo-icon" aria-hidden="true">{site.nav.logo.icon}</span>
           <p class="hero-brand">{site.hero.eyebrow}</p>
         </div>
         <h1>{site.hero.title}</h1>
         <p class="hero-subtitle">{site.hero.subtitle}</p>
-        <div class="hero-cta">
-          <a
-            href={site.hero.cta_primary?.href || '#home-recommend'}
-            class="cta-btn"
-            data-track="hero-cta-primary">{site.hero.cta_primary?.label || '获取 AI 推荐'}</a
-          >
-          <a
-            href={asset(site.hero.cta_secondary?.href || 'tools/hub.html')}
-            class="cta-btn cta-btn-outline"
-            data-track="hero-cta-nav">{site.hero.cta_secondary?.label || '浏览工具中心'}</a
-          >
-        </div>
-        <GlobalSearch variant="hero" />
+        <HomeRecommend variant="hero" />
       </div>
     </div>
 
     <div class="home-main">
-      <HomeRecommend />
       <HomeAiDaily />
+      <HomeAiMap />
 
       <section
         class="home-section fade-in"
@@ -65,57 +63,21 @@ const faqItems = site.faq || [];
         aria-labelledby="home-community-title"
       >
         <div class="section-head">
-          <h2 class="section-title" id="home-community-title">继续探索</h2>
-          <p class="section-desc">从排行、开源到学习路径，按需深入。</p>
+          <h2 class="section-title" id="home-community-title">下一步</h2>
+          <p class="section-desc">三榜选型，或看今日开源升温。</p>
         </div>
-        <div class="community-links">
+        <div class="community-links community-links--compact">
           <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
             <span class="community-card-kicker">排行</span>
             <strong>AI 工具中心</strong>
             <span>AICPB / LMSYS / AA 三榜 Top 10。</span>
-            <em class="community-card-cta">浏览工具 →</em>
+            <em class="community-card-cta">打开三榜 →</em>
           </a>
           <a href={asset('oss.html')} class="community-card" data-track="home-community-oss">
-            <span class="community-card-kicker">开源</span>
+            <span class="community-card-kicker">升温</span>
             <strong>开源精选</strong>
-            <span>近期升温的 Agent / MCP / Coding Agent 等开源，每方向 Top 3。</span>
-            <em class="community-card-cta">查看精选 →</em>
-          </a>
-          <a
-            href={asset('courses.html')}
-            class="community-card"
-            data-track="home-community-courses"
-          >
-            <span class="community-card-kicker">课程</span>
-            <strong>AI 课程资源</strong>
-            <span>微软、谷歌与斯坦福免费公开课。</span>
-            <em class="community-card-cta">打开课程 →</em>
-          </a>
-          <a
-            href={asset('news/daily-ai-news.html')}
-            class="community-card"
-            data-track="home-community-news"
-          >
-            <span class="community-card-kicker">资讯</span>
-            <strong>AI 新闻热点</strong>
-            <span>当前时刻往前 7×24 小时，日更抓取。</span>
-            <em class="community-card-cta">阅读新闻 →</em>
-          </a>
-          <a href={asset('videos.html')} class="community-card" data-track="home-community-videos">
-            <span class="community-card-kicker">视频</span>
-            <strong>热门 AI 视频</strong>
-            <span>YouTube / B站分桶日更推荐。</span>
-            <em class="community-card-cta">观看视频 →</em>
-          </a>
-          <a
-            href={asset('ai-learning-roadmap.html')}
-            class="community-card"
-            data-track="home-community-roadmap"
-          >
-            <span class="community-card-kicker">学习</span>
-            <strong>AI 学习路线</strong>
-            <span>从入门到工作流的分阶段路径。</span>
-            <em class="community-card-cta">打开路线 →</em>
+            <span>Agent / MCP / Coding Agent 等方向，每向 Top 3。</span>
+            <em class="community-card-cta">查看升温 →</em>
           </a>
         </div>
       </section>
@@ -145,8 +107,6 @@ const faqItems = site.faq || [];
         <summary class="home-ops-summary">今日热度（可选查看）</summary>
         <HomeOps />
       </details>
-
-      <HomeAiMap />
     </div>
   </section>
 </HomeLayout>

@@ -13,20 +13,20 @@ const brief = pickAiDailyBrief();
 <section class="home-section fade-in" id="home-daily">
   <div class="section-head section-head-row">
     <div>
-      <p class="section-kicker">AI Daily</p>
+      <p class="section-kicker">台账</p>
       <h2 class="section-title">AI 简报</h2>
       <p class="section-desc">标题速览 · 详情进新闻与视频专区</p>
     </div>
     {
       brief.updatedAt && (
-        <p class="daily-updated">资讯更新于 {formatNewsDate(brief.updatedAt)} · 日更</p>
+        <p class="daily-updated">资讯更新于 {formatNewsDate(brief.updatedAt)}</p>
       )
     }
   </div>
 
   <div class="daily-grid">
     <article class="daily-panel">
-      <h3 class="daily-panel-title">最新 · 模型与发布 <span class="daily-cadence">日更</span></h3>
+      <h3 class="daily-panel-title">模型与发布</h3>
       <ul class="daily-list">
         {
           brief.models.map((item) => (
@@ -53,7 +53,9 @@ const brief = pickAiDailyBrief();
     </article>
 
     <article class="daily-panel daily-panel-github">
-      <h3 class="daily-panel-title">GitHub 热门 <span class="daily-cadence">日更</span></h3>
+      <h3 class="daily-panel-title">
+        GitHub 升温 <span class="daily-cadence">热</span>
+      </h3>
       <script
         type="application/json"
         id="daily-github-data"
@@ -69,7 +71,7 @@ const brief = pickAiDailyBrief();
         id="daily-github-list"
         class="daily-virtual-host"
         data-github-vl
-        aria-label="GitHub 热门列表"
+        aria-label="GitHub 升温列表"
       >
         <ul class="daily-list">
           {
@@ -107,7 +109,7 @@ const brief = pickAiDailyBrief();
     </article>
 
     <article class="daily-panel">
-      <h3 class="daily-panel-title">最新 · 行业资讯 <span class="daily-cadence">日更</span></h3>
+      <h3 class="daily-panel-title">行业资讯</h3>
       <ul class="daily-list">
         {
           brief.industry.map((item) => (
@@ -136,8 +138,8 @@ const brief = pickAiDailyBrief();
       >
     </article>
 
-    <article class="daily-panel">
-      <h3 class="daily-panel-title">今日 · 学习视频 <span class="daily-cadence">日更</span></h3>
+    <article class="daily-panel daily-panel--videos">
+      <h3 class="daily-panel-title">学习视频</h3>
       <ul class="daily-list">
         {
           brief.learn.map((v) => (

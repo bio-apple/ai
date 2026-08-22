@@ -110,6 +110,8 @@
     out.hidden = true;
     out.setAttribute('hidden', '');
     setActiveChip(null);
+    const emptyHint = document.getElementById('recommend-empty-hint');
+    if (emptyHint) emptyHint.hidden = false;
     const url = new URL(location.href);
     if (url.searchParams.has('rq')) {
       url.searchParams.delete('rq');
@@ -135,21 +137,21 @@
     const examples = opt?.examples || [];
     const scenario = opt?.label || '通用入门';
 
-    const toolHtml = tools
-      .map((id, i) => {
+    const graftNodes = [
+      `<li class="graft-node graft-node--task"><span class="graft-node-label">任务</span><strong>${escape(scenario)}</strong></li>`,
+      ...tools.map((id, i) => {
         const t = toolMeta[id] || { name: id, tagline: '' };
-        return `<li>
-          <a class="recommend-tool-btn" href="${escape(toolHref(id))}" data-tool="${escape(id)}" data-track="recommend_query_tool">
-            <span class="recommend-rank" aria-hidden="true">${i + 1}</span>
-            <span>
-              <strong>${escape(t.name)}</strong>
-              ${t.tagline ? `<small>${escape(t.tagline)}</small>` : ''}
-            </span>
+        const role = i === 0 ? '起草' : i === tools.length - 1 ? '交付' : '修剪';
+        return `<li class="graft-node">
+          <span class="graft-node-label">${role}</span>
+          <a class="recommend-tool-btn graft-tool" href="${escape(toolHref(id))}" data-tool="${escape(id)}" data-track="recommend_query_tool">
+            <strong>${escape(t.name)}</strong>
+            ${t.tagline ? `<small>${escape(t.tagline)}</small>` : ''}
             <span class="recommend-tool-cta">教程</span>
           </a>
         </li>`;
-      })
-      .join('');
+      }),
+    ].join('<li class="graft-edge" aria-hidden="true"></li>');
 
     const examplesHtml = examples.length
       ? `<div class="recommend-examples">
@@ -187,21 +189,24 @@
 
     setActiveChip(opt?.id || null);
     out.hidden = false;
+    out.removeAttribute('hidden');
+    const emptyHint = document.getElementById('recommend-empty-hint');
+    if (emptyHint) emptyHint.hidden = true;
     out.innerHTML = `
       <header class="recommend-result-head">
-        <p class="recommend-result-badge">${opt ? `匹配场景 · ${escape(scenario)}` : '通用推荐'}</p>
+        <p class="recommend-result-badge">${opt ? `已匹配：${escape(scenario)}` : '通用匹配'}</p>
         <p class="recommend-result-meta">
           ${
             opt
-              ? `按「${escape(scenario)}」优先这些工具；对照现实实例动手，点进教程页即可上手。`
+              ? `按「${escape(scenario)}」接好这条工具链；对照现实实例动手，点进教程页即可上手。`
               : '未精确匹配场景，先给通用主力工具；可换个说法或点选场景再试。'
           }
           ${query && opt && query !== opt.label ? ` <span class="recommend-query-echo">查询：${escape(query)}</span>` : ''}
         </p>
       </header>
       ${examplesHtml}
-      <p class="recommend-card-lead">推荐工具</p>
-      <ul class="recommend-tools">${toolHtml}</ul>
+      <p class="recommend-card-lead">工具链</p>
+      <ol class="graft-path" aria-label="任务到工具的嫁接路径">${graftNodes}</ol>
       ${
         stepsHtml
           ? `<div class="recommend-path">

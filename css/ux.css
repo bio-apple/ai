@@ -13,9 +13,9 @@
 .reading-progress-bar {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, var(--accent), var(--secondary, var(--codex)));
+  background: var(--accent);
   transition: width 0.1s linear;
-  box-shadow: 0 0 8px var(--glow);
+  box-shadow: none;
 }
 
 .reading-progress-label {

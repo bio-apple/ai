@@ -2,6 +2,11 @@
 import { site, toolLookup, toolRelations } from '../lib/data';
 import { asset } from '../lib/paths';
 
+interface Props {
+  variant?: 'default' | 'hero';
+}
+
+const { variant = 'default' } = Astro.props;
 const picker = site.ai_picker;
 const lookup = toolLookup();
 const toolsMeta = Object.fromEntries(
@@ -21,20 +26,28 @@ const recommendConfig = {
   relations: toolRelations,
   hubHref: asset('tools/hub.html'),
 };
+const isHero = variant === 'hero';
 ---
 
 <section
-  class="home-section fade-in recommend-section"
+  class:list={['recommend-section', { 'recommend-section--hero': isHero, 'home-section fade-in': !isHero }]}
   id="home-recommend"
   aria-labelledby="recommend-title"
 >
-  <div class="section-head">
-    <p class="section-kicker">AI 推荐助手</p>
-    <h2 class="section-title" id="recommend-title">{picker.title}</h2>
-    <p class="section-desc">
-      {picker.lead || '先描述目标或点选场景，立刻拿到工具选型；再跟学习路线与教程动手。'}
-    </p>
-  </div>
+  {
+    !isHero && (
+      <div class="section-head">
+        <p class="section-kicker">匹配</p>
+        <h2 class="section-title" id="recommend-title">
+          {picker.title}
+        </h2>
+        <p class="section-desc">
+          {picker.lead || '点选场景或写下任务，立刻看到工具链与下一步。'}
+        </p>
+      </div>
+    )
+  }
+  {isHero && <h2 class="visually-hidden" id="recommend-title">{picker.title}</h2>}
 
   <div class="recommend-composer">
     <form class="recommend-query" id="recommend-form" role="search">
@@ -52,16 +65,16 @@ const recommendConfig = {
         aria-controls="recommend-result"
         aria-describedby="recommend-chip-hint"
       />
-      <button type="submit" class="cta-btn" data-track="recommend-submit">获取推荐</button>
+      <button type="submit" class="cta-btn" data-track="recommend-submit">开始匹配</button>
     </form>
 
     <div class="recommend-suggest">
-      <p class="recommend-suggest-label" id="recommend-chip-hint">常见场景</p>
+      <p class="recommend-suggest-label" id="recommend-chip-hint">场景</p>
       <div
         class="recommend-chips"
         id="recommend-chips"
         role="group"
-        aria-label="常见场景，点选即推荐"
+        aria-label="常见场景，点选即匹配"
       >
         {
           picker.options.map((opt) => (
@@ -88,9 +101,13 @@ const recommendConfig = {
     role="region"
     aria-live="polite"
     aria-atomic="true"
-    aria-label="推荐结果"
+    aria-label="匹配结果"
   >
   </div>
+
+  <p class="recommend-empty-hint" id="recommend-empty-hint">
+    还没有匹配。选一个场景，或写下今天的任务。
+  </p>
 
   <script
     type="application/json"

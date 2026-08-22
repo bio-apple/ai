@@ -1,14 +1,17 @@
 ---
 /**
- * 字体策略：系统字体栈优先，避免外链 Google Fonts（DNS / CSP / 首屏阻塞）。
- * 中文优先 PingFang / 微软雅黑；拉丁回落到系统 UI 字体。
+ * 字体策略：系统栈优先，避免外链 Google Fonts（DNS / CSP / 首屏阻塞）。
+ * 标题用仿宋/宋体（实验报告语感）；正文人文黑体；数据等宽。
  */
 ---
 
 <style is:inline>
   :root {
+    --font-display:
+      'Songti SC', 'STSong', 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
     --font-sans:
-      ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
-      'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+      'IBM Plex Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', 'PingFang SC',
+      'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans SC', sans-serif;
+    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
 </style>
