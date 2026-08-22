@@ -7,7 +7,7 @@ import { homeHref } from '../lib/paths';
 
 const base = site.meta.base_url;
 const title = '近期热门 AI 视频';
-const lead = '粘贴 YouTube 或 B站 视频链接，立刻看到封面预览与推荐卡片。';
+const lead = '粘贴 YouTube / B站 视频或频道链接，生成封面或页面截图预览。';
 const canonical = `${base}videos.html`;
 const schema = buildPageSchema(title, lead, canonical, [
   { name: '首页', url: base },
@@ -46,7 +46,7 @@ const schema = buildPageSchema(title, lead, canonical, [
           id="video-url-input"
           class="video-url-input"
           name="url"
-          placeholder="粘贴 https://www.youtube.com/watch?v=… 或 https://www.bilibili.com/video/BV…"
+          placeholder="粘贴视频链接，或频道如 https://www.youtube.com/@Deeplearningai"
           autocomplete="url"
           inputmode="url"
           enterkeyhint="go"
@@ -55,7 +55,7 @@ const schema = buildPageSchema(title, lead, canonical, [
         <button type="submit" class="cta-btn" data-track="video-preview-submit">生成预览</button>
       </form>
       <p class="video-preview-hint" id="video-preview-hint">
-        支持 YouTube、B站公开视频页。预览封面来自平台公开缩略图，不会下载视频文件。
+        视频页用平台封面；频道页用页面截图预览（thum.io），不会下载视频文件。截图首次可能稍慢。
       </p>
       <p class="video-preview-status" id="video-preview-status" role="status" aria-live="polite"></p>
       <div id="daily-video-list" class="daily-video-list video-preview-list"></div>

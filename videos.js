@@ -1,4 +1,4 @@
-/* 粘贴链接 → 视频预览卡片（不下载文件） */
+/* 粘贴链接 → 视频/频道预览卡片（封面或页面截图，不下载文件） */
 (function initVideoPreview() {
   const form = document.getElementById('video-preview-form');
   const input = document.getElementById('video-url-input');
@@ -6,7 +6,7 @@
   const statusEl = document.getElementById('video-preview-status');
   if (!form || !input || !list) return;
 
-  const HISTORY_KEY = 'bioai.video.preview.v1';
+  const HISTORY_KEY = 'bioai.video.preview.v2';
   const MAX_HISTORY = 12;
 
   function escapeHtml(s) {
@@ -54,6 +54,26 @@
     return '';
   }
 
+  /** @returns {{ handle?: string, id?: string } | null} */
+  function parseYouTubeChannel(url) {
+    try {
+      const u = new URL(url);
+      const host = u.hostname.replace(/^www\./, '');
+      if (!(host === 'youtube.com' || host === 'm.youtube.com' || host === 'music.youtube.com')) {
+        return null;
+      }
+      if (u.searchParams.get('v')) return null;
+      const parts = u.pathname.split('/').filter(Boolean);
+      if (!parts.length) return null;
+      if (parts[0].startsWith('@')) return { handle: parts[0] };
+      if (parts[0] === 'channel' && parts[1]) return { id: parts[1] };
+      if ((parts[0] === 'c' || parts[0] === 'user') && parts[1]) return { handle: parts[1] };
+    } catch {
+      /* ignore */
+    }
+    return null;
+  }
+
   function parseBilibiliId(url) {
     try {
       const u = new URL(url);
@@ -73,10 +93,35 @@
     return `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg`;
   }
 
-  function platformOf(url) {
-    if (parseYouTubeId(url)) return 'youtube';
-    if (parseBilibiliId(url)) return 'bilibili';
-    return 'web';
+  /** 第三方页面截图（频道 / 非视频页）；img 直链，无需 CORS */
+  function pageScreenshot(url) {
+    return `https://image.thum.io/get/width/1280/crop/800/noanimate/${url}`;
+  }
+
+  async function fetchMicrolink(url) {
+    // YouTube 在免费档常触发 antibot，跳过以免白等
+    try {
+      const host = new URL(url).hostname.replace(/^www\./, '');
+      if (host.includes('youtube.com') || host === 'youtu.be') return null;
+    } catch {
+      return null;
+    }
+    const endpoint = `https://api.microlink.io/?${new URLSearchParams({
+      url,
+      screenshot: 'true',
+      meta: 'true',
+    }).toString()}`;
+    const res = await fetch(endpoint, { credentials: 'omit' });
+    if (!res.ok) return null;
+    const json = await res.json();
+    if (json?.status !== 'success' || !json.data) return null;
+    const d = json.data;
+    return {
+      title: d.title || '',
+      author: d.publisher || d.author || '',
+      thumbnail: d.screenshot?.url || d.image?.url || '',
+      description: d.description || '',
+    };
   }
 
   function loadHistory() {
@@ -99,42 +144,76 @@
 
   async function resolvePreview(url) {
     const yt = parseYouTubeId(url);
+    const channel = parseYouTubeChannel(url);
     const bv = parseBilibiliId(url);
     let title = '';
     let author = '';
     let thumbnail = '';
-    let provider = platformOf(url);
+    let description = '';
+    let kind = 'page';
+    let platform = 'web';
+    let id = url;
 
     if (yt) {
+      kind = 'video';
+      platform = 'youtube';
+      id = yt;
       thumbnail = youtubeThumb(yt);
       title = `YouTube 视频 ${yt}`;
-      provider = 'youtube';
+    } else if (channel) {
+      kind = 'channel';
+      platform = 'youtube';
+      id = channel.handle || channel.id || url;
+      title = channel.handle
+        ? `YouTube 频道 ${channel.handle}`
+        : `YouTube 频道 ${channel.id || ''}`.trim();
+      setStatus('正在生成频道页面截图…', false);
     } else if (bv) {
+      kind = 'video';
+      platform = 'bilibili';
+      id = bv;
       title = `B站视频 ${bv}`;
-      provider = 'bilibili';
+    } else {
+      kind = 'page';
+      setStatus('正在生成页面截图…', false);
     }
 
-    try {
-      const oembedUrl = `https://noembed.com/embed?url=${encodeURIComponent(url)}`;
-      const res = await fetch(oembedUrl, { credentials: 'omit' });
-      if (res.ok) {
-        const data = await res.json();
-        if (data && !data.error) {
-          if (data.title) title = data.title;
-          if (data.author_name) author = data.author_name;
-          if (data.thumbnail_url) thumbnail = data.thumbnail_url;
-          if (data.provider_name) {
-            const p = String(data.provider_name).toLowerCase();
-            if (p.includes('youtube')) provider = 'youtube';
-            else if (p.includes('bilibili') || p.includes('哔哩')) provider = 'bilibili';
+    if (kind === 'video') {
+      try {
+        const oembedUrl = `https://noembed.com/embed?url=${encodeURIComponent(url)}`;
+        const res = await fetch(oembedUrl, { credentials: 'omit' });
+        if (res.ok) {
+          const data = await res.json();
+          if (data && !data.error) {
+            if (data.title) title = data.title;
+            if (data.author_name) author = data.author_name;
+            if (data.thumbnail_url) thumbnail = data.thumbnail_url;
           }
         }
+      } catch {
+        /* ignore */
       }
-    } catch {
-      /* oEmbed 失败时仍可用本地解析的封面 */
+      if (!thumbnail && yt) thumbnail = youtubeThumb(yt);
+    } else {
+      // 频道 / 普通网页：YouTube 频道直接用 thum.io 截图；其它站点可尝试 Microlink
+      if (kind === 'channel' || platform === 'youtube') {
+        thumbnail = pageScreenshot(url);
+      } else {
+        try {
+          const meta = await fetchMicrolink(url);
+          if (meta) {
+            if (meta.title) title = meta.title;
+            if (meta.author) author = meta.author;
+            if (meta.thumbnail) thumbnail = meta.thumbnail;
+            if (meta.description) description = meta.description;
+          }
+        } catch {
+          /* ignore */
+        }
+        if (!thumbnail) thumbnail = pageScreenshot(url);
+      }
     }
 
-    if (!thumbnail && yt) thumbnail = youtubeThumb(yt);
     if (!title) title = url;
 
     return {
@@ -142,8 +221,10 @@
       title,
       author,
       thumbnail,
-      platform: provider,
-      id: yt || bv || url,
+      description,
+      platform,
+      kind,
+      id,
       resolved_at: new Date().toISOString(),
     };
   }
@@ -151,19 +232,24 @@
   function renderCard(item) {
     const plat =
       item.platform === 'bilibili' ? 'B站' : item.platform === 'youtube' ? 'YouTube' : '链接';
+    const typeLabel = item.kind === 'channel' ? '频道' : item.kind === 'video' ? '视频' : '页面';
     const thumb = item.thumbnail
       ? `<img src="${escapeHtml(item.thumbnail)}" alt="" width="640" height="360" loading="lazy" decoding="async" referrerpolicy="no-referrer" />`
       : `<span class="video-thumb-empty">暂无封面</span>`;
-    return `<article class="video-card video-preview-card">
+    return `<article class="video-card video-preview-card" data-preview-url="${escapeHtml(item.url)}">
       <a class="video-thumb" href="${escapeHtml(item.url)}" target="_blank" rel="${extRel()}" data-track="video-preview-open">
         ${thumb}
         <span class="video-play-badge" aria-hidden="true">▶</span>
-        <span class="content-type-badge" data-type="video">视频</span>
+        <span class="content-type-badge" data-type="video">${escapeHtml(typeLabel)}</span>
         <span class="video-platform-badge">${escapeHtml(plat)}</span>
       </a>
       <div class="video-info">
-        <a class="video-title" href="${escapeHtml(item.url)}" target="_blank" rel="${extRel()}" data-track="video-preview-open">${escapeHtml(item.title)}</a>
+        <div class="video-info-top">
+          <a class="video-title" href="${escapeHtml(item.url)}" target="_blank" rel="${extRel()}" data-track="video-preview-open">${escapeHtml(item.title)}</a>
+          <button type="button" class="video-preview-remove" data-remove-url="${escapeHtml(item.url)}" aria-label="删除此链接" title="删除" data-track="video-preview-remove">删除</button>
+        </div>
         ${item.author ? `<p class="video-channel">${escapeHtml(item.author)}</p>` : ''}
+        ${item.description ? `<p class="video-preview-desc">${escapeHtml(item.description)}</p>` : ''}
         <p class="video-preview-url">${escapeHtml(item.url)}</p>
       </div>
     </article>`;
@@ -171,10 +257,21 @@
 
   function renderList(items) {
     if (!items.length) {
-      list.innerHTML = '<p class="loading-hint">还没有预览。粘贴一条视频链接，点「生成预览」。</p>';
+      list.innerHTML =
+        '<p class="loading-hint">还没有预览。粘贴视频或频道链接，点「生成预览」。</p>';
       return;
     }
     list.innerHTML = `<div class="video-grid">${items.map(renderCard).join('')}</div>`;
+  }
+
+  function removeUrl(url) {
+    const next = loadHistory().filter((x) => x.url !== url);
+    saveHistory(next);
+    renderList(next);
+    setStatus(next.length ? '已删除该链接。' : '已清空全部预览。', false);
+    if (typeof trackEvent === 'function') {
+      trackEvent('video_preview_remove', { funnel_step: 2 });
+    }
   }
 
   async function addUrl(raw) {
@@ -192,11 +289,17 @@
       const next = [item, ...prev].slice(0, MAX_HISTORY);
       saveHistory(next);
       renderList(next);
-      setStatus(`已生成预览：${item.title}`, false);
+      setStatus(
+        item.kind === 'channel' || item.kind === 'page'
+          ? `已生成页面截图：${item.title}`
+          : `已生成预览：${item.title}`,
+        false,
+      );
       input.value = '';
       if (typeof trackEvent === 'function') {
         trackEvent('video_preview_submit', {
           platform: item.platform,
+          kind: item.kind,
           funnel_step: 2,
         });
       }
@@ -210,6 +313,15 @@
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     addUrl(input.value);
+  });
+
+  list.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-remove-url]');
+    if (!btn || !list.contains(btn)) return;
+    e.preventDefault();
+    e.stopPropagation();
+    const url = btn.getAttribute('data-remove-url');
+    if (url) removeUrl(url);
   });
 
   const params = new URLSearchParams(location.search);
