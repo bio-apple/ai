@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add ai-news.json content/news/daily-ai-news.md
+          git add ai-news.json
           if git diff --staged --quiet; then
             echo "No news updates today"
             echo "pushed=false" >> "$GITHUB_OUTPUT"
@@ -68,6 +68,7 @@ jobs:
 
       - name: Open issue on fetch failure
         if: failure()
+        continue-on-error: true
         uses: actions/github-script@v8
         with:
           script: |
@@ -79,25 +80,29 @@ jobs:
               '',
               '<!-- daily-news-fetch -->',
             ].join('\n');
-            const { data: issues } = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              state: 'open',
-              per_page: 30,
-            });
-            const existing = issues.find(i => i.title === title);
-            if (existing) {
-              await github.rest.issues.createComment({
+            try {
+              const { data: issues } = await github.rest.issues.listForRepo({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                issue_number: existing.number,
-                body,
+                state: 'open',
+                per_page: 30,
               });
-            } else {
-              await github.rest.issues.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                title,
-                body,
-              });
+              const existing = issues.find(i => i.title === title);
+              if (existing) {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: existing.number,
+                  body,
+                });
+              } else {
+                await github.rest.issues.create({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  title,
+                  body,
+                });
+              }
+            } catch (err) {
+              core.warning(`Skip ops issue (issues may be disabled): ${err.message || err}`);
             }

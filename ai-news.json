@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-13T19:43:30.563590+08:00",
-  "date": "2026-08-13",
+  "updated_at": "2026-08-22T11:48:49.064056+08:00",
+  "date": "2026-08-22",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,292 +15,229 @@
   },
   "items": [
     {
-      "id": "b8c833cd5e48",
-      "title": "中国人能飞！杭州发布全球首款站姿载人飞行器",
-      "summary": "让一部分人先飞起来",
-      "url": "https://www.qbitai.com/2026/08/471893.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-08-13T18:20:32+08:00"
-    },
-    {
-      "id": "c6059138e097",
-      "title": "科大讯飞发布企业服务全系列产品 覆盖七大核心场景",
-      "summary": "科大讯飞发布企业服务全系列产品 覆盖七大核心场景",
-      "url": "https://www.qbitai.com/2026/08/471884.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-08-13T18:01:47+08:00"
-    },
-    {
-      "id": "d698210918fb",
-      "title": "刚刚！Ilya首个模型曝光了",
-      "summary": "SSI第一剑，劈向持续学习",
-      "url": "https://www.qbitai.com/2026/08/471701.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-13T16:36:53+08:00"
-    },
-    {
-      "id": "0e5889edbf7a",
-      "title": "联想集团Q1再创史上最佳业绩，AI服务器业务迎来爆发期",
-      "summary": "当季实现营收1834亿元人民币，同比猛增43%，创历史新高",
-      "url": "https://www.qbitai.com/2026/08/471697.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-13T14:33:52+08:00"
-    },
-    {
-      "id": "df7b9bff2396",
-      "title": "倒计时｜2026世界机器人大会主论坛议程发布！",
-      "summary": "倒计时｜2026世界机器人大会主论坛议程发布！",
-      "url": "https://www.qbitai.com/2026/08/471668.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-08-13T13:10:50+08:00"
-    },
-    {
-      "id": "c6693bb7de7b",
-      "title": "Dynamic Governance of Multi-LLM Agent Systems for Collaborative Conversational Outcomes",
-      "summary": "arXiv:2608.11207v1 Announce Type: new Abstract: When two LLM agents with structurally opposed objectives interact across multiple turns, the absence of a share…",
-      "url": "https://arxiv.org/abs/2608.11207",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-13T12:00:00+08:00"
-    },
-    {
-      "id": "1465369cd462",
-      "title": "Distribird: Literature-Informed Prior Distribution Design for Bayesian Model Calibration",
-      "summary": "arXiv:2608.11210v1 Announce Type: new Abstract: Bayesian calibration of process-based models requires a prior distribution for each model parameter. Despite de…",
-      "url": "https://arxiv.org/abs/2608.11210",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-13T12:00:00+08:00"
-    },
-    {
-      "id": "6e2366612b68",
-      "title": "A Forced-Structure Reduction and Verifiable Bounds for Conway's 99-Graph",
-      "summary": "arXiv:2608.11211v1 Announce Type: new Abstract: Conway's 99-graph problem asks whether a strongly regular graph with parameters $\\mathrm{srg}(99,14,1,2)$ exist…",
-      "url": "https://arxiv.org/abs/2608.11211",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-13T12:00:00+08:00"
-    },
-    {
-      "id": "b0cc76aea7c7",
-      "title": "Detecting a Route Flip Is Easier Than Knowing Whether to Fix It: Causal Route-Mediated Damage in Quantized Mixture-of-Experts",
-      "summary": "arXiv:2608.11212v1 Announce Type: new Abstract: Top-k Mixture-of-Experts (MoE) routing is discontinuous, so a deployment-motivated numerical disturbance -- sim…",
-      "url": "https://arxiv.org/abs/2608.11212",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-13T12:00:00+08:00"
-    },
-    {
-      "id": "894259dbee4c",
-      "title": "Poor Man's Agentic Modeling: Simulating Large LLM-Agent Societies on a Laptop",
-      "summary": "arXiv:2608.11215v1 Announce Type: new Abstract: Simulating societies of many large language model (LLM) agents is expensive, yet the questions asked of such si…",
-      "url": "https://arxiv.org/abs/2608.11215",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-13T12:00:00+08:00"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 186,582",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-08-13T11:40:11Z"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 83,900",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-08-13T11:37:06Z"
-    },
-    {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 167,080",
+      "title": "f/prompts.chat · ★ 167,714",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-08-13T03:49:09Z"
+      "published_at": "2026-08-22T03:19:18Z"
+    },
+    {
+      "id": "a44248e361e3",
+      "title": "OpenHands/OpenHands · ★ 84,745",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-08-22T03:15:10Z"
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 90,608",
+      "title": "thedotmack/claude-mem · ★ 91,466",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-08-13T01:59:22Z"
+      "published_at": "2026-08-21T23:43:00Z"
     },
     {
-      "id": "0377a19f7331",
-      "title": "MindTopo reveals VLMs’ spatial reasoning abilities",
-      "summary": "A path, a fence, a knot. MindTopo sets a new benchmark for testing how AI understands topological relationships and highlights new opportunities to strengthen …",
-      "url": "https://www.microsoft.com/en-us/research/blog/mindtopo-reveals-vlms-spatial-reasoning-abilities/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-13T00:00:00+08:00"
-    },
-    {
-      "id": "f5d9b5f669dc",
-      "title": "Putting sign language AI into users’ hands",
-      "summary": "Introducing sign-language-to-text (SL2T), our breakthrough model powering new sign language features for Deaf and hard of hearing users.",
-      "url": "https://deepmind.google/blog/putting-sign-language-ai-into-users-hands/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-08-12T22:01:59+08:00"
-    },
-    {
-      "id": "26f2e836225d",
-      "title": "NVIDIA CEO Tops Glassdoor’s 2026 List of Best CEOs",
-      "summary": "NVIDIA founder and CEO Jensen Huang is ranked No. 1 on Glassdoor’s Best CEOs list for 2026. In the just-released ranking, recognition is earned directly from t…",
-      "url": "https://blogs.nvidia.com/blog/nvidia-life-glassdoor-best-ceo-2026/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-08-12T22:00:00+08:00"
-    },
-    {
-      "id": "fb21820d806b",
-      "title": "From assistance to execution: How enterprises put AI to work",
-      "summary": "OpenAI research reveals how enterprises are adopting agentic AI, using ChatGPT and Codex, and how frontier firms are pulling ahead in AI adoption.",
-      "url": "https://openai.com/index/how-enterprises-put-ai-to-work",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-12T14:00:00+08:00"
-    },
-    {
-      "id": "b0169fd78a22",
-      "title": "NVIDIA AI Factory Compute Is Becoming an Investable Asset Class",
-      "summary": "We announced partnerships with Apollo, BlackRock, Blackstone, Brookfield, Goldman Sachs and KKR to establish independent financing platforms designed to mobili…",
-      "url": "https://blogs.nvidia.com/blog/nvidia-ai-factory-compute/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-12T08:38:21+08:00"
-    },
-    {
-      "id": "cad35e6294fe",
-      "title": "How RingCentral builds AI-native work from engineering to ops",
-      "summary": "See how RingCentral uses ChatGPT Work and Codex to accelerate AI product development and centralize operational intelligence across engineering and operations.",
-      "url": "https://openai.com/index/ringcentral",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-12T08:00:00+08:00"
-    },
-    {
-      "id": "dbc30e861442",
-      "title": "AMIE, our research medical AI system, demonstrates real-time clinical video consultation capabilities in a first-of-its-kind study.",
-      "summary": "Google introduces AMIE for real-time clinical video consultations in simulated settings.",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-12T01:00:00+08:00"
-    },
-    {
-      "id": "daffd14d3d22",
-      "title": "Introducing CARE-X: Towards Clinically Useful Radiology VLMs with Auxiliary Supervision, Reward-Aligned Learning, and Tool-Augmented Measurement",
-      "summary": "Radiology AI is evolving beyond report generation. CARE-X explores a unified approach that combines flexible reasoning, calibrated predictions, and measurement…",
-      "url": "https://www.microsoft.com/en-us/research/blog/introducing-care-x-towards-clinically-useful-radiology-vlms-with-auxiliary-supervision-reward-aligned-learning-and-tool-augmented-measurement/",
-      "source": "Microsoft AI",
-      "category": "新工具上线",
-      "published_at": "2026-08-12T00:00:00+08:00"
-    },
-    {
-      "id": "fda742a5dcd7",
-      "title": "Why Scaling AI Compute Performance Requires a New Power Architecture",
-      "summary": "Every new generation of accelerated computing demands more from the infrastructure underneath it — more compute performance, higher rack density and more effic…",
-      "url": "https://blogs.nvidia.com/blog/800-vdc-power-architecture-ai-factory/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-11T23:00:06+08:00"
-    },
-    {
-      "id": "afeff8f47f93",
-      "title": "NVIDIA and Local AI Community Fuel Open Source Models and Intelligent Agents",
-      "summary": "The open source ecosystem is making it easier for AI enthusiasts and developers to build, customize and run increasingly capable agents locally. Throughout Aug…",
-      "url": "https://blogs.nvidia.com/blog/local-ai-open-source-models-agents-nemotron/",
-      "source": "NVIDIA AI",
-      "category": "开源项目",
-      "published_at": "2026-08-11T21:00:25+08:00"
-    },
-    {
-      "id": "d8e27ee66251",
-      "title": "NVIDIA Nemotron 3.5 Lightning and NeMo Switchyard Deliver Faster, Smarter, More Efficient Agentic",
-      "summary": "As AI shifts from chatbots to autonomous agents, open models are serving market demands for full control over where AI runs and how it’s deployed and evolves. …",
-      "url": "https://blogs.nvidia.com/blog/nemotron-lightning-switchyard-rtx-dgx/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-08-11T21:00:05+08:00"
-    },
-    {
-      "id": "de2ca3d7578d",
-      "title": "Testing ads in ChatGPT",
-      "summary": "OpenAI begins testing ads in ChatGPT to support free access, with clear labeling, answer independence, strong privacy protections, and user control.",
-      "url": "https://openai.com/index/testing-ads-in-chatgpt",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-11T18:00:00+08:00"
-    },
-    {
-      "id": "b274e00978a8",
-      "title": "Daybreak models are now available on AWS",
-      "summary": "OpenAI and AWS are making Daybreak cybersecurity capabilities available through Amazon Bedrock to support enterprise security workflows.",
-      "url": "https://openai.com/index/daybreak-models-are-now-available-on-aws",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-11T18:00:00+08:00"
-    },
-    {
-      "id": "ae2292bf453d",
-      "title": "Evolve your marketing with new AI tools",
-      "summary": "Learn how new AI and agentic experiences across Google Ads and Google Analytics can simplify your marketing workflow.",
-      "url": "https://blog.google/products/ads-commerce/google-ads-analytics-ai-updates/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-10T22:30:00+08:00"
-    },
-    {
-      "id": "61282b7420ed",
-      "title": "OpenAI’s letter to Governor Abbott on responsible AI infrastructure in Texas",
-      "summary": "OpenAI sent Governor Greg Abbott a letter outlining its commitment to responsible AI infrastructure in Texas. The letter supports reliable, transparent growth …",
-      "url": "https://openai.com/index/responsible-ai-infrastructure-texas",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-10T22:00:00+08:00"
-    },
-    {
-      "id": "1f1bc03a707a",
-      "title": "rasbt/LLMs-from-scratch · ★ 102,567",
-      "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
-      "url": "https://github.com/rasbt/LLMs-from-scratch",
+      "id": "991cb8c74834",
+      "title": "Significant-Gravitas/AutoGPT · ★ 186,734",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-08-10T01:11:40Z"
+      "published_at": "2026-08-21T22:56:45Z"
     },
     {
-      "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 95,909",
-      "summary": "real time face swap and one-click video deepfake with only a single image",
-      "url": "https://github.com/hacksider/Deep-Live-Cam",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-08-07T23:15:21Z"
-    },
-    {
-      "id": "7fa201e30c7e",
-      "title": "WeatherNext: AI model achieves breakthrough in forecasting cyclones",
-      "summary": "WeatherNext: AI model achieves breakthrough in forecasting cyclones",
-      "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+      "id": "06daba08af15",
+      "title": "From Atari to EVE Online: Building on 15 Years of AI Research in Games",
+      "summary": "Google DeepMind partners with game studios to prototype breakthrough AI gameplay.",
+      "url": "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/",
       "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-08-06T23:06:15+08:00"
+      "published_at": "2026-08-21T19:59:48+08:00"
+    },
+    {
+      "id": "adec7e930e6d",
+      "title": "最大运力自动驾驶轻卡落地，来自无人车巨头",
+      "summary": "载重4.2吨、容积19.32m³",
+      "url": "https://www.qbitai.com/2026/08/476778.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-21T19:47:27+08:00"
+    },
+    {
+      "id": "4a5c24c25c9c",
+      "title": "明略科技携手海康机器人亮相世界机器人大会，以“Agent+具身”联合进入商业机器人场景",
+      "summary": "明略科技（2718.HK）与海康机器人联合参展2026WRC，聚焦商业服务领域展示具身智能落地进展。",
+      "url": "https://www.qbitai.com/2026/08/476733.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-21T17:44:33+08:00"
+    },
+    {
+      "id": "65a9448fee9d",
+      "title": "雷鸟iO发布：两天续航、全天候主动式AI，轻至34g",
+      "summary": "8月21日，全球领先的消费级AR品牌雷鸟创新（RayNeo）举办2026雷鸟AI眼镜新品发布会",
+      "url": "https://www.qbitai.com/2026/08/476628.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-08-21T17:00:06+08:00"
+    },
+    {
+      "id": "8f3b78869fd7",
+      "title": "机器人的GPT-3时刻真·来了！卡卡西上身，看3秒就学会新动作",
+      "summary": "机器人看3秒演示就能学会",
+      "url": "https://www.qbitai.com/2026/08/476596.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-08-21T15:17:58+08:00"
+    },
+    {
+      "id": "dac297521baf",
+      "title": "科学家只管提问题，AI负责跑实验：深势科技把科研全流程搬进桌面",
+      "summary": "让科学家的时间回到科学创造",
+      "url": "https://www.qbitai.com/2026/08/476591.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-21T14:40:34+08:00"
+    },
+    {
+      "id": "891074c82a97",
+      "title": "Active Inference as Context Acquisition for AI Agents",
+      "summary": "arXiv:2608.19202v1 Announce Type: new Abstract: Interactive AI agents must acquire the right context as efficiently as possible. When a user omits a constraint…",
+      "url": "https://arxiv.org/abs/2608.19202",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-21T12:00:00+08:00"
+    },
+    {
+      "id": "c32a9381241c",
+      "title": "Robust Metaheuristics under Uncertainty for Berth Allocation and Quay Crane Assignment: A Review",
+      "summary": "arXiv:2608.19214v1 Announce Type: new Abstract: The berth allocation and quay crane assignment problem (BACAP) is a representative port-terminal scheduling pro…",
+      "url": "https://arxiv.org/abs/2608.19214",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-21T12:00:00+08:00"
+    },
+    {
+      "id": "bbb121662007",
+      "title": "How to Navigate Uncertainty About AI Consciousness",
+      "summary": "arXiv:2608.19215v1 Announce Type: new Abstract: Given deep uncertainty about the possibility of artificial consciousness, it is unclear how we should treat pot…",
+      "url": "https://arxiv.org/abs/2608.19215",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-21T12:00:00+08:00"
+    },
+    {
+      "id": "6f67a04149c5",
+      "title": "Bounded Sovereignty and the Control Tax: Pricing AI Oversight When the Deployer Does Not Own the Model",
+      "summary": "arXiv:2608.19216v1 Announce Type: new Abstract: AI control research asks how to deploy models safely even when they may be misaligned, but many control protoco…",
+      "url": "https://arxiv.org/abs/2608.19216",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-21T12:00:00+08:00"
+    },
+    {
+      "id": "50be1f02b01c",
+      "title": "Interaction valence reveals contrasting social networks in dairy cattle",
+      "summary": "arXiv:2608.19222v1 Announce Type: new Abstract: Social relationships shape access to resources, exposure to conflict and group stability, yet automated livesto…",
+      "url": "https://arxiv.org/abs/2608.19222",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-21T12:00:00+08:00"
+    },
+    {
+      "id": "6dd0bcee2387",
+      "title": "Broadening access to Skala creates a faster path to predictive DFT",
+      "summary": "Skala 1.1, the updated deep-learning exchange-correlation functional from Microsoft Research, provides greater accuracy, expanded accessibility across the comp…",
+      "url": "https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-08-21T00:00:00+08:00"
+    },
+    {
+      "id": "cce517cb8665",
+      "title": "Bring the Fire: Play Games on GeForce NOW With New Firefox Browser Support",
+      "summary": "It’s a new way into the cloud. GeForce NOW welcomes Firefox support to the cloud, opening up another way to jump into high-performance PC gaming straight from …",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-firefox/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-08-20T21:00:24+08:00"
+    },
+    {
+      "id": "027379c08484",
+      "title": "Introducing AI Futures",
+      "summary": "Introducing AI Futures, a new OpenAI blog exploring how transformative AI could reshape power, governance, the economy, and individual freedom.",
+      "url": "https://openai.com/index/introducing-ai-futures",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-08-20T15:00:00+08:00"
+    },
+    {
+      "id": "cb030de2dd94",
+      "title": "Stampli cuts launch hours by 68% using ChatGPT Work",
+      "summary": "With a fixed deadline and design resources committed elsewhere, Stampli used Codex and ChatGPT Work to compress weeks of launch production into days.",
+      "url": "https://openai.com/index/stampli",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-08-20T08:00:00+08:00"
+    },
+    {
+      "id": "a87414927489",
+      "title": "5 new ways to level up your learning with Search",
+      "summary": "Here’s how you can use Google Search tools to study for classes and standardized tests.",
+      "url": "https://blog.google/products-and-platforms/products/search/back-to-school-study-tools/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-08-20T03:00:00+08:00"
+    },
+    {
+      "id": "ef913e9fdabc",
+      "title": "Offering Zero Data Retention for frontier models",
+      "summary": "OpenAI reaffirms Zero Data Retention for eligible API customers and previews Private Safety Processing for advanced AI safety without compromising data privacy.",
+      "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-20T03:00:00+08:00"
+    },
+    {
+      "id": "9ac0643f2427",
+      "title": "Replit expands access to software creation with GPT-5.6 Luna",
+      "summary": "Replit introduces Free Mode, powered by GPT-5.6 Luna, so anyone can turn ideas into working software without worrying about token costs.",
+      "url": "https://openai.com/index/replit",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-19T15:00:00+08:00"
+    },
+    {
+      "id": "e4563871866d",
+      "title": "ChatGPT Ads expands across Europe",
+      "summary": "ChatGPT Ads is expanding to 31 European markets. Learn how advertisers can reach people as they explore, compare options, and make decisions.",
+      "url": "https://openai.com/index/chatgpt-ads-expands-across-europe",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-19T06:00:00+08:00"
+    },
+    {
+      "id": "b10672c70cf0",
+      "title": "Securing the Infrastructure of Intelligence",
+      "summary": "AI factories are the defining infrastructure of the AI era — where compute transforms energy and data into intelligence that powers every business, industry an…",
+      "url": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-08-17T20:34:51+08:00"
+    },
+    {
+      "id": "ef87e3b0ab28",
+      "title": "Get closer to the game with Gemini and Pixel",
+      "summary": "Google Gemini and Pixel partner with five global football clubs to elevate the fan matchday experience through AI and Smartphone Technology.",
+      "url": "https://blog.google/products-and-platforms/products/gemini/google-gemini-pixel-football-club-partnerships/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-08-17T16:00:00+08:00"
     }
   ],
   "watch_sources": [
