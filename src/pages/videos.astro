@@ -55,7 +55,8 @@ const schema = buildPageSchema(title, lead, canonical, [
         <button type="submit" class="cta-btn" data-track="video-preview-submit">生成预览</button>
       </form>
       <p class="video-preview-hint" id="video-preview-hint">
-        视频页用平台封面；频道页用页面截图预览（thum.io），不会下载视频文件。截图首次可能稍慢。
+        链接保存在<strong>本浏览器</strong>，刷新后仍在（清站点数据会丢）。视频用平台封面；频道用
+        thum.io 截图。不会下载视频文件。
       </p>
       <p class="video-preview-status" id="video-preview-status" role="status" aria-live="polite"></p>
       <div id="daily-video-list" class="daily-video-list video-preview-list"></div>

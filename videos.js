@@ -7,6 +7,7 @@
   if (!form || !input || !list) return;
 
   const HISTORY_KEY = 'bioai.video.preview.v2';
+  const LEGACY_HISTORY_KEYS = ['bioai.video.preview.v1'];
   const MAX_HISTORY = 12;
 
   function escapeHtml(s) {
@@ -127,7 +128,25 @@
   function loadHistory() {
     try {
       const raw = localStorage.getItem(HISTORY_KEY);
-      const arr = raw ? JSON.parse(raw) : [];
+      let arr = raw ? JSON.parse(raw) : [];
+      if (!Array.isArray(arr) || !arr.length) {
+        // 升级 key 时把旧版本机记录迁过来，避免用户感觉「没保存」
+        for (const legacyKey of LEGACY_HISTORY_KEYS) {
+          const legacyRaw = localStorage.getItem(legacyKey);
+          if (!legacyRaw) continue;
+          try {
+            const legacy = JSON.parse(legacyRaw);
+            if (Array.isArray(legacy) && legacy.length) {
+              arr = legacy;
+              saveHistory(arr);
+              localStorage.removeItem(legacyKey);
+              break;
+            }
+          } catch {
+            /* ignore bad legacy */
+          }
+        }
+      }
       return Array.isArray(arr) ? arr.filter((x) => x && x.url) : [];
     } catch {
       return [];
@@ -274,6 +293,74 @@
     }
   }
 
+  function draftItemFromUrl(url) {
+    const yt = parseYouTubeId(url);
+    const channel = parseYouTubeChannel(url);
+    const bv = parseBilibiliId(url);
+    if (yt) {
+      return {
+        url,
+        title: `YouTube 视频 ${yt}`,
+        author: '',
+        thumbnail: youtubeThumb(yt),
+        description: '',
+        platform: 'youtube',
+        kind: 'video',
+        id: yt,
+        pending: true,
+        resolved_at: new Date().toISOString(),
+      };
+    }
+    if (channel) {
+      const id = channel.handle || channel.id || url;
+      return {
+        url,
+        title: channel.handle ? `YouTube 频道 ${channel.handle}` : `YouTube 频道 ${id}`,
+        author: '',
+        thumbnail: pageScreenshot(url),
+        description: '',
+        platform: 'youtube',
+        kind: 'channel',
+        id,
+        pending: true,
+        resolved_at: new Date().toISOString(),
+      };
+    }
+    if (bv) {
+      return {
+        url,
+        title: `B站视频 ${bv}`,
+        author: '',
+        thumbnail: '',
+        description: '',
+        platform: 'bilibili',
+        kind: 'video',
+        id: bv,
+        pending: true,
+        resolved_at: new Date().toISOString(),
+      };
+    }
+    return {
+      url,
+      title: url,
+      author: '',
+      thumbnail: pageScreenshot(url),
+      description: '',
+      platform: 'web',
+      kind: 'page',
+      id: url,
+      pending: true,
+      resolved_at: new Date().toISOString(),
+    };
+  }
+
+  function upsertHistory(item) {
+    const prev = loadHistory().filter((x) => x.url !== item.url);
+    const next = [item, ...prev].slice(0, MAX_HISTORY);
+    saveHistory(next);
+    return next;
+  }
+
   async function addUrl(raw) {
     const url = normalizeUrl(raw);
     if (!url) {
@@ -281,21 +368,26 @@
       input.focus();
       return;
     }
-    setStatus('正在生成预览…', false);
+
+    // 先落盘再拉截图：刷新也不会丢链接
+    const draft = draftItemFromUrl(url);
+    let next = upsertHistory(draft);
+    renderList(next);
+    input.value = '';
+    setStatus('链接已保存在本浏览器；正在完善预览…', false);
     form.querySelector('button[type="submit"]')?.setAttribute('disabled', '');
+
     try {
       const item = await resolvePreview(url);
-      const prev = loadHistory().filter((x) => x.url !== item.url);
-      const next = [item, ...prev].slice(0, MAX_HISTORY);
-      saveHistory(next);
+      item.pending = false;
+      next = upsertHistory(item);
       renderList(next);
       setStatus(
         item.kind === 'channel' || item.kind === 'page'
-          ? `已生成页面截图：${item.title}`
-          : `已生成预览：${item.title}`,
+          ? `已保存并生成截图：${item.title}`
+          : `已保存预览：${item.title}`,
         false,
       );
-      input.value = '';
       if (typeof trackEvent === 'function') {
         trackEvent('video_preview_submit', {
           platform: item.platform,
@@ -304,7 +396,7 @@
         });
       }
     } catch (_err) {
-      setStatus('预览失败，请检查链接是否可公开访问。', true);
+      setStatus('链接已保存；预览信息不完整，可稍后刷新重试。', true);
     } finally {
       form.querySelector('button[type="submit"]')?.removeAttribute('disabled');
     }
