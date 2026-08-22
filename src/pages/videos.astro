@@ -1,18 +1,13 @@
 ---
 import StandaloneLayout from '../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../components/StandalonePageHeader.astro';
-import SsrVideosList from '../components/SsrVideosList.astro';
 import { site } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
 import { homeHref } from '../lib/paths';
-import { prepareVideos } from '../lib/ssr-lists';
-import videosPayload from '../../public/daily-videos.latest.json';
 
 const base = site.meta.base_url;
 const title = '近期热门 AI 视频';
-const lead =
-  'YouTube 与 B站分别：24 小时 Top3、30 天 Top3、100 天 Top4，每平台最多 10 条，按播放量排序，日更。';
-const prepared = prepareVideos(videosPayload);
+const lead = '粘贴 YouTube 或 B站 视频链接，立刻看到封面预览与推荐卡片。';
 const canonical = `${base}videos.html`;
 const schema = buildPageSchema(title, lead, canonical, [
   { name: '首页', url: base },
@@ -27,7 +22,6 @@ const schema = buildPageSchema(title, lead, canonical, [
   schema={schema}
   ogType="website"
   scripts={[
-    'lib/fetch-json.js',
     'lib/link-guard.js',
     'vendor/fuse.min.js',
     'funnel.js',
@@ -42,50 +36,29 @@ const schema = buildPageSchema(title, lead, canonical, [
       crumbs={[{ label: '首页', href: homeHref() }, { label: 'AI 视频' }]}
       title={title}
       lead={lead}
-      metaId="video-update-meta"
     />
-    <section class="page-section">
-      <div class="video-toolbar" id="video-toolbar">
-        <div class="video-toolbar-group" role="group" aria-label="视频平台">
-          <span class="video-toolbar-label">平台</span>
-          <button
-            type="button"
-            class="video-filter active"
-            data-video-platform="all"
-            aria-pressed="true">全部</button
-          >
-          <button
-            type="button"
-            class="video-filter"
-            data-video-platform="youtube"
-            aria-pressed="false">YouTube</button
-          >
-          <button
-            type="button"
-            class="video-filter"
-            data-video-platform="bilibili"
-            aria-pressed="false">B站</button
-          >
-        </div>
-        <div class="video-toolbar-group" role="group" aria-label="视频排序">
-          <span class="video-toolbar-label">排序</span>
-          <button
-            type="button"
-            class="video-filter video-sort active"
-            data-video-sort="views"
-            aria-pressed="true">热门</button
-          >
-          <button
-            type="button"
-            class="video-filter video-sort"
-            data-video-sort="recent"
-            aria-pressed="false">最新</button
-          >
-        </div>
-      </div>
-      <div id="daily-video-list" class="daily-video-list">
-        <SsrVideosList youtube={prepared.youtube} bilibili={prepared.bilibili} />
-      </div>
+    <section class="page-section" aria-labelledby="video-preview-heading">
+      <h2 class="visually-hidden" id="video-preview-heading">粘贴链接生成预览</h2>
+      <form class="video-preview-form" id="video-preview-form" role="search">
+        <label class="visually-hidden" for="video-url-input">视频链接</label>
+        <input
+          type="url"
+          id="video-url-input"
+          class="video-url-input"
+          name="url"
+          placeholder="粘贴 https://www.youtube.com/watch?v=… 或 https://www.bilibili.com/video/BV…"
+          autocomplete="url"
+          inputmode="url"
+          enterkeyhint="go"
+          required
+        />
+        <button type="submit" class="cta-btn" data-track="video-preview-submit">生成预览</button>
+      </form>
+      <p class="video-preview-hint" id="video-preview-hint">
+        支持 YouTube、B站公开视频页。预览封面来自平台公开缩略图，不会下载视频文件。
+      </p>
+      <p class="video-preview-status" id="video-preview-status" role="status" aria-live="polite"></p>
+      <div id="daily-video-list" class="daily-video-list video-preview-list"></div>
     </section>
     <div class="standalone-cta">
       <a href={homeHref()} class="cta-btn cta-btn-outline">返回首页</a>

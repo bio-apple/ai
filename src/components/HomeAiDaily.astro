@@ -2,7 +2,6 @@
 import {
   pickAiDailyBrief,
   formatNewsDate,
-  formatPublishDate,
   displayNewsTitle,
 } from '../lib/runtime';
 import { asset } from '../lib/paths';
@@ -139,35 +138,12 @@ const brief = pickAiDailyBrief();
     </article>
 
     <article class="daily-panel daily-panel--videos">
-      <h3 class="daily-panel-title">学习视频</h3>
-      <ul class="daily-list">
-        {
-          brief.learn.map((v) => (
-            <li>
-              <a
-                href={v.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-track="daily_panel_click"
-                data-track-panel="learn"
-              >
-                <span class="daily-item-title">{v.title}</span>
-                <span class="daily-item-meta">
-                  <span class="news-source-badge">
-                    {v.platform === 'bilibili' ? 'B站' : 'YouTube'}
-                  </span>
-                  {formatPublishDate(v.published_at) && (
-                    <span class="daily-item-date">{formatPublishDate(v.published_at)}</span>
-                  )}
-                </span>
-              </a>
-            </li>
-          ))
-        }
-        {brief.learn.length === 0 && <li class="daily-empty">暂无视频条目</li>}
-      </ul>
+      <h3 class="daily-panel-title">视频预览</h3>
+      <p class="daily-empty">
+        粘贴 YouTube / B站链接，生成带封面的推荐卡片。
+      </p>
       <a class="daily-more" href={asset('videos.html')} data-track="daily_videos_more"
-        >热门视频 →</a
+        >打开预览 →</a
       >
     </article>
   </div>

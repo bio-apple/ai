@@ -1,8 +1,7 @@
 name: Daily AI Video Update
 
+# 视频页已改为手动粘贴链接预览；日更排行抓取默认停用，仅保留手动触发以便救急。
 on:
-  schedule:
-    - cron: "0 16 * * *"
   workflow_dispatch:
     inputs:
       force:

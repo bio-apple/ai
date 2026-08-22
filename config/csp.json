@@ -35,7 +35,8 @@
       "https://*.umami.is",
       "https://cloudflareinsights.com",
       "https://*.cloudflareinsights.com",
-      "https://api.github.com"
+      "https://api.github.com",
+      "https://noembed.com"
     ],
     "upgrade-insecure-requests": []
   },

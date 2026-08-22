@@ -102,9 +102,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('index.html#section-videos', { waitUntil: 'domcontentloaded' });
     await expect(page).toHaveURL(/videos\.html/);
-    await expect(
-      page.locator('#daily-video-list .video-card, #daily-video-list [data-ssr-videos]').first(),
-    ).toBeVisible();
+    await expect(page.locator('#video-preview-form')).toBeVisible();
+    await expect(page.locator('#video-url-input')).toBeVisible();
   });
 
   test('专区独立页 SSG + 面包屑', async ({ page }) => {
@@ -123,7 +122,8 @@ test.describe('Bio AI Lab 关键路径', () => {
 
     await page.goto('videos.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('AI 视频');
-    await expect(page.locator('#daily-video-list .video-card').first()).toBeVisible();
+    await expect(page.locator('#video-preview-form')).toBeVisible();
+    await expect(page.locator('#video-url-input')).toBeVisible();
 
     await page.goto('news/daily-ai-news.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('新闻热点');
