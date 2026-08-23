@@ -361,6 +361,16 @@
   font-size: 0.88rem;
 }
 
+.video-sync-hint--on {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.video-sync-hint code {
+  font-family: var(--font-mono);
+  font-size: 0.8em;
+}
+
 .video-sync-blob {
   width: 100%;
   box-sizing: border-box;

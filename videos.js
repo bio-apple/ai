@@ -306,6 +306,9 @@
     renderList(next);
     input.value = '';
     setStatus('链接已保存在本浏览器；正在完善预览…', false);
+    window.BioAI?.videoPreviewSync?.tryAutoEnsureSyncKey?.({
+      onMerged: (items) => renderList(items),
+    });
     form.querySelector('button[type="submit"]')?.setAttribute('disabled', '');
 
     try {

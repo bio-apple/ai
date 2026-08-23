@@ -8,7 +8,14 @@ import { homeHref } from '../lib/paths';
 const base = site.meta.base_url;
 const title = '视频链接预览';
 const lead = '粘贴 YouTube / B站 视频或频道链接，在本浏览器生成本地封面卡片；可设置同步码跨设备合并。';
-const syncApi = (site as { video_preview_sync?: { api_url?: string } }).video_preview_sync?.api_url || '';
+const syncApi =
+  (typeof process !== 'undefined' && process.env.VIDEO_SYNC_API_URL?.replace(/\/$/, '')) ||
+  (site as { video_preview_sync?: { api_url?: string } }).video_preview_sync?.api_url?.replace(
+    /\/$/,
+    '',
+  ) ||
+  '';
+const cloudSyncEnabled = Boolean(syncApi);
 const canonical = `${base}videos.html`;
 const schema = buildPageSchema(title, lead, canonical, [
   { name: '首页', url: base },
@@ -58,7 +65,18 @@ const schema = buildPageSchema(title, lead, canonical, [
         <button type="submit" class="cta-btn" data-track="video-preview-submit">生成预览</button>
       </form>
       <p class="video-preview-hint" id="video-preview-hint">
-        链接默认保存在<strong>本浏览器</strong>。要换设备同步：展开下方「跨设备同步」设置同步码，或导出备份文件。
+        {
+          cloudSyncEnabled ? (
+            <>
+              链接保存在<strong>本浏览器</strong>，并会<strong>自动同步到云端</strong>（需设置同步码）。
+              换设备时输入相同同步码即可拉取。
+            </>
+          ) : (
+            <>
+              链接保存在<strong>本浏览器</strong>。展开「跨设备同步」可导出备份；配置云端 API 后将自动上传。
+            </>
+          )
+        }
       </p>
       <script
         type="application/json"
@@ -69,10 +87,18 @@ const schema = buildPageSchema(title, lead, canonical, [
         <summary class="video-sync-summary">跨设备同步</summary>
         <div class="video-sync-body">
           <p class="video-sync-hint" data-sync-cloud-hint hidden>
-            站点尚未配置云端 API，请用<strong>导出备份</strong>或<strong>同步文本</strong>在另一台设备恢复。
+            站点尚未配置云端 API。仓库管理员在 GitHub 添加 <code>CLOUDFLARE_API_TOKEN</code>{' '}
+            后，推送 main 将自动部署同步服务。目前请用导出/同步文本。
           </p>
+          {
+            cloudSyncEnabled && (
+              <p class="video-sync-hint video-sync-hint--on">
+                云端同步已开启。首次添加链接会自动生成同步码，请在其他设备输入<strong>相同同步码</strong>。
+              </p>
+            )
+          }
           <p class="video-sync-hint">
-            多台设备输入<strong>相同同步码</strong>即可合并列表。同步码请自行保管（相当于密码）。
+            同步码请自行保管（相当于密码），不要分享给不信任的人。
           </p>
           <div class="video-sync-row">
             <label class="video-sync-label" for="video-sync-key">同步码</label>
