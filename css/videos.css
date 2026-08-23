@@ -247,4 +247,129 @@
   .video-preview-form .cta-btn {
     width: 100%;
   }
+
+  .video-sync-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .video-sync-row .cta-btn {
+    width: 100%;
+  }
+}
+
+/* 跨设备同步 */
+.video-sync-panel {
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+}
+
+.video-sync-summary {
+  cursor: pointer;
+  font-weight: 650;
+  font-size: 0.95rem;
+  list-style: none;
+}
+
+.video-sync-summary::-webkit-details-marker {
+  display: none;
+}
+
+.video-sync-body {
+  margin-top: 12px;
+}
+
+.video-sync-hint {
+  margin: 0 0 10px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.video-sync-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.video-sync-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  flex: 0 0 100%;
+}
+
+.video-sync-key-input {
+  flex: 1 1 200px;
+  min-height: 44px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+}
+
+.video-sync-status {
+  min-height: 1.2em;
+  margin: 0 0 10px;
+  font-size: 0.84rem;
+  color: var(--text-muted);
+}
+
+.video-sync-status.is-error {
+  color: var(--heat, #c44b1a);
+}
+
+.video-sync-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.video-sync-btn {
+  appearance: none;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.video-sync-btn:hover,
+.video-sync-btn:focus-visible {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.video-sync-import-label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.video-sync-manual {
+  margin-top: 8px;
+  font-size: 0.88rem;
+}
+
+.video-sync-blob {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 8px 0;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  resize: vertical;
 }

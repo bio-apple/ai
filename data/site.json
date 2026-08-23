@@ -9,6 +9,9 @@
     "site_name": "Bio AI Lab",
     "base_url": "https://bio-apple.github.io/ai/"
   },
+  "video_preview_sync": {
+    "api_url": ""
+  },
   "nav": {
     "logo": {
       "icon": "",

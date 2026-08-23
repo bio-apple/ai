@@ -7,7 +7,8 @@ import { homeHref } from '../lib/paths';
 
 const base = site.meta.base_url;
 const title = '视频链接预览';
-const lead = '粘贴 YouTube / B站 视频或频道链接，在本浏览器生成本地封面卡片与页面截图。';
+const lead = '粘贴 YouTube / B站 视频或频道链接，在本浏览器生成本地封面卡片；可设置同步码跨设备合并。';
+const syncApi = (site as { video_preview_sync?: { api_url?: string } }).video_preview_sync?.api_url || '';
 const canonical = `${base}videos.html`;
 const schema = buildPageSchema(title, lead, canonical, [
   { name: '首页', url: base },
@@ -24,6 +25,7 @@ const schema = buildPageSchema(title, lead, canonical, [
   scripts={[
     'lib/link-guard.js',
     'lib/video-preview.js',
+    'lib/video-preview-sync.js',
     'vendor/fuse.min.js',
     'funnel.js',
     'analytics.js',
@@ -56,9 +58,71 @@ const schema = buildPageSchema(title, lead, canonical, [
         <button type="submit" class="cta-btn" data-track="video-preview-submit">生成预览</button>
       </form>
       <p class="video-preview-hint" id="video-preview-hint">
-        链接保存在<strong>本浏览器</strong>，刷新后仍在（清站点数据会丢）。视频用平台封面；频道用
-        thum.io 截图。不会下载视频文件。
+        链接默认保存在<strong>本浏览器</strong>。要换设备同步：展开下方「跨设备同步」设置同步码，或导出备份文件。
       </p>
+      <script
+        type="application/json"
+        id="video-sync-config"
+        set:html={JSON.stringify({ api_url: syncApi })}
+      />
+      <details class="video-sync-panel" id="video-sync-panel">
+        <summary class="video-sync-summary">跨设备同步</summary>
+        <div class="video-sync-body">
+          <p class="video-sync-hint" data-sync-cloud-hint hidden>
+            站点尚未配置云端 API，请用<strong>导出备份</strong>或<strong>同步文本</strong>在另一台设备恢复。
+          </p>
+          <p class="video-sync-hint">
+            多台设备输入<strong>相同同步码</strong>即可合并列表。同步码请自行保管（相当于密码）。
+          </p>
+          <div class="video-sync-row">
+            <label class="video-sync-label" for="video-sync-key">同步码</label>
+            <input
+              type="text"
+              id="video-sync-key"
+              class="video-sync-key-input"
+              placeholder="至少 8 位，如 my-ai-videos"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button type="button" class="cta-btn cta-btn-outline" id="video-sync-generate"
+              >生成</button
+            >
+            <button type="button" class="cta-btn" id="video-sync-save-key">保存并同步</button>
+          </div>
+          <p class="video-sync-status" id="video-sync-status" role="status" aria-live="polite"></p>
+          <div class="video-sync-actions">
+            <button type="button" class="video-sync-btn" id="video-sync-pull">从云端拉取</button>
+            <button type="button" class="video-sync-btn" id="video-sync-export">导出备份</button>
+            <label class="video-sync-btn video-sync-import-label">
+              导入备份
+              <input
+                type="file"
+                id="video-sync-import"
+                accept="application/json,.json"
+                hidden
+              />
+            </label>
+          </div>
+          <details class="video-sync-manual">
+            <summary>手动：复制 / 粘贴同步文本</summary>
+            <p class="video-sync-hint">在设备 A 点「复制当前列表」，通过微信/邮件发到设备 B 后粘贴并合并。</p>
+            <textarea
+              id="video-sync-blob"
+              class="video-sync-blob"
+              rows="4"
+              placeholder="BIOAI1:…"
+            ></textarea>
+            <div class="video-sync-actions">
+              <button type="button" class="video-sync-btn" id="video-sync-copy-blob"
+                >复制当前列表</button
+              >
+              <button type="button" class="video-sync-btn" id="video-sync-merge-blob"
+                >合并粘贴内容</button
+              >
+            </div>
+          </details>
+        </div>
+      </details>
       <p class="video-preview-status" id="video-preview-status" role="status" aria-live="polite"></p>
       <div id="daily-video-list" class="daily-video-list video-preview-list" aria-live="polite">
         <p class="daily-empty">加载本机预览…</p>

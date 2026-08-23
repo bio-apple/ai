@@ -10,6 +10,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const previewSrc = readFileSync(path.join(ROOT, 'lib/video-preview.js'), 'utf8');
 const videosSrc = readFileSync(path.join(ROOT, 'videos.js'), 'utf8');
+const syncSrc = readFileSync(path.join(ROOT, 'lib/video-preview-sync.js'), 'utf8');
 
 test('video-preview uses DOM textContent escape, not raw String()', () => {
   assert.match(previewSrc, /d\.textContent = s/);
@@ -27,4 +28,10 @@ test('thum.io screenshot URLs are encoded', () => {
 test('videos empty state does not use loading-hint CLS placeholder', () => {
   assert.match(videosSrc, /daily-empty/);
   assert.doesNotMatch(videosSrc, /loading-hint/);
+});
+
+test('video-preview-sync supports merge and BIOAI1 payload', () => {
+  assert.match(syncSrc, /mergeHistories/);
+  assert.match(syncSrc, /BIOAI1:/);
+  assert.match(syncSrc, /initPage/);
 });

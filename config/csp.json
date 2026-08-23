@@ -37,7 +37,8 @@
       "https://*.cloudflareinsights.com",
       "https://api.github.com",
       "https://noembed.com",
-      "https://api.microlink.io"
+      "https://api.microlink.io",
+      "https://*.workers.dev"
     ],
     "upgrade-insecure-requests": []
   },

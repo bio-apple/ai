@@ -357,4 +357,8 @@
   } else if (!history.length) {
     setStatus('', false);
   }
+
+  window.BioAI?.videoPreviewSync?.initPage({
+    onMerged: (items) => renderList(items),
+  });
 })();
