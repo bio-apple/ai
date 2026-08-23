@@ -6,8 +6,8 @@ import { buildPageSchema } from '../lib/schema';
 import { homeHref } from '../lib/paths';
 
 const base = site.meta.base_url;
-const title = '近期热门 AI 视频';
-const lead = '粘贴 YouTube / B站 视频或频道链接，生成封面或页面截图预览。';
+const title = '视频链接预览';
+const lead = '粘贴 YouTube / B站 视频或频道链接，在本浏览器生成本地封面卡片与页面截图。';
 const canonical = `${base}videos.html`;
 const schema = buildPageSchema(title, lead, canonical, [
   { name: '首页', url: base },
@@ -40,7 +40,7 @@ const schema = buildPageSchema(title, lead, canonical, [
     />
     <section class="page-section" aria-labelledby="video-preview-heading">
       <h2 class="visually-hidden" id="video-preview-heading">粘贴链接生成预览</h2>
-      <form class="video-preview-form" id="video-preview-form" role="search">
+      <form class="video-preview-form" id="video-preview-form">
         <label class="visually-hidden" for="video-url-input">视频链接</label>
         <input
           type="url"
@@ -60,7 +60,9 @@ const schema = buildPageSchema(title, lead, canonical, [
         thum.io 截图。不会下载视频文件。
       </p>
       <p class="video-preview-status" id="video-preview-status" role="status" aria-live="polite"></p>
-      <div id="daily-video-list" class="daily-video-list video-preview-list"></div>
+      <div id="daily-video-list" class="daily-video-list video-preview-list" aria-live="polite">
+        <p class="daily-empty">加载本机预览…</p>
+      </div>
     </section>
     <div class="standalone-cta">
       <a href={homeHref()} class="cta-btn cta-btn-outline">返回首页</a>

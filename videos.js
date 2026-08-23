@@ -89,7 +89,7 @@
 
   /** 第三方页面截图（频道 / 非视频页）；img 直链，无需 CORS */
   function pageScreenshot(url) {
-    return `https://image.thum.io/get/width/1280/crop/800/noanimate/${url}`;
+    return `https://image.thum.io/get/width/1280/crop/800/noanimate/${encodeURIComponent(url)}`;
   }
 
   async function fetchMicrolink(url) {
@@ -208,7 +208,7 @@
   function renderList(items) {
     if (!items.length) {
       list.innerHTML =
-        '<p class="loading-hint">还没有预览。粘贴视频或频道链接，点「生成预览」。</p>';
+        '<p class="daily-empty">还没有预览。粘贴视频或频道链接，点「生成预览」。</p>';
       return;
     }
     list.innerHTML = `<div class="video-grid">${items.map(renderCard).join('')}</div>`;

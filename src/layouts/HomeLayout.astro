@@ -46,6 +46,8 @@ const DEFERRED = {
   analytics: assetVersioned('analytics.js'),
   recommend: assetVersioned('recommend.js'),
   engagement: assetVersioned('engagement.js'),
+  videoPreviewLib: assetVersioned('lib/video-preview.js'),
+  homeVideoPreview: assetVersioned('home-video-preview.js'),
 };
 const deferredBoot = `(function(){
   var loaded={};
@@ -54,11 +56,14 @@ const deferredBoot = `(function(){
   function idleBundle(){load(D.funnel,'funnel');load(D.analytics,'analytics');load(D.recommend,'recommend');}
   function ensureFuse(){return load(D.fuse,'fuse');}
   function ensureEngagement(){return load(D.engagement,'engagement');}
+  function ensureVideoPreview(){return load(D.videoPreviewLib,'videoPreviewLib').then(function(){return load(D.homeVideoPreview,'homeVideoPreview');});}
   window.__BIOAI_ensureFuse=ensureFuse;
   window.__BIOAI_ensureEngagement=ensureEngagement;
+  window.__BIOAI_ensureVideoPreview=ensureVideoPreview;
   function armSearch(){document.querySelectorAll('.site-search-input').forEach(function(el){['focus','pointerdown'].forEach(function(ev){el.addEventListener(ev,function(){ensureFuse();},{once:true,passive:true});});});}
   function armOps(){var wrap=document.getElementById('home-ops-wrap');if(!wrap)return;wrap.addEventListener('toggle',function(){if(wrap.open)ensureEngagement();});}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){armSearch();armOps();});else{armSearch();armOps();}
+  function armVideoPreview(){var host=document.getElementById('home-video-preview-list');if(!host)return;var run=function(){ensureVideoPreview();};if('IntersectionObserver' in window){var io=new IntersectionObserver(function(entries){if(entries.some(function(e){return e.isIntersecting;})){io.disconnect();run();}},{rootMargin:'240px'});io.observe(host);}else if('requestIdleCallback' in window){requestIdleCallback(run,{timeout:2500});}else{setTimeout(run,1200);}}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){armSearch();armOps();armVideoPreview();});else{armSearch();armOps();armVideoPreview();}
   if('requestIdleCallback' in window)requestIdleCallback(function(){idleBundle();ensureFuse();},{timeout:3500});else setTimeout(function(){idleBundle();ensureFuse();},2000);
 })();`;
 ---

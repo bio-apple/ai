@@ -70,7 +70,7 @@ python3 scripts/fetch_daily_videos.py
 | 开源精选   | 独立页 | `oss.html` · 日更加热：Agent / MCP / Coding Agent / Harness / Skills / Memory（每方向 Top 3） |
 | 课程资源   | 独立页 | `courses.html` · 免费 AI 课程                                                                 |
 | 新闻热点   | 独立页 | `news/daily-ai-news.html` · 当前时刻往前 7×24 小时（日更）                                    |
-| AI 视频    | 独立页 | `videos.html` · YouTube/B站 24h/30d/100d 分桶日更                                             |
+| AI 视频    | 独立页 | `videos.html` · 粘贴 YouTube/B站链接，本机生成封面预览卡片                                     |
 
 独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题 · 实战案例详情（`local/*.html`）
 

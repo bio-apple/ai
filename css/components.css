@@ -559,14 +559,6 @@ html[data-theme='dark'] .content-type-local {
   color: var(--text-muted);
 }
 
-.home-video-preview {
-  margin-bottom: 12px;
-}
-
-.video-grid-preview {
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-}
-
 /* User area */
 .user-area {
   display: flex;

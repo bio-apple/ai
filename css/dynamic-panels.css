@@ -35,11 +35,6 @@
 }
 
 /* ── Tab / 独立页 JSON 面板（加载占位） ── */
-.daily-video-list:has(> .loading-hint),
-#daily-video-list:has(> .loading-hint) {
-  min-height: 42rem;
-}
-
 .news-list:has(> .loading-hint),
 #daily-news-list:has(> .loading-hint) {
   min-height: 28rem;

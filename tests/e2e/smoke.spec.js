@@ -93,6 +93,11 @@ test.describe('Bio AI Lab 关键路径', () => {
       );
     });
     await page.reload({ waitUntil: 'domcontentloaded' });
+    await page.evaluate(async () => {
+      if (typeof window.__BIOAI_ensureVideoPreview === 'function') {
+        await window.__BIOAI_ensureVideoPreview();
+      }
+    });
     await expect(page.locator('#home-video-preview-list .home-video-teaser')).toHaveCount(1);
     await expect(page.locator('.home-video-teaser-title')).toContainText('测试视频标题');
   });
@@ -146,6 +151,7 @@ test.describe('Bio AI Lab 关键路径', () => {
 
     await page.goto('videos.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('AI 视频');
+    await expect(page.locator('h1')).toContainText('视频链接预览');
     await expect(page.locator('#video-preview-form')).toBeVisible();
     await expect(page.locator('#video-url-input')).toBeVisible();
 

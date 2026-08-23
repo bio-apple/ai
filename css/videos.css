@@ -63,6 +63,16 @@
   font-size: 0.88rem;
 }
 
+.video-thumb-pending {
+  color: var(--accent);
+  font-size: 0.82rem;
+}
+
+.video-preview-card[data-pending='true'] {
+  border-style: dashed;
+  opacity: 0.92;
+}
+
 .video-preview-url {
   margin: 8px 0 0;
   font-family: var(--font-mono);
