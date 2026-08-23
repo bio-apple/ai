@@ -139,11 +139,16 @@ const brief = pickAiDailyBrief();
 
     <article class="daily-panel daily-panel--videos">
       <h3 class="daily-panel-title">视频预览</h3>
-      <p class="daily-empty">
-        粘贴 YouTube / B站链接，生成带封面的推荐卡片。
-      </p>
+      <div
+        id="home-video-preview-list"
+        class="home-video-preview"
+        aria-live="polite"
+        aria-label="本机已保存的视频预览"
+      >
+        <p class="daily-empty">加载本机预览…</p>
+      </div>
       <a class="daily-more" href={asset('videos.html')} data-track="daily_videos_more"
-        >打开预览 →</a
+        >添加或管理 →</a
       >
     </article>
   </div>

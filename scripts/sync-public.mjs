@@ -14,6 +14,7 @@ const COPY_FILES = [
   'app.js',
   'ux.js',
   'lazy-sections.js',
+  'home-video-preview.js',
   'videos.js',
   'news.js',
   'courses.js',

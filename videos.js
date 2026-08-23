@@ -6,17 +6,10 @@
   const statusEl = document.getElementById('video-preview-status');
   if (!form || !input || !list) return;
 
-  const HISTORY_KEY = 'bioai.video.preview.v2';
-  const LEGACY_HISTORY_KEYS = ['bioai.video.preview.v1'];
-  const MAX_HISTORY = 12;
+  const vp = window.BioAI?.videoPreview;
+  if (!vp) return;
 
-  function escapeHtml(s) {
-    return window.BioAI?.escapeHtml ? window.BioAI.escapeHtml(s) : String(s ?? '');
-  }
-
-  function extRel() {
-    return window.BioAI?.externalRel ? window.BioAI.externalRel() : 'noopener noreferrer';
-  }
+  const { loadHistory, saveHistory, renderCard } = vp;
 
   function setStatus(msg, isError) {
     if (!statusEl) return;
@@ -125,42 +118,6 @@
     };
   }
 
-  function loadHistory() {
-    try {
-      const raw = localStorage.getItem(HISTORY_KEY);
-      let arr = raw ? JSON.parse(raw) : [];
-      if (!Array.isArray(arr) || !arr.length) {
-        // 升级 key 时把旧版本机记录迁过来，避免用户感觉「没保存」
-        for (const legacyKey of LEGACY_HISTORY_KEYS) {
-          const legacyRaw = localStorage.getItem(legacyKey);
-          if (!legacyRaw) continue;
-          try {
-            const legacy = JSON.parse(legacyRaw);
-            if (Array.isArray(legacy) && legacy.length) {
-              arr = legacy;
-              saveHistory(arr);
-              localStorage.removeItem(legacyKey);
-              break;
-            }
-          } catch {
-            /* ignore bad legacy */
-          }
-        }
-      }
-      return Array.isArray(arr) ? arr.filter((x) => x && x.url) : [];
-    } catch {
-      return [];
-    }
-  }
-
-  function saveHistory(items) {
-    try {
-      localStorage.setItem(HISTORY_KEY, JSON.stringify(items.slice(0, MAX_HISTORY)));
-    } catch {
-      /* ignore quota */
-    }
-  }
-
   async function resolvePreview(url) {
     const yt = parseYouTubeId(url);
     const channel = parseYouTubeChannel(url);
@@ -248,32 +205,6 @@
     };
   }
 
-  function renderCard(item) {
-    const plat =
-      item.platform === 'bilibili' ? 'B站' : item.platform === 'youtube' ? 'YouTube' : '链接';
-    const typeLabel = item.kind === 'channel' ? '频道' : item.kind === 'video' ? '视频' : '页面';
-    const thumb = item.thumbnail
-      ? `<img src="${escapeHtml(item.thumbnail)}" alt="" width="640" height="360" loading="lazy" decoding="async" referrerpolicy="no-referrer" />`
-      : `<span class="video-thumb-empty">暂无封面</span>`;
-    return `<article class="video-card video-preview-card" data-preview-url="${escapeHtml(item.url)}">
-      <a class="video-thumb" href="${escapeHtml(item.url)}" target="_blank" rel="${extRel()}" data-track="video-preview-open">
-        ${thumb}
-        <span class="video-play-badge" aria-hidden="true">▶</span>
-        <span class="content-type-badge" data-type="video">${escapeHtml(typeLabel)}</span>
-        <span class="video-platform-badge">${escapeHtml(plat)}</span>
-      </a>
-      <div class="video-info">
-        <div class="video-info-top">
-          <a class="video-title" href="${escapeHtml(item.url)}" target="_blank" rel="${extRel()}" data-track="video-preview-open">${escapeHtml(item.title)}</a>
-          <button type="button" class="video-preview-remove" data-remove-url="${escapeHtml(item.url)}" aria-label="删除此链接" title="删除" data-track="video-preview-remove">删除</button>
-        </div>
-        ${item.author ? `<p class="video-channel">${escapeHtml(item.author)}</p>` : ''}
-        ${item.description ? `<p class="video-preview-desc">${escapeHtml(item.description)}</p>` : ''}
-        <p class="video-preview-url">${escapeHtml(item.url)}</p>
-      </div>
-    </article>`;
-  }
-
   function renderList(items) {
     if (!items.length) {
       list.innerHTML =
@@ -356,7 +287,7 @@
 
   function upsertHistory(item) {
     const prev = loadHistory().filter((x) => x.url !== item.url);
-    const next = [item, ...prev].slice(0, MAX_HISTORY);
+    const next = [item, ...prev].slice(0, vp.MAX_HISTORY);
     saveHistory(next);
     return next;
   }

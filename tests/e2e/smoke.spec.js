@@ -51,6 +51,7 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('.home-quick-filters')).toHaveCount(0);
     await expect(page.locator('#home-recommend')).toBeVisible();
     await expect(page.locator('#home-daily')).toBeVisible();
+    await expect(page.locator('#home-video-preview-list')).toBeVisible();
     await expect(page.locator('#section-oss')).toHaveCount(0);
     await expect(page.locator('#section-courses')).toHaveCount(0);
     await expect(page.locator('.nav-link-page', { hasText: '开源精选' })).toHaveAttribute(
@@ -71,6 +72,29 @@ test.describe('Bio AI Lab 关键路径', () => {
     );
     await expect(page.locator('#home-community a[href$="oss.html"]')).toBeVisible();
     await expect(page.locator('#knowledge-fab')).toBeVisible();
+  });
+
+  test('首页视频预览读取本机 localStorage', async ({ page }) => {
+    await gotoHome(page);
+    await page.evaluate(() => {
+      localStorage.setItem(
+        'bioai.video.preview.v2',
+        JSON.stringify([
+          {
+            url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            title: '测试视频标题',
+            author: '测试作者',
+            thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
+            platform: 'youtube',
+            kind: 'video',
+            id: 'dQw4w9WgXcQ',
+          },
+        ]),
+      );
+    });
+    await page.reload({ waitUntil: 'domcontentloaded' });
+    await expect(page.locator('#home-video-preview-list .home-video-teaser')).toHaveCount(1);
+    await expect(page.locator('.home-video-teaser-title')).toContainText('测试视频标题');
   });
 
   test('今日热度默认折叠，展开后加载数据', async ({ page }) => {
