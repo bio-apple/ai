@@ -28,9 +28,9 @@ flowchart LR
 | --------------------------------------------- | ---------------------- | ------------------------------------------------------ |
 | [`pages.yml`](../.github/workflows/pages.yml) | push `main` · 手动     | Worker 部署 + 构建 + Pages 发布                        |
 | [`ci.yml`](../.github/workflows/ci.yml)       | push/PR `main`         | Lint / 单元测试 / E2E                                  |
-| `daily-news.yml`                              | 每日 01:00 北京 · 手动 | 新闻抓取 → push → 派发 `pages.yml`                     |
+| `daily-news.yml`                              | 每日 **01:00 / 12:00** 北京 · 手动 | 新闻抓取 → push → 派发 `pages.yml`              |
 | `daily-courses.yml`                           | 每日 02:00 北京 · 手动 | 课程抓取                                               |
-| `daily-oss.yml`                               | 每日 02:00 北京 · 手动 | 开源精选加热                                           |
+| `daily-oss.yml`                               | 每日 02:00 北京 · 手动 | 开源精选加热（含 OpenHands / AutoGPT 优先仓）          |
 | `daily-rankings.yml`                          | 每日 03:00 北京 · 手动 | 排行榜                                                 |
 | `daily-videos.yml`                            | **仅手动**             | 日更视频榜（首页 Tab；`videos.html` 已改用户粘贴预览） |
 | `site-health.yml`                             | 定时                   | 线上新鲜度探针                                         |
