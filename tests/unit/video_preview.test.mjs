@@ -50,6 +50,12 @@ test('video-preview-sync supports share URL join without typing code', () => {
   assert.match(syncSrc, /searchParams\.set\('sync'/);
 });
 
+test('video-preview-sync supports shared key for plain URL cross-device sync', () => {
+  assert.match(syncSrc, /getSharedSyncKey/);
+  assert.match(syncSrc, /usesSharedSyncKey/);
+  assert.match(syncSrc, /shared_key/);
+});
+
 test('video-preview-sync ensureCloudSaved pushes on save', () => {
   assert.match(syncSrc, /ensureCloudSaved/);
   assert.match(syncSrc, /pushToCloud/);

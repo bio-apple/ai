@@ -7,16 +7,22 @@ import { homeHref } from '../lib/paths';
 
 const base = site.meta.base_url;
 const title = '我的视频链接';
-const lead =
-  '粘贴 YouTube / B站 链接保存；云端同步后，收藏本页或复制恢复链接，换设备或清数据后打开即可恢复。';
 const syncCfg = (site as {
-  video_preview_sync?: { api_url?: string; uploadcare_public_key?: string };
+  video_preview_sync?: { api_url?: string; uploadcare_public_key?: string; shared_key?: string };
 }).video_preview_sync;
 const syncApi =
   (typeof process !== 'undefined' && process.env.VIDEO_SYNC_API_URL?.replace(/\/$/, '')) ||
   syncCfg?.api_url?.replace(/\/$/, '') ||
   '';
+const syncSharedKey =
+  (typeof process !== 'undefined' && process.env.VIDEO_SYNC_SHARED_KEY?.trim()) ||
+  syncCfg?.shared_key?.trim() ||
+  '';
 const cloudSyncEnabled = Boolean(syncApi);
+const sharedSyncEnabled = Boolean(syncSharedKey);
+const lead = sharedSyncEnabled
+  ? '粘贴 YouTube / B站 链接保存；任意设备打开本页即可看到同一份云端列表。'
+  : '粘贴 YouTube / B站 链接保存；云端同步后，收藏本页或复制恢复链接，换设备或清数据后打开即可恢复。';
 const canonical = `${base}videos.html`;
 const schema = buildPageSchema(title, lead, canonical, [
   { name: '首页', url: base },
@@ -67,7 +73,12 @@ const schema = buildPageSchema(title, lead, canonical, [
       </form>
       <p class="video-preview-hint" id="video-preview-hint">
         {
-          cloudSyncEnabled ? (
+          cloudSyncEnabled && sharedSyncEnabled ? (
+            <>
+              粘贴链接点「保存」→ <strong>云端永久保存</strong>。任意设备打开{' '}
+              <code>videos.html</code> 即可看到同一份列表，无需复制链接。
+            </>
+          ) : cloudSyncEnabled ? (
             <>
               粘贴链接点「保存」→ <strong>云端永久保存</strong>。地址栏会出现带 <code>?sync=</code>{' '}
               的恢复链接：收藏本页，或复制后在另一台设备 / 清除网站数据后打开，即可看到云端列表。
@@ -80,10 +91,10 @@ const schema = buildPageSchema(title, lead, canonical, [
       <script
         type="application/json"
         id="video-sync-config"
-        set:html={JSON.stringify({ api_url: syncApi })}
+        set:html={JSON.stringify({ api_url: syncApi, shared_key: syncSharedKey })}
       />
       {
-        cloudSyncEnabled && (
+        cloudSyncEnabled && !sharedSyncEnabled && (
           <p class="video-preview-recover" id="video-preview-recover" hidden>
             <label class="visually-hidden" for="video-recover-url">恢复链接</label>
             <input

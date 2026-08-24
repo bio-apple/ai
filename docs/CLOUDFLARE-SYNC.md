@@ -23,17 +23,17 @@ Dashboard 右侧或 Workers 概览页的 **Account ID**（一串十六进制）�
 
 **Secrets：**
 
-| Name | Value |
-|------|--------|
+| Name                                           | Value                                          |
+| ---------------------------------------------- | ---------------------------------------------- |
 | `CLOUDFLARE_API_TOKEN` 或 `CLOUDFLARE_API_KEY` | API Token（Workers + KV 编辑权限；二选一即可） |
-| `CLOUDFLARE_ACCOUNT_ID` | Account ID（**必填**，否则无法部署 Worker） |
+| `CLOUDFLARE_ACCOUNT_ID`                        | Account ID（**必填**，否则无法部署 Worker）    |
 
 **Variables（可选）：**
 
-| Name | Value |
-|------|--------|
+| Name                           | Value                                                                                    |
+| ------------------------------ | ---------------------------------------------------------------------------------------- |
 | `CLOUDFLARE_ACCOUNT_SUBDOMAIN` | 你的 `*.workers.dev` 子域，如 `xxx`（URL 为 `https://bioai-video-sync.xxx.workers.dev`） |
-| `VIDEO_SYNC_API_URL` | 首次部署成功后可填完整 Worker URL，作为备用 |
+| `VIDEO_SYNC_API_URL`           | 首次部署成功后可填完整 Worker URL，作为备用                                              |
 
 ### 4. 触发部署
 
@@ -62,11 +62,14 @@ npx wrangler deploy
 
 ## 用户怎么用
 
-1. **设备 A**：添加链接后点 **「复制分享链接」**（微信/邮件发给设备 B）
-2. **设备 B**：直接打开该链接 → **自动拉取列表，无需手输同步码**
-3. 设备 B 打开一次后本机会记住，以后直接打开视频页即可
+站点已配置 **共享 sync 码**（`bioai-videos`）：所有设备打开 [视频页](https://bio-apple.github.io/ai/videos.html) 即可读写同一份云端列表，无需复制链接。
 
-也可手输同步码；分享链接本质是把同步码放在 `?sync=` 参数里。
+1. **设备 A**：粘贴链接 → 保存
+2. **设备 B**（或清除浏览器数据后）：直接打开 `videos.html` → 自动从云端拉取
+
+可选：在 GitHub Variables 设置 `VIDEO_SYNC_SHARED_KEY` 更换共享码（需与 `data/site.json` 一致或覆盖构建）。
+
+若未配置共享码，仍可用 `?sync=` 恢复链接（旧模式）。
 
 ## 安全
 

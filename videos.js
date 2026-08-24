@@ -22,7 +22,12 @@
 
   function updateRecoverLinkUi() {
     const sync = window.BioAI?.videoPreviewSync;
-    if (!recoverRow || !sync?.getApiUrl?.() || !sync?.isValidSyncKey?.(sync.getSyncKey?.())) {
+    if (
+      sync?.usesSharedSyncKey?.() ||
+      !recoverRow ||
+      !sync?.getApiUrl?.() ||
+      !sync?.isValidSyncKey?.(sync.getSyncKey?.())
+    ) {
       if (recoverRow) recoverRow.hidden = true;
       if (recoverUrlInput) recoverUrlInput.value = '';
       return;
@@ -34,14 +39,19 @@
 
   function cloudRestoreMessage(boot) {
     if (!boot || boot.reason === 'local') return '';
+    const shared = window.BioAI?.videoPreviewSync?.usesSharedSyncKey?.();
     const count = boot.items?.length ?? loadHistory().length;
     if (boot.reason === 'pull_failed') {
-      return '恢复链接已识别，但云端拉取失败，请检查网络后刷新。';
+      return shared
+        ? '云端拉取失败，请检查网络后刷新。'
+        : '恢复链接已识别，但云端拉取失败，请检查网络后刷新。';
     }
     if (boot.reason === 'no_api') {
-      return '恢复链接已识别；云端 API 未配置，无法拉取。';
+      return '云端 API 未配置，无法拉取。';
     }
+    if (boot.reason === 'shared' && count > 0) return `已从云端同步 ${count} 条链接。`;
     if (count > 0) return `已从云端恢复 ${count} 条链接。`;
+    if (shared) return '已连接云端；保存链接后会自动同步到所有设备。';
     return '恢复链接已生效；云端暂无数据，保存后会自动同步。';
   }
 
@@ -258,8 +268,11 @@
   }
 
   function persistMessage(title, cloudOk) {
+    const shared = window.BioAI?.videoPreviewSync?.usesSharedSyncKey?.();
     if (cloudOk) {
-      return `已云端永久保存：${title}。请收藏本页或复制下方恢复链接，换设备 / 清数据后打开即可恢复。`;
+      return shared
+        ? `已云端永久保存：${title}。其他设备打开视频页即可看到。`
+        : `已云端永久保存：${title}。请收藏本页或复制下方恢复链接，换设备 / 清数据后打开即可恢复。`;
     }
     const hasApi = Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.());
     return hasApi
@@ -461,13 +474,16 @@
   const params = new URLSearchParams(location.search);
   const seed = params.get('url') || params.get('v');
   const sync = window.BioAI?.videoPreviewSync;
+  const usesShared = sync?.usesSharedSyncKey?.();
   const hasRecoverUrl = Boolean(params.get('sync') || params.get('s'));
   const willCloudLoad =
-    hasRecoverUrl || (sync?.getApiUrl?.() && sync?.isValidSyncKey?.(sync?.getSyncKey?.()));
+    usesShared ||
+    hasRecoverUrl ||
+    (sync?.getApiUrl?.() && sync?.isValidSyncKey?.(sync?.getSyncKey?.()));
 
   if (willCloudLoad && !loadHistory().length) {
     list.innerHTML = '<p class="daily-empty">正在从云端加载…</p>';
-    setStatus('正在通过恢复链接同步云端列表…', false);
+    setStatus(usesShared ? '正在从云端同步列表…' : '正在通过恢复链接同步云端列表…', false);
   } else {
     renderList(loadHistory());
   }

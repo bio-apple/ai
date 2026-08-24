@@ -11,7 +11,8 @@
   },
   "video_preview_sync": {
     "api_url": "",
-    "uploadcare_public_key": ""
+    "uploadcare_public_key": "",
+    "shared_key": "bioai-videos"
   },
   "nav": {
     "logo": {
