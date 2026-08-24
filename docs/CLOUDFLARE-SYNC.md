@@ -25,8 +25,8 @@ Dashboard 右侧或 Workers 概览页的 **Account ID**（一串十六进制）�
 
 | Name | Value |
 |------|--------|
-| `CLOUDFLARE_API_TOKEN` | 上一步的 Token |
-| `CLOUDFLARE_ACCOUNT_ID` | Account ID |
+| `CLOUDFLARE_API_TOKEN` 或 `CLOUDFLARE_API_KEY` | API Token（Workers + KV 编辑权限；二选一即可） |
+| `CLOUDFLARE_ACCOUNT_ID` | Account ID（**必填**，否则无法部署 Worker） |
 
 **Variables（可选）：**
 

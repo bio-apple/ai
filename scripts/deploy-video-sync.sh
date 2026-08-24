@@ -5,8 +5,13 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT/workers/video-sync"
 
 if [ -z "${CLOUDFLARE_API_TOKEN:-}" ]; then
-  echo "CLOUDFLARE_API_TOKEN 未设置，跳过 Worker 部署" >&2
+  echo "CLOUDFLARE_API_TOKEN / CLOUDFLARE_API_KEY 未设置，跳过 Worker 部署" >&2
   exit 0
+fi
+
+if [ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]; then
+  echo "CLOUDFLARE_ACCOUNT_ID 未设置，无法部署 Worker。请在 GitHub Secrets 添加 Account ID。" >&2
+  exit 1
 fi
 
 KV_ID="${CLOUDFLARE_KV_NAMESPACE_ID:-}"

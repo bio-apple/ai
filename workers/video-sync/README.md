@@ -8,8 +8,8 @@
 
 | 名称 | 类型 | 说明 |
 |------|------|------|
-| `CLOUDFLARE_API_TOKEN` | Secret | Cloudflare API Token（Workers + KV 编辑权限） |
-| `CLOUDFLARE_ACCOUNT_ID` | Secret | Cloudflare 账户 ID |
+| `CLOUDFLARE_API_TOKEN` 或 `CLOUDFLARE_API_KEY` | Secret | Cloudflare API Token（Workers + KV 编辑权限） |
+| `CLOUDFLARE_ACCOUNT_ID` | Secret | Cloudflare 账户 ID（必填） |
 | `CLOUDFLARE_ACCOUNT_SUBDOMAIN` | Variable | 可选，账户子域（用于日志回退 URL） |
 | `CLOUDFLARE_KV_NAMESPACE_ID` | Variable | 可选，已有 KV 时填入，否则 CI 自动创建 |
 
