@@ -6,33 +6,9 @@
 [![Stars](https://img.shields.io/github/stars/bio-apple/ai?style=flat-square&logo=github)](https://github.com/bio-apple/ai/stargazers)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/pages.yml?branch=main&style=flat-square&label=Deploy)](https://github.com/bio-apple/ai/actions/workflows/pages.yml)
 [![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions/workflows/ci.yml)
-[![Last commit](https://img.shields.io/github/last-commit/bio-apple/ai?style=flat-square)](https://github.com/bio-apple/ai/commits/main)
-[![Node](https://img.shields.io/badge/Node-22.x-339933?style=flat-square&logo=nodedotjs&logoColor=white)](./.nvmrc)
-[![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=flat-square&logo=python&logoColor=white)](./requirements.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0d8c6d?style=flat-square)](./LICENSE)
 
 站点：https://bio-apple.github.io/ai/
-
-## 预览
-
-| 首页 Hero                                 | AI 工具中心                                 | 推荐助手                                           |
-| ----------------------------------------- | ------------------------------------------- | -------------------------------------------------- |
-| ![首页 Hero](./docs/images/home-hero.png) | ![AI 工具中心](./docs/images/tools-hub.png) | ![推荐助手](./docs/images/recommend-assistant.png) |
-
-## 文档
-
-| 文档                                                 | 说明                               |
-| ---------------------------------------------------- | ---------------------------------- |
-| [docs/SETUP.md](./docs/SETUP.md)                     | 环境搭建与本地预览                 |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构                           |
-| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)           | 数据模型                           |
-| [docs/FRONTEND.md](./docs/FRONTEND.md)               | 前端能力（搜索 / 推荐 / 漏斗埋点） |
-| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)         | 内容运营、日更抓取与故障救急       |
-| [DEVELOPER.md](./DEVELOPER.md)                       | 开发速查与常见改动                 |
-| [docs/SEO.md](./docs/SEO.md)                         | TDK / OG / JSON-LD                 |
-| [docs/SECURITY.md](./docs/SECURITY.md)               | 安全与 CSP                         |
-| [docs/CI-CD.md](./docs/CI-CD.md)                     | CI/CD 与部署                       |
-| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频链接 Cloudflare 云端同步       |
 
 ## 快速开始
 
@@ -46,87 +22,30 @@ npm ci && pip install -r requirements.txt
 本地预览：**http://127.0.0.1:8765/ai/**  
 校验：`npm run quality && npm run build && DIST=dist python3 scripts/validate_ci.py`
 
-```bash
-# 仅构建静态站（不启本地 API）
-npm run build && npx astro preview --host 127.0.0.1 --port 8766
+## 文档
 
-# 刷新数据（按需）
-python3 scripts/fetch_ai_news.py
-python3 scripts/fetch_ai_courses.py
-python3 scripts/fetch_daily_videos.py
-```
-
-> **环境要求**：Node.js **22.x**（`.nvmrc`）· Python **3.12**（抓取/校验/本地 API）  
-> **部署**：GitHub Pages 强制 HTTPS，静态资源由 CDN 提供 Gzip/Brotli；JS/CSS 带内容哈希 `?v=` 防缓存脏读。  
-> 详尽搭建、三种预览模式与故障排除 → **[docs/SETUP.md](./docs/SETUP.md)**
+| 文档 | 说明 |
+|------|------|
+| [DEVELOPER.md](./DEVELOPER.md) | 开发速查与「改哪里」 |
+| [docs/SETUP.md](./docs/SETUP.md) | 环境搭建与排障 |
+| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md) | 日更抓取与救急 |
+| [docs/CI-CD.md](./docs/CI-CD.md) | 部署与 Secrets |
+| [docs/SECURITY.md](./docs/SECURITY.md) | CSP 与密钥规范 |
+| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频链接云端同步 |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构概览 |
+| [docs/FRONTEND.md](./docs/FRONTEND.md) | 搜索 / 推荐 / 视频页 |
+| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md) | JSON 数据约定 |
 
 ## 做什么
 
-顶栏导航（`data/site.json` → `nav.menu`）：
+| 入口 | 说明 |
+|------|------|
+| 首页 | Hero、推荐助手、AI 简报、领域地图 |
+| AI工具中心 | AICPB / LMSYS / AA 三榜 Top 10 |
+| 开源精选 | Agent / MCP / Coding Agent 等方向加热 Top 3 |
+| 课程 / 新闻 / 视频 | 日更内容；视频页支持粘贴链接 + Cloudflare 云端同步 |
 
-| 入口       | 类型   | 说明                                                                                          |
-| ---------- | ------ | --------------------------------------------------------------------------------------------- |
-| 首页       | Tab    | Hero、推荐助手、AI 简报、领域地图、专区入口                                                   |
-| AI工具中心 | 独立页 | AICPB / LMSYS / AA 三榜 Top 10 排行                                                           |
-| 开源精选   | 独立页 | `oss.html` · 日更加热：Agent / MCP / Coding Agent / Harness / Skills / Memory（每方向 Top 3） |
-| 课程资源   | 独立页 | `courses.html` · 免费 AI 课程                                                                 |
-| 新闻热点   | 独立页 | `news/daily-ai-news.html` · 当前时刻往前 7×24 小时（日更）                                    |
-| AI 视频    | 独立页 | `videos.html` · 粘贴链接保存；Cloudflare KV 跨设备同步；Worker `/meta` 生成封面               |
-
-独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题 · 实战案例详情（`local/*.html`）
-
-### 前端能力（摘要）
-
-| 能力         | 说明                                                                           |
-| ------------ | ------------------------------------------------------------------------------ |
-| 全站搜索     | 顶栏 + Hero；fixed 下拉；工具名直达 `tools/*.html`；联想 / 历史 / 搜索按钮     |
-| 首页领域地图 | `HomeAiMap`：闭合椭圆 SVG 关系图（简报后，跟主题）                             |
-| 面包屑       | 专区与独立页统一「首页 / …」                                                   |
-| 推荐助手     | 场景芯片 + **现实实例** + 路径步骤                                             |
-| 内容漏斗     | `funnel.js` 统一 `journey_id` / `funnel_step`，对接 Umami/GA4 等               |
-| 虚拟列表     | 工具榜、GitHub 热门长列表可视区渲染（视频区为整页网格）                        |
-| 开源精选     | 独立页：`oss_frameworks` 按方向加热精选（`oss.html` · `.oss-card*`）           |
-| 链接兜底     | `link-guard`：外链 noreferrer、图片失败兜底、GitHub 404 提示                   |
-| SEO          | Open Graph + JSON-LD（工具 / 课程 / 新闻 / 开源精选 ItemList）+ BreadcrumbList |
-
-详见 [docs/FRONTEND.md](./docs/FRONTEND.md)。
-
-## 课程资源（概要）
-
-学习路线（顺序固定）：
-
-**入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent → AI 工程实践**
-
-- **仅免费**；**每条路线最多推荐 5 门**（必学 / 合集优先）
-- **必推荐**：微软 Generative AI for Beginners、Google ML Crash Course、斯坦福 CS230 / CS224n / CS231n / CS336（**YouTube 最新学年讲座**）
-
-配置：`config/courses-fetch.yaml` · 抓取：`scripts/fetch_ai_courses.py` · 数据：`ai-courses.json` · 日更：`.github/workflows/daily-courses.yml`
-
-新闻：`config/news-fetch.yaml` · `scripts/fetch_ai_news.py` · `ai-news.json` · 日更：`.github/workflows/daily-news.yml`
-
-开源精选：`config/oss-fetch.yaml` · `scripts/fetch_oss_heating.py` · `data/oss-projects.json`（同步 `site.json` → `oss_frameworks`）· 日更：`.github/workflows/daily-oss.yml`
-
-排行榜：`data/rankings.json`（`scripts/fetch_rankings.py`；日更：`.github/workflows/daily-rankings.yml`）
-
-## 改内容
-
-| 想改什么            | 改哪里                                                                                                          |
-| ------------------- | --------------------------------------------------------------------------------------------------------------- |
-| 文案 / 导航         | `data/site.json`                                                                                                |
-| 工具 / 关系         | `data/tools.json` · `data/tool-relations.json`                                                                  |
-| 对比专题            | `data/compares.json`（独立 `compare/*.html` 页）                                                                |
-| 推荐现实实例        | `site.json` → `ai_picker.options[].examples`                                                                    |
-| 排行榜              | `data/rankings.json`（或 `fetch_rankings.py`；日更 `daily-rankings.yml`）                                       |
-| 热度基准            | `data/engagement.json`                                                                                          |
-| 开源精选            | `config/oss-fetch.yaml` → `fetch_oss_heating.py` → `data/oss-projects.json` / `site.json`                       |
-| 实战案例            | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`）                                                    |
-| 课程资源            | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                                                        |
-| 新闻源              | `config/news-fetch.yaml`                                                                                        |
-| 视频链接 / 云端同步 | `videos.js` · `lib/video-preview*.js` · `workers/video-sync/` · [CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) |
-
-推送 `main` → Actions：`pages.yml` 部署 Worker + Pages；`ci.yml` 质量门禁。
-
-**工程实践**：`lib/fetch-json.js` / `virtual-list.js` / `link-guard.js` · 资源 `?v=` 哈希 · CI（Schema / OG / JSON-LD / `scan:secrets`）· 周度 lychee 死链（软告警）。
+推送 `main` → `pages.yml` 部署 Pages；日更见 [CONTENT-OPS.md](./docs/CONTENT-OPS.md)。
 
 ## License
 

@@ -1,259 +1,54 @@
-# 前端能力说明
+# 前端能力
 
-本文汇总浏览器端已落地的产品与工程能力（与 `*.js` / `src/components` / `lib/` 对应）。
+搜索、推荐、漏斗、视频页等运行时行为说明。架构见 [ARCHITECTURE.md](./ARCHITECTURE.md)。
 
-线上：https://bio-apple.github.io/ai/
+## 1. 全站搜索
 
----
+- 顶栏 + Hero；`search-index.json` + Fuse.js（`app.js`）
+- 工具名可直达 `tools/*.html`；历史存 `localStorage`
 
-## 1. 全局搜索
+## 2. 推荐助手
 
-| 项   | 说明                                                                              |
-| ---- | --------------------------------------------------------------------------------- |
-| 入口 | 顶栏（全站）+ 首页 Hero（`GlobalSearch.astro`）                                   |
-| 提交 | 输入框右侧放大镜按钮（`.site-search-submit`）；支持 Enter / `search` 事件跳转首条 |
-| 下拉 | Hero / Nav 展开时均为 `position: fixed`，避免 sticky / overflow 裁切              |
-| 排序 | `preferSearchHits`：精确标签与 `tools/*.html` 优先                                |
-| 索引 | 构建时 `scripts/build-artifacts.mjs` → `search-index.json`（约 150 条）           |
-| 覆盖 | 工具教程、对比专题、资讯、实战案例、开源精选、课程、视频、排行榜模型名、频道/导航 |
-| 工具 | 条目来自 `tools.json`，`label` 为工具原名，`url` 为 `tools/{id}.html`             |
-| 联想 | 聚焦空输入显示 `site.hero.search_suggestions` chips                               |
-| 历史 | `localStorage` 键 `bioai.search.history.v1`（最多 8 条）                          |
-| 引擎 | Fuse.js（`vendor/fuse.min.js`）                                                   |
+- `site.ai_picker` → 构建期 `recommend-rules.json`
+- 场景芯片 + 现实实例 + 路径步骤（`HomeRecommend.astro`）
 
-**注意**：工具中心仅写入一条「导航」索引（`tools/hub.html`），工具名直达各自教程页。
+## 3. 内容漏斗
 
-本地验收：`npm run build && DIST=dist python3 scripts/validate_ci.py search`  
-E2E：`npx playwright test tests/e2e/smoke.spec.js -g "搜索|顶栏全局"`
+- `funnel.js`：统一 `journey_id` / `funnel_step`，对接 Umami / GA4
 
----
+## 4. 虚拟列表
 
-## 2. AI 领域地图（首页内容区块）
+- `lib/virtual-list.js`：工具榜、GitHub 热门等长列表可视区渲染
 
-| 项     | 说明                                                                         |
-| ------ | ---------------------------------------------------------------------------- |
-| 位置   | 首页 `home-main`：推荐助手与 AI 简报之后（`#home-ai-map`）                   |
-| 形态   | 独立 section + 内联 SVG（全部闭合椭圆/圆），**不是** Hero 背景、不用断弧位图 |
-| 组件   | `HomeAiMap.astro` + `css/home.css`（`.ai-map*`）                             |
-| 策略   | 交叉用半透明叠色；主题色走 CSS 变量；窄屏矢量缩放                            |
-| 无障碍 | `role="img"` + `aria-label`；标题 + 说明句 + 学习路线链接                    |
+## 5. 开源精选
 
-**为何不用断弧素描图**：经典讲义图常在交叉处打断笔画，看起来像「圈没闭合」；本站用完整 `ellipse`/`circle` 描边。
+- 数据：`site.oss_frameworks`（`fetch_oss_heating.py` 日更）
+- 页：`oss.html`；Hero「今日升温」取 `heat_score` 最高项
 
----
+## 6. 链接兜底
 
-## 3. 面包屑
+- `lib/link-guard.js`：外链 `noreferrer`、图片失败占位、GitHub 404 探测
+- CSP 须含 `https://api.github.com`
 
-| 项       | 说明                                                                   |
-| -------- | ---------------------------------------------------------------------- |
-| 组件     | `Breadcrumb.astro`；独立页经 `StandalonePageHeader.astro` 复用         |
-| 首页专区 | 开源精选 / 课程 / 新闻 / 视频：`首页 / {专区名}`；「首页」可切回主 Tab |
-| 独立页   | 如 `首页 / 工具中心`、`首页 / 工具中心 / ChatGPT 教程`                 |
-| SEO      | JSON-LD `BreadcrumbList` 见 [SEO.md](./SEO.md)                         |
+## 7. SEO（摘要）
 
----
+- TDK / OG：`data/site.json` → `meta`
+- JSON-LD：`src/lib/schema.ts`（工具 / 课程 / 新闻 / 开源 ItemList + BreadcrumbList）
+- 校验：`DIST=dist python3 scripts/validate_ci.py opengraph jsonld`
 
-## 4. 工具中心排行
+## 8. AI 视频（两套）
 
-| 项   | 说明                                                      |
-| ---- | --------------------------------------------------------- |
-| 页面 | `tools/hub.html`（`src/pages/tools/hub.astro`）           |
-| 逻辑 | `src/lib/hub.ts` → `buildHubRankingBoards()`，各榜 Top 10 |
-| UI   | 三榜 Tab（AICPB / LMSYS / AA）+ 中文方法说明              |
-| 样式 | `css/labs.css`（`.hub-ranking-*`）                        |
+| 类型 | 入口 | 数据 |
+|------|------|------|
+| 首页日更 Tab | `#section-videos` | `daily-videos.latest.json`（抓取规则见 [CONTENT-OPS.md](./CONTENT-OPS.md)） |
+| 用户粘贴页 | `videos.html` | `localStorage` + Cloudflare KV |
 
-对比专题见独立页 `compare/{slug}.html`（`data/compares.json`），不在工具中心 hub 展示。
+用户页：`videos.js` · `lib/video-preview*.js` · Worker `/meta` 封面。跨设备见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)。
 
----
+## 9. 懒加载
 
-## 5. AI 推荐助手
+进入 Tab 再加载：`news.js` / `courses.js` / 首页视频脚本。`knowledge.js` idle 后加载。
 
-| 项   | 说明                                                                   |
-| ---- | ---------------------------------------------------------------------- |
-| UI   | `HomeRecommend.astro` + `recommend.js`                                 |
-| 配置 | `site.json` → `ai_picker.options[]`（含 `examples` 现实实例）          |
-| 产物 | `recommend-rules.json`（prebuild 透传 `examples` / `steps` / `tools`） |
-| 展示 | 结果区「现实实例」列表 + 路径步骤 + 工具跳转                           |
+## 相关
 
----
-
-## 6. 内容漏斗与分析
-
-漏斗模型：`发现(1) → 浏览(2) → 深入(3) → 学习(4) → 完成(5)`。`funnel.js` 为 `trackEvent()` 自动附加 `journey_id`（`sessionStorage`）、`funnel_step`、`funnel_stage`、`page_type`。
-
-| 脚本            | 作用                                                             |
-| --------------- | ---------------------------------------------------------------- |
-| `funnel.js`     | `journey_id`、`funnel_step`、`funnel_entry`、`section_view`      |
-| `analytics.js`  | Umami / CF / GA4 / Clarity；`trackEvent` 统一出口                |
-| `engagement.js` | 首页运营热度 widget（基准 45s 同步 + 本机即时累加 + 跨标签同步） |
-
-**脚本加载顺序**：`funnel.js` → `analytics.js` → `ux.js` → `app.js` → …
-
-### 6.1 典型事件
-
-| 阶段 | 事件示例                                                                                           |
-| ---- | -------------------------------------------------------------------------------------------------- |
-| 发现 | `funnel_entry`、`hero-cta-primary`、`recommend_submit`                                             |
-| 浏览 | `nav-tab`、`section_view`、`search_query` / `search_hit`、`daily_panel_click`、`home-filter-local` |
-| 深入 | `recommend_query_tool`、`ops-tool-click`、`compare-goto-*`                                         |
-| 学习 | `course-click`、`video-click`、`knowledge_ask`                                                     |
-| 完成 | `roadmap_phase_toggle`                                                                             |
-
-课程点击携带 `course_title` / `course_track`；搜索词截断 80 字符。
-
-### 6.2 分析后端
-
-1. **Umami** / **Cloudflare Web Analytics**（推荐，无 cookie）
-2. **GA4** / **Clarity**（可选，需 Secrets）
-3. 未配置时：仅 `window.__clickStats`（浏览器内存，不持久）
-
-配置：`data/analytics.json` 或 GitHub Secrets → prebuild 生成 `analytics-config.json`。详见 [CI-CD.md](./CI-CD.md)、[SECURITY.md](./SECURITY.md)。
-
-### 6.3 本地调试
-
-```javascript
-window.__clickStats;
-window.bioFunnel.getJourneyId();
-trackEvent('course-click', { course_title: 'test', course_track: 'LLM 大模型' });
-// → 应含 journey_id、funnel_step: 4、funnel_stage: 'learn'
-```
-
----
-
-## 7. 虚拟列表（性能）
-
-| 模块        | 文件                  | 说明                                 |
-| ----------- | --------------------- | ------------------------------------ |
-| 核心        | `lib/virtual-list.js` | 可视区渲染 + rAF；`mapInChunks` 分片 |
-| 工具榜      | `ranking-tabs.js`     | 榜单行虚拟列表（SSR 预览前 10 条）   |
-| GitHub 热门 | 首页 Daily 面板       | 全量 GitHub 源资讯可滚动             |
-
-**AI 视频**（`videos.js`）已改为整页网格平铺，不再使用虚拟列表内部滚动。
-
-样式：`css/virtual-list.css`。
-
----
-
-## 8. 开源精选
-
-首页 `#section-oss`（nav id `oss`）在 `src/pages/index.astro` 构建期 SSG 渲染：
-
-- 数据：`data/site.json` → `oss_frameworks[]`（`repo` / `name` / `stars` / `category` / `summary`）
-- 类别：`agent`（Agent 框架）· `inference`（推理）· `vector`（向量库）· `eval`（评测）· `local`（本地部署）
-- 排序：按 `stars` 降序展示全部精选条目（建议每类 2–3 个，避免同质化）
-- UI：`.oss-card*` 卡片（类别 chip、仓库名、Star、摘要、GitHub 外链）
-- 无需懒加载脚本
-
----
-
-## 9. 实战案例（独立详情页）
-
-- 文稿：`content/local-deploy/*.md` → `data/local-deploy-guides.json`
-- 详情页：`local/{id}.html`（`src/pages/local/[slug].astro`）
-- 首页不再展示列表专区；通过搜索与内链访问
-
-新增文稿：把 Markdown 放入对应目录，执行 `npm run build`。详见各目录 `README.md`。
-
----
-
-## 10. AI 视频
-
-| 项   | 说明                                                                                              |
-| ---- | ------------------------------------------------------------------------------------------------- |
-| 页面 | `#section-videos` · `videos.js`                                                                   |
-| 数据 | `daily-videos.latest.json`（构建时由完整 `daily-videos.json` 瘦身生成；完整文件不再发布到 CDN）   |
-| 规则 | YouTube / B站**各自独立**：24h Top3、30d Top3、100d Top4；**最低播放量 ≥10000**；每平台去重后 ≤10 |
-| 过滤 | 仅时间窗 + AI 关键词；展示/回填不再按播放量丢弃                                                   |
-| 展示 | YouTube / B站分块网格，**整页平铺**（无内部滚动虚拟列表）                                         |
-| 筛选 | 平台（全部 / YouTube / B站）+ 排序（最新 / 热门）                                                 |
-| 配置 | `config/video-fetch.yaml`（`min_views: 10000`）；抓取见 [CONTENT-OPS.md](./CONTENT-OPS.md) §4.3   |
-
----
-
-## 11. 链接安全与失效兜底
-
-`lib/link-guard.js`（全站 Layout 默认加载）：
-
-- 外链自动补齐 `rel="noopener noreferrer"`
-- 图片 `loading=lazy`、缺省宽高、加载失败 SVG 兜底
-- GitHub 仓库点击前用 `api.github.com` 探测；404 弹窗（复制 / 仍要打开 / 关闭）
-
-CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
-
----
-
-## 12. 响应式与首屏
-
-| 项       | 实现                                                       |
-| -------- | ---------------------------------------------------------- |
-| Viewport | `width=device-width, initial-scale=1`                      |
-| 横滚     | `html/body` 与列表容器 `max-width:100%; overflow-x:hidden` |
-| 点击区   | 汉堡 / 主题切换 ≥44px                                      |
-| 关键 CSS | Layout 内联极简样式，完整 `style.css` 带 `?v=` 哈希        |
-| CLS      | `css/dynamic-panels.css` 为加载中区块预留 `min-height`     |
-| 暗色模式 | `ux.js` + `ThemeBoot.astro`，`localStorage` 持久化         |
-
----
-
-## 13. 首页产品入口
-
-| 组件                     | 作用                                      |
-| ------------------------ | ----------------------------------------- |
-| `HomeAiMap.astro`        | AI 领域嵌套层级图（原生 HTML，简报后）    |
-| `HomeQuickFilters.astro` | 快筛：开源精选 / AI 资讯 / 工具教程       |
-| `HomeAiDaily.astro`      | 简报四宫格（模型 / GitHub / 行业 / 视频） |
-| `HomeRecommend.astro`    | AI 推荐助手（含现实实例）                 |
-| `#section-oss`（index）  | 开源精选多类别（SSG，`oss_frameworks`）   |
-| `Breadcrumb.astro`       | 专区页「首页 / …」面包屑                  |
-| 新闻列表                 | `今日` / `本周` 时间过滤 + 分类筛选       |
-
-内容类型徽章：资讯（蓝）/ 本地（绿）/ 视频（红角标）。
-
----
-
-## 14. 懒加载与首屏脚本
-
-`lazy-sections.js`：进入 Tab 再加载业务脚本（`section-oss` 为 SSG，不在此列）。
-
-| Section           | 脚本链                             |
-| ----------------- | ---------------------------------- |
-| `section-videos`  | `lib/fetch-json.js` → `videos.js`  |
-| `section-news`    | `lib/fetch-json.js` → `news.js`    |
-| `section-courses` | `lib/fetch-json.js` → `courses.js` |
-
-- `lib/fetch-json.js` **不**进首页首屏 `scripts`，由懒加载链按需注入。
-- 懒加载 URL 带 `?v=`（`window.__BIOAI_ASSET_V__`，Layout 注入）。
-- `knowledge.js`：idle（约 4s）或首次悬停/聚焦 FAB 再加载，不阻塞首屏。
-- 字体：`FontLoader.astro` 异步挂载 stylesheet（`preload` + 动态 `link`）。
-- 语义：首页/独立页内容包在 `<main id="main-content">`；404 仅加载 `analytics.js`。
-
----
-
-## 15. 用户视频预览页（`videos.html`）
-
-与首页 `#section-videos` 日更 Tab **独立**：用户粘贴 YouTube / B站 / 频道链接，生成可编辑卡片。
-
-| 层级   | 文件                        | 职责                                                   |
-| ------ | --------------------------- | ------------------------------------------------------ |
-| 页面   | `src/pages/videos.astro`    | 表单、提示、构建注入 `#video-sync-config`              |
-| 交互   | `videos.js`                 | 保存 / 编辑 / 删除；oEmbed；调用 Worker `/meta` 取封面 |
-| 本机   | `lib/video-preview.js`      | `localStorage` 列表 · 卡片 HTML                        |
-| 云端   | `lib/video-preview-sync.js` | KV push/pull · 共享 sync 码 · `bootPage()`             |
-| Worker | `workers/video-sync/`       | `GET/PUT /{syncKey}` · `GET /meta?url=`                |
-
-**跨设备**：默认共享 sync 码 `bioai-videos`（`data/site.json` + `VIDEO_SYNC_SHARED_KEY`）。任意设备打开 `videos.html` 自动拉取云端列表。
-
-**封面**：Worker `/meta` 解析 og:image / YouTube 频道 avatar / RSS 缩略图（已弃 thum.io）。失败时卡片显示「暂无封面」。
-
-**首页简报**：`home-video-preview.js` 读取同一份 `localStorage`，展示最近 4 条。
-
-详见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)。
-
----
-
-## 相关文档
-
-- [SEO.md](./SEO.md) — TDK / OG / JSON-LD
-- [ARCHITECTURE.md](./ARCHITECTURE.md) — 系统架构
-- [SETUP.md](./SETUP.md) — 本地环境
-- [CONTENT-OPS.md](./CONTENT-OPS.md) — 内容运营与救急
+[SETUP.md](./SETUP.md) · [CONTENT-OPS.md](./CONTENT-OPS.md) · [SECURITY.md](./SECURITY.md)

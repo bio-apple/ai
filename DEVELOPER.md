@@ -1,75 +1,44 @@
 # 开发速查
 
 线上：https://bio-apple.github.io/ai/  
-技术栈：Astro 5 SSG + GitHub Pages（本地可选 `./start.sh` 预览 FastAPI）。
+技术栈：Astro 5 SSG + GitHub Pages（本地可选 `./start.sh`）。
 
-## 文档导航
+## 文档
 
-| 文档                                                 | 用途                              |
-| ---------------------------------------------------- | --------------------------------- |
-| [docs/SETUP.md](./docs/SETUP.md)                     | 环境搭建、三种预览模式、排错      |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构、构建流水线、数据流      |
-| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)           | JSON 字段、Schema、交叉引用       |
-| [docs/FRONTEND.md](./docs/FRONTEND.md)               | 搜索 / 推荐 / 虚拟列表 / 漏斗埋点 |
-| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)         | 内容运营、日更抓取、故障救急      |
-| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频链接 Cloudflare 云端同步      |
-| [docs/CI-CD.md](./docs/CI-CD.md)                     | CI/CD、Deploy、Secrets            |
-| [docs/SEO.md](./docs/SEO.md)                         | TDK / OG / JSON-LD                |
-| [docs/SECURITY.md](./docs/SECURITY.md)               | CSP、密钥扫描、API Key 规范       |
+| 文档 | 用途 |
+|------|------|
+| [docs/SETUP.md](./docs/SETUP.md) | 环境搭建、三种预览、排障 |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构概览 |
+| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md) | JSON / Schema |
+| [docs/FRONTEND.md](./docs/FRONTEND.md) | 搜索 / 推荐 / 视频页 |
+| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md) | 日更与救急 |
+| [docs/CI-CD.md](./docs/CI-CD.md) | 部署、Secrets |
+| [docs/SECURITY.md](./docs/SECURITY.md) | CSP、密钥 |
+| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频云端同步 |
 
-## 快速命令
+## 命令
 
 ```bash
 nvm use && npm ci
-python3 -m venv .venv && .venv/bin/pip install -r requirements.txt   # 可选；start.sh 会自动创建
 npm run build && ./start.sh          # http://127.0.0.1:8765/ai/
+npm run quality && npm run test:unit
 DIST=dist python3 scripts/validate_ci.py
-npm run quality && npm run test:unit && npm run test:e2e
 ```
 
-仅静态预览：`npm run build && npm run preview` → http://127.0.0.1:8766/ai/
+仅静态：`npm run build && npm run preview` → http://127.0.0.1:8766/ai/
 
-手动刷新运行时数据后需 `npm run build`（prebuild 同步 JSON 到 `public/`）：
+## 改哪里
 
-```bash
-python3 scripts/fetch_ai_news.py
-python3 scripts/fetch_daily_videos.py
-python3 scripts/fetch_ai_courses.py
-python3 scripts/fetch_rankings.py
-```
+| 目标 | 改哪里 |
+|------|--------|
+| 导航 / 文案 | `data/site.json` |
+| 工具教程 | `data/tools.json` + `home_tool_categories` |
+| 对比专题 | `data/compares.json` |
+| 排行榜 | `data/rankings.json` / `fetch_rankings.py` |
+| 开源精选 | `config/oss-fetch.yaml` → `fetch_oss_heating.py` |
+| 新闻 / 课程 | `config/news-fetch.yaml` / `config/courses-fetch.yaml` |
+| 视频链接页 | `videos.js` · `lib/video-preview*.js` · [CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) |
+| 实战案例 | `content/local-deploy/*.md` |
+| CSP | `config/csp.json`（`npm run build` 同步 `_headers`） |
 
-## 目录要点
-
-```
-data/                 # 手工内容源（site / tools / local-deploy …）
-content/              # Markdown 文稿（local-deploy）
-src/pages|components  # Astro 页面与组件
-css/ + *.js           # 样式与运行时（courses / news / videos / funnel …）
-lib/                  # fetch-json / virtual-list / link-guard
-config/               # 抓取 YAML + csp.json
-scripts/              # prebuild / 抓取 / validate_ci
-schemas/              # JSON Schema（CI 门禁）
-dist/                 # 构建产物（不提交）
-```
-
-## 常见改动
-
-| 目标            | 改哪里                                                                                                                            |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| 导航 / 文案     | `data/site.json`                                                                                                                  |
-| 新工具教程      | `data/tools.json` + `site.home_tool_categories` + `tool-relations.json`                                                           |
-| 工具中心排行    | `data/rankings.json`；展示条数 `src/lib/hub.ts` → `HUB_RANKING_TOP_N`                                                             |
-| 对比专题        | `data/compares.json`（独立页，非工具中心 hub）                                                                                    |
-| 推荐现实实例    | `site.ai_picker.options[].examples`                                                                                               |
-| 开源精选入口    | `data/site.json` → `oss_frameworks`（`#section-oss`，多类别按 stars 排序）                                                        |
-| 实战案例文稿    | `content/local-deploy/*.md` → `local/{id}.html`                                                                                   |
-| 必学课程        | `config/courses-fetch.yaml` → `required` / `hubs`；更新 `validate_ci.py` 中 `REQUIRED_COURSE_URLS`                                |
-| 课程路线        | `track_order` / `track_keywords` → 重跑 `fetch_ai_courses.py`                                                                     |
-| AI 领域地图     | `HomeAiMap.astro` / `css/home.css`（`#home-ai-map`）                                                                              |
-| 视频链接 / 云端 | `videos.js` · `lib/video-preview*.js` · `data/site.json` → `video_preview_sync` · [CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) |
-| 新闻 / 视频源   | `config/news-fetch.yaml` / `config/video-fetch.yaml`（首页日更 Tab，非 videos.html）                                              |
-
-站内链接统一用 `src/lib/paths.ts` 的 `asset()`（base `/ai/`）。  
-视频运行时只读 `daily-videos.latest.json`（`build-artifacts.mjs` 瘦身）；`knowledge.js` / Tab 业务脚本均为懒加载。
-
-推送 `main` → `pages.yml` 部署 Worker + Pages；`ci.yml` 跑测试。日更见 [CONTENT-OPS.md](./docs/CONTENT-OPS.md)。
+站内链接用 `src/lib/paths.ts` 的 `asset()`。推送 `main` → `pages.yml` + `ci.yml`。
