@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-23T01:12:40.066803+08:00",
-  "date": "2026-08-23",
+  "updated_at": "2026-08-24T01:13:19.828694+08:00",
+  "date": "2026-08-24",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,80 +15,89 @@
   },
   "items": [
     {
-      "id": "c97e40f81702",
-      "title": "不是Demo！优必选把客户产线1:1搬进WRC，解锁具身智能真落地路径",
-      "summary": "端侧部署解决了具身大脑能否装进身体的问题。那么，同一个「大脑」，如何快速适配工业、商用和家庭三类机器人呢？",
-      "url": "https://www.qbitai.com/2026/08/477253.html",
+      "id": "350d6348d6a8",
+      "title": "WRC唯一真「人机共生」展台，是家沉浸式机器人咖啡店",
+      "summary": "玩的就是真实",
+      "url": "https://www.qbitai.com/2026/08/478319.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-08-22T22:46:43+08:00"
+      "published_at": "2026-08-23T21:20:00+08:00"
     },
     {
-      "id": "e3ea55ebd2e0",
-      "title": "伽利略机器人首发“陆行具身系统”，打通轮车足底层技术壁垒",
-      "summary": "直击WRC",
-      "url": "https://www.qbitai.com/2026/08/477246.html",
+      "id": "3d4ddbd00409",
+      "title": "具身创业里的香港教授们",
+      "summary": "香港的大学里冒出了一批很特别的人",
+      "url": "https://www.qbitai.com/2026/08/478289.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-08-22T22:19:39+08:00"
+      "published_at": "2026-08-23T19:20:13+08:00"
     },
     {
-      "id": "b02122663029",
-      "title": "魔法原子亮相WRC 2026，三大场景解决方案实景展示物理AI真·上岗",
-      "summary": "一脑驱动多形落地",
-      "url": "https://www.qbitai.com/2026/08/477155.html",
+      "id": "9a182e06a133",
+      "title": "他给了王兴兴第一个200万，现在给下一个「宇树」当董事长",
+      "summary": "多多支持像王兴兴这样优秀的具身机器人创业者",
+      "url": "https://www.qbitai.com/2026/08/478234.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-08-22T22:11:20+08:00"
+      "published_at": "2026-08-23T19:17:22+08:00"
     },
     {
-      "id": "85dbe235d456",
-      "title": "00后清华博士生创业“神经接口”：把人类肌肉反应炼成Token",
-      "summary": "采集，从一条腕带开始",
-      "url": "https://www.qbitai.com/2026/08/477094.html",
+      "id": "e2e86f41e0be",
+      "title": "匿名牛来大模型被扒出智谱血缘，也有人怀疑Cursor拿开源GLM训的",
+      "summary": "Tokenizer、视频编码、API报错全扒一遍",
+      "url": "https://www.qbitai.com/2026/08/478191.html",
       "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-22T21:56:00+08:00"
+      "category": "开源项目",
+      "published_at": "2026-08-23T17:56:12+08:00"
     },
     {
-      "id": "c66f7f212ef5",
-      "title": "Eon用LIF“上传”果蝇脑，中国团队直接上精细神经元和跨身体平台",
-      "summary": "将真实场景重建为持续更新、可计算的4D数字世界。",
-      "url": "https://www.qbitai.com/2026/08/477090.html",
+      "id": "61b9335c1b98",
+      "title": "英伟达AI服务器将涨价15%！1GW数据中心成本激增50亿美元",
+      "summary": "内存成本飙升逼涨硬件",
+      "url": "https://www.qbitai.com/2026/08/478164.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-08-22T20:21:07+08:00"
+      "published_at": "2026-08-23T17:51:49+08:00"
     },
     {
       "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 84,789",
+      "title": "OpenHands/OpenHands · ★ 84,851",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "url": "https://github.com/OpenHands/OpenHands",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-08-22T17:02:25Z"
+      "published_at": "2026-08-23T16:54:57Z"
     },
     {
       "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 186,759",
+      "title": "Significant-Gravitas/AutoGPT · ★ 186,811",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
       "url": "https://github.com/Significant-Gravitas/AutoGPT",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-08-22T14:16:44Z"
+      "published_at": "2026-08-23T13:10:52Z"
     },
     {
       "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 167,746",
+      "title": "f/prompts.chat · ★ 167,808",
       "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
       "url": "https://github.com/f/prompts.chat",
       "source": "GitHub Trending",
       "category": "开源项目",
-      "published_at": "2026-08-22T03:19:18Z"
+      "published_at": "2026-08-23T03:23:38Z"
+    },
+    {
+      "id": "b33be8909763",
+      "title": "hacksider/Deep-Live-Cam · ★ 96,084",
+      "summary": "real time face swap and one-click video deepfake with only a single image",
+      "url": "https://github.com/hacksider/Deep-Live-Cam",
+      "source": "GitHub Trending",
+      "category": "开源项目",
+      "published_at": "2026-08-22T21:12:28Z"
     },
     {
       "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 91,513",
+      "title": "thedotmack/claude-mem · ★ 91,593",
       "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
       "url": "https://github.com/thedotmack/claude-mem",
       "source": "GitHub Trending",
