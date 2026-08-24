@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-24T01:13:19.828694+08:00",
+  "updated_at": "2026-08-24T15:15:41.223794+08:00",
   "date": "2026-08-24",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,87 @@
   },
   "items": [
     {
+      "id": "2bc08e878226",
+      "title": "8月25日直播预告 | AFAC2026金融智能创新大赛，总决赛路演倒计时来啦！",
+      "summary": "AFAC2026总决赛路演将于8月25-26日在上海阿纳迪酒店（长宁区临虹路7号）举办。",
+      "url": "https://www.qbitai.com/2026/08/478447.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-24T14:03:13+08:00"
+    },
+    {
+      "id": "e8dbeb0f29bd",
+      "title": "阿里视频大模型Wan3.0正式上线，行业评价“稳定、真实、有质感”",
+      "summary": "8月24日，阿里巴巴视频生成大模型Wan3.0正式上线。",
+      "url": "https://www.qbitai.com/2026/08/478427.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-08-24T13:09:27+08:00"
+    },
+    {
+      "id": "810fdf1c2554",
+      "title": "WRC 2026｜原生全模态世界模型：从模拟世界到交互世界",
+      "summary": "WRC 2026｜原生全模态世界模型：从模拟世界到交互世界",
+      "url": "https://www.qbitai.com/2026/08/478421.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-24T13:04:52+08:00"
+    },
+    {
+      "id": "d58515c75f01",
+      "title": "SDAD: Spec-Driven Agentic Development for the AI-Native SDLC",
+      "summary": "arXiv:2608.20341v1 Announce Type: new Abstract: Frontier coding agents backed by large language models with context windows from hundreds of thousands to milli…",
+      "url": "https://arxiv.org/abs/2608.20341",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-08-24T12:00:00+08:00"
+    },
+    {
+      "id": "776f96e2a471",
+      "title": "PrimeAgentOrchestrator: Memory-Primed Agent Spawning for Personal AI Infrastructure",
+      "summary": "arXiv:2608.20342v1 Announce Type: new Abstract: Large language model (LLM) coding agents start each session with an empty context window, discarding accumulate…",
+      "url": "https://arxiv.org/abs/2608.20342",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-24T12:00:00+08:00"
+    },
+    {
+      "id": "0503fe614a11",
+      "title": "Truth Lies Deep: Countering Semantic Camouflage via Latent Intent Verification",
+      "summary": "arXiv:2608.20378v1 Announce Type: new Abstract: Safety alignment in Large Language Models (LLMs) is often superficial, relying on refusal mechanisms that trigg…",
+      "url": "https://arxiv.org/abs/2608.20378",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-24T12:00:00+08:00"
+    },
+    {
+      "id": "c3595c687dfe",
+      "title": "A Survey on Foundations and Frontiers of Multimodal Agentic Frameworks: Techniques and Applications",
+      "summary": "arXiv:2608.20379v1 Announce Type: new Abstract: Advances in large language models (LLMs) have fueled a wave of research into agency: the ability to reason, pla…",
+      "url": "https://arxiv.org/abs/2608.20379",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-24T12:00:00+08:00"
+    },
+    {
+      "id": "9196ff61b410",
+      "title": "Interpretable Multimodal Classification with Linear Discriminant Tree Ensembles",
+      "summary": "arXiv:2608.20384v1 Announce Type: new Abstract: Multimodal affect and behaviour classifiers that fuse heterogeneous text, audio, and visual streams must simult…",
+      "url": "https://arxiv.org/abs/2608.20384",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-24T12:00:00+08:00"
+    },
+    {
+      "id": "a9810f0386c9",
+      "title": "前保安杀进了AI决赛，高中生拿走25万！这AI比赛办得有点绝",
+      "summary": "Tim和胡彦斌亲自颁奖",
+      "url": "https://www.qbitai.com/2026/08/478358.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-24T07:19:06+08:00"
+    },
+    {
       "id": "350d6348d6a8",
       "title": "WRC唯一真「人机共生」展台，是家沉浸式机器人咖啡店",
       "summary": "玩的就是真实",
@@ -24,87 +105,6 @@
       "published_at": "2026-08-23T21:20:00+08:00"
     },
     {
-      "id": "3d4ddbd00409",
-      "title": "具身创业里的香港教授们",
-      "summary": "香港的大学里冒出了一批很特别的人",
-      "url": "https://www.qbitai.com/2026/08/478289.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-23T19:20:13+08:00"
-    },
-    {
-      "id": "9a182e06a133",
-      "title": "他给了王兴兴第一个200万，现在给下一个「宇树」当董事长",
-      "summary": "多多支持像王兴兴这样优秀的具身机器人创业者",
-      "url": "https://www.qbitai.com/2026/08/478234.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-23T19:17:22+08:00"
-    },
-    {
-      "id": "e2e86f41e0be",
-      "title": "匿名牛来大模型被扒出智谱血缘，也有人怀疑Cursor拿开源GLM训的",
-      "summary": "Tokenizer、视频编码、API报错全扒一遍",
-      "url": "https://www.qbitai.com/2026/08/478191.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-08-23T17:56:12+08:00"
-    },
-    {
-      "id": "61b9335c1b98",
-      "title": "英伟达AI服务器将涨价15%！1GW数据中心成本激增50亿美元",
-      "summary": "内存成本飙升逼涨硬件",
-      "url": "https://www.qbitai.com/2026/08/478164.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-23T17:51:49+08:00"
-    },
-    {
-      "id": "a44248e361e3",
-      "title": "OpenHands/OpenHands · ★ 84,851",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-08-23T16:54:57Z"
-    },
-    {
-      "id": "991cb8c74834",
-      "title": "Significant-Gravitas/AutoGPT · ★ 186,811",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-08-23T13:10:52Z"
-    },
-    {
-      "id": "951e467dcf0c",
-      "title": "f/prompts.chat · ★ 167,808",
-      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete p…",
-      "url": "https://github.com/f/prompts.chat",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-08-23T03:23:38Z"
-    },
-    {
-      "id": "b33be8909763",
-      "title": "hacksider/Deep-Live-Cam · ★ 96,084",
-      "summary": "real time face swap and one-click video deepfake with only a single image",
-      "url": "https://github.com/hacksider/Deep-Live-Cam",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-08-22T21:12:28Z"
-    },
-    {
-      "id": "b8da10635efb",
-      "title": "thedotmack/claude-mem · ★ 91,593",
-      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it with AI, and injects relevant context b…",
-      "url": "https://github.com/thedotmack/claude-mem",
-      "source": "GitHub Trending",
-      "category": "开源项目",
-      "published_at": "2026-08-21T23:43:00Z"
-    },
-    {
       "id": "06daba08af15",
       "title": "From Atari to EVE Online: Building on 15 Years of AI Research in Games",
       "summary": "Google DeepMind partners with game studios to prototype breakthrough AI gameplay.",
@@ -112,6 +112,24 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-08-21T19:59:48+08:00"
+    },
+    {
+      "id": "68e9fb1705e1",
+      "title": "Measuring benchmark optimization in speech recognition",
+      "summary": "Measuring benchmark optimization in speech recognition",
+      "url": "https://huggingface.co/blog/asr-benchmark-optimization",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-08-21T08:00:00+08:00"
+    },
+    {
+      "id": "c7cdb6722fd8",
+      "title": "Up to 3.2x Faster Inference with LFM2.5-DSpark",
+      "summary": "Up to 3.2x Faster Inference with LFM2.5-DSpark",
+      "url": "https://huggingface.co/blog/LiquidAI/lfm25-dspark",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-08-21T00:52:57+08:00"
     },
     {
       "id": "6dd0bcee2387",
@@ -186,6 +204,33 @@
       "published_at": "2026-08-19T06:00:00+08:00"
     },
     {
+      "id": "5ce8103476b1",
+      "title": "How Much Memory Does Your Agent Actually Need?",
+      "summary": "How Much Memory Does Your Agent Actually Need?",
+      "url": "https://huggingface.co/blog/ibm-research/altk-evolve-hmm",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-08-19T02:09:38+08:00"
+    },
+    {
+      "id": "e520424e436f",
+      "title": "Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers",
+      "summary": "Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers",
+      "url": "https://huggingface.co/blog/multi-vector-encoder",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-08-18T08:00:00+08:00"
+    },
+    {
+      "id": "b597a3d03ee7",
+      "title": "Same Cluster, 33 Points More Utilization: What Changed Was the Order",
+      "summary": "Same Cluster, 33 Points More Utilization: What Changed Was the Order",
+      "url": "https://huggingface.co/blog/Dharma-AI/gpu-management-pt2",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-08-18T03:46:21+08:00"
+    },
+    {
       "id": "b10672c70cf0",
       "title": "Securing the Infrastructure of Intelligence",
       "summary": "AI factories are the defining infrastructure of the AI era — where compute transforms energy and data into intelligence that powers every business, industry an…",
@@ -239,6 +284,16 @@
       "name": "Hugging Face",
       "blog": "https://huggingface.co/blog",
       "x": "https://x.com/huggingface"
+    },
+    {
+      "name": "OpenHands",
+      "blog": "https://www.all-hands.dev/blog",
+      "x": "https://x.com/AllHands_AI"
+    },
+    {
+      "name": "AutoGPT",
+      "blog": "https://agpt.co/blog",
+      "x": "https://x.com/Auto_GPT"
     },
     {
       "name": "机器之心",
