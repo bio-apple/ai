@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-24T15:15:41.223794+08:00",
-  "date": "2026-08-24",
+  "updated_at": "2026-08-25T01:22:38.331036+08:00",
+  "date": "2026-08-25",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,69 @@
   },
   "items": [
     {
+      "id": "351f6de6e45a",
+      "title": "How XPUs Meet a World-Class AI Factory",
+      "summary": "To generate intelligence at scale, AI factories run continuously, and their economics are defined by delivered output: tokens per second, tokens per watt, cost…",
+      "url": "https://blogs.nvidia.com/blog/nvlink-fusion-xpu-ai-factory/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-08-24T23:00:54+08:00"
+    },
+    {
+      "id": "f8d700746f2a",
+      "title": "With Groq 3 LPX in Full Production, NVIDIA Extends Vera Rubin Inference for Agents",
+      "summary": "The next era of AI inference won’t be defined by a single breakthrough chip, network or system. It’ll be defined by how every layer of the AI factory works tog…",
+      "url": "https://blogs.nvidia.com/blog/vera-rubin-lpx-spectrum-x-nvlink-fusion/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-08-24T23:00:41+08:00"
+    },
+    {
+      "id": "8c476d21c2ee",
+      "title": "Up to 30x More Work Per Watt: NVIDIA Vera Rubin NVL72 Sets a New Efficiency Standard for AI Agents",
+      "summary": "According to OpenRouter data, agentic AI workloads consume 15x more tokens than a simple chat request. Why? Consider what happens when an AI agent researches a…",
+      "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-efficiency-ai-agents/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-08-24T23:00:19+08:00"
+    },
+    {
+      "id": "8fd2a1209c5c",
+      "title": "AI重塑商业，信任决定未来商业能走多远丨Visa大中华区总裁张文翊",
+      "summary": "Visa看到的AI未来",
+      "url": "https://www.qbitai.com/2026/08/478670.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-24T21:32:13+08:00"
+    },
+    {
+      "id": "82a00defe5ce",
+      "title": "一篇论文改写AI科研评价规则！中国公司拿出实践数据，双榜第一",
+      "summary": "全球大厂开始押注的AI科研，终于有了统一标准",
+      "url": "https://www.qbitai.com/2026/08/478568.html",
+      "source": "量子位",
+      "category": "学术论文",
+      "published_at": "2026-08-24T21:21:22+08:00"
+    },
+    {
+      "id": "063c2b570b8c",
+      "title": "阿里达摩院推出肝癌AI模型，精准识别1厘米微小肿瘤",
+      "summary": "8月24日消息，阿里巴巴达摩院联合中国医科大学附属盛京医院等机构研发出肝癌诊断AI模型DAMO LiON",
+      "url": "https://www.qbitai.com/2026/08/478473.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-24T16:07:59+08:00"
+    },
+    {
+      "id": "a884b2171872",
+      "title": "单芯片到万卡集群体系化突破 中诚华隆HL200推理芯片及超节点集群重磅发布",
+      "summary": "定义国产推理算力新范式 赋能万卡级AI推理算力规模化落地",
+      "url": "https://www.qbitai.com/2026/08/478469.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-08-24T15:04:36+08:00"
+    },
+    {
       "id": "2bc08e878226",
       "title": "8月25日直播预告 | AFAC2026金融智能创新大赛，总决赛路演倒计时来啦！",
       "summary": "AFAC2026总决赛路演将于8月25-26日在上海阿纳迪酒店（长宁区临虹路7号）举办。",
@@ -22,24 +85,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-08-24T14:03:13+08:00"
-    },
-    {
-      "id": "e8dbeb0f29bd",
-      "title": "阿里视频大模型Wan3.0正式上线，行业评价“稳定、真实、有质感”",
-      "summary": "8月24日，阿里巴巴视频生成大模型Wan3.0正式上线。",
-      "url": "https://www.qbitai.com/2026/08/478427.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-08-24T13:09:27+08:00"
-    },
-    {
-      "id": "810fdf1c2554",
-      "title": "WRC 2026｜原生全模态世界模型：从模拟世界到交互世界",
-      "summary": "WRC 2026｜原生全模态世界模型：从模拟世界到交互世界",
-      "url": "https://www.qbitai.com/2026/08/478421.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-24T13:04:52+08:00"
     },
     {
       "id": "d58515c75f01",
@@ -85,24 +130,6 @@
       "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-08-24T12:00:00+08:00"
-    },
-    {
-      "id": "a9810f0386c9",
-      "title": "前保安杀进了AI决赛，高中生拿走25万！这AI比赛办得有点绝",
-      "summary": "Tim和胡彦斌亲自颁奖",
-      "url": "https://www.qbitai.com/2026/08/478358.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-24T07:19:06+08:00"
-    },
-    {
-      "id": "350d6348d6a8",
-      "title": "WRC唯一真「人机共生」展台，是家沉浸式机器人咖啡店",
-      "summary": "玩的就是真实",
-      "url": "https://www.qbitai.com/2026/08/478319.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-23T21:20:00+08:00"
     },
     {
       "id": "06daba08af15",
@@ -229,24 +256,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-08-18T03:46:21+08:00"
-    },
-    {
-      "id": "b10672c70cf0",
-      "title": "Securing the Infrastructure of Intelligence",
-      "summary": "AI factories are the defining infrastructure of the AI era — where compute transforms energy and data into intelligence that powers every business, industry an…",
-      "url": "https://blogs.nvidia.com/blog/securing-the-infrastructure-of-intelligence/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-17T20:34:51+08:00"
-    },
-    {
-      "id": "ef87e3b0ab28",
-      "title": "Get closer to the game with Gemini and Pixel",
-      "summary": "Google Gemini and Pixel partner with five global football clubs to elevate the fan matchday experience through AI and Smartphone Technology.",
-      "url": "https://blog.google/products-and-platforms/products/gemini/google-gemini-pixel-football-club-partnerships/",
-      "source": "Google AI",
-      "category": "新模型发布",
-      "published_at": "2026-08-17T16:00:00+08:00"
     }
   ],
   "watch_sources": [
