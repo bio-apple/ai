@@ -63,7 +63,7 @@ jobs:
       - name: Check dist artifacts
         run: test -f dist/index.html && test -f dist/search-index.json && test -f dist/ai-news.json
 
-      - uses: actions/setup-python@v6
+      - uses: actions/setup-python@v7
         id: setup-python
         with:
           python-version: "3.12"
