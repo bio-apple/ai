@@ -38,7 +38,10 @@
       "https://api.github.com",
       "https://noembed.com",
       "https://api.microlink.io",
-      "https://*.workers.dev"
+      "https://*.workers.dev",
+      "https://upload.uploadcare.com",
+      "https://ucarecdn.com",
+      "https://*.ucarecdn.com"
     ],
     "upgrade-insecure-requests": []
   },

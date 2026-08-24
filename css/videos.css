@@ -366,6 +366,12 @@
   font-weight: 600;
 }
 
+.video-sync-uploadcare {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+
 .video-sync-hint code {
   font-family: var(--font-mono);
   font-size: 0.8em;

@@ -35,3 +35,10 @@ test('video-preview-sync supports merge and BIOAI1 payload', () => {
   assert.match(syncSrc, /BIOAI1:/);
   assert.match(syncSrc, /initPage/);
 });
+
+test('video-preview-sync supports Uploadcare upload and CDN pull', () => {
+  assert.match(syncSrc, /upload\.uploadcare\.com\/base\//);
+  assert.match(syncSrc, /ucarecdn\.com/);
+  assert.match(syncSrc, /uploadToUploadcare/);
+  assert.match(syncSrc, /pullFromUploadcare/);
+});

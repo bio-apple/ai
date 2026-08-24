@@ -10,7 +10,8 @@
     "base_url": "https://bio-apple.github.io/ai/"
   },
   "video_preview_sync": {
-    "api_url": ""
+    "api_url": "",
+    "uploadcare_public_key": ""
   },
   "nav": {
     "logo": {

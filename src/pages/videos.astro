@@ -8,14 +8,19 @@ import { homeHref } from '../lib/paths';
 const base = site.meta.base_url;
 const title = '视频链接预览';
 const lead = '粘贴 YouTube / B站 视频或频道链接，在本浏览器生成本地封面卡片；可设置同步码跨设备合并。';
+const syncCfg = (site as {
+  video_preview_sync?: { api_url?: string; uploadcare_public_key?: string };
+}).video_preview_sync;
 const syncApi =
   (typeof process !== 'undefined' && process.env.VIDEO_SYNC_API_URL?.replace(/\/$/, '')) ||
-  (site as { video_preview_sync?: { api_url?: string } }).video_preview_sync?.api_url?.replace(
-    /\/$/,
-    '',
-  ) ||
+  syncCfg?.api_url?.replace(/\/$/, '') ||
+  '';
+const uploadcarePublicKey =
+  (typeof process !== 'undefined' && process.env.UPLOADCARE_PUBLIC_KEY?.trim()) ||
+  syncCfg?.uploadcare_public_key?.trim() ||
   '';
 const cloudSyncEnabled = Boolean(syncApi);
+const uploadcareEnabled = Boolean(uploadcarePublicKey);
 const canonical = `${base}videos.html`;
 const schema = buildPageSchema(title, lead, canonical, [
   { name: '首页', url: base },
@@ -66,14 +71,20 @@ const schema = buildPageSchema(title, lead, canonical, [
       </form>
       <p class="video-preview-hint" id="video-preview-hint">
         {
-          cloudSyncEnabled ? (
+          uploadcareEnabled ? (
+            <>
+              链接保存在<strong>本浏览器</strong>。可用 <strong>Uploadcare</strong> 上传备份，换设备粘贴 CDN
+              链接即可合并。
+            </>
+          ) : cloudSyncEnabled ? (
             <>
               链接保存在<strong>本浏览器</strong>，并会<strong>自动同步到云端</strong>（需设置同步码）。
               换设备时输入相同同步码即可拉取。
             </>
           ) : (
             <>
-              链接保存在<strong>本浏览器</strong>。展开「跨设备同步」可导出备份；配置云端 API 后将自动上传。
+              链接保存在<strong>本浏览器</strong>。展开「跨设备同步」可用导出/同步文本；配置 Uploadcare
+              Public Key 后可上传云端备份。
             </>
           )
         }
@@ -81,24 +92,58 @@ const schema = buildPageSchema(title, lead, canonical, [
       <script
         type="application/json"
         id="video-sync-config"
-        set:html={JSON.stringify({ api_url: syncApi })}
+        set:html={JSON.stringify({
+          api_url: syncApi,
+          uploadcare_public_key: uploadcarePublicKey,
+        })}
       />
-      <details class="video-sync-panel" id="video-sync-panel">
+      <details class="video-sync-panel" id="video-sync-panel" open={uploadcareEnabled || undefined}>
         <summary class="video-sync-summary">跨设备同步</summary>
         <div class="video-sync-body">
+          {
+            uploadcareEnabled && (
+              <div class="video-sync-uploadcare" id="video-sync-uploadcare">
+                <p class="video-sync-hint video-sync-hint--on">
+                  Uploadcare 已就绪：点「上传到 Uploadcare」生成云端备份链接，在另一台设备粘贴后点「从链接拉取」。
+                </p>
+                <div class="video-sync-actions">
+                  <button type="button" class="cta-btn" id="video-sync-uc-upload">
+                    上传到 Uploadcare
+                  </button>
+                  <button type="button" class="video-sync-btn" id="video-sync-uc-copy">
+                    复制备份链接
+                  </button>
+                </div>
+                <label class="video-sync-label" for="video-sync-uc-url">备份链接 / UUID</label>
+                <input
+                  type="url"
+                  id="video-sync-uc-url"
+                  class="video-sync-key-input"
+                  placeholder="https://ucarecdn.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+                <div class="video-sync-actions">
+                  <button type="button" class="cta-btn cta-btn-outline" id="video-sync-uc-pull">
+                    从链接拉取并合并
+                  </button>
+                </div>
+              </div>
+            )
+          }
           <p class="video-sync-hint" data-sync-cloud-hint hidden>
-            站点尚未配置云端 API。仓库管理员在 GitHub 添加 <code>CLOUDFLARE_API_TOKEN</code>{' '}
-            后，推送 main 将自动部署同步服务。目前请用导出/同步文本。
+            未配置 Uploadcare / Cloudflare。可在 GitHub Variables 添加{' '}
+            <code>UPLOADCARE_PUBLIC_KEY</code>，或用下方导出/同步文本。
           </p>
           {
             cloudSyncEnabled && (
               <p class="video-sync-hint video-sync-hint--on">
-                云端同步已开启。首次添加链接会自动生成同步码，请在其他设备输入<strong>相同同步码</strong>。
+                Worker 同步已开启。首次添加链接会自动生成同步码，请在其他设备输入<strong>相同同步码</strong>。
               </p>
             )
           }
           <p class="video-sync-hint">
-            同步码请自行保管（相当于密码），不要分享给不信任的人。
+            同步码 / 备份链接请自行保管，不要分享给不信任的人。
           </p>
           <div class="video-sync-row">
             <label class="video-sync-label" for="video-sync-key">同步码</label>
