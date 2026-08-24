@@ -138,27 +138,31 @@ const schema = buildPageSchema(title, lead, canonical, [
           {
             cloudSyncEnabled && (
               <p class="video-sync-hint video-sync-hint--on">
-                Worker 同步已开启。首次添加链接会自动生成同步码，请在其他设备输入<strong>相同同步码</strong>。
+                Worker 同步已开启。设备 A 点「复制分享链接」发给设备 B，对方<strong>打开链接即可直接看</strong>
+                ，不用手输同步码。
               </p>
             )
           }
           <p class="video-sync-hint">
-            同步码 / 备份链接请自行保管，不要分享给不信任的人。
+            分享链接含同步凭证，勿公开转发。打开一次后本机会记住，下次直接进视频页即可。
           </p>
           <div class="video-sync-row">
-            <label class="video-sync-label" for="video-sync-key">同步码</label>
+            <label class="video-sync-label" for="video-sync-key">同步码（可选手输）</label>
             <input
               type="text"
               id="video-sync-key"
               class="video-sync-key-input"
-              placeholder="至少 8 位，如 my-ai-videos"
+              placeholder="至少 8 位，或点下方复制分享链接"
               autocomplete="off"
               spellcheck="false"
             />
             <button type="button" class="cta-btn cta-btn-outline" id="video-sync-generate"
               >生成</button
             >
-            <button type="button" class="cta-btn" id="video-sync-save-key">保存并同步</button>
+            <button type="button" class="cta-btn" id="video-sync-copy-share">复制分享链接</button>
+            <button type="button" class="cta-btn cta-btn-outline" id="video-sync-save-key"
+              >保存并同步</button
+            >
           </div>
           <p class="video-sync-status" id="video-sync-status" role="status" aria-live="polite"></p>
           <div class="video-sync-actions">
