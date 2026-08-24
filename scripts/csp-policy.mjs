@@ -7,18 +7,53 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CONFIG_PATH = path.join(ROOT, 'config', 'csp.json');
 
+function videoSyncConnectOrigins() {
+  const origins = new Set();
+  const raw = process.env.VIDEO_SYNC_API_URL?.trim() || '';
+  if (raw) {
+    try {
+      origins.add(new URL(raw.replace(/\/$/, '')).origin);
+    } catch {
+      /* ignore */
+    }
+  }
+  if (!origins.size) {
+    try {
+      const site = JSON.parse(
+        fs.readFileSync(path.join(ROOT, 'data', 'site.json'), 'utf8'),
+      );
+      const api = site?.video_preview_sync?.api_url?.trim();
+      if (api) origins.add(new URL(api.replace(/\/$/, '')).origin);
+    } catch {
+      /* ignore */
+    }
+  }
+  for (const origin of [...origins]) {
+    try {
+      const host = new URL(origin).hostname;
+      const nested = host.match(/^[^.]+\.([^.]+)\.workers\.dev$/i);
+      if (nested) origins.add(`https://*.${nested[1]}.workers.dev`);
+    } catch {
+      /* ignore */
+    }
+  }
+  return [...origins];
+}
+
 /** @param {{ forMeta?: boolean }} [opts] */
 export function buildCspPolicy(opts = {}) {
   const cfg = JSON.parse(fs.readFileSync(CONFIG_PATH, 'utf8'));
   const omit = new Set(opts.forMeta ? cfg.metaOmit || [] : []);
+  const extraConnect = videoSyncConnectOrigins();
   const parts = [];
   for (const [name, sources] of Object.entries(cfg.directives || {})) {
     if (omit.has(name)) continue;
-    if (!sources?.length) {
+    const list = name === 'connect-src' ? [...(sources || []), ...extraConnect] : sources;
+    if (!list?.length) {
       parts.push(name);
       continue;
     }
-    parts.push(`${name} ${sources.join(' ')}`);
+    parts.push(`${name} ${list.join(' ')}`);
   }
   return parts.join('; ');
 }
