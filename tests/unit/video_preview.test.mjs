@@ -37,13 +37,6 @@ test('video-preview-sync supports merge and BIOAI1 payload', () => {
   assert.match(syncSrc, /bootPage/);
 });
 
-test('video-preview-sync supports Uploadcare upload and CDN pull', () => {
-  assert.match(syncSrc, /upload\.uploadcare\.com\/base\//);
-  assert.match(syncSrc, /ucarecdn\.com/);
-  assert.match(syncSrc, /uploadToUploadcare/);
-  assert.match(syncSrc, /pullFromUploadcare/);
-});
-
 test('video-preview-sync supports share URL join without typing code', () => {
   assert.match(syncSrc, /buildShareUrl/);
   assert.match(syncSrc, /tryJoinFromShareUrl/);

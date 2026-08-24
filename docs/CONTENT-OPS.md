@@ -28,7 +28,7 @@ flowchart TB
 
   subgraph pipeline["上线链路"]
     GIT["commit → main"]
-    DEPLOY["deploy.yml"]
+    DEPLOY["pages.yml"]
     LIVE["bio-apple.github.io/ai/"]
   end
 
@@ -42,24 +42,26 @@ flowchart TB
 | **站点配置**  | `data/site.json`            | 运营/开发               | push `main` → 自动构建部署       |
 | **工具教程**  | `data/tools.json`           | 运营/开发               | 同上                             |
 | **实战案例**  | `content/local-deploy/*.md` | 运营/开发               | 手工文稿，生成 `local/{id}.html` |
-| **动态频道**  | `ai-news.json` 等           | GitHub Actions 定时抓取 | 脚本 commit → 触发 `deploy.yml`  |
+| **动态频道**  | `ai-news.json` 等           | GitHub Actions 定时抓取 | 脚本 commit → 触发 `pages.yml`   |
 | **搜索/推荐** | `search-index.json`         | 构建时自动生成          | `npm run build` 时产出           |
 
 ---
 
 ## 2. 定时任务一览（北京时间）
 
-| 工作流                                                                                    | Cron（北京）                      | 说明                                          |
-| ----------------------------------------------------------------------------------------- | --------------------------------- | --------------------------------------------- |
-| [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml) 等 | 北京 00:00–03:00 分频道           | 视频 / 新闻 / 课程 / 排行独立日更并派发 Pages |
-| [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)        | **07:30 / 10:00 / 12:00 / 20:00** | 新闻热点多档刷新并派发 Deploy                 |
-| [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)      | 每日 **08:00 / 20:00**            | 线上 JSON 新鲜度探针（不改数据）              |
-| `daily-videos.yml` / `daily-courses.yml` / `daily-rankings.yml` / `daily-link-check.yml`  | 无 cron（仅手动）                 | 单频道救急重跑                                |
+| 工作流                                                                                           | Cron（北京）     | 说明                                                      |
+| ------------------------------------------------------------------------------------------------ | ---------------- | --------------------------------------------------------- |
+| [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)               | **01:00** · 手动 | 新闻抓取 → push → 派发 `pages.yml`                        |
+| [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)         | **02:00** · 手动 | 课程抓取                                                  |
+| [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)                 | **02:00** · 手动 | 开源精选加热                                              |
+| [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)       | **03:00** · 手动 | 排行榜                                                    |
+| [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)           | **仅手动**       | 首页日更视频 Tab（`videos.html` 已改用户粘贴 + 云端同步） |
+| [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)             | 定时             | 线上 JSON 新鲜度探针                                      |
+| [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) | 定时             | lychee 外链（软告警）                                     |
 
-> `daily-refresh` 在 **00:00** 串行编排（不含新闻）：上一频道抓取并本地 commit 完成后，才开始下一频道。  
 > **搜索索引**在每次 `npm run build`（prebuild）由 `build-artifacts.mjs` 重新生成，无需单独抓取。
 
-所有抓取工作流均支持 **Actions → Run workflow** 手动触发。数据有变更时会 **显式** `workflow_dispatch` 触发 [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)（`GITHUB_TOKEN` push **不会**自动连锁触发其它 workflow）。
+所有抓取工作流均支持 **Actions → Run workflow** 手动触发。数据有变更时会 **显式** `workflow_dispatch` 触发 [pages.yml](https://github.com/bio-apple/ai/actions/workflows/pages.yml)（`GITHUB_TOKEN` push **不会**自动连锁触发其它 workflow）。
 
 ---
 
@@ -69,14 +71,14 @@ flowchart TB
 | --------------- | ------------------------------------------------------------------------------------- | ------------------------------------------ |
 | **数据 / 后端** | 分频道日更（视频/新闻/课程/排行）；频道失败 → job hard-fail                           | `daily-*.yml`                              |
 | **前端工程**    | 提交前 `prettier --write` 日更 JSON，避免 Deploy Prettier 门禁卡死次日数据            | 各频道 Commit 步骤                         |
-| **DevOps**      | push 后 **带重试** 派发 `deploy.yml`；rebase 防非快进丢提交                           | Push + Trigger Pages deploy                |
+| **DevOps**      | push 后 **带重试** 派发 `pages.yml`；rebase 防非快进丢提交                            | Push + Trigger Pages deploy                |
 | **QA / 探针**   | 北京 08:00 / 20:00 查线上 videos/news/courses 新鲜度 ≤2 天                            | `site-health.yml` + `check_site_health.py` |
 | **内容 / SEO**  | lychee 外链日检为**软告警**（不阻断已 push 的数据上线）；Issues 关闭时写 Step Summary | Report 步骤 + artifact                     |
 
 **标准链路（不可省略派发）：**
 
 ```
-抓取 → Prettier → commit → rebase/push main → workflow_dispatch(deploy.yml)×重试 → Pages → site-health
+抓取 → Prettier → commit → rebase/push main → workflow_dispatch(pages.yml)×重试 → Pages → site-health
 ```
 
 ---
@@ -89,14 +91,14 @@ sequenceDiagram
   participant Script as fetch_*.py
   participant Fmt as Prettier
   participant Git as main 分支
-  participant Deploy as deploy.yml
+  participant Deploy as pages.yml
   participant CDN as GitHub Pages
 
   Cron->>Script: 串行执行抓取
   Script->>Script: 读 config/*.yaml
   Script->>Fmt: 写 JSON 后格式化
   Fmt->>Git: Actions commit + rebase/push
-  Git->>Deploy: 显式派发 deploy.yml（非 push 连锁）
+  Git->>Deploy: 显式派发 pages.yml（非 push 连锁）
   Deploy->>Deploy: format:check → build → validate
   Deploy->>CDN: deploy-pages
 ```
@@ -114,12 +116,12 @@ sequenceDiagram
 
 ### 4.1 课程资源 — `fetch_ai_courses.py`
 
-| 项           | 说明                                                           |
-| ------------ | -------------------------------------------------------------- |
-| **配置文件** | `config/courses-fetch.yaml`                                    |
-| **产出**     | `ai-courses.json`（仓库根目录）                                |
-| **频率**     | 每日 00:00 串行队列（`daily-refresh.yml` 第 2 步）；可手动单跑 |
-| **依赖**     | `pyyaml`；可选 `GITHUB_TOKEN`（YouTube/GitHub 元数据）         |
+| 项           | 说明                                                                 |
+| ------------ | -------------------------------------------------------------------- |
+| **配置文件** | `config/courses-fetch.yaml`                                          |
+| **产出**     | `ai-courses.json`（仓库根目录）                                      |
+| **频率**     | 仅手动（`daily-videos.yml`）；首页 Tab 用，非 `videos.html` 用户列表 |
+| **依赖**     | `pyyaml`；可选 `GITHUB_TOKEN`（YouTube/GitHub 元数据）               |
 
 **运行机制：**
 
@@ -212,7 +214,7 @@ DIST=dist python3 scripts/validate_ci.py news
 | ------------ | ------------------------------------------------------------------------------------------------- |
 | **配置文件** | `config/video-fetch.yaml`                                                                         |
 | **产出**     | `daily-videos.json`、`video-thumbs/bilibili/`                                                     |
-| **频率**     | 每日 00:00 串行队列（`daily-refresh.yml` 第 1 步）；可手动单跑                                    |
+| **频率**     | 每日 01:00 cron · 可手动单跑                                                                      |
 | **依赖**     | `yt-dlp`（需 Node.js 作 JS runtime）、`pyyaml`；**推荐** `YOUTUBE_API_KEY`（YouTube Data API v3） |
 
 **运行机制：**
@@ -328,7 +330,7 @@ DIST=dist python3 scripts/validate_ci.py
 
 # 3. 提交
 git add data/ && git commit -m "content: 更新 xxx" && git push
-# push main 后 deploy.yml 自动部署
+# push main 后 pages.yml 自动部署
 ```
 
 ---
@@ -385,10 +387,10 @@ CI 仍会通过 `report_fetch_metrics.py` 告警，但**不会因单次 API 抖�
 | 机制                        | 说明                                                                      |
 | --------------------------- | ------------------------------------------------------------------------- |
 | **validate_ci.py**          | Schema、去重、必收录、OG/JSON-LD、搜索索引、内部链接等                    |
-| **gitleaks**                | CI Lint 前密钥历史扫描（与 `validate_ci secrets` 双重）                   |
+| **scan:secrets**            | CI 密钥扫描（`validate_ci.py secrets`）                                   |
 | **report_fetch_metrics.py** | 视频/新闻抓取后写 GitHub Step Summary；视频严重不足开 Issue               |
 | **site-health.yml**         | 探针检查视频/新闻/课程 JSON 是否在 2 天内更新                             |
-| **daily-refresh.yml**       | 00:00 串行日更（不含新闻）+ lychee（软）；**频道失败**开 `[ops]` Issue    |
+| **weekly-link-check.yml**   | 周度 lychee 外链（软告警）                                                |
 | **daily-news.yml**          | 07:30/10:00/12:00/20:00 新闻热点；失败开 `[ops] Daily news fetch failed`  |
 | **失败 Issue**              | 各定时工作流失败时尽量开/更新 `[ops]` Issue；Issues 关闭则写 Step Summary |
 | **内容漏斗**                | 前端 `funnel.js` 埋点；详见 [FRONTEND.md](./FRONTEND.md) §6               |
@@ -402,15 +404,15 @@ CI 仍会通过 `report_fetch_metrics.py` 告警，但**不会因单次 API 抖�
 
 ## 8. 常见问题
 
-| 症状                           | 原因                        | 处理                                                                          |
-| ------------------------------ | --------------------------- | ----------------------------------------------------------------------------- |
-| Tab 有数据但线上没有           | deploy 未跑或失败           | 查 [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) |
-| 本地有数据线上空               | 未 push 或未 build          | `git push` + 等 deploy                                                        |
-| 课程必收录缺失                 | 源站 URL 变更               | 更新 `courses-fetch.yaml` → `required`                                        |
-| YouTube 视频类为空             | CI 环境 yt-dlp 限制         | 配置 `YOUTUBE_API_KEY`；`force=true` 重试；B站有货仍会更新                    |
-| 改了分桶/门槛云端不变          | 今日批次已存在被跳过        | Actions → Daily Videos → **`force=true`**（见 §4.3）                          |
-| Daily Videos 抓取成功但 job 红 | push 与 main 撞车（非快进） | workflow 已加 `git pull --rebase`；再跑一次 `force=true` 即可落库             |
-| Site Health 假失败             | 探针脚本语法错误等          | 查 `scripts/check_site_health.py`；本地 `npm run health:live` 复现            |
+| 症状                           | 原因                        | 处理                                                                        |
+| ------------------------------ | --------------------------- | --------------------------------------------------------------------------- |
+| Tab 有数据但线上没有           | deploy 未跑或失败           | 查 [pages.yml](https://github.com/bio-apple/ai/actions/workflows/pages.yml) |
+| 本地有数据线上空               | 未 push 或未 build          | `git push` + 等 deploy                                                      |
+| 课程必收录缺失                 | 源站 URL 变更               | 更新 `courses-fetch.yaml` → `required`                                      |
+| YouTube 视频类为空             | CI 环境 yt-dlp 限制         | 配置 `YOUTUBE_API_KEY`；`force=true` 重试；B站有货仍会更新                  |
+| 改了分桶/门槛云端不变          | 今日批次已存在被跳过        | Actions → Daily Videos → **`force=true`**（见 §4.3）                        |
+| Daily Videos 抓取成功但 job 红 | push 与 main 撞车（非快进） | workflow 已加 `git pull --rebase`；再跑一次 `force=true` 即可落库           |
+| Site Health 假失败             | 探针脚本语法错误等          | 查 `scripts/check_site_health.py`；本地 `npm run health:live` 复现          |
 
 ---
 
@@ -418,9 +420,9 @@ CI 仍会通过 `report_fetch_metrics.py` 告警，但**不会因单次 API 抖�
 
 ### 9.1 告警怎么处理
 
-1. **首页 / JSON 404** → 查 [CI](https://github.com/bio-apple/ai/actions/workflows/ci.yml) / [Deploy](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) → 本地 `npm run build && DIST=dist python3 scripts/validate_ci.py` → 重部署
+1. **首页 / JSON 404** → 查 [CI](https://github.com/bio-apple/ai/actions/workflows/ci.yml) / [Deploy](https://github.com/bio-apple/ai/actions/workflows/pages.yml) → 本地 `npm run build && DIST=dist python3 scripts/validate_ci.py` → 重部署
 2. **多频道过期 / 串行日更失败** → 分别重跑 [daily-videos](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml) / [daily-news](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml) / [daily-courses](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml) / [daily-rankings](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)。死链见 weekly-link-check
-3. **仓库已更新但线上仍昨日** → 确认 `deploy.yml` 是否被派发成功（`GITHUB_TOKEN` push **不会**自动触发 Deploy）→ 手动 Run [deploy.yml](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)
+3. **仓库已更新但线上仍昨日** → 确认 `pages.yml` 是否被派发成功（`GITHUB_TOKEN` push **不会**自动触发 Deploy）→ 手动 Run [pages.yml](https://github.com/bio-apple/ai/actions/workflows/pages.yml)
 4. **视频仍显示昨日** → 确认 `main` 上 `daily-videos.json` 的 `batches[0].date`；仅视频坏 → [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)（`force=true`）
    - YouTube 全空：配置 **`YOUTUBE_API_KEY`** 后重跑
 5. **新闻过期** → [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)（定时北京 **07:30 / 10:00 / 12:00 / 20:00**；可手动 Run）
@@ -431,10 +433,10 @@ CI 仍会通过 `report_fetch_metrics.py` 告警，但**不会因单次 API 抖�
 
 ### 9.2 死链：用户侧 vs 日检
 
-| 层级         | 机制                           | 说明                                                       |
-| ------------ | ------------------------------ | ---------------------------------------------------------- |
-| **用户侧**   | `lib/link-guard.js`            | 点击 GitHub 仓库前探测 API；404 弹窗，避免盲跳             |
-| **运维日检** | lychee（`daily-refresh` 末步） | 扫描 `dist` HTML 与 JSON 外链；失败为**软告警** + artifact |
+| 层级         | 机制                              | 说明                                           |
+| ------------ | --------------------------------- | ---------------------------------------------- |
+| **用户侧**   | `lib/link-guard.js`               | 点击 GitHub 仓库前探测 API；404 弹窗，避免盲跳 |
+| **运维日检** | lychee（`weekly-link-check.yml`） | 扫描外链；失败为**软告警** + artifact          |
 
 ### 9.3 课程资源专项
 

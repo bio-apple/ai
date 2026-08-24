@@ -61,6 +61,16 @@ Schema 源文件：`schemas/*.json`（JSON Schema Draft 2020-12）
 | `footer`               | `object` | ✅   | 页脚文案                                       |
 | `recommend_fallback`   | `object` | ✅   | 推荐无匹配时的兜底                             |
 | `tools_hub_page`       | `object` | ✅   | 工具中心页 TDK                                 |
+| `video_preview_sync`   | `object` | —    | 视频页 Cloudflare 同步（见 §2.4）              |
+
+### 2.4 `video_preview_sync`
+
+| 字段         | 类型           | 说明                                                      |
+| ------------ | -------------- | --------------------------------------------------------- |
+| `api_url`    | `string` (URL) | Cloudflare Worker 根 URL；CI 由 `VIDEO_SYNC_API_URL` 覆盖 |
+| `shared_key` | `string`       | 共享 sync 码（默认 `bioai-videos`）；全站读写同一 KV 空间 |
+
+构建时写入 `#video-sync-config` JSON；前端见 `lib/video-preview-sync.js`。
 
 ### 2.2 `meta`
 

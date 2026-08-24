@@ -59,7 +59,6 @@ jobs:
           CLARITY_PROJECT_ID: ${{ secrets.CLARITY_PROJECT_ID }}
           VIDEO_SYNC_API_URL: ${{ needs.video-sync-api.outputs.api_url || vars.VIDEO_SYNC_API_URL || '' }}
           VIDEO_SYNC_SHARED_KEY: ${{ vars.VIDEO_SYNC_SHARED_KEY || 'bioai-videos' }}
-          UPLOADCARE_PUBLIC_KEY: ${{ vars.UPLOADCARE_PUBLIC_KEY || secrets.UPLOADCARE_PUBLIC_KEY || '' }}
         run: ASTRO_TELEMETRY_DISABLED=1 npm ci && npm run build
 
       - name: Check dist artifacts

@@ -1,88 +1,71 @@
 # CI/CD 与一键部署
 
-本项目为纯前端静态站点，采用 **GitHub Actions** 在代码合并至 `main` 后自动构建并部署至 [GitHub Pages](https://bio-apple.github.io/ai/)。
+纯前端静态站，**GitHub Actions** 在 push `main` 后构建并部署至 [GitHub Pages](https://bio-apple.github.io/ai/)。
 
 ## 部署流程
 
 ```mermaid
 flowchart LR
-  A[本地开发] --> B[合并至 main]
-  B --> C[deploy.yml]
-  C --> D[Lint & Format]
-  D --> E[Build]
-  E --> F[Deploy]
+  A[本地开发] --> B[push main]
+  B --> C[pages.yml]
+  C --> D[video-sync Worker]
+  D --> E[Build dist]
+  E --> F[Deploy Pages]
   F --> G[bio-apple.github.io/ai/]
 ```
 
-1. **本地开发**：`npm run build` 生成 `dist/`（不提交）。
-2. **合并 `main`**：push 或合并 PR 后自动触发 [`.github/workflows/deploy.yml`](../.github/workflows/deploy.yml)。
-3. **Lint & Format**：Prettier + ESLint。
-4. **Build**：`prebuild` → Astro SSG → `dist/`，并运行 `validate_ci.py`（含 `secrets` / Schema / `opengraph` / `jsonld` / `search` / 内部链接等）。
-5. **Deploy**：上传构建制品，由 `actions/deploy-pages` 发布至 GitHub Pages 环境。
+1. **本地**：`npm run build` → `dist/`（不提交）。
+2. **push `main`**：触发 [`.github/workflows/pages.yml`](../.github/workflows/pages.yml)。
+3. **video-sync-api job**：部署 Cloudflare Worker + KV（需 Secrets，见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)）。
+4. **build job**：prebuild → Astro SSG → `validate_ci.py`。
+5. **deploy job**：`actions/deploy-pages` 发布制品。
 
-> **密钥扫描**：`ci.yml` / `deploy.yml` 在 Lint 前另跑 **gitleaks**（`.gitleaks.toml`），与 `validate_ci.py secrets` 双重拦截。
-
-> **说明**：本站使用 GitHub 官方 **Actions 制品部署**（`upload-pages-artifact` + `deploy-pages`），**不维护**独立的 `gh-pages` 分支。产物仅存在于 Actions 制品与 Pages CDN，与 `main` 源码分离。
+并行运行 [`.github/workflows/ci.yml`](../.github/workflows/ci.yml)（PR/push 质量门禁：Prettier、单元测试、E2E）。
 
 ## 工作流一览
 
-| 工作流                                                                             | 触发                                      | 作用                                                  |
-| ---------------------------------------------------------------------------------- | ----------------------------------------- | ----------------------------------------------------- |
-| [`deploy.yml`](../.github/workflows/deploy.yml)                                    | push `main` · 手动                        | **一键部署**：Lint → Build → Deploy Pages             |
-| [`ci.yml`](../.github/workflows/ci.yml)                                            | push/PR `main` · 手动                     | **质量门禁**：Lint → 构建 → 单元测试 → 全量校验 → E2E |
-| `daily-videos.yml` / `daily-news.yml` / `daily-courses.yml` / `daily-rankings.yml` | 北京 00:00–03:00 分频道                   | 抓取 → push → **显式派发** `pages.yml`                |
-| `daily-news.yml`                                                                   | **07:30 / 10:00 / 12:00 / 20:00**（北京） | 新闻热点多档刷新 → Prettier → push → 派发 Deploy      |
-| `daily-*.yml`（其它单频道）                                                        | 仅手动                                    | 救急重跑某一频道（同样 Prettier + 派发 Deploy）       |
-| `site-health.yml`                                                                  | 定时                                      | 线上探针（videos/news/courses 新鲜度）                |
-| `deploy-cloudflare.yml`                                                            | push `main`                               | 可选 Cloudflare Pages 镜像（需 Secrets）              |
+| 工作流                                        | 触发                   | 作用                                                   |
+| --------------------------------------------- | ---------------------- | ------------------------------------------------------ |
+| [`pages.yml`](../.github/workflows/pages.yml) | push `main` · 手动     | Worker 部署 + 构建 + Pages 发布                        |
+| [`ci.yml`](../.github/workflows/ci.yml)       | push/PR `main`         | Lint / 单元测试 / E2E                                  |
+| `daily-news.yml`                              | 每日 01:00 北京 · 手动 | 新闻抓取 → push → 派发 `pages.yml`                     |
+| `daily-courses.yml`                           | 每日 02:00 北京 · 手动 | 课程抓取                                               |
+| `daily-oss.yml`                               | 每日 02:00 北京 · 手动 | 开源精选加热                                           |
+| `daily-rankings.yml`                          | 每日 03:00 北京 · 手动 | 排行榜                                                 |
+| `daily-videos.yml`                            | **仅手动**             | 日更视频榜（首页 Tab；`videos.html` 已改用户粘贴预览） |
+| `site-health.yml`                             | 定时                   | 线上新鲜度探针                                         |
+| `weekly-link-check.yml`                       | 定时                   | lychee 外链（软告警）                                  |
 
-push `main` 时 **`ci.yml` 与 `deploy.yml` 并行**：
-
-- `ci.yml`：更重的测试（单元 + Playwright E2E），PR 也会运行。
-- `deploy.yml`：精简路径，校验通过后尽快上线。
-
-## 本地一键构建（部署前自检）
+## 本地自检
 
 ```bash
 npm ci && pip install -r requirements.txt
 cp .env.local.example .env.local   # 可选
-npm run quality                    # Prettier + ESLint
-npm run scan:secrets               # 与 CI 对齐的密钥扫描
-npm run build                      # prebuild → Astro → dist/
+npm run quality
+npm run scan:secrets
+npm run build
 DIST=dist python3 scripts/validate_ci.py
-# 常用分步：jsonld | opengraph | search | links | courses | news
-npm run test:unit && npm run test:e2e   # 与 CI 对齐
+npm run test:unit && npm run test:e2e
 ```
 
-通过后再 push `main`，Actions 将自动完成线上部署。
+## 构建变量（GitHub Actions）
 
-**Dead Link（可选本地）**：`npm run build && lychee --config .lychee.toml './dist/**/*.html' './data/**/*.json'`（与 `daily-refresh.yml` 末步一致）。
-
-## 手动重新部署
-
-无需改代码时，可在 GitHub **Actions → Deploy → Run workflow** 手动触发 `deploy.yml`。
-
-定时内容：`daily-videos`（UTC 16:00）、`daily-news`（UTC 17:00）、`daily-courses`（UTC 18:00）、`daily-rankings`（UTC 19:00）。有数据变更时均 **显式** 派发 `pages.yml`。勿依赖 `GITHUB_TOKEN` push 自动触发 Deploy。
-
-## 构建 Secrets（可选）
-
-部署构建阶段可注入分析统计 ID（**非 LLM API Key**），配置于 GitHub Repository Secrets：
-
-- `GA_MEASUREMENT_ID` · `CLARITY_PROJECT_ID`
-- `UMAMI_SCRIPT_URL` · `UMAMI_WEBSITE_ID`
-- `CLOUDFLARE_BEACON_TOKEN`
-
-本地开发同名变量写入 `.env.local`（见 [SECURITY.md](./SECURITY.md)）。
+| 类型     | 名称                                          | 用途                                        |
+| -------- | --------------------------------------------- | ------------------------------------------- |
+| Secret   | `CLOUDFLARE_API_TOKEN` / `CLOUDFLARE_API_KEY` | 部署 video-sync Worker                      |
+| Secret   | `CLOUDFLARE_ACCOUNT_ID`                       | Cloudflare 账户                             |
+| Variable | `VIDEO_SYNC_API_URL`                          | Worker URL 备用                             |
+| Variable | `VIDEO_SYNC_SHARED_KEY`                       | 视频列表共享 sync 码（默认 `bioai-videos`） |
+| Secret   | `GA_MEASUREMENT_ID` · `CLARITY_PROJECT_ID`    | 分析（可选）                                |
 
 ## 故障排查
 
-部署失败或线上 404 → 查看 [Deploy 工作流](https://github.com/bio-apple/ai/actions/workflows/deploy.yml) 与 [CI 工作流](https://github.com/bio-apple/ai/actions/workflows/ci.yml)，本地复现 `npm run build && DIST=dist python3 scripts/validate_ci.py`。详见 [CONTENT-OPS.md](./CONTENT-OPS.md) §9。
-
-日更告警 → 各 `daily-*.yml` Issue；死链 → [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml)（软）+ 本地 lychee。
+- 部署失败 → [pages.yml 日志](https://github.com/bio-apple/ai/actions/workflows/pages.yml)
+- 视频云端同步失败 → 查 Worker 是否部署、CSP 是否放行 Worker 域名（见 [SECURITY.md](./SECURITY.md)）
+- 内容未更新 → 抓取 workflow 是否 push 成功并派发 `pages.yml`
 
 ## 相关文档
 
-- [SETUP.md](./SETUP.md) — 本地环境
-- [SECURITY.md](./SECURITY.md) — CSP / gitleaks
-- [FRONTEND.md](./FRONTEND.md) — 前端能力
-- [SEO.md](./SEO.md) — OG / JSON-LD
+- [CONTENT-OPS.md](./CONTENT-OPS.md) — 日更抓取与救急
+- [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md) — 视频预览云端同步
+- [SECURITY.md](./SECURITY.md) — CSP 与密钥规范

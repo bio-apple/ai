@@ -229,6 +229,28 @@ CSP：`config/csp.json` → `connect-src` 含 `https://api.github.com`。
 
 ---
 
+## 15. 用户视频预览页（`videos.html`）
+
+与首页 `#section-videos` 日更 Tab **独立**：用户粘贴 YouTube / B站 / 频道链接，生成可编辑卡片。
+
+| 层级   | 文件                        | 职责                                                   |
+| ------ | --------------------------- | ------------------------------------------------------ |
+| 页面   | `src/pages/videos.astro`    | 表单、提示、构建注入 `#video-sync-config`              |
+| 交互   | `videos.js`                 | 保存 / 编辑 / 删除；oEmbed；调用 Worker `/meta` 取封面 |
+| 本机   | `lib/video-preview.js`      | `localStorage` 列表 · 卡片 HTML                        |
+| 云端   | `lib/video-preview-sync.js` | KV push/pull · 共享 sync 码 · `bootPage()`             |
+| Worker | `workers/video-sync/`       | `GET/PUT /{syncKey}` · `GET /meta?url=`                |
+
+**跨设备**：默认共享 sync 码 `bioai-videos`（`data/site.json` + `VIDEO_SYNC_SHARED_KEY`）。任意设备打开 `videos.html` 自动拉取云端列表。
+
+**封面**：Worker `/meta` 解析 og:image / YouTube 频道 avatar / RSS 缩略图（已弃 thum.io）。失败时卡片显示「暂无封面」。
+
+**首页简报**：`home-video-preview.js` 读取同一份 `localStorage`，展示最近 4 条。
+
+详见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)。
+
+---
+
 ## 相关文档
 
 - [SEO.md](./SEO.md) — TDK / OG / JSON-LD

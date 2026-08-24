@@ -5,16 +5,17 @@
 
 ## 文档导航
 
-| 文档                                           | 用途                              |
-| ---------------------------------------------- | --------------------------------- |
-| [docs/SETUP.md](./docs/SETUP.md)               | 环境搭建、三种预览模式、排错      |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构、构建流水线、数据流      |
-| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)     | JSON 字段、Schema、交叉引用       |
-| [docs/FRONTEND.md](./docs/FRONTEND.md)         | 搜索 / 推荐 / 虚拟列表 / 漏斗埋点 |
-| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)   | 内容运营、日更抓取、故障救急      |
-| [docs/CI-CD.md](./docs/CI-CD.md)               | CI/CD、Deploy、Secrets            |
-| [docs/SEO.md](./docs/SEO.md)                   | TDK / OG / JSON-LD                |
-| [docs/SECURITY.md](./docs/SECURITY.md)         | CSP、gitleaks、API Key 规范       |
+| 文档                                                 | 用途                              |
+| ---------------------------------------------------- | --------------------------------- |
+| [docs/SETUP.md](./docs/SETUP.md)                     | 环境搭建、三种预览模式、排错      |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构、构建流水线、数据流      |
+| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)           | JSON 字段、Schema、交叉引用       |
+| [docs/FRONTEND.md](./docs/FRONTEND.md)               | 搜索 / 推荐 / 虚拟列表 / 漏斗埋点 |
+| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)         | 内容运营、日更抓取、故障救急      |
+| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频链接 Cloudflare 云端同步      |
+| [docs/CI-CD.md](./docs/CI-CD.md)                     | CI/CD、Deploy、Secrets            |
+| [docs/SEO.md](./docs/SEO.md)                         | TDK / OG / JSON-LD                |
+| [docs/SECURITY.md](./docs/SECURITY.md)               | CSP、密钥扫描、API Key 规范       |
 
 ## 快速命令
 
@@ -53,21 +54,22 @@ dist/                 # 构建产物（不提交）
 
 ## 常见改动
 
-| 目标          | 改哪里                                                                                             |
-| ------------- | -------------------------------------------------------------------------------------------------- |
-| 导航 / 文案   | `data/site.json`                                                                                   |
-| 新工具教程    | `data/tools.json` + `site.home_tool_categories` + `tool-relations.json`                            |
-| 工具中心排行  | `data/rankings.json`；展示条数 `src/lib/hub.ts` → `HUB_RANKING_TOP_N`                              |
-| 对比专题      | `data/compares.json`（独立页，非工具中心 hub）                                                     |
-| 推荐现实实例  | `site.ai_picker.options[].examples`                                                                |
-| 开源精选入口  | `data/site.json` → `oss_frameworks`（`#section-oss`，多类别按 stars 排序）                         |
-| 实战案例文稿  | `content/local-deploy/*.md` → `local/{id}.html`                                                    |
-| 必学课程      | `config/courses-fetch.yaml` → `required` / `hubs`；更新 `validate_ci.py` 中 `REQUIRED_COURSE_URLS` |
-| 课程路线      | `track_order` / `track_keywords` → 重跑 `fetch_ai_courses.py`                                      |
-| AI 领域地图   | `HomeAiMap.astro` / `css/home.css`（`#home-ai-map`）                                               |
-| 新闻 / 视频源 | `config/news-fetch.yaml` / `config/video-fetch.yaml`                                               |
+| 目标            | 改哪里                                                                                                                            |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 导航 / 文案     | `data/site.json`                                                                                                                  |
+| 新工具教程      | `data/tools.json` + `site.home_tool_categories` + `tool-relations.json`                                                           |
+| 工具中心排行    | `data/rankings.json`；展示条数 `src/lib/hub.ts` → `HUB_RANKING_TOP_N`                                                             |
+| 对比专题        | `data/compares.json`（独立页，非工具中心 hub）                                                                                    |
+| 推荐现实实例    | `site.ai_picker.options[].examples`                                                                                               |
+| 开源精选入口    | `data/site.json` → `oss_frameworks`（`#section-oss`，多类别按 stars 排序）                                                        |
+| 实战案例文稿    | `content/local-deploy/*.md` → `local/{id}.html`                                                                                   |
+| 必学课程        | `config/courses-fetch.yaml` → `required` / `hubs`；更新 `validate_ci.py` 中 `REQUIRED_COURSE_URLS`                                |
+| 课程路线        | `track_order` / `track_keywords` → 重跑 `fetch_ai_courses.py`                                                                     |
+| AI 领域地图     | `HomeAiMap.astro` / `css/home.css`（`#home-ai-map`）                                                                              |
+| 视频链接 / 云端 | `videos.js` · `lib/video-preview*.js` · `data/site.json` → `video_preview_sync` · [CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) |
+| 新闻 / 视频源   | `config/news-fetch.yaml` / `config/video-fetch.yaml`（首页日更 Tab，非 videos.html）                                              |
 
 站内链接统一用 `src/lib/paths.ts` 的 `asset()`（base `/ai/`）。  
 视频运行时只读 `daily-videos.latest.json`（`build-artifacts.mjs` 瘦身）；`knowledge.js` / Tab 业务脚本均为懒加载。
 
-推送 `main` → Actions 自动 Lint / Build / Deploy。日更与救急见 [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)。
+推送 `main` → `pages.yml` 部署 Worker + Pages；`ci.yml` 跑测试。日更见 [CONTENT-OPS.md](./docs/CONTENT-OPS.md)。

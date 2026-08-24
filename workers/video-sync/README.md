@@ -1,51 +1,54 @@
-# 视频预览跨设备同步 Worker
+# 视频预览 Cloudflare Worker
 
-为静态站提供按**同步码**读写预览列表的 KV API（无账号体系，同步码即密钥）。
+为静态站提供：
 
-## 自动部署（推荐）
+1. **KV 同步 API** — 按 sync 码读写用户视频链接 JSON
+2. **页面 meta API** — 抓取 og:image / YouTube 频道封面（供 `videos.js` 生成卡片缩略图）
 
-在 GitHub 仓库 **Settings → Secrets and variables → Actions** 添加：
+## 自动部署
 
-| 名称 | 类型 | 说明 |
-|------|------|------|
-| `CLOUDFLARE_API_TOKEN` 或 `CLOUDFLARE_API_KEY` | Secret | Cloudflare API Token（Workers + KV 编辑权限） |
-| `CLOUDFLARE_ACCOUNT_ID` | Secret | Cloudflare 账户 ID（必填） |
-| `CLOUDFLARE_ACCOUNT_SUBDOMAIN` | Variable | 可选，账户子域（用于日志回退 URL） |
-| `CLOUDFLARE_KV_NAMESPACE_ID` | Variable | 可选，已有 KV 时填入，否则 CI 自动创建 |
+GitHub **Settings → Secrets and variables → Actions**：
 
-推送 `main` 后，`Deploy GitHub Pages` 工作流会：
+| 名称                                           | 类型     | 说明                                |
+| ---------------------------------------------- | -------- | ----------------------------------- |
+| `CLOUDFLARE_API_TOKEN` 或 `CLOUDFLARE_API_KEY` | Secret   | Workers + KV 编辑权限               |
+| `CLOUDFLARE_ACCOUNT_ID`                        | Secret   | 必填                                |
+| `CLOUDFLARE_ACCOUNT_SUBDOMAIN`                 | Variable | 可选                                |
+| `CLOUDFLARE_KV_NAMESPACE_ID`                   | Variable | 可选，否则 CI 自动创建              |
+| `VIDEO_SYNC_SHARED_KEY`                        | Variable | 共享 sync 码（默认 `bioai-videos`） |
 
-1. 部署本 Worker 到 `*.workers.dev`
-2. 将 Worker URL 注入构建环境 `VIDEO_SYNC_API_URL`
-3. 视频页自动启用云端同步（用户只需记同步码）
+push `main` → `pages.yml` 的 `video-sync-api` job 部署 Worker，并将 `VIDEO_SYNC_API_URL` 注入 Astro 构建。
 
-也可手动设置 Variable `VIDEO_SYNC_API_URL` 为已部署的 Worker 地址。
+## API
+
+| 方法  | 路径                     | 说明                                             |
+| ----- | ------------------------ | ------------------------------------------------ |
+| `GET` | `/{syncKey}`             | 返回 JSON 数组（预览列表）                       |
+| `PUT` | `/{syncKey}`             | body 为 JSON 数组，覆盖保存                      |
+| `GET` | `/meta?url={encodedUrl}` | 返回 `{ title, author, thumbnail, description }` |
+
+`syncKey`：8–48 位 `[A-Za-z0-9_-]`。
+
+## 用户侧（当前产品）
+
+站点默认 **共享 sync 码** `bioai-videos`：
+
+1. 任意设备打开 [videos.html](https://bio-apple.github.io/ai/videos.html) → 自动从云端拉取
+2. 粘贴链接 → 保存 → 自动 push 到 KV
+3. 封面由 `/meta` 抓取（YouTube 频道头像 / RSS 最新视频缩略图等）
+
+未配置共享码时，可用 `?sync=` 恢复链接（见 [CLOUDFLARE-SYNC.md](../../docs/CLOUDFLARE-SYNC.md)）。
 
 ## 本地手动部署
 
 ```bash
 cd workers/video-sync
 npx wrangler kv namespace create SYNC_KV
-# 将返回的 id 填入 wrangler.toml
+# 将 id 写入 wrangler.toml 后：
 npx wrangler deploy
 ```
 
-## API
+## 安全
 
-| 方法 | 路径 | 说明 |
-|------|------|------|
-| `GET` | `/{syncKey}` | 返回 JSON 数组 |
-| `PUT` | `/{syncKey}` | body 为 JSON 数组，覆盖保存 |
-
-`syncKey`：8–48 位 `[A-Za-z0-9_-]`。
-
-## 用户侧流程
-
-1. 云端开启后，**首次添加链接**会自动生成同步码并上传
-2. 其他设备打开视频页 → 输入**相同同步码** →「保存并同步」
-3. 之后增删链接会自动合并到云端
-
-## 安全说明
-
-- 同步码相当于密码，知道码的人可读写该列表。
-- 不要与陌生人分享同步码。
+- sync 码即密钥；共享码模式下所有访问者读写同一份列表（适合个人台账，不适合私密数据）。
+- Token 仅存 GitHub Secrets，勿提交仓库。

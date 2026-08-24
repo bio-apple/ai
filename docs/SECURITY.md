@@ -33,6 +33,8 @@ cp .env.local.example .env.local
 | `CLOUDFLARE_BEACON_TOKEN` / `PUBLIC_CLOUDFLARE_BEACON_TOKEN` | Cloudflare Web Analytics                                   |
 | `GITHUB_TOKEN` / `GH_TOKEN`                                  | 本地抓取脚本提高 GitHub API 限额                           |
 | `YOUTUBE_API_KEY` / `YOUTUBE_DATA_API_V3` / `GOOGLE_API_KEY` | 每日视频抓取：YouTube Data API v3 详情（规避 yt-dlp 反爬） |
+| `VIDEO_SYNC_API_URL`                                         | 本地构建：Cloudflare Worker URL（视频云端同步）            |
+| `VIDEO_SYNC_SHARED_KEY`                                      | 本地构建：共享 sync 码（默认 `bioai-videos`）              |
 | `YTDLP_COOKIES_FILE`                                         | 本地可选：yt-dlp Netscape cookies 文件路径                 |
 | `YTDLP_COOKIES_B64`（仅 CI Secret）                          | 可选：base64 编码的 cookies，供 Actions 写入临时文件       |
 
@@ -94,30 +96,25 @@ cp .env.local.example .env.local
 
 修改 CSP 时只编辑 `config/csp.json`，然后 `node scripts/csp-policy.mjs` 或 `npm run build` 同步 `_headers`。
 
-**与 link-guard 相关的 `connect-src`**：除分析域名外，须保留 `https://api.github.com`（仓库存活探测）。勿随意删除。
+**与 link-guard / 视频同步相关的 `connect-src`**：
 
-## 7. CI 密钥扫描（双重）
+- `https://api.github.com` — GitHub 仓库存活探测
+- `https://*.workers.dev` + 构建时注入的 Worker origin — Cloudflare 视频 KV 与 `/meta`（单层 `*` 不匹配 `xxx.account.workers.dev`，见 `scripts/csp-policy.mjs`）
+- `https://noembed.com` · `https://api.microlink.io` — 视频 oEmbed / 页面封面
 
-每次 `push` / `pull_request` 在 **Lint 之前**执行两道扫描，阻断密钥进入仓库：
+## 7. CI 密钥扫描
 
-| 工具            | 命令 / 配置                                      | 作用                                                                             |
-| --------------- | ------------------------------------------------ | -------------------------------------------------------------------------------- |
-| **validate_ci** | `python3 scripts/validate_ci.py secrets`         | 自定义正则：OpenAI `sk-`、Anthropic、Google `AIza…`、私钥块、`.env.local` 误提交 |
-| **gitleaks**    | `.gitleaks.toml` + `gitleaks/gitleaks-action@v2` | 业界规则库 + git 历史深度扫描                                                    |
-
-本地自检：
+`push` / `pull_request` 前运行：
 
 ```bash
-npm run scan:secrets
-# 若已安装 gitleaks CLI：gitleaks detect --source . --config .gitleaks.toml
+npm run scan:secrets   # validate_ci.py secrets
 ```
 
 ## 相关文件
 
-- `.gitignore` — 忽略 `.env.local`、`.env*.local`
-- `.env.local.example` — 本地变量模板（可提交）
+- `.gitignore` — 忽略 `.env.local`
+- `.env.local.example` — 本地变量模板（含 `VIDEO_SYNC_*`）
 - `config/csp.json` — CSP 单一事实来源
-- `.gitleaks.toml` — gitleaks 允许列表
 - `lib/link-guard.js` — 外链 / 图片 / GitHub 404 兜底
 - `scripts/validate_ci.py` — CI 密钥扫描与产物校验
 - `_headers` — Cloudflare 安全响应头（含 CSP）与静态资源缓存

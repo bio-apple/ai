@@ -8,7 +8,7 @@ import { homeHref } from '../lib/paths';
 const base = site.meta.base_url;
 const title = '我的视频链接';
 const syncCfg = (site as {
-  video_preview_sync?: { api_url?: string; uploadcare_public_key?: string; shared_key?: string };
+  video_preview_sync?: { api_url?: string; shared_key?: string };
 }).video_preview_sync;
 const syncApi =
   (typeof process !== 'undefined' && process.env.VIDEO_SYNC_API_URL?.replace(/\/$/, '')) ||

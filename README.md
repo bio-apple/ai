@@ -4,7 +4,7 @@
 
 [![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
 [![Stars](https://img.shields.io/github/stars/bio-apple/ai?style=flat-square&logo=github)](https://github.com/bio-apple/ai/stargazers)
-[![Deploy](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/deploy.yml?branch=main&style=flat-square&label=Deploy)](https://github.com/bio-apple/ai/actions/workflows/deploy.yml)
+[![Deploy](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/pages.yml?branch=main&style=flat-square&label=Deploy)](https://github.com/bio-apple/ai/actions/workflows/pages.yml)
 [![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions/workflows/ci.yml)
 [![Last commit](https://img.shields.io/github/last-commit/bio-apple/ai?style=flat-square)](https://github.com/bio-apple/ai/commits/main)
 [![Node](https://img.shields.io/badge/Node-22.x-339933?style=flat-square&logo=nodedotjs&logoColor=white)](./.nvmrc)
@@ -21,17 +21,18 @@
 
 ## 文档
 
-| 文档                                           | 说明                               |
-| ---------------------------------------------- | ---------------------------------- |
-| [docs/SETUP.md](./docs/SETUP.md)               | 环境搭建与本地预览                 |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构                           |
-| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)     | 数据模型                           |
-| [docs/FRONTEND.md](./docs/FRONTEND.md)         | 前端能力（搜索 / 推荐 / 漏斗埋点） |
-| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)   | 内容运营、日更抓取与故障救急       |
-| [DEVELOPER.md](./DEVELOPER.md)                 | 开发速查与常见改动                 |
-| [docs/SEO.md](./docs/SEO.md)                   | TDK / OG / JSON-LD                 |
-| [docs/SECURITY.md](./docs/SECURITY.md)         | 安全与 CSP                         |
-| [docs/CI-CD.md](./docs/CI-CD.md)               | CI/CD 与部署                       |
+| 文档                                                 | 说明                               |
+| ---------------------------------------------------- | ---------------------------------- |
+| [docs/SETUP.md](./docs/SETUP.md)                     | 环境搭建与本地预览                 |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构                           |
+| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)           | 数据模型                           |
+| [docs/FRONTEND.md](./docs/FRONTEND.md)               | 前端能力（搜索 / 推荐 / 漏斗埋点） |
+| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)         | 内容运营、日更抓取与故障救急       |
+| [DEVELOPER.md](./DEVELOPER.md)                       | 开发速查与常见改动                 |
+| [docs/SEO.md](./docs/SEO.md)                         | TDK / OG / JSON-LD                 |
+| [docs/SECURITY.md](./docs/SECURITY.md)               | 安全与 CSP                         |
+| [docs/CI-CD.md](./docs/CI-CD.md)                     | CI/CD 与部署                       |
+| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频链接 Cloudflare 云端同步       |
 
 ## 快速开始
 
@@ -70,7 +71,7 @@ python3 scripts/fetch_daily_videos.py
 | 开源精选   | 独立页 | `oss.html` · 日更加热：Agent / MCP / Coding Agent / Harness / Skills / Memory（每方向 Top 3） |
 | 课程资源   | 独立页 | `courses.html` · 免费 AI 课程                                                                 |
 | 新闻热点   | 独立页 | `news/daily-ai-news.html` · 当前时刻往前 7×24 小时（日更）                                    |
-| AI 视频    | 独立页 | `videos.html` · 粘贴 YouTube/B站链接，本机生成封面预览卡片                                     |
+| AI 视频    | 独立页 | `videos.html` · 粘贴链接保存；Cloudflare KV 跨设备同步；Worker `/meta` 生成封面               |
 
 独立页：学习路线图 · 零基础/进阶指南 · 工具排行榜 · 新闻归档页 · 对比专题 · 实战案例详情（`local/*.html`）
 
@@ -109,23 +110,23 @@ python3 scripts/fetch_daily_videos.py
 
 ## 改内容
 
-| 想改什么     | 改哪里                                                                                    |
-| ------------ | ----------------------------------------------------------------------------------------- |
-| 文案 / 导航  | `data/site.json`                                                                          |
-| 工具 / 关系  | `data/tools.json` · `data/tool-relations.json`                                            |
-| 对比专题     | `data/compares.json`（独立 `compare/*.html` 页）                                          |
-| 推荐现实实例 | `site.json` → `ai_picker.options[].examples`                                              |
-| 排行榜       | `data/rankings.json`（或 `fetch_rankings.py`；日更 `daily-rankings.yml`）                 |
-| 热度基准     | `data/engagement.json`                                                                    |
-| 开源精选     | `config/oss-fetch.yaml` → `fetch_oss_heating.py` → `data/oss-projects.json` / `site.json` |
-| 实战案例     | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`）                              |
-| 课程资源     | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                                  |
-| 新闻源       | `config/news-fetch.yaml`                                                                  |
-| 视频源       | `config/video-fetch.yaml`                                                                 |
+| 想改什么            | 改哪里                                                                                                          |
+| ------------------- | --------------------------------------------------------------------------------------------------------------- |
+| 文案 / 导航         | `data/site.json`                                                                                                |
+| 工具 / 关系         | `data/tools.json` · `data/tool-relations.json`                                                                  |
+| 对比专题            | `data/compares.json`（独立 `compare/*.html` 页）                                                                |
+| 推荐现实实例        | `site.json` → `ai_picker.options[].examples`                                                                    |
+| 排行榜              | `data/rankings.json`（或 `fetch_rankings.py`；日更 `daily-rankings.yml`）                                       |
+| 热度基准            | `data/engagement.json`                                                                                          |
+| 开源精选            | `config/oss-fetch.yaml` → `fetch_oss_heating.py` → `data/oss-projects.json` / `site.json`                       |
+| 实战案例            | 文稿 `content/local-deploy/*.md`（详情页 `local/{id}.html`）                                                    |
+| 课程资源            | `config/courses-fetch.yaml` → 运行 `fetch_ai_courses.py`                                                        |
+| 新闻源              | `config/news-fetch.yaml`                                                                                        |
+| 视频链接 / 云端同步 | `videos.js` · `lib/video-preview*.js` · `workers/video-sync/` · [CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) |
 
-推送 `main` → Actions：质量检查 → 构建校验 → 部署 GitHub Pages。
+推送 `main` → Actions：`pages.yml` 部署 Worker + Pages；`ci.yml` 质量门禁。
 
-**工程实践**：`lib/fetch-json.js` / `virtual-list.js` / `link-guard.js` · 视频 slim JSON · 资源 `?v=` 哈希 · CI（Schema / OG / JSON-LD / 搜索 / gitleaks）· 日更末步 lychee 死链（软告警）。
+**工程实践**：`lib/fetch-json.js` / `virtual-list.js` / `link-guard.js` · 资源 `?v=` 哈希 · CI（Schema / OG / JSON-LD / `scan:secrets`）· 周度 lychee 死链（软告警）。
 
 ## License
 
