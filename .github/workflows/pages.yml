@@ -17,7 +17,7 @@ concurrency:
 jobs:
   video-sync-api:
     runs-on: ubuntu-latest
-    if: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+    # 勿用 secrets 做 if（GitHub 会恒为假）；无 Token 时脚本自行跳过
     outputs:
       api_url: ${{ steps.deploy.outputs.api_url }}
     steps:
