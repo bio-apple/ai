@@ -1,5 +1,6 @@
 # AI 新闻抓取配置（scripts/fetch_ai_news.py）
-# 产品定义：从抓取时刻往前 7×24 小时的 AI 热点；每天更新（.github/workflows/daily-news.yml）
+# 产品定义：从抓取时刻往前 7×24 小时的 AI 热点
+# 定时：.github/workflows/daily-news.yml（北京 01:00 / 12:00）
 
 max_items: 48
 max_per_feed: 5
@@ -31,12 +32,20 @@ feeds:
   - source: Microsoft AI
     url: https://www.microsoft.com/en-us/research/feed/
     category: 行业新闻
+  - source: Hugging Face
+    url: https://huggingface.co/blog/feed.xml
+    category: 开源项目
+    max_items: 4
   - source: arXiv cs.AI
     url: https://arxiv.org/rss/cs.AI
     category: 学术论文
   - source: 量子位
     url: https://www.qbitai.com/feed
     category: 中文资讯
+  - source: 机器之心
+    url: https://www.jiqizhixin.com/rss
+    category: 中文资讯
+    max_items: 4
   - source: 智源社区
     type: nuxt_hub
     url: https://hub.baai.ac.cn/
@@ -47,8 +56,8 @@ github_trending:
   enabled: true
   source: GitHub Trending
   category: 开源项目
-  per_page: 6
-  query: "topic:artificial-intelligence stars:>500"
+  per_page: 8
+  query: "topic:artificial-intelligence OR OpenHands OR AutoGPT stars:>500"
   sort: stars
 
 # 官方公告与 X 账号（无稳定 RSS 或作为补充关注）
@@ -74,6 +83,12 @@ watch_sources:
   - name: Hugging Face
     blog: https://huggingface.co/blog
     x: https://x.com/huggingface
+  - name: OpenHands
+    blog: https://www.all-hands.dev/blog
+    x: https://x.com/AllHands_AI
+  - name: AutoGPT
+    blog: https://agpt.co/blog
+    x: https://x.com/Auto_GPT
   - name: 机器之心
     blog: https://www.jiqizhixin.com/
     x: https://x.com/SyncedTech
@@ -89,7 +104,7 @@ watch_sources:
 
 category_keywords:
   新工具上线: "(launch|release|introducing|available now|上线|发布)"
-  开源项目: "(open[- ]source|github|hugging\\s*face|repository|开源|arxiv|trending)"
+  开源项目: "(open[- ]source|github|hugging\\s*face|repository|开源|arxiv|trending|openhands|autogpt)"
   新模型发布: "(model|gpt|claude|gemini|llm|推理|大模型)"
   行业新闻: "(partnership|acquisition|policy|regulation|融资|合作)"
   学术论文: "(arxiv|paper|preprint|论文)"

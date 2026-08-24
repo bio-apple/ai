@@ -1,5 +1,5 @@
 # 开源精选：收集近期升温的 AI 开源（非纯 Star 榜）
-# 数据源：GitHub Trending HTML + GitHub Search API
+# 数据源：GitHub Trending HTML + GitHub Search API + 优先仓库
 # 每天更新；每个方向最多 top3
 
 max_per_direction: 3
@@ -7,6 +7,13 @@ summary_max_length: 120
 min_stars: 10000
 exclude_archived: true
 exclude_forks: true
+
+# 优先关注仓库：强制纳入候选（仍按方向 Top N 竞争）
+priority_repos:
+  - repo: All-Hands-AI/OpenHands
+    direction: coding_agent
+  - repo: Significant-Gravitas/AutoGPT
+    direction: agent
 
 # Trending 页面（真正的 github.com/trending）
 trending:
@@ -29,7 +36,8 @@ directions:
     search_queries:
       - "AI agent OR multi-agent OR autonomous agent language:Python"
       - "topic:ai-agents OR topic:llm-agent"
-    match: "(?i)\\b(multi[- ]?agent|ai[- ]?agent|agentic|autogen|crewai|langgraph|swarm)\\b"
+      - "AutoGPT OR Significant-Gravitas/AutoGPT OR \"autonomous GPT\""
+    match: "(?i)\\b(multi[- ]?agent|ai[- ]?agent|agentic|autogen|crewai|langgraph|swarm|autogpt)\\b"
 
   - id: mcp
     label: MCP
@@ -42,7 +50,7 @@ directions:
     label: Coding Agent
     search_queries:
       - "coding agent OR code agent OR software engineer agent OR SWE-agent"
-      - "\"openhands\" OR aider OR continue.dev OR \"claude code\" agent"
+      - "\"openhands\" OR All-Hands-AI/OpenHands OR aider OR continue.dev OR \"claude code\" agent"
     match: "(?i)\\b(coding[- ]?agent|code[- ]?agent|swe[- ]?agent|openhands|aider|continue\\b|devin|codex)\\b"
 
   - id: agent_harness

@@ -49,15 +49,15 @@ flowchart TB
 
 ## 2. 定时任务一览（北京时间）
 
-| 工作流                                                                                           | Cron（北京）     | 说明                                                      |
-| ------------------------------------------------------------------------------------------------ | ---------------- | --------------------------------------------------------- |
-| [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)               | **01:00** · 手动 | 新闻抓取 → push → 派发 `pages.yml`                        |
-| [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)         | **02:00** · 手动 | 课程抓取                                                  |
-| [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)                 | **02:00** · 手动 | 开源精选加热                                              |
-| [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)       | **03:00** · 手动 | 排行榜                                                    |
-| [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)           | **仅手动**       | 首页日更视频 Tab（`videos.html` 已改用户粘贴 + 云端同步） |
-| [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)             | 定时             | 线上 JSON 新鲜度探针                                      |
-| [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) | 定时             | lychee 外链（软告警）                                     |
+| 工作流                                                                                           | Cron（北京）             | 说明                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------ | --------------------------------------------------------- |
+| [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)               | **01:00 / 12:00** · 手动 | 新闻抓取（量子位 / 机器之心 / HF 等）→ 派发 `pages.yml`   |
+| [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)         | **02:00** · 手动         | 课程抓取                                                  |
+| [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)                 | **02:00** · 手动         | 开源精选加热                                              |
+| [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)       | **03:00** · 手动         | 排行榜                                                    |
+| [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)           | **仅手动**               | 首页日更视频 Tab（`videos.html` 已改用户粘贴 + 云端同步） |
+| [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)             | 定时                     | 线上 JSON 新鲜度探针                                      |
+| [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) | 定时                     | lychee 外链（软告警）                                     |
 
 > **搜索索引**在每次 `npm run build`（prebuild）由 `build-artifacts.mjs` 重新生成，无需单独抓取。
 

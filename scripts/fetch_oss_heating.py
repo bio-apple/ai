@@ -205,6 +205,25 @@ def collect_search(cfg: dict[str, Any], directions: list[dict[str, Any]]) -> lis
     return out
 
 
+def collect_priority_repos(cfg: dict[str, Any]) -> list[dict[str, Any]]:
+    """强制纳入配置的优先仓库（如 OpenHands / AutoGPT）。"""
+    out: list[dict[str, Any]] = []
+    for row in cfg.get("priority_repos") or []:
+        full = str(row.get("repo") or "").strip()
+        direction = str(row.get("direction") or "").strip()
+        if not full or "/" not in full:
+            continue
+        out.append(
+            {
+                "repo": {"full_name": full},
+                "direction_hint": direction or None,
+                "source": "priority",
+            }
+        )
+        print(f"priority [{direction or '-'}] {full}")
+    return out
+
+
 def hydrate_repo(full_name: str) -> dict[str, Any] | None:
     url = f"https://api.github.com/repos/{full_name}"
     raw = fetch_bytes(url, api=True)
@@ -291,6 +310,20 @@ def heat_score(
     return round(score, 2)
 
 
+def heat_score_with_priority(row: dict[str, Any], *, from_search: bool) -> float:
+    score = heat_score(
+        stars=int(row.get("stars") or 0),
+        created_at=row.get("created_at"),
+        pushed_at=row.get("pushed_at"),
+        trending_daily_rank=row.get("trending_daily_rank"),
+        trending_weekly_rank=row.get("trending_weekly_rank"),
+        from_search=from_search,
+    )
+    if "priority" in (row.get("sources") or set()):
+        score += 25.0
+    return round(score, 2)
+
+
 def merge_candidates(
     trending: list[dict[str, Any]],
     search_hits: list[dict[str, Any]],
@@ -336,19 +369,30 @@ def merge_candidates(
         if not full_name:
             continue
         row = ensure(full_name)
-        row["sources"].add("search")
+        src = hit.get("source") or "search"
+        row["sources"].add(src)
+        if hit.get("direction_hint") and not row["direction_hint"]:
+            row["direction_hint"] = hit["direction_hint"]
+        if src == "priority":
+            # 仅有 full_name，留给下方 hydrate
+            continue
         row["api"] = repo
         row["stars"] = int(repo.get("stargazers_count") or 0)
         row["description"] = strip_text(repo.get("description") or row["description"])
         row["topics"] = list(repo.get("topics") or [])
         row["created_at"] = parse_iso(repo.get("created_at"))
         row["pushed_at"] = parse_iso(repo.get("pushed_at"))
-        if hit.get("direction_hint") and not row["direction_hint"]:
-            row["direction_hint"] = hit["direction_hint"]
 
-    # hydrate trending-only repos missing API fields
+    # hydrate trending/priority repos missing API fields
     need_hydrate = [
-        row for row in bucket.values() if row["api"] is None and (row["trending_daily_rank"] or row["trending_weekly_rank"])
+        row
+        for row in bucket.values()
+        if row["api"] is None
+        and (
+            row["trending_daily_rank"]
+            or row["trending_weekly_rank"]
+            or "priority" in row["sources"]
+        )
     ]
     for i, row in enumerate(need_hydrate):
         api = hydrate_repo(row["full_name"])
@@ -371,7 +415,7 @@ def merge_candidates(
         if cfg.get("exclude_forks") and (row.get("api") or {}).get("fork"):
             continue
         stars = int(row.get("stars") or 0)
-        if stars < min_stars:
+        if stars < min_stars and "priority" not in row["sources"]:
             continue
         category = classify_direction(
             full_name=row["full_name"],
@@ -380,16 +424,11 @@ def merge_candidates(
             directions=directions,
             hint=row.get("direction_hint"),
         )
+        if not category and "priority" in row["sources"] and row.get("direction_hint"):
+            category = row["direction_hint"]
         if not category:
             continue
-        score = heat_score(
-            stars=stars,
-            created_at=row.get("created_at"),
-            pushed_at=row.get("pushed_at"),
-            trending_daily_rank=row.get("trending_daily_rank"),
-            trending_weekly_rank=row.get("trending_weekly_rank"),
-            from_search="search" in row["sources"],
-        )
+        score = heat_score_with_priority(row, from_search="search" in row["sources"])
         name = row["full_name"].split("/")[-1]
         api = row.get("api") or {}
         if api.get("name"):
@@ -453,7 +492,7 @@ def main() -> int:
         return 1
 
     trending = collect_trending(cfg)
-    search_hits = collect_search(cfg, directions)
+    search_hits = collect_search(cfg, directions) + collect_priority_repos(cfg)
     classified = merge_candidates(trending, search_hits, directions, cfg)
     max_n = int(cfg.get("max_per_direction", 3))
     picked = pick_top(classified, directions, max_n)
@@ -468,7 +507,7 @@ def main() -> int:
         "updated_at": now_cst().isoformat(),
         "window": {
             "max_per_direction": max_n,
-            "sources": ["github_trending", "github_search"],
+            "sources": ["github_trending", "github_search", "priority_repos"],
             "focus": [d["label"] for d in directions],
         },
         "items": picked,

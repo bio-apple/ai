@@ -4,6 +4,8 @@ on:
   schedule:
     # 北京时间 01:00
     - cron: "0 17 * * *"
+    # 北京时间 12:00
+    - cron: "0 4 * * *"
   workflow_dispatch:
 
 permissions:
