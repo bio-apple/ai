@@ -9,7 +9,7 @@
   const vp = window.BioAI?.videoPreview;
   if (!vp) return;
 
-  const { loadHistory, saveHistory, renderCard } = vp;
+  const { loadHistory, saveHistory, renderCard, updateItem } = vp;
 
   function setStatus(msg, isError) {
     if (!statusEl) return;
@@ -208,19 +208,46 @@
   function renderList(items) {
     if (!items.length) {
       list.innerHTML =
-        '<p class="daily-empty">还没有预览。粘贴视频或频道链接，点「生成预览」。</p>';
+        '<p class="daily-empty">还没有保存的链接。粘贴 YouTube / B站 地址后点「保存」。</p>';
       return;
     }
     list.innerHTML = `<div class="video-grid">${items.map(renderCard).join('')}</div>`;
+  }
+
+  function persistMessage(title) {
+    const cloud = Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.());
+    return cloud
+      ? `已永久保存到云端：${title}`
+      : `已保存在本浏览器：${title}（配置 Cloudflare 后可跨设备永久同步）`;
   }
 
   function removeUrl(url) {
     const next = loadHistory().filter((x) => x.url !== url);
     saveHistory(next);
     renderList(next);
-    setStatus(next.length ? '已删除该链接。' : '已清空全部预览。', false);
+    setStatus(next.length ? '已删除该链接。' : '已清空全部链接。', false);
     if (typeof trackEvent === 'function') {
       trackEvent('video_preview_remove', { funnel_step: 2 });
+    }
+  }
+
+  function editUrl(url) {
+    const items = loadHistory();
+    const item = items.find((x) => x.url === url);
+    if (!item) return;
+    const nextTitle = window.prompt('编辑显示标题', item.title || '');
+    if (nextTitle == null) return;
+    const title = String(nextTitle).trim();
+    if (!title) {
+      setStatus('标题不能为空。', true);
+      return;
+    }
+    const next = updateItem(url, { title, pending: false });
+    if (!next) return;
+    renderList(next);
+    setStatus(persistMessage(title), false);
+    if (typeof trackEvent === 'function') {
+      trackEvent('video_preview_edit', { funnel_step: 2 });
     }
   }
 
@@ -305,7 +332,7 @@
     let next = upsertHistory(draft);
     renderList(next);
     input.value = '';
-    setStatus('链接已保存在本浏览器；正在完善预览…', false);
+    setStatus('已写入本地；正在生成封面…', false);
     window.BioAI?.videoPreviewSync?.tryAutoEnsureSyncKey?.({
       onMerged: (items) => renderList(items),
     });
@@ -316,12 +343,7 @@
       item.pending = false;
       next = upsertHistory(item);
       renderList(next);
-      setStatus(
-        item.kind === 'channel' || item.kind === 'page'
-          ? `已保存并生成截图：${item.title}`
-          : `已保存预览：${item.title}`,
-        false,
-      );
+      setStatus(persistMessage(item.title), false);
       if (typeof trackEvent === 'function') {
         trackEvent('video_preview_submit', {
           platform: item.platform,
@@ -342,12 +364,20 @@
   });
 
   list.addEventListener('click', (e) => {
+    const editBtn = e.target.closest('[data-edit-url]');
+    if (editBtn && list.contains(editBtn)) {
+      e.preventDefault();
+      e.stopPropagation();
+      const url = editBtn.getAttribute('data-edit-url');
+      if (url) editUrl(url);
+      return;
+    }
     const btn = e.target.closest('[data-remove-url]');
     if (!btn || !list.contains(btn)) return;
     e.preventDefault();
     e.stopPropagation();
     const url = btn.getAttribute('data-remove-url');
-    if (url) removeUrl(url);
+    if (url && window.confirm('确定删除这条链接？')) removeUrl(url);
   });
 
   const params = new URLSearchParams(location.search);

@@ -6,8 +6,8 @@ import { buildPageSchema } from '../lib/schema';
 import { homeHref } from '../lib/paths';
 
 const base = site.meta.base_url;
-const title = '视频链接预览';
-const lead = '粘贴 YouTube / B站 视频或频道链接，在本浏览器生成本地封面卡片；可设置同步码跨设备合并。';
+const title = '我的视频链接';
+const lead = '粘贴 YouTube / B站 链接（含频道），保存封面卡片；可编辑标题、删除。配置 Cloudflare 后永久云端同步。';
 const syncCfg = (site as {
   video_preview_sync?: { api_url?: string; uploadcare_public_key?: string };
 }).video_preview_sync;
@@ -67,24 +67,19 @@ const schema = buildPageSchema(title, lead, canonical, [
           enterkeyhint="go"
           required
         />
-        <button type="submit" class="cta-btn" data-track="video-preview-submit">生成预览</button>
+        <button type="submit" class="cta-btn" data-track="video-preview-submit">保存</button>
       </form>
       <p class="video-preview-hint" id="video-preview-hint">
         {
-          uploadcareEnabled ? (
+          cloudSyncEnabled ? (
             <>
-              链接保存在<strong>本浏览器</strong>。可用 <strong>Uploadcare</strong> 上传备份，换设备粘贴 CDN
-              链接即可合并。
-            </>
-          ) : cloudSyncEnabled ? (
-            <>
-              链接保存在<strong>本浏览器</strong>，并会<strong>自动同步到云端</strong>（需设置同步码）。
-              换设备时输入相同同步码即可拉取。
+              粘贴链接点「保存」→ 本机 + <strong>云端永久保存</strong>。卡片可<strong>编辑标题</strong> /{' '}
+              <strong>删除</strong>。换设备：复制分享链接打开即可。
             </>
           ) : (
             <>
-              链接保存在<strong>本浏览器</strong>。展开「跨设备同步」可用导出/同步文本；配置 Uploadcare
-              Public Key 后可上传云端备份。
+              粘贴链接点「保存」→ 本机保存，可<strong>编辑</strong> / <strong>删除</strong>。
+              要跨设备永久保存：在 GitHub 配置 Cloudflare Secrets（见下方「跨设备同步」）。
             </>
           )
         }

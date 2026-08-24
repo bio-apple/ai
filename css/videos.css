@@ -192,6 +192,13 @@
   min-width: 0;
 }
 
+.video-preview-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 6px;
+}
+
+.video-preview-edit,
 .video-preview-remove {
   flex-shrink: 0;
   appearance: none;
@@ -205,6 +212,13 @@
   font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
+}
+
+.video-preview-edit:hover,
+.video-preview-edit:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+  outline: none;
 }
 
 .video-preview-remove:hover,
