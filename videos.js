@@ -316,9 +316,7 @@
 
     let cloudOk = false;
     try {
-      const cloud = await window.BioAI?.videoPreviewSync?.ensureCloudSaved?.({
-        onMerged: (items) => renderList(items),
-      });
+      const cloud = await window.BioAI?.videoPreviewSync?.ensureCloudSaved?.();
       cloudOk = Boolean(cloud?.ok);
     } catch {
       cloudOk = false;
