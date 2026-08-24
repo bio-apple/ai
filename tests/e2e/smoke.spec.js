@@ -152,7 +152,7 @@ test.describe('Bio AI Lab 关键路径', () => {
 
     await page.goto('videos.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('AI 视频');
-    await expect(page.locator('h1')).toContainText('视频链接预览');
+    await expect(page.locator('h1')).toContainText('我的视频链接');
     await expect(page.locator('#video-sync-panel')).toBeVisible();
     await expect(page.locator('#video-preview-form')).toBeVisible();
     await expect(page.locator('#video-url-input')).toBeVisible();
