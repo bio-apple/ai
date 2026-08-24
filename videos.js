@@ -214,11 +214,68 @@
     list.innerHTML = `<div class="video-grid">${items.map(renderCard).join('')}</div>`;
   }
 
-  function persistMessage(title) {
-    const cloud = Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.());
-    return cloud
-      ? `已永久保存到云端：${title}`
-      : `已保存在本浏览器：${title}（配置 Cloudflare 后可跨设备永久同步）`;
+  function persistMessage(title, cloudOk) {
+    if (cloudOk) return `已云端永久保存：${title}`;
+    const hasApi = Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.());
+    return hasApi
+      ? `已保存在本机：${title}（云端上传失败，请稍后重试）`
+      : `已保存在本浏览器：${title}`;
+  }
+
+  async function addUrl(raw) {
+    const url = normalizeUrl(raw);
+    if (!url) {
+      setStatus('请输入有效的 http(s) 链接。', true);
+      input.focus();
+      return;
+    }
+
+    const draft = draftItemFromUrl(url);
+    let next = upsertHistory(draft);
+    renderList(next);
+    input.value = '';
+    setStatus('正在保存到云端…', false);
+    form.querySelector('button[type="submit"]')?.setAttribute('disabled', '');
+
+    let cloudOk = false;
+    try {
+      const cloud = await window.BioAI?.videoPreviewSync?.ensureCloudSaved?.({
+        onMerged: (items) => renderList(items),
+      });
+      cloudOk = Boolean(cloud?.ok);
+    } catch {
+      cloudOk = false;
+    }
+
+    try {
+      const item = await resolvePreview(url);
+      item.pending = false;
+      next = upsertHistory(item);
+      renderList(next);
+      // 封面完善后再推一次，保证云端是完整卡片
+      try {
+        const again = await window.BioAI?.videoPreviewSync?.ensureCloudSaved?.();
+        if (again?.ok) cloudOk = true;
+      } catch {
+        /* keep prior cloudOk */
+      }
+      setStatus(persistMessage(item.title, cloudOk), !cloudOk && Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.()));
+      if (typeof trackEvent === 'function') {
+        trackEvent('video_preview_submit', {
+          platform: item.platform,
+          kind: item.kind,
+          cloud: cloudOk ? 1 : 0,
+          funnel_step: 2,
+        });
+      }
+    } catch (_err) {
+      setStatus(
+        cloudOk ? '已云端永久保存（封面未完成，可稍后刷新）。' : '链接已写入本机；云端或封面失败。',
+        !cloudOk,
+      );
+    } finally {
+      form.querySelector('button[type="submit"]')?.removeAttribute('disabled');
+    }
   }
 
   function removeUrl(url) {
@@ -226,12 +283,13 @@
     saveHistory(next);
     renderList(next);
     setStatus(next.length ? '已删除该链接。' : '已清空全部链接。', false);
+    window.BioAI?.videoPreviewSync?.ensureCloudSaved?.().catch(() => {});
     if (typeof trackEvent === 'function') {
       trackEvent('video_preview_remove', { funnel_step: 2 });
     }
   }
 
-  function editUrl(url) {
+  async function editUrl(url) {
     const items = loadHistory();
     const item = items.find((x) => x.url === url);
     if (!item) return;
@@ -245,7 +303,14 @@
     const next = updateItem(url, { title, pending: false });
     if (!next) return;
     renderList(next);
-    setStatus(persistMessage(title), false);
+    let cloudOk = false;
+    try {
+      const cloud = await window.BioAI?.videoPreviewSync?.ensureCloudSaved?.();
+      cloudOk = Boolean(cloud?.ok);
+    } catch {
+      /* ignore */
+    }
+    setStatus(persistMessage(title, cloudOk), !cloudOk && Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.()));
     if (typeof trackEvent === 'function') {
       trackEvent('video_preview_edit', { funnel_step: 2 });
     }
@@ -317,45 +382,6 @@
     const next = [item, ...prev].slice(0, vp.MAX_HISTORY);
     saveHistory(next);
     return next;
-  }
-
-  async function addUrl(raw) {
-    const url = normalizeUrl(raw);
-    if (!url) {
-      setStatus('请输入有效的 http(s) 链接。', true);
-      input.focus();
-      return;
-    }
-
-    // 先落盘再拉截图：刷新也不会丢链接
-    const draft = draftItemFromUrl(url);
-    let next = upsertHistory(draft);
-    renderList(next);
-    input.value = '';
-    setStatus('已写入本地；正在生成封面…', false);
-    window.BioAI?.videoPreviewSync?.tryAutoEnsureSyncKey?.({
-      onMerged: (items) => renderList(items),
-    });
-    form.querySelector('button[type="submit"]')?.setAttribute('disabled', '');
-
-    try {
-      const item = await resolvePreview(url);
-      item.pending = false;
-      next = upsertHistory(item);
-      renderList(next);
-      setStatus(persistMessage(item.title), false);
-      if (typeof trackEvent === 'function') {
-        trackEvent('video_preview_submit', {
-          platform: item.platform,
-          kind: item.kind,
-          funnel_step: 2,
-        });
-      }
-    } catch (_err) {
-      setStatus('链接已保存；预览信息不完整，可稍后刷新重试。', true);
-    } finally {
-      form.querySelector('button[type="submit"]')?.removeAttribute('disabled');
-    }
   }
 
   form.addEventListener('submit', (e) => {

@@ -48,3 +48,8 @@ test('video-preview-sync supports share URL join without typing code', () => {
   assert.match(syncSrc, /tryJoinFromShareUrl/);
   assert.match(syncSrc, /searchParams\.set\('sync'/);
 });
+
+test('video-preview-sync ensureCloudSaved pushes on save', () => {
+  assert.match(syncSrc, /ensureCloudSaved/);
+  assert.match(syncSrc, /pushToCloud/);
+});

@@ -73,13 +73,11 @@ const schema = buildPageSchema(title, lead, canonical, [
         {
           cloudSyncEnabled ? (
             <>
-              粘贴链接点「保存」→ 本机 + <strong>云端永久保存</strong>。卡片可<strong>编辑标题</strong> /{' '}
-              <strong>删除</strong>。换设备：复制分享链接打开即可。
+              粘贴链接点「保存」→ <strong>云端永久保存</strong>。可编辑标题 / 删除。换设备用「复制分享链接」。
             </>
           ) : (
             <>
-              粘贴链接点「保存」→ 本机保存，可<strong>编辑</strong> / <strong>删除</strong>。
-              要跨设备永久保存：在 GitHub 配置 Cloudflare Secrets（见下方「跨设备同步」）。
+              粘贴链接点「保存」→ 本机保存。配置 Cloudflare 后即可云端永久保存。
             </>
           )
         }
