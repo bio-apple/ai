@@ -140,9 +140,21 @@
     return `https://i.ytimg.com/vi/${encodeURIComponent(id)}/hqdefault.jpg`;
   }
 
-  /** 第三方页面截图（频道 / 非视频页）；img 直链，无需 CORS */
-  function pageScreenshot(url) {
-    return `https://image.thum.io/get/width/1280/crop/800/noanimate/${encodeURIComponent(url)}`;
+  /** 经 Cloudflare Worker 抓取 og:image / 频道封面（替代已失效的 thum.io 免费截图） */
+  async function fetchPreviewMeta(url) {
+    const api = window.BioAI?.videoPreviewSync?.getApiUrl?.();
+    if (!api) return null;
+    try {
+      const res = await fetch(`${api}/meta?${new URLSearchParams({ url })}`, {
+        credentials: 'omit',
+      });
+      if (!res.ok) return null;
+      const data = await res.json();
+      if (!data || data.error) return null;
+      return data;
+    } catch {
+      return null;
+    }
   }
 
   async function fetchMicrolink(url) {
@@ -224,22 +236,29 @@
       }
       if (!thumbnail && yt) thumbnail = youtubeThumb(yt);
     } else {
-      // 频道 / 普通网页：YouTube 频道直接用 thum.io 截图；其它站点可尝试 Microlink
-      if (kind === 'channel' || platform === 'youtube') {
-        thumbnail = pageScreenshot(url);
-      } else {
+      try {
+        const meta = await fetchPreviewMeta(url);
+        if (meta) {
+          if (meta.title) title = meta.title;
+          if (meta.author) author = meta.author;
+          if (meta.thumbnail) thumbnail = meta.thumbnail;
+          if (meta.description) description = meta.description;
+        }
+      } catch {
+        /* ignore */
+      }
+      if (!thumbnail && kind !== 'channel' && platform !== 'youtube') {
         try {
-          const meta = await fetchMicrolink(url);
-          if (meta) {
-            if (meta.title) title = meta.title;
-            if (meta.author) author = meta.author;
-            if (meta.thumbnail) thumbnail = meta.thumbnail;
-            if (meta.description) description = meta.description;
+          const micro = await fetchMicrolink(url);
+          if (micro) {
+            if (micro.title) title = micro.title;
+            if (micro.author) author = micro.author;
+            if (micro.thumbnail) thumbnail = micro.thumbnail;
+            if (micro.description) description = micro.description;
           }
         } catch {
           /* ignore */
         }
-        if (!thumbnail) thumbnail = pageScreenshot(url);
       }
     }
 
@@ -405,7 +424,7 @@
         url,
         title: channel.handle ? `YouTube 频道 ${channel.handle}` : `YouTube 频道 ${id}`,
         author: '',
-        thumbnail: pageScreenshot(url),
+        thumbnail: '',
         description: '',
         platform: 'youtube',
         kind: 'channel',
@@ -432,7 +451,7 @@
       url,
       title: url,
       author: '',
-      thumbnail: pageScreenshot(url),
+      thumbnail: '',
       description: '',
       platform: 'web',
       kind: 'page',
@@ -448,6 +467,19 @@
     saveHistory(next);
     return next;
   }
+
+  list.addEventListener(
+    'error',
+    (e) => {
+      const img = e.target;
+      if (!img?.matches?.('.video-thumb-img')) return;
+      const span = document.createElement('span');
+      span.className = 'video-thumb-empty';
+      span.textContent = '暂无封面';
+      img.replaceWith(span);
+    },
+    true,
+  );
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();

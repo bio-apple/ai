@@ -21,8 +21,9 @@ test('user-generated preview links include ugc nofollow', () => {
   assert.match(previewSrc, /ugc nofollow/);
 });
 
-test('thum.io screenshot URLs are encoded', () => {
-  assert.match(videosSrc, /encodeURIComponent\(url\)/);
+test('videos preview fetches cover meta from sync worker', () => {
+  assert.match(videosSrc, /\/meta\?/);
+  assert.match(videosSrc, /fetchPreviewMeta/);
 });
 
 test('videos empty state does not use loading-hint CLS placeholder', () => {
