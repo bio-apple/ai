@@ -46,6 +46,7 @@ test('video-preview-sync supports Uploadcare upload and CDN pull', () => {
 test('video-preview-sync supports share URL join without typing code', () => {
   assert.match(syncSrc, /buildShareUrl/);
   assert.match(syncSrc, /tryJoinFromShareUrl/);
+  assert.match(syncSrc, /mirrorSyncToUrl/);
   assert.match(syncSrc, /searchParams\.set\('sync'/);
 });
 

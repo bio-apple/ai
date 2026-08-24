@@ -37,10 +37,51 @@
 }
 
 .video-preview-hint {
-  margin: 0 0 10px;
-  font-size: 0.86rem;
+  margin: 0 0 12px;
+  font-size: 0.88rem;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.55;
+}
+
+.video-preview-recover {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.video-recover-url-input {
+  flex: 1 1 220px;
+  min-width: 0;
+  min-height: 40px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.video-preview-recover-btn {
+  flex: 0 0 auto;
+  align-self: center;
+  appearance: none;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.video-preview-recover-btn:hover,
+.video-preview-recover-btn:focus-visible {
+  border-color: var(--accent);
+  outline: none;
 }
 
 .video-preview-status {
@@ -259,6 +300,14 @@
   }
 
   .video-preview-form .cta-btn {
+    width: 100%;
+  }
+
+  .video-preview-recover {
+    flex-direction: column;
+  }
+
+  .video-preview-recover-btn {
     width: 100%;
   }
 }

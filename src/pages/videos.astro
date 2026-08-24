@@ -7,7 +7,8 @@ import { homeHref } from '../lib/paths';
 
 const base = site.meta.base_url;
 const title = '我的视频链接';
-const lead = '粘贴 YouTube / B站 链接（含频道），保存封面卡片；可编辑标题、删除。配置 Cloudflare 后永久云端同步。';
+const lead =
+  '粘贴 YouTube / B站 链接保存；云端同步后，收藏本页或复制恢复链接，换设备或清数据后打开即可恢复。';
 const syncCfg = (site as {
   video_preview_sync?: { api_url?: string; uploadcare_public_key?: string };
 }).video_preview_sync;
@@ -67,7 +68,10 @@ const schema = buildPageSchema(title, lead, canonical, [
       <p class="video-preview-hint" id="video-preview-hint">
         {
           cloudSyncEnabled ? (
-            <>粘贴链接点「保存」→ <strong>云端永久保存</strong>。卡片可编辑标题、删除。</>
+            <>
+              粘贴链接点「保存」→ <strong>云端永久保存</strong>。地址栏会出现带 <code>?sync=</code>{' '}
+              的恢复链接：收藏本页，或复制后在另一台设备 / 清除网站数据后打开，即可看到云端列表。
+            </>
           ) : (
             <>粘贴链接点「保存」→ 本机保存。可编辑标题、删除。</>
           )
@@ -78,6 +82,23 @@ const schema = buildPageSchema(title, lead, canonical, [
         id="video-sync-config"
         set:html={JSON.stringify({ api_url: syncApi })}
       />
+      {
+        cloudSyncEnabled && (
+          <p class="video-preview-recover" id="video-preview-recover" hidden>
+            <label class="visually-hidden" for="video-recover-url">恢复链接</label>
+            <input
+              type="text"
+              id="video-recover-url"
+              class="video-recover-url-input"
+              readonly
+              spellcheck="false"
+            />
+            <button type="button" class="video-preview-recover-btn" id="video-copy-recover-link">
+              复制恢复链接
+            </button>
+          </p>
+        )
+      }
       <p class="video-preview-status" id="video-preview-status" role="status" aria-live="polite"></p>
       <div id="daily-video-list" class="daily-video-list video-preview-list" aria-live="polite">
         <p class="daily-empty">加载本机预览…</p>

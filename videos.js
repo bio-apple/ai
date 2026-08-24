@@ -4,6 +4,9 @@
   const input = document.getElementById('video-url-input');
   const list = document.getElementById('daily-video-list');
   const statusEl = document.getElementById('video-preview-status');
+  const recoverRow = document.getElementById('video-preview-recover');
+  const recoverUrlInput = document.getElementById('video-recover-url');
+  const copyRecoverBtn = document.getElementById('video-copy-recover-link');
   if (!form || !input || !list) return;
 
   const vp = window.BioAI?.videoPreview;
@@ -15,6 +18,46 @@
     if (!statusEl) return;
     statusEl.textContent = msg || '';
     statusEl.classList.toggle('is-error', Boolean(isError));
+  }
+
+  function updateRecoverLinkUi() {
+    const sync = window.BioAI?.videoPreviewSync;
+    if (!recoverRow || !sync?.getApiUrl?.() || !sync?.isValidSyncKey?.(sync.getSyncKey?.())) {
+      if (recoverRow) recoverRow.hidden = true;
+      if (recoverUrlInput) recoverUrlInput.value = '';
+      return;
+    }
+    const share = sync.mirrorSyncToUrl?.() || sync.buildShareUrl?.();
+    if (recoverUrlInput) recoverUrlInput.value = share || '';
+    recoverRow.hidden = !share;
+  }
+
+  function cloudRestoreMessage(boot) {
+    if (!boot || boot.reason === 'local') return '';
+    const count = boot.items?.length ?? loadHistory().length;
+    if (boot.reason === 'pull_failed') {
+      return '恢复链接已识别，但云端拉取失败，请检查网络后刷新。';
+    }
+    if (boot.reason === 'no_api') {
+      return '恢复链接已识别；云端 API 未配置，无法拉取。';
+    }
+    if (count > 0) return `已从云端恢复 ${count} 条链接。`;
+    return '恢复链接已生效；云端暂无数据，保存后会自动同步。';
+  }
+
+  async function copyRecoverLink() {
+    const sync = window.BioAI?.videoPreviewSync;
+    const share = sync?.mirrorSyncToUrl?.() || sync?.buildShareUrl?.();
+    if (!share) {
+      setStatus('还没有恢复链接，请先保存一条链接。', true);
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(share);
+      setStatus('恢复链接已复制。清除网站数据后，打开此链接即可找回列表。', false);
+    } catch {
+      setStatus(`请手动复制恢复链接：${share}`, false);
+    }
   }
 
   function normalizeUrl(raw) {
@@ -215,7 +258,9 @@
   }
 
   function persistMessage(title, cloudOk) {
-    if (cloudOk) return `已云端永久保存：${title}`;
+    if (cloudOk) {
+      return `已云端永久保存：${title}。请收藏本页或复制下方恢复链接，换设备 / 清数据后打开即可恢复。`;
+    }
     const hasApi = Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.());
     return hasApi
       ? `已保存在本机：${title}（云端上传失败，请稍后重试）`
@@ -259,7 +304,11 @@
       } catch {
         /* keep prior cloudOk */
       }
-      setStatus(persistMessage(item.title, cloudOk), !cloudOk && Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.()));
+      setStatus(
+        persistMessage(item.title, cloudOk),
+        !cloudOk && Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.()),
+      );
+      if (cloudOk) updateRecoverLinkUi();
       if (typeof trackEvent === 'function') {
         trackEvent('video_preview_submit', {
           platform: item.platform,
@@ -310,7 +359,10 @@
     } catch {
       /* ignore */
     }
-    setStatus(persistMessage(title, cloudOk), !cloudOk && Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.()));
+    setStatus(
+      persistMessage(title, cloudOk),
+      !cloudOk && Boolean(window.BioAI?.videoPreviewSync?.getApiUrl?.()),
+    );
     if (typeof trackEvent === 'function') {
       trackEvent('video_preview_edit', { funnel_step: 2 });
     }
@@ -408,16 +460,36 @@
 
   const params = new URLSearchParams(location.search);
   const seed = params.get('url') || params.get('v');
-  const history = loadHistory();
-  renderList(history);
-  if (seed) {
-    input.value = seed;
-    addUrl(seed);
-  } else if (!history.length) {
-    setStatus('', false);
+  const sync = window.BioAI?.videoPreviewSync;
+  const hasRecoverUrl = Boolean(params.get('sync') || params.get('s'));
+  const willCloudLoad =
+    hasRecoverUrl || (sync?.getApiUrl?.() && sync?.isValidSyncKey?.(sync?.getSyncKey?.()));
+
+  if (willCloudLoad && !loadHistory().length) {
+    list.innerHTML = '<p class="daily-empty">正在从云端加载…</p>';
+    setStatus('正在通过恢复链接同步云端列表…', false);
+  } else {
+    renderList(loadHistory());
   }
 
-  window.BioAI?.videoPreviewSync?.bootPage({
-    onMerged: (items) => renderList(items),
+  copyRecoverBtn?.addEventListener('click', () => {
+    copyRecoverLink();
   });
+
+  (async () => {
+    const boot = await sync?.bootPage?.({
+      onMerged: (items) => renderList(items),
+    });
+    const items = loadHistory();
+    renderList(items);
+    updateRecoverLinkUi();
+    const restoreMsg = cloudRestoreMessage(boot);
+    if (restoreMsg) setStatus(restoreMsg, boot?.reason === 'pull_failed');
+    else if (seed) {
+      input.value = seed;
+      addUrl(seed);
+    } else if (!items.length) {
+      setStatus('', false);
+    }
+  })();
 })();
