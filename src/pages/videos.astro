@@ -15,12 +15,7 @@ const syncApi =
   (typeof process !== 'undefined' && process.env.VIDEO_SYNC_API_URL?.replace(/\/$/, '')) ||
   syncCfg?.api_url?.replace(/\/$/, '') ||
   '';
-const uploadcarePublicKey =
-  (typeof process !== 'undefined' && process.env.UPLOADCARE_PUBLIC_KEY?.trim()) ||
-  syncCfg?.uploadcare_public_key?.trim() ||
-  '';
 const cloudSyncEnabled = Boolean(syncApi);
-const uploadcareEnabled = Boolean(uploadcarePublicKey);
 const canonical = `${base}videos.html`;
 const schema = buildPageSchema(title, lead, canonical, [
   { name: '首页', url: base },
@@ -72,125 +67,17 @@ const schema = buildPageSchema(title, lead, canonical, [
       <p class="video-preview-hint" id="video-preview-hint">
         {
           cloudSyncEnabled ? (
-            <>
-              粘贴链接点「保存」→ <strong>云端永久保存</strong>。可编辑标题 / 删除。换设备用「复制分享链接」。
-            </>
+            <>粘贴链接点「保存」→ <strong>云端永久保存</strong>。卡片可编辑标题、删除。</>
           ) : (
-            <>
-              粘贴链接点「保存」→ 本机保存。配置 Cloudflare 后即可云端永久保存。
-            </>
+            <>粘贴链接点「保存」→ 本机保存。可编辑标题、删除。</>
           )
         }
       </p>
       <script
         type="application/json"
         id="video-sync-config"
-        set:html={JSON.stringify({
-          api_url: syncApi,
-          uploadcare_public_key: uploadcarePublicKey,
-        })}
+        set:html={JSON.stringify({ api_url: syncApi })}
       />
-      <details class="video-sync-panel" id="video-sync-panel" open={uploadcareEnabled || undefined}>
-        <summary class="video-sync-summary">跨设备同步</summary>
-        <div class="video-sync-body">
-          {
-            uploadcareEnabled && (
-              <div class="video-sync-uploadcare" id="video-sync-uploadcare">
-                <p class="video-sync-hint video-sync-hint--on">
-                  Uploadcare 已就绪：点「上传到 Uploadcare」生成云端备份链接，在另一台设备粘贴后点「从链接拉取」。
-                </p>
-                <div class="video-sync-actions">
-                  <button type="button" class="cta-btn" id="video-sync-uc-upload">
-                    上传到 Uploadcare
-                  </button>
-                  <button type="button" class="video-sync-btn" id="video-sync-uc-copy">
-                    复制备份链接
-                  </button>
-                </div>
-                <label class="video-sync-label" for="video-sync-uc-url">备份链接 / UUID</label>
-                <input
-                  type="url"
-                  id="video-sync-uc-url"
-                  class="video-sync-key-input"
-                  placeholder="https://ucarecdn.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/"
-                  autocomplete="off"
-                  spellcheck="false"
-                />
-                <div class="video-sync-actions">
-                  <button type="button" class="cta-btn cta-btn-outline" id="video-sync-uc-pull">
-                    从链接拉取并合并
-                  </button>
-                </div>
-              </div>
-            )
-          }
-          <p class="video-sync-hint" data-sync-cloud-hint hidden>
-            未配置 Uploadcare / Cloudflare。可在 GitHub Variables 添加{' '}
-            <code>UPLOADCARE_PUBLIC_KEY</code>，或用下方导出/同步文本。
-          </p>
-          {
-            cloudSyncEnabled && (
-              <p class="video-sync-hint video-sync-hint--on">
-                Worker 同步已开启。设备 A 点「复制分享链接」发给设备 B，对方<strong>打开链接即可直接看</strong>
-                ，不用手输同步码。
-              </p>
-            )
-          }
-          <p class="video-sync-hint">
-            分享链接含同步凭证，勿公开转发。打开一次后本机会记住，下次直接进视频页即可。
-          </p>
-          <div class="video-sync-row">
-            <label class="video-sync-label" for="video-sync-key">同步码（可选手输）</label>
-            <input
-              type="text"
-              id="video-sync-key"
-              class="video-sync-key-input"
-              placeholder="至少 8 位，或点下方复制分享链接"
-              autocomplete="off"
-              spellcheck="false"
-            />
-            <button type="button" class="cta-btn cta-btn-outline" id="video-sync-generate"
-              >生成</button
-            >
-            <button type="button" class="cta-btn" id="video-sync-copy-share">复制分享链接</button>
-            <button type="button" class="cta-btn cta-btn-outline" id="video-sync-save-key"
-              >保存并同步</button
-            >
-          </div>
-          <p class="video-sync-status" id="video-sync-status" role="status" aria-live="polite"></p>
-          <div class="video-sync-actions">
-            <button type="button" class="video-sync-btn" id="video-sync-pull">从云端拉取</button>
-            <button type="button" class="video-sync-btn" id="video-sync-export">导出备份</button>
-            <label class="video-sync-btn video-sync-import-label">
-              导入备份
-              <input
-                type="file"
-                id="video-sync-import"
-                accept="application/json,.json"
-                hidden
-              />
-            </label>
-          </div>
-          <details class="video-sync-manual">
-            <summary>手动：复制 / 粘贴同步文本</summary>
-            <p class="video-sync-hint">在设备 A 点「复制当前列表」，通过微信/邮件发到设备 B 后粘贴并合并。</p>
-            <textarea
-              id="video-sync-blob"
-              class="video-sync-blob"
-              rows="4"
-              placeholder="BIOAI1:…"
-            ></textarea>
-            <div class="video-sync-actions">
-              <button type="button" class="video-sync-btn" id="video-sync-copy-blob"
-                >复制当前列表</button
-              >
-              <button type="button" class="video-sync-btn" id="video-sync-merge-blob"
-                >合并粘贴内容</button
-              >
-            </div>
-          </details>
-        </div>
-      </details>
       <p class="video-preview-status" id="video-preview-status" role="status" aria-live="polite"></p>
       <div id="daily-video-list" class="daily-video-list video-preview-list" aria-live="polite">
         <p class="daily-empty">加载本机预览…</p>

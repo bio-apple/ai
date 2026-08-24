@@ -417,7 +417,7 @@
     setStatus('', false);
   }
 
-  window.BioAI?.videoPreviewSync?.initPage({
+  window.BioAI?.videoPreviewSync?.bootPage({
     onMerged: (items) => renderList(items),
   });
 })();

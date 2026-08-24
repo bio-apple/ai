@@ -33,7 +33,7 @@ test('videos empty state does not use loading-hint CLS placeholder', () => {
 test('video-preview-sync supports merge and BIOAI1 payload', () => {
   assert.match(syncSrc, /mergeHistories/);
   assert.match(syncSrc, /BIOAI1:/);
-  assert.match(syncSrc, /initPage/);
+  assert.match(syncSrc, /bootPage/);
 });
 
 test('video-preview-sync supports Uploadcare upload and CDN pull', () => {
