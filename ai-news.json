@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-25T12:25:39.839767+08:00",
-  "date": "2026-08-25",
+  "updated_at": "2026-08-26T01:23:10.337460+08:00",
+  "date": "2026-08-26",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,105 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "5f0b03166bf1",
+      "title": "5 ways to upgrade your home decor with Google Search",
+      "summary": "Learn how to use Google Search tools to find home decor inspiration, shop for furniture, and tackle DIY projects.",
+      "url": "https://blog.google/products-and-platforms/products/search/home-decor-tips/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-08-26T00:00:00+08:00"
+    },
+    {
+      "id": "67c0d574508d",
+      "title": "Leading Publishers Bring Blockbuster PC Games and Technology to NVIDIA RTX Spark",
+      "summary": "NVIDIA is bringing the next wave of RTX gaming to the Gamescom conference running this week in Cologne, Germany, with support for new games, anti-cheat technol…",
+      "url": "https://blogs.nvidia.com/blog/gamescom-rtx-spark-pc-games-technology/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-08-25T23:30:48+08:00"
+    },
+    {
+      "id": "74043a2c13e4",
+      "title": "Granite 4.2 LLMs: How They're Built",
+      "summary": "Granite 4.2 LLMs: How They're Built",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-4-2",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-08-25T23:14:14+08:00"
+    },
+    {
+      "id": "f6b26e55a489",
+      "title": "Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original",
+      "summary": "Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original",
+      "url": "https://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-08-25T19:39:24+08:00"
+    },
+    {
+      "id": "b4a43af40fcf",
+      "title": "从开源走向共建：范式联合优必选等十余家具身巨头发布PhanthyMotus新计划",
+      "summary": "近日，范式正式举办 PhanthyMotus 生态社区共建计划发布会，宣布其首个通用具身Agent底座从“开源”迈入“多方共建”新阶段。",
+      "url": "https://www.qbitai.com/2026/08/479314.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-08-25T17:31:16+08:00"
+    },
+    {
+      "id": "829e237a888d",
+      "title": "The full stack behind abundant intelligence",
+      "summary": "OpenAI CFO Sarah Friar explains how advances across chips, compute, models, and products compound to deliver more useful intelligence at greater scale and lowe…",
+      "url": "https://openai.com/index/the-full-stack-behind-abundant-intelligence",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-25T15:05:00+08:00"
+    },
+    {
+      "id": "9ad99bb5f40a",
+      "title": "Jalapeño’s first results show industry-leading speed and efficiency in AI inference",
+      "summary": "Jalapeño is a custom inference chip from OpenAI that delivers faster, more power-efficient AI inference, with higher throughput and lower latency for modern mo…",
+      "url": "https://openai.com/index/jalapeno-first-results",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-25T15:00:00+08:00"
+    },
+    {
+      "id": "9d4b7c25bbe7",
+      "title": "开源国产8B模型，比肩闭源Image 2了！",
+      "summary": "SenseNova U1.5 Lite",
+      "url": "https://www.qbitai.com/2026/08/479192.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-08-25T14:53:26+08:00"
+    },
+    {
+      "id": "76a0702fc95a",
+      "title": "半年3轮10亿，他们都投了这家已经把机器人卖到500个家庭的公司",
+      "summary": "字节、汇川等已入股未来不远机器人最新一轮融资",
+      "url": "https://www.qbitai.com/2026/08/479132.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-08-25T14:39:51+08:00"
+    },
+    {
+      "id": "57d3f334abda",
+      "title": "AI4S开始进入「项目时代」：紫东太初把AI从做Task推向做Project",
+      "summary": "AI科研能力从工具级转向系统级",
+      "url": "https://www.qbitai.com/2026/08/479096.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-25T13:48:05+08:00"
+    },
+    {
+      "id": "f623c1c3fabc",
+      "title": "赛博义父Tibo最新访谈：专门实体按钮搞重置，“我想重置就重置”",
+      "summary": "下一代Agent天然会走向云端和更大规模的计算资源",
+      "url": "https://www.qbitai.com/2026/08/478996.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-25T13:20:50+08:00"
+    },
     {
       "id": "a43539facd3f",
       "title": "KVBoost: Chunk-Level Key-Value Cache Reuse with Deviation-Guided Recomputation for Efficient Large Language Model Inference",
@@ -60,40 +159,13 @@
       "published_at": "2026-08-25T12:00:00+08:00"
     },
     {
-      "id": "544651275f04",
-      "title": "具身大满贯还全开源！原力灵机DM0.5登顶RoboDojo，且clone且珍惜",
-      "summary": "机器人大脑新SOTA",
-      "url": "https://www.qbitai.com/2026/08/478791.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-08-25T10:22:01+08:00"
-    },
-    {
-      "id": "a91fc10a5f53",
-      "title": "VC开始靠AI预测未来了",
-      "summary": "FutureX榜单前十占了仨",
-      "url": "https://www.qbitai.com/2026/08/478774.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-25T10:16:43+08:00"
-    },
-    {
-      "id": "f3fb67c21892",
-      "title": "WRC 2026｜生数科技发布最新研究成果，提出通用世界模型五级发展路线",
-      "summary": "WRC 2026｜生数科技发布最新研究成果，提出通用世界模型五级发展路线",
-      "url": "https://www.qbitai.com/2026/08/478690.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-08-25T09:46:56+08:00"
-    },
-    {
-      "id": "9f2336e4fb71",
-      "title": "ResNet作者任少卿机器人创业！公司注册就独角兽了",
-      "summary": "虽然明确机器人创业，但依然在职蔚来",
-      "url": "https://www.qbitai.com/2026/08/478675.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-25T08:35:54+08:00"
+      "id": "da55f7d7bd9d",
+      "title": "Disrupting a new covert influence campaign from Russia",
+      "summary": "OpenAI banned Russia-origin accounts using AI to promote a fake Israel-based think tank and a “sovereignty” index praising Russia and criticizing the West.",
+      "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-25T08:00:00+08:00"
     },
     {
       "id": "2983dbf79834",
@@ -132,15 +204,6 @@
       "published_at": "2026-08-24T23:00:19+08:00"
     },
     {
-      "id": "8fd2a1209c5c",
-      "title": "AI重塑商业，信任决定未来商业能走多远丨Visa大中华区总裁张文翊",
-      "summary": "Visa看到的AI未来",
-      "url": "https://www.qbitai.com/2026/08/478670.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-24T21:32:13+08:00"
-    },
-    {
       "id": "df015003760c",
       "title": "Advancing price-performance for developers with GPT‑5.6 in Kiro",
       "summary": "GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance.",
@@ -159,6 +222,15 @@
       "published_at": "2026-08-21T19:59:48+08:00"
     },
     {
+      "id": "bcd3314d2ba2",
+      "title": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
+      "summary": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
+      "url": "https://huggingface.co/blog/pwc-search",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-08-21T08:00:00+08:00"
+    },
+    {
       "id": "68e9fb1705e1",
       "title": "Measuring benchmark optimization in speech recognition",
       "summary": "Measuring benchmark optimization in speech recognition",
@@ -166,15 +238,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-08-21T08:00:00+08:00"
-    },
-    {
-      "id": "c7cdb6722fd8",
-      "title": "Up to 3.2x Faster Inference with LFM2.5-DSpark",
-      "summary": "Up to 3.2x Faster Inference with LFM2.5-DSpark",
-      "url": "https://huggingface.co/blog/LiquidAI/lfm25-dspark",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-08-21T00:52:57+08:00"
     },
     {
       "id": "6dd0bcee2387",
@@ -204,15 +267,6 @@
       "published_at": "2026-08-20T15:00:00+08:00"
     },
     {
-      "id": "cb030de2dd94",
-      "title": "Stampli cuts launch hours by 68% using ChatGPT Work",
-      "summary": "With a fixed deadline and design resources committed elsewhere, Stampli used Codex and ChatGPT Work to compress weeks of launch production into days.",
-      "url": "https://openai.com/index/stampli",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-08-20T08:00:00+08:00"
-    },
-    {
       "id": "a87414927489",
       "title": "5 new ways to level up your learning with Search",
       "summary": "Here’s how you can use Google Search tools to study for classes and standardized tests.",
@@ -220,33 +274,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-08-20T03:00:00+08:00"
-    },
-    {
-      "id": "ef913e9fdabc",
-      "title": "Offering Zero Data Retention for frontier models",
-      "summary": "OpenAI reaffirms Zero Data Retention for eligible API customers and previews Private Safety Processing for advanced AI safety without compromising data privacy.",
-      "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-20T03:00:00+08:00"
-    },
-    {
-      "id": "9ac0643f2427",
-      "title": "Replit expands access to software creation with GPT-5.6 Luna",
-      "summary": "Replit introduces Free Mode, powered by GPT-5.6 Luna, so anyone can turn ideas into working software without worrying about token costs.",
-      "url": "https://openai.com/index/replit",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-19T15:00:00+08:00"
-    },
-    {
-      "id": "5ce8103476b1",
-      "title": "How Much Memory Does Your Agent Actually Need?",
-      "summary": "How Much Memory Does Your Agent Actually Need?",
-      "url": "https://huggingface.co/blog/ibm-research/altk-evolve-hmm",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-08-19T02:09:38+08:00"
     }
   ],
   "watch_sources": [
