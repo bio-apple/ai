@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-25T01:22:38.331036+08:00",
+  "updated_at": "2026-08-25T12:25:39.839767+08:00",
   "date": "2026-08-25",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "a43539facd3f",
+      "title": "KVBoost: Chunk-Level Key-Value Cache Reuse with Deviation-Guided Recomputation for Efficient Large Language Model Inference",
+      "summary": "arXiv:2608.21362v1 Announce Type: new Abstract: Transformer-based large language models (LLMs) incur high prefill latency because key-value (KV) tensors must b…",
+      "url": "https://arxiv.org/abs/2608.21362",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-25T12:00:00+08:00"
+    },
+    {
+      "id": "02a7a8504d7c",
+      "title": "AIREP: A Protocol for Per-Decision Evidence in AI Runtime Governance",
+      "summary": "arXiv:2608.21363v1 Announce Type: new Abstract: A protocol is presented for recording the governance decisions of automated AI runtimes. When a runtime release…",
+      "url": "https://arxiv.org/abs/2608.21363",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-08-25T12:00:00+08:00"
+    },
+    {
+      "id": "373a5f3d56eb",
+      "title": "Reviewing Model Collapse and Countermeasures",
+      "summary": "arXiv:2608.21366v1 Announce Type: new Abstract: Driven by massive amounts of web-scale data, generative AI (GenAI) has achieved remarkable progress, enabling v…",
+      "url": "https://arxiv.org/abs/2608.21366",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-25T12:00:00+08:00"
+    },
+    {
+      "id": "46cdb176f8ac",
+      "title": "AI Learning and Conceptual Transfer in the Game of Hidden Rules",
+      "summary": "arXiv:2608.21372v1 Announce Type: new Abstract: This report summarizes the work conducted on the Game of Hidden Rules (GOHR), focusing on reinforcement learnin…",
+      "url": "https://arxiv.org/abs/2608.21372",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-25T12:00:00+08:00"
+    },
+    {
+      "id": "32bc744421d5",
+      "title": "LitReview Arena: Evaluating Literature Review Agents with Battle-Style Peer Review Platform",
+      "summary": "arXiv:2608.21374v1 Announce Type: new Abstract: Literature reviews are essential to scientific progress, but rigorously evaluating automatically generated revi…",
+      "url": "https://arxiv.org/abs/2608.21374",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-25T12:00:00+08:00"
+    },
+    {
+      "id": "544651275f04",
+      "title": "具身大满贯还全开源！原力灵机DM0.5登顶RoboDojo，且clone且珍惜",
+      "summary": "机器人大脑新SOTA",
+      "url": "https://www.qbitai.com/2026/08/478791.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-08-25T10:22:01+08:00"
+    },
+    {
+      "id": "a91fc10a5f53",
+      "title": "VC开始靠AI预测未来了",
+      "summary": "FutureX榜单前十占了仨",
+      "url": "https://www.qbitai.com/2026/08/478774.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-25T10:16:43+08:00"
+    },
+    {
+      "id": "f3fb67c21892",
+      "title": "WRC 2026｜生数科技发布最新研究成果，提出通用世界模型五级发展路线",
+      "summary": "WRC 2026｜生数科技发布最新研究成果，提出通用世界模型五级发展路线",
+      "url": "https://www.qbitai.com/2026/08/478690.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-08-25T09:46:56+08:00"
+    },
+    {
+      "id": "9f2336e4fb71",
+      "title": "ResNet作者任少卿机器人创业！公司注册就独角兽了",
+      "summary": "虽然明确机器人创业，但依然在职蔚来",
+      "url": "https://www.qbitai.com/2026/08/478675.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-25T08:35:54+08:00"
+    },
+    {
+      "id": "2983dbf79834",
+      "title": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+      "summary": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
+      "url": "https://huggingface.co/blog/gradio-workflow-guide",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-08-25T08:00:00+08:00"
+    },
     {
       "id": "351f6de6e45a",
       "title": "How XPUs Meet a World-Class AI Factory",
@@ -51,85 +141,13 @@
       "published_at": "2026-08-24T21:32:13+08:00"
     },
     {
-      "id": "82a00defe5ce",
-      "title": "一篇论文改写AI科研评价规则！中国公司拿出实践数据，双榜第一",
-      "summary": "全球大厂开始押注的AI科研，终于有了统一标准",
-      "url": "https://www.qbitai.com/2026/08/478568.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-08-24T21:21:22+08:00"
-    },
-    {
-      "id": "063c2b570b8c",
-      "title": "阿里达摩院推出肝癌AI模型，精准识别1厘米微小肿瘤",
-      "summary": "8月24日消息，阿里巴巴达摩院联合中国医科大学附属盛京医院等机构研发出肝癌诊断AI模型DAMO LiON",
-      "url": "https://www.qbitai.com/2026/08/478473.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-24T16:07:59+08:00"
-    },
-    {
-      "id": "a884b2171872",
-      "title": "单芯片到万卡集群体系化突破 中诚华隆HL200推理芯片及超节点集群重磅发布",
-      "summary": "定义国产推理算力新范式 赋能万卡级AI推理算力规模化落地",
-      "url": "https://www.qbitai.com/2026/08/478469.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-08-24T15:04:36+08:00"
-    },
-    {
-      "id": "2bc08e878226",
-      "title": "8月25日直播预告 | AFAC2026金融智能创新大赛，总决赛路演倒计时来啦！",
-      "summary": "AFAC2026总决赛路演将于8月25-26日在上海阿纳迪酒店（长宁区临虹路7号）举办。",
-      "url": "https://www.qbitai.com/2026/08/478447.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-24T14:03:13+08:00"
-    },
-    {
-      "id": "d58515c75f01",
-      "title": "SDAD: Spec-Driven Agentic Development for the AI-Native SDLC",
-      "summary": "arXiv:2608.20341v1 Announce Type: new Abstract: Frontier coding agents backed by large language models with context windows from hundreds of thousands to milli…",
-      "url": "https://arxiv.org/abs/2608.20341",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-08-24T12:00:00+08:00"
-    },
-    {
-      "id": "776f96e2a471",
-      "title": "PrimeAgentOrchestrator: Memory-Primed Agent Spawning for Personal AI Infrastructure",
-      "summary": "arXiv:2608.20342v1 Announce Type: new Abstract: Large language model (LLM) coding agents start each session with an empty context window, discarding accumulate…",
-      "url": "https://arxiv.org/abs/2608.20342",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-24T12:00:00+08:00"
-    },
-    {
-      "id": "0503fe614a11",
-      "title": "Truth Lies Deep: Countering Semantic Camouflage via Latent Intent Verification",
-      "summary": "arXiv:2608.20378v1 Announce Type: new Abstract: Safety alignment in Large Language Models (LLMs) is often superficial, relying on refusal mechanisms that trigg…",
-      "url": "https://arxiv.org/abs/2608.20378",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-24T12:00:00+08:00"
-    },
-    {
-      "id": "c3595c687dfe",
-      "title": "A Survey on Foundations and Frontiers of Multimodal Agentic Frameworks: Techniques and Applications",
-      "summary": "arXiv:2608.20379v1 Announce Type: new Abstract: Advances in large language models (LLMs) have fueled a wave of research into agency: the ability to reason, pla…",
-      "url": "https://arxiv.org/abs/2608.20379",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-24T12:00:00+08:00"
-    },
-    {
-      "id": "9196ff61b410",
-      "title": "Interpretable Multimodal Classification with Linear Discriminant Tree Ensembles",
-      "summary": "arXiv:2608.20384v1 Announce Type: new Abstract: Multimodal affect and behaviour classifiers that fuse heterogeneous text, audio, and visual streams must simult…",
-      "url": "https://arxiv.org/abs/2608.20384",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-24T12:00:00+08:00"
+      "id": "df015003760c",
+      "title": "Advancing price-performance for developers with GPT‑5.6 in Kiro",
+      "summary": "GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance.",
+      "url": "https://openai.com/index/gpt-5-6-in-kiro",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-24T20:00:00+08:00"
     },
     {
       "id": "06daba08af15",
@@ -222,15 +240,6 @@
       "published_at": "2026-08-19T15:00:00+08:00"
     },
     {
-      "id": "e4563871866d",
-      "title": "ChatGPT Ads expands across Europe",
-      "summary": "ChatGPT Ads is expanding to 31 European markets. Learn how advertisers can reach people as they explore, compare options, and make decisions.",
-      "url": "https://openai.com/index/chatgpt-ads-expands-across-europe",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-19T06:00:00+08:00"
-    },
-    {
       "id": "5ce8103476b1",
       "title": "How Much Memory Does Your Agent Actually Need?",
       "summary": "How Much Memory Does Your Agent Actually Need?",
@@ -238,24 +247,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-08-19T02:09:38+08:00"
-    },
-    {
-      "id": "e520424e436f",
-      "title": "Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers",
-      "summary": "Multi-Vector (Late Interaction) Embedding Models with Sentence Transformers",
-      "url": "https://huggingface.co/blog/multi-vector-encoder",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-08-18T08:00:00+08:00"
-    },
-    {
-      "id": "b597a3d03ee7",
-      "title": "Same Cluster, 33 Points More Utilization: What Changed Was the Order",
-      "summary": "Same Cluster, 33 Points More Utilization: What Changed Was the Order",
-      "url": "https://huggingface.co/blog/Dharma-AI/gpu-management-pt2",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-08-18T03:46:21+08:00"
     }
   ],
   "watch_sources": [
