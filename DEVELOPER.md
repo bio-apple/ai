@@ -1,7 +1,7 @@
 # 开发速查
 
-线上：https://bio-apple.github.io/ai/  
-技术栈：Astro 5 SSG + GitHub Pages（本地可选 `./start.sh`）。
+线上：https://bio-apple.github.io/ai/ · **v2.0**（见 [CHANGELOG.md](./CHANGELOG.md)）  
+技术栈：Astro SSG + GitHub Pages（本地可选 `./start.sh`）。
 
 ## 文档
 

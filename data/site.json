@@ -7,6 +7,7 @@
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
     "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与开源精选",
     "site_name": "Bio AI Lab",
+    "version": "2.0.0",
     "base_url": "https://bio-apple.github.io/ai/"
   },
   "video_preview_sync": {
@@ -691,7 +692,7 @@
     }
   ],
   "footer": {
-    "text": "Bio AI Lab · 实验台账",
+    "text": "Bio AI Lab · 实验台账 · v2.0",
     "links": [
       {
         "label": "AI 工具中心",

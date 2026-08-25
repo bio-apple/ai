@@ -51,7 +51,7 @@ async function youtubeChannelThumb(html, pageUrl) {
     const rssRes = await fetch(
       `https://www.youtube.com/feeds/videos.xml?channel_id=${encodeURIComponent(channelId)}`,
       {
-        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; BioAIVideoPreview/1.0)' },
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; BioAIVideoPreview/2.0)' },
       },
     );
     if (!rssRes.ok) return '';

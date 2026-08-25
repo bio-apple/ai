@@ -1,14 +1,16 @@
 # Bio AI Lab
 
-**Bio-Apple · AI 工具导航 · 开源精选 · 实战案例 · 课程 · 热点 · 视频**
+**v2.0** · Bio-Apple · AI 工具导航 · 开源精选 · 实战案例 · 课程 · 热点 · 视频
 
+[![Version](https://img.shields.io/badge/version-2.0.0-0d8c6d?style=flat-square)](./CHANGELOG.md)
 [![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
 [![Stars](https://img.shields.io/github/stars/bio-apple/ai?style=flat-square&logo=github)](https://github.com/bio-apple/ai/stargazers)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/pages.yml?branch=main&style=flat-square&label=Deploy)](https://github.com/bio-apple/ai/actions/workflows/pages.yml)
 [![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0d8c6d?style=flat-square)](./LICENSE)
 
-站点：https://bio-apple.github.io/ai/
+站点：https://bio-apple.github.io/ai/  
+变更记录：[CHANGELOG.md](./CHANGELOG.md)
 
 ## 快速开始
 
