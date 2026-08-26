@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-26T01:23:10.337460+08:00",
+  "updated_at": "2026-08-26T12:27:23.366694+08:00",
   "date": "2026-08-26",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,78 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "2493f940bb3e",
+      "title": "RENDER: Controlling Reader-Facing Evidence in LLM Memory Evaluation",
+      "summary": "arXiv:2608.23568v1 Announce Type: new Abstract: Memory and RAG evaluations often treat the answering model's input as an implementation detail, even though sys…",
+      "url": "https://arxiv.org/abs/2608.23568",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-26T12:00:00+08:00"
+    },
+    {
+      "id": "bc86e7ae27d4",
+      "title": "ESQ-Bench: A Multi-Tier Enterprise Oracle Benchmark for Evaluating NL2SQL Dialect Generalization and Silent Semantic Divergence",
+      "summary": "arXiv:2608.23569v1 Announce Type: new Abstract: State-of-the-art Natural Language to SQL (NL2SQL) models report execution accuracy exceeding 89 percent on esta…",
+      "url": "https://arxiv.org/abs/2608.23569",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-08-26T12:00:00+08:00"
+    },
+    {
+      "id": "98d26bbd6f37",
+      "title": "LLM Agents Perform Controlled Experiments Using Simulation Models",
+      "summary": "arXiv:2608.23622v1 Announce Type: new Abstract: Large language models (LLMs) have shown strong capabilities in reasoning, planning, and tool use, but many scie…",
+      "url": "https://arxiv.org/abs/2608.23622",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-26T12:00:00+08:00"
+    },
+    {
+      "id": "12af2bb9bff3",
+      "title": "A survey detection channel overrides the pixels in an astronomical foundation model, and biases tomographic mean redshifts",
+      "summary": "arXiv:2608.23626v1 Announce Type: new Abstract: Foundation models for astronomy are trained on survey pixels together with the catalogue products derived from …",
+      "url": "https://arxiv.org/abs/2608.23626",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-26T12:00:00+08:00"
+    },
+    {
+      "id": "ba5ac71821bc",
+      "title": "TRACE: Transition-Aware Residual Control for Multi-Objective Materials Discovery",
+      "summary": "arXiv:2608.23631v1 Announce Type: new Abstract: Multi-objective materials discovery with LLM agents is often limited not only by how many candidates can be pro…",
+      "url": "https://arxiv.org/abs/2608.23631",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-26T12:00:00+08:00"
+    },
+    {
+      "id": "c5ad0b3bc6f0",
+      "title": "WRC乒乓球局爆火！这家中国具身创业公司，砸出了一套全栈新解法",
+      "summary": "球技丝滑、现场爆满",
+      "url": "https://www.qbitai.com/2026/08/478860.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-26T11:02:34+08:00"
+    },
+    {
+      "id": "f7b70ab272dc",
+      "title": "深度实测「豆包工作」+飞书：目前最接近企业Agent终局的答案",
+      "summary": "shui jiang shuai xian sha",
+      "url": "https://www.qbitai.com/2026/08/479348.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-26T10:59:02+08:00"
+    },
+    {
+      "id": "72245eda58b7",
+      "title": "OpenAI「辣椒芯」干翻英伟达！老黄股价不跌反涨",
+      "summary": "不和老黄商量",
+      "url": "https://www.qbitai.com/2026/08/479320.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-26T09:24:47+08:00"
+    },
     {
       "id": "5f0b03166bf1",
       "title": "5 ways to upgrade your home decor with Google Search",
@@ -87,84 +159,21 @@
       "published_at": "2026-08-25T14:53:26+08:00"
     },
     {
-      "id": "76a0702fc95a",
-      "title": "半年3轮10亿，他们都投了这家已经把机器人卖到500个家庭的公司",
-      "summary": "字节、汇川等已入股未来不远机器人最新一轮融资",
-      "url": "https://www.qbitai.com/2026/08/479132.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-08-25T14:39:51+08:00"
-    },
-    {
-      "id": "57d3f334abda",
-      "title": "AI4S开始进入「项目时代」：紫东太初把AI从做Task推向做Project",
-      "summary": "AI科研能力从工具级转向系统级",
-      "url": "https://www.qbitai.com/2026/08/479096.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-25T13:48:05+08:00"
-    },
-    {
-      "id": "f623c1c3fabc",
-      "title": "赛博义父Tibo最新访谈：专门实体按钮搞重置，“我想重置就重置”",
-      "summary": "下一代Agent天然会走向云端和更大规模的计算资源",
-      "url": "https://www.qbitai.com/2026/08/478996.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-25T13:20:50+08:00"
-    },
-    {
-      "id": "a43539facd3f",
-      "title": "KVBoost: Chunk-Level Key-Value Cache Reuse with Deviation-Guided Recomputation for Efficient Large Language Model Inference",
-      "summary": "arXiv:2608.21362v1 Announce Type: new Abstract: Transformer-based large language models (LLMs) incur high prefill latency because key-value (KV) tensors must b…",
-      "url": "https://arxiv.org/abs/2608.21362",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-25T12:00:00+08:00"
-    },
-    {
-      "id": "02a7a8504d7c",
-      "title": "AIREP: A Protocol for Per-Decision Evidence in AI Runtime Governance",
-      "summary": "arXiv:2608.21363v1 Announce Type: new Abstract: A protocol is presented for recording the governance decisions of automated AI runtimes. When a runtime release…",
-      "url": "https://arxiv.org/abs/2608.21363",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-08-25T12:00:00+08:00"
-    },
-    {
-      "id": "373a5f3d56eb",
-      "title": "Reviewing Model Collapse and Countermeasures",
-      "summary": "arXiv:2608.21366v1 Announce Type: new Abstract: Driven by massive amounts of web-scale data, generative AI (GenAI) has achieved remarkable progress, enabling v…",
-      "url": "https://arxiv.org/abs/2608.21366",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-25T12:00:00+08:00"
-    },
-    {
-      "id": "46cdb176f8ac",
-      "title": "AI Learning and Conceptual Transfer in the Game of Hidden Rules",
-      "summary": "arXiv:2608.21372v1 Announce Type: new Abstract: This report summarizes the work conducted on the Game of Hidden Rules (GOHR), focusing on reinforcement learnin…",
-      "url": "https://arxiv.org/abs/2608.21372",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-25T12:00:00+08:00"
-    },
-    {
-      "id": "32bc744421d5",
-      "title": "LitReview Arena: Evaluating Literature Review Agents with Battle-Style Peer Review Platform",
-      "summary": "arXiv:2608.21374v1 Announce Type: new Abstract: Literature reviews are essential to scientific progress, but rigorously evaluating automatically generated revi…",
-      "url": "https://arxiv.org/abs/2608.21374",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-25T12:00:00+08:00"
-    },
-    {
       "id": "da55f7d7bd9d",
       "title": "Disrupting a new covert influence campaign from Russia",
       "summary": "OpenAI banned Russia-origin accounts using AI to promote a fake Israel-based think tank and a “sovereignty” index praising Russia and criticizing the West.",
       "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia",
       "source": "OpenAI",
       "category": "新模型发布",
+      "published_at": "2026-08-25T08:00:00+08:00"
+    },
+    {
+      "id": "cfc376addf8c",
+      "title": "Introducing the Admin plugin for ChatGPT Work and Codex",
+      "summary": "Use the Admin plugin for ChatGPT Work and Codex to analyze workspace usage, manage members and permissions, adjust limits, and act on admin requests.",
+      "url": "https://openai.com/index/introducing-admin-plugin",
+      "source": "OpenAI",
+      "category": "新工具上线",
       "published_at": "2026-08-25T08:00:00+08:00"
     },
     {
@@ -256,15 +265,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-08-20T21:00:24+08:00"
-    },
-    {
-      "id": "027379c08484",
-      "title": "Introducing AI Futures",
-      "summary": "Introducing AI Futures, a new OpenAI blog exploring how transformative AI could reshape power, governance, the economy, and individual freedom.",
-      "url": "https://openai.com/index/introducing-ai-futures",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-08-20T15:00:00+08:00"
     },
     {
       "id": "a87414927489",
