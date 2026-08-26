@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-26T12:27:23.366694+08:00",
-  "date": "2026-08-26",
+  "updated_at": "2026-08-27T02:49:44.359833+08:00",
+  "date": "2026-08-27",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,78 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "83abfc082897",
+      "title": "Intelligent transcription with Gemini 3.5 Transcribe",
+      "summary": "Now you can get more intelligent speech-to-text transcription with Gemini 3.5 Transcribe.",
+      "url": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-08-27T01:01:00+08:00"
+    },
+    {
+      "id": "26ffecbc1265",
+      "title": "神秘「牛来」模型果然是智谱！GLM首个原生多模态，还用的国产卡",
+      "summary": "GLM-5.3 Flash",
+      "url": "https://www.qbitai.com/2026/08/479919.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-27T00:48:12+08:00"
+    },
+    {
+      "id": "81b30902a936",
+      "title": "AI视频应用井喷，美图打开新的增长空间",
+      "summary": "从图像到视频，美图找到了一门更赚钱的生意",
+      "url": "https://www.qbitai.com/2026/08/479895.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-26T18:18:10+08:00"
+    },
+    {
+      "id": "d32cfd786b40",
+      "title": "小宇宙推出《AI趋势报告》：AI创作、AI办公、协作型AI等成讨论新趋势",
+      "summary": "AI内容创作者增长187%，相关节目数量增长239%",
+      "url": "https://www.qbitai.com/2026/08/479811.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-26T18:17:15+08:00"
+    },
+    {
+      "id": "dc8d22fc72bf",
+      "title": "硅谷今日最热具身模型！不用后训练，看一遍就学会",
+      "summary": "具身智能迈向GPT时刻",
+      "url": "https://www.qbitai.com/2026/08/479834.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-08-26T18:07:09+08:00"
+    },
+    {
+      "id": "d6bb1031e66b",
+      "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
+      "summary": "ChatGPT for Teachers is expanding to 55 U.S. school systems, bringing secure AI tools, training, and support to over 100,000 more educators and staff.",
+      "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-26T18:00:00+08:00"
+    },
+    {
+      "id": "cdfc10030b4b",
+      "title": "Learning never stops: How AI makes learning continuous",
+      "summary": "OpenAI’s new report explores how students and educators use ChatGPT to make learning more continuous, with support that extends beyond the classroom.",
+      "url": "https://openai.com/index/learning-never-stops",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-26T18:00:00+08:00"
+    },
+    {
+      "id": "ba46c8c44e58",
+      "title": "达卯科技与福建智算方舟达成合作，全栈式算电协同服务在闽落子",
+      "summary": "长乐机场综保区智算中心全栈算电协同服务",
+      "url": "https://www.qbitai.com/2026/08/479808.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-08-26T17:17:08+08:00"
+    },
     {
       "id": "2493f940bb3e",
       "title": "RENDER: Controlling Reader-Facing Evidence in LLM Memory Evaluation",
@@ -60,31 +132,22 @@
       "published_at": "2026-08-26T12:00:00+08:00"
     },
     {
-      "id": "c5ad0b3bc6f0",
-      "title": "WRC乒乓球局爆火！这家中国具身创业公司，砸出了一套全栈新解法",
-      "summary": "球技丝滑、现场爆满",
-      "url": "https://www.qbitai.com/2026/08/478860.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-26T11:02:34+08:00"
+      "id": "5309d9655463",
+      "title": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+      "summary": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
+      "url": "https://huggingface.co/blog/train-multi-vector-encoder",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-08-26T08:00:00+08:00"
     },
     {
-      "id": "f7b70ab272dc",
-      "title": "深度实测「豆包工作」+飞书：目前最接近企业Agent终局的答案",
-      "summary": "shui jiang shuai xian sha",
-      "url": "https://www.qbitai.com/2026/08/479348.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-26T10:59:02+08:00"
-    },
-    {
-      "id": "72245eda58b7",
-      "title": "OpenAI「辣椒芯」干翻英伟达！老黄股价不跌反涨",
-      "summary": "不和老黄商量",
-      "url": "https://www.qbitai.com/2026/08/479320.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-26T09:24:47+08:00"
+      "id": "d34e82eae2f2",
+      "title": "How loveholidays is making everyone a builder with Codex",
+      "summary": "Discover how loveholidays uses OpenAI Codex to make software development accessible across the business, helping teams turn ideas into products faster.",
+      "url": "https://openai.com/index/loveholidays",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-26T08:00:00+08:00"
     },
     {
       "id": "5f0b03166bf1",
@@ -123,15 +186,6 @@
       "published_at": "2026-08-25T19:39:24+08:00"
     },
     {
-      "id": "b4a43af40fcf",
-      "title": "从开源走向共建：范式联合优必选等十余家具身巨头发布PhanthyMotus新计划",
-      "summary": "近日，范式正式举办 PhanthyMotus 生态社区共建计划发布会，宣布其首个通用具身Agent底座从“开源”迈入“多方共建”新阶段。",
-      "url": "https://www.qbitai.com/2026/08/479314.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-08-25T17:31:16+08:00"
-    },
-    {
       "id": "829e237a888d",
       "title": "The full stack behind abundant intelligence",
       "summary": "OpenAI CFO Sarah Friar explains how advances across chips, compute, models, and products compound to deliver more useful intelligence at greater scale and lowe…",
@@ -148,33 +202,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-08-25T15:00:00+08:00"
-    },
-    {
-      "id": "9d4b7c25bbe7",
-      "title": "开源国产8B模型，比肩闭源Image 2了！",
-      "summary": "SenseNova U1.5 Lite",
-      "url": "https://www.qbitai.com/2026/08/479192.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-08-25T14:53:26+08:00"
-    },
-    {
-      "id": "da55f7d7bd9d",
-      "title": "Disrupting a new covert influence campaign from Russia",
-      "summary": "OpenAI banned Russia-origin accounts using AI to promote a fake Israel-based think tank and a “sovereignty” index praising Russia and criticizing the West.",
-      "url": "https://openai.com/index/disrupting-malicious-uses-of-ai-influence-campaign-russia",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-25T08:00:00+08:00"
-    },
-    {
-      "id": "cfc376addf8c",
-      "title": "Introducing the Admin plugin for ChatGPT Work and Codex",
-      "summary": "Use the Admin plugin for ChatGPT Work and Codex to analyze workspace usage, manage members and permissions, adjust limits, and act on admin requests.",
-      "url": "https://openai.com/index/introducing-admin-plugin",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-08-25T08:00:00+08:00"
     },
     {
       "id": "2983dbf79834",
@@ -213,15 +240,6 @@
       "published_at": "2026-08-24T23:00:19+08:00"
     },
     {
-      "id": "df015003760c",
-      "title": "Advancing price-performance for developers with GPT‑5.6 in Kiro",
-      "summary": "GPT‑5.6 is now available in Kiro, helping developers plan, build, review, and test software with better price-performance.",
-      "url": "https://openai.com/index/gpt-5-6-in-kiro",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-24T20:00:00+08:00"
-    },
-    {
       "id": "06daba08af15",
       "title": "From Atari to EVE Online: Building on 15 Years of AI Research in Games",
       "summary": "Google DeepMind partners with game studios to prototype breakthrough AI gameplay.",
@@ -235,15 +253,6 @@
       "title": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
       "summary": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
       "url": "https://huggingface.co/blog/pwc-search",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-08-21T08:00:00+08:00"
-    },
-    {
-      "id": "68e9fb1705e1",
-      "title": "Measuring benchmark optimization in speech recognition",
-      "summary": "Measuring benchmark optimization in speech recognition",
-      "url": "https://huggingface.co/blog/asr-benchmark-optimization",
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-08-21T08:00:00+08:00"
