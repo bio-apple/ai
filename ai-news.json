@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T09:13:27.360793+08:00",
+  "updated_at": "2026-08-28T23:43:01.504363+08:00",
   "date": "2026-08-28",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,105 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "e0a7fda848e2",
+      "title": "《时代》周刊全球AI 100放榜，精准捕获稚晖君最“想低调”的幕后老板",
+      "summary": "久久不愿来到台前的智元掌舵人",
+      "url": "https://www.qbitai.com/2026/08/480666.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-28T19:13:35+08:00"
+    },
+    {
+      "id": "346ca3c74f16",
+      "title": "刚刚，港股AGI第一股杀疯了！Agent业务半年进账近5亿，Token收入Q2暴涨500%",
+      "summary": "企业智能化服务撑起基本盘，第二增长曲线冒头",
+      "url": "https://www.qbitai.com/2026/08/480600.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-28T17:45:19+08:00"
+    },
+    {
+      "id": "9954eb9beeaa",
+      "title": "e生涯斩获浙江一等奖，同蚂蚁、浙大一道晋级数据要素国赛",
+      "summary": "8月26日，2026年“数据要素×”大赛浙江赛区决赛落下帷幕。",
+      "url": "https://www.qbitai.com/2026/08/480591.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-28T15:20:14+08:00"
+    },
+    {
+      "id": "7f41d2000786",
+      "title": "首款癌症疫苗，一针300万？？？",
+      "summary": "别让顶级治疗方法称为富人专属",
+      "url": "https://www.qbitai.com/2026/08/480557.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-28T14:22:59+08:00"
+    },
+    {
+      "id": "304e902f545b",
+      "title": "Łukasz Kaiser领衔，2026 奇点智能技术大会北京站正式官宣",
+      "summary": "11 月 20 -21 日，由奇点智能研究院与 CSDN 联合主办的「奇点智能大会北京站」正式举行",
+      "url": "https://www.qbitai.com/2026/08/480482.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-28T14:22:20+08:00"
+    },
+    {
+      "id": "21a87df7ff30",
+      "title": "EduRiskX: A Neuro-Symbolic Framework with F-Logic Reasoning for Early Academic Risk Prediction",
+      "summary": "arXiv:2608.26107v1 Announce Type: new Abstract: Predicting students' academic risk in online education is crucial for enabling timely interventions that can im…",
+      "url": "https://arxiv.org/abs/2608.26107",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-28T12:00:00+08:00"
+    },
+    {
+      "id": "5f39c84bf0df",
+      "title": "Standalone LLM and a Pre-specified Agentic Pipeline for Explaining ICU Mortality Predictions: a Feasibility Study on the eICU Demo Dataset",
+      "summary": "arXiv:2608.26109v1 Announce Type: new Abstract: Machine-learning models can predict ICU mortality accurately, but feature-attribution methods alone rarely prov…",
+      "url": "https://arxiv.org/abs/2608.26109",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-28T12:00:00+08:00"
+    },
+    {
+      "id": "a696e2a53ba4",
+      "title": "Large Models for Battery Prognostics and Health Management: A Review and Future Roadmap",
+      "summary": "arXiv:2608.26111v1 Announce Type: new Abstract: Battery Prognostics and Health Management (BPHM) is critical for ensuring the safe, reliable, and cost-effectiv…",
+      "url": "https://arxiv.org/abs/2608.26111",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-28T12:00:00+08:00"
+    },
+    {
+      "id": "a5bfa5676853",
+      "title": "PICasso: An AI-Enabled Design Framework for Autonomous Optimization of Silicon Photonic Devices",
+      "summary": "arXiv:2608.26113v1 Announce Type: new Abstract: We present PICasso, an AI-assisted framework for automated synthesis, verification, and optimization of photoni…",
+      "url": "https://arxiv.org/abs/2608.26113",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-28T12:00:00+08:00"
+    },
+    {
+      "id": "c5cde2c97210",
+      "title": "CIFQA: A Deterministic Tool-Grounded Multi-Agent LLM Framework for Financial Query Answering",
+      "summary": "arXiv:2608.26114v1 Announce Type: new Abstract: Calculation-intensive financial question answering requires exact reasoning over structured rates, temporal con…",
+      "url": "https://arxiv.org/abs/2608.26114",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-28T12:00:00+08:00"
+    },
+    {
+      "id": "0b00c80d502c",
+      "title": "Supporting Thailand’s next generation of AI startups",
+      "summary": "OpenAI and Thailand’s MHESI launch an eight-week accelerator helping 10 health, wellness, and education startups turn AI prototypes into trusted products.",
+      "url": "https://openai.com/index/supporting-next-generation-ai-startups-thailand",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-08-28T10:00:00+08:00"
+    },
     {
       "id": "a13e39d4fa54",
       "title": "Gemini Omni 1.1 Flash lets you build with more control",
@@ -60,15 +159,6 @@
       "published_at": "2026-08-27T20:59:16+08:00"
     },
     {
-      "id": "763312d605a9",
-      "title": "MiniMax ARR暴涨500%，token暴涨2000%！这就是Agent红利吧",
-      "summary": "好能增长，好能商业化啊！",
-      "url": "https://www.qbitai.com/2026/08/480092.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-27T20:16:10+08:00"
-    },
-    {
       "id": "3062d8cdad5f",
       "title": "Better answers, broader thinking: What students gain from ChatGPT and critical-thinking training",
       "summary": "A randomized study of more than 1,000 students examines ChatGPT, critical thinking, originality, and student performance on a real-world university assignment.",
@@ -78,60 +168,6 @@
       "published_at": "2026-08-27T17:00:00+08:00"
     },
     {
-      "id": "3d1496e808c8",
-      "title": "基元律动累计融资数千万美元，推出“中国版OpenRouter”",
-      "summary": "近日，AI基础设施公司基元律动（TokenRhythm）宣布完成新一轮融资，融资额达数千万美元。",
-      "url": "https://www.qbitai.com/2026/08/480079.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-08-27T13:43:00+08:00"
-    },
-    {
-      "id": "2493f940bb3e",
-      "title": "RENDER: Controlling Reader-Facing Evidence in LLM Memory Evaluation",
-      "summary": "arXiv:2608.23568v1 Announce Type: new Abstract: Memory and RAG evaluations often treat the answering model's input as an implementation detail, even though sys…",
-      "url": "https://arxiv.org/abs/2608.23568",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-27T12:00:00+08:00"
-    },
-    {
-      "id": "bc86e7ae27d4",
-      "title": "ESQ-Bench: A Multi-Tier Enterprise Oracle Benchmark for Evaluating NL2SQL Dialect Generalization and Silent Semantic Divergence",
-      "summary": "arXiv:2608.23569v1 Announce Type: new Abstract: State-of-the-art Natural Language to SQL (NL2SQL) models report execution accuracy exceeding 89 percent on esta…",
-      "url": "https://arxiv.org/abs/2608.23569",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-08-27T12:00:00+08:00"
-    },
-    {
-      "id": "98d26bbd6f37",
-      "title": "LLM Agents Perform Controlled Experiments Using Simulation Models",
-      "summary": "arXiv:2608.23622v1 Announce Type: new Abstract: Large language models (LLMs) have shown strong capabilities in reasoning, planning, and tool use, but many scie…",
-      "url": "https://arxiv.org/abs/2608.23622",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-27T12:00:00+08:00"
-    },
-    {
-      "id": "12af2bb9bff3",
-      "title": "A survey detection channel overrides the pixels in an astronomical foundation model, and biases tomographic mean redshifts",
-      "summary": "arXiv:2608.23626v1 Announce Type: new Abstract: Foundation models for astronomy are trained on survey pixels together with the catalogue products derived from …",
-      "url": "https://arxiv.org/abs/2608.23626",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-27T12:00:00+08:00"
-    },
-    {
-      "id": "ba5ac71821bc",
-      "title": "TRACE: Transition-Aware Residual Control for Multi-Objective Materials Discovery",
-      "summary": "arXiv:2608.23631v1 Announce Type: new Abstract: Multi-objective materials discovery with LLM agents is often limited not only by how many candidates can be pro…",
-      "url": "https://arxiv.org/abs/2608.23631",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-27T12:00:00+08:00"
-    },
-    {
       "id": "57e276283c19",
       "title": "Expanding OpenAI’s presence in Brazil",
       "summary": "OpenAI is expanding its presence in Brazil, deepening engagement with developers, businesses, and communities to support AI adoption across the country.",
@@ -139,24 +175,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-08-27T11:00:00+08:00"
-    },
-    {
-      "id": "02e1be7d467c",
-      "title": "工业Agent不是“套壳”大模型！西门子百年经验灌进工业AI",
-      "summary": "西门子Xcelerator与普通软件货架最本质的区别。货架解决的是「把产品卖出去」，西门子Xcelerator要解决的是「让产品在真实工业场景中持续生长」。",
-      "url": "https://www.qbitai.com/2026/08/480005.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-08-27T10:46:35+08:00"
-    },
-    {
-      "id": "c08fc3e84f5f",
-      "title": "千问办公首发上线Qwen3.8-Flash，生成速度提升100%，Token消耗减少75%",
-      "summary": "8月26日晚，千问办公首发上线刚刚发布的Qwen3.8-Flash模型，同时推出标准模式。",
-      "url": "https://www.qbitai.com/2026/08/480001.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-08-27T09:45:08+08:00"
     },
     {
       "id": "b32d9ad97343",
@@ -175,15 +193,6 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-08-27T01:01:00+08:00"
-    },
-    {
-      "id": "26ffecbc1265",
-      "title": "神秘「牛来」模型果然是智谱！GLM首个原生多模态，还用的国产卡",
-      "summary": "GLM-5.3 Flash",
-      "url": "https://www.qbitai.com/2026/08/479919.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-27T00:48:12+08:00"
     },
     {
       "id": "d6bb1031e66b",
@@ -210,15 +219,6 @@
       "url": "https://huggingface.co/blog/train-multi-vector-encoder",
       "source": "Hugging Face",
       "category": "新模型发布",
-      "published_at": "2026-08-26T08:00:00+08:00"
-    },
-    {
-      "id": "504dd1ec9508",
-      "title": "The Hugging Face incident and the road ahead",
-      "summary": "OpenAI shares findings from the Hugging Face security incident and the steps we’re taking to strengthen AI model security, monitoring, and alignment.",
-      "url": "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
-      "source": "OpenAI",
-      "category": "开源项目",
       "published_at": "2026-08-26T08:00:00+08:00"
     },
     {
@@ -274,15 +274,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-08-24T23:00:54+08:00"
-    },
-    {
-      "id": "06daba08af15",
-      "title": "From Atari to EVE Online: Building on 15 Years of AI Research in Games",
-      "summary": "Google DeepMind partners with game studios to prototype breakthrough AI gameplay.",
-      "url": "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-08-21T19:59:48+08:00"
     }
   ],
   "watch_sources": [
