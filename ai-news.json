@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-27T22:49:00.251159+08:00",
-  "date": "2026-08-27",
+  "updated_at": "2026-08-28T09:13:27.360793+08:00",
+  "date": "2026-08-28",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,24 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "a13e39d4fa54",
+      "title": "Gemini Omni 1.1 Flash lets you build with more control",
+      "summary": "Gemini Omni 1.1 Flash lets you build with more control",
+      "url": "https://deepmind.google/blog/gemini-omni-1-1-flash-lets-you-build-with-more-control/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-08-28T00:11:32+08:00"
+    },
+    {
+      "id": "5a6b85529262",
+      "title": "3 new ways to plan and book travel in Search",
+      "summary": "Book hotels and track airfares, plus view miles and rewards with AI Mode in Google Search.",
+      "url": "https://blog.google/products-and-platforms/products/search/book-travel-ai-mode/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-08-28T00:00:00+08:00"
+    },
     {
       "id": "73eb408ca7bd",
       "title": "GeForce NOW Gives Gamers More Ways to Play at Gamescom 2026",
@@ -49,6 +67,15 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-08-27T20:16:10+08:00"
+    },
+    {
+      "id": "3062d8cdad5f",
+      "title": "Better answers, broader thinking: What students gain from ChatGPT and critical-thinking training",
+      "summary": "A randomized study of more than 1,000 students examines ChatGPT, critical thinking, originality, and student performance on a real-world university assignment.",
+      "url": "https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-27T17:00:00+08:00"
     },
     {
       "id": "3d1496e808c8",
@@ -195,15 +222,6 @@
       "published_at": "2026-08-26T08:00:00+08:00"
     },
     {
-      "id": "d34e82eae2f2",
-      "title": "How loveholidays is making everyone a builder with Codex",
-      "summary": "Discover how loveholidays uses OpenAI Codex to make software development accessible across the business, helping teams turn ideas into products faster.",
-      "url": "https://openai.com/index/loveholidays",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-26T08:00:00+08:00"
-    },
-    {
       "id": "5f0b03166bf1",
       "title": "5 ways to upgrade your home decor with Google Search",
       "summary": "Learn how to use Google Search tools to find home decor inspiration, shop for furniture, and tackle DIY projects.",
@@ -265,24 +283,6 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-08-21T19:59:48+08:00"
-    },
-    {
-      "id": "bcd3314d2ba2",
-      "title": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
-      "summary": "How Hugging Face Inference Endpoints, Jobs, and Buckets Power Search on Papers with Code",
-      "url": "https://huggingface.co/blog/pwc-search",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-08-21T08:00:00+08:00"
-    },
-    {
-      "id": "6dd0bcee2387",
-      "title": "Broadening access to Skala creates a faster path to predictive DFT",
-      "summary": "Skala 1.1, the updated deep-learning exchange-correlation functional from Microsoft Research, provides greater accuracy, expanded accessibility across the comp…",
-      "url": "https://www.microsoft.com/en-us/research/blog/broadening-access-to-skala-creates-a-faster-path-to-predictive-dft/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-21T00:00:00+08:00"
     }
   ],
   "watch_sources": [
