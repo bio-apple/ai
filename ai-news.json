@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-29T08:48:07.739480+08:00",
+  "updated_at": "2026-08-29T18:29:54.980358+08:00",
   "date": "2026-08-29",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "21a87df7ff30",
+      "title": "EduRiskX: A Neuro-Symbolic Framework with F-Logic Reasoning for Early Academic Risk Prediction",
+      "summary": "arXiv:2608.26107v1 Announce Type: new Abstract: Predicting students' academic risk in online education is crucial for enabling timely interventions that can im…",
+      "url": "https://arxiv.org/abs/2608.26107",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-29T12:00:00+08:00"
+    },
+    {
+      "id": "5f39c84bf0df",
+      "title": "Standalone LLM and a Pre-specified Agentic Pipeline for Explaining ICU Mortality Predictions: a Feasibility Study on the eICU Demo Dataset",
+      "summary": "arXiv:2608.26109v1 Announce Type: new Abstract: Machine-learning models can predict ICU mortality accurately, but feature-attribution methods alone rarely prov…",
+      "url": "https://arxiv.org/abs/2608.26109",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-29T12:00:00+08:00"
+    },
+    {
+      "id": "a696e2a53ba4",
+      "title": "Large Models for Battery Prognostics and Health Management: A Review and Future Roadmap",
+      "summary": "arXiv:2608.26111v1 Announce Type: new Abstract: Battery Prognostics and Health Management (BPHM) is critical for ensuring the safe, reliable, and cost-effectiv…",
+      "url": "https://arxiv.org/abs/2608.26111",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-29T12:00:00+08:00"
+    },
+    {
+      "id": "a5bfa5676853",
+      "title": "PICasso: An AI-Enabled Design Framework for Autonomous Optimization of Silicon Photonic Devices",
+      "summary": "arXiv:2608.26113v1 Announce Type: new Abstract: We present PICasso, an AI-assisted framework for automated synthesis, verification, and optimization of photoni…",
+      "url": "https://arxiv.org/abs/2608.26113",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-29T12:00:00+08:00"
+    },
+    {
+      "id": "c5cde2c97210",
+      "title": "CIFQA: A Deterministic Tool-Grounded Multi-Agent LLM Framework for Financial Query Answering",
+      "summary": "arXiv:2608.26114v1 Announce Type: new Abstract: Calculation-intensive financial question answering requires exact reasoning over structured rates, temporal con…",
+      "url": "https://arxiv.org/abs/2608.26114",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-08-29T12:00:00+08:00"
+    },
     {
       "id": "6d131a483de7",
       "title": "我的自媒体搭子太能卷，一顿饭功夫17份成品",
@@ -60,49 +105,13 @@
       "published_at": "2026-08-28T14:22:59+08:00"
     },
     {
-      "id": "21a87df7ff30",
-      "title": "EduRiskX: A Neuro-Symbolic Framework with F-Logic Reasoning for Early Academic Risk Prediction",
-      "summary": "arXiv:2608.26107v1 Announce Type: new Abstract: Predicting students' academic risk in online education is crucial for enabling timely interventions that can im…",
-      "url": "https://arxiv.org/abs/2608.26107",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-28T12:00:00+08:00"
-    },
-    {
-      "id": "5f39c84bf0df",
-      "title": "Standalone LLM and a Pre-specified Agentic Pipeline for Explaining ICU Mortality Predictions: a Feasibility Study on the eICU Demo Dataset",
-      "summary": "arXiv:2608.26109v1 Announce Type: new Abstract: Machine-learning models can predict ICU mortality accurately, but feature-attribution methods alone rarely prov…",
-      "url": "https://arxiv.org/abs/2608.26109",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-28T12:00:00+08:00"
-    },
-    {
-      "id": "a696e2a53ba4",
-      "title": "Large Models for Battery Prognostics and Health Management: A Review and Future Roadmap",
-      "summary": "arXiv:2608.26111v1 Announce Type: new Abstract: Battery Prognostics and Health Management (BPHM) is critical for ensuring the safe, reliable, and cost-effectiv…",
-      "url": "https://arxiv.org/abs/2608.26111",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-28T12:00:00+08:00"
-    },
-    {
-      "id": "a5bfa5676853",
-      "title": "PICasso: An AI-Enabled Design Framework for Autonomous Optimization of Silicon Photonic Devices",
-      "summary": "arXiv:2608.26113v1 Announce Type: new Abstract: We present PICasso, an AI-assisted framework for automated synthesis, verification, and optimization of photoni…",
-      "url": "https://arxiv.org/abs/2608.26113",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-28T12:00:00+08:00"
-    },
-    {
-      "id": "c5cde2c97210",
-      "title": "CIFQA: A Deterministic Tool-Grounded Multi-Agent LLM Framework for Financial Query Answering",
-      "summary": "arXiv:2608.26114v1 Announce Type: new Abstract: Calculation-intensive financial question answering requires exact reasoning over structured rates, temporal con…",
-      "url": "https://arxiv.org/abs/2608.26114",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-08-28T12:00:00+08:00"
+      "id": "092c8de02e8b",
+      "title": "Our decision on Cursor following its acquisition by SpaceX",
+      "summary": "Our decision to wind down our contract providing OpenAI models to Cursor following its acquisition by SpaceX.",
+      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-28T14:00:00+08:00"
     },
     {
       "id": "0b00c80d502c",
@@ -208,15 +217,6 @@
       "title": "Learning never stops: How AI makes learning continuous",
       "summary": "OpenAI’s new report explores how students and educators use ChatGPT to make learning more continuous, with support that extends beyond the classroom.",
       "url": "https://openai.com/index/learning-never-stops",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-26T18:00:00+08:00"
-    },
-    {
-      "id": "d6bb1031e66b",
-      "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
-      "summary": "ChatGPT for Teachers is expanding to 55 U.S. school systems, bringing secure AI tools, training, and support to over 100,000 more educators and staff.",
-      "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-08-26T18:00:00+08:00"
