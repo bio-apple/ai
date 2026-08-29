@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-28T23:43:01.504363+08:00",
-  "date": "2026-08-28",
+  "updated_at": "2026-08-29T08:48:07.739480+08:00",
+  "date": "2026-08-29",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,15 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "6d131a483de7",
+      "title": "我的自媒体搭子太能卷，一顿饭功夫17份成品",
+      "summary": "我的自媒体搭子太能卷，一顿饭功夫17份成品",
+      "url": "https://www.qbitai.com/2026/08/480700.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-28T23:36:12+08:00"
+    },
     {
       "id": "e0a7fda848e2",
       "title": "《时代》周刊全球AI 100放榜，精准捕获稚晖君最“想低调”的幕后老板",
@@ -49,15 +58,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-08-28T14:22:59+08:00"
-    },
-    {
-      "id": "304e902f545b",
-      "title": "Łukasz Kaiser领衔，2026 奇点智能技术大会北京站正式官宣",
-      "summary": "11 月 20 -21 日，由奇点智能研究院与 CSDN 联合主办的「奇点智能大会北京站」正式举行",
-      "url": "https://www.qbitai.com/2026/08/480482.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-28T14:22:20+08:00"
     },
     {
       "id": "21a87df7ff30",
@@ -112,6 +112,15 @@
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-08-28T10:00:00+08:00"
+    },
+    {
+      "id": "b0b2c2da12a5",
+      "title": "The Open ASR Leaderboard Adds Its First Global South Language",
+      "summary": "The Open ASR Leaderboard Adds Its First Global South Language",
+      "url": "https://huggingface.co/blog/open-asr-leaderboard-global-south",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-08-28T08:00:00+08:00"
     },
     {
       "id": "a13e39d4fa54",
@@ -195,19 +204,19 @@
       "published_at": "2026-08-27T01:01:00+08:00"
     },
     {
-      "id": "d6bb1031e66b",
-      "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
-      "summary": "ChatGPT for Teachers is expanding to 55 U.S. school systems, bringing secure AI tools, training, and support to over 100,000 more educators and staff.",
-      "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
+      "id": "cdfc10030b4b",
+      "title": "Learning never stops: How AI makes learning continuous",
+      "summary": "OpenAI’s new report explores how students and educators use ChatGPT to make learning more continuous, with support that extends beyond the classroom.",
+      "url": "https://openai.com/index/learning-never-stops",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-08-26T18:00:00+08:00"
     },
     {
-      "id": "cdfc10030b4b",
-      "title": "Learning never stops: How AI makes learning continuous",
-      "summary": "OpenAI’s new report explores how students and educators use ChatGPT to make learning more continuous, with support that extends beyond the classroom.",
-      "url": "https://openai.com/index/learning-never-stops",
+      "id": "d6bb1031e66b",
+      "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
+      "summary": "ChatGPT for Teachers is expanding to 55 U.S. school systems, bringing secure AI tools, training, and support to over 100,000 more educators and staff.",
+      "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-08-26T18:00:00+08:00"
