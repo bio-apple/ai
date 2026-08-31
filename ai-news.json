@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-08-31T18:08:08.110073+08:00",
-  "date": "2026-08-31",
+  "updated_at": "2026-09-01T05:41:49.502397+08:00",
+  "date": "2026-09-01",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,24 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "8b83437bdb89",
+      "title": "GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models",
+      "summary": "What if pathology foundation models could do more with less? GigaPath-Flash and GigaTIME-Flash cut computational demands while maintaining strong performance, …",
+      "url": "https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/",
+      "source": "Microsoft AI",
+      "category": "新模型发布",
+      "published_at": "2026-09-01T00:00:00+08:00"
+    },
+    {
+      "id": "cb2996574206",
+      "title": "VC疯了！200万现金冠军奖，又花4000万造了一座AI「创业乌托邦」",
+      "summary": "划重点：这次不是你挨家敲门，是VC排队来看你。",
+      "url": "https://www.qbitai.com/2026/08/481928.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-31T21:20:29+08:00"
+    },
     {
       "id": "9f3ba22cb6e4",
       "title": "滴滴自动驾驶新一代车型开启载客测试服务",
@@ -42,6 +60,15 @@
       "published_at": "2026-08-31T12:47:26+08:00"
     },
     {
+      "id": "44f61163770f",
+      "title": "A milestone in expanding access to AI",
+      "summary": "ChatGPT Ads reaches $1 billion in annualized revenue run rate and expands globally, supporting broader access to AI through free and affordable options.",
+      "url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-31T12:00:00+08:00"
+    },
+    {
       "id": "cb499004310c",
       "title": "OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了",
       "summary": "什么样的AI业务，英伟达GPU和谷歌TPU搞不定，非得用Mac",
@@ -49,15 +76,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-08-31T11:24:34+08:00"
-    },
-    {
-      "id": "90a0709e0a3e",
-      "title": "全国第三，公司第二，“初创黑马”灵犀智涌用ROSS Harness把机器人送进工业具身智能第一梯队",
-      "summary": "灵犀智涌用一台由Demo级本体组装而成的机器人，成为工业场景赛除行业头部企业外唯一获奖的机器人公司。",
-      "url": "https://www.qbitai.com/2026/08/481750.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-31T11:11:46+08:00"
     },
     {
       "id": "092c8de02e8b",
@@ -168,15 +186,6 @@
       "published_at": "2026-08-27T01:01:00+08:00"
     },
     {
-      "id": "cdfc10030b4b",
-      "title": "Learning never stops: How AI makes learning continuous",
-      "summary": "OpenAI’s new report explores how students and educators use ChatGPT to make learning more continuous, with support that extends beyond the classroom.",
-      "url": "https://openai.com/index/learning-never-stops",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-26T18:00:00+08:00"
-    },
-    {
       "id": "5309d9655463",
       "title": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
       "summary": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
@@ -229,15 +238,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-08-25T08:00:00+08:00"
-    },
-    {
-      "id": "351f6de6e45a",
-      "title": "How XPUs Meet a World-Class AI Factory",
-      "summary": "To generate intelligence at scale, AI factories run continuously, and their economics are defined by delivered output: tokens per second, tokens per watt, cost…",
-      "url": "https://blogs.nvidia.com/blog/nvlink-fusion-xpu-ai-factory/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-24T23:00:54+08:00"
     }
   ],
   "watch_sources": [
