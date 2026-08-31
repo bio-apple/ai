@@ -744,33 +744,21 @@
     {
       "repo": "THU-MAIC/OpenMAIC",
       "name": "OpenMAIC",
-      "stars": 23708,
+      "stars": 26825,
       "category": "agent",
       "summary": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
-      "heat_score": 210.45,
+      "heat_score": 227.5,
       "sources": [
+        "search",
         "trending:daily",
         "trending:weekly"
       ],
       "rank": 1
     },
     {
-      "repo": "mvanhorn/last30days-skill",
-      "name": "last30days-skill",
-      "stars": 60452,
-      "category": "agent",
-      "summary": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a gr…",
-      "heat_score": 157.0,
-      "sources": [
-        "search",
-        "trending:daily"
-      ],
-      "rank": 2
-    },
-    {
       "repo": "Significant-Gravitas/AutoGPT",
       "name": "AutoGPT",
-      "stars": 187016,
+      "stars": 187040,
       "category": "agent",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so th…",
       "heat_score": 89.0,
@@ -778,98 +766,74 @@
         "priority",
         "search"
       ],
-      "rank": 3
+      "rank": 2
     },
     {
-      "repo": "punkpeye/awesome-mcp-servers",
-      "name": "awesome-mcp-servers",
-      "stars": 93253,
-      "category": "mcp",
-      "summary": "A collection of MCP servers.",
-      "heat_score": 150.92,
+      "repo": "NousResearch/hermes-agent",
+      "name": "hermes-agent",
+      "stars": 238978,
+      "category": "agent",
+      "summary": "The agent that grows with you",
+      "heat_score": 64.0,
       "sources": [
-        "trending:daily"
+        "search"
       ],
-      "rank": 1
+      "rank": 3
     },
     {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 85049,
+      "stars": 85200,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
+      "rank": 1
+    },
+    {
+      "repo": "headroomlabs-ai/headroom",
+      "name": "headroom",
+      "stars": 68202,
+      "category": "mcp",
+      "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
       "rank": 2
     },
     {
-      "repo": "DeusData/codebase-memory-mcp",
-      "name": "codebase-memory-mcp",
-      "stars": 41280,
+      "repo": "t8y2/dbx",
+      "name": "dbx",
+      "stars": 17575,
       "category": "mcp",
-      "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
-      "heat_score": 64.0,
+      "summary": "20 MB lightweight cross-platform database client for 90+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB…",
+      "heat_score": 63.64,
       "sources": [
         "search"
       ],
       "rank": 3
     },
     {
-      "repo": "Alishahryar1/free-claude-code",
-      "name": "free-claude-code",
-      "stars": 51879,
-      "category": "coding_agent",
-      "summary": "Use Claude Code, Codex, Pi, and OpenCode and more for free (1.3B+ free tokens) from your terminal, app, IDE, or phone l…",
-      "heat_score": 95.5,
-      "sources": [
-        "trending:weekly"
-      ],
-      "rank": 1
-    },
-    {
-      "repo": "openai/codex",
-      "name": "codex",
-      "stars": 120069,
-      "category": "coding_agent",
-      "summary": "Lightweight coding agent that runs in your terminal",
-      "heat_score": 91.0,
-      "sources": [
-        "trending:weekly"
-      ],
-      "rank": 2
-    },
-    {
       "repo": "All-Hands-AI/OpenHands",
       "name": "OpenHands",
-      "stars": 85660,
+      "stars": 85771,
       "category": "coding_agent",
       "summary": "🙌 OpenHands: AI-Driven Development",
       "heat_score": 79.52,
       "sources": [
         "priority"
       ],
-      "rank": 3
-    },
-    {
-      "repo": "affaan-m/ECC",
-      "name": "ECC",
-      "stars": 244628,
-      "category": "agent_harness",
-      "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
       "rank": 1
     },
     {
-      "repo": "browser-use/browser-use",
-      "name": "browser-use",
-      "stars": 111738,
-      "category": "agent_harness",
-      "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
+      "repo": "openai/codex",
+      "name": "codex",
+      "stars": 120435,
+      "category": "coding_agent",
+      "summary": "Lightweight coding agent that runs in your terminal",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -877,11 +841,48 @@
       "rank": 2
     },
     {
+      "repo": "stablyai/orca",
+      "name": "orca",
+      "stars": 58349,
+      "category": "coding_agent",
+      "summary": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 3
+    },
+    {
+      "repo": "affaan-m/ECC",
+      "name": "ECC",
+      "stars": 245193,
+      "category": "agent_harness",
+      "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
+      "heat_score": 148.0,
+      "sources": [
+        "search",
+        "trending:daily"
+      ],
+      "rank": 1
+    },
+    {
       "repo": "nexu-io/open-design",
       "name": "open-design",
-      "stars": 92811,
+      "stars": 93059,
       "category": "agent_harness",
       "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your c…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 2
+    },
+    {
+      "repo": "ruvnet/ruflo",
+      "name": "ruflo",
+      "stars": 70004,
+      "category": "agent_harness",
+      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -891,10 +892,10 @@
     {
       "repo": "tt-a1i/archify",
       "name": "archify",
-      "stars": 34095,
+      "stars": 38440,
       "category": "skills",
       "summary": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-containe…",
-      "heat_score": 221.5,
+      "heat_score": 230.5,
       "sources": [
         "trending:daily",
         "trending:weekly"
@@ -904,59 +905,61 @@
     {
       "repo": "K-Dense-AI/scientific-agent-skills",
       "name": "scientific-agent-skills",
-      "stars": 39003,
+      "stars": 40667,
       "category": "skills",
       "summary": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide.…",
-      "heat_score": 212.62,
+      "heat_score": 215.92,
       "sources": [
+        "search",
         "trending:daily",
         "trending:weekly"
       ],
       "rank": 2
     },
     {
-      "repo": "ConardLi/garden-skills",
-      "name": "garden-skills",
-      "stars": 11756,
+      "repo": "zhaoxuya520/reverse-skill",
+      "name": "reverse-skill",
+      "stars": 33066,
       "category": "skills",
-      "summary": "ConardLi's open-source Skills collection, featuring web design, knowledge retrieval, image generation, and more.",
-      "heat_score": 76.54,
+      "summary": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-dema…",
+      "heat_score": 151.0,
       "sources": [
-        "trending:weekly"
+        "search",
+        "trending:daily"
       ],
       "rank": 3
     },
     {
-      "repo": "mem0ai/mem0",
-      "name": "mem0",
-      "stars": 64370,
+      "repo": "volcengine/OpenViking",
+      "name": "OpenViking",
+      "stars": 34688,
       "category": "memory",
-      "summary": "Universal memory layer for AI Agents",
-      "heat_score": 56.22,
+      "summary": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
+      "heat_score": 63.89,
       "sources": [
         "search"
       ],
       "rank": 1
     },
     {
-      "repo": "EverMind-AI/EverOS",
-      "name": "EverOS",
-      "stars": 12565,
+      "repo": "mem0ai/mem0",
+      "name": "mem0",
+      "stars": 64446,
       "category": "memory",
-      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
-      "heat_score": 53.91,
+      "summary": "Universal memory layer for AI Agents",
+      "heat_score": 56.22,
       "sources": [
         "search"
       ],
       "rank": 2
     },
     {
-      "repo": "MemoriLabs/Memori",
-      "name": "Memori",
-      "stars": 16285,
+      "repo": "EverMind-AI/EverOS",
+      "name": "EverOS",
+      "stars": 12597,
       "category": "memory",
-      "summary": "Memori is agent-native memory infrastructure. A LLM-agnostic layer that turns agent execution and conversation into str…",
-      "heat_score": 43.8,
+      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
+      "heat_score": 53.9,
       "sources": [
         "search"
       ],
