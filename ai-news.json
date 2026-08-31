@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-31T03:34:38.825001+08:00",
+  "updated_at": "2026-08-31T18:08:08.110073+08:00",
   "date": "2026-08-31",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,49 +15,49 @@
   },
   "items": [
     {
-      "id": "2c681c8290eb",
-      "title": "AI本地部署不如官方版的元凶找到了：734个依赖包，每一个都可能坑",
-      "summary": "推理软件栈的微小差异，就能改变输出token",
-      "url": "https://www.qbitai.com/2026/08/481372.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-08-29T21:11:08+08:00"
-    },
-    {
-      "id": "2fb3fa6b0c8f",
-      "title": "去年归国的徐梦迪，成了清华姚班班主任",
-      "summary": "本科读车辆工程，如今教AI第一班",
-      "url": "https://www.qbitai.com/2026/08/481318.html",
+      "id": "9f3ba22cb6e4",
+      "title": "滴滴自动驾驶新一代车型开启载客测试服务",
+      "summary": "近期，滴滴自动驾驶新一代 Robotaxi R2正式开启无人载客测试服务",
+      "url": "https://www.qbitai.com/2026/08/481923.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-08-29T21:01:34+08:00"
+      "published_at": "2026-08-31T15:53:12+08:00"
     },
     {
-      "id": "9a1fe220f0d7",
-      "title": "Claude开始训练Claude！4美元一小时，跑赢150美元人类研究员",
-      "summary": "AI「自进化」，越来越近了",
-      "url": "https://www.qbitai.com/2026/08/481223.html",
+      "id": "82b45c1136dd",
+      "title": "范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业",
+      "summary": "范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业",
+      "url": "https://www.qbitai.com/2026/08/481919.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-08-29T20:50:31+08:00"
+      "category": "行业新闻",
+      "published_at": "2026-08-31T15:34:02+08:00"
     },
     {
-      "id": "cdf1a6b89f54",
-      "title": "20ms把PDF变成Markdown！开源OCR神器快了近300倍",
-      "summary": "3秒可处理200份PDF",
-      "url": "https://www.qbitai.com/2026/08/481075.html",
+      "id": "d7a0c9ea1723",
+      "title": "「GPT-6」灰测demo刷屏！周四发布在即",
+      "summary": "核弹爆炸",
+      "url": "https://www.qbitai.com/2026/08/481893.html",
       "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-08-29T20:26:49+08:00"
+      "category": "新工具上线",
+      "published_at": "2026-08-31T12:47:26+08:00"
     },
     {
-      "id": "b2d07c6cdf95",
-      "title": "Coding不再是程序员专属！阿里Qoder这波有点绝",
-      "summary": "Coding正在变成Al世界的数字执行力",
-      "url": "https://www.qbitai.com/2026/08/480940.html",
+      "id": "cb499004310c",
+      "title": "OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了",
+      "summary": "什么样的AI业务，英伟达GPU和谷歌TPU搞不定，非得用Mac",
+      "url": "https://www.qbitai.com/2026/08/481759.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-08-29T20:11:37+08:00"
+      "published_at": "2026-08-31T11:24:34+08:00"
+    },
+    {
+      "id": "90a0709e0a3e",
+      "title": "全国第三，公司第二，“初创黑马”灵犀智涌用ROSS Harness把机器人送进工业具身智能第一梯队",
+      "summary": "灵犀智涌用一台由Demo级本体组装而成的机器人，成为工业场景赛除行业头部企业外唯一获奖的机器人公司。",
+      "url": "https://www.qbitai.com/2026/08/481750.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-08-31T11:11:46+08:00"
     },
     {
       "id": "092c8de02e8b",
