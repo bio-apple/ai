@@ -744,12 +744,11 @@
     {
       "repo": "THU-MAIC/OpenMAIC",
       "name": "OpenMAIC",
-      "stars": 26825,
+      "stars": 29325,
       "category": "agent",
       "summary": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
-      "heat_score": 227.5,
+      "heat_score": 223.0,
       "sources": [
-        "search",
         "trending:daily",
         "trending:weekly"
       ],
@@ -758,7 +757,7 @@
     {
       "repo": "Significant-Gravitas/AutoGPT",
       "name": "AutoGPT",
-      "stars": 187040,
+      "stars": 187062,
       "category": "agent",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so th…",
       "heat_score": 89.0,
@@ -771,7 +770,7 @@
     {
       "repo": "NousResearch/hermes-agent",
       "name": "hermes-agent",
-      "stars": 238978,
+      "stars": 239465,
       "category": "agent",
       "summary": "The agent that grows with you",
       "heat_score": 64.0,
@@ -781,71 +780,71 @@
       "rank": 3
     },
     {
+      "repo": "punkpeye/awesome-mcp-servers",
+      "name": "awesome-mcp-servers",
+      "stars": 93694,
+      "category": "mcp",
+      "summary": "A collection of MCP servers.",
+      "heat_score": 90.94,
+      "sources": [
+        "trending:weekly"
+      ],
+      "rank": 1
+    },
+    {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 85200,
+      "stars": 85322,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
-      "rank": 1
+      "rank": 2
     },
     {
-      "repo": "headroomlabs-ai/headroom",
-      "name": "headroom",
-      "stars": 68202,
+      "repo": "DeusData/codebase-memory-mcp",
+      "name": "codebase-memory-mcp",
+      "stars": 41711,
       "category": "mcp",
-      "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95…",
+      "summary": "High-performance code intelligence MCP server. Indexes codebases into a persistent knowledge graph — average repo in mi…",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
-      "rank": 2
+      "rank": 3
     },
     {
-      "repo": "t8y2/dbx",
-      "name": "dbx",
-      "stars": 17575,
-      "category": "mcp",
-      "summary": "20 MB lightweight cross-platform database client for 90+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoDB…",
-      "heat_score": 63.64,
+      "repo": "thedotmack/claude-mem",
+      "name": "claude-mem",
+      "stars": 92884,
+      "category": "coding_agent",
+      "summary": "Persistent Context Across Sessions for Every Agent – Captures everything your agent does during sessions, compresses it…",
+      "heat_score": 88.0,
       "sources": [
-        "search"
+        "trending:weekly"
       ],
-      "rank": 3
+      "rank": 1
     },
     {
       "repo": "All-Hands-AI/OpenHands",
       "name": "OpenHands",
-      "stars": 85771,
+      "stars": 85876,
       "category": "coding_agent",
       "summary": "🙌 OpenHands: AI-Driven Development",
-      "heat_score": 79.52,
+      "heat_score": 79.53,
       "sources": [
         "priority"
-      ],
-      "rank": 1
-    },
-    {
-      "repo": "openai/codex",
-      "name": "codex",
-      "stars": 120435,
-      "category": "coding_agent",
-      "summary": "Lightweight coding agent that runs in your terminal",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
       ],
       "rank": 2
     },
     {
-      "repo": "stablyai/orca",
-      "name": "orca",
-      "stars": 58349,
+      "repo": "anomalyco/opencode",
+      "name": "opencode",
+      "stars": 203050,
       "category": "coding_agent",
-      "summary": "Orca is the ADE for working with a fleet of parallel agents. Run any coding agent with your own subscription. Available…",
+      "summary": "The open source coding agent.",
       "heat_score": 64.0,
       "sources": [
         "search"
@@ -853,113 +852,110 @@
       "rank": 3
     },
     {
-      "repo": "affaan-m/ECC",
-      "name": "ECC",
-      "stars": 245193,
+      "repo": "browser-use/video-use",
+      "name": "video-use",
+      "stars": 22817,
       "category": "agent_harness",
-      "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
-      "heat_score": 148.0,
+      "summary": "Edit videos with coding agents",
+      "heat_score": 151.0,
       "sources": [
-        "search",
         "trending:daily"
       ],
       "rank": 1
     },
     {
+      "repo": "affaan-m/ECC",
+      "name": "ECC",
+      "stars": 245685,
+      "category": "agent_harness",
+      "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
+      "heat_score": 136.0,
+      "sources": [
+        "search",
+        "trending:daily"
+      ],
+      "rank": 2
+    },
+    {
       "repo": "nexu-io/open-design",
       "name": "open-design",
-      "stars": 93059,
+      "stars": 93328,
       "category": "agent_harness",
       "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your c…",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
-      "rank": 2
-    },
-    {
-      "repo": "ruvnet/ruflo",
-      "name": "ruflo",
-      "stars": 70004,
-      "category": "agent_harness",
-      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
       "rank": 3
-    },
-    {
-      "repo": "tt-a1i/archify",
-      "name": "archify",
-      "stars": 38440,
-      "category": "skills",
-      "summary": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-containe…",
-      "heat_score": 230.5,
-      "sources": [
-        "trending:daily",
-        "trending:weekly"
-      ],
-      "rank": 1
     },
     {
       "repo": "K-Dense-AI/scientific-agent-skills",
       "name": "scientific-agent-skills",
-      "stars": 40667,
+      "stars": 41450,
       "category": "skills",
       "summary": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide.…",
-      "heat_score": 215.92,
+      "heat_score": 195.05,
       "sources": [
-        "search",
         "trending:daily",
         "trending:weekly"
+      ],
+      "rank": 1
+    },
+    {
+      "repo": "Imbad0202/academic-research-skills",
+      "name": "academic-research-skills",
+      "stars": 44805,
+      "category": "skills",
+      "summary": "Academic Research Skills for Claude Code: research → write → review → revise → finalize",
+      "heat_score": 172.0,
+      "sources": [
+        "trending:daily"
       ],
       "rank": 2
     },
     {
-      "repo": "zhaoxuya520/reverse-skill",
-      "name": "reverse-skill",
-      "stars": 33066,
+      "repo": "tt-a1i/archify",
+      "name": "archify",
+      "stars": 41627,
       "category": "skills",
-      "summary": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-dema…",
-      "heat_score": 151.0,
+      "summary": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-containe…",
+      "heat_score": 116.5,
       "sources": [
-        "search",
-        "trending:daily"
+        "trending:weekly"
       ],
       "rank": 3
     },
     {
-      "repo": "volcengine/OpenViking",
-      "name": "OpenViking",
-      "stars": 34688,
+      "repo": "mem0ai/mem0",
+      "name": "mem0",
+      "stars": 64528,
       "category": "memory",
-      "summary": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
-      "heat_score": 63.89,
+      "summary": "The Memory Layer for AI Agents - Drop-in memory infrastructure for AI agents and apps. Context that persists. Built for…",
+      "heat_score": 56.23,
       "sources": [
         "search"
       ],
       "rank": 1
     },
     {
-      "repo": "mem0ai/mem0",
-      "name": "mem0",
-      "stars": 64446,
+      "repo": "EverMind-AI/EverOS",
+      "name": "EverOS",
+      "stars": 12622,
       "category": "memory",
-      "summary": "Universal memory layer for AI Agents",
-      "heat_score": 56.22,
+      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
+      "heat_score": 53.89,
       "sources": [
         "search"
       ],
       "rank": 2
     },
     {
-      "repo": "EverMind-AI/EverOS",
-      "name": "EverOS",
-      "stars": 12597,
+      "repo": "topoteretes/cognee",
+      "name": "cognee",
+      "stars": 30395,
       "category": "memory",
-      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
-      "heat_score": 53.9,
+      "summary": "Cognee is the open-source AI memory platform for agents. Give your AI agents persistent long-term memory across session…",
+      "heat_score": 50.75,
       "sources": [
         "search"
       ],
