@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-01T05:41:49.502397+08:00",
+  "updated_at": "2026-09-01T16:56:28.240478+08:00",
   "date": "2026-09-01",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "ae5d7b81dc72",
+      "title": "自进化WAM来了！清华AIR联手域变换提出具身In-Context Causal Learning",
+      "summary": "参数冻结，能力暴涨",
+      "url": "https://www.qbitai.com/2026/09/482337.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-01T13:12:30+08:00"
+    },
+    {
+      "id": "e105e56b55cb",
+      "title": "AIVC只是前菜！复旦提出生命算子，统一生命建模",
+      "summary": "连发六篇Nature期刊，复旦Neolab打通全尺度生命推演",
+      "url": "https://www.qbitai.com/2026/09/482300.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-01T12:12:49+08:00"
+    },
+    {
+      "id": "6ce61a491ccd",
+      "title": "DS-Lighting: Making Agent Harnesses Explicit for Data-Science Automation",
+      "summary": "arXiv:2608.28590v1 Announce Type: new Abstract: Large Language Model (LLM) agents have shown promise for automating data-science workflows, yet their end-to-en…",
+      "url": "https://arxiv.org/abs/2608.28590",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-01T12:00:00+08:00"
+    },
+    {
+      "id": "7e990f8be062",
+      "title": "Expert-validated STEM QA",
+      "summary": "arXiv:2608.28591v1 Announce Type: new Abstract: Recent advancements in AI are helping scientists achieve breakthroughs in fields such as mathematics, medicine,…",
+      "url": "https://arxiv.org/abs/2608.28591",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-01T12:00:00+08:00"
+    },
+    {
+      "id": "840f711c0f06",
+      "title": "A collective capability boundary in frontier large language models on guideline-conformant and case-specific oncology decision-making",
+      "summary": "arXiv:2608.28592v1 Announce Type: new Abstract: Large language models (LLMs) achieve high scores on medical knowledge examinations, yet real-world oncology is …",
+      "url": "https://arxiv.org/abs/2608.28592",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-01T12:00:00+08:00"
+    },
+    {
+      "id": "5ff2115f4f1f",
+      "title": "Statutory AI: Aligning Large Language Models With Legal Norms",
+      "summary": "arXiv:2608.28593v1 Announce Type: new Abstract: With the increasing development of AI regulatory frameworks, ensuring that artificial intelligence systems, par…",
+      "url": "https://arxiv.org/abs/2608.28593",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-01T12:00:00+08:00"
+    },
+    {
+      "id": "b5348fe4c740",
+      "title": "From Question-First to Analyst-First: Domain-Expert Skills and Verified Knowledge Compilation for Proactive Enterprise Analytics",
+      "summary": "arXiv:2608.28594v1 Announce Type: new Abstract: Conversational analytics systems assume the user already has a well-formed question, leaving a non-expert facin…",
+      "url": "https://arxiv.org/abs/2608.28594",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-01T12:00:00+08:00"
+    },
     {
       "id": "8b83437bdb89",
       "title": "GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models",
@@ -51,13 +114,22 @@
       "published_at": "2026-08-31T15:34:02+08:00"
     },
     {
-      "id": "d7a0c9ea1723",
-      "title": "「GPT-6」灰测demo刷屏！周四发布在即",
-      "summary": "核弹爆炸",
-      "url": "https://www.qbitai.com/2026/08/481893.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-08-31T12:47:26+08:00"
+      "id": "0703988e3a33",
+      "title": "OpenAI supports California’s bill to advance youth AI safety",
+      "summary": "OpenAI supports California SB 1119, advancing strong, age-appropriate AI safeguards for teens while preserving opportunities to learn, create, and explore.",
+      "url": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-31T15:00:00+08:00"
+    },
+    {
+      "id": "7bc341571432",
+      "title": "Polimill builds Japan's next-generation public AI infrastructure",
+      "summary": "Polimill uses OpenAI GPT models and Codex to help municipalities search and use administrative knowledge while accelerating development.",
+      "url": "https://openai.com/index/polimill",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-08-31T15:00:00+08:00"
     },
     {
       "id": "44f61163770f",
@@ -67,15 +139,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-08-31T12:00:00+08:00"
-    },
-    {
-      "id": "cb499004310c",
-      "title": "OpenAI买几万台Mac搞强化训练！英伟达的活被苹果抢了",
-      "summary": "什么样的AI业务，英伟达GPU和谷歌TPU搞不定，非得用Mac",
-      "url": "https://www.qbitai.com/2026/08/481759.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-31T11:24:34+08:00"
     },
     {
       "id": "092c8de02e8b",
@@ -150,24 +213,6 @@
       "published_at": "2026-08-27T20:59:16+08:00"
     },
     {
-      "id": "3062d8cdad5f",
-      "title": "Better answers, broader thinking: What students gain from ChatGPT and critical-thinking training",
-      "summary": "A randomized study of more than 1,000 students examines ChatGPT, critical thinking, originality, and student performance on a real-world university assignment.",
-      "url": "https://openai.com/index/what-students-gain-from-chatgpt-critical-thinking-training",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-27T17:00:00+08:00"
-    },
-    {
-      "id": "57e276283c19",
-      "title": "Expanding OpenAI’s presence in Brazil",
-      "summary": "OpenAI is expanding its presence in Brazil, deepening engagement with developers, businesses, and communities to support AI adoption across the country.",
-      "url": "https://openai.com/index/expanding-our-presence-in-brazil",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-27T11:00:00+08:00"
-    },
-    {
       "id": "b32d9ad97343",
       "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
       "summary": "The next wave of AI is placing new demands on infrastructure. As AI agents and trillion-parameter workloads become mainstream, the performance of AI infrastruc…",
@@ -229,15 +274,6 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-08-25T19:39:24+08:00"
-    },
-    {
-      "id": "2983dbf79834",
-      "title": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
-      "summary": "Wire It, Run It, Deploy It: AI Workflows in Gradio",
-      "url": "https://huggingface.co/blog/gradio-workflow-guide",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-08-25T08:00:00+08:00"
     }
   ],
   "watch_sources": [
