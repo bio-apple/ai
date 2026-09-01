@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-01T16:56:28.240478+08:00",
-  "date": "2026-09-01",
+  "updated_at": "2026-09-02T03:41:20.402267+08:00",
+  "date": "2026-09-02",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,78 @@
   },
   "items": [
     {
+      "id": "dfd1ea2e5518",
+      "title": "Introducing agentic video understanding with Gemini",
+      "summary": "Introducing agentic video understanding with Gemini",
+      "url": "https://deepmind.google/blog/introducing-agentic-video-in-gemini/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-09-02T01:08:51+08:00"
+    },
+    {
+      "id": "3b5f2688fec1",
+      "title": "How AI-native companies turn workflows into operating capability",
+      "summary": "Basis, Clay, and Exa Labs use AI agents to improve onboarding, account management, and developer integrations. See what enterprise leaders can apply.",
+      "url": "https://openai.com/index/ai-native-company-workflows",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-02T01:00:00+08:00"
+    },
+    {
+      "id": "77cd2a6a82f1",
+      "title": "Try Google Pics: Easy image creation and editing in Google Workspace",
+      "summary": "Built on our latest Nano Banana model, Google Pics — our image creation and editing tool — is now available.",
+      "url": "https://blog.google/products-and-platforms/products/workspace/google-pics/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-09-02T00:00:00+08:00"
+    },
+    {
+      "id": "5f05c5785ba4",
+      "title": "3秒出片比播放还快，MiniMax打开了AI视频的实时商业化路径",
+      "summary": "3秒出片比播放还快，MiniMax打开了AI视频的实时商业化路径",
+      "url": "https://www.qbitai.com/2026/09/482512.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-01T20:02:39+08:00"
+    },
+    {
+      "id": "50e05f9b472e",
+      "title": "Healthcare organizations can now connect EHR and additional industry data to ChatGPT",
+      "summary": "ChatGPT can now connect to trusted healthcare data, helping clinicians securely access patient context, medical research, and more.",
+      "url": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-01T20:00:00+08:00"
+    },
+    {
+      "id": "ec78e94e1f84",
+      "title": "GitHub最热架构图Agent，开发者故事看哭了",
+      "summary": "美观且支持实时更新的架构图，也能用AI一键生成了！",
+      "url": "https://www.qbitai.com/2026/09/482469.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-01T16:26:54+08:00"
+    },
+    {
+      "id": "eabe3b893411",
+      "title": "急急急用电！马斯克开造燃气轮机叶片",
+      "summary": "SpaceX正在德克萨斯州筹备燃气轮机叶片铸造工厂",
+      "url": "https://www.qbitai.com/2026/09/482451.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-01T16:24:12+08:00"
+    },
+    {
+      "id": "6edebefe9ad2",
+      "title": "A社化身A割！Claude官宣永久提额25%，结果到手反而少17%",
+      "summary": "主打一个明升暗降，理直气壮",
+      "url": "https://www.qbitai.com/2026/09/482406.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-01T16:15:40+08:00"
+    },
+    {
       "id": "ae5d7b81dc72",
       "title": "自进化WAM来了！清华AIR联手域变换提出具身In-Context Causal Learning",
       "summary": "参数冻结，能力暴涨",
@@ -22,15 +94,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-01T13:12:30+08:00"
-    },
-    {
-      "id": "e105e56b55cb",
-      "title": "AIVC只是前菜！复旦提出生命算子，统一生命建模",
-      "summary": "连发六篇Nature期刊，复旦Neolab打通全尺度生命推演",
-      "url": "https://www.qbitai.com/2026/09/482300.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-01T12:12:49+08:00"
     },
     {
       "id": "6ce61a491ccd",
@@ -78,6 +141,15 @@
       "published_at": "2026-09-01T12:00:00+08:00"
     },
     {
+      "id": "85562dc16345",
+      "title": "Introducing @huggingface/kernels: 200+ WebGPU Kernels for Local AI",
+      "summary": "Introducing @huggingface/kernels: 200+ WebGPU Kernels for Local AI",
+      "url": "https://huggingface.co/blog/webgpu-kernels",
+      "source": "Hugging Face",
+      "category": "新工具上线",
+      "published_at": "2026-09-01T08:00:00+08:00"
+    },
+    {
       "id": "8b83437bdb89",
       "title": "GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models",
       "summary": "What if pathology foundation models could do more with less? GigaPath-Flash and GigaTIME-Flash cut computational demands while maintaining strong performance, …",
@@ -85,33 +157,6 @@
       "source": "Microsoft AI",
       "category": "新模型发布",
       "published_at": "2026-09-01T00:00:00+08:00"
-    },
-    {
-      "id": "cb2996574206",
-      "title": "VC疯了！200万现金冠军奖，又花4000万造了一座AI「创业乌托邦」",
-      "summary": "划重点：这次不是你挨家敲门，是VC排队来看你。",
-      "url": "https://www.qbitai.com/2026/08/481928.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-31T21:20:29+08:00"
-    },
-    {
-      "id": "9f3ba22cb6e4",
-      "title": "滴滴自动驾驶新一代车型开启载客测试服务",
-      "summary": "近期，滴滴自动驾驶新一代 Robotaxi R2正式开启无人载客测试服务",
-      "url": "https://www.qbitai.com/2026/08/481923.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-08-31T15:53:12+08:00"
-    },
-    {
-      "id": "82b45c1136dd",
-      "title": "范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业",
-      "summary": "范式与华为达成重磅算力战略合作，成为首批拥抱国产最高端算力底座的AI企业",
-      "url": "https://www.qbitai.com/2026/08/481919.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-08-31T15:34:02+08:00"
     },
     {
       "id": "0703988e3a33",
@@ -139,24 +184,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-08-31T12:00:00+08:00"
-    },
-    {
-      "id": "092c8de02e8b",
-      "title": "Our decision on Cursor following its acquisition by SpaceX",
-      "summary": "Our decision to wind down our contract providing OpenAI models to Cursor following its acquisition by SpaceX.",
-      "url": "https://openai.com/index/our-decision-on-cursor-following-its-acquisition-by-spacex",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-28T14:00:00+08:00"
-    },
-    {
-      "id": "0b00c80d502c",
-      "title": "Supporting Thailand’s next generation of AI startups",
-      "summary": "OpenAI and Thailand’s MHESI launch an eight-week accelerator helping 10 health, wellness, and education startups turn AI prototypes into trusted products.",
-      "url": "https://openai.com/index/supporting-next-generation-ai-startups-thailand",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-08-28T10:00:00+08:00"
     },
     {
       "id": "b0b2c2da12a5",
@@ -238,42 +265,6 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-08-26T08:00:00+08:00"
-    },
-    {
-      "id": "5f0b03166bf1",
-      "title": "5 ways to upgrade your home decor with Google Search",
-      "summary": "Learn how to use Google Search tools to find home decor inspiration, shop for furniture, and tackle DIY projects.",
-      "url": "https://blog.google/products-and-platforms/products/search/home-decor-tips/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-26T00:00:00+08:00"
-    },
-    {
-      "id": "67c0d574508d",
-      "title": "Leading Publishers Bring Blockbuster PC Games and Technology to NVIDIA RTX Spark",
-      "summary": "NVIDIA is bringing the next wave of RTX gaming to the Gamescom conference running this week in Cologne, Germany, with support for new games, anti-cheat technol…",
-      "url": "https://blogs.nvidia.com/blog/gamescom-rtx-spark-pc-games-technology/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-08-25T23:30:48+08:00"
-    },
-    {
-      "id": "74043a2c13e4",
-      "title": "Granite 4.2 LLMs: How They're Built",
-      "summary": "Granite 4.2 LLMs: How They're Built",
-      "url": "https://huggingface.co/blog/ibm-granite/granite-4-2",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-08-25T23:14:14+08:00"
-    },
-    {
-      "id": "f6b26e55a489",
-      "title": "Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original",
-      "summary": "Quantization-Aware Healing: a compressed, 4-bit model that outperforms its full-precision original",
-      "url": "https://huggingface.co/blog/MultiverseComputingCAI/quantization-aware-healing",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-08-25T19:39:24+08:00"
     }
   ],
   "watch_sources": [
