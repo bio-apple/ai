@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-02T16:10:09.404317+08:00",
-  "date": "2026-09-02",
+  "updated_at": "2026-09-03T03:33:22.043986+08:00",
+  "date": "2026-09-03",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,42 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "383dbcd782ab",
+      "title": "Proactive cyber defense for governments and enterprises",
+      "summary": "Proactive cyber defense for governments and enterprises",
+      "url": "https://deepmind.google/blog/proactive-cyber-defense-for-governments-and-enterprises/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-09-03T00:24:24+08:00"
+    },
+    {
+      "id": "18ef68f77655",
+      "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+      "summary": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
+      "url": "https://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-09-03T00:18:31+08:00"
+    },
+    {
+      "id": "22915ca8a273",
+      "title": "Real-Time Intelligence with IBM Time Series Models on Confluent",
+      "summary": "Real-Time Intelligence with IBM Time Series Models on Confluent",
+      "url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-09-02T21:49:14+08:00"
+    },
+    {
+      "id": "8cb0fbe67576",
+      "title": "SkyProduction天工工作台：从剧本到成片，一套工作台把精品短剧创作真正跑起来",
+      "summary": "SkyProduction（天工工作台）全新版本于8月31日正式上线",
+      "url": "https://www.qbitai.com/2026/09/483274.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-02T17:22:16+08:00"
+    },
     {
       "id": "555daf521fa1",
       "title": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
@@ -94,15 +130,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-02T10:48:06+08:00"
-    },
-    {
-      "id": "ad90e2a2c26e",
-      "title": "Claude最强Fable 5.1发布！8项屠榜，最高降价45%，反蒸馏机制上线",
-      "summary": "无论你此前让Claude处理什么任务，Fable 5.1都能做更多，并且把最难的部分完成得更出色",
-      "url": "https://www.qbitai.com/2026/09/482652.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-02T10:18:12+08:00"
     },
     {
       "id": "23bdbfdbd061",
@@ -274,15 +301,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-08-27T05:05:30+08:00"
-    },
-    {
-      "id": "83abfc082897",
-      "title": "Intelligent transcription with Gemini 3.5 Transcribe",
-      "summary": "Now you can get more intelligent speech-to-text transcription with Gemini 3.5 Transcribe.",
-      "url": "https://deepmind.google/blog/intelligent-transcription-with-gemini-3-5-transcribe/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-08-27T01:01:00+08:00"
     }
   ],
   "watch_sources": [
