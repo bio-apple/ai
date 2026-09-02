@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-02T03:41:20.402267+08:00",
+  "updated_at": "2026-09-02T16:10:09.404317+08:00",
   "date": "2026-09-02",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,123 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "555daf521fa1",
+      "title": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
+      "summary": "蚂蚁集团推出统一宽表系统OmniTable，论文获评VLDB 2026工业赛道最佳论文",
+      "url": "https://www.qbitai.com/2026/09/483104.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-02T14:20:17+08:00"
+    },
+    {
+      "id": "f21e55c629b3",
+      "title": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
+      "summary": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
+      "url": "https://www.qbitai.com/2026/09/483101.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-02T14:10:26+08:00"
+    },
+    {
+      "id": "5465860b50b6",
+      "title": "前字节强化学习专家孙鹏博士加盟星尘智能，完善Physical AI全栈技术布局",
+      "summary": "9月2日，前字节跳动强化学习专家、前腾讯Robotics X智能体中⼼负责⼈孙鹏博⼠正式加入星尘智能",
+      "url": "https://www.qbitai.com/2026/09/483097.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-02T14:06:50+08:00"
+    },
+    {
+      "id": "98deee859b1d",
+      "title": "HyperWorld: Hypergraph-Structured State Serialization Improves Learned Textual World Models",
+      "summary": "arXiv:2609.00002v1 Announce Type: new Abstract: World models enable language-model agents to predict environment dynamics and plan before acting. In text envir…",
+      "url": "https://arxiv.org/abs/2609.00002",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-02T12:00:00+08:00"
+    },
+    {
+      "id": "83711c63bda9",
+      "title": "I-CARE: Analysis of interference-related phenomena in a controllable, diverse and representative unlearning setting for text-to-image models",
+      "summary": "arXiv:2609.00003v1 Announce Type: new Abstract: Machine unlearning studies the removal of knowledge from an AI model, making the system forget a concept it pre…",
+      "url": "https://arxiv.org/abs/2609.00003",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-02T12:00:00+08:00"
+    },
+    {
+      "id": "dd5260340c29",
+      "title": "Discrete-Time MDP Modeling for Multi-Item Capacitated Lot Sizing with Stochastic Demand Timing",
+      "summary": "arXiv:2609.00004v1 Announce Type: new Abstract: This paper studies a finite-horizon multi-item capacitated lot-sizing problem in which demand quantities are de…",
+      "url": "https://arxiv.org/abs/2609.00004",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-02T12:00:00+08:00"
+    },
+    {
+      "id": "f3b92b154803",
+      "title": "Incremental Risk Assessment of Progressive Elder Financial Scams via Instruction-Tuned Small Language Models",
+      "summary": "arXiv:2609.00005v1 Announce Type: new Abstract: Financial scams targeting older adults increasingly occur through text and voice channels such as email, SMS, a…",
+      "url": "https://arxiv.org/abs/2609.00005",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-02T12:00:00+08:00"
+    },
+    {
+      "id": "d137c9659b05",
+      "title": "Long-Horizon State Tracking in LLMs: Executing MD5 through a Deep Sequence of Dependent Tool Calls",
+      "summary": "arXiv:2609.00012v1 Announce Type: new Abstract: Long-horizon tasks remain uncommon in large language model (LLM) evaluation, and for a reason: when each step d…",
+      "url": "https://arxiv.org/abs/2609.00012",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-02T12:00:00+08:00"
+    },
+    {
+      "id": "8755620e2708",
+      "title": "企业级Agent落地样板间！百融硅基员工批量上岗，按结果领工资",
+      "summary": "AI客服日扛1.5万通电话",
+      "url": "https://www.qbitai.com/2026/09/482967.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-02T10:48:06+08:00"
+    },
+    {
+      "id": "ad90e2a2c26e",
+      "title": "Claude最强Fable 5.1发布！8项屠榜，最高降价45%，反蒸馏机制上线",
+      "summary": "无论你此前让Claude处理什么任务，Fable 5.1都能做更多，并且把最难的部分完成得更出色",
+      "url": "https://www.qbitai.com/2026/09/482652.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-02T10:18:12+08:00"
+    },
+    {
+      "id": "23bdbfdbd061",
+      "title": "BenchMIRT: What are LLM benchmarks actually measuring?",
+      "summary": "BenchMIRT: What are LLM benchmarks actually measuring?",
+      "url": "https://huggingface.co/blog/allenai/benchmirt",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-09-02T05:39:07+08:00"
+    },
+    {
+      "id": "d235e1f23d69",
+      "title": "NVIDIA and CrowdStrike Strengthen Agentic Cybersecurity Frontier",
+      "summary": "“We’re at an inflection point in cybersecurity,” Jensen Huang told a sold-out crowd at CrowdStrike’s Fal.Con 2026 in Las Vegas Tuesday. Attacks are now automat…",
+      "url": "https://blogs.nvidia.com/blog/nvidia-crowdstrike-fal-con-2026/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-02T05:19:20+08:00"
+    },
+    {
+      "id": "66eabab6976f",
+      "title": "The latest AI news we announced in August 2026",
+      "summary": "Here are Google’s latest AI updates from August 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-02T04:45:00+08:00"
+    },
     {
       "id": "dfd1ea2e5518",
       "title": "Introducing agentic video understanding with Gemini",
@@ -42,13 +159,13 @@
       "published_at": "2026-09-02T00:00:00+08:00"
     },
     {
-      "id": "5f05c5785ba4",
-      "title": "3秒出片比播放还快，MiniMax打开了AI视频的实时商业化路径",
-      "summary": "3秒出片比播放还快，MiniMax打开了AI视频的实时商业化路径",
-      "url": "https://www.qbitai.com/2026/09/482512.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-01T20:02:39+08:00"
+      "id": "309be27bdcfe",
+      "title": "Path to Astra: critical capabilities and frontier safeguards",
+      "summary": "Astra is the first OpenAI model to meet the Critical cybersecurity capability threshold under the Preparedness Framework, with stronger safeguards for release.",
+      "url": "https://openai.com/index/path-to-astra",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-09-01T21:00:00+08:00"
     },
     {
       "id": "50e05f9b472e",
@@ -60,85 +177,13 @@
       "published_at": "2026-09-01T20:00:00+08:00"
     },
     {
-      "id": "ec78e94e1f84",
-      "title": "GitHub最热架构图Agent，开发者故事看哭了",
-      "summary": "美观且支持实时更新的架构图，也能用AI一键生成了！",
-      "url": "https://www.qbitai.com/2026/09/482469.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-01T16:26:54+08:00"
-    },
-    {
-      "id": "eabe3b893411",
-      "title": "急急急用电！马斯克开造燃气轮机叶片",
-      "summary": "SpaceX正在德克萨斯州筹备燃气轮机叶片铸造工厂",
-      "url": "https://www.qbitai.com/2026/09/482451.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-01T16:24:12+08:00"
-    },
-    {
-      "id": "6edebefe9ad2",
-      "title": "A社化身A割！Claude官宣永久提额25%，结果到手反而少17%",
-      "summary": "主打一个明升暗降，理直气壮",
-      "url": "https://www.qbitai.com/2026/09/482406.html",
-      "source": "量子位",
+      "id": "631a857c7a24",
+      "title": "How law firm Gilbert + Tobin governs and scales AI with",
+      "summary": "See how Gilbert + Tobin combines CEO-led commitment, rigorous governance, and human accountability to scale ChatGPT Enterprise and Codex across the firm.",
+      "url": "https://openai.com/index/gilbert-tobin",
+      "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-09-01T16:15:40+08:00"
-    },
-    {
-      "id": "ae5d7b81dc72",
-      "title": "自进化WAM来了！清华AIR联手域变换提出具身In-Context Causal Learning",
-      "summary": "参数冻结，能力暴涨",
-      "url": "https://www.qbitai.com/2026/09/482337.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-01T13:12:30+08:00"
-    },
-    {
-      "id": "6ce61a491ccd",
-      "title": "DS-Lighting: Making Agent Harnesses Explicit for Data-Science Automation",
-      "summary": "arXiv:2608.28590v1 Announce Type: new Abstract: Large Language Model (LLM) agents have shown promise for automating data-science workflows, yet their end-to-en…",
-      "url": "https://arxiv.org/abs/2608.28590",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-01T12:00:00+08:00"
-    },
-    {
-      "id": "7e990f8be062",
-      "title": "Expert-validated STEM QA",
-      "summary": "arXiv:2608.28591v1 Announce Type: new Abstract: Recent advancements in AI are helping scientists achieve breakthroughs in fields such as mathematics, medicine,…",
-      "url": "https://arxiv.org/abs/2608.28591",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-01T12:00:00+08:00"
-    },
-    {
-      "id": "840f711c0f06",
-      "title": "A collective capability boundary in frontier large language models on guideline-conformant and case-specific oncology decision-making",
-      "summary": "arXiv:2608.28592v1 Announce Type: new Abstract: Large language models (LLMs) achieve high scores on medical knowledge examinations, yet real-world oncology is …",
-      "url": "https://arxiv.org/abs/2608.28592",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-01T12:00:00+08:00"
-    },
-    {
-      "id": "5ff2115f4f1f",
-      "title": "Statutory AI: Aligning Large Language Models With Legal Norms",
-      "summary": "arXiv:2608.28593v1 Announce Type: new Abstract: With the increasing development of AI regulatory frameworks, ensuring that artificial intelligence systems, par…",
-      "url": "https://arxiv.org/abs/2608.28593",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-01T12:00:00+08:00"
-    },
-    {
-      "id": "b5348fe4c740",
-      "title": "From Question-First to Analyst-First: Domain-Expert Skills and Verified Knowledge Compilation for Proactive Enterprise Analytics",
-      "summary": "arXiv:2608.28594v1 Announce Type: new Abstract: Conversational analytics systems assume the user already has a well-formed question, leaving a non-expert facin…",
-      "url": "https://arxiv.org/abs/2608.28594",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-01T12:00:00+08:00"
+      "published_at": "2026-09-01T09:00:00+08:00"
     },
     {
       "id": "85562dc16345",
@@ -166,24 +211,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-08-31T15:00:00+08:00"
-    },
-    {
-      "id": "7bc341571432",
-      "title": "Polimill builds Japan's next-generation public AI infrastructure",
-      "summary": "Polimill uses OpenAI GPT models and Codex to help municipalities search and use administrative knowledge while accelerating development.",
-      "url": "https://openai.com/index/polimill",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-31T15:00:00+08:00"
-    },
-    {
-      "id": "44f61163770f",
-      "title": "A milestone in expanding access to AI",
-      "summary": "ChatGPT Ads reaches $1 billion in annualized revenue run rate and expands globally, supporting broader access to AI through free and affordable options.",
-      "url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-31T12:00:00+08:00"
     },
     {
       "id": "b0b2c2da12a5",
@@ -256,15 +283,6 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-08-27T01:01:00+08:00"
-    },
-    {
-      "id": "5309d9655463",
-      "title": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
-      "summary": "Training and Finetuning Multi-Vector Embedding Models with Sentence Transformers",
-      "url": "https://huggingface.co/blog/train-multi-vector-encoder",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-08-26T08:00:00+08:00"
     }
   ],
   "watch_sources": [
