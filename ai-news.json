@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-03T03:33:22.043986+08:00",
+  "updated_at": "2026-09-03T16:19:28.646407+08:00",
   "date": "2026-09-03",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "276dbcb527e9",
+      "title": "EvalDetectBench: A Benchmark for Measuring Evaluation Awareness in Frontier Language Models",
+      "summary": "arXiv:2609.01611v1 Announce Type: new Abstract: Frontier large language models can often recognize when they are being evaluated, a capability known as evaluat…",
+      "url": "https://arxiv.org/abs/2609.01611",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-03T12:00:00+08:00"
+    },
+    {
+      "id": "84d7b7412eb4",
+      "title": "Meta-ethics and AI: exploring the novel meta-ethical questions in the era of AI",
+      "summary": "arXiv:2609.01685v1 Announce Type: new Abstract: With the development of artificial intelligence (AI), the landscape of meta-ethics, which has largely centred o…",
+      "url": "https://arxiv.org/abs/2609.01685",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-03T12:00:00+08:00"
+    },
+    {
+      "id": "d1d4fa215b5b",
+      "title": "When Can a Machine Trust a Statute? A Survival Certificate for Machine-Extracted Legal Logic",
+      "summary": "arXiv:2609.01741v1 Announce Type: new Abstract: Statutes are increasingly parsed by machines before people read them, and the parsers disagree: on Missouri's s…",
+      "url": "https://arxiv.org/abs/2609.01741",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-03T12:00:00+08:00"
+    },
+    {
+      "id": "068beb4555ab",
+      "title": "When Does Information Sharing Improve Decentralized Discovery? Aggregation, Independent Rescue, and Equilibrium Selection",
+      "summary": "arXiv:2609.01814v1 Announce Type: new Abstract: Information sharing can improve a pooled estimate while eliminating independent rescue actions. This paper sepa…",
+      "url": "https://arxiv.org/abs/2609.01814",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-03T12:00:00+08:00"
+    },
+    {
+      "id": "553e9170a2f6",
+      "title": "Induction and Inquiry via Probabilistic Reasoning over Language and Code",
+      "summary": "arXiv:2609.01815v1 Announce Type: new Abstract: How humans grow and maintain abstract knowledge from the sparse, streaming noisy data of experience is a longst…",
+      "url": "https://arxiv.org/abs/2609.01815",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-03T12:00:00+08:00"
+    },
+    {
+      "id": "4d2887ec40ee",
+      "title": "一个模型场景通吃！它石智航AWE3.7的泛化能力有点狠",
+      "summary": "从工厂一路干到家庭",
+      "url": "https://www.qbitai.com/2026/09/483565.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-03T11:16:43+08:00"
+    },
+    {
+      "id": "422ff6d6f66f",
+      "title": "神秘具身团队又放出一连串很炸的Demo视频…自进化模型，技术路线曝光",
+      "summary": "神秘具身团队又放出一连串很炸的Demo视频…自进化模型，技术路线曝光",
+      "url": "https://www.qbitai.com/2026/09/483552.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-03T09:31:45+08:00"
+    },
+    {
+      "id": "8c945d075732",
+      "title": "50万！李想宣布MPV进入iPhone时刻！外观没改配置拉满",
+      "summary": "4激光雷达+双M100上车",
+      "url": "https://www.qbitai.com/2026/09/483462.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-03T09:27:05+08:00"
+    },
+    {
+      "id": "a8cb3fbf2b35",
+      "title": "今年最难的机器人Demo，“机器人含量”为0",
+      "summary": "遥操，可能真的危险了",
+      "url": "https://www.qbitai.com/2026/09/483351.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-03T08:51:16+08:00"
+    },
+    {
+      "id": "b844bdeeb825",
+      "title": "Training a coding model to paint watercolours with TRL and OpenEnv",
+      "summary": "Training a coding model to paint watercolours with TRL and OpenEnv",
+      "url": "https://huggingface.co/blog/train-to-paint-with-code",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-09-03T08:00:00+08:00"
+    },
     {
       "id": "383dbcd782ab",
       "title": "Proactive cyber defense for governments and enterprises",
@@ -42,6 +132,15 @@
       "published_at": "2026-09-02T21:49:14+08:00"
     },
     {
+      "id": "b07b0b2b4d66",
+      "title": "ATV Big Air Tour turned 3 days of work into 3 hours with ChatGPT",
+      "summary": "ATV Big Air Tour uses ChatGPT Work to speed up marketing, merchandising, and more. It even turned merchandise photos into an inventory website in 15 minutes.",
+      "url": "https://openai.com/index/atv-big-air-tour",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-02T20:00:00+08:00"
+    },
+    {
       "id": "8cb0fbe67576",
       "title": "SkyProduction天工工作台：从剧本到成片，一套工作台把精品短剧创作真正跑起来",
       "summary": "SkyProduction（天工工作台）全新版本于8月31日正式上线",
@@ -49,87 +148,6 @@
       "source": "量子位",
       "category": "新工具上线",
       "published_at": "2026-09-02T17:22:16+08:00"
-    },
-    {
-      "id": "555daf521fa1",
-      "title": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
-      "summary": "蚂蚁集团推出统一宽表系统OmniTable，论文获评VLDB 2026工业赛道最佳论文",
-      "url": "https://www.qbitai.com/2026/09/483104.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-02T14:20:17+08:00"
-    },
-    {
-      "id": "f21e55c629b3",
-      "title": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
-      "summary": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
-      "url": "https://www.qbitai.com/2026/09/483101.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-02T14:10:26+08:00"
-    },
-    {
-      "id": "5465860b50b6",
-      "title": "前字节强化学习专家孙鹏博士加盟星尘智能，完善Physical AI全栈技术布局",
-      "summary": "9月2日，前字节跳动强化学习专家、前腾讯Robotics X智能体中⼼负责⼈孙鹏博⼠正式加入星尘智能",
-      "url": "https://www.qbitai.com/2026/09/483097.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-02T14:06:50+08:00"
-    },
-    {
-      "id": "98deee859b1d",
-      "title": "HyperWorld: Hypergraph-Structured State Serialization Improves Learned Textual World Models",
-      "summary": "arXiv:2609.00002v1 Announce Type: new Abstract: World models enable language-model agents to predict environment dynamics and plan before acting. In text envir…",
-      "url": "https://arxiv.org/abs/2609.00002",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-02T12:00:00+08:00"
-    },
-    {
-      "id": "83711c63bda9",
-      "title": "I-CARE: Analysis of interference-related phenomena in a controllable, diverse and representative unlearning setting for text-to-image models",
-      "summary": "arXiv:2609.00003v1 Announce Type: new Abstract: Machine unlearning studies the removal of knowledge from an AI model, making the system forget a concept it pre…",
-      "url": "https://arxiv.org/abs/2609.00003",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-02T12:00:00+08:00"
-    },
-    {
-      "id": "dd5260340c29",
-      "title": "Discrete-Time MDP Modeling for Multi-Item Capacitated Lot Sizing with Stochastic Demand Timing",
-      "summary": "arXiv:2609.00004v1 Announce Type: new Abstract: This paper studies a finite-horizon multi-item capacitated lot-sizing problem in which demand quantities are de…",
-      "url": "https://arxiv.org/abs/2609.00004",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-02T12:00:00+08:00"
-    },
-    {
-      "id": "f3b92b154803",
-      "title": "Incremental Risk Assessment of Progressive Elder Financial Scams via Instruction-Tuned Small Language Models",
-      "summary": "arXiv:2609.00005v1 Announce Type: new Abstract: Financial scams targeting older adults increasingly occur through text and voice channels such as email, SMS, a…",
-      "url": "https://arxiv.org/abs/2609.00005",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-02T12:00:00+08:00"
-    },
-    {
-      "id": "d137c9659b05",
-      "title": "Long-Horizon State Tracking in LLMs: Executing MD5 through a Deep Sequence of Dependent Tool Calls",
-      "summary": "arXiv:2609.00012v1 Announce Type: new Abstract: Long-horizon tasks remain uncommon in large language model (LLM) evaluation, and for a reason: when each step d…",
-      "url": "https://arxiv.org/abs/2609.00012",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-02T12:00:00+08:00"
-    },
-    {
-      "id": "8755620e2708",
-      "title": "企业级Agent落地样板间！百融硅基员工批量上岗，按结果领工资",
-      "summary": "AI客服日扛1.5万通电话",
-      "url": "https://www.qbitai.com/2026/09/482967.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-02T10:48:06+08:00"
     },
     {
       "id": "23bdbfdbd061",
@@ -231,15 +249,6 @@
       "published_at": "2026-09-01T00:00:00+08:00"
     },
     {
-      "id": "0703988e3a33",
-      "title": "OpenAI supports California’s bill to advance youth AI safety",
-      "summary": "OpenAI supports California SB 1119, advancing strong, age-appropriate AI safeguards for teens while preserving opportunities to learn, create, and explore.",
-      "url": "https://openai.com/index/supporting-california-bill-advance-ai-youth-safety",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-08-31T15:00:00+08:00"
-    },
-    {
       "id": "b0b2c2da12a5",
       "title": "The Open ASR Leaderboard Adds Its First Global South Language",
       "summary": "The Open ASR Leaderboard Adds Its First Global South Language",
@@ -292,15 +301,6 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-08-27T20:59:16+08:00"
-    },
-    {
-      "id": "b32d9ad97343",
-      "title": "NVIDIA NVLink Fusion Expands With NVHBM Custom High-Bandwidth Memory",
-      "summary": "The next wave of AI is placing new demands on infrastructure. As AI agents and trillion-parameter workloads become mainstream, the performance of AI infrastruc…",
-      "url": "https://blogs.nvidia.com/blog/nvlink-fusion-nvhbm-custom-high-bandwidth-memory/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-08-27T05:05:30+08:00"
     }
   ],
   "watch_sources": [
