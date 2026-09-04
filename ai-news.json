@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-04T03:30:13.650483+08:00",
+  "updated_at": "2026-09-04T16:15:27.102247+08:00",
   "date": "2026-09-04",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "c3ab0cce734d",
+      "title": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
+      "summary": "智能不只是模式识别，更是对世界的建模",
+      "url": "https://www.qbitai.com/2026/09/484163.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-04T14:54:12+08:00"
+    },
+    {
+      "id": "9ae38fa908fd",
+      "title": "2026 上半年智能眼镜竞争加剧，雷鸟创新五榜登顶实现全品类销量领先",
+      "summary": "雷鸟创新（RayNeo）包揽全球 AR 眼镜与中国智能眼镜市场出货量和销量第一。",
+      "url": "https://www.qbitai.com/2026/09/484159.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-04T13:53:09+08:00"
+    },
+    {
+      "id": "33a2ea1a067e",
+      "title": "千问办公上线首月用户数突破 3000万，企业用户占比过半",
+      "summary": "千问办公上线首月用户数突破 3000万，企业用户占比过半",
+      "url": "https://www.qbitai.com/2026/09/484155.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-04T13:48:53+08:00"
+    },
+    {
+      "id": "9dad693bbf61",
+      "title": "常州女首富机器人转型才开始，先因裁应届生上了热搜",
+      "summary": "比新业务更考验一家公司的，可能是怎么对待年轻人。",
+      "url": "https://www.qbitai.com/2026/09/483984.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-04T12:03:04+08:00"
+    },
+    {
+      "id": "700e3c0de241",
+      "title": "Structure and Implementation of New Practical English Textbooks Driven by Artificial Intelligence",
+      "summary": "arXiv:2609.02981v1 Announce Type: new Abstract: Artificial intelligence is changing the form of applied English materials from fixed paper sequences to adaptiv…",
+      "url": "https://arxiv.org/abs/2609.02981",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-04T12:00:00+08:00"
+    },
+    {
+      "id": "f736e609f8e5",
+      "title": "MasterControl Seventeen Every Time",
+      "summary": "arXiv:2609.03209v1 Announce Type: new Abstract: We study a governed approach to enterprise analytics: a language model interprets the question, while determini…",
+      "url": "https://arxiv.org/abs/2609.03209",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-04T12:00:00+08:00"
+    },
+    {
+      "id": "16782e343d11",
+      "title": "Speculative Macro Commit for Faster Tool-Using Agents",
+      "summary": "arXiv:2609.03236v1 Announce Type: new Abstract: Tool-using LLM agents spend wall-clock time not only on model inference but also in serial action--observation …",
+      "url": "https://arxiv.org/abs/2609.03236",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-04T12:00:00+08:00"
+    },
+    {
+      "id": "5cc26a1e1a5d",
+      "title": "Fresh Memory, Stale Plans: Dependency-Scoped Validation for Distributed LLM-Agent Memory",
+      "summary": "arXiv:2609.03340v1 Announce Type: new Abstract: Distributed LLM-agent teams can read the latest shared facts and still act on an obsolete plan. A planner may d…",
+      "url": "https://arxiv.org/abs/2609.03340",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-04T12:00:00+08:00"
+    },
+    {
+      "id": "17eecb4d990d",
+      "title": "A Prompt-Engineering Approach to Develop Scalable, Flexible, and Real-Time Hybrid Micro-Level Personalization in a General Purpose AI Teaching Assistant",
+      "summary": "arXiv:2609.03402v1 Announce Type: new Abstract: Artificial intelligence (AI) teaching assistants powered by large language models (LLMs) offer scalable educati…",
+      "url": "https://arxiv.org/abs/2609.03402",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-04T12:00:00+08:00"
+    },
+    {
+      "id": "41bd142ad366",
+      "title": "卡车自动驾驶里程超10亿公里，嬴彻科技定义“货运物理AI”",
+      "summary": "吃下90%市场",
+      "url": "https://www.qbitai.com/2026/09/483598.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-04T09:40:42+08:00"
+    },
     {
       "id": "7765da697e6b",
       "title": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
@@ -31,6 +121,15 @@
       "source": "Google DeepMind",
       "category": "新工具上线",
       "published_at": "2026-09-03T23:02:08+08:00"
+    },
+    {
+      "id": "5190d2a1dccd",
+      "title": "Daybreak for Frontline Defenders: $1B to protect essential services",
+      "summary": "OpenAI introduces Daybreak for Frontline Defenders. A $1 billion commitment expands access to frontier cyber AI, training, and support for essential services.",
+      "url": "https://openai.com/index/daybreak-for-frontline-defenders",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-03T21:15:00+08:00"
     },
     {
       "id": "96a3500c5a4b",
@@ -51,6 +150,24 @@
       "published_at": "2026-09-03T21:00:35+08:00"
     },
     {
+      "id": "be4a3c542626",
+      "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
+      "summary": "Legora used GPT-6 Astra to review 41 documents in minutes, find all four planted errors, and improve performance by nearly 40% in this financial-review workflo…",
+      "url": "https://openai.com/index/legora-financial-statement-review-with-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-03T20:00:00+08:00"
+    },
+    {
+      "id": "7a45b185cff5",
+      "title": "Playco cut manual fixes 50% prototyping games with GPT-6 Astra",
+      "summary": "Using GPT-6 Astra, Playco built three themed game prototypes from one grey box foundation and reported 50% fewer manual fixes than with the previous model.",
+      "url": "https://openai.com/index/playco-game-prototyping-with-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-03T20:00:00+08:00"
+    },
+    {
       "id": "ea8b14faf08e",
       "title": "NVIDIA to Acquire",
       "summary": "I’m excited to announce that NVIDIA has agreed to acquire Hugging Face for $12,930,300,000. Together, we will scale Hugging Face’s platform, strengthen its inf…",
@@ -60,94 +177,13 @@
       "published_at": "2026-09-03T19:56:49+08:00"
     },
     {
-      "id": "5c6accf69391",
-      "title": "“没有Token的CS学生，应立即退学”",
-      "summary": "禁止古法编程、Token自费",
-      "url": "https://www.qbitai.com/2026/09/483839.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-03T19:32:08+08:00"
-    },
-    {
-      "id": "02bd82b8c2fe",
-      "title": "腾讯WorkBuddy联名硬件来了！首批100多家伙伴入场",
-      "summary": "眼镜、耳机、麦克风都来了",
-      "url": "https://www.qbitai.com/2026/09/483786.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-03T19:25:29+08:00"
-    },
-    {
-      "id": "ac65608efc3a",
-      "title": "世界生成模型来了3D头部玩家，可进入生产管线的场景级生成时代来临！",
-      "summary": "单图直出场景，顶会最佳论文落地",
-      "url": "https://www.qbitai.com/2026/09/483189.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-09-03T18:18:36+08:00"
-    },
-    {
-      "id": "d983aac1af17",
-      "title": "陈大年复出，入局大模型",
-      "summary": "首秀逼近DeepSeek万亿旗舰",
-      "url": "https://www.qbitai.com/2026/09/483600.html",
-      "source": "量子位",
+      "id": "2e155b11d809",
+      "title": "Safety overview: GPT-6 Astra",
+      "summary": "GPT-6 Astra is our most capable broadly deployed model and our first to reach the Critical level of cybersecurity capability under our Preparedness Framework.",
+      "url": "https://openai.com/index/safety-overview-gpt-6-astra",
+      "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-09-03T18:13:24+08:00"
-    },
-    {
-      "id": "276dbcb527e9",
-      "title": "EvalDetectBench: A Benchmark for Measuring Evaluation Awareness in Frontier Language Models",
-      "summary": "arXiv:2609.01611v1 Announce Type: new Abstract: Frontier large language models can often recognize when they are being evaluated, a capability known as evaluat…",
-      "url": "https://arxiv.org/abs/2609.01611",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-03T12:00:00+08:00"
-    },
-    {
-      "id": "84d7b7412eb4",
-      "title": "Meta-ethics and AI: exploring the novel meta-ethical questions in the era of AI",
-      "summary": "arXiv:2609.01685v1 Announce Type: new Abstract: With the development of artificial intelligence (AI), the landscape of meta-ethics, which has largely centred o…",
-      "url": "https://arxiv.org/abs/2609.01685",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-03T12:00:00+08:00"
-    },
-    {
-      "id": "d1d4fa215b5b",
-      "title": "When Can a Machine Trust a Statute? A Survival Certificate for Machine-Extracted Legal Logic",
-      "summary": "arXiv:2609.01741v1 Announce Type: new Abstract: Statutes are increasingly parsed by machines before people read them, and the parsers disagree: on Missouri's s…",
-      "url": "https://arxiv.org/abs/2609.01741",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-03T12:00:00+08:00"
-    },
-    {
-      "id": "068beb4555ab",
-      "title": "When Does Information Sharing Improve Decentralized Discovery? Aggregation, Independent Rescue, and Equilibrium Selection",
-      "summary": "arXiv:2609.01814v1 Announce Type: new Abstract: Information sharing can improve a pooled estimate while eliminating independent rescue actions. This paper sepa…",
-      "url": "https://arxiv.org/abs/2609.01814",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-03T12:00:00+08:00"
-    },
-    {
-      "id": "553e9170a2f6",
-      "title": "Induction and Inquiry via Probabilistic Reasoning over Language and Code",
-      "summary": "arXiv:2609.01815v1 Announce Type: new Abstract: How humans grow and maintain abstract knowledge from the sparse, streaming noisy data of experience is a longst…",
-      "url": "https://arxiv.org/abs/2609.01815",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-03T12:00:00+08:00"
-    },
-    {
-      "id": "4d2887ec40ee",
-      "title": "一个模型场景通吃！它石智航AWE3.7的泛化能力有点狠",
-      "summary": "从工厂一路干到家庭",
-      "url": "https://www.qbitai.com/2026/09/483565.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-03T11:16:43+08:00"
+      "published_at": "2026-09-03T08:00:00+08:00"
     },
     {
       "id": "45020768fad9",
@@ -240,15 +276,6 @@
       "published_at": "2026-09-02T01:08:51+08:00"
     },
     {
-      "id": "3b5f2688fec1",
-      "title": "How AI-native companies turn workflows into operating capability",
-      "summary": "Basis, Clay, and Exa Labs use AI agents to improve onboarding, account management, and developer integrations. See what enterprise leaders can apply.",
-      "url": "https://openai.com/index/ai-native-company-workflows",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-02T01:00:00+08:00"
-    },
-    {
       "id": "77cd2a6a82f1",
       "title": "Try Google Pics: Easy image creation and editing in Google Workspace",
       "summary": "Built on our latest Nano Banana model, Google Pics — our image creation and editing tool — is now available.",
@@ -256,33 +283,6 @@
       "source": "Google AI",
       "category": "新模型发布",
       "published_at": "2026-09-02T00:00:00+08:00"
-    },
-    {
-      "id": "309be27bdcfe",
-      "title": "Path to Astra: critical capabilities and frontier safeguards",
-      "summary": "Astra is the first OpenAI model to meet the Critical cybersecurity capability threshold under the Preparedness Framework, with stronger safeguards for release.",
-      "url": "https://openai.com/index/path-to-astra",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-01T21:00:00+08:00"
-    },
-    {
-      "id": "50e05f9b472e",
-      "title": "Healthcare organizations can now connect EHR and additional industry data to ChatGPT",
-      "summary": "ChatGPT can now connect to trusted healthcare data, helping clinicians securely access patient context, medical research, and more.",
-      "url": "https://openai.com/index/chatgpt-connects-health-records-and-healthcare-sources",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-01T20:00:00+08:00"
-    },
-    {
-      "id": "631a857c7a24",
-      "title": "How law firm Gilbert + Tobin governs and scales AI with",
-      "summary": "See how Gilbert + Tobin combines CEO-led commitment, rigorous governance, and human accountability to scale ChatGPT Enterprise and Codex across the firm.",
-      "url": "https://openai.com/index/gilbert-tobin",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-01T09:00:00+08:00"
     },
     {
       "id": "8b83437bdb89",
