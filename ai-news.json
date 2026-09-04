@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-04T16:15:27.102247+08:00",
-  "date": "2026-09-04",
+  "updated_at": "2026-09-05T03:13:03.853129+08:00",
+  "date": "2026-09-05",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,42 @@
   },
   "items": [
     {
+      "id": "9e2539796573",
+      "title": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
+      "summary": "国产卡跑出高品质 AI Token 生产级性能",
+      "url": "https://www.qbitai.com/2026/09/484547.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-09-04T17:23:24+08:00"
+    },
+    {
+      "id": "9690d8a29e15",
+      "title": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
+      "summary": "星尘智能（Astribot） 基座模型团队发布能异步执行的在线强化学习框架 SmoothRL",
+      "url": "https://www.qbitai.com/2026/09/484437.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-04T17:19:29+08:00"
+    },
+    {
+      "id": "ca2374f24a36",
+      "title": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
+      "summary": "不训练模型、不调参数",
+      "url": "https://www.qbitai.com/2026/09/484293.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-04T16:57:14+08:00"
+    },
+    {
+      "id": "6c0794673b9a",
+      "title": "金融AI的年度大考交卷了：2万名选手、30+家机构、百亿级数据开源",
+      "summary": "5000支队伍同台做题，写尽行业四年变化",
+      "url": "https://www.qbitai.com/2026/09/484203.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-04T15:09:43+08:00"
+    },
+    {
       "id": "c3ab0cce734d",
       "title": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
       "summary": "智能不只是模式识别，更是对世界的建模",
@@ -22,33 +58,6 @@
       "source": "量子位",
       "category": "开源项目",
       "published_at": "2026-09-04T14:54:12+08:00"
-    },
-    {
-      "id": "9ae38fa908fd",
-      "title": "2026 上半年智能眼镜竞争加剧，雷鸟创新五榜登顶实现全品类销量领先",
-      "summary": "雷鸟创新（RayNeo）包揽全球 AR 眼镜与中国智能眼镜市场出货量和销量第一。",
-      "url": "https://www.qbitai.com/2026/09/484159.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-04T13:53:09+08:00"
-    },
-    {
-      "id": "33a2ea1a067e",
-      "title": "千问办公上线首月用户数突破 3000万，企业用户占比过半",
-      "summary": "千问办公上线首月用户数突破 3000万，企业用户占比过半",
-      "url": "https://www.qbitai.com/2026/09/484155.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-04T13:48:53+08:00"
-    },
-    {
-      "id": "9dad693bbf61",
-      "title": "常州女首富机器人转型才开始，先因裁应届生上了热搜",
-      "summary": "比新业务更考验一家公司的，可能是怎么对待年轻人。",
-      "url": "https://www.qbitai.com/2026/09/483984.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-04T12:03:04+08:00"
     },
     {
       "id": "700e3c0de241",
@@ -94,15 +103,6 @@
       "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-09-04T12:00:00+08:00"
-    },
-    {
-      "id": "41bd142ad366",
-      "title": "卡车自动驾驶里程超10亿公里，嬴彻科技定义“货运物理AI”",
-      "summary": "吃下90%市场",
-      "url": "https://www.qbitai.com/2026/09/483598.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-04T09:40:42+08:00"
     },
     {
       "id": "7765da697e6b",
