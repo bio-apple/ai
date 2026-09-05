@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-05T15:52:35.974487+08:00",
-  "date": "2026-09-05",
+  "updated_at": "2026-09-06T02:40:19.001536+08:00",
+  "date": "2026-09-06",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,24 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "e82b1aacab51",
+      "title": "GPT-6带火循环Transformer，阿里早已布局",
+      "summary": "手握两篇顶会论文",
+      "url": "https://www.qbitai.com/2026/09/484726.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-05T23:07:08+08:00"
+    },
+    {
+      "id": "99f9f3dcc328",
+      "title": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
+      "summary": "当AI开始“预演”一场暴雨",
+      "url": "https://www.qbitai.com/2026/09/484683.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-05T22:46:15+08:00"
+    },
     {
       "id": "0bf5ede3a210",
       "title": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
@@ -40,24 +58,6 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-09-05T09:17:56+08:00"
-    },
-    {
-      "id": "9e2539796573",
-      "title": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
-      "summary": "国产卡跑出高品质 AI Token 生产级性能",
-      "url": "https://www.qbitai.com/2026/09/484547.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-04T17:23:24+08:00"
-    },
-    {
-      "id": "9690d8a29e15",
-      "title": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
-      "summary": "星尘智能（Astribot） 基座模型团队发布能异步执行的在线强化学习框架 SmoothRL",
-      "url": "https://www.qbitai.com/2026/09/484437.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-04T17:19:29+08:00"
     },
     {
       "id": "7765da697e6b",
