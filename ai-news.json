@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-05T03:13:03.853129+08:00",
+  "updated_at": "2026-09-05T15:52:35.974487+08:00",
   "date": "2026-09-05",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "0bf5ede3a210",
+      "title": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
+      "summary": "AI直接吐出正确答案，但最关键的可能不是答案",
+      "url": "https://www.qbitai.com/2026/09/484649.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-05T12:24:25+08:00"
+    },
+    {
+      "id": "dfb2f1ba4837",
+      "title": "这个世界模型训练完就“退场”，机器人反而更能干了",
+      "summary": "如此“反骨”的方法，具体又是怎么实现的？",
+      "url": "https://www.qbitai.com/2026/09/484611.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-05T12:18:54+08:00"
+    },
+    {
+      "id": "b42dfd3d08a1",
+      "title": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
+      "summary": "最后靠Harness救回来",
+      "url": "https://www.qbitai.com/2026/09/484551.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-05T09:17:56+08:00"
+    },
     {
       "id": "9e2539796573",
       "title": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
@@ -31,78 +58,6 @@
       "source": "量子位",
       "category": "新工具上线",
       "published_at": "2026-09-04T17:19:29+08:00"
-    },
-    {
-      "id": "ca2374f24a36",
-      "title": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
-      "summary": "不训练模型、不调参数",
-      "url": "https://www.qbitai.com/2026/09/484293.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-04T16:57:14+08:00"
-    },
-    {
-      "id": "6c0794673b9a",
-      "title": "金融AI的年度大考交卷了：2万名选手、30+家机构、百亿级数据开源",
-      "summary": "5000支队伍同台做题，写尽行业四年变化",
-      "url": "https://www.qbitai.com/2026/09/484203.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-04T15:09:43+08:00"
-    },
-    {
-      "id": "c3ab0cce734d",
-      "title": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
-      "summary": "智能不只是模式识别，更是对世界的建模",
-      "url": "https://www.qbitai.com/2026/09/484163.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-04T14:54:12+08:00"
-    },
-    {
-      "id": "700e3c0de241",
-      "title": "Structure and Implementation of New Practical English Textbooks Driven by Artificial Intelligence",
-      "summary": "arXiv:2609.02981v1 Announce Type: new Abstract: Artificial intelligence is changing the form of applied English materials from fixed paper sequences to adaptiv…",
-      "url": "https://arxiv.org/abs/2609.02981",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-04T12:00:00+08:00"
-    },
-    {
-      "id": "f736e609f8e5",
-      "title": "MasterControl Seventeen Every Time",
-      "summary": "arXiv:2609.03209v1 Announce Type: new Abstract: We study a governed approach to enterprise analytics: a language model interprets the question, while determini…",
-      "url": "https://arxiv.org/abs/2609.03209",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-04T12:00:00+08:00"
-    },
-    {
-      "id": "16782e343d11",
-      "title": "Speculative Macro Commit for Faster Tool-Using Agents",
-      "summary": "arXiv:2609.03236v1 Announce Type: new Abstract: Tool-using LLM agents spend wall-clock time not only on model inference but also in serial action--observation …",
-      "url": "https://arxiv.org/abs/2609.03236",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-04T12:00:00+08:00"
-    },
-    {
-      "id": "5cc26a1e1a5d",
-      "title": "Fresh Memory, Stale Plans: Dependency-Scoped Validation for Distributed LLM-Agent Memory",
-      "summary": "arXiv:2609.03340v1 Announce Type: new Abstract: Distributed LLM-agent teams can read the latest shared facts and still act on an obsolete plan. A planner may d…",
-      "url": "https://arxiv.org/abs/2609.03340",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-04T12:00:00+08:00"
-    },
-    {
-      "id": "17eecb4d990d",
-      "title": "A Prompt-Engineering Approach to Develop Scalable, Flexible, and Real-Time Hybrid Micro-Level Personalization in a General Purpose AI Teaching Assistant",
-      "summary": "arXiv:2609.03402v1 Announce Type: new Abstract: Artificial intelligence (AI) teaching assistants powered by large language models (LLMs) offer scalable educati…",
-      "url": "https://arxiv.org/abs/2609.03402",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-04T12:00:00+08:00"
     },
     {
       "id": "7765da697e6b",
@@ -150,19 +105,19 @@
       "published_at": "2026-09-03T21:00:35+08:00"
     },
     {
-      "id": "be4a3c542626",
-      "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
-      "summary": "Legora used GPT-6 Astra to review 41 documents in minutes, find all four planted errors, and improve performance by nearly 40% in this financial-review workflo…",
-      "url": "https://openai.com/index/legora-financial-statement-review-with-astra",
+      "id": "7a45b185cff5",
+      "title": "Playco cut manual fixes 50% prototyping games with GPT-6 Astra",
+      "summary": "Using GPT-6 Astra, Playco built three themed game prototypes from one grey box foundation and reported 50% fewer manual fixes than with the previous model.",
+      "url": "https://openai.com/index/playco-game-prototyping-with-astra",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-03T20:00:00+08:00"
     },
     {
-      "id": "7a45b185cff5",
-      "title": "Playco cut manual fixes 50% prototyping games with GPT-6 Astra",
-      "summary": "Using GPT-6 Astra, Playco built three themed game prototypes from one grey box foundation and reported 50% fewer manual fixes than with the previous model.",
-      "url": "https://openai.com/index/playco-game-prototyping-with-astra",
+      "id": "be4a3c542626",
+      "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
+      "summary": "Legora used GPT-6 Astra to review 41 documents in minutes, find all four planted errors, and improve performance by nearly 40% in this financial-review workflo…",
+      "url": "https://openai.com/index/legora-financial-statement-review-with-astra",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-03T20:00:00+08:00"
@@ -175,6 +130,15 @@
       "source": "NVIDIA AI",
       "category": "开源项目",
       "published_at": "2026-09-03T19:56:49+08:00"
+    },
+    {
+      "id": "0f3b76bc480d",
+      "title": "GPT-6 Astra: A new generation of intelligence",
+      "summary": "Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, and science.",
+      "url": "https://openai.com/index/gpt-6-astra",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-09-03T19:00:00+08:00"
     },
     {
       "id": "2e155b11d809",
@@ -238,15 +202,6 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-09-02T21:49:14+08:00"
-    },
-    {
-      "id": "b07b0b2b4d66",
-      "title": "ATV Big Air Tour turned 3 days of work into 3 hours with ChatGPT",
-      "summary": "ATV Big Air Tour uses ChatGPT Work to speed up marketing, merchandising, and more. It even turned merchandise photos into an inventory website in 15 minutes.",
-      "url": "https://openai.com/index/atv-big-air-tour",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-02T20:00:00+08:00"
     },
     {
       "id": "d235e1f23d69",
