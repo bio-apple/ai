@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-06T03:38:21.119280+08:00",
+  "updated_at": "2026-09-07T03:40:59.271180+08:00",
   "window": {
     "max_per_direction": 3,
     "sources": [
@@ -20,22 +20,23 @@
     {
       "repo": "DietrichGebert/ponytail",
       "name": "ponytail",
-      "stars": 127698,
+      "stars": 129106,
       "category": "agent",
       "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
-      "heat_score": 169.0,
+      "heat_score": 184.0,
       "sources": [
-        "trending:daily"
+        "trending:daily",
+        "trending:weekly"
       ],
-      "trending_daily_rank": 3,
-      "trending_weekly_rank": null,
+      "trending_daily_rank": 9,
+      "trending_weekly_rank": 18,
       "pushed_at": "2026-09-04T20:35:29+08:00",
       "rank": 1
     },
     {
       "repo": "NousResearch/hermes-agent",
       "name": "hermes-agent",
-      "stars": 241917,
+      "stars": 242448,
       "category": "agent",
       "summary": "The agent that grows with you",
       "heat_score": 166.0,
@@ -45,58 +46,58 @@
       ],
       "trending_daily_rank": 4,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-09-06T02:13:34+08:00",
+      "pushed_at": "2026-09-07T03:39:01+08:00",
       "rank": 2
     },
     {
       "repo": "THU-MAIC/OpenMAIC",
       "name": "OpenMAIC",
-      "stars": 31881,
+      "stars": 32353,
       "category": "agent",
       "summary": "Open Multi-Agent Interactive Classroom — Get an immersive, multi-agent learning experience in just one click",
-      "heat_score": 115.0,
+      "heat_score": 113.5,
       "sources": [
         "trending:weekly"
       ],
       "trending_daily_rank": null,
-      "trending_weekly_rank": 2,
-      "pushed_at": "2026-09-05T03:17:32+08:00",
+      "trending_weekly_rank": 3,
+      "pushed_at": "2026-09-07T01:49:28+08:00",
       "rank": 3
-    },
-    {
-      "repo": "punkpeye/awesome-mcp-servers",
-      "name": "awesome-mcp-servers",
-      "stars": 94300,
-      "category": "mcp",
-      "summary": "A collection of MCP servers.",
-      "heat_score": 95.44,
-      "sources": [
-        "trending:weekly"
-      ],
-      "trending_daily_rank": null,
-      "trending_weekly_rank": 15,
-      "pushed_at": "2026-09-01T15:26:30+08:00",
-      "rank": 1
     },
     {
       "repo": "ChromeDevTools/chrome-devtools-mcp",
       "name": "chrome-devtools-mcp",
-      "stars": 51043,
+      "stars": 51150,
       "category": "mcp",
       "summary": "Chrome DevTools for coding agents",
-      "heat_score": 89.2,
+      "heat_score": 96.7,
       "sources": [
         "trending:weekly"
       ],
       "trending_daily_rank": null,
-      "trending_weekly_rank": 19,
-      "pushed_at": "2026-09-05T04:53:09+08:00",
+      "trending_weekly_rank": 14,
+      "pushed_at": "2026-09-06T08:06:40+08:00",
+      "rank": 1
+    },
+    {
+      "repo": "punkpeye/awesome-mcp-servers",
+      "name": "awesome-mcp-servers",
+      "stars": 94458,
+      "category": "mcp",
+      "summary": "A collection of MCP servers.",
+      "heat_score": 87.94,
+      "sources": [
+        "trending:weekly"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": 20,
+      "pushed_at": "2026-09-01T15:26:30+08:00",
       "rank": 2
     },
     {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 85620,
+      "stars": 85697,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
@@ -105,20 +106,20 @@
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-09-06T03:33:09+08:00",
+      "pushed_at": "2026-09-07T03:09:56+08:00",
       "rank": 3
     },
     {
       "repo": "cathrynlavery/diagram-design",
       "name": "diagram-design",
-      "stars": 31589,
+      "stars": 32213,
       "category": "coding_agent",
       "summary": "38 editorial diagram types for Claude Code, Codex, and Pi. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
-      "heat_score": 157.0,
+      "heat_score": 169.0,
       "sources": [
         "trending:daily"
       ],
-      "trending_daily_rank": 7,
+      "trending_daily_rank": 3,
       "trending_weekly_rank": null,
       "pushed_at": "2026-09-03T10:53:29+08:00",
       "rank": 1
@@ -126,70 +127,70 @@
     {
       "repo": "anomalyco/opencode",
       "name": "opencode",
-      "stars": 204596,
+      "stars": 205139,
       "category": "coding_agent",
       "summary": "The open source coding agent.",
-      "heat_score": 154.0,
+      "heat_score": 160.0,
       "sources": [
         "trending:daily"
       ],
-      "trending_daily_rank": 8,
+      "trending_daily_rank": 6,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-09-06T02:35:57+08:00",
+      "pushed_at": "2026-09-07T01:28:54+08:00",
       "rank": 2
     },
     {
-      "repo": "ruvnet/ruflo",
-      "name": "ruflo",
-      "stars": 70647,
+      "repo": "openai/skills",
+      "name": "skills",
+      "stars": 25560,
       "category": "coding_agent",
-      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
-      "heat_score": 151.0,
+      "summary": "Skills Catalog for Codex",
+      "heat_score": 141.04,
       "sources": [
-        "search",
         "trending:daily"
       ],
-      "trending_daily_rank": 9,
+      "trending_daily_rank": 5,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-09-05T23:57:31+08:00",
+      "pushed_at": "2026-07-15T00:47:46+08:00",
       "rank": 3
     },
     {
       "repo": "affaan-m/ECC",
       "name": "ECC",
-      "stars": 249642,
+      "stars": 251025,
       "category": "agent_harness",
       "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
-      "heat_score": 205.0,
+      "heat_score": 212.5,
       "sources": [
         "search",
         "trending:daily",
         "trending:weekly"
       ],
-      "trending_daily_rank": 2,
-      "trending_weekly_rank": 18,
-      "pushed_at": "2026-09-05T03:02:58+08:00",
+      "trending_daily_rank": 1,
+      "trending_weekly_rank": 15,
+      "pushed_at": "2026-09-06T05:47:27+08:00",
       "rank": 1
     },
     {
-      "repo": "browser-use/browser-use",
-      "name": "browser-use",
-      "stars": 112384,
+      "repo": "ruvnet/ruflo",
+      "name": "ruflo",
+      "stars": 70925,
       "category": "agent_harness",
-      "summary": "🌐 Make websites accessible for AI agents. Automate tasks online with ease.",
-      "heat_score": 64.0,
+      "summary": "🌊 The original agent meta-harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build c…",
+      "heat_score": 148.0,
       "sources": [
-        "search"
+        "search",
+        "trending:daily"
       ],
-      "trending_daily_rank": null,
+      "trending_daily_rank": 10,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-09-06T01:28:29+08:00",
+      "pushed_at": "2026-09-05T23:57:31+08:00",
       "rank": 2
     },
     {
       "repo": "nexu-io/open-design",
       "name": "open-design",
-      "stars": 94265,
+      "stars": 94441,
       "category": "agent_harness",
       "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your c…",
       "heat_score": 64.0,
@@ -198,74 +199,58 @@
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
-      "pushed_at": "2026-09-06T02:07:16+08:00",
+      "pushed_at": "2026-09-07T02:06:04+08:00",
       "rank": 3
-    },
-    {
-      "repo": "anthropics/skills",
-      "name": "skills",
-      "stars": 174494,
-      "category": "skills",
-      "summary": "Public repository for Agent Skills",
-      "heat_score": 160.0,
-      "sources": [
-        "trending:daily"
-      ],
-      "trending_daily_rank": 6,
-      "trending_weekly_rank": null,
-      "pushed_at": "2026-09-04T00:37:14+08:00",
-      "rank": 1
     },
     {
       "repo": "blader/humanizer",
       "name": "humanizer",
-      "stars": 43363,
+      "stars": 44100,
       "category": "skills",
       "summary": "Agent skill that removes signs of AI-generated writing from text",
-      "heat_score": 135.0,
+      "heat_score": 147.0,
       "sources": [
         "trending:daily"
       ],
-      "trending_daily_rank": 11,
+      "trending_daily_rank": 7,
       "trending_weekly_rank": null,
       "pushed_at": "2026-08-19T13:58:53+08:00",
-      "rank": 2
+      "rank": 1
     },
     {
       "repo": "tt-a1i/archify",
       "name": "archify",
-      "stars": 49243,
+      "stars": 50607,
       "category": "skills",
       "summary": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-containe…",
       "heat_score": 116.5,
       "sources": [
-        "search",
         "trending:weekly"
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": 1,
-      "pushed_at": "2026-09-06T01:18:45+08:00",
-      "rank": 3
+      "pushed_at": "2026-09-06T16:38:31+08:00",
+      "rank": 2
     },
     {
-      "repo": "volcengine/OpenViking",
-      "name": "OpenViking",
-      "stars": 35643,
-      "category": "memory",
-      "summary": "Self-evolving Context Database for AI Agents. Unify Agent Memory, Knowledge RAG and Skills.",
-      "heat_score": 63.94,
+      "repo": "K-Dense-AI/scientific-agent-skills",
+      "name": "scientific-agent-skills",
+      "stars": 43256,
+      "category": "skills",
+      "summary": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 190,000+ scientists worldwide.…",
+      "heat_score": 100.76,
       "sources": [
-        "search"
+        "trending:weekly"
       ],
       "trending_daily_rank": null,
-      "trending_weekly_rank": null,
-      "pushed_at": "2026-09-05T22:58:49+08:00",
-      "rank": 1
+      "trending_weekly_rank": 11,
+      "pushed_at": "2026-09-03T00:25:37+08:00",
+      "rank": 3
     },
     {
       "repo": "mem0ai/mem0",
       "name": "mem0",
-      "stars": 64742,
+      "stars": 64789,
       "category": "memory",
       "summary": "The Memory Layer for AI Agents - Drop-in memory infrastructure for AI agents and apps. Context that persists. Built for…",
       "heat_score": 56.23,
@@ -275,21 +260,36 @@
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
       "pushed_at": "2026-09-05T00:32:10+08:00",
-      "rank": 2
+      "rank": 1
     },
     {
       "repo": "EverMind-AI/EverOS",
       "name": "EverOS",
-      "stars": 12716,
+      "stars": 12743,
       "category": "memory",
       "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
-      "heat_score": 53.85,
+      "heat_score": 53.84,
       "sources": [
         "search"
       ],
       "trending_daily_rank": null,
       "trending_weekly_rank": null,
       "pushed_at": "2026-09-04T10:27:51+08:00",
+      "rank": 2
+    },
+    {
+      "repo": "MemoriLabs/Memori",
+      "name": "Memori",
+      "stars": 16462,
+      "category": "memory",
+      "summary": "Memori is agent-native memory infrastructure. A LLM-agnostic layer that turns agent execution and conversation into str…",
+      "heat_score": 53.75,
+      "sources": [
+        "search"
+      ],
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null,
+      "pushed_at": "2026-09-04T04:05:01+08:00",
       "rank": 3
     }
   ]
