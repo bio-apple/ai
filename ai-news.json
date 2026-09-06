@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-06T16:09:23.292095+08:00",
-  "date": "2026-09-06",
+  "updated_at": "2026-09-07T02:44:21.363223+08:00",
+  "date": "2026-09-07",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "49811bcefa22",
+      "title": "具身ICL来了创业玩家！上下文成Scaling新赛道",
+      "summary": "让机器人学会利用更长的多模态Context",
+      "url": "https://www.qbitai.com/2026/09/484897.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-06T19:44:21+08:00"
+    },
+    {
+      "id": "a8e8f9dc895a",
+      "title": "An Alien Mind",
+      "summary": "Jakub Pachocki reflects on increasingly capable AI and the challenge of keeping it aligned. He calls for stronger safeguards and international coordination.",
+      "url": "https://openai.com/index/an-alien-mind",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-06T17:00:00+08:00"
+    },
+    {
+      "id": "19672c4832d4",
+      "title": "Research acceleration: The view inside",
+      "summary": "Inside OpenAI, coding agents are reshaping AI research. Explore early data on agent usage, experiment velocity, task complexity, and research acceleration.",
+      "url": "https://openai.com/index/research-acceleration-view-inside-openai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-06T16:00:00+08:00"
+    },
     {
       "id": "0f2ba2b7fd6e",
       "title": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
@@ -49,15 +76,6 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-09-05T12:24:25+08:00"
-    },
-    {
-      "id": "dfb2f1ba4837",
-      "title": "这个世界模型训练完就“退场”，机器人反而更能干了",
-      "summary": "如此“反骨”的方法，具体又是怎么实现的？",
-      "url": "https://www.qbitai.com/2026/09/484611.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-05T12:18:54+08:00"
     },
     {
       "id": "7765da697e6b",
@@ -105,19 +123,19 @@
       "published_at": "2026-09-03T21:00:35+08:00"
     },
     {
-      "id": "7a45b185cff5",
-      "title": "Playco cut manual fixes 50% prototyping games with GPT-6 Astra",
-      "summary": "Using GPT-6 Astra, Playco built three themed game prototypes from one grey box foundation and reported 50% fewer manual fixes than with the previous model.",
-      "url": "https://openai.com/index/playco-game-prototyping-with-astra",
+      "id": "be4a3c542626",
+      "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
+      "summary": "Legora used GPT-6 Astra to review 41 documents in minutes, find all four planted errors, and improve performance by nearly 40% in this financial-review workflo…",
+      "url": "https://openai.com/index/legora-financial-statement-review-with-astra",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-03T20:00:00+08:00"
     },
     {
-      "id": "be4a3c542626",
-      "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
-      "summary": "Legora used GPT-6 Astra to review 41 documents in minutes, find all four planted errors, and improve performance by nearly 40% in this financial-review workflo…",
-      "url": "https://openai.com/index/legora-financial-statement-review-with-astra",
+      "id": "7a45b185cff5",
+      "title": "Playco cut manual fixes 50% prototyping games with GPT-6 Astra",
+      "summary": "Using GPT-6 Astra, Playco built three themed game prototypes from one grey box foundation and reported 50% fewer manual fixes than with the previous model.",
+      "url": "https://openai.com/index/playco-game-prototyping-with-astra",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-03T20:00:00+08:00"
@@ -130,24 +148,6 @@
       "source": "NVIDIA AI",
       "category": "开源项目",
       "published_at": "2026-09-03T19:56:49+08:00"
-    },
-    {
-      "id": "0f3b76bc480d",
-      "title": "GPT-6 Astra: A new generation of intelligence",
-      "summary": "Introducing GPT-6 Astra, our most intelligent and aligned model yet, with state-of-the-art capabilities across computer use, coding, cybersecurity, and science.",
-      "url": "https://openai.com/index/gpt-6-astra",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-03T19:00:00+08:00"
-    },
-    {
-      "id": "2e155b11d809",
-      "title": "Safety overview: GPT-6 Astra",
-      "summary": "GPT-6 Astra is our most capable broadly deployed model and our first to reach the Critical level of cybersecurity capability under our Preparedness Framework.",
-      "url": "https://openai.com/index/safety-overview-gpt-6-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-03T08:00:00+08:00"
     },
     {
       "id": "45020768fad9",
