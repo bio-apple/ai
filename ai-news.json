@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-07T16:40:05.389344+08:00",
-  "date": "2026-09-07",
+  "updated_at": "2026-09-08T04:16:48.667191+08:00",
+  "date": "2026-09-08",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,42 @@
   },
   "items": [
     {
+      "id": "542c1c04ef50",
+      "title": "3秒变身！会合体的机器人，卖到全球50国",
+      "summary": "谁说现在机器人都长得差不多的！",
+      "url": "https://www.qbitai.com/2026/09/485525.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-07T17:34:06+08:00"
+    },
+    {
+      "id": "973166572db2",
+      "title": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
+      "summary": "OpenAI研究院人均带3个AI实习生",
+      "url": "https://www.qbitai.com/2026/09/485431.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-07T17:04:06+08:00"
+    },
+    {
+      "id": "5638b0e34ce7",
+      "title": "DHH领衔，英伟达、微软、HuggingFace等150+全球技术大咖集结，GOSIM Shenzhen 2026全议程公布",
+      "summary": "10 月 16–17 日，面向全球开发者的开源技术大会 GOSIM 将首次来到深圳，举办 GOSIM Shenzhen 2026。",
+      "url": "https://www.qbitai.com/2026/09/485154.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-07T16:51:30+08:00"
+    },
+    {
+      "id": "90a7e8ecf30c",
+      "title": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
+      "summary": "“在两个模型之间找到数学上的共同基础其实非常困难”",
+      "url": "https://www.qbitai.com/2026/09/485108.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-07T16:36:30+08:00"
+    },
+    {
       "id": "942e0c4ce068",
       "title": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
       "summary": "9月7日，国内首份《中国办公Agent用户行为不完全报告》在京发布。",
@@ -22,33 +58,6 @@
       "source": "量子位",
       "category": "新工具上线",
       "published_at": "2026-09-07T14:53:26+08:00"
-    },
-    {
-      "id": "3a125960b8c7",
-      "title": "原生全模态技术战略闭环，智象（HiDream.ai）发布具身世界模型HiDream-O1-Embodied",
-      "summary": "原生全模态技术战略闭环，智象（HiDream.ai）发布具身世界模型HiDream-O1-Embodied",
-      "url": "https://www.qbitai.com/2026/09/485056.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-07T14:03:34+08:00"
-    },
-    {
-      "id": "fec25198efeb",
-      "title": "业内首个！“千问办公”推出“多人工作台”",
-      "summary": "近日，阿里巴巴旗下Agent产品“千问办公”推出业内首个“多人工作台”。",
-      "url": "https://www.qbitai.com/2026/09/485046.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-07T13:04:44+08:00"
-    },
-    {
-      "id": "83927bcdca23",
-      "title": "产业龙头领投！中科类脑完成数亿元B+轮战略融资",
-      "summary": "产业龙头领投！中科类脑完成数亿元B+轮战略融资",
-      "url": "https://www.qbitai.com/2026/09/485039.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-07T12:01:09+08:00"
     },
     {
       "id": "f3156629097f",
@@ -103,15 +112,6 @@
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-09-07T08:00:00+08:00"
-    },
-    {
-      "id": "49811bcefa22",
-      "title": "具身ICL来了创业玩家！上下文成Scaling新赛道",
-      "summary": "让机器人学会利用更长的多模态Context",
-      "url": "https://www.qbitai.com/2026/09/484897.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-06T19:44:21+08:00"
     },
     {
       "id": "a8e8f9dc895a",
@@ -283,15 +283,6 @@
       "source": "Google AI",
       "category": "新模型发布",
       "published_at": "2026-09-02T00:00:00+08:00"
-    },
-    {
-      "id": "8b83437bdb89",
-      "title": "GigaPath-Flash and GigaTIME-Flash: Toward population-scale discovery with efficient pathology foundation models",
-      "summary": "What if pathology foundation models could do more with less? GigaPath-Flash and GigaTIME-Flash cut computational demands while maintaining strong performance, …",
-      "url": "https://www.microsoft.com/en-us/research/blog/gigapath-flash-and-gigatime-flash-toward-population-scale-discovery-with-efficient-pathology-foundation-models/",
-      "source": "Microsoft AI",
-      "category": "新模型发布",
-      "published_at": "2026-09-01T00:00:00+08:00"
     }
   ],
   "watch_sources": [
