@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-07T02:44:21.363223+08:00",
+  "updated_at": "2026-09-07T16:40:05.389344+08:00",
   "date": "2026-09-07",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "942e0c4ce068",
+      "title": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
+      "summary": "9月7日，国内首份《中国办公Agent用户行为不完全报告》在京发布。",
+      "url": "https://www.qbitai.com/2026/09/485064.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-07T14:53:26+08:00"
+    },
+    {
+      "id": "3a125960b8c7",
+      "title": "原生全模态技术战略闭环，智象（HiDream.ai）发布具身世界模型HiDream-O1-Embodied",
+      "summary": "原生全模态技术战略闭环，智象（HiDream.ai）发布具身世界模型HiDream-O1-Embodied",
+      "url": "https://www.qbitai.com/2026/09/485056.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-07T14:03:34+08:00"
+    },
+    {
+      "id": "fec25198efeb",
+      "title": "业内首个！“千问办公”推出“多人工作台”",
+      "summary": "近日，阿里巴巴旗下Agent产品“千问办公”推出业内首个“多人工作台”。",
+      "url": "https://www.qbitai.com/2026/09/485046.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-07T13:04:44+08:00"
+    },
+    {
+      "id": "83927bcdca23",
+      "title": "产业龙头领投！中科类脑完成数亿元B+轮战略融资",
+      "summary": "产业龙头领投！中科类脑完成数亿元B+轮战略融资",
+      "url": "https://www.qbitai.com/2026/09/485039.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-09-07T12:01:09+08:00"
+    },
+    {
+      "id": "f3156629097f",
+      "title": "EXAONE Forecast for Finance",
+      "summary": "arXiv:2609.04239v1 Announce Type: new Abstract: This technical report presents EXAONE Forecast for Finance (EXAONE Finance), a financial time series (TS) found…",
+      "url": "https://arxiv.org/abs/2609.04239",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-07T12:00:00+08:00"
+    },
+    {
+      "id": "a43ca39110c8",
+      "title": "From Matching Models to Recruiting Agents: A Systematized Narrative Review of AI Recruitment Systems, Evaluation, and Governance",
+      "summary": "arXiv:2609.04286v1 Announce Type: new Abstract: Artificial intelligence in recruitment has shifted the object being automated from profile pairs and ranked lis…",
+      "url": "https://arxiv.org/abs/2609.04286",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-07T12:00:00+08:00"
+    },
+    {
+      "id": "01b847bc2d8c",
+      "title": "Harbor Adapters and Harbor-Index: Infrastructure and a Curated Meta-Dataset for Large-Scale Agentic Evaluation",
+      "summary": "arXiv:2609.04298v1 Announce Type: new Abstract: Evaluating agents on the growing number of agentic benchmarks is challenging because they often require complex…",
+      "url": "https://arxiv.org/abs/2609.04298",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-07T12:00:00+08:00"
+    },
+    {
+      "id": "399e57d2b40d",
+      "title": "Data-Optimized Contingency Screening: A Machine Learning Approach to Power System Security",
+      "summary": "arXiv:2609.04300v1 Announce Type: new Abstract: Ensuring the security of the power system is essential for stability and reliability, especially in the event o…",
+      "url": "https://arxiv.org/abs/2609.04300",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-07T12:00:00+08:00"
+    },
+    {
+      "id": "4d568355b336",
+      "title": "Iris: Climbing to the Search Frontier",
+      "summary": "arXiv:2609.04304v1 Announce Type: new Abstract: We present Iris-mini and Iris-pro, two search agents trained at the 35B-A3B and 397B-A17B scales, together with…",
+      "url": "https://arxiv.org/abs/2609.04304",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-07T12:00:00+08:00"
+    },
+    {
+      "id": "e02ae19def6b",
+      "title": "Supporting independent journalism in Ukraine",
+      "summary": "OpenAI, AIRPPU and WAN-IFRA launch an AI program to help Ukrainian news organizations strengthen innovation, resilience, and independent journalism.",
+      "url": "https://openai.com/index/supporting-independent-journalism-in-ukraine",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-09-07T08:00:00+08:00"
+    },
     {
       "id": "49811bcefa22",
       "title": "具身ICL来了创业玩家！上下文成Scaling新赛道",
@@ -40,42 +130,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-06T16:00:00+08:00"
-    },
-    {
-      "id": "0f2ba2b7fd6e",
-      "title": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
-      "summary": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
-      "url": "https://www.qbitai.com/2026/09/484890.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-06T12:40:15+08:00"
-    },
-    {
-      "id": "e82b1aacab51",
-      "title": "GPT-6带火循环Transformer，阿里早已布局",
-      "summary": "手握两篇顶会论文",
-      "url": "https://www.qbitai.com/2026/09/484726.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-05T23:07:08+08:00"
-    },
-    {
-      "id": "99f9f3dcc328",
-      "title": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
-      "summary": "当AI开始“预演”一场暴雨",
-      "url": "https://www.qbitai.com/2026/09/484683.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-05T22:46:15+08:00"
-    },
-    {
-      "id": "0bf5ede3a210",
-      "title": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
-      "summary": "AI直接吐出正确答案，但最关键的可能不是答案",
-      "url": "https://www.qbitai.com/2026/09/484649.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-05T12:24:25+08:00"
     },
     {
       "id": "7765da697e6b",
@@ -127,15 +181,6 @@
       "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
       "summary": "Legora used GPT-6 Astra to review 41 documents in minutes, find all four planted errors, and improve performance by nearly 40% in this financial-review workflo…",
       "url": "https://openai.com/index/legora-financial-statement-review-with-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-03T20:00:00+08:00"
-    },
-    {
-      "id": "7a45b185cff5",
-      "title": "Playco cut manual fixes 50% prototyping games with GPT-6 Astra",
-      "summary": "Using GPT-6 Astra, Playco built three themed game prototypes from one grey box foundation and reported 50% fewer manual fixes than with the previous model.",
-      "url": "https://openai.com/index/playco-game-prototyping-with-astra",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-03T20:00:00+08:00"
