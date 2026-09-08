@@ -1,6 +1,6 @@
 # 开发速查
 
-线上：https://bio-apple.github.io/ai/ · **v2.0**  
+线上：https://bio-apple.github.io/ai/ · **v3.0**  
 技术栈：Astro 7 SSG + GitHub Pages（本地可选 `./start.sh`）。
 
 按角色入口见 [README.md](./README.md)。产品改 `data/site.json`；前端改 `src/` / `css/` / `lib/`；运维改 `config/*.yaml` 与 Actions。

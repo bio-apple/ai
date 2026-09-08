@@ -1,8 +1,8 @@
 # AI 导航
 
-**v2.0** · Bio-Apple · AI 工具中心 · 开源精选 · 课程 · 热点 · 视频
+**v3.0** · Bio-Apple · AI 工具中心 · 开源精选 · 课程 · 热点 · 视频
 
-[![Version](https://img.shields.io/badge/version-2.0.0-0d8c6d?style=flat-square)](https://bio-apple.github.io/ai/)
+[![Version](https://img.shields.io/badge/version-3.0.0-0d8c6d?style=flat-square)](https://bio-apple.github.io/ai/)
 [![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
 [![Stars](https://img.shields.io/github/stars/bio-apple/ai?style=flat-square&logo=github)](https://github.com/bio-apple/ai/stargazers)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/pages.yml?branch=main&style=flat-square&label=Deploy)](https://github.com/bio-apple/ai/actions/workflows/pages.yml)
