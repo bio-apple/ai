@@ -7,24 +7,23 @@
 
 ## 文档
 
-| 文档                                                 | 用途                     |
-| ---------------------------------------------------- | ------------------------ |
-| [docs/SETUP.md](./docs/SETUP.md)                     | 环境搭建、三种预览、排障 |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构                 |
-| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)           | JSON / Schema            |
-| [docs/FRONTEND.md](./docs/FRONTEND.md)               | 搜索、首页、视频页、PWA  |
-| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)         | 日更与救急               |
-| [docs/CI-CD.md](./docs/CI-CD.md)                     | 部署、Secrets            |
-| [docs/SECURITY.md](./docs/SECURITY.md)               | CSP、密钥                |
-| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频云端同步             |
+| 文档                                                 | 用途                        |
+| ---------------------------------------------------- | --------------------------- |
+| [docs/SETUP.md](./docs/SETUP.md)                     | 环境搭建、三种预览、排障    |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构                    |
+| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)           | JSON / Schema               |
+| [docs/FRONTEND.md](./docs/FRONTEND.md)               | 搜索、首页、新闻、视频、PWA |
+| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)         | 日更与救急                  |
+| [docs/CI-CD.md](./docs/CI-CD.md)                     | 部署、Secrets               |
+| [docs/SECURITY.md](./docs/SECURITY.md)               | CSP、密钥                   |
+| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频云端同步                |
 
 ## 命令
 
 ```bash
 nvm use && npm ci
 npm run build && ./start.sh          # http://127.0.0.1:8765/ai/
-npm run quality && npm run test:unit
-DIST=dist python3 scripts/validate_ci.py
+npm run quality && npm run test:unit && npm run build && DIST=dist python3 scripts/validate_ci.py
 ```
 
 仅静态：`npm run build && npm run preview` → http://127.0.0.1:8766/ai/

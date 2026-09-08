@@ -15,6 +15,9 @@ test('PWA manifest and service worker cover the knowledge shell', () => {
 
   const sw = fs.readFileSync(path.join(ROOT, 'sw.js'), 'utf8');
   assert.match(sw, /search-index\.json/);
+  assert.match(sw, /tools\/hub\.html/);
+  assert.match(sw, /news\/daily-ai-news\.html/);
+  assert.match(sw, /videos\.html/);
   assert.match(sw, /knowledge\.js/);
   assert.match(sw, /skipWaiting/);
   assert.match(sw, /clients\.claim/);

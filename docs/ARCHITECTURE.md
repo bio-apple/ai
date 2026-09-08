@@ -16,13 +16,13 @@ flowchart TB
   GHA --> PAGES["GitHub Pages"]
 ```
 
-| 层级 | 技术                           | 职责                          |
-| ---- | ------------------------------ | ----------------------------- |
-| 内容 | `data/` + `scripts/fetch_*.py` | 文案、工具、新闻/OSS/课程日更 |
-| 构建 | Astro 7 + prebuild             | HTML / CSS / 搜索索引 / PWA   |
-| 交付 | GitHub Pages                   | 静态托管（`base: /ai/`）      |
-| 交互 | 原生 JS                        | 搜索、推荐、视频页、漏斗      |
-| 云端 | Cloudflare Worker              | 视频列表 KV + `/meta` 封面    |
+| 层级 | 技术                           | 职责                           |
+| ---- | ------------------------------ | ------------------------------ |
+| 内容 | `data/` + `scripts/fetch_*.py` | 文案、工具、新闻/OSS/课程日更  |
+| 构建 | Astro 7 + prebuild             | HTML / CSS / 搜索索引 / PWA    |
+| 交付 | GitHub Pages                   | 静态托管（`base: /ai/`）       |
+| 交互 | 原生 JS                        | 搜索、推荐、新闻、视频页、漏斗 |
+| 云端 | Cloudflare Worker              | 视频列表 KV + `/meta` 封面     |
 
 ## 构建要点
 
@@ -36,7 +36,8 @@ flowchart TB
 | 路径                          | 作用                                                         |
 | ----------------------------- | ------------------------------------------------------------ |
 | `/ai/`                        | 首页                                                         |
-| `/ai/tools/hub.html`          | AI 工具中心（三榜）                                          |
+| `/ai/tools/hub.html`          | AI 工具中心（三榜 Top 10）                                   |
+| `/ai/ai-tools-ranking.html`   | 完整三榜排行（工具中心可进入）                               |
 | `/ai/tools/{id}.html`         | 工具详情                                                     |
 | `/ai/oss.html`                | 开源精选                                                     |
 | `/ai/courses.html`            | 课程资源                                                     |

@@ -64,7 +64,7 @@
 ## 10. PWA 离线
 
 - `manifest.webmanifest` + `sw.js`（同域，scope `/ai/`）
-- 预缓存首页 / 开源 / 课程 / 工具中心 / `search-index.json` / 知识库脚本
+- 预缓存首页 / 开源 / 课程 / 工具中心 / 新闻 / 视频 / `search-index.json` / 知识库脚本
 - JSON 走 stale-while-revalidate；无网导航回退已缓存首页
 - CSP：`worker-src 'self'`；`sw.js` 不长缓存（`max-age=0`）
 - 线上核对用强制刷新（Mac `Cmd+Shift+R`）或 `?v=` 缓存破坏

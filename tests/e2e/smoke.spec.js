@@ -238,7 +238,7 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('main#main-content')).toHaveCount(1);
     const hubCrumb = page.locator('.breadcrumb');
     await expect(hubCrumb).toContainText('首页');
-    await expect(hubCrumb).toContainText('工具中心');
+    await expect(hubCrumb).toContainText('AI 工具中心');
 
     await page.goto('tools/chatgpt.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('ChatGPT');
@@ -275,7 +275,7 @@ test.describe('AI 导航 关键路径', () => {
   test('顶栏工具中心', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('index.html', { waitUntil: 'domcontentloaded' });
-    await page.locator('.nav-link-page', { hasText: 'AI工具中心' }).click();
+    await page.locator('.nav-link-page', { hasText: 'AI 工具中心' }).click();
     await expect(page.locator('#hub-ranking')).toBeVisible();
     await expect(page.getByRole('heading', { level: 1, name: 'AI 工具中心' })).toBeVisible();
     await expect(page.locator('.nav-tabs')).not.toHaveAttribute('role', 'tablist');
@@ -301,11 +301,16 @@ test.describe('AI 导航 关键路径', () => {
     await page.goto('404.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('main#main-content')).toHaveCount(1);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/i);
-    await expect(
-      page.locator('main#main-content').getByRole('link', { name: '新闻热点' }),
-    ).toBeVisible();
-    await expect(
-      page.locator('main#main-content').getByRole('link', { name: 'AI 视频' }),
-    ).toBeVisible();
+    const shortcutLabels = (await page.locator('main#main-content a.btn').allTextContents()).map(
+      (text) => text.replace(/\s+/g, ' ').trim(),
+    );
+    expect(shortcutLabels).toEqual([
+      '返回首页',
+      'AI 工具中心',
+      '开源精选',
+      '课程资源',
+      '新闻热点',
+      'AI 视频',
+    ]);
   });
 });

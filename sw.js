@@ -11,6 +11,8 @@ const PRECACHE_URLS = [
   `${BASE}oss.html`,
   `${BASE}courses.html`,
   `${BASE}tools/hub.html`,
+  `${BASE}news/daily-ai-news.html`,
+  `${BASE}videos.html`,
   `${BASE}search-index.json`,
   `${BASE}recommend-rules.json`,
   `${BASE}ai-courses.json`,

@@ -12,7 +12,7 @@ const page = site.tools_hub_page;
 const base = site.meta.base_url;
 const breadcrumbs = [
   { name: '首页', url: `${base}` },
-  { name: '工具中心', url: `${base}tools/hub.html` },
+  { name: 'AI 工具中心', url: `${base}tools/hub.html` },
 ];
 const boards = buildHubRankingBoards(HUB_RANKING_TOP_N).map((board) => ({
   ...board,
@@ -45,7 +45,7 @@ const rankMeta = hubRankingMeta();
 >
   <div class="standalone-page tools-hub-page hub-compare-page aicpb-ranking-page">
     <StandalonePageHeader
-      crumbs={[{ label: '首页', href: homeHref() }, { label: '工具中心' }]}
+      crumbs={[{ label: '首页', href: homeHref() }, { label: 'AI 工具中心' }]}
       title={page.h1}
     />
 
