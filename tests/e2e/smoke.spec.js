@@ -96,10 +96,7 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('#knowledge-fab')).toHaveCount(0);
     await expect(page.locator('#knowledge-panel')).toHaveCount(1);
     await expect(page.locator('#knowledge-panel')).toHaveAttribute('aria-hidden', 'true');
-    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
-      'content',
-      /AI 导航/,
-    );
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /AI 导航/);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
       'content',
       /^https:\/\//,
