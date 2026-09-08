@@ -99,8 +99,7 @@ function buildCoursesSchema(courses, pageUrl) {
     : `${String(pageUrl).replace(/\/?$/, '/')}courses.html`;
   const title = courses.title || 'AI 课程资源';
   const description =
-    courses.lead ||
-    '按方向编排的免费 AI 课程：入门、机器学习、深度学习、LLM 大模型与 AI Agent。';
+    courses.lead || '按方向编排的免费 AI 课程：入门、机器学习、深度学习、LLM 大模型与 AI Agent。';
 
   const itemListElement = (courses.items || []).map((course, index) => ({
     '@type': 'ListItem',

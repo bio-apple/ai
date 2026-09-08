@@ -31,7 +31,7 @@ flowchart LR
 
 ```bash
 cp .env.local.example .env.local   # 可选
-npm run quality && npm run scan:secrets
+npm run quality && npm run scan:secrets && npm run test:unit
 npm run build && DIST=dist python3 scripts/validate_ci.py
 ```
 

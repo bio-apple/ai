@@ -27,7 +27,17 @@ HOT_CFG = {
     "category": "中文资讯",
     "max_age_days": 30,
 }
-CFG = {"summary_max_length": 160}
+CFG = {
+    "summary_max_length": 160,
+    "category_keywords": {
+        "新工具上线": r"(launch|release|introducing|available now|上线|发布)",
+        "开源项目": r"(open[- ]source|github|hugging\s*face|repository|开源|arxiv|trending|openhands|autogpt)",
+        "新模型发布": r"(model|gpt|claude|gemini|llm|推理|大模型)",
+        "行业新闻": r"(partnership|acquisition|policy|regulation|融资|合作)",
+        "学术论文": r"(arxiv|paper|preprint|论文)",
+        "中文资讯": r"(人工智能|大模型|开源|发布)",
+    },
+}
 
 
 def fixture_html(*, keep_date: str, drop_date: str) -> str:
@@ -82,6 +92,19 @@ class QbitaiHotParseTest(unittest.TestCase):
         self.assertEqual(url_only["url"], "https://www.qbitai.com/2026/09/url-only.html")
         self.assertEqual(url_only["published_at"], "2026-09-01T00:00:00+08:00")
         self.assertEqual(url_only["source"], "量子位")
+        self.assertEqual(url_only["window_hours"], 720)
+        self.assertEqual(url_only["category"], "中文资讯")
+
+    def test_classifies_hot_with_existing_keywords(self) -> None:
+        html = """
+<!--热门文章 start-->
+<a href="https://www.qbitai.com/2026/09/483898.html"><h4>刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代</h4><div class="info">2026-09-04</div></a>
+<a href="https://www.qbitai.com/2026/09/483101.html"><h4>阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一</h4><div class="info">2026-09-02</div></a>
+<!--热门文章 end-->
+"""
+        parsed = {item["title"]: item["category"] for item in mod.parse_qbitai_hot_html(html, HOT_CFG, CFG)}
+        self.assertEqual(parsed["刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代"], "新工具上线")
+        self.assertEqual(parsed["阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一"], "中文资讯")
 
     def test_keeps_29_days_drops_31_days(self) -> None:
         html = fixture_html(keep_date="2026-08-10", drop_date="2026-08-08")

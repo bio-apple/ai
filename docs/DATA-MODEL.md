@@ -46,18 +46,18 @@ Schema：`schemas/*.json`
 
 根：`updated_at`, `date`, `window_hours`, `items[]`, `qbitai_hot?`, `watch_sources[]`
 
-| 字段           | 必填 | 说明                                            |
-| -------------- | ---- | ----------------------------------------------- |
-| `title`        | 是   | 纯标题；写入前 `clean_news_items` 去掉尾部源站  |
-| `url`          | 是   | 原文链接                                        |
-| `source`       | 推荐 | 独立源站名（量子位 / OpenAI / GitHub Trending） |
-| `published_at` | 推荐 | ISO8601 +08:00，前端显示相对时间                |
-| `category`     | 否   | 新模型发布 / 开源项目 / 行业新闻…               |
-| `summary`      | 否   | ≤160 字                                         |
-| `id`           | 否   | `sha1(url)[:12]`                                |
+| 字段           | 必填 | 说明                                                     |
+| -------------- | ---- | -------------------------------------------------------- |
+| `title`        | 是   | 纯标题；写入前 `clean_news_items` 去掉尾部源站           |
+| `url`          | 是   | 原文链接                                                 |
+| `source`       | 推荐 | 独立源站名（量子位 / OpenAI / GitHub Trending）          |
+| `published_at` | 推荐 | ISO8601 +08:00，前端显示相对时间                         |
+| `category`     | 否   | 新模型发布 / 新工具上线 / 开源项目 / 行业新闻 / 中文资讯 |
+| `summary`      | 否   | ≤160 字                                                  |
+| `id`           | 否   | `sha1(url)[:12]`                                         |
+| `window_hours` | 否   | 量子位热门为 `720`；缺省则用根上的 168h 窗口             |
 
-`items`：滚动 7×24 小时多样新闻。  
-`qbitai_hot`：量子位官网首页「热门文章」区块（`config/news-fetch.yaml` 的 `qbitai_hot`），滚动 30 天，不经 168h `filter_recent`。形状：`{ url, window_days, items[] }`，条目字段与 NewsItem 相同。热门 URL 可与主列表 RSS 重复；CI 去重只检查主 `items`。新闻热点页把热门专区放在 `#daily-news-list` 外面。
+`items`：滚动 7×24 小时多样新闻，并入量子位官网首页「热门文章」（`config/news-fetch.yaml` 的 `qbitai_hot`，滚动 30 天）。热门条目按 `category_keywords` 分到新模型发布 / 新工具上线 / 开源项目 / 行业新闻 / 中文资讯等既有分类，并带 `window_hours: 720`，避免被 168h 窗口滤掉。`qbitai_hot` 仍作为抓取副本保留。热门 URL 可与 RSS 重复；CI 去重只检查主 `items`。
 
 展示层再跑 `displayNewsTitle`。来源用 `news-source-chip`，不把源站拼进标题。
 

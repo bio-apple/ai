@@ -134,7 +134,7 @@ jobs:
               '处置：Actions → Daily AI Video Update → Run workflow（force=true）。',
               '规则：YouTube / B站近 1 个月上传、播放量 Top 3。YouTube 常空时页面会「回退批次」；B 站有货时应已 commit。',
               'YouTube 为空时检查仓库 Secrets 是否配置 YOUTUBE_API_KEY。',
-              '详见 docs/OPS-RUNBOOK.md',
+              '详见 docs/CONTENT-OPS.md',
               '',
               '<!-- daily-videos-fetch -->',
             ].join('\n');

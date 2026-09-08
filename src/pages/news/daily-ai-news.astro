@@ -6,6 +6,7 @@ import { site } from '../../lib/data';
 import { buildNewsSchema, mergeSchemaGraphs, buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 import { prepareNewsItems } from '../../lib/ssr-lists';
+import { dedupeNewsItems } from '../../lib/runtime';
 import newsPayload from '../../../ai-news.json';
 
 type QbitaiHot = {
@@ -21,26 +22,19 @@ const breadcrumbs = [
   { name: '新闻热点', url: `${base}news/daily-ai-news.html` },
 ];
 const hotPayload: QbitaiHot = (newsPayload as { qbitai_hot?: QbitaiHot }).qbitai_hot || {};
-const hotItems = hotPayload.items || [];
-const qbitaiHotUrl = hotPayload.url || 'https://www.qbitai.com/';
-const seenSchemaUrl = new Set();
-const schemaItems = [];
-for (const item of [...hotItems, ...(newsPayload.items || [])]) {
-  const url = (item.url || '').trim();
-  if (url && seenSchemaUrl.has(url)) continue;
-  if (url) seenSchemaUrl.add(url);
-  schemaItems.push(item);
-}
+const mergedItems = dedupeNewsItems([
+  ...(newsPayload.items || []),
+  ...(hotPayload.items || []),
+]);
 const schema = mergeSchemaGraphs(
   buildPageSchema(page.title, page.lead, `${base}news/daily-ai-news.html`, breadcrumbs),
   buildNewsSchema(
-    { title: page.h1 || page.title, lead: page.lead, items: schemaItems },
+    { title: page.h1 || page.title, lead: page.lead, items: mergedItems },
     base,
   ),
 );
 const home = homeHref();
-const ssrItems = prepareNewsItems(newsPayload.items || [], 24);
-const ssrHotItems = prepareNewsItems(hotItems, 12);
+const ssrItems = prepareNewsItems(mergedItems, 48);
 ---
 
 <StandaloneLayout
@@ -67,26 +61,6 @@ const ssrHotItems = prepareNewsItems(hotItems, 12);
       lead={page.lead}
       metaId="news-page-meta"
     />
-
-    <section class="page-section" aria-labelledby="qbitai-hot-title">
-      <div class="section-head">
-        <h2 class="section-title" id="qbitai-hot-title">量子位热门文章</h2>
-        <p class="section-desc">
-          近 1 个月（滚动 30 天）来自
-          <a href={qbitaiHotUrl} target="_blank" rel="noopener noreferrer">量子位官网</a>
-          首页热门。
-        </p>
-      </div>
-      <div id="qbitai-hot-list" class="news-list">
-        {
-          ssrHotItems.length ? (
-            <SsrNewsList items={ssrHotItems} />
-          ) : (
-            <p class="loading-hint">暂无近一个月的量子位热门文章。</p>
-          )
-        }
-      </div>
-    </section>
 
     <section class="page-section">
       <div id="daily-news-list" class="news-list">

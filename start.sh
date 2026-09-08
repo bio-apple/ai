@@ -23,6 +23,6 @@ if [ ! -f "dist/index.html" ]; then
   exit 1
 fi
 
-echo "启动 AI 应用指南: http://127.0.0.1:${PORT}/ai/"
+echo "启动 AI 导航: http://127.0.0.1:${PORT}/ai/"
 echo "（根路径 / 会重定向到 /ai/，与 Astro base 一致）"
 exec .venv/bin/uvicorn backend.main:app --host "$HOST" --port "$PORT" --reload

@@ -7,7 +7,6 @@ let newsState = {
   category: 'all',
   window: 'week',
   items: [],
-  qbitaiHot: [],
   watchSources: [],
   /** 滚动窗口小时数；默认 7×24，可由 ai-news.json.window_hours 覆盖 */
   windowHours: 7 * 24,
@@ -28,13 +27,24 @@ function filterByTimeWindow(items, window) {
       return t >= cutoff;
     });
   }
-  // week（默认）：从当前时刻往前 windowHours（默认 7×24）小时
-  const hours = Number(newsState.windowHours) > 0 ? Number(newsState.windowHours) : 7 * 24;
-  const cutoff = Date.now() - hours * 60 * 60 * 1000;
+  // week（默认）：条目自带 window_hours（量子位热门 30 天）或全局 7×24
+  const defaultHours = Number(newsState.windowHours) > 0 ? Number(newsState.windowHours) : 7 * 24;
   return (items || []).filter((i) => {
     const t = parseNewsTime(i.published_at);
-    return t >= cutoff;
+    if (!t) return false;
+    const hours = Number(i.window_hours) > 0 ? Number(i.window_hours) : defaultHours;
+    return t >= Date.now() - hours * 60 * 60 * 1000;
   });
+}
+
+function mergeNewsPayload(data) {
+  const hotWindowHours =
+    Number(data?.qbitai_hot?.window_days) > 0 ? Number(data.qbitai_hot.window_days) * 24 : 30 * 24;
+  const hot = (data?.qbitai_hot?.items || []).map((item) => ({
+    ...item,
+    window_hours: Number(item.window_hours) > 0 ? Number(item.window_hours) : hotWindowHours,
+  }));
+  return dedupeNewsItems([...(data?.items || []), ...hot]);
 }
 
 function escapeHtml(s) {
@@ -426,17 +436,6 @@ function paintNewsList() {
   });
 }
 
-function paintQbitaiHot(items) {
-  const root = document.getElementById('qbitai-hot-list');
-  if (!root) return;
-  const list = Array.isArray(items) ? items : [];
-  if (!list.length) {
-    root.innerHTML = '<p class="loading-hint">暂无近一个月的量子位热门文章。</p>';
-    return;
-  }
-  root.innerHTML = `<ul class="news-feed-list">${list.map((item) => renderNewsRow(item)).join('')}</ul>`;
-}
-
 function fetchNewsData() {
   if (!newsDataPromise) {
     if (!window.BioAI?.fetchJson) {
@@ -486,9 +485,7 @@ async function loadDailyNews() {
 
   try {
     const data = await fetchNewsData();
-    newsState.qbitaiHot = data.qbitai_hot?.items || [];
-    paintQbitaiHot(newsState.qbitaiHot);
-    newsState.items = dedupeNewsItems(data.items || []);
+    newsState.items = mergeNewsPayload(data);
     newsState.watchSources = data.watch_sources || [];
     newsState.category = 'all';
     if (Number(data.window_hours) > 0) {
@@ -504,7 +501,7 @@ async function loadDailyNews() {
       const updated = new Date(data.updated_at);
       const hours = Number(newsState.windowHours) > 0 ? Number(newsState.windowHours) : 7 * 24;
       const stamp = updated.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
-      meta.textContent = `滚动近 ${hours} 小时（${hours / 24}×24h）· 日更 · 更新于 ${stamp} · ${newsState.items.length} 条`;
+      meta.textContent = `分类浏览 · 量子位热门近 30 天 · 其它来源近 ${hours / 24}×24h · 日更 · 更新于 ${stamp} · ${newsState.items.length} 条`;
     }
     paintNewsList();
     if (watchRoot) {

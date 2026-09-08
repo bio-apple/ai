@@ -29,7 +29,7 @@ cp .env.local.example .env.local   # 可选
 
 打开 **http://127.0.0.1:8765/ai/**
 
-校验：`npm run quality && npm run build && DIST=dist python3 scripts/validate_ci.py`
+校验：`npm run quality && npm run test:unit && npm run build && DIST=dist python3 scripts/validate_ci.py`
 
 ## 3. 三种预览
 

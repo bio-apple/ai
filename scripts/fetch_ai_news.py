@@ -494,7 +494,8 @@ def parse_qbitai_hot_html(html: str, feed_cfg: dict, cfg: dict) -> list[dict]:
 
     base_url = feed_cfg.get("url") or "https://www.qbitai.com/"
     source = feed_cfg.get("source") or "量子位"
-    category = feed_cfg.get("category") or "中文资讯"
+    default_category = feed_cfg.get("category") or "中文资讯"
+    window_hours = int(feed_cfg.get("max_age_days", 30)) * 24
     smax = cfg.get("summary_max_length", 160)
     seen: set[str] = set()
     items: list[dict] = []
@@ -525,8 +526,9 @@ def parse_qbitai_hot_html(html: str, feed_cfg: dict, cfg: dict) -> list[dict]:
                 "summary": summary,
                 "url": link,
                 "source": source,
-                "category": category,
+                "category": classify_item(title, summary, cfg, default_category),
                 "published_at": published.isoformat(),
+                "window_hours": window_hours,
             }
         )
     return items
@@ -596,7 +598,6 @@ def main() -> int:
     recent = filter_recent(collected, cfg)
     # 去重 → 多样性挑选 → 再次去重兜底 → 剥离标题尾部源站名 → 写入前再断言唯一
     items = clean_news_items(dedupe_news_items(select_diverse_items(dedupe_news_items(recent), cfg)))
-    assert_news_unique(items)
 
     now = datetime.now(TZ)
     today = now.strftime("%Y-%m-%d")
@@ -604,13 +605,17 @@ def main() -> int:
     window_hours = int(window.total_seconds() // 3600)
     window_days = max(1, (window_hours + 23) // 24)
     qbitai_hot = fetch_qbitai_hot(cfg, now=now)
+    items = clean_news_items(
+        dedupe_news_items([*items, *(qbitai_hot.get("items") or [])])
+    )
+    assert_news_unique(items)
     payload = {
         "updated_at": now.isoformat(),
         "date": today,
         "cadence": "daily",
         "window_hours": window_hours,
         "window_days": window_days,
-        "title": "近 7×24 小时 AI 热点",
+        "title": "AI 新闻热点",
         "schema_version": 1,
         "dedupe": {"by": ["title", "url"], "keep": "latest_published_at"},
         "items": items,

@@ -31,6 +31,7 @@ npm ci && pip install -r requirements.txt
 | 产品 / 文案     | 下表「入口」；`data/site.json` 的 `meta` / `nav` / `hero`             | 导航、TDK、推荐场景                    |
 | 前端            | [FRONTEND.md](./docs/FRONTEND.md)                                     | `src/components`、`css/`、`lib/*.js`   |
 | 运维 / 日更     | [CONTENT-OPS.md](./docs/CONTENT-OPS.md) · [CI-CD.md](./docs/CI-CD.md) | `config/*.yaml`、Actions Secrets       |
+| 测试 / QA       | `tests/unit` · `tests/e2e/smoke.spec.js`                              | 夹具单测、页面冒烟                     |
 | 安全            | [SECURITY.md](./docs/SECURITY.md)                                     | `config/csp.json`、勿提交 `.env.local` |
 | 数据 / 内容结构 | [DATA-MODEL.md](./docs/DATA-MODEL.md)                                 | `data/*.json`、根目录日更 JSON         |
 
@@ -58,7 +59,7 @@ npm ci && pip install -r requirements.txt
 | AI工具中心 | AICPB / LMSYS / AA 三榜 Top 10；工具详情                                                   |
 | 开源精选   | Agent / MCP / Coding Agent 等方向加热 Top 3                                                |
 | 课程资源   | 日更免费课程                                                                               |
-| 新闻热点   | 量子位官网首页「热门文章」（近 30 天）+ 滚动 7×24 小时资讯                                 |
+| 新闻热点   | 滚动 7×24 小时资讯；量子位官网「热门文章」（近 30 天）按既有分类并入                       |
 | AI 视频    | 近 1 个月 YouTube / B 站各播放量 Top 3；粘贴收藏（Cloudflare 同步）                        |
 
 顶栏入口见 `data/site.json` 的 `nav.menu`。进阶指南在 `guides/advanced.html`（搜索与推荐路径可达，不在顶栏）。本地部署文稿在 `local/{id}.html`。

@@ -9,7 +9,7 @@ const hub = asset('tools/hub.html');
 
 <StandaloneLayout
   title={`页面未找到 · ${site.meta.site_name || BRAND}`}
-  description="你访问的页面不存在或已迁移。可返回首页、工具中心，或使用站内搜索继续探索 AI 工具与教程。"
+  description="你访问的页面不存在或已迁移。可返回首页、工具中心、新闻热点，或使用站内搜索继续探索。"
   canonical={`${String(site.meta.canonical || '').replace(/\/?$/, '/')}404.html`}
   ogType="website"
   showSearch={false}
@@ -30,6 +30,7 @@ const hub = asset('tools/hub.html');
       <p style="display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center">
         <a class="btn btn-primary" href={home}>返回首页</a>
         <a class="btn btn-ghost" href={hub}>工具中心</a>
+        <a class="btn btn-ghost" href={asset('news/daily-ai-news.html')}>新闻热点</a>
         <a class="btn btn-ghost" href={asset('courses.html')}>课程资源</a>
         <a class="btn btn-ghost" href={asset('oss.html')}>开源精选</a>
         <a class="btn btn-ghost" href={asset('videos.html')}>AI 视频</a>

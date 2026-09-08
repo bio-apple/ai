@@ -29,8 +29,9 @@
 
 ## 4. 新闻热点页
 
-- 专区 `#qbitai-hot-list`：量子位官网首页「热门文章」，滚动 30 天；在 `#daily-news-list` 之外，不套 7 日窗口
-- 主列表 `#daily-news-list`：`news.js` 按 `window_hours`（默认 7×24）筛选分类
+- 主列表 `#daily-news-list`：`news.js` 按分类（新模型发布 / 新工具上线 / 开源项目 / 行业新闻 / 中文资讯）分组
+- 量子位官网「热门文章」（近 30 天）并入上述分类，不单独成块；条目带 `window_hours: 720`，默认「近 7×24h」仍可见
+- SSR 先输出最多 48 条，`news.js` hydrate 后按分类重绘
 - 组件：`SsrNewsList.astro`；来源芯片 `NewsSourceChip.astro`
 
 ## 5. 内容漏斗

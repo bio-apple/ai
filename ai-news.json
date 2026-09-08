@@ -4,7 +4,7 @@
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
-  "title": "近 7×24 小时 AI 热点",
+  "title": "AI 新闻热点",
   "schema_version": 1,
   "dedupe": {
     "by": [
@@ -94,6 +94,16 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-09-04T00:00:59+08:00"
+    },
+    {
+      "id": "949b4891b9fd",
+      "title": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
+      "summary": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
+      "url": "https://www.qbitai.com/2026/09/483898.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-04T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "56da2c8ef803",
@@ -195,6 +205,16 @@
       "published_at": "2026-09-03T00:18:31+08:00"
     },
     {
+      "id": "5c6accf69391",
+      "title": "“没有Token的CS学生，应立即退学”",
+      "summary": "“没有Token的CS学生，应立即退学”",
+      "url": "https://www.qbitai.com/2026/09/483839.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-03T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "22915ca8a273",
       "title": "Real-Time Intelligence with IBM Time Series Models on Confluent",
       "summary": "Real-Time Intelligence with IBM Time Series Models on Confluent",
@@ -231,6 +251,36 @@
       "published_at": "2026-09-02T01:08:51+08:00"
     },
     {
+      "id": "96e91106715a",
+      "title": "李飞飞发布：全球首个多模态世界模型",
+      "summary": "李飞飞发布：全球首个多模态世界模型",
+      "url": "https://www.qbitai.com/2026/09/482586.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-02T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "555daf521fa1",
+      "title": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
+      "summary": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
+      "url": "https://www.qbitai.com/2026/09/483104.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-02T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "f21e55c629b3",
+      "title": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
+      "summary": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
+      "url": "https://www.qbitai.com/2026/09/483101.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-02T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "77cd2a6a82f1",
       "title": "Try Google Pics: Easy image creation and editing in Google Workspace",
       "summary": "Built on our latest Nano Banana model, Google Pics — our image creation and editing tool — is now available.",
@@ -250,8 +300,9 @@
         "summary": "李飞飞发布：全球首个多模态世界模型",
         "url": "https://www.qbitai.com/2026/09/482586.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-02T00:00:00+08:00"
+        "category": "新工具上线",
+        "published_at": "2026-09-02T00:00:00+08:00",
+        "window_hours": 720
       },
       {
         "id": "555daf521fa1",
@@ -259,8 +310,9 @@
         "summary": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
         "url": "https://www.qbitai.com/2026/09/483104.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-02T00:00:00+08:00"
+        "category": "新模型发布",
+        "published_at": "2026-09-02T00:00:00+08:00",
+        "window_hours": 720
       },
       {
         "id": "f21e55c629b3",
@@ -269,7 +321,8 @@
         "url": "https://www.qbitai.com/2026/09/483101.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-09-02T00:00:00+08:00"
+        "published_at": "2026-09-02T00:00:00+08:00",
+        "window_hours": 720
       },
       {
         "id": "949b4891b9fd",
@@ -277,8 +330,9 @@
         "summary": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
         "url": "https://www.qbitai.com/2026/09/483898.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-04T00:00:00+08:00"
+        "category": "新工具上线",
+        "published_at": "2026-09-04T00:00:00+08:00",
+        "window_hours": 720
       },
       {
         "id": "5c6accf69391",
@@ -287,7 +341,8 @@
         "url": "https://www.qbitai.com/2026/09/483839.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-09-03T00:00:00+08:00"
+        "published_at": "2026-09-03T00:00:00+08:00",
+        "window_hours": 720
       }
     ]
   },

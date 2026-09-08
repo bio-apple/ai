@@ -40,7 +40,7 @@
 
 本地：`python3 scripts/fetch_ai_news.py`（或对应脚本）→ `npm run build`。
 
-量子位热门：抓官网首页 `<!--热门文章 start-->` … `end` 区块，只保留近 30 天；写入 `ai-news.json` 的 `qbitai_hot`，新闻热点页 `#qbitai-hot-list` 展示。RSS 源「量子位」仍进 7×24h 主列表。
+量子位热门：抓官网首页 `<!--热门文章 start-->` … `end` 区块，只保留近 30 天，用与 RSS 相同的 `category_keywords` 分进既有分类后写入 `items`（并保留 `qbitai_hot` 副本）。新闻热点页按分类展示，无单独热门专区。
 
 ## 4. 救急
 

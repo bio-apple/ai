@@ -116,9 +116,13 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('#home-ai-map .ai-map-ring-found')).toHaveCount(6);
     await expect(page.locator('#home-ai-map a.ai-map-node')).toHaveCount(7);
     await expect(page.locator('#home-ai-map a.ai-map-node-found')).toHaveCount(0);
-    await expect(page.locator('#home-ai-map text.ai-map-label-found', { hasText: '数学' })).toBeVisible();
+    await expect(
+      page.locator('#home-ai-map text.ai-map-label-found', { hasText: '数学' }),
+    ).toBeVisible();
     const urlBeforeFoundClick = page.url();
-    await page.locator('#home-ai-map text.ai-map-label-found', { hasText: '数学' }).click({ force: true });
+    await page
+      .locator('#home-ai-map text.ai-map-label-found', { hasText: '数学' })
+      .click({ force: true });
     await expect(page).toHaveURL(urlBeforeFoundClick);
     await expect(page.locator('#home-ai-map a.ai-map-node[data-map-node="nlp"]')).toHaveAttribute(
       'href',
@@ -158,9 +162,9 @@ test.describe('AI 导航 关键路径', () => {
     const result = page.locator('#recommend-result');
     await expect(result).toBeVisible();
     await expect(result).toContainText(/Cursor|Copilot|Codex/);
-    await expect(result.locator('.recommend-next a[data-track="recommend_goto_learning"]')).toHaveCount(
-      0,
-    );
+    await expect(
+      result.locator('.recommend-next a[data-track="recommend_goto_learning"]'),
+    ).toHaveCount(0);
     await expect(
       result.locator('.recommend-next a[data-track="recommend_guide_query"]'),
     ).toHaveAttribute('href', /guides\/advanced\.html$/);
@@ -222,9 +226,9 @@ test.describe('AI 导航 关键路径', () => {
 
     await page.goto('news/daily-ai-news.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('新闻热点');
-    await expect(page.locator('#qbitai-hot-title')).toContainText('量子位热门文章');
-    await expect(page.locator('#qbitai-hot-list')).toBeVisible();
+    await expect(page.locator('#qbitai-hot-title')).toHaveCount(0);
     await expect(page.locator('#daily-news-list .news-row').first()).toBeVisible();
+    await expect(page.locator('#daily-news-list')).toContainText('李飞飞发布');
   });
 
   test('独立页面包屑', async ({ page }) => {
@@ -296,6 +300,9 @@ test.describe('AI 导航 关键路径', () => {
     await page.goto('404.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('main#main-content')).toHaveCount(1);
     await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', /noindex/i);
+    await expect(
+      page.locator('main#main-content').getByRole('link', { name: '新闻热点' }),
+    ).toBeVisible();
     await expect(
       page.locator('main#main-content').getByRole('link', { name: 'AI 视频' }),
     ).toBeVisible();

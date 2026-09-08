@@ -33,17 +33,17 @@ flowchart TB
 
 ## 页面
 
-| 路径                          | 作用                                        |
-| ----------------------------- | ------------------------------------------- |
-| `/ai/`                        | 首页                                        |
-| `/ai/tools/hub.html`          | AI 工具中心（三榜）                         |
-| `/ai/tools/{id}.html`         | 工具详情                                    |
-| `/ai/oss.html`                | 开源精选                                    |
-| `/ai/courses.html`            | 课程资源                                    |
-| `/ai/news/daily-ai-news.html` | 新闻热点：量子位热门（30 天）+ 7×24h 主列表 |
-| `/ai/videos.html`             | 日更榜 + 粘贴收藏                           |
-| `/ai/guides/advanced.html`    | 进阶指南                                    |
-| `/ai/local/{id}.html`         | 本地部署文稿                                |
+| 路径                          | 作用                                                         |
+| ----------------------------- | ------------------------------------------------------------ |
+| `/ai/`                        | 首页                                                         |
+| `/ai/tools/hub.html`          | AI 工具中心（三榜）                                          |
+| `/ai/tools/{id}.html`         | 工具详情                                                     |
+| `/ai/oss.html`                | 开源精选                                                     |
+| `/ai/courses.html`            | 课程资源                                                     |
+| `/ai/news/daily-ai-news.html` | 新闻热点：7×24h 资讯 + 量子位官网热门（30 天，并入既有分类） |
+| `/ai/videos.html`             | 日更榜 + 粘贴收藏                                            |
+| `/ai/guides/advanced.html`    | 进阶指南                                                     |
+| `/ai/local/{id}.html`         | 本地部署文稿                                                 |
 
 ## 首页信息架构
 
