@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""抓取免费 AI 课程资源（必收录核心课 + 近半年补充），按学习路线写入 ai-courses.json。"""
+"""抓取免费 AI 课程资源（必收录核心课 + 近半年补充），按方向写入 ai-courses.json。"""
 
 from __future__ import annotations
 
@@ -577,7 +577,7 @@ def cap_platform_track(items: list[dict], *, max_per: int) -> list[dict]:
         counts[key] = n + 1
         out.append(item)
     if dropped:
-        print(f"  · 去重：平台×路线超额丢弃 {dropped} 条")
+        print(f"  · 去重：平台×方向超额丢弃 {dropped} 条")
     return out
 
 
@@ -587,7 +587,7 @@ def cap_track(
     track_order: list[str],
     max_per: int,
 ) -> list[dict]:
-    """每条学习路线最多 max_per 条；必学/合集优先。"""
+    """每个课程方向最多 max_per 条；必学/合集优先。"""
     if max_per <= 0:
         return items
 
@@ -631,7 +631,7 @@ def cap_track(
         out.extend(rows)
 
     if dropped:
-        print(f"  · 限额：每条路线最多 {max_per} 门，已丢弃 {dropped} 条")
+        print(f"  · 限额：每个方向最多 {max_per} 门，已丢弃 {dropped} 条")
     return out
 
 
@@ -731,10 +731,10 @@ def main() -> int:
     required_only = bool(cfg.get("required_only"))
     print(
         (
-            f"规则：仅必推荐核心课 · 去重 · 每路线≤{int(dedupe_cfg.get('max_per_track') or 5)}"
+            f"规则：仅必推荐核心课 · 去重 · 每方向≤{int(dedupe_cfg.get('max_per_track') or 5)}"
             if required_only
             else (
-                f"规则：必收录 + 近 {max_age} 天免费补充 · 去重 · 每路线≤"
+                f"规则：必收录 + 近 {max_age} 天免费补充 · 去重 · 每方向≤"
                 f"{int(dedupe_cfg.get('max_per_track') or 5)} · 最多 {max_items} 条"
             )
         )
@@ -770,20 +770,20 @@ def main() -> int:
         "track_order": track_order,
         "title": "AI 课程资源",
         "lead": (
-            "按学习路线精选免费课：微软与谷歌入门，斯坦福 CS230 / CS231n / CS224n / CS336"
+            "按方向精选免费课：微软与谷歌入门，斯坦福 CS230 / CS231n / CS224n / CS336"
             "（YouTube 最新学年讲座 + 官网）。"
             if required_only
             else (
                 "按「入门 → 机器学习 → 深度学习 → LLM 大模型 → AI Agent」编排的免费课程；"
-                "每条路线最多推荐 5 门；必收录微软 / 斯坦福 / Google 核心课。"
+                "每个方向最多推荐 5 门；必收录微软 / 斯坦福 / Google 核心课。"
             )
         ),
         "source_note": (
             "仅收录微软、谷歌与斯坦福公开课；斯坦福同时给出 YouTube 播放列表与官方主页。"
             if required_only
             else (
-                "去重规则：URL/标题唯一；合集优先于下属单课；每条路线≤5 门（必学优先）；"
-                "同平台同路线限额。补充课来自 Coursera 免费课 / Hugging Face / YouTube（AI 向）。"
+                "去重规则：URL/标题唯一；合集优先于下属单课；每个方向≤5 门（必学优先）；"
+                "同平台同方向限额。补充课来自 Coursera 免费课 / Hugging Face / YouTube（AI 向）。"
             )
         ),
         "items": items,

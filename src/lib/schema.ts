@@ -186,7 +186,7 @@ export function buildCoursesSchema(courses: CoursesSchemaInput, pageUrl: string)
   const title = courses.title || 'AI 课程资源';
   const description =
     courses.lead ||
-    '按学习路线编排的免费 AI 课程：入门、机器学习、深度学习、LLM 大模型与 AI Agent。';
+    '按方向编排的免费 AI 课程：入门、机器学习、深度学习、LLM 大模型与 AI Agent。';
 
   const itemListElement = (courses.items || []).map((course, index) => {
     const free = course.is_free !== false;

@@ -57,7 +57,6 @@
     'video-click': STEPS.LEARN,
     'home-video-click': STEPS.LEARN,
     knowledge_ask: STEPS.LEARN,
-    roadmap_phase_toggle: STEPS.COMPLETE,
   };
 
   function uuid() {
@@ -101,7 +100,6 @@
     if (rel.startsWith('guides/')) return 'guide';
     if (rel.startsWith('news/')) return 'news';
     if (rel === 'ai-tools-ranking.html') return 'ranking';
-    if (rel === 'ai-learning-roadmap.html') return 'roadmap';
     return 'other';
   }
 
@@ -148,7 +146,7 @@
     const type = pageType();
     if (type === 'home') return STEPS.DISCOVER;
     if (type === 'tool' || type === 'compare') return STEPS.ENGAGE;
-    if (type === 'roadmap') return STEPS.LEARN;
+    if (type === 'guide' || type === 'hub') return STEPS.LEARN;
     return STEPS.BROWSE;
   }
 

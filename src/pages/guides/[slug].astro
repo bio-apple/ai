@@ -7,8 +7,7 @@ import { asset, homeHref } from '../../lib/paths';
 
 export function getStaticPaths() {
   return Object.entries(site.guides).map(([slug, guide]) => {
-    const paths = site.learning_paths;
-    const path = slug === 'advanced' && paths.length > 1 ? paths[1] : paths[0];
+    const path = site.learning_paths[0];
     return { params: { slug }, props: { guide, path } };
   });
 }
@@ -17,7 +16,6 @@ const { guide, path } = Astro.props;
 const base = site.meta.base_url;
 const breadcrumbs = [
   { name: '首页', url: `${base}` },
-  { name: '学习指南', url: `${base}ai-learning-roadmap.html` },
   { name: guide.h1, url: `${base}guides/${guide.slug}.html` },
 ];
 const schema = buildPageSchema(
@@ -37,11 +35,7 @@ const home = homeHref();
 >
   <div class="standalone-page">
     <StandalonePageHeader
-      crumbs={[
-        { label: '首页', href: home },
-        { label: '学习指南', href: asset('ai-learning-roadmap.html') },
-        { label: guide.h1 },
-      ]}
+      crumbs={[{ label: '首页', href: home }, { label: guide.h1 }]}
       title={guide.h1}
       lead={guide.lead}
     />
@@ -55,7 +49,7 @@ const home = homeHref();
 
     <div class="standalone-cta">
       <a href={asset('tools/hub.html')} class="cta-btn">浏览工具中心</a>
-      <a href={asset('ai-learning-roadmap.html')} class="cta-btn cta-btn-outline">完整学习路线</a>
+      <a href={asset('courses.html')} class="cta-btn cta-btn-outline">浏览课程资源</a>
     </div>
   </div>
 </StandaloneLayout>

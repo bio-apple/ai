@@ -227,7 +227,7 @@ function buildSearchIndex(site, tools, compares) {
     type: '频道',
     url: 'courses.html',
     keywords:
-      '课程资源 免费 学习路线 入门 机器学习 深度学习 LLM Agent 微软 吴恩达 斯坦福 Google DeepLearning.AI',
+      '课程资源 免费 入门 机器学习 深度学习 LLM Agent 微软 吴恩达 斯坦福 Google DeepLearning.AI',
   });
   items.push({
     label: 'Ollama 本地大模型',
@@ -247,18 +247,6 @@ function buildSearchIndex(site, tools, compares) {
     type: '导航',
     url: 'tools/shelf.html',
     keywords: '我的收藏 浏览历史 最近看过 收藏夹 回访',
-  });
-  items.push({
-    label: 'AI 学习路线图',
-    type: '学习',
-    url: 'ai-learning-roadmap.html',
-    keywords: '学习路线 入门 进阶 roadmap',
-  });
-  items.push({
-    label: '零基础入门指南',
-    type: '学习',
-    url: 'guides/beginner.html',
-    keywords: '零基础 入门 指南',
   });
   items.push({
     label: '进阶应用指南',
@@ -371,8 +359,8 @@ function buildRecommendRules(site) {
     relations,
     fallback: site.recommend_fallback || {
       tools: ['chatgpt', 'claude', 'cursor'],
-      guide: 'guides/beginner.html',
-      path_title: '零基础入门',
+      guide: 'courses.html',
+      path_title: '现实路径',
       steps: [],
     },
   };

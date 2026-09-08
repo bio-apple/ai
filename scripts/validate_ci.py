@@ -375,7 +375,6 @@ def validate_html_links() -> None:
     html_files = [
         ROOT / "index.html",
         ROOT / "ai-tools-ranking.html",
-        ROOT / "ai-learning-roadmap.html",
         *ROOT.glob("tools/*.html"),
         *ROOT.glob("compare/*.html"),
         *ROOT.glob("news/*.html"),

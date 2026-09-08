@@ -18,7 +18,6 @@ const EVENT_STEP = {
   search_query: STEPS.BROWSE,
   'course-click': STEPS.LEARN,
   recommend_query_tool: STEPS.ENGAGE,
-  roadmap_phase_toggle: STEPS.COMPLETE,
 };
 
 function enrich(name, params = {}, journeyId = 'test-journey') {

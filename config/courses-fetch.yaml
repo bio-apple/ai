@@ -7,7 +7,7 @@ min_items: 6
 free_only: true
 required_only: true
 
-# 学习路线（展示与筛选顺序）
+# 课程方向（展示与筛选顺序）
 track_order:
   - 入门
   - 机器学习

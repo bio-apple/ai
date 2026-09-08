@@ -20,7 +20,6 @@ const COPY_FILES = [
   'oss.js',
   'knowledge.js',
   'recommend.js',
-  'progress.js',
   'engagement.js',
   'ranking-tabs.js',
   'robots.txt',

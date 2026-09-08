@@ -126,12 +126,11 @@
   function render(opt, query) {
     const tools = (opt?.tools || fallback.tools || []).slice(0, 5);
     const base = siteBase();
-    const guidePath = opt?.guide || fallback.guide || 'guides/beginner.html';
+    const guidePath = opt?.guide || fallback.guide || 'courses.html';
     const guide =
       guidePath.startsWith('http') || guidePath.startsWith('/')
         ? guidePath
         : `${base}${guidePath.replace(/^\//, '')}`;
-    const roadmapHref = `${base}ai-learning-roadmap.html`;
     const pathTitle = opt?.path_title || fallback.path_title || '学习路径';
     const steps = opt?.steps || fallback.steps || [];
     const examples = opt?.examples || [];
@@ -219,7 +218,6 @@
       <div class="recommend-next">
         <p class="recommend-card-lead">下一步</p>
         <div class="recommend-links">
-          <a class="recommend-link" href="${escape(roadmapHref)}" data-track="recommend_goto_learning">学习路线 →</a>
           <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">完整指南 →</a>
           <a class="recommend-link" href="${escape(hubHref)}" data-track="recommend_goto_hub">工具中心 →</a>
         </div>

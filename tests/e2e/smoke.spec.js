@@ -164,9 +164,12 @@ test.describe('AI 导航 关键路径', () => {
     const result = page.locator('#recommend-result');
     await expect(result).toBeVisible();
     await expect(result).toContainText(/Cursor|Copilot|Codex/);
+    await expect(result.locator('.recommend-next a[data-track="recommend_goto_learning"]')).toHaveCount(
+      0,
+    );
     await expect(
-      result.locator('.recommend-next a[data-track="recommend_goto_learning"]'),
-    ).toHaveAttribute('href', /ai-learning-roadmap\.html$/);
+      result.locator('.recommend-next a[data-track="recommend_guide_query"]'),
+    ).toHaveAttribute('href', /guides\/advanced\.html$/);
   });
 
   test('旧 hash 专区重定向到独立页', async ({ page }) => {

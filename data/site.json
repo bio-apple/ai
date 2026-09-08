@@ -339,7 +339,7 @@
           "发布稿",
           "调研报告"
         ],
-        "guide": "guides/beginner.html",
+        "guide": "courses.html",
         "path_title": "现实路径",
         "steps": [
           "用 ChatGPT 按提纲起草一版正文",
@@ -417,7 +417,7 @@
           "季度会",
           "slides"
         ],
-        "guide": "guides/beginner.html",
+        "guide": "courses.html",
         "path_title": "现实路径",
         "steps": [
           "用 ChatGPT 生成页级大纲与每页一句话结论",
@@ -455,7 +455,7 @@
           "剪映",
           "文生视频"
         ],
-        "guide": "guides/beginner.html",
+        "guide": "courses.html",
         "path_title": "现实路径",
         "steps": [
           "用豆包/ChatGPT 写口播脚本与分镜表",
@@ -580,16 +580,6 @@
   },
   "learning_paths": [
     {
-      "title": "零基础入门",
-      "dot_color": "var(--accent)",
-      "steps": [
-        "从 ChatGPT、豆包或 DeepSeek 开始，学会基本对话和提示词",
-        "用 Kimi 或通义千问处理长文档与中文场景任务",
-        "尝试 Gemini 的文件上传和 Deep Research 功能",
-        "用 Claude 处理复杂分析和高质量写作"
-      ]
-    },
-    {
       "title": "进阶应用",
       "dot_color": "var(--codex)",
       "steps": [
@@ -606,12 +596,6 @@
     "lead": "从更新时刻往前 168 小时内的 AI 新闻热点：模型发布、产品动态与行业资讯；每天自动抓取。"
   },
   "guides": {
-    "beginner": {
-      "slug": "beginner",
-      "title": "零基础 AI 入门指南 | AI 导航",
-      "h1": "零基础 AI 入门指南",
-      "lead": "从对话、提示词到长文档与多模态，按步骤掌握第一个 AI 工具。"
-    },
     "advanced": {
       "slug": "advanced",
       "title": "进阶 AI 应用指南 | AI 导航",
@@ -619,75 +603,13 @@
       "lead": "编程自动化、API 接入与多工具协同，构建你的 AI 工作流。"
     }
   },
-  "roadmap_page": {
-    "title": "AI 学习路线 2026 | AI 导航",
-    "h1": "AI 学习路线",
-    "lead": "从零基础到进阶应用，按阶段掌握主流 AI 工具与实战技能。",
-    "phases": [
-      {
-        "phase": "第 1 周",
-        "title": "建立 AI 基础认知",
-        "tools": [
-          "chatgpt",
-          "doubao",
-          "deepseek"
-        ],
-        "tasks": [
-          "注册并体验 2 个对话 AI",
-          "学会写清晰的提示词",
-          "完成 3 个日常任务（邮件/总结/翻译）"
-        ]
-      },
-      {
-        "phase": "第 2-3 周",
-        "title": "掌握长文档与深度分析",
-        "tools": [
-          "kimi",
-          "claude",
-          "qwen"
-        ],
-        "tasks": [
-          "上传 PDF 并生成摘要",
-          "用 AI 分析合同或论文",
-          "建立个人知识库（Projects）"
-        ]
-      },
-      {
-        "phase": "第 4-6 周",
-        "title": "编程与自动化",
-        "tools": [
-          "cursor",
-          "copilot",
-          "codex"
-        ],
-        "tasks": [
-          "配置 Cursor Rules",
-          "用 Agent 完成一个小功能",
-          "尝试 Codex PR 自动化"
-        ]
-      },
-      {
-        "phase": "持续进阶",
-        "title": "多工具协同工作流",
-        "tools": [
-          "gemini",
-          "doubao"
-        ],
-        "tasks": [
-          "按场景选择最优工具组合",
-          "保存并复用高效提示词",
-          "跟进本站每日视频与热点"
-        ]
-      }
-    ]
-  },
   "faq": [
     {
       "id": "faq-beginner",
       "question": "零基础应该先学哪个 AI 工具？",
       "answer": "对话从 ChatGPT、豆包或 DeepSeek 起步；编程选 Cursor 或 Copilot；长文档选 Kimi 或 Claude。",
-      "href": "guides/beginner.html",
-      "link_label": "查看新手指南"
+      "href": "courses.html",
+      "link_label": "查看课程资源"
     },
     {
       "id": "faq-cursor-vs-copilot",
@@ -719,14 +641,6 @@
       {
         "label": "AI 视频",
         "href": "videos.html"
-      },
-      {
-        "label": "新手指南",
-        "href": "guides/beginner.html"
-      },
-      {
-        "label": "学习路线",
-        "href": "ai-learning-roadmap.html"
       }
     ]
   },
@@ -736,7 +650,7 @@
       "claude",
       "cursor"
     ],
-    "guide": "guides/beginner.html",
+    "guide": "courses.html",
     "path_title": "现实路径",
     "steps": [
       "先描述你的目标与约束",

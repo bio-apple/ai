@@ -12,7 +12,7 @@ const base = site.meta.base_url;
 const title = coursesPayload.title || 'AI 课程资源';
 const lead =
   coursesPayload.lead ||
-  '按学习路线精选免费课：微软与谷歌入门，斯坦福核心课（YouTube + 官网）。';
+  '按方向精选免费课：微软与谷歌入门，斯坦福核心课（YouTube + 官网）。';
 const prepared = prepareCourses(coursesPayload);
 const canonical = `${base}courses.html`;
 const schema = mergeSchemaGraphs(
@@ -57,9 +57,7 @@ const schema = mergeSchemaGraphs(
     </section>
     <div class="standalone-cta">
       <a href={homeHref()} class="cta-btn cta-btn-outline">返回首页</a>
-      <a href={asset('ai-learning-roadmap.html')} class="cta-btn" data-track="courses-to-roadmap"
-        >查看学习路线 →</a
-      >
+      <a href={asset('tools/hub.html')} class="cta-btn">浏览工具中心</a>
     </div>
   </div>
 </StandaloneLayout>
