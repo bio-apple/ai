@@ -1,6 +1,6 @@
 # AI 导航
 
-**v2.0** · Bio-Apple · AI 工具导航 · 开源精选 · 课程 · 热点 · 视频
+**v2.0** · Bio-Apple · AI 工具中心 · 开源精选 · 课程 · 热点 · 视频
 
 [![Version](https://img.shields.io/badge/version-2.0.0-0d8c6d?style=flat-square)](./CHANGELOG.md)
 [![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
@@ -25,6 +25,18 @@ npm ci && pip install -r requirements.txt
 仅静态：`npm run preview` → **http://127.0.0.1:8766/ai/**  
 校验：`npm run quality && npm run build && DIST=dist python3 scripts/validate_ci.py`
 
+## 按角色看哪里
+
+| 角色            | 先看                                                                  | 改哪里                                 |
+| --------------- | --------------------------------------------------------------------- | -------------------------------------- |
+| 产品 / 文案     | 下表「入口」；`data/site.json` 的 `meta` / `nav` / `hero`             | 导航、TDK、推荐场景                    |
+| 前端            | [FRONTEND.md](./docs/FRONTEND.md)                                     | `src/components`、`css/`、`lib/*.js`   |
+| 运维 / 日更     | [CONTENT-OPS.md](./docs/CONTENT-OPS.md) · [CI-CD.md](./docs/CI-CD.md) | `config/*.yaml`、Actions Secrets       |
+| 安全            | [SECURITY.md](./docs/SECURITY.md)                                     | `config/csp.json`、勿提交 `.env.local` |
+| 数据 / 内容结构 | [DATA-MODEL.md](./docs/DATA-MODEL.md)                                 | `data/*.json`、根目录日更 JSON         |
+
+开发命令与文件地图：[DEVELOPER.md](./DEVELOPER.md)
+
 ## 文档
 
 | 文档                                                 | 说明                    |
@@ -43,10 +55,12 @@ npm ci && pip install -r requirements.txt
 
 | 入口               | 说明                                                                  |
 | ------------------ | --------------------------------------------------------------------- |
-| 首页               | 匹配助手、AI 简报、热门排行、知识版图（含基础学科黄圈）               |
-| AI工具中心         | AICPB / LMSYS / AA 三榜 Top 10                                        |
+| 首页               | 匹配助手、AI 简报、热门排行、知识版图（绿圈可点，黄圈只作图示）       |
+| AI工具中心         | AICPB / LMSYS / AA 三榜 Top 10；Vibe Coding 访问量榜                  |
 | 开源精选           | Agent / MCP / Coding Agent 等方向加热 Top 3                           |
 | 课程 / 新闻 / 视频 | 日更内容；视频页为近 1 个月每平台 Top 3 + 粘贴收藏（Cloudflare 同步） |
+
+已下线：选型指南对比专题、学习路线、零基础入门、首页 FAQ、工具收藏页。旧 URL 走 404。
 
 推送 `main` → `pages.yml` 部署 Pages；日更见 [CONTENT-OPS.md](./docs/CONTENT-OPS.md)。
 

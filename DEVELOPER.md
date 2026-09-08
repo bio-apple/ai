@@ -1,7 +1,9 @@
 # 开发速查
 
 线上：https://bio-apple.github.io/ai/ · **v2.0**（见 [CHANGELOG.md](./CHANGELOG.md)）  
-技术栈：Astro SSG + GitHub Pages（本地可选 `./start.sh`）。
+技术栈：Astro 7 SSG + GitHub Pages（本地可选 `./start.sh`）。
+
+按角色入口见 [README.md](./README.md)。产品改 `data/site.json`；前端改 `src/` / `css/` / `lib/`；运维改 `config/*.yaml` 与 Actions。
 
 ## 文档
 
@@ -38,7 +40,8 @@ DIST=dist python3 scripts/validate_ci.py
 | 新闻 / 课程  | `config/news-fetch.yaml` / `config/courses-fetch.yaml`                                  |
 | 日更视频榜   | `config/video-fetch.yaml` → `fetch_daily_videos.py`；展示 `SsrVideosList.astro`         |
 | 视频收藏页   | `videos.js` · `lib/video-preview*.js` · [CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) |
-| 知识版图     | `src/components/HomeAiMap.astro`                                                        |
+| 进阶指南     | `data/site.json` 的 `guides` + `learning_paths`                                         |
+| 知识版图     | `src/components/HomeAiMap.astro`（绿圈链接，黄圈图示）                                  |
 | 本地部署文稿 | `content/local-deploy/*.md`（搜索可达，首页无专区）                                     |
 | CSP          | `config/csp.json`（`npm run build` 同步 `_headers`）                                    |
 

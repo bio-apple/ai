@@ -1,11 +1,11 @@
 {
   "meta": {
-    "title": "AI 导航 | 工具对比 · 开源精选 · 课程与热点",
-    "description": "AI 导航：对比 ChatGPT、Claude、Cursor 等 AI 工具，日更收集 GitHub 升温中的 Agent / MCP / Coding Agent / Harness / Skills / Memory 开源精选（每方向 Top 3），以及免费课程、热点与视频。",
-    "keywords": "AI 导航,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,开源精选,Agent,MCP,Coding Agent,Skills,Memory,GitHub Trending,AI热点",
+    "title": "AI 导航 | 工具中心 · 开源精选 · 课程与热点",
+    "description": "AI 导航：按场景匹配 ChatGPT、Claude、Cursor 等工具，日更 GitHub 升温开源精选（每方向 Top 3），以及免费课程、热点与视频。",
+    "keywords": "AI 导航,AI工具导航,AI工具中心,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,开源精选,Agent,MCP,Coding Agent,Skills,Memory,GitHub Trending,AI热点",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
-    "og_image_alt": "AI 导航 · 工具对比与开源精选",
+    "og_image_alt": "AI 导航 · 工具中心与开源精选",
     "site_name": "AI 导航",
     "version": "2.0.0",
     "base_url": "https://bio-apple.github.io/ai/"

@@ -6,7 +6,7 @@
 
 | 类型               | 文件                                             | 上线                                          |
 | ------------------ | ------------------------------------------------ | --------------------------------------------- |
-| 站点 / 工具 / 对比 | `data/*.json`                                    | push `main` → `pages.yml`                     |
+| 站点 / 工具 / 排行 | `data/*.json`                                    | push `main` → `pages.yml`                     |
 | 新闻               | `ai-news.json`                                   | `daily-news.yml`                              |
 | 开源升温           | `data/oss-projects.json` + `site.oss_frameworks` | `daily-oss.yml`                               |
 | 课程               | `ai-courses.json`                                | `daily-courses.yml`                           |

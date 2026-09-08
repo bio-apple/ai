@@ -8,19 +8,19 @@ Schema：`schemas/*.json`
 
 ## 1. 文件总览
 
-| 文件                                             | 位置    | 维护          | Schema / CI                  |
-| ------------------------------------------------ | ------- | ------------- | ---------------------------- |
-| `site.json`                                      | `data/` | 手工          | 文档约定 · `data`            |
-| `tools.json` / `rankings.json` | `data/` | 手工 / 日更   | `data`                       |
-| `tool-relations.json`                            | `data/` | 手工          | `tool-relations.schema.json` |
-| `engagement.json`                                | `data/` | 手工          | `engagement.schema.json`     |
-| `local-deploy.json`                              | `data/` | 手工          | `local-deploy.schema.json`   |
-| `oss-projects.json`                              | `data/` | 日更          | 同步到 `site.oss_frameworks` |
-| `ai-news.json`                                   | 根      | 日更          | `ai-news.schema.json`        |
-| `ai-courses.json`                                | 根      | 日更          | `ai-courses.schema.json`     |
-| `daily-videos.json`                              | 根      | 每日定时      | `daily-videos.schema.json`   |
-| `daily-videos.latest.json`                       | dist    | prebuild 瘦身 | —                            |
-| `search-index.json` / `recommend-rules.json`     | dist    | prebuild      | 对应 schema                  |
+| 文件                                         | 位置    | 维护          | Schema / CI                  |
+| -------------------------------------------- | ------- | ------------- | ---------------------------- |
+| `site.json`                                  | `data/` | 手工          | 文档约定 · `data`            |
+| `tools.json` / `rankings.json`               | `data/` | 手工 / 日更   | `data`                       |
+| `tool-relations.json`                        | `data/` | 手工          | `tool-relations.schema.json` |
+| `engagement.json`                            | `data/` | 手工          | `engagement.schema.json`     |
+| `local-deploy.json`                          | `data/` | 手工          | `local-deploy.schema.json`   |
+| `oss-projects.json`                          | `data/` | 日更          | 同步到 `site.oss_frameworks` |
+| `ai-news.json`                               | 根      | 日更          | `ai-news.schema.json`        |
+| `ai-courses.json`                            | 根      | 日更          | `ai-courses.schema.json`     |
+| `daily-videos.json`                          | 根      | 每日定时      | `daily-videos.schema.json`   |
+| `daily-videos.latest.json`                   | dist    | prebuild 瘦身 | —                            |
+| `search-index.json` / `recommend-rules.json` | dist    | prebuild      | 对应 schema                  |
 
 交叉引用（CI 强制）：`tool-relations` ⊆ `tools`；`ai_picker.tools` 可解析。
 
@@ -33,6 +33,7 @@ Schema：`schemas/*.json`
 | `meta`                               | TDK / OG / `base_url`                                                     |
 | `nav` / `hero` / `footer`            | 导航与首页                                                                |
 | `home_tool_categories` / `ai_picker` | 工具卡与推荐场景                                                          |
+| `guides` / `learning_paths`          | 进阶指南页（`guides/advanced.html`）                                      |
 | `oss_frameworks`                     | 开源升温（`fetch_oss_heating.py` 写入，字段与 `oss-projects.items` 对齐） |
 | `video_preview_sync`                 | `{ api_url, shared_key }` → `#video-sync-config`                          |
 
