@@ -285,6 +285,7 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('h1')).toContainText('Cursor 使用指南');
     await expect(page).toHaveTitle(/Cursor 使用指南 \| AI 导航/);
     await expect(page.locator('[data-favorite-toggle]')).toHaveCount(0);
+    await expect(page.locator('#tool-shelf-favs-list')).toHaveCount(0);
     await expect(page.getByRole('link', { name: '我的收藏' })).toHaveCount(0);
   });
 

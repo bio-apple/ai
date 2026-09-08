@@ -49,7 +49,7 @@ cp .env.local.example .env.local
 3. **禁止**经任何第三方不安全通道中转（包括自建无鉴权代理、公开 CORS 代理等）。
 4. 不得在构建产物、`analytics-config.json` 或任何静态 JSON 中写入用户或开发者密钥。
 
-当前站点用途：`localStorage` / `sessionStorage` 仅用于主题、工具热度、工具收藏与浏览历史等**非密钥**偏好（见 `ux.js`、`engagement.js`、`lib/tool-shelf.js`）。
+当前站点用途：`localStorage` / `sessionStorage` 仅用于主题、工具热度等**非密钥**偏好（见 `ux.js`、`engagement.js`）。
 
 ## 4. 站内搜索与本地 API
 
