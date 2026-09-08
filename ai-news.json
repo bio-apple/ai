@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-08T17:48:38.795184+08:00",
-  "date": "2026-09-08",
+  "updated_at": "2026-09-09T03:40:20.787765+08:00",
+  "date": "2026-09-09",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "4f420d1c5cd0",
+      "title": "Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic",
+      "summary": "Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic",
+      "url": "https://huggingface.co/blog/MultiverseComputingCAI/safety-for-whom",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-09-08T22:23:07+08:00"
+    },
+    {
+      "id": "80d284f58871",
+      "title": "AlphaGenome Atlas: A predictive map of every possible DNA letter change in the human genome",
+      "summary": "AlphaGenome Atlas maps the molecular effects of 9 billion single-letter DNA variants across the human genome.",
+      "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-09-08T22:00:15+08:00"
+    },
+    {
+      "id": "aaada63e998e",
+      "title": "The Work Now Within Reach",
+      "summary": "Explore how more capable, affordable AI can expand the work people and businesses can accomplish—and make growth more economical.",
+      "url": "https://openai.com/index/the-work-now-within-reach",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-08T21:00:00+08:00"
+    },
+    {
+      "id": "305f03a4aa6a",
+      "title": "Introducing ChatGPT Images 2.5",
+      "summary": "ChatGPT Images 2.5 helps turn your ideas, sketches, and reference photos into more personalized, polished images that better reflect your ideas.",
+      "url": "https://openai.com/index/introducing-chatgpt-images-2-5",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-09-08T19:30:00+08:00"
+    },
+    {
+      "id": "fbb79928f7d9",
+      "title": "On the Navier–Stokes Millennium Prize Problem",
+      "summary": "We’re sharing an AI-generated solution to the Navier–Stokes Millennium Prize Problem, including a writeup and a formal proof in Lean.",
+      "url": "https://openai.com/index/navier-stokes-solution",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-08T18:00:00+08:00"
+    },
+    {
+      "id": "99c22bc85dd5",
+      "title": "Funding grants for new research into AI and teen development",
+      "summary": "Apply now for OpenAI’s $5 million grant program supporting independent research on how generative AI affects teen development, well-being, and safety.",
+      "url": "https://openai.com/index/teen-development-research-grants",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-08T17:00:00+08:00"
+    },
     {
       "id": "9dacda853045",
       "title": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
@@ -60,31 +114,13 @@
       "published_at": "2026-09-08T10:14:47+08:00"
     },
     {
-      "id": "e02ae19def6b",
-      "title": "Supporting independent journalism in Ukraine",
-      "summary": "OpenAI, AIRPPU and WAN-IFRA launch an AI program to help Ukrainian news organizations strengthen innovation, resilience, and independent journalism.",
-      "url": "https://openai.com/index/supporting-independent-journalism-in-ukraine",
+      "id": "671a9fed35e2",
+      "title": "OpenAI expands initiatives to support journalism from classrooms to newsrooms",
+      "summary": "OpenAI is expanding support for journalism with tools, training, and partnerships for students, educators, journalists, and news organizations.",
+      "url": "https://openai.com/index/supporting-journalism-from-classrooms-to-newsrooms",
       "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-07T08:00:00+08:00"
-    },
-    {
-      "id": "a8e8f9dc895a",
-      "title": "An Alien Mind",
-      "summary": "Jakub Pachocki reflects on increasingly capable AI and the challenge of keeping it aligned. He calls for stronger safeguards and international coordination.",
-      "url": "https://openai.com/index/an-alien-mind",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-06T17:00:00+08:00"
-    },
-    {
-      "id": "19672c4832d4",
-      "title": "Research acceleration: The view inside",
-      "summary": "Inside OpenAI, coding agents are reshaping AI research. Explore early data on agent usage, experiment velocity, task complexity, and research acceleration.",
-      "url": "https://openai.com/index/research-acceleration-view-inside-openai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-06T16:00:00+08:00"
+      "category": "行业新闻",
+      "published_at": "2026-09-08T08:00:00+08:00"
     },
     {
       "id": "7765da697e6b",
@@ -106,6 +142,16 @@
       "window_hours": 720
     },
     {
+      "id": "9690d8a29e15",
+      "title": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
+      "summary": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
+      "url": "https://www.qbitai.com/2026/09/484437.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-04T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "56da2c8ef803",
       "title": "Introducing WeatherNext 3, our most advanced and accurate global weather AI model",
       "summary": "Introducing WeatherNext 3, our most advanced and accurate global weather AI model",
@@ -113,15 +159,6 @@
       "source": "Google DeepMind",
       "category": "新工具上线",
       "published_at": "2026-09-03T23:02:08+08:00"
-    },
-    {
-      "id": "5190d2a1dccd",
-      "title": "Daybreak for Frontline Defenders: $1B to protect essential services",
-      "summary": "OpenAI introduces Daybreak for Frontline Defenders. A $1 billion commitment expands access to frontier cyber AI, training, and support for essential services.",
-      "url": "https://openai.com/index/daybreak-for-frontline-defenders",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-03T21:15:00+08:00"
     },
     {
       "id": "96a3500c5a4b",
@@ -140,15 +177,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-09-03T21:00:35+08:00"
-    },
-    {
-      "id": "be4a3c542626",
-      "title": "Legora reviewed 41 documents in minutes with GPT-6 Astra",
-      "summary": "Legora used GPT-6 Astra to review 41 documents in minutes, find all four planted errors, and improve performance by nearly 40% in this financial-review workflo…",
-      "url": "https://openai.com/index/legora-financial-statement-review-with-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-03T20:00:00+08:00"
     },
     {
       "id": "ea8b14faf08e",
@@ -205,25 +233,6 @@
       "published_at": "2026-09-03T00:18:31+08:00"
     },
     {
-      "id": "5c6accf69391",
-      "title": "“没有Token的CS学生，应立即退学”",
-      "summary": "“没有Token的CS学生，应立即退学”",
-      "url": "https://www.qbitai.com/2026/09/483839.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-03T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "22915ca8a273",
-      "title": "Real-Time Intelligence with IBM Time Series Models on Confluent",
-      "summary": "Real-Time Intelligence with IBM Time Series Models on Confluent",
-      "url": "https://huggingface.co/blog/ibm-research/real-time-intelligence",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-09-02T21:49:14+08:00"
-    },
-    {
       "id": "d235e1f23d69",
       "title": "NVIDIA and CrowdStrike Strengthen Agentic Cybersecurity Frontier",
       "summary": "“We’re at an inflection point in cybersecurity,” Jensen Huang told a sold-out crowd at CrowdStrike’s Fal.Con 2026 in Las Vegas Tuesday. Attacks are now automat…",
@@ -240,15 +249,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-09-02T04:45:00+08:00"
-    },
-    {
-      "id": "dfd1ea2e5518",
-      "title": "Introducing agentic video understanding with Gemini",
-      "summary": "Introducing agentic video understanding with Gemini",
-      "url": "https://deepmind.google/blog/introducing-agentic-video-in-gemini/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-02T01:08:51+08:00"
     },
     {
       "id": "96e91106715a",
@@ -279,15 +279,6 @@
       "category": "中文资讯",
       "published_at": "2026-09-02T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "77cd2a6a82f1",
-      "title": "Try Google Pics: Easy image creation and editing in Google Workspace",
-      "summary": "Built on our latest Nano Banana model, Google Pics — our image creation and editing tool — is now available.",
-      "url": "https://blog.google/products-and-platforms/products/workspace/google-pics/",
-      "source": "Google AI",
-      "category": "新模型发布",
-      "published_at": "2026-09-02T00:00:00+08:00"
     }
   ],
   "qbitai_hot": {
@@ -335,13 +326,13 @@
         "window_hours": 720
       },
       {
-        "id": "5c6accf69391",
-        "title": "“没有Token的CS学生，应立即退学”",
-        "summary": "“没有Token的CS学生，应立即退学”",
-        "url": "https://www.qbitai.com/2026/09/483839.html",
+        "id": "9690d8a29e15",
+        "title": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
+        "summary": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
+        "url": "https://www.qbitai.com/2026/09/484437.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-03T00:00:00+08:00",
+        "category": "新工具上线",
+        "published_at": "2026-09-04T00:00:00+08:00",
         "window_hours": 720
       }
     ]
