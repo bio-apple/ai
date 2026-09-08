@@ -92,7 +92,7 @@ def main() -> int:
 
     ai_index = client.get("/ai/")
     assert ai_index.status_code == 200, ai_index.text
-    assert b"Bio AI Lab" in ai_index.content or b"html" in ai_index.content.lower()
+    assert "AI 导航" in ai_index.text or "html" in ai_index.text.lower()
     print("✓ /ai/")
 
     style = client.get("/ai/style.css")

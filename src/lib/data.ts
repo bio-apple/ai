@@ -5,7 +5,7 @@ import rankings from '../../data/rankings.json';
 import toolRelations from '../../data/tool-relations.json';
 import { asset } from './paths';
 
-export const BRAND = 'Bio AI Lab';
+export const BRAND = 'AI 导航';
 export { site, tools, compares, rankings, toolRelations };
 
 export type Tool = (typeof tools)[number];

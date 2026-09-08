@@ -1,8 +1,8 @@
 {
   "id": "/ai/",
-  "name": "Bio AI Lab",
-  "short_name": "Bio AI Lab",
-  "description": "AI 工具导航、开源精选、课程与知识库台账。",
+  "name": "AI 导航",
+  "short_name": "AI 导航",
+  "description": "AI 工具导航、开源精选、课程与热点。",
   "start_url": "/ai/",
   "scope": "/ai/",
   "display": "standalone",

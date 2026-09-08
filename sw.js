@@ -1,4 +1,4 @@
-/* Bio AI Lab · 同域离线缓存（GitHub Pages /ai/） */
+/* AI 导航 · 同域离线缓存（GitHub Pages /ai/） */
 const VERSION = 'bioai-pwa-5';
 const PRECACHE = `${VERSION}-shell`;
 const RUNTIME = `${VERSION}-runtime`;

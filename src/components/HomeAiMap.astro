@@ -13,7 +13,7 @@ const ossAgentHref = `${asset('oss.html')}#agent`;
 
 type MapNode = {
   id: string;
-  group: 'core' | 'app' | 'found';
+  group: 'core' | 'app';
   label: string;
   dest: string;
   hint: string;
@@ -77,60 +77,11 @@ const nodes: MapNode[] = [
     hint: '打开深度学习课程列表',
     href: courses('dl'),
   },
-  {
-    id: 'math',
-    group: 'found',
-    label: '数学',
-    dest: '入门课程',
-    hint: '打开入门课程，补齐数学基础',
-    href: courses('intro'),
-  },
-  {
-    id: 'neuro',
-    group: 'found',
-    label: '神经科学',
-    dest: '学习路线',
-    hint: '打开学习路线，看学科如何接到 AI',
-    href: roadmapHref,
-  },
-  {
-    id: 'cs',
-    group: 'found',
-    label: '计算机科学',
-    dest: '入门课程',
-    hint: '打开入门课程，补齐计算机基础',
-    href: courses('intro'),
-  },
-  {
-    id: 'physics',
-    group: 'found',
-    label: '物理学',
-    dest: '学习路线',
-    hint: '打开学习路线，看学科如何接到 AI',
-    href: roadmapHref,
-  },
-  {
-    id: 'bio',
-    group: 'found',
-    label: '生物学',
-    dest: '学习路线',
-    hint: '打开学习路线，看学科如何接到 AI',
-    href: roadmapHref,
-  },
-  {
-    id: 'psych',
-    group: 'found',
-    label: '心理学',
-    dest: '学习路线',
-    hint: '打开学习路线，看学科如何接到 AI',
-    href: roadmapHref,
-  },
 ];
 
 const groups: { id: MapNode['group']; label: string }[] = [
   { id: 'core', label: '核心圈层' },
   { id: 'app', label: '应用交叉' },
-  { id: 'found', label: '基础学科' },
 ];
 ---
 
@@ -152,21 +103,12 @@ const groups: { id: MapNode['group']; label: string }[] = [
     <div class="ai-map">
       <svg
         class="ai-map-svg"
-        viewBox="0 0 1200 780"
+        viewBox="240 120 720 540"
         xmlns="http://www.w3.org/2000/svg"
         role="group"
         aria-labelledby="home-ai-map-title"
         aria-describedby="ai-map-hint"
       >
-        <g class="ai-map-connectors" aria-hidden="true">
-          <line x1="250" y1="118" x2="330" y2="200"></line>
-          <line x1="600" y1="88" x2="600" y2="168"></line>
-          <line x1="950" y1="118" x2="870" y2="200"></line>
-          <line x1="250" y1="662" x2="340" y2="590"></line>
-          <line x1="600" y1="692" x2="600" y2="620"></line>
-          <line x1="950" y1="662" x2="860" y2="590"></line>
-        </g>
-
         <a
           class="ai-map-node"
           href={toolsHref}
@@ -257,78 +199,6 @@ const groups: { id: MapNode['group']; label: string }[] = [
           <ellipse class="ai-map-ring-app" cx="730" cy="455" rx="98" ry="48"></ellipse>
           <text class="ai-map-label-app" x="730" y="452" text-anchor="middle">语音识别</text>
           <text class="ai-map-label-sub" x="730" y="470" text-anchor="middle">Speech Recognition</text>
-        </a>
-
-        <a
-          class="ai-map-node"
-          href={courses('intro')}
-          data-track="home-ai-map-node"
-          data-map-node="math"
-        >
-          <title>数学：查看入门课程</title>
-          <ellipse class="ai-map-ring-found" cx="250" cy="90" rx="92" ry="36"></ellipse>
-          <text class="ai-map-label-found" x="250" y="86" text-anchor="middle">数学</text>
-          <text class="ai-map-label-sub" x="250" y="104" text-anchor="middle">Mathematics</text>
-        </a>
-
-        <a
-          class="ai-map-node"
-          href={roadmapHref}
-          data-track="home-ai-map-node"
-          data-map-node="neuro"
-        >
-          <title>神经科学：查看学习路线</title>
-          <ellipse class="ai-map-ring-found" cx="600" cy="58" rx="100" ry="36"></ellipse>
-          <text class="ai-map-label-found" x="600" y="54" text-anchor="middle">神经科学</text>
-          <text class="ai-map-label-sub" x="600" y="72" text-anchor="middle">Neuroscience</text>
-        </a>
-
-        <a
-          class="ai-map-node"
-          href={courses('intro')}
-          data-track="home-ai-map-node"
-          data-map-node="cs"
-        >
-          <title>计算机科学：查看入门课程</title>
-          <ellipse class="ai-map-ring-found" cx="950" cy="90" rx="108" ry="36"></ellipse>
-          <text class="ai-map-label-found" x="950" y="86" text-anchor="middle">计算机科学</text>
-          <text class="ai-map-label-sub" x="950" y="104" text-anchor="middle">Computer Science</text>
-        </a>
-
-        <a
-          class="ai-map-node"
-          href={roadmapHref}
-          data-track="home-ai-map-node"
-          data-map-node="physics"
-        >
-          <title>物理学：查看学习路线</title>
-          <ellipse class="ai-map-ring-found" cx="250" cy="690" rx="78" ry="34"></ellipse>
-          <text class="ai-map-label-found" x="250" y="686" text-anchor="middle">物理学</text>
-          <text class="ai-map-label-sub" x="250" y="704" text-anchor="middle">Physics</text>
-        </a>
-
-        <a
-          class="ai-map-node"
-          href={roadmapHref}
-          data-track="home-ai-map-node"
-          data-map-node="bio"
-        >
-          <title>生物学：查看学习路线</title>
-          <ellipse class="ai-map-ring-found" cx="600" cy="720" rx="78" ry="34"></ellipse>
-          <text class="ai-map-label-found" x="600" y="716" text-anchor="middle">生物学</text>
-          <text class="ai-map-label-sub" x="600" y="734" text-anchor="middle">Biology</text>
-        </a>
-
-        <a
-          class="ai-map-node"
-          href={roadmapHref}
-          data-track="home-ai-map-node"
-          data-map-node="psych"
-        >
-          <title>心理学：查看学习路线</title>
-          <ellipse class="ai-map-ring-found" cx="950" cy="690" rx="88" ry="34"></ellipse>
-          <text class="ai-map-label-found" x="950" y="686" text-anchor="middle">心理学</text>
-          <text class="ai-map-label-sub" x="950" y="704" text-anchor="middle">Psychology</text>
         </a>
       </svg>
     </div>

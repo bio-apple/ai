@@ -2,7 +2,7 @@
 import StandaloneLayout from '../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../components/StandalonePageHeader.astro';
 import RankingBoardPanels from '../components/RankingBoardPanels.astro';
-import { site, rankings } from '../lib/data';
+import { BRAND, site, rankings } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
 import { withRankingReasons } from '../lib/hub';
@@ -14,7 +14,7 @@ const breadcrumbs = [
   { name: 'AI 工具排行榜', url: `${base}ai-tools-ranking.html` },
 ];
 const schema = buildPageSchema(
-  `${rankings.title} | Bio AI Lab`,
+  `${rankings.title} | ${BRAND}`,
   rankings.lead,
   `${base}ai-tools-ranking.html`,
   breadcrumbs,
@@ -31,7 +31,7 @@ const boards = withRankingReasons(
 ---
 
 <StandaloneLayout
-  title={`${rankings.title} | Bio AI Lab`}
+  title={`${rankings.title} | ${BRAND}`}
   description={rankings.lead}
   canonical={`${base}ai-tools-ranking.html`}
   schema={schema}

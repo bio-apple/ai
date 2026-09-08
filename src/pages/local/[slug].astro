@@ -2,7 +2,7 @@
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import localGuidesPayload from '../../../data/local-deploy-guides.json';
-import { site } from '../../lib/data';
+import { BRAND, site } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
@@ -39,7 +39,7 @@ const home = homeHref();
 ---
 
 <StandaloneLayout
-  title={`${guide.title} | Bio AI Lab`}
+  title={`${guide.title} | ${BRAND}`}
   description={description}
   canonical={pageUrl}
   schema={schema}

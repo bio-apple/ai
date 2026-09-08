@@ -10,7 +10,7 @@ from backend.config import ROOT
 SITE_ROOT = ROOT / "dist" if (ROOT / "dist" / "index.html").exists() else ROOT
 BASE_PATH = "/ai"
 
-app = FastAPI(title="Bio AI Lab", version="1.8.0", description="Astro 静态站本地预览 + 内容 API")
+app = FastAPI(title="AI 导航", version="1.8.0", description="Astro 静态站本地预览 + 内容 API")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],

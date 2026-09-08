@@ -21,18 +21,38 @@ interface Props {
 const { crumbs, title, lead, meta, metaId, icon, iconClass, class: className } = Astro.props;
 const leadId = metaId ? metaId.replace(/-meta$/, '-lead') : undefined;
 const showMeta = Boolean(meta || metaId);
+const hasHero = Boolean(title || lead || showMeta || icon) || Astro.slots.has('hero-extra');
 ---
 
 <Breadcrumb crumbs={crumbs} />
 
-<div class:list={['standalone-hero', { 'standalone-hero--with-icon': Boolean(icon) }, className]}>
-  {
-    icon ? (
-      <div class="standalone-hero-row">
-        <div class={`tool-icon ${iconClass || ''}`} aria-hidden="true">
-          {icon}
+{
+  hasHero ? (
+    <div
+      class:list={['standalone-hero', { 'standalone-hero--with-icon': Boolean(icon) }, className]}
+    >
+      {icon ? (
+        <div class="standalone-hero-row">
+          <div class={`tool-icon ${iconClass || ''}`} aria-hidden="true">
+            {icon}
+          </div>
+          <div class="standalone-hero-text">
+            {title && <h1>{title}</h1>}
+            {lead && (
+              <p class="standalone-lead" id={leadId}>
+                {lead}
+              </p>
+            )}
+            {showMeta && (
+              <p class="standalone-meta" id={metaId}>
+                {meta || ''}
+              </p>
+            )}
+            <slot name="hero-extra" />
+          </div>
         </div>
-        <div class="standalone-hero-text">
+      ) : (
+        <>
           {title && <h1>{title}</h1>}
           {lead && (
             <p class="standalone-lead" id={leadId}>
@@ -45,23 +65,8 @@ const showMeta = Boolean(meta || metaId);
             </p>
           )}
           <slot name="hero-extra" />
-        </div>
-      </div>
-    ) : (
-      <>
-        {title && <h1>{title}</h1>}
-        {lead && (
-          <p class="standalone-lead" id={leadId}>
-            {lead}
-          </p>
-        )}
-        {showMeta && (
-          <p class="standalone-meta" id={metaId}>
-            {meta || ''}
-          </p>
-        )}
-        <slot name="hero-extra" />
-      </>
-    )
-  }
-</div>
+        </>
+      )}
+    </div>
+  ) : null
+}

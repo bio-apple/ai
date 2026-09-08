@@ -163,7 +163,7 @@ def emit_outputs(*, fail_code: str = "", remediation: str = "") -> None:
 def main() -> int:
     notes: list[str] = []
     try:
-        check_http("/", expect_substr="Bio AI Lab")
+        check_http("/", expect_substr="AI 导航")
         notes.append("- index OK")
         check_http("/style.css")
         notes.append("- style.css OK")

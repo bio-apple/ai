@@ -1,7 +1,7 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
-import { site, tools, toolLookup } from '../../lib/data';
+import { BRAND, site, tools, toolLookup } from '../../lib/data';
 import { buildPageSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
@@ -28,7 +28,7 @@ const schema = buildPageSchema(title, lead, canonical, [
 ---
 
 <StandaloneLayout
-  title={`${title} | Bio AI Lab`}
+  title={`${title} | ${BRAND}`}
   description={lead}
   canonical={canonical}
   schema={schema}

@@ -246,7 +246,7 @@ function buildSearchIndex(site, tools, compares) {
     label: '我的收藏',
     type: '导航',
     url: 'tools/shelf.html',
-    keywords: '我的收藏 浏览历史 最近看过 台账 收藏夹 回访',
+    keywords: '我的收藏 浏览历史 最近看过 收藏夹 回访',
   });
   items.push({
     label: 'AI 学习路线图',

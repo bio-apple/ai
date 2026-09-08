@@ -21,7 +21,7 @@ const {
 
 <header>
   <nav class="nav">
-    <a href={homeHref} class="logo" data-tool="all" aria-label="Bio AI Lab 首页">
+    <a href={homeHref} class="logo" data-tool="all" aria-label={`${nav.logo.brand} 首页`}>
       <div class="logo-icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
           <path d="M12 3v10"></path>
@@ -32,7 +32,7 @@ const {
       </div>
       <div class="logo-text">
         <span class="logo-brand">{nav.logo.brand}</span>
-        <span class="logo-tagline">{nav.logo.tagline}</span>
+        {nav.logo.tagline ? <span class="logo-tagline">{nav.logo.tagline}</span> : null}
       </div>
     </a>
     {

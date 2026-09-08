@@ -4,7 +4,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-const BRAND = 'Bio AI Lab';
+const BRAND = 'AI 导航';
 
 function buildBreadcrumbSchema(items) {
   return {

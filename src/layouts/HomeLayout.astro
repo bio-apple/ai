@@ -8,7 +8,7 @@ import UxWidgets from '../components/UxWidgets.astro';
 import KnowledgeAssistant from '../components/KnowledgeAssistant.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import { site } from '../lib/data';
+import { BRAND, site } from '../lib/data';
 import { BASE, asset, assetVersioned, withAppModules } from '../lib/paths';
 import { stringifyJsonLd } from '../lib/schema';
 
@@ -78,7 +78,7 @@ const deferredBoot = `(function(){
       ogType="website"
       ogImage={site.meta.og_image}
       ogImageAlt={site.meta.og_image_alt || title}
-      siteName={site.meta.site_name || 'Bio AI Lab'}
+      siteName={site.meta.site_name || BRAND}
     />
     <Favicon />
     <FontLoader />

@@ -1,12 +1,12 @@
 {
   "meta": {
-    "title": "Bio AI Lab | AI 工具导航 · 开源精选 · 课程与热点",
-    "description": "Bio AI Lab：对比 ChatGPT、Claude、Cursor 等 AI 工具，日更收集 GitHub 升温中的 Agent / MCP / Coding Agent / Harness / Skills / Memory 开源精选（每方向 Top 3），以及免费课程、热点与视频。",
-    "keywords": "Bio AI Lab,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,开源精选,Agent,MCP,Coding Agent,Skills,Memory,GitHub Trending,AI热点",
+    "title": "AI 导航 | 工具对比 · 开源精选 · 课程与热点",
+    "description": "AI 导航：对比 ChatGPT、Claude、Cursor 等 AI 工具，日更收集 GitHub 升温中的 Agent / MCP / Coding Agent / Harness / Skills / Memory 开源精选（每方向 Top 3），以及免费课程、热点与视频。",
+    "keywords": "AI 导航,AI工具导航,AI工具对比,ChatGPT,Claude,Cursor,DeepSeek,Copilot,Gemini,Kimi,豆包,AICPB,开源精选,Agent,MCP,Coding Agent,Skills,Memory,GitHub Trending,AI热点",
     "canonical": "https://bio-apple.github.io/ai/",
     "og_image": "https://bio-apple.github.io/ai/og-image.jpg",
-    "og_image_alt": "Bio AI Lab · Bio-Apple AI 工具导航与开源精选",
-    "site_name": "Bio AI Lab",
+    "og_image_alt": "AI 导航 · 工具对比与开源精选",
+    "site_name": "AI 导航",
     "version": "2.0.0",
     "base_url": "https://bio-apple.github.io/ai/"
   },
@@ -17,8 +17,8 @@
   "nav": {
     "logo": {
       "icon": "",
-      "brand": "Bio AI Lab",
-      "tagline": "实验台账"
+      "brand": "AI 导航",
+      "tagline": ""
     },
     "menu": [
       {
@@ -54,7 +54,7 @@
     ]
   },
   "hero": {
-    "eyebrow": "Bio AI Lab",
+    "eyebrow": "AI 导航",
     "title": "先说要做什么",
     "subtitle": "点一个场景，或写下今天的任务。",
     "cta_primary": {
@@ -601,26 +601,26 @@
     }
   ],
   "news_page": {
-    "title": "近 7×24 小时 AI 热点 | Bio AI Lab",
+    "title": "近 7×24 小时 AI 热点 | AI 导航",
     "h1": "近 7×24 小时 AI 热点",
     "lead": "从更新时刻往前 168 小时内的 AI 新闻热点：模型发布、产品动态与行业资讯；每天自动抓取。"
   },
   "guides": {
     "beginner": {
       "slug": "beginner",
-      "title": "零基础 AI 入门指南 | Bio AI Lab",
+      "title": "零基础 AI 入门指南 | AI 导航",
       "h1": "零基础 AI 入门指南",
       "lead": "从对话、提示词到长文档与多模态，按步骤掌握第一个 AI 工具。"
     },
     "advanced": {
       "slug": "advanced",
-      "title": "进阶 AI 应用指南 | Bio AI Lab",
+      "title": "进阶 AI 应用指南 | AI 导航",
       "h1": "进阶 AI 应用指南",
       "lead": "编程自动化、API 接入与多工具协同，构建你的 AI 工作流。"
     }
   },
   "roadmap_page": {
-    "title": "AI 学习路线 2026 | Bio AI Lab",
+    "title": "AI 学习路线 2026 | AI 导航",
     "h1": "AI 学习路线",
     "lead": "从零基础到进阶应用，按阶段掌握主流 AI 工具与实战技能。",
     "phases": [
@@ -698,7 +698,7 @@
     }
   ],
   "footer": {
-    "text": "Bio AI Lab · 实验台账 · v2.0",
+    "text": "AI 导航 · v2.0",
     "links": [
       {
         "label": "AI 工具中心",
@@ -746,7 +746,7 @@
     ]
   },
   "tools_hub_page": {
-    "title": "AI 工具中心 | Bio AI Lab",
+    "title": "AI 工具中心 | AI 导航",
     "h1": "AI 工具中心",
     "lead": "AICPB、LMSYS Chatbot Arena Elo 与 Artificial Analysis Intelligence Index 三榜 Top 10，帮你从流量、对战与基准多视角选型。"
   },

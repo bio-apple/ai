@@ -35,7 +35,7 @@ async function waitHomeOps(page) {
     .toBeTruthy();
 }
 
-test.describe('Bio AI Lab 关键路径', () => {
+test.describe('AI 导航 关键路径', () => {
   test('首页主路径：推荐 · 简报 · 独立专区入口', async ({ page }) => {
     await gotoHome(page);
     await expect(page.locator('h1')).toContainText('先说要做什么');
@@ -46,7 +46,7 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-ai-map a.ai-map-btn[data-map-node="dl"]')).toBeVisible();
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
     await expect(page.locator('main#main-content')).toHaveCount(1);
-    await expect(page.locator('.hero-brand')).toContainText('Bio AI Lab');
+    await expect(page.locator('.hero-brand')).toContainText('AI 导航');
     await expect(page.locator('.home-quick-filters')).toHaveCount(0);
     await expect(page.locator('#home-recommend')).toBeVisible();
     await expect(page.locator('#home-daily')).toBeVisible();
@@ -98,7 +98,7 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#knowledge-panel')).toHaveAttribute('aria-hidden', 'true');
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
       'content',
-      /Bio AI Lab/,
+      /AI 导航/,
     );
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
       'content',
@@ -268,6 +268,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.locator('.nav-link-page', { hasText: 'AI工具中心' }).click();
     await expect(page.locator('#hub-ranking')).toBeVisible();
     await expect(page.locator('#hub-ranking-updated')).toBeVisible();
+    await expect(page.locator('#hub-ranking-updated')).toContainText('数据更新于');
+    await expect(page.getByText('数据更新于')).toHaveCount(1);
     await expect(page.locator('#hub-panel-aicpb .aicpb-table-row')).toHaveCount(10);
     await expect(page.locator('#hub-panel-aicpb .aicpb-product-reason').first()).toBeVisible();
   });

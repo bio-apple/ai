@@ -1,7 +1,7 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import ToolDetail from '../../components/ToolDetail.astro';
-import { tools, site } from '../../lib/data';
+import { tools, BRAND, site } from '../../lib/data';
 import { buildToolSchema } from '../../lib/schema';
 
 export function getStaticPaths() {
@@ -19,7 +19,7 @@ const schema = buildToolSchema(tool, base, breadcrumbs);
 ---
 
 <StandaloneLayout
-  title={`${tool.name} 使用指南 - Bio AI Lab`}
+  title={`${tool.name} 使用指南 - ${BRAND}`}
   description={tool.description}
   canonical={`${base}tools/${tool.id}.html`}
   schema={schema}
