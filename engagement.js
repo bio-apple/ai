@@ -160,7 +160,7 @@
       : seed.updated_at
         ? `基准 ${seed.updated_at}`
         : '';
-    const statusText = syncLine ? `${syncLine} · 本机实时累加` : '本机互动实时累加';
+    const statusText = syncLine ? `${syncLine} · 本机即时统计` : '本机即时统计';
     if (updatedTextEl) updatedTextEl.textContent = statusText;
     else if (updatedEl) updatedEl.lastChild.textContent = statusText;
 

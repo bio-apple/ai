@@ -1004,6 +1004,7 @@
 
 .home-ops-rank .ops-stat-value {
   font-size: 1.25rem;
+  min-height: 1.2em;
 }
 
 .home-ops-rank .ops-trend {
@@ -1546,6 +1547,8 @@
 
 .ops-stat-value {
   display: block;
+  min-height: 1.2em;
+  min-width: 4.5ch;
   font-size: clamp(1.6rem, 3vw, 2rem);
   font-weight: 800;
   letter-spacing: -0.03em;

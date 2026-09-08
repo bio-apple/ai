@@ -13,11 +13,11 @@ const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const THUMB_DIR = path.join(ROOT, 'video-thumbs', 'bilibili');
 const OG_JPG = path.join(ROOT, 'og-image.jpg');
 const OG_PNG = path.join(ROOT, 'og-image.png');
+const FAVICON_SVG = path.join(ROOT, 'favicon.svg');
 const DAILY = path.join(ROOT, 'daily-videos.json');
 
 const WEBP_QUALITY = 78;
 const THUMB_MAX_WIDTH = 640;
-const OG_MAX_WIDTH = 1200;
 const OG_QUALITY = 82;
 
 function walkImages(dir) {
@@ -73,17 +73,34 @@ async function toWebp(srcPath) {
 async function compressOg() {
   if (!fs.existsSync(OG_JPG)) return null;
   const before = fs.statSync(OG_JPG).size;
-  const tmp = `${OG_JPG}.tmp.webp`;
-  // 社交卡片仍用 JPG（兼容性）；先压一版再写回
+  const meta = await sharp(OG_JPG).metadata();
+  if (meta.width === 1200 && meta.height === 630) {
+    return { before, after: before };
+  }
   const buf = await sharp(OG_JPG)
     .rotate()
-    .resize({ width: OG_MAX_WIDTH, withoutEnlargement: true })
+    .resize({ width: 1200, height: 630, fit: 'cover', position: 'centre' })
     .jpeg({ quality: OG_QUALITY, mozjpeg: true })
     .toBuffer();
   fs.writeFileSync(OG_JPG, buf);
   const after = fs.statSync(OG_JPG).size;
-  if (fs.existsSync(tmp)) fs.unlinkSync(tmp);
   return { before, after };
+}
+
+async function writePwaIcons() {
+  if (!fs.existsSync(FAVICON_SVG)) return [];
+  const jobs = [
+    [192, 'icon-192.png'],
+    [512, 'icon-512.png'],
+    [180, 'apple-touch-icon.png'],
+  ];
+  const written = [];
+  for (const [size, name] of jobs) {
+    const dest = path.join(ROOT, name);
+    await sharp(FAVICON_SVG, { density: 384 }).resize(size, size).png().toFile(dest);
+    written.push(name);
+  }
+  return written;
 }
 
 function rewriteDailyVideos(extMap) {
@@ -126,6 +143,11 @@ async function main() {
     console.log(
       `✓ og-image.jpg ${(og.before / 1024).toFixed(0)}KB → ${(og.after / 1024).toFixed(0)}KB`,
     );
+  }
+
+  const icons = await writePwaIcons();
+  if (icons.length) {
+    console.log(`✓ PWA icons ${icons.join(', ')}`);
   }
 
   if (fs.existsSync(OG_PNG)) {

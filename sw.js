@@ -120,7 +120,7 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(networkFirst(request));
     return;
   }
-  if (isKnowledgeJson(url)) {
+  if (isKnowledgeJson(url) || /\.(?:css|js)$/.test(url.pathname)) {
     event.respondWith(staleWhileRevalidate(request));
     return;
   }

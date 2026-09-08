@@ -141,7 +141,7 @@
       `<li class="graft-node graft-node--task"><span class="graft-node-label">任务</span><strong>${escape(scenario)}</strong></li>`,
       ...tools.map((id, i) => {
         const t = toolMeta[id] || { name: id, tagline: '' };
-        const role = i === 0 ? '起草' : i === tools.length - 1 ? '交付' : '修剪';
+        const role = i === 0 ? '主工具' : i === tools.length - 1 ? '收尾' : '搭配';
         return `<li class="graft-node">
           <span class="graft-node-label">${role}</span>
           <a class="recommend-tool-btn graft-tool" href="${escape(toolHref(id))}" data-tool="${escape(id)}" data-track="recommend_query_tool">
@@ -206,7 +206,7 @@
       </header>
       ${examplesHtml}
       <p class="recommend-card-lead">工具链</p>
-      <ol class="graft-path" aria-label="任务到工具的嫁接路径">${graftNodes}</ol>
+      <ol class="graft-path" aria-label="推荐工具链">${graftNodes}</ol>
       ${
         stepsHtml
           ? `<div class="recommend-path">

@@ -1,0 +1,23 @@
+---
+/** 首屏防闪：在主题脚本之后、主样式之前生效 */
+---
+
+<style is:inline>
+  html {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+  body {
+    margin: 0;
+    background: #e4e9e6;
+    color: #1c211c;
+    font-family: system-ui, sans-serif;
+  }
+  html[data-theme='dark'] body {
+    background: #141816;
+    color: #e8ede6;
+  }
+  #main-content {
+    min-height: 40vh;
+  }
+</style>

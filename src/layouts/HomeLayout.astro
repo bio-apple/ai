@@ -1,5 +1,6 @@
 ---
 import ThemeBoot from '../components/ThemeBoot.astro';
+import CriticalCss from '../components/CriticalCss.astro';
 import SecurityMeta from '../components/SecurityMeta.astro';
 import SeoHead from '../components/SeoHead.astro';
 import Favicon from '../components/Favicon.astro';
@@ -60,7 +61,7 @@ const deferredBoot = `(function(){
   function armSearch(){document.querySelectorAll('.site-search-input').forEach(function(el){['focus','pointerdown'].forEach(function(ev){el.addEventListener(ev,function(){ensureFuse();},{once:true,passive:true});});});}
   function armOps(){if(document.getElementById('home-ops'))ensureEngagement();}
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){armSearch();armOps();});else{armSearch();armOps();}
-  if('requestIdleCallback' in window)requestIdleCallback(function(){idleBundle();ensureFuse();ensureKnowledge();},{timeout:3500});else setTimeout(function(){idleBundle();ensureFuse();ensureKnowledge();},2000);
+  if('requestIdleCallback' in window)requestIdleCallback(function(){idleBundle();ensureKnowledge();},{timeout:3500});else setTimeout(function(){idleBundle();ensureKnowledge();},2000);
 })();`
 ---
 
@@ -69,6 +70,7 @@ const deferredBoot = `(function(){
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <ThemeBoot assetPrefix={BASE} />
     <SecurityMeta />
     <SeoHead
       title={title}
@@ -82,24 +84,9 @@ const deferredBoot = `(function(){
     />
     <Favicon />
     <FontLoader />
-    <style is:inline>
-      html {
-        overflow-x: hidden;
-        max-width: 100%;
-      }
-      body {
-        margin: 0;
-        background: #e4e9e6;
-        color: #1c211c;
-        font-family: system-ui, sans-serif;
-      }
-      #main-content {
-        min-height: 40vh;
-      }
-    </style>
+    <CriticalCss />
     <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />
-    <ThemeBoot assetPrefix={BASE} />
     {schema && <script type="application/ld+json" set:html={stringifyJsonLd(schema)} />}
   </head>
   <body>

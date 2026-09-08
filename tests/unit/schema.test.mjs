@@ -80,7 +80,7 @@ function buildToolSchema(tool, baseUrl, breadcrumbs) {
     {
       '@type': 'LearningResource',
       '@id': `${pageUrl}#tutorial`,
-      name: `${tool.name} 教程 2026`,
+      name: `${tool.name} 使用指南`,
       description: tool.description,
       learningResourceType: 'Tutorial',
       url: pageUrl,
@@ -164,6 +164,8 @@ test('buildToolSchema includes SoftwareApplication and LearningResource', () => 
   assert.ok(types.includes('BreadcrumbList'));
   const app = schema['@graph'].find((n) => n['@type'] === 'SoftwareApplication');
   assert.equal(app.url, 'https://chatgpt.com');
+  const guide = schema['@graph'].find((n) => n['@type'] === 'LearningResource');
+  assert.equal(guide.name, 'ChatGPT 使用指南');
 });
 
 test('buildCoursesSchema emits Course ItemList', () => {

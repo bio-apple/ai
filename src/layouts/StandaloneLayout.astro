@@ -1,5 +1,6 @@
 ---
 import ThemeBoot from '../components/ThemeBoot.astro';
+import CriticalCss from '../components/CriticalCss.astro';
 import SecurityMeta from '../components/SecurityMeta.astro';
 import SeoHead from '../components/SeoHead.astro';
 import Favicon from '../components/Favicon.astro';
@@ -64,6 +65,7 @@ const home = homeHref();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <ThemeBoot assetPrefix={BASE} />
     <SecurityMeta />
     <SeoHead
       title={title}
@@ -78,24 +80,9 @@ const home = homeHref();
     />
     <Favicon />
     <FontLoader />
-    <style is:inline>
-      html {
-        overflow-x: hidden;
-        max-width: 100%;
-      }
-      body {
-        margin: 0;
-        background: #e4e9e6;
-        color: #1c211c;
-        font-family: system-ui, sans-serif;
-      }
-      #main-content {
-        min-height: 40vh;
-      }
-    </style>
+    <CriticalCss />
     <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />
-    <ThemeBoot assetPrefix={BASE} />
     {schema && <script type="application/ld+json" set:html={stringifyJsonLd(schema)} />}
   </head>
   <body>

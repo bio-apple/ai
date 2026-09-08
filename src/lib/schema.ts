@@ -165,7 +165,7 @@ export function buildToolSchema(
     {
       '@type': 'LearningResource',
       '@id': `${pageUrl}#tutorial`,
-      name: `${tool.name} 教程 2026`,
+      name: `${tool.name} 使用指南`,
       description: tool.description,
       learningResourceType: 'Tutorial',
       url: pageUrl,
@@ -297,6 +297,7 @@ export function buildNewsSchema(
 export function buildCompareSchema(
   compare: {
     title: string;
+    h1?: string;
     meta_description: string;
     slug: string;
     pricing?: { checked_at?: string };
@@ -310,7 +311,7 @@ export function buildCompareSchema(
     {
       '@context': 'https://schema.org',
       '@type': 'Article',
-      headline: compare.title,
+      headline: compare.h1 || compare.title,
       description: compare.meta_description,
       author: { '@type': 'Organization', name: BRAND },
       mainEntityOfPage: `${baseUrl}compare/${compare.slug}.html`,

@@ -47,6 +47,7 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
     await expect(page.locator('main#main-content')).toHaveCount(1);
     await expect(page.locator('.hero-brand')).toContainText('AI 导航');
+    await expect(page.locator('.hero-ledger-date')).toContainText('更新于');
     await expect(page.locator('.home-quick-filters')).toHaveCount(0);
     await expect(page.locator('#home-recommend')).toBeVisible();
     await expect(page.locator('#home-daily')).toBeVisible();
@@ -264,6 +265,8 @@ test.describe('AI 导航 关键路径', () => {
     await page.goto('index.html', { waitUntil: 'domcontentloaded' });
     await page.locator('.nav-link-page', { hasText: 'AI工具中心' }).click();
     await expect(page.locator('#hub-ranking')).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1, name: 'AI 工具中心' })).toBeVisible();
+    await expect(page.locator('.nav-tabs')).not.toHaveAttribute('role', 'tablist');
     await expect(page.locator('#hub-ranking-updated')).toBeVisible();
     await expect(page.locator('#hub-ranking-updated')).toContainText('数据更新于');
     await expect(page.getByText('数据更新于')).toHaveCount(1);
@@ -274,7 +277,8 @@ test.describe('AI 导航 关键路径', () => {
   test('独立工具页与对比页', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('tools/cursor.html', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('h1')).toContainText('Cursor');
+    await expect(page.locator('h1')).toContainText('Cursor 使用指南');
+    await expect(page).toHaveTitle(/Cursor 使用指南 \| AI 导航/);
     const fav = page.locator('[data-favorite-toggle]');
     await expect(fav).toBeVisible();
     await fav.click();

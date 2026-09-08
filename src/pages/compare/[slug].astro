@@ -2,7 +2,7 @@
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import CompareDecisionAids from '../../components/CompareDecisionAids.astro';
-import { compares, site } from '../../lib/data';
+import { compares, BRAND, site } from '../../lib/data';
 import { buildCompareSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
@@ -22,7 +22,7 @@ const home = homeHref();
 ---
 
 <StandaloneLayout
-  title={compare.title}
+  title={`${compare.h1} | ${BRAND}`}
   description={compare.meta_description}
   canonical={`${base}compare/${compare.slug}.html`}
   schema={schema}

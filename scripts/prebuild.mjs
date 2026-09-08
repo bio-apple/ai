@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import { createHash } from 'node:crypto';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { spawnSync } from 'node:child_process';
@@ -34,3 +36,26 @@ bundleCss({
   console.log(`✓ local-deploy guides (${guides.guides.length} 篇)`);
 }
 buildArtifacts(publicDir);
+stampServiceWorker(publicDir);
+
+function stampServiceWorker(dir) {
+  const swPath = path.join(dir, 'sw.js');
+  if (!fs.existsSync(swPath)) return;
+  const hash = createHash('sha1');
+  for (const file of [
+    'style.css',
+    'app.js',
+    'ux.js',
+    'search-index.json',
+    'manifest.webmanifest',
+  ]) {
+    const filePath = path.join(dir, file);
+    if (fs.existsSync(filePath)) hash.update(fs.readFileSync(filePath));
+  }
+  const version = `bioai-pwa-${hash.digest('hex').slice(0, 10)}`;
+  const next = fs
+    .readFileSync(swPath, 'utf8')
+    .replace(/const VERSION = '[^']+'/, `const VERSION = '${version}'`);
+  fs.writeFileSync(swPath, next);
+  console.log(`✓ sw.js VERSION ${version}`);
+}
