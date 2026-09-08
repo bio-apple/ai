@@ -300,13 +300,12 @@ export function buildCompareSchema(
     h1?: string;
     meta_description: string;
     slug: string;
-    pricing?: { checked_at?: string };
     reviews?: { updated_at?: string };
   },
   baseUrl: string,
   breadcrumbs?: BreadcrumbItem[],
 ) {
-  const modified = compare.pricing?.checked_at || compare.reviews?.updated_at;
+  const modified = compare.reviews?.updated_at;
   return withBreadcrumbs(
     {
       '@context': 'https://schema.org',

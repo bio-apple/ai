@@ -3,21 +3,6 @@ import { formatRelativeTime } from '../lib/content-display';
 
 type MatrixLevel = 'yes' | 'partial' | 'no';
 
-type PricePlan = {
-  name: string;
-  price: string;
-  detail?: string;
-  highlight?: boolean;
-};
-
-type PriceProduct = {
-  id: string;
-  name: string;
-  official_url: string;
-  billing_model?: string;
-  plans: PricePlan[];
-};
-
 type MatrixCell = {
   level: MatrixLevel;
   text: string;
@@ -32,11 +17,6 @@ type ReviewItem = {
 };
 
 interface Props {
-  pricing?: {
-    checked_at?: string;
-    note?: string;
-    products?: PriceProduct[];
-  };
   feature_matrix?: {
     caption?: string;
     headers: string[];
@@ -64,59 +44,10 @@ function freshnessHint(ymd?: string) {
   return formatRelativeTime(ymd);
 }
 
-const { pricing, feature_matrix, reviews } = Astro.props;
-const priceChecked = pricing?.checked_at || '';
+const { feature_matrix, reviews } = Astro.props;
 const reviewUpdated = reviews?.updated_at || '';
-const priceHint = freshnessHint(priceChecked);
 const reviewHint = freshnessHint(reviewUpdated);
 ---
-
-{
-  pricing?.products?.length ? (
-    <section class="page-section compare-prices" aria-labelledby="compare-pricing-title">
-      <div class="section-head">
-        <h2 class="section-title" id="compare-pricing-title">当前价格</h2>
-        {priceChecked ? (
-          <p class="compare-freshness">
-            核验于 <time datetime={priceChecked}>{priceChecked}</time>
-            {priceHint ? `（${priceHint}）` : ''} · 点官网看实时价
-          </p>
-        ) : null}
-      </div>
-      {pricing.note ? <p class="compare-note">{pricing.note}</p> : null}
-      <div class="compare-price-grid">
-        {pricing.products.map((product) => (
-          <article class="compare-price-card" id={`compare-price-${product.id}`}>
-            <header class="compare-price-head">
-              <h3>{product.name}</h3>
-              {product.billing_model ? <p>{product.billing_model}</p> : null}
-            </header>
-            <ul class="compare-price-plans">
-              {product.plans.map((plan) => (
-                <li class:list={[{ 'is-highlight': plan.highlight }]}>
-                  <div class="compare-price-plan-top">
-                    <span class="compare-price-plan-name">{plan.name}</span>
-                    <span class="compare-price-plan-fee">{plan.price}</span>
-                  </div>
-                  {plan.detail ? <p>{plan.detail}</p> : null}
-                </li>
-              ))}
-            </ul>
-            <a
-              class="compare-price-official"
-              href={product.official_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              data-track={`compare-price-${product.id}`}
-            >
-              打开 {product.name} 官网看实时价
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
-  ) : null
-}
 
 {
   feature_matrix?.rows?.length ? (

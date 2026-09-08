@@ -297,8 +297,6 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('#tool-shelf-hist-list')).toContainText('Cursor');
     await page.goto('compare/cursor-vs-copilot.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('body')).toContainText(/Cursor|Copilot/i);
-    await expect(page.locator('#compare-pricing-title')).toBeVisible();
-    await expect(page.getByRole('link', { name: /官网看实时价/ }).first()).toBeVisible();
     await expect(page.locator('#compare-matrix-title')).toBeVisible();
     await expect(page.locator('.compare-matrix [data-level]').first()).toBeVisible();
     await expect(page.locator('#compare-reviews-title')).toBeVisible();

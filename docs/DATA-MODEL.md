@@ -102,12 +102,8 @@ Schema：`schemas/*.json`
 
 | 字段                          | 说明                                                        |
 | ----------------------------- | ----------------------------------------------------------- |
-| `pricing.checked_at`          | `YYYY-MM-DD`，页上写核验日 + 官网实时价链接                 |
-| `pricing.products[].plans`    | 档位名、价格、一句说明；`highlight` 标常用档                |
 | `feature_matrix.rows[].cells` | `{ level: yes\|partial\|no, text }`                         |
 | `reviews.items[]`             | 编辑根据公开讨论写的摘要，必须有 `disclaimer`，禁止伪造星级 |
-
-价格以各产品 `official_url` 为准；仓库里的数字随对比页一起改。
 
 ### 3.5 其他
 
