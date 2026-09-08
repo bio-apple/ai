@@ -74,7 +74,8 @@ Schema：`schemas/*.json`
 | `stars_delta`                                  | 相对上次快照的 Star 差                                       |
 | `is_new` / `is_fastest`                        | 上周新增 / 方向内上升最快                                    |
 
-构建期再派生 `audienceTags`（如 `写代码` / `社区主流`，不含已在卡片顶栏出现的方向名），不写回 JSON。
+构建期再派生 `audienceTags`（如 `写代码` / `社区主流`，不含已在卡片顶栏出现的方向名），不写回 JSON。  
+热度展示只走 `ossHeatLabel` 一枚条；`trending_*_rank` 仍可写在 JSON 里，但不再单独做成第二枚榜标签。`is_fastest`（本周上升最快）保留。
 
 ### 3.3 `rankings.json` · 三榜
 
@@ -114,6 +115,9 @@ Schema：`schemas/*.json`
 | ------------------- | ------------------------------------------------- |
 | `ai-courses.json`   | `updated_at`, 按 track 分组的课程                 |
 | `daily-videos.json` | `updated_at`, `batches[]`；CDN 只用 slim `latest` |
+
+`daily-videos.json` 抓取侧：近 1 个月、`min_views ≥ 10000`、每平台 Top 3（`config/video-fetch.yaml`）。  
+展示侧：`prepareVideos()` 再按 30 天窗 + 每平台播放量 Top 3 过滤；历史批次里可能仍有旧 `platform_total_cap: 10`，页面不读那些。条目含 `summary`，日更卡片不展示。
 
 ## 4. 校验
 

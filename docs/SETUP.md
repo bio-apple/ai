@@ -59,7 +59,7 @@ npm run build
 | 现象              | 处理                                                             |
 | ----------------- | ---------------------------------------------------------------- |
 | Node 版本不对     | `nvm use`                                                        |
-| 页面 404 / 旧数据 | 重新 `npm run build`；确认 base `/ai/`                           |
+| 页面 404 / 旧数据 | 重新 `npm run build`；确认 base `/ai/`；线上强制刷新（PWA）      |
 | 视频云端失败      | 查 Worker URL、CSP（[CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)） |
 | 端口占用          | 改 `start.sh` / preview 端口                                     |
 

@@ -13,49 +13,70 @@
 - `site.ai_picker` → 构建期 `recommend-rules.json`
 - 场景芯片 + 现实实例 + 路径步骤（`HomeRecommend.astro`）
 
-## 3. 内容漏斗
+## 3. 首页结构
+
+| 区块         | id / 组件                        | 说明                                     |
+| ------------ | -------------------------------- | ---------------------------------------- |
+| 匹配助手     | Hero 内 `HomeRecommend`          | 先说要做什么                             |
+| AI 简报      | `#home-daily`                    | 模型/GitHub/资讯 + 近一个月视频精选 3 条 |
+| 热门排行     | `#home-ops`                      | 本机点击热度                             |
+| 知识版图     | `#home-ai-map` `HomeAiMap.astro` | 圈层可点；基础学科只在图上，不在下方按钮 |
+| 下一步 / FAQ | `#home-community` / `#home-faq`  | 三榜、开源、收藏；`site.faq`             |
+
+独立页（开源 / 课程 / 新闻 / 视频）用 `StandaloneLayout`，左侧「本页目录」扫 `h2–h4`。日更视频标题不要再用 `h4`，以免目录被每条标题撑满。
+
+无障碍：跳过链接 `#main-content`；知识版图节点是真正的 `<a>`；动效尊重 `prefers-reduced-motion`。
+
+## 4. 内容漏斗
 
 - `funnel.js`：统一 `journey_id` / `funnel_step`，对接 Umami / GA4
 
-## 4. 虚拟列表
+## 5. 虚拟列表
 
 - `lib/virtual-list.js`：工具榜、GitHub 热门等长列表可视区渲染
 
-## 5. 开源精选
+## 6. 开源精选
 
 - 数据：`site.oss_frameworks`（`fetch_oss_heating.py` 日更）
 - 页：`oss.html`；Hero「今日升温」取 `heat_score` 最高项
+- 卡片右上角只留一枚热度条（`ossHeatLabel`，如 `日榜 #6 · 热度 205`），不再叠 GitHub 日/周榜第二枚标签
+- `audienceTags` 去掉与顶栏 chip 重复的方向名（Agent / Coding Agent 等）
+- 「本周上升最快」是方向内升幅，与 Trending 名次不是同一信号，保留
 
-## 6. 链接兜底
+## 7. 链接兜底
 
 - `lib/link-guard.js`：外链 `noreferrer`、图片失败占位、GitHub 404 探测
 - CSP 须含 `https://api.github.com`
 
-## 7. SEO（摘要）
+## 8. SEO（摘要）
 
 - TDK / OG / Twitter：`SeoHead.astro` + `data/site.json` → `meta`（`og:title` / `og:description` / `og:image`）
 - JSON-LD：`src/lib/schema.ts`（WebSite / Organization / 工具 / 课程 / 新闻 / 开源 / 视频 ItemList + BreadcrumbList）
 - 校验：`DIST=dist python3 scripts/validate_ci.py opengraph jsonld`
 
-## 10. PWA 离线
+## 9. PWA 离线
 
 - `manifest.webmanifest` + `sw.js`（同域，scope `/ai/`）
 - 预缓存首页 / 开源 / 课程 / 工具中心 / `search-index.json` / 知识库脚本
 - JSON 走 stale-while-revalidate；无网导航回退已缓存首页
 - CSP：`worker-src 'self'`；`sw.js` 不长缓存（`max-age=0`）
+- **改版验收**：PWA 会留下旧 HTML。线上核对用强制刷新（Mac `Cmd+Shift+R`）或 `?v=` 缓存破坏
 
-## 8. AI 视频（两套）
+## 10. AI 视频（两套）
 
-| 类型         | 入口                | 数据                                                                                  |
-| ------------ | ------------------- | ------------------------------------------------------------------------------------- |
-| 首页日更精选 | `#home-video-picks` | `daily-videos.json`（近 1 个月、每平台 Top 3，见 [CONTENT-OPS.md](./CONTENT-OPS.md)） |
-| 用户粘贴页   | `videos.html`       | `localStorage` + Cloudflare KV                                                        |
+| 类型         | 入口                 | 数据                                                             |
+| ------------ | -------------------- | ---------------------------------------------------------------- |
+| 首页日更精选 | `#home-video-picks`  | `prepareVideos`：近 30 天、每平台播放量 Top 3，首页再合并取 3 条 |
+| 专区完整列表 | `videos.html` 日更区 | YouTube 3 + B站 3；卡片封面名次/时长，不展示摘要墙文             |
+| 用户粘贴页   | `videos.html` 收藏   | `localStorage` + Cloudflare KV                                   |
 
-用户页：`videos.js` · `lib/video-preview*.js` · Worker `/meta` 封面。跨设备见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)。
+展示：`src/components/SsrVideosList.astro` + `css/videos.css`。JSON 仍存 `summary`，页面不渲染。  
+用户页：`videos.js` · `lib/video-preview*.js` · Worker `/meta` 封面。跨设备见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)。  
+共享 sync 码不要改（默认 `bioai-videos`）。
 
-## 9. 懒加载
+## 11. 懒加载
 
-进入 Tab 再加载：`news.js` / `courses.js` / 首页视频脚本。`knowledge.js` idle 后加载。
+独立页再跑 `news.js` / `courses.js`；首页知识库 `knowledge.js` idle 后加载。
 
 ## 相关
 

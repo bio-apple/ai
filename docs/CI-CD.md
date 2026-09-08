@@ -35,5 +35,10 @@ npm run build && DIST=dist python3 scripts/validate_ci.py
 
 ## Secrets / Variables
 
-分析：`GA_MEASUREMENT_ID` · `CLARITY_PROJECT_ID` 等  
-视频同步：见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md) · [SECURITY.md](./SECURITY.md)
+| 名称              | 用途                                          |
+| ----------------- | --------------------------------------------- |
+| 分析 ID           | `GA_MEASUREMENT_ID` · `CLARITY_PROJECT_ID` 等 |
+| `YOUTUBE_API_KEY` | `daily-videos.yml` YouTube Data API v3        |
+| 视频同步          | 见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md) |
+
+分析与 CSP 细节：[SECURITY.md](./SECURITY.md)

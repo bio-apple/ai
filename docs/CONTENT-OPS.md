@@ -23,7 +23,7 @@
 | [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)                 | **02:00**         | 开源加热（含 OpenHands / AutoGPT 优先仓） |
 | [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)       | **03:00**         | 排行榜                                    |
 | [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)           | **04:00**         | YouTube / B站近 1 个月播放量 Top 3        |
-| [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)             | 定时              | 新鲜度探针                                |
+| [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)             | **08:00 / 20:00** | 新鲜度探针                                |
 | [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) | 定时              | lychee（软告警）                          |
 
 链路：抓取 → Prettier → commit → **显式派发** `pages.yml`（token push 不会自动触发 Deploy）。
@@ -46,6 +46,8 @@
 2. 确认 commit 已 push，且 **Deploy GitHub Pages** 被派发成功
 3. 抓取失败会开 `[ops]` Issue；lychee 失败不阻断数据上线
 4. 首页「资讯更新于 / 今日升温」日期来自 JSON 的 `updated_at`（非构建日）
+5. 视频 YouTube 半壁依赖仓库 Secret `YOUTUBE_API_KEY`；为空先查 Secrets 再手动 Run
+6. 线上视频/首页改版若仍是旧 UI：强制刷新（PWA 缓存 HTML）
 
 ## 相关
 
