@@ -156,9 +156,144 @@
     "youtube:xBByvFrqmWU",
     "youtube:9oJySubZRSA",
     "bilibili:BV139bD6gEa8",
-    "youtube:zWL6XGP3Em8"
+    "youtube:zWL6XGP3Em8",
+    "bilibili:BV1N74R6eEZw",
+    "youtube:KmcTu2EigTs"
   ],
   "batches": [
+    {
+      "date": "2026-09-09",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:xBByvFrqmWU",
+              "platform": "youtube",
+              "title": "DeepSeek is back... and Silicon Valley is terrified",
+              "summary": "Take BlueDot's Future of AI course for free - OpenAI just paused its biggest training run in history just as things were getting …",
+              "url": "https://www.youtube.com/watch?v=xBByvFrqmWU",
+              "thumbnail": "https://i.ytimg.com/vi/xBByvFrqmWU/maxresdefault.jpg",
+              "channel": "Fireship",
+              "subscribers": 0,
+              "views": 1144546,
+              "duration": "5:32",
+              "max_height": 1080,
+              "published_at": "2026-08-21T01:53:37+08:00"
+            },
+            {
+              "id": "youtube:9oJySubZRSA",
+              "platform": "youtube",
+              "title": "The Ultimate Beginner’s Guide to Claude AI",
+              "summary": "The complete Claude AI tutorial for beginners: climb all 6 levels, from your first prompt to Claude working while you're away",
+              "url": "https://www.youtube.com/watch?v=9oJySubZRSA",
+              "thumbnail": "https://i.ytimg.com/vi/9oJySubZRSA/maxresdefault.jpg",
+              "channel": "Metics Media",
+              "subscribers": 0,
+              "views": 650422,
+              "duration": "1:00:49",
+              "max_height": 1080,
+              "published_at": "2026-08-10T19:00:20+08:00"
+            },
+            {
+              "id": "youtube:KmcTu2EigTs",
+              "platform": "youtube",
+              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
+              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
+              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
+              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 0,
+              "views": 171678,
+              "duration": "19:35",
+              "max_height": 1080,
+              "published_at": "2026-08-25T21:00:23+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1VkgK6NEZS",
+              "platform": "bilibili",
+              "title": "DeepSeek Harness 首发实测 + 入门教程，夯爆了！梁神我错了",
+              "summary": "DeepSeek Harness 保姆级教程，1个视频带你从安装到实战玩转 DeepSeek 最新开源的 AI 编程工具，小白也能学会，看完就知道《国产版 Codex》到底有多强。 编程学习教程+实战项目+简历模板：codefather",
+              "url": "https://www.bilibili.com/video/BV1VkgK6NEZS",
+              "thumbnail": "video-thumbs/bilibili/BV1VkgK6NEZS.webp",
+              "channel": "程序员鱼皮",
+              "subscribers": 0,
+              "views": 1471507,
+              "duration": "16:33",
+              "max_height": 720,
+              "published_at": "2026-08-14T19:56:52+08:00"
+            },
+            {
+              "id": "bilibili:BV1N74R6eEZw",
+              "platform": "bilibili",
+              "title": "本条视频用OiiOii.tv制作@OiiOii_Ai，不用琢磨复杂提示词，简单操作就能出成片#OiiOii #OiiOii创作者计划",
+              "summary": "【黑黑大帅剧场】讲解 AI 工具实战应用，围绕「本条视频用OiiOii.tv制作@OiiOii_Ai，不用琢磨复杂提示词，简单操作就能出成片#O」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1N74R6eEZw",
+              "thumbnail": "video-thumbs/bilibili/BV1N74R6eEZw.jpg",
+              "channel": "黑黑大帅剧场",
+              "subscribers": 0,
+              "views": 798181,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-08-27T18:38:04+08:00"
+            },
+            {
+              "id": "bilibili:BV139bD6gEa8",
+              "platform": "bilibili",
+              "title": "Pi 大道至简，超越Codex和Claude Code的极简Agent，保姆级全攻略， 一期视频精通",
+              "summary": "Pi是近期热度超高的AI Agent。用四个字形容那就是大道至简。 Pi只有四个默认工具，（读文件，写文件，改文件，运行命令），系统提示词也仅仅只有一千Token。极致的精简带来了极致效率提升，在多项权威基准测试里，Pi 的代码质量，工作速度，成本等方面多方…",
+              "url": "https://www.bilibili.com/video/BV139bD6gEa8",
+              "thumbnail": "video-thumbs/bilibili/BV139bD6gEa8.webp",
+              "channel": "技术爬爬虾",
+              "subscribers": 0,
+              "views": 752399,
+              "duration": "44:38",
+              "max_height": 720,
+              "published_at": "2026-08-16T15:53:45+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-09-08",
       "timezone": "Asia/Shanghai",
@@ -5717,5 +5852,5 @@
       }
     }
   ],
-  "updated_at": "2026-09-08T15:11:55.321079+08:00"
+  "updated_at": "2026-09-09T06:31:04.436531+08:00"
 }
