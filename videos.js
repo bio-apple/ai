@@ -277,10 +277,17 @@
     };
   }
 
+  const fallbackHtml = list.querySelector('[data-video-fallback]')?.outerHTML || '';
+
+  function renderFallback() {
+    list.innerHTML =
+      fallbackHtml ||
+      '<p class="daily-empty">粘贴 YouTube / B站 地址后点「保存」，收藏会出现在这里。</p>';
+  }
+
   function renderList(items) {
     if (!items.length) {
-      list.innerHTML =
-        '<p class="daily-empty">还没有保存的链接。粘贴 YouTube / B站 地址后点「保存」。</p>';
+      renderFallback();
       return;
     }
     list.innerHTML = `<div class="video-grid">${items.map(renderCard).join('')}</div>`;
@@ -512,7 +519,7 @@
     (sync?.getApiUrl?.() && sync?.isValidSyncKey?.(sync?.getSyncKey?.()));
 
   if (willCloudLoad && !loadHistory().length) {
-    list.innerHTML = '<p class="daily-empty">正在从云端加载…</p>';
+    renderFallback();
     setStatus(usesShared ? '正在从云端同步列表…' : '正在通过恢复链接同步云端列表…', false);
   } else {
     renderList(loadHistory());

@@ -70,7 +70,10 @@ const heatUpdated = ossMeta?.updated_at
     </div>
 
     <div class="home-main">
-      <HomeAiDaily />
+      <div class="home-brief-row">
+        <HomeAiDaily />
+        <HomeOps />
+      </div>
       <HomeAiMap />
 
       <section
@@ -109,20 +112,31 @@ const heatUpdated = ossMeta?.updated_at
             </div>
             <div class="home-faq-list">
               {faqItems.map((item) => (
-                <details class="home-faq-item">
+                <details class="home-faq-item" id={item.id}>
                   <summary>{item.question}</summary>
-                  <p>{item.answer}</p>
+                  <div class="home-faq-body">
+                    <p>{item.answer}</p>
+                    {item.href && (
+                      <a class="home-faq-link" href={asset(item.href)} data-track="faq-link">
+                        {item.link_label || '了解更多'} →
+                      </a>
+                    )}
+                  </div>
                 </details>
               ))}
             </div>
+            <script is:inline>
+              (function () {
+                var id = location.hash.replace(/^#/, '');
+                if (!id) return;
+                var el = document.getElementById(id);
+                if (el && el.classList.contains('home-faq-item')) el.open = true;
+              })();
+            </script>
           </section>
         )
       }
 
-      <details class="home-section fade-in home-ops-details" id="home-ops-wrap">
-        <summary class="home-ops-summary">今日热度（可选查看）</summary>
-        <HomeOps />
-      </details>
     </div>
   </section>
 </HomeLayout>

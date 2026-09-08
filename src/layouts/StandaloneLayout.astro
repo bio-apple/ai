@@ -9,7 +9,7 @@ import KnowledgeAssistant from '../components/KnowledgeAssistant.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/data';
-import { BASE, asset, assetVersioned, homeHref } from '../lib/paths';
+import { BASE, asset, assetVersioned, homeHref, withAppModules } from '../lib/paths';
 import { stringifyJsonLd } from '../lib/schema';
 
 interface Props {
@@ -38,21 +38,24 @@ const {
     'app.js',
   ],
   ogType = 'article',
-  includeKnowledge = false,
+  includeKnowledge,
   showSearch = true,
   robots,
 } = Astro.props;
 
-const scriptList = [...scripts];
-if (includeKnowledge && !scriptList.includes('vendor/fuse.min.js')) {
+const knowledgeOn = includeKnowledge ?? showSearch;
+
+const scriptList = withAppModules([...scripts]);
+if (knowledgeOn && !scriptList.includes('vendor/fuse.min.js')) {
   scriptList.unshift('vendor/fuse.min.js');
 }
-const knowledgeSrc = includeKnowledge ? assetVersioned('knowledge.js') : '';
-const knowledgeBoot = includeKnowledge
-  ? `(function(){var loaded=false,src=${JSON.stringify(knowledgeSrc)};function load(){if(loaded||!src)return;loaded=true;var s=document.createElement('script');s.src=src;s.defer=true;document.body.appendChild(s);}function arm(){var fab=document.getElementById('knowledge-fab');if(!fab)return;['pointerenter','focus','touchstart'].forEach(function(ev){fab.addEventListener(ev,load,{once:true,passive:true});});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',arm);else arm();if('requestIdleCallback' in window)requestIdleCallback(function(){load();},{timeout:4000});else setTimeout(load,2500);})();`
+const knowledgeSrc = knowledgeOn ? assetVersioned('knowledge.js') : '';
+const knowledgeBoot = knowledgeOn
+  ? `(function(){var loaded=false,src=${JSON.stringify(knowledgeSrc)};function load(){if(loaded||!src)return Promise.resolve();loaded=true;return new Promise(function(res,rej){var s=document.createElement('script');s.src=src;s.defer=true;s.onload=res;s.onerror=rej;document.body.appendChild(s);});}window.__BIOAI_ensureKnowledge=load;if('requestIdleCallback' in window)requestIdleCallback(function(){load();},{timeout:4000});else setTimeout(load,2500);})();`
   : '';
 
 const styleHref = assetVersioned('style.css');
+const pwaSrc = assetVersioned('lib/pwa.js');
 const home = homeHref();
 ---
 
@@ -98,7 +101,7 @@ const home = homeHref();
   <body>
     <a class="skip-link" href="#main-content">跳到主要内容</a>
     <UxWidgets />
-    {includeKnowledge && <KnowledgeAssistant />}
+    {knowledgeOn && <KnowledgeAssistant />}
     <Nav
       nav={site.nav}
       standalone={true}
@@ -112,5 +115,6 @@ const home = homeHref();
     <Footer text={site.footer.text} links={site.footer.links || []} />
     {knowledgeBoot && <script is:inline set:html={knowledgeBoot} />}
     {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
+    <script src={pwaSrc} defer />
   </body>
 </html>

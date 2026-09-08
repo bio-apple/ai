@@ -29,7 +29,95 @@ export type OssItem = {
   heatScore: number;
   sources: string[];
   rank?: number;
+  createdAt?: string;
+  starsDelta?: number | null;
+  starsWeekly?: number | null;
+  isNew?: boolean;
+  isFastest?: boolean;
+  trendingWeeklyRank?: number | null;
 };
+
+export function formatStarDelta(n: number) {
+  const abs = Math.abs(n);
+  const body = abs >= 10_000 ? `${(abs / 10_000).toFixed(1)}万` : abs.toLocaleString('en-US');
+  if (n > 0) return `+${body}`;
+  if (n < 0) return `-${body}`;
+  return '0';
+}
+
+export function ossRiseScore(item: OssItem) {
+  if (item.starsDelta) return item.starsDelta;
+  if (item.trendingWeeklyRank != null) return 1000 - item.trendingWeeklyRank;
+  return item.starsWeekly || 0;
+}
+
+export function formatOssGrowth(
+  item: OssItem,
+): { text: string; title: string; dir: 'up' | 'down' | 'est' } | null {
+  if (item.starsDelta) {
+    const up = item.starsDelta > 0;
+    return {
+      text: `${up ? '↑' : '↓'} ${formatStarDelta(item.starsDelta)}`,
+      title: '相对上次日更快照的 Star 变化',
+      dir: up ? 'up' : 'down',
+    };
+  }
+  if (item.starsWeekly && item.starsWeekly > 0) {
+    return {
+      text: `约 ${formatStarDelta(item.starsWeekly)}/周`,
+      title: '按仓库年龄估算的周均 Star 增长（静态）',
+      dir: 'est',
+    };
+  }
+  return null;
+}
+
+export function ossToolbarCategories(items: OssItem[]) {
+  const present = new Set(items.map((i) => i.category));
+  return [
+    { id: 'all', label: '全部方向', count: items.length },
+    ...OSS_CATEGORY_ORDER.filter((c) => present.has(c)).map((c) => ({
+      id: c,
+      label: OSS_CATEGORY_LABELS[c],
+      count: items.filter((i) => i.category === c).length,
+    })),
+  ];
+}
+
+export function annotateOssTags(
+  items: OssItem[],
+): OssItem[] {
+  const weekMs = 7 * 86_400_000;
+  const now = Date.now();
+  const out = items.map((item) => {
+    const created = item.createdAt ? Date.parse(item.createdAt) : NaN;
+    const isNew =
+      item.isNew || (Number.isFinite(created) && now - created <= weekMs);
+    const ageDays = Number.isFinite(created) ? Math.max((now - created) / 86_400_000, 1) : null;
+    const starsWeekly =
+      item.starsWeekly != null
+        ? item.starsWeekly
+        : ageDays
+          ? Math.round(item.stars / ageDays * 7)
+          : null;
+    return { ...item, isNew, starsWeekly, isFastest: Boolean(item.isFastest) };
+  });
+  const byCat = new Map<string, OssItem[]>();
+  for (const item of out) {
+    if (!byCat.has(item.category)) byCat.set(item.category, []);
+    byCat.get(item.category)!.push(item);
+  }
+  const already = out.some((i) => i.isFastest);
+  if (!already) {
+    for (const list of byCat.values()) {
+      const scored = [...list].sort((a, b) => ossRiseScore(b) - ossRiseScore(a));
+      if (scored[0] && ossRiseScore(scored[0]) > 0) {
+        scored[0].isFastest = true;
+      }
+    }
+  }
+  return out;
+}
 
 export function buildOssItems(
   frameworks: Array<{
@@ -41,9 +129,15 @@ export function buildOssItems(
     heat_score?: number;
     sources?: string[];
     rank?: number;
+    created_at?: string;
+    stars_delta?: number | null;
+    stars_weekly?: number | null;
+    is_new?: boolean;
+    is_fastest?: boolean;
+    trending_weekly_rank?: number | null;
   }>,
 ): OssItem[] {
-  return frameworks
+  const items = frameworks
     .map((fw) => {
       const category = fw.category ? String(fw.category) : 'agent';
       return {
@@ -57,6 +151,12 @@ export function buildOssItems(
         heatScore: Number(fw.heat_score || 0),
         sources: Array.isArray(fw.sources) ? fw.sources.map(String) : [],
         rank: fw.rank != null ? Number(fw.rank) : undefined,
+        createdAt: fw.created_at ? String(fw.created_at) : undefined,
+        starsDelta: fw.stars_delta != null ? Number(fw.stars_delta) : null,
+        starsWeekly: fw.stars_weekly != null ? Number(fw.stars_weekly) : null,
+        isNew: Boolean(fw.is_new),
+        isFastest: Boolean(fw.is_fastest),
+        trendingWeeklyRank: fw.trending_weekly_rank != null ? Number(fw.trending_weekly_rank) : null,
       };
     })
     .sort((a, b) => {
@@ -69,6 +169,7 @@ export function buildOssItems(
       if (b.heatScore !== a.heatScore) return b.heatScore - a.heatScore;
       return b.stars - a.stars;
     });
+  return annotateOssTags(items);
 }
 
 export function groupOssByCategory(items: OssItem[]) {
@@ -142,6 +243,18 @@ export function dedupeCourses(items: CourseItem[]) {
       .replace(/\/+$/, '');
     return !prefixes.some((p) => url.startsWith(p));
   });
+}
+
+export const COURSE_TRACK_SLUGS: Record<string, string> = {
+  入门: 'intro',
+  机器学习: 'ml',
+  深度学习: 'dl',
+  'LLM 大模型': 'llm',
+  'AI Agent': 'agent',
+};
+
+export function courseTrackSlug(track: string) {
+  return COURSE_TRACK_SLUGS[track] || String(track || '').toLowerCase().replace(/\s+/g, '-');
 }
 
 export function prepareCourses(

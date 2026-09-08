@@ -1,12 +1,19 @@
 ---
 import StandaloneLayout from '../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../components/StandalonePageHeader.astro';
+import SsrVideosList from '../components/SsrVideosList.astro';
 import { site } from '../lib/data';
-import { buildPageSchema } from '../lib/schema';
+import { buildPageSchema, buildVideosSchema, mergeSchemaGraphs } from '../lib/schema';
 import { homeHref } from '../lib/paths';
+import { pickHomeVideos, type VideosPayload } from '../lib/runtime';
+import { formatViews, platformLabel, prepareVideos } from '../lib/ssr-lists';
+import dailyVideos from '../../daily-videos.json';
 
 const base = site.meta.base_url;
-const title = '我的视频链接';
+const title = 'AI 视频';
+const { youtube, bilibili } = prepareVideos(dailyVideos as VideosPayload);
+const streamCount = youtube.length + bilibili.length;
+const fallbackVideos = pickHomeVideos(3, dailyVideos as VideosPayload);
 const syncCfg = (site as {
   video_preview_sync?: { api_url?: string; shared_key?: string };
 }).video_preview_sync;
@@ -20,14 +27,15 @@ const syncSharedKey =
   '';
 const cloudSyncEnabled = Boolean(syncApi);
 const sharedSyncEnabled = Boolean(syncSharedKey);
-const lead = sharedSyncEnabled
-  ? '粘贴 YouTube / B站 链接保存；任意设备打开本页即可看到同一份云端列表。'
-  : '粘贴 YouTube / B站 链接保存；云端同步后，收藏本页或复制恢复链接，换设备或清数据后打开即可恢复。';
+const lead = `YouTube / B站日更精选${streamCount ? ` · ${streamCount} 条` : ''}。首页只放今日 3 条，这里是完整列表。`;
 const canonical = `${base}videos.html`;
-const schema = buildPageSchema(title, lead, canonical, [
-  { name: '首页', url: base },
-  { name: 'AI 视频', url: canonical },
-]);
+const schema = mergeSchemaGraphs(
+  buildPageSchema(title, lead, canonical, [
+    { name: '首页', url: base },
+    { name: 'AI 视频', url: canonical },
+  ]),
+  buildVideosSchema([...youtube, ...bilibili], canonical),
+);
 ---
 
 <StandaloneLayout
@@ -50,12 +58,18 @@ const schema = buildPageSchema(title, lead, canonical, [
 >
   <div class="standalone-page">
     <StandalonePageHeader
-      crumbs={[{ label: '首页', href: homeHref() }, { label: 'AI 视频' }]}
+      crumbs={[{ label: '首页', href: homeHref() }, { label: title }]}
       title={title}
       lead={lead}
     />
+    <section class="page-section" aria-labelledby="daily-video-stream-heading">
+      <h2 class="visually-hidden" id="daily-video-stream-heading">日更视频流</h2>
+      <div id="daily-video-stream">
+        <SsrVideosList youtube={youtube} bilibili={bilibili} />
+      </div>
+    </section>
     <section class="page-section" aria-labelledby="video-preview-heading">
-      <h2 class="visually-hidden" id="video-preview-heading">粘贴链接生成预览</h2>
+      <h2 id="video-preview-heading">我的收藏</h2>
       <form class="video-preview-form" id="video-preview-form">
         <label class="visually-hidden" for="video-url-input">视频链接</label>
         <input
@@ -112,7 +126,69 @@ const schema = buildPageSchema(title, lead, canonical, [
       }
       <p class="video-preview-status" id="video-preview-status" role="status" aria-live="polite"></p>
       <div id="daily-video-list" class="daily-video-list video-preview-list" aria-live="polite">
-        <p class="daily-empty">加载本机预览…</p>
+        {
+          fallbackVideos.length ? (
+            <div data-video-fallback>
+              <p class="video-preview-fallback-note">
+                还没有本机收藏时，先看今日精选（按近期播放）。粘贴链接保存后会出现在这里。
+              </p>
+              <div class="video-grid">
+                {
+                  fallbackVideos.map((v) => (
+                    <article class="video-card">
+                      <a
+                        class="video-thumb"
+                        href={v.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        data-track="video-fallback-click"
+                      >
+                        {
+                          v.thumbnail ? (
+                            <img
+                              src={v.thumbnail}
+                              alt={v.title}
+                              loading="lazy"
+                              decoding="async"
+                              width="640"
+                              height="360"
+                              referrerpolicy={
+                                /bilibili/i.test(v.platform || v.id || '') ? 'no-referrer' : undefined
+                              }
+                            />
+                          ) : (
+                            <span class="video-thumb-empty">无封面</span>
+                          )
+                        }
+                        <span class="video-play-badge" aria-hidden="true">
+                          ▶
+                        </span>
+                        <span class="video-platform-badge">{platformLabel(v)}</span>
+                      </a>
+                      <div class="video-info">
+                        <a
+                          class="video-title"
+                          href={v.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          data-track="video-fallback-click"
+                        >
+                          {v.title}
+                        </a>
+                        <p class="video-channel">
+                          {v.author || v.channel || platformLabel(v)}
+                          {v.views ? ` · ${formatViews(v.views)}` : ''}
+                        </p>
+                      </div>
+                    </article>
+                  ))
+                }
+              </div>
+            </div>
+          ) : (
+            <p class="daily-empty">粘贴 YouTube / B站 地址后点「保存」，收藏会出现在这里。</p>
+          )
+        }
       </div>
     </section>
     <div class="standalone-cta">

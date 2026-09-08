@@ -1,13 +1,12 @@
 /* AI 知识库助手：客户端 Fuse 检索 + 可选 /api/ask */
 (function initKnowledgeAssistant() {
-  const fab = document.getElementById('knowledge-fab');
   const panel = document.getElementById('knowledge-panel');
   const closeBtn = document.getElementById('knowledge-close');
   const form = document.getElementById('knowledge-form');
   const input = document.getElementById('knowledge-input');
   const submitBtn = document.getElementById('knowledge-submit');
   const messages = document.getElementById('knowledge-messages');
-  if (!fab || !panel || !closeBtn || !form || !input || !messages) return;
+  if (!panel || !closeBtn || !form || !input || !messages) return;
 
   const FEEDBACK_KEY = 'bio-ai-lab-knowledge-feedback';
   let fuse = null;
@@ -299,10 +298,13 @@
     }
   }
 
+  function searchInput() {
+    return document.getElementById('nav-site-search') || document.querySelector('.site-search-input');
+  }
+
   function setOpen(open) {
     panel.classList.toggle('open', open);
     panel.setAttribute('aria-hidden', open ? 'false' : 'true');
-    fab.setAttribute('aria-expanded', open ? 'true' : 'false');
     document.body.classList.toggle('knowledge-panel-open', open);
     if (open) {
       syncMobileViewport();
@@ -310,9 +312,22 @@
     } else {
       resetMobileViewport();
       if (document.activeElement && panel.contains(document.activeElement)) {
-        fab.focus();
+        searchInput()?.focus();
       }
     }
+  }
+
+  function openKnowledge(opts = {}) {
+    const q = String(opts.query || '').trim();
+    setOpen(true);
+    if (!q) return;
+    input.value = q;
+    autoGrowTextarea();
+    if (opts.ask !== false) ask(q);
+  }
+
+  function closeKnowledge() {
+    setOpen(false);
   }
 
   function focusablesInPanel() {
@@ -336,7 +351,6 @@
     panel.style.top = '';
   }
 
-  fab.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
   closeBtn.addEventListener('click', () => setOpen(false));
 
   form.addEventListener('submit', (e) => {
@@ -377,6 +391,10 @@
     window.visualViewport.addEventListener('resize', syncMobileViewport);
     window.visualViewport.addEventListener('scroll', syncMobileViewport);
   }
+
+  window.BioAI = window.BioAI || {};
+  window.BioAI.openKnowledge = openKnowledge;
+  window.BioAI.closeKnowledge = closeKnowledge;
 
   loadIndex();
   autoGrowTextarea();

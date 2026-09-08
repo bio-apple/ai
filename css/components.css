@@ -294,6 +294,23 @@ html[data-theme='dark'] .content-type-local {
     0 8px 24px rgba(30, 50, 100, 0.08);
 }
 
+.site-search-kbd {
+  position: absolute;
+  right: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 2px 6px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--text-muted);
+  background: var(--bg-hover);
+  pointer-events: none;
+  z-index: 1;
+}
+
 .site-search-submit {
   position: absolute;
   right: 8px;
@@ -350,9 +367,26 @@ html[data-theme='dark'] .content-type-local {
   text-decoration: none;
 }
 
-.search-hit:hover {
+.search-hit:hover,
+.search-ask:hover {
   background: var(--bg-hover);
   color: var(--accent);
+}
+
+.search-ask,
+.search-hit-ask {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  border-top: 1px solid var(--border);
+  background: transparent;
+  text-align: left;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
 }
 
 .search-empty {
@@ -497,7 +531,7 @@ html[data-theme='dark'] .content-type-local {
 }
 
 .nav-search .site-search {
-  padding: 8px 40px 8px 12px;
+  padding: 8px 76px 8px 12px;
   font-size: 0.85rem;
   border-radius: 999px;
   box-shadow: none;
@@ -511,6 +545,16 @@ html[data-theme='dark'] .content-type-local {
 
 .nav-search .site-search-results {
   z-index: 1000;
+}
+
+@media (max-width: 720px) {
+  .site-search-kbd {
+    display: none;
+  }
+
+  .nav-search .site-search {
+    padding-right: 40px;
+  }
 }
 
 /* Compare guide cards */

@@ -98,12 +98,7 @@ function isBilibili(v: VideoItem) {
               })}
             </div>
           </div>
-        ) : (
-          <div class="video-category video-category-empty">
-            <h4 class="video-category-title">{block.label}</h4>
-            <p class="loading-hint">暂无该平台推荐</p>
-          </div>
-        ),
+        ) : null,
       )}
     </section>
   ) : (

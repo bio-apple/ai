@@ -3,6 +3,7 @@ import {
   type OssItem,
   groupOssByCategory,
   formatStars,
+  formatOssGrowth,
   OSS_CATEGORY_LABELS,
 } from '../lib/ssr-lists';
 
@@ -18,53 +19,68 @@ const groups = groupOssByCategory(items);
   items.length ? (
     <div data-ssr-oss>
       {groups.map(([cat, list]) => (
-        <section class="oss-cat-block">
+        <section class="oss-cat-block" data-oss-cat={cat}>
           <h3 class="oss-cat-block-title">{OSS_CATEGORY_LABELS[cat] || cat}</h3>
           <div class="oss-grid">
-            {list.map((item) => (
-              <article class="oss-card-item">
-                <div class="oss-card-item-head">
-                  <span class={`oss-chip oss-chip--${item.category}`}>{item.categoryLabel}</span>
-                  {
-                    item.sources?.some((s) => String(s).startsWith('trending')) && (
-                      <span class="oss-card-heat" title="来自 GitHub Trending">
-                        升温
+            {list.map((item) => {
+              const growth = formatOssGrowth(item);
+              const heated = item.sources?.some((s) => String(s).startsWith('trending'));
+              return (
+                <article class="oss-card-item" data-oss-cat={item.category}>
+                  <div class="oss-card-item-head">
+                    <div class="oss-card-tags">
+                      <span class={`oss-chip oss-chip--${item.category}`}>{item.categoryLabel}</span>
+                      {item.isNew && <span class="oss-tag oss-tag--new">上周新增</span>}
+                      {item.isFastest && <span class="oss-tag oss-tag--fast">本周上升最快</span>}
+                      {heated && (
+                        <span class="oss-card-heat" title="来自 GitHub Trending">
+                          升温
+                        </span>
+                      )}
+                    </div>
+                    <div class="oss-card-metrics">
+                      {
+                        growth && (
+                          <span class={`oss-card-delta oss-card-delta--${growth.dir}`} title={growth.title}>
+                            {growth.text}
+                          </span>
+                        )
+                      }
+                      <span class="oss-card-stars" title="GitHub Stars">
+                        <span aria-hidden="true">★</span> {formatStars(item.stars)}
                       </span>
-                    )
-                  }
-                  <span class="oss-card-stars" title="GitHub Stars">
-                    <span aria-hidden="true">★</span> {formatStars(item.stars)}
-                  </span>
-                </div>
-                <h4>
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    data-track="oss-click"
-                    data-oss-name={item.name}
-                    data-oss-category={item.category}
-                  >
-                    {item.name}
-                  </a>
-                </h4>
-                <p class="oss-card-item-repo">{item.repo}</p>
-                {item.summary && <p class="oss-card-item-summary">{item.summary}</p>}
-                <div class="oss-card-item-actions">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="oss-card-item-link"
-                    data-track="oss-open"
-                    data-oss-name={item.name}
-                    data-oss-category={item.category}
-                  >
-                    在 GitHub 打开 →
-                  </a>
-                </div>
-              </article>
-            ))}
+                    </div>
+                  </div>
+                  <h4>
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-track="oss-click"
+                      data-oss-name={item.name}
+                      data-oss-category={item.category}
+                    >
+                      {item.name}
+                    </a>
+                  </h4>
+                  <p class="oss-card-item-repo">{item.repo}</p>
+                  {item.summary && <p class="oss-card-item-summary">{item.summary}</p>}
+                  <div class="oss-card-item-actions">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="oss-card-item-link"
+                      data-track="oss-open"
+                      data-oss-name={item.name}
+                      data-oss-category={item.category}
+                    >
+                      在 GitHub 打开 →
+                    </a>
+                  </div>
+                </article>
+              );
+            })}
           </div>
         </section>
       ))}

@@ -1,5 +1,5 @@
 ---
-import { type CourseItem, formatZhDate } from '../lib/ssr-lists';
+import { type CourseItem, courseTrackSlug, formatZhDate } from '../lib/ssr-lists';
 
 interface Props {
   groups: Array<[string, CourseItem[]]>;
@@ -12,7 +12,7 @@ const { groups } = Astro.props;
   groups.length ? (
     <div data-ssr-courses>
       {groups.map(([track, list]) => (
-        <section class="courses-track-block">
+        <section class="courses-track-block" id={courseTrackSlug(track)}>
           <h3 class="courses-track-title">{track}</h3>
           <div class="courses-grid">
             {list.map((item) => {

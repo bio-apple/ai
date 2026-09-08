@@ -9,6 +9,13 @@
   margin-top: 8px;
 }
 
+#video-preview-heading {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
 .video-preview-form {
   display: flex;
   flex-wrap: wrap;
@@ -34,6 +41,13 @@
 .video-url-input:focus {
   outline: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
   border-color: var(--accent);
+}
+
+.video-preview-fallback-note {
+  margin: 0 0 12px;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 .video-preview-hint {

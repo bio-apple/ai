@@ -9,7 +9,7 @@ import KnowledgeAssistant from '../components/KnowledgeAssistant.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/data';
-import { BASE, asset, assetVersioned } from '../lib/paths';
+import { BASE, asset, assetVersioned, withAppModules } from '../lib/paths';
 import { stringifyJsonLd } from '../lib/schema';
 
 interface Props {
@@ -30,24 +30,21 @@ const {
   includeKnowledge = false,
 } = Astro.props;
 
-const scriptList = [...scripts];
+const scriptList = withAppModules([...scripts]);
 
 const knowledgeSrc = includeKnowledge ? assetVersioned('knowledge.js') : '';
-const knowledgeBoot = includeKnowledge
-  ? `(function(){var loaded=false,src=${JSON.stringify(knowledgeSrc)};function load(){if(loaded||!src)return;loaded=true;var s=document.createElement('script');s.src=src;s.defer=true;document.body.appendChild(s);}function arm(){var fab=document.getElementById('knowledge-fab');if(!fab)return;['pointerenter','focus','touchstart'].forEach(function(ev){fab.addEventListener(ev,load,{once:true,passive:true});});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',arm);else arm();if('requestIdleCallback' in window)requestIdleCallback(function(){load();},{timeout:4000});else setTimeout(load,2500);})();`
-  : '';
 
 const styleHref = assetVersioned('style.css');
+const pwaSrc = assetVersioned('lib/pwa.js');
 
-/** 次要脚本：idle / 搜索聚焦 / 热度展开时再加载，缩短首屏关键路径 */
+/** 次要脚本：idle / 搜索聚焦时再加载；热度榜已常驻，空闲即拉 engagement */
 const DEFERRED = {
   fuse: assetVersioned('vendor/fuse.min.js'),
   funnel: assetVersioned('funnel.js'),
   analytics: assetVersioned('analytics.js'),
   recommend: assetVersioned('recommend.js'),
   engagement: assetVersioned('engagement.js'),
-  videoPreviewLib: assetVersioned('lib/video-preview.js'),
-  homeVideoPreview: assetVersioned('home-video-preview.js'),
+  knowledge: knowledgeSrc,
 };
 const deferredBoot = `(function(){
   var loaded={};
@@ -56,16 +53,15 @@ const deferredBoot = `(function(){
   function idleBundle(){load(D.funnel,'funnel');load(D.analytics,'analytics');load(D.recommend,'recommend');}
   function ensureFuse(){return load(D.fuse,'fuse');}
   function ensureEngagement(){return load(D.engagement,'engagement');}
-  function ensureVideoPreview(){return load(D.videoPreviewLib,'videoPreviewLib').then(function(){return load(D.homeVideoPreview,'homeVideoPreview');});}
+  function ensureKnowledge(){return D.knowledge?load(D.knowledge,'knowledge'):Promise.resolve();}
   window.__BIOAI_ensureFuse=ensureFuse;
   window.__BIOAI_ensureEngagement=ensureEngagement;
-  window.__BIOAI_ensureVideoPreview=ensureVideoPreview;
+  window.__BIOAI_ensureKnowledge=ensureKnowledge;
   function armSearch(){document.querySelectorAll('.site-search-input').forEach(function(el){['focus','pointerdown'].forEach(function(ev){el.addEventListener(ev,function(){ensureFuse();},{once:true,passive:true});});});}
-  function armOps(){var wrap=document.getElementById('home-ops-wrap');if(!wrap)return;wrap.addEventListener('toggle',function(){if(wrap.open)ensureEngagement();});}
-  function armVideoPreview(){var host=document.getElementById('home-video-preview-list');if(!host)return;var run=function(){ensureVideoPreview();};if('IntersectionObserver' in window){var io=new IntersectionObserver(function(entries){if(entries.some(function(e){return e.isIntersecting;})){io.disconnect();run();}},{rootMargin:'240px'});io.observe(host);}else if('requestIdleCallback' in window){requestIdleCallback(run,{timeout:2500});}else{setTimeout(run,1200);}}
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){armSearch();armOps();armVideoPreview();});else{armSearch();armOps();armVideoPreview();}
-  if('requestIdleCallback' in window)requestIdleCallback(function(){idleBundle();ensureFuse();},{timeout:3500});else setTimeout(function(){idleBundle();ensureFuse();},2000);
-})();`;
+  function armOps(){if(document.getElementById('home-ops'))ensureEngagement();}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){armSearch();armOps();});else{armSearch();armOps();}
+  if('requestIdleCallback' in window)requestIdleCallback(function(){idleBundle();ensureFuse();ensureKnowledge();},{timeout:3500});else setTimeout(function(){idleBundle();ensureFuse();ensureKnowledge();},2000);
+})();`
 ---
 
 <!doctype html>
@@ -100,21 +96,6 @@ const deferredBoot = `(function(){
       #main-content {
         min-height: 40vh;
       }
-      .home-ops-details {
-        margin: 1.5rem 0;
-        border: 1px solid var(--border, #c5cdc4);
-        border-radius: 10px;
-        background: var(--bg-card, #f4f6f3);
-        padding: 0.75rem 1rem;
-      }
-      .home-ops-summary {
-        cursor: pointer;
-        font-weight: 600;
-        list-style: none;
-      }
-      .home-ops-summary::-webkit-details-marker {
-        display: none;
-      }
     </style>
     <link rel="preload" href={styleHref} as="style" />
     <link rel="stylesheet" href={styleHref} />
@@ -131,7 +112,7 @@ const deferredBoot = `(function(){
     </main>
     <Footer text={site.footer.text} links={site.footer.links || []} />
     <script is:inline set:html={deferredBoot} />
-    {knowledgeBoot && <script is:inline set:html={knowledgeBoot} />}
     {scriptList.map((src) => <script src={assetVersioned(src)} defer />)}
+    <script src={pwaSrc} defer />
   </body>
 </html>

@@ -23,7 +23,7 @@ export function asset(path: string): string {
 export function assetVersioned(path: string): string {
   const href = asset(path);
   const cleaned = String(path || '').replace(/^\//, '');
-  const candidates = [join(process.cwd(), cleaned), join(process.cwd(), 'public', cleaned)];
+  const candidates = [join(process.cwd(), 'public', cleaned), join(process.cwd(), cleaned)];
   for (const file of candidates) {
     if (!existsSync(file)) continue;
     const hash = createHash('sha1').update(readFileSync(file)).digest('hex').slice(0, 8);
@@ -34,4 +34,14 @@ export function assetVersioned(path: string): string {
 
 export function homeHref(hash = ''): string {
   return `${asset('index.html')}${hash}`;
+}
+
+/** 在 app.js 前插入已拆出的运行时模块，页面仍只需声明 app.js */
+export function withAppModules(scripts: string[]): string[] {
+  if (!scripts.includes('app.js')) return [...scripts];
+  const extras = ['lib/navigation.js', 'lib/search.js'];
+  const out = scripts.filter((s) => !extras.includes(s));
+  const i = out.indexOf('app.js');
+  out.splice(i, 0, ...extras);
+  return out;
 }

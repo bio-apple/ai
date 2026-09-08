@@ -1,4 +1,27 @@
-import { BRAND } from './data';
+import { BRAND, site } from './data';
+
+function siteUrl() {
+  return String(site.meta.canonical || site.meta.base_url || 'https://bio-apple.github.io/ai/');
+}
+
+function ogImageUrl() {
+  const raw = String(site.meta.og_image || '').trim();
+  if (raw.startsWith('https://')) return raw;
+  return `${siteUrl().replace(/\/?$/, '/')}${raw.replace(/^\//, '') || 'og-image.jpg'}`;
+}
+
+function organizationNode() {
+  return {
+    '@type': 'Organization',
+    '@id': `${siteUrl()}#org`,
+    name: BRAND,
+    url: siteUrl(),
+    logo: {
+      '@type': 'ImageObject',
+      url: ogImageUrl(),
+    },
+  };
+}
 
 /** JSON-LD 注入 HTML 时转义 `<`，防止内容打断 script 标签 */
 export function stringifyJsonLd(data: unknown): string {
@@ -99,7 +122,11 @@ export function buildPageSchema(
       name: title,
       description,
       url,
-      author: { '@type': 'Organization', name: BRAND },
+      inLanguage: 'zh-CN',
+      isPartOf: { '@type': 'WebSite', name: BRAND, url: siteUrl() },
+      primaryImageOfPage: { '@type': 'ImageObject', url: ogImageUrl() },
+      author: organizationNode(),
+      publisher: organizationNode(),
     },
     breadcrumbs,
   );
@@ -285,8 +312,102 @@ export function buildCompareSchema(
   );
 }
 
-export function buildHomeSchema(site: {
-  meta: { canonical: string; description: string };
+export function buildOssSchema(
+  items: { name: string; repo: string; summary?: string; url?: string }[],
+  pageUrl: string,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#oss`,
+        name: '开源精选',
+        description: 'GitHub 升温中的 Agent / MCP / Coding Agent 等开源项目。',
+        url: pageUrl,
+        inLanguage: 'zh-CN',
+        isPartOf: { '@type': 'WebSite', name: BRAND, url: siteUrl() },
+        mainEntity: {
+          '@type': 'ItemList',
+          name: '开源精选',
+          numberOfItems: items.length,
+          itemListElement: items.map((it, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            item: {
+              '@type': 'SoftwareSourceCode',
+              name: it.name,
+              url: it.url || `https://github.com/${it.repo}`,
+              codeRepository: `https://github.com/${it.repo}`,
+              description: it.summary || it.name,
+            },
+          })),
+        },
+      },
+    ],
+  };
+}
+
+export function buildVideosSchema(
+  items: { title: string; url: string; summary?: string; thumbnail?: string }[],
+  pageUrl: string,
+) {
+  const list = (items || []).slice(0, 24);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${pageUrl}#videos`,
+        name: 'AI 视频',
+        url: pageUrl,
+        inLanguage: 'zh-CN',
+        isPartOf: { '@type': 'WebSite', name: BRAND, url: siteUrl() },
+        mainEntity: {
+          '@type': 'ItemList',
+          name: 'AI 视频',
+          numberOfItems: list.length,
+          itemListElement: list.map((it, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            item: {
+              '@type': 'VideoObject',
+              name: it.title,
+              url: it.url,
+              description: it.summary || it.title,
+              ...(it.thumbnail ? { thumbnailUrl: it.thumbnail } : {}),
+            },
+          })),
+        },
+      },
+    ],
+  };
+}
+
+export function buildHubSchema(
+  boards: { title: string; items: { name: string; url: string; description?: string }[] }[],
+  pageUrl: string,
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': boards.map((board) => ({
+      '@type': 'ItemList',
+      name: board.title,
+      url: pageUrl,
+      numberOfItems: board.items.length,
+      itemListElement: board.items.map((it, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        name: it.name,
+        url: it.url,
+        ...(it.description ? { description: it.description } : {}),
+      })),
+    })),
+  };
+}
+
+export function buildHomeSchema(input: {
+  meta: { canonical: string; description: string; og_image?: string };
   faq?: { question: string; answer: string }[];
   rankings?: { name: string; dimension: string }[];
   oss_frameworks?: {
@@ -299,22 +420,26 @@ export function buildHomeSchema(site: {
   }[];
 }) {
   const graph: Record<string, unknown>[] = [
+    organizationNode(),
     {
       '@type': 'WebSite',
+      '@id': `${input.meta.canonical}#website`,
       name: BRAND,
-      url: site.meta.canonical,
-      description: site.meta.description,
+      url: input.meta.canonical,
+      description: input.meta.description,
       inLanguage: 'zh-CN',
+      image: ogImageUrl(),
+      publisher: { '@id': `${siteUrl()}#org` },
       potentialAction: {
         '@type': 'SearchAction',
-        target: `${site.meta.canonical}?q={search_term_string}`,
+        target: `${input.meta.canonical}?q={search_term_string}`,
         'query-input': 'required name=search_term_string',
       },
     },
     {
       '@type': 'ItemList',
       name: 'AI 工具排行榜（AICPB / LMSYS / Artificial Analysis 三榜）',
-      itemListElement: (site.rankings || []).map((row, i) => ({
+      itemListElement: (input.rankings || []).map((row, i) => ({
         '@type': 'ListItem',
         position: i + 1,
         name: row.name,
@@ -323,7 +448,7 @@ export function buildHomeSchema(site: {
     },
   ];
 
-  const faq = site.faq || [];
+  const faq = input.faq || [];
   if (faq.length) {
     graph.push({
       '@type': 'FAQPage',
@@ -335,7 +460,7 @@ export function buildHomeSchema(site: {
     });
   }
 
-  const oss = [...(site.oss_frameworks || [])]
+  const oss = [...(input.oss_frameworks || [])]
     .map((fw) => ({
       ...fw,
       stars: Number(fw.stars || 0),

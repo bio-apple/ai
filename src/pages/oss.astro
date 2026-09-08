@@ -3,20 +3,24 @@ import StandaloneLayout from '../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../components/StandalonePageHeader.astro';
 import SsrOssList from '../components/SsrOssList.astro';
 import { site } from '../lib/data';
-import { buildPageSchema } from '../lib/schema';
+import { buildOssSchema, buildPageSchema, mergeSchemaGraphs } from '../lib/schema';
 import { homeHref } from '../lib/paths';
-import { buildOssItems } from '../lib/ssr-lists';
+import { buildOssItems, ossToolbarCategories } from '../lib/ssr-lists';
 
 const base = site.meta.base_url;
 const title = '开源精选';
 const lead =
   '收集近期 GitHub 上正在升温的 AI 开源项目（非纯 Star 榜，入选至少 ★1 万）。数据源：GitHub Trending + Search/API；重点：Agent / MCP / Coding Agent / Agent Harness / Skills / Memory；每天更新，每方向最多 Top 3。';
 const items = buildOssItems(site.oss_frameworks || []);
+const toolbar = ossToolbarCategories(items);
 const canonical = `${base}oss.html`;
-const schema = buildPageSchema(title, lead, canonical, [
-  { name: '首页', url: base },
-  { name: title, url: canonical },
-]);
+const schema = mergeSchemaGraphs(
+  buildPageSchema(title, lead, canonical, [
+    { name: '首页', url: base },
+    { name: title, url: canonical },
+  ]),
+  buildOssSchema(items, canonical),
+);
 ---
 
 <StandaloneLayout
@@ -43,7 +47,20 @@ const schema = buildPageSchema(title, lead, canonical, [
       metaId="oss-update-meta"
     />
     <section class="page-section">
-      <div class="video-toolbar" id="oss-toolbar"></div>
+      <nav class="oss-toolbar" id="oss-toolbar" aria-label="按方向筛选">
+        <span class="oss-toolbar-label">方向</span>
+        {
+          toolbar.map((c) => (
+            <a
+              class:list={['oss-filter', { active: c.id === 'all' }]}
+              href={`#${c.id}`}
+              data-oss-category={c.id}
+            >
+              {c.label} · {c.count}
+            </a>
+          ))
+        }
+      </nav>
       <div id="oss-list" class="oss-list">
         <SsrOssList items={items} />
       </div>

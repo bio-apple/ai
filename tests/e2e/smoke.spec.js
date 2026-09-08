@@ -26,11 +26,7 @@ async function waitSearchReady(page) {
   }
 }
 
-async function openHomeOps(page) {
-  const wrap = page.locator('#home-ops-wrap');
-  if (!(await wrap.getAttribute('open'))) {
-    await wrap.locator('summary').click();
-  }
+async function waitHomeOps(page) {
   await expect(page.locator('#home-ops')).toBeVisible();
   await expect
     .poll(async () => (await page.locator('#ops-views').textContent())?.trim() !== '—', {
@@ -45,13 +41,28 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('h1')).toContainText('先说要做什么');
     await expect(page.locator('#home-ai-map')).toBeVisible();
     await expect(page.locator('#home-ai-map .ai-map')).toBeVisible();
+    await expect(page.locator('#home-ai-map a.ai-map-node[data-map-node="dl"]')).toBeVisible();
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
     await expect(page.locator('main#main-content')).toHaveCount(1);
     await expect(page.locator('.hero-brand')).toContainText('Bio AI Lab');
     await expect(page.locator('.home-quick-filters')).toHaveCount(0);
     await expect(page.locator('#home-recommend')).toBeVisible();
     await expect(page.locator('#home-daily')).toBeVisible();
-    await expect(page.locator('#home-video-preview-list')).toBeVisible();
+    await expect(page.locator('#home-ops')).toBeVisible();
+    await expect(page.locator('#home-ops .section-title')).toContainText('热门排行榜');
+    await expect(page.locator('#home-ops-wrap')).toHaveCount(0);
+    await expect(page.locator('#daily-github-list a').first()).toBeVisible();
+    await expect(page.locator('#daily-github-list')).not.toContainText('暂无 GitHub 动态');
+    await expect(page.locator('#home-video-picks')).toBeVisible();
+    await expect(page.locator('.daily-panel--videos .daily-panel-title')).toContainText(
+      '今日 3 个值得看的 AI 视频',
+    );
+    await expect(page.locator('#home-video-picks .home-video-teaser')).toHaveCount(3);
+    await expect(page.locator('.daily-panel--videos .daily-more')).toHaveAttribute(
+      'href',
+      /videos\.html$/,
+    );
+    await expect(page.locator('.daily-panel--videos .daily-more')).toContainText('查看全部');
     await expect(page.locator('#section-oss')).toHaveCount(0);
     await expect(page.locator('#section-courses')).toHaveCount(0);
     await expect(page.locator('.nav-link-page', { hasText: '开源精选' })).toHaveAttribute(
@@ -71,41 +82,50 @@ test.describe('Bio AI Lab 关键路径', () => {
       /videos\.html$/,
     );
     await expect(page.locator('#home-community a[href$="oss.html"]')).toBeVisible();
-    await expect(page.locator('#knowledge-fab')).toBeVisible();
+    await expect(page.locator('#home-faq')).toBeVisible();
+    await expect(page.locator('#faq-cursor-vs-copilot')).toBeVisible();
+    await expect(page.locator('#knowledge-fab')).toHaveCount(0);
+    await expect(page.locator('#knowledge-panel')).toHaveCount(1);
+    await expect(page.locator('#knowledge-panel')).toHaveAttribute('aria-hidden', 'true');
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Bio AI Lab/);
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /^https:\/\//);
+    await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
+    await expect(page.locator('link[rel="manifest"]')).toHaveAttribute('href', /manifest\.webmanifest/);
   });
 
-  test('首页视频预览读取本机 localStorage', async ({ page }) => {
-    await gotoHome(page);
-    await page.evaluate(() => {
-      localStorage.setItem(
-        'bioai.video.preview.v2',
-        JSON.stringify([
-          {
-            url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-            title: '测试视频标题',
-            author: '测试作者',
-            thumbnail: 'https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg',
-            platform: 'youtube',
-            kind: 'video',
-            id: 'dQw4w9WgXcQ',
-          },
-        ]),
-      );
-    });
-    await page.reload({ waitUntil: 'domcontentloaded' });
-    await page.evaluate(async () => {
-      if (typeof window.__BIOAI_ensureVideoPreview === 'function') {
-        await window.__BIOAI_ensureVideoPreview();
-      }
-    });
-    await expect(page.locator('#home-video-preview-list .home-video-teaser')).toHaveCount(1);
-    await expect(page.locator('.home-video-teaser-title')).toContainText('测试视频标题');
+  test('FAQ 展开后可跳到对比页', async ({ page }) => {
+    await gotoHome(page, '#faq-cursor-vs-copilot');
+    const item = page.locator('#faq-cursor-vs-copilot');
+    await expect(item).toHaveJSProperty('open', true);
+    await expect(item.locator('.home-faq-link')).toHaveAttribute(
+      'href',
+      /compare\/cursor-vs-copilot\.html$/,
+    );
+    await item.locator('.home-faq-link').click();
+    await expect(page).toHaveURL(/compare\/cursor-vs-copilot\.html/);
+    await expect(page.locator('h1')).toBeVisible();
   });
 
-  test('今日热度默认折叠，展开后加载数据', async ({ page }) => {
+  test('知识版图点击跳到对应课程列表', async ({ page }) => {
     await gotoHome(page);
-    await expect(page.locator('#home-ops-wrap')).not.toHaveAttribute('open', /.*/);
-    await openHomeOps(page);
+    await expect(page.locator('#home-ai-map a.ai-map-node[data-map-node="nlp"]')).toHaveAttribute(
+      'href',
+      /courses\.html#llm$/,
+    );
+    await page.locator('#home-ai-map a.ai-map-node[data-map-node="dl"]').click();
+    await expect(page).toHaveURL(/courses\.html#dl/);
+    await expect(page.locator('#courses-list .course-card').first()).toBeVisible();
+    await expect
+      .poll(async () => page.locator('#courses-list .course-card').count())
+      .toBe(2);
+    await expect(page.locator('#courses-toolbar [data-course-track="深度学习"]')).toHaveClass(
+      /active/,
+    );
+  });
+
+  test('热门排行榜默认可见并加载数据', async ({ page }) => {
+    await gotoHome(page);
+    await waitHomeOps(page);
     await expect(page.locator('#ops-views')).not.toHaveText('—');
     await expect(
       page.locator('#ops-trend-list .ops-trend-item, #ops-trend-list li').first(),
@@ -131,19 +151,28 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('index.html#section-videos', { waitUntil: 'domcontentloaded' });
     await expect(page).toHaveURL(/videos\.html/);
+    await expect(page.locator('#daily-video-stream [data-ssr-videos]')).toBeVisible();
     await expect(page.locator('#video-preview-form')).toBeVisible();
-    await expect(page.locator('#video-url-input')).toBeVisible();
   });
 
   test('专区独立页 SSG + 面包屑', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('oss.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('开源精选');
+    await expect(page.locator('#oss-toolbar .oss-filter').first()).toBeVisible();
     await expect(page.locator('#oss-list .oss-card-item').first()).toBeVisible();
     await expect
       .poll(async () => page.locator('#oss-list .oss-card-item').count())
       .toBeGreaterThanOrEqual(6);
     await expect(page.locator('#oss-list .oss-cat-block-title').first()).toBeVisible();
+    await expect(page.locator('#oss-list .oss-card-delta').first()).toBeVisible();
+    const mcpFilter = page.locator('#oss-toolbar .oss-filter[data-oss-category="mcp"]');
+    if (await mcpFilter.count()) {
+      await mcpFilter.click();
+      await expect(page).toHaveURL(/oss\.html#mcp/);
+      await expect(page.locator('#oss-list .oss-card-item').first()).toBeVisible();
+      await expect(page.locator('#oss-list [data-oss-cat="mcp"]').first()).toBeVisible();
+    }
 
     await page.goto('courses.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('课程资源');
@@ -151,9 +180,16 @@ test.describe('Bio AI Lab 关键路径', () => {
 
     await page.goto('videos.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('AI 视频');
-    await expect(page.locator('h1')).toContainText('我的视频链接');
+    await expect(page.locator('h1')).toContainText('AI 视频');
+    await expect(page.locator('#daily-video-stream .video-card').first()).toBeVisible();
+    await expect
+      .poll(async () => page.locator('#daily-video-stream .video-card').count())
+      .toBeGreaterThan(3);
     await expect(page.locator('#video-preview-form')).toBeVisible();
-    await expect(page.locator('#video-url-input')).toBeVisible();
+    await expect(page.locator('#daily-video-list')).not.toContainText('加载本机预览');
+    await expect(
+      page.locator('#daily-video-list .video-card, #daily-video-list [data-video-fallback]').first(),
+    ).toBeVisible();
 
     await page.goto('news/daily-ai-news.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('新闻热点');
@@ -175,16 +211,29 @@ test.describe('Bio AI Lab 关键路径', () => {
   test('站内搜索与规则产物', async ({ page }) => {
     await gotoHome(page);
     await expect.poll(async () => (await page.request.get('search-index.json')).ok()).toBeTruthy();
-    await page.locator('#site-search').focus();
+    await page.locator('#nav-site-search').focus();
     await waitSearchReady(page);
-    await page.locator('#site-search').fill('ChatGPT');
-    const heroResults = page.locator('#site-search-results');
-    await expect(heroResults.locator('a.search-hit').first()).toHaveAttribute(
+    await page.locator('#nav-site-search').fill('ChatGPT');
+    const navResults = page.locator('#nav-site-search-results');
+    await expect(navResults.locator('a.search-hit').first()).toHaveAttribute(
       'href',
       /tools\/chatgpt\.html/,
     );
-    await page.locator('#site-search').press('Enter');
+    await page.locator('#nav-site-search').press('Enter');
     await expect(page).toHaveURL(/tools\/chatgpt\.html/);
+  });
+
+  test('Cmd/Ctrl+K 打开顶栏搜索并可问知识库', async ({ page }) => {
+    await gotoHome(page);
+    await page.keyboard.press('Control+k');
+    await expect(page.locator('#nav-site-search')).toBeFocused();
+    await waitSearchReady(page);
+    await page.locator('#nav-site-search').fill('Cursor 怎么写代码');
+    await page.locator('#nav-site-search-results [data-action="ask-knowledge"]').click();
+    await expect(page.locator('#knowledge-panel')).toHaveAttribute('aria-hidden', 'false');
+    await expect(page.locator('#knowledge-messages .knowledge-msg.user')).toContainText(
+      'Cursor 怎么写代码',
+    );
   });
 
   test('顶栏工具中心', async ({ page }) => {

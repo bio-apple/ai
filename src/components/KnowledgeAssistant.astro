@@ -1,12 +1,9 @@
-<button
-  type="button"
-  class="knowledge-fab"
-  id="knowledge-fab"
-  aria-label="打开 AI 知识库助手"
-  aria-expanded="false"
-  aria-controls="knowledge-panel"
-  title="AI 知识库">💡</button
->
+---
+/**
+ * 知识库对话面板。入口收在顶栏搜索（⌘K / Ctrl+K），不再单独放悬浮按钮。
+ */
+---
+
 <div
   class="knowledge-panel"
   id="knowledge-panel"
@@ -22,11 +19,11 @@
   <div class="knowledge-messages" id="knowledge-messages" aria-live="polite">
     <div class="knowledge-msg bot" data-msg-id="welcome">
       <div class="knowledge-msg-body">
-        你好！可问我站内工具、课程、实战案例或视频，例如「Cursor 怎么写代码」「免费 AI 课程」。
+        你好！可问我站内工具、课程、实战案例或视频，例如「Cursor 怎么写代码」「免费 AI 课程」。也可从顶栏搜索打开我。
       </div>
     </div>
   </div>
-  <p class="knowledge-hint">Enter 发送 · Shift+Enter 换行 · 基于站内索引检索</p>
+  <p class="knowledge-hint">Enter 发送 · Shift+Enter 换行 · Esc 关闭 · 基于站内索引检索</p>
   <form class="knowledge-form" id="knowledge-form">
     <div class="knowledge-composer">
       <textarea

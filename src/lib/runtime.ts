@@ -9,6 +9,9 @@ export function loadRuntimeJson<T = unknown>(name: string): T | null {
     path.join(ROOT, name),
     path.join(ROOT, 'public', name),
     path.join(ROOT, 'data', name),
+    path.join(process.cwd(), name),
+    path.join(process.cwd(), 'public', name),
+    path.join(process.cwd(), 'data', name),
   ];
   for (const file of candidates) {
     if (!existsSync(file)) continue;
@@ -206,34 +209,79 @@ export function pickHomeNews(limit = 4): NewsItem[] {
   return dedupeNewsItems(data?.items || []).slice(0, limit);
 }
 
-export function pickHomeVideos(limit = 3): VideoItem[] {
-  const data = loadRuntimeJson<VideosPayload>('daily-videos.json');
-  const batch = data?.batches?.[0];
+function sortVideosByViews(list: VideoItem[]): VideoItem[] {
+  return [...list].sort((a, b) => (b.views || 0) - (a.views || 0));
+}
+
+/** 首页只放今日 3 条：先 24h 高播放，不足再补 30d。完整流在 videos.html。 */
+export function pickHomeVideos(
+  limit = 3,
+  data?: VideosPayload | null,
+): VideoItem[] {
+  const payload = data ?? loadRuntimeJson<VideosPayload>('daily-videos.json');
+  const batch = payload?.batches?.[0];
   if (!batch) return [];
+  const cats = batch.categories || {};
+  const pools = batch.categories
+    ? [
+        [...(cats.youtube_recent_24h?.videos || []), ...(cats.bilibili_recent_24h?.videos || [])],
+        [...(cats.youtube_recent_30d?.videos || []), ...(cats.bilibili_recent_30d?.videos || [])],
+        Object.values(cats).flatMap((cat) => cat.videos || []),
+      ]
+    : [batch.videos || []];
   const seen = new Set<string>();
-  const flat: VideoItem[] = [];
-  if (batch.categories) {
-    for (const cat of Object.values(batch.categories)) {
-      for (const v of cat.videos || []) {
-        if (seen.has(v.id)) continue;
-        seen.add(v.id);
-        flat.push(v);
-      }
-    }
-  } else {
-    for (const v of batch.videos || []) {
-      if (seen.has(v.id)) continue;
+  const out: VideoItem[] = [];
+  for (const pool of pools) {
+    for (const v of sortVideosByViews(pool)) {
+      if (!v?.id || seen.has(v.id)) continue;
       seen.add(v.id);
-      flat.push(v);
+      out.push(v);
+      if (out.length >= limit) return out;
     }
   }
-  return flat
-    .sort((a, b) => {
-      const ta = a.published_at ? Date.parse(a.published_at) : 0;
-      const tb = b.published_at ? Date.parse(b.published_at) : 0;
-      return tb - ta;
-    })
-    .slice(0, limit);
+  return out;
+}
+
+export type OssHeatRow = {
+  repo?: string;
+  name?: string;
+  stars?: number;
+  summary?: string;
+  heat_score?: number;
+  stars_weekly?: number | null;
+  trending_weekly_rank?: number | null;
+  is_fastest?: boolean;
+};
+
+function ossWeeklyRise(fw: OssHeatRow): number {
+  if (fw.trending_weekly_rank != null && Number(fw.trending_weekly_rank) > 0) {
+    return 1_000_000 - Number(fw.trending_weekly_rank);
+  }
+  if (fw.stars_weekly) return Number(fw.stars_weekly);
+  if (fw.is_fastest) return Number(fw.heat_score || 0) + 500;
+  return Number(fw.heat_score || 0);
+}
+
+function loadOssHeatRows(): OssHeatRow[] {
+  const payload = loadRuntimeJson<{ items?: OssHeatRow[] }>('oss-projects.json');
+  if (Array.isArray(payload?.items) && payload.items.length) return payload.items;
+  const site = loadRuntimeJson<{ oss_frameworks?: OssHeatRow[] }>('site.json');
+  return site?.oss_frameworks || [];
+}
+
+/** 本周开源升温 Top N：优先 weekly Trending，其次周均 Star / 加热分。 */
+export function pickOssWeeklyTop(limit = 3, rows?: OssHeatRow[]): NewsItem[] {
+  const list = (rows || loadOssHeatRows()).filter((r) => r.repo && r.name);
+  return [...list]
+    .sort((a, b) => ossWeeklyRise(b) - ossWeeklyRise(a))
+    .slice(0, limit)
+    .map((fw) => ({
+      title: String(fw.name),
+      url: `https://github.com/${fw.repo}`,
+      summary: fw.summary,
+      source: 'GitHub',
+      category: '本周升温',
+    }));
 }
 
 export type AiDailyBrief = {
@@ -243,6 +291,7 @@ export type AiDailyBrief = {
   github: NewsItem[];
   /** 全量 GitHub 源资讯（供虚拟列表，可远大于 github 预览条数） */
   githubAll?: NewsItem[];
+  githubFromOss?: boolean;
   learn: VideoItem[];
 };
 
@@ -270,7 +319,9 @@ export function pickAiDailyBrief(
     (i) => /行业|中文|工具/.test(i.category || '') && !models.includes(i),
     limits.industry,
   );
-  const githubAll = items.filter((i) => /GitHub/i.test(i.source || ''));
+  const githubNews = items.filter((i) => /GitHub/i.test(i.source || ''));
+  const githubFromOss = githubNews.length === 0;
+  const githubAll = githubFromOss ? pickOssWeeklyTop(Math.max(limits.github, 3)) : githubNews;
   const github = githubAll.slice(0, limits.github);
   return {
     updatedAt: news?.updated_at,
@@ -280,6 +331,7 @@ export function pickAiDailyBrief(
       : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
     github,
     githubAll,
+    githubFromOss,
     learn: pickHomeVideos(limits.learn),
   };
 }

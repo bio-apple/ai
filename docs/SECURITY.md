@@ -88,7 +88,7 @@ cp .env.local.example .env.local
 
 - `script-src-attr 'none'` — 禁止内联事件处理器（`onclick` 等）
 - `frame-src 'none'` / `frame-ancestors 'none'` — 禁止被嵌入 iframe
-- `worker-src 'none'` — 禁止 Service Worker 滥用
+- `worker-src 'self'` — 仅允许同域 Service Worker（PWA 离线缓存），禁止 blob/跨域 Worker
 - `object-src 'none'` — 禁止 Flash 等插件
 - `style-src-attr 'unsafe-inline'` — 允许 Astro 模板中的 `style=` 属性（与 `style-src` 分离）
 

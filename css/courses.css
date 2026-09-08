@@ -1,7 +1,56 @@
 /* AI 课程资源 · 按学习路线 */
 
+#courses-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin: 0 0 20px;
+}
+
+#courses-toolbar .video-toolbar-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+#courses-toolbar .video-toolbar-label {
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--text-muted);
+}
+
+#courses-toolbar .video-filter {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+#courses-toolbar .video-filter:hover {
+  color: var(--text);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+}
+
+#courses-toolbar .video-filter.active {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+}
+
 .courses-track-block {
   margin-bottom: 28px;
+  scroll-margin-top: 88px;
 }
 
 .courses-track-title {

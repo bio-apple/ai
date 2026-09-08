@@ -444,6 +444,7 @@ def merge_candidates(
             "trending_daily_rank": row.get("trending_daily_rank"),
             "trending_weekly_rank": row.get("trending_weekly_rank"),
             "pushed_at": row["pushed_at"].isoformat() if row.get("pushed_at") else None,
+            "created_at": row["created_at"].isoformat() if row.get("created_at") else None,
         }
     return classified
 
@@ -464,6 +465,54 @@ def pick_top(classified: dict[str, dict[str, Any]], directions: list[dict[str, A
     return picked
 
 
+def annotate_growth(
+    picked: list[dict[str, Any]],
+    previous_items: list[dict[str, Any]] | None,
+) -> list[dict[str, Any]]:
+    """静态增长数字 + 上周新增 / 本周上升最快。"""
+    prev_stars = {
+        str(i.get("repo")): int(i.get("stars") or 0) for i in (previous_items or []) if i.get("repo")
+    }
+    now = now_cst()
+    for it in picked:
+        raw_created = it.get("created_at")
+        if isinstance(raw_created, datetime):
+            created = raw_created if raw_created.tzinfo else raw_created.replace(tzinfo=timezone.utc)
+            created = created.astimezone(TZ)
+        else:
+            created = parse_iso(raw_created) if isinstance(raw_created, str) else None
+        stars = int(it.get("stars") or 0)
+        if created:
+            it["created_at"] = created.isoformat()
+            age_days = max((now - created).total_seconds() / 86400.0, 1.0)
+            it["stars_weekly"] = int(round(stars / age_days * 7))
+            it["is_new"] = (now - created).days <= 7
+        else:
+            it["stars_weekly"] = None
+            it["is_new"] = False
+        prev = prev_stars.get(it.get("repo"))
+        it["stars_delta"] = (stars - prev) if prev is not None else None
+        it["is_fastest"] = False
+
+    by_cat: dict[str, list[dict[str, Any]]] = {}
+    for it in picked:
+        by_cat.setdefault(str(it.get("category") or "other"), []).append(it)
+    for rows in by_cat.values():
+        def rise_key(r: dict[str, Any]) -> float:
+            delta = r.get("stars_delta")
+            if delta:
+                return float(delta)
+            weekly_rank = r.get("trending_weekly_rank")
+            if weekly_rank is not None:
+                return 1000.0 - float(weekly_rank)
+            return float(r.get("stars_weekly") or 0)
+
+        best = max(rows, key=rise_key)
+        if rise_key(best) > 0:
+            best["is_fastest"] = True
+    return picked
+
+
 def sync_site_json(items: list[dict[str, Any]]) -> None:
     site = load_json(SITE_FILE)
     if not isinstance(site, dict):
@@ -478,6 +527,12 @@ def sync_site_json(items: list[dict[str, Any]]) -> None:
             "heat_score": it["heat_score"],
             "sources": it.get("sources") or [],
             "rank": it.get("rank"),
+            "created_at": it.get("created_at"),
+            "stars_delta": it.get("stars_delta"),
+            "stars_weekly": it.get("stars_weekly"),
+            "is_new": bool(it.get("is_new")),
+            "is_fastest": bool(it.get("is_fastest")),
+            "trending_weekly_rank": it.get("trending_weekly_rank"),
         }
         for it in items
     ]
@@ -496,6 +551,9 @@ def main() -> int:
     classified = merge_candidates(trending, search_hits, directions, cfg)
     max_n = int(cfg.get("max_per_direction", 3))
     picked = pick_top(classified, directions, max_n)
+    previous = load_json(OUT_FILE)
+    prev_items = previous.get("items") if isinstance(previous, dict) else []
+    picked = annotate_growth(picked, prev_items if isinstance(prev_items, list) else [])
 
     if len(picked) < max(3, len(directions)):
         print(
@@ -513,7 +571,6 @@ def main() -> int:
         "items": picked,
     }
 
-    previous = load_json(OUT_FILE)
     if len(picked) == 0 and isinstance(previous, dict) and previous.get("items"):
         print("错误：本次无结果，保留上一版 oss-projects.json", file=sys.stderr)
         return 1
@@ -525,5 +582,34 @@ def main() -> int:
     return 0
 
 
+def annotate_existing() -> int:
+    """给当前 oss-projects.json 补 created_at / 增长标签，不重新抓 Trending。"""
+    data = load_json(OUT_FILE)
+    if not isinstance(data, dict) or not data.get("items"):
+        print("无可用的 oss-projects.json", file=sys.stderr)
+        return 1
+    items = list(data["items"])
+    for it in items:
+        if it.get("created_at"):
+            continue
+        repo = it.get("repo")
+        if not repo:
+            continue
+        api = hydrate_repo(str(repo))
+        if not api:
+            print(f"warn: 无法读取 {repo} created_at", file=sys.stderr)
+            continue
+        it["created_at"] = api.get("created_at")
+        print(f"created_at {repo} {it['created_at']}")
+    items = annotate_growth(items, previous_items=[])
+    data["items"] = items
+    atomic_write_json(OUT_FILE, data)
+    sync_site_json(items)
+    print(f"annotated {len(items)} items")
+    return 0
+
+
 if __name__ == "__main__":
+    if "--annotate-existing" in sys.argv:
+        raise SystemExit(annotate_existing())
     raise SystemExit(main())

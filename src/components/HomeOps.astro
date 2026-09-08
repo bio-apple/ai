@@ -1,21 +1,21 @@
 ---
 /**
- * 数据运营：浏览量 / 点击量 + 今日热榜（engagement.js 填充）
- * 默认收在 details 内，降低首页噪音。
+ * 首页热门排行榜：浏览 / 点击 + 今日热榜（engagement.js 填充）
+ * 与 AI 简报并排，默认展开，避免被 details 折叠淹没。
  */
 ---
 
-<section class="home-section" id="home-ops" data-ops-ready="0">
-  <div class="section-head section-head-row">
-    <div>
-      <h2 class="section-title">今日热度</h2>
-      <p class="section-desc">浏览 · 点击；站点基准定时同步，本机互动即时累加</p>
-    </div>
-    <p class="ops-updated" id="ops-updated" aria-live="polite">
-      <span class="ops-live-dot" aria-hidden="true"></span>
-      <span id="ops-updated-text">打开后同步…</span>
-    </p>
+<section class="home-section fade-in home-ops-rank" id="home-ops" data-ops-ready="0">
+  <div class="section-head">
+    <p class="section-kicker">今日热度</p>
+    <h2 class="section-title">热门排行榜</h2>
+    <p class="section-desc">按今日点击排序 · 本机互动即时累加</p>
   </div>
+
+  <p class="ops-updated" id="ops-updated" aria-live="polite">
+    <span class="ops-live-dot" aria-hidden="true"></span>
+    <span id="ops-updated-text">同步中…</span>
+  </p>
 
   <div class="ops-summary" role="group" aria-label="关键指标">
     <div class="ops-stat">
@@ -30,11 +30,11 @@
 
   <div class="ops-trend">
     <div class="ops-trend-head">
-      <h3 class="ops-trend-title">最近更新</h3>
-      <span class="ops-trend-hint">按今日点击排序</span>
+      <h3 class="ops-trend-title">今日热榜</h3>
+      <span class="ops-trend-hint">Top 6</span>
     </div>
     <ul class="ops-trend-list" id="ops-trend-list">
-      <li class="ops-trend-empty">展开后加载热度…</li>
+      <li class="ops-trend-empty">正在加载热度…</li>
     </ul>
   </div>
 </section>

@@ -4,8 +4,9 @@
 
 ## 1. 全站搜索
 
-- 顶栏 + Hero；`search-index.json` + Fuse.js（`app.js`）
+- 顶栏唯一入口（`⌘K` / `Ctrl+K`）；`search-index.json` + Fuse.js（`lib/search.js`）
 - 工具名可直达 `tools/*.html`；历史存 `localStorage`
+- 下拉可「用知识库回答」，打开同一套对话面板（无右侧悬浮按钮）
 
 ## 2. 推荐助手
 
@@ -32,9 +33,16 @@
 
 ## 7. SEO（摘要）
 
-- TDK / OG：`data/site.json` → `meta`
-- JSON-LD：`src/lib/schema.ts`（工具 / 课程 / 新闻 / 开源 ItemList + BreadcrumbList）
+- TDK / OG / Twitter：`SeoHead.astro` + `data/site.json` → `meta`（`og:title` / `og:description` / `og:image`）
+- JSON-LD：`src/lib/schema.ts`（WebSite / Organization / 工具 / 课程 / 新闻 / 开源 / 视频 ItemList + BreadcrumbList）
 - 校验：`DIST=dist python3 scripts/validate_ci.py opengraph jsonld`
+
+## 10. PWA 离线
+
+- `manifest.webmanifest` + `sw.js`（同域，scope `/ai/`）
+- 预缓存首页 / 开源 / 课程 / 工具中心 / `search-index.json` / 知识库脚本
+- JSON 走 stale-while-revalidate；无网导航回退已缓存首页
+- CSP：`worker-src 'self'`；`sw.js` 不长缓存（`max-age=0`）
 
 ## 8. AI 视频（两套）
 

@@ -1,0 +1,20 @@
+{
+  "id": "/ai/",
+  "name": "Bio AI Lab",
+  "short_name": "Bio AI Lab",
+  "description": "AI 工具导航、开源精选、课程与知识库台账。",
+  "start_url": "/ai/",
+  "scope": "/ai/",
+  "display": "standalone",
+  "background_color": "#e4e9e6",
+  "theme_color": "#2f6b3a",
+  "lang": "zh-CN",
+  "icons": [
+    {
+      "src": "/ai/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

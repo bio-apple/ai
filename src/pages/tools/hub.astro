@@ -4,7 +4,7 @@ import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import RankingBoardPanels from '../../components/RankingBoardPanels.astro';
 import { site } from '../../lib/data';
 import { buildHubRankingBoards, hubRankingMeta, HUB_RANKING_TOP_N } from '../../lib/hub';
-import { buildPageSchema } from '../../lib/schema';
+import { buildHubSchema, buildPageSchema, mergeSchemaGraphs } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
 const page = site.tools_hub_page;
@@ -13,11 +13,14 @@ const breadcrumbs = [
   { name: '首页', url: `${base}` },
   { name: '工具中心', url: `${base}tools/hub.html` },
 ];
-const schema = buildPageSchema(page.title, page.lead, `${base}tools/hub.html`, breadcrumbs);
 const boards = buildHubRankingBoards(HUB_RANKING_TOP_N).map((board) => ({
   ...board,
   subtitle: `${board.subtitle} · Top ${board.items.length}`,
 }));
+const schema = mergeSchemaGraphs(
+  buildPageSchema(page.title, page.lead, `${base}tools/hub.html`, breadcrumbs),
+  buildHubSchema(boards, `${base}tools/hub.html`),
+);
 const rankMeta = hubRankingMeta();
 ---
 

@@ -2,6 +2,36 @@ const COURSES_JSON = 'ai-courses.json';
 
 const DEFAULT_TRACK_ORDER = ['入门', '机器学习', '深度学习', 'LLM 大模型', 'AI Agent'];
 
+const COURSE_TRACK_SLUGS = {
+  入门: 'intro',
+  机器学习: 'ml',
+  深度学习: 'dl',
+  'LLM 大模型': 'llm',
+  'AI Agent': 'agent',
+};
+
+const COURSE_SLUG_TO_TRACK = {
+  all: 'all',
+  intro: '入门',
+  入门: '入门',
+  ml: '机器学习',
+  'machine-learning': '机器学习',
+  机器学习: '机器学习',
+  dl: '深度学习',
+  'deep-learning': '深度学习',
+  深度学习: '深度学习',
+  cv: '深度学习',
+  vision: '深度学习',
+  speech: '深度学习',
+  llm: 'LLM 大模型',
+  nlp: 'LLM 大模型',
+  'llm-大模型': 'LLM 大模型',
+  'LLM 大模型': 'LLM 大模型',
+  agent: 'AI Agent',
+  'ai-agent': 'AI Agent',
+  'AI Agent': 'AI Agent',
+};
+
 let coursesDataPromise = null;
 let coursesState = { track: 'all', platform: 'all', items: [], trackOrder: DEFAULT_TRACK_ORDER };
 
@@ -113,12 +143,13 @@ function renderCoursesGrid(items) {
     return '<p class="loading-hint">当前筛选下暂无课程，请切换路线或平台。</p>';
   }
   if (coursesState.track !== 'all') {
-    return `<div class="courses-grid">${items.map(renderCourseCard).join('')}</div>`;
+    const slug = courseTrackSlug(coursesState.track);
+    return `<section class="courses-track-block" id="${html(slug)}"><div class="courses-grid">${items.map(renderCourseCard).join('')}</div></section>`;
   }
   return groupByTrack(items)
     .map(
       ([track, list]) => `
-      <section class="courses-track-block">
+      <section class="courses-track-block" id="${html(courseTrackSlug(track))}">
         <h3 class="courses-track-title">${html(track)}</h3>
         <div class="courses-grid">${list.map(renderCourseCard).join('')}</div>
       </section>
@@ -129,6 +160,23 @@ function renderCoursesGrid(items) {
 
 function uniqueValues(items, key) {
   return [...new Set((items || []).map((i) => i[key]).filter(Boolean))];
+}
+
+function courseTrackSlug(track) {
+  if (!track || track === 'all') return 'all';
+  return COURSE_TRACK_SLUGS[track] || String(track).toLowerCase().replace(/\s+/g, '-');
+}
+
+function trackFromHash() {
+  const raw = decodeURIComponent((location.hash || '').replace(/^#/, '')).trim();
+  if (!raw || raw === 'all') return 'all';
+  const key = raw.replace(/_/g, '-');
+  return COURSE_SLUG_TO_TRACK[key] || COURSE_SLUG_TO_TRACK[raw] || 'all';
+}
+
+function syncCourseHash(track) {
+  const want = `#${courseTrackSlug(track)}`;
+  if (location.hash !== want) history.replaceState(null, '', want);
 }
 
 /** URL / 标题去重，避免合集与单课或近重复同时渲染 */
@@ -207,11 +255,7 @@ function renderToolbar(items) {
 
   toolbar.querySelectorAll('[data-course-track]').forEach((btn) => {
     btn.addEventListener('click', () => {
-      coursesState.track = btn.dataset.courseTrack || 'all';
-      paintCourses();
-      if (typeof trackEvent === 'function') {
-        trackEvent('courses-filter-track', { track: coursesState.track });
-      }
+      setCourseTrack(btn.dataset.courseTrack || 'all', 'click');
     });
     btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
   });
@@ -225,6 +269,17 @@ function renderToolbar(items) {
     });
     btn.setAttribute('aria-pressed', btn.classList.contains('active') ? 'true' : 'false');
   });
+}
+
+function setCourseTrack(track, source) {
+  const next = track || 'all';
+  const changed = coursesState.track !== next;
+  coursesState.track = next;
+  syncCourseHash(next);
+  paintCourses();
+  if (changed && source === 'click' && typeof trackEvent === 'function') {
+    trackEvent('courses-filter-track', { track: coursesState.track });
+  }
 }
 
 function paintCourses() {
@@ -271,8 +326,16 @@ async function initCoursesSection() {
       }
       return String(b.published_at || '').localeCompare(String(a.published_at || ''));
     });
+    coursesState.track = trackFromHash();
+    syncCourseHash(coursesState.track);
     renderCoursesMeta(data);
     paintCourses();
+    if (!coursesState.hashBound) {
+      coursesState.hashBound = true;
+      window.addEventListener('hashchange', () => {
+        setCourseTrack(trackFromHash(), 'hash');
+      });
+    }
   } catch (err) {
     list.innerHTML = window.BioAI?.renderErrorBlock
       ? window.BioAI.renderErrorBlock(err.message || '加载失败')

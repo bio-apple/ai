@@ -14,7 +14,6 @@ const COPY_FILES = [
   'app.js',
   'ux.js',
   'lazy-sections.js',
-  'home-video-preview.js',
   'videos.js',
   'news.js',
   'courses.js',
@@ -32,6 +31,8 @@ const COPY_FILES = [
   'ai-courses.json',
   'favicon.svg',
   'og-image.jpg',
+  'sw.js',
+  'manifest.webmanifest',
 ];
 
 function copyRecursive(src, dest) {

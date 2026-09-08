@@ -1,12 +1,16 @@
 ---
 import {
   pickAiDailyBrief,
+  pickHomeVideos,
   formatNewsDate,
+  formatNumber,
   displayNewsTitle,
 } from '../lib/runtime';
 import { asset } from '../lib/paths';
+import dailyVideos from '../../daily-videos.json';
 
 const brief = pickAiDailyBrief();
+const homeVideos = pickHomeVideos(3, dailyVideos);
 ---
 
 <section class="home-section fade-in" id="home-daily">
@@ -55,6 +59,11 @@ const brief = pickAiDailyBrief();
       <h3 class="daily-panel-title">
         GitHub 升温 <span class="daily-cadence">热</span>
       </h3>
+      {
+        brief.githubFromOss && brief.github.length > 0 && (
+          <p class="daily-fallback-note">新闻源暂无仓库动态，改展示本周开源升温 Top 3</p>
+        )
+      }
       <script
         type="application/json"
         id="daily-github-data"
@@ -138,17 +147,61 @@ const brief = pickAiDailyBrief();
     </article>
 
     <article class="daily-panel daily-panel--videos">
-      <h3 class="daily-panel-title">视频预览</h3>
-      <div
-        id="home-video-preview-list"
-        class="home-video-preview"
-        aria-live="polite"
-        aria-label="本机已保存的视频预览"
-      >
-        <p class="daily-empty">加载本机预览…</p>
+      <h3 class="daily-panel-title">今日 3 个值得看的 AI 视频</h3>
+      <div id="home-video-picks" class="home-video-preview" aria-label="今日 3 个值得看的 AI 视频">
+        {
+          homeVideos.length ? (
+            <ul class="home-video-teasers">
+              {homeVideos.map((v) => {
+                const plat = /bilibili/i.test(v.platform || v.id || '') ? 'B站' : 'YouTube';
+                return (
+                  <li>
+                    <a
+                      class="home-video-teaser"
+                      href={v.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      data-track="home-video-click"
+                      title={v.title}
+                    >
+                      <span class="home-video-teaser-thumb">
+                        {v.thumbnail ? (
+                          <img
+                            src={v.thumbnail}
+                            alt={v.title}
+                            width="320"
+                            height="180"
+                            loading="lazy"
+                            decoding="async"
+                            referrerpolicy={plat === 'B站' ? 'no-referrer' : undefined}
+                          />
+                        ) : (
+                          <span class="home-video-teaser-empty">无封面</span>
+                        )}
+                        <span class="home-video-teaser-play" aria-hidden="true">
+                          ▶
+                        </span>
+                      </span>
+                      <span class="home-video-teaser-body">
+                        <span class="home-video-teaser-title">{v.title}</span>
+                        <span class="home-video-teaser-meta">
+                          {plat}
+                          {v.author || v.channel ? ` · ${v.author || v.channel}` : ''}
+                          {v.views ? ` · ${formatNumber(v.views)}` : ''}
+                        </span>
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          ) : (
+            <p class="daily-empty">暂无今日推荐。</p>
+          )
+        }
       </div>
       <a class="daily-more" href={asset('videos.html')} data-track="daily_videos_more"
-        >添加或管理 →</a
+        >查看全部 →</a
       >
     </article>
   </div>

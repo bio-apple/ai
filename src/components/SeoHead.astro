@@ -57,7 +57,9 @@ const image = ogImage || 'https://bio-apple.github.io/ai/og-image.jpg';
 <meta itemprop="image" content={image} />
 
 <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonical} />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={image} />
 <meta name="twitter:image:alt" content={ogImageAlt} />
+<link rel="image_src" href={image} />
