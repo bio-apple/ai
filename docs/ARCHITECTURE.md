@@ -16,13 +16,13 @@ flowchart TB
   GHA --> PAGES["GitHub Pages"]
 ```
 
-| 层级 | 技术 | 职责 |
-|------|------|------|
+| 层级 | 技术                           | 职责                          |
+| ---- | ------------------------------ | ----------------------------- |
 | 内容 | `data/` + `scripts/fetch_*.py` | 文案、工具、新闻/OSS/课程日更 |
-| 构建 | Astro 5 + prebuild | HTML / CSS / 搜索索引 |
-| 交付 | GitHub Pages | 静态托管 |
-| 交互 | 原生 JS | 搜索、推荐、视频页、漏斗 |
-| 云端 | Cloudflare Worker | 视频列表 KV + `/meta` 封面 |
+| 构建 | Astro 5 + prebuild             | HTML / CSS / 搜索索引         |
+| 交付 | GitHub Pages                   | 静态托管                      |
+| 交互 | 原生 JS                        | 搜索、推荐、视频页、漏斗      |
+| 云端 | Cloudflare Worker              | 视频列表 KV + `/meta` 封面    |
 
 ## 构建要点
 

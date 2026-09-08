@@ -4,10 +4,10 @@
 
 ## API
 
-| 方法 | 路径 | 说明 |
-|------|------|------|
-| `GET` | `/{syncKey}` | 预览列表 JSON 数组 |
-| `PUT` | `/{syncKey}` | 覆盖保存 JSON 数组 |
+| 方法  | 路径                     | 说明                                        |
+| ----- | ------------------------ | ------------------------------------------- |
+| `GET` | `/{syncKey}`             | 预览列表 JSON 数组                          |
+| `PUT` | `/{syncKey}`             | 覆盖保存 JSON 数组                          |
 | `GET` | `/meta?url={encodedUrl}` | `{ title, author, thumbnail, description }` |
 
 `syncKey`：8–48 位 `[A-Za-z0-9_-]`。默认共享码 `bioai-videos`。

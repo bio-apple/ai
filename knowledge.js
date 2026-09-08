@@ -299,7 +299,9 @@
   }
 
   function searchInput() {
-    return document.getElementById('nav-site-search') || document.querySelector('.site-search-input');
+    return (
+      document.getElementById('nav-site-search') || document.querySelector('.site-search-input')
+    );
   }
 
   function setOpen(open) {

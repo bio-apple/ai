@@ -5,11 +5,11 @@
 
 ## 1. 环境
 
-| 组件 | 版本 | 用途 |
-|------|------|------|
+| 组件    | 版本                 | 用途                       |
+| ------- | -------------------- | -------------------------- |
 | Node.js | **22.x**（`.nvmrc`） | 构建 / ESLint / Playwright |
-| Python | **3.12** | 抓取 / 校验 / 本地 API |
-| Git | 2.x | — |
+| Python  | **3.12**             | 抓取 / 校验 / 本地 API     |
+| Git     | 2.x                  | —                          |
 
 ```bash
 nvm install && nvm use
@@ -33,11 +33,11 @@ cp .env.local.example .env.local   # 可选
 
 ## 3. 三种预览
 
-| 方式 | 命令 | 地址 |
-|------|------|------|
-| 推荐（静态 + 本地 API） | `./build.sh && ./start.sh` | `:8765/ai/` |
-| 仅静态 | `npm run build && npm run preview` | `:8766/ai/` |
-| Astro 开发 | `npm run dev` | 热更新（无完整 dist 校验） |
+| 方式                    | 命令                               | 地址                       |
+| ----------------------- | ---------------------------------- | -------------------------- |
+| 推荐（静态 + 本地 API） | `./build.sh && ./start.sh`         | `:8765/ai/`                |
+| 仅静态                  | `npm run build && npm run preview` | `:8766/ai/`                |
+| Astro 开发              | `npm run dev`                      | 热更新（无完整 dist 校验） |
 
 ## 4. 本地环境变量
 
@@ -56,12 +56,12 @@ npm run build
 
 ## 6. 排障
 
-| 现象 | 处理 |
-|------|------|
-| Node 版本不对 | `nvm use` |
-| 页面 404 / 旧数据 | 重新 `npm run build`；确认 base `/ai/` |
-| 视频云端失败 | 查 Worker URL、CSP（[CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)） |
-| 端口占用 | 改 `start.sh` / preview 端口 |
+| 现象              | 处理                                                             |
+| ----------------- | ---------------------------------------------------------------- |
+| Node 版本不对     | `nvm use`                                                        |
+| 页面 404 / 旧数据 | 重新 `npm run build`；确认 base `/ai/`                           |
+| 视频云端失败      | 查 Worker URL、CSP（[CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)） |
+| 端口占用          | 改 `start.sh` / preview 端口                                     |
 
 ## 相关
 

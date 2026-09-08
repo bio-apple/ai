@@ -46,10 +46,10 @@
 
 ## 8. AI 视频（两套）
 
-| 类型 | 入口 | 数据 |
-|------|------|------|
+| 类型         | 入口              | 数据                                                                        |
+| ------------ | ----------------- | --------------------------------------------------------------------------- |
 | 首页日更 Tab | `#section-videos` | `daily-videos.latest.json`（抓取规则见 [CONTENT-OPS.md](./CONTENT-OPS.md)） |
-| 用户粘贴页 | `videos.html` | `localStorage` + Cloudflare KV |
+| 用户粘贴页   | `videos.html`     | `localStorage` + Cloudflare KV                                              |
 
 用户页：`videos.js` · `lib/video-preview*.js` · Worker `/meta` 封面。跨设备见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)。
 

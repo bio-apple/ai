@@ -96,10 +96,19 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#knowledge-fab')).toHaveCount(0);
     await expect(page.locator('#knowledge-panel')).toHaveCount(1);
     await expect(page.locator('#knowledge-panel')).toHaveAttribute('aria-hidden', 'true');
-    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute('content', /Bio AI Lab/);
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content', /^https:\/\//);
+    await expect(page.locator('meta[property="og:title"]')).toHaveAttribute(
+      'content',
+      /Bio AI Lab/,
+    );
+    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute(
+      'content',
+      /^https:\/\//,
+    );
     await expect(page.locator('script[type="application/ld+json"]')).toHaveCount(1);
-    await expect(page.locator('link[rel="manifest"]')).toHaveAttribute('href', /manifest\.webmanifest/);
+    await expect(page.locator('link[rel="manifest"]')).toHaveAttribute(
+      'href',
+      /manifest\.webmanifest/,
+    );
   });
 
   test('FAQ 展开后可跳到对比页', async ({ page }) => {
@@ -130,9 +139,7 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.locator('#home-ai-map a.ai-map-btn[data-map-node="dl"]').click();
     await expect(page).toHaveURL(/courses\.html#dl/);
     await expect(page.locator('#courses-list .course-card').first()).toBeVisible();
-    await expect
-      .poll(async () => page.locator('#courses-list .course-card').count())
-      .toBe(2);
+    await expect.poll(async () => page.locator('#courses-list .course-card').count()).toBe(2);
     await expect(page.locator('#courses-toolbar [data-course-track="深度学习"]')).toHaveClass(
       /active/,
     );
@@ -205,7 +212,9 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#video-preview-form')).toBeVisible();
     await expect(page.locator('#daily-video-list')).not.toContainText('加载本机预览');
     await expect(
-      page.locator('#daily-video-list .video-card, #daily-video-list [data-video-fallback]').first(),
+      page
+        .locator('#daily-video-list .video-card, #daily-video-list [data-video-fallback]')
+        .first(),
     ).toBeVisible();
 
     await page.goto('news/daily-ai-news.html', { waitUntil: 'domcontentloaded' });

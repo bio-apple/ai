@@ -9,8 +9,7 @@ const cfg = cspConfig as CspConfig;
 
 function videoSyncConnectOrigins(): string[] {
   const origins = new Set<string>();
-  const raw =
-    (typeof process !== 'undefined' && process.env.VIDEO_SYNC_API_URL?.trim()) || '';
+  const raw = (typeof process !== 'undefined' && process.env.VIDEO_SYNC_API_URL?.trim()) || '';
   if (raw) {
     try {
       origins.add(new URL(raw.replace(/\/$/, '')).origin);

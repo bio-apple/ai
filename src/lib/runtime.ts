@@ -214,10 +214,7 @@ function sortVideosByViews(list: VideoItem[]): VideoItem[] {
 }
 
 /** 首页只放今日 3 条：先 24h 高播放，不足再补 30d。完整流在 videos.html。 */
-export function pickHomeVideos(
-  limit = 3,
-  data?: VideosPayload | null,
-): VideoItem[] {
+export function pickHomeVideos(limit = 3, data?: VideosPayload | null): VideoItem[] {
   const payload = data ?? loadRuntimeJson<VideosPayload>('daily-videos.json');
   const batch = payload?.batches?.[0];
   if (!batch) return [];

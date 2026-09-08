@@ -19,9 +19,7 @@ function videoSyncConnectOrigins() {
   }
   if (!origins.size) {
     try {
-      const site = JSON.parse(
-        fs.readFileSync(path.join(ROOT, 'data', 'site.json'), 'utf8'),
-      );
+      const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'site.json'), 'utf8'));
       const api = site?.video_preview_sync?.api_url?.trim();
       if (api) origins.add(new URL(api.replace(/\/$/, '')).origin);
     } catch {

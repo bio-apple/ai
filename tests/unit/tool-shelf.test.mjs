@@ -56,10 +56,7 @@ test('recordVisit moves a tool to the front and skips hub', () => {
   shelf.recordVisit('cursor', '2026-09-08T03:00:00+08:00');
   shelf.recordVisit('chatgpt', '2026-09-08T04:00:00+08:00');
   const hist = shelf.loadHistory();
-  assert.equal(
-    JSON.stringify(hist.map((x) => x.id)),
-    '["chatgpt","cursor"]',
-  );
+  assert.equal(JSON.stringify(hist.map((x) => x.id)), '["chatgpt","cursor"]');
   assert.equal(hist[0].at, '2026-09-08T04:00:00+08:00');
 });
 

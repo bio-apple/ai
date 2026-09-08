@@ -102,21 +102,18 @@ export function ossToolbarCategories(items: OssItem[]) {
   ];
 }
 
-export function annotateOssTags(
-  items: OssItem[],
-): OssItem[] {
+export function annotateOssTags(items: OssItem[]): OssItem[] {
   const weekMs = 7 * 86_400_000;
   const now = Date.now();
   const out = items.map((item) => {
     const created = item.createdAt ? Date.parse(item.createdAt) : NaN;
-    const isNew =
-      item.isNew || (Number.isFinite(created) && now - created <= weekMs);
+    const isNew = item.isNew || (Number.isFinite(created) && now - created <= weekMs);
     const ageDays = Number.isFinite(created) ? Math.max((now - created) / 86_400_000, 1) : null;
     const starsWeekly =
       item.starsWeekly != null
         ? item.starsWeekly
         : ageDays
-          ? Math.round(item.stars / ageDays * 7)
+          ? Math.round((item.stars / ageDays) * 7)
           : null;
     return { ...item, isNew, starsWeekly, isFastest: Boolean(item.isFastest) };
   });
@@ -180,7 +177,8 @@ export function buildOssItems(
         isNew: Boolean(fw.is_new),
         isFastest: Boolean(fw.is_fastest),
         trendingDailyRank: fw.trending_daily_rank != null ? Number(fw.trending_daily_rank) : null,
-        trendingWeeklyRank: fw.trending_weekly_rank != null ? Number(fw.trending_weekly_rank) : null,
+        trendingWeeklyRank:
+          fw.trending_weekly_rank != null ? Number(fw.trending_weekly_rank) : null,
       };
     })
     .sort((a, b) => {
@@ -278,7 +276,12 @@ export const COURSE_TRACK_SLUGS: Record<string, string> = {
 };
 
 export function courseTrackSlug(track: string) {
-  return COURSE_TRACK_SLUGS[track] || String(track || '').toLowerCase().replace(/\s+/g, '-');
+  return (
+    COURSE_TRACK_SLUGS[track] ||
+    String(track || '')
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+  );
 }
 
 export function prepareCourses(

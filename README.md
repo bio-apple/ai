@@ -26,25 +26,25 @@ npm ci && pip install -r requirements.txt
 
 ## 文档
 
-| 文档 | 说明 |
-|------|------|
-| [DEVELOPER.md](./DEVELOPER.md) | 开发速查与「改哪里」 |
-| [docs/SETUP.md](./docs/SETUP.md) | 环境搭建与排障 |
-| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md) | 日更抓取与救急 |
-| [docs/CI-CD.md](./docs/CI-CD.md) | 部署与 Secrets |
-| [docs/SECURITY.md](./docs/SECURITY.md) | CSP 与密钥规范 |
-| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频链接云端同步 |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md) | 系统架构概览 |
-| [docs/FRONTEND.md](./docs/FRONTEND.md) | 搜索 / 推荐 / 视频页 |
-| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md) | JSON 数据约定 |
+| 文档                                                 | 说明                 |
+| ---------------------------------------------------- | -------------------- |
+| [DEVELOPER.md](./DEVELOPER.md)                       | 开发速查与「改哪里」 |
+| [docs/SETUP.md](./docs/SETUP.md)                     | 环境搭建与排障       |
+| [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)         | 日更抓取与救急       |
+| [docs/CI-CD.md](./docs/CI-CD.md)                     | 部署与 Secrets       |
+| [docs/SECURITY.md](./docs/SECURITY.md)               | CSP 与密钥规范       |
+| [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频链接云端同步     |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构概览         |
+| [docs/FRONTEND.md](./docs/FRONTEND.md)               | 搜索 / 推荐 / 视频页 |
+| [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)           | JSON 数据约定        |
 
 ## 做什么
 
-| 入口 | 说明 |
-|------|------|
-| 首页 | Hero、推荐助手、AI 简报、领域地图 |
-| AI工具中心 | AICPB / LMSYS / AA 三榜 Top 10 |
-| 开源精选 | Agent / MCP / Coding Agent 等方向加热 Top 3 |
+| 入口               | 说明                                               |
+| ------------------ | -------------------------------------------------- |
+| 首页               | Hero、推荐助手、AI 简报、领域地图                  |
+| AI工具中心         | AICPB / LMSYS / AA 三榜 Top 10                     |
+| 开源精选           | Agent / MCP / Coding Agent 等方向加热 Top 3        |
 | 课程 / 新闻 / 视频 | 日更内容；视频页支持粘贴链接 + Cloudflare 云端同步 |
 
 推送 `main` → `pages.yml` 部署 Pages；日更见 [CONTENT-OPS.md](./docs/CONTENT-OPS.md)。

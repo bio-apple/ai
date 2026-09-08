@@ -36,7 +36,9 @@ function uniqueCategories(items) {
 }
 
 function categoryFromHash() {
-  const raw = decodeURIComponent((location.hash || '').replace(/^#/, '')).trim().toLowerCase();
+  const raw = decodeURIComponent((location.hash || '').replace(/^#/, ''))
+    .trim()
+    .toLowerCase();
   if (!raw || raw === 'all') return 'all';
   const key = raw.replace(/-/g, '_');
   return OSS_CATEGORY_ORDER.includes(key) ? key : 'all';
