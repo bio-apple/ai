@@ -20,12 +20,12 @@
 | 匹配助手     | Hero 内 `HomeRecommend`          | 先说要做什么                             |
 | AI 简报      | `#home-daily`                    | 模型/GitHub/资讯 + 近一个月视频精选 3 条 |
 | 热门排行     | `#home-ops`                      | 本机点击热度                             |
-| 知识版图     | `#home-ai-map` `HomeAiMap.astro` | 圈层可点；基础学科只在图上，不在下方按钮 |
+| 知识版图     | `#home-ai-map` `HomeAiMap.astro` | 绿色圈层可点；黄色基础学科只作图示，不在下方按钮 |
 | 下一步       | `#home-community`                 | 三榜、开源                               |
 
 独立页（开源 / 课程 / 新闻 / 视频）用 `StandaloneLayout`，左侧「本页目录」扫 `h2–h4`。日更视频标题不要再用 `h4`，以免目录被每条标题撑满。
 
-无障碍：跳过链接 `#main-content`；知识版图节点是真正的 `<a>`；动效尊重 `prefers-reduced-motion`。
+无障碍：跳过链接 `#main-content`；知识版图绿色圈层是真正的 `<a>`，黄色基础学科为普通图形文字；动效尊重 `prefers-reduced-motion`。
 
 ## 4. 内容漏斗
 
