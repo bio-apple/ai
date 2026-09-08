@@ -73,20 +73,6 @@ export function formatOssGrowth(
       dir: 'est',
     };
   }
-  if (item.trendingDailyRank != null) {
-    return {
-      text: `日榜 #${item.trendingDailyRank}`,
-      title: 'GitHub Trending 日榜，可作近期热度参考',
-      dir: 'est',
-    };
-  }
-  if (item.trendingWeeklyRank != null) {
-    return {
-      text: `周榜 #${item.trendingWeeklyRank}`,
-      title: 'GitHub Trending 周榜，可作近期热度参考',
-      dir: 'est',
-    };
-  }
   return null;
 }
 

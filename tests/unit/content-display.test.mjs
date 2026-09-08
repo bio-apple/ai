@@ -34,7 +34,7 @@ test('ossAudienceTags and heat label make heating concrete', () => {
     stars: 252684,
     isNew: false,
   });
-  assert.ok(tags.includes('Coding Agent'));
+  assert.ok(!tags.includes('Coding Agent'));
   assert.ok(tags.includes('写代码'));
   assert.ok(tags.includes('社区主流'));
   const heat = ossHeatLabel({

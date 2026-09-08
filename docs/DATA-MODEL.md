@@ -74,7 +74,7 @@ Schema：`schemas/*.json`
 | `stars_delta`                                  | 相对上次快照的 Star 差                                       |
 | `is_new` / `is_fastest`                        | 上周新增 / 方向内上升最快                                    |
 
-构建期再派生 `audienceTags`（如 `Coding Agent` / `写代码` / `社区主流`），不写回 JSON。
+构建期再派生 `audienceTags`（如 `写代码` / `社区主流`，不含已在卡片顶栏出现的方向名），不写回 JSON。
 
 ### 3.3 `rankings.json` · 三榜
 

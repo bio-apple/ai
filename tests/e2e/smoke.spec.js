@@ -187,7 +187,7 @@ test.describe('AI 导航 关键路径', () => {
       .poll(async () => page.locator('#oss-list .oss-card-item').count())
       .toBeGreaterThanOrEqual(6);
     await expect(page.locator('#oss-list .oss-cat-block-title').first()).toBeVisible();
-    await expect(page.locator('#oss-list .oss-card-delta').first()).toBeVisible();
+    await expect(page.locator('#oss-list .oss-card-stars').first()).toBeVisible();
     await expect(page.locator('#oss-list .oss-audience').first()).toBeVisible();
     await expect(page.locator('#oss-list .oss-card-heat').first()).toBeVisible();
     const mcpFilter = page.locator('#oss-toolbar .oss-filter[data-oss-category="mcp"]');

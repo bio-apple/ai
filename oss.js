@@ -81,12 +81,6 @@ function growthHtml(item) {
   if (item.starsWeekly && item.starsWeekly > 0) {
     return `<span class="oss-card-delta oss-card-delta--est" title="按仓库年龄估算的周均 Star 增长（静态）">约 ${formatStarDelta(item.starsWeekly)}/周</span>`;
   }
-  if (item.trendingDailyRank != null) {
-    return `<span class="oss-card-delta oss-card-delta--est" title="GitHub Trending 日榜，可作近期热度参考">日榜 #${html(item.trendingDailyRank)}</span>`;
-  }
-  if (item.trendingWeeklyRank != null) {
-    return `<span class="oss-card-delta oss-card-delta--est" title="GitHub Trending 周榜，可作近期热度参考">周榜 #${html(item.trendingWeeklyRank)}</span>`;
-  }
   return '';
 }
 
