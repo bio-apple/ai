@@ -27,7 +27,7 @@ const syncSharedKey =
   '';
 const cloudSyncEnabled = Boolean(syncApi);
 const sharedSyncEnabled = Boolean(syncSharedKey);
-const lead = `YouTube / B站日更精选${streamCount ? ` · ${streamCount} 条` : ''}。首页只放今日 3 条，这里是完整列表。`;
+const lead = `YouTube / B站近 1 个月上传、各平台播放量 Top 3，每天更新${streamCount ? ` · ${streamCount} 条` : ''}。首页精选 3 条，这里是完整列表。`;
 const canonical = `${base}videos.html`;
 const schema = mergeSchemaGraphs(
   buildPageSchema(title, lead, canonical, [
@@ -130,7 +130,7 @@ const schema = mergeSchemaGraphs(
           fallbackVideos.length ? (
             <div data-video-fallback>
               <p class="video-preview-fallback-note">
-                还没有本机收藏时，先看今日精选（按近期播放）。粘贴链接保存后会出现在这里。
+                还没有本机收藏时，先看近一个月高播放精选。粘贴链接保存后会出现在这里。
               </p>
               <div class="video-grid">
                 {

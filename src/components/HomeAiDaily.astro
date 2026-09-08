@@ -191,8 +191,8 @@ function newsMeta(item: { source?: string; category?: string; published_at?: str
     </article>
 
     <article class="daily-panel daily-panel--videos">
-      <h3 class="daily-panel-title">今日 3 个值得看的 AI 视频</h3>
-      <div id="home-video-picks" class="home-video-preview" aria-label="今日 3 个值得看的 AI 视频">
+      <h3 class="daily-panel-title">近一个月高播放精选</h3>
+      <div id="home-video-picks" class="home-video-preview" aria-label="近一个月高播放精选">
         {
           homeVideos.length ? (
             <ul class="home-video-teasers">
@@ -240,7 +240,7 @@ function newsMeta(item: { source?: string; category?: string; published_at?: str
               })}
             </ul>
           ) : (
-            <p class="daily-empty">暂无今日推荐。</p>
+            <p class="daily-empty">暂无近一个月推荐。</p>
           )
         }
       </div>

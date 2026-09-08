@@ -344,43 +344,28 @@ export type VideoItem = {
   published_at?: string;
 };
 
-const PLATFORM_TOTAL_CAP = 10;
-const PLATFORM_PRIORITY_KEYS: Record<string, string[]> = {
-  youtube: [
-    'youtube_recent_24h',
-    'youtube_recent_30d',
-    'youtube_recent_100d',
-    'youtube_top_views',
-    'youtube_recent_3d',
-  ],
-  bilibili: [
-    'bilibili_recent_24h',
-    'bilibili_recent_30d',
-    'bilibili_recent_100d',
-    'bilibili_top_views',
-    'bilibili_recent_3d',
-  ],
-};
-
-function bucketCap(key: string) {
-  if (/_recent_24h$/.test(key)) return 3;
-  if (/_recent_30d$/.test(key)) return 3;
-  if (/_recent_100d$|_top_views$/.test(key)) return 4;
-  return 3;
-}
+export const VIDEO_WINDOW_DAYS = 30;
+export const PLATFORM_MONTHLY_TOP = 3;
 
 function sortByViews(list: VideoItem[]) {
   return [...list].sort((a, b) => (b.views || 0) - (a.views || 0));
 }
 
-function videosFromKeys(
+export function isVideoWithinDays(v: VideoItem, days = VIDEO_WINDOW_DAYS, nowMs = Date.now()) {
+  const t = v.published_at ? Date.parse(v.published_at) : NaN;
+  if (!Number.isFinite(t)) return false;
+  return nowMs - t <= days * 24 * 60 * 60 * 1000;
+}
+
+function collectPlatformVideos(
   categories: Record<string, { videos?: VideoItem[] }>,
-  keys: string[],
+  platform: string,
 ): VideoItem[] {
   const seen = new Set<string>();
   const items: VideoItem[] = [];
-  for (const key of keys) {
-    for (const v of categories[key]?.videos || []) {
+  for (const [key, cat] of Object.entries(categories)) {
+    if (!key.startsWith(platform)) continue;
+    for (const v of cat?.videos || []) {
       if (!v?.id || seen.has(v.id)) continue;
       seen.add(v.id);
       items.push(v);
@@ -393,22 +378,9 @@ function buildPlatformList(
   categories: Record<string, { videos?: VideoItem[] }>,
   platform: string,
 ): VideoItem[] {
-  const picked: VideoItem[] = [];
-  const seen = new Set<string>();
-  for (const key of PLATFORM_PRIORITY_KEYS[platform] || []) {
-    const maxN = bucketCap(key);
-    const ranked = sortByViews(videosFromKeys(categories, [key]));
-    let taken = 0;
-    for (const v of ranked) {
-      if (picked.length >= PLATFORM_TOTAL_CAP || taken >= maxN) break;
-      if (!v?.id || seen.has(v.id)) continue;
-      seen.add(v.id);
-      picked.push(v);
-      taken += 1;
-    }
-    if (picked.length >= PLATFORM_TOTAL_CAP) break;
-  }
-  return picked;
+  return sortByViews(
+    collectPlatformVideos(categories, platform).filter((v) => isVideoWithinDays(v)),
+  ).slice(0, PLATFORM_MONTHLY_TOP);
 }
 
 export function prepareVideos(payload: {

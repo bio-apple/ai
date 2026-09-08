@@ -1,11 +1,14 @@
 name: Daily AI Video Update
 
-# 视频页已改为手动粘贴链接预览；日更排行抓取默认停用，仅保留手动触发以便救急。
+# YouTube / B站：近 1 个月上传、AI 相关、播放量 Top 3，每天更新一次。
 on:
+  schedule:
+    # 北京时间 04:00（排在 news / oss / courses / rankings 之后）
+    - cron: "0 20 * * *"
   workflow_dispatch:
     inputs:
       force:
-        description: "强制重抓今日批次（升级六类结构时使用）"
+        description: "强制重抓今日批次"
         required: false
         default: "false"
         type: choice
@@ -44,8 +47,21 @@ jobs:
           yt-dlp --version
           node -v
 
+      - name: Prepare yt-dlp cookies
+        env:
+          YTDLP_COOKIES_B64: ${{ secrets.YTDLP_COOKIES_B64 }}
+        run: |
+          if [ -n "$YTDLP_COOKIES_B64" ]; then
+            echo "$YTDLP_COOKIES_B64" | base64 -d > "$RUNNER_TEMP/yt-cookies.txt"
+            echo "YTDLP_COOKIES_FILE=$RUNNER_TEMP/yt-cookies.txt" >> "$GITHUB_ENV"
+          fi
+
       - name: Fetch daily AI videos
         id: fetch
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+          YOUTUBE_DATA_API_V3: ${{ secrets.YOUTUBE_DATA_API_V3 }}
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
         run: |
           FORCE_FLAG=""
           if [ "${{ github.event.inputs.force }}" = "true" ]; then
@@ -116,7 +132,8 @@ jobs:
               `- metrics_level: ${level || 'n/a'}`,
               '',
               '处置：Actions → Daily AI Video Update → Run workflow（force=true）。',
-              'YouTube 常空时页面会「回退批次」；B 站有货时应已 commit。',
+              '规则：YouTube / B站近 1 个月上传、播放量 Top 3。YouTube 常空时页面会「回退批次」；B 站有货时应已 commit。',
+              'YouTube 为空时检查仓库 Secrets 是否配置 YOUTUBE_API_KEY。',
               '详见 docs/OPS-RUNBOOK.md',
               '',
               '<!-- daily-videos-fetch -->',

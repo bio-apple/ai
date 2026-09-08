@@ -64,9 +64,11 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('#daily-github-list')).not.toContainText('暂无 GitHub 动态');
     await expect(page.locator('#home-video-picks')).toBeVisible();
     await expect(page.locator('.daily-panel--videos .daily-panel-title')).toContainText(
-      '今日 3 个值得看的 AI 视频',
+      '近一个月高播放精选',
     );
-    await expect(page.locator('#home-video-picks .home-video-teaser')).toHaveCount(3);
+    const homeTeasers = page.locator('#home-video-picks .home-video-teaser');
+    await expect(homeTeasers.first()).toBeVisible();
+    expect(await homeTeasers.count()).toBeLessThanOrEqual(3);
     await expect(page.locator('.daily-panel--videos .daily-more')).toHaveAttribute(
       'href',
       /videos\.html$/,
@@ -203,10 +205,16 @@ test.describe('AI 导航 关键路径', () => {
     await page.goto('videos.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('AI 视频');
     await expect(page.locator('h1')).toContainText('AI 视频');
-    await expect(page.locator('#daily-video-stream .video-card').first()).toBeVisible();
-    await expect
-      .poll(async () => page.locator('#daily-video-stream .video-card').count())
-      .toBeGreaterThan(3);
+    await expect(page.locator('.standalone-lead')).toContainText('近 1 个月');
+    const videoCards = page.locator('#daily-video-stream .video-card');
+    await expect(videoCards.first()).toBeVisible();
+    expect(await videoCards.count()).toBeLessThanOrEqual(6);
+    expect(
+      await page.locator('[data-video-grid="youtube"] .video-card').count(),
+    ).toBeLessThanOrEqual(3);
+    expect(
+      await page.locator('[data-video-grid="bilibili"] .video-card').count(),
+    ).toBeLessThanOrEqual(3);
     await expect(page.locator('#video-preview-form')).toBeVisible();
     await expect(page.locator('#daily-video-list')).not.toContainText('加载本机预览');
     await expect(

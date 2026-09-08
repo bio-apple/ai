@@ -1,6 +1,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isVideoWithinDays, prepareVideos } from './ssr-lists';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -213,30 +214,19 @@ function sortVideosByViews(list: VideoItem[]): VideoItem[] {
   return [...list].sort((a, b) => (b.views || 0) - (a.views || 0));
 }
 
-/** 首页只放今日 3 条：先 24h 高播放，不足再补 30d。完整流在 videos.html。 */
+/** 首页精选：YouTube / B站近 1 个月月榜合并后再按播放量取 Top N。完整列表在 videos.html。 */
 export function pickHomeVideos(limit = 3, data?: VideosPayload | null): VideoItem[] {
   const payload = data ?? loadRuntimeJson<VideosPayload>('daily-videos.json');
   const batch = payload?.batches?.[0];
   if (!batch) return [];
-  const cats = batch.categories || {};
-  const pools = batch.categories
-    ? [
-        [...(cats.youtube_recent_24h?.videos || []), ...(cats.bilibili_recent_24h?.videos || [])],
-        [...(cats.youtube_recent_30d?.videos || []), ...(cats.bilibili_recent_30d?.videos || [])],
-        Object.values(cats).flatMap((cat) => cat.videos || []),
-      ]
-    : [batch.videos || []];
-  const seen = new Set<string>();
-  const out: VideoItem[] = [];
-  for (const pool of pools) {
-    for (const v of sortVideosByViews(pool)) {
-      if (!v?.id || seen.has(v.id)) continue;
-      seen.add(v.id);
-      out.push(v);
-      if (out.length >= limit) return out;
-    }
+  if (batch.categories) {
+    const { youtube, bilibili } = prepareVideos(payload);
+    return sortVideosByViews([...youtube, ...bilibili]).slice(0, limit);
   }
-  return out;
+  return sortVideosByViews((batch.videos || []).filter((v) => isVideoWithinDays(v))).slice(
+    0,
+    limit,
+  );
 }
 
 export type OssHeatRow = {

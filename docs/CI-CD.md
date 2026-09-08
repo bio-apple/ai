@@ -20,7 +20,7 @@ flowchart LR
 | `daily-news.yml`                            | 01:00 / 12:00 北京 | 新闻                  |
 | `daily-oss.yml` / `daily-courses.yml`       | 02:00              | 开源 / 课程           |
 | `daily-rankings.yml`                        | 03:00              | 排行                  |
-| `daily-videos.yml`                          | 仅手动             | 首页视频 Tab          |
+| `daily-videos.yml`                          | 04:00 北京         | 近 1 个月播放量 Top 3 |
 | `site-health.yml` / `weekly-link-check.yml` | 定时               | 探针 / lychee         |
 
 完整日更说明 → [CONTENT-OPS.md](./CONTENT-OPS.md)

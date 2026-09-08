@@ -11,7 +11,7 @@
 | 开源升温           | `data/oss-projects.json` + `site.oss_frameworks` | `daily-oss.yml`                               |
 | 课程               | `ai-courses.json`                                | `daily-courses.yml`                           |
 | 排行榜             | `data/rankings.json`                             | `daily-rankings.yml`                          |
-| 日更视频榜         | `daily-videos.json`                              | `daily-videos.yml`（仅手动）                  |
+| 日更视频榜         | `daily-videos.json`                              | `daily-videos.yml`（每天 04:00 北京）         |
 | 用户视频链接       | Cloudflare KV                                    | 见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md) |
 
 ## 2. 定时任务（北京时间）
@@ -22,7 +22,7 @@
 | [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)         | **02:00**         | 课程                                      |
 | [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)                 | **02:00**         | 开源加热（含 OpenHands / AutoGPT 优先仓） |
 | [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)       | **03:00**         | 排行榜                                    |
-| [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)           | **仅手动**        | 首页视频 Tab（非 `videos.html`）          |
+| [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)           | **04:00**         | YouTube / B站近 1 个月播放量 Top 3        |
 | [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)             | 定时              | 新鲜度探针                                |
 | [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) | 定时              | lychee（软告警）                          |
 
@@ -30,13 +30,13 @@
 
 ## 3. 抓取脚本
 
-| 脚本                    | 配置                        | 产出                                      |
-| ----------------------- | --------------------------- | ----------------------------------------- |
-| `fetch_ai_news.py`      | `config/news-fetch.yaml`    | `ai-news.json`                            |
-| `fetch_oss_heating.py`  | `config/oss-fetch.yaml`     | `oss-projects.json` + `site.json`         |
-| `fetch_ai_courses.py`   | `config/courses-fetch.yaml` | `ai-courses.json`                         |
-| `fetch_rankings.py`     | —                           | `data/rankings.json`                      |
-| `fetch_daily_videos.py` | `config/video-fetch.yaml`   | `daily-videos.json`（`min_views: 10000`） |
+| 脚本                    | 配置                        | 产出                                                               |
+| ----------------------- | --------------------------- | ------------------------------------------------------------------ |
+| `fetch_ai_news.py`      | `config/news-fetch.yaml`    | `ai-news.json`                                                     |
+| `fetch_oss_heating.py`  | `config/oss-fetch.yaml`     | `oss-projects.json` + `site.json`                                  |
+| `fetch_ai_courses.py`   | `config/courses-fetch.yaml` | `ai-courses.json`                                                  |
+| `fetch_rankings.py`     | —                           | `data/rankings.json`                                               |
+| `fetch_daily_videos.py` | `config/video-fetch.yaml`   | `daily-videos.json`（近 1 个月、每平台 Top 3、`min_views: 10000`） |
 
 本地：`python3 scripts/fetch_ai_news.py`（或对应脚本）→ `npm run build`。
 

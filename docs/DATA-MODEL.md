@@ -18,7 +18,7 @@ Schema：`schemas/*.json`
 | `oss-projects.json`                              | `data/` | 日更          | 同步到 `site.oss_frameworks` |
 | `ai-news.json`                                   | 根      | 日更          | `ai-news.schema.json`        |
 | `ai-courses.json`                                | 根      | 日更          | `ai-courses.schema.json`     |
-| `daily-videos.json`                              | 根      | 手动日更      | `daily-videos.schema.json`   |
+| `daily-videos.json`                              | 根      | 每日定时      | `daily-videos.schema.json`   |
 | `daily-videos.latest.json`                       | dist    | prebuild 瘦身 | —                            |
 | `search-index.json` / `recommend-rules.json`     | dist    | prebuild      | 对应 schema                  |
 
