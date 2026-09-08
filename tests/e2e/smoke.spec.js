@@ -92,6 +92,7 @@ test.describe('AI 导航 关键路径', () => {
       'href',
       /videos\.html$/,
     );
+    await expect(page.locator('.site-footer-nav a[href$="news/daily-ai-news.html"]')).toBeVisible();
     await expect(page.locator('#home-community a[href$="oss.html"]')).toBeVisible();
     await expect(page.locator('#home-community a[href$="tools/shelf.html"]')).toHaveCount(0);
     await expect(page.locator('#home-faq')).toHaveCount(0);

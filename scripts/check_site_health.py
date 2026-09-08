@@ -84,7 +84,7 @@ def remediation_for(exc: BaseException) -> list[str]:
         "## 建议处置（可复制）",
         "",
         f"- Actions: {REPO_ACTIONS}",
-        "- Runbook: `docs/CONTENT-OPS.md` §9",
+        "- Runbook: `docs/CONTENT-OPS.md` §4",
         "",
     ]
     if msg.startswith("HTTP:") or "URLError" in type(exc).__name__:
@@ -130,7 +130,7 @@ def remediation_for(exc: BaseException) -> list[str]:
         lines += [
             "### 通用",
             "1. 打开失败的 workflow run 日志",
-            "2. 对照 `docs/CONTENT-OPS.md` §9 告警分级表",
+            "2. 对照 `docs/CONTENT-OPS.md` §4 告警分级表",
             "3. 修复后手动 `workflow_dispatch` 复检",
             "",
         ]

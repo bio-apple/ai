@@ -52,6 +52,15 @@
 6. 线上视频/首页改版若仍是旧 UI：强制刷新（PWA 缓存 HTML）
 7. `site-health.yml` 失败：对照 run 日志「建议处置」，再按本表重跑对应日更
 
+### 告警分级
+
+| 级  | 现象                         | 处置                                                           |
+| --- | ---------------------------- | -------------------------------------------------------------- |
+| P0  | 页面/资源不可达，或正文异常  | 查 Pages 最近一次部署；本地 `npm run build` + `validate_ci.py` |
+| P1  | 新闻 / 视频 / 课程 JSON 过期 | 重跑对应 `daily-*`；仍失败则回滚该 JSON 到上一好批次           |
+
+回滚：在仓库历史中检出上一份可用的 `ai-news.json` / `daily-videos.json` / `ai-courses.json`，提交后显式派发 `pages.yml`。
+
 ## 相关
 
 - [CI-CD.md](./CI-CD.md) · [SETUP.md](./SETUP.md) · [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)

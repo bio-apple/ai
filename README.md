@@ -22,7 +22,7 @@ npm ci && pip install -r requirements.txt
 
 本地预览：**http://127.0.0.1:8765/ai/**（`./start.sh`，带本地 API）  
 仅静态：`npm run preview` → **http://127.0.0.1:8766/ai/**  
-校验：`npm run quality && npm run build && DIST=dist python3 scripts/validate_ci.py`
+校验：`npm run quality && npm run test:unit && npm run build && DIST=dist python3 scripts/validate_ci.py`
 
 ## 按角色看哪里
 

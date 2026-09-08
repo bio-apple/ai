@@ -545,6 +545,10 @@
         "href": "courses.html"
       },
       {
+        "label": "新闻热点",
+        "href": "news/daily-ai-news.html"
+      },
+      {
         "label": "AI 视频",
         "href": "videos.html"
       }
