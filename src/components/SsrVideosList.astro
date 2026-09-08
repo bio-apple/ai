@@ -1,10 +1,5 @@
 ---
-import {
-  type VideoItem,
-  formatViews,
-  formatZhDate,
-  platformLabel,
-} from '../lib/ssr-lists';
+import { type VideoItem, formatViews, formatZhDate } from '../lib/ssr-lists';
 
 interface Props {
   youtube: VideoItem[];
@@ -22,77 +17,66 @@ function isBilibili(v: VideoItem) {
 {
   youtube.length || bilibili.length ? (
     <section class="video-day" data-ssr-videos>
-      <h3 class="video-day-title">
-        近 1 个月 · 按播放量
-        <span class="video-day-count">
-          YouTube {youtube.length} · B站 {bilibili.length}
-        </span>
-      </h3>
+      <header class="video-shelf-head">
+        <h3 class="video-day-title">近 1 个月 · 按播放量</h3>
+      </header>
       {[
         { label: 'YouTube', key: 'youtube', videos: youtube },
         { label: 'B站', key: 'bilibili', videos: bilibili },
       ].map((block) =>
         block.videos.length ? (
-          <div class="video-category">
-            <h4 class="video-category-title">
-              {block.label} <span class="video-day-count">{block.videos.length} 条</span>
-            </h4>
+          <div class={`video-category video-category--${block.key}`}>
+            <div class="video-category-head">
+              <h4 class="video-category-title">
+                <span class="video-platform-mark" aria-hidden="true" />
+                {block.label}
+              </h4>
+              <p class="video-category-count">{block.videos.length} 条</p>
+            </div>
             <div class="video-grid" data-video-grid={block.key}>
-              {block.videos.map((v) => {
+              {block.videos.map((v, i) => {
                 const hot = (v.views || 0) >= HOT;
-                const summary =
-                  hot && v.summary ? `热门推荐 · ${v.summary}` : v.summary || '';
+                const rank = i + 1;
                 return (
                   <article class="video-card">
                     <a
-                      class="video-thumb"
+                      class="video-card-link"
                       href={v.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       data-track="video-click"
                     >
-                      <img
-                        src={v.thumbnail || ''}
-                        alt={v.title}
-                        loading="lazy"
-                        decoding="async"
-                        width="640"
-                        height="360"
-                        referrerpolicy={isBilibili(v) ? 'no-referrer' : undefined}
-                      />
-                      <span class="content-type-badge content-type-video" aria-hidden="true">
-                        视频
+                      <span class="video-thumb">
+                        <img
+                          src={v.thumbnail || ''}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                          width="640"
+                          height="360"
+                          referrerpolicy={isBilibili(v) ? 'no-referrer' : undefined}
+                        />
+                        <span class="video-rank" data-rank={rank}>
+                          {rank}
+                        </span>
+                        <span class="video-play-badge" aria-hidden="true">
+                          ▶
+                        </span>
+                        {v.duration && <span class="video-duration">{v.duration}</span>}
                       </span>
-                      <span class="video-play-btn" aria-hidden="true">
-                        ▶ 观看
+                      <span class="video-body">
+                        <span class="video-title">{v.title}</span>
+                        <span class="video-meta">
+                          <span class="video-meta-author">{v.author || v.channel || '未知作者'}</span>
+                          {v.published_at && (
+                            <span class="video-meta-date">{formatZhDate(v.published_at)}</span>
+                          )}
+                          <span class:list={['video-meta-views', { 'video-meta-views--hot': hot }]}>
+                            {formatViews(v.views || 0)}
+                          </span>
+                        </span>
                       </span>
-                      {v.duration && <span class="video-duration">{v.duration}</span>}
-                      {v.max_height != null && (
-                        <span class="video-quality">{v.max_height}p</span>
-                      )}
-                      <span class={`video-platform video-platform-${v.platform || 'youtube'}`}>
-                        {platformLabel(v)}
-                      </span>
-                      {hot && <span class="video-hot">热门</span>}
                     </a>
-                    <div class="video-body">
-                      <h4>
-                        <a
-                          href={v.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          data-track="video-click"
-                        >
-                          {v.title}
-                        </a>
-                      </h4>
-                      {summary && <p class="video-summary">{summary}</p>}
-                      <div class="video-meta">
-                        <span>{v.author || v.channel || '未知作者'}</span>
-                        {v.published_at && <span>{formatZhDate(v.published_at)}</span>}
-                        <span>播放 {formatViews(v.views || 0)}</span>
-                      </div>
-                    </div>
                   </article>
                 );
               })}
@@ -102,6 +86,6 @@ function isBilibili(v: VideoItem) {
       )}
     </section>
   ) : (
-    <p class="loading-hint">暂无视频数据，每日北京时间 0:00 自动更新。</p>
+    <p class="loading-hint">暂无视频数据，每日北京时间 04:00 自动更新。</p>
   )
 }
