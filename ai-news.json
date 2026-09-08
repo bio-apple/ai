@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T04:16:48.667191+08:00",
+  "updated_at": "2026-09-08T16:22:21.370669+08:00",
   "date": "2026-09-08",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,94 +15,49 @@
   },
   "items": [
     {
-      "id": "542c1c04ef50",
-      "title": "3秒变身！会合体的机器人，卖到全球50国",
-      "summary": "谁说现在机器人都长得差不多的！",
-      "url": "https://www.qbitai.com/2026/09/485525.html",
+      "id": "9dacda853045",
+      "title": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
+      "summary": "Blender也不用学了",
+      "url": "https://www.qbitai.com/2026/09/485854.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-08T14:05:30+08:00"
+    },
+    {
+      "id": "ea685cd38291",
+      "title": "现场围观金融AI决赛，大厂挑人的逻辑我悟了",
+      "summary": "百万奖金、大厂直通、VC跟投",
+      "url": "https://www.qbitai.com/2026/09/485794.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-07T17:34:06+08:00"
+      "published_at": "2026-09-08T13:05:03+08:00"
     },
     {
-      "id": "973166572db2",
-      "title": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
-      "summary": "OpenAI研究院人均带3个AI实习生",
-      "url": "https://www.qbitai.com/2026/09/485431.html",
+      "id": "ea5a2d308b02",
+      "title": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
+      "summary": "近日，物理AI企业深度智控（DeepCtrls）完成新一轮B+轮数亿元融资。",
+      "url": "https://www.qbitai.com/2026/09/485784.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-07T17:04:06+08:00"
+      "category": "行业新闻",
+      "published_at": "2026-09-08T11:22:17+08:00"
     },
     {
-      "id": "5638b0e34ce7",
-      "title": "DHH领衔，英伟达、微软、HuggingFace等150+全球技术大咖集结，GOSIM Shenzhen 2026全议程公布",
-      "summary": "10 月 16–17 日，面向全球开发者的开源技术大会 GOSIM 将首次来到深圳，举办 GOSIM Shenzhen 2026。",
-      "url": "https://www.qbitai.com/2026/09/485154.html",
+      "id": "ecee9255adc8",
+      "title": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
+      "summary": "从看市场，到见场景；从认识伙伴，到寻找合作。",
+      "url": "https://www.qbitai.com/2026/09/485630.html",
       "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-07T16:51:30+08:00"
+      "category": "行业新闻",
+      "published_at": "2026-09-08T10:42:24+08:00"
     },
     {
-      "id": "90a7e8ecf30c",
-      "title": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
-      "summary": "“在两个模型之间找到数学上的共同基础其实非常困难”",
-      "url": "https://www.qbitai.com/2026/09/485108.html",
+      "id": "3c7bc5543776",
+      "title": "王云鹤创业后交出首个模型",
+      "summary": "把多模型执行经验用到了模型训练",
+      "url": "https://www.qbitai.com/2026/09/485555.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-07T16:36:30+08:00"
-    },
-    {
-      "id": "942e0c4ce068",
-      "title": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
-      "summary": "9月7日，国内首份《中国办公Agent用户行为不完全报告》在京发布。",
-      "url": "https://www.qbitai.com/2026/09/485064.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-07T14:53:26+08:00"
-    },
-    {
-      "id": "f3156629097f",
-      "title": "EXAONE Forecast for Finance",
-      "summary": "arXiv:2609.04239v1 Announce Type: new Abstract: This technical report presents EXAONE Forecast for Finance (EXAONE Finance), a financial time series (TS) found…",
-      "url": "https://arxiv.org/abs/2609.04239",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-07T12:00:00+08:00"
-    },
-    {
-      "id": "a43ca39110c8",
-      "title": "From Matching Models to Recruiting Agents: A Systematized Narrative Review of AI Recruitment Systems, Evaluation, and Governance",
-      "summary": "arXiv:2609.04286v1 Announce Type: new Abstract: Artificial intelligence in recruitment has shifted the object being automated from profile pairs and ranked lis…",
-      "url": "https://arxiv.org/abs/2609.04286",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-07T12:00:00+08:00"
-    },
-    {
-      "id": "01b847bc2d8c",
-      "title": "Harbor Adapters and Harbor-Index: Infrastructure and a Curated Meta-Dataset for Large-Scale Agentic Evaluation",
-      "summary": "arXiv:2609.04298v1 Announce Type: new Abstract: Evaluating agents on the growing number of agentic benchmarks is challenging because they often require complex…",
-      "url": "https://arxiv.org/abs/2609.04298",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-07T12:00:00+08:00"
-    },
-    {
-      "id": "399e57d2b40d",
-      "title": "Data-Optimized Contingency Screening: A Machine Learning Approach to Power System Security",
-      "summary": "arXiv:2609.04300v1 Announce Type: new Abstract: Ensuring the security of the power system is essential for stability and reliability, especially in the event o…",
-      "url": "https://arxiv.org/abs/2609.04300",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-07T12:00:00+08:00"
-    },
-    {
-      "id": "4d568355b336",
-      "title": "Iris: Climbing to the Search Frontier",
-      "summary": "arXiv:2609.04304v1 Announce Type: new Abstract: We present Iris-mini and Iris-pro, two search agents trained at the 35B-A3B and 397B-A17B scales, together with…",
-      "url": "https://arxiv.org/abs/2609.04304",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-07T12:00:00+08:00"
+      "category": "中文资讯",
+      "published_at": "2026-09-08T10:14:47+08:00"
     },
     {
       "id": "e02ae19def6b",
