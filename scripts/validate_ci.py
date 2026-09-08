@@ -376,7 +376,6 @@ def validate_html_links() -> None:
         ROOT / "index.html",
         ROOT / "ai-tools-ranking.html",
         *ROOT.glob("tools/*.html"),
-        *ROOT.glob("compare/*.html"),
         *ROOT.glob("news/*.html"),
         *ROOT.glob("guides/*.html"),
     ]
@@ -488,7 +487,6 @@ def validate_data_json() -> None:
     for name in (
         "site.json",
         "tools.json",
-        "compares.json",
         "analytics.json",
         "local-deploy.json",
         "rankings.json",

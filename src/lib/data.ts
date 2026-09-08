@@ -1,15 +1,13 @@
 import site from '../../data/site.json';
 import tools from '../../data/tools.json';
-import compares from '../../data/compares.json';
 import rankings from '../../data/rankings.json';
 import toolRelations from '../../data/tool-relations.json';
 import { asset } from './paths';
 
 export const BRAND = 'AI 导航';
-export { site, tools, compares, rankings, toolRelations };
+export { site, tools, rankings, toolRelations };
 
 export type Tool = (typeof tools)[number];
-export type Compare = (typeof compares)[number];
 
 export type ToolRelationEdge = {
   id: string;

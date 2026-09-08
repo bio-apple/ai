@@ -294,32 +294,6 @@ export function buildNewsSchema(
   };
 }
 
-export function buildCompareSchema(
-  compare: {
-    title: string;
-    h1?: string;
-    meta_description: string;
-    slug: string;
-    reviews?: { updated_at?: string };
-  },
-  baseUrl: string,
-  breadcrumbs?: BreadcrumbItem[],
-) {
-  const modified = compare.reviews?.updated_at;
-  return withBreadcrumbs(
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Article',
-      headline: compare.h1 || compare.title,
-      description: compare.meta_description,
-      author: { '@type': 'Organization', name: BRAND },
-      mainEntityOfPage: `${baseUrl}compare/${compare.slug}.html`,
-      ...(modified && isIsoDate(modified) ? { dateModified: modified } : {}),
-    },
-    breadcrumbs,
-  );
-}
-
 export function buildOssSchema(
   items: { name: string; repo: string; summary?: string; url?: string }[],
   pageUrl: string,
@@ -416,7 +390,6 @@ export function buildHubSchema(
 
 export function buildHomeSchema(input: {
   meta: { canonical: string; description: string; og_image?: string };
-  faq?: { question: string; answer: string }[];
   rankings?: { name: string; dimension: string }[];
   oss_frameworks?: {
     repo: string;
@@ -455,18 +428,6 @@ export function buildHomeSchema(input: {
       })),
     },
   ];
-
-  const faq = input.faq || [];
-  if (faq.length) {
-    graph.push({
-      '@type': 'FAQPage',
-      mainEntity: faq.map((q) => ({
-        '@type': 'Question',
-        name: q.question,
-        acceptedAnswer: { '@type': 'Answer', text: q.answer },
-      })),
-    });
-  }
 
   const oss = [...(input.oss_frameworks || [])]
     .map((fw) => ({

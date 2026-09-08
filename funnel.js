@@ -93,10 +93,8 @@
     if (!rel || rel === 'index.html') return 'home';
     if (rel.startsWith('tools/')) {
       if (rel === 'tools/hub.html') return 'hub';
-      if (rel === 'tools/shelf.html') return 'shelf';
       return 'tool';
     }
-    if (rel.startsWith('compare/')) return 'compare';
     if (rel.startsWith('guides/')) return 'guide';
     if (rel.startsWith('news/')) return 'news';
     if (rel === 'ai-tools-ranking.html') return 'ranking';
@@ -145,7 +143,7 @@
   function inferStepFromPage() {
     const type = pageType();
     if (type === 'home') return STEPS.DISCOVER;
-    if (type === 'tool' || type === 'compare') return STEPS.ENGAGE;
+    if (type === 'tool') return STEPS.ENGAGE;
     if (type === 'guide' || type === 'hub') return STEPS.LEARN;
     return STEPS.BROWSE;
   }

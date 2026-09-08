@@ -21,7 +21,7 @@
 | AI 简报      | `#home-daily`                    | 模型/GitHub/资讯 + 近一个月视频精选 3 条 |
 | 热门排行     | `#home-ops`                      | 本机点击热度                             |
 | 知识版图     | `#home-ai-map` `HomeAiMap.astro` | 圈层可点；基础学科只在图上，不在下方按钮 |
-| 下一步 / FAQ | `#home-community` / `#home-faq`  | 三榜、开源、收藏；`site.faq`             |
+| 下一步       | `#home-community`                 | 三榜、开源                               |
 
 独立页（开源 / 课程 / 新闻 / 视频）用 `StandaloneLayout`，左侧「本页目录」扫 `h2–h4`。日更视频标题不要再用 `h4`，以免目录被每条标题撑满。
 

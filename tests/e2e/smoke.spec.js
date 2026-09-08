@@ -93,9 +93,8 @@ test.describe('AI 导航 关键路径', () => {
       /videos\.html$/,
     );
     await expect(page.locator('#home-community a[href$="oss.html"]')).toBeVisible();
-    await expect(page.locator('#home-community a[href$="tools/shelf.html"]')).toBeVisible();
-    await expect(page.locator('#home-faq')).toBeVisible();
-    await expect(page.locator('#faq-cursor-vs-copilot')).toBeVisible();
+    await expect(page.locator('#home-community a[href$="tools/shelf.html"]')).toHaveCount(0);
+    await expect(page.locator('#home-faq')).toHaveCount(0);
     await expect(page.locator('#knowledge-fab')).toHaveCount(0);
     await expect(page.locator('#knowledge-panel')).toHaveCount(1);
     await expect(page.locator('#knowledge-panel')).toHaveAttribute('aria-hidden', 'true');
@@ -111,21 +110,16 @@ test.describe('AI 导航 关键路径', () => {
     );
   });
 
-  test('FAQ 展开后可跳到对比页', async ({ page }) => {
-    await gotoHome(page, '#faq-cursor-vs-copilot');
-    const item = page.locator('#faq-cursor-vs-copilot');
-    await expect(item).toHaveJSProperty('open', true);
-    await expect(item.locator('.home-faq-link')).toHaveAttribute(
-      'href',
-      /compare\/cursor-vs-copilot\.html$/,
-    );
-    await item.locator('.home-faq-link').click();
-    await expect(page).toHaveURL(/compare\/cursor-vs-copilot\.html/);
-    await expect(page.locator('h1')).toBeVisible();
-  });
-
   test('知识版图点击跳到对应课程列表', async ({ page }) => {
     await gotoHome(page);
+    await expect(page.locator('#home-ai-map .ai-map-node-found')).toHaveCount(6);
+    await expect(page.locator('#home-ai-map .ai-map-ring-found')).toHaveCount(6);
+    await expect(page.locator('#home-ai-map a.ai-map-node')).toHaveCount(7);
+    await expect(page.locator('#home-ai-map a.ai-map-node-found')).toHaveCount(0);
+    await expect(page.locator('#home-ai-map text.ai-map-label-found', { hasText: '数学' })).toBeVisible();
+    const urlBeforeFoundClick = page.url();
+    await page.locator('#home-ai-map text.ai-map-label-found', { hasText: '数学' }).click({ force: true });
+    await expect(page).toHaveURL(urlBeforeFoundClick);
     await expect(page.locator('#home-ai-map a.ai-map-node[data-map-node="nlp"]')).toHaveAttribute(
       'href',
       /courses\.html#llm$/,
@@ -285,25 +279,13 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('#hub-panel-aicpb .aicpb-product-reason').first()).toBeVisible();
   });
 
-  test('独立工具页与对比页', async ({ page }) => {
+  test('独立工具页', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('tools/cursor.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('Cursor 使用指南');
     await expect(page).toHaveTitle(/Cursor 使用指南 \| AI 导航/);
-    const fav = page.locator('[data-favorite-toggle]');
-    await expect(fav).toBeVisible();
-    await fav.click();
-    await expect(fav).toHaveAttribute('aria-pressed', 'true');
-    await page.goto('tools/shelf.html', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('.breadcrumb')).toContainText('我的收藏');
-    await expect(page.locator('#tool-shelf-favs-list')).toContainText('Cursor');
-    await expect(page.locator('#tool-shelf-hist-list')).toContainText('Cursor');
-    await page.goto('compare/cursor-vs-copilot.html', { waitUntil: 'domcontentloaded' });
-    await expect(page.locator('body')).toContainText(/Cursor|Copilot/i);
-    await expect(page.locator('#compare-matrix-title')).toBeVisible();
-    await expect(page.locator('.compare-matrix [data-level]').first()).toBeVisible();
-    await expect(page.locator('#compare-reviews-title')).toBeVisible();
-    await expect(page.locator('.compare-review-verdict').first()).toBeVisible();
+    await expect(page.locator('[data-favorite-toggle]')).toHaveCount(0);
+    await expect(page.getByRole('link', { name: '我的收藏' })).toHaveCount(0);
   });
 
   test('404 页：单一 main、noindex', async ({ page }) => {

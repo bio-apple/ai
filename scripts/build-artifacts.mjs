@@ -182,7 +182,7 @@ function appendRankingSearchItems(items, rankings) {
   }
 }
 
-function buildSearchIndex(site, tools, compares) {
+function buildSearchIndex(site, tools) {
   const items = [];
   for (const t of tools) {
     const kw = [t.id, t.name, t.description, '教程', ...(t.features || []).map((f) => f.title)]
@@ -243,12 +243,6 @@ function buildSearchIndex(site, tools, compares) {
       '工具中心 AICPB AI产品榜 排行 ChatGPT New Bing Gemini Claude DeepSeek 豆包 Kimi Copilot cursor 即梦 官方教程',
   });
   items.push({
-    label: '我的收藏',
-    type: '导航',
-    url: 'tools/shelf.html',
-    keywords: '我的收藏 浏览历史 最近看过 收藏夹 回访',
-  });
-  items.push({
     label: '进阶应用指南',
     type: '学习',
     url: 'guides/advanced.html',
@@ -302,14 +296,6 @@ function buildSearchIndex(site, tools, compares) {
     anchor: 'home-recommend',
   });
 
-  for (const cmp of compares) {
-    items.push({
-      label: cmp.h1 || cmp.title,
-      type: '对比',
-      url: `compare/${cmp.slug}.html`,
-      keywords: cmp.search_keywords || cmp.title,
-    });
-  }
   return items;
 }
 
@@ -424,9 +410,8 @@ function buildAnalyticsConfig() {
 export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   const site = readJson('site.json');
   const tools = readJson('tools.json');
-  const compares = readJson('compares.json');
   const rankings = readJson('rankings.json');
-  const searchIndex = buildSearchIndex(site, tools, compares);
+  const searchIndex = buildSearchIndex(site, tools);
   const aiNews = readRootJson('ai-news.json');
   appendHubBoardSearchItems(searchIndex);
   appendNewsSearchItems(searchIndex, aiNews);

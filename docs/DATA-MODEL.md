@@ -11,7 +11,7 @@ Schema：`schemas/*.json`
 | 文件                                             | 位置    | 维护          | Schema / CI                  |
 | ------------------------------------------------ | ------- | ------------- | ---------------------------- |
 | `site.json`                                      | `data/` | 手工          | 文档约定 · `data`            |
-| `tools.json` / `compares.json` / `rankings.json` | `data/` | 手工 / 日更   | `data`                       |
+| `tools.json` / `rankings.json` | `data/` | 手工 / 日更   | `data`                       |
 | `tool-relations.json`                            | `data/` | 手工          | `tool-relations.schema.json` |
 | `engagement.json`                                | `data/` | 手工          | `engagement.schema.json`     |
 | `local-deploy.json`                              | `data/` | 手工          | `local-deploy.schema.json`   |
@@ -94,18 +94,7 @@ Schema：`schemas/*.json`
 
 页头必须醒目写出 `updated_at` + 相对时间。
 
-### 3.4 `compares.json` · 对比页
-
-每条对比专题：`slug` / `h1` / `table` / `sections` / `cta`。
-
-选型辅助（构建期快照，不是运行时爬官网）：
-
-| 字段                          | 说明                                                        |
-| ----------------------------- | ----------------------------------------------------------- |
-| `feature_matrix.rows[].cells` | `{ level: yes\|partial\|no, text }`                         |
-| `reviews.items[]`             | 编辑根据公开讨论写的摘要，必须有 `disclaimer`，禁止伪造星级 |
-
-### 3.5 其他
+### 3.4 其他
 
 | 文件                | 关键字段                                          |
 | ------------------- | ------------------------------------------------- |

@@ -504,80 +504,6 @@
       }
     ]
   },
-  "compare_table": {
-    "rows": [
-      {
-        "tool": "ChatGPT",
-        "type": "AI 助手",
-        "strength": "生态最全、GPTs、多模态",
-        "scenario": "日常问答、创作、通用任务",
-        "pricing": "免费 / Plus $20"
-      },
-      {
-        "tool": "New Bing",
-        "type": "AI 助手",
-        "strength": "联网搜索、引用回答、Edge 摘要",
-        "scenario": "检索式问答、网页速读、信息整理",
-        "pricing": "免费 / Microsoft 订阅扩展"
-      },
-      {
-        "tool": "Gemini",
-        "type": "AI 助手",
-        "strength": "Google 整合、Deep Research",
-        "scenario": "搜索研究、Gmail/Drive 联动",
-        "pricing": "免费 / Advanced"
-      },
-      {
-        "tool": "Claude｜Anthropic",
-        "type": "AI 助手",
-        "strength": "深度推理、长文本、Artifacts",
-        "scenario": "文档分析、写作、代码审查",
-        "pricing": "免费 / Pro $20"
-      },
-      {
-        "tool": "DeepSeek",
-        "type": "AI 助手",
-        "strength": "免费好用、推理强、API 便宜",
-        "scenario": "学习、编程、低成本开发",
-        "pricing": "网页免费 / API 按量"
-      },
-      {
-        "tool": "豆包｜抖音",
-        "type": "AI 助手",
-        "strength": "免费多模态、扣子 Coze",
-        "scenario": "日常问答、轻量 AI 应用搭建",
-        "pricing": "免费"
-      },
-      {
-        "tool": "Kimi｜月之暗面",
-        "type": "AI 助手",
-        "strength": "超长上下文、文件解析、联网",
-        "scenario": "长文档、合同、论文速读",
-        "pricing": "免费 / 会员"
-      },
-      {
-        "tool": "Github Copilot",
-        "type": "AI 编程",
-        "strength": "IDE 补全、GitHub 集成、M365",
-        "scenario": "VS Code 编码、Office 办公",
-        "pricing": "免费 / Pro $10"
-      },
-      {
-        "tool": "cursor",
-        "type": "AI 编程",
-        "strength": "编辑器深度集成、Agent",
-        "scenario": "日常编码、快速迭代",
-        "pricing": "免费 / Pro $20"
-      },
-      {
-        "tool": "即梦 AI｜剪映",
-        "type": "AI 视频",
-        "strength": "文生视频、剪映生态、中文创作",
-        "scenario": "短视频脚本、分镜与成片辅助",
-        "pricing": "免费额度 / 会员"
-      }
-    ]
-  },
   "learning_paths": [
     {
       "title": "进阶应用",
@@ -603,32 +529,12 @@
       "lead": "编程自动化、API 接入与多工具协同，构建你的 AI 工作流。"
     }
   },
-  "faq": [
-    {
-      "id": "faq-beginner",
-      "question": "零基础应该先学哪个 AI 工具？",
-      "answer": "对话从 ChatGPT、豆包或 DeepSeek 起步；编程选 Cursor 或 Copilot；长文档选 Kimi 或 Claude。",
-      "href": "courses.html",
-      "link_label": "查看课程资源"
-    },
-    {
-      "id": "faq-cursor-vs-copilot",
-      "question": "Cursor 和 GitHub Copilot 怎么选？",
-      "answer": "需要 Agent 跨文件改动选 Cursor；已在 VS Code 且预算有限选 Copilot。",
-      "href": "compare/cursor-vs-copilot.html",
-      "link_label": "查看 Cursor vs Copilot 对比"
-    }
-  ],
   "footer": {
     "text": "AI 导航 · v2.0",
     "links": [
       {
         "label": "AI 工具中心",
         "href": "tools/hub.html"
-      },
-      {
-        "label": "我的收藏",
-        "href": "tools/shelf.html"
       },
       {
         "label": "开源精选",

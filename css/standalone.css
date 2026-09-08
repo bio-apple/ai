@@ -92,19 +92,6 @@
   min-width: 720px;
 }
 
-.answer-box {
-  margin: 0 0 40px;
-  padding: 16px 18px;
-  border-radius: 12px;
-  border: 1px solid color-mix(in srgb, var(--accent) 25%, var(--border));
-  background: color-mix(in srgb, var(--accent) 6%, var(--bg-card));
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.answer-box strong {
-  color: var(--accent);
-}
 
 .standalone-cta {
   display: flex;
@@ -114,114 +101,6 @@
   padding-top: 8px;
 }
 
-.compare-freshness {
-  margin: 8px 0 0;
-  padding: 8px 12px;
-  border-radius: 10px;
-  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
-  background: color-mix(in srgb, var(--accent) 8%, var(--bg-card));
-  color: var(--text);
-  font-size: 0.86rem;
-  font-weight: 650;
-}
-
-.compare-note {
-  margin: 0 0 16px;
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--text-muted);
-}
-
-.compare-review-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 16px;
-}
-
-.compare-review-card {
-  padding: 18px 18px 16px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  background: var(--bg-card);
-}
-
-.compare-review-card h3 {
-  margin: 0;
-  font-size: 1.05rem;
-}
-
-.compare-matrix td[data-level] {
-  vertical-align: top;
-}
-
-.compare-level {
-  display: inline-block;
-  margin: 0 8px 4px 0;
-  padding: 1px 8px;
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 750;
-  letter-spacing: 0.02em;
-}
-
-.compare-matrix td[data-level='yes'] .compare-level {
-  color: color-mix(in srgb, var(--accent) 20%, #0a7a3e);
-  background: color-mix(in srgb, #22c55e 16%, var(--bg-card));
-}
-
-.compare-matrix td[data-level='partial'] .compare-level {
-  color: var(--text);
-  background: color-mix(in srgb, var(--text-muted) 16%, var(--bg-card));
-}
-
-.compare-matrix td[data-level='no'] .compare-level {
-  color: var(--text-muted);
-  background: var(--bg-hover);
-}
-
-.compare-level-text {
-  display: block;
-  color: var(--text-muted);
-  line-height: 1.45;
-}
-
-.compare-review-verdict {
-  margin: 8px 0 14px;
-  font-size: 0.95rem;
-  line-height: 1.6;
-}
-
-.compare-review-kicker {
-  margin: 0 0 6px;
-  font-size: 0.78rem;
-  font-weight: 750;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
-}
-
-.compare-review-card ul {
-  margin: 0 0 14px;
-  padding-left: 1.1em;
-  font-size: 0.88rem;
-  line-height: 1.55;
-  color: var(--text);
-}
-
-.compare-review-sources {
-  margin: 0;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-.compare-review-sources a {
-  color: var(--accent);
-  font-weight: 650;
-  text-decoration: none;
-}
-
-.compare-review-sources a:hover {
-  text-decoration: underline;
-}
 
 /* 工具详情页已改用 StandalonePageHeader，不再依赖旧 tool-header 分割线 */
 

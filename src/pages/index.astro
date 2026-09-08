@@ -14,7 +14,6 @@ const schema = mergeSchemaGraphs(
   buildHomeSchema(site),
   buildCoursesSchema(coursesPayload, `${site.meta.base_url}courses.html`),
 );
-const faqItems = site.faq || [];
 const newsMeta = loadRuntimeJson<{ updated_at?: string }>('ai-news.json');
 const ossMeta = loadRuntimeJson<{ updated_at?: string }>('oss-projects.json');
 const stampCandidates = [newsMeta?.updated_at, ossMeta?.updated_at]
@@ -83,9 +82,9 @@ const heatUpdated = ossMeta?.updated_at
       >
         <div class="section-head">
           <h2 class="section-title" id="home-community-title">下一步</h2>
-          <p class="section-desc">三榜选型、开源升温，或回看自己收藏的工具。</p>
+          <p class="section-desc">三榜选型，或看开源升温。</p>
         </div>
-        <div class="community-links community-links--compact">
+        <div class="community-links">
           <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
             <span class="community-card-kicker">排行</span>
             <strong>AI 工具中心</strong>
@@ -98,50 +97,9 @@ const heatUpdated = ossMeta?.updated_at
             <span>Agent / MCP / Coding Agent 等方向，每向 Top 3。</span>
             <em class="community-card-cta">查看升温 →</em>
           </a>
-          <a href={asset('tools/shelf.html')} class="community-card" data-track="home-community-shelf">
-            <span class="community-card-kicker">回访</span>
-            <strong>我的收藏</strong>
-            <span>本机收藏与最近打开过的工具。</span>
-            <em class="community-card-cta">打开收藏 →</em>
-          </a>
         </div>
       </section>
 
-      {
-        faqItems.length > 0 && (
-          <section class="home-section fade-in" id="home-faq" aria-labelledby="home-faq-title">
-            <div class="section-head">
-              <h2 class="section-title" id="home-faq-title">
-                常见问题
-              </h2>
-              <p class="section-desc">快速回答选型与上手问题。</p>
-            </div>
-            <div class="home-faq-list">
-              {faqItems.map((item) => (
-                <details class="home-faq-item" id={item.id}>
-                  <summary>{item.question}</summary>
-                  <div class="home-faq-body">
-                    <p>{item.answer}</p>
-                    {item.href && (
-                      <a class="home-faq-link" href={asset(item.href)} data-track="faq-link">
-                        {item.link_label || '了解更多'} →
-                      </a>
-                    )}
-                  </div>
-                </details>
-              ))}
-            </div>
-            <script is:inline>
-              (function () {
-                var id = location.hash.replace(/^#/, '');
-                if (!id) return;
-                var el = document.getElementById(id);
-                if (el && el.classList.contains('home-faq-item')) el.open = true;
-              })();
-            </script>
-          </section>
-        )
-      }
 
     </div>
   </section>

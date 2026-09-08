@@ -33,7 +33,6 @@ DIST=dist python3 scripts/validate_ci.py
 | ------------ | --------------------------------------------------------------------------------------- |
 | 导航 / 文案  | `data/site.json`                                                                        |
 | 工具教程     | `data/tools.json` + `home_tool_categories`                                              |
-| 对比专题     | `data/compares.json`                                                                    |
 | 排行榜       | `data/rankings.json` / `fetch_rankings.py`                                              |
 | 开源精选     | `config/oss-fetch.yaml` → `fetch_oss_heating.py`；卡片热度条 `lib/content-display.js`   |
 | 新闻 / 课程  | `config/news-fetch.yaml` / `config/courses-fetch.yaml`                                  |
