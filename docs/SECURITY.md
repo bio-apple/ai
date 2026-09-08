@@ -4,7 +4,7 @@
 
 ## 1. 禁止硬编码 API Key
 
-**绝对禁止**将 OpenAI、Anthropic、DeepSeek、Google Gemini 等 LLM 服务商的 `API_KEY` 硬编码在源码、配置或 JSON 中并提交至 GitHub。
+**禁止**将 OpenAI、Anthropic、DeepSeek、Google Gemini 等 LLM 服务商的 `API_KEY` 硬编码在源码、配置或 JSON 中并提交至 GitHub。
 
 密钥一旦进入公开仓库，通常会在数秒内被全网爬虫扫描并盗刷。
 
@@ -25,18 +25,18 @@ cp .env.local.example .env.local
 
 ### 允许的本地 / CI 变量（非 LLM 密钥）
 
-| 变量                                                         | 用途                                                       |
-| ------------------------------------------------------------ | ---------------------------------------------------------- |
-| `GA_MEASUREMENT_ID` / `PUBLIC_GA_MEASUREMENT_ID`             | Google Analytics                                           |
-| `CLARITY_PROJECT_ID` / `PUBLIC_CLARITY_PROJECT_ID`           | Microsoft Clarity                                          |
-| `UMAMI_*` / `PUBLIC_UMAMI_*`                                 | Umami 统计                                                 |
-| `CLOUDFLARE_BEACON_TOKEN` / `PUBLIC_CLOUDFLARE_BEACON_TOKEN` | Cloudflare Web Analytics                                   |
-| `GITHUB_TOKEN` / `GH_TOKEN`                                  | 本地抓取脚本提高 GitHub API 限额                           |
-| `YOUTUBE_API_KEY` / `YOUTUBE_DATA_API_V3` / `GOOGLE_API_KEY` | 每日视频抓取：YouTube Data API v3 详情（规避 yt-dlp 反爬） |
-| `VIDEO_SYNC_API_URL`                                         | 本地构建：Cloudflare Worker URL（视频云端同步）            |
-| `VIDEO_SYNC_SHARED_KEY`                                      | 本地构建：共享 sync 码（默认 `bioai-videos`）              |
-| `YTDLP_COOKIES_FILE`                                         | 本地可选：yt-dlp Netscape cookies 文件路径                 |
-| `YTDLP_COOKIES_B64`（仅 CI Secret）                          | 可选：base64 编码的 cookies，供 Actions 写入临时文件       |
+| 变量                                                         | 用途                                                 |
+| ------------------------------------------------------------ | ---------------------------------------------------- |
+| `GA_MEASUREMENT_ID` / `PUBLIC_GA_MEASUREMENT_ID`             | Google Analytics                                     |
+| `CLARITY_PROJECT_ID` / `PUBLIC_CLARITY_PROJECT_ID`           | Microsoft Clarity                                    |
+| `UMAMI_*` / `PUBLIC_UMAMI_*`                                 | Umami 统计                                           |
+| `CLOUDFLARE_BEACON_TOKEN` / `PUBLIC_CLOUDFLARE_BEACON_TOKEN` | Cloudflare Web Analytics                             |
+| `GITHUB_TOKEN` / `GH_TOKEN`                                  | 本地抓取脚本提高 GitHub API 限额                     |
+| `YOUTUBE_API_KEY` / `YOUTUBE_DATA_API_V3` / `GOOGLE_API_KEY` | 每日视频抓取：YouTube Data API v3 详情               |
+| `VIDEO_SYNC_API_URL`                                         | 本地构建：Cloudflare Worker URL（视频云端同步）      |
+| `VIDEO_SYNC_SHARED_KEY`                                      | 本地构建：共享 sync 码（默认 `bioai-videos`）        |
+| `YTDLP_COOKIES_FILE`                                         | 本地可选：yt-dlp Netscape cookies 文件路径           |
+| `YTDLP_COOKIES_B64`（仅 CI Secret）                          | 可选：base64 编码的 cookies，供 Actions 写入临时文件 |
 
 生产 CI 通过 [GitHub Actions Secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets) 注入上述构建变量，**不要**写入仓库。
 
@@ -49,7 +49,7 @@ cp .env.local.example .env.local
 3. **禁止**经任何第三方不安全通道中转（包括自建无鉴权代理、公开 CORS 代理等）。
 4. 不得在构建产物、`analytics-config.json` 或任何静态 JSON 中写入用户或开发者密钥。
 
-当前站点用途：`localStorage` / `sessionStorage` 仅用于主题、工具热度等**非密钥**偏好（见 `ux.js`、`engagement.js`）。
+当前站点：`localStorage` / `sessionStorage` 用于主题、工具热度、视频收藏等**非密钥**偏好（见 `ux.js`、`engagement.js`、`videos.js`）。
 
 ## 4. 站内搜索与本地 API
 
@@ -57,54 +57,48 @@ cp .env.local.example .env.local
 - 本地可选：`./start.sh` 启动 FastAPI，`/api/ask` 为**站内 BM25/Fuse 检索**，不调用外部 LLM，也不承载用户密钥。
 - GitHub Pages **不部署** `/api/*` 路由。
 
-## 4.1 外链与 GitHub 探测（link-guard）
+## 5. 外链与 GitHub 探测（link-guard）
 
 `lib/link-guard.js`（Layout 默认加载）：
 
 - 外链自动补齐 `rel="noopener noreferrer"`
-- 图片加载失败时替换为本地 SVG 占位，避免破图
-- 点击疑似 GitHub 仓库链接前，用 `https://api.github.com` 探测；仓库 404 时弹窗（复制链接 / 仍要打开 / 关闭），避免用户盲跳失效页
+- 图片加载失败时替换为本地 SVG 占位
+- 点击疑似 GitHub 仓库链接前，用 `https://api.github.com` 探测；仓库 404 时弹窗（复制链接 / 仍要打开 / 关闭）
 
-因此 CSP `connect-src` **必须**包含 `https://api.github.com`（见 `config/csp.json`）。探测失败时不阻断打开（网络抖动降级）。
+因此 CSP `connect-src` **必须**包含 `https://api.github.com`（见 `config/csp.json`）。探测失败时不阻断打开。
 
-## 5. incident 响应
-
-若误提交密钥：
+## 6. 误提交密钥
 
 1. **立即**在对应服务商控制台轮换 / 吊销密钥。
-2. 从 Git 历史中清除（如 `git filter-repo`），并 force-push。
-3. 假定密钥已泄露，检查账单与用量异常。
+2. 从 Git 中清除该提交，并假定密钥已泄露，检查账单与用量。
 
-## 6. Content-Security-Policy（XSS 防御）
+## 7. Content-Security-Policy
 
-站点通过 HTTP 响应头限制浏览器可加载的资源来源，降低 XSS 与恶意注入的影响面。
+站点通过 HTTP 响应头限制浏览器可加载的资源来源。
 
-| 层级       | 文件                                | 说明                                     |
-| ---------- | ----------------------------------- | ---------------------------------------- |
-| **主策略** | `config/csp.json` → `_headers`      | Cloudflare 边缘注入；`prebuild` 自动同步 |
-| **兜底**   | `src/components/SecurityMeta.astro` | GitHub Pages 无自定义头时的 `<meta>` CSP |
+| 层级   | 文件                                | 说明                                     |
+| ------ | ----------------------------------- | ---------------------------------------- |
+| 主策略 | `config/csp.json` → `_headers`      | Cloudflare 边缘注入；`prebuild` 自动同步 |
+| 兜底   | `src/components/SecurityMeta.astro` | GitHub Pages 无自定义头时的 `<meta>` CSP |
 
-**已收紧的指令（相对初版）：**
+当前指令包括：
 
-- `script-src-attr 'none'` — 禁止内联事件处理器（`onclick` 等）
+- `script-src-attr 'none'` — 禁止内联事件处理器
 - `frame-src 'none'` / `frame-ancestors 'none'` — 禁止被嵌入 iframe
-- `worker-src 'self'` — 仅允许同域 Service Worker（PWA 离线缓存），禁止 blob/跨域 Worker
-- `object-src 'none'` — 禁止 Flash 等插件
-- `style-src-attr 'unsafe-inline'` — 允许 Astro 模板中的 `style=` 属性（与 `style-src` 分离）
-
-**仍保留 `unsafe-inline` 的原因：** `ThemeBoot.astro` 等首屏内联脚本尚未改为 nonce/hash；完全移除需后续重构。
+- `worker-src 'self'` — 仅同域 Service Worker
+- `object-src 'none'` — 禁止插件
+- `style-src-attr 'unsafe-inline'` — 允许模板中的 `style=` 属性
+- `script-src` 含 `'unsafe-inline'` — `ThemeBoot.astro` 等首屏内联脚本
 
 修改 CSP 时只编辑 `config/csp.json`，然后 `node scripts/csp-policy.mjs` 或 `npm run build` 同步 `_headers`。
 
-**与 link-guard / 视频同步相关的 `connect-src`**：
+`connect-src` 相关来源：
 
 - `https://api.github.com` — GitHub 仓库存活探测
 - `https://*.workers.dev` + 构建时注入的 Worker origin — Cloudflare 视频 KV 与 `/meta`（单层 `*` 不匹配 `xxx.account.workers.dev`，见 `scripts/csp-policy.mjs`）
 - `https://noembed.com` · `https://api.microlink.io` — 视频 oEmbed / 页面封面
 
-## 7. CI 密钥扫描
-
-`push` / `pull_request` 前运行：
+## 8. CI 密钥扫描
 
 ```bash
 npm run scan:secrets   # validate_ci.py secrets

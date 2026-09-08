@@ -52,6 +52,13 @@ feeds:
     category: 中文资讯
     max_items: 6
 
+# 官网首页「热门文章」区块（与 RSS 独立；滚动 30 天，不进 7×24h 主列表）
+qbitai_hot:
+  url: https://www.qbitai.com/
+  source: 量子位
+  category: 中文资讯
+  max_age_days: 30
+
 github_trending:
   enabled: true
   source: GitHub Trending

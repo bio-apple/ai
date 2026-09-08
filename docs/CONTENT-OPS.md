@@ -18,7 +18,7 @@
 
 | 工作流                                                                                           | Cron              | 说明                                      |
 | ------------------------------------------------------------------------------------------------ | ----------------- | ----------------------------------------- |
-| [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)               | **01:00 / 12:00** | 新闻（量子位 / 机器之心 / HF 等）         |
+| [daily-news.yml](https://github.com/bio-apple/ai/actions/workflows/daily-news.yml)               | **01:00 / 12:00** | 新闻（RSS + 量子位官网首页热门 30 天）    |
 | [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)         | **02:00**         | 课程                                      |
 | [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)                 | **02:00**         | 开源加热（含 OpenHands / AutoGPT 优先仓） |
 | [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)       | **03:00**         | 排行榜                                    |
@@ -32,13 +32,15 @@
 
 | 脚本                    | 配置                        | 产出                                                               |
 | ----------------------- | --------------------------- | ------------------------------------------------------------------ |
-| `fetch_ai_news.py`      | `config/news-fetch.yaml`    | `ai-news.json`                                                     |
+| `fetch_ai_news.py`      | `config/news-fetch.yaml`    | `ai-news.json`（主列表 7×24h + `qbitai_hot` 官网热门 30 天）       |
 | `fetch_oss_heating.py`  | `config/oss-fetch.yaml`     | `oss-projects.json` + `site.json`                                  |
 | `fetch_ai_courses.py`   | `config/courses-fetch.yaml` | `ai-courses.json`                                                  |
 | `fetch_rankings.py`     | —                           | `data/rankings.json`                                               |
 | `fetch_daily_videos.py` | `config/video-fetch.yaml`   | `daily-videos.json`（近 1 个月、每平台 Top 3、`min_views: 10000`） |
 
 本地：`python3 scripts/fetch_ai_news.py`（或对应脚本）→ `npm run build`。
+
+量子位热门：抓官网首页 `<!--热门文章 start-->` … `end` 区块，只保留近 30 天；写入 `ai-news.json` 的 `qbitai_hot`，新闻热点页 `#qbitai-hot-list` 展示。RSS 源「量子位」仍进 7×24h 主列表。
 
 ## 4. 救急
 
@@ -48,6 +50,7 @@
 4. 首页「资讯更新于 / 今日升温」日期来自 JSON 的 `updated_at`（非构建日）
 5. 视频 YouTube 半壁依赖仓库 Secret `YOUTUBE_API_KEY`；为空先查 Secrets 再手动 Run
 6. 线上视频/首页改版若仍是旧 UI：强制刷新（PWA 缓存 HTML）
+7. `site-health.yml` 失败：对照 run 日志「建议处置」，再按本表重跑对应日更
 
 ## 相关
 

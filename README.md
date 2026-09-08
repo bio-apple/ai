@@ -2,15 +2,14 @@
 
 **v2.0** · Bio-Apple · AI 工具中心 · 开源精选 · 课程 · 热点 · 视频
 
-[![Version](https://img.shields.io/badge/version-2.0.0-0d8c6d?style=flat-square)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-2.0.0-0d8c6d?style=flat-square)](https://bio-apple.github.io/ai/)
 [![Website](https://img.shields.io/badge/Website-Live-2563eb?style=flat-square)](https://bio-apple.github.io/ai/)
 [![Stars](https://img.shields.io/github/stars/bio-apple/ai?style=flat-square&logo=github)](https://github.com/bio-apple/ai/stargazers)
 [![Deploy](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/pages.yml?branch=main&style=flat-square&label=Deploy)](https://github.com/bio-apple/ai/actions/workflows/pages.yml)
 [![CI](https://img.shields.io/github/actions/workflow/status/bio-apple/ai/ci.yml?branch=main&style=flat-square&label=CI)](https://github.com/bio-apple/ai/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-0d8c6d?style=flat-square)](./LICENSE)
 
-站点：https://bio-apple.github.io/ai/  
-变更记录：[CHANGELOG.md](./CHANGELOG.md)
+站点：https://bio-apple.github.io/ai/
 
 ## 快速开始
 
@@ -47,20 +46,22 @@ npm ci && pip install -r requirements.txt
 | [docs/CI-CD.md](./docs/CI-CD.md)                     | 部署与 Secrets          |
 | [docs/SECURITY.md](./docs/SECURITY.md)               | CSP 与密钥规范          |
 | [docs/CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) | 视频链接云端同步        |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构概览            |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构                |
 | [docs/FRONTEND.md](./docs/FRONTEND.md)               | 搜索、首页、视频页、PWA |
 | [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)           | JSON 数据约定           |
 
 ## 做什么
 
-| 入口               | 说明                                                                  |
-| ------------------ | --------------------------------------------------------------------- |
-| 首页               | 匹配助手、AI 简报、热门排行、知识版图（绿圈可点，黄圈只作图示）       |
-| AI工具中心         | AICPB / LMSYS / AA 三榜 Top 10；Vibe Coding 访问量榜                  |
-| 开源精选           | Agent / MCP / Coding Agent 等方向加热 Top 3                           |
-| 课程 / 新闻 / 视频 | 日更内容；视频页为近 1 个月每平台 Top 3 + 粘贴收藏（Cloudflare 同步） |
+| 入口       | 说明                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------ |
+| 首页       | 匹配助手、AI 简报、热门排行、知识版图（绿圈可点，黄圈只作图示）、下一步（工具中心 + 开源） |
+| AI工具中心 | AICPB / LMSYS / AA 三榜 Top 10；工具详情                                                   |
+| 开源精选   | Agent / MCP / Coding Agent 等方向加热 Top 3                                                |
+| 课程资源   | 日更免费课程                                                                               |
+| 新闻热点   | 量子位官网首页「热门文章」（近 30 天）+ 滚动 7×24 小时资讯                                 |
+| AI 视频    | 近 1 个月 YouTube / B 站各播放量 Top 3；粘贴收藏（Cloudflare 同步）                        |
 
-已下线：选型指南对比专题、学习路线、零基础入门、首页 FAQ、工具收藏页。旧 URL 走 404。
+顶栏入口见 `data/site.json` 的 `nav.menu`。进阶指南在 `guides/advanced.html`（搜索与推荐路径可达，不在顶栏）。本地部署文稿在 `local/{id}.html`。
 
 推送 `main` → `pages.yml` 部署 Pages；日更见 [CONTENT-OPS.md](./docs/CONTENT-OPS.md)。
 

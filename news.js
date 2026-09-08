@@ -7,6 +7,7 @@ let newsState = {
   category: 'all',
   window: 'week',
   items: [],
+  qbitaiHot: [],
   watchSources: [],
   /** 滚动窗口小时数；默认 7×24，可由 ai-news.json.window_hours 覆盖 */
   windowHours: 7 * 24,
@@ -425,6 +426,17 @@ function paintNewsList() {
   });
 }
 
+function paintQbitaiHot(items) {
+  const root = document.getElementById('qbitai-hot-list');
+  if (!root) return;
+  const list = Array.isArray(items) ? items : [];
+  if (!list.length) {
+    root.innerHTML = '<p class="loading-hint">暂无近一个月的量子位热门文章。</p>';
+    return;
+  }
+  root.innerHTML = `<ul class="news-feed-list">${list.map((item) => renderNewsRow(item)).join('')}</ul>`;
+}
+
 function fetchNewsData() {
   if (!newsDataPromise) {
     if (!window.BioAI?.fetchJson) {
@@ -474,6 +486,8 @@ async function loadDailyNews() {
 
   try {
     const data = await fetchNewsData();
+    newsState.qbitaiHot = data.qbitai_hot?.items || [];
+    paintQbitaiHot(newsState.qbitaiHot);
     newsState.items = dedupeNewsItems(data.items || []);
     newsState.watchSources = data.watch_sources || [];
     newsState.category = 'all';

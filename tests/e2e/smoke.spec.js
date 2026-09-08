@@ -222,6 +222,8 @@ test.describe('AI 导航 关键路径', () => {
 
     await page.goto('news/daily-ai-news.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('.breadcrumb')).toContainText('新闻热点');
+    await expect(page.locator('#qbitai-hot-title')).toContainText('量子位热门文章');
+    await expect(page.locator('#qbitai-hot-list')).toBeVisible();
     await expect(page.locator('#daily-news-list .news-row').first()).toBeVisible();
   });
 

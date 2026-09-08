@@ -1,6 +1,6 @@
 # 开发速查
 
-线上：https://bio-apple.github.io/ai/ · **v2.0**（见 [CHANGELOG.md](./CHANGELOG.md)）  
+线上：https://bio-apple.github.io/ai/ · **v2.0**  
 技术栈：Astro 7 SSG + GitHub Pages（本地可选 `./start.sh`）。
 
 按角色入口见 [README.md](./README.md)。产品改 `data/site.json`；前端改 `src/` / `css/` / `lib/`；运维改 `config/*.yaml` 与 Actions。
@@ -10,7 +10,7 @@
 | 文档                                                 | 用途                     |
 | ---------------------------------------------------- | ------------------------ |
 | [docs/SETUP.md](./docs/SETUP.md)                     | 环境搭建、三种预览、排障 |
-| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构概览             |
+| [docs/ARCHITECTURE.md](./docs/ARCHITECTURE.md)       | 系统架构                 |
 | [docs/DATA-MODEL.md](./docs/DATA-MODEL.md)           | JSON / Schema            |
 | [docs/FRONTEND.md](./docs/FRONTEND.md)               | 搜索、首页、视频页、PWA  |
 | [docs/CONTENT-OPS.md](./docs/CONTENT-OPS.md)         | 日更与救急               |
@@ -37,12 +37,14 @@ DIST=dist python3 scripts/validate_ci.py
 | 工具教程     | `data/tools.json` + `home_tool_categories`                                              |
 | 排行榜       | `data/rankings.json` / `fetch_rankings.py`                                              |
 | 开源精选     | `config/oss-fetch.yaml` → `fetch_oss_heating.py`；卡片热度条 `lib/content-display.js`   |
-| 新闻 / 课程  | `config/news-fetch.yaml` / `config/courses-fetch.yaml`                                  |
+| 新闻主列表   | `config/news-fetch.yaml` 的 `feeds`（7×24h）                                            |
+| 量子位热门   | `config/news-fetch.yaml` 的 `qbitai_hot`；展示 `src/pages/news/daily-ai-news.astro`     |
+| 课程         | `config/courses-fetch.yaml`                                                             |
 | 日更视频榜   | `config/video-fetch.yaml` → `fetch_daily_videos.py`；展示 `SsrVideosList.astro`         |
-| 视频收藏页   | `videos.js` · `lib/video-preview*.js` · [CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) |
+| 视频收藏     | `videos.js` · `lib/video-preview*.js` · [CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) |
 | 进阶指南     | `data/site.json` 的 `guides` + `learning_paths`                                         |
 | 知识版图     | `src/components/HomeAiMap.astro`（绿圈链接，黄圈图示）                                  |
-| 本地部署文稿 | `content/local-deploy/*.md`（搜索可达，首页无专区）                                     |
+| 本地部署文稿 | `content/local-deploy/*.md`（搜索与 `local/{id}.html`）                                 |
 | CSP          | `config/csp.json`（`npm run build` 同步 `_headers`）                                    |
 
 站内链接用 `src/lib/paths.ts` 的 `asset()`。推送 `main` → `pages.yml` + `ci.yml`。

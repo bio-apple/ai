@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-08T16:22:21.370669+08:00",
+  "updated_at": "2026-09-08T17:48:38.795184+08:00",
   "date": "2026-09-08",
   "cadence": "daily",
   "window_hours": 168,
@@ -240,6 +240,57 @@
       "published_at": "2026-09-02T00:00:00+08:00"
     }
   ],
+  "qbitai_hot": {
+    "url": "https://www.qbitai.com/",
+    "window_days": 30,
+    "items": [
+      {
+        "id": "96e91106715a",
+        "title": "李飞飞发布：全球首个多模态世界模型",
+        "summary": "李飞飞发布：全球首个多模态世界模型",
+        "url": "https://www.qbitai.com/2026/09/482586.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-02T00:00:00+08:00"
+      },
+      {
+        "id": "555daf521fa1",
+        "title": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
+        "summary": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
+        "url": "https://www.qbitai.com/2026/09/483104.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-02T00:00:00+08:00"
+      },
+      {
+        "id": "f21e55c629b3",
+        "title": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
+        "summary": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
+        "url": "https://www.qbitai.com/2026/09/483101.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-02T00:00:00+08:00"
+      },
+      {
+        "id": "949b4891b9fd",
+        "title": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
+        "summary": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
+        "url": "https://www.qbitai.com/2026/09/483898.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-04T00:00:00+08:00"
+      },
+      {
+        "id": "5c6accf69391",
+        "title": "“没有Token的CS学生，应立即退学”",
+        "summary": "“没有Token的CS学生，应立即退学”",
+        "url": "https://www.qbitai.com/2026/09/483839.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-03T00:00:00+08:00"
+      }
+    ]
+  },
   "watch_sources": [
     {
       "name": "OpenAI",

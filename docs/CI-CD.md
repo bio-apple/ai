@@ -25,6 +25,8 @@ flowchart LR
 
 完整日更说明 → [CONTENT-OPS.md](./CONTENT-OPS.md)
 
+日更工作流用 token commit 后会**显式派发** `pages.yml`；普通 `git push origin main` 会直接触发 Deploy。
+
 ## 本地自检
 
 ```bash

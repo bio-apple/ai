@@ -10,7 +10,7 @@ node scripts/build-local-guides.mjs
 
 构建会自动扫描本目录，生成 `data/local-deploy-guides.json`，并为每篇文稿生成独立详情页：`/ai/local/{id}.html`。
 
-文稿可通过站内搜索与内链访问；首页不再展示实战案例列表专区。
+文稿可通过站内搜索与内链访问，详情页为 `local/{id}.html`。首页无该列表专区。
 
 ## 约定
 

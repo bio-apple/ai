@@ -2,7 +2,7 @@
 
 Workers + KV 保存用户粘贴的视频链接；封面由 Worker `/meta` 抓取。
 
-## 配置（约 5 分钟）
+## 配置
 
 1. Cloudflare API Token（Workers + KV Edit）+ Account ID
 2. GitHub Secrets：`CLOUDFLARE_API_TOKEN`（或 `CLOUDFLARE_API_KEY`）、`CLOUDFLARE_ACCOUNT_ID`
@@ -13,8 +13,8 @@ Workers + KV 保存用户粘贴的视频链接；封面由 Worker `/meta` 抓取
 
 默认共享码：任意设备打开 [videos.html](https://bio-apple.github.io/ai/videos.html) → 自动读写同一份云端列表。
 
-1. 设备 A：粘贴 → 保存（应提示「已云端永久保存」）
-2. 设备 B / 清网站数据后：直接打开同一 URL
+1. 设备 A：粘贴 → 保存（提示「已云端永久保存」）
+2. 设备 B / 清网站数据后：打开同一 URL
 
 未配置 `shared_key` 时可用 `?sync=` 恢复链接。
 

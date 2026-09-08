@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import hashlib
+import html as html_lib
 import json
 import re
 import ssl
@@ -33,6 +34,19 @@ CONFIG_FILE = ROOT / "config" / "news-fetch.yaml"
 DATA_FILE = ROOT / "ai-news.json"
 TZ = timezone(timedelta(hours=8))
 USER_AGENT = "BioAI-Lab-NewsBot/1.0"
+QBITAI_HOT_START = "<!--热门文章 start-->"
+QBITAI_HOT_END = "<!--热门文章 end-->"
+QBITAI_HOT_A_RE = re.compile(
+    r'<a\b[^>]*\bhref=["\']([^"\']+)["\'][^>]*>(.*?)</a>',
+    re.S | re.I,
+)
+QBITAI_HOT_H4_RE = re.compile(r"<h4\b[^>]*>(.*?)</h4>", re.S | re.I)
+QBITAI_HOT_INFO_RE = re.compile(
+    r'<div[^>]*class=["\'][^"\']*\binfo\b[^"\']*["\'][^>]*>(.*?)</div>',
+    re.S | re.I,
+)
+QBITAI_INFO_DATE_RE = re.compile(r"(\d{4}-\d{2}-\d{2})")
+QBITAI_URL_YM_RE = re.compile(r"/(\d{4})/(\d{2})/")
 
 
 def ssl_context() -> ssl.SSLContext:
@@ -419,6 +433,10 @@ def window_timedelta(cfg: dict) -> timedelta:
 def filter_recent(items: list[dict], cfg: dict) -> list[dict]:
     """保留 published_at ∈ [now − 窗口, now] 的条目（无时间戳的条目丢弃，避免窗口外渗漏）。"""
     cutoff = datetime.now(TZ) - window_timedelta(cfg)
+    return _keep_published_since(items, cutoff)
+
+
+def _keep_published_since(items: list[dict], cutoff: datetime) -> list[dict]:
     kept: list[dict] = []
     for item in items:
         pub = item.get("published_at")
@@ -433,6 +451,99 @@ def filter_recent(items: list[dict], cfg: dict) -> list[dict]:
         except ValueError:
             continue
     return kept
+
+
+def filter_max_age_days(
+    items: list[dict], days: int, *, now: datetime | None = None
+) -> list[dict]:
+    """滚动 N 天：保留 published_at ≥ now − N 天（无时间戳丢弃）。"""
+    now = now or datetime.now(TZ)
+    cutoff = now - timedelta(days=int(days))
+    return _keep_published_since(items, cutoff)
+
+
+def extract_qbitai_hot_block(html: str) -> str:
+    start = (html or "").find(QBITAI_HOT_START)
+    end = (html or "").find(QBITAI_HOT_END)
+    if start < 0 or end < 0 or end <= start:
+        return ""
+    return html[start:end]
+
+
+def parse_qbitai_hot_published_at(href: str, info_text: str) -> datetime | None:
+    info_match = QBITAI_INFO_DATE_RE.search(info_text or "")
+    if info_match:
+        try:
+            return datetime.strptime(info_match.group(1), "%Y-%m-%d").replace(tzinfo=TZ)
+        except ValueError:
+            pass
+    ym = QBITAI_URL_YM_RE.search(href or "")
+    if ym:
+        try:
+            return datetime(int(ym.group(1)), int(ym.group(2)), 1, tzinfo=TZ)
+        except ValueError:
+            pass
+    return None
+
+
+def parse_qbitai_hot_html(html: str, feed_cfg: dict, cfg: dict) -> list[dict]:
+    """解析量子位首页「热门文章」注释区块；无日期的条目不写入。"""
+    block = extract_qbitai_hot_block(html)
+    if not block:
+        return []
+
+    base_url = feed_cfg.get("url") or "https://www.qbitai.com/"
+    source = feed_cfg.get("source") or "量子位"
+    category = feed_cfg.get("category") or "中文资讯"
+    smax = cfg.get("summary_max_length", 160)
+    seen: set[str] = set()
+    items: list[dict] = []
+
+    for match in QBITAI_HOT_A_RE.finditer(block):
+        href = (match.group(1) or "").strip()
+        inner = match.group(2) or ""
+        h4 = QBITAI_HOT_H4_RE.search(inner)
+        if not href or not h4:
+            continue
+        title = html_lib.unescape(strip_html(h4.group(1)))
+        if not title:
+            continue
+        link = urljoin(base_url, href)
+        if link in seen:
+            continue
+        info_m = QBITAI_HOT_INFO_RE.search(inner)
+        info_text = html_lib.unescape(strip_html(info_m.group(1))) if info_m else ""
+        published = parse_qbitai_hot_published_at(link, info_text)
+        if not published:
+            continue
+        seen.add(link)
+        summary = title if len(title) <= smax else title[: smax - 1] + "…"
+        items.append(
+            {
+                "id": item_id(link),
+                "title": title,
+                "summary": summary,
+                "url": link,
+                "source": source,
+                "category": category,
+                "published_at": published.isoformat(),
+            }
+        )
+    return items
+
+
+def fetch_qbitai_hot(cfg: dict, *, now: datetime | None = None) -> dict[str, Any]:
+    hot_cfg = cfg.get("qbitai_hot") or {}
+    url = hot_cfg.get("url") or "https://www.qbitai.com/"
+    window_days = int(hot_cfg.get("max_age_days", 30))
+    html = fetch_text(url)
+    items: list[dict] = []
+    if html:
+        parsed = parse_qbitai_hot_html(html, hot_cfg, cfg)
+        items = clean_news_items(filter_max_age_days(parsed, window_days, now=now))
+    else:
+        print("警告：量子位首页热门抓取失败", file=sys.stderr)
+    return {"url": url, "window_days": window_days, "items": items}
 
 
 def select_diverse_items(items: list[dict], cfg: dict) -> list[dict]:
@@ -492,6 +603,7 @@ def main() -> int:
     window = window_timedelta(cfg)
     window_hours = int(window.total_seconds() // 3600)
     window_days = max(1, (window_hours + 23) // 24)
+    qbitai_hot = fetch_qbitai_hot(cfg, now=now)
     payload = {
         "updated_at": now.isoformat(),
         "date": today,
@@ -502,6 +614,7 @@ def main() -> int:
         "schema_version": 1,
         "dedupe": {"by": ["title", "url"], "keep": "latest_published_at"},
         "items": items,
+        "qbitai_hot": qbitai_hot,
         "watch_sources": cfg.get("watch_sources", []),
     }
 
@@ -514,7 +627,9 @@ def main() -> int:
 
     atomic_write_json(DATA_FILE, payload)
     print(
-        f"✓ ai-news.json ({len(items)} 条 · 滚动窗口 {window_hours}h · 日更) → {DATA_FILE}"
+        f"✓ ai-news.json ({len(items)} 条 · 滚动窗口 {window_hours}h · 日更"
+        f" · 量子位热门 {len(qbitai_hot.get('items') or [])} 条/"
+        f"{qbitai_hot.get('window_days')} 天) → {DATA_FILE}"
     )
     return 0
 

@@ -4,7 +4,7 @@ Schema：`schemas/*.json`
 校验：`DIST=dist python3 scripts/validate_ci.py`  
 展示派生：`lib/content-display.js`（相对时间、来源标记、开源人群标签、三榜推荐理由）
 
-日更脚本必须把**展示字段和标题分开写**：标题不得粘连源站名（`量子位` / `| OpenAI`），源站放 `source`。
+日更脚本把**展示字段和标题分开写**：标题不粘连源站名（`量子位` / `| OpenAI`），源站放 `source`。
 
 ## 1. 文件总览
 
@@ -35,6 +35,7 @@ Schema：`schemas/*.json`
 | `home_tool_categories` / `ai_picker` | 工具卡与推荐场景                                                          |
 | `guides` / `learning_paths`          | 进阶指南页（`guides/advanced.html`）                                      |
 | `oss_frameworks`                     | 开源升温（`fetch_oss_heating.py` 写入，字段与 `oss-projects.items` 对齐） |
+| `news_page`                          | 新闻热点页标题与导语                                                      |
 | `video_preview_sync`                 | `{ api_url, shared_key }` → `#video-sync-config`                          |
 
 细节以仓库内 JSON 为准；改导航/文案见 [DEVELOPER.md](../DEVELOPER.md)。
@@ -43,7 +44,7 @@ Schema：`schemas/*.json`
 
 ### 3.1 `ai-news.json` · NewsItem
 
-根：`updated_at`, `date`, `window_hours`, `items[]`, `watch_sources[]`
+根：`updated_at`, `date`, `window_hours`, `items[]`, `qbitai_hot?`, `watch_sources[]`
 
 | 字段           | 必填 | 说明                                            |
 | -------------- | ---- | ----------------------------------------------- |
@@ -55,7 +56,10 @@ Schema：`schemas/*.json`
 | `summary`      | 否   | ≤160 字                                         |
 | `id`           | 否   | `sha1(url)[:12]`                                |
 
-展示层再跑一遍 `displayNewsTitle`，防止旧快照粘连。来源用 `news-source-chip`（标记 + 标签），不用把源站拼进标题。
+`items`：滚动 7×24 小时多样新闻。  
+`qbitai_hot`：量子位官网首页「热门文章」区块（`config/news-fetch.yaml` 的 `qbitai_hot`），滚动 30 天，不经 168h `filter_recent`。形状：`{ url, window_days, items[] }`，条目字段与 NewsItem 相同。热门 URL 可与主列表 RSS 重复；CI 去重只检查主 `items`。新闻热点页把热门专区放在 `#daily-news-list` 外面。
+
+展示层再跑 `displayNewsTitle`。来源用 `news-source-chip`，不把源站拼进标题。
 
 ### 3.2 `oss-projects.json` · OssItem
 
@@ -75,8 +79,7 @@ Schema：`schemas/*.json`
 | `stars_delta`                                  | 相对上次快照的 Star 差                                       |
 | `is_new` / `is_fastest`                        | 上周新增 / 方向内上升最快                                    |
 
-构建期再派生 `audienceTags`（如 `写代码` / `社区主流`，不含已在卡片顶栏出现的方向名），不写回 JSON。  
-热度展示只走 `ossHeatLabel` 一枚条；`trending_*_rank` 仍可写在 JSON 里，但不再单独做成第二枚榜标签。`is_fastest`（本周上升最快）保留。
+构建期派生 `audienceTags`（如 `写代码` / `社区主流`），不写回 JSON。热度展示只走 `ossHeatLabel` 一枚条。
 
 ### 3.3 `rankings.json` · 三榜
 
@@ -93,17 +96,17 @@ Schema：`schemas/*.json`
 | `mom_bar_pct`           | AICPB 柱宽                                                      |
 | `pick_reason`           | 可选；未写则 `rankingPickReason(name, board.id)` 补「为什么选」 |
 
-页头必须醒目写出 `updated_at` + 相对时间。
+页头写出 `updated_at` + 相对时间。
 
 ### 3.4 其他
 
-| 文件                | 关键字段                                          |
-| ------------------- | ------------------------------------------------- |
-| `ai-courses.json`   | `updated_at`, 按 track 分组的课程                 |
-| `daily-videos.json` | `updated_at`, `batches[]`；CDN 只用 slim `latest` |
+| 文件                | 关键字段                                        |
+| ------------------- | ----------------------------------------------- |
+| `ai-courses.json`   | `updated_at`, 按 track 分组的课程               |
+| `daily-videos.json` | `updated_at`, `batches[]`；CDN 用 slim `latest` |
 
-`daily-videos.json` 抓取侧：近 1 个月、`min_views ≥ 10000`、每平台 Top 3（`config/video-fetch.yaml`）。  
-展示侧：`prepareVideos()` 再按 30 天窗 + 每平台播放量 Top 3 过滤；历史批次里可能仍有旧 `platform_total_cap: 10`，页面不读那些。条目含 `summary`，日更卡片不展示。
+`daily-videos.json`：近 1 个月、`min_views ≥ 10000`、每平台 Top 3（`config/video-fetch.yaml`）。  
+展示：`prepareVideos()` 按 30 天窗 + 每平台播放量 Top 3。条目可含 `summary`，日更卡片不展示摘要。
 
 ## 4. 校验
 
