@@ -1,0 +1,45 @@
+---
+import { newsSourceMeta } from '../lib/content-display';
+import { asset } from '../lib/paths';
+
+interface Props {
+  source?: string;
+  url?: string;
+  meta?: {
+    key: string;
+    mark: string;
+    label: string;
+    logo?: string;
+  } | null;
+}
+
+const { source, meta: given } = Astro.props;
+const meta = given || newsSourceMeta(source);
+const logoSrc = meta?.logo
+  ? meta.logo.startsWith('http')
+    ? meta.logo
+    : asset(meta.logo)
+  : '';
+---
+
+{
+  meta && (
+    <span class={`news-source-chip news-source-chip--${meta.key}`}>
+      {logoSrc ? (
+        <img
+          class="news-source-logo"
+          src={logoSrc}
+          alt=""
+          width="18"
+          height="18"
+          loading="lazy"
+          decoding="async"
+        />
+      ) : null}
+      <span class="news-source-mark" aria-hidden="true">
+        {meta.mark}
+      </span>
+      <span class="news-source-label">{meta.label}</span>
+    </span>
+  )
+}

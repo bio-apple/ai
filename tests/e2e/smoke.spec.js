@@ -42,6 +42,8 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-ai-map')).toBeVisible();
     await expect(page.locator('#home-ai-map .ai-map')).toBeVisible();
     await expect(page.locator('#home-ai-map a.ai-map-node[data-map-node="dl"]')).toBeVisible();
+    await expect(page.locator('#home-ai-map .ai-map-legend')).toBeVisible();
+    await expect(page.locator('#home-ai-map a.ai-map-btn[data-map-node="dl"]')).toBeVisible();
     await expect(page.locator('.skip-link')).toHaveAttribute('href', '#main-content');
     await expect(page.locator('main#main-content')).toHaveCount(1);
     await expect(page.locator('.hero-brand')).toContainText('Bio AI Lab');
@@ -52,6 +54,12 @@ test.describe('Bio AI Lab 关键路径', () => {
     await expect(page.locator('#home-ops .section-title')).toContainText('热门排行榜');
     await expect(page.locator('#home-ops-wrap')).toHaveCount(0);
     await expect(page.locator('#daily-github-list a').first()).toBeVisible();
+    await expect(page.locator('#home-daily .news-source-chip').first()).toBeVisible();
+    await expect(page.locator('#home-daily .news-source-logo').first()).toHaveAttribute(
+      'src',
+      /source-logos\/.+\.svg/,
+    );
+    await expect(page.locator('#home-daily .daily-item-date').first()).toBeVisible();
     await expect(page.locator('#daily-github-list')).not.toContainText('暂无 GitHub 动态');
     await expect(page.locator('#home-video-picks')).toBeVisible();
     await expect(page.locator('.daily-panel--videos .daily-panel-title')).toContainText(
@@ -82,6 +90,7 @@ test.describe('Bio AI Lab 关键路径', () => {
       /videos\.html$/,
     );
     await expect(page.locator('#home-community a[href$="oss.html"]')).toBeVisible();
+    await expect(page.locator('#home-community a[href$="tools/shelf.html"]')).toBeVisible();
     await expect(page.locator('#home-faq')).toBeVisible();
     await expect(page.locator('#faq-cursor-vs-copilot')).toBeVisible();
     await expect(page.locator('#knowledge-fab')).toHaveCount(0);
@@ -112,7 +121,13 @@ test.describe('Bio AI Lab 关键路径', () => {
       'href',
       /courses\.html#llm$/,
     );
-    await page.locator('#home-ai-map a.ai-map-node[data-map-node="dl"]').click();
+    await expect(page.locator('#home-ai-map a.ai-map-btn[data-map-node="nlp"]')).toHaveAttribute(
+      'href',
+      /courses\.html#llm$/,
+    );
+    await page.locator('#home-ai-map a.ai-map-btn[data-map-node="dl"]').hover();
+    await expect(page.locator('#home-ai-map .ai-map-hint-item[data-map-hint="dl"]')).toBeVisible();
+    await page.locator('#home-ai-map a.ai-map-btn[data-map-node="dl"]').click();
     await expect(page).toHaveURL(/courses\.html#dl/);
     await expect(page.locator('#courses-list .course-card').first()).toBeVisible();
     await expect
@@ -166,6 +181,8 @@ test.describe('Bio AI Lab 关键路径', () => {
       .toBeGreaterThanOrEqual(6);
     await expect(page.locator('#oss-list .oss-cat-block-title').first()).toBeVisible();
     await expect(page.locator('#oss-list .oss-card-delta').first()).toBeVisible();
+    await expect(page.locator('#oss-list .oss-audience').first()).toBeVisible();
+    await expect(page.locator('#oss-list .oss-card-heat').first()).toBeVisible();
     const mcpFilter = page.locator('#oss-toolbar .oss-filter[data-oss-category="mcp"]');
     if (await mcpFilter.count()) {
       await mcpFilter.click();
@@ -241,15 +258,31 @@ test.describe('Bio AI Lab 关键路径', () => {
     await page.goto('index.html', { waitUntil: 'domcontentloaded' });
     await page.locator('.nav-link-page', { hasText: 'AI工具中心' }).click();
     await expect(page.locator('#hub-ranking')).toBeVisible();
+    await expect(page.locator('#hub-ranking-updated')).toBeVisible();
     await expect(page.locator('#hub-panel-aicpb .aicpb-table-row')).toHaveCount(10);
+    await expect(page.locator('#hub-panel-aicpb .aicpb-product-reason').first()).toBeVisible();
   });
 
   test('独立工具页与对比页', async ({ page }) => {
     await page.route('**/*fonts.googleapis.com/**', (route) => route.abort());
     await page.goto('tools/cursor.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('h1')).toContainText('Cursor');
+    const fav = page.locator('[data-favorite-toggle]');
+    await expect(fav).toBeVisible();
+    await fav.click();
+    await expect(fav).toHaveAttribute('aria-pressed', 'true');
+    await page.goto('tools/shelf.html', { waitUntil: 'domcontentloaded' });
+    await expect(page.locator('.breadcrumb')).toContainText('我的收藏');
+    await expect(page.locator('#tool-shelf-favs-list')).toContainText('Cursor');
+    await expect(page.locator('#tool-shelf-hist-list')).toContainText('Cursor');
     await page.goto('compare/cursor-vs-copilot.html', { waitUntil: 'domcontentloaded' });
     await expect(page.locator('body')).toContainText(/Cursor|Copilot/i);
+    await expect(page.locator('#compare-pricing-title')).toBeVisible();
+    await expect(page.getByRole('link', { name: /官网看实时价/ }).first()).toBeVisible();
+    await expect(page.locator('#compare-matrix-title')).toBeVisible();
+    await expect(page.locator('.compare-matrix [data-level]').first()).toBeVisible();
+    await expect(page.locator('#compare-reviews-title')).toBeVisible();
+    await expect(page.locator('.compare-review-verdict').first()).toBeVisible();
   });
 
   test('404 页：单一 main、noindex', async ({ page }) => {

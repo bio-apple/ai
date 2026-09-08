@@ -268,6 +268,10 @@
   font-weight: 600;
   line-height: 1.45;
   color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .news-row-main:hover .news-row-title {
@@ -287,7 +291,8 @@
 }
 
 .news-source-badge,
-.news-row-source {
+.news-row-source,
+.news-source-chip {
   display: inline-flex;
   align-items: center;
   max-width: 11rem;
@@ -304,6 +309,56 @@
   background: color-mix(in srgb, var(--accent) 11%, var(--bg-card));
   border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
 }
+
+.news-source-chip {
+  gap: 6px;
+  padding: 2px 8px 2px 2px;
+}
+
+.news-source-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 18%, var(--bg-card));
+  font-size: 0.62rem;
+  flex: 0 0 auto;
+}
+
+.news-source-logo {
+  display: block;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  object-fit: contain;
+  background: #fff;
+  flex: 0 0 auto;
+}
+
+.news-source-chip:has(.news-source-logo) .news-source-mark {
+  display: none;
+}
+
+.news-source-chip.is-logo-broken .news-source-logo {
+  display: none;
+}
+
+.news-source-chip.is-logo-broken .news-source-mark {
+  display: inline-flex;
+}
+
+.news-source-chip--qbit .news-source-mark { background: #5b4cff; color: #fff; }
+.news-source-chip--sync .news-source-mark { background: #0f766e; color: #fff; }
+.news-source-chip--openai .news-source-mark { background: #111827; color: #fff; }
+.news-source-chip--anth .news-source-mark { background: #d97706; color: #fff; }
+.news-source-chip--github .news-source-mark { background: #24292f; color: #fff; }
+.news-source-chip--arxiv .news-source-mark { background: #b31b1b; color: #fff; }
+.news-source-chip--nvidia .news-source-mark { background: #76b900; color: #111; }
+.news-source-chip--deepmind .news-source-mark,
+.news-source-chip--google .news-source-mark { background: #4285f4; color: #fff; }
+.news-source-chip--hf .news-source-mark { background: #ffd21e; color: #111; }
 
 .news-row-date {
   font-variant-numeric: tabular-nums;
@@ -494,6 +549,29 @@
   color: var(--text-muted);
   line-height: 1.5;
   flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.oss-audience {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oss-audience li {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 650;
+  color: color-mix(in srgb, var(--accent) 70%, var(--text));
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg-card));
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
 }
 
 .oss-card-item-actions {
@@ -1239,6 +1317,10 @@
   font-weight: 600;
   line-height: 1.45;
   color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .daily-item-meta {
@@ -1329,7 +1411,8 @@
 }
 
 .community-links--compact {
-  max-width: 720px;
+  max-width: 1080px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .community-card {
@@ -1616,6 +1699,47 @@
   filter: brightness(1.06);
 }
 
+.ai-map-figure:has([data-map-node]:is(:hover, :focus-within)) .ai-map-node {
+  opacity: 0.42;
+}
+
+.ai-map-figure:has([data-map-node]:is(:hover, :focus-within)) .ai-map-connectors {
+  opacity: 0.28;
+}
+
+.ai-map-figure:has([data-map-node="ai"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="ai"],
+.ai-map-figure:has([data-map-node="ml"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="ml"],
+.ai-map-figure:has([data-map-node="dl"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="dl"],
+.ai-map-figure:has([data-map-node="cv"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="cv"],
+.ai-map-figure:has([data-map-node="robotics"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="robotics"],
+.ai-map-figure:has([data-map-node="nlp"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="nlp"],
+.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="speech"],
+.ai-map-figure:has([data-map-node="math"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="math"],
+.ai-map-figure:has([data-map-node="neuro"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="neuro"],
+.ai-map-figure:has([data-map-node="cs"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="cs"],
+.ai-map-figure:has([data-map-node="physics"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="physics"],
+.ai-map-figure:has([data-map-node="bio"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="bio"],
+.ai-map-figure:has([data-map-node="psych"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="psych"] {
+  opacity: 1;
+}
+
+.ai-map-figure:has([data-map-node="ai"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="ai"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="ml"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="ml"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="dl"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="dl"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="cv"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="cv"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="robotics"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="robotics"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="nlp"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="nlp"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="speech"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="math"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="math"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="neuro"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="neuro"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="cs"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="cs"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="physics"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="physics"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="bio"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="bio"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="psych"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="psych"] :is(ellipse, circle) {
+  stroke-width: 3.8;
+  filter: brightness(1.08);
+}
+
 .ai-map-node:focus {
   outline: none;
 }
@@ -1716,6 +1840,186 @@
   text-decoration: underline;
 }
 
+.ai-map-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.1rem;
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: color-mix(in srgb, var(--accent) 7%, var(--bg-card));
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.ai-map-hint-idle,
+.ai-map-hint-item {
+  display: none;
+}
+
+.ai-map-hint-idle {
+  display: inline;
+  color: var(--text-muted);
+}
+
+.ai-map-hint-item strong {
+  font-weight: 700;
+}
+
+.ai-map-hint-arrow {
+  display: inline-block;
+  margin: 0 0.35em;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.ai-map-figure:has([data-map-node]:is(:hover, :focus-within)) .ai-map-hint-idle {
+  display: none;
+}
+
+.ai-map-figure:has([data-map-node="ai"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="ai"],
+.ai-map-figure:has([data-map-node="ml"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="ml"],
+.ai-map-figure:has([data-map-node="dl"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="dl"],
+.ai-map-figure:has([data-map-node="cv"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="cv"],
+.ai-map-figure:has([data-map-node="robotics"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="robotics"],
+.ai-map-figure:has([data-map-node="nlp"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="nlp"],
+.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="speech"],
+.ai-map-figure:has([data-map-node="math"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="math"],
+.ai-map-figure:has([data-map-node="neuro"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="neuro"],
+.ai-map-figure:has([data-map-node="cs"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="cs"],
+.ai-map-figure:has([data-map-node="physics"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="physics"],
+.ai-map-figure:has([data-map-node="bio"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="bio"],
+.ai-map-figure:has([data-map-node="psych"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="psych"] {
+  display: inline;
+}
+
+.ai-map-legend {
+  display: grid;
+  gap: 14px;
+  margin: 14px 0 0;
+}
+
+.ai-map-legend-group {
+  min-width: 0;
+}
+
+.ai-map-legend-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.ai-map-legend-label::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  flex: 0 0 auto;
+}
+
+.ai-map-legend-group[data-map-group='core'] .ai-map-legend-label::before {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 18%, transparent);
+}
+
+.ai-map-legend-group[data-map-group='app'] .ai-map-legend-label::before {
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.ai-map-legend-group[data-map-group='found'] .ai-map-legend-label::before {
+  border-color: #a88420;
+  background: #f3de7a;
+}
+
+.ai-map-legend-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-map-btn {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1px;
+  min-height: 44px;
+  min-width: 7.5rem;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: none;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+.ai-map-btn-name {
+  font-size: 0.86rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.ai-map-btn-dest {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.ai-map-btn:hover,
+.ai-map-btn:focus-visible {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg-card));
+}
+
+.ai-map-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.ai-map-figure:has([data-map-node="ai"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="ai"],
+.ai-map-figure:has([data-map-node="ml"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="ml"],
+.ai-map-figure:has([data-map-node="dl"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="dl"],
+.ai-map-figure:has([data-map-node="cv"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="cv"],
+.ai-map-figure:has([data-map-node="robotics"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="robotics"],
+.ai-map-figure:has([data-map-node="nlp"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="nlp"],
+.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="speech"],
+.ai-map-figure:has([data-map-node="math"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="math"],
+.ai-map-figure:has([data-map-node="neuro"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="neuro"],
+.ai-map-figure:has([data-map-node="cs"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="cs"],
+.ai-map-figure:has([data-map-node="physics"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="physics"],
+.ai-map-figure:has([data-map-node="bio"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="bio"],
+.ai-map-figure:has([data-map-node="psych"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="psych"] {
+  border-color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--bg-card));
+}
+
+.ai-map-node,
+.ai-map-connectors,
+.ai-map-btn {
+  transition: opacity 0.18s ease, border-color 0.15s ease, background 0.15s ease;
+}
+
 html[data-theme='dark'] .ai-map {
   background:
     radial-gradient(ellipse 75% 60% at 50% 42%, rgba(99, 102, 241, 0.14), transparent 70%),
@@ -1764,9 +2068,41 @@ html[data-theme='dark'] .ai-map-label-sub {
   fill: #94a3b8;
 }
 
+html[data-theme='dark'] .ai-map-hint {
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg-card));
+}
+
+html[data-theme='dark'] .ai-map-legend-group[data-map-group='app'] .ai-map-legend-label::before {
+  background: rgba(15, 23, 42, 0.55);
+}
+
+html[data-theme='dark'] .ai-map-legend-group[data-map-group='found'] .ai-map-legend-label::before {
+  background: rgba(234, 179, 8, 0.42);
+  border-color: #ca8a04;
+}
+
+html[data-theme='dark'] .ai-map-btn {
+  background: var(--bg);
+}
+
 @media (max-width: 640px) {
   .ai-map {
     padding: 0.35rem 0.15rem 0.2rem;
+  }
+
+  .ai-map-hint {
+    min-height: 3.4rem;
+    font-size: 0.84rem;
+  }
+
+  .ai-map-legend-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ai-map-btn {
+    width: 100%;
+    min-width: 0;
   }
 
   .ai-map-label-main {
@@ -1914,7 +2250,12 @@ html[data-theme='dark'] .ai-map-label-sub {
 
 @media (prefers-reduced-motion: reduce) {
   .home-faq-item,
-  .home-faq-item summary::after {
+  .home-faq-item summary::after,
+  .ai-map-node,
+  .ai-map-node ellipse,
+  .ai-map-node circle,
+  .ai-map-connectors,
+  .ai-map-btn {
     transition: none;
   }
 
@@ -2079,6 +2420,18 @@ html[data-theme='dark'] .ai-map-label-sub {
 
 .aicpb-product-name:hover {
   color: var(--accent);
+}
+
+.aicpb-product-reason {
+  margin: 3px 0 0;
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--accent) 78%, var(--text));
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .aicpb-product-desc {

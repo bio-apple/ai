@@ -1,0 +1,85 @@
+---
+import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
+import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
+import { site, tools, toolLookup } from '../../lib/data';
+import { buildPageSchema } from '../../lib/schema';
+import { asset, homeHref } from '../../lib/paths';
+
+const base = site.meta.base_url;
+const title = '我的收藏';
+const lead = '收藏留在这台设备上，最近打开过的工具也会记一笔。换浏览器或清站点数据会清空。';
+const canonical = `${base}tools/shelf.html`;
+const lookup = toolLookup();
+const catalog = tools.map((tool) => {
+  const meta = lookup[tool.id] || {};
+  return {
+    id: tool.id,
+    name: tool.name,
+    icon: tool.icon,
+    tagline: String(meta.tagline || tool.description || '').slice(0, 48),
+    href: asset(`tools/${tool.id}.html`),
+  };
+});
+const schema = buildPageSchema(title, lead, canonical, [
+  { name: '首页', url: base },
+  { name: '工具中心', url: `${base}tools/hub.html` },
+  { name: title, url: canonical },
+]);
+---
+
+<StandaloneLayout
+  title={`${title} | Bio AI Lab`}
+  description={lead}
+  canonical={canonical}
+  schema={schema}
+  ogType="website"
+  scripts={[
+    'lib/link-guard.js',
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'ux.js',
+    'app.js',
+    'lib/tool-shelf.js',
+  ]}
+>
+  <div class="standalone-page tool-shelf-page" id="tool-shelf">
+    <StandalonePageHeader
+      crumbs={[
+        { label: '首页', href: homeHref() },
+        { label: '工具中心', href: asset('tools/hub.html') },
+        { label: title },
+      ]}
+      title={title}
+      lead={lead}
+    />
+
+    <div class="tool-shelf-cols">
+      <section class="page-section" aria-labelledby="tool-shelf-favs-title">
+        <div class="section-head">
+          <h2 class="section-title" id="tool-shelf-favs-title">收藏</h2>
+          <p class="section-desc">点工具页上的「收藏」，下次从这里打开。</p>
+        </div>
+        <p id="tool-shelf-favs-empty" class="tool-shelf-empty">
+          还没有收藏。去 <a href={asset('tools/hub.html')}>工具中心</a> 或任意工具教程，点「收藏」。
+        </p>
+        <ul id="tool-shelf-favs-list" class="tool-shelf-list" hidden></ul>
+      </section>
+
+      <section class="page-section" aria-labelledby="tool-shelf-hist-title">
+        <div class="section-head">
+          <h2 class="section-title" id="tool-shelf-hist-title">最近看过</h2>
+          <p class="section-desc">打开过的站内工具页会按时间排在这里。</p>
+        </div>
+        <p id="tool-shelf-hist-empty" class="tool-shelf-empty">浏览记录是空的。打开一篇工具教程就会出现。</p>
+        <ul id="tool-shelf-hist-list" class="tool-shelf-list" hidden></ul>
+      </section>
+    </div>
+
+    <div class="standalone-cta">
+      <a href={asset('tools/hub.html')} class="cta-btn">去工具中心</a>
+      <a href={homeHref()} class="cta-btn cta-btn-outline">返回首页</a>
+    </div>
+    <script type="application/json" id="tool-shelf-catalog" set:html={JSON.stringify(catalog)} />
+  </div>
+</StandaloneLayout>

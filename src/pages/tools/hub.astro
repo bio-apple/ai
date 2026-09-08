@@ -4,6 +4,7 @@ import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
 import RankingBoardPanels from '../../components/RankingBoardPanels.astro';
 import { site } from '../../lib/data';
 import { buildHubRankingBoards, hubRankingMeta, HUB_RANKING_TOP_N } from '../../lib/hub';
+import { formatRelativeTime } from '../../lib/content-display';
 import { buildHubSchema, buildPageSchema, mergeSchemaGraphs } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
 
@@ -46,7 +47,7 @@ const rankMeta = hubRankingMeta();
     <h1 class="visually-hidden">{page.h1}</h1>
     <StandalonePageHeader
       crumbs={[{ label: '首页', href: homeHref() }, { label: '工具中心' }]}
-      meta={`更新 ${rankMeta.updated_at}`}
+      meta={`数据更新于 ${rankMeta.updated_at}${rankMeta.updated_at ? `（${formatRelativeTime(rankMeta.updated_at)}）` : ''}`}
     />
 
     <section
@@ -60,6 +61,10 @@ const rankMeta = hubRankingMeta();
           AICPB · LMSYS Chatbot Arena Elo · Artificial Analysis Intelligence Index · Top {
             HUB_RANKING_TOP_N
           }
+        </p>
+        <p class="hub-ranking-updated" id="hub-ranking-updated">
+          <time datetime={rankMeta.updated_at}>数据更新于 {rankMeta.updated_at}</time>
+          {rankMeta.updated_at ? <span> · {formatRelativeTime(rankMeta.updated_at)}</span> : null}
         </p>
       </div>
       <ul class="ranking-method-list">
@@ -204,6 +209,7 @@ const rankMeta = hubRankingMeta();
 
     <div class="standalone-cta">
       <a href={homeHref()} class="cta-btn">返回首页</a>
+      <a href={asset('tools/shelf.html')} class="cta-btn cta-btn-outline">我的收藏</a>
       <a href={asset('ai-tools-ranking.html')} class="cta-btn cta-btn-outline">完整排行榜 →</a>
     </div>
   </div>

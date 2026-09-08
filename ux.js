@@ -213,6 +213,22 @@ function initPageToc() {
   }
 }
 
+function isNewsSourceLogo(el) {
+  return el && el.tagName === 'IMG' && el.classList.contains('news-source-logo');
+}
+
+function bindNewsSourceLogos() {
+  document.addEventListener(
+    'error',
+    (e) => {
+      if (!isNewsSourceLogo(e.target)) return;
+      e.target.setAttribute('hidden', '');
+      e.target.closest('.news-source-chip')?.classList.add('is-logo-broken');
+    },
+    true,
+  );
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initTheme();
   initReadingProgress();
@@ -220,6 +236,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initPageToc();
   initScrollReveal();
 });
+
+bindNewsSourceLogos();
 
 function initScrollReveal(root = document) {
   const targets = root.querySelectorAll('.reveal:not(.visible)');

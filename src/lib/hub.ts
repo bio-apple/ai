@@ -1,4 +1,5 @@
 import rankings from '../../data/rankings.json';
+import { rankingPickReason } from './content-display';
 
 /** 工具中心排行区：各榜展示条数 */
 export const HUB_RANKING_TOP_N = 10;
@@ -11,6 +12,7 @@ export type HubRankingItem = {
   mom: string;
   mom_bar_pct: number;
   url: string;
+  pick_reason?: string;
 };
 
 export type HubRankingColumns = {
@@ -68,9 +70,22 @@ export function buildHubRankingBoards(topN = HUB_RANKING_TOP_N): HubRankingBoard
         mom: item.mom,
         mom_bar_pct: item.mom_bar_pct || 0,
         url: item.url,
+        pick_reason: rankingPickReason(item.name, board.id),
       })),
     };
   });
+}
+
+export function withRankingReasons<
+  T extends { id: string; items?: Array<{ name: string; pick_reason?: string }> },
+>(boards: T[]): T[] {
+  return boards.map((board) => ({
+    ...board,
+    items: (board.items || []).map((item) => ({
+      ...item,
+      pick_reason: item.pick_reason || rankingPickReason(item.name, board.id),
+    })),
+  }));
 }
 
 export function hubRankingMeta() {

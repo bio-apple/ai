@@ -23,7 +23,7 @@
           "title": { "type": "string", "minLength": 1 },
           "url": { "type": "string", "minLength": 1 },
           "summary": { "type": "string" },
-          "source": { "type": "string" },
+          "source": { "type": "string", "minLength": 1 },
           "category": { "type": "string" },
           "published_at": { "type": ["string", "null"] }
         }

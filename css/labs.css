@@ -317,6 +317,17 @@
 .hub-compare-section {
   margin-bottom: 0;
 }
+.hub-ranking-updated {
+  margin: 8px 0 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-card));
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
 .hub-ranking-shell {
   margin-top: 8px;
 }

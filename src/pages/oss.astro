@@ -6,12 +6,16 @@ import { site } from '../lib/data';
 import { buildOssSchema, buildPageSchema, mergeSchemaGraphs } from '../lib/schema';
 import { homeHref } from '../lib/paths';
 import { buildOssItems, ossToolbarCategories } from '../lib/ssr-lists';
+import { loadRuntimeJson } from '../lib/runtime';
 
 const base = site.meta.base_url;
 const title = '开源精选';
 const lead =
   '收集近期 GitHub 上正在升温的 AI 开源项目（非纯 Star 榜，入选至少 ★1 万）。数据源：GitHub Trending + Search/API；重点：Agent / MCP / Coding Agent / Agent Harness / Skills / Memory；每天更新，每方向最多 Top 3。';
-const items = buildOssItems(site.oss_frameworks || []);
+const ossPayload = loadRuntimeJson<{ items?: Parameters<typeof buildOssItems>[0] }>(
+  'oss-projects.json',
+);
+const items = buildOssItems(ossPayload?.items?.length ? ossPayload.items : site.oss_frameworks || []);
 const toolbar = ossToolbarCategories(items);
 const canonical = `${base}oss.html`;
 const schema = mergeSchemaGraphs(

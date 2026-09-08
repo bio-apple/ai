@@ -7,6 +7,7 @@ interface RankingItem {
   mom: string;
   mom_bar_pct?: number;
   url: string;
+  pick_reason?: string;
 }
 
 interface RankingBoard {
@@ -120,6 +121,11 @@ const boardsPayload = boards.map((board) => ({
                     >
                       {item.name}
                     </a>
+                    {item.pick_reason ? (
+                      <p class="aicpb-product-reason" title={item.pick_reason}>
+                        {item.pick_reason}
+                      </p>
+                    ) : null}
                     {item.description ? <p class="aicpb-product-desc">{item.description}</p> : null}
                   </div>
                   <span class="aicpb-visits">{item.visits}</span>

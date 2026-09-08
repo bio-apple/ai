@@ -6,11 +6,22 @@ import {
   formatNumber,
   displayNewsTitle,
 } from '../lib/runtime';
+import { formatRelativeTime, newsSourceMeta } from '../lib/content-display';
 import { asset } from '../lib/paths';
 import dailyVideos from '../../daily-videos.json';
+import NewsSourceChip from './NewsSourceChip.astro';
 
 const brief = pickAiDailyBrief();
 const homeVideos = pickHomeVideos(3, dailyVideos);
+
+function newsMeta(item: { source?: string; category?: string; published_at?: string; url?: string }) {
+  const source = newsSourceMeta(item.source || item.category, item.url);
+  return {
+    source,
+    relative: formatRelativeTime(item.published_at),
+    datetime: item.published_at || '',
+  };
+}
 ---
 
 <section class="home-section fade-in" id="home-daily">
@@ -32,7 +43,9 @@ const homeVideos = pickHomeVideos(3, dailyVideos);
       <h3 class="daily-panel-title">模型与发布</h3>
       <ul class="daily-list">
         {
-          brief.models.map((item) => (
+          brief.models.map((item) => {
+            const meta = newsMeta(item);
+            return (
             <li>
               <a
                 href={item.url}
@@ -42,14 +55,18 @@ const homeVideos = pickHomeVideos(3, dailyVideos);
                 data-track-panel="models"
               >
                 <span class="daily-item-title">{displayNewsTitle(item)}</span>
-                {(item.source || item.category) && (
-                  <span class="daily-item-meta">
-                    <span class="news-source-badge">{item.source || item.category}</span>
-                  </span>
-                )}
+                <span class="daily-item-meta">
+                  <NewsSourceChip meta={meta.source} />
+                  {meta.relative && (
+                    <time class="daily-item-date" datetime={meta.datetime}>
+                      {meta.relative}
+                    </time>
+                  )}
+                </span>
               </a>
             </li>
-          ))
+            );
+          })
         }
         {brief.models.length === 0 && <li class="daily-empty">暂无模型动态</li>}
       </ul>
@@ -68,11 +85,23 @@ const homeVideos = pickHomeVideos(3, dailyVideos);
         type="application/json"
         id="daily-github-data"
         set:html={JSON.stringify(
-          (brief.githubAll?.length ? brief.githubAll : brief.github).map((item) => ({
-            title: displayNewsTitle(item),
-            url: item.url,
-            meta: item.category || item.source || 'GitHub',
-          })),
+          (brief.githubAll?.length ? brief.githubAll : brief.github).map((item) => {
+            const meta = newsMeta({
+              source: item.source || item.category || 'GitHub',
+              published_at: item.published_at,
+              url: item.url,
+            });
+            return {
+              title: displayNewsTitle(item),
+              url: item.url,
+              meta: meta.source?.label || item.category || item.source || 'GitHub',
+              sourceKey: meta.source?.key || 'github',
+              sourceMark: meta.source?.mark || 'GH',
+              sourceLogo: meta.source?.logo ? asset(meta.source.logo) : '',
+              relative: meta.relative,
+              published_at: item.published_at || '',
+            };
+          }),
         )}
       />
       <div
@@ -83,7 +112,13 @@ const homeVideos = pickHomeVideos(3, dailyVideos);
       >
         <ul class="daily-list">
           {
-            brief.github.map((item) => (
+            brief.github.map((item) => {
+              const meta = newsMeta({
+                source: item.source || item.category || 'GitHub',
+                published_at: item.published_at,
+                url: item.url,
+              });
+              return (
               <li>
                 <a
                   href={item.url}
@@ -94,13 +129,17 @@ const homeVideos = pickHomeVideos(3, dailyVideos);
                 >
                   <span class="daily-item-title">{displayNewsTitle(item)}</span>
                   <span class="daily-item-meta">
-                    <span class="news-source-badge">
-                      {item.category || item.source || 'GitHub'}
-                    </span>
+                    <NewsSourceChip meta={meta.source} />
+                    {meta.relative && (
+                      <time class="daily-item-date" datetime={meta.datetime}>
+                        {meta.relative}
+                      </time>
+                    )}
                   </span>
                 </a>
               </li>
-            ))
+              );
+            })
           }
           {
             brief.github.length === 0 && (
@@ -120,7 +159,9 @@ const homeVideos = pickHomeVideos(3, dailyVideos);
       <h3 class="daily-panel-title">行业资讯</h3>
       <ul class="daily-list">
         {
-          brief.industry.map((item) => (
+          brief.industry.map((item) => {
+            const meta = newsMeta(item);
+            return (
             <li>
               <a
                 href={item.url}
@@ -130,14 +171,18 @@ const homeVideos = pickHomeVideos(3, dailyVideos);
                 data-track-panel="industry"
               >
                 <span class="daily-item-title">{displayNewsTitle(item)}</span>
-                {item.source && (
-                  <span class="daily-item-meta">
-                    <span class="news-source-badge">{item.source}</span>
-                  </span>
-                )}
+                <span class="daily-item-meta">
+                  <NewsSourceChip meta={meta.source} />
+                  {meta.relative && (
+                    <time class="daily-item-date" datetime={meta.datetime}>
+                      {meta.relative}
+                    </time>
+                  )}
+                </span>
               </a>
             </li>
-          ))
+            );
+          })
         }
         {brief.industry.length === 0 && <li class="daily-empty">暂无行业资讯</li>}
       </ul>

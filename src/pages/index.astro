@@ -40,7 +40,7 @@ const heatUpdated = ossMeta?.updated_at
   description={site.meta.description}
   canonical={site.meta.canonical}
   schema={schema}
-  scripts={['lib/link-guard.js', 'ux.js', 'app.js']}
+  scripts={['lib/link-guard.js', 'lib/virtual-list.js', 'ux.js', 'app.js']}
   includeKnowledge={true}
 >
   <section id="section-home" class="section active">
@@ -83,7 +83,7 @@ const heatUpdated = ossMeta?.updated_at
       >
         <div class="section-head">
           <h2 class="section-title" id="home-community-title">下一步</h2>
-          <p class="section-desc">三榜选型，或看今日开源升温。</p>
+          <p class="section-desc">三榜选型、开源升温，或回看自己收藏的工具。</p>
         </div>
         <div class="community-links community-links--compact">
           <a href={asset('tools/hub.html')} class="community-card" data-track="home-community-hub">
@@ -97,6 +97,12 @@ const heatUpdated = ossMeta?.updated_at
             <strong>开源精选</strong>
             <span>Agent / MCP / Coding Agent 等方向，每向 Top 3。</span>
             <em class="community-card-cta">查看升温 →</em>
+          </a>
+          <a href={asset('tools/shelf.html')} class="community-card" data-track="home-community-shelf">
+            <span class="community-card-kicker">回访</span>
+            <strong>我的收藏</strong>
+            <span>本机收藏与最近打开过的工具。</span>
+            <em class="community-card-cta">打开台账 →</em>
           </a>
         </div>
       </section>

@@ -37,6 +37,13 @@
     search_empty: STEPS.BROWSE,
     'home-filter-local': STEPS.BROWSE,
     'home-community-hub': STEPS.BROWSE,
+    'home-community-shelf': STEPS.BROWSE,
+    'tool-favorite-on': STEPS.ENGAGE,
+    'tool-favorite-off': STEPS.ENGAGE,
+    'tool-shelf-open': STEPS.BROWSE,
+    'tool-shelf-fav-open': STEPS.ENGAGE,
+    'tool-shelf-hist-open': STEPS.ENGAGE,
+    'tool-history-remove': STEPS.BROWSE,
     daily_panel_click: STEPS.BROWSE,
     recommend_query_tool: STEPS.ENGAGE,
     recommend_related_tool: STEPS.ENGAGE,
@@ -87,6 +94,7 @@
     if (!rel || rel === 'index.html') return 'home';
     if (rel.startsWith('tools/')) {
       if (rel === 'tools/hub.html') return 'hub';
+      if (rel === 'tools/shelf.html') return 'shelf';
       return 'tool';
     }
     if (rel.startsWith('compare/')) return 'compare';

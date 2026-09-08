@@ -1,6 +1,8 @@
 ---
-import { type NewsItem, formatZhDate } from '../lib/ssr-lists';
+import { type NewsItem } from '../lib/ssr-lists';
 import { displayNewsTitle } from '../lib/runtime';
+import { formatRelativeTime } from '../lib/content-display';
+import NewsSourceChip from './NewsSourceChip.astro';
 
 interface Props {
   items: NewsItem[];
@@ -12,7 +14,8 @@ const { items } = Astro.props;
 {
   items.length ? (
     <ul class="news-feed-list" data-ssr-news>
-      {items.map((item) => (
+      {items.map((item) => {
+        return (
         <li class="news-row">
           <a
             class="news-row-main"
@@ -28,15 +31,18 @@ const { items } = Astro.props;
               {displayNewsTitle(item)}
             </span>
             <span class="news-row-meta">
-              {item.source && <span class="news-row-source news-source-badge">{item.source}</span>}
+              <NewsSourceChip source={item.source} />
               {item.published_at && (
-                <span class="news-row-date">{formatZhDate(item.published_at)}</span>
+                <time class="news-row-date" datetime={item.published_at}>
+                  {formatRelativeTime(item.published_at)}
+                </time>
               )}
             </span>
           </a>
           {item.summary && <p class="news-row-summary">{item.summary}</p>}
         </li>
-      ))}
+        );
+      })}
     </ul>
   ) : (
     <p class="loading-hint">暂无新闻数据。</p>

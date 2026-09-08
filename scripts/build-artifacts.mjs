@@ -243,6 +243,12 @@ function buildSearchIndex(site, tools, compares) {
       '工具中心 AICPB AI产品榜 排行 ChatGPT New Bing Gemini Claude DeepSeek 豆包 Kimi Copilot cursor 即梦 官方教程',
   });
   items.push({
+    label: '我的收藏',
+    type: '导航',
+    url: 'tools/shelf.html',
+    keywords: '我的收藏 浏览历史 最近看过 台账 收藏夹 回访',
+  });
+  items.push({
     label: 'AI 学习路线图',
     type: '学习',
     url: 'ai-learning-roadmap.html',

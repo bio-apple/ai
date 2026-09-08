@@ -295,10 +295,17 @@ export function buildNewsSchema(
 }
 
 export function buildCompareSchema(
-  compare: { title: string; meta_description: string; slug: string },
+  compare: {
+    title: string;
+    meta_description: string;
+    slug: string;
+    pricing?: { checked_at?: string };
+    reviews?: { updated_at?: string };
+  },
   baseUrl: string,
   breadcrumbs?: BreadcrumbItem[],
 ) {
+  const modified = compare.pricing?.checked_at || compare.reviews?.updated_at;
   return withBreadcrumbs(
     {
       '@context': 'https://schema.org',
@@ -307,6 +314,7 @@ export function buildCompareSchema(
       description: compare.meta_description,
       author: { '@type': 'Organization', name: BRAND },
       mainEntityOfPage: `${baseUrl}compare/${compare.slug}.html`,
+      ...(modified && isIsoDate(modified) ? { dateModified: modified } : {}),
     },
     breadcrumbs,
   );

@@ -1,5 +1,5 @@
 /* Bio AI Lab · 同域离线缓存（GitHub Pages /ai/） */
-const VERSION = 'bioai-pwa-3';
+const VERSION = 'bioai-pwa-5';
 const PRECACHE = `${VERSION}-shell`;
 const RUNTIME = `${VERSION}-runtime`;
 
@@ -11,6 +11,7 @@ const PRECACHE_URLS = [
   `${BASE}oss.html`,
   `${BASE}courses.html`,
   `${BASE}tools/hub.html`,
+  `${BASE}tools/shelf.html`,
   `${BASE}search-index.json`,
   `${BASE}recommend-rules.json`,
   `${BASE}ai-courses.json`,

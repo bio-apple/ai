@@ -23,6 +23,15 @@ const schema = buildToolSchema(tool, base, breadcrumbs);
   description={tool.description}
   canonical={`${base}tools/${tool.id}.html`}
   schema={schema}
+  scripts={[
+    'vendor/fuse.min.js',
+    'funnel.js',
+    'analytics.js',
+    'lib/link-guard.js',
+    'ux.js',
+    'app.js',
+    'lib/tool-shelf.js',
+  ]}
 >
   <ToolDetail tool={tool} />
 </StandaloneLayout>

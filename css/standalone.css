@@ -46,8 +46,9 @@
 
 .standalone-meta {
   margin: 10px 0 0;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 650;
+  color: var(--text);
 }
 
 .standalone-hero-row {
@@ -113,6 +114,181 @@
   padding-top: 8px;
 }
 
+.compare-freshness {
+  margin: 8px 0 0;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px solid color-mix(in srgb, var(--accent) 22%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-card));
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+.compare-note {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.compare-price-grid,
+.compare-review-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.compare-price-card,
+.compare-review-card {
+  padding: 18px 18px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--bg-card);
+}
+
+.compare-price-head h3,
+.compare-review-card h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.compare-price-head p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.compare-price-plans {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.compare-price-plans li {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.compare-price-plans li.is-highlight {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg-card));
+}
+
+.compare-price-plan-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.compare-price-plan-name {
+  font-weight: 650;
+}
+
+.compare-price-plan-fee {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.compare-price-plans p {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.compare-price-official {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.compare-price-official:hover {
+  text-decoration: underline;
+}
+
+.compare-matrix td[data-level] {
+  vertical-align: top;
+}
+
+.compare-level {
+  display: inline-block;
+  margin: 0 8px 4px 0;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.02em;
+}
+
+.compare-matrix td[data-level='yes'] .compare-level {
+  color: color-mix(in srgb, var(--accent) 20%, #0a7a3e);
+  background: color-mix(in srgb, #22c55e 16%, var(--bg-card));
+}
+
+.compare-matrix td[data-level='partial'] .compare-level {
+  color: var(--text);
+  background: color-mix(in srgb, var(--text-muted) 16%, var(--bg-card));
+}
+
+.compare-matrix td[data-level='no'] .compare-level {
+  color: var(--text-muted);
+  background: var(--bg-hover);
+}
+
+.compare-level-text {
+  display: block;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.compare-review-verdict {
+  margin: 8px 0 14px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.compare-review-kicker {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  font-weight: 750;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.compare-review-card ul {
+  margin: 0 0 14px;
+  padding-left: 1.1em;
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--text);
+}
+
+.compare-review-sources {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.compare-review-sources a {
+  color: var(--accent);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.compare-review-sources a:hover {
+  text-decoration: underline;
+}
+
 /* 工具详情页已改用 StandalonePageHeader，不再依赖旧 tool-header 分割线 */
 
 .hub-quick-links,
@@ -124,6 +300,139 @@
 
 .hub-quick-links {
   margin-top: 16px;
+}
+
+.tool-shelf-hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 16px;
+}
+
+.tool-fav-btn {
+  min-height: 44px;
+  min-width: 5.5rem;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 40%, var(--border));
+  background: var(--bg-card);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.88rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.tool-fav-btn[aria-pressed='true'] {
+  background: color-mix(in srgb, var(--accent) 14%, var(--bg-card));
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.tool-shelf-link {
+  font-size: 0.88rem;
+  font-weight: 650;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.tool-shelf-link:hover {
+  text-decoration: underline;
+}
+
+.tool-shelf-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 32px;
+}
+
+.tool-shelf-empty {
+  margin: 0;
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px dashed var(--border);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.tool-shelf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tool-shelf-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-card);
+}
+
+.tool-shelf-main {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tool-shelf-main .tool-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  flex: 0 0 auto;
+}
+
+.tool-shelf-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tool-shelf-body strong {
+  font-size: 0.98rem;
+}
+
+.tool-shelf-note,
+.tool-shelf-body time {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.tool-shelf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 0 0 auto;
+}
+
+.tool-shelf-actions button {
+  min-height: 40px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .tool-shelf-cols {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 640px) {

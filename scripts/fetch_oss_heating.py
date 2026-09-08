@@ -532,6 +532,7 @@ def sync_site_json(items: list[dict[str, Any]]) -> None:
             "stars_weekly": it.get("stars_weekly"),
             "is_new": bool(it.get("is_new")),
             "is_fastest": bool(it.get("is_fastest")),
+            "trending_daily_rank": it.get("trending_daily_rank"),
             "trending_weekly_rank": it.get("trending_weekly_rank"),
         }
         for it in items

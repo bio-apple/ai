@@ -1,6 +1,7 @@
 ---
 import StandaloneLayout from '../../layouts/StandaloneLayout.astro';
 import StandalonePageHeader from '../../components/StandalonePageHeader.astro';
+import CompareDecisionAids from '../../components/CompareDecisionAids.astro';
 import { compares, site } from '../../lib/data';
 import { buildCompareSchema } from '../../lib/schema';
 import { asset, homeHref } from '../../lib/paths';
@@ -40,6 +41,11 @@ const home = homeHref();
     <div class="answer-box">
       <strong>一句话结论：</strong><span set:html={compare.conclusion} />
     </div>
+
+    <CompareDecisionAids
+      pricing={compare.pricing}
+      feature_matrix={compare.feature_matrix}
+    />
 
     <section class="page-section" aria-labelledby="compare-table-title">
       <div class="section-head">
@@ -89,6 +95,8 @@ const home = homeHref();
         </section>
       ))
     }
+
+    <CompareDecisionAids reviews={compare.reviews} />
 
     <div class="standalone-cta">
       {

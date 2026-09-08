@@ -1,4 +1,5 @@
 /** 专区 SSG 列表：与 courses.js / oss.js / news.js / videos.js 展示结构对齐 */
+import { ossAudienceTags, ossHeatLabel } from './content-display';
 
 export const OSS_CATEGORY_LABELS: Record<string, string> = {
   agent: 'Agent',
@@ -34,7 +35,10 @@ export type OssItem = {
   starsWeekly?: number | null;
   isNew?: boolean;
   isFastest?: boolean;
+  trendingDailyRank?: number | null;
   trendingWeeklyRank?: number | null;
+  audienceTags?: string[];
+  heatLabel?: { text: string; title: string } | null;
 };
 
 export function formatStarDelta(n: number) {
@@ -66,6 +70,20 @@ export function formatOssGrowth(
     return {
       text: `约 ${formatStarDelta(item.starsWeekly)}/周`,
       title: '按仓库年龄估算的周均 Star 增长（静态）',
+      dir: 'est',
+    };
+  }
+  if (item.trendingDailyRank != null) {
+    return {
+      text: `日榜 #${item.trendingDailyRank}`,
+      title: 'GitHub Trending 日榜，可作近期热度参考',
+      dir: 'est',
+    };
+  }
+  if (item.trendingWeeklyRank != null) {
+    return {
+      text: `周榜 #${item.trendingWeeklyRank}`,
+      title: 'GitHub Trending 周榜，可作近期热度参考',
       dir: 'est',
     };
   }
@@ -116,7 +134,11 @@ export function annotateOssTags(
       }
     }
   }
-  return out;
+  return out.map((item) => ({
+    ...item,
+    audienceTags: ossAudienceTags(item),
+    heatLabel: ossHeatLabel(item),
+  }));
 }
 
 export function buildOssItems(
@@ -134,6 +156,7 @@ export function buildOssItems(
     stars_weekly?: number | null;
     is_new?: boolean;
     is_fastest?: boolean;
+    trending_daily_rank?: number | null;
     trending_weekly_rank?: number | null;
   }>,
 ): OssItem[] {
@@ -156,6 +179,7 @@ export function buildOssItems(
         starsWeekly: fw.stars_weekly != null ? Number(fw.stars_weekly) : null,
         isNew: Boolean(fw.is_new),
         isFastest: Boolean(fw.is_fastest),
+        trendingDailyRank: fw.trending_daily_rank != null ? Number(fw.trending_daily_rank) : null,
         trendingWeeklyRank: fw.trending_weekly_rank != null ? Number(fw.trending_weekly_rank) : null,
       };
     })

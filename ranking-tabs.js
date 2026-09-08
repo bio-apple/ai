@@ -31,6 +31,9 @@
           <em class="aicpb-mom-bar-fill ${mom.startsWith('-') ? 'is-down' : 'is-up'}" style="width:${Number(item.mom_bar_pct) || 0}%"></em>
         </span>`
       : '';
+    const reason = item.pick_reason
+      ? `<p class="aicpb-product-reason" title="${escapeHtml(item.pick_reason)}">${escapeHtml(item.pick_reason)}</p>`
+      : '';
     const desc = item.description
       ? `<p class="aicpb-product-desc">${escapeHtml(item.description)}</p>`
       : '';
@@ -44,6 +47,7 @@
         <span class="aicpb-logo" aria-hidden="true">${escapeHtml(letter)}</span>
         <div class="aicpb-product">
           <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener noreferrer" class="aicpb-product-name">${escapeHtml(item.name)}</a>
+          ${reason}
           ${desc}
         </div>
         <span class="aicpb-visits">${escapeHtml(item.visits)}</span>
@@ -76,7 +80,7 @@
         container: host,
         items: board.items,
         layout: 'list',
-        itemHeight: 64,
+        itemHeight: 76,
         gap: 0,
         overscan: 8,
         renderItem: (item) => renderRankRow(item, showBar),

@@ -705,6 +705,10 @@
         "href": "tools/hub.html"
       },
       {
+        "label": "我的收藏",
+        "href": "tools/shelf.html"
+      },
+      {
         "label": "开源精选",
         "href": "oss.html"
       },

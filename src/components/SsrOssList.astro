@@ -24,7 +24,7 @@ const groups = groupOssByCategory(items);
           <div class="oss-grid">
             {list.map((item) => {
               const growth = formatOssGrowth(item);
-              const heated = item.sources?.some((s) => String(s).startsWith('trending'));
+              const heat = item.heatLabel;
               return (
                 <article class="oss-card-item" data-oss-cat={item.category}>
                   <div class="oss-card-item-head">
@@ -32,9 +32,9 @@ const groups = groupOssByCategory(items);
                       <span class={`oss-chip oss-chip--${item.category}`}>{item.categoryLabel}</span>
                       {item.isNew && <span class="oss-tag oss-tag--new">上周新增</span>}
                       {item.isFastest && <span class="oss-tag oss-tag--fast">本周上升最快</span>}
-                      {heated && (
-                        <span class="oss-card-heat" title="来自 GitHub Trending">
-                          升温
+                      {heat && (
+                        <span class="oss-card-heat" title={heat.title}>
+                          {heat.text}
                         </span>
                       )}
                     </div>
@@ -65,6 +65,13 @@ const groups = groupOssByCategory(items);
                   </h4>
                   <p class="oss-card-item-repo">{item.repo}</p>
                   {item.summary && <p class="oss-card-item-summary">{item.summary}</p>}
+                  {item.audienceTags?.length ? (
+                    <ul class="oss-audience">
+                      {item.audienceTags.map((tag) => (
+                        <li>{tag}</li>
+                      ))}
+                    </ul>
+                  ) : null}
                   <div class="oss-card-item-actions">
                     <a
                       href={item.url}

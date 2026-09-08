@@ -44,6 +44,68 @@ function extRel() {
   return window.BioAI?.externalRel ? window.BioAI.externalRel() : 'noopener noreferrer';
 }
 
+function formatRelativeTime(iso, now = Date.now()) {
+  if (!iso) return '';
+  const raw = String(iso).trim();
+  const parsed = Date.parse(raw.includes('T') || raw.includes(' ') ? raw : `${raw}T00:00:00+08:00`);
+  if (Number.isNaN(parsed)) return raw.slice(0, 10);
+  const delta = now - parsed;
+  if (delta < 45_000) return '刚刚';
+  if (delta < 60 * 60_000) return `${Math.max(1, Math.round(delta / 60_000))}分钟前`;
+  if (delta < 24 * 60 * 60_000) return `${Math.max(1, Math.round(delta / 3_600_000))}小时前`;
+  if (delta < 30 * 24 * 60 * 60_000) return `${Math.max(1, Math.round(delta / 86_400_000))}天前`;
+  return formatNewsDateShort(raw);
+}
+
+function newsSourceMeta(source) {
+  const label = String(source || '').trim();
+  if (!label) return null;
+  const marks = {
+    量子位: ['qbit', '量'],
+    机器之心: ['sync', '机'],
+    新智元: ['lexain', '新'],
+    智源社区: ['baai', '源'],
+    OpenAI: ['openai', 'O'],
+    Anthropic: ['anth', 'A'],
+    'Google DeepMind': ['deepmind', 'G'],
+    DeepMind: ['deepmind', 'G'],
+    'Google AI': ['google', 'G'],
+    'NVIDIA AI': ['nvidia', 'N'],
+    'Hugging Face': ['hf', 'HF'],
+    'arXiv cs.AI': ['arxiv', 'ar'],
+    arXiv: ['arxiv', 'ar'],
+    'GitHub Trending': ['github', 'GH'],
+    GitHub: ['github', 'GH'],
+  };
+  let row = marks[label];
+  if (!row) {
+    const lower = label.toLowerCase();
+    for (const [name, meta] of Object.entries(marks)) {
+      if (lower.includes(name.toLowerCase())) {
+        row = meta;
+        break;
+      }
+    }
+  }
+  const key = row ? row[0] : 'other';
+  return {
+    label,
+    key,
+    mark: row ? row[1] : Array.from(label)[0] || '?',
+    logo: key === 'other' ? '' : `source-logos/${key}.svg`,
+  };
+}
+
+function newsSourceChip(source) {
+  const meta = newsSourceMeta(source);
+  if (!meta) return '';
+  const base = (document.documentElement?.dataset?.base || '/').replace(/\/?$/, '/');
+  const logo = meta.logo
+    ? `<img class="news-source-logo" src="${escapeHtml(base + meta.logo)}" alt="" width="18" height="18" loading="lazy" decoding="async">`
+    : '';
+  return `<span class="news-source-chip news-source-chip--${escapeHtml(meta.key)}">${logo}<span class="news-source-mark" aria-hidden="true">${escapeHtml(meta.mark)}</span><span class="news-source-label">${escapeHtml(meta.label)}</span></span>`;
+}
+
 function formatNewsDateShort(raw) {
   if (!raw) return '';
   const cleaned = String(raw)
@@ -241,13 +303,11 @@ function renderNewsRow(item, { hideSource = false } = {}) {
   const title = displayNewsTitle(item);
   const metaParts = [];
   if (!hideSource && item.source) {
-    metaParts.push(
-      `<span class="news-row-source news-source-badge">${escapeHtml(item.source)}</span>`,
-    );
+    metaParts.push(newsSourceChip(item.source));
   }
   if (item.published_at) {
     metaParts.push(
-      `<span class="news-row-date">${escapeHtml(formatNewsDateShort(item.published_at))}</span>`,
+      `<time class="news-row-date" datetime="${escapeHtml(item.published_at)}">${escapeHtml(formatRelativeTime(item.published_at))}</time>`,
     );
   }
   return `
@@ -266,7 +326,7 @@ function renderSourceGroup(group) {
   return `
     <div class="news-source-group${multi ? ' news-source-group-multi' : ''}">
       <div class="news-source-head">
-        <span class="news-source-name">${escapeHtml(group.source)}</span>
+        ${newsSourceChip(group.source) || `<span class="news-source-name">${escapeHtml(group.source)}</span>`}
         <span class="news-source-count">${group.items.length}</span>
       </div>
       <ul class="news-feed-list news-feed-list-source">

@@ -1,0 +1,212 @@
+---
+import { formatRelativeTime } from '../lib/content-display';
+
+type MatrixLevel = 'yes' | 'partial' | 'no';
+
+type PricePlan = {
+  name: string;
+  price: string;
+  detail?: string;
+  highlight?: boolean;
+};
+
+type PriceProduct = {
+  id: string;
+  name: string;
+  official_url: string;
+  billing_model?: string;
+  plans: PricePlan[];
+};
+
+type MatrixCell = {
+  level: MatrixLevel;
+  text: string;
+};
+
+type ReviewItem = {
+  product: string;
+  verdict: string;
+  praise?: string[];
+  complaints?: string[];
+  sources?: { label: string; url: string }[];
+};
+
+interface Props {
+  pricing?: {
+    checked_at?: string;
+    note?: string;
+    products?: PriceProduct[];
+  };
+  feature_matrix?: {
+    caption?: string;
+    headers: string[];
+    rows: { feature: string; cells: MatrixCell[] }[];
+  };
+  reviews?: {
+    updated_at?: string;
+    disclaimer?: string;
+    items?: ReviewItem[];
+  };
+}
+
+const LEVEL_LABEL: Record<MatrixLevel, string> = {
+  yes: '有',
+  partial: '部分',
+  no: '无',
+};
+
+function freshnessHint(ymd?: string) {
+  if (!ymd) return '';
+  if (/^\d{4}-\d{2}-\d{2}$/.test(ymd)) {
+    const today = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Shanghai' });
+    if (ymd === today) return '今天';
+  }
+  return formatRelativeTime(ymd);
+}
+
+const { pricing, feature_matrix, reviews } = Astro.props;
+const priceChecked = pricing?.checked_at || '';
+const reviewUpdated = reviews?.updated_at || '';
+const priceHint = freshnessHint(priceChecked);
+const reviewHint = freshnessHint(reviewUpdated);
+---
+
+{
+  pricing?.products?.length ? (
+    <section class="page-section compare-prices" aria-labelledby="compare-pricing-title">
+      <div class="section-head">
+        <h2 class="section-title" id="compare-pricing-title">当前价格</h2>
+        {priceChecked ? (
+          <p class="compare-freshness">
+            核验于 <time datetime={priceChecked}>{priceChecked}</time>
+            {priceHint ? `（${priceHint}）` : ''} · 点官网看实时价
+          </p>
+        ) : null}
+      </div>
+      {pricing.note ? <p class="compare-note">{pricing.note}</p> : null}
+      <div class="compare-price-grid">
+        {pricing.products.map((product) => (
+          <article class="compare-price-card" id={`compare-price-${product.id}`}>
+            <header class="compare-price-head">
+              <h3>{product.name}</h3>
+              {product.billing_model ? <p>{product.billing_model}</p> : null}
+            </header>
+            <ul class="compare-price-plans">
+              {product.plans.map((plan) => (
+                <li class:list={[{ 'is-highlight': plan.highlight }]}>
+                  <div class="compare-price-plan-top">
+                    <span class="compare-price-plan-name">{plan.name}</span>
+                    <span class="compare-price-plan-fee">{plan.price}</span>
+                  </div>
+                  {plan.detail ? <p>{plan.detail}</p> : null}
+                </li>
+              ))}
+            </ul>
+            <a
+              class="compare-price-official"
+              href={product.official_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track={`compare-price-${product.id}`}
+            >
+              打开 {product.name} 官网看实时价
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+  ) : null
+}
+
+{
+  feature_matrix?.rows?.length ? (
+    <section class="page-section" aria-labelledby="compare-matrix-title">
+      <div class="section-head">
+        <h2 class="section-title" id="compare-matrix-title">功能矩阵</h2>
+      </div>
+      {feature_matrix.caption ? <p class="compare-note">{feature_matrix.caption}</p> : null}
+      <div class="table-wrap" role="region" aria-label="功能矩阵" tabindex="0">
+        <table class="compare-table compare-matrix">
+          <thead>
+            <tr>
+              {feature_matrix.headers.map((h) => (
+                <th scope="col">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {feature_matrix.rows.map((row) => (
+              <tr>
+                <th scope="row">{row.feature}</th>
+                {row.cells.map((cell) => (
+                  <td data-level={cell.level}>
+                    <span class="compare-level">{LEVEL_LABEL[cell.level]}</span>
+                    <span class="compare-level-text">{cell.text}</span>
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+  ) : null
+}
+
+{
+  reviews?.items?.length ? (
+    <section class="page-section compare-reviews" aria-labelledby="compare-reviews-title">
+      <div class="section-head">
+        <h2 class="section-title" id="compare-reviews-title">用户怎么说</h2>
+        {reviewUpdated ? (
+          <p class="compare-freshness">
+            摘要更新于 <time datetime={reviewUpdated}>{reviewUpdated}</time>
+            {reviewHint ? `（${reviewHint}）` : ''}
+          </p>
+        ) : null}
+      </div>
+      {reviews.disclaimer ? <p class="compare-note">{reviews.disclaimer}</p> : null}
+      <div class="compare-review-grid">
+        {reviews.items.map((item) => (
+          <article class="compare-review-card">
+            <h3>{item.product}</h3>
+            <p class="compare-review-verdict">{item.verdict}</p>
+            {item.praise?.length ? (
+              <div>
+                <p class="compare-review-kicker">常被提到的优点</p>
+                <ul>
+                  {item.praise.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {item.complaints?.length ? (
+              <div>
+                <p class="compare-review-kicker">常被提到的槽点</p>
+                <ul>
+                  {item.complaints.map((line) => (
+                    <li>{line}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
+            {item.sources?.length ? (
+              <p class="compare-review-sources">
+                来源：
+                {item.sources.map((src, i) => (
+                  <>
+                    {i > 0 ? ' · ' : ''}
+                    <a href={src.url} target="_blank" rel="noopener noreferrer">
+                      {src.label}
+                    </a>
+                  </>
+                ))}
+              </p>
+            ) : null}
+          </article>
+        ))}
+      </div>
+    </section>
+  ) : null
+}

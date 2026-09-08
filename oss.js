@@ -50,6 +50,10 @@ function filterOssItems(items) {
 }
 
 function sourceBadge(item) {
+  const heat = item.heatLabel;
+  if (heat?.text) {
+    return `<span class="oss-card-heat" title="${html(heat.title || '')}">${html(heat.text)}</span>`;
+  }
   const sources = item.sources || [];
   const hasTrending = sources.some((s) => String(s).startsWith('trending'));
   if (hasTrending) {
@@ -74,6 +78,12 @@ function growthHtml(item) {
   }
   if (item.starsWeekly && item.starsWeekly > 0) {
     return `<span class="oss-card-delta oss-card-delta--est" title="按仓库年龄估算的周均 Star 增长（静态）">约 ${formatStarDelta(item.starsWeekly)}/周</span>`;
+  }
+  if (item.trendingDailyRank != null) {
+    return `<span class="oss-card-delta oss-card-delta--est" title="GitHub Trending 日榜，可作近期热度参考">日榜 #${html(item.trendingDailyRank)}</span>`;
+  }
+  if (item.trendingWeeklyRank != null) {
+    return `<span class="oss-card-delta oss-card-delta--est" title="GitHub Trending 周榜，可作近期热度参考">周榜 #${html(item.trendingWeeklyRank)}</span>`;
   }
   return '';
 }
@@ -104,6 +114,11 @@ function renderOssCard(item) {
       </h4>
       <p class="oss-card-item-repo">${html(item.repo || '')}</p>
       ${item.summary ? `<p class="oss-card-item-summary">${html(item.summary)}</p>` : ''}
+      ${
+        item.audienceTags?.length
+          ? `<ul class="oss-audience">${item.audienceTags.map((tag) => `<li>${html(tag)}</li>`).join('')}</ul>`
+          : ''
+      }
       <div class="oss-card-item-actions">
         <a href="${html(item.url)}" target="_blank" rel="${extRel()}" class="oss-card-item-link" data-track="oss-open"
           data-oss-name="${html(item.name || '')}" data-oss-category="${html(item.category || '')}">在 GitHub 打开 →</a>

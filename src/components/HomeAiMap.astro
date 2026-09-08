@@ -2,7 +2,7 @@
 /**
  * 首页「AI 领域地图」— 内联 SVG 关系图
  * - 全部闭合 ellipse/circle；交叉靠半透明叠色
- * - 区域可点击，跳到对应课程 / 工具 / 开源列表
+ * - 圈层与下方文字按钮指向同一课程 / 工具 / 开源列表
  */
 import { asset } from '../lib/paths';
 
@@ -10,6 +10,128 @@ const roadmapHref = asset('ai-learning-roadmap.html');
 const toolsHref = asset('tools/hub.html');
 const courses = (hash: string) => `${asset('courses.html')}#${hash}`;
 const ossAgentHref = `${asset('oss.html')}#agent`;
+
+type MapNode = {
+  id: string;
+  group: 'core' | 'app' | 'found';
+  label: string;
+  dest: string;
+  hint: string;
+  href: string;
+};
+
+const nodes: MapNode[] = [
+  {
+    id: 'ai',
+    group: 'core',
+    label: '人工智能',
+    dest: '工具中心',
+    hint: '打开工具中心，对比 ChatGPT、Claude、Cursor 等',
+    href: toolsHref,
+  },
+  {
+    id: 'ml',
+    group: 'core',
+    label: '机器学习',
+    dest: '机器学习课程',
+    hint: '打开机器学习课程列表',
+    href: courses('ml'),
+  },
+  {
+    id: 'dl',
+    group: 'core',
+    label: '深度学习',
+    dest: '深度学习课程',
+    hint: '打开深度学习课程列表',
+    href: courses('dl'),
+  },
+  {
+    id: 'cv',
+    group: 'app',
+    label: '计算机视觉',
+    dest: '深度学习课程',
+    hint: '打开深度学习课程（含 CS231n）',
+    href: courses('dl'),
+  },
+  {
+    id: 'robotics',
+    group: 'app',
+    label: '机器人',
+    dest: 'Agent 开源',
+    hint: '打开 Agent 开源精选',
+    href: ossAgentHref,
+  },
+  {
+    id: 'nlp',
+    group: 'app',
+    label: '自然语言处理',
+    dest: 'LLM / NLP 课程',
+    hint: '打开 LLM / NLP 课程列表',
+    href: courses('llm'),
+  },
+  {
+    id: 'speech',
+    group: 'app',
+    label: '语音识别',
+    dest: '深度学习课程',
+    hint: '打开深度学习课程列表',
+    href: courses('dl'),
+  },
+  {
+    id: 'math',
+    group: 'found',
+    label: '数学',
+    dest: '入门课程',
+    hint: '打开入门课程，补齐数学基础',
+    href: courses('intro'),
+  },
+  {
+    id: 'neuro',
+    group: 'found',
+    label: '神经科学',
+    dest: '学习路线',
+    hint: '打开学习路线，看学科如何接到 AI',
+    href: roadmapHref,
+  },
+  {
+    id: 'cs',
+    group: 'found',
+    label: '计算机科学',
+    dest: '入门课程',
+    hint: '打开入门课程，补齐计算机基础',
+    href: courses('intro'),
+  },
+  {
+    id: 'physics',
+    group: 'found',
+    label: '物理学',
+    dest: '学习路线',
+    hint: '打开学习路线，看学科如何接到 AI',
+    href: roadmapHref,
+  },
+  {
+    id: 'bio',
+    group: 'found',
+    label: '生物学',
+    dest: '学习路线',
+    hint: '打开学习路线，看学科如何接到 AI',
+    href: roadmapHref,
+  },
+  {
+    id: 'psych',
+    group: 'found',
+    label: '心理学',
+    dest: '学习路线',
+    hint: '打开学习路线，看学科如何接到 AI',
+    href: roadmapHref,
+  },
+];
+
+const groups: { id: MapNode['group']; label: string }[] = [
+  { id: 'core', label: '核心圈层' },
+  { id: 'app', label: '应用交叉' },
+  { id: 'found', label: '基础学科' },
+];
 ---
 
 <section
@@ -22,7 +144,7 @@ const ossAgentHref = `${asset('oss.html')}#agent`;
     <h2 class="section-title" id="home-ai-map-title">AI 领域如何层层嵌套</h2>
     <p class="section-desc">
       人工智能包含机器学习，再深入到深度学习；视觉、语音、机器人、NLP
-      等应用交叉其中。点击任一圈层，跳到对应的课程、工具或开源列表。
+      等应用交叉其中。悬停圈层可看去向；手机请点下方按钮。
     </p>
   </div>
 
@@ -34,6 +156,7 @@ const ossAgentHref = `${asset('oss.html')}#agent`;
         xmlns="http://www.w3.org/2000/svg"
         role="group"
         aria-labelledby="home-ai-map-title"
+        aria-describedby="ai-map-hint"
       >
         <g class="ai-map-connectors" aria-hidden="true">
           <line x1="250" y1="118" x2="330" y2="200"></line>
@@ -210,8 +333,50 @@ const ossAgentHref = `${asset('oss.html')}#agent`;
       </svg>
     </div>
 
+    <p class="ai-map-hint" id="ai-map-hint" aria-live="polite">
+      <span class="ai-map-hint-idle">悬停圈层可看去向。手机请点下方按钮。</span>
+      {
+        nodes.map((node) => (
+          <span class="ai-map-hint-item" data-map-hint={node.id}>
+            <strong>{node.label}</strong>
+            <span class="ai-map-hint-arrow" aria-hidden="true">
+              →
+            </span>
+            {node.hint}
+          </span>
+        ))
+      }
+    </p>
+
+    <nav class="ai-map-legend" aria-label="按领域打开对应列表">
+      {
+        groups.map((group) => (
+          <div class="ai-map-legend-group" data-map-group={group.id}>
+            <p class="ai-map-legend-label">{group.label}</p>
+            <ul class="ai-map-legend-list">
+              {nodes
+                .filter((node) => node.group === group.id)
+                .map((node) => (
+                  <li>
+                    <a
+                      class="ai-map-btn"
+                      href={node.href}
+                      data-track="home-ai-map-btn"
+                      data-map-node={node.id}
+                    >
+                      <span class="ai-map-btn-name">{node.label}</span>
+                      <span class="ai-map-btn-dest">{node.dest}</span>
+                    </a>
+                  </li>
+                ))}
+            </ul>
+          </div>
+        ))
+      }
+    </nav>
+
     <figcaption class="ai-map-caption">
-      点击圈层可跳到课程、工具或开源列表。交叉靠叠色表达包含关系。
+      交叉靠叠色表达包含关系。圈层和按钮通向同一列表。
       <a href={roadmapHref} class="ai-map-link" data-track="home-ai-map-roadmap">查看学习路线 →</a>
     </figcaption>
   </figure>

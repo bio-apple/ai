@@ -5,6 +5,8 @@ import RankingBoardPanels from '../components/RankingBoardPanels.astro';
 import { site, rankings } from '../lib/data';
 import { buildPageSchema } from '../lib/schema';
 import { asset, homeHref } from '../lib/paths';
+import { withRankingReasons } from '../lib/hub';
+import { formatRelativeTime } from '../lib/content-display';
 
 const base = site.meta.base_url;
 const breadcrumbs = [
@@ -18,12 +20,14 @@ const schema = buildPageSchema(
   breadcrumbs,
 );
 const home = homeHref();
-const boards = (rankings.boards || []).map((board) => ({
-  ...board,
-  columns: board.columns || { name: '产品名', primary: '访问量', secondary: '月环比' },
-  show_bar: board.show_bar !== false,
-  source_name: board.source_name || board.label,
-}));
+const boards = withRankingReasons(
+  (rankings.boards || []).map((board) => ({
+    ...board,
+    columns: board.columns || { name: '产品名', primary: '访问量', secondary: '月环比' },
+    show_bar: board.show_bar !== false,
+    source_name: board.source_name || board.label,
+  })),
+);
 ---
 
 <StandaloneLayout
@@ -47,7 +51,7 @@ const boards = (rankings.boards || []).map((board) => ({
       crumbs={[{ label: '首页', href: home }, { label: 'AI 工具排行榜' }]}
       title={rankings.title}
       lead={rankings.lead}
-      meta={`${rankings.month_label || rankings.month} · 三榜 Top 10 · 更新 ${rankings.updated_at}`}
+      meta={`${rankings.month_label || rankings.month} · 三榜 Top 10 · 更新 ${rankings.updated_at}${rankings.updated_at ? `（${formatRelativeTime(rankings.updated_at)}）` : ''}`}
       class="aicpb-ranking-hero"
     />
 
