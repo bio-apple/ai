@@ -1677,7 +1677,7 @@
   display: block;
   width: 100%;
   height: auto;
-  aspect-ratio: 720 / 540;
+  aspect-ratio: 1200 / 780;
   font-family: var(--font-sans);
 }
 
@@ -1706,13 +1706,23 @@
   opacity: 0.42;
 }
 
+.ai-map-figure:has([data-map-node]:is(:hover, :focus-within)) .ai-map-connectors {
+  opacity: 0.28;
+}
+
 .ai-map-figure:has([data-map-node="ai"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="ai"],
 .ai-map-figure:has([data-map-node="ml"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="ml"],
 .ai-map-figure:has([data-map-node="dl"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="dl"],
 .ai-map-figure:has([data-map-node="cv"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="cv"],
 .ai-map-figure:has([data-map-node="robotics"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="robotics"],
 .ai-map-figure:has([data-map-node="nlp"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="nlp"],
-.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="speech"] {
+.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="speech"],
+.ai-map-figure:has([data-map-node="math"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="math"],
+.ai-map-figure:has([data-map-node="neuro"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="neuro"],
+.ai-map-figure:has([data-map-node="cs"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="cs"],
+.ai-map-figure:has([data-map-node="physics"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="physics"],
+.ai-map-figure:has([data-map-node="bio"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="bio"],
+.ai-map-figure:has([data-map-node="psych"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="psych"] {
   opacity: 1;
 }
 
@@ -1722,7 +1732,13 @@
 .ai-map-figure:has([data-map-node="cv"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="cv"] :is(ellipse, circle),
 .ai-map-figure:has([data-map-node="robotics"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="robotics"] :is(ellipse, circle),
 .ai-map-figure:has([data-map-node="nlp"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="nlp"] :is(ellipse, circle),
-.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="speech"] :is(ellipse, circle) {
+.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="speech"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="math"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="math"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="neuro"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="neuro"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="cs"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="cs"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="physics"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="physics"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="bio"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="bio"] :is(ellipse, circle),
+.ai-map-figure:has([data-map-node="psych"]:is(:hover, :focus-within)) .ai-map-node[data-map-node="psych"] :is(ellipse, circle) {
   stroke-width: 3.8;
   filter: brightness(1.08);
 }
@@ -1734,6 +1750,14 @@
 .ai-map-node:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+.ai-map-connectors line {
+  stroke: #b8922e;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  opacity: 0.55;
+  fill: none;
 }
 
 .ai-map-ring-ai {
@@ -1760,6 +1784,12 @@
   stroke-width: 2;
 }
 
+.ai-map-ring-found {
+  fill: #f3de7a;
+  stroke: #a88420;
+  stroke-width: 1.7;
+}
+
 .ai-map-label-main {
   fill: #1c211c;
   font-size: 22px;
@@ -1777,6 +1807,12 @@
 .ai-map-label-app {
   fill: #1c211c;
   font-size: 15px;
+  font-weight: 700;
+}
+
+.ai-map-label-found {
+  fill: #3d3420;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -1854,7 +1890,13 @@
 .ai-map-figure:has([data-map-node="cv"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="cv"],
 .ai-map-figure:has([data-map-node="robotics"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="robotics"],
 .ai-map-figure:has([data-map-node="nlp"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="nlp"],
-.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="speech"] {
+.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="speech"],
+.ai-map-figure:has([data-map-node="math"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="math"],
+.ai-map-figure:has([data-map-node="neuro"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="neuro"],
+.ai-map-figure:has([data-map-node="cs"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="cs"],
+.ai-map-figure:has([data-map-node="physics"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="physics"],
+.ai-map-figure:has([data-map-node="bio"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="bio"],
+.ai-map-figure:has([data-map-node="psych"]:is(:hover, :focus-within)) .ai-map-hint-item[data-map-hint="psych"] {
   display: inline;
 }
 
@@ -1897,6 +1939,11 @@
 .ai-map-legend-group[data-map-group='app'] .ai-map-legend-label::before {
   border-color: var(--accent);
   background: rgba(255, 255, 255, 0.7);
+}
+
+.ai-map-legend-group[data-map-group='found'] .ai-map-legend-label::before {
+  border-color: #a88420;
+  background: #f3de7a;
 }
 
 .ai-map-legend-list {
@@ -1959,12 +2006,19 @@
 .ai-map-figure:has([data-map-node="cv"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="cv"],
 .ai-map-figure:has([data-map-node="robotics"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="robotics"],
 .ai-map-figure:has([data-map-node="nlp"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="nlp"],
-.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="speech"] {
+.ai-map-figure:has([data-map-node="speech"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="speech"],
+.ai-map-figure:has([data-map-node="math"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="math"],
+.ai-map-figure:has([data-map-node="neuro"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="neuro"],
+.ai-map-figure:has([data-map-node="cs"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="cs"],
+.ai-map-figure:has([data-map-node="physics"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="physics"],
+.ai-map-figure:has([data-map-node="bio"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="bio"],
+.ai-map-figure:has([data-map-node="psych"]:is(:hover, :focus-within)) .ai-map-btn[data-map-node="psych"] {
   border-color: var(--accent);
   background: color-mix(in srgb, var(--accent) 10%, var(--bg-card));
 }
 
 .ai-map-node,
+.ai-map-connectors,
 .ai-map-btn {
   transition: opacity 0.18s ease, border-color 0.15s ease, background 0.15s ease;
 }
@@ -1995,9 +2049,22 @@ html[data-theme='dark'] .ai-map-ring-app {
   stroke: #93c5fd;
 }
 
+html[data-theme='dark'] .ai-map-ring-found {
+  fill: rgba(234, 179, 8, 0.42);
+  stroke: #ca8a04;
+}
+
+html[data-theme='dark'] .ai-map-connectors line {
+  stroke: #ca8a04;
+}
+
 html[data-theme='dark'] .ai-map-label-main,
 html[data-theme='dark'] .ai-map-label-app {
   fill: #e8eef8;
+}
+
+html[data-theme='dark'] .ai-map-label-found {
+  fill: #fef3c7;
 }
 
 html[data-theme='dark'] .ai-map-label-sub {
@@ -2010,6 +2077,11 @@ html[data-theme='dark'] .ai-map-hint {
 
 html[data-theme='dark'] .ai-map-legend-group[data-map-group='app'] .ai-map-legend-label::before {
   background: rgba(15, 23, 42, 0.55);
+}
+
+html[data-theme='dark'] .ai-map-legend-group[data-map-group='found'] .ai-map-legend-label::before {
+  background: rgba(234, 179, 8, 0.42);
+  border-color: #ca8a04;
 }
 
 html[data-theme='dark'] .ai-map-btn {
@@ -2049,6 +2121,10 @@ html[data-theme='dark'] .ai-map-btn {
   }
 
   .ai-map-label-app {
+    font-size: 13px;
+  }
+
+  .ai-map-label-found {
     font-size: 13px;
   }
 
@@ -2181,6 +2257,7 @@ html[data-theme='dark'] .ai-map-btn {
   .ai-map-node,
   .ai-map-node ellipse,
   .ai-map-node circle,
+  .ai-map-connectors,
   .ai-map-btn {
     transition: none;
   }
