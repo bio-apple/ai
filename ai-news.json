@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T03:40:20.787765+08:00",
+  "updated_at": "2026-09-09T16:24:58.697730+08:00",
   "date": "2026-09-09",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "53818ac5275c",
+      "title": "蚂蚁百灵发布首个金融增强模型，AI开始进入真实投研工作流",
+      "summary": "蚂蚁集团百灵首个金融增强开放模型 Ling-3.0-flash-Fin发布。",
+      "url": "https://www.qbitai.com/2026/09/486288.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-09T13:02:30+08:00"
+    },
+    {
+      "id": "b223936cf4b4",
+      "title": "具身机器人能搞定超市盘点吗？全球七万门店正在给出答案",
+      "summary": "从Demo到货架，这两家公司要让具身智能算得过账",
+      "url": "https://www.qbitai.com/2026/09/486280.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-09T12:52:12+08:00"
+    },
+    {
+      "id": "00e8ba54ea6f",
+      "title": "SkyProduction限免活动第二期：MiniMax H3会员限时免费无限用！",
+      "summary": "8月28日-9月1日，SkyProduction（天工工作台）联合阿里巴巴通义万相，推出了Wan 3.0模型限时免费活动",
+      "url": "https://www.qbitai.com/2026/09/486052.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-09T11:39:58+08:00"
+    },
+    {
+      "id": "0ebd6a97e11a",
+      "title": "宜宾，一场机器人“招聘会”的产业雄心",
+      "summary": "9月3日，宜宾国际会展中心，55支机器人团队正在完成一场特殊的“面试”。",
+      "url": "https://www.qbitai.com/2026/09/486038.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-09T10:15:54+08:00"
+    },
+    {
+      "id": "167bce5d47e7",
+      "title": "How GPT-5.6 Sol helps run quantum computing experiments",
+      "summary": "See how an MIT researcher uses GPT-5.6 Sol with Codex to autonomously run quantum computing experiments, analyze results, and calibrate qubits.",
+      "url": "https://openai.com/index/codex-quantum-computing-experiments",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-09T01:00:00+08:00"
+    },
     {
       "id": "4f420d1c5cd0",
       "title": "Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic",
@@ -78,51 +123,6 @@
       "published_at": "2026-09-08T14:05:30+08:00"
     },
     {
-      "id": "ea685cd38291",
-      "title": "现场围观金融AI决赛，大厂挑人的逻辑我悟了",
-      "summary": "百万奖金、大厂直通、VC跟投",
-      "url": "https://www.qbitai.com/2026/09/485794.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-08T13:05:03+08:00"
-    },
-    {
-      "id": "ea5a2d308b02",
-      "title": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
-      "summary": "近日，物理AI企业深度智控（DeepCtrls）完成新一轮B+轮数亿元融资。",
-      "url": "https://www.qbitai.com/2026/09/485784.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-08T11:22:17+08:00"
-    },
-    {
-      "id": "ecee9255adc8",
-      "title": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
-      "summary": "从看市场，到见场景；从认识伙伴，到寻找合作。",
-      "url": "https://www.qbitai.com/2026/09/485630.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-08T10:42:24+08:00"
-    },
-    {
-      "id": "3c7bc5543776",
-      "title": "王云鹤创业后交出首个模型",
-      "summary": "把多模型执行经验用到了模型训练",
-      "url": "https://www.qbitai.com/2026/09/485555.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-08T10:14:47+08:00"
-    },
-    {
-      "id": "671a9fed35e2",
-      "title": "OpenAI expands initiatives to support journalism from classrooms to newsrooms",
-      "summary": "OpenAI is expanding support for journalism with tools, training, and partnerships for students, educators, journalists, and news organizations.",
-      "url": "https://openai.com/index/supporting-journalism-from-classrooms-to-newsrooms",
-      "source": "OpenAI",
-      "category": "行业新闻",
-      "published_at": "2026-09-08T08:00:00+08:00"
-    },
-    {
       "id": "7765da697e6b",
       "title": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
       "summary": "Frontier intelligence is going local. At IFA 2026, NVIDIA, Microsoft and its partners are teaming up to provide faster inference and new tools that make agents…",
@@ -148,6 +148,26 @@
       "url": "https://www.qbitai.com/2026/09/484437.html",
       "source": "量子位",
       "category": "新工具上线",
+      "published_at": "2026-09-04T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "9e2539796573",
+      "title": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
+      "summary": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
+      "url": "https://www.qbitai.com/2026/09/484547.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-09-04T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "c3ab0cce734d",
+      "title": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
+      "summary": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
+      "url": "https://www.qbitai.com/2026/09/484163.html",
+      "source": "量子位",
+      "category": "开源项目",
       "published_at": "2026-09-04T00:00:00+08:00",
       "window_hours": 720
     },
@@ -233,51 +253,13 @@
       "published_at": "2026-09-03T00:18:31+08:00"
     },
     {
-      "id": "d235e1f23d69",
-      "title": "NVIDIA and CrowdStrike Strengthen Agentic Cybersecurity Frontier",
-      "summary": "“We’re at an inflection point in cybersecurity,” Jensen Huang told a sold-out crowd at CrowdStrike’s Fal.Con 2026 in Las Vegas Tuesday. Attacks are now automat…",
-      "url": "https://blogs.nvidia.com/blog/nvidia-crowdstrike-fal-con-2026/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-02T05:19:20+08:00"
-    },
-    {
-      "id": "66eabab6976f",
-      "title": "The latest AI news we announced in August 2026",
-      "summary": "Here are Google’s latest AI updates from August 2026",
-      "url": "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-02T04:45:00+08:00"
-    },
-    {
-      "id": "96e91106715a",
-      "title": "李飞飞发布：全球首个多模态世界模型",
-      "summary": "李飞飞发布：全球首个多模态世界模型",
-      "url": "https://www.qbitai.com/2026/09/482586.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-02T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "555daf521fa1",
-      "title": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
-      "summary": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
-      "url": "https://www.qbitai.com/2026/09/483104.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-02T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "f21e55c629b3",
-      "title": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
-      "summary": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
-      "url": "https://www.qbitai.com/2026/09/483101.html",
+      "id": "5c6accf69391",
+      "title": "“没有Token的CS学生，应立即退学”",
+      "summary": "“没有Token的CS学生，应立即退学”",
+      "url": "https://www.qbitai.com/2026/09/483839.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-02T00:00:00+08:00",
+      "published_at": "2026-09-03T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -285,36 +267,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "96e91106715a",
-        "title": "李飞飞发布：全球首个多模态世界模型",
-        "summary": "李飞飞发布：全球首个多模态世界模型",
-        "url": "https://www.qbitai.com/2026/09/482586.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-02T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "555daf521fa1",
-        "title": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
-        "summary": "还在为大模型洗数据熬夜？蚂蚁拿下VLDB工业最佳论文，一套宽表搞定35PB语料，效率狂飙5.6倍",
-        "url": "https://www.qbitai.com/2026/09/483104.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-02T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "f21e55c629b3",
-        "title": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
-        "summary": "阿里更新旗舰模型Qwen3.8-Max，前端编程能力跃居全球第一",
-        "url": "https://www.qbitai.com/2026/09/483101.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-02T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "949b4891b9fd",
         "title": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
@@ -333,6 +285,36 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-09-04T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "9e2539796573",
+        "title": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
+        "summary": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
+        "url": "https://www.qbitai.com/2026/09/484547.html",
+        "source": "量子位",
+        "category": "行业新闻",
+        "published_at": "2026-09-04T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "c3ab0cce734d",
+        "title": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
+        "summary": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
+        "url": "https://www.qbitai.com/2026/09/484163.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-09-04T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "5c6accf69391",
+        "title": "“没有Token的CS学生，应立即退学”",
+        "summary": "“没有Token的CS学生，应立即退学”",
+        "url": "https://www.qbitai.com/2026/09/483839.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-03T00:00:00+08:00",
         "window_hours": 720
       }
     ]
