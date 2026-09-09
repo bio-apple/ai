@@ -26,15 +26,6 @@ async function waitSearchReady(page) {
   }
 }
 
-async function waitHomeOps(page) {
-  await expect(page.locator('#home-ops')).toBeVisible();
-  await expect
-    .poll(async () => (await page.locator('#ops-views').textContent())?.trim() !== '—', {
-      timeout: 15000,
-    })
-    .toBeTruthy();
-}
-
 test.describe('AI 导航 关键路径', () => {
   test('首页主路径：推荐 · 简报 · 独立专区入口', async ({ page }) => {
     await gotoHome(page);
@@ -51,9 +42,8 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('.home-quick-filters')).toHaveCount(0);
     await expect(page.locator('#home-recommend')).toBeVisible();
     await expect(page.locator('#home-daily')).toBeVisible();
-    await expect(page.locator('#home-ops')).toBeVisible();
-    await expect(page.locator('#home-ops .section-title')).toContainText('热门排行榜');
-    await expect(page.locator('#home-ops-wrap')).toHaveCount(0);
+    await expect(page.locator('#home-ops')).toHaveCount(0);
+    await expect(page.getByRole('heading', { name: '热门排行榜' })).toHaveCount(0);
     await expect(page.locator('#daily-github-list a').first()).toBeVisible();
     await expect(page.locator('#home-daily .news-source-chip').first()).toBeVisible();
     await expect(page.locator('#home-daily .news-source-logo').first()).toHaveAttribute(
@@ -142,15 +132,6 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('#courses-toolbar [data-course-track="深度学习"]')).toHaveClass(
       /active/,
     );
-  });
-
-  test('热门排行榜默认可见并加载数据', async ({ page }) => {
-    await gotoHome(page);
-    await waitHomeOps(page);
-    await expect(page.locator('#ops-views')).not.toHaveText('—');
-    await expect(
-      page.locator('#ops-trend-list .ops-trend-item, #ops-trend-list li').first(),
-    ).toBeVisible();
   });
 
   test('推荐助手文本流', async ({ page }) => {

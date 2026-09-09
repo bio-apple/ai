@@ -31,7 +31,6 @@ export default [
         umami: 'writable',
         showSection: 'readonly',
         bioProgress: 'writable',
-        bioEngagement: 'writable',
         bioFunnel: 'writable',
       },
     },

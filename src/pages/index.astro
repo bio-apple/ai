@@ -2,7 +2,6 @@
 import HomeLayout from '../layouts/HomeLayout.astro';
 import HomeRecommend from '../components/HomeRecommend.astro';
 import HomeAiDaily from '../components/HomeAiDaily.astro';
-import HomeOps from '../components/HomeOps.astro';
 import HomeAiMap from '../components/HomeAiMap.astro';
 import { site } from '../lib/data';
 import { buildHomeSchema, buildCoursesSchema, mergeSchemaGraphs } from '../lib/schema';
@@ -71,7 +70,6 @@ const heatUpdated = ossMeta?.updated_at
     <div class="home-main">
       <div class="home-brief-row">
         <HomeAiDaily />
-        <HomeOps />
       </div>
       <HomeAiMap />
 

@@ -42,7 +42,6 @@
     recommend_related_tool: STEPS.ENGAGE,
     recommend_related_alt: STEPS.ENGAGE,
     recommend_related_comp: STEPS.ENGAGE,
-    'ops-tool-click': STEPS.ENGAGE,
     'course-click': STEPS.LEARN,
     'course-read': STEPS.LEARN,
     'courses-filter-track': STEPS.LEARN,

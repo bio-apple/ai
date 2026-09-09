@@ -4,8 +4,7 @@
  */
 
 /* 元信息行（fetch 完成后由 JS 写入） */
-.video-update-meta:empty,
-.ops-updated:empty {
+.video-update-meta:empty {
   min-height: 1.35em;
 }
 
@@ -17,11 +16,6 @@
 /* 新闻来源面板：load 后注入 */
 #news-watch-sources {
   min-height: 2.75rem;
-}
-
-/* 首页热度榜 */
-#ops-trend-list {
-  min-height: 11rem;
 }
 
 /* 全站搜索下拉 */
