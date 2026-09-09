@@ -20,6 +20,7 @@ Schema：`schemas/*.json`
 | `daily-videos.json`                          | 根      | 每日定时      | `daily-videos.schema.json`   |
 | `daily-videos.latest.json`                   | dist    | prebuild 瘦身 | —                            |
 | `search-index.json` / `recommend-rules.json` | dist    | prebuild      | 对应 schema                  |
+| `analytics.json`                             | `data/` | 手工          | 分析开关 · CI `analytics`    |
 
 交叉引用（CI 强制）：`tool-relations` ⊆ `tools`；`ai_picker.tools` 可解析。
 

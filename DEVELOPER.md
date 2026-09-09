@@ -21,7 +21,8 @@
 ## 命令
 
 ```bash
-nvm use && npm ci
+nvm use                    # Node 22，见 .nvmrc
+npm ci && pip install -r requirements.txt
 npm run build && ./start.sh          # http://127.0.0.1:8765/ai/
 npm run quality && npm run test:unit && npm run build && DIST=dist python3 scripts/validate_ci.py
 ```

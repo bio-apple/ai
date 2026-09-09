@@ -36,6 +36,12 @@ test('app.js only boots navigation and search', () => {
   assert.doesNotMatch(src, /function initSearchWrap/);
 });
 
+test('page TOC skips visually-hidden headings', () => {
+  const src = readFileSync(path.join(ROOT, 'ux.js'), 'utf8');
+  assert.match(src, /function collectHeadings/);
+  assert.match(src, /visually-hidden/);
+});
+
 test('navigation and search libs expose init hooks', () => {
   const nav = readFileSync(path.join(ROOT, 'lib/navigation.js'), 'utf8');
   const search = readFileSync(path.join(ROOT, 'lib/search.js'), 'utf8');

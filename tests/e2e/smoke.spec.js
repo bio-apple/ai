@@ -199,6 +199,8 @@ test.describe('AI 导航 关键路径', () => {
       await page.locator('[data-video-grid="bilibili"] .video-card').count(),
     ).toBeLessThanOrEqual(3);
     await expect(page.locator('#video-preview-form')).toBeVisible();
+    await expect(page.locator('#page-toc')).toContainText('我的收藏');
+    await expect(page.locator('#page-toc')).not.toContainText('日更视频流');
     await expect(page.locator('#daily-video-list')).not.toContainText('加载本机预览');
     await expect(
       page
@@ -236,6 +238,12 @@ test.describe('AI 导航 关键路径', () => {
       'href',
       /tools\/chatgpt\.html/,
     );
+    await page.locator('#nav-site-search').fill('新闻热点');
+    await expect(navResults.getByRole('option', { name: /AI 新闻热点/ })).toBeVisible();
+    await expect(navResults.getByRole('option', { name: /一周内/ })).toHaveCount(0);
+    await page.locator('#nav-site-search').fill('AI 视频');
+    await expect(navResults.getByRole('option', { name: /AI 视频/ })).toBeVisible();
+    await page.locator('#nav-site-search').fill('ChatGPT');
     await page.locator('#nav-site-search').press('Enter');
     await expect(page).toHaveURL(/tools\/chatgpt\.html/);
   });

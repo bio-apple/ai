@@ -100,6 +100,7 @@ function collectHeadings(root) {
   const seen = new Set();
   const items = [];
   root.querySelectorAll('h2, h3, h4').forEach((el, index) => {
+    if (el.classList.contains('visually-hidden')) return;
     const text = el.textContent.trim();
     if (!text || seen.has(text)) return;
     seen.add(text);

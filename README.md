@@ -29,6 +29,7 @@ npm ci && pip install -r requirements.txt
 | 角色            | 先看                                                                  | 改哪里                                 |
 | --------------- | --------------------------------------------------------------------- | -------------------------------------- |
 | 产品 / 文案     | 下表「入口」；`data/site.json` 的 `meta` / `nav` / `hero`             | 导航、TDK、推荐场景                    |
+| 架构            | [ARCHITECTURE.md](./docs/ARCHITECTURE.md)                             | 页面、构建链路、PWA                    |
 | 前端            | [FRONTEND.md](./docs/FRONTEND.md)                                     | `src/components`、`css/`、`lib/*.js`   |
 | 运维 / 日更     | [CONTENT-OPS.md](./docs/CONTENT-OPS.md) · [CI-CD.md](./docs/CI-CD.md) | `config/*.yaml`、Actions Secrets       |
 | 测试 / QA       | `tests/unit` · `tests/e2e/smoke.spec.js`                              | 夹具单测、页面冒烟                     |

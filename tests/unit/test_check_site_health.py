@@ -39,6 +39,29 @@ class CheckSiteHealthTests(unittest.TestCase):
             with self.assertRaisesRegex(RuntimeError, r"CONTENT:"):
                 mod.check_http("/tools/hub.html", expect_substr="工具中心")
 
+    def test_main_probes_standalone_pages(self):
+        mod = load_module()
+        paths: list[str] = []
+
+        def fake_http(path: str, expect_substr=None) -> None:
+            paths.append(path)
+
+        with (
+            mock.patch.object(mod, "check_http", side_effect=fake_http),
+            mock.patch.object(mod, "check_json_freshness"),
+            mock.patch.object(mod, "write_summary"),
+        ):
+            self.assertEqual(mod.main(), 0)
+        for path in (
+            "/",
+            "/tools/hub.html",
+            "/oss.html",
+            "/courses.html",
+            "/news/daily-ai-news.html",
+            "/videos.html",
+        ):
+            self.assertIn(path, paths)
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -22,7 +22,7 @@
 | 知识版图 | `#home-ai-map` `HomeAiMap.astro` | 绿色圈层可点；黄色基础学科只作图示，不在下方按钮 |
 | 下一步   | `#home-community`                | 工具中心三榜、开源精选                           |
 
-独立页（开源 / 课程 / 新闻 / 视频）用 `StandaloneLayout`，左侧「本页目录」扫 `h2–h4`。日更视频卡片标题不用 `h4`，以免目录被每条标题撑满。
+独立页（开源 / 课程 / 新闻 / 视频）用 `StandaloneLayout`，左侧「本页目录」扫可见的 `h2–h4`（跳过 `.visually-hidden`，避免 aria 标题进目录）。日更视频卡片标题不用 `h4`，以免目录被每条标题撑满。
 
 无障碍：跳过链接 `#main-content`；知识版图绿色圈层是真正的 `<a>`，黄色基础学科为普通图形文字；动效尊重 `prefers-reduced-motion`。
 
@@ -80,9 +80,10 @@
 用户页：`videos.js` · `lib/video-preview*.js` · Worker `/meta` 封面。跨设备见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)。  
 共享 sync 码默认 `bioai-videos`。
 
-## 12. 懒加载
+## 12. 页面脚本
 
-独立页再跑 `news.js` / `courses.js`；首页知识库 `knowledge.js` idle 后加载。
+独立页按需加载：`oss.js` / `courses.js` / `news.js` / `videos.js`。  
+首页知识库 `knowledge.js` 在 idle 后加载。
 
 ## 相关
 

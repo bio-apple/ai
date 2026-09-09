@@ -22,5 +22,6 @@ test('404 shortcuts are derived from nav page links', () => {
   const page = readFileSync(path.join(ROOT, 'src/pages/404.astro'), 'utf8');
   assert.match(page, /site\.nav\.menu/);
   assert.match(page, /item\.type === 'page'/);
+  assert.match(page, /pageLabels/);
   assert.doesNotMatch(page, /asset\('news\/daily-ai-news\.html'\)/);
 });

@@ -23,6 +23,7 @@ python3 --version   # 3.12.x
 git clone https://github.com/bio-apple/ai.git && cd ai
 nvm use
 npm ci
+pip install -r requirements.txt
 cp .env.local.example .env.local   # 可选
 ./build.sh && ./start.sh
 ```
