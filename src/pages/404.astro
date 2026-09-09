@@ -7,11 +7,12 @@ const home = homeHref();
 const pageLinks = (site.nav.menu || []).filter(
   (item) => item.type === 'page' && 'href' in item && item.href,
 );
+const pageLabels = pageLinks.map((item) => item.label).join('、');
 ---
 
 <StandaloneLayout
   title={`页面未找到 · ${site.meta.site_name || BRAND}`}
-  description="你访问的页面不存在或已迁移。可返回首页，或从顶栏同序入口继续探索：AI 工具中心、开源精选、课程资源、新闻热点、AI 视频。"
+  description={`你访问的页面不存在或已迁移。可返回首页，或从顶栏同序入口继续探索：${pageLabels}。`}
   canonical={`${String(site.meta.canonical || '').replace(/\/?$/, '/')}404.html`}
   ogType="website"
   showSearch={false}

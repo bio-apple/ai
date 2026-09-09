@@ -197,17 +197,17 @@ function buildSearchIndex(site, tools) {
     });
   }
   items.push({
-    label: '每日视频',
+    label: 'AI 视频',
     type: '频道',
     url: 'videos.html',
-    keywords: '视频 youtube bilibili 教程 每日 24小时 30天 100天 Top3 Top4',
+    keywords: 'AI视频 youtube B站 近1个月 播放量 Top3 收藏 云端同步',
   });
   items.push({
-    label: 'AI 新闻',
+    label: 'AI 新闻热点',
     type: '频道',
     url: 'news/daily-ai-news.html',
     keywords:
-      'AI新闻 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace arXiv GitHub Trending 机器之心 量子位 新智元 智源 每日',
+      '新闻热点 AI新闻 7x24 量子位热门 30天 OpenAI Anthropic DeepMind Meta NVIDIA HuggingFace 机器之心 新智元 智源',
   });
   items.push({
     label: '实战案例',
@@ -253,12 +253,6 @@ function buildSearchIndex(site, tools) {
     type: '导航',
     url: 'ai-tools-ranking.html',
     keywords: '排行榜 ranking ChatGPT Claude Cursor DeepSeek',
-  });
-  items.push({
-    label: '一周内 AI 热点',
-    type: '频道',
-    url: 'news/daily-ai-news.html',
-    keywords: 'AI新闻 热点 近7天 7x24 滚动窗口 每天更新 OpenAI Anthropic arXiv',
   });
   items.push({
     label: '编程 AI 工具',
@@ -426,11 +420,6 @@ export function buildArtifacts(outDir = path.join(ROOT, 'public')) {
   writeOut(outDir, 'search-index.json', searchIndex);
   writeOut(outDir, 'recommend-rules.json', recommendRules);
   writeOut(outDir, 'analytics-config.json', analyticsCfg);
-
-  const engagementSrc = path.join(DATA, 'engagement.json');
-  if (fs.existsSync(engagementSrc)) {
-    fs.copyFileSync(engagementSrc, path.join(outDir, 'engagement.json'));
-  }
 
   const localSrc = path.join(DATA, 'local-deploy.json');
   if (fs.existsSync(localSrc)) {

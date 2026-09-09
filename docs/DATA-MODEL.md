@@ -13,7 +13,6 @@ Schema：`schemas/*.json`
 | `site.json`                                  | `data/` | 手工          | 文档约定 · `data`            |
 | `tools.json` / `rankings.json`               | `data/` | 手工 / 日更   | `data`                       |
 | `tool-relations.json`                        | `data/` | 手工          | `tool-relations.schema.json` |
-| `engagement.json`                            | `data/` | 手工          | `engagement.schema.json`     |
 | `local-deploy.json`                          | `data/` | 手工          | `local-deploy.schema.json`   |
 | `oss-projects.json`                          | `data/` | 日更          | 同步到 `site.oss_frameworks` |
 | `ai-news.json`                               | 根      | 日更          | `ai-news.schema.json`        |

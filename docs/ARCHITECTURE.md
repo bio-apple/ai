@@ -42,7 +42,7 @@ flowchart TB
 | `/ai/oss.html`                | 开源精选                                                     |
 | `/ai/courses.html`            | 课程资源                                                     |
 | `/ai/news/daily-ai-news.html` | 新闻热点：7×24h 资讯 + 量子位官网热门（30 天，并入既有分类） |
-| `/ai/videos.html`             | 日更榜 + 粘贴收藏                                            |
+| `/ai/videos.html`             | AI 视频：近 1 个月每平台 Top 3 + 粘贴收藏                    |
 | `/ai/guides/advanced.html`    | 进阶指南                                                     |
 | `/ai/local/{id}.html`         | 本地部署文稿                                                 |
 

@@ -32,7 +32,7 @@ cp .env.local.example .env.local
 | `UMAMI_*` / `PUBLIC_UMAMI_*`                                 | Umami 统计                                           |
 | `CLOUDFLARE_BEACON_TOKEN` / `PUBLIC_CLOUDFLARE_BEACON_TOKEN` | Cloudflare Web Analytics                             |
 | `GITHUB_TOKEN` / `GH_TOKEN`                                  | 本地抓取脚本提高 GitHub API 限额                     |
-| `YOUTUBE_API_KEY` / `YOUTUBE_DATA_API_V3` / `GOOGLE_API_KEY` | 每日视频抓取：YouTube Data API v3 详情               |
+| `YOUTUBE_API_KEY` / `YOUTUBE_DATA_API_V3` / `GOOGLE_API_KEY` | AI 视频日更：YouTube Data API v3 详情                |
 | `VIDEO_SYNC_API_URL`                                         | 本地构建：Cloudflare Worker URL（视频云端同步）      |
 | `VIDEO_SYNC_SHARED_KEY`                                      | 本地构建：共享 sync 码（默认 `bioai-videos`）        |
 | `YTDLP_COOKIES_FILE`                                         | 本地可选：yt-dlp Netscape cookies 文件路径           |
@@ -53,7 +53,7 @@ cp .env.local.example .env.local
 
 ## 4. 站内搜索与本地 API
 
-- 生产环境：全站 / 知识库搜索使用客户端 `search-index.json` + Fuse.js（`app.js`、`knowledge.js`）。
+- 生产环境：全站 / 知识库搜索使用客户端 `search-index.json` + Fuse.js（`lib/search.js`、`knowledge.js`）。
 - 本地可选：`./start.sh` 启动 FastAPI，`/api/ask` 为**站内 BM25/Fuse 检索**，不调用外部 LLM，也不承载用户密钥。
 - GitHub Pages **不部署** `/api/*` 路由。
 

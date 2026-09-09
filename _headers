@@ -63,9 +63,6 @@
 /search-index.json
   Cache-Control: public, max-age=3600, stale-while-revalidate=600
 
-/engagement.json
-  Cache-Control: public, max-age=1800, stale-while-revalidate=300
-
 /recommend-rules.json
   Cache-Control: public, max-age=86400, stale-while-revalidate=3600
 

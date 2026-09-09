@@ -491,7 +491,6 @@ def validate_data_json() -> None:
         "local-deploy.json",
         "rankings.json",
         "tool-relations.json",
-        "engagement.json",
     ):
         path = REPO / "data" / name
         if not path.exists():
@@ -539,19 +538,6 @@ def validate_no_secrets() -> None:
     print("✓ 无硬编码 API Key（secrets 扫描）")
 
 
-def validate_engagement() -> None:
-    path = REPO / "data" / "engagement.json"
-    data = json.loads(path.read_text(encoding="utf-8"))
-    Draft202012Validator(_load_schema("engagement.schema.json")).validate(data)
-    runtime = ROOT / "engagement.json"
-    if not runtime.exists():
-        raise FileNotFoundError("engagement.json 缺失，请先运行 npm run build")
-    ids = [t.get("id") for t in data.get("tools") or []]
-    if len(ids) != len(set(ids)):
-        raise ValueError("engagement.json tools.id 重复")
-    print(f"✓ engagement.json schema ({len(ids)} 工具热度)")
-
-
 def validate_tool_relations() -> None:
     data = json.loads((REPO / "data/tool-relations.json").read_text(encoding="utf-8"))
     Draft202012Validator(_load_schema("tool-relations.schema.json")).validate(data)
@@ -588,7 +574,6 @@ STEPS = (
     ("jsonld", validate_json_ld),
     ("search", validate_search_index),
     ("analytics", validate_analytics_config),
-    ("engagement", validate_engagement),
     ("links", validate_html_links),
 )
 

@@ -31,5 +31,18 @@ test('buildArtifacts expands search index with content types', () => {
     'ChatGPT must not map to hub compare anchor',
   );
 
+  const newsChannels = searchIndex.filter(
+    (item) => item.type === '频道' && String(item.url || '').includes('news/daily-ai-news.html'),
+  );
+  assert.equal(newsChannels.length, 1);
+  assert.equal(newsChannels[0].label, 'AI 新闻热点');
+  assert.equal(searchIndex.filter((item) => item.label === '一周内 AI 热点').length, 0);
+
+  const videoChannel = searchIndex.find(
+    (item) => item.type === '频道' && item.url === 'videos.html',
+  );
+  assert.equal(videoChannel?.label, 'AI 视频');
+  assert.doesNotMatch(String(videoChannel?.keywords || ''), /100天|Top4/);
+
   fs.rmSync(OUT, { recursive: true, force: true });
 });
