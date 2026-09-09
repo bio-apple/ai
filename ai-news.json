@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-09T16:24:58.697730+08:00",
-  "date": "2026-09-09",
+  "updated_at": "2026-09-10T03:33:46.781491+08:00",
+  "date": "2026-09-10",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "534907e0d31e",
+      "title": "Paul Christiano joins OpenAI Foundation Board",
+      "summary": "Paul Christiano joins the OpenAI Foundation Board and its Safety and Security Committee, bringing experience in AI alignment, safety, and standards.",
+      "url": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-10T01:00:00+08:00"
+    },
+    {
+      "id": "29c19642921e",
+      "title": "NVIDIA Brings Real-Time AI to Broadcast, Sports and Global Streaming at IBC",
+      "summary": "At the IBC conference, running Sept. 11-14 in Amsterdam, the creative, technology and business communities are coming together to turn ideas into action and di…",
+      "url": "https://blogs.nvidia.com/blog/ibc-news-2026/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-10T00:00:42+08:00"
+    },
+    {
+      "id": "b0dd0e34ba0b",
+      "title": "Get ready for the game with new football features in Search",
+      "summary": "Track live game feeds, explore detailed stats, and get custom fantasy recommendations directly in Search this season.",
+      "url": "https://blog.google/products-and-platforms/products/search/football-features-google-search/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-10T00:00:00+08:00"
+    },
+    {
+      "id": "e8269fc9a109",
+      "title": "Recreating a 70-year love story frame by frame",
+      "summary": "Discover how filmmakers and Google DeepMind used AI to recreate a couple's unrecorded past in the short film \"Love, Rendered.\"",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-10T00:00:00+08:00"
+    },
+    {
+      "id": "e8608e40b722",
+      "title": "IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license",
+      "summary": "IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license",
+      "url": "https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series",
+      "source": "Hugging Face",
+      "category": "新工具上线",
+      "published_at": "2026-09-09T23:36:24+08:00"
+    },
+    {
+      "id": "5285febfb7b6",
+      "title": "实测星火X2.5：手搓粒子月亮、拆完61页财报……还揪出了我的Bug",
+      "summary": "实测星火X2.5：手搓粒子月亮、拆完61页财报……还揪出了我的Bug",
+      "url": "https://www.qbitai.com/2026/09/486374.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-09T18:02:54+08:00"
+    },
+    {
+      "id": "4d448d2f6476",
+      "title": "国产AI4S计算平台登场亮相2026外滩大会 算力技术与人才布局双向发力",
+      "summary": "国产AI4S计算平台登场亮相2026外滩大会 算力技术与人才布局双向发力",
+      "url": "https://www.qbitai.com/2026/09/486370.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-09T17:57:54+08:00"
+    },
     {
       "id": "53818ac5275c",
       "title": "蚂蚁百灵发布首个金融增强模型，AI开始进入真实投研工作流",
@@ -40,15 +103,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-09T11:39:58+08:00"
-    },
-    {
-      "id": "0ebd6a97e11a",
-      "title": "宜宾，一场机器人“招聘会”的产业雄心",
-      "summary": "9月3日，宜宾国际会展中心，55支机器人团队正在完成一场特殊的“面试”。",
-      "url": "https://www.qbitai.com/2026/09/486038.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-09T10:15:54+08:00"
     },
     {
       "id": "167bce5d47e7",
@@ -103,24 +157,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-08T18:00:00+08:00"
-    },
-    {
-      "id": "99c22bc85dd5",
-      "title": "Funding grants for new research into AI and teen development",
-      "summary": "Apply now for OpenAI’s $5 million grant program supporting independent research on how generative AI affects teen development, well-being, and safety.",
-      "url": "https://openai.com/index/teen-development-research-grants",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-08T17:00:00+08:00"
-    },
-    {
-      "id": "9dacda853045",
-      "title": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
-      "summary": "Blender也不用学了",
-      "url": "https://www.qbitai.com/2026/09/485854.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-08T14:05:30+08:00"
     },
     {
       "id": "7765da697e6b",
@@ -224,33 +260,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-09-03T08:00:00+08:00"
-    },
-    {
-      "id": "b844bdeeb825",
-      "title": "Training a coding model to paint watercolours with TRL and OpenEnv",
-      "summary": "Training a coding model to paint watercolours with TRL and OpenEnv",
-      "url": "https://huggingface.co/blog/train-to-paint-with-code",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-09-03T08:00:00+08:00"
-    },
-    {
-      "id": "383dbcd782ab",
-      "title": "Proactive cyber defense for governments and enterprises",
-      "summary": "Proactive cyber defense for governments and enterprises",
-      "url": "https://deepmind.google/blog/proactive-cyber-defense-for-governments-and-enterprises/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-09-03T00:24:24+08:00"
-    },
-    {
-      "id": "18ef68f77655",
-      "title": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
-      "summary": "Introducing Gemini 3.8 Flash and 3.8 Flash Cyber",
-      "url": "https://deepmind.google/blog/introducing-gemini-3-8-flash-and-38-flash-cyber/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-03T00:18:31+08:00"
     },
     {
       "id": "5c6accf69391",
