@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-10T16:26:14.694559+08:00",
-  "date": "2026-09-10",
+  "updated_at": "2026-09-11T03:21:36.088493+08:00",
+  "date": "2026-09-11",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,105 @@
   },
   "items": [
     {
+      "id": "683b94332d9b",
+      "title": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video",
+      "summary": "Manufacturing floors, warehouses and production lines rarely stay fixed — tasks change, layouts shift and new products arrive, and most robots can’t keep up wi…",
+      "url": "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-11T00:30:35+08:00"
+    },
+    {
+      "id": "1adb809c884f",
+      "title": "Physical AI Takes the Wheel: How the World’s Robotaxi Leaders Are Building With NVIDIA Technologies",
+      "summary": "The global robotaxi market — physical AI’s first commercial breakthrough — is projected to reach $400 billion by 2035, with over 6 million commercial vehicles …",
+      "url": "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-11T00:00:04+08:00"
+    },
+    {
+      "id": "1852061b5cf6",
+      "title": "3 ways to prep for your next big race with Search",
+      "summary": "Search can help runners get race-day ready with registration alerts, tailored training plans, and more.",
+      "url": "https://blog.google/products-and-platforms/products/search/running-race-training-tips/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-11T00:00:00+08:00"
+    },
+    {
+      "id": "014159943e4d",
+      "title": "How a researcher uses Codex and ChatGPT to search for new antimicrobial molecules",
+      "summary": "César de la Fuente’s lab uses Codex and ChatGPT to search living and extinct genomes for antimicrobial candidates to fight drug-resistant infections.",
+      "url": "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-11T00:00:00+08:00"
+    },
+    {
+      "id": "4d4e7920d8a7",
+      "title": "Now everyone can put data to work",
+      "summary": "Meet the Data agent in ChatGPT Work. Connect company data, uncover insights, and build interactive dashboards with AI using natural language.",
+      "url": "https://openai.com/index/put-data-to-work",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-10T23:00:00+08:00"
+    },
+    {
+      "id": "ed5ac5e67af5",
+      "title": "d-Matrix Adopts NVIDIA NVLink Fusion for Rack-Scale XPU Deployment",
+      "summary": "AI inference chipmaker d-Matrix today announced it will use NVIDIA NVLink Fusion to connect its next-generation Raptor XPUs to NVIDIA’s AI infrastructure platf…",
+      "url": "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-10T21:00:21+08:00"
+    },
+    {
+      "id": "f3468ea93aa3",
+      "title": "Boots on the Ground: ‘WARDOGS’ Goes All Out on GeForce NOW at Early-Access Launch",
+      "summary": "Gear up: The latest PC games and major updates are ready to play on GeForce NOW this week. WARDOGS drops onto the cloud at early-access launch, alongside the V…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-wardogs/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-10T21:00:18+08:00"
+    },
+    {
+      "id": "dd6498b708cc",
+      "title": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
+      "summary": "多模态AI大牛轮番登台，全球64支团队组团解题",
+      "url": "https://www.qbitai.com/2026/09/486934.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-10T18:17:46+08:00"
+    },
+    {
+      "id": "df6c21e96ac4",
+      "title": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
+      "summary": "9月10日，阿里巴巴集团旗下高德正式发布全球首个3D原生城市世界模型ABot-Earth 0.7。",
+      "url": "https://www.qbitai.com/2026/09/486900.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-10T16:17:05+08:00"
+    },
+    {
+      "id": "04875c843649",
+      "title": "全球首个可仿真的人–场景交互重建框架 HSImul3R：让人类视频真正成为机器人技能来源",
+      "summary": "大晓机器人联合南洋理工大学 S-Lab、上海人工智能实验室发布全新人–场景交互重建研究 HSImul3R",
+      "url": "https://www.qbitai.com/2026/09/486747.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-10T15:57:55+08:00"
+    },
+    {
+      "id": "19b581d92e72",
+      "title": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
+      "summary": "轻量版LingBot-World 2.0",
+      "url": "https://www.qbitai.com/2026/09/486716.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-10T15:44:00+08:00"
+    },
+    {
       "id": "e71122305716",
       "title": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
       "summary": "主打生成更快，细节更好，改图也终于越来越像“真·修图”了。",
@@ -24,22 +123,22 @@
       "published_at": "2026-09-10T15:25:39+08:00"
     },
     {
-      "id": "7cc65b19ad95",
-      "title": "营销科技巨头蓝色光标与全球达人营销AI平台AhaCreator达成深度合作，让品牌更高效连接全球500万创作者",
-      "summary": "从一次投放到一套增长系统，AI 让海外达人营销可规模化复制",
-      "url": "https://www.qbitai.com/2026/09/486651.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-10T14:25:22+08:00"
+      "id": "016c3ec9b775",
+      "title": "Introducing ChatGPT for Financial Services",
+      "summary": "Introducing ChatGPT for Financial Services, combining built-in financial data and GPT-6 Astra for research, modeling, and client-ready materials.",
+      "url": "https://openai.com/index/introducing-chatgpt-financial-services",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-09-10T15:00:00+08:00"
     },
     {
-      "id": "59545e8dbf0d",
-      "title": "一周连发6个模型！这家公司把具身智能的闭环跑通了",
-      "summary": "模型可以开源，部署经验不能",
-      "url": "https://www.qbitai.com/2026/09/486625.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-10T12:55:38+08:00"
+      "id": "1ef5285e671d",
+      "title": "Expanding AI access and cyber defense for federal, state, local, and tribal governments",
+      "summary": "OpenAI and GSA will offer eligible federal, state, local, and tribal governments $0 license fees, 50% off usage, and expanded cyber defense support.",
+      "url": "https://openai.com/index/expanding-ai-access-us-government",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-10T15:00:00+08:00"
     },
     {
       "id": "38987a8d0b0e",
@@ -87,31 +186,22 @@
       "published_at": "2026-09-10T12:00:00+08:00"
     },
     {
-      "id": "3461b99f5def",
-      "title": "打造10万卡国产算力集群推出JoyAI世界模型，京东发布物理AI建设最新成果",
-      "summary": "9月9日，以“JoyAI · 跃迁物理世界”为主题的JDDiscovery-2026京东全球科技探索者大会在北京举行",
-      "url": "https://www.qbitai.com/2026/09/486436.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T09:39:13+08:00"
+      "id": "cb50b0c3c856",
+      "title": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
+      "summary": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
+      "url": "https://huggingface.co/blog/gradio-workflow-1111",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-09-10T08:00:00+08:00"
     },
     {
-      "id": "a48774978c21",
-      "title": "实测星火X2.5：手搓粒子月亮、拆完61页财报……还顺手揪出了我的Bug",
-      "summary": "赶上了API限时五折",
-      "url": "https://www.qbitai.com/2026/09/486350.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-10T08:42:06+08:00"
-    },
-    {
-      "id": "534907e0d31e",
-      "title": "Paul Christiano joins OpenAI Foundation Board",
-      "summary": "Paul Christiano joins the OpenAI Foundation Board and its Safety and Security Committee, bringing experience in AI alignment, safety, and standards.",
-      "url": "https://openai.com/index/paul-christiano-joins-openai-foundation-board",
+      "id": "4e410dad70fb",
+      "title": "Build more natural voice experiences with GPT‑Live‑1 in the API",
+      "summary": "GPT‑Live‑1 brings natural, full-duplex voice conversations to the API, with stronger instruction following, custom voices, and telephony support.",
+      "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api",
       "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-09-10T01:00:00+08:00"
+      "published_at": "2026-09-10T08:00:00+08:00"
     },
     {
       "id": "29c19642921e",
@@ -150,33 +240,6 @@
       "published_at": "2026-09-09T23:36:24+08:00"
     },
     {
-      "id": "9786c92a289d",
-      "title": "The AI policy window is open. We need to act.",
-      "summary": "Chris Lehane argues that stronger AI capabilities require stronger safety evidence, shared standards, and durable policy action while the policy window remains…",
-      "url": "https://openai.com/index/ai-policy-window",
-      "source": "OpenAI",
-      "category": "行业新闻",
-      "published_at": "2026-09-09T21:00:00+08:00"
-    },
-    {
-      "id": "587a70348a73",
-      "title": "GPT-6 Astra: The next generation in intelligence for work",
-      "summary": "Meet GPT-6 Astra, OpenAI’s most capable model for business, with advanced reasoning, computer use, and stronger writing and design judgment.",
-      "url": "https://openai.com/index/gpt-6-astra-next-generation-work",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-09T19:00:00+08:00"
-    },
-    {
-      "id": "167bce5d47e7",
-      "title": "How GPT-5.6 Sol helps run quantum computing experiments",
-      "summary": "See how an MIT researcher uses GPT-5.6 Sol with Codex to autonomously run quantum computing experiments, analyze results, and calibrate qubits.",
-      "url": "https://openai.com/index/codex-quantum-computing-experiments",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-09T01:00:00+08:00"
-    },
-    {
       "id": "4f420d1c5cd0",
       "title": "Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic",
       "summary": "Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic",
@@ -195,22 +258,14 @@
       "published_at": "2026-09-08T22:00:15+08:00"
     },
     {
-      "id": "aaada63e998e",
-      "title": "The Work Now Within Reach",
-      "summary": "Explore how more capable, affordable AI can expand the work people and businesses can accomplish—and make growth more economical.",
-      "url": "https://openai.com/index/the-work-now-within-reach",
-      "source": "OpenAI",
+      "id": "0bf5ede3a210",
+      "title": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
+      "summary": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
+      "url": "https://www.qbitai.com/2026/09/484649.html",
+      "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-09-08T21:00:00+08:00"
-    },
-    {
-      "id": "7765da697e6b",
-      "title": "Sparks Fly: NVIDIA Accelerates Local AI at IFA 2026",
-      "summary": "Frontier intelligence is going local. At IFA 2026, NVIDIA, Microsoft and its partners are teaming up to provide faster inference and new tools that make agents…",
-      "url": "https://blogs.nvidia.com/blog/local-ai-ifa-next-gen-agents-nv-pair-rtx-spark/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-04T00:00:59+08:00"
+      "published_at": "2026-09-05T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "949b4891b9fd",
@@ -250,52 +305,6 @@
       "source": "量子位",
       "category": "开源项目",
       "published_at": "2026-09-04T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "56da2c8ef803",
-      "title": "Introducing WeatherNext 3, our most advanced and accurate global weather AI model",
-      "summary": "Introducing WeatherNext 3, our most advanced and accurate global weather AI model",
-      "url": "https://deepmind.google/blog/introducing-weathernext-3-our-most-advanced-and-accurate-global-weather-ai-model/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-03T23:02:08+08:00"
-    },
-    {
-      "id": "96a3500c5a4b",
-      "title": "NeoMME: an efficient Multimodal-native and Multilingual Encoder",
-      "summary": "NeoMME: an efficient Multimodal-native and Multilingual Encoder",
-      "url": "https://huggingface.co/blog/Hcompany/neomme",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-03T21:13:48+08:00"
-    },
-    {
-      "id": "838b591aeb10",
-      "title": "‘NBA 2K27’ With NVIDIA DLSS 5 Leads 28 New Games Coming to GeForce NOW",
-      "summary": "September is here with 28 more games streaming on GeForce NOW this month, led by a slam dunk: NBA 2K27 with the NVIDIA DLSS 5 3D-Guided Neural Rendering featur…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-september-2026-games-list/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-03T21:00:35+08:00"
-    },
-    {
-      "id": "ea8b14faf08e",
-      "title": "NVIDIA to Acquire",
-      "summary": "I’m excited to announce that NVIDIA has agreed to acquire Hugging Face for $12,930,300,000. Together, we will scale Hugging Face’s platform, strengthen its inf…",
-      "url": "https://blogs.nvidia.com/blog/nvidia-to-acquire-hugging-face/",
-      "source": "NVIDIA AI",
-      "category": "开源项目",
-      "published_at": "2026-09-03T19:56:49+08:00"
-    },
-    {
-      "id": "5c6accf69391",
-      "title": "“没有Token的CS学生，应立即退学”",
-      "summary": "“没有Token的CS学生，应立即退学”",
-      "url": "https://www.qbitai.com/2026/09/483839.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-03T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -344,13 +353,13 @@
         "window_hours": 720
       },
       {
-        "id": "5c6accf69391",
-        "title": "“没有Token的CS学生，应立即退学”",
-        "summary": "“没有Token的CS学生，应立即退学”",
-        "url": "https://www.qbitai.com/2026/09/483839.html",
+        "id": "0bf5ede3a210",
+        "title": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
+        "summary": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
+        "url": "https://www.qbitai.com/2026/09/484649.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-03T00:00:00+08:00",
+        "category": "新模型发布",
+        "published_at": "2026-09-05T00:00:00+08:00",
         "window_hours": 720
       }
     ]
