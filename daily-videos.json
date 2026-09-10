@@ -160,9 +160,144 @@
     "bilibili:BV1N74R6eEZw",
     "youtube:KmcTu2EigTs",
     "youtube:MYxamzOcVbs",
-    "bilibili:BV1yEbY6gEb8"
+    "bilibili:BV1yEbY6gEb8",
+    "bilibili:BV1oZ8g6MERX",
+    "youtube:EDxVn1q8udE"
   ],
   "batches": [
+    {
+      "date": "2026-09-11",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:xBByvFrqmWU",
+              "platform": "youtube",
+              "title": "DeepSeek is back... and Silicon Valley is terrified",
+              "summary": "Take BlueDot's Future of AI course for free - OpenAI just paused its biggest training run in history just as things were getting …",
+              "url": "https://www.youtube.com/watch?v=xBByvFrqmWU",
+              "thumbnail": "https://i.ytimg.com/vi/xBByvFrqmWU/maxresdefault.jpg",
+              "channel": "Fireship",
+              "subscribers": 0,
+              "views": 1151686,
+              "duration": "5:32",
+              "max_height": 1080,
+              "published_at": "2026-08-21T01:53:37+08:00"
+            },
+            {
+              "id": "youtube:KmcTu2EigTs",
+              "platform": "youtube",
+              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
+              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
+              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
+              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 0,
+              "views": 190209,
+              "duration": "19:35",
+              "max_height": 1080,
+              "published_at": "2026-08-25T21:00:23+08:00"
+            },
+            {
+              "id": "youtube:EDxVn1q8udE",
+              "platform": "youtube",
+              "title": "DeepSeek Harness Setup: A Free Claude Code You Own In 10 Minutes",
+              "summary": "You can subscribe to my newsletter so you never miss a drop: DeepSeek Harness Link: DeepSeek Harness is an open-source coding age…",
+              "url": "https://www.youtube.com/watch?v=EDxVn1q8udE",
+              "thumbnail": "https://i.ytimg.com/vi/EDxVn1q8udE/maxresdefault.jpg",
+              "channel": "Sharbel A.",
+              "subscribers": 0,
+              "views": 177447,
+              "duration": "13:10",
+              "max_height": 1080,
+              "published_at": "2026-08-28T22:00:23+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1N74R6eEZw",
+              "platform": "bilibili",
+              "title": "本条视频用OiiOii.tv制作@OiiOii_Ai，不用琢磨复杂提示词，简单操作就能出成片#OiiOii #OiiOii创作者计划",
+              "summary": "【黑黑大帅剧场】讲解 AI 工具实战应用，围绕「本条视频用OiiOii.tv制作@OiiOii_Ai，不用琢磨复杂提示词，简单操作就能出成片#O」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1N74R6eEZw",
+              "thumbnail": "video-thumbs/bilibili/BV1N74R6eEZw.jpg",
+              "channel": "黑黑大帅剧场",
+              "subscribers": 0,
+              "views": 798338,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-08-27T18:38:04+08:00"
+            },
+            {
+              "id": "bilibili:BV1o4gP6iEeo",
+              "platform": "bilibili",
+              "title": "首发！DeepSeek Harness保姆级速通教程，及Codex Kimi 对比测试",
+              "summary": "连夜实测DeepSeek Harness开发者预览版；这期从安装、到购买API，以及Harness到底怎么用？最后我们还拉上了Kimi和Codex三个AI同台对决，从生成速度、设计、功能完整性逐项对比！看完你会明白，便宜，可能只是它最不起眼的优点～",
+              "url": "https://www.bilibili.com/video/BV1o4gP6iEeo",
+              "thumbnail": "video-thumbs/bilibili/BV1o4gP6iEeo.webp",
+              "channel": "GenJi是真想教会你",
+              "subscribers": 0,
+              "views": 485994,
+              "duration": "7:22",
+              "max_height": 720,
+              "published_at": "2026-08-14T20:59:40+08:00"
+            },
+            {
+              "id": "bilibili:BV1oZ8g6MERX",
+              "platform": "bilibili",
+              "title": "【带小白学AI】Kimi k3 免费使用方法 限时可用",
+              "summary": "【瑞哥编程课堂】讲解 AI 工具实战应用，围绕「【带小白学AI】Kimi k3 免费使用方法 限时可用」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1oZ8g6MERX",
+              "thumbnail": "video-thumbs/bilibili/BV1oZ8g6MERX.jpg",
+              "channel": "瑞哥编程课堂",
+              "subscribers": 0,
+              "views": 10956,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-08-18T23:13:02+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-09-10",
       "timezone": "Asia/Shanghai",
@@ -5987,5 +6122,5 @@
       }
     }
   ],
-  "updated_at": "2026-09-10T06:25:48.070032+08:00"
+  "updated_at": "2026-09-11T06:24:22.436877+08:00"
 }
