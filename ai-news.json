@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-11T03:21:36.088493+08:00",
+  "updated_at": "2026-09-11T16:20:47.954279+08:00",
   "date": "2026-09-11",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "9d7474c27cbe",
+      "title": "墨芯人工智能亮相2026 Inclusion·外滩大会：以专用稀疏推理芯片提升算力效能，共创AI新经济",
+      "summary": "9月9日，墨芯人工智能亮相以\"共创AI新经济\"为主题的2026 Inclusion·外滩大会。",
+      "url": "https://www.qbitai.com/2026/09/487273.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-11T14:19:03+08:00"
+    },
+    {
+      "id": "78589058745c",
+      "title": "OpenDiscoveryTrace: Process Traces for Evaluating AI Scientist Workflows",
+      "summary": "arXiv:2609.09203v1 Announce Type: new Abstract: Existing benchmarks for autonomous AI scientists evaluate only final outputs---generated code, hypotheses, or p…",
+      "url": "https://arxiv.org/abs/2609.09203",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-11T12:00:00+08:00"
+    },
+    {
+      "id": "1f4b13d8e5d9",
+      "title": "Adaptive Entangled Game Modules in Artificial General Intelligence",
+      "summary": "arXiv:2609.09226v1 Announce Type: new Abstract: We introduce a probability-wave framework for modeling the collective behavior of interacting adaptive agents, …",
+      "url": "https://arxiv.org/abs/2609.09226",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-11T12:00:00+08:00"
+    },
+    {
+      "id": "829be82f81c4",
+      "title": "Subagents vs Agent Skills: Executing Reusable Knowledge for Long-Horizon Agentic Tasks",
+      "summary": "arXiv:2609.09233v1 Announce Type: new Abstract: How can language model agents effectively leverage libraries of reusable knowledge to solve long-horizon tasks?…",
+      "url": "https://arxiv.org/abs/2609.09233",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-11T12:00:00+08:00"
+    },
+    {
+      "id": "90310deae7ca",
+      "title": "Gradland: On Phenomenal Experience, Differentiated Across Many Dimensions",
+      "summary": "arXiv:2609.09306v1 Announce Type: new Abstract: This paper investigates the hypothesis that the first-order structure of physical interactions, i.e. gradients …",
+      "url": "https://arxiv.org/abs/2609.09306",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-11T12:00:00+08:00"
+    },
+    {
+      "id": "f11f43d2ebd7",
+      "title": "An Autonomous GeoAI Agent for Arctic Eco-Navigation",
+      "summary": "arXiv:2609.09374v1 Announce Type: new Abstract: Arctic maritime navigation is becoming increasingly important as changing sea-ice conditions expand seasonal ac…",
+      "url": "https://arxiv.org/abs/2609.09374",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-11T12:00:00+08:00"
+    },
+    {
+      "id": "ff323aefee8b",
+      "title": "量子位「MEET2027智能未来大会」启动！年度榜单征集进行中",
+      "summary": "今年12月，北京，MEET2027智能未来大会！",
+      "url": "https://www.qbitai.com/2026/09/487176.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-11T11:57:32+08:00"
+    },
+    {
+      "id": "673394ec3e65",
+      "title": "3万台无人车之后，这家公司盯上了城市级物理AI",
+      "summary": "3万台无人车之后，这家公司盯上了城市级物理AI",
+      "url": "https://www.qbitai.com/2026/09/487163.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-11T10:50:47+08:00"
+    },
+    {
+      "id": "5d551f153537",
+      "title": "OpenAI这是拿千禧年难题当Benchmark刷啊。。。",
+      "summary": "爆料直指霍奇猜想",
+      "url": "https://www.qbitai.com/2026/09/487092.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-11T09:46:55+08:00"
+    },
+    {
+      "id": "97c843a8f892",
+      "title": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
+      "summary": "15秒视频，50秒出片",
+      "url": "https://www.qbitai.com/2026/09/487055.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-11T08:55:01+08:00"
+    },
     {
       "id": "683b94332d9b",
       "title": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video",
@@ -62,7 +152,7 @@
     {
       "id": "ed5ac5e67af5",
       "title": "d-Matrix Adopts NVIDIA NVLink Fusion for Rack-Scale XPU Deployment",
-      "summary": "AI inference chipmaker d-Matrix today announced it will use NVIDIA NVLink Fusion to connect its next-generation Raptor XPUs to NVIDIA’s AI infrastructure platf…",
+      "summary": "AI inference chipmaker d-Matrix today announced it will use NVLink Fusion to connect its next-generation Raptor XPUs to NVIDIA’s AI infrastructure platform — j…",
       "url": "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion/",
       "source": "NVIDIA AI",
       "category": "行业新闻",
@@ -76,51 +166,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-09-10T21:00:18+08:00"
-    },
-    {
-      "id": "dd6498b708cc",
-      "title": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
-      "summary": "多模态AI大牛轮番登台，全球64支团队组团解题",
-      "url": "https://www.qbitai.com/2026/09/486934.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-10T18:17:46+08:00"
-    },
-    {
-      "id": "df6c21e96ac4",
-      "title": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
-      "summary": "9月10日，阿里巴巴集团旗下高德正式发布全球首个3D原生城市世界模型ABot-Earth 0.7。",
-      "url": "https://www.qbitai.com/2026/09/486900.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T16:17:05+08:00"
-    },
-    {
-      "id": "04875c843649",
-      "title": "全球首个可仿真的人–场景交互重建框架 HSImul3R：让人类视频真正成为机器人技能来源",
-      "summary": "大晓机器人联合南洋理工大学 S-Lab、上海人工智能实验室发布全新人–场景交互重建研究 HSImul3R",
-      "url": "https://www.qbitai.com/2026/09/486747.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T15:57:55+08:00"
-    },
-    {
-      "id": "19b581d92e72",
-      "title": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
-      "summary": "轻量版LingBot-World 2.0",
-      "url": "https://www.qbitai.com/2026/09/486716.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-10T15:44:00+08:00"
-    },
-    {
-      "id": "e71122305716",
-      "title": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
-      "summary": "主打生成更快，细节更好，改图也终于越来越像“真·修图”了。",
-      "url": "https://www.qbitai.com/2026/09/486684.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T15:25:39+08:00"
     },
     {
       "id": "016c3ec9b775",
@@ -141,51 +186,6 @@
       "published_at": "2026-09-10T15:00:00+08:00"
     },
     {
-      "id": "38987a8d0b0e",
-      "title": "Beyond Right and Wrong: Evaluating Second-order Social Reasoning in Large Language Models",
-      "summary": "arXiv:2609.05437v1 Announce Type: new Abstract: Previous AI alignment efforts have focused primarily on first-order social norms -- teaching models what is soc…",
-      "url": "https://arxiv.org/abs/2609.05437",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T12:00:00+08:00"
-    },
-    {
-      "id": "4a5e61d042ae",
-      "title": "CriticGen: Generation-Aware Evaluation as Actionable Feedback",
-      "summary": "arXiv:2609.05439v1 Announce Type: new Abstract: Current evaluation methods for large language models are coarse-grained and decoupled from generation, producin…",
-      "url": "https://arxiv.org/abs/2609.05439",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-10T12:00:00+08:00"
-    },
-    {
-      "id": "92ec29497442",
-      "title": "When Does Memory Help? A Cost-Aware Evaluation of Long-Term Memory in Tool-Using LLM Agents",
-      "summary": "arXiv:2609.05441v1 Announce Type: new Abstract: Long-term memory for LLM agents is evaluated today by conversational recall benchmarks (LoCoMo, LongMemEval), w…",
-      "url": "https://arxiv.org/abs/2609.05441",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T12:00:00+08:00"
-    },
-    {
-      "id": "e81f855b1df1",
-      "title": "AutoFyn Technical Report: Non-Parametric Expert Iteration for Long-Horizon Agents",
-      "summary": "arXiv:2609.05446v1 Announce Type: new Abstract: We introduce AutoFyn, an agent harness inspired by the Expert Iteration algorithm, adapting a frozen model acro…",
-      "url": "https://arxiv.org/abs/2609.05446",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-10T12:00:00+08:00"
-    },
-    {
-      "id": "646f3c96fe49",
-      "title": "Damage-Aware Bandit Pruning for Vision and Language Transformers",
-      "summary": "arXiv:2609.05448v1 Announce Type: new Abstract: Structured post-training pruning of transformers requires selecting complete functional units whose suppression…",
-      "url": "https://arxiv.org/abs/2609.05448",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-10T12:00:00+08:00"
-    },
-    {
       "id": "cb50b0c3c856",
       "title": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
       "summary": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
@@ -195,12 +195,12 @@
       "published_at": "2026-09-10T08:00:00+08:00"
     },
     {
-      "id": "4e410dad70fb",
-      "title": "Build more natural voice experiences with GPT‑Live‑1 in the API",
-      "summary": "GPT‑Live‑1 brings natural, full-duplex voice conversations to the API, with stronger instruction following, custom voices, and telephony support.",
-      "url": "https://openai.com/index/introducing-gpt-live-1-in-the-api",
+      "id": "2b26a8066576",
+      "title": "Introducing the Agents API",
+      "summary": "Build and launch cloud agents with the Agents API, a managed service powered by the Codex harness for orchestration, long-running sessions, and tool use.",
+      "url": "https://openai.com/index/introducing-the-agents-api",
       "source": "OpenAI",
-      "category": "新模型发布",
+      "category": "新工具上线",
       "published_at": "2026-09-10T08:00:00+08:00"
     },
     {
@@ -268,13 +268,13 @@
       "window_hours": 720
     },
     {
-      "id": "949b4891b9fd",
-      "title": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
-      "summary": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
-      "url": "https://www.qbitai.com/2026/09/483898.html",
+      "id": "b42dfd3d08a1",
+      "title": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
+      "summary": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
+      "url": "https://www.qbitai.com/2026/09/484551.html",
       "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-04T00:00:00+08:00",
+      "category": "新模型发布",
+      "published_at": "2026-09-05T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -298,12 +298,12 @@
       "window_hours": 720
     },
     {
-      "id": "c3ab0cce734d",
-      "title": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
-      "summary": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
-      "url": "https://www.qbitai.com/2026/09/484163.html",
+      "id": "ca2374f24a36",
+      "title": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
+      "summary": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
+      "url": "https://www.qbitai.com/2026/09/484293.html",
       "source": "量子位",
-      "category": "开源项目",
+      "category": "中文资讯",
       "published_at": "2026-09-04T00:00:00+08:00",
       "window_hours": 720
     }
@@ -312,16 +312,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "949b4891b9fd",
-        "title": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
-        "summary": "刚刚，GPT-6正式发布！OpenAI：欢迎来到AGI时代",
-        "url": "https://www.qbitai.com/2026/09/483898.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-04T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "9690d8a29e15",
         "title": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
@@ -343,16 +333,6 @@
         "window_hours": 720
       },
       {
-        "id": "c3ab0cce734d",
-        "title": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
-        "summary": "李飞飞刚发Atlas，中国开源“同款”已抢跑半年？",
-        "url": "https://www.qbitai.com/2026/09/484163.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-09-04T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "0bf5ede3a210",
         "title": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
         "summary": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
@@ -360,6 +340,26 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-09-05T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "b42dfd3d08a1",
+        "title": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
+        "summary": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
+        "url": "https://www.qbitai.com/2026/09/484551.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-05T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ca2374f24a36",
+        "title": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
+        "summary": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
+        "url": "https://www.qbitai.com/2026/09/484293.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-04T00:00:00+08:00",
         "window_hours": 720
       }
     ]
