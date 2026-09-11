@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-11T16:20:47.954279+08:00",
-  "date": "2026-09-11",
+  "updated_at": "2026-09-12T03:21:44.581326+08:00",
+  "date": "2026-09-12",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "00cf27ef8c06",
+      "title": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
+      "summary": "看清「一个真正的人」",
+      "url": "https://www.qbitai.com/2026/09/487631.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-12T02:02:36+08:00"
+    },
+    {
+      "id": "d49d4b888248",
+      "title": "啊？Anthropic最高320万招销售，只为服务Meta",
+      "summary": "原来你俩互相下单呢",
+      "url": "https://www.qbitai.com/2026/09/487573.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-11T22:05:16+08:00"
+    },
+    {
+      "id": "034c9de49624",
+      "title": "百度秒哒再升级！让最懂业务的人，亲手造自己的系统",
+      "summary": "把开发、交付和接单全打通了",
+      "url": "https://www.qbitai.com/2026/09/487415.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-11T21:59:09+08:00"
+    },
+    {
+      "id": "c7d3c8aeae42",
+      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
+      "summary": "Learn how OpenAI evolved Habitat from a Python library into a globally distributed storage platform serving 1 billion ChatGPT users and 22M requests per second.",
+      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-11T18:00:00+08:00"
+    },
+    {
+      "id": "191f5d44ea96",
+      "title": "不简单，“吃货快乐榜”也全面AI化了",
+      "summary": "不简单，“吃货快乐榜”也全面AI化了",
+      "url": "https://www.qbitai.com/2026/09/487282.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-11T16:59:28+08:00"
+    },
     {
       "id": "9d7474c27cbe",
       "title": "墨芯人工智能亮相2026 Inclusion·外滩大会：以专用稀疏推理芯片提升算力效能，共创AI新经济",
@@ -67,42 +112,6 @@
       "source": "arXiv cs.AI",
       "category": "新工具上线",
       "published_at": "2026-09-11T12:00:00+08:00"
-    },
-    {
-      "id": "ff323aefee8b",
-      "title": "量子位「MEET2027智能未来大会」启动！年度榜单征集进行中",
-      "summary": "今年12月，北京，MEET2027智能未来大会！",
-      "url": "https://www.qbitai.com/2026/09/487176.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-11T11:57:32+08:00"
-    },
-    {
-      "id": "673394ec3e65",
-      "title": "3万台无人车之后，这家公司盯上了城市级物理AI",
-      "summary": "3万台无人车之后，这家公司盯上了城市级物理AI",
-      "url": "https://www.qbitai.com/2026/09/487163.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-11T10:50:47+08:00"
-    },
-    {
-      "id": "5d551f153537",
-      "title": "OpenAI这是拿千禧年难题当Benchmark刷啊。。。",
-      "summary": "爆料直指霍奇猜想",
-      "url": "https://www.qbitai.com/2026/09/487092.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-11T09:46:55+08:00"
-    },
-    {
-      "id": "97c843a8f892",
-      "title": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
-      "summary": "15秒视频，50秒出片",
-      "url": "https://www.qbitai.com/2026/09/487055.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-11T08:55:01+08:00"
     },
     {
       "id": "683b94332d9b",
@@ -195,15 +204,6 @@
       "published_at": "2026-09-10T08:00:00+08:00"
     },
     {
-      "id": "2b26a8066576",
-      "title": "Introducing the Agents API",
-      "summary": "Build and launch cloud agents with the Agents API, a managed service powered by the Codex harness for orchestration, long-running sessions, and tool use.",
-      "url": "https://openai.com/index/introducing-the-agents-api",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T08:00:00+08:00"
-    },
-    {
       "id": "29c19642921e",
       "title": "NVIDIA Brings Real-Time AI to Broadcast, Sports and Global Streaming at IBC",
       "summary": "At the IBC conference, running Sept. 11-14 in Amsterdam, the creative, technology and business communities are coming together to turn ideas into action and di…",
@@ -278,33 +278,33 @@
       "window_hours": 720
     },
     {
-      "id": "9690d8a29e15",
-      "title": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
-      "summary": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
-      "url": "https://www.qbitai.com/2026/09/484437.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-04T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "9e2539796573",
-      "title": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
-      "summary": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
-      "url": "https://www.qbitai.com/2026/09/484547.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-04T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "ca2374f24a36",
-      "title": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
-      "summary": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
-      "url": "https://www.qbitai.com/2026/09/484293.html",
+      "id": "dfb2f1ba4837",
+      "title": "这个世界模型训练完就“退场”，机器人反而更能干了",
+      "summary": "这个世界模型训练完就“退场”，机器人反而更能干了",
+      "url": "https://www.qbitai.com/2026/09/484611.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-04T00:00:00+08:00",
+      "published_at": "2026-09-05T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "e82b1aacab51",
+      "title": "GPT-6带火循环Transformer，阿里早已布局",
+      "summary": "GPT-6带火循环Transformer，阿里早已布局",
+      "url": "https://www.qbitai.com/2026/09/484726.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-05T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "99f9f3dcc328",
+      "title": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
+      "summary": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
+      "url": "https://www.qbitai.com/2026/09/484683.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-05T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -312,26 +312,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "9690d8a29e15",
-        "title": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
-        "summary": "机器人不能停下来等模型：星尘发布 SmoothRL，让在线强化学习跟上大模型的异步推理",
-        "url": "https://www.qbitai.com/2026/09/484437.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-04T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "9e2539796573",
-        "title": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
-        "summary": "趋境科技与摩尔线程达成战略合作，高品质 AI Token 国产异构方案性价比超越国际先进算力",
-        "url": "https://www.qbitai.com/2026/09/484547.html",
-        "source": "量子位",
-        "category": "行业新闻",
-        "published_at": "2026-09-04T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "0bf5ede3a210",
         "title": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
@@ -353,13 +333,33 @@
         "window_hours": 720
       },
       {
-        "id": "ca2374f24a36",
-        "title": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
-        "summary": "九问ScienceDiscovery实现树搜索驱动RSI，加速科学发现，小时级写出通用积分器，低成本找出物理科学规律",
-        "url": "https://www.qbitai.com/2026/09/484293.html",
+        "id": "dfb2f1ba4837",
+        "title": "这个世界模型训练完就“退场”，机器人反而更能干了",
+        "summary": "这个世界模型训练完就“退场”，机器人反而更能干了",
+        "url": "https://www.qbitai.com/2026/09/484611.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-09-04T00:00:00+08:00",
+        "published_at": "2026-09-05T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "e82b1aacab51",
+        "title": "GPT-6带火循环Transformer，阿里早已布局",
+        "summary": "GPT-6带火循环Transformer，阿里早已布局",
+        "url": "https://www.qbitai.com/2026/09/484726.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-05T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "99f9f3dcc328",
+        "title": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
+        "summary": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
+        "url": "https://www.qbitai.com/2026/09/484683.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-05T00:00:00+08:00",
         "window_hours": 720
       }
     ]
