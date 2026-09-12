@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-12T16:09:38.372364+08:00",
-  "date": "2026-09-12",
+  "updated_at": "2026-09-13T02:52:35.543160+08:00",
+  "date": "2026-09-13",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -24,6 +24,42 @@
       "published_at": "2026-09-14T08:00:00+08:00"
     },
     {
+      "id": "36b63fb082c9",
+      "title": "“算力中国·年度卓越成就”发布 太初元碁超智融合计算系统入选",
+      "summary": "太初（杭州）集成电路有限公司新一代超智融合计算系统元碁Hypertintellix入选“算力中国·年度卓越成就”。",
+      "url": "https://www.qbitai.com/2026/09/487860.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-12T19:38:16+08:00"
+    },
+    {
+      "id": "dabee513fc9a",
+      "title": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
+      "summary": "Claude越界攻击真实系统，并非只是测试系统的设置问题，模型本身的安全问题也出了问题。",
+      "url": "https://www.qbitai.com/2026/09/487796.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-12T16:49:02+08:00"
+    },
+    {
+      "id": "f848a8798e28",
+      "title": "探索RSI，生数新世界模型让机器人开始自我进化",
+      "summary": "触觉、记忆、Ego数据、自进化……这个世界模型全都有",
+      "url": "https://www.qbitai.com/2026/09/487752.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-12T16:15:31+08:00"
+    },
+    {
+      "id": "3849e5beb1de",
+      "title": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
+      "summary": "FrontierMath Tier 4，饱和了",
+      "url": "https://www.qbitai.com/2026/09/487701.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-12T15:33:54+08:00"
+    },
+    {
       "id": "8d6f27c070d6",
       "title": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
       "summary": "冲刺港股IPO",
@@ -31,15 +67,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-12T13:58:41+08:00"
-    },
-    {
-      "id": "e48e7b43d937",
-      "title": "陶哲轩邓煜究竟在反对什么：AI暴力解题摧毁人类数学精神",
-      "summary": "25位菲尔兹奖得主联名吹哨",
-      "url": "https://www.qbitai.com/2026/09/487653.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-12T12:53:58+08:00"
     },
     {
       "id": "4644cf64dc09",
@@ -87,15 +114,6 @@
       "published_at": "2026-09-12T12:00:00+08:00"
     },
     {
-      "id": "00cf27ef8c06",
-      "title": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
-      "summary": "看清「一个真正的人」",
-      "url": "https://www.qbitai.com/2026/09/487631.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-12T02:02:36+08:00"
-    },
-    {
       "id": "c3aa33826442",
       "title": "Cognition helps Devin test its own work with GPT‑6 Astra",
       "summary": "GPT‑6 Astra improves Devin’s ability to test software and show that it works, with the goal of helping engineers review less code and ship more.",
@@ -103,24 +121,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-12T00:00:00+08:00"
-    },
-    {
-      "id": "d49d4b888248",
-      "title": "啊？Anthropic最高320万招销售，只为服务Meta",
-      "summary": "原来你俩互相下单呢",
-      "url": "https://www.qbitai.com/2026/09/487573.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-11T22:05:16+08:00"
-    },
-    {
-      "id": "034c9de49624",
-      "title": "百度秒哒再升级！让最懂业务的人，亲手造自己的系统",
-      "summary": "把开发、交付和接单全打通了",
-      "url": "https://www.qbitai.com/2026/09/487415.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-11T21:59:09+08:00"
     },
     {
       "id": "c7d3c8aeae42",
@@ -278,6 +278,26 @@
       "window_hours": 720
     },
     {
+      "id": "542c1c04ef50",
+      "title": "3秒变身！会合体的机器人，卖到全球50国",
+      "summary": "3秒变身！会合体的机器人，卖到全球50国",
+      "url": "https://www.qbitai.com/2026/09/485525.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-07T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "942e0c4ce068",
+      "title": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
+      "summary": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
+      "url": "https://www.qbitai.com/2026/09/485064.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-07T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "0f2ba2b7fd6e",
       "title": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
       "summary": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
@@ -286,52 +306,12 @@
       "category": "中文资讯",
       "published_at": "2026-09-06T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "e82b1aacab51",
-      "title": "GPT-6带火循环Transformer，阿里早已布局",
-      "summary": "GPT-6带火循环Transformer，阿里早已布局",
-      "url": "https://www.qbitai.com/2026/09/484726.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-05T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "99f9f3dcc328",
-      "title": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
-      "summary": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
-      "url": "https://www.qbitai.com/2026/09/484683.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-05T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "e82b1aacab51",
-        "title": "GPT-6带火循环Transformer，阿里早已布局",
-        "summary": "GPT-6带火循环Transformer，阿里早已布局",
-        "url": "https://www.qbitai.com/2026/09/484726.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-05T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "99f9f3dcc328",
-        "title": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
-        "summary": "押中SpaceX的硅谷老将，把票投给了一家中国世界模型公司",
-        "url": "https://www.qbitai.com/2026/09/484683.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-05T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "90a7e8ecf30c",
         "title": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
@@ -360,6 +340,26 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-06T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "542c1c04ef50",
+        "title": "3秒变身！会合体的机器人，卖到全球50国",
+        "summary": "3秒变身！会合体的机器人，卖到全球50国",
+        "url": "https://www.qbitai.com/2026/09/485525.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-07T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "942e0c4ce068",
+        "title": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
+        "summary": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
+        "url": "https://www.qbitai.com/2026/09/485064.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-09-07T00:00:00+08:00",
         "window_hours": 720
       }
     ]
