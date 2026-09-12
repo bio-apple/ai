@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-12T03:21:44.581326+08:00",
+  "updated_at": "2026-09-12T16:09:38.372364+08:00",
   "date": "2026-09-12",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,78 @@
   },
   "items": [
     {
+      "id": "12e9dd685180",
+      "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
+      "summary": "Perplexity uses Astra to write communications, change software, and monitor production systems, and checks in much less frequently than with earlier models.",
+      "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-14T08:00:00+08:00"
+    },
+    {
+      "id": "8d6f27c070d6",
+      "title": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
+      "summary": "冲刺港股IPO",
+      "url": "https://www.qbitai.com/2026/09/487688.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-12T13:58:41+08:00"
+    },
+    {
+      "id": "e48e7b43d937",
+      "title": "陶哲轩邓煜究竟在反对什么：AI暴力解题摧毁人类数学精神",
+      "summary": "25位菲尔兹奖得主联名吹哨",
+      "url": "https://www.qbitai.com/2026/09/487653.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-12T12:53:58+08:00"
+    },
+    {
+      "id": "4644cf64dc09",
+      "title": "Probabilistic Focal Search: Accelerating Bounded-Suboptimal Search via Lower-Bound Advancement",
+      "summary": "arXiv:2609.10584v1 Announce Type: new Abstract: Bounded-suboptimal search seeks a solution within a factor $w$ of optimal while reducing search effort. Focal S…",
+      "url": "https://arxiv.org/abs/2609.10584",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-12T12:00:00+08:00"
+    },
+    {
+      "id": "1bcc7053255d",
+      "title": "Automating Quadratic Unconstrained Binary Optimization (QUBO) Formulation Generation from Natural Language",
+      "summary": "arXiv:2609.10629v1 Announce Type: new Abstract: Quadratic Unconstrained Binary Optimization (QUBO) is a central formulation for combinatorial optimization and …",
+      "url": "https://arxiv.org/abs/2609.10629",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-12T12:00:00+08:00"
+    },
+    {
+      "id": "d3b2a6eff2ec",
+      "title": "A Multi-Stage Rule-Chaining Framework for Compositional and Interpretable Cognitive Reasoning",
+      "summary": "arXiv:2609.10654v1 Announce Type: new Abstract: The Abstraction and Reasoning Corpus (ARC) benchmarks cognitive generalization, the ability to infer and apply …",
+      "url": "https://arxiv.org/abs/2609.10654",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-12T12:00:00+08:00"
+    },
+    {
+      "id": "ce6330692616",
+      "title": "Understanding LoRA Rank Trade-offs in Diffusion Model Fine-Tuning",
+      "summary": "arXiv:2609.10656v1 Announce Type: new Abstract: Selecting LoRA rank for diffusion fine-tuning requires balancing quality and compute cost. We present a control…",
+      "url": "https://arxiv.org/abs/2609.10656",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-12T12:00:00+08:00"
+    },
+    {
+      "id": "edc9576e201d",
+      "title": "Quantifying the Memorization-to-Generalization Transition: Scaling Laws and Phase Structure in Grokking",
+      "summary": "arXiv:2609.10657v1 Announce Type: new Abstract: Neural networks trained past memorization frequently undergo a delayed transition to generalization, a phenomen…",
+      "url": "https://arxiv.org/abs/2609.10657",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-12T12:00:00+08:00"
+    },
+    {
       "id": "00cf27ef8c06",
       "title": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
       "summary": "看清「一个真正的人」",
@@ -22,6 +94,15 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-12T02:02:36+08:00"
+    },
+    {
+      "id": "c3aa33826442",
+      "title": "Cognition helps Devin test its own work with GPT‑6 Astra",
+      "summary": "GPT‑6 Astra improves Devin’s ability to test software and show that it works, with the goal of helping engineers review less code and ship more.",
+      "url": "https://openai.com/index/cognition-devin-testing-with-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-12T00:00:00+08:00"
     },
     {
       "id": "d49d4b888248",
@@ -49,69 +130,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-11T18:00:00+08:00"
-    },
-    {
-      "id": "191f5d44ea96",
-      "title": "不简单，“吃货快乐榜”也全面AI化了",
-      "summary": "不简单，“吃货快乐榜”也全面AI化了",
-      "url": "https://www.qbitai.com/2026/09/487282.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-11T16:59:28+08:00"
-    },
-    {
-      "id": "9d7474c27cbe",
-      "title": "墨芯人工智能亮相2026 Inclusion·外滩大会：以专用稀疏推理芯片提升算力效能，共创AI新经济",
-      "summary": "9月9日，墨芯人工智能亮相以\"共创AI新经济\"为主题的2026 Inclusion·外滩大会。",
-      "url": "https://www.qbitai.com/2026/09/487273.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-11T14:19:03+08:00"
-    },
-    {
-      "id": "78589058745c",
-      "title": "OpenDiscoveryTrace: Process Traces for Evaluating AI Scientist Workflows",
-      "summary": "arXiv:2609.09203v1 Announce Type: new Abstract: Existing benchmarks for autonomous AI scientists evaluate only final outputs---generated code, hypotheses, or p…",
-      "url": "https://arxiv.org/abs/2609.09203",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-11T12:00:00+08:00"
-    },
-    {
-      "id": "1f4b13d8e5d9",
-      "title": "Adaptive Entangled Game Modules in Artificial General Intelligence",
-      "summary": "arXiv:2609.09226v1 Announce Type: new Abstract: We introduce a probability-wave framework for modeling the collective behavior of interacting adaptive agents, …",
-      "url": "https://arxiv.org/abs/2609.09226",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-11T12:00:00+08:00"
-    },
-    {
-      "id": "829be82f81c4",
-      "title": "Subagents vs Agent Skills: Executing Reusable Knowledge for Long-Horizon Agentic Tasks",
-      "summary": "arXiv:2609.09233v1 Announce Type: new Abstract: How can language model agents effectively leverage libraries of reusable knowledge to solve long-horizon tasks?…",
-      "url": "https://arxiv.org/abs/2609.09233",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-11T12:00:00+08:00"
-    },
-    {
-      "id": "90310deae7ca",
-      "title": "Gradland: On Phenomenal Experience, Differentiated Across Many Dimensions",
-      "summary": "arXiv:2609.09306v1 Announce Type: new Abstract: This paper investigates the hypothesis that the first-order structure of physical interactions, i.e. gradients …",
-      "url": "https://arxiv.org/abs/2609.09306",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-11T12:00:00+08:00"
-    },
-    {
-      "id": "f11f43d2ebd7",
-      "title": "An Autonomous GeoAI Agent for Arctic Eco-Navigation",
-      "summary": "arXiv:2609.09374v1 Announce Type: new Abstract: Arctic maritime navigation is becoming increasingly important as changing sea-ice conditions expand seasonal ac…",
-      "url": "https://arxiv.org/abs/2609.09374",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-11T12:00:00+08:00"
     },
     {
       "id": "683b94332d9b",
@@ -177,24 +195,6 @@
       "published_at": "2026-09-10T21:00:18+08:00"
     },
     {
-      "id": "016c3ec9b775",
-      "title": "Introducing ChatGPT for Financial Services",
-      "summary": "Introducing ChatGPT for Financial Services, combining built-in financial data and GPT-6 Astra for research, modeling, and client-ready materials.",
-      "url": "https://openai.com/index/introducing-chatgpt-financial-services",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T15:00:00+08:00"
-    },
-    {
-      "id": "1ef5285e671d",
-      "title": "Expanding AI access and cyber defense for federal, state, local, and tribal governments",
-      "summary": "OpenAI and GSA will offer eligible federal, state, local, and tribal governments $0 license fees, 50% off usage, and expanded cyber defense support.",
-      "url": "https://openai.com/index/expanding-ai-access-us-government",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-10T15:00:00+08:00"
-    },
-    {
       "id": "cb50b0c3c856",
       "title": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
       "summary": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
@@ -258,33 +258,33 @@
       "published_at": "2026-09-08T22:00:15+08:00"
     },
     {
-      "id": "0bf5ede3a210",
-      "title": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
-      "summary": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
-      "url": "https://www.qbitai.com/2026/09/484649.html",
+      "id": "90a7e8ecf30c",
+      "title": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
+      "summary": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
+      "url": "https://www.qbitai.com/2026/09/485108.html",
       "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-09-05T00:00:00+08:00",
+      "published_at": "2026-09-07T00:00:00+08:00",
       "window_hours": 720
     },
     {
-      "id": "b42dfd3d08a1",
-      "title": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
-      "summary": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
-      "url": "https://www.qbitai.com/2026/09/484551.html",
+      "id": "973166572db2",
+      "title": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
+      "summary": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
+      "url": "https://www.qbitai.com/2026/09/485431.html",
       "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-09-05T00:00:00+08:00",
+      "published_at": "2026-09-07T00:00:00+08:00",
       "window_hours": 720
     },
     {
-      "id": "dfb2f1ba4837",
-      "title": "这个世界模型训练完就“退场”，机器人反而更能干了",
-      "summary": "这个世界模型训练完就“退场”，机器人反而更能干了",
-      "url": "https://www.qbitai.com/2026/09/484611.html",
+      "id": "0f2ba2b7fd6e",
+      "title": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
+      "summary": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
+      "url": "https://www.qbitai.com/2026/09/484890.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-05T00:00:00+08:00",
+      "published_at": "2026-09-06T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -313,36 +313,6 @@
     "window_days": 30,
     "items": [
       {
-        "id": "0bf5ede3a210",
-        "title": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
-        "summary": "陶哲轩吐槽GPT-6孪生素数新突破：令人无语的一幕",
-        "url": "https://www.qbitai.com/2026/09/484649.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-05T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "b42dfd3d08a1",
-        "title": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
-        "summary": "姚班校友主导，Claude攻克费马大定理首个完整形式化证明",
-        "url": "https://www.qbitai.com/2026/09/484551.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-05T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "dfb2f1ba4837",
-        "title": "这个世界模型训练完就“退场”，机器人反而更能干了",
-        "summary": "这个世界模型训练完就“退场”，机器人反而更能干了",
-        "url": "https://www.qbitai.com/2026/09/484611.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-05T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "e82b1aacab51",
         "title": "GPT-6带火循环Transformer，阿里早已布局",
         "summary": "GPT-6带火循环Transformer，阿里早已布局",
@@ -360,6 +330,36 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-05T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "90a7e8ecf30c",
+        "title": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
+        "summary": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
+        "url": "https://www.qbitai.com/2026/09/485108.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-07T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "973166572db2",
+        "title": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
+        "summary": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
+        "url": "https://www.qbitai.com/2026/09/485431.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-07T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "0f2ba2b7fd6e",
+        "title": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
+        "summary": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
+        "url": "https://www.qbitai.com/2026/09/484890.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-06T00:00:00+08:00",
         "window_hours": 720
       }
     ]
