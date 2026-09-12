@@ -163,9 +163,144 @@
     "bilibili:BV1yEbY6gEb8",
     "bilibili:BV1oZ8g6MERX",
     "youtube:EDxVn1q8udE",
-    "bilibili:BV1CMtR6YEj4"
+    "bilibili:BV1CMtR6YEj4",
+    "youtube:WfSiryTVDiY",
+    "bilibili:BV1xFYb6rEuc"
   ],
   "batches": [
+    {
+      "date": "2026-09-13",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:xBByvFrqmWU",
+              "platform": "youtube",
+              "title": "DeepSeek is back... and Silicon Valley is terrified",
+              "summary": "Take BlueDot's Future of AI course for free - OpenAI just paused its biggest training run in history just as things were getting …",
+              "url": "https://www.youtube.com/watch?v=xBByvFrqmWU",
+              "thumbnail": "https://i.ytimg.com/vi/xBByvFrqmWU/maxresdefault.jpg",
+              "channel": "Fireship",
+              "subscribers": 0,
+              "views": 1157574,
+              "duration": "5:32",
+              "max_height": 1080,
+              "published_at": "2026-08-21T01:53:37+08:00"
+            },
+            {
+              "id": "youtube:KmcTu2EigTs",
+              "platform": "youtube",
+              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
+              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
+              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
+              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 0,
+              "views": 205863,
+              "duration": "19:35",
+              "max_height": 1080,
+              "published_at": "2026-08-25T21:00:23+08:00"
+            },
+            {
+              "id": "youtube:WfSiryTVDiY",
+              "platform": "youtube",
+              "title": "12 Life-Changing Ways To Use ChatGPT in 2026",
+              "summary": "➡️ Connect Claude to 8,000+ apps with Zapier MCP: ChatGPT is insanely powerful now, but there’s a huge difference between using i…",
+              "url": "https://www.youtube.com/watch?v=WfSiryTVDiY",
+              "thumbnail": "https://i.ytimg.com/vi/WfSiryTVDiY/maxresdefault.jpg",
+              "channel": "Charlie Chang",
+              "subscribers": 0,
+              "views": 161824,
+              "duration": "24:18",
+              "max_height": 1080,
+              "published_at": "2026-08-20T01:45:03+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1CMtR6YEj4",
+              "platform": "bilibili",
+              "title": "当我用豆包工作agent做个背单词游戏",
+              "summary": "【小白debug】讲解 AI 工具实战应用，围绕「当我用豆包工作agent做个背单词游戏」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1CMtR6YEj4",
+              "thumbnail": "video-thumbs/bilibili/BV1CMtR6YEj4.jpg",
+              "channel": "小白debug",
+              "subscribers": 0,
+              "views": 1001880,
+              "duration": "6:41",
+              "max_height": 720,
+              "published_at": "2026-09-05T12:05:00+08:00"
+            },
+            {
+              "id": "bilibili:BV139bD6gEa8",
+              "platform": "bilibili",
+              "title": "Pi 大道至简，超越Codex和Claude Code的极简Agent，保姆级全攻略， 一期视频精通",
+              "summary": "Pi是近期热度超高的AI Agent。用四个字形容那就是大道至简。 Pi只有四个默认工具，（读文件，写文件，改文件，运行命令），系统提示词也仅仅只有一千Token。极致的精简带来了极致效率提升，在多项权威基准测试里，Pi 的代码质量，工作速度，成本等方面多方…",
+              "url": "https://www.bilibili.com/video/BV139bD6gEa8",
+              "thumbnail": "video-thumbs/bilibili/BV139bD6gEa8.webp",
+              "channel": "技术爬爬虾",
+              "subscribers": 0,
+              "views": 775548,
+              "duration": "44:38",
+              "max_height": 720,
+              "published_at": "2026-08-16T15:53:45+08:00"
+            },
+            {
+              "id": "bilibili:BV1xFYb6rEuc",
+              "platform": "bilibili",
+              "title": "5分钟网页开发上线全流程 | 豆包工作和我的爱恨纠缠",
+              "summary": "8000点赞达成以后，在这里 ________ 开放源码； 30000点赞达成以后，这里 开放完整提示词； 金九银十秋招季，求职内卷时代，打造硬核背书，把你收获的成果、经历的故事，统统留存归档，利用豆包工作生成这样一个炫酷网站，多是一件美事啊~",
+              "url": "https://www.bilibili.com/video/BV1xFYb6rEuc",
+              "thumbnail": "video-thumbs/bilibili/BV1xFYb6rEuc.jpg",
+              "channel": "英雄哪里出来",
+              "subscribers": 0,
+              "views": 709915,
+              "duration": "5:54",
+              "max_height": 720,
+              "published_at": "2026-09-10T11:16:26+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-09-12",
       "timezone": "Asia/Shanghai",
@@ -6256,5 +6391,5 @@
       }
     }
   ],
-  "updated_at": "2026-09-12T06:24:41.227902+08:00"
+  "updated_at": "2026-09-13T06:07:21.982122+08:00"
 }
