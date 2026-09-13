@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-13T02:52:35.543160+08:00",
+  "updated_at": "2026-09-13T16:34:02.268139+08:00",
   "date": "2026-09-13",
   "cadence": "daily",
   "window_hours": 168,
@@ -24,6 +24,42 @@
       "published_at": "2026-09-14T08:00:00+08:00"
     },
     {
+      "id": "1f86bbd3608a",
+      "title": "2000+真实场景搬进仿真！一个导航模型零样本“通吃”四种机器人本体",
+      "summary": "亮源新创的Physical Al路线清晰了",
+      "url": "https://www.qbitai.com/2026/09/488672.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-13T15:38:20+08:00"
+    },
+    {
+      "id": "671e5417dea9",
+      "title": "GitHub三榜第一背后，一个“专升本”工程师的十年",
+      "summary": "出身寒微不是耻辱，放弃自己才是。",
+      "url": "https://www.qbitai.com/2026/09/488519.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-13T15:20:19+08:00"
+    },
+    {
+      "id": "6af868bbafaf",
+      "title": "今年外滩最特别Agent：能干活，能陪聊，还会朋友圈拉黑你",
+      "summary": "Agent的下一步是关系型生产力",
+      "url": "https://www.qbitai.com/2026/09/488447.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-13T14:40:25+08:00"
+    },
+    {
+      "id": "ff60eb1153be",
+      "title": "OpenAI年内不上市了！奥特曼支持对手Dario呼吁：AI该踩刹车了",
+      "summary": "RSI太危险，得管！",
+      "url": "https://www.qbitai.com/2026/09/488380.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-13T11:13:00+08:00"
+    },
+    {
       "id": "36b63fb082c9",
       "title": "“算力中国·年度卓越成就”发布 太初元碁超智融合计算系统入选",
       "summary": "太初（杭州）集成电路有限公司新一代超智融合计算系统元碁Hypertintellix入选“算力中国·年度卓越成就”。",
@@ -31,87 +67,6 @@
       "source": "量子位",
       "category": "新工具上线",
       "published_at": "2026-09-12T19:38:16+08:00"
-    },
-    {
-      "id": "dabee513fc9a",
-      "title": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
-      "summary": "Claude越界攻击真实系统，并非只是测试系统的设置问题，模型本身的安全问题也出了问题。",
-      "url": "https://www.qbitai.com/2026/09/487796.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-12T16:49:02+08:00"
-    },
-    {
-      "id": "f848a8798e28",
-      "title": "探索RSI，生数新世界模型让机器人开始自我进化",
-      "summary": "触觉、记忆、Ego数据、自进化……这个世界模型全都有",
-      "url": "https://www.qbitai.com/2026/09/487752.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-12T16:15:31+08:00"
-    },
-    {
-      "id": "3849e5beb1de",
-      "title": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
-      "summary": "FrontierMath Tier 4，饱和了",
-      "url": "https://www.qbitai.com/2026/09/487701.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-12T15:33:54+08:00"
-    },
-    {
-      "id": "8d6f27c070d6",
-      "title": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
-      "summary": "冲刺港股IPO",
-      "url": "https://www.qbitai.com/2026/09/487688.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-12T13:58:41+08:00"
-    },
-    {
-      "id": "4644cf64dc09",
-      "title": "Probabilistic Focal Search: Accelerating Bounded-Suboptimal Search via Lower-Bound Advancement",
-      "summary": "arXiv:2609.10584v1 Announce Type: new Abstract: Bounded-suboptimal search seeks a solution within a factor $w$ of optimal while reducing search effort. Focal S…",
-      "url": "https://arxiv.org/abs/2609.10584",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-12T12:00:00+08:00"
-    },
-    {
-      "id": "1bcc7053255d",
-      "title": "Automating Quadratic Unconstrained Binary Optimization (QUBO) Formulation Generation from Natural Language",
-      "summary": "arXiv:2609.10629v1 Announce Type: new Abstract: Quadratic Unconstrained Binary Optimization (QUBO) is a central formulation for combinatorial optimization and …",
-      "url": "https://arxiv.org/abs/2609.10629",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-12T12:00:00+08:00"
-    },
-    {
-      "id": "d3b2a6eff2ec",
-      "title": "A Multi-Stage Rule-Chaining Framework for Compositional and Interpretable Cognitive Reasoning",
-      "summary": "arXiv:2609.10654v1 Announce Type: new Abstract: The Abstraction and Reasoning Corpus (ARC) benchmarks cognitive generalization, the ability to infer and apply …",
-      "url": "https://arxiv.org/abs/2609.10654",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-12T12:00:00+08:00"
-    },
-    {
-      "id": "ce6330692616",
-      "title": "Understanding LoRA Rank Trade-offs in Diffusion Model Fine-Tuning",
-      "summary": "arXiv:2609.10656v1 Announce Type: new Abstract: Selecting LoRA rank for diffusion fine-tuning requires balancing quality and compute cost. We present a control…",
-      "url": "https://arxiv.org/abs/2609.10656",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-12T12:00:00+08:00"
-    },
-    {
-      "id": "edc9576e201d",
-      "title": "Quantifying the Memorization-to-Generalization Transition: Scaling Laws and Phase Structure in Grokking",
-      "summary": "arXiv:2609.10657v1 Announce Type: new Abstract: Neural networks trained past memorization frequently undergo a delayed transition to generalization, a phenomen…",
-      "url": "https://arxiv.org/abs/2609.10657",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-12T12:00:00+08:00"
     },
     {
       "id": "c3aa33826442",
@@ -258,6 +213,16 @@
       "published_at": "2026-09-08T22:00:15+08:00"
     },
     {
+      "id": "9dacda853045",
+      "title": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
+      "summary": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
+      "url": "https://www.qbitai.com/2026/09/485854.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-08T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "90a7e8ecf30c",
       "title": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
       "summary": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
@@ -296,16 +261,6 @@
       "category": "新工具上线",
       "published_at": "2026-09-07T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "0f2ba2b7fd6e",
-      "title": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
-      "summary": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
-      "url": "https://www.qbitai.com/2026/09/484890.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-06T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -333,16 +288,6 @@
         "window_hours": 720
       },
       {
-        "id": "0f2ba2b7fd6e",
-        "title": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
-        "summary": "B站首届AI创造公开赛收官，超八成参赛者为一人团队",
-        "url": "https://www.qbitai.com/2026/09/484890.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-06T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "542c1c04ef50",
         "title": "3秒变身！会合体的机器人，卖到全球50国",
         "summary": "3秒变身！会合体的机器人，卖到全球50国",
@@ -360,6 +305,16 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-09-07T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "9dacda853045",
+        "title": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
+        "summary": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
+        "url": "https://www.qbitai.com/2026/09/485854.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-08T00:00:00+08:00",
         "window_hours": 720
       }
     ]
