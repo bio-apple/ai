@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-14T03:06:31.495695+08:00",
+  "updated_at": "2026-09-14T17:18:00.072144+08:00",
   "date": "2026-09-14",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,51 @@
   },
   "items": [
     {
+      "id": "95feb55130a5",
+      "title": "一年连融三轮，这家金融AI公司又拿下超3亿B轮",
+      "summary": "险资、券商与头部创投持续加码",
+      "url": "https://www.qbitai.com/2026/09/488912.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-14T15:55:12+08:00"
+    },
+    {
+      "id": "2ced7c6096c0",
+      "title": "2026崇礼论坛：一场未来智能生活与下一代AI创造者的盛会",
+      "summary": "共话AI时代的生活、影像与创造。",
+      "url": "https://www.qbitai.com/2026/09/488875.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-14T14:20:36+08:00"
+    },
+    {
+      "id": "ddcd1022673c",
+      "title": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
+      "summary": "小模型突破瓶颈，旗舰模型打开新空间",
+      "url": "https://www.qbitai.com/2026/09/488832.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-14T11:45:46+08:00"
+    },
+    {
+      "id": "a5147b78f4a7",
+      "title": "中国物理AI大突破：PhysBrain 1.5登顶全球开源榜一，空间智能与GPT-6 Astra并驾齐驱",
+      "summary": "这家中国公司，刚跑完了物理闭环里最难的一段路",
+      "url": "https://www.qbitai.com/2026/09/488725.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-14T11:18:42+08:00"
+    },
+    {
+      "id": "b9ac4ec0c2f0",
+      "title": "奥特曼被骗！A社一脚油门冲刺IPO，募资叫板SpaceX",
+      "summary": "还是太嫩了啊Dario",
+      "url": "https://www.qbitai.com/2026/09/488699.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-14T10:56:45+08:00"
+    },
+    {
       "id": "12e9dd685180",
       "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
       "summary": "Perplexity uses Astra to write communications, change software, and monitor production systems, and checks in much less frequently than with earlier models.",
@@ -22,51 +67,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-14T08:00:00+08:00"
-    },
-    {
-      "id": "1f86bbd3608a",
-      "title": "2000+真实场景搬进仿真！一个导航模型零样本“通吃”四种机器人本体",
-      "summary": "亮源新创的Physical Al路线清晰了",
-      "url": "https://www.qbitai.com/2026/09/488672.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-13T15:38:20+08:00"
-    },
-    {
-      "id": "671e5417dea9",
-      "title": "GitHub三榜第一背后，一个“专升本”工程师的十年",
-      "summary": "出身寒微不是耻辱，放弃自己才是。",
-      "url": "https://www.qbitai.com/2026/09/488519.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-13T15:20:19+08:00"
-    },
-    {
-      "id": "6af868bbafaf",
-      "title": "今年外滩最特别Agent：能干活，能陪聊，还会朋友圈拉黑你",
-      "summary": "Agent的下一步是关系型生产力",
-      "url": "https://www.qbitai.com/2026/09/488447.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-13T14:40:25+08:00"
-    },
-    {
-      "id": "ff60eb1153be",
-      "title": "OpenAI年内不上市了！奥特曼支持对手Dario呼吁：AI该踩刹车了",
-      "summary": "RSI太危险，得管！",
-      "url": "https://www.qbitai.com/2026/09/488380.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-13T11:13:00+08:00"
-    },
-    {
-      "id": "36b63fb082c9",
-      "title": "“算力中国·年度卓越成就”发布 太初元碁超智融合计算系统入选",
-      "summary": "太初（杭州）集成电路有限公司新一代超智融合计算系统元碁Hypertintellix入选“算力中国·年度卓越成就”。",
-      "url": "https://www.qbitai.com/2026/09/487860.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-12T19:38:16+08:00"
     },
     {
       "id": "c3aa33826442",
@@ -150,6 +150,15 @@
       "published_at": "2026-09-10T21:00:18+08:00"
     },
     {
+      "id": "d4e55a9164f4",
+      "title": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
+      "summary": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
+      "url": "https://huggingface.co/blog/asyncgrpo-lora-hfjobs",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-09-10T08:00:00+08:00"
+    },
+    {
       "id": "cb50b0c3c856",
       "title": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
       "summary": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
@@ -184,6 +193,16 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-09-10T00:00:00+08:00"
+    },
+    {
+      "id": "db0ccc728d91",
+      "title": "刚刚，苹果首款折叠屏发布！15999元起，AI参与设计",
+      "summary": "刚刚，苹果首款折叠屏发布！15999元起，AI参与设计",
+      "url": "https://www.qbitai.com/2026/09/486450.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-10T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "e8608e40b722",
@@ -223,23 +242,23 @@
       "window_hours": 720
     },
     {
-      "id": "90a7e8ecf30c",
-      "title": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
-      "summary": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
-      "url": "https://www.qbitai.com/2026/09/485108.html",
+      "id": "ea5a2d308b02",
+      "title": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
+      "summary": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
+      "url": "https://www.qbitai.com/2026/09/485784.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-07T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-09-08T00:00:00+08:00",
       "window_hours": 720
     },
     {
-      "id": "973166572db2",
-      "title": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
-      "summary": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
-      "url": "https://www.qbitai.com/2026/09/485431.html",
+      "id": "ecee9255adc8",
+      "title": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
+      "summary": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
+      "url": "https://www.qbitai.com/2026/09/485630.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-07T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-09-08T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -251,42 +270,12 @@
       "category": "中文资讯",
       "published_at": "2026-09-07T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "942e0c4ce068",
-      "title": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
-      "summary": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
-      "url": "https://www.qbitai.com/2026/09/485064.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-07T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "90a7e8ecf30c",
-        "title": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
-        "summary": "菲尔兹奖得主入局大模型！4B手机Qwen+云端GLM刷爆ARC-AGI 3",
-        "url": "https://www.qbitai.com/2026/09/485108.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-07T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "973166572db2",
-        "title": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
-        "summary": "GPT-6不只Astra！Sol内测结果曝光，速度快6倍",
-        "url": "https://www.qbitai.com/2026/09/485431.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-07T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "542c1c04ef50",
         "title": "3秒变身！会合体的机器人，卖到全球50国",
@@ -298,16 +287,6 @@
         "window_hours": 720
       },
       {
-        "id": "942e0c4ce068",
-        "title": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
-        "summary": "国内首份办公Agent用户行为报告发布：北京用户量全国居首，海外用户占比超12%",
-        "url": "https://www.qbitai.com/2026/09/485064.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-07T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "9dacda853045",
         "title": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
         "summary": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
@@ -315,6 +294,36 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-09-08T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ea5a2d308b02",
+        "title": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
+        "summary": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
+        "url": "https://www.qbitai.com/2026/09/485784.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-08T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ecee9255adc8",
+        "title": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
+        "summary": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
+        "url": "https://www.qbitai.com/2026/09/485630.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-08T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "db0ccc728d91",
+        "title": "刚刚，苹果首款折叠屏发布！15999元起，AI参与设计",
+        "summary": "刚刚，苹果首款折叠屏发布！15999元起，AI参与设计",
+        "url": "https://www.qbitai.com/2026/09/486450.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-09-10T00:00:00+08:00",
         "window_hours": 720
       }
     ]
