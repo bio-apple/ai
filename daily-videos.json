@@ -165,9 +165,144 @@
     "youtube:EDxVn1q8udE",
     "bilibili:BV1CMtR6YEj4",
     "youtube:WfSiryTVDiY",
-    "bilibili:BV1xFYb6rEuc"
+    "bilibili:BV1xFYb6rEuc",
+    "bilibili:BV1WWYE6LEzx",
+    "bilibili:BV154426xEha"
   ],
   "batches": [
+    {
+      "date": "2026-09-15",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:xBByvFrqmWU",
+              "platform": "youtube",
+              "title": "DeepSeek is back... and Silicon Valley is terrified",
+              "summary": "Take BlueDot's Future of AI course for free - OpenAI just paused its biggest training run in history just as things were getting …",
+              "url": "https://www.youtube.com/watch?v=xBByvFrqmWU",
+              "thumbnail": "https://i.ytimg.com/vi/xBByvFrqmWU/maxresdefault.jpg",
+              "channel": "Fireship",
+              "subscribers": 0,
+              "views": 1164472,
+              "duration": "5:32",
+              "max_height": 1080,
+              "published_at": "2026-08-21T01:53:37+08:00"
+            },
+            {
+              "id": "youtube:KmcTu2EigTs",
+              "platform": "youtube",
+              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
+              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
+              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
+              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 0,
+              "views": 221739,
+              "duration": "19:35",
+              "max_height": 1080,
+              "published_at": "2026-08-25T21:00:23+08:00"
+            },
+            {
+              "id": "youtube:WfSiryTVDiY",
+              "platform": "youtube",
+              "title": "12 Life-Changing Ways To Use ChatGPT in 2026",
+              "summary": "➡️ Connect Claude to 8,000+ apps with Zapier MCP: ChatGPT is insanely powerful now, but there’s a huge difference between using i…",
+              "url": "https://www.youtube.com/watch?v=WfSiryTVDiY",
+              "thumbnail": "https://i.ytimg.com/vi/WfSiryTVDiY/maxresdefault.jpg",
+              "channel": "Charlie Chang",
+              "subscribers": 0,
+              "views": 174753,
+              "duration": "24:18",
+              "max_height": 1080,
+              "published_at": "2026-08-20T01:45:03+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV139bD6gEa8",
+              "platform": "bilibili",
+              "title": "Pi 大道至简，超越Codex和Claude Code的极简Agent，保姆级全攻略， 一期视频精通",
+              "summary": "Pi是近期热度超高的AI Agent。用四个字形容那就是大道至简。 Pi只有四个默认工具，（读文件，写文件，改文件，运行命令），系统提示词也仅仅只有一千Token。极致的精简带来了极致效率提升，在多项权威基准测试里，Pi 的代码质量，工作速度，成本等方面多方…",
+              "url": "https://www.bilibili.com/video/BV139bD6gEa8",
+              "thumbnail": "video-thumbs/bilibili/BV139bD6gEa8.webp",
+              "channel": "技术爬爬虾",
+              "subscribers": 0,
+              "views": 799158,
+              "duration": "44:38",
+              "max_height": 720,
+              "published_at": "2026-08-16T15:53:45+08:00"
+            },
+            {
+              "id": "bilibili:BV154426xEha",
+              "platform": "bilibili",
+              "title": "我的 AI 编程全流程：如何使用 AI 稳定交付一个高质量的产品",
+              "summary": "【马克的技术工作坊】讲解 AI 工具实战应用，围绕「我的 AI 编程全流程：如何使用 AI 稳定交付一个高质量的产品」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV154426xEha",
+              "thumbnail": "video-thumbs/bilibili/BV154426xEha.jpg",
+              "channel": "马克的技术工作坊",
+              "subscribers": 0,
+              "views": 174995,
+              "duration": "24:55",
+              "max_height": 720,
+              "published_at": "2026-08-29T19:38:24+08:00"
+            },
+            {
+              "id": "bilibili:BV1WWYE6LEzx",
+              "platform": "bilibili",
+              "title": "黑马程序员2026全网最夯VibeCoding零基础入门到实战项目开发全套视频教程，AI辅助编程从入门到实战，涵盖Claude Code、DeepSeek等内容",
+              "summary": "本套视频教程所有配套资料领取方式如下： 关注黑马程序员公 粽 号，回复关键词：260914 2026黑马程序员AI智能应用开发学习路线图 如何下载资料 学习+球球群625260577，告别孤单，共同进步！ 【AI智能应用开发学习路线图】（依次向下顺序学习即可…",
+              "url": "https://www.bilibili.com/video/BV1WWYE6LEzx",
+              "thumbnail": "video-thumbs/bilibili/BV1WWYE6LEzx.jpg",
+              "channel": "黑马程序员",
+              "subscribers": 0,
+              "views": 25984,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-09-14T09:00:00+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-09-14",
       "timezone": "Asia/Shanghai",
@@ -6524,5 +6659,5 @@
       }
     }
   ],
-  "updated_at": "2026-09-14T06:17:49.528248+08:00"
+  "updated_at": "2026-09-15T07:03:39.098905+08:00"
 }
