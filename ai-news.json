@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-15T16:59:56.923936+08:00",
-  "date": "2026-09-15",
+  "updated_at": "2026-09-16T03:55:25.037602+08:00",
+  "date": "2026-09-16",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,40 +15,130 @@
   },
   "items": [
     {
-      "id": "8ad2b6d9d30f",
-      "title": "Hacked by CoupDeGrace",
-      "summary": "Hacked by CoupDeGrace",
-      "url": "https://www.qbitai.com/2026/09/489365.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-15T15:33:50+08:00"
+      "id": "f4c3141ce9f2",
+      "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
+      "summary": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
+      "url": "https://deepmind.google/blog/introducing-gemini-3-8-live-and-3-8-live-extended-thinking/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-09-16T01:05:57+08:00"
     },
     {
-      "id": "aed42fdbde0d",
-      "title": "Meta新研究：字节模型蒸馏后，天花板破了",
-      "summary": "Meta新研究：字节模型蒸馏后，天花板破了",
-      "url": "https://www.qbitai.com/2026/09/489337.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-15T14:37:16+08:00"
-    },
-    {
-      "id": "93ffc1c49db3",
-      "title": "前OpenAI后训练VP回应陶哲轩：说AI毁了数学，可能还是太小瞧AI了",
-      "summary": "未来的AI不仅能解决问题，还能提出有价值的洞见、建立新的概念框架，让数学家在此基础上继续探索。",
-      "url": "https://www.qbitai.com/2026/09/489288.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-15T13:39:10+08:00"
-    },
-    {
-      "id": "ff7268e9f6a3",
-      "title": "9月21日，深圳前海！聊聊工业AI与生态共创的下一步",
-      "summary": "西门子Xcelerator繁星生态大会，在生态合作中共赢机遇",
-      "url": "https://www.qbitai.com/2026/09/489277.html",
-      "source": "量子位",
+      "id": "4433f378b957",
+      "title": "From Megawatts to Tokens: How NVIDIA Maximizes AI Factory Production",
+      "summary": "On a sweltering August evening in Silicon Valley, as the sun dropped and air conditioning loads spiked, Silicon Valley Power sent a signal to an AI factory to …",
+      "url": "https://blogs.nvidia.com/blog/from-megawatts-to-tokens-how-nvidia-maximizes-ai-factory-production/",
+      "source": "NVIDIA AI",
       "category": "行业新闻",
-      "published_at": "2026-09-15T13:20:30+08:00"
+      "published_at": "2026-09-16T00:55:59+08:00"
+    },
+    {
+      "id": "9cc025c501e9",
+      "title": "AI Infra Summit: NVIDIA Vera Rubin and DSX Platform Advancements Showcase Energy Efficiencies of Optimizing Tokens Per Watt for AI Factories",
+      "summary": "Ian Buck, vice president of hyperscale and high-performance computing at NVIDIA, Tuesday spoke on AI factory efficiency at the AI Infra Summit, the Santa Clara…",
+      "url": "https://blogs.nvidia.com/blog/ai-infra-summit-vera-rubin-dsx-energy-efficiencies-tokens-per-watt-ai-factories/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-16T00:55:40+08:00"
+    },
+    {
+      "id": "16a7b27ed0ae",
+      "title": "Your Agent Aced the Task. Will It Do It Again?",
+      "summary": "Your Agent Aced the Task. Will It Do It Again?",
+      "url": "https://huggingface.co/blog/ibm-research/altk-evolve-consistency",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-09-16T00:00:44+08:00"
+    },
+    {
+      "id": "18592959ad29",
+      "title": "AI for Societal Impact",
+      "summary": "Explore this collection to see how experts and local leaders are using AI breakthroughs to ensure everyone can share the opportunity of AI.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-16T00:00:00+08:00"
+    },
+    {
+      "id": "b86d9a766fb7",
+      "title": "Building AI to accelerate science and improve lives",
+      "summary": "The true measure of AI is who it helps. Here’s how it’s impacting lives today. We're focused on key areas where advanced technology can help make extraordinary…",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-applications-science-people/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-16T00:00:00+08:00"
+    },
+    {
+      "id": "a243976a4aef",
+      "title": "AI for everyone in every language",
+      "summary": "We’re moving beyond traditional text translation to build models that understand the world’s rich, living languages exactly as they are expressed.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-09-16T00:00:00+08:00"
+    },
+    {
+      "id": "712d3110410f",
+      "title": "梁文锋CFO到位！投过智谱MiniMax",
+      "summary": "严文韬，1991年生，高瓴创投合伙人",
+      "url": "https://www.qbitai.com/2026/09/489707.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-15T21:53:39+08:00"
+    },
+    {
+      "id": "d4d0ce28a346",
+      "title": "地平线第1500万颗征程芯片搭载大众 ID. AURA T6，HSD V2.1 即将推出",
+      "summary": "首发全场景倒车能力，体验再进一步",
+      "url": "https://www.qbitai.com/2026/09/489698.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-15T21:32:54+08:00"
+    },
+    {
+      "id": "00e29a681a6f",
+      "title": "New insights from Google’s AI & Economy ATLAS",
+      "summary": "We’ve translated ATLAS’s millions of global data points into an interactive, open-access experience.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-15T21:00:00+08:00"
+    },
+    {
+      "id": "cb1410526081",
+      "title": "手机替我跑了一整套流程！我就说了一句话，AI执行了100步",
+      "summary": "一句话，YOYO全面接管我的生活",
+      "url": "https://www.qbitai.com/2026/09/489466.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-15T20:47:16+08:00"
+    },
+    {
+      "id": "ec9733aaba20",
+      "title": "无问芯穹联合清华、上交正式开源具身端侧推理引擎APXInf，Pi 0.5性能SOTA",
+      "summary": "卡位具身智能规模化落地“最后一公里”！",
+      "url": "https://www.qbitai.com/2026/09/489460.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-15T18:43:28+08:00"
+    },
+    {
+      "id": "8d409b60a7de",
+      "title": "全球AI视频榜单第一梯队再添中国力量：智象发布首款物理规律导向视频模型",
+      "summary": "智象未来（HiDream.ai）正式发布首个原生全模态视频生成模型 HiDream-O1-Video-1.0",
+      "url": "https://www.qbitai.com/2026/09/489389.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-15T18:41:06+08:00"
+    },
+    {
+      "id": "1537042228c9",
+      "title": "Heart of the Matter: How a Major Children’s Hospital Uses Open Source NVIDIA AI for Cardiac Care",
+      "summary": "Heart of the Matter: How a Major Children’s Hospital Uses Open Source NVIDIA AI for Cardiac Care",
+      "url": "https://blogs.nvidia.com/blog/childrens-hospital-open-source-ai-cardiac-care/",
+      "source": "NVIDIA AI",
+      "category": "开源项目",
+      "published_at": "2026-09-15T17:00:42+08:00"
     },
     {
       "id": "062061e61712",
@@ -96,15 +186,6 @@
       "published_at": "2026-09-15T12:00:00+08:00"
     },
     {
-      "id": "f95e790699b2",
-      "title": "7名博士生仅用3个月从零训练7B大模型：代码+数据+训练日志全公开",
-      "summary": "几百个Agent参与研发，AI开始造AI",
-      "url": "https://www.qbitai.com/2026/09/489227.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-15T10:17:34+08:00"
-    },
-    {
       "id": "b49b47db0b35",
       "title": "Watch astronaut Christina Koch and Google’s James Manyika discuss space, technology, and discovery.",
       "summary": "Christina Koch sits down with James Manyika, Google’s Senior Vice President of Research, Labs, Technology & Society.",
@@ -112,15 +193,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-09-15T03:00:00+08:00"
-    },
-    {
-      "id": "bf70dc826a65",
-      "title": "DevFest is back",
-      "summary": "DevFest 2026 is back and here’s how you can connect with one of the more than 800 global events to build, secure, and scale in the agentic AI era.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-15T00:00:00+08:00"
     },
     {
       "id": "1a974e5655c8",
@@ -177,15 +249,6 @@
       "published_at": "2026-09-11T00:30:35+08:00"
     },
     {
-      "id": "1adb809c884f",
-      "title": "Physical AI Takes the Wheel: How the World’s Robotaxi Leaders Are Building With NVIDIA Technologies",
-      "summary": "The global robotaxi market — physical AI’s first commercial breakthrough — is projected to reach $400 billion by 2035, with over 6 million commercial vehicles …",
-      "url": "https://blogs.nvidia.com/blog/robotaxi-leaders-full-stack-open-platform/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-11T00:00:04+08:00"
-    },
-    {
       "id": "014159943e4d",
       "title": "How a researcher uses Codex and ChatGPT to search for new antimicrobial molecules",
       "summary": "César de la Fuente’s lab uses Codex and ChatGPT to search living and extinct genomes for antimicrobial candidates to fight drug-resistant infections.",
@@ -193,33 +256,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-11T00:00:00+08:00"
-    },
-    {
-      "id": "1852061b5cf6",
-      "title": "3 ways to prep for your next big race with Search",
-      "summary": "Search can help runners get race-day ready with registration alerts, tailored training plans, and more.",
-      "url": "https://blog.google/products-and-platforms/products/search/running-race-training-tips/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-11T00:00:00+08:00"
-    },
-    {
-      "id": "ed5ac5e67af5",
-      "title": "d-Matrix Adopts NVIDIA NVLink Fusion for Rack-Scale XPU Deployment",
-      "summary": "AI inference chipmaker d-Matrix today announced it will use NVLink Fusion to connect its next-generation Raptor XPUs to NVIDIA’s AI infrastructure platform — j…",
-      "url": "https://blogs.nvidia.com/blog/d-matrix-nvlink-fusion/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-10T21:00:21+08:00"
-    },
-    {
-      "id": "f3468ea93aa3",
-      "title": "Boots on the Ground: ‘WARDOGS’ Goes All Out on GeForce NOW at Early-Access Launch",
-      "summary": "Gear up: The latest PC games and major updates are ready to play on GeForce NOW this week. WARDOGS drops onto the cloud at early-access launch, alongside the V…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-wardogs/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T21:00:18+08:00"
     },
     {
       "id": "d4e55a9164f4",
@@ -238,24 +274,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-09-10T08:00:00+08:00"
-    },
-    {
-      "id": "b0dd0e34ba0b",
-      "title": "Get ready for the game with new football features in Search",
-      "summary": "Track live game feeds, explore detailed stats, and get custom fantasy recommendations directly in Search this season.",
-      "url": "https://blog.google/products-and-platforms/products/search/football-features-google-search/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-10T00:00:00+08:00"
-    },
-    {
-      "id": "e8269fc9a109",
-      "title": "Recreating a 70-year love story frame by frame",
-      "summary": "Discover how filmmakers and Google DeepMind used AI to recreate a couple's unrecorded past in the short film \"Love, Rendered.\"",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/love-rendered-film/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-10T00:00:00+08:00"
     },
     {
       "id": "db0ccc728d91",
@@ -298,15 +316,6 @@
       "window_hours": 720
     },
     {
-      "id": "e8608e40b722",
-      "title": "IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license",
-      "summary": "IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license",
-      "url": "https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series",
-      "source": "Hugging Face",
-      "category": "新工具上线",
-      "published_at": "2026-09-09T23:36:24+08:00"
-    },
-    {
       "id": "53818ac5275c",
       "title": "蚂蚁百灵发布首个金融增强模型，AI开始进入真实投研工作流",
       "summary": "蚂蚁百灵发布首个金融增强模型，AI开始进入真实投研工作流",
@@ -315,24 +324,6 @@
       "category": "新工具上线",
       "published_at": "2026-09-09T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "4f420d1c5cd0",
-      "title": "Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic",
-      "summary": "Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic",
-      "url": "https://huggingface.co/blog/MultiverseComputingCAI/safety-for-whom",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-08T22:23:07+08:00"
-    },
-    {
-      "id": "80d284f58871",
-      "title": "AlphaGenome Atlas: A predictive map of every possible DNA letter change in the human genome",
-      "summary": "AlphaGenome Atlas maps the molecular effects of 9 billion single-letter DNA variants across the human genome.",
-      "url": "https://deepmind.google/blog/alphagenome-atlas-a-predictive-map-of-every-possible-dna-letter-change-in-the-human-genome/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-09-08T22:00:15+08:00"
     }
   ],
   "qbitai_hot": {
