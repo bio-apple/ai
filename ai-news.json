@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-15T04:41:03.314394+08:00",
+  "updated_at": "2026-09-15T16:59:56.923936+08:00",
   "date": "2026-09-15",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,105 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "8ad2b6d9d30f",
+      "title": "Hacked by CoupDeGrace",
+      "summary": "Hacked by CoupDeGrace",
+      "url": "https://www.qbitai.com/2026/09/489365.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-15T15:33:50+08:00"
+    },
+    {
+      "id": "aed42fdbde0d",
+      "title": "Meta新研究：字节模型蒸馏后，天花板破了",
+      "summary": "Meta新研究：字节模型蒸馏后，天花板破了",
+      "url": "https://www.qbitai.com/2026/09/489337.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-15T14:37:16+08:00"
+    },
+    {
+      "id": "93ffc1c49db3",
+      "title": "前OpenAI后训练VP回应陶哲轩：说AI毁了数学，可能还是太小瞧AI了",
+      "summary": "未来的AI不仅能解决问题，还能提出有价值的洞见、建立新的概念框架，让数学家在此基础上继续探索。",
+      "url": "https://www.qbitai.com/2026/09/489288.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-15T13:39:10+08:00"
+    },
+    {
+      "id": "ff7268e9f6a3",
+      "title": "9月21日，深圳前海！聊聊工业AI与生态共创的下一步",
+      "summary": "西门子Xcelerator繁星生态大会，在生态合作中共赢机遇",
+      "url": "https://www.qbitai.com/2026/09/489277.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-09-15T13:20:30+08:00"
+    },
+    {
+      "id": "062061e61712",
+      "title": "ZGCM-1: A Fully Open and Extremely Efficient Foundation Model for Math and Agentic Search",
+      "summary": "arXiv:2609.13356v1 Announce Type: new Abstract: In this work, we present ZGCM-1, a fully open 7B dense foundation model trained from scratch with extreme data,…",
+      "url": "https://arxiv.org/abs/2609.13356",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-15T12:00:00+08:00"
+    },
+    {
+      "id": "f6a0573d6d76",
+      "title": "Converge Then Diversify: Decoupling Convergence and Diversity in Multi-Objective Bayesian Optimisation",
+      "summary": "arXiv:2609.13396v1 Announce Type: new Abstract: Multi-objective Bayesian optimisation (MOBO) is a sample-efficient approach for optimising expensive black-box …",
+      "url": "https://arxiv.org/abs/2609.13396",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-15T12:00:00+08:00"
+    },
+    {
+      "id": "75365bdaf27d",
+      "title": "Generalized Agent Iteration: One Formal Framework for Iterative Policy Improvement and Recursive Self-Improvement",
+      "summary": "arXiv:2609.13406v1 Announce Type: new Abstract: When we speak of recursive self-improvement (RSI), are we speaking of a phenomenon, a mechanism, or a prospect?…",
+      "url": "https://arxiv.org/abs/2609.13406",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-15T12:00:00+08:00"
+    },
+    {
+      "id": "1c59e5219d4c",
+      "title": "Vibe Patenting: Evaluating LLM Judges for Professional Patent-Drafting Agents",
+      "summary": "arXiv:2609.13422v1 Announce Type: new Abstract: LLM judges are increasingly used to evaluate and improve AI-generated outputs, yet their reliability for comple…",
+      "url": "https://arxiv.org/abs/2609.13422",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-15T12:00:00+08:00"
+    },
+    {
+      "id": "15e83ccaebb1",
+      "title": "Toward Self-Adaptive Physical AI: Can LLM Agents Manage Long-Horizon Physical Tasks?",
+      "summary": "arXiv:2609.13436v1 Announce Type: new Abstract: Large Language Model (LLM) agents offer a promising path toward autonomously managing long-term physical tasks …",
+      "url": "https://arxiv.org/abs/2609.13436",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-15T12:00:00+08:00"
+    },
+    {
+      "id": "f95e790699b2",
+      "title": "7名博士生仅用3个月从零训练7B大模型：代码+数据+训练日志全公开",
+      "summary": "几百个Agent参与研发，AI开始造AI",
+      "url": "https://www.qbitai.com/2026/09/489227.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-15T10:17:34+08:00"
+    },
+    {
+      "id": "b49b47db0b35",
+      "title": "Watch astronaut Christina Koch and Google’s James Manyika discuss space, technology, and discovery.",
+      "summary": "Christina Koch sits down with James Manyika, Google’s Senior Vice President of Research, Labs, Technology & Society.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/dialogues-christina-koch/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-15T03:00:00+08:00"
+    },
     {
       "id": "bf70dc826a65",
       "title": "DevFest is back",
@@ -40,51 +139,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-14T20:00:00+08:00"
-    },
-    {
-      "id": "1cf3b72857c7",
-      "title": "首届蚂蚁灵波具身大模型挑战赛正式启动",
-      "summary": "通过这场大赛，蚂蚁灵波希望将 LingBot-VLA 进一步推向更广泛的开发者社区和高校科研社区",
-      "url": "https://www.qbitai.com/2026/09/489105.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-14T17:47:07+08:00"
-    },
-    {
-      "id": "2ac9917a15ff",
-      "title": "全国唯一！商汤大装置临港AIDC获“算效+算电”双5A认证",
-      "summary": "业界首个5A算电协同认证",
-      "url": "https://www.qbitai.com/2026/09/489106.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-14T17:46:40+08:00"
-    },
-    {
-      "id": "ff0406df9bcf",
-      "title": "探索RSI，生数新世界模型让机器人开始自我进化",
-      "summary": "探索RSI，生数新世界模型让机器人开始自我进化",
-      "url": "https://www.qbitai.com/2026/09/489037.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-14T17:36:28+08:00"
-    },
-    {
-      "id": "5732a6a96552",
-      "title": "分子之心QuantaMind登Science Advances，让AI给分子世界”拍电影”",
-      "summary": "AI 蛋白质设计迈入“动态时代”",
-      "url": "https://www.qbitai.com/2026/09/489023.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-14T16:17:22+08:00"
-    },
-    {
-      "id": "e4c24612ca79",
-      "title": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
-      "summary": "让模型和设备共同进化",
-      "url": "https://www.qbitai.com/2026/09/488933.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-14T16:08:29+08:00"
     },
     {
       "id": "12e9dd685180",
@@ -214,6 +268,36 @@
       "window_hours": 720
     },
     {
+      "id": "df6c21e96ac4",
+      "title": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
+      "summary": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
+      "url": "https://www.qbitai.com/2026/09/486900.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-10T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "3461b99f5def",
+      "title": "打造10万卡国产算力集群推出JoyAI世界模型，京东发布物理AI建设最新成果",
+      "summary": "打造10万卡国产算力集群推出JoyAI世界模型，京东发布物理AI建设最新成果",
+      "url": "https://www.qbitai.com/2026/09/486436.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-10T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "e71122305716",
+      "title": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
+      "summary": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
+      "url": "https://www.qbitai.com/2026/09/486684.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-10T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "e8608e40b722",
       "title": "IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license",
       "summary": "IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license",
@@ -249,72 +333,12 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-09-08T22:00:15+08:00"
-    },
-    {
-      "id": "9dacda853045",
-      "title": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
-      "summary": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
-      "url": "https://www.qbitai.com/2026/09/485854.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-08T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "ea5a2d308b02",
-      "title": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
-      "summary": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
-      "url": "https://www.qbitai.com/2026/09/485784.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-08T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "ecee9255adc8",
-      "title": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
-      "summary": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
-      "url": "https://www.qbitai.com/2026/09/485630.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-08T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "9dacda853045",
-        "title": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
-        "summary": "感谢用GPT-6搓3D的！燃烧自己的token换来一次全体重置",
-        "url": "https://www.qbitai.com/2026/09/485854.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-08T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "ea5a2d308b02",
-        "title": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
-        "summary": "深度智控获宁德时代、沙特阿美战投等重磅加码，加速打造物理AI时代算力与能源底座",
-        "url": "https://www.qbitai.com/2026/09/485784.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-08T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "ecee9255adc8",
-        "title": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
-        "summary": "深入马来西亚AI现场！WAIC CONNECT MALAYSIA首日亮点全速递",
-        "url": "https://www.qbitai.com/2026/09/485630.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-08T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "db0ccc728d91",
         "title": "刚刚，苹果首款折叠屏发布！15999元起，AI参与设计",
@@ -333,6 +357,36 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-09-09T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "df6c21e96ac4",
+        "title": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
+        "summary": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
+        "url": "https://www.qbitai.com/2026/09/486900.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-09-10T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "3461b99f5def",
+        "title": "打造10万卡国产算力集群推出JoyAI世界模型，京东发布物理AI建设最新成果",
+        "summary": "打造10万卡国产算力集群推出JoyAI世界模型，京东发布物理AI建设最新成果",
+        "url": "https://www.qbitai.com/2026/09/486436.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-09-10T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "e71122305716",
+        "title": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
+        "summary": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
+        "url": "https://www.qbitai.com/2026/09/486684.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-09-10T00:00:00+08:00",
         "window_hours": 720
       }
     ]
