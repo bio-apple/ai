@@ -167,9 +167,143 @@
     "youtube:WfSiryTVDiY",
     "bilibili:BV1xFYb6rEuc",
     "bilibili:BV1WWYE6LEzx",
-    "bilibili:BV154426xEha"
+    "bilibili:BV154426xEha",
+    "bilibili:BV1AN896eEby"
   ],
   "batches": [
+    {
+      "date": "2026-09-16",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:xBByvFrqmWU",
+              "platform": "youtube",
+              "title": "DeepSeek is back... and Silicon Valley is terrified",
+              "summary": "Take BlueDot's Future of AI course for free - OpenAI just paused its biggest training run in history just as things were getting …",
+              "url": "https://www.youtube.com/watch?v=xBByvFrqmWU",
+              "thumbnail": "https://i.ytimg.com/vi/xBByvFrqmWU/maxresdefault.jpg",
+              "channel": "Fireship",
+              "subscribers": 0,
+              "views": 1168225,
+              "duration": "5:32",
+              "max_height": 1080,
+              "published_at": "2026-08-21T01:53:37+08:00"
+            },
+            {
+              "id": "youtube:KmcTu2EigTs",
+              "platform": "youtube",
+              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
+              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
+              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
+              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 0,
+              "views": 229033,
+              "duration": "19:35",
+              "max_height": 1080,
+              "published_at": "2026-08-25T21:00:23+08:00"
+            },
+            {
+              "id": "youtube:WfSiryTVDiY",
+              "platform": "youtube",
+              "title": "12 Life-Changing Ways To Use ChatGPT in 2026",
+              "summary": "➡️ Connect Claude to 8,000+ apps with Zapier MCP: ChatGPT is insanely powerful now, but there’s a huge difference between using i…",
+              "url": "https://www.youtube.com/watch?v=WfSiryTVDiY",
+              "thumbnail": "https://i.ytimg.com/vi/WfSiryTVDiY/maxresdefault.jpg",
+              "channel": "Charlie Chang",
+              "subscribers": 0,
+              "views": 181106,
+              "duration": "24:18",
+              "max_height": 1080,
+              "published_at": "2026-08-20T01:45:03+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1N74R6eEZw",
+              "platform": "bilibili",
+              "title": "本条视频用OiiOii.tv制作@OiiOii_Ai，不用琢磨复杂提示词，简单操作就能出成片#OiiOii #OiiOii创作者计划",
+              "summary": "【黑黑大帅剧场】讲解 AI 工具实战应用，围绕「本条视频用OiiOii.tv制作@OiiOii_Ai，不用琢磨复杂提示词，简单操作就能出成片#O」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1N74R6eEZw",
+              "thumbnail": "video-thumbs/bilibili/BV1N74R6eEZw.jpg",
+              "channel": "黑黑大帅剧场",
+              "subscribers": 0,
+              "views": 798730,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-08-27T18:38:04+08:00"
+            },
+            {
+              "id": "bilibili:BV1yEbY6gEb8",
+              "platform": "bilibili",
+              "title": "AI 漫剧制作全教程：零基础手搓一部 AI 漫剧一个月收获近 5w！附教程！全流程操作演示",
+              "summary": "本视频带你从零学习 AI 视频制作，手把手演示 AI 生成视频完整流程。如果你想学会文字转视频、AI 数字人解说、AI 动画短片、AI 漫剧剪辑、AI 生成短视频，这套 AI 视频制作教程非常适合零基础新手。视频包含 AI 提示词写法、AI 视频工具选择、素…",
+              "url": "https://www.bilibili.com/video/BV1yEbY6gEb8",
+              "thumbnail": "video-thumbs/bilibili/BV1yEbY6gEb8.jpg",
+              "channel": "棠间月888",
+              "subscribers": 0,
+              "views": 502760,
+              "duration": "2098:30",
+              "max_height": 720,
+              "published_at": "2026-08-17T13:30:45+08:00"
+            },
+            {
+              "id": "bilibili:BV1AN896eEby",
+              "platform": "bilibili",
+              "title": "Ai提问焚诀，我开发过程一直在用的方法。建议码住！#一人公司 #提效 #Ai提示词 #Ai团队 #人机协作",
+              "summary": "【电商Ai阿辉】讲解 AI 工具实战应用，围绕「Ai提问焚诀，我开发过程一直在用的方法。建议码住！#一人公司 #提效 #Ai提示词 #Ai团队 」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1AN896eEby",
+              "thumbnail": "video-thumbs/bilibili/BV1AN896eEby.jpg",
+              "channel": "电商Ai阿辉",
+              "subscribers": 0,
+              "views": 425104,
+              "duration": "0:28",
+              "max_height": 720,
+              "published_at": "2026-08-26T20:14:41+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-09-15",
       "timezone": "Asia/Shanghai",
@@ -6659,5 +6793,5 @@
       }
     }
   ],
-  "updated_at": "2026-09-15T07:03:39.098905+08:00"
+  "updated_at": "2026-09-16T06:49:45.215059+08:00"
 }
