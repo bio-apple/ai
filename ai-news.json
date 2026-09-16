@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-16T16:52:26.214828+08:00",
-  "date": "2026-09-16",
+  "updated_at": "2026-09-17T03:48:20.683864+08:00",
+  "date": "2026-09-17",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,31 +15,103 @@
   },
   "items": [
     {
-      "id": "c4c1d8206adc",
-      "title": "西门子不造机器人，为什么机器人进厂的故事里总有它？",
-      "summary": "帮助成熟赛道复制方案，帮助新赛道长出场景。",
-      "url": "https://www.qbitai.com/2026/09/490416.html",
+      "id": "027811ca1632",
+      "title": "Helping older adults use AI in everyday life",
+      "summary": "OpenAI and AARP are bringing free, hands-on ChatGPT workshops to 1,000 older adults across 10 U.S. cities to build practical AI skills safely.",
+      "url": "https://openai.com/index/helping-older-adults-use-ai-in-everyday-life",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-17T00:00:00+08:00"
+    },
+    {
+      "id": "a425146e5e22",
+      "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut",
+      "summary": "System performance, efficient infrastructure scaling and continuous software optimization are key levers that determine AI inference economics. Higher system p…",
+      "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-16T23:00:48+08:00"
+    },
+    {
+      "id": "2e3dc776160a",
+      "title": "通用能力不打折，空间具身智能断层领先！ZDTaichu5.0-9B国产开源，跻身全球多模态第一梯队",
+      "summary": "九大空间测试10B规模通用模型中8项第一",
+      "url": "https://www.qbitai.com/2026/09/490839.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-16T21:08:20+08:00"
+    },
+    {
+      "id": "22653b4ecc69",
+      "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
+      "summary": "AI factories are the infrastructure of the intelligence era. Scaling them responsibly will depend as much on innovation across the grid as inside the data cent…",
+      "url": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-16T21:00:33+08:00"
+    },
+    {
+      "id": "52752974efc0",
+      "title": "Reimagining advertising with AI",
+      "summary": "Explore new AI-powered advertising experiences from OpenAI, including Sponsored Agents, tools for marketers, and integrations with HubSpot and Shopify.",
+      "url": "https://openai.com/index/reimagining-advertising-with-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-16T21:00:00+08:00"
+    },
+    {
+      "id": "5f7e182a53f2",
+      "title": "How to connect AI usage to business value",
+      "summary": "Learn how ChatGPT Work and Codex analytics help teams understand AI usage and spend, identify training needs, and connect adoption to business outcomes.",
+      "url": "https://openai.com/index/how-to-connect-ai-usage-to-business-value",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-16T20:00:00+08:00"
+    },
+    {
+      "id": "71646fffd914",
+      "title": "How workers are unlocking new ways of working",
+      "summary": "New OpenAI Economic Research shows how workers use AI beyond traditional roles and which new activities become recurring parts of their work.",
+      "url": "https://openai.com/index/unlocking-new-ways-of-working",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-16T17:00:00+08:00"
+    },
+    {
+      "id": "742ef1e1caea",
+      "title": "AI大模型工场2026 AI产业生态大会今日举办，大咖同台共探智能生长与产业共生",
+      "summary": "9月15日，由AI大模型工场主办的“2026 AI产业生态大会”在北京举行。",
+      "url": "https://www.qbitai.com/2026/09/490760.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-16T16:51:02+08:00"
+    },
+    {
+      "id": "2807434ee233",
+      "title": "高通技术公司携手中兴努比亚和豆包手机助手，共同推动智能手机迈入个人AI新时代",
+      "summary": "第五代骁龙8至尊版赋能全新AI智能体手机努比亚NaviX Ultra，加速智能体体验规模化落地",
+      "url": "https://www.qbitai.com/2026/09/490756.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-16T15:38:18+08:00"
+      "published_at": "2026-09-16T16:18:44+08:00"
     },
     {
-      "id": "f2a4ba3ba297",
-      "title": "清华稳准智能联合发布LimiX-2，结构化数据基础模型登顶国际评测榜单",
-      "summary": "9月16日，稳准智能联合清华大学发布新一代数据大模型 LimiX-2，模型参数规模提升至400M。",
-      "url": "https://www.qbitai.com/2026/09/490400.html",
+      "id": "ddb62835f151",
+      "title": "基元律动与无问芯穹达成战略合作，推进高质量Token供给与应用",
+      "summary": "2026年 9 月 15 日，AI基础设施公司基元律动（TokenRhythm）与无问芯穹（Infinigence AI）签署战略合作协议。",
+      "url": "https://www.qbitai.com/2026/09/490750.html",
       "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-16T14:32:31+08:00"
+      "category": "行业新闻",
+      "published_at": "2026-09-16T16:09:53+08:00"
     },
     {
-      "id": "f5f172d3faa9",
-      "title": "B站AI无限竞技场今日上线！全球百大AI模型同场竞技，GPT-6高居榜首",
-      "summary": "9月16日，B站「AI无限竞技场」正式上线，首期大模型测评榜单同步公布。",
-      "url": "https://www.qbitai.com/2026/09/490396.html",
+      "id": "53c64a073057",
+      "title": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
+      "summary": "AI协同办公的新官配，我先磕了",
+      "url": "https://www.qbitai.com/2026/09/490686.html",
       "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-16T14:23:05+08:00"
+      "category": "中文资讯",
+      "published_at": "2026-09-16T15:46:38+08:00"
     },
     {
       "id": "88fd26958a90",
@@ -49,15 +121,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-09-16T13:00:42+08:00"
-    },
-    {
-      "id": "6e0e5320874c",
-      "title": "量子位2026人工智能年度榜单，正式启动！",
-      "summary": "报名通道已开启，欢迎参与！",
-      "url": "https://www.qbitai.com/2026/09/490329.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-16T12:16:10+08:00"
     },
     {
       "id": "884b60085b79",
@@ -105,15 +168,6 @@
       "published_at": "2026-09-16T12:00:00+08:00"
     },
     {
-      "id": "16876706efeb",
-      "title": "被英伟达点名的杭州团队，补上了AI for Science的「最后一公里」",
-      "summary": "从想法到结果，一次对话实现",
-      "url": "https://www.qbitai.com/2026/09/490185.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-16T11:40:35+08:00"
-    },
-    {
       "id": "1fec8bc66a00",
       "title": "‘Now We Can Know Everything and Do Anything,’ Jensen Huang Says at Dreamforce",
       "summary": "Know everything. Do anything. That was the message NVIDIA founder and CEO Jensen Huang brought to Salesforce Dreamforce Tuesday, joining CEO Marc Benioff onsta…",
@@ -139,15 +193,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-09-16T00:55:59+08:00"
-    },
-    {
-      "id": "9cc025c501e9",
-      "title": "AI Infra Summit: NVIDIA Vera Rubin and DSX Platform Advancements Showcase Energy Efficiencies of Optimizing Tokens Per Watt for AI Factories",
-      "summary": "Ian Buck, vice president of hyperscale and high-performance computing at NVIDIA, Tuesday spoke on AI factory efficiency at the AI Infra Summit, the Santa Clara…",
-      "url": "https://blogs.nvidia.com/blog/ai-infra-summit-vera-rubin-dsx-energy-efficiencies-tokens-per-watt-ai-factories/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-16T00:55:40+08:00"
     },
     {
       "id": "16a7b27ed0ae",
@@ -195,15 +240,6 @@
       "published_at": "2026-09-15T21:00:00+08:00"
     },
     {
-      "id": "1537042228c9",
-      "title": "Heart of the Matter: How a Major Children’s Hospital Uses Open Source NVIDIA AI for Cardiac Care",
-      "summary": "Heart of the Matter: How a Major Children’s Hospital Uses Open Source NVIDIA AI for Cardiac Care",
-      "url": "https://blogs.nvidia.com/blog/childrens-hospital-open-source-ai-cardiac-care/",
-      "source": "NVIDIA AI",
-      "category": "开源项目",
-      "published_at": "2026-09-15T17:00:42+08:00"
-    },
-    {
       "id": "b49b47db0b35",
       "title": "Watch astronaut Christina Koch and Google’s James Manyika discuss space, technology, and discovery.",
       "summary": "Christina Koch sits down with James Manyika, Google’s Senior Vice President of Research, Labs, Technology & Society.",
@@ -222,42 +258,6 @@
       "published_at": "2026-09-14T20:00:00+08:00"
     },
     {
-      "id": "12e9dd685180",
-      "title": "Perplexity trusts GPT-6 Astra with end-to-end systems",
-      "summary": "Perplexity uses Astra to write communications, change software, and monitor production systems, and checks in much less frequently than with earlier models.",
-      "url": "https://openai.com/index/perplexity-improving-accuracy-with-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-14T08:00:00+08:00"
-    },
-    {
-      "id": "c3aa33826442",
-      "title": "Cognition helps Devin test its own work with GPT‑6 Astra",
-      "summary": "GPT‑6 Astra improves Devin’s ability to test software and show that it works, with the goal of helping engineers review less code and ship more.",
-      "url": "https://openai.com/index/cognition-devin-testing-with-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-12T00:00:00+08:00"
-    },
-    {
-      "id": "c7d3c8aeae42",
-      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
-      "summary": "Learn how OpenAI evolved Habitat from a Python library into a globally distributed storage platform serving 1 billion ChatGPT users and 22M requests per second.",
-      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-11T18:00:00+08:00"
-    },
-    {
-      "id": "014159943e4d",
-      "title": "How a researcher uses Codex and ChatGPT to search for new antimicrobial molecules",
-      "summary": "César de la Fuente’s lab uses Codex and ChatGPT to search living and extinct genomes for antimicrobial candidates to fight drug-resistant infections.",
-      "url": "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-11T00:00:00+08:00"
-    },
-    {
       "id": "d4e55a9164f4",
       "title": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
       "summary": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
@@ -274,16 +274,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-09-10T08:00:00+08:00"
-    },
-    {
-      "id": "db0ccc728d91",
-      "title": "刚刚，苹果首款折叠屏发布！15999元起，AI参与设计",
-      "summary": "刚刚，苹果首款折叠屏发布！15999元起，AI参与设计",
-      "url": "https://www.qbitai.com/2026/09/486450.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T00:00:00+08:00",
-      "window_hours": 720
     },
     {
       "id": "df6c21e96ac4",
@@ -324,22 +314,22 @@
       "category": "中文资讯",
       "published_at": "2026-09-10T00:00:00+08:00",
       "window_hours": 720
+    },
+    {
+      "id": "19b581d92e72",
+      "title": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
+      "summary": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
+      "url": "https://www.qbitai.com/2026/09/486716.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-10T00:00:00+08:00",
+      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "db0ccc728d91",
-        "title": "刚刚，苹果首款折叠屏发布！15999元起，AI参与设计",
-        "summary": "刚刚，苹果首款折叠屏发布！15999元起，AI参与设计",
-        "url": "https://www.qbitai.com/2026/09/486450.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-10T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "df6c21e96ac4",
         "title": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
@@ -377,6 +367,16 @@
         "url": "https://www.qbitai.com/2026/09/486934.html",
         "source": "量子位",
         "category": "中文资讯",
+        "published_at": "2026-09-10T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "19b581d92e72",
+        "title": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
+        "summary": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
+        "url": "https://www.qbitai.com/2026/09/486716.html",
+        "source": "量子位",
+        "category": "开源项目",
         "published_at": "2026-09-10T00:00:00+08:00",
         "window_hours": 720
       }
