@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16T03:55:25.037602+08:00",
+  "updated_at": "2026-09-16T16:52:26.214828+08:00",
   "date": "2026-09-16",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,114 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "c4c1d8206adc",
+      "title": "西门子不造机器人，为什么机器人进厂的故事里总有它？",
+      "summary": "帮助成熟赛道复制方案，帮助新赛道长出场景。",
+      "url": "https://www.qbitai.com/2026/09/490416.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-16T15:38:18+08:00"
+    },
+    {
+      "id": "f2a4ba3ba297",
+      "title": "清华稳准智能联合发布LimiX-2，结构化数据基础模型登顶国际评测榜单",
+      "summary": "9月16日，稳准智能联合清华大学发布新一代数据大模型 LimiX-2，模型参数规模提升至400M。",
+      "url": "https://www.qbitai.com/2026/09/490400.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-16T14:32:31+08:00"
+    },
+    {
+      "id": "f5f172d3faa9",
+      "title": "B站AI无限竞技场今日上线！全球百大AI模型同场竞技，GPT-6高居榜首",
+      "summary": "9月16日，B站「AI无限竞技场」正式上线，首期大模型测评榜单同步公布。",
+      "url": "https://www.qbitai.com/2026/09/490396.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-16T14:23:05+08:00"
+    },
+    {
+      "id": "88fd26958a90",
+      "title": "University of Manchester Uses NVIDIA Earth-2 to Forecast Air Pollution Across the UK",
+      "summary": "Air pollution is a serious public health risk, contributing to an estimated 30,000 deaths in the U.K. alone last year. Data-driven insights can help — but comp…",
+      "url": "https://blogs.nvidia.com/blog/uk-air-pollution-research-earth-2/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-09-16T13:00:42+08:00"
+    },
+    {
+      "id": "6e0e5320874c",
+      "title": "量子位2026人工智能年度榜单，正式启动！",
+      "summary": "报名通道已开启，欢迎参与！",
+      "url": "https://www.qbitai.com/2026/09/490329.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-16T12:16:10+08:00"
+    },
+    {
+      "id": "884b60085b79",
+      "title": "Optimal Pruning for Neural Architectures using Fisher Information Distances",
+      "summary": "arXiv:2609.16129v1 Announce Type: new Abstract: A new scheme for parameter pruning is introduced, derived from the differential-geometric distance in model spa…",
+      "url": "https://arxiv.org/abs/2609.16129",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-16T12:00:00+08:00"
+    },
+    {
+      "id": "4902b250d1b0",
+      "title": "Safe Error Correction for Language Models: Frozen-Base Adjustment with Capability Preservation",
+      "summary": "arXiv:2609.16145v1 Announce Type: new Abstract: We study a practical question: can a small correction module fix errors in a frozen language model's outputs wi…",
+      "url": "https://arxiv.org/abs/2609.16145",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-16T12:00:00+08:00"
+    },
+    {
+      "id": "197b2e83e60f",
+      "title": "GPEvac: GNN-Based PPO for Adaptive Evacuation Routing During Shooting Events",
+      "summary": "arXiv:2609.16163v1 Announce Type: new Abstract: The sharp increase in mass shootings underscores an urgent need for systems that guide victims to safety in rea…",
+      "url": "https://arxiv.org/abs/2609.16163",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-16T12:00:00+08:00"
+    },
+    {
+      "id": "7f73c1b61241",
+      "title": "Position: AI Is Not Ready for Strategic Conflicts",
+      "summary": "arXiv:2609.16189v1 Announce Type: new Abstract: Open-ended strategic wargames are high-stakes LM-based social simulations: they model adversaries, institutions…",
+      "url": "https://arxiv.org/abs/2609.16189",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-16T12:00:00+08:00"
+    },
+    {
+      "id": "a7dab887065f",
+      "title": "Calibrate, Then Route: A Measured Study of Learned Request Routing for Disaggregated LLM Serving",
+      "summary": "arXiv:2609.16206v1 Announce Type: new Abstract: Disaggregated LLM serving places compute heavy prefill and memory heavy decode on separate GPU pools. Systems s…",
+      "url": "https://arxiv.org/abs/2609.16206",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-16T12:00:00+08:00"
+    },
+    {
+      "id": "16876706efeb",
+      "title": "被英伟达点名的杭州团队，补上了AI for Science的「最后一公里」",
+      "summary": "从想法到结果，一次对话实现",
+      "url": "https://www.qbitai.com/2026/09/490185.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-16T11:40:35+08:00"
+    },
+    {
+      "id": "1fec8bc66a00",
+      "title": "‘Now We Can Know Everything and Do Anything,’ Jensen Huang Says at Dreamforce",
+      "summary": "Know everything. Do anything. That was the message NVIDIA founder and CEO Jensen Huang brought to Salesforce Dreamforce Tuesday, joining CEO Marc Benioff onsta…",
+      "url": "https://blogs.nvidia.com/blog/jensen-huang-dreamforce/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-09-16T06:24:34+08:00"
+    },
     {
       "id": "f4c3141ce9f2",
       "title": "Introducing Gemini 3.8 Live and 3.8 Live Extended Thinking",
@@ -78,24 +186,6 @@
       "published_at": "2026-09-16T00:00:00+08:00"
     },
     {
-      "id": "712d3110410f",
-      "title": "梁文锋CFO到位！投过智谱MiniMax",
-      "summary": "严文韬，1991年生，高瓴创投合伙人",
-      "url": "https://www.qbitai.com/2026/09/489707.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-15T21:53:39+08:00"
-    },
-    {
-      "id": "d4d0ce28a346",
-      "title": "地平线第1500万颗征程芯片搭载大众 ID. AURA T6，HSD V2.1 即将推出",
-      "summary": "首发全场景倒车能力，体验再进一步",
-      "url": "https://www.qbitai.com/2026/09/489698.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-15T21:32:54+08:00"
-    },
-    {
       "id": "00e29a681a6f",
       "title": "New insights from Google’s AI & Economy ATLAS",
       "summary": "We’ve translated ATLAS’s millions of global data points into an interactive, open-access experience.",
@@ -103,33 +193,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-09-15T21:00:00+08:00"
-    },
-    {
-      "id": "cb1410526081",
-      "title": "手机替我跑了一整套流程！我就说了一句话，AI执行了100步",
-      "summary": "一句话，YOYO全面接管我的生活",
-      "url": "https://www.qbitai.com/2026/09/489466.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-15T20:47:16+08:00"
-    },
-    {
-      "id": "ec9733aaba20",
-      "title": "无问芯穹联合清华、上交正式开源具身端侧推理引擎APXInf，Pi 0.5性能SOTA",
-      "summary": "卡位具身智能规模化落地“最后一公里”！",
-      "url": "https://www.qbitai.com/2026/09/489460.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-15T18:43:28+08:00"
-    },
-    {
-      "id": "8d409b60a7de",
-      "title": "全球AI视频榜单第一梯队再添中国力量：智象发布首款物理规律导向视频模型",
-      "summary": "智象未来（HiDream.ai）正式发布首个原生全模态视频生成模型 HiDream-O1-Video-1.0",
-      "url": "https://www.qbitai.com/2026/09/489389.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-15T18:41:06+08:00"
     },
     {
       "id": "1537042228c9",
@@ -141,51 +204,6 @@
       "published_at": "2026-09-15T17:00:42+08:00"
     },
     {
-      "id": "062061e61712",
-      "title": "ZGCM-1: A Fully Open and Extremely Efficient Foundation Model for Math and Agentic Search",
-      "summary": "arXiv:2609.13356v1 Announce Type: new Abstract: In this work, we present ZGCM-1, a fully open 7B dense foundation model trained from scratch with extreme data,…",
-      "url": "https://arxiv.org/abs/2609.13356",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-15T12:00:00+08:00"
-    },
-    {
-      "id": "f6a0573d6d76",
-      "title": "Converge Then Diversify: Decoupling Convergence and Diversity in Multi-Objective Bayesian Optimisation",
-      "summary": "arXiv:2609.13396v1 Announce Type: new Abstract: Multi-objective Bayesian optimisation (MOBO) is a sample-efficient approach for optimising expensive black-box …",
-      "url": "https://arxiv.org/abs/2609.13396",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-15T12:00:00+08:00"
-    },
-    {
-      "id": "75365bdaf27d",
-      "title": "Generalized Agent Iteration: One Formal Framework for Iterative Policy Improvement and Recursive Self-Improvement",
-      "summary": "arXiv:2609.13406v1 Announce Type: new Abstract: When we speak of recursive self-improvement (RSI), are we speaking of a phenomenon, a mechanism, or a prospect?…",
-      "url": "https://arxiv.org/abs/2609.13406",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-15T12:00:00+08:00"
-    },
-    {
-      "id": "1c59e5219d4c",
-      "title": "Vibe Patenting: Evaluating LLM Judges for Professional Patent-Drafting Agents",
-      "summary": "arXiv:2609.13422v1 Announce Type: new Abstract: LLM judges are increasingly used to evaluate and improve AI-generated outputs, yet their reliability for comple…",
-      "url": "https://arxiv.org/abs/2609.13422",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-15T12:00:00+08:00"
-    },
-    {
-      "id": "15e83ccaebb1",
-      "title": "Toward Self-Adaptive Physical AI: Can LLM Agents Manage Long-Horizon Physical Tasks?",
-      "summary": "arXiv:2609.13436v1 Announce Type: new Abstract: Large Language Model (LLM) agents offer a promising path toward autonomously managing long-term physical tasks …",
-      "url": "https://arxiv.org/abs/2609.13436",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-15T12:00:00+08:00"
-    },
-    {
       "id": "b49b47db0b35",
       "title": "Watch astronaut Christina Koch and Google’s James Manyika discuss space, technology, and discovery.",
       "summary": "Christina Koch sits down with James Manyika, Google’s Senior Vice President of Research, Labs, Technology & Society.",
@@ -193,15 +211,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-09-15T03:00:00+08:00"
-    },
-    {
-      "id": "1a974e5655c8",
-      "title": "Perplexity Portable Computer Is Now Available on Windows, Powered by NVIDIA RTX",
-      "summary": "As local models become more capable, AI agents can handle more work directly on a PC while keeping sensitive information on the device. Portable Computer is a …",
-      "url": "https://blogs.nvidia.com/blog/local-ai-perplexity-windows-pcs/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-09-14T23:00:52+08:00"
     },
     {
       "id": "296d33defd03",
@@ -238,15 +247,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-11T18:00:00+08:00"
-    },
-    {
-      "id": "683b94332d9b",
-      "title": "Skild AI Taps NVIDIA Physical AI to Teach Robots New Tasks From a Single Video",
-      "summary": "Manufacturing floors, warehouses and production lines rarely stay fixed — tasks change, layouts shift and new products arrive, and most robots can’t keep up wi…",
-      "url": "https://blogs.nvidia.com/blog/skild-ai-s1-physical-ai/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-11T00:30:35+08:00"
     },
     {
       "id": "014159943e4d",
@@ -316,13 +316,13 @@
       "window_hours": 720
     },
     {
-      "id": "53818ac5275c",
-      "title": "蚂蚁百灵发布首个金融增强模型，AI开始进入真实投研工作流",
-      "summary": "蚂蚁百灵发布首个金融增强模型，AI开始进入真实投研工作流",
-      "url": "https://www.qbitai.com/2026/09/486288.html",
+      "id": "dd6498b708cc",
+      "title": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
+      "summary": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
+      "url": "https://www.qbitai.com/2026/09/486934.html",
       "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-09T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-09-10T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -338,16 +338,6 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-09-10T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "53818ac5275c",
-        "title": "蚂蚁百灵发布首个金融增强模型，AI开始进入真实投研工作流",
-        "summary": "蚂蚁百灵发布首个金融增强模型，AI开始进入真实投研工作流",
-        "url": "https://www.qbitai.com/2026/09/486288.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-09T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -377,6 +367,16 @@
         "url": "https://www.qbitai.com/2026/09/486684.html",
         "source": "量子位",
         "category": "新工具上线",
+        "published_at": "2026-09-10T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "dd6498b708cc",
+        "title": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
+        "summary": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
+        "url": "https://www.qbitai.com/2026/09/486934.html",
+        "source": "量子位",
+        "category": "中文资讯",
         "published_at": "2026-09-10T00:00:00+08:00",
         "window_hours": 720
       }
