@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-17T17:23:51.442577+08:00",
-  "date": "2026-09-17",
+  "updated_at": "2026-09-18T03:56:22.990742+08:00",
+  "date": "2026-09-18",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "04812389539e",
+      "title": "Cute Critters Come to the Cloud: ‘Aniimo’ Launches on GeForce NOW",
+      "summary": "A new creature-catching adventure is ready to stream from the cloud this week. Pawprint Studio’s Aniimo arrives on GeForce NOW at launch, inviting gamers to ex…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-aniimo/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-17T21:00:55+08:00"
+    },
+    {
+      "id": "eac2164922f4",
+      "title": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
+      "summary": "构建个体专属AI助理",
+      "url": "https://www.qbitai.com/2026/09/491649.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-17T20:03:24+08:00"
+    },
+    {
+      "id": "193a9afe638e",
+      "title": "Claude Code团队讲究啊，这都往外说",
+      "summary": "工程师的核心永远是Problem Solving。",
+      "url": "https://www.qbitai.com/2026/09/491596.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-17T19:56:13+08:00"
+    },
+    {
+      "id": "e28449444bb2",
+      "title": "图形学宗师童欣加盟Meshy，要做“AI for Fun”的头号玩家",
+      "summary": "他要和这一代最富有想象力的年轻人一起，去创造一个新的图形学。",
+      "url": "https://www.qbitai.com/2026/09/491522.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-17T17:42:12+08:00"
+    },
+    {
+      "id": "cfcf89b5b759",
+      "title": "央企做了个通用Agent，直接杀进IDC实测前三！",
+      "summary": "中国电信，TeleAgent",
+      "url": "https://www.qbitai.com/2026/09/491454.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-17T17:39:19+08:00"
+    },
+    {
+      "id": "5160f6f8b32c",
+      "title": "Claude双入口合并，原生Office上线！硅谷AI办公大战也开始了",
+      "summary": "文档和PPT都能做了",
+      "url": "https://www.qbitai.com/2026/09/491391.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-17T17:07:25+08:00"
+    },
     {
       "id": "9221e123a178",
       "title": "Making AI-Assisted Claims Independently Challengeable: Publication Authority and a Protocol for Falsifiable Publication Records",
@@ -150,15 +204,6 @@
       "published_at": "2026-09-16T01:05:57+08:00"
     },
     {
-      "id": "4433f378b957",
-      "title": "From Megawatts to Tokens: How NVIDIA Maximizes AI Factory Production",
-      "summary": "On a sweltering August evening in Silicon Valley, as the sun dropped and air conditioning loads spiked, Silicon Valley Power sent a signal to an AI factory to …",
-      "url": "https://blogs.nvidia.com/blog/from-megawatts-to-tokens-how-nvidia-maximizes-ai-factory-production/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-16T00:55:59+08:00"
-    },
-    {
       "id": "16a7b27ed0ae",
       "title": "Your Agent Aced the Task. Will It Do It Again?",
       "summary": "Your Agent Aced the Task. Will It Do It Again?",
@@ -211,12 +256,113 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-09-15T03:00:00+08:00"
+    },
+    {
+      "id": "8d6f27c070d6",
+      "title": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
+      "summary": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
+      "url": "https://www.qbitai.com/2026/09/487688.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-12T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "3849e5beb1de",
+      "title": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
+      "summary": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
+      "url": "https://www.qbitai.com/2026/09/487701.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-12T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "dabee513fc9a",
+      "title": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
+      "summary": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
+      "url": "https://www.qbitai.com/2026/09/487796.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-12T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "d49d4b888248",
+      "title": "啊？Anthropic最高320万招销售，只为服务Meta",
+      "summary": "啊？Anthropic最高320万招销售，只为服务Meta",
+      "url": "https://www.qbitai.com/2026/09/487573.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-11T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "97c843a8f892",
+      "title": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
+      "summary": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
+      "url": "https://www.qbitai.com/2026/09/487055.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-11T00:00:00+08:00",
+      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
-    "items": []
+    "items": [
+      {
+        "id": "8d6f27c070d6",
+        "title": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
+        "summary": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
+        "url": "https://www.qbitai.com/2026/09/487688.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-12T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "3849e5beb1de",
+        "title": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
+        "summary": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
+        "url": "https://www.qbitai.com/2026/09/487701.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-12T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "dabee513fc9a",
+        "title": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
+        "summary": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
+        "url": "https://www.qbitai.com/2026/09/487796.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-12T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "d49d4b888248",
+        "title": "啊？Anthropic最高320万招销售，只为服务Meta",
+        "summary": "啊？Anthropic最高320万招销售，只为服务Meta",
+        "url": "https://www.qbitai.com/2026/09/487573.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-11T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "97c843a8f892",
+        "title": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
+        "summary": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
+        "url": "https://www.qbitai.com/2026/09/487055.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-09-11T00:00:00+08:00",
+        "window_hours": 720
+      }
+    ]
   },
   "watch_sources": [
     {
