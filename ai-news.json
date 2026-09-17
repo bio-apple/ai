@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-17T03:48:20.683864+08:00",
+  "updated_at": "2026-09-17T17:23:51.442577+08:00",
   "date": "2026-09-17",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "9221e123a178",
+      "title": "Making AI-Assisted Claims Independently Challengeable: Publication Authority and a Protocol for Falsifiable Publication Records",
+      "summary": "arXiv:2609.17631v1 Announce Type: new Abstract: AI-assisted claims can appear authoritative when evidence, analysis, human authorization, presentation, and cor…",
+      "url": "https://arxiv.org/abs/2609.17631",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-17T12:00:00+08:00"
+    },
+    {
+      "id": "b0237729cd40",
+      "title": "EvolveTrade: Experience-Driven Policy Refinement for Self-Evolving LLM Trading Agents",
+      "summary": "arXiv:2609.17632v1 Announce Type: new Abstract: Large language model (LLM) trading agents can combine market data, news, and executable analysis, but their beh…",
+      "url": "https://arxiv.org/abs/2609.17632",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-17T12:00:00+08:00"
+    },
+    {
+      "id": "85f98809895c",
+      "title": "One Color Preprocessing Improves DSATUR",
+      "summary": "arXiv:2609.17633v1 Announce Type: new Abstract: The Graph Coloring Problem (GCP) is NP-hard and DSATUR stands as one of the fastest heuristics for it despite p…",
+      "url": "https://arxiv.org/abs/2609.17633",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-17T12:00:00+08:00"
+    },
+    {
+      "id": "71314bf87f53",
+      "title": "Physics-Constrained Digital Twins for Sensor Integrity in Urban Pedestrian Flow: Detecting Stealthy False Data Injection with Conformal Guarantees",
+      "summary": "arXiv:2609.17635v1 Announce Type: new Abstract: City pedestrian counting systems now feed economic indicators, planning decisions and safety operations, yet th…",
+      "url": "https://arxiv.org/abs/2609.17635",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-17T12:00:00+08:00"
+    },
+    {
+      "id": "af63fd1bc698",
+      "title": "What You Can't See Is Still What You Learn: A Preregistered Sixty-Society Confirmation That Evidence Masking Drives Compositional Generalization",
+      "summary": "arXiv:2609.17637v1 Announce Type: new Abstract: Restricting what a module can read may improve what a system learns to compute. We test this in a preregistered…",
+      "url": "https://arxiv.org/abs/2609.17637",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-17T12:00:00+08:00"
+    },
+    {
+      "id": "bbe6c30a33c9",
+      "title": "Our framework for reporting model misalignment",
+      "summary": "OpenAI shares a framework for tracking, investigating, and disclosing model misalignment, alongside six reports of unexpected or concerning model behavior.",
+      "url": "https://openai.com/index/model-misalignment-reporting-framework",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-17T01:00:00+08:00"
+    },
     {
       "id": "027811ca1632",
       "title": "Helping older adults use AI in everyday life",
@@ -31,15 +85,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-09-16T23:00:48+08:00"
-    },
-    {
-      "id": "2e3dc776160a",
-      "title": "通用能力不打折，空间具身智能断层领先！ZDTaichu5.0-9B国产开源，跻身全球多模态第一梯队",
-      "summary": "九大空间测试10B规模通用模型中8项第一",
-      "url": "https://www.qbitai.com/2026/09/490839.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-16T21:08:20+08:00"
     },
     {
       "id": "22653b4ecc69",
@@ -78,42 +123,6 @@
       "published_at": "2026-09-16T17:00:00+08:00"
     },
     {
-      "id": "742ef1e1caea",
-      "title": "AI大模型工场2026 AI产业生态大会今日举办，大咖同台共探智能生长与产业共生",
-      "summary": "9月15日，由AI大模型工场主办的“2026 AI产业生态大会”在北京举行。",
-      "url": "https://www.qbitai.com/2026/09/490760.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-16T16:51:02+08:00"
-    },
-    {
-      "id": "2807434ee233",
-      "title": "高通技术公司携手中兴努比亚和豆包手机助手，共同推动智能手机迈入个人AI新时代",
-      "summary": "第五代骁龙8至尊版赋能全新AI智能体手机努比亚NaviX Ultra，加速智能体体验规模化落地",
-      "url": "https://www.qbitai.com/2026/09/490756.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-16T16:18:44+08:00"
-    },
-    {
-      "id": "ddb62835f151",
-      "title": "基元律动与无问芯穹达成战略合作，推进高质量Token供给与应用",
-      "summary": "2026年 9 月 15 日，AI基础设施公司基元律动（TokenRhythm）与无问芯穹（Infinigence AI）签署战略合作协议。",
-      "url": "https://www.qbitai.com/2026/09/490750.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-16T16:09:53+08:00"
-    },
-    {
-      "id": "53c64a073057",
-      "title": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
-      "summary": "AI协同办公的新官配，我先磕了",
-      "url": "https://www.qbitai.com/2026/09/490686.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-16T15:46:38+08:00"
-    },
-    {
       "id": "88fd26958a90",
       "title": "University of Manchester Uses NVIDIA Earth-2 to Forecast Air Pollution Across the UK",
       "summary": "Air pollution is a serious public health risk, contributing to an estimated 30,000 deaths in the U.K. alone last year. Data-driven insights can help — but comp…",
@@ -121,51 +130,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-09-16T13:00:42+08:00"
-    },
-    {
-      "id": "884b60085b79",
-      "title": "Optimal Pruning for Neural Architectures using Fisher Information Distances",
-      "summary": "arXiv:2609.16129v1 Announce Type: new Abstract: A new scheme for parameter pruning is introduced, derived from the differential-geometric distance in model spa…",
-      "url": "https://arxiv.org/abs/2609.16129",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-16T12:00:00+08:00"
-    },
-    {
-      "id": "4902b250d1b0",
-      "title": "Safe Error Correction for Language Models: Frozen-Base Adjustment with Capability Preservation",
-      "summary": "arXiv:2609.16145v1 Announce Type: new Abstract: We study a practical question: can a small correction module fix errors in a frozen language model's outputs wi…",
-      "url": "https://arxiv.org/abs/2609.16145",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-16T12:00:00+08:00"
-    },
-    {
-      "id": "197b2e83e60f",
-      "title": "GPEvac: GNN-Based PPO for Adaptive Evacuation Routing During Shooting Events",
-      "summary": "arXiv:2609.16163v1 Announce Type: new Abstract: The sharp increase in mass shootings underscores an urgent need for systems that guide victims to safety in rea…",
-      "url": "https://arxiv.org/abs/2609.16163",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-16T12:00:00+08:00"
-    },
-    {
-      "id": "7f73c1b61241",
-      "title": "Position: AI Is Not Ready for Strategic Conflicts",
-      "summary": "arXiv:2609.16189v1 Announce Type: new Abstract: Open-ended strategic wargames are high-stakes LM-based social simulations: they model adversaries, institutions…",
-      "url": "https://arxiv.org/abs/2609.16189",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-16T12:00:00+08:00"
-    },
-    {
-      "id": "a7dab887065f",
-      "title": "Calibrate, Then Route: A Measured Study of Learned Request Routing for Disaggregated LLM Serving",
-      "summary": "arXiv:2609.16206v1 Announce Type: new Abstract: Disaggregated LLM serving places compute heavy prefill and memory heavy decode on separate GPU pools. Systems s…",
-      "url": "https://arxiv.org/abs/2609.16206",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-16T12:00:00+08:00"
     },
     {
       "id": "1fec8bc66a00",
@@ -247,140 +211,12 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-09-15T03:00:00+08:00"
-    },
-    {
-      "id": "296d33defd03",
-      "title": "How Fyxer built an AI executive assistant people trust",
-      "summary": "Fyxer uses OpenAI models, fine-tuning, memory, and real user feedback to organize inboxes and draft emails in each user’s voice.",
-      "url": "https://openai.com/index/fyxer",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-14T20:00:00+08:00"
-    },
-    {
-      "id": "d4e55a9164f4",
-      "title": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
-      "summary": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
-      "url": "https://huggingface.co/blog/asyncgrpo-lora-hfjobs",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-10T08:00:00+08:00"
-    },
-    {
-      "id": "cb50b0c3c856",
-      "title": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
-      "summary": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
-      "url": "https://huggingface.co/blog/gradio-workflow-1111",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-10T08:00:00+08:00"
-    },
-    {
-      "id": "df6c21e96ac4",
-      "title": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
-      "summary": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
-      "url": "https://www.qbitai.com/2026/09/486900.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "3461b99f5def",
-      "title": "打造10万卡国产算力集群推出JoyAI世界模型，京东发布物理AI建设最新成果",
-      "summary": "打造10万卡国产算力集群推出JoyAI世界模型，京东发布物理AI建设最新成果",
-      "url": "https://www.qbitai.com/2026/09/486436.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "e71122305716",
-      "title": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
-      "summary": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
-      "url": "https://www.qbitai.com/2026/09/486684.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-10T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "dd6498b708cc",
-      "title": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
-      "summary": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
-      "url": "https://www.qbitai.com/2026/09/486934.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-10T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "19b581d92e72",
-      "title": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
-      "summary": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
-      "url": "https://www.qbitai.com/2026/09/486716.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-10T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
-    "items": [
-      {
-        "id": "df6c21e96ac4",
-        "title": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
-        "summary": "全球首个3D原生城市世界模型ABot-Earth 0.7发布，构建AI理解真实世界的入口",
-        "url": "https://www.qbitai.com/2026/09/486900.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-10T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "3461b99f5def",
-        "title": "打造10万卡国产算力集群推出JoyAI世界模型，京东发布物理AI建设最新成果",
-        "summary": "打造10万卡国产算力集群推出JoyAI世界模型，京东发布物理AI建设最新成果",
-        "url": "https://www.qbitai.com/2026/09/486436.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-10T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "e71122305716",
-        "title": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
-        "summary": "AGI时代的第一个生图模型，ChatGPT Images 2.5上线",
-        "url": "https://www.qbitai.com/2026/09/486684.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-10T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "dd6498b708cc",
-        "title": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
-        "summary": "ECCV上，顶尖学者们开始研究如何让AI做生意了",
-        "url": "https://www.qbitai.com/2026/09/486934.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-10T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "19b581d92e72",
-        "title": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
-        "summary": "这个新开源的世界模型只有1.3B，单卡就能实时跑！",
-        "url": "https://www.qbitai.com/2026/09/486716.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-09-10T00:00:00+08:00",
-        "window_hours": 720
-      }
-    ]
+    "items": []
   },
   "watch_sources": [
     {
