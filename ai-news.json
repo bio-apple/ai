@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-18T03:56:22.990742+08:00",
+  "updated_at": "2026-09-18T16:31:47.924106+08:00",
   "date": "2026-09-18",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,87 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "a32300e4c97e",
+      "title": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
+      "summary": "用通用AI去啃最硬的骨头，这条路走得通",
+      "url": "https://www.qbitai.com/2026/09/491875.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-18T14:11:06+08:00"
+    },
+    {
+      "id": "b92c247dcc1a",
+      "title": "Regularized Emphatic Temporal-Difference Learning: Stability under Constant Stepsizes",
+      "summary": "arXiv:2609.19170v1 Announce Type: new Abstract: Emphatic temporal-difference learning (ETD) stabilizes the expected off-policy TD update and changes its projec…",
+      "url": "https://arxiv.org/abs/2609.19170",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-18T12:00:00+08:00"
+    },
+    {
+      "id": "7b3bd791b71a",
+      "title": "BioPhys-Bridge: A Benchmark for Interdisciplinary Scientific Reasoning in Physics-Grounded Biological Research",
+      "summary": "arXiv:2609.19180v1 Announce Type: new Abstract: Language models face unique challenges in analyzing interdisciplinary scientific research literature. In biophy…",
+      "url": "https://arxiv.org/abs/2609.19180",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-18T12:00:00+08:00"
+    },
+    {
+      "id": "8c88d48a4f44",
+      "title": "What Do We Expect from LLMs? Mapping the Design of LLM Benchmarks",
+      "summary": "arXiv:2609.19182v1 Announce Type: new Abstract: Benchmarks are central to how progress in large language models (LLMs) is assessed and communicated. Yet model …",
+      "url": "https://arxiv.org/abs/2609.19182",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-18T12:00:00+08:00"
+    },
+    {
+      "id": "c1e8c41b9a82",
+      "title": "Position: It is Time to Virtualize Foundation Models with a Self-evolving Operating System Layer",
+      "summary": "arXiv:2609.19203v1 Announce Type: new Abstract: AI applications have shifted from single, monolithic foundation models (FM) to compound agentic systems. Yet to…",
+      "url": "https://arxiv.org/abs/2609.19203",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-18T12:00:00+08:00"
+    },
+    {
+      "id": "5b846e1c4b28",
+      "title": "What Do Current Systematic Generalization Tasks Miss? A Reasoning-Centered Analysis",
+      "summary": "arXiv:2609.19212v1 Announce Type: new Abstract: Systematic generalization, the ability to solve novel problems by recombining known atomic elements, is central…",
+      "url": "https://arxiv.org/abs/2609.19212",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-18T12:00:00+08:00"
+    },
+    {
+      "id": "08f3d4a31cf2",
+      "title": "Manus重生第17天，估值居然就翻倍了",
+      "summary": "作价40亿美元推进新融资",
+      "url": "https://www.qbitai.com/2026/09/491764.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-09-18T08:37:13+08:00"
+    },
+    {
+      "id": "38cf8e2889b3",
+      "title": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
+      "summary": "Git白学了？？？",
+      "url": "https://www.qbitai.com/2026/09/491711.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-18T08:34:34+08:00"
+    },
+    {
+      "id": "e7b9d12d1b3a",
+      "title": "Making global data easier to explore",
+      "summary": "Google and the UN system have launched the UN System Data Commons, a new open platform making global statistics accessible and easy to search.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-un-data-commons-platform/",
+      "source": "Google AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-18T04:00:00+08:00"
+    },
     {
       "id": "04812389539e",
       "title": "Cute Critters Come to the Cloud: ‘Aniimo’ Launches on GeForce NOW",
@@ -33,6 +114,15 @@
       "published_at": "2026-09-17T20:03:24+08:00"
     },
     {
+      "id": "964ae1dd0fac",
+      "title": "How Cooley is accelerating IPO work with ChatGPT",
+      "summary": "Cooley built GO Public with ChatGPT Work to bring intelligence to the IPO process, helping lawyers surface issues earlier and focus judgment where it matters m…",
+      "url": "https://openai.com/index/cooley-gopublic",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-17T20:00:00+08:00"
+    },
+    {
       "id": "193a9afe638e",
       "title": "Claude Code团队讲究啊，这都往外说",
       "summary": "工程师的核心永远是Problem Solving。",
@@ -42,85 +132,13 @@
       "published_at": "2026-09-17T19:56:13+08:00"
     },
     {
-      "id": "e28449444bb2",
-      "title": "图形学宗师童欣加盟Meshy，要做“AI for Fun”的头号玩家",
-      "summary": "他要和这一代最富有想象力的年轻人一起，去创造一个新的图形学。",
-      "url": "https://www.qbitai.com/2026/09/491522.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-17T17:42:12+08:00"
-    },
-    {
-      "id": "cfcf89b5b759",
-      "title": "央企做了个通用Agent，直接杀进IDC实测前三！",
-      "summary": "中国电信，TeleAgent",
-      "url": "https://www.qbitai.com/2026/09/491454.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-17T17:39:19+08:00"
-    },
-    {
-      "id": "5160f6f8b32c",
-      "title": "Claude双入口合并，原生Office上线！硅谷AI办公大战也开始了",
-      "summary": "文档和PPT都能做了",
-      "url": "https://www.qbitai.com/2026/09/491391.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-17T17:07:25+08:00"
-    },
-    {
-      "id": "9221e123a178",
-      "title": "Making AI-Assisted Claims Independently Challengeable: Publication Authority and a Protocol for Falsifiable Publication Records",
-      "summary": "arXiv:2609.17631v1 Announce Type: new Abstract: AI-assisted claims can appear authoritative when evidence, analysis, human authorization, presentation, and cor…",
-      "url": "https://arxiv.org/abs/2609.17631",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-17T12:00:00+08:00"
-    },
-    {
-      "id": "b0237729cd40",
-      "title": "EvolveTrade: Experience-Driven Policy Refinement for Self-Evolving LLM Trading Agents",
-      "summary": "arXiv:2609.17632v1 Announce Type: new Abstract: Large language model (LLM) trading agents can combine market data, news, and executable analysis, but their beh…",
-      "url": "https://arxiv.org/abs/2609.17632",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-17T12:00:00+08:00"
-    },
-    {
-      "id": "85f98809895c",
-      "title": "One Color Preprocessing Improves DSATUR",
-      "summary": "arXiv:2609.17633v1 Announce Type: new Abstract: The Graph Coloring Problem (GCP) is NP-hard and DSATUR stands as one of the fastest heuristics for it despite p…",
-      "url": "https://arxiv.org/abs/2609.17633",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-17T12:00:00+08:00"
-    },
-    {
-      "id": "71314bf87f53",
-      "title": "Physics-Constrained Digital Twins for Sensor Integrity in Urban Pedestrian Flow: Detecting Stealthy False Data Injection with Conformal Guarantees",
-      "summary": "arXiv:2609.17635v1 Announce Type: new Abstract: City pedestrian counting systems now feed economic indicators, planning decisions and safety operations, yet th…",
-      "url": "https://arxiv.org/abs/2609.17635",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-17T12:00:00+08:00"
-    },
-    {
-      "id": "af63fd1bc698",
-      "title": "What You Can't See Is Still What You Learn: A Preregistered Sixty-Society Confirmation That Evidence Masking Drives Compositional Generalization",
-      "summary": "arXiv:2609.17637v1 Announce Type: new Abstract: Restricting what a module can read may improve what a system learns to compute. We test this in a preregistered…",
-      "url": "https://arxiv.org/abs/2609.17637",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-17T12:00:00+08:00"
-    },
-    {
-      "id": "bbe6c30a33c9",
-      "title": "Our framework for reporting model misalignment",
-      "summary": "OpenAI shares a framework for tracking, investigating, and disclosing model misalignment, alongside six reports of unexpected or concerning model behavior.",
-      "url": "https://openai.com/index/model-misalignment-reporting-framework",
+      "id": "363bbead77de",
+      "title": "Introducing Astra for Law",
+      "summary": "OpenAI for Law brings frontier intelligence for law, custom firm workflows, connected legal data sources, and legal-grade controls for confidential client work.",
+      "url": "https://openai.com/index/astra-for-law",
       "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-17T01:00:00+08:00"
+      "category": "新工具上线",
+      "published_at": "2026-09-17T08:00:00+08:00"
     },
     {
       "id": "027811ca1632",
@@ -166,15 +184,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-16T20:00:00+08:00"
-    },
-    {
-      "id": "71646fffd914",
-      "title": "How workers are unlocking new ways of working",
-      "summary": "New OpenAI Economic Research shows how workers use AI beyond traditional roles and which new activities become recurring parts of their work.",
-      "url": "https://openai.com/index/unlocking-new-ways-of-working",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-16T17:00:00+08:00"
     },
     {
       "id": "88fd26958a90",
@@ -249,15 +258,6 @@
       "published_at": "2026-09-15T21:00:00+08:00"
     },
     {
-      "id": "b49b47db0b35",
-      "title": "Watch astronaut Christina Koch and Google’s James Manyika discuss space, technology, and discovery.",
-      "summary": "Christina Koch sits down with James Manyika, Google’s Senior Vice President of Research, Labs, Technology & Society.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/dialogues-christina-koch/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-15T03:00:00+08:00"
-    },
-    {
       "id": "8d6f27c070d6",
       "title": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
       "summary": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
@@ -288,22 +288,22 @@
       "window_hours": 720
     },
     {
+      "id": "00cf27ef8c06",
+      "title": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
+      "summary": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
+      "url": "https://www.qbitai.com/2026/09/487631.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-12T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "d49d4b888248",
       "title": "啊？Anthropic最高320万招销售，只为服务Meta",
       "summary": "啊？Anthropic最高320万招销售，只为服务Meta",
       "url": "https://www.qbitai.com/2026/09/487573.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-11T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "97c843a8f892",
-      "title": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
-      "summary": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
-      "url": "https://www.qbitai.com/2026/09/487055.html",
-      "source": "量子位",
-      "category": "开源项目",
       "published_at": "2026-09-11T00:00:00+08:00",
       "window_hours": 720
     }
@@ -353,13 +353,13 @@
         "window_hours": 720
       },
       {
-        "id": "97c843a8f892",
-        "title": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
-        "summary": "吹爆开源！RunningHub让MiniMax H3满血提速12倍，本地部署照样起飞",
-        "url": "https://www.qbitai.com/2026/09/487055.html",
+        "id": "00cf27ef8c06",
+        "title": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
+        "summary": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
+        "url": "https://www.qbitai.com/2026/09/487631.html",
         "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-09-11T00:00:00+08:00",
+        "category": "中文资讯",
+        "published_at": "2026-09-12T00:00:00+08:00",
         "window_hours": 720
       }
     ]
