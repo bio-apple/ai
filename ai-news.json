@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-18T16:31:47.924106+08:00",
-  "date": "2026-09-18",
+  "updated_at": "2026-09-19T03:18:39.022544+08:00",
+  "date": "2026-09-19",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,13 +15,67 @@
   },
   "items": [
     {
-      "id": "a32300e4c97e",
-      "title": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
-      "summary": "用通用AI去啃最硬的骨头，这条路走得通",
-      "url": "https://www.qbitai.com/2026/09/491875.html",
+      "id": "3d6b79b693c5",
+      "title": "无问芯穹与华环电子签署战略合作，共同探索国产异构算力AI基础设施新方向",
+      "summary": "协同布局AI基础设施",
+      "url": "https://www.qbitai.com/2026/09/492426.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-09-18T23:58:21+08:00"
+    },
+    {
+      "id": "91ca4656942e",
+      "title": "达卯科技算电协同2.0平台入选2026国际数字能源展重大成果发布",
+      "summary": "成果中唯一聚焦算电协同全链路运营的AI技术产品",
+      "url": "https://www.qbitai.com/2026/09/492421.html",
       "source": "量子位",
       "category": "新工具上线",
-      "published_at": "2026-09-18T14:11:06+08:00"
+      "published_at": "2026-09-18T23:50:20+08:00"
+    },
+    {
+      "id": "079e661c04ce",
+      "title": "New experts join Google’s AI & Economy team",
+      "summary": "We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-18T22:00:00+08:00"
+    },
+    {
+      "id": "405bd528b1b8",
+      "title": "具身智能技术路线尚未定型，基础设施却先收敛",
+      "summary": "从一次成功到一万次稳定执行，具身智能还缺什么？",
+      "url": "https://www.qbitai.com/2026/09/492238.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-18T21:16:33+08:00"
+    },
+    {
+      "id": "13d62ca6fcfd",
+      "title": "Co-creating the future of fashion with",
+      "summary": "Google worked side-by-side with designers Jane Wade and Sergio Hudson to custom-design Google Flow tools to prep for NYFW.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-18T21:00:00+08:00"
+    },
+    {
+      "id": "0ce3b0191d5f",
+      "title": "AGI新战场谷歌亚马逊巨头激战，杀出个中国LimiX-2赢了又赢",
+      "summary": "LimiX让模型理解数据背后的因果机制",
+      "url": "https://www.qbitai.com/2026/09/492175.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-18T20:22:47+08:00"
+    },
+    {
+      "id": "254641ce73bf",
+      "title": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
+      "summary": "那些数以亿万计的，仍在等待被市场看见的小农户们。",
+      "url": "https://www.qbitai.com/2026/09/492015.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-18T17:19:37+08:00"
     },
     {
       "id": "b92c247dcc1a",
@@ -69,24 +123,6 @@
       "published_at": "2026-09-18T12:00:00+08:00"
     },
     {
-      "id": "08f3d4a31cf2",
-      "title": "Manus重生第17天，估值居然就翻倍了",
-      "summary": "作价40亿美元推进新融资",
-      "url": "https://www.qbitai.com/2026/09/491764.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-18T08:37:13+08:00"
-    },
-    {
-      "id": "38cf8e2889b3",
-      "title": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
-      "summary": "Git白学了？？？",
-      "url": "https://www.qbitai.com/2026/09/491711.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-18T08:34:34+08:00"
-    },
-    {
       "id": "e7b9d12d1b3a",
       "title": "Making global data easier to explore",
       "summary": "Google and the UN system have launched the UN System Data Commons, a new open platform making global statistics accessible and easy to search.",
@@ -105,15 +141,6 @@
       "published_at": "2026-09-17T21:00:55+08:00"
     },
     {
-      "id": "eac2164922f4",
-      "title": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
-      "summary": "构建个体专属AI助理",
-      "url": "https://www.qbitai.com/2026/09/491649.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-17T20:03:24+08:00"
-    },
-    {
       "id": "964ae1dd0fac",
       "title": "How Cooley is accelerating IPO work with ChatGPT",
       "summary": "Cooley built GO Public with ChatGPT Work to bring intelligence to the IPO process, helping lawyers surface issues earlier and focus judgment where it matters m…",
@@ -121,15 +148,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-17T20:00:00+08:00"
-    },
-    {
-      "id": "193a9afe638e",
-      "title": "Claude Code团队讲究啊，这都往外说",
-      "summary": "工程师的核心永远是Problem Solving。",
-      "url": "https://www.qbitai.com/2026/09/491596.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-17T19:56:13+08:00"
     },
     {
       "id": "363bbead77de",
@@ -240,22 +258,14 @@
       "published_at": "2026-09-16T00:00:00+08:00"
     },
     {
-      "id": "a243976a4aef",
-      "title": "AI for everyone in every language",
-      "summary": "We’re moving beyond traditional text translation to build models that understand the world’s rich, living languages exactly as they are expressed.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language/",
-      "source": "Google AI",
+      "id": "1cf3b72857c7",
+      "title": "首届蚂蚁灵波具身大模型挑战赛正式启动",
+      "summary": "首届蚂蚁灵波具身大模型挑战赛正式启动",
+      "url": "https://www.qbitai.com/2026/09/489105.html",
+      "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-09-16T00:00:00+08:00"
-    },
-    {
-      "id": "00e29a681a6f",
-      "title": "New insights from Google’s AI & Economy ATLAS",
-      "summary": "We’ve translated ATLAS’s millions of global data points into an interactive, open-access experience.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-15T21:00:00+08:00"
+      "published_at": "2026-09-14T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "8d6f27c070d6",
@@ -288,23 +298,13 @@
       "window_hours": 720
     },
     {
-      "id": "00cf27ef8c06",
-      "title": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
-      "summary": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
-      "url": "https://www.qbitai.com/2026/09/487631.html",
+      "id": "f848a8798e28",
+      "title": "探索RSI，生数新世界模型让机器人开始自我进化",
+      "summary": "探索RSI，生数新世界模型让机器人开始自我进化",
+      "url": "https://www.qbitai.com/2026/09/487752.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-12T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "d49d4b888248",
-      "title": "啊？Anthropic最高320万招销售，只为服务Meta",
-      "summary": "啊？Anthropic最高320万招销售，只为服务Meta",
-      "url": "https://www.qbitai.com/2026/09/487573.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-11T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -343,23 +343,23 @@
         "window_hours": 720
       },
       {
-        "id": "d49d4b888248",
-        "title": "啊？Anthropic最高320万招销售，只为服务Meta",
-        "summary": "啊？Anthropic最高320万招销售，只为服务Meta",
-        "url": "https://www.qbitai.com/2026/09/487573.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-11T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "00cf27ef8c06",
-        "title": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
-        "summary": "银行Agent上岗：4200万小微经营者可用，信贷、票据、财税一把梭",
-        "url": "https://www.qbitai.com/2026/09/487631.html",
+        "id": "f848a8798e28",
+        "title": "探索RSI，生数新世界模型让机器人开始自我进化",
+        "summary": "探索RSI，生数新世界模型让机器人开始自我进化",
+        "url": "https://www.qbitai.com/2026/09/487752.html",
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-12T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "1cf3b72857c7",
+        "title": "首届蚂蚁灵波具身大模型挑战赛正式启动",
+        "summary": "首届蚂蚁灵波具身大模型挑战赛正式启动",
+        "url": "https://www.qbitai.com/2026/09/489105.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-14T00:00:00+08:00",
         "window_hours": 720
       }
     ]
