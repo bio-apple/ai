@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-19T16:19:20.065184+08:00",
-  "date": "2026-09-19",
+  "updated_at": "2026-09-20T03:04:50.068740+08:00",
+  "date": "2026-09-20",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,40 +15,49 @@
   },
   "items": [
     {
-      "id": "8ddbe8e97d47",
-      "title": "陶哲轩代表SAIR Foundation宣布正式启动“开放数学模型计划”",
-      "summary": "让开放模型与可负担的算力成为数学研究的共享基石",
-      "url": "https://www.qbitai.com/2026/09/492467.html",
+      "id": "9a0a6abfb04b",
+      "title": "“留给人类阻止AI的时间不多了”",
+      "summary": "AI有可能终结我们所有人",
+      "url": "https://www.qbitai.com/2026/09/492755.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-19T14:44:02+08:00"
+      "published_at": "2026-09-19T19:53:12+08:00"
     },
     {
-      "id": "856eec485540",
-      "title": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
-      "summary": "同一预测核心，跨七类系统验证",
-      "url": "https://www.qbitai.com/2026/09/492429.html",
+      "id": "cb3db4aa992b",
+      "title": "马斯克批量收购破产公司ing…世界首富脑子是不一样",
+      "summary": "老马想买倒闭公司数据为哪般",
+      "url": "https://www.qbitai.com/2026/09/492661.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-19T14:39:32+08:00"
+      "published_at": "2026-09-19T19:48:06+08:00"
     },
     {
-      "id": "3d6b79b693c5",
-      "title": "无问芯穹与华环电子签署战略合作，共同探索国产异构算力AI基础设施新方向",
-      "summary": "协同布局AI基础设施",
-      "url": "https://www.qbitai.com/2026/09/492426.html",
+      "id": "fe3cb8211525",
+      "title": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
+      "summary": "设计、前端一口气全干了，结果后端没来上班",
+      "url": "https://www.qbitai.com/2026/09/492573.html",
       "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-18T23:58:21+08:00"
+      "category": "中文资讯",
+      "published_at": "2026-09-19T19:43:12+08:00"
     },
     {
-      "id": "91ca4656942e",
-      "title": "达卯科技算电协同2.0平台入选2026国际数字能源展重大成果发布",
-      "summary": "成果中唯一聚焦算电协同全链路运营的AI技术产品",
-      "url": "https://www.qbitai.com/2026/09/492421.html",
+      "id": "c0c2394a1a90",
+      "title": "Nature：AI重生到1900，这一世抢先爱因斯坦提出光量子",
+      "summary": "AI能否提出相对论？",
+      "url": "https://www.qbitai.com/2026/09/492550.html",
       "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-18T23:50:20+08:00"
+      "category": "中文资讯",
+      "published_at": "2026-09-19T19:36:11+08:00"
+    },
+    {
+      "id": "8a1696ebb8ef",
+      "title": "千万奖池找“鲸锐”！单项奖金200万，只等一个最会用AI讲故事的你",
+      "summary": "1000万，把才华送上真正的大舞台",
+      "url": "https://www.qbitai.com/2026/09/492501.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-19T16:34:35+08:00"
     },
     {
       "id": "079e661c04ce",
@@ -58,15 +67,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-09-18T22:00:00+08:00"
-    },
-    {
-      "id": "405bd528b1b8",
-      "title": "具身智能技术路线尚未定型，基础设施却先收敛",
-      "summary": "从一次成功到一万次稳定执行，具身智能还缺什么？",
-      "url": "https://www.qbitai.com/2026/09/492238.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-18T21:16:33+08:00"
     },
     {
       "id": "13d62ca6fcfd",
@@ -253,13 +253,13 @@
       "window_hours": 720
     },
     {
-      "id": "dabee513fc9a",
-      "title": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
-      "summary": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
-      "url": "https://www.qbitai.com/2026/09/487796.html",
+      "id": "32431be9776d",
+      "title": "智谱提前剧透下一代GLM：完全自训练方法公开了",
+      "summary": "智谱提前剧透下一代GLM：完全自训练方法公开了",
+      "url": "https://www.qbitai.com/2026/09/488694.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-12T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-09-14T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -267,16 +267,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "dabee513fc9a",
-        "title": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
-        "summary": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
-        "url": "https://www.qbitai.com/2026/09/487796.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-12T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "1cf3b72857c7",
         "title": "首届蚂蚁灵波具身大模型挑战赛正式启动",
@@ -314,6 +304,16 @@
         "url": "https://www.qbitai.com/2026/09/488725.html",
         "source": "量子位",
         "category": "开源项目",
+        "published_at": "2026-09-14T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "32431be9776d",
+        "title": "智谱提前剧透下一代GLM：完全自训练方法公开了",
+        "summary": "智谱提前剧透下一代GLM：完全自训练方法公开了",
+        "url": "https://www.qbitai.com/2026/09/488694.html",
+        "source": "量子位",
+        "category": "中文资讯",
         "published_at": "2026-09-14T00:00:00+08:00",
         "window_hours": 720
       }
