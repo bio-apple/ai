@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-19T03:18:39.022544+08:00",
+  "updated_at": "2026-09-19T16:19:20.065184+08:00",
   "date": "2026-09-19",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,24 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "8ddbe8e97d47",
+      "title": "陶哲轩代表SAIR Foundation宣布正式启动“开放数学模型计划”",
+      "summary": "让开放模型与可负担的算力成为数学研究的共享基石",
+      "url": "https://www.qbitai.com/2026/09/492467.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-19T14:44:02+08:00"
+    },
+    {
+      "id": "856eec485540",
+      "title": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
+      "summary": "同一预测核心，跨七类系统验证",
+      "url": "https://www.qbitai.com/2026/09/492429.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-19T14:39:32+08:00"
+    },
     {
       "id": "3d6b79b693c5",
       "title": "无问芯穹与华环电子签署战略合作，共同探索国产异构算力AI基础设施新方向",
@@ -60,67 +78,13 @@
       "published_at": "2026-09-18T21:00:00+08:00"
     },
     {
-      "id": "0ce3b0191d5f",
-      "title": "AGI新战场谷歌亚马逊巨头激战，杀出个中国LimiX-2赢了又赢",
-      "summary": "LimiX让模型理解数据背后的因果机制",
-      "url": "https://www.qbitai.com/2026/09/492175.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-18T20:22:47+08:00"
-    },
-    {
-      "id": "254641ce73bf",
-      "title": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
-      "summary": "那些数以亿万计的，仍在等待被市场看见的小农户们。",
-      "url": "https://www.qbitai.com/2026/09/492015.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-18T17:19:37+08:00"
-    },
-    {
-      "id": "b92c247dcc1a",
-      "title": "Regularized Emphatic Temporal-Difference Learning: Stability under Constant Stepsizes",
-      "summary": "arXiv:2609.19170v1 Announce Type: new Abstract: Emphatic temporal-difference learning (ETD) stabilizes the expected off-policy TD update and changes its projec…",
-      "url": "https://arxiv.org/abs/2609.19170",
-      "source": "arXiv cs.AI",
+      "id": "559b0cf11197",
+      "title": "Introducing the Australian Youth Safety Blueprint",
+      "summary": "OpenAI introduces the Australian Youth Safety Blueprint, a six-pillar roadmap for safer AI experiences that protect and empower young people.",
+      "url": "https://openai.com/index/australian-youth-safety-blueprint",
+      "source": "OpenAI",
       "category": "新工具上线",
-      "published_at": "2026-09-18T12:00:00+08:00"
-    },
-    {
-      "id": "7b3bd791b71a",
-      "title": "BioPhys-Bridge: A Benchmark for Interdisciplinary Scientific Reasoning in Physics-Grounded Biological Research",
-      "summary": "arXiv:2609.19180v1 Announce Type: new Abstract: Language models face unique challenges in analyzing interdisciplinary scientific research literature. In biophy…",
-      "url": "https://arxiv.org/abs/2609.19180",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-18T12:00:00+08:00"
-    },
-    {
-      "id": "8c88d48a4f44",
-      "title": "What Do We Expect from LLMs? Mapping the Design of LLM Benchmarks",
-      "summary": "arXiv:2609.19182v1 Announce Type: new Abstract: Benchmarks are central to how progress in large language models (LLMs) is assessed and communicated. Yet model …",
-      "url": "https://arxiv.org/abs/2609.19182",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-18T12:00:00+08:00"
-    },
-    {
-      "id": "c1e8c41b9a82",
-      "title": "Position: It is Time to Virtualize Foundation Models with a Self-evolving Operating System Layer",
-      "summary": "arXiv:2609.19203v1 Announce Type: new Abstract: AI applications have shifted from single, monolithic foundation models (FM) to compound agentic systems. Yet to…",
-      "url": "https://arxiv.org/abs/2609.19203",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-18T12:00:00+08:00"
-    },
-    {
-      "id": "5b846e1c4b28",
-      "title": "What Do Current Systematic Generalization Tasks Miss? A Reasoning-Centered Analysis",
-      "summary": "arXiv:2609.19212v1 Announce Type: new Abstract: Systematic generalization, the ability to solve novel problems by recombining known atomic elements, is central…",
-      "url": "https://arxiv.org/abs/2609.19212",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-18T12:00:00+08:00"
+      "published_at": "2026-09-18T20:00:00+08:00"
     },
     {
       "id": "e7b9d12d1b3a",
@@ -195,15 +159,6 @@
       "published_at": "2026-09-16T21:00:00+08:00"
     },
     {
-      "id": "5f7e182a53f2",
-      "title": "How to connect AI usage to business value",
-      "summary": "Learn how ChatGPT Work and Codex analytics help teams understand AI usage and spend, identify training needs, and connect adoption to business outcomes.",
-      "url": "https://openai.com/index/how-to-connect-ai-usage-to-business-value",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-16T20:00:00+08:00"
-    },
-    {
       "id": "88fd26958a90",
       "title": "University of Manchester Uses NVIDIA Earth-2 to Forecast Air Pollution Across the UK",
       "summary": "Air pollution is a serious public health risk, contributing to an estimated 30,000 deaths in the U.K. alone last year. Data-driven insights can help — but comp…",
@@ -268,23 +223,33 @@
       "window_hours": 720
     },
     {
-      "id": "8d6f27c070d6",
-      "title": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
-      "summary": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
-      "url": "https://www.qbitai.com/2026/09/487688.html",
+      "id": "ddcd1022673c",
+      "title": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
+      "summary": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
+      "url": "https://www.qbitai.com/2026/09/488832.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-12T00:00:00+08:00",
+      "published_at": "2026-09-14T00:00:00+08:00",
       "window_hours": 720
     },
     {
-      "id": "3849e5beb1de",
-      "title": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
-      "summary": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
-      "url": "https://www.qbitai.com/2026/09/487701.html",
+      "id": "e4c24612ca79",
+      "title": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
+      "summary": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
+      "url": "https://www.qbitai.com/2026/09/488933.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-12T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-09-14T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "a5147b78f4a7",
+      "title": "中国物理AI大突破：PhysBrain 1.5登顶全球开源榜一，空间智能与GPT-6 Astra并驾齐驱",
+      "summary": "中国物理AI大突破：PhysBrain 1.5登顶全球开源榜一，空间智能与GPT-6 Astra并驾齐驱",
+      "url": "https://www.qbitai.com/2026/09/488725.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-14T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -296,42 +261,12 @@
       "category": "新模型发布",
       "published_at": "2026-09-12T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "f848a8798e28",
-      "title": "探索RSI，生数新世界模型让机器人开始自我进化",
-      "summary": "探索RSI，生数新世界模型让机器人开始自我进化",
-      "url": "https://www.qbitai.com/2026/09/487752.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-12T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "8d6f27c070d6",
-        "title": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
-        "summary": "Kimi突发K2.8：性能逼近K3，百万上下文全员开放",
-        "url": "https://www.qbitai.com/2026/09/487688.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-12T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "3849e5beb1de",
-        "title": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
-        "summary": "AI数学的最后一道高墙，塌了！GPT-6 Astra刷穿FrontierMath Tier 4",
-        "url": "https://www.qbitai.com/2026/09/487701.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-12T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "dabee513fc9a",
         "title": "A社承认Claude安全对齐存在缺陷，但“尚无解决方案”",
@@ -343,22 +278,42 @@
         "window_hours": 720
       },
       {
-        "id": "f848a8798e28",
-        "title": "探索RSI，生数新世界模型让机器人开始自我进化",
-        "summary": "探索RSI，生数新世界模型让机器人开始自我进化",
-        "url": "https://www.qbitai.com/2026/09/487752.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-12T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "1cf3b72857c7",
         "title": "首届蚂蚁灵波具身大模型挑战赛正式启动",
         "summary": "首届蚂蚁灵波具身大模型挑战赛正式启动",
         "url": "https://www.qbitai.com/2026/09/489105.html",
         "source": "量子位",
         "category": "新模型发布",
+        "published_at": "2026-09-14T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ddcd1022673c",
+        "title": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
+        "summary": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
+        "url": "https://www.qbitai.com/2026/09/488832.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-14T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "e4c24612ca79",
+        "title": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
+        "summary": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
+        "url": "https://www.qbitai.com/2026/09/488933.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-14T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "a5147b78f4a7",
+        "title": "中国物理AI大突破：PhysBrain 1.5登顶全球开源榜一，空间智能与GPT-6 Astra并驾齐驱",
+        "summary": "中国物理AI大突破：PhysBrain 1.5登顶全球开源榜一，空间智能与GPT-6 Astra并驾齐驱",
+        "url": "https://www.qbitai.com/2026/09/488725.html",
+        "source": "量子位",
+        "category": "开源项目",
         "published_at": "2026-09-14T00:00:00+08:00",
         "window_hours": 720
       }
