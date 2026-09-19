@@ -170,9 +170,143 @@
     "bilibili:BV154426xEha",
     "bilibili:BV1AN896eEby",
     "youtube:U-rsvXds9ck",
-    "bilibili:BV1w2ec68Eev"
+    "bilibili:BV1w2ec68Eev",
+    "youtube:UsfCe5fJK6A"
   ],
   "batches": [
+    {
+      "date": "2026-09-20",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:KmcTu2EigTs",
+              "platform": "youtube",
+              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
+              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
+              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
+              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 0,
+              "views": 258672,
+              "duration": "19:35",
+              "max_height": 1080,
+              "published_at": "2026-08-25T21:00:23+08:00"
+            },
+            {
+              "id": "youtube:U-rsvXds9ck",
+              "platform": "youtube",
+              "title": "Deepseek did it again...",
+              "summary": "Check out MindsHub: Join My Newsletter for Regular AI Updates 👇🏼 My Links 🔗 👉🏻 X: 👉🏻 Forward Future X: 👉🏻 Instagram: 👉🏻 Discord: …",
+              "url": "https://www.youtube.com/watch?v=U-rsvXds9ck",
+              "thumbnail": "https://i.ytimg.com/vi/U-rsvXds9ck/maxresdefault.jpg",
+              "channel": "Matthew Berman",
+              "subscribers": 0,
+              "views": 252446,
+              "duration": "16:39",
+              "max_height": 1080,
+              "published_at": "2026-09-12T03:01:56+08:00"
+            },
+            {
+              "id": "youtube:UsfCe5fJK6A",
+              "platform": "youtube",
+              "title": "100 Hours Testing Deepseek Harness vs. Claude Code. What You Need to Know.",
+              "summary": "My playbook for growing a $1M AI agency: My FREE resources: My Tools💻 FREE MONTH voice to text: Code NATEHERK for 10% off VPS (an…",
+              "url": "https://www.youtube.com/watch?v=UsfCe5fJK6A",
+              "thumbnail": "https://i.ytimg.com/vi/UsfCe5fJK6A/maxresdefault.jpg",
+              "channel": "Nate Herk | AI Automation",
+              "subscribers": 0,
+              "views": 170113,
+              "duration": "18:02",
+              "max_height": 1080,
+              "published_at": "2026-08-24T06:52:31+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1xFYb6rEuc",
+              "platform": "bilibili",
+              "title": "这视频要是火了我就锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤 | 5分钟网页开发上线全流程 | 豆包工作和我的爱恨情仇 | AI教程",
+              "summary": "8000点赞达成以后，在这里 ________ 开放源码； 30000点赞达成以后，这里 开放完整提示词； 金九银十秋招季，求职内卷时代，打造硬核背书，把你收获的成果、经历的故事，统统留存归档，利用豆包工作生成这样一个炫酷网站，多是一件美事啊~",
+              "url": "https://www.bilibili.com/video/BV1xFYb6rEuc",
+              "thumbnail": "video-thumbs/bilibili/BV1xFYb6rEuc.jpg",
+              "channel": "英雄哪里出来",
+              "subscribers": 0,
+              "views": 1211030,
+              "duration": "5:54",
+              "max_height": 720,
+              "published_at": "2026-09-10T11:16:26+08:00"
+            },
+            {
+              "id": "bilibili:BV1CMtR6YEj4",
+              "platform": "bilibili",
+              "title": "当我用豆包工作agent做个背单词游戏",
+              "summary": "【小白debug】讲解 AI 工具实战应用，围绕「当我用豆包工作agent做个背单词游戏」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1CMtR6YEj4",
+              "thumbnail": "video-thumbs/bilibili/BV1CMtR6YEj4.jpg",
+              "channel": "小白debug",
+              "subscribers": 0,
+              "views": 1004211,
+              "duration": "6:41",
+              "max_height": 720,
+              "published_at": "2026-09-05T12:05:00+08:00"
+            },
+            {
+              "id": "bilibili:BV1w2ec68Eev",
+              "platform": "bilibili",
+              "title": "DeepSeek还能生成涉黄内容 1块钱就能买到教程绕过审核",
+              "summary": "【闪电新闻】讲解 AI 工具实战应用，围绕「DeepSeek还能生成涉黄内容 1块钱就能买到教程绕过审核」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1w2ec68Eev",
+              "thumbnail": "video-thumbs/bilibili/BV1w2ec68Eev.jpg",
+              "channel": "闪电新闻",
+              "subscribers": 0,
+              "views": 991145,
+              "duration": "0:50",
+              "max_height": 720,
+              "published_at": "2026-09-16T17:46:54+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-09-19",
       "timezone": "Asia/Shanghai",
@@ -7151,5 +7285,5 @@
       }
     }
   ],
-  "updated_at": "2026-09-19T06:27:39.561496+08:00"
+  "updated_at": "2026-09-20T06:17:42.714791+08:00"
 }
