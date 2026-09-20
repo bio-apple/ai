@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-20T16:51:25.751395+08:00",
-  "date": "2026-09-20",
+  "updated_at": "2026-09-21T03:11:26.422540+08:00",
+  "date": "2026-09-21",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,49 +15,49 @@
   },
   "items": [
     {
-      "id": "f6e1136f1c57",
-      "title": "预售价31.98万-38.98万元，腾势Z9S展车抵达全国166城334家门店",
-      "summary": "腾势Z9S迎来成都车展首秀",
-      "url": "https://www.qbitai.com/2026/09/492873.html",
+      "id": "75b23aa6601d",
+      "title": "刚刚，剪映发了个大的：AI生视频和AI剪辑的壁，被打破了！",
+      "summary": "剪映Hub+剪映助手，好用",
+      "url": "https://www.qbitai.com/2026/09/492973.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-20T15:51:09+08:00"
+      "published_at": "2026-09-20T22:30:26+08:00"
     },
     {
-      "id": "d0e6b4455e6b",
-      "title": "《网络安全人才实战能力报告-AI赋能篇》正式发布，当AI进入业务深水区安全如何跟上",
-      "summary": "9月18日，在第一届中国网络空间安全大会上，《网络安全人才实战能力报告—AI赋能篇》正式发布",
-      "url": "https://www.qbitai.com/2026/09/492849.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-20T10:48:18+08:00"
-    },
-    {
-      "id": "9a0a6abfb04b",
-      "title": "“留给人类阻止AI的时间不多了”",
-      "summary": "AI有可能终结我们所有人",
-      "url": "https://www.qbitai.com/2026/09/492755.html",
+      "id": "8ece108decc6",
+      "title": "华为首发企业AI白皮书：AI让员工更快了，怎样让整个企业受益？",
+      "summary": "AI越来越能干，企业该怎么用",
+      "url": "https://www.qbitai.com/2026/09/493068.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-19T19:53:12+08:00"
+      "published_at": "2026-09-20T22:23:52+08:00"
     },
     {
-      "id": "cb3db4aa992b",
-      "title": "马斯克批量收购破产公司ing…世界首富脑子是不一样",
-      "summary": "老马想买倒闭公司数据为哪般",
-      "url": "https://www.qbitai.com/2026/09/492661.html",
+      "id": "489c0985eaa2",
+      "title": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
+      "summary": "AI办公这块蛋糕，中国电信可能要先切走一块了。",
+      "url": "https://www.qbitai.com/2026/09/492946.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-19T19:48:06+08:00"
+      "published_at": "2026-09-20T20:22:41+08:00"
     },
     {
-      "id": "fe3cb8211525",
-      "title": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
-      "summary": "设计、前端一口气全干了，结果后端没来上班",
-      "url": "https://www.qbitai.com/2026/09/492573.html",
+      "id": "7942abbc44e4",
+      "title": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
+      "summary": "9月19日，中国人工智能企业APUS旗下 AI 实验室公布了全球最早一批针对Jev的独立开源复现成果",
+      "url": "https://www.qbitai.com/2026/09/492939.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-20T16:30:32+08:00"
+    },
+    {
+      "id": "78e524b8775d",
+      "title": "谷歌AI首次“越狱”：竟然自己破解密码入侵三家公司！",
+      "summary": "亚马逊云科技给企业安全用Agent打了个样",
+      "url": "https://www.qbitai.com/2026/09/492912.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-19T19:43:12+08:00"
+      "published_at": "2026-09-20T16:01:13+08:00"
     },
     {
       "id": "079e661c04ce",
@@ -223,20 +223,20 @@
       "window_hours": 720
     },
     {
-      "id": "ddcd1022673c",
-      "title": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
-      "summary": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
-      "url": "https://www.qbitai.com/2026/09/488832.html",
+      "id": "e4c24612ca79",
+      "title": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
+      "summary": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
+      "url": "https://www.qbitai.com/2026/09/488933.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-14T00:00:00+08:00",
       "window_hours": 720
     },
     {
-      "id": "e4c24612ca79",
-      "title": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
-      "summary": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
-      "url": "https://www.qbitai.com/2026/09/488933.html",
+      "id": "ddcd1022673c",
+      "title": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
+      "summary": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
+      "url": "https://www.qbitai.com/2026/09/488832.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-14T00:00:00+08:00",
@@ -278,20 +278,20 @@
         "window_hours": 720
       },
       {
-        "id": "ddcd1022673c",
-        "title": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
-        "summary": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
-        "url": "https://www.qbitai.com/2026/09/488832.html",
+        "id": "e4c24612ca79",
+        "title": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
+        "summary": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
+        "url": "https://www.qbitai.com/2026/09/488933.html",
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-14T00:00:00+08:00",
         "window_hours": 720
       },
       {
-        "id": "e4c24612ca79",
-        "title": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
-        "summary": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
-        "url": "https://www.qbitai.com/2026/09/488933.html",
+        "id": "ddcd1022673c",
+        "title": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
+        "summary": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
+        "url": "https://www.qbitai.com/2026/09/488832.html",
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-14T00:00:00+08:00",
