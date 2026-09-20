@@ -117,7 +117,8 @@
     padding-left: 220px;
   }
 
-  .page-toc {
+  /* 无标题时不占位：否则空侧栏会盖住正文左缘 */
+  body.toc-enabled .page-toc {
     display: block;
     position: fixed;
     left: 0;

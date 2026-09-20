@@ -209,6 +209,9 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.locator('#qbitai-hot-title')).toHaveCount(0);
     await expect(page.locator('#daily-news-list .news-row').first()).toBeVisible();
     await expect(page.locator('#daily-news-list')).toContainText('李飞飞发布');
+    await expect(page.locator('h1')).toContainText('新闻热点');
+    await expect(page.locator('#page-toc')).toBeHidden();
+    await expect(page.locator('body')).not.toHaveClass(/toc-enabled/);
   });
 
   test('独立页面包屑', async ({ page }) => {

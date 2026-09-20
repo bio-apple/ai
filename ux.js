@@ -187,6 +187,7 @@ function initStandaloneToc() {
 
   const headings = collectHeadings(main);
   if (!headings.length) {
+    toc.innerHTML = '';
     document.body.classList.remove('toc-enabled');
     return;
   }
