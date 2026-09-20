@@ -49,11 +49,11 @@ cp .env.local.example .env.local
 3. **禁止**经任何第三方不安全通道中转（包括自建无鉴权代理、公开 CORS 代理等）。
 4. 不得在构建产物、`analytics-config.json` 或任何静态 JSON 中写入用户或开发者密钥。
 
-当前站点：`localStorage` / `sessionStorage` 用于主题、视频收藏等**非密钥**偏好（见 `ux.js`、`videos.js`）。
+当前站点：`localStorage` / `sessionStorage` 用于主题、视频收藏、`bioai.flywheel` 行为日志等**非密钥**偏好（见 `ux.js`、`videos.js`、`recommend.js`）。
 
 ## 4. 站内搜索与本地 API
 
-- 生产环境：全站 / 知识库搜索使用客户端 `search-index.json` + Fuse.js（`lib/search.js`、`knowledge.js`）。
+- 生产环境：全站 / 站内检索使用客户端 `search-index.json` + Fuse.js（`lib/search.js`、`knowledge.js`）。面板文案是「在本站搜索」，不调用外部 LLM。
 - 本地可选：`./start.sh` 启动 FastAPI，`/api/ask` 为**站内 BM25/Fuse 检索**，不调用外部 LLM，也不承载用户密钥。
 - GitHub Pages **不部署** `/api/*` 路由。
 

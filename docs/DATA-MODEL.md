@@ -2,7 +2,7 @@
 
 Schema：`schemas/*.json`  
 校验：`DIST=dist python3 scripts/validate_ci.py`  
-展示派生：`lib/content-display.js`（相对时间、来源标记、开源人群标签、三榜推荐理由）
+展示派生：`lib/content-display.js`（相对时间、来源标记、开源人群标签；三榜 `pick_reason` 只走人工对照表，未命中则空）
 
 日更脚本把**展示字段和标题分开写**：标题不粘连源站名（`量子位` / `| OpenAI`），源站放 `source`。
 
@@ -98,7 +98,7 @@ Schema：`schemas/*.json`
 | `mom_bar_pct`           | AICPB 柱宽                                                      |
 | `pick_reason`           | 可选；仅展示人工写好的对照表。未写则留空，不按榜单编套话 |
 
-页头写出 `updated_at`；超过 2 天显示「数据停在这一天（未日更）」。
+页头写出 `updated_at`；超过 2 天显示「数据停在 YYYY-MM-DD（未日更）」（`rankingUpdatedLabel`）。
 
 ### 3.4 其他
 
@@ -106,10 +106,10 @@ Schema：`schemas/*.json`
 | ------------------- | ----------------------------------------------- |
 | `ai-courses.json`   | `updated_at`, 按 track 分组的课程               |
 | `daily-videos.json` | `updated_at`, `batches[]`；CDN 用 slim `latest` |
-| `home-video-picks.json` | 首页编辑片单，不按播放量                    |
+| `home-video-picks.json` | `updated_at`, `items[]`（`id` / `platform` / `title` / `url` / `author` / `thumbnail`） |
 
-`daily-videos.json`：近 1 个月、`min_views ≥ 10000`、关键词 + 拒绝表、每平台 Top 3（`config/video-fetch.yaml`）。  
-展示：`prepareVideos()` 按 30 天窗 + 质量过滤后每平台 Top 3。首页片单见 `data/home-video-picks.json`。
+`daily-videos.json`：近 1 个月、`min_views ≥ 10000`、关键词 + 拒绝表（`涉黄` / `绕过审核` / `锟斤拷`）、每平台 Top 3（`config/video-fetch.yaml`）。  
+展示：`prepareVideos()` + `lib/video-quality.js` 再滤一遍。首页片单见 `data/home-video-picks.json`（手工 URL 列表，不按播放量）。
 
 ## 4. 校验
 

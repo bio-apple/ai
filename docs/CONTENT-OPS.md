@@ -22,7 +22,7 @@
 | [daily-courses.yml](https://github.com/bio-apple/ai/actions/workflows/daily-courses.yml)         | **02:00**         | 课程                                      |
 | [daily-oss.yml](https://github.com/bio-apple/ai/actions/workflows/daily-oss.yml)                 | **02:00**         | 开源加热（含 OpenHands / AutoGPT 优先仓） |
 | [daily-rankings.yml](https://github.com/bio-apple/ai/actions/workflows/daily-rankings.yml)       | **03:00**         | 排行榜                                    |
-| [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)           | **04:00**         | YouTube / B站近 1 个月播放量 Top 3        |
+| [daily-videos.yml](https://github.com/bio-apple/ai/actions/workflows/daily-videos.yml)           | **04:00**         | YouTube / B站近 1 个月，关键词+拒绝表后每平台 Top 3 |
 | [site-health.yml](https://github.com/bio-apple/ai/actions/workflows/site-health.yml)             | **08:00 / 20:00** | 新鲜度探针 + 顶栏独立页内容探针           |
 | [weekly-link-check.yml](https://github.com/bio-apple/ai/actions/workflows/weekly-link-check.yml) | 定时              | lychee（软告警）                          |
 
@@ -36,7 +36,7 @@
 | `fetch_oss_heating.py`  | `config/oss-fetch.yaml`     | `oss-projects.json` + `site.json`                                  |
 | `fetch_ai_courses.py`   | `config/courses-fetch.yaml` | `ai-courses.json`                                                  |
 | `fetch_rankings.py`     | —                           | `data/rankings.json`                                               |
-| `fetch_daily_videos.py` | `config/video-fetch.yaml`   | `daily-videos.json`（近 1 个月、每平台 Top 3、`min_views: 10000`） |
+| `fetch_daily_videos.py` | `config/video-fetch.yaml`   | `daily-videos.json`（近 1 个月、关键词+拒绝表、每平台 Top 3、`min_views: 10000`） |
 
 本地：`python3 scripts/fetch_ai_news.py`（或对应脚本）→ `npm run build`。
 

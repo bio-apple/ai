@@ -61,7 +61,7 @@ npm ci && pip install -r requirements.txt
 | 开源精选    | Agent / MCP / Coding Agent 等方向加热 Top 3                                      |
 | 课程资源    | 日更免费课程                                                                     |
 | 新闻热点    | 滚动 7×24 小时资讯；量子位官网「热门文章」（近 30 天）按既有分类并入             |
-| AI 视频     | 近 1 个月 YouTube / B 站各播放量 Top 3；粘贴收藏（Cloudflare 同步）              |
+| AI 视频     | 近 1 个月、关键词+拒绝表后每平台 Top 3；首页是编辑片单；粘贴收藏（Cloudflare 同步） |
 
 顶栏入口见 `data/site.json` 的 `nav.menu`。进阶指南在 `guides/advanced.html`（搜索与推荐路径可达，不在顶栏）。本地部署文稿在 `local/{id}.html`。
 

@@ -35,12 +35,13 @@ npm run quality && npm run test:unit && npm run build && DIST=dist python3 scrip
 | ------------ | --------------------------------------------------------------------------------------- |
 | 导航 / 文案  | `data/site.json`                                                                        |
 | 工具教程     | `data/tools.json` + `home_tool_categories`                                              |
-| 排行榜       | `data/rankings.json` / `fetch_rankings.py`                                              |
+| 排行榜       | `data/rankings.json` / `fetch_rankings.py`（LMSYS/AA 写 `metric_value`，不塞进 `visits`） |
 | 开源精选     | `config/oss-fetch.yaml` → `fetch_oss_heating.py`；卡片热度条 `lib/content-display.js`   |
 | 新闻主列表   | `config/news-fetch.yaml` 的 `feeds`（7×24h）                                            |
 | 量子位热门   | `config/news-fetch.yaml` 的 `qbitai_hot`；按既有分类并入 `news.js` 主列表               |
 | 课程         | `config/courses-fetch.yaml`                                                             |
-| 日更视频榜   | `config/video-fetch.yaml` → `fetch_daily_videos.py`；展示 `SsrVideosList.astro`         |
+| 日更视频榜   | `config/video-fetch.yaml` → `fetch_daily_videos.py`；展示过滤 `lib/video-quality.js` |
+| 首页视频片单 | `data/home-video-picks.json`                                                        |
 | 视频收藏     | `videos.js` · `lib/video-preview*.js` · [CLOUDFLARE-SYNC.md](./docs/CLOUDFLARE-SYNC.md) |
 | 进阶指南     | `data/site.json` 的 `guides` + `learning_paths`                                         |
 | 知识版图     | `src/components/HomeAiMap.astro`（绿圈链接，黄圈图示）                                  |

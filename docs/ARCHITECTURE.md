@@ -28,7 +28,7 @@ flowchart TB
 
 - `base: '/ai/'` · `output: 'static'` · `build.format: 'file'`
 - `scripts/prebuild.mjs`：同步 public、CSP `_headers`、搜索索引、视频 slim JSON、本地部署文稿
-- Layout：`HomeLayout`（首页）· `StandaloneLayout`（独立页 + 本页目录）
+- Layout：`HomeLayout`（首页）· `StandaloneLayout`（独立页；有可见 `h2–h4` 才显示本页目录，空栏不占位）
 - PWA：`sw.js` scope `/ai/`；改版核对需强制刷新，避免旧 HTML
 
 ## 页面
