@@ -18,6 +18,7 @@ type MapNode = {
   label: string;
   dest: string;
   hint: string;
+  teach: string;
   href: string;
 };
 
@@ -28,6 +29,8 @@ const nodes: MapNode[] = [
     label: '人工智能',
     dest: '工具中心',
     hint: '打开工具中心，对比 ChatGPT、Claude、Cursor 等',
+    teach:
+      '这一层是会做事的系统总称。先对比现在能用的工具，再决定要不要往下学方法。',
     href: toolsHref,
   },
   {
@@ -36,6 +39,7 @@ const nodes: MapNode[] = [
     label: '机器学习',
     dest: '机器学习课程',
     hint: '打开机器学习课程列表',
+    teach: '从数据里拟合规律，而不是手写规则。下一层深度学习只是其中一种函数形式。',
     href: courses('ml'),
   },
   {
@@ -44,6 +48,7 @@ const nodes: MapNode[] = [
     label: '深度学习',
     dest: '深度学习课程',
     hint: '打开深度学习课程列表',
+    teach: '用多层网络从原始信号里学表征。视觉、语音、语言的许多突破从这里分出去。',
     href: courses('dl'),
   },
   {
@@ -52,6 +57,7 @@ const nodes: MapNode[] = [
     label: '计算机视觉',
     dest: '深度学习课程',
     hint: '打开深度学习课程（含 CS231n）',
+    teach: '让机器看图。底层仍是深度学习；CS231n 是这条线最清楚的入门课。',
     href: courses('dl'),
   },
   {
@@ -60,6 +66,7 @@ const nodes: MapNode[] = [
     label: '机器人',
     dest: 'Agent 开源',
     hint: '打开 Agent 开源精选',
+    teach: '感知—决策—执行闭环。今天的 Agent 开源更接近软件里的这个闭环。',
     href: ossAgentHref,
   },
   {
@@ -68,6 +75,7 @@ const nodes: MapNode[] = [
     label: '自然语言处理',
     dest: 'LLM / NLP 课程',
     hint: '打开 LLM / NLP 课程列表',
+    teach: '处理人类语言。现在的入口是 LLM 课，而不是先啃句法树。',
     href: courses('llm'),
   },
   {
@@ -76,6 +84,7 @@ const nodes: MapNode[] = [
     label: '语音识别',
     dest: '深度学习课程',
     hint: '打开深度学习课程列表',
+    teach: '声音进、文字出（或反过来）。实现路径与深度学习课重叠。',
     href: courses('dl'),
   },
 ];
@@ -96,7 +105,7 @@ const groups: { id: MapNode['group']; label: string }[] = [
     <h2 class="section-title" id="home-ai-map-title">AI 领域如何层层嵌套</h2>
     <p class="section-desc">
       人工智能包含机器学习，再深入到深度学习；视觉、语音、机器人、NLP
-      等应用交叉其中。外围是数学、神经科学等基础学科。悬停圈层可看去向；手机请点下方按钮。
+      等应用交叉其中。绿圈可点，并写明这一层是什么。黄圈是数学、神经科学等背景，只建立图层直觉，不是入口。
     </p>
   </div>
 
@@ -258,7 +267,7 @@ const groups: { id: MapNode['group']; label: string }[] = [
             <span class="ai-map-hint-arrow" aria-hidden="true">
               →
             </span>
-            {node.hint}
+            {node.teach} {node.hint}
           </span>
         ))
       }
@@ -282,6 +291,7 @@ const groups: { id: MapNode['group']; label: string }[] = [
                     >
                       <span class="ai-map-btn-name">{node.label}</span>
                       <span class="ai-map-btn-dest">{node.dest}</span>
+                      <span class="ai-map-btn-teach">{node.teach}</span>
                     </a>
                   </li>
                 ))}
@@ -292,7 +302,7 @@ const groups: { id: MapNode['group']; label: string }[] = [
     </nav>
 
     <figcaption class="ai-map-caption">
-      交叉靠叠色表达包含关系。圈层和按钮通向同一列表。
+      交叉靠叠色表达包含关系。绿圈和按钮通向同一列表。黄圈只作图示。
       <a href={coursesHref} class="ai-map-link" data-track="home-ai-map-courses">查看课程资源 →</a>
     </figcaption>
   </figure>

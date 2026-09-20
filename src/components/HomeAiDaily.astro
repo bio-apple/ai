@@ -3,7 +3,6 @@ import {
   pickAiDailyBrief,
   pickHomeVideos,
   formatNewsDate,
-  formatNumber,
   displayNewsTitle,
 } from '../lib/runtime';
 import { formatRelativeTime, newsSourceMeta } from '../lib/content-display';
@@ -12,7 +11,10 @@ import dailyVideos from '../../daily-videos.json';
 import NewsSourceChip from './NewsSourceChip.astro';
 
 const brief = pickAiDailyBrief();
-const homeVideos = pickHomeVideos(3, dailyVideos);
+const homeVideos = pickHomeVideos(1, dailyVideos);
+const newsItem = brief.models[0] || brief.industry[0];
+const ossItem = brief.github[0];
+const videoItem = homeVideos[0] || brief.learn[0];
 
 function newsMeta(item: { source?: string; category?: string; published_at?: string; url?: string }) {
   const source = newsSourceMeta(item.source || item.category, item.url);
@@ -28,7 +30,7 @@ function newsMeta(item: { source?: string; category?: string; published_at?: str
   <div class="section-head section-head-row">
     <div>
       <h2 class="section-title">AI 简报</h2>
-      <p class="section-desc">标题速览 · 详情进新闻与视频专区</p>
+      <p class="section-desc">三条速览 · 详情进新闻、开源与视频专区</p>
     </div>
     {
       brief.updatedAt && (
@@ -37,216 +39,115 @@ function newsMeta(item: { source?: string; category?: string; published_at?: str
     }
   </div>
 
-  <div class="daily-grid">
-    <article class="daily-panel">
-      <h3 class="daily-panel-title">模型与发布</h3>
-      <ul class="daily-list">
+  <div class="daily-brief">
+    <ul class="daily-brief-list">
+      <li class="daily-brief-item" data-brief="news">
+        <span class="daily-brief-kicker">资讯</span>
         {
-          brief.models.map((item) => {
-            const meta = newsMeta(item);
-            return (
-            <li>
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-track="daily_panel_click"
-                data-track-panel="models"
-              >
-                <span class="daily-item-title">{displayNewsTitle(item)}</span>
-                <span class="daily-item-meta">
-                  <NewsSourceChip meta={meta.source} />
-                  {meta.relative && (
-                    <time class="daily-item-date" datetime={meta.datetime}>
-                      {meta.relative}
-                    </time>
-                  )}
-                </span>
-              </a>
-            </li>
-            );
-          })
-        }
-        {brief.models.length === 0 && <li class="daily-empty">暂无模型动态</li>}
-      </ul>
-    </article>
-
-    <article class="daily-panel daily-panel-github">
-      <h3 class="daily-panel-title">
-        GitHub 升温 <span class="daily-cadence">热</span>
-      </h3>
-      {
-        brief.githubFromOss && brief.github.length > 0 && (
-          <p class="daily-fallback-note">新闻源暂无仓库动态，改展示本周开源升温 Top 3</p>
-        )
-      }
-      <script
-        type="application/json"
-        id="daily-github-data"
-        set:html={JSON.stringify(
-          (brief.githubAll?.length ? brief.githubAll : brief.github).map((item) => {
-            const meta = newsMeta({
-              source: item.source || item.category || 'GitHub',
-              published_at: item.published_at,
-              url: item.url,
-            });
-            return {
-              title: displayNewsTitle(item),
-              url: item.url,
-              meta: meta.source?.label || item.category || item.source || 'GitHub',
-              sourceKey: meta.source?.key || 'github',
-              sourceMark: meta.source?.mark || 'GH',
-              sourceLogo: meta.source?.logo ? asset(meta.source.logo) : '',
-              relative: meta.relative,
-              published_at: item.published_at || '',
-            };
-          }),
-        )}
-      />
-      <div
-        id="daily-github-list"
-        class="daily-virtual-host"
-        data-github-vl
-        aria-label="GitHub 升温列表"
-      >
-        <ul class="daily-list">
-          {
-            brief.github.map((item) => {
-              const meta = newsMeta({
-                source: item.source || item.category || 'GitHub',
-                published_at: item.published_at,
-                url: item.url,
-              });
-              return (
-              <li>
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-track="daily_panel_click"
-                  data-track-panel="github"
-                >
-                  <span class="daily-item-title">{displayNewsTitle(item)}</span>
-                  <span class="daily-item-meta">
-                    <NewsSourceChip meta={meta.source} />
-                    {meta.relative && (
-                      <time class="daily-item-date" datetime={meta.datetime}>
-                        {meta.relative}
-                      </time>
-                    )}
-                  </span>
-                </a>
-              </li>
-              );
-            })
-          }
-          {
-            brief.github.length === 0 && (
-              <li class="daily-empty">
-                暂无 GitHub 动态 ·{' '}
-                <a href={asset('oss.html')} data-track="daily_empty_oss">
-                  看开源精选
-                </a>
-              </li>
-            )
-          }
-        </ul>
-      </div>
-    </article>
-
-    <article class="daily-panel">
-      <h3 class="daily-panel-title">行业资讯</h3>
-      <ul class="daily-list">
-        {
-          brief.industry.map((item) => {
-            const meta = newsMeta(item);
-            return (
-            <li>
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                data-track="daily_panel_click"
-                data-track-panel="industry"
-              >
-                <span class="daily-item-title">{displayNewsTitle(item)}</span>
-                <span class="daily-item-meta">
-                  <NewsSourceChip meta={meta.source} />
-                  {meta.relative && (
-                    <time class="daily-item-date" datetime={meta.datetime}>
-                      {meta.relative}
-                    </time>
-                  )}
-                </span>
-              </a>
-            </li>
-            );
-          })
-        }
-        {brief.industry.length === 0 && <li class="daily-empty">暂无行业资讯</li>}
-      </ul>
-      <a class="daily-more" href={asset('news/daily-ai-news.html')} data-track="daily_news_more"
-        >全部新闻 →</a
-      >
-    </article>
-
-    <article class="daily-panel daily-panel--videos">
-      <h3 class="daily-panel-title">近一个月高播放精选</h3>
-      <div id="home-video-picks" class="home-video-preview" aria-label="近一个月高播放精选">
-        {
-          homeVideos.length ? (
-            <ul class="home-video-teasers">
-              {homeVideos.map((v) => {
-                const plat = /bilibili/i.test(v.platform || v.id || '') ? 'B站' : 'YouTube';
-                return (
-                  <li>
-                    <a
-                      class="home-video-teaser"
-                      href={v.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      data-track="home-video-click"
-                      title={v.title}
-                    >
-                      <span class="home-video-teaser-thumb">
-                        {v.thumbnail ? (
-                          <img
-                            src={v.thumbnail}
-                            alt={v.title}
-                            width="320"
-                            height="180"
-                            loading="lazy"
-                            decoding="async"
-                            referrerpolicy={plat === 'B站' ? 'no-referrer' : undefined}
-                          />
-                        ) : (
-                          <span class="home-video-teaser-empty">无封面</span>
-                        )}
-                        <span class="home-video-teaser-play" aria-hidden="true">
-                          ▶
-                        </span>
-                      </span>
-                      <span class="home-video-teaser-body">
-                        <span class="home-video-teaser-title">{v.title}</span>
-                        <span class="home-video-teaser-meta">
-                          {plat}
-                          {v.author || v.channel ? ` · ${v.author || v.channel}` : ''}
-                          {v.views ? ` · ${formatNumber(v.views)}` : ''}
-                        </span>
-                      </span>
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+          newsItem ? (
+            <a
+              href={newsItem.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="daily_panel_click"
+              data-track-panel="models"
+            >
+              <span class="daily-item-title">{displayNewsTitle(newsItem)}</span>
+              <span class="daily-item-meta">
+                <NewsSourceChip meta={newsMeta(newsItem).source} />
+                {newsMeta(newsItem).relative && (
+                  <time class="daily-item-date" datetime={newsMeta(newsItem).datetime}>
+                    {newsMeta(newsItem).relative}
+                  </time>
+                )}
+              </span>
+            </a>
           ) : (
-            <p class="daily-empty">暂无近一个月推荐。</p>
+            <p class="daily-empty">暂无模型发布</p>
           )
         }
-      </div>
-      <a class="daily-more" href={asset('videos.html')} data-track="daily_videos_more"
-        >查看全部 →</a
+      </li>
+      <li class="daily-brief-item" data-brief="oss" id="daily-github-list">
+        <span class="daily-brief-kicker">升温</span>
+        {
+          ossItem ? (
+            <a
+              href={ossItem.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-track="daily_panel_click"
+              data-track-panel="github"
+            >
+              <span class="daily-item-title">{displayNewsTitle(ossItem)}</span>
+              <span class="daily-item-meta">
+                <NewsSourceChip meta={newsMeta(ossItem).source} />
+              </span>
+            </a>
+          ) : (
+            <p class="daily-empty">
+              暂无开源升温 ·{' '}
+              <a href={asset('oss.html')} data-track="daily_empty_oss">
+                看开源精选
+              </a>
+            </p>
+          )
+        }
+      </li>
+      <li class="daily-brief-item daily-brief-item--video" data-brief="video">
+        <span class="daily-brief-kicker">视频</span>
+        <div id="home-video-picks" class="home-video-preview" aria-label="编辑精选视频">
+          {
+            videoItem ? (
+              <a
+                class="home-video-teaser"
+                href={videoItem.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="home-video-click"
+                title={videoItem.title}
+              >
+                <span class="home-video-teaser-thumb">
+                  {videoItem.thumbnail ? (
+                    <img
+                      src={videoItem.thumbnail}
+                      alt={videoItem.title}
+                      width="320"
+                      height="180"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : (
+                    <span class="home-video-teaser-empty">无封面</span>
+                  )}
+                  <span class="home-video-teaser-play" aria-hidden="true">
+                    ▶
+                  </span>
+                </span>
+                <span class="home-video-teaser-body">
+                  <span class="home-video-teaser-title">{videoItem.title}</span>
+                  <span class="home-video-teaser-meta">
+                    {/bilibili/i.test(videoItem.platform || videoItem.id || '') ? 'B站' : 'YouTube'}
+                    {videoItem.author || videoItem.channel
+                      ? ` · ${videoItem.author || videoItem.channel}`
+                      : ''}
+                  </span>
+                </span>
+              </a>
+            ) : (
+              <p class="daily-empty">暂无精选视频。</p>
+            )
+          }
+        </div>
+      </li>
+    </ul>
+    <p class="daily-brief-more">
+      <a href={asset('news/daily-ai-news.html')} data-track="daily_news_more">全部新闻</a>
+      ·
+      <a href={asset('oss.html')} data-track="daily_empty_oss">开源升温</a>
+      ·
+      <a href={asset('videos.html')} class="daily-more-videos" data-track="daily_videos_more"
+        >视频片单</a
       >
-    </article>
+    </p>
   </div>
 </section>

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import importlib.util
+import re
 import sys
 import unittest
 from datetime import timedelta
@@ -178,6 +179,21 @@ class FetchDailyVideosHelpersTest(unittest.TestCase):
         """total==0 且有历史批次时不应 exit 1（由 main 逻辑保证，此处测分支辅助函数语义）。"""
         store = {"batches": [{"date": "2026-07-16", "categories": {}}]}
         self.assertTrue(bool(store.get("batches")))
+
+    def test_is_relevant_rejects_bilibili_substring_and_slop(self) -> None:
+        cfg = {
+            "ai_keyword_re": re.compile(
+                r"(\b(chatgpt|claude|gemini|deepseek|cursor|copilot|codex|kimi|qwen|prompt|llm|gpt|openai|anthropic|agent)\b|\bai\b|通义|豆包|大模型|人工智能|智能体)",
+                re.I,
+            ),
+            "reject_re": re.compile(r"涉黄|绕过审核|锟斤拷", re.I),
+        }
+        self.assertFalse(mod.is_relevant("哔哩哔哩每周必看", "", cfg))
+        self.assertFalse(mod.is_relevant("DeepSeek还能生成涉黄内容 绕过审核", "", cfg))
+        self.assertFalse(mod.is_relevant("教程锟斤拷锟斤拷 豆包", "", cfg))
+        self.assertFalse(mod.is_relevant("available now", "said the maintainer", cfg))
+        self.assertTrue(mod.is_relevant("ChatGPT Tutorial 2026", "", cfg))
+        self.assertTrue(mod.is_relevant("当我用豆包工作agent做个背单词游戏", "", cfg))
 
 
 if __name__ == "__main__":

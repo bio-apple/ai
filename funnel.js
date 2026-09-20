@@ -29,6 +29,7 @@
     recommend_empty_submit: STEPS.DISCOVER,
     recommend_chip: STEPS.DISCOVER,
     recommend_submit: STEPS.DISCOVER,
+    recommend_miss: STEPS.DISCOVER,
     'nav-tab': STEPS.BROWSE,
     section_view: STEPS.BROWSE,
     search_query: STEPS.BROWSE,
@@ -48,6 +49,7 @@
     'courses-filter-platform': STEPS.LEARN,
     'video-click': STEPS.LEARN,
     'home-video-click': STEPS.LEARN,
+    video_preview_remove: STEPS.ENGAGE,
     knowledge_ask: STEPS.LEARN,
   };
 

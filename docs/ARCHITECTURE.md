@@ -48,12 +48,12 @@ flowchart TB
 
 ## 首页信息架构
 
-匹配助手 → AI 简报（模型 / GitHub / 行业资讯 + 近一个月视频精选 3 条）→ 知识版图 → 下一步（工具中心 + 开源）。  
-知识版图：核心圈层与应用交叉可点；外围基础学科黄圈只作图示，图下方按钮不列基础学科。
+匹配工具 → AI 简报（资讯 / 开源升温 / 编辑视频各 1 条）→ 知识版图 → 下一步（工具中心 + 开源）。  
+知识版图：绿圈可点并写明这一层是什么；外围基础学科黄圈只作图示。
 
 ## 视频
 
-两套数据：日更榜（`daily-videos.json` → 首页 3 条 / 视频页每平台 Top 3）与用户粘贴收藏（`localStorage` + Cloudflare KV）。共享码见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)。
+两套数据：首页编辑片单（`data/home-video-picks.json`）、日更榜（`daily-videos.json` → 视频页每平台 Top 3，经关键词/拒绝表过滤）与用户粘贴收藏（`localStorage` + Cloudflare KV）。共享码见 [CLOUDFLARE-SYNC.md](./CLOUDFLARE-SYNC.md)。
 
 ## 目录
 

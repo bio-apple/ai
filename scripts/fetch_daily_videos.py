@@ -52,6 +52,8 @@ except Exception:  # pragma: no cover
 def load_config() -> dict[str, Any]:
     cfg = yaml.safe_load(CONFIG_FILE.read_text(encoding="utf-8"))
     cfg["ai_keyword_re"] = re.compile(cfg.pop("ai_keyword_pattern"), re.I)
+    reject = cfg.pop("reject_pattern", "") or ""
+    cfg["reject_re"] = re.compile(reject, re.I) if reject else None
     cfg["summary_strip_res"] = [re.compile(p, re.I) for p in cfg.get("summary", {}).get("strip_patterns", [])]
     return cfg
 
@@ -178,7 +180,13 @@ def parse_json_lines(raw: str) -> list[dict]:
 
 
 def is_relevant(title: str, description: str, cfg: dict) -> bool:
-    return bool(cfg["ai_keyword_re"].search(f"{title} {description or ''}"))
+    text = f"{title} {description or ''}"
+    if "\ufffd" in text or "锟斤拷" in text:
+        return False
+    reject = cfg.get("reject_re")
+    if reject and reject.search(text):
+        return False
+    return bool(cfg["ai_keyword_re"].search(text))
 
 
 def max_height(info: dict) -> int:

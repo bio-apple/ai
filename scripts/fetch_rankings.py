@@ -107,6 +107,7 @@ def parse_aicpb_board(meta: dict[str, str]) -> dict[str, Any]:
                 "rank": int(rank_s),
                 "name": clean_text(name),
                 "description": clean_text(desc),
+                "metric_value": clean_text(visits),
                 "visits": clean_text(visits),
                 "mom": clean_text(mom),
                 "mom_bar_pct": round(float(bar), 2),
@@ -152,7 +153,7 @@ def parse_lmsys_arena() -> dict[str, Any]:
                 "rank": int(row.get("rank") or len(items) + 1),
                 "name": name,
                 "description": vendor,
-                "visits": str(int(score)) if score is not None else "—",
+                "metric_value": str(int(score)) if score is not None else "—",
                 "mom": format_votes(row.get("votes")),
                 "mom_bar_pct": 0,
                 "url": source_url,
@@ -217,7 +218,7 @@ def parse_artificial_analysis() -> dict[str, Any]:
                 "rank": i,
                 "name": row["name"],
                 "description": row["creator"],
-                "visits": f"{row['score']:.1f}",
+                "metric_value": f"{row['score']:.1f}",
                 "mom": row["creator"] or "—",
                 "mom_bar_pct": 0,
                 "url": f"https://artificialanalysis.ai/models/{row['slug']}",
@@ -276,7 +277,7 @@ def main() -> None:
         "month_label": month_label,
         "updated_at": updated_at,
         "cadence": "daily",
-        "title": "2026 AI 工具排行榜（每日更新）",
+        "title": "2026 AI 工具排行榜",
         "lead": (
             "同步 AICPB、LMSYS Chatbot Arena Elo，"
             "以及 Artificial Analysis Intelligence Index；各榜展示 Top 10。"
@@ -286,7 +287,7 @@ def main() -> None:
             "LMSYS Chatbot Arena Elo：引用文本对战 Arena Elo 与投票数。",
             "Artificial Analysis Intelligence Index：引用公开榜单分数与厂商信息。",
             "展示：仅上述三榜，各保留前 10 名；完整榜单请跳转原文。",
-            "更新：每日同步；若某一源失败则整次抓取失败，保留仓库内上一版数据。",
+            "更新：每日尝试同步；若某一源失败则整次抓取失败，保留仓库内上一版。页面按 updated_at 标明是否过期。",
         ],
         "boards": boards,
         "highlights": [

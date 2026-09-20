@@ -371,7 +371,15 @@
     setStatus(next.length ? '已删除该链接。' : '已清空全部链接。', false);
     window.BioAI?.videoPreviewSync?.ensureCloudSaved?.().catch(() => {});
     if (typeof trackEvent === 'function') {
-      trackEvent('video_preview_remove', { funnel_step: 2 });
+      trackEvent('video_preview_remove', { funnel_step: 2, url: String(url).slice(0, 160) });
+    }
+    try {
+      const key = 'bioai.flywheel';
+      const prev = JSON.parse(localStorage.getItem(key) || '[]');
+      prev.push({ e: 'video_preview_remove', t: Date.now(), url: String(url).slice(0, 160) });
+      localStorage.setItem(key, JSON.stringify(prev.slice(-100)));
+    } catch {
+      /* private mode */
     }
   }
 

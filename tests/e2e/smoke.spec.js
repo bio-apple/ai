@@ -50,20 +50,16 @@ test.describe('AI 导航 关键路径', () => {
       'src',
       /source-logos\/.+\.svg/,
     );
-    await expect(page.locator('#home-daily .daily-item-date').first()).toBeVisible();
-    await expect(page.locator('#daily-github-list')).not.toContainText('暂无 GitHub 动态');
+    await expect(page.locator('#daily-github-list')).not.toContainText('暂无开源升温');
     await expect(page.locator('#home-video-picks')).toBeVisible();
-    await expect(page.locator('.daily-panel--videos .daily-panel-title')).toContainText(
-      '近一个月高播放精选',
-    );
+    await expect(page.locator('#home-daily .daily-brief-kicker').first()).toBeVisible();
     const homeTeasers = page.locator('#home-video-picks .home-video-teaser');
     await expect(homeTeasers.first()).toBeVisible();
     expect(await homeTeasers.count()).toBeLessThanOrEqual(3);
-    await expect(page.locator('.daily-panel--videos .daily-more')).toHaveAttribute(
+    await expect(page.locator('#home-daily a.daily-more-videos')).toHaveAttribute(
       'href',
       /videos\.html$/,
     );
-    await expect(page.locator('.daily-panel--videos .daily-more')).toContainText('查看全部');
     await expect(page.locator('#section-oss')).toHaveCount(0);
     await expect(page.locator('#section-courses')).toHaveCount(0);
     await expect(page.locator('.nav-link-page', { hasText: '开源精选' })).toHaveAttribute(
@@ -134,7 +130,7 @@ test.describe('AI 导航 关键路径', () => {
     );
   });
 
-  test('推荐助手文本流', async ({ page }) => {
+  test('按任务匹配文本流', async ({ page }) => {
     await gotoHome(page, '#home-recommend');
     await expect
       .poll(async () => page.locator('#recommend-form').isVisible(), { timeout: 15000 })
@@ -242,7 +238,7 @@ test.describe('AI 导航 关键路径', () => {
     await expect(navResults.getByRole('option', { name: /AI 新闻热点/ })).toBeVisible();
     await expect(navResults.getByRole('option', { name: /一周内/ })).toHaveCount(0);
     await page.locator('#nav-site-search').fill('AI 视频');
-    await expect(navResults.getByRole('option', { name: /AI 视频/ })).toBeVisible();
+    await expect(navResults.locator('a.search-hit[href$="videos.html"]')).toBeVisible();
     await page.locator('#nav-site-search').fill('ChatGPT');
     await page.locator('#nav-site-search').press('Enter');
     await expect(page).toHaveURL(/tools\/chatgpt\.html/);
@@ -269,8 +265,8 @@ test.describe('AI 导航 关键路径', () => {
     await expect(page.getByRole('heading', { level: 1, name: 'AI 工具中心' })).toBeVisible();
     await expect(page.locator('.nav-tabs')).not.toHaveAttribute('role', 'tablist');
     await expect(page.locator('#hub-ranking-updated')).toBeVisible();
-    await expect(page.locator('#hub-ranking-updated')).toContainText('数据更新于');
-    await expect(page.getByText('数据更新于')).toHaveCount(1);
+    await expect(page.locator('#hub-ranking-updated')).toContainText(/数据(更新于|停在)/);
+    await expect(page.getByText(/数据(更新于|停在)/)).toHaveCount(1);
     await expect(page.locator('#hub-panel-aicpb .aicpb-table-row')).toHaveCount(10);
     await expect(page.locator('#hub-panel-aicpb .aicpb-product-reason').first()).toBeVisible();
   });

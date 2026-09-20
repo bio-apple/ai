@@ -9,6 +9,7 @@ export type HubRankingItem = {
   name: string;
   description?: string;
   visits: string;
+  metric_value: string;
   mom: string;
   mom_bar_pct: number;
   url: string;
@@ -62,35 +63,57 @@ export function buildHubRankingBoards(topN = HUB_RANKING_TOP_N): HubRankingBoard
       source_name: sourceName,
       columns: cols,
       show_bar: showBar,
-      items: (board.items || []).slice(0, topN).map((item) => ({
-        rank: item.rank,
-        name: item.name,
-        description: item.description || '',
-        visits: item.visits,
-        mom: item.mom,
-        mom_bar_pct: item.mom_bar_pct || 0,
-        url: item.url,
-        pick_reason: rankingPickReason(item.name, board.id),
-      })),
+      items: (board.items || []).slice(0, topN).map((item) => {
+        const metric = (item as { metric_value?: string }).metric_value || item.visits || '—';
+        const reason = item.pick_reason || rankingPickReason(item.name, board.id);
+        return {
+          rank: item.rank,
+          name: item.name,
+          description: item.description || '',
+          visits: metric,
+          metric_value: metric,
+          mom: item.mom,
+          mom_bar_pct: item.mom_bar_pct || 0,
+          url: item.url,
+          pick_reason: reason || undefined,
+        };
+      }),
     };
   });
 }
 
 export function withRankingReasons<
-  T extends { id: string; items?: Array<{ name: string; pick_reason?: string }> },
+  T extends {
+    id: string;
+    items?: Array<{ name: string; pick_reason?: string; visits?: string; metric_value?: string }>;
+  },
 >(boards: T[]): T[] {
   return boards.map((board) => ({
     ...board,
-    items: (board.items || []).map((item) => ({
-      ...item,
-      pick_reason: item.pick_reason || rankingPickReason(item.name, board.id),
-    })),
+    items: (board.items || []).map((item) => {
+      const metric = item.metric_value || item.visits || '—';
+      const reason = item.pick_reason || rankingPickReason(item.name, board.id);
+      return {
+        ...item,
+        visits: metric,
+        pick_reason: reason || undefined,
+      };
+    }),
   }));
+}
+
+export function rankingUpdatedLabel(updatedAt?: string, now = Date.now()): string {
+  if (!updatedAt) return '';
+  const iso = /^\d{4}-\d{2}-\d{2}$/.test(updatedAt) ? `${updatedAt}T00:00:00+08:00` : updatedAt;
+  const t = Date.parse(iso);
+  const stale = !Number.isFinite(t) || now - t > 2 * 24 * 60 * 60 * 1000;
+  return stale ? `数据停在 ${updatedAt}（未日更）` : `数据更新于 ${updatedAt}`;
 }
 
 export function hubRankingMeta() {
   return {
     updated_at: rankings.updated_at,
+    updated_label: rankingUpdatedLabel(rankings.updated_at),
     month_label: rankings.month_label || rankings.month,
     source_name: 'AICPB · LMSYS Chatbot Arena Elo · Artificial Analysis Intelligence Index',
     source_home: 'https://www.aicpb.com/',

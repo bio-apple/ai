@@ -283,10 +283,10 @@ function buildSearchIndex(site, tools) {
     anchor: 'home-daily',
   });
   items.push({
-    label: 'AI 推荐助手',
-    type: '推荐',
+    label: '按任务匹配工具',
+    type: '匹配',
     section: 'section-home',
-    keywords: '推荐助手 场景 选型',
+    keywords: '匹配 场景 选型 任务',
     anchor: 'home-recommend',
   });
 

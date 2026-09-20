@@ -18,6 +18,7 @@ Schema：`schemas/*.json`
 | `ai-news.json`                               | 根      | 日更          | `ai-news.schema.json`        |
 | `ai-courses.json`                            | 根      | 日更          | `ai-courses.schema.json`     |
 | `daily-videos.json`                          | 根      | 每日定时      | `daily-videos.schema.json`   |
+| `home-video-picks.json`                      | `data/` | 手工          | 首页编辑片单                 |
 | `daily-videos.latest.json`                   | dist    | prebuild 瘦身 | —                            |
 | `search-index.json` / `recommend-rules.json` | dist    | prebuild      | 对应 schema                  |
 | `analytics.json`                             | `data/` | 手工          | 分析开关 · CI `analytics`    |
@@ -90,13 +91,14 @@ Schema：`schemas/*.json`
 | 字段                    | 说明                                                            |
 | ----------------------- | --------------------------------------------------------------- |
 | `rank` / `name` / `url` | 基础                                                            |
-| `visits`                | 主指标（访问量 / Elo / Index）                                  |
+| `visits`                | 仅 AICPB 访问量                                                 |
+| `metric_value`          | 该榜主指标（AICPB 访问量 / LMSYS Elo / AA Index）               |
 | `mom`                   | 次指标（月环比 / votes / 厂商）                                 |
 | `description`           | 厂商或备注，可空                                                |
 | `mom_bar_pct`           | AICPB 柱宽                                                      |
-| `pick_reason`           | 可选；未写则 `rankingPickReason(name, board.id)` 补「为什么选」 |
+| `pick_reason`           | 可选；仅展示人工写好的对照表。未写则留空，不按榜单编套话 |
 
-页头写出 `updated_at` + 相对时间。
+页头写出 `updated_at`；超过 2 天显示「数据停在这一天（未日更）」。
 
 ### 3.4 其他
 
@@ -104,9 +106,10 @@ Schema：`schemas/*.json`
 | ------------------- | ----------------------------------------------- |
 | `ai-courses.json`   | `updated_at`, 按 track 分组的课程               |
 | `daily-videos.json` | `updated_at`, `batches[]`；CDN 用 slim `latest` |
+| `home-video-picks.json` | 首页编辑片单，不按播放量                    |
 
-`daily-videos.json`：近 1 个月、`min_views ≥ 10000`、每平台 Top 3（`config/video-fetch.yaml`）。  
-展示：`prepareVideos()` 按 30 天窗 + 每平台播放量 Top 3。条目可含 `summary`，日更卡片不展示摘要。
+`daily-videos.json`：近 1 个月、`min_views ≥ 10000`、关键词 + 拒绝表、每平台 Top 3（`config/video-fetch.yaml`）。  
+展示：`prepareVideos()` 按 30 天窗 + 质量过滤后每平台 Top 3。首页片单见 `data/home-video-picks.json`。
 
 ## 4. 校验
 

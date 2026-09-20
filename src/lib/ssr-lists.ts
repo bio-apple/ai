@@ -1,5 +1,6 @@
 /** 专区 SSG 列表：与 courses.js / oss.js / news.js / videos.js 展示结构对齐 */
 import { ossAudienceTags, ossHeatLabel } from './content-display';
+import { isDisplayableVideo } from '../../lib/video-quality.js';
 
 export const OSS_CATEGORY_LABELS: Record<string, string> = {
   agent: 'Agent',
@@ -365,7 +366,9 @@ function buildPlatformList(
   platform: string,
 ): VideoItem[] {
   return sortByViews(
-    collectPlatformVideos(categories, platform).filter((v) => isVideoWithinDays(v)),
+    collectPlatformVideos(categories, platform).filter(
+      (v) => isVideoWithinDays(v) && isDisplayableVideo(v),
+    ),
   ).slice(0, PLATFORM_MONTHLY_TOP);
 }
 

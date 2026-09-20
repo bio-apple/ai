@@ -46,9 +46,11 @@ test('ossAudienceTags and heat label make heating concrete', () => {
   assert.match(heat.text, /热度 205/);
 });
 
-test('rankingPickReason covers known tools and board fallback', () => {
+test('rankingPickReason only returns hand-written reasons', () => {
   assert.equal(rankingPickReason('Cursor', 'aicpb'), '适合跨文件 Agent 改代码');
   assert.equal(rankingPickReason('DeepSeek', 'aicpb'), '性价比高，国内访问稳');
-  assert.match(rankingPickReason('claude-fable-5', 'lmsys-text'), /盲测|对话质量/);
-  assert.match(rankingPickReason('Unknown Model X', 'artificial-analysis'), /基准|选型/);
+  assert.equal(rankingPickReason('claude-fable-5', 'lmsys-text'), '盲测对战领先，对话质量口碑好');
+  assert.equal(rankingPickReason('Unknown Model X', 'artificial-analysis'), '');
+  assert.equal(rankingPickReason('Shop', 'aicpb'), '');
+  assert.equal(rankingPickReason('Hostinger', 'aicpb'), '');
 });

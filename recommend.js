@@ -1,4 +1,4 @@
-/* 首页 AI 推荐助手：场景点选 + 自由文本（规则来自 recommend-rules.json / 内嵌同源配置） */
+/* 首页按任务匹配工具：场景点选 + 自由文本（规则来自 recommend-rules.json / 内嵌同源配置） */
 (function initRecommendAssistant() {
   const form = document.getElementById('recommend-form');
   const input = document.getElementById('recommend-input');
@@ -17,17 +17,12 @@
 
   let options = cfg.options || [];
   let fallback = cfg.fallback || {};
-  let relations = cfg.relations || {};
   const toolMeta = cfg.tools || {};
-  const hubHref = cfg.hubHref || 'tools/hub.html';
 
   function applyRules(rules) {
     if (!rules || !Array.isArray(rules.options)) return;
     options = rules.options;
     fallback = rules.fallback || fallback;
-    if (rules.relations && typeof rules.relations === 'object') {
-      relations = rules.relations;
-    }
   }
 
   fetch('recommend-rules.json', { cache: 'default' })
@@ -76,26 +71,6 @@
     return `${siteBase()}tools/${encodeURIComponent(id)}.html`;
   }
 
-  function collectRelated(toolIds) {
-    const seen = new Set(toolIds);
-    const items = [];
-    for (const id of toolIds) {
-      const rel = relations[id];
-      if (!rel) continue;
-      const edges = [
-        ...(rel.alternatives || []).slice(0, 1).map((e) => ({ ...e, kind: 'alt' })),
-        ...(rel.complements || []).slice(0, 1).map((e) => ({ ...e, kind: 'comp' })),
-      ];
-      for (const edge of edges) {
-        if (!edge?.id || seen.has(edge.id)) continue;
-        seen.add(edge.id);
-        items.push(edge);
-        if (items.length >= 3) return items;
-      }
-    }
-    return items;
-  }
-
   function setActiveChip(pickerId) {
     if (!chips) return;
     chips.querySelectorAll('[data-picker]').forEach((chip) => {
@@ -123,8 +98,20 @@
     if (!String(input.value || '').trim()) clearResult();
   }
 
+  function logFlywheel(name, params) {
+    if (typeof trackEvent === 'function') trackEvent(name, params);
+    try {
+      const key = 'bioai.flywheel';
+      const prev = JSON.parse(localStorage.getItem(key) || '[]');
+      prev.push({ e: name, t: Date.now(), ...params });
+      localStorage.setItem(key, JSON.stringify(prev.slice(-100)));
+    } catch {
+      /* private mode */
+    }
+  }
+
   function render(opt, query) {
-    const tools = (opt?.tools || fallback.tools || []).slice(0, 5);
+    const tools = (opt?.tools || fallback.tools || []).slice(0, 3);
     const base = siteBase();
     const guidePath = opt?.guide || fallback.guide || 'courses.html';
     const guide =
@@ -132,7 +119,6 @@
         ? guidePath
         : `${base}${guidePath.replace(/^\//, '')}`;
     const pathTitle = opt?.path_title || fallback.path_title || '学习路径';
-    const steps = opt?.steps || fallback.steps || [];
     const examples = opt?.examples || [];
     const scenario = opt?.label || '通用入门';
 
@@ -152,38 +138,8 @@
       }),
     ].join('<li class="graft-edge" aria-hidden="true"></li>');
 
-    const examplesHtml = examples.length
-      ? `<div class="recommend-examples">
-          <p class="recommend-card-lead">现实实例</p>
-          <ul class="recommend-example-list">
-            ${examples.map((ex) => `<li>${escape(ex)}</li>`).join('')}
-          </ul>
-        </div>`
-      : '';
-
-    const stepsHtml = steps.length
-      ? `<ol class="recommend-path-steps">
-          ${steps.map((s) => `<li>${escape(s)}</li>`).join('')}
-        </ol>`
-      : '';
-
-    const related = collectRelated(tools);
-    const relatedHtml = related.length
-      ? `<div class="recommend-related">
-          <p class="recommend-card-lead">也可以看看</p>
-          <div class="recommend-links">
-            ${related
-              .map((edge) => {
-                const t = toolMeta[edge.id] || { name: edge.id };
-                const kind = edge.kind === 'comp' ? '搭配' : '替代';
-                return `<a class="recommend-link recommend-related-btn" href="${escape(toolHref(edge.id))}" data-tool="${escape(edge.id)}" data-track="recommend_related_${edge.kind}">
-                ${escape(kind)} · ${escape(t.name)}
-              </a>`;
-              })
-              .join('')}
-          </div>
-          <p class="recommend-related-note">${escape(related[0].note || '')}</p>
-        </div>`
+    const examplesHtml = examples[0]
+      ? `<p class="recommend-card-lead">例如：${escape(examples[0])}</p>`
       : '';
 
     setActiveChip(opt?.id || null);
@@ -197,29 +153,19 @@
         <p class="recommend-result-meta">
           ${
             opt
-              ? `按「${escape(scenario)}」接好这条工具链；对照现实实例动手，点进教程页即可上手。`
-              : '未精确匹配场景，先给通用主力工具；可换个说法或点选场景再试。'
+              ? `按「${escape(scenario)}」给出 2～3 个工具，再走一步。`
+              : '未匹配到场景，先给通用主力工具。可换个说法或点选场景再试。'
           }
           ${query && opt && query !== opt.label ? ` <span class="recommend-query-echo">查询：${escape(query)}</span>` : ''}
         </p>
       </header>
       ${examplesHtml}
-      <p class="recommend-card-lead">工具链</p>
-      <ol class="graft-path" aria-label="推荐工具链">${graftNodes}</ol>
-      ${
-        stepsHtml
-          ? `<div class="recommend-path">
-              <p class="recommend-card-lead">${escape(pathTitle)}</p>
-              ${stepsHtml}
-            </div>`
-          : ''
-      }
-      ${relatedHtml}
+      <p class="recommend-card-lead">工具</p>
+      <ol class="graft-path" aria-label="推荐工具">${graftNodes}</ol>
       <div class="recommend-next">
         <p class="recommend-card-lead">下一步</p>
         <div class="recommend-links">
-          <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">完整指南 →</a>
-          <a class="recommend-link" href="${escape(hubHref)}" data-track="recommend_goto_hub">工具中心 →</a>
+          <a class="recommend-link" href="${escape(guide)}" data-track="recommend_guide_query">${escape(pathTitle)} →</a>
         </div>
       </div>
     `;
@@ -234,13 +180,15 @@
     }
     const opt = (pickerId && options.find((o) => o.id === pickerId)) || matchOption(query) || null;
     render(opt, query);
-    if (typeof trackEvent === 'function') {
-      trackEvent(fromChip ? 'recommend_chip' : 'recommend_submit', {
-        matched: opt?.id || 'fallback',
-        choice: pickerId || opt?.id || query,
-        funnel_step: 1,
-      });
-    }
+    const payload = {
+      matched: opt?.id || 'fallback',
+      choice: pickerId || opt?.id || query.slice(0, 80),
+      q: query.slice(0, 80),
+      funnel_step: 1,
+    };
+    if (fromChip) logFlywheel('recommend_chip', payload);
+    else if (!opt) logFlywheel('recommend_miss', payload);
+    else logFlywheel('recommend_submit', payload);
     const url = new URL(location.href);
     url.hash = 'home-recommend';
     url.searchParams.set('rq', query);
@@ -291,8 +239,7 @@
     if (!q) {
       clearResult();
       input.focus();
-      if (typeof trackEvent === 'function')
-        trackEvent('recommend_empty_submit', { funnel_step: 0 });
+      logFlywheel('recommend_empty_submit', { funnel_step: 0 });
       return;
     }
     runQuery(q);

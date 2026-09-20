@@ -1,0 +1,30 @@
+{
+  "updated_at": "2026-09-20",
+  "note": "首页片单：编辑白名单，不按播放量排序。",
+  "items": [
+    {
+      "id": "youtube:z9rdrNrkvDY",
+      "platform": "youtube",
+      "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
+      "url": "https://www.youtube.com/watch?v=z9rdrNrkvDY",
+      "author": "Jeff Su",
+      "thumbnail": "https://i.ytimg.com/vi/z9rdrNrkvDY/hqdefault.jpg"
+    },
+    {
+      "id": "youtube:_NLHFoVNlbg",
+      "platform": "youtube",
+      "title": "Stanford CS229 Machine Learning | Spring 2026 | Lecture 1: Introduction",
+      "url": "https://www.youtube.com/watch?v=_NLHFoVNlbg",
+      "author": "Stanford Online",
+      "thumbnail": "https://i.ytimg.com/vi/_NLHFoVNlbg/hqdefault.jpg"
+    },
+    {
+      "id": "youtube:j1Vk6Y-23CY",
+      "platform": "youtube",
+      "title": "What happens when you talk to AI?",
+      "url": "https://www.youtube.com/watch?v=j1Vk6Y-23CY",
+      "author": "Claude",
+      "thumbnail": "https://i.ytimg.com/vi/j1Vk6Y-23CY/hqdefault.jpg"
+    }
+  ]
+}

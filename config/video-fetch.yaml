@@ -59,7 +59,9 @@ bilibili_search_queries:
   - "AI 提示词 教程"
   - "大模型 应用 教程"
 
-ai_keyword_pattern: "(ai|chatgpt|claude|gemini|deepseek|cursor|copilot|codex|kimi|qwen|通义|豆包|prompt|llm|gpt|openai|anthropic|大模型|人工智能|智能体|agent|bilibili|哔哩)"
+# 英文词边界；不要把 bilibili/哔哩 当成 AI 相关。`ai` 不能当子串（available/said）。
+ai_keyword_pattern: "(\\b(chatgpt|claude|gemini|deepseek|cursor|copilot|codex|kimi|qwen|prompt|llm|gpt|openai|anthropic|agent)\\b|\\bai\\b|通义|豆包|大模型|人工智能|智能体)"
+reject_pattern: "涉黄|绕过审核|锟斤拷|\uFFFD"
 
 summary:
   min_length: 24

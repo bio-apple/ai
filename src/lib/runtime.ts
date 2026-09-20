@@ -2,6 +2,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isVideoWithinDays, prepareVideos } from './ssr-lists';
+import { isDisplayableVideo } from '../../lib/video-quality.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 
@@ -210,23 +211,47 @@ export function pickHomeNews(limit = 4): NewsItem[] {
   return dedupeNewsItems(data?.items || []).slice(0, limit);
 }
 
-function sortVideosByViews(list: VideoItem[]): VideoItem[] {
-  return [...list].sort((a, b) => (b.views || 0) - (a.views || 0));
+const INDUSTRY_SOURCE_ALLOW = /^(openai|anthropic|机器之心|jiqizhixin)$/i;
+
+function isIndustryNews(item: NewsItem): boolean {
+  if ((item.category || '') === '行业新闻') return true;
+  return INDUSTRY_SOURCE_ALLOW.test((item.source || '').trim());
 }
 
-/** 首页精选：YouTube / B站近 1 个月月榜合并后再按播放量取 Top N。完整列表在 videos.html。 */
+type HomeVideoPicksPayload = { items?: VideoItem[] };
+
+/** 首页精选：编辑白名单。缺省时才从日更里按平台各取一条（已过滤，不按播放量）。 */
 export function pickHomeVideos(limit = 3, data?: VideosPayload | null): VideoItem[] {
+  const picks = loadRuntimeJson<HomeVideoPicksPayload>('home-video-picks.json');
+  const curated = (picks?.items || []).filter((v) => v?.url && v?.title).slice(0, limit);
+  if (curated.length) return curated;
+
   const payload = data ?? loadRuntimeJson<VideosPayload>('daily-videos.json');
   const batch = payload?.batches?.[0];
   if (!batch) return [];
-  if (batch.categories) {
-    const { youtube, bilibili } = prepareVideos(payload);
-    return sortVideosByViews([...youtube, ...bilibili]).slice(0, limit);
+  const pool = batch.categories
+    ? Object.values(prepareVideos(payload)).flat()
+    : (batch.videos || []).filter((v) => isVideoWithinDays(v));
+  const filtered = pool.filter((v) => isDisplayableVideo(v));
+  const seen = new Set<string>();
+  const out: VideoItem[] = [];
+  for (const platform of ['youtube', 'bilibili']) {
+    const hit = filtered.find((v) => {
+      const plat = /bilibili/i.test(v.platform || v.id || '') ? 'bilibili' : 'youtube';
+      return plat === platform && !seen.has(v.id);
+    });
+    if (hit) {
+      seen.add(hit.id);
+      out.push(hit);
+    }
+    if (out.length >= limit) return out;
   }
-  return sortVideosByViews((batch.videos || []).filter((v) => isVideoWithinDays(v))).slice(
-    0,
-    limit,
-  );
+  for (const v of filtered) {
+    if (seen.has(v.id)) continue;
+    out.push(v);
+    if (out.length >= limit) break;
+  }
+  return out;
 }
 
 export type OssHeatRow = {
@@ -276,9 +301,6 @@ export type AiDailyBrief = {
   models: NewsItem[];
   industry: NewsItem[];
   github: NewsItem[];
-  /** 全量 GitHub 源资讯（供虚拟列表，可远大于 github 预览条数） */
-  githubAll?: NewsItem[];
-  githubFromOss?: boolean;
   learn: VideoItem[];
 };
 
@@ -290,35 +312,24 @@ function pickNewsBy(
   return items.filter(pred).slice(0, limit);
 }
 
-/** 首页 AI Daily：聚合新闻 / Trending / 视频学习 */
+/** 首页简报：1 条模型资讯 + 开源升温 + 编辑视频。行业资讯不把「中文资讯」当行业。 */
 export function pickAiDailyBrief(
-  limits = { models: 3, industry: 2, github: 3, learn: 2 },
+  limits = { models: 1, industry: 1, github: 1, learn: 1 },
 ): AiDailyBrief {
   const news = loadRuntimeJson<NewsPayload>('ai-news.json');
   const items = dedupeNewsItems(news?.items || []);
-  const models = pickNewsBy(
-    items,
-    (i) => /新模型|模型|发布/.test(`${i.category || ''}${i.title || ''}`),
-    limits.models,
-  );
+  const models = pickNewsBy(items, (i) => (i.category || '') === '新模型发布', limits.models);
   const industry = pickNewsBy(
     items,
-    (i) => /行业|中文|工具/.test(i.category || '') && !models.includes(i),
+    (i) => isIndustryNews(i) && !models.includes(i),
     limits.industry,
   );
-  const githubNews = items.filter((i) => /GitHub/i.test(i.source || ''));
-  const githubFromOss = githubNews.length === 0;
-  const githubAll = githubFromOss ? pickOssWeeklyTop(Math.max(limits.github, 3)) : githubNews;
-  const github = githubAll.slice(0, limits.github);
+  const github = pickOssWeeklyTop(Math.max(limits.github, 1));
   return {
     updatedAt: news?.updated_at,
-    models: models.length ? models : items.slice(0, limits.models),
-    industry: industry.length
-      ? industry
-      : items.filter((i) => !models.includes(i)).slice(0, limits.industry),
+    models: models.length ? models : [],
+    industry,
     github,
-    githubAll,
-    githubFromOss,
     learn: pickHomeVideos(limits.learn),
   };
 }

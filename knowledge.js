@@ -1,4 +1,4 @@
-/* AI 知识库助手：客户端 Fuse 检索 + 可选 /api/ask */
+/* 站内索引检索：客户端 Fuse + 可选 /api/ask */
 (function initKnowledgeAssistant() {
   const panel = document.getElementById('knowledge-panel');
   const closeBtn = document.getElementById('knowledge-close');

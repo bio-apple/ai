@@ -6,20 +6,20 @@
 
 - 顶栏唯一入口（`⌘K` / `Ctrl+K`）；`search-index.json` + Fuse.js（`lib/search.js`）
 - 工具名可直达 `tools/*.html`；历史存 `localStorage`
-- 下拉可「用知识库回答」，打开同一套对话面板（无右侧悬浮按钮）
+- 下拉可「用站内索引搜索」，打开同一套检索面板（无右侧悬浮按钮）
 
-## 2. 推荐助手
+## 2. 按任务匹配
 
 - `site.ai_picker` → 构建期 `recommend-rules.json`
-- 场景芯片 + 现实实例 + 路径步骤（`HomeRecommend.astro`）
+- 场景芯片 + 2～3 个工具 + 一个下一步（`HomeRecommend.astro`）
 
 ## 3. 首页结构
 
 | 区块     | id / 组件                        | 说明                                             |
 | -------- | -------------------------------- | ------------------------------------------------ |
-| 匹配助手 | Hero 内 `HomeRecommend`          | 先说要做什么                                     |
-| AI 简报  | `#home-daily`                    | 模型 / GitHub / 资讯 + 近一个月视频精选 3 条     |
-| 知识版图 | `#home-ai-map` `HomeAiMap.astro` | 绿色圈层可点；黄色基础学科只作图示，不在下方按钮 |
+| 匹配 | Hero 内 `HomeRecommend`          | 先说要做什么                                     |
+| AI 简报  | `#home-daily`                    | 资讯 / 开源升温 / 编辑视频各 1 条              |
+| 知识版图 | `#home-ai-map` `HomeAiMap.astro` | 绿色圈层可点并讲解；黄色基础学科只作图示         |
 | 下一步   | `#home-community`                | 工具中心三榜、开源精选                           |
 
 独立页（开源 / 课程 / 新闻 / 视频）用 `StandaloneLayout`，左侧「本页目录」扫可见的 `h2–h4`（跳过 `.visually-hidden`，避免 aria 标题进目录）。日更视频卡片标题不用 `h4`，以免目录被每条标题撑满。
@@ -72,8 +72,8 @@
 
 | 类型         | 入口                 | 数据                                                             |
 | ------------ | -------------------- | ---------------------------------------------------------------- |
-| 首页日更精选 | `#home-video-picks`  | `prepareVideos`：近 30 天、每平台播放量 Top 3，首页再合并取 3 条 |
-| 专区完整列表 | `videos.html` 日更区 | YouTube 3 + B站 3；卡片封面、名次、时长                          |
+| 首页编辑片单 | `#home-video-picks`  | `data/home-video-picks.json`，不按播放量                       |
+| 专区完整列表 | `videos.html` 日更区 | 近 30 天、关键词+拒绝表过滤后每平台 Top 3                      |
 | 用户粘贴     | `videos.html` 收藏   | `localStorage` + Cloudflare KV                                   |
 
 展示：`src/components/SsrVideosList.astro` + `css/videos.css`。JSON 可含 `summary`，日更卡片不渲染摘要。  

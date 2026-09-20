@@ -62,7 +62,7 @@ const rankMeta = hubRankingMeta();
           }
         </p>
         <p class="hub-ranking-updated" id="hub-ranking-updated">
-          <time datetime={rankMeta.updated_at}>数据更新于 {rankMeta.updated_at}</time>
+          <time datetime={rankMeta.updated_at}>{rankMeta.updated_label || `数据更新于 ${rankMeta.updated_at}`}</time>
           {rankMeta.updated_at ? <span> · {formatRelativeTime(rankMeta.updated_at)}</span> : null}
         </p>
       </div>
