@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-21T17:20:10.890509+08:00",
-  "date": "2026-09-21",
+  "updated_at": "2026-09-22T04:42:21.614003+08:00",
+  "date": "2026-09-22",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,123 @@
   },
   "items": [
     {
+      "id": "9ee6cf4f42f1",
+      "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
+      "summary": "Every AI factory needs power and cooling that fit its computing architecture. As AI infrastructure expands, power, cooling, water, site and grid constraints ar…",
+      "url": "https://blogs.nvidia.com/blog/dsx-ready-ai-factories-power-cooling/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-22T02:00:07+08:00"
+    },
+    {
+      "id": "173eb9a2ab25",
+      "title": "Why Deploying Physical AI at Scale Demands Safety at Every Layer",
+      "summary": "Physical AI is moving rapidly from research to large-scale deployment. By 2035, ABI Research projects an installed base of 49 million level 3-5 autonomous vehi…",
+      "url": "https://blogs.nvidia.com/blog/physical-ai-halos-safety/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-22T00:00:46+08:00"
+    },
+    {
+      "id": "2776c8ddc12b",
+      "title": "From Enablement to Execution, Egypt’s AI Ecosystem Reaches Production Scale",
+      "summary": "Today, Egypt’s AI builders gathered in the Grand Egyptian Museum for a reception that highlighted the nation’s rapidly growing AI ecosystem — spanning AI nativ…",
+      "url": "https://blogs.nvidia.com/blog/egypt-africa-ai-ecosystem/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-22T00:00:10+08:00"
+    },
+    {
+      "id": "ce92ef014f89",
+      "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
+      "summary": "Custom-made molecules are advancing medicine, materials, and agriculture, but producing them is slow and expensive. A new Nature paper highlights RetroChimera,…",
+      "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/",
+      "source": "Microsoft AI",
+      "category": "新模型发布",
+      "published_at": "2026-09-21T23:30:19+08:00"
+    },
+    {
+      "id": "dd63189f99f4",
+      "title": "AI Security Is an Engineering Problem — How to Solve It at Every Layer of the Agent Stack",
+      "summary": "AI security is an engineering problem. That means defined security requirements, enforceable controls, named owners and evidence that protections work. As AI b…",
+      "url": "https://blogs.nvidia.com/blog/ai-security-agent-stack/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-21T22:51:34+08:00"
+    },
+    {
+      "id": "c701b57089c5",
+      "title": "Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem",
+      "summary": "Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem",
+      "url": "https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-09-21T21:44:34+08:00"
+    },
+    {
+      "id": "a7ca59844a94",
+      "title": "Advisory Group on Mathematics and Artificial Intelligence",
+      "summary": "OpenAI is working with an independent Advisory Group on Mathematics and Artificial Intelligence to guide the review and communication of emerging AI results.",
+      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-21T20:00:00+08:00"
+    },
+    {
+      "id": "d37f5b2c5927",
+      "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra",
+      "summary": "With GPT-6 Astra, Higgsfield AI makes video ad creation easier for small businesses and brings new creative tools to market faster.",
+      "url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-21T20:00:00+08:00"
+    },
+    {
+      "id": "405872456e62",
+      "title": "5 Companies Using NVIDIA AI for Clean Energy",
+      "summary": "Clean energy isn’t hard to come by, but the pace of large-scale adoption has historically been slow due to bottlenecks — including out-of-date infrastructure, …",
+      "url": "https://blogs.nvidia.com/blog/clean-energy-nvidia-ai/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-21T18:00:35+08:00"
+    },
+    {
+      "id": "2c9792fbb14a",
+      "title": "Building standards for the next phase of AI",
+      "summary": "OpenAI outlines a path to shared global AI standards, calling for coordinated evaluation, reporting, and governance to improve safety.",
+      "url": "https://openai.com/index/building-standards-next-phase-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-21T18:00:00+08:00"
+    },
+    {
+      "id": "f34a44a92d61",
+      "title": "SkyProduction天工工作台中秋国庆特惠第二波：Seedance 2.5 720P 低至 0.27 元/秒，全网地板价！",
+      "summary": "9月15日，SkyProduction（天工工作台）中秋国庆折上折活动正式开启！",
+      "url": "https://www.qbitai.com/2026/09/493268.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-21T16:25:44+08:00"
+    },
+    {
+      "id": "11af1577cafb",
+      "title": "啊啊啊GPT-6 Astra这么不安全！这次马斯克都瘫坐了",
+      "summary": "97%尝试危险行为",
+      "url": "https://www.qbitai.com/2026/09/493241.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-21T16:21:55+08:00"
+    },
+    {
+      "id": "3f556e89de88",
+      "title": "长三角安全人工智能安徽省实验室发布星界、星驭、星鉴三大AI安全解决方案",
+      "summary": "9月19日，第一届中国网络空间安全大会（CCSC 2026）的高水平专题论坛在安徽合肥正式举办。",
+      "url": "https://www.qbitai.com/2026/09/493235.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-21T15:52:46+08:00"
+    },
+    {
       "id": "05d9cfdcec07",
       "title": "国产数据库跑出AI新能力！OceanBase登顶国际Data Agent榜单",
       "summary": "OceanBase团队提交的Data Agent方案登顶国际数据智能体基准Data Agent Benchmark",
@@ -22,6 +139,15 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-21T15:31:26+08:00"
+    },
+    {
+      "id": "530db518a73a",
+      "title": "Expanding OpenAI Academy with new learning paths",
+      "summary": "Explore new OpenAI Academy learning paths for employees, developers, leaders, educators, and students to build and demonstrate practical AI skills.",
+      "url": "https://openai.com/index/expanding-openai-academy-with-new-learning-paths",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-21T15:00:00+08:00"
     },
     {
       "id": "513a5289cc93",
@@ -78,31 +204,22 @@
       "published_at": "2026-09-21T12:00:00+08:00"
     },
     {
-      "id": "11261e2438d5",
-      "title": "开源Top2！实测阶跃Step 5 Preview，真有点猛啊…",
-      "summary": "激活参数仅27B",
-      "url": "https://www.qbitai.com/2026/09/493179.html",
-      "source": "量子位",
+      "id": "d1749ba76a98",
+      "title": "How V7 gives AI agents institutional memory",
+      "summary": "Using GPT-5.6, V7 turns scattered company files into context agents can use to complete complex, source-linked work.",
+      "url": "https://openai.com/index/v7",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-21T08:00:00+08:00"
+    },
+    {
+      "id": "eb792e0fc342",
+      "title": "tokenizers v1: encode, decode and scaling, measured",
+      "summary": "tokenizers v1: encode, decode and scaling, measured",
+      "url": "https://huggingface.co/blog/tokenizers-v1",
+      "source": "Hugging Face",
       "category": "开源项目",
-      "published_at": "2026-09-21T11:46:43+08:00"
-    },
-    {
-      "id": "cffb06bb0dd9",
-      "title": "中国Neocloud市场第一！商汤大装置全面领跑",
-      "summary": "沙利文报告",
-      "url": "https://www.qbitai.com/2026/09/493175.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-21T11:32:03+08:00"
-    },
-    {
-      "id": "8b8b7ec88c52",
-      "title": "百曜科技发起，《AI虚拟细胞（AIVC）技术趋势、产业生态与应用前景研究报告》正式发布",
-      "summary": "《AI 虚拟细胞（AIVC）技术趋势、产业生态与应用前景研究报告——AI 时代生命科学的新型基础设施》正式发布。",
-      "url": "https://www.qbitai.com/2026/09/493114.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-21T10:28:46+08:00"
+      "published_at": "2026-09-21T08:00:00+08:00"
     },
     {
       "id": "079e661c04ce",
@@ -123,15 +240,6 @@
       "published_at": "2026-09-18T21:00:00+08:00"
     },
     {
-      "id": "559b0cf11197",
-      "title": "Introducing the Australian Youth Safety Blueprint",
-      "summary": "OpenAI introduces the Australian Youth Safety Blueprint, a six-pillar roadmap for safer AI experiences that protect and empower young people.",
-      "url": "https://openai.com/index/australian-youth-safety-blueprint",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-18T20:00:00+08:00"
-    },
-    {
       "id": "e7b9d12d1b3a",
       "title": "Making global data easier to explore",
       "summary": "Google and the UN system have launched the UN System Data Commons, a new open platform making global statistics accessible and easy to search.",
@@ -149,42 +257,6 @@
       "category": "新模型发布",
       "published_at": "2026-09-18T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "04812389539e",
-      "title": "Cute Critters Come to the Cloud: ‘Aniimo’ Launches on GeForce NOW",
-      "summary": "A new creature-catching adventure is ready to stream from the cloud this week. Pawprint Studio’s Aniimo arrives on GeForce NOW at launch, inviting gamers to ex…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-aniimo/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-17T21:00:55+08:00"
-    },
-    {
-      "id": "964ae1dd0fac",
-      "title": "How Cooley is accelerating IPO work with ChatGPT",
-      "summary": "Cooley built GO Public with ChatGPT Work to bring intelligence to the IPO process, helping lawyers surface issues earlier and focus judgment where it matters m…",
-      "url": "https://openai.com/index/cooley-gopublic",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-17T20:00:00+08:00"
-    },
-    {
-      "id": "363bbead77de",
-      "title": "Introducing Astra for Law",
-      "summary": "OpenAI for Law brings frontier intelligence for law, custom firm workflows, connected legal data sources, and legal-grade controls for confidential client work.",
-      "url": "https://openai.com/index/astra-for-law",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-17T08:00:00+08:00"
-    },
-    {
-      "id": "027811ca1632",
-      "title": "Helping older adults use AI in everyday life",
-      "summary": "OpenAI and AARP are bringing free, hands-on ChatGPT workshops to 1,000 older adults across 10 U.S. cities to build practical AI skills safely.",
-      "url": "https://openai.com/index/helping-older-adults-use-ai-in-everyday-life",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-17T00:00:00+08:00"
     },
     {
       "id": "eac2164922f4",
@@ -207,49 +279,14 @@
       "window_hours": 720
     },
     {
-      "id": "a425146e5e22",
-      "title": "NVIDIA Vera Rubin NVL72 Delivers Leading Performance in MLPerf Inference v6.1 Debut",
-      "summary": "System performance, efficient infrastructure scaling and continuous software optimization are key levers that determine AI inference economics. Higher system p…",
-      "url": "https://blogs.nvidia.com/blog/vera-rubin-nvl72-mlperf-inference/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-16T23:00:48+08:00"
-    },
-    {
-      "id": "22653b4ecc69",
-      "title": "Emerald AI, Google and NVIDIA Launch Alliance to Advance Flexible AI Data Centers",
-      "summary": "AI factories are the infrastructure of the intelligence era. Scaling them responsibly will depend as much on innovation across the grid as inside the data cent…",
-      "url": "https://blogs.nvidia.com/blog/ai-energy-management-alliance/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-16T21:00:33+08:00"
-    },
-    {
-      "id": "52752974efc0",
-      "title": "Reimagining advertising with AI",
-      "summary": "Explore new AI-powered advertising experiences from OpenAI, including Sponsored Agents, tools for marketers, and integrations with HubSpot and Shopify.",
-      "url": "https://openai.com/index/reimagining-advertising-with-ai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-16T21:00:00+08:00"
-    },
-    {
-      "id": "88fd26958a90",
-      "title": "University of Manchester Uses NVIDIA Earth-2 to Forecast Air Pollution Across the UK",
-      "summary": "Air pollution is a serious public health risk, contributing to an estimated 30,000 deaths in the U.K. alone last year. Data-driven insights can help — but comp…",
-      "url": "https://blogs.nvidia.com/blog/uk-air-pollution-research-earth-2/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-09-16T13:00:42+08:00"
-    },
-    {
-      "id": "1fec8bc66a00",
-      "title": "‘Now We Can Know Everything and Do Anything,’ Jensen Huang Says at Dreamforce",
-      "summary": "Know everything. Do anything. That was the message NVIDIA founder and CEO Jensen Huang brought to Salesforce Dreamforce Tuesday, joining CEO Marc Benioff onsta…",
-      "url": "https://blogs.nvidia.com/blog/jensen-huang-dreamforce/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-09-16T06:24:34+08:00"
+      "id": "cfcf89b5b759",
+      "title": "央企做了个通用Agent，直接杀进IDC实测前三！",
+      "summary": "央企做了个通用Agent，直接杀进IDC实测前三！",
+      "url": "https://www.qbitai.com/2026/09/491454.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-17T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "f4c3141ce9f2",
@@ -296,32 +333,12 @@
       "category": "中文资讯",
       "published_at": "2026-09-16T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "1cf3b72857c7",
-      "title": "首届蚂蚁灵波具身大模型挑战赛正式启动",
-      "summary": "首届蚂蚁灵波具身大模型挑战赛正式启动",
-      "url": "https://www.qbitai.com/2026/09/489105.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-14T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "1cf3b72857c7",
-        "title": "首届蚂蚁灵波具身大模型挑战赛正式启动",
-        "summary": "首届蚂蚁灵波具身大模型挑战赛正式启动",
-        "url": "https://www.qbitai.com/2026/09/489105.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-14T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "eac2164922f4",
         "title": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
@@ -360,6 +377,16 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-09-18T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "cfcf89b5b759",
+        "title": "央企做了个通用Agent，直接杀进IDC实测前三！",
+        "summary": "央企做了个通用Agent，直接杀进IDC实测前三！",
+        "url": "https://www.qbitai.com/2026/09/491454.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-17T00:00:00+08:00",
         "window_hours": 720
       }
     ]
