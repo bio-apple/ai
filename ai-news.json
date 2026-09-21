@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-21T03:11:26.422540+08:00",
+  "updated_at": "2026-09-21T17:20:10.890509+08:00",
   "date": "2026-09-21",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,49 +15,94 @@
   },
   "items": [
     {
-      "id": "75b23aa6601d",
-      "title": "刚刚，剪映发了个大的：AI生视频和AI剪辑的壁，被打破了！",
-      "summary": "剪映Hub+剪映助手，好用",
-      "url": "https://www.qbitai.com/2026/09/492973.html",
+      "id": "05d9cfdcec07",
+      "title": "国产数据库跑出AI新能力！OceanBase登顶国际Data Agent榜单",
+      "summary": "OceanBase团队提交的Data Agent方案登顶国际数据智能体基准Data Agent Benchmark",
+      "url": "https://www.qbitai.com/2026/09/493231.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-20T22:30:26+08:00"
+      "published_at": "2026-09-21T15:31:26+08:00"
     },
     {
-      "id": "8ece108decc6",
-      "title": "华为首发企业AI白皮书：AI让员工更快了，怎样让整个企业受益？",
-      "summary": "AI越来越能干，企业该怎么用",
-      "url": "https://www.qbitai.com/2026/09/493068.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-20T22:23:52+08:00"
-    },
-    {
-      "id": "489c0985eaa2",
-      "title": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
-      "summary": "AI办公这块蛋糕，中国电信可能要先切走一块了。",
-      "url": "https://www.qbitai.com/2026/09/492946.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-20T20:22:41+08:00"
-    },
-    {
-      "id": "7942abbc44e4",
-      "title": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
-      "summary": "9月19日，中国人工智能企业APUS旗下 AI 实验室公布了全球最早一批针对Jev的独立开源复现成果",
-      "url": "https://www.qbitai.com/2026/09/492939.html",
+      "id": "513a5289cc93",
+      "title": "GPT-6 Astra开进机器人身体！清华联手无问芯穹等开源RPent",
+      "summary": "在物理世界真正干活的具身智能体",
+      "url": "https://www.qbitai.com/2026/09/493218.html",
       "source": "量子位",
       "category": "开源项目",
-      "published_at": "2026-09-20T16:30:32+08:00"
+      "published_at": "2026-09-21T14:22:37+08:00"
     },
     {
-      "id": "78e524b8775d",
-      "title": "谷歌AI首次“越狱”：竟然自己破解密码入侵三家公司！",
-      "summary": "亚马逊云科技给企业安全用Agent打了个样",
-      "url": "https://www.qbitai.com/2026/09/492912.html",
+      "id": "34088336622f",
+      "title": "RBS-Attention: Radius-Bounded Sparse Prefill for Long-Context Large Language Models",
+      "summary": "arXiv:2609.20971v1 Announce Type: new Abstract: Long-context large language model inference is increasingly limited by prefill, where dense self-attention proc…",
+      "url": "https://arxiv.org/abs/2609.20971",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-21T12:00:00+08:00"
+    },
+    {
+      "id": "37d9347772d8",
+      "title": "Attention-Aware Routing: Coupling Routing and Attention in MoEs",
+      "summary": "arXiv:2609.20974v1 Announce Type: new Abstract: In Mixture-of-Experts language models, the router typically selects and weights experts based on the token's hi…",
+      "url": "https://arxiv.org/abs/2609.20974",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-21T12:00:00+08:00"
+    },
+    {
+      "id": "f790dcf3a000",
+      "title": "CaLR: Causal Latent Revision for Robust Diffusion Reasoning",
+      "summary": "arXiv:2609.20981v1 Announce Type: new Abstract: Autoregressive (AR) models suffer from local greediness, while diffusion language models (DLMs) often lack the …",
+      "url": "https://arxiv.org/abs/2609.20981",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-21T12:00:00+08:00"
+    },
+    {
+      "id": "438c183280ad",
+      "title": "LoRA Enhanced Contrastive Learning with SAS Vision Transformers",
+      "summary": "arXiv:2609.21061v1 Announce Type: new Abstract: Automatic target recognition (ATR) with synthetic aperture sonar (SAS) supports advanced naval capabilities, bu…",
+      "url": "https://arxiv.org/abs/2609.21061",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-21T12:00:00+08:00"
+    },
+    {
+      "id": "7d948ffb39bb",
+      "title": "Detecting Hallucination in LLMs: Tracing the Topological Signatures of Impaired Context Sharing",
+      "summary": "arXiv:2609.21096v1 Announce Type: new Abstract: In this work, we examine the topology of information flow patterns within attention graphs to effectively disti…",
+      "url": "https://arxiv.org/abs/2609.21096",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-21T12:00:00+08:00"
+    },
+    {
+      "id": "11261e2438d5",
+      "title": "开源Top2！实测阶跃Step 5 Preview，真有点猛啊…",
+      "summary": "激活参数仅27B",
+      "url": "https://www.qbitai.com/2026/09/493179.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-21T11:46:43+08:00"
+    },
+    {
+      "id": "cffb06bb0dd9",
+      "title": "中国Neocloud市场第一！商汤大装置全面领跑",
+      "summary": "沙利文报告",
+      "url": "https://www.qbitai.com/2026/09/493175.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-20T16:01:13+08:00"
+      "published_at": "2026-09-21T11:32:03+08:00"
+    },
+    {
+      "id": "8b8b7ec88c52",
+      "title": "百曜科技发起，《AI虚拟细胞（AIVC）技术趋势、产业生态与应用前景研究报告》正式发布",
+      "summary": "《AI 虚拟细胞（AIVC）技术趋势、产业生态与应用前景研究报告——AI 时代生命科学的新型基础设施》正式发布。",
+      "url": "https://www.qbitai.com/2026/09/493114.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-21T10:28:46+08:00"
     },
     {
       "id": "079e661c04ce",
@@ -96,6 +141,16 @@
       "published_at": "2026-09-18T04:00:00+08:00"
     },
     {
+      "id": "38cf8e2889b3",
+      "title": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
+      "summary": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
+      "url": "https://www.qbitai.com/2026/09/491711.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-18T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "04812389539e",
       "title": "Cute Critters Come to the Cloud: ‘Aniimo’ Launches on GeForce NOW",
       "summary": "A new creature-catching adventure is ready to stream from the cloud this week. Pawprint Studio’s Aniimo arrives on GeForce NOW at launch, inviting gamers to ex…",
@@ -130,6 +185,26 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-17T00:00:00+08:00"
+    },
+    {
+      "id": "eac2164922f4",
+      "title": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
+      "summary": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
+      "url": "https://www.qbitai.com/2026/09/491649.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-17T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "e02fece3f05f",
+      "title": "刚刚，唐杰发布智谱RSI首个成果",
+      "summary": "刚刚，唐杰发布智谱RSI首个成果",
+      "url": "https://www.qbitai.com/2026/09/491357.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-17T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "a425146e5e22",
@@ -213,52 +288,22 @@
       "published_at": "2026-09-16T00:00:00+08:00"
     },
     {
+      "id": "53c64a073057",
+      "title": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
+      "summary": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
+      "url": "https://www.qbitai.com/2026/09/490686.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-16T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "1cf3b72857c7",
       "title": "首届蚂蚁灵波具身大模型挑战赛正式启动",
       "summary": "首届蚂蚁灵波具身大模型挑战赛正式启动",
       "url": "https://www.qbitai.com/2026/09/489105.html",
       "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-09-14T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "e4c24612ca79",
-      "title": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
-      "summary": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
-      "url": "https://www.qbitai.com/2026/09/488933.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-14T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "ddcd1022673c",
-      "title": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
-      "summary": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
-      "url": "https://www.qbitai.com/2026/09/488832.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-14T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "a5147b78f4a7",
-      "title": "中国物理AI大突破：PhysBrain 1.5登顶全球开源榜一，空间智能与GPT-6 Astra并驾齐驱",
-      "summary": "中国物理AI大突破：PhysBrain 1.5登顶全球开源榜一，空间智能与GPT-6 Astra并驾齐驱",
-      "url": "https://www.qbitai.com/2026/09/488725.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-14T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "32431be9776d",
-      "title": "智谱提前剧透下一代GLM：完全自训练方法公开了",
-      "summary": "智谱提前剧透下一代GLM：完全自训练方法公开了",
-      "url": "https://www.qbitai.com/2026/09/488694.html",
-      "source": "量子位",
-      "category": "中文资讯",
       "published_at": "2026-09-14T00:00:00+08:00",
       "window_hours": 720
     }
@@ -278,43 +323,43 @@
         "window_hours": 720
       },
       {
-        "id": "e4c24612ca79",
-        "title": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
-        "summary": "端侧AI从「能跑」到「会进化」，元空智能跑进惠普预装",
-        "url": "https://www.qbitai.com/2026/09/488933.html",
+        "id": "eac2164922f4",
+        "title": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
+        "summary": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
+        "url": "https://www.qbitai.com/2026/09/491649.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-09-14T00:00:00+08:00",
+        "published_at": "2026-09-17T00:00:00+08:00",
         "window_hours": 720
       },
       {
-        "id": "ddcd1022673c",
-        "title": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
-        "summary": "AI开始改进“改进自己的方法”，RSI进入平方时代丨MetaRSI",
-        "url": "https://www.qbitai.com/2026/09/488832.html",
+        "id": "e02fece3f05f",
+        "title": "刚刚，唐杰发布智谱RSI首个成果",
+        "summary": "刚刚，唐杰发布智谱RSI首个成果",
+        "url": "https://www.qbitai.com/2026/09/491357.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-14T00:00:00+08:00",
+        "category": "新工具上线",
+        "published_at": "2026-09-17T00:00:00+08:00",
         "window_hours": 720
       },
       {
-        "id": "a5147b78f4a7",
-        "title": "中国物理AI大突破：PhysBrain 1.5登顶全球开源榜一，空间智能与GPT-6 Astra并驾齐驱",
-        "summary": "中国物理AI大突破：PhysBrain 1.5登顶全球开源榜一，空间智能与GPT-6 Astra并驾齐驱",
-        "url": "https://www.qbitai.com/2026/09/488725.html",
+        "id": "53c64a073057",
+        "title": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
+        "summary": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
+        "url": "https://www.qbitai.com/2026/09/490686.html",
         "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-09-14T00:00:00+08:00",
+        "category": "中文资讯",
+        "published_at": "2026-09-16T00:00:00+08:00",
         "window_hours": 720
       },
       {
-        "id": "32431be9776d",
-        "title": "智谱提前剧透下一代GLM：完全自训练方法公开了",
-        "summary": "智谱提前剧透下一代GLM：完全自训练方法公开了",
-        "url": "https://www.qbitai.com/2026/09/488694.html",
+        "id": "38cf8e2889b3",
+        "title": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
+        "summary": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
+        "url": "https://www.qbitai.com/2026/09/491711.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-14T00:00:00+08:00",
+        "category": "新模型发布",
+        "published_at": "2026-09-18T00:00:00+08:00",
         "window_hours": 720
       }
     ]
