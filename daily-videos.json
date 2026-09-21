@@ -174,9 +174,145 @@
     "youtube:UsfCe5fJK6A",
     "youtube:o3CX_Y59_74",
     "bilibili:BV11AY961E2o",
-    "bilibili:BV1RjYB6DEYZ"
+    "bilibili:BV1RjYB6DEYZ",
+    "bilibili:BV1nPY46cEWA",
+    "bilibili:BV1Teec6BEti",
+    "youtube:ifz8NGHuHtY"
   ],
   "batches": [
+    {
+      "date": "2026-09-22",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:KmcTu2EigTs",
+              "platform": "youtube",
+              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
+              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
+              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
+              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
+              "channel": "Jeff Su",
+              "subscribers": 0,
+              "views": 270358,
+              "duration": "19:35",
+              "max_height": 1080,
+              "published_at": "2026-08-25T21:00:23+08:00"
+            },
+            {
+              "id": "youtube:U-rsvXds9ck",
+              "platform": "youtube",
+              "title": "Deepseek did it again...",
+              "summary": "Check out MindsHub: Join My Newsletter for Regular AI Updates 👇🏼 My Links 🔗 👉🏻 X: 👉🏻 Forward Future X: 👉🏻 Instagram: 👉🏻 Discord: …",
+              "url": "https://www.youtube.com/watch?v=U-rsvXds9ck",
+              "thumbnail": "https://i.ytimg.com/vi/U-rsvXds9ck/maxresdefault.jpg",
+              "channel": "Matthew Berman",
+              "subscribers": 0,
+              "views": 254217,
+              "duration": "16:39",
+              "max_height": 1080,
+              "published_at": "2026-09-12T03:01:56+08:00"
+            },
+            {
+              "id": "youtube:ifz8NGHuHtY",
+              "platform": "youtube",
+              "title": "28 Insane Things Astra Can Do (2 Hour Course)",
+              "summary": "Codex + GPT-6 Astra: The Complete Guide (28 Things You Need to Know) Here is the Codex Complete Guide in Written format: 00:00 In…",
+              "url": "https://www.youtube.com/watch?v=ifz8NGHuHtY",
+              "thumbnail": "https://i.ytimg.com/vi/ifz8NGHuHtY/maxresdefault.jpg",
+              "channel": "Riley Brown",
+              "subscribers": 0,
+              "views": 191255,
+              "duration": "1:54:47",
+              "max_height": 1080,
+              "published_at": "2026-09-14T21:00:30+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1CMtR6YEj4",
+              "platform": "bilibili",
+              "title": "当我用豆包工作agent做个背单词游戏",
+              "summary": "【小白debug】讲解 AI 工具实战应用，围绕「当我用豆包工作agent做个背单词游戏」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1CMtR6YEj4",
+              "thumbnail": "video-thumbs/bilibili/BV1CMtR6YEj4.jpg",
+              "channel": "小白debug",
+              "subscribers": 0,
+              "views": 1004635,
+              "duration": "6:41",
+              "max_height": 720,
+              "published_at": "2026-09-05T12:05:00+08:00"
+            },
+            {
+              "id": "bilibili:BV1Teec6BEti",
+              "platform": "bilibili",
+              "title": "保姆级教程！教你在本地搭建DeepSeek Harness多Agent工作流！",
+              "summary": "这期视频，我会用ET900A X9从零搭建一套本地多Agent工作流，把LM Studio、DeepSeek Harness和本地模型串起来。 开头先聊聊RTX 5080台式机、128GB统一内存的GX10和专业工作站分别适合谁，再用Qwen3",
+              "url": "https://www.bilibili.com/video/BV1Teec6BEti",
+              "thumbnail": "video-thumbs/bilibili/BV1Teec6BEti.jpg",
+              "channel": "我是阿众",
+              "subscribers": 0,
+              "views": 288385,
+              "duration": "13:59",
+              "max_height": 720,
+              "published_at": "2026-09-16T19:41:14+08:00"
+            },
+            {
+              "id": "bilibili:BV1nPY46cEWA",
+              "platform": "bilibili",
+              "title": "这19年iPhone变化这么大？？当我用豆包工作做了一个在线博物馆【附AI教程】",
+              "summary": "苹果发布会马上就要开始拉，出发前这两天把从2007年初代iPhone到现在的19年产品历史，做成了一座能逛、能投票、还能直接拉两代机型对比的网页博物馆。 整个项目基本都是用豆包工作做的，从网页、历代产品图，到后面的折叠屏概念广告，一路做一路返工。中间也没少翻…",
+              "url": "https://www.bilibili.com/video/BV1nPY46cEWA",
+              "thumbnail": "video-thumbs/bilibili/BV1nPY46cEWA.jpg",
+              "channel": "在下小苏",
+              "subscribers": 0,
+              "views": 284809,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-09-09T17:21:43+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-09-21",
       "timezone": "Asia/Shanghai",
@@ -7421,5 +7557,5 @@
       }
     }
   ],
-  "updated_at": "2026-09-21T06:20:45.293479+08:00"
+  "updated_at": "2026-09-22T07:08:24.271618+08:00"
 }
