@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-23T16:51:45.440944+08:00",
-  "date": "2026-09-23",
+  "updated_at": "2026-09-24T03:54:51.266979+08:00",
+  "date": "2026-09-24",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,49 +15,148 @@
   },
   "items": [
     {
-      "id": "2086bf74eb89",
-      "title": "DeepSeek新论文公开Agent训练！梁文锋署名",
-      "summary": "每秒能产生5000+个沙盒",
-      "url": "https://www.qbitai.com/2026/09/496393.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-09-23T15:29:50+08:00"
+      "id": "a70f8ac64edf",
+      "title": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
+      "summary": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
+      "url": "https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-09-24T02:41:40+08:00"
     },
     {
-      "id": "4903dbec2266",
-      "title": "Qwen一号位定了！刘大一恒接棒",
-      "summary": "与稚晖君同届天才少年",
-      "url": "https://www.qbitai.com/2026/09/496384.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-23T15:27:49+08:00"
+      "id": "8a86c97089bb",
+      "title": "Google Beam expands with new regions, partners, and customers",
+      "summary": "We’re expanding Google Beam to five new countries, and partnering with Industrious for an extended network.",
+      "url": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-24T02:00:00+08:00"
     },
     {
-      "id": "8af43df9c184",
-      "title": "Jev vs Decitron：同为决策AI，为什么不是一回事？",
-      "summary": "对复杂现实进行推演与决策",
-      "url": "https://www.qbitai.com/2026/09/496352.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-23T14:38:07+08:00"
+      "id": "c5e21f336237",
+      "title": "Offloaded inference for real-world physical AI robotics",
+      "summary": "Robots are getting smarter, but how can their hardware match that growth? New Microsoft Research findings show that moving AI inference beyond the robot can im…",
+      "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-24T00:01:36+08:00"
     },
     {
-      "id": "138769cf6926",
-      "title": "实时世界模型进入“全科生”阶段，PixVerse R2先交卷！",
-      "summary": "实时性和通用能力，世界模型可以全都要",
-      "url": "https://www.qbitai.com/2026/09/496329.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-23T14:08:50+08:00"
+      "id": "4c4abcff4acd",
+      "title": "Advancing Private AI Compute with secure, server-side memory",
+      "summary": "Introducing private, server-side memory to Private AI Compute for personal AI.",
+      "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-09-24T00:00:57+08:00"
     },
     {
-      "id": "43514903c398",
-      "title": "稚晖君把机器人卖到2万元一台，可人可狗可开发！",
-      "summary": "两万元，买到的是怎样一个机器人",
-      "url": "https://www.qbitai.com/2026/09/496304.html",
+      "id": "9d02eeb8cef1",
+      "title": "Two years of OpenAI Academy",
+      "summary": "Marking two years of OpenAI Academy and bringing AI skills to even more communities.",
+      "url": "https://openai.com/index/two-years-of-openai-academy",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-24T00:00:00+08:00"
+    },
+    {
+      "id": "be2314c62992",
+      "title": "Gemini 3.8 text-to-speech says hello",
+      "summary": "Gemini 3.8 text-to-speech says hello",
+      "url": "https://deepmind.google/blog/say-hello-to-gemini-38-text-to-speech/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-09-23T23:25:14+08:00"
+    },
+    {
+      "id": "a1700d1f6b37",
+      "title": "Sakeena Fiza Helps NVIDIA Hardware Succeed at Scale",
+      "summary": "When Sakeena Fiza describes her work as a validation engineer at NVIDIA, she does so in terms more befitting a detective story than a world-class engineering l…",
+      "url": "https://blogs.nvidia.com/blog/nvidia-life-sakeena-fiza/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-23T23:00:32+08:00"
+    },
+    {
+      "id": "1d77064cbebb",
+      "title": "OpenAI extends cyber access to Ukraine for civilian defense",
+      "summary": "OpenAI is extending access to its Daybreak program to the Government of Ukraine to support the cyber defense of civilian infrastructure.",
+      "url": "https://openai.com/index/openai-extends-cyber-access-to-ukraine-for-civilian-defense",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-23T21:00:00+08:00"
+    },
+    {
+      "id": "7357353a1f1d",
+      "title": "How invideo improves color grading 3x with GPT‑6 Astra",
+      "summary": "With GPT‑6 Astra, invideo plans edits with greater precision, improves color correction and grading threefold, and produces 50 custom effects in one day.",
+      "url": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-23T20:00:00+08:00"
+    },
+    {
+      "id": "7cff1964bf19",
+      "title": "Ringg’s AI agents resolve up to 65% of customer calls with",
+      "summary": "Using GPT-5.6, Ringg powers multilingual agents across voice, chat, WhatsApp, and web for 90% less cost vs. GPT-4.1.",
+      "url": "https://openai.com/index/ringg",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-23T20:00:00+08:00"
+    },
+    {
+      "id": "f7558dc5c9de",
+      "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
+      "summary": "GPT-6 Astra produces more structured, context-aware legal documents, freeing lawyers to focus on strategy.",
+      "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-23T20:00:00+08:00"
+    },
+    {
+      "id": "d9812560510a",
+      "title": "联想亮相阿里云栖大会：联想天禧AI把超级组织落地到端侧",
+      "summary": "联想天禧AI携全场景多端产品矩阵亮相阿里云栖大会",
+      "url": "https://www.qbitai.com/2026/09/496609.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-23T13:16:54+08:00"
+      "published_at": "2026-09-23T18:35:16+08:00"
+    },
+    {
+      "id": "efe88d215811",
+      "title": "让Token生产更高效：异构混推的关键技术演进与创新实践",
+      "summary": "商汤大装置异构混推创新实践与技术演进",
+      "url": "https://www.qbitai.com/2026/09/496578.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-23T17:56:53+08:00"
+    },
+    {
+      "id": "396adb911747",
+      "title": "汇智智能发布Hellome：国内首个FDE直连智能体服务平台，把AI交付周期压进“周”",
+      "summary": "企业AI服务迎来平台化交付时代",
+      "url": "https://www.qbitai.com/2026/09/496493.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-23T17:50:26+08:00"
+    },
+    {
+      "id": "3abb9c7b2f10",
+      "title": "达卯科技完成新一轮融资，算电协同核心软件层“稀缺标的”",
+      "summary": "打造算电协同领域“Windows”级操作系统",
+      "url": "https://www.qbitai.com/2026/09/496494.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-09-23T17:46:57+08:00"
+    },
+    {
+      "id": "a06cf0ee3167",
+      "title": "它石智航顶尖团队引领中国具身智能率先迈入规模化落地阶段",
+      "summary": "它石智航将继续扩大研发团队，加快布局生产基地，全面提升机器人交付能力",
+      "url": "https://www.qbitai.com/2026/09/496481.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-23T16:54:04+08:00"
     },
     {
       "id": "3f7058a44206",
@@ -114,24 +213,6 @@
       "published_at": "2026-09-23T10:30:22+08:00"
     },
     {
-      "id": "b6b1e4118cdb",
-      "title": "Better prompt caching for GPT-6",
-      "summary": "Learn how GPT-6 improves prompt caching with higher cache hit rates, new diagnostics, explicit breakpoints, and controls that reduce latency and costs.",
-      "url": "https://openai.com/index/better-prompt-caching-for-gpt-6",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T05:00:00+08:00"
-    },
-    {
-      "id": "3d48e529ad7a",
-      "title": "Introducing GPT-6 Sol and Luna",
-      "summary": "Meet GPT-6 Sol and Luna, two models that bring frontier intelligence to everyday work with different balances of capability and cost.",
-      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-23T02:00:00+08:00"
-    },
-    {
       "id": "193bdb306b4d",
       "title": "NVIDIA Isaac ROS 5.0 Advances Agentic, Open Source Robotics Development",
       "summary": "To build and deploy sophisticated robotics applications that can perceive, reason and act in dynamic environments, developers need new physical AI models and t…",
@@ -141,30 +222,12 @@
       "published_at": "2026-09-22T20:00:41+08:00"
     },
     {
-      "id": "ce45d8dc0f6c",
-      "title": "Parallel cut research time and cost in half with GPT‑6 Astra",
-      "summary": "GPT‑6 Astra allowed Parallel’s agents to research and synthesize labor-market data in half the time and at half the cost vs. prior models.",
-      "url": "https://openai.com/index/parallel-cuts-time-and-cost-with-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-22T20:00:00+08:00"
-    },
-    {
       "id": "2960c64a019e",
       "title": "How UK AISI and EvalEval Are Making Benchmark Results Reproducible",
       "summary": "How UK AISI and EvalEval Are Making Benchmark Results Reproducible",
       "url": "https://huggingface.co/blog/evaleval-aisi",
       "source": "Hugging Face",
       "category": "开源项目",
-      "published_at": "2026-09-22T08:00:00+08:00"
-    },
-    {
-      "id": "b4fb82cc1313",
-      "title": "Priorities and principles for effective third party assessments",
-      "summary": "OpenAI outlines priorities and principles for rigorous, secure, and independent third-party AI safety assessments of frontier models and safeguards.",
-      "url": "https://openai.com/index/priorities-principles-third-party-assessments",
-      "source": "OpenAI",
-      "category": "新模型发布",
       "published_at": "2026-09-22T08:00:00+08:00"
     },
     {
@@ -204,15 +267,6 @@
       "published_at": "2026-09-22T00:00:46+08:00"
     },
     {
-      "id": "2776c8ddc12b",
-      "title": "From Enablement to Execution, Egypt’s AI Ecosystem Reaches Production Scale",
-      "summary": "Today, Egypt’s AI builders gathered in the Grand Egyptian Museum for a reception that highlighted the nation’s rapidly growing AI ecosystem — spanning AI nativ…",
-      "url": "https://blogs.nvidia.com/blog/egypt-africa-ai-ecosystem/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-22T00:00:10+08:00"
-    },
-    {
       "id": "ce92ef014f89",
       "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
       "summary": "Custom-made molecules are advancing medicine, materials, and agriculture, but producing them is slow and expensive. A new Nature paper highlights RetroChimera,…",
@@ -229,24 +283,6 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-09-21T21:44:34+08:00"
-    },
-    {
-      "id": "d37f5b2c5927",
-      "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra",
-      "summary": "With GPT-6 Astra, Higgsfield AI makes video ad creation easier for small businesses and brings new creative tools to market faster.",
-      "url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-21T20:00:00+08:00"
-    },
-    {
-      "id": "eb792e0fc342",
-      "title": "tokenizers v1: encode, decode and scaling, measured",
-      "summary": "tokenizers v1: encode, decode and scaling, measured",
-      "url": "https://huggingface.co/blog/tokenizers-v1",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-21T08:00:00+08:00"
     },
     {
       "id": "079e661c04ce",
