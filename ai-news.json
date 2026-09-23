@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-23T03:57:50.023380+08:00",
+  "updated_at": "2026-09-23T16:51:45.440944+08:00",
   "date": "2026-09-23",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,114 @@
   },
   "items": [
     {
+      "id": "2086bf74eb89",
+      "title": "DeepSeek新论文公开Agent训练！梁文锋署名",
+      "summary": "每秒能产生5000+个沙盒",
+      "url": "https://www.qbitai.com/2026/09/496393.html",
+      "source": "量子位",
+      "category": "学术论文",
+      "published_at": "2026-09-23T15:29:50+08:00"
+    },
+    {
+      "id": "4903dbec2266",
+      "title": "Qwen一号位定了！刘大一恒接棒",
+      "summary": "与稚晖君同届天才少年",
+      "url": "https://www.qbitai.com/2026/09/496384.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-23T15:27:49+08:00"
+    },
+    {
+      "id": "8af43df9c184",
+      "title": "Jev vs Decitron：同为决策AI，为什么不是一回事？",
+      "summary": "对复杂现实进行推演与决策",
+      "url": "https://www.qbitai.com/2026/09/496352.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-23T14:38:07+08:00"
+    },
+    {
+      "id": "138769cf6926",
+      "title": "实时世界模型进入“全科生”阶段，PixVerse R2先交卷！",
+      "summary": "实时性和通用能力，世界模型可以全都要",
+      "url": "https://www.qbitai.com/2026/09/496329.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-23T14:08:50+08:00"
+    },
+    {
+      "id": "43514903c398",
+      "title": "稚晖君把机器人卖到2万元一台，可人可狗可开发！",
+      "summary": "两万元，买到的是怎样一个机器人",
+      "url": "https://www.qbitai.com/2026/09/496304.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-23T13:16:54+08:00"
+    },
+    {
+      "id": "3f7058a44206",
+      "title": "Didactic knowledge or Clinical Cases? How Data Types Shape Medical Large Language Models",
+      "summary": "arXiv:2609.22161v1 Announce Type: new Abstract: Medical large language models are commonly trained on mixtures of didactic data (e.g., textbooks) and clinical …",
+      "url": "https://arxiv.org/abs/2609.22161",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-23T12:00:00+08:00"
+    },
+    {
+      "id": "9a15fab46a33",
+      "title": "An Affordable AI-Integrated Smart Cane for Multimodal Mobility Assistance of Visually Impaired Users",
+      "summary": "arXiv:2609.22277v1 Announce Type: new Abstract: Visual impairment affects over 2.2 billion people worldwide, yet conventional white canes cannot detect elevate…",
+      "url": "https://arxiv.org/abs/2609.22277",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-23T12:00:00+08:00"
+    },
+    {
+      "id": "3a37bbdf5b49",
+      "title": "PAANI : On Device Visual Evidence Fusion and Explainable Guidance for River Robot Simulation",
+      "summary": "arXiv:2609.22353v1 Announce Type: new Abstract: Mobile river monitoring robots must interpret obstacles and water boundaries that geographic waypoints alone ca…",
+      "url": "https://arxiv.org/abs/2609.22353",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-23T12:00:00+08:00"
+    },
+    {
+      "id": "786cbfea5bc2",
+      "title": "Social Influence and the Allocation of Scientific Attention in AI Populations",
+      "summary": "arXiv:2609.22408v1 Announce Type: new Abstract: AI systems are becoming participants in the evaluation and use of scientific research. They encounter citation …",
+      "url": "https://arxiv.org/abs/2609.22408",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-23T12:00:00+08:00"
+    },
+    {
+      "id": "292b4a7a8af3",
+      "title": "Learning 3D biophysical cell properties from 2D images and cell-population statistics",
+      "summary": "arXiv:2609.22410v1 Announce Type: new Abstract: Inferring 3D cellular properties from 2D microscopy is difficult when a reference instrument reports only popul…",
+      "url": "https://arxiv.org/abs/2609.22410",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-23T12:00:00+08:00"
+    },
+    {
+      "id": "301ba2c6df75",
+      "title": "At AI Day Singapore, NVIDIA and Partners Showcase AI Advancements Across Southeast Asia",
+      "summary": "NVIDIA AI Day Singapore, which takes place Sept. 22-23 at the Raffles City Convention Centre, is offering attendees opportunities to explore the hands-on train…",
+      "url": "https://blogs.nvidia.com/blog/ai-day-singapore/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-23T10:30:22+08:00"
+    },
+    {
+      "id": "b6b1e4118cdb",
+      "title": "Better prompt caching for GPT-6",
+      "summary": "Learn how GPT-6 improves prompt caching with higher cache hit rates, new diagnostics, explicit breakpoints, and controls that reduce latency and costs.",
+      "url": "https://openai.com/index/better-prompt-caching-for-gpt-6",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-23T05:00:00+08:00"
+    },
+    {
       "id": "3d48e529ad7a",
       "title": "Introducing GPT-6 Sol and Luna",
       "summary": "Meet GPT-6 Sol and Luna, two models that bring frontier intelligence to everyday work with different balances of capability and cost.",
@@ -22,42 +130,6 @@
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-09-23T02:00:00+08:00"
-    },
-    {
-      "id": "da8758f6c8ac",
-      "title": "陆川手搓历史现场，王珞丹熬夜抽卡，阿里全模态开始兜底生产",
-      "summary": "阿里：三年之内会出现一个原生的全模态统一生成模型，未来体验将不再受限于模态边界。",
-      "url": "https://www.qbitai.com/2026/09/494429.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-22T23:59:35+08:00"
-    },
-    {
-      "id": "fd4042635219",
-      "title": "Agent时代，CPU的价值该重估了",
-      "summary": "CPU与GPU趋近1∶1",
-      "url": "https://www.qbitai.com/2026/09/494430.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-22T23:46:54+08:00"
-    },
-    {
-      "id": "c97a1c2e4feb",
-      "title": "直播预告：未来两三年，哪些工业AI场景会率先爆发？",
-      "summary": "从真实工厂到产品复制，再到生态和下一批机会，两位嘉宾会把工业AI从「能用」走向「规模化」的关键问题一层层拆开。",
-      "url": "https://www.qbitai.com/2026/09/494420.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-22T22:28:59+08:00"
-    },
-    {
-      "id": "1643cd352c0f",
-      "title": "讲真，我没看出这图是AI做的，更没想到是国产AI做的",
-      "summary": "商汤U1 Pro，正式发布",
-      "url": "https://www.qbitai.com/2026/09/494263.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-22T21:57:10+08:00"
     },
     {
       "id": "193bdb306b4d",
@@ -69,58 +141,13 @@
       "published_at": "2026-09-22T20:00:41+08:00"
     },
     {
-      "id": "39871c9b22d0",
-      "title": "WebArena作者Shuyan Zhou入职Meta超级智能实验室",
-      "summary": "梦想是做能帮妈妈订机票的AI浏览器。",
-      "url": "https://www.qbitai.com/2026/09/493653.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-22T19:58:53+08:00"
-    },
-    {
-      "id": "34088336622f",
-      "title": "RBS-Attention: Radius-Bounded Sparse Prefill for Long-Context Large Language Models",
-      "summary": "arXiv:2609.20971v1 Announce Type: new Abstract: Long-context large language model inference is increasingly limited by prefill, where dense self-attention proc…",
-      "url": "https://arxiv.org/abs/2609.20971",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-22T12:00:00+08:00"
-    },
-    {
-      "id": "37d9347772d8",
-      "title": "Attention-Aware Routing: Coupling Routing and Attention in MoEs",
-      "summary": "arXiv:2609.20974v1 Announce Type: new Abstract: In Mixture-of-Experts language models, the router typically selects and weights experts based on the token's hi…",
-      "url": "https://arxiv.org/abs/2609.20974",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-22T12:00:00+08:00"
-    },
-    {
-      "id": "f790dcf3a000",
-      "title": "CaLR: Causal Latent Revision for Robust Diffusion Reasoning",
-      "summary": "arXiv:2609.20981v1 Announce Type: new Abstract: Autoregressive (AR) models suffer from local greediness, while diffusion language models (DLMs) often lack the …",
-      "url": "https://arxiv.org/abs/2609.20981",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-22T12:00:00+08:00"
-    },
-    {
-      "id": "438c183280ad",
-      "title": "LoRA Enhanced Contrastive Learning with SAS Vision Transformers",
-      "summary": "arXiv:2609.21061v1 Announce Type: new Abstract: Automatic target recognition (ATR) with synthetic aperture sonar (SAS) supports advanced naval capabilities, bu…",
-      "url": "https://arxiv.org/abs/2609.21061",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-22T12:00:00+08:00"
-    },
-    {
-      "id": "7d948ffb39bb",
-      "title": "Detecting Hallucination in LLMs: Tracing the Topological Signatures of Impaired Context Sharing",
-      "summary": "arXiv:2609.21096v1 Announce Type: new Abstract: In this work, we examine the topology of information flow patterns within attention graphs to effectively disti…",
-      "url": "https://arxiv.org/abs/2609.21096",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-22T12:00:00+08:00"
+      "id": "ce45d8dc0f6c",
+      "title": "Parallel cut research time and cost in half with GPT‑6 Astra",
+      "summary": "GPT‑6 Astra allowed Parallel’s agents to research and synthesize labor-market data in half the time and at half the cost vs. prior models.",
+      "url": "https://openai.com/index/parallel-cuts-time-and-cost-with-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-22T20:00:00+08:00"
     },
     {
       "id": "2960c64a019e",
@@ -195,15 +222,6 @@
       "published_at": "2026-09-21T23:30:19+08:00"
     },
     {
-      "id": "dd63189f99f4",
-      "title": "AI Security Is an Engineering Problem — How to Solve It at Every Layer of the Agent Stack",
-      "summary": "AI security is an engineering problem. That means defined security requirements, enforceable controls, named owners and evidence that protections work. As AI b…",
-      "url": "https://blogs.nvidia.com/blog/ai-security-agent-stack/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-21T22:51:34+08:00"
-    },
-    {
       "id": "c701b57089c5",
       "title": "Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem",
       "summary": "Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem",
@@ -220,24 +238,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-21T20:00:00+08:00"
-    },
-    {
-      "id": "a7ca59844a94",
-      "title": "Advisory Group on Mathematics and Artificial Intelligence",
-      "summary": "OpenAI is working with an independent Advisory Group on Mathematics and Artificial Intelligence to guide the review and communication of emerging AI results.",
-      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-21T20:00:00+08:00"
-    },
-    {
-      "id": "2c9792fbb14a",
-      "title": "Building standards for the next phase of AI",
-      "summary": "OpenAI outlines a path to shared global AI standards, calling for coordinated evaluation, reporting, and governance to improve safety.",
-      "url": "https://openai.com/index/building-standards-next-phase-ai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-21T18:00:00+08:00"
     },
     {
       "id": "eb792e0fc342",
@@ -286,6 +286,16 @@
       "window_hours": 720
     },
     {
+      "id": "a32300e4c97e",
+      "title": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
+      "summary": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
+      "url": "https://www.qbitai.com/2026/09/491875.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-18T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "eac2164922f4",
       "title": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
       "summary": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
@@ -314,16 +324,6 @@
       "category": "中文资讯",
       "published_at": "2026-09-17T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "53c64a073057",
-      "title": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
-      "summary": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
-      "url": "https://www.qbitai.com/2026/09/490686.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-16T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -351,16 +351,6 @@
         "window_hours": 720
       },
       {
-        "id": "53c64a073057",
-        "title": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
-        "summary": "协同办公进入Agent时代，飞书+豆包工作跑在了最前面",
-        "url": "https://www.qbitai.com/2026/09/490686.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-16T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "38cf8e2889b3",
         "title": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
         "summary": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
@@ -378,6 +368,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-17T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "a32300e4c97e",
+        "title": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
+        "summary": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
+        "url": "https://www.qbitai.com/2026/09/491875.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-09-18T00:00:00+08:00",
         "window_hours": 720
       }
     ]
