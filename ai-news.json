@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-24T16:47:37.796621+08:00",
-  "date": "2026-09-24",
+  "updated_at": "2026-09-25T04:12:57.676188+08:00",
+  "date": "2026-09-25",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,78 @@
   },
   "items": [
     {
+      "id": "e7107d9a76d9",
+      "title": "Introducing Gemini 3.8 Live with Live Avatar",
+      "summary": "Introducing Gemini 3.8 Live with Live Avatar",
+      "url": "https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-09-25T00:20:39+08:00"
+    },
+    {
+      "id": "de459e41c404",
+      "title": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
+      "summary": "懂出海，能记忆，自进化",
+      "url": "https://www.qbitai.com/2026/09/496961.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-24T22:20:14+08:00"
+    },
+    {
+      "id": "1a96160ea37d",
+      "title": "PCIe显卡被低估了！内核补齐+通信重构，DeepSeek推理吞吐翻近7倍",
+      "summary": "1.5台6000D跑赢1台B300！",
+      "url": "https://www.qbitai.com/2026/09/496925.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-24T22:17:48+08:00"
+    },
+    {
+      "id": "c2a53f233272",
+      "title": "Accelerating vision-language models with LFM2.5-VL-DSpark",
+      "summary": "Accelerating vision-language models with LFM2.5-VL-DSpark",
+      "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-09-24T22:08:57+08:00"
+    },
+    {
+      "id": "85d9d81e1965",
+      "title": "How Open Science Can Help Researchers Prepare for the Next Pandemic",
+      "summary": "When COVID-19 emerged, scientists had a crucial advantage: Decades of prior research on coronaviruses meant they understood the virus’ key proteins well enough…",
+      "url": "https://blogs.nvidia.com/blog/open-protein-dataset/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-24T22:00:50+08:00"
+    },
+    {
+      "id": "7a97ef45ef5f",
+      "title": "Contain the Chaos: ‘CONTROL Resonant’ Launches on GeForce NOW",
+      "summary": "A warped Manhattan is waiting in the cloud this week. Remedy Entertainment’s CONTROL Resonant brings Dylan Faden’s extraordinary abilities and a paranatural cr…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-control-resonant/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-24T21:00:36+08:00"
+    },
+    {
+      "id": "9467a7f0aa02",
+      "title": "时隔十年，AI大牛署名新论文",
+      "summary": "让自动驾驶“走一步想十步”",
+      "url": "https://www.qbitai.com/2026/09/496834.html",
+      "source": "量子位",
+      "category": "学术论文",
+      "published_at": "2026-09-24T20:58:55+08:00"
+    },
+    {
+      "id": "5e7acf453c8b",
+      "title": "GPT-6之后，具身智能走向何方？诺因发布GLOW技术报告，给出机器人“一教就会”的答案",
+      "summary": "人类演示一次，机器人即可实现跨场景任务复用",
+      "url": "https://www.qbitai.com/2026/09/496816.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-24T16:20:12+08:00"
+    },
+    {
       "id": "af2bcdebb9a7",
       "title": "Stripe Tour 中国首秀：构建 AI 经济基础设施，赋能全球商业增长",
       "summary": "Stripe Managed Payments (SMP) 现已全面上线",
@@ -22,33 +94,6 @@
       "source": "量子位",
       "category": "新工具上线",
       "published_at": "2026-09-24T13:46:10+08:00"
-    },
-    {
-      "id": "341b8f8c5f5a",
-      "title": "教机器人干活，光“刷课时”可不够！灵初这次较真数据质量",
-      "summary": "专治人机动作对不齐",
-      "url": "https://www.qbitai.com/2026/09/496778.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-24T13:45:20+08:00"
-    },
-    {
-      "id": "646d10775cd8",
-      "title": "5分钟完成机器人纳管、10秒启动跨集群任务，清华大学联合无问芯穹开源具身智能云原生平台RLark",
-      "summary": "开源一座具身智能的新“塔台”",
-      "url": "https://www.qbitai.com/2026/09/496767.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-24T13:19:55+08:00"
-    },
-    {
-      "id": "31a9411a6201",
-      "title": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
-      "summary": "懂出海，能记忆，自进化",
-      "url": "https://www.qbitai.com/2026/09/496740.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-24T12:11:51+08:00"
     },
     {
       "id": "671531aca991",
@@ -94,15 +139,6 @@
       "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-09-24T12:00:00+08:00"
-    },
-    {
-      "id": "e93da919a343",
-      "title": "海信新一代性能旗舰E7S Pro+正式发布，原生真彩再进阶",
-      "summary": "9月23日，2026海信电视秋季新品发布会上，定位“原生真彩，性能旗舰”的RGB-Mini LED新品E7S Pro+正式发布",
-      "url": "https://www.qbitai.com/2026/09/496658.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-24T10:51:18+08:00"
     },
     {
       "id": "a70f8ac64edf",
@@ -249,24 +285,6 @@
       "published_at": "2026-09-22T08:00:00+08:00"
     },
     {
-      "id": "9ee6cf4f42f1",
-      "title": "NVIDIA Launches DSX Ready to Qualify Power and Cooling Products for AI Factories",
-      "summary": "Every AI factory needs power and cooling that fit its computing architecture. As AI infrastructure expands, power, cooling, water, site and grid constraints ar…",
-      "url": "https://blogs.nvidia.com/blog/dsx-ready-ai-factories-power-cooling/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-22T02:00:07+08:00"
-    },
-    {
-      "id": "173eb9a2ab25",
-      "title": "Why Deploying Physical AI at Scale Demands Safety at Every Layer",
-      "summary": "Physical AI is moving rapidly from research to large-scale deployment. By 2035, ABI Research projects an installed base of 49 million level 3-5 autonomous vehi…",
-      "url": "https://blogs.nvidia.com/blog/physical-ai-halos-safety/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-22T00:00:46+08:00"
-    },
-    {
       "id": "ce92ef014f89",
       "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
       "summary": "Custom-made molecules are advancing medicine, materials, and agriculture, but producing them is slow and expensive. A new Nature paper highlights RetroChimera,…",
@@ -274,15 +292,6 @@
       "source": "Microsoft AI",
       "category": "新模型发布",
       "published_at": "2026-09-21T23:30:19+08:00"
-    },
-    {
-      "id": "c701b57089c5",
-      "title": "Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem",
-      "summary": "Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem",
-      "url": "https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-09-21T21:44:34+08:00"
     },
     {
       "id": "856eec485540",
@@ -313,15 +322,6 @@
       "published_at": "2026-09-18T21:00:00+08:00"
     },
     {
-      "id": "e7b9d12d1b3a",
-      "title": "Making global data easier to explore",
-      "summary": "Google and the UN system have launched the UN System Data Commons, a new open platform making global statistics accessible and easy to search.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/google-un-data-commons-platform/",
-      "source": "Google AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-18T04:00:00+08:00"
-    },
-    {
       "id": "38cf8e2889b3",
       "title": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
       "summary": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
@@ -342,23 +342,23 @@
       "window_hours": 720
     },
     {
-      "id": "eac2164922f4",
-      "title": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
-      "summary": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
-      "url": "https://www.qbitai.com/2026/09/491649.html",
+      "id": "254641ce73bf",
+      "title": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
+      "summary": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
+      "url": "https://www.qbitai.com/2026/09/492015.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-17T00:00:00+08:00",
+      "published_at": "2026-09-18T00:00:00+08:00",
       "window_hours": 720
     },
     {
-      "id": "cfcf89b5b759",
-      "title": "央企做了个通用Agent，直接杀进IDC实测前三！",
-      "summary": "央企做了个通用Agent，直接杀进IDC实测前三！",
-      "url": "https://www.qbitai.com/2026/09/491454.html",
+      "id": "08f3d4a31cf2",
+      "title": "Manus重生第17天，估值居然就翻倍了",
+      "summary": "Manus重生第17天，估值居然就翻倍了",
+      "url": "https://www.qbitai.com/2026/09/491764.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-17T00:00:00+08:00",
+      "published_at": "2026-09-18T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -367,16 +367,6 @@
     "window_days": 30,
     "items": [
       {
-        "id": "eac2164922f4",
-        "title": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
-        "summary": "从“会回答”到“会办事”，vivo如何解AI手机这道题？",
-        "url": "https://www.qbitai.com/2026/09/491649.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-17T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "38cf8e2889b3",
         "title": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
         "summary": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
@@ -384,16 +374,6 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-09-18T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "cfcf89b5b759",
-        "title": "央企做了个通用Agent，直接杀进IDC实测前三！",
-        "summary": "央企做了个通用Agent，直接杀进IDC实测前三！",
-        "url": "https://www.qbitai.com/2026/09/491454.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-17T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -414,6 +394,26 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-19T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "254641ce73bf",
+        "title": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
+        "summary": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
+        "url": "https://www.qbitai.com/2026/09/492015.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-18T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "08f3d4a31cf2",
+        "title": "Manus重生第17天，估值居然就翻倍了",
+        "summary": "Manus重生第17天，估值居然就翻倍了",
+        "url": "https://www.qbitai.com/2026/09/491764.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-18T00:00:00+08:00",
         "window_hours": 720
       }
     ]
