@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-24T03:54:51.266979+08:00",
+  "updated_at": "2026-09-24T16:47:37.796621+08:00",
   "date": "2026-09-24",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "af2bcdebb9a7",
+      "title": "Stripe Tour 中国首秀：构建 AI 经济基础设施，赋能全球商业增长",
+      "summary": "Stripe Managed Payments (SMP) 现已全面上线",
+      "url": "https://www.qbitai.com/2026/09/496779.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-24T13:46:10+08:00"
+    },
+    {
+      "id": "341b8f8c5f5a",
+      "title": "教机器人干活，光“刷课时”可不够！灵初这次较真数据质量",
+      "summary": "专治人机动作对不齐",
+      "url": "https://www.qbitai.com/2026/09/496778.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-24T13:45:20+08:00"
+    },
+    {
+      "id": "646d10775cd8",
+      "title": "5分钟完成机器人纳管、10秒启动跨集群任务，清华大学联合无问芯穹开源具身智能云原生平台RLark",
+      "summary": "开源一座具身智能的新“塔台”",
+      "url": "https://www.qbitai.com/2026/09/496767.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-24T13:19:55+08:00"
+    },
+    {
+      "id": "31a9411a6201",
+      "title": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
+      "summary": "懂出海，能记忆，自进化",
+      "url": "https://www.qbitai.com/2026/09/496740.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-24T12:11:51+08:00"
+    },
+    {
+      "id": "671531aca991",
+      "title": "Silent Failures in Agent-Tool Interaction: An Audit of ToolUniverse",
+      "summary": "arXiv:2609.26836v1 Announce Type: new Abstract: Agentic AI systems are increasingly adopting automated pipelines that integrate multiple tools. While prior res…",
+      "url": "https://arxiv.org/abs/2609.26836",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-24T12:00:00+08:00"
+    },
+    {
+      "id": "44b4f151ffd3",
+      "title": "Harness as a Language: A Minimalist Agent Framework With Maximal Expressivity",
+      "summary": "arXiv:2609.26891v1 Announce Type: new Abstract: Modern language-model agents are built around the \\textit{agent loop}, where the LLM is placed in an environmen…",
+      "url": "https://arxiv.org/abs/2609.26891",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-24T12:00:00+08:00"
+    },
+    {
+      "id": "b7e0b4ef98a9",
+      "title": "TwinCheck: Evidence-Grounded Negative-Twin Verification for Stateful Tool Agents",
+      "summary": "arXiv:2609.26911v1 Announce Type: new Abstract: A single locally plausible tool call can derail an otherwise successful agent trajectory. Suspicion alone does …",
+      "url": "https://arxiv.org/abs/2609.26911",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-24T12:00:00+08:00"
+    },
+    {
+      "id": "b9a539fade0e",
+      "title": "Building Socio-Affective Artificial Intelligence for Interactive Multi-Agent Simulations",
+      "summary": "arXiv:2609.26927v1 Announce Type: new Abstract: The objective of this article is to provide design principles and a software architecture for enabling interact…",
+      "url": "https://arxiv.org/abs/2609.26927",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-24T12:00:00+08:00"
+    },
+    {
+      "id": "a84ace8a419d",
+      "title": "Which Objectives Need a Dial? Predicting Objective Conflict and Covering Trade-offs in Steerable Pluralistic Alignment",
+      "summary": "arXiv:2609.26929v1 Announce Type: new Abstract: People hold diverse, sometimes conflicting values, so no single aligned model can satisfy everyone. Pluralistic…",
+      "url": "https://arxiv.org/abs/2609.26929",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-24T12:00:00+08:00"
+    },
+    {
+      "id": "e93da919a343",
+      "title": "海信新一代性能旗舰E7S Pro+正式发布，原生真彩再进阶",
+      "summary": "9月23日，2026海信电视秋季新品发布会上，定位“原生真彩，性能旗舰”的RGB-Mini LED新品E7S Pro+正式发布",
+      "url": "https://www.qbitai.com/2026/09/496658.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-24T10:51:18+08:00"
+    },
     {
       "id": "a70f8ac64edf",
       "title": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
@@ -87,19 +177,10 @@
       "published_at": "2026-09-23T21:00:00+08:00"
     },
     {
-      "id": "7357353a1f1d",
-      "title": "How invideo improves color grading 3x with GPT‑6 Astra",
-      "summary": "With GPT‑6 Astra, invideo plans edits with greater precision, improves color correction and grading threefold, and produces 50 custom effects in one day.",
-      "url": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T20:00:00+08:00"
-    },
-    {
-      "id": "7cff1964bf19",
-      "title": "Ringg’s AI agents resolve up to 65% of customer calls with",
-      "summary": "Using GPT-5.6, Ringg powers multilingual agents across voice, chat, WhatsApp, and web for 90% less cost vs. GPT-4.1.",
-      "url": "https://openai.com/index/ringg",
+      "id": "01d4e543c941",
+      "title": "Sam Altman’s remarks at the United Nations Security Council",
+      "summary": "OpenAI CEO Sam Altman discusses AI safety, human control, and international cooperation in remarks to the United Nations Security Council.",
+      "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-23T20:00:00+08:00"
@@ -114,94 +195,13 @@
       "published_at": "2026-09-23T20:00:00+08:00"
     },
     {
-      "id": "d9812560510a",
-      "title": "联想亮相阿里云栖大会：联想天禧AI把超级组织落地到端侧",
-      "summary": "联想天禧AI携全场景多端产品矩阵亮相阿里云栖大会",
-      "url": "https://www.qbitai.com/2026/09/496609.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-23T18:35:16+08:00"
-    },
-    {
-      "id": "efe88d215811",
-      "title": "让Token生产更高效：异构混推的关键技术演进与创新实践",
-      "summary": "商汤大装置异构混推创新实践与技术演进",
-      "url": "https://www.qbitai.com/2026/09/496578.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-23T17:56:53+08:00"
-    },
-    {
-      "id": "396adb911747",
-      "title": "汇智智能发布Hellome：国内首个FDE直连智能体服务平台，把AI交付周期压进“周”",
-      "summary": "企业AI服务迎来平台化交付时代",
-      "url": "https://www.qbitai.com/2026/09/496493.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-23T17:50:26+08:00"
-    },
-    {
-      "id": "3abb9c7b2f10",
-      "title": "达卯科技完成新一轮融资，算电协同核心软件层“稀缺标的”",
-      "summary": "打造算电协同领域“Windows”级操作系统",
-      "url": "https://www.qbitai.com/2026/09/496494.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-23T17:46:57+08:00"
-    },
-    {
-      "id": "a06cf0ee3167",
-      "title": "它石智航顶尖团队引领中国具身智能率先迈入规模化落地阶段",
-      "summary": "它石智航将继续扩大研发团队，加快布局生产基地，全面提升机器人交付能力",
-      "url": "https://www.qbitai.com/2026/09/496481.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-23T16:54:04+08:00"
-    },
-    {
-      "id": "3f7058a44206",
-      "title": "Didactic knowledge or Clinical Cases? How Data Types Shape Medical Large Language Models",
-      "summary": "arXiv:2609.22161v1 Announce Type: new Abstract: Medical large language models are commonly trained on mixtures of didactic data (e.g., textbooks) and clinical …",
-      "url": "https://arxiv.org/abs/2609.22161",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-23T12:00:00+08:00"
-    },
-    {
-      "id": "9a15fab46a33",
-      "title": "An Affordable AI-Integrated Smart Cane for Multimodal Mobility Assistance of Visually Impaired Users",
-      "summary": "arXiv:2609.22277v1 Announce Type: new Abstract: Visual impairment affects over 2.2 billion people worldwide, yet conventional white canes cannot detect elevate…",
-      "url": "https://arxiv.org/abs/2609.22277",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-23T12:00:00+08:00"
-    },
-    {
-      "id": "3a37bbdf5b49",
-      "title": "PAANI : On Device Visual Evidence Fusion and Explainable Guidance for River Robot Simulation",
-      "summary": "arXiv:2609.22353v1 Announce Type: new Abstract: Mobile river monitoring robots must interpret obstacles and water boundaries that geographic waypoints alone ca…",
-      "url": "https://arxiv.org/abs/2609.22353",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-23T12:00:00+08:00"
-    },
-    {
-      "id": "786cbfea5bc2",
-      "title": "Social Influence and the Allocation of Scientific Attention in AI Populations",
-      "summary": "arXiv:2609.22408v1 Announce Type: new Abstract: AI systems are becoming participants in the evaluation and use of scientific research. They encounter citation …",
-      "url": "https://arxiv.org/abs/2609.22408",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-23T12:00:00+08:00"
-    },
-    {
-      "id": "292b4a7a8af3",
-      "title": "Learning 3D biophysical cell properties from 2D images and cell-population statistics",
-      "summary": "arXiv:2609.22410v1 Announce Type: new Abstract: Inferring 3D cellular properties from 2D microscopy is difficult when a reference instrument reports only popul…",
-      "url": "https://arxiv.org/abs/2609.22410",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-23T12:00:00+08:00"
+      "id": "7357353a1f1d",
+      "title": "How invideo improves color grading 3x with GPT‑6 Astra",
+      "summary": "With GPT‑6 Astra, invideo plans edits with greater precision, improves color correction and grading threefold, and produces 50 custom effects in one day.",
+      "url": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-23T20:00:00+08:00"
     },
     {
       "id": "301ba2c6df75",
@@ -285,6 +285,16 @@
       "published_at": "2026-09-21T21:44:34+08:00"
     },
     {
+      "id": "856eec485540",
+      "title": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
+      "summary": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
+      "url": "https://www.qbitai.com/2026/09/492429.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-19T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "079e661c04ce",
       "title": "New experts join Google’s AI & Economy team",
       "summary": "We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
@@ -342,16 +352,6 @@
       "window_hours": 720
     },
     {
-      "id": "e02fece3f05f",
-      "title": "刚刚，唐杰发布智谱RSI首个成果",
-      "summary": "刚刚，唐杰发布智谱RSI首个成果",
-      "url": "https://www.qbitai.com/2026/09/491357.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-17T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "cfcf89b5b759",
       "title": "央企做了个通用Agent，直接杀进IDC实测前三！",
       "summary": "央企做了个通用Agent，直接杀进IDC实测前三！",
@@ -373,16 +373,6 @@
         "url": "https://www.qbitai.com/2026/09/491649.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-09-17T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "e02fece3f05f",
-        "title": "刚刚，唐杰发布智谱RSI首个成果",
-        "summary": "刚刚，唐杰发布智谱RSI首个成果",
-        "url": "https://www.qbitai.com/2026/09/491357.html",
-        "source": "量子位",
-        "category": "新工具上线",
         "published_at": "2026-09-17T00:00:00+08:00",
         "window_hours": 720
       },
@@ -414,6 +404,16 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-09-18T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "856eec485540",
+        "title": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
+        "summary": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
+        "url": "https://www.qbitai.com/2026/09/492429.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-19T00:00:00+08:00",
         "window_hours": 720
       }
     ]
