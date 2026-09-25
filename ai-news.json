@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-25T17:07:45.193152+08:00",
-  "date": "2026-09-25",
+  "updated_at": "2026-09-26T04:11:02.100527+08:00",
+  "date": "2026-09-26",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,42 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "d2d497e5eee4",
+      "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
+      "summary": "With Codex, GPT-Live-1, and GPT-6 Astra, Proaction builds, operates, and sells modern fleet management faster.",
+      "url": "https://openai.com/index/proaction",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-26T03:00:00+08:00"
+    },
+    {
+      "id": "01d5d70cbf46",
+      "title": "“AlphaGo”杀进足球场！自我对弈140年，机器人成“梅西终结者”",
+      "summary": "“AlphaGo”杀进足球场！自我对弈140年，机器人成“梅西终结者”",
+      "url": "https://www.qbitai.com/2026/09/497278.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-25T21:24:20+08:00"
+    },
+    {
+      "id": "caa862ea1e9f",
+      "title": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
+      "summary": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
+      "url": "https://www.qbitai.com/2026/09/497177.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-25T21:15:45+08:00"
+    },
+    {
+      "id": "2552fd5419ea",
+      "title": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
+      "summary": "大厂造芯，正在从交付芯片，走向更广泛的开放共建阶段。",
+      "url": "https://www.qbitai.com/2026/09/497108.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-25T18:00:14+08:00"
+    },
     {
       "id": "38b21b5ae987",
       "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
@@ -31,24 +67,6 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-09-25T14:14:07+08:00"
-    },
-    {
-      "id": "70b0b42ed6ad",
-      "title": "呃…小扎「自研Manus」刚成Meta太子，就塌房了",
-      "summary": "人工外包团队",
-      "url": "https://www.qbitai.com/2026/09/497060.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-25T14:11:10+08:00"
-    },
-    {
-      "id": "450f5a59f249",
-      "title": "给机器人当老师，还能赚外快？“中国版Index”觅蜂派来了",
-      "summary": "给机器人当老师，还能赚外快？“中国版Index”觅蜂派来了",
-      "url": "https://www.qbitai.com/2026/09/497012.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-25T13:52:18+08:00"
     },
     {
       "id": "2907ba2fb91d",
@@ -103,15 +121,6 @@
       "source": "Google DeepMind",
       "category": "新工具上线",
       "published_at": "2026-09-25T00:20:39+08:00"
-    },
-    {
-      "id": "de459e41c404",
-      "title": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
-      "summary": "懂出海，能记忆，自进化",
-      "url": "https://www.qbitai.com/2026/09/496961.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-24T22:20:14+08:00"
     },
     {
       "id": "c2a53f233272",
@@ -231,15 +240,6 @@
       "published_at": "2026-09-23T20:00:00+08:00"
     },
     {
-      "id": "7357353a1f1d",
-      "title": "How invideo improves color grading 3x with GPT‑6 Astra",
-      "summary": "With GPT‑6 Astra, invideo plans edits with greater precision, improves color correction and grading threefold, and produces 50 custom effects in one day.",
-      "url": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T20:00:00+08:00"
-    },
-    {
       "id": "301ba2c6df75",
       "title": "At AI Day Singapore, NVIDIA and Partners Showcase AI Advancements Across Southeast Asia",
       "summary": "NVIDIA AI Day Singapore, which takes place Sept. 22-23 at the Raffles City Convention Centre, is offering attendees opportunities to explore the hands-on train…",
@@ -294,6 +294,16 @@
       "published_at": "2026-09-21T23:30:19+08:00"
     },
     {
+      "id": "7942abbc44e4",
+      "title": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
+      "summary": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
+      "url": "https://www.qbitai.com/2026/09/492939.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-20T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "856eec485540",
       "title": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
       "summary": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
@@ -324,41 +334,13 @@
       "window_hours": 720
     },
     {
-      "id": "079e661c04ce",
-      "title": "New experts join Google’s AI & Economy team",
-      "summary": "We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-18T22:00:00+08:00"
-    },
-    {
-      "id": "13d62ca6fcfd",
-      "title": "Co-creating the future of fashion with",
-      "summary": "Google worked side-by-side with designers Jane Wade and Sergio Hudson to custom-design Google Flow tools to prep for NYFW.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-18T21:00:00+08:00"
-    },
-    {
-      "id": "254641ce73bf",
-      "title": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
-      "summary": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
-      "url": "https://www.qbitai.com/2026/09/492015.html",
+      "id": "cb3db4aa992b",
+      "title": "马斯克批量收购破产公司ing…世界首富脑子是不一样",
+      "summary": "马斯克批量收购破产公司ing…世界首富脑子是不一样",
+      "url": "https://www.qbitai.com/2026/09/492661.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-18T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "405bd528b1b8",
-      "title": "具身智能技术路线尚未定型，基础设施却先收敛",
-      "summary": "具身智能技术路线尚未定型，基础设施却先收敛",
-      "url": "https://www.qbitai.com/2026/09/492238.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-18T00:00:00+08:00",
+      "published_at": "2026-09-19T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -377,16 +359,6 @@
         "window_hours": 720
       },
       {
-        "id": "254641ce73bf",
-        "title": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
-        "summary": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
-        "url": "https://www.qbitai.com/2026/09/492015.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-18T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "fe3cb8211525",
         "title": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
         "summary": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
@@ -397,20 +369,30 @@
         "window_hours": 720
       },
       {
-        "id": "405bd528b1b8",
-        "title": "具身智能技术路线尚未定型，基础设施却先收敛",
-        "summary": "具身智能技术路线尚未定型，基础设施却先收敛",
-        "url": "https://www.qbitai.com/2026/09/492238.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-18T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "9a0a6abfb04b",
         "title": "“留给人类阻止AI的时间不多了”",
         "summary": "“留给人类阻止AI的时间不多了”",
         "url": "https://www.qbitai.com/2026/09/492755.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-19T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "7942abbc44e4",
+        "title": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
+        "summary": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
+        "url": "https://www.qbitai.com/2026/09/492939.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-09-20T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "cb3db4aa992b",
+        "title": "马斯克批量收购破产公司ing…世界首富脑子是不一样",
+        "summary": "马斯克批量收购破产公司ing…世界首富脑子是不一样",
+        "url": "https://www.qbitai.com/2026/09/492661.html",
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-19T00:00:00+08:00",
