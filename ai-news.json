@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-25T04:12:57.676188+08:00",
+  "updated_at": "2026-09-25T17:07:45.193152+08:00",
   "date": "2026-09-25",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,87 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "38b21b5ae987",
+      "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
+      "summary": "Agent的手越伸越长",
+      "url": "https://www.qbitai.com/2026/09/497075.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-25T14:20:56+08:00"
+    },
+    {
+      "id": "c52f67b34d71",
+      "title": "华为大模型双子星联手创业，要找物理世界的Scaling Law",
+      "summary": "一场物理世界的基模实验",
+      "url": "https://www.qbitai.com/2026/09/497070.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-25T14:14:07+08:00"
+    },
+    {
+      "id": "70b0b42ed6ad",
+      "title": "呃…小扎「自研Manus」刚成Meta太子，就塌房了",
+      "summary": "人工外包团队",
+      "url": "https://www.qbitai.com/2026/09/497060.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-25T14:11:10+08:00"
+    },
+    {
+      "id": "450f5a59f249",
+      "title": "给机器人当老师，还能赚外快？“中国版Index”觅蜂派来了",
+      "summary": "给机器人当老师，还能赚外快？“中国版Index”觅蜂派来了",
+      "url": "https://www.qbitai.com/2026/09/497012.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-25T13:52:18+08:00"
+    },
+    {
+      "id": "2907ba2fb91d",
+      "title": "When Should Forecasting Agents Reason? Behavioral Stress Tests for Reliability Routing",
+      "summary": "arXiv:2609.28475v1 Announce Type: new Abstract: Forecasting agents increasingly combine language-model reasoning, retrieval, ensembling, and calibration, but i…",
+      "url": "https://arxiv.org/abs/2609.28475",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-25T12:00:00+08:00"
+    },
+    {
+      "id": "18734c63e6d8",
+      "title": "TW3Cast: A Frozen Router of Lightly Fine-Tuned Foundation Models for Time-Series Forecasting on GIFT-Eval, Selected Entirely on the Training Split",
+      "summary": "arXiv:2609.28506v1 Announce Type: new Abstract: TW3Cast is a time-series forecasting system that reaches position 3 of 130 entries on the GIFT-Eval benchmark b…",
+      "url": "https://arxiv.org/abs/2609.28506",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-25T12:00:00+08:00"
+    },
+    {
+      "id": "b301ad5404a1",
+      "title": "PAWS: Policy-driven Agentic World Simulation",
+      "summary": "arXiv:2609.28547v1 Announce Type: new Abstract: Policy interventions propagate through public communication, institutional decisions, and stakeholder responses…",
+      "url": "https://arxiv.org/abs/2609.28547",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-25T12:00:00+08:00"
+    },
+    {
+      "id": "8e764e73b7ce",
+      "title": "Pistis Technical Report",
+      "summary": "arXiv:2609.28554v1 Announce Type: new Abstract: We introduce the Pistis model family, comprising 27B- and 9B-parameter multimodal large language models built o…",
+      "url": "https://arxiv.org/abs/2609.28554",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-25T12:00:00+08:00"
+    },
+    {
+      "id": "ac78d98185b7",
+      "title": "BaseCamp --- An Agentic AI Framework for Automating DNA Sequencing Data Pipelines",
+      "summary": "arXiv:2609.28557v1 Announce Type: new Abstract: DNA sequencing pipelines, spanning quality control, alignment, variant calling, and annotation, are now reliabl…",
+      "url": "https://arxiv.org/abs/2609.28557",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-25T12:00:00+08:00"
+    },
     {
       "id": "e7107d9a76d9",
       "title": "Introducing Gemini 3.8 Live with Live Avatar",
@@ -31,15 +112,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-24T22:20:14+08:00"
-    },
-    {
-      "id": "1a96160ea37d",
-      "title": "PCIe显卡被低估了！内核补齐+通信重构，DeepSeek推理吞吐翻近7倍",
-      "summary": "1.5台6000D跑赢1台B300！",
-      "url": "https://www.qbitai.com/2026/09/496925.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-24T22:17:48+08:00"
     },
     {
       "id": "c2a53f233272",
@@ -67,78 +139,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-09-24T21:00:36+08:00"
-    },
-    {
-      "id": "9467a7f0aa02",
-      "title": "时隔十年，AI大牛署名新论文",
-      "summary": "让自动驾驶“走一步想十步”",
-      "url": "https://www.qbitai.com/2026/09/496834.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-09-24T20:58:55+08:00"
-    },
-    {
-      "id": "5e7acf453c8b",
-      "title": "GPT-6之后，具身智能走向何方？诺因发布GLOW技术报告，给出机器人“一教就会”的答案",
-      "summary": "人类演示一次，机器人即可实现跨场景任务复用",
-      "url": "https://www.qbitai.com/2026/09/496816.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-24T16:20:12+08:00"
-    },
-    {
-      "id": "af2bcdebb9a7",
-      "title": "Stripe Tour 中国首秀：构建 AI 经济基础设施，赋能全球商业增长",
-      "summary": "Stripe Managed Payments (SMP) 现已全面上线",
-      "url": "https://www.qbitai.com/2026/09/496779.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-24T13:46:10+08:00"
-    },
-    {
-      "id": "671531aca991",
-      "title": "Silent Failures in Agent-Tool Interaction: An Audit of ToolUniverse",
-      "summary": "arXiv:2609.26836v1 Announce Type: new Abstract: Agentic AI systems are increasingly adopting automated pipelines that integrate multiple tools. While prior res…",
-      "url": "https://arxiv.org/abs/2609.26836",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-24T12:00:00+08:00"
-    },
-    {
-      "id": "44b4f151ffd3",
-      "title": "Harness as a Language: A Minimalist Agent Framework With Maximal Expressivity",
-      "summary": "arXiv:2609.26891v1 Announce Type: new Abstract: Modern language-model agents are built around the \\textit{agent loop}, where the LLM is placed in an environmen…",
-      "url": "https://arxiv.org/abs/2609.26891",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-24T12:00:00+08:00"
-    },
-    {
-      "id": "b7e0b4ef98a9",
-      "title": "TwinCheck: Evidence-Grounded Negative-Twin Verification for Stateful Tool Agents",
-      "summary": "arXiv:2609.26911v1 Announce Type: new Abstract: A single locally plausible tool call can derail an otherwise successful agent trajectory. Suspicion alone does …",
-      "url": "https://arxiv.org/abs/2609.26911",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-24T12:00:00+08:00"
-    },
-    {
-      "id": "b9a539fade0e",
-      "title": "Building Socio-Affective Artificial Intelligence for Interactive Multi-Agent Simulations",
-      "summary": "arXiv:2609.26927v1 Announce Type: new Abstract: The objective of this article is to provide design principles and a software architecture for enabling interact…",
-      "url": "https://arxiv.org/abs/2609.26927",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-24T12:00:00+08:00"
-    },
-    {
-      "id": "a84ace8a419d",
-      "title": "Which Objectives Need a Dial? Predicting Objective Conflict and Covering Trade-offs in Steerable Pluralistic Alignment",
-      "summary": "arXiv:2609.26929v1 Announce Type: new Abstract: People hold diverse, sometimes conflicting values, so no single aligned model can satisfy everyone. Pluralistic…",
-      "url": "https://arxiv.org/abs/2609.26929",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-24T12:00:00+08:00"
     },
     {
       "id": "a70f8ac64edf",
@@ -304,6 +304,26 @@
       "window_hours": 720
     },
     {
+      "id": "fe3cb8211525",
+      "title": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
+      "summary": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
+      "url": "https://www.qbitai.com/2026/09/492573.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-19T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "9a0a6abfb04b",
+      "title": "“留给人类阻止AI的时间不多了”",
+      "summary": "“留给人类阻止AI的时间不多了”",
+      "url": "https://www.qbitai.com/2026/09/492755.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-19T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "079e661c04ce",
       "title": "New experts join Google’s AI & Economy team",
       "summary": "We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
@@ -322,26 +342,6 @@
       "published_at": "2026-09-18T21:00:00+08:00"
     },
     {
-      "id": "38cf8e2889b3",
-      "title": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
-      "summary": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
-      "url": "https://www.qbitai.com/2026/09/491711.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-18T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "a32300e4c97e",
-      "title": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
-      "summary": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
-      "url": "https://www.qbitai.com/2026/09/491875.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-18T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "254641ce73bf",
       "title": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
       "summary": "白天务农晚上码农，这个斐济农民跨越一万公里来拼多多取经",
@@ -352,10 +352,10 @@
       "window_hours": 720
     },
     {
-      "id": "08f3d4a31cf2",
-      "title": "Manus重生第17天，估值居然就翻倍了",
-      "summary": "Manus重生第17天，估值居然就翻倍了",
-      "url": "https://www.qbitai.com/2026/09/491764.html",
+      "id": "405bd528b1b8",
+      "title": "具身智能技术路线尚未定型，基础设施却先收敛",
+      "summary": "具身智能技术路线尚未定型，基础设施却先收敛",
+      "url": "https://www.qbitai.com/2026/09/492238.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-18T00:00:00+08:00",
@@ -366,26 +366,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "38cf8e2889b3",
-        "title": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
-        "summary": "刚刚，Claude Code大重构！内部3万Agent管理技术免费开放",
-        "url": "https://www.qbitai.com/2026/09/491711.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-18T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "a32300e4c97e",
-        "title": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
-        "summary": "AGI最难一战，竟在医院！中国AI登上Science，医生不怕失业还催着上线",
-        "url": "https://www.qbitai.com/2026/09/491875.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-18T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "856eec485540",
         "title": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
@@ -407,13 +387,33 @@
         "window_hours": 720
       },
       {
-        "id": "08f3d4a31cf2",
-        "title": "Manus重生第17天，估值居然就翻倍了",
-        "summary": "Manus重生第17天，估值居然就翻倍了",
-        "url": "https://www.qbitai.com/2026/09/491764.html",
+        "id": "fe3cb8211525",
+        "title": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
+        "summary": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
+        "url": "https://www.qbitai.com/2026/09/492573.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-19T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "405bd528b1b8",
+        "title": "具身智能技术路线尚未定型，基础设施却先收敛",
+        "summary": "具身智能技术路线尚未定型，基础设施却先收敛",
+        "url": "https://www.qbitai.com/2026/09/492238.html",
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-18T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "9a0a6abfb04b",
+        "title": "“留给人类阻止AI的时间不多了”",
+        "summary": "“留给人类阻止AI的时间不多了”",
+        "url": "https://www.qbitai.com/2026/09/492755.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-19T00:00:00+08:00",
         "window_hours": 720
       }
     ]
