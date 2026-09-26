@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-26T04:11:02.100527+08:00",
+  "updated_at": "2026-09-26T16:51:05.479029+08:00",
   "date": "2026-09-26",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "1c35edeb0a77",
+      "title": "在云栖大会，我终于看懂了米哈游千亿AI野心",
+      "summary": "大伟哥：如果做不到，一年两年之后过来打我脸",
+      "url": "https://www.qbitai.com/2026/09/497613.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-26T15:18:05+08:00"
+    },
+    {
+      "id": "9cbb62557266",
+      "title": "谷歌TPU跑Kimi比英伟达GPU快57%！用的还是DeepSeek推理框架",
+      "summary": "vLLM人马创业公司团队出品",
+      "url": "https://www.qbitai.com/2026/09/497425.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-26T15:12:05+08:00"
+    },
+    {
+      "id": "6a725f1d75b2",
+      "title": "OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光",
+      "summary": "还把「密钥」叫战利品",
+      "url": "https://www.qbitai.com/2026/09/497382.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-26T15:04:15+08:00"
+    },
     {
       "id": "d2d497e5eee4",
       "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
@@ -40,87 +67,6 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-09-25T21:15:45+08:00"
-    },
-    {
-      "id": "2552fd5419ea",
-      "title": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
-      "summary": "大厂造芯，正在从交付芯片，走向更广泛的开放共建阶段。",
-      "url": "https://www.qbitai.com/2026/09/497108.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-25T18:00:14+08:00"
-    },
-    {
-      "id": "38b21b5ae987",
-      "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
-      "summary": "Agent的手越伸越长",
-      "url": "https://www.qbitai.com/2026/09/497075.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-25T14:20:56+08:00"
-    },
-    {
-      "id": "c52f67b34d71",
-      "title": "华为大模型双子星联手创业，要找物理世界的Scaling Law",
-      "summary": "一场物理世界的基模实验",
-      "url": "https://www.qbitai.com/2026/09/497070.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-25T14:14:07+08:00"
-    },
-    {
-      "id": "2907ba2fb91d",
-      "title": "When Should Forecasting Agents Reason? Behavioral Stress Tests for Reliability Routing",
-      "summary": "arXiv:2609.28475v1 Announce Type: new Abstract: Forecasting agents increasingly combine language-model reasoning, retrieval, ensembling, and calibration, but i…",
-      "url": "https://arxiv.org/abs/2609.28475",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-25T12:00:00+08:00"
-    },
-    {
-      "id": "18734c63e6d8",
-      "title": "TW3Cast: A Frozen Router of Lightly Fine-Tuned Foundation Models for Time-Series Forecasting on GIFT-Eval, Selected Entirely on the Training Split",
-      "summary": "arXiv:2609.28506v1 Announce Type: new Abstract: TW3Cast is a time-series forecasting system that reaches position 3 of 130 entries on the GIFT-Eval benchmark b…",
-      "url": "https://arxiv.org/abs/2609.28506",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-25T12:00:00+08:00"
-    },
-    {
-      "id": "b301ad5404a1",
-      "title": "PAWS: Policy-driven Agentic World Simulation",
-      "summary": "arXiv:2609.28547v1 Announce Type: new Abstract: Policy interventions propagate through public communication, institutional decisions, and stakeholder responses…",
-      "url": "https://arxiv.org/abs/2609.28547",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-25T12:00:00+08:00"
-    },
-    {
-      "id": "8e764e73b7ce",
-      "title": "Pistis Technical Report",
-      "summary": "arXiv:2609.28554v1 Announce Type: new Abstract: We introduce the Pistis model family, comprising 27B- and 9B-parameter multimodal large language models built o…",
-      "url": "https://arxiv.org/abs/2609.28554",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-25T12:00:00+08:00"
-    },
-    {
-      "id": "ac78d98185b7",
-      "title": "BaseCamp --- An Agentic AI Framework for Automating DNA Sequencing Data Pipelines",
-      "summary": "arXiv:2609.28557v1 Announce Type: new Abstract: DNA sequencing pipelines, spanning quality control, alignment, variant calling, and annotation, are now reliabl…",
-      "url": "https://arxiv.org/abs/2609.28557",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-25T12:00:00+08:00"
-    },
-    {
-      "id": "e7107d9a76d9",
-      "title": "Introducing Gemini 3.8 Live with Live Avatar",
-      "summary": "Introducing Gemini 3.8 Live with Live Avatar",
-      "url": "https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-25T00:20:39+08:00"
     },
     {
       "id": "c2a53f233272",
@@ -177,15 +123,6 @@
       "published_at": "2026-09-24T00:01:36+08:00"
     },
     {
-      "id": "4c4abcff4acd",
-      "title": "Advancing Private AI Compute with secure, server-side memory",
-      "summary": "Introducing private, server-side memory to Private AI Compute for personal AI.",
-      "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-24T00:00:57+08:00"
-    },
-    {
       "id": "9d02eeb8cef1",
       "title": "Two years of OpenAI Academy",
       "summary": "Marking two years of OpenAI Academy and bringing AI skills to even more communities.",
@@ -193,15 +130,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-24T00:00:00+08:00"
-    },
-    {
-      "id": "be2314c62992",
-      "title": "Gemini 3.8 text-to-speech says hello",
-      "summary": "Gemini 3.8 text-to-speech says hello",
-      "url": "https://deepmind.google/blog/say-hello-to-gemini-38-text-to-speech/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T23:25:14+08:00"
     },
     {
       "id": "a1700d1f6b37",
@@ -285,6 +213,16 @@
       "published_at": "2026-09-22T08:00:00+08:00"
     },
     {
+      "id": "e50a7a8bbd46",
+      "title": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
+      "summary": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
+      "url": "https://www.qbitai.com/2026/09/494179.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-22T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "ce92ef014f89",
       "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
       "summary": "Custom-made molecules are advancing medicine, materials, and agriculture, but producing them is slow and expensive. A new Nature paper highlights RetroChimera,…",
@@ -301,16 +239,6 @@
       "source": "量子位",
       "category": "开源项目",
       "published_at": "2026-09-20T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "856eec485540",
-      "title": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
-      "summary": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
-      "url": "https://www.qbitai.com/2026/09/492429.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-19T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -349,16 +277,6 @@
     "window_days": 30,
     "items": [
       {
-        "id": "856eec485540",
-        "title": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
-        "summary": "AI离“理解万物”还有多远？先拿癌细胞和行星轨道试试水",
-        "url": "https://www.qbitai.com/2026/09/492429.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-19T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "fe3cb8211525",
         "title": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
         "summary": "27B模型分分钟交付网页，Qwen 3.8还是太能了",
@@ -386,6 +304,16 @@
         "source": "量子位",
         "category": "开源项目",
         "published_at": "2026-09-20T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "e50a7a8bbd46",
+        "title": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
+        "summary": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
+        "url": "https://www.qbitai.com/2026/09/494179.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-09-22T00:00:00+08:00",
         "window_hours": 720
       },
       {
