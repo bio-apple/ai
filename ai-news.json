@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-27T03:29:48.615779+08:00",
+  "updated_at": "2026-09-27T17:33:32.715766+08:00",
   "date": "2026-09-27",
   "cadence": "daily",
   "window_hours": 168,
@@ -260,6 +260,16 @@
       "window_hours": 720
     },
     {
+      "id": "7ba72be8cb1b",
+      "title": "阿里公布全模态模型新进展，Qwen4和下代视频模型均在训练中",
+      "summary": "阿里公布全模态模型新进展，Qwen4和下代视频模型均在训练中",
+      "url": "https://www.qbitai.com/2026/09/493625.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-22T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "ce92ef014f89",
       "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
       "summary": "Custom-made molecules are advancing medicine, materials, and agriculture, but producing them is slow and expensive. A new Nature paper highlights RetroChimera,…",
@@ -267,16 +277,6 @@
       "source": "Microsoft AI",
       "category": "新模型发布",
       "published_at": "2026-09-21T23:30:19+08:00"
-    },
-    {
-      "id": "7942abbc44e4",
-      "title": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
-      "summary": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
-      "url": "https://www.qbitai.com/2026/09/492939.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-20T00:00:00+08:00",
-      "window_hours": 720
     },
     {
       "id": "75b23aa6601d",
@@ -289,10 +289,10 @@
       "window_hours": 720
     },
     {
-      "id": "78e524b8775d",
-      "title": "谷歌AI首次“越狱”：竟然自己破解密码入侵三家公司！",
-      "summary": "谷歌AI首次“越狱”：竟然自己破解密码入侵三家公司！",
-      "url": "https://www.qbitai.com/2026/09/492912.html",
+      "id": "489c0985eaa2",
+      "title": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
+      "summary": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
+      "url": "https://www.qbitai.com/2026/09/492946.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-20T00:00:00+08:00",
@@ -303,16 +303,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "7942abbc44e4",
-        "title": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
-        "summary": "APUS 开源国内首批Jev跨平台复现：国产模型实现秒级决策",
-        "url": "https://www.qbitai.com/2026/09/492939.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-09-20T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "e50a7a8bbd46",
         "title": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
@@ -344,10 +334,20 @@
         "window_hours": 720
       },
       {
-        "id": "78e524b8775d",
-        "title": "谷歌AI首次“越狱”：竟然自己破解密码入侵三家公司！",
-        "summary": "谷歌AI首次“越狱”：竟然自己破解密码入侵三家公司！",
-        "url": "https://www.qbitai.com/2026/09/492912.html",
+        "id": "7ba72be8cb1b",
+        "title": "阿里公布全模态模型新进展，Qwen4和下代视频模型均在训练中",
+        "summary": "阿里公布全模态模型新进展，Qwen4和下代视频模型均在训练中",
+        "url": "https://www.qbitai.com/2026/09/493625.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-22T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "489c0985eaa2",
+        "title": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
+        "summary": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
+        "url": "https://www.qbitai.com/2026/09/492946.html",
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-20T00:00:00+08:00",
