@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-27T17:33:32.715766+08:00",
-  "date": "2026-09-27",
+  "updated_at": "2026-09-28T03:56:06.641530+08:00",
+  "date": "2026-09-28",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,42 @@
   },
   "items": [
     {
+      "id": "4ba932820d70",
+      "title": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
+      "summary": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
+      "url": "https://www.qbitai.com/2026/09/498633.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-27T22:20:35+08:00"
+    },
+    {
+      "id": "ab24d9e3ca4d",
+      "title": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
+      "summary": "想让开发者“说句话就能跑量子计算”",
+      "url": "https://www.qbitai.com/2026/09/498605.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-27T21:57:57+08:00"
+    },
+    {
+      "id": "2d2db1b6fdea",
+      "title": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
+      "summary": "中秋假期文具OpenRouter调用日榜榜首",
+      "url": "https://www.qbitai.com/2026/09/498584.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-27T21:40:02+08:00"
+    },
+    {
+      "id": "aa62e8ba5e3d",
+      "title": "啥题啊能干崩OpenAI最强模型训练…",
+      "summary": "啥题啊能干崩OpenAI最强模型训练…",
+      "url": "https://www.qbitai.com/2026/09/498546.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-27T17:44:16+08:00"
+    },
+    {
       "id": "fe1b7625279c",
       "title": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
       "summary": "“世界模型”开始成为具身智能跨越商业化“奇点”的新叙事。",
@@ -24,42 +60,6 @@
       "published_at": "2026-09-26T19:49:43+08:00"
     },
     {
-      "id": "b4f66fc58a71",
-      "title": "AI开始研究Physical AI：FSD级团队亮出首版模型Simate-beta，空降RoboDojo",
-      "summary": "Simate将训练、推理与评测全流程接入自研Infra，通过极致的任务编排与资源调度，同时并行推进数十条相互独立的研究路线。",
-      "url": "https://www.qbitai.com/2026/09/498271.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-26T17:07:41+08:00"
-    },
-    {
-      "id": "d9f992667662",
-      "title": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
-      "summary": "GitHub现在最火热的大模型开源小蜂鸟Colibrì是个啥？",
-      "url": "https://www.qbitai.com/2026/09/497624.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-26T17:01:00+08:00"
-    },
-    {
-      "id": "1c35edeb0a77",
-      "title": "在云栖大会，我终于看懂了米哈游千亿AI野心",
-      "summary": "大伟哥：如果做不到，一年两年之后过来打我脸",
-      "url": "https://www.qbitai.com/2026/09/497613.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-26T15:18:05+08:00"
-    },
-    {
-      "id": "9cbb62557266",
-      "title": "谷歌TPU跑Kimi比英伟达GPU快57%！用的还是DeepSeek推理框架",
-      "summary": "vLLM人马创业公司团队出品",
-      "url": "https://www.qbitai.com/2026/09/497425.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-26T15:12:05+08:00"
-    },
-    {
       "id": "d2d497e5eee4",
       "title": "Proaction boosts sales 60% and saves 75+ hours with Codex",
       "summary": "With Codex, GPT-Live-1, and GPT-6 Astra, Proaction builds, operates, and sells modern fleet management faster.",
@@ -67,15 +67,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-26T03:00:00+08:00"
-    },
-    {
-      "id": "e7107d9a76d9",
-      "title": "Introducing Gemini 3.8 Live with Live Avatar",
-      "summary": "Introducing Gemini 3.8 Live with Live Avatar",
-      "url": "https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-25T00:20:39+08:00"
     },
     {
       "id": "c2a53f233272",
@@ -132,15 +123,6 @@
       "published_at": "2026-09-24T00:01:36+08:00"
     },
     {
-      "id": "4c4abcff4acd",
-      "title": "Advancing Private AI Compute with secure, server-side memory",
-      "summary": "Introducing private, server-side memory to Private AI Compute for personal AI.",
-      "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-24T00:00:57+08:00"
-    },
-    {
       "id": "9d02eeb8cef1",
       "title": "Two years of OpenAI Academy",
       "summary": "Marking two years of OpenAI Academy and bringing AI skills to even more communities.",
@@ -148,15 +130,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-24T00:00:00+08:00"
-    },
-    {
-      "id": "be2314c62992",
-      "title": "Gemini 3.8 text-to-speech says hello",
-      "summary": "Gemini 3.8 text-to-speech says hello",
-      "url": "https://deepmind.google/blog/say-hello-to-gemini-38-text-to-speech/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T23:25:14+08:00"
     },
     {
       "id": "a1700d1f6b37",
@@ -202,6 +175,16 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-09-23T10:30:22+08:00"
+    },
+    {
+      "id": "2ead189d2201",
+      "title": "GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了",
+      "summary": "GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了",
+      "url": "https://www.qbitai.com/2026/09/496170.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-23T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "193bdb306b4d",
@@ -279,23 +262,13 @@
       "published_at": "2026-09-21T23:30:19+08:00"
     },
     {
-      "id": "75b23aa6601d",
-      "title": "刚刚，剪映发了个大的：AI生视频和AI剪辑的壁，被打破了！",
-      "summary": "刚刚，剪映发了个大的：AI生视频和AI剪辑的壁，被打破了！",
-      "url": "https://www.qbitai.com/2026/09/492973.html",
+      "id": "11261e2438d5",
+      "title": "开源Top2！实测阶跃Step 5 Preview，真有点猛啊…",
+      "summary": "开源Top2！实测阶跃Step 5 Preview，真有点猛啊…",
+      "url": "https://www.qbitai.com/2026/09/493179.html",
       "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-20T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "489c0985eaa2",
-      "title": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
-      "summary": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
-      "url": "https://www.qbitai.com/2026/09/492946.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-20T00:00:00+08:00",
+      "category": "开源项目",
+      "published_at": "2026-09-21T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -311,16 +284,6 @@
         "source": "量子位",
         "category": "开源项目",
         "published_at": "2026-09-22T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "75b23aa6601d",
-        "title": "刚刚，剪映发了个大的：AI生视频和AI剪辑的壁，被打破了！",
-        "summary": "刚刚，剪映发了个大的：AI生视频和AI剪辑的壁，被打破了！",
-        "url": "https://www.qbitai.com/2026/09/492973.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-20T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -344,13 +307,23 @@
         "window_hours": 720
       },
       {
-        "id": "489c0985eaa2",
-        "title": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
-        "summary": "一张3090就能跑！全栈国产模型，把AI办公搬到企业本地",
-        "url": "https://www.qbitai.com/2026/09/492946.html",
+        "id": "11261e2438d5",
+        "title": "开源Top2！实测阶跃Step 5 Preview，真有点猛啊…",
+        "summary": "开源Top2！实测阶跃Step 5 Preview，真有点猛啊…",
+        "url": "https://www.qbitai.com/2026/09/493179.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-20T00:00:00+08:00",
+        "category": "开源项目",
+        "published_at": "2026-09-21T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "2ead189d2201",
+        "title": "GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了",
+        "summary": "GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了",
+        "url": "https://www.qbitai.com/2026/09/496170.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-23T00:00:00+08:00",
         "window_hours": 720
       }
     ]
