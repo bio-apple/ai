@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-28T18:12:16.939766+08:00",
-  "date": "2026-09-28",
+  "updated_at": "2026-09-29T06:21:19.149645+08:00",
+  "date": "2026-09-29",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,42 @@
   },
   "items": [
     {
+      "id": "3c2fdddd3946",
+      "title": "One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact",
+      "summary": "Since launching a year ago, the Microsoft Research Asia — Singapore lab has established a strong foundation, deepened collaboration across government, academia…",
+      "url": "https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact/",
+      "source": "Microsoft AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-29T05:00:00+08:00"
+    },
+    {
+      "id": "1eadd5627184",
+      "title": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
+      "summary": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-29T03:00:00+08:00"
+    },
+    {
+      "id": "17a8f9896374",
+      "title": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
+      "summary": "工业平台已经卷到帮伙伴拿线索、做Agent、出海了",
+      "url": "https://www.qbitai.com/2026/09/498877.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-28T20:43:53+08:00"
+    },
+    {
+      "id": "0e6785544a5e",
+      "title": "HC归来，华为正重新定义AIDC基础设施",
+      "summary": "AI基础设施下一站：算电协同",
+      "url": "https://www.qbitai.com/2026/09/498787.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-28T19:18:27+08:00"
+    },
+    {
       "id": "9552195c964d",
       "title": "Holo4: powering generalist computer-use agents",
       "summary": "Holo4: powering generalist computer-use agents",
@@ -22,6 +58,15 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-09-28T17:44:05+08:00"
+    },
+    {
+      "id": "216d56bba26c",
+      "title": "The Lenfest Institute grows landmark program with expanded OpenAI support",
+      "summary": "OpenAI is expanding the Lenfest AI Collaborative and Fellowship Program with $5 million in funding and up to $5 million in software credits and engineering sup…",
+      "url": "https://openai.com/index/lenfest-ai-collaborative-expansion",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-28T15:00:00+08:00"
     },
     {
       "id": "9f727f4c6d89",
@@ -69,6 +114,24 @@
       "published_at": "2026-09-28T12:00:00+08:00"
     },
     {
+      "id": "914f14710638",
+      "title": "Are you a Codex Original?",
+      "summary": "We’re collecting real stories of builders, tinkerers, researchers, and creators who are using Codex to do incredible things. If you want to be a part of the ne…",
+      "url": "https://openai.com/form/codex-originals",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-28T08:00:00+08:00"
+    },
+    {
+      "id": "bf0fe8cc388a",
+      "title": "Basis completes a tax workbook 2x faster with GPT-6 Astra",
+      "summary": "GPT-6 Astra completed a 50-tab tax workbook twice as fast as GPT-5.6 Sol, and its stronger understanding of user intent gives Basis more confidence in real-wor…",
+      "url": "https://openai.com/index/basis-tax-workbook-with-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-28T08:00:00+08:00"
+    },
+    {
       "id": "4ba932820d70",
       "title": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
       "summary": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
@@ -94,24 +157,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-27T21:40:02+08:00"
-    },
-    {
-      "id": "aa62e8ba5e3d",
-      "title": "啥题啊能干崩OpenAI最强模型训练…",
-      "summary": "啥题啊能干崩OpenAI最强模型训练…",
-      "url": "https://www.qbitai.com/2026/09/498546.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-27T17:44:16+08:00"
-    },
-    {
-      "id": "fe1b7625279c",
-      "title": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
-      "summary": "“世界模型”开始成为具身智能跨越商业化“奇点”的新叙事。",
-      "url": "https://www.qbitai.com/2026/09/498478.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-26T19:49:43+08:00"
     },
     {
       "id": "d2d497e5eee4",
@@ -232,33 +277,6 @@
       "published_at": "2026-09-23T23:00:32+08:00"
     },
     {
-      "id": "1d77064cbebb",
-      "title": "OpenAI extends cyber access to Ukraine for civilian defense",
-      "summary": "OpenAI is extending access to its Daybreak program to the Government of Ukraine to support the cyber defense of civilian infrastructure.",
-      "url": "https://openai.com/index/openai-extends-cyber-access-to-ukraine-for-civilian-defense",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T21:00:00+08:00"
-    },
-    {
-      "id": "01d4e543c941",
-      "title": "Sam Altman’s remarks at the United Nations Security Council",
-      "summary": "OpenAI CEO Sam Altman discusses AI safety, human control, and international cooperation in remarks to the United Nations Security Council.",
-      "url": "https://openai.com/index/sam-altman-un-security-council-remarks",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T20:00:00+08:00"
-    },
-    {
-      "id": "f7558dc5c9de",
-      "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
-      "summary": "GPT-6 Astra produces more structured, context-aware legal documents, freeing lawyers to focus on strategy.",
-      "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T20:00:00+08:00"
-    },
-    {
       "id": "301ba2c6df75",
       "title": "At AI Day Singapore, NVIDIA and Partners Showcase AI Advancements Across Southeast Asia",
       "summary": "NVIDIA AI Day Singapore, which takes place Sept. 22-23 at the Raffles City Convention Centre, is offering attendees opportunities to explore the hands-on train…",
@@ -333,15 +351,6 @@
       "category": "中文资讯",
       "published_at": "2026-09-22T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "ce92ef014f89",
-      "title": "Improving synthesis prediction of small molecules at scale with RetroChimera",
-      "summary": "Custom-made molecules are advancing medicine, materials, and agriculture, but producing them is slow and expensive. A new Nature paper highlights RetroChimera,…",
-      "url": "https://www.microsoft.com/en-us/research/blog/improving-synthesis-prediction-of-small-molecules-at-scale-with-retrochimera/",
-      "source": "Microsoft AI",
-      "category": "新模型发布",
-      "published_at": "2026-09-21T23:30:19+08:00"
     }
   ],
   "qbitai_hot": {
