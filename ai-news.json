@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-29T18:10:23.874608+08:00",
-  "date": "2026-09-29",
+  "updated_at": "2026-09-30T05:10:30.816479+08:00",
+  "date": "2026-09-30",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "493cf3fce1b8",
+      "title": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
+      "summary": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
+      "url": "https://huggingface.co/blog/nvidia/kumo-tabular",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-09-29T23:30:38+08:00"
+    },
+    {
+      "id": "53ae606fecda",
+      "title": "Introducing Quine: An AI research system designed for the complexity of biology",
+      "summary": "Biology doesn't operate in silos, and neither should the AI representation of it. Quine is an early-stage research effort to create a multimodal world model of…",
+      "url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/",
+      "source": "Microsoft AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-29T22:00:02+08:00"
+    },
+    {
+      "id": "984223f109f3",
+      "title": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
+      "summary": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
+      "url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-09-29T21:07:00+08:00"
+    },
+    {
+      "id": "b13c89eedcd9",
+      "title": "正行创新联合创始人杨宇欣正式亮相：出任总裁，负责全球业务拓展",
+      "summary": "推动公司具身模型、本体、软件等全栈能力进入更多真实场景",
+      "url": "https://www.qbitai.com/2026/09/499239.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-29T18:56:33+08:00"
+    },
+    {
+      "id": "dd66acaed2a0",
+      "title": "Introducing GPT-6.1 Sol",
+      "summary": "Meet GPT-6.1 Sol: near-Astra intelligence for coding, computer use, and professional work at one-fifth of Astra’s standard API input and output token prices.",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-09-29T18:00:00+08:00"
+    },
+    {
+      "id": "19db7cc5ca5c",
+      "title": "DevDay 2026 Recap",
+      "summary": "Explore more than 20 announcements from OpenAI DevDay 2026, including GPT-6 Astra, ChatGPT, Codex, APIs, security, and new tools for builders.",
+      "url": "https://openai.com/index/devday-2026-recap",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-29T18:00:00+08:00"
+    },
     {
       "id": "ace6c405f776",
       "title": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
@@ -96,6 +150,15 @@
       "published_at": "2026-09-29T08:49:30+08:00"
     },
     {
+      "id": "884977ecb800",
+      "title": "Introducing dots",
+      "summary": "Dots by OpenAI are a proactive assistant that can keep working across complex projects and everyday tasks. Learn how dots help you stay in control while work m…",
+      "url": "https://openai.com/index/introducing-dots",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-09-29T08:00:00+08:00"
+    },
+    {
       "id": "3c2fdddd3946",
       "title": "One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact",
       "summary": "Since launching a year ago, the Microsoft Research Asia — Singapore lab has established a strong foundation, deepened collaboration across government, academia…",
@@ -132,15 +195,6 @@
       "published_at": "2026-09-29T03:00:00+08:00"
     },
     {
-      "id": "17a8f9896374",
-      "title": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
-      "summary": "工业平台已经卷到帮伙伴拿线索、做Agent、出海了",
-      "url": "https://www.qbitai.com/2026/09/498877.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-28T20:43:53+08:00"
-    },
-    {
       "id": "9552195c964d",
       "title": "Holo4: powering generalist computer-use agents",
       "summary": "Holo4: powering generalist computer-use agents",
@@ -150,40 +204,14 @@
       "published_at": "2026-09-28T17:44:05+08:00"
     },
     {
-      "id": "216d56bba26c",
-      "title": "The Lenfest Institute grows landmark program with expanded OpenAI support",
-      "summary": "OpenAI is expanding the Lenfest AI Collaborative and Fellowship Program with $5 million in funding and up to $5 million in software credits and engineering sup…",
-      "url": "https://openai.com/index/lenfest-ai-collaborative-expansion",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-28T15:00:00+08:00"
-    },
-    {
-      "id": "914f14710638",
-      "title": "Are you a Codex Original?",
-      "summary": "We’re collecting real stories of builders, tinkerers, researchers, and creators who are using Codex to do incredible things. If you want to be a part of the ne…",
-      "url": "https://openai.com/form/codex-originals",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-28T08:00:00+08:00"
-    },
-    {
-      "id": "bf0fe8cc388a",
-      "title": "Basis completes a tax workbook 2x faster with GPT-6 Astra",
-      "summary": "GPT-6 Astra completed a 50-tab tax workbook twice as fast as GPT-5.6 Sol, and its stronger understanding of user intent gives Basis more confidence in real-wor…",
-      "url": "https://openai.com/index/basis-tax-workbook-with-astra",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-28T08:00:00+08:00"
-    },
-    {
-      "id": "e7107d9a76d9",
-      "title": "Introducing Gemini 3.8 Live with Live Avatar",
-      "summary": "Introducing Gemini 3.8 Live with Live Avatar",
-      "url": "https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-25T00:20:39+08:00"
+      "id": "38b21b5ae987",
+      "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
+      "summary": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
+      "url": "https://www.qbitai.com/2026/09/497075.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-25T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "c2a53f233272",
@@ -213,15 +241,6 @@
       "published_at": "2026-09-24T21:00:36+08:00"
     },
     {
-      "id": "a70f8ac64edf",
-      "title": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
-      "summary": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
-      "url": "https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-24T02:41:40+08:00"
-    },
-    {
       "id": "8a86c97089bb",
       "title": "Google Beam expands with new regions, partners, and customers",
       "summary": "We’re expanding Google Beam to five new countries, and partnering with Industrious for an extended network.",
@@ -238,15 +257,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-09-24T00:01:36+08:00"
-    },
-    {
-      "id": "4c4abcff4acd",
-      "title": "Advancing Private AI Compute with secure, server-side memory",
-      "summary": "Introducing private, server-side memory to Private AI Compute for personal AI.",
-      "url": "https://deepmind.google/blog/advancing-private-ai-compute-with-secure-server-side-memory/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-24T00:00:57+08:00"
     },
     {
       "id": "1a96160ea37d",
@@ -279,15 +289,6 @@
       "window_hours": 720
     },
     {
-      "id": "be2314c62992",
-      "title": "Gemini 3.8 text-to-speech says hello",
-      "summary": "Gemini 3.8 text-to-speech says hello",
-      "url": "https://deepmind.google/blog/say-hello-to-gemini-38-text-to-speech/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T23:25:14+08:00"
-    },
-    {
       "id": "a1700d1f6b37",
       "title": "Sakeena Fiza Helps NVIDIA Hardware Succeed at Scale",
       "summary": "When Sakeena Fiza describes her work as a validation engineer at NVIDIA, she does so in terms more befitting a detective story than a world-class engineering l…",
@@ -314,41 +315,12 @@
       "category": "新模型发布",
       "published_at": "2026-09-23T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "193bdb306b4d",
-      "title": "NVIDIA Isaac ROS 5.0 Advances Agentic, Open Source Robotics Development",
-      "summary": "To build and deploy sophisticated robotics applications that can perceive, reason and act in dynamic environments, developers need new physical AI models and t…",
-      "url": "https://blogs.nvidia.com/blog/isaac-ros-5-0-agentic-open-source-robotics/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-22T20:00:41+08:00"
-    },
-    {
-      "id": "e50a7a8bbd46",
-      "title": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
-      "summary": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
-      "url": "https://www.qbitai.com/2026/09/494179.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-22T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "e50a7a8bbd46",
-        "title": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
-        "summary": "6天烧光2000多万，拿下开源第一！小米史无前例「炼丹直播」收官",
-        "url": "https://www.qbitai.com/2026/09/494179.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-09-22T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "2ead189d2201",
         "title": "GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了",
@@ -377,6 +349,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-24T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "38b21b5ae987",
+        "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
+        "summary": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
+        "url": "https://www.qbitai.com/2026/09/497075.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-25T00:00:00+08:00",
         "window_hours": 720
       },
       {
