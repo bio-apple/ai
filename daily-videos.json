@@ -185,6 +185,96 @@
   ],
   "batches": [
     {
+      "date": "2026-10-01",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:U-rsvXds9ck",
+              "platform": "youtube",
+              "title": "Deepseek did it again...",
+              "summary": "Check out MindsHub: Join My Newsletter for Regular AI Updates 👇🏼 My Links 🔗 👉🏻 X: 👉🏻 Forward Future X: 👉🏻 Instagram: 👉🏻 Discord: …",
+              "url": "https://www.youtube.com/watch?v=U-rsvXds9ck",
+              "thumbnail": "https://i.ytimg.com/vi/U-rsvXds9ck/maxresdefault.jpg",
+              "channel": "Matthew Berman",
+              "subscribers": 0,
+              "views": 259525,
+              "duration": "16:39",
+              "max_height": 1080,
+              "published_at": "2026-09-12T03:01:56+08:00"
+            },
+            {
+              "id": "youtube:o3CX_Y59_74",
+              "platform": "youtube",
+              "title": "OpenAI Codex Crash Course – Build & Deploy Apps with Autonomous AI",
+              "summary": "Learn the core fundamentals of OpenAI Codex, from setting up scheduled automations and custom skills to mastering Plan and Go mod…",
+              "url": "https://www.youtube.com/watch?v=o3CX_Y59_74",
+              "thumbnail": "https://i.ytimg.com/vi/o3CX_Y59_74/maxresdefault.jpg",
+              "channel": "freeCodeCamp.org",
+              "subscribers": 0,
+              "views": 149630,
+              "duration": "41:19",
+              "max_height": 1080,
+              "published_at": "2026-09-10T23:04:22+08:00"
+            },
+            {
+              "id": "youtube:1PRcdCu8n6M",
+              "platform": "youtube",
+              "title": "How to Use Claude Artifacts (Beginner Tutorial)",
+              "summary": "Learn how to use Claude Artifacts to build apps, websites, dashboards, games, and interactive AI tools, all without writing code",
+              "url": "https://www.youtube.com/watch?v=1PRcdCu8n6M",
+              "thumbnail": "https://i.ytimg.com/vi/1PRcdCu8n6M/maxresdefault.jpg",
+              "channel": "Kevin Stratvert",
+              "subscribers": 0,
+              "views": 112607,
+              "duration": "12:42",
+              "max_height": 1080,
+              "published_at": "2026-09-03T15:00:28+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": []
+        }
+      }
+    },
+    {
       "date": "2026-09-30",
       "timezone": "Asia/Shanghai",
       "criteria": {
@@ -8625,5 +8715,5 @@
       }
     }
   ],
-  "updated_at": "2026-09-30T07:36:25.892836+08:00"
+  "updated_at": "2026-10-01T07:37:53.158720+08:00"
 }
