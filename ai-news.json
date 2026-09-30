@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-30T05:10:30.816479+08:00",
+  "updated_at": "2026-09-30T18:01:59.506450+08:00",
   "date": "2026-09-30",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "d0ff96814d42",
+      "title": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
+      "summary": "给Agent配上手机号，再拉个群",
+      "url": "https://www.qbitai.com/2026/09/499592.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-30T15:58:37+08:00"
+    },
+    {
+      "id": "ae05e900dd78",
+      "title": "刚刚，GPT-6 Astra接上宇树G1，把厨房收拾了！",
+      "summary": "让GPT把机器人技能当工具调用",
+      "url": "https://www.qbitai.com/2026/09/499493.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-30T15:54:54+08:00"
+    },
+    {
+      "id": "6fbc44660a91",
+      "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
+      "summary": "DeepSeek在知乎独家发布技术长文，首次系统阐释了DeepSeek弹性计算（DeepSeek Elastic Compute，DSec）",
+      "url": "https://www.qbitai.com/2026/09/499308.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-09-30T13:18:05+08:00"
+    },
+    {
+      "id": "48a2eecfb3e5",
+      "title": "36家敲钟的机器人公司：赚钱能力差距巨大，商业化也不玩花架子了",
+      "summary": "机器人上市，风向有变",
+      "url": "https://www.qbitai.com/2026/09/499280.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-30T12:42:22+08:00"
+    },
+    {
+      "id": "863c1a823301",
+      "title": "OpenAI-HuggingFace: A Reproduction & Lessons for Alignment Testing",
+      "summary": "arXiv:2609.35799v1 Announce Type: new Abstract: In July 2026, OpenAI's agents coordinated over channels outside their intended environment to breach Hugging Fa…",
+      "url": "https://arxiv.org/abs/2609.35799",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-09-30T12:00:00+08:00"
+    },
+    {
+      "id": "c11d277ad8de",
+      "title": "Neurosymbolic Routing for Reliable Reasoning on Resource-Constrained Edge Devices",
+      "summary": "arXiv:2609.35833v1 Announce Type: new Abstract: Running a language model on edge hardware provides private and low-latency reasoning without a network connecti…",
+      "url": "https://arxiv.org/abs/2609.35833",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-30T12:00:00+08:00"
+    },
+    {
+      "id": "89304ef3c2be",
+      "title": "Is Human-Readable Text Necessary for Effective LLM Fine-Tuning?",
+      "summary": "arXiv:2609.35868v1 Announce Type: new Abstract: Is human readability necessary for effective fine-tuning of large language models? We investigate whether model…",
+      "url": "https://arxiv.org/abs/2609.35868",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-30T12:00:00+08:00"
+    },
+    {
+      "id": "169b41052ff8",
+      "title": "The Price of Token Boundaries: Compression Certificates and Prediction",
+      "summary": "arXiv:2609.35869v1 Announce Type: new Abstract: Pre-tokenisation restricts which text fragments can become prediction units, but its compression cost is obscur…",
+      "url": "https://arxiv.org/abs/2609.35869",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-30T12:00:00+08:00"
+    },
+    {
+      "id": "36b494a2eee7",
+      "title": "More Programs or More Rolls? Separating Coverage from Specialization in LLM Harnesses",
+      "summary": "arXiv:2609.35873v1 Announce Type: new Abstract: Automated generation of LLM harnesses promises to improve inference through task specialization. Yet additional…",
+      "url": "https://arxiv.org/abs/2609.35873",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-09-30T12:00:00+08:00"
+    },
+    {
+      "id": "d3df5418cadb",
+      "title": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
+      "summary": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
+      "url": "https://www.qbitai.com/2026/09/499263.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-30T10:53:17+08:00"
+    },
     {
       "id": "493cf3fce1b8",
       "title": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
@@ -42,15 +132,6 @@
       "published_at": "2026-09-29T21:07:00+08:00"
     },
     {
-      "id": "b13c89eedcd9",
-      "title": "正行创新联合创始人杨宇欣正式亮相：出任总裁，负责全球业务拓展",
-      "summary": "推动公司具身模型、本体、软件等全栈能力进入更多真实场景",
-      "url": "https://www.qbitai.com/2026/09/499239.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-29T18:56:33+08:00"
-    },
-    {
       "id": "dd66acaed2a0",
       "title": "Introducing GPT-6.1 Sol",
       "summary": "Meet GPT-6.1 Sol: near-Astra intelligence for coding, computer use, and professional work at one-fifth of Astra’s standard API input and output token prices.",
@@ -69,90 +150,9 @@
       "published_at": "2026-09-29T18:00:00+08:00"
     },
     {
-      "id": "ace6c405f776",
-      "title": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
-      "summary": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
-      "url": "https://www.qbitai.com/2026/09/499188.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-29T15:59:46+08:00"
-    },
-    {
-      "id": "b170416a0fa7",
-      "title": "OpenAI因新模型太强叫停发布",
-      "summary": "AGI计划暂停。",
-      "url": "https://www.qbitai.com/2026/09/499140.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-29T15:49:20+08:00"
-    },
-    {
-      "id": "81e8c2fc7f62",
-      "title": "成立一年完成5轮融资，诺因智能再获数亿元，累计超10亿元",
-      "summary": "诺因从Demo走向家庭",
-      "url": "https://www.qbitai.com/2026/09/499135.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-09-29T15:10:59+08:00"
-    },
-    {
-      "id": "9f727f4c6d89",
-      "title": "Bringing AI to Autonomous Systems -- From Cognition to Collective Intelligence",
-      "summary": "arXiv:2609.30291v1 Announce Type: new Abstract: The purpose of this article is to highlight the central role of autonomous systems as the ultimate stage in the…",
-      "url": "https://arxiv.org/abs/2609.30291",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-29T12:00:00+08:00"
-    },
-    {
-      "id": "3b64b7e40e5e",
-      "title": "ScopeBench: Do Agents Preserve Engagement Boundaries Under Goal Pressure?",
-      "summary": "arXiv:2609.30325v1 Announce Type: new Abstract: Agents are increasingly deployed with real autonomy in web application and network penetration testing, where a…",
-      "url": "https://arxiv.org/abs/2609.30325",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-29T12:00:00+08:00"
-    },
-    {
-      "id": "3e75f2a25891",
-      "title": "When Is a Multi-Agent Code Judge Actually Grounded? Two Label-Free Measurements, and a Judge That Declines to Guess",
-      "summary": "arXiv:2609.30328v1 Announce Type: new Abstract: When one language model judges whether another's code is correct, it does not report the absence of evidence. I…",
-      "url": "https://arxiv.org/abs/2609.30328",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-29T12:00:00+08:00"
-    },
-    {
-      "id": "b8fa13cceb3f",
-      "title": "Bridging LLM Agents and Data Spaces: An Architectural Mediation Approach using the Model Context Protocol",
-      "summary": "arXiv:2609.30341v1 Announce Type: new Abstract: Data Spaces enable sovereign and governed data sharing across organizational boundaries, but their integration …",
-      "url": "https://arxiv.org/abs/2609.30341",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-29T12:00:00+08:00"
-    },
-    {
-      "id": "378c7e6a6559",
-      "title": "Stealth Apart, Harm Together: Skill Cascading Attacks on Skill-Based Agent Systems",
-      "summary": "arXiv:2609.30383v1 Announce Type: new Abstract: A skill is a modular package of natural-language instructions, executable scripts, and reference resources that…",
-      "url": "https://arxiv.org/abs/2609.30383",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-29T12:00:00+08:00"
-    },
-    {
-      "id": "c1b44c306dd8",
-      "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
-      "summary": "李飞飞将入职AMD首席科学家",
-      "url": "https://www.qbitai.com/2026/09/499098.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-29T08:49:30+08:00"
-    },
-    {
       "id": "884977ecb800",
       "title": "Introducing dots",
-      "summary": "Dots by OpenAI are a proactive assistant that can keep working across complex projects and everyday tasks. Learn how dots help you stay in control while work m…",
+      "summary": "Dots by OpenAI are proactive assistants that can keep working across complex projects and everyday tasks. Learn how dots help you stay in control while work mo…",
       "url": "https://openai.com/index/introducing-dots",
       "source": "OpenAI",
       "category": "新工具上线",
@@ -177,19 +177,19 @@
       "published_at": "2026-09-29T03:00:00+08:00"
     },
     {
-      "id": "cfe8e900401f",
-      "title": "How we will do better for Australia",
-      "summary": "OpenAI apologises for incidents involving Australian government websites and outlines stronger safeguards and support to strengthen Australia’s cyber defences.",
-      "url": "https://openai.com/index/how-we-will-do-better-for-australia",
+      "id": "cf468ec39dd6",
+      "title": "Towards safety cases for frontier AI training",
+      "summary": "Our early guidelines for safety cases in frontier AI training cover technical safeguards, operational practices, and investigating misalignment incidents",
+      "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-29T03:00:00+08:00"
     },
     {
-      "id": "cf468ec39dd6",
-      "title": "Towards safety cases for frontier AI training",
-      "summary": "Our early guidelines for safety cases in frontier AI training cover technical safeguards, operational practices, and investigating misalignment incidents",
-      "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
+      "id": "cfe8e900401f",
+      "title": "How we will do better for Australia",
+      "summary": "OpenAI apologises for incidents involving Australian government websites and outlines stronger safeguards and support to strengthen Australia’s cyber defences.",
+      "url": "https://openai.com/index/how-we-will-do-better-for-australia",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-29T03:00:00+08:00"
@@ -210,6 +210,16 @@
       "url": "https://www.qbitai.com/2026/09/497075.html",
       "source": "量子位",
       "category": "中文资讯",
+      "published_at": "2026-09-25T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "2552fd5419ea",
+      "title": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
+      "summary": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
+      "url": "https://www.qbitai.com/2026/09/497108.html",
+      "source": "量子位",
+      "category": "开源项目",
       "published_at": "2026-09-25T00:00:00+08:00",
       "window_hours": 720
     },
@@ -296,41 +306,12 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-09-23T23:00:32+08:00"
-    },
-    {
-      "id": "301ba2c6df75",
-      "title": "At AI Day Singapore, NVIDIA and Partners Showcase AI Advancements Across Southeast Asia",
-      "summary": "NVIDIA AI Day Singapore, which takes place Sept. 22-23 at the Raffles City Convention Centre, is offering attendees opportunities to explore the hands-on train…",
-      "url": "https://blogs.nvidia.com/blog/ai-day-singapore/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-23T10:30:22+08:00"
-    },
-    {
-      "id": "2ead189d2201",
-      "title": "GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了",
-      "summary": "GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了",
-      "url": "https://www.qbitai.com/2026/09/496170.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-23T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "2ead189d2201",
-        "title": "GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了",
-        "summary": "GPT-6 Astra搓3D刷屏后，3D生成的竞争规则变了",
-        "url": "https://www.qbitai.com/2026/09/496170.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-23T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "1a96160ea37d",
         "title": "PCIe显卡被低估了！内核补齐+通信重构，DeepSeek推理吞吐翻近7倍",
@@ -358,6 +339,16 @@
         "url": "https://www.qbitai.com/2026/09/497075.html",
         "source": "量子位",
         "category": "中文资讯",
+        "published_at": "2026-09-25T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "2552fd5419ea",
+        "title": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
+        "summary": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
+        "url": "https://www.qbitai.com/2026/09/497108.html",
+        "source": "量子位",
+        "category": "开源项目",
         "published_at": "2026-09-25T00:00:00+08:00",
         "window_hours": 720
       },
