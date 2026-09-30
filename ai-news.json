@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-09-30T18:01:59.506450+08:00",
-  "date": "2026-09-30",
+  "updated_at": "2026-10-01T05:05:58.503221+08:00",
+  "date": "2026-10-01",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "15e70ee5e4a7",
+      "title": "Gemini 4 Argon: our next era of frontier intelligence",
+      "summary": "Gemini 4 Argon: our next era of frontier intelligence",
+      "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-01T04:01:45+08:00"
+    },
+    {
+      "id": "f9faccd416c4",
+      "title": "NVIDIA Opens Applications for 2027–2028 Graduate Fellowships With Awards Up to $60,000",
+      "summary": "Bringing together the world’s brightest minds and the latest accelerated computing technology leads to powerful breakthroughs that help tackle some of the bigg…",
+      "url": "https://blogs.nvidia.com/blog/applications-open-graduate-fellowship-awards-2026/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-01T01:00:21+08:00"
+    },
+    {
+      "id": "b3162152f353",
+      "title": "Forecasting space weather risks on power grids",
+      "summary": "Extreme space-weather events can damage power systems on Earth and degrade GPS accuracy and satellite operations. A new machine learning system can predict whe…",
+      "url": "https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-01T00:00:00+08:00"
+    },
+    {
+      "id": "0a622a33b8e3",
+      "title": "Introducing SynthID Bio",
+      "summary": "Proof of concept for watermarking AI-generated proteins while preserving biological function.",
+      "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-09-30T23:03:07+08:00"
+    },
+    {
+      "id": "9c486db49df6",
+      "title": "From Training to Production, NVIDIA and CoreWeave Close the Loop on Agentic",
+      "summary": "Building on nearly a decade of co-engineering, CoreWeave has built NVIDIA compute, networking and software into a cloud purpose-built for AI that’s still retur…",
+      "url": "https://blogs.nvidia.com/blog/coreweave-agentic-ai-vera-rubin/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-09-30T23:00:00+08:00"
+    },
+    {
+      "id": "cf9e97faaf0c",
+      "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
+      "summary": "千禧年难题的突破，10000个Agent最多占了10%的功劳。",
+      "url": "https://www.qbitai.com/2026/09/499654.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-30T22:03:43+08:00"
+    },
+    {
+      "id": "7856ca1ca90a",
+      "title": "直播回顾：工业AI的下一个机会在哪？",
+      "summary": "什么样的AI才适合工业现场？企业真正开始做工业AI时，又该从哪里下手？",
+      "url": "https://www.qbitai.com/2026/09/499605.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-30T20:11:24+08:00"
+    },
+    {
+      "id": "6a91381a4292",
+      "title": "Disrupting a coordinated model-distillation campaign",
+      "summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.",
+      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-30T18:30:00+08:00"
+    },
+    {
+      "id": "62c246d753ed",
+      "title": "Anthropic，你是来给智谱打广告的吧！",
+      "summary": "实测说GLM-5.3很强",
+      "url": "https://www.qbitai.com/2026/09/499597.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-30T18:04:12+08:00"
+    },
+    {
+      "id": "b5e5e43443d2",
+      "title": "Helping small businesses put AI to work",
+      "summary": "OpenAI is partnering with America’s SBDC to expand hands-on AI training and local support for small businesses, alongside a new report on how small teams are u…",
+      "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-09-30T18:00:00+08:00"
+    },
     {
       "id": "d0ff96814d42",
       "title": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
@@ -31,24 +121,6 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-09-30T15:54:54+08:00"
-    },
-    {
-      "id": "6fbc44660a91",
-      "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
-      "summary": "DeepSeek在知乎独家发布技术长文，首次系统阐释了DeepSeek弹性计算（DeepSeek Elastic Compute，DSec）",
-      "url": "https://www.qbitai.com/2026/09/499308.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-30T13:18:05+08:00"
-    },
-    {
-      "id": "48a2eecfb3e5",
-      "title": "36家敲钟的机器人公司：赚钱能力差距巨大，商业化也不玩花架子了",
-      "summary": "机器人上市，风向有变",
-      "url": "https://www.qbitai.com/2026/09/499280.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-30T12:42:22+08:00"
     },
     {
       "id": "863c1a823301",
@@ -96,13 +168,13 @@
       "published_at": "2026-09-30T12:00:00+08:00"
     },
     {
-      "id": "d3df5418cadb",
-      "title": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
-      "summary": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
-      "url": "https://www.qbitai.com/2026/09/499263.html",
-      "source": "量子位",
+      "id": "581ab3112c30",
+      "title": "Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning",
+      "summary": "Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning",
+      "url": "https://huggingface.co/blog/open-tts-leaderboard",
+      "source": "Hugging Face",
       "category": "开源项目",
-      "published_at": "2026-09-30T10:53:17+08:00"
+      "published_at": "2026-09-30T08:00:00+08:00"
     },
     {
       "id": "493cf3fce1b8",
@@ -177,24 +249,6 @@
       "published_at": "2026-09-29T03:00:00+08:00"
     },
     {
-      "id": "cf468ec39dd6",
-      "title": "Towards safety cases for frontier AI training",
-      "summary": "Our early guidelines for safety cases in frontier AI training cover technical safeguards, operational practices, and investigating misalignment incidents",
-      "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-29T03:00:00+08:00"
-    },
-    {
-      "id": "cfe8e900401f",
-      "title": "How we will do better for Australia",
-      "summary": "OpenAI apologises for incidents involving Australian government websites and outlines stronger safeguards and support to strengthen Australia’s cyber defences.",
-      "url": "https://openai.com/index/how-we-will-do-better-for-australia",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-29T03:00:00+08:00"
-    },
-    {
       "id": "9552195c964d",
       "title": "Holo4: powering generalist computer-use agents",
       "summary": "Holo4: powering generalist computer-use agents",
@@ -202,6 +256,15 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-09-28T17:44:05+08:00"
+    },
+    {
+      "id": "e7107d9a76d9",
+      "title": "Introducing Gemini 3.8 Live with Live Avatar",
+      "summary": "Introducing Gemini 3.8 Live with Live Avatar",
+      "url": "https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-09-25T00:20:39+08:00"
     },
     {
       "id": "38b21b5ae987",
@@ -251,24 +314,6 @@
       "published_at": "2026-09-24T21:00:36+08:00"
     },
     {
-      "id": "8a86c97089bb",
-      "title": "Google Beam expands with new regions, partners, and customers",
-      "summary": "We’re expanding Google Beam to five new countries, and partnering with Industrious for an extended network.",
-      "url": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-24T02:00:00+08:00"
-    },
-    {
-      "id": "c5e21f336237",
-      "title": "Offloaded inference for real-world physical AI robotics",
-      "summary": "Robots are getting smarter, but how can their hardware match that growth? New Microsoft Research findings show that moving AI inference beyond the robot can im…",
-      "url": "https://www.microsoft.com/en-us/research/blog/offloaded-inference-for-real-world-physical-ai-robotics/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-24T00:01:36+08:00"
-    },
-    {
       "id": "1a96160ea37d",
       "title": "PCIe显卡被低估了！内核补齐+通信重构，DeepSeek推理吞吐翻近7倍",
       "summary": "PCIe显卡被低估了！内核补齐+通信重构，DeepSeek推理吞吐翻近7倍",
@@ -297,15 +342,6 @@
       "category": "新工具上线",
       "published_at": "2026-09-24T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "a1700d1f6b37",
-      "title": "Sakeena Fiza Helps NVIDIA Hardware Succeed at Scale",
-      "summary": "When Sakeena Fiza describes her work as a validation engineer at NVIDIA, she does so in terms more befitting a detective story than a world-class engineering l…",
-      "url": "https://blogs.nvidia.com/blog/nvidia-life-sakeena-fiza/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-23T23:00:32+08:00"
     }
   ],
   "qbitai_hot": {
