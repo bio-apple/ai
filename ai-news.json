@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-01T05:05:58.503221+08:00",
+  "updated_at": "2026-10-01T18:29:47.674737+08:00",
   "date": "2026-10-01",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,13 +15,49 @@
   },
   "items": [
     {
-      "id": "15e70ee5e4a7",
-      "title": "Gemini 4 Argon: our next era of frontier intelligence",
-      "summary": "Gemini 4 Argon: our next era of frontier intelligence",
-      "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-01T04:01:45+08:00"
+      "id": "8008f7ae2f61",
+      "title": "Improving OCR Faithfulness via Gated and Attenuated On-Policy Distillation",
+      "summary": "arXiv:2609.38282v1 Announce Type: new Abstract: Vision-language models may rewrite anomalous text in images into linguistically plausible expressions, compromi…",
+      "url": "https://arxiv.org/abs/2609.38282",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-01T12:00:00+08:00"
+    },
+    {
+      "id": "9ec943da0996",
+      "title": "AREX-2: Advancing Self-Improving Agents through Long-Horizon Reflective Tasks",
+      "summary": "arXiv:2609.38288v1 Announce Type: new Abstract: We present AREX-2, an effort to advance the self-improving capability of LLM agents, which we define as the abi…",
+      "url": "https://arxiv.org/abs/2609.38288",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-01T12:00:00+08:00"
+    },
+    {
+      "id": "29122f347cc1",
+      "title": "MoFlow: Multi-Objective Agentic Workflow Generation",
+      "summary": "arXiv:2609.38294v1 Announce Type: new Abstract: We study the generation of agentic workflows that jointly optimize multiple objectives, such as accuracy, cost,…",
+      "url": "https://arxiv.org/abs/2609.38294",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-01T12:00:00+08:00"
+    },
+    {
+      "id": "3b05dc119485",
+      "title": "AI Agents are Vulnerable to Radicalization",
+      "summary": "arXiv:2609.38296v1 Announce Type: new Abstract: Large language models (LLMs) can influence people's beliefs, yet little is known about whether and how they can…",
+      "url": "https://arxiv.org/abs/2609.38296",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-01T12:00:00+08:00"
+    },
+    {
+      "id": "b32028680035",
+      "title": "CARAT: Do Materials LLMs Reason or Recite?",
+      "summary": "arXiv:2609.38340v1 Announce Type: new Abstract: When a materials LLM answers a question about crystal structure, does it reason from the structure or copy an a…",
+      "url": "https://arxiv.org/abs/2609.38340",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-01T12:00:00+08:00"
     },
     {
       "id": "f9faccd416c4",
@@ -40,15 +76,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-01T00:00:00+08:00"
-    },
-    {
-      "id": "0a622a33b8e3",
-      "title": "Introducing SynthID Bio",
-      "summary": "Proof of concept for watermarking AI-generated proteins while preserving biological function.",
-      "url": "https://deepmind.google/blog/introducing-synthid-bio/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-30T23:03:07+08:00"
     },
     {
       "id": "9c486db49df6",
@@ -121,51 +148,6 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-09-30T15:54:54+08:00"
-    },
-    {
-      "id": "863c1a823301",
-      "title": "OpenAI-HuggingFace: A Reproduction & Lessons for Alignment Testing",
-      "summary": "arXiv:2609.35799v1 Announce Type: new Abstract: In July 2026, OpenAI's agents coordinated over channels outside their intended environment to breach Hugging Fa…",
-      "url": "https://arxiv.org/abs/2609.35799",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-30T12:00:00+08:00"
-    },
-    {
-      "id": "c11d277ad8de",
-      "title": "Neurosymbolic Routing for Reliable Reasoning on Resource-Constrained Edge Devices",
-      "summary": "arXiv:2609.35833v1 Announce Type: new Abstract: Running a language model on edge hardware provides private and low-latency reasoning without a network connecti…",
-      "url": "https://arxiv.org/abs/2609.35833",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-30T12:00:00+08:00"
-    },
-    {
-      "id": "89304ef3c2be",
-      "title": "Is Human-Readable Text Necessary for Effective LLM Fine-Tuning?",
-      "summary": "arXiv:2609.35868v1 Announce Type: new Abstract: Is human readability necessary for effective fine-tuning of large language models? We investigate whether model…",
-      "url": "https://arxiv.org/abs/2609.35868",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-30T12:00:00+08:00"
-    },
-    {
-      "id": "169b41052ff8",
-      "title": "The Price of Token Boundaries: Compression Certificates and Prediction",
-      "summary": "arXiv:2609.35869v1 Announce Type: new Abstract: Pre-tokenisation restricts which text fragments can become prediction units, but its compression cost is obscur…",
-      "url": "https://arxiv.org/abs/2609.35869",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-30T12:00:00+08:00"
-    },
-    {
-      "id": "36b494a2eee7",
-      "title": "More Programs or More Rolls? Separating Coverage from Specialization in LLM Harnesses",
-      "summary": "arXiv:2609.35873v1 Announce Type: new Abstract: Automated generation of LLM harnesses promises to improve inference through task specialization. Yet additional…",
-      "url": "https://arxiv.org/abs/2609.35873",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-09-30T12:00:00+08:00"
     },
     {
       "id": "581ab3112c30",
@@ -258,15 +240,6 @@
       "published_at": "2026-09-28T17:44:05+08:00"
     },
     {
-      "id": "e7107d9a76d9",
-      "title": "Introducing Gemini 3.8 Live with Live Avatar",
-      "summary": "Introducing Gemini 3.8 Live with Live Avatar",
-      "url": "https://deepmind.google/blog/introducing-gemini-38-live-with-live-avatar/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-25T00:20:39+08:00"
-    },
-    {
       "id": "38b21b5ae987",
       "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
       "summary": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
@@ -283,6 +256,16 @@
       "url": "https://www.qbitai.com/2026/09/497108.html",
       "source": "量子位",
       "category": "开源项目",
+      "published_at": "2026-09-25T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "caa862ea1e9f",
+      "title": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
+      "summary": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
+      "url": "https://www.qbitai.com/2026/09/497177.html",
+      "source": "量子位",
+      "category": "新模型发布",
       "published_at": "2026-09-25T00:00:00+08:00",
       "window_hours": 720
     },
@@ -332,16 +315,6 @@
       "category": "中文资讯",
       "published_at": "2026-09-24T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "5e7acf453c8b",
-      "title": "GPT-6之后，具身智能走向何方？诺因发布GLOW技术报告，给出机器人“一教就会”的答案",
-      "summary": "GPT-6之后，具身智能走向何方？诺因发布GLOW技术报告，给出机器人“一教就会”的答案",
-      "url": "https://www.qbitai.com/2026/09/496816.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-24T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -359,16 +332,6 @@
         "window_hours": 720
       },
       {
-        "id": "de459e41c404",
-        "title": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
-        "summary": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
-        "url": "https://www.qbitai.com/2026/09/496961.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-24T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "38b21b5ae987",
         "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
         "summary": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
@@ -376,6 +339,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-25T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "de459e41c404",
+        "title": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
+        "summary": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
+        "url": "https://www.qbitai.com/2026/09/496961.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-24T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -389,13 +362,13 @@
         "window_hours": 720
       },
       {
-        "id": "5e7acf453c8b",
-        "title": "GPT-6之后，具身智能走向何方？诺因发布GLOW技术报告，给出机器人“一教就会”的答案",
-        "summary": "GPT-6之后，具身智能走向何方？诺因发布GLOW技术报告，给出机器人“一教就会”的答案",
-        "url": "https://www.qbitai.com/2026/09/496816.html",
+        "id": "caa862ea1e9f",
+        "title": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
+        "summary": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
+        "url": "https://www.qbitai.com/2026/09/497177.html",
         "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-24T00:00:00+08:00",
+        "category": "新模型发布",
+        "published_at": "2026-09-25T00:00:00+08:00",
         "window_hours": 720
       }
     ]
