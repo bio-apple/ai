@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-01T18:29:47.674737+08:00",
-  "date": "2026-10-01",
+  "updated_at": "2026-10-02T05:30:29.840204+08:00",
+  "date": "2026-10-02",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "7e67b43cf9d0",
+      "title": "The eternal complement",
+      "summary": "Advanced AI may matter most for the routine work behind breakthrough ideas. Explore why execution could shape the next economy and the pace of progress.",
+      "url": "https://openai.com/index/the-eternal-complement",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-02T01:00:00+08:00"
+    },
+    {
+      "id": "a80484c2d584",
+      "title": "How Albertsons Companies is reimagining retail from the inside out",
+      "summary": "Albertsons Cos. is using ChatGPT Enterprise and the OpenAI API to help teams work faster and make grocery shopping easier for millions of customers.",
+      "url": "https://openai.com/index/albertsons-reimagining-retail",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-02T00:00:00+08:00"
+    },
+    {
+      "id": "25240ff1dd96",
+      "title": "何恺明团队新作：看猫片就能学会ARC挑战",
+      "summary": "用ImageNet训练encoder",
+      "url": "https://www.qbitai.com/2026/10/499812.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-01T23:06:30+08:00"
+    },
+    {
+      "id": "42f99d3e4d0a",
+      "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
+      "summary": "价格只有Astra一半",
+      "url": "https://www.qbitai.com/2026/10/499663.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-01T23:02:14+08:00"
+    },
+    {
+      "id": "0bf00b70dbd7",
+      "title": "Introducing Olmo-core 3: Open, scalable training infrastructure for large MoEs",
+      "summary": "Introducing Olmo-core 3: Open, scalable training infrastructure for large MoEs",
+      "url": "https://huggingface.co/blog/allenai/olmocore3",
+      "source": "Hugging Face",
+      "category": "新工具上线",
+      "published_at": "2026-10-01T23:01:43+08:00"
+    },
+    {
+      "id": "77852fb24237",
+      "title": "Fall Into 25 New Games on GeForce NOW This October",
+      "summary": "Spooky season is streaming in. Alongside falling leaves, pumpkin spice and everything nice, 25 new games are joining GeForce NOW throughout October, including …",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-october-2026-games-list/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-01T21:00:54+08:00"
+    },
+    {
+      "id": "2d4cb7a285af",
+      "title": "Productive, Durable, Fungible: How NVIDIA AI Factories Maximize Return on Investment",
+      "summary": "AI factories are built by the megawatt, even by the gigawatt. Each megawatt factory costs roughly $60 million, and AI factory operators will only commit capita…",
+      "url": "https://blogs.nvidia.com/blog/productive-durable-fungible-ai-factories/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-01T21:00:49+08:00"
+    },
     {
       "id": "8008f7ae2f61",
       "title": "Improving OCR Faithfulness via Gated and Attenuated On-Policy Distillation",
@@ -60,6 +123,24 @@
       "published_at": "2026-10-01T12:00:00+08:00"
     },
     {
+      "id": "3bba52758573",
+      "title": "The Den frees up 10-15 hours a week to grow with ChatGPT Work",
+      "summary": "As it opens a new location, the social club prepares grant applications in 2 hours instead of 3 days and liquor-license materials in 3 hours instead of 4 days.",
+      "url": "https://openai.com/index/the-den-family-social",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-01T08:00:00+08:00"
+    },
+    {
+      "id": "15e70ee5e4a7",
+      "title": "Gemini 4 Argon: our next era of frontier intelligence",
+      "summary": "Gemini 4 Argon: our next era of frontier intelligence",
+      "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-01T04:01:45+08:00"
+    },
+    {
       "id": "f9faccd416c4",
       "title": "NVIDIA Opens Applications for 2027–2028 Graduate Fellowships With Awards Up to $60,000",
       "summary": "Bringing together the world’s brightest minds and the latest accelerated computing technology leads to powerful breakthroughs that help tackle some of the bigg…",
@@ -76,6 +157,15 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-01T00:00:00+08:00"
+    },
+    {
+      "id": "0a622a33b8e3",
+      "title": "Introducing SynthID Bio",
+      "summary": "Proof of concept for watermarking AI-generated proteins while preserving biological function.",
+      "url": "https://deepmind.google/blog/introducing-synthid-bio/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-09-30T23:03:07+08:00"
     },
     {
       "id": "9c486db49df6",
@@ -132,24 +222,6 @@
       "published_at": "2026-09-30T18:00:00+08:00"
     },
     {
-      "id": "d0ff96814d42",
-      "title": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
-      "summary": "给Agent配上手机号，再拉个群",
-      "url": "https://www.qbitai.com/2026/09/499592.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-30T15:58:37+08:00"
-    },
-    {
-      "id": "ae05e900dd78",
-      "title": "刚刚，GPT-6 Astra接上宇树G1，把厨房收拾了！",
-      "summary": "让GPT把机器人技能当工具调用",
-      "url": "https://www.qbitai.com/2026/09/499493.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-30T15:54:54+08:00"
-    },
-    {
       "id": "581ab3112c30",
       "title": "Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning",
       "summary": "Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning",
@@ -186,33 +258,6 @@
       "published_at": "2026-09-29T21:07:00+08:00"
     },
     {
-      "id": "dd66acaed2a0",
-      "title": "Introducing GPT-6.1 Sol",
-      "summary": "Meet GPT-6.1 Sol: near-Astra intelligence for coding, computer use, and professional work at one-fifth of Astra’s standard API input and output token prices.",
-      "url": "https://openai.com/index/introducing-gpt-6-1-sol",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-29T18:00:00+08:00"
-    },
-    {
-      "id": "19db7cc5ca5c",
-      "title": "DevDay 2026 Recap",
-      "summary": "Explore more than 20 announcements from OpenAI DevDay 2026, including GPT-6 Astra, ChatGPT, Codex, APIs, security, and new tools for builders.",
-      "url": "https://openai.com/index/devday-2026-recap",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-29T18:00:00+08:00"
-    },
-    {
-      "id": "884977ecb800",
-      "title": "Introducing dots",
-      "summary": "Dots by OpenAI are proactive assistants that can keep working across complex projects and everyday tasks. Learn how dots help you stay in control while work mo…",
-      "url": "https://openai.com/index/introducing-dots",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-09-29T08:00:00+08:00"
-    },
-    {
       "id": "3c2fdddd3946",
       "title": "One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact",
       "summary": "Since launching a year ago, the Microsoft Research Asia — Singapore lab has established a strong foundation, deepened collaboration across government, academia…",
@@ -238,6 +283,26 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-09-28T17:44:05+08:00"
+    },
+    {
+      "id": "d9f992667662",
+      "title": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
+      "summary": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
+      "url": "https://www.qbitai.com/2026/09/497624.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-26T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "1c35edeb0a77",
+      "title": "在云栖大会，我终于看懂了米哈游千亿AI野心",
+      "summary": "在云栖大会，我终于看懂了米哈游千亿AI野心",
+      "url": "https://www.qbitai.com/2026/09/497613.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-26T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "38b21b5ae987",
@@ -268,69 +333,12 @@
       "category": "新模型发布",
       "published_at": "2026-09-25T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "c2a53f233272",
-      "title": "Accelerating vision-language models with LFM2.5-VL-DSpark",
-      "summary": "Accelerating vision-language models with LFM2.5-VL-DSpark",
-      "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-09-24T22:08:57+08:00"
-    },
-    {
-      "id": "85d9d81e1965",
-      "title": "How Open Science Can Help Researchers Prepare for the Next Pandemic",
-      "summary": "When COVID-19 emerged, scientists had a crucial advantage: Decades of prior research on coronaviruses meant they understood the virus’ key proteins well enough…",
-      "url": "https://blogs.nvidia.com/blog/open-protein-dataset/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-24T22:00:50+08:00"
-    },
-    {
-      "id": "7a97ef45ef5f",
-      "title": "Contain the Chaos: ‘CONTROL Resonant’ Launches on GeForce NOW",
-      "summary": "A warped Manhattan is waiting in the cloud this week. Remedy Entertainment’s CONTROL Resonant brings Dylan Faden’s extraordinary abilities and a paranatural cr…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-control-resonant/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-24T21:00:36+08:00"
-    },
-    {
-      "id": "1a96160ea37d",
-      "title": "PCIe显卡被低估了！内核补齐+通信重构，DeepSeek推理吞吐翻近7倍",
-      "summary": "PCIe显卡被低估了！内核补齐+通信重构，DeepSeek推理吞吐翻近7倍",
-      "url": "https://www.qbitai.com/2026/09/496925.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-24T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "de459e41c404",
-      "title": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
-      "summary": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
-      "url": "https://www.qbitai.com/2026/09/496961.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-24T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "1a96160ea37d",
-        "title": "PCIe显卡被低估了！内核补齐+通信重构，DeepSeek推理吞吐翻近7倍",
-        "summary": "PCIe显卡被低估了！内核补齐+通信重构，DeepSeek推理吞吐翻近7倍",
-        "url": "https://www.qbitai.com/2026/09/496925.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-24T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "38b21b5ae987",
         "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
@@ -339,16 +347,6 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-25T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "de459e41c404",
-        "title": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
-        "summary": "出海Agent“小元AI”入驻腾讯WorkBuddy：找买家写开发信谈生意",
-        "url": "https://www.qbitai.com/2026/09/496961.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-24T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -369,6 +367,26 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-09-25T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "d9f992667662",
+        "title": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
+        "summary": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
+        "url": "https://www.qbitai.com/2026/09/497624.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-09-26T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "1c35edeb0a77",
+        "title": "在云栖大会，我终于看懂了米哈游千亿AI野心",
+        "summary": "在云栖大会，我终于看懂了米哈游千亿AI野心",
+        "url": "https://www.qbitai.com/2026/09/497613.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-26T00:00:00+08:00",
         "window_hours": 720
       }
     ]
