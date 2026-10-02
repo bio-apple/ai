@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-02T18:05:12.715702+08:00",
-  "date": "2026-10-02",
+  "updated_at": "2026-10-03T05:05:45.505683+08:00",
+  "date": "2026-10-03",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,42 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "8e206c4d9ed6",
+      "title": "A model guide for the GPT-6 family",
+      "summary": "Learn how startups can choose GPT-6 models, tune reasoning effort, improve prompts and skills, coordinate tools, and prepare workflows for production.",
+      "url": "https://openai.com/index/practical-guide-building-gpt-6",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-03T00:15:00+08:00"
+    },
+    {
+      "id": "d599f0a282be",
+      "title": "Open-sourcing AstaBrief, the fast report-generation model in Asta",
+      "summary": "Open-sourcing AstaBrief, the fast report-generation model in Asta",
+      "url": "https://huggingface.co/blog/allenai/astabrief",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-02T23:19:50+08:00"
+    },
+    {
+      "id": "1122627a66df",
+      "title": "The latest AI news we announced in September 2026",
+      "summary": "Here are Google’s latest AI updates from September 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-02T23:00:00+08:00"
+    },
+    {
+      "id": "1f284fec3a90",
+      "title": "NVIDIA DGX Spark 64GB Gives Developers More Ways to Build and Scale Local",
+      "summary": "Local AI is becoming more useful by the token. As AI agents move from experiments into everyday development, increasingly capable open models are shrinking to …",
+      "url": "https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-02T21:00:39+08:00"
+    },
     {
       "id": "a04332b7488f",
       "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
@@ -96,6 +132,15 @@
       "published_at": "2026-10-02T12:00:00+08:00"
     },
     {
+      "id": "a97398f76ee5",
+      "title": "Chatham scales its capital markets expertise with",
+      "summary": "Chatham Financial uses Codex and GPT-5.6 to build technology and redesign workflows, cutting trade validation from 30 minutes to under 4.",
+      "url": "https://openai.com/index/chatham-financial",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-02T08:00:00+08:00"
+    },
+    {
       "id": "c68e4b407e02",
       "title": "How NVIDIA GPUs Help Accelerate OpenAI’s GPT-6 Astra Ultrafast",
       "summary": "GPT-6 Astra Ultrafast, running on NVIDIA Blackwell GPUs, is available now in the OpenAI API and to eligible ChatGPT Work and Codex users. Accelerated by infere…",
@@ -139,15 +184,6 @@
       "source": "量子位",
       "category": "新工具上线",
       "published_at": "2026-10-01T23:02:14+08:00"
-    },
-    {
-      "id": "0bf00b70dbd7",
-      "title": "Introducing Olmo-core 3: Open, scalable training infrastructure for large MoEs",
-      "summary": "Introducing Olmo-core 3: Open, scalable training infrastructure for large MoEs",
-      "url": "https://huggingface.co/blog/allenai/olmocore3",
-      "source": "Hugging Face",
-      "category": "新工具上线",
-      "published_at": "2026-10-01T23:01:43+08:00"
     },
     {
       "id": "77852fb24237",
@@ -213,33 +249,6 @@
       "published_at": "2026-09-30T23:03:07+08:00"
     },
     {
-      "id": "9c486db49df6",
-      "title": "From Training to Production, NVIDIA and CoreWeave Close the Loop on Agentic",
-      "summary": "Building on nearly a decade of co-engineering, CoreWeave has built NVIDIA compute, networking and software into a cloud purpose-built for AI that’s still retur…",
-      "url": "https://blogs.nvidia.com/blog/coreweave-agentic-ai-vera-rubin/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-30T23:00:00+08:00"
-    },
-    {
-      "id": "6a91381a4292",
-      "title": "Disrupting a coordinated model-distillation campaign",
-      "summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.",
-      "url": "https://openai.com/index/disrupting-a-coordinated-model-distillation-campaign",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-30T18:30:00+08:00"
-    },
-    {
-      "id": "b5e5e43443d2",
-      "title": "Helping small businesses put AI to work",
-      "summary": "OpenAI is partnering with America’s SBDC to expand hands-on AI training and local support for small businesses, alongside a new report on how small teams are u…",
-      "url": "https://openai.com/index/helping-small-businesses-put-ai-to-work",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-09-30T18:00:00+08:00"
-    },
-    {
       "id": "581ab3112c30",
       "title": "Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning",
       "summary": "Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning",
@@ -294,22 +303,22 @@
       "published_at": "2026-09-29T03:00:00+08:00"
     },
     {
-      "id": "d9f992667662",
-      "title": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
-      "summary": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
-      "url": "https://www.qbitai.com/2026/09/497624.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-26T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "1c35edeb0a77",
       "title": "在云栖大会，我终于看懂了米哈游千亿AI野心",
       "summary": "在云栖大会，我终于看懂了米哈游千亿AI野心",
       "url": "https://www.qbitai.com/2026/09/497613.html",
       "source": "量子位",
       "category": "中文资讯",
+      "published_at": "2026-09-26T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "d9f992667662",
+      "title": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
+      "summary": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
+      "url": "https://www.qbitai.com/2026/09/497624.html",
+      "source": "量子位",
+      "category": "开源项目",
       "published_at": "2026-09-26T00:00:00+08:00",
       "window_hours": 720
     },
@@ -324,23 +333,23 @@
       "window_hours": 720
     },
     {
-      "id": "2552fd5419ea",
-      "title": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
-      "summary": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
-      "url": "https://www.qbitai.com/2026/09/497108.html",
+      "id": "6a725f1d75b2",
+      "title": "OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光",
+      "summary": "OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光",
+      "url": "https://www.qbitai.com/2026/09/497382.html",
       "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-25T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-09-26T00:00:00+08:00",
       "window_hours": 720
     },
     {
-      "id": "caa862ea1e9f",
-      "title": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
-      "summary": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
-      "url": "https://www.qbitai.com/2026/09/497177.html",
+      "id": "b4f66fc58a71",
+      "title": "AI开始研究Physical AI：FSD级团队亮出首版模型Simate-beta，空降RoboDojo",
+      "summary": "AI开始研究Physical AI：FSD级团队亮出首版模型Simate-beta，空降RoboDojo",
+      "url": "https://www.qbitai.com/2026/09/498271.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-25T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-09-26T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -349,23 +358,13 @@
     "window_days": 30,
     "items": [
       {
-        "id": "2552fd5419ea",
-        "title": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
-        "summary": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
-        "url": "https://www.qbitai.com/2026/09/497108.html",
+        "id": "1c35edeb0a77",
+        "title": "在云栖大会，我终于看懂了米哈游千亿AI野心",
+        "summary": "在云栖大会，我终于看懂了米哈游千亿AI野心",
+        "url": "https://www.qbitai.com/2026/09/497613.html",
         "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-09-25T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "caa862ea1e9f",
-        "title": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
-        "summary": "OpenAI闯大祸！GPT竟黑进医保系统，黄仁勋：管不住就关掉",
-        "url": "https://www.qbitai.com/2026/09/497177.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-25T00:00:00+08:00",
+        "category": "中文资讯",
+        "published_at": "2026-09-26T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -379,22 +378,32 @@
         "window_hours": 720
       },
       {
-        "id": "1c35edeb0a77",
-        "title": "在云栖大会，我终于看懂了米哈游千亿AI野心",
-        "summary": "在云栖大会，我终于看懂了米哈游千亿AI野心",
-        "url": "https://www.qbitai.com/2026/09/497613.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-26T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "fe1b7625279c",
         "title": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
         "summary": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
         "url": "https://www.qbitai.com/2026/09/498478.html",
         "source": "量子位",
         "category": "新工具上线",
+        "published_at": "2026-09-26T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "6a725f1d75b2",
+        "title": "OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光",
+        "summary": "OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光",
+        "url": "https://www.qbitai.com/2026/09/497382.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-26T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "b4f66fc58a71",
+        "title": "AI开始研究Physical AI：FSD级团队亮出首版模型Simate-beta，空降RoboDojo",
+        "summary": "AI开始研究Physical AI：FSD级团队亮出首版模型Simate-beta，空降RoboDojo",
+        "url": "https://www.qbitai.com/2026/09/498271.html",
+        "source": "量子位",
+        "category": "中文资讯",
         "published_at": "2026-09-26T00:00:00+08:00",
         "window_hours": 720
       }
