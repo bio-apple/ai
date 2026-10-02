@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-02T05:30:29.840204+08:00",
+  "updated_at": "2026-10-02T18:05:12.715702+08:00",
   "date": "2026-10-02",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "a04332b7488f",
+      "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
+      "summary": "让每一次请求选对模型，让每一次反馈都成为下一次更优、更省的选择",
+      "url": "https://www.qbitai.com/2026/10/500098.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-02T15:34:15+08:00"
+    },
+    {
+      "id": "456a591e773f",
+      "title": "丘成桐新论文致谢了GPT和Claude",
+      "summary": "44年前被亲自列入问题清单",
+      "url": "https://www.qbitai.com/2026/10/499991.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-02T15:27:03+08:00"
+    },
+    {
+      "id": "dbef6f28ec9b",
+      "title": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
+      "summary": "换区也没用",
+      "url": "https://www.qbitai.com/2026/10/499958.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-02T14:46:32+08:00"
+    },
+    {
+      "id": "a885ed61f54a",
+      "title": "AutoSynthData: Generating Training Data for Enterprise Agents",
+      "summary": "AutoSynthData: Generating Training Data for Enterprise Agents",
+      "url": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-02T12:01:31+08:00"
+    },
+    {
+      "id": "1d9ebfbb76c9",
+      "title": "Heavy-Tailed Memory Traces in Long-Horizon Language Agents",
+      "summary": "arXiv:2610.00010v1 Announce Type: new Abstract: Long-horizon language agents increasingly rely on external memory as a frozen world model, yet current memory s…",
+      "url": "https://arxiv.org/abs/2610.00010",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-02T12:00:00+08:00"
+    },
+    {
+      "id": "3e14a998894f",
+      "title": "When Do Causal World Models Help Modular LLM Agents",
+      "summary": "arXiv:2610.00012v1 Announce Type: new Abstract: LLM agents increasingly act through modular systems, such as order, payment, inventory, and shipment services, …",
+      "url": "https://arxiv.org/abs/2610.00012",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-02T12:00:00+08:00"
+    },
+    {
+      "id": "b044d2469ff2",
+      "title": "From Proposal to Verified Effect: Praxa, an Evidence-Bound Harness for Governed AI Agent Execution",
+      "summary": "arXiv:2610.00015v1 Announce Type: new Abstract: Large-language-model agents can propose and execute actions, but proposal, authority, dispatch, verified extern…",
+      "url": "https://arxiv.org/abs/2610.00015",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-02T12:00:00+08:00"
+    },
+    {
+      "id": "d51c048af50d",
+      "title": "What Do Rationales Communicate? A Message-Intervention Study in Role-Specialized QA",
+      "summary": "arXiv:2610.00018v1 Announce Type: new Abstract: Role-specialized QA pipelines increasingly pass rationales from a reasoner to a verifier, but it is unclear wha…",
+      "url": "https://arxiv.org/abs/2610.00018",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-02T12:00:00+08:00"
+    },
+    {
+      "id": "a21d05cf6500",
+      "title": "Measuring the Microtask Eligibility Gap: When Is an Off-the-Shelf SLM Enough for an Agent Harness?",
+      "summary": "arXiv:2610.00025v1 Announce Type: new Abstract: Agent harnesses increasingly want to run small language models (SLMs) on the microtasks around a frontier large…",
+      "url": "https://arxiv.org/abs/2610.00025",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-02T12:00:00+08:00"
+    },
+    {
+      "id": "c68e4b407e02",
+      "title": "How NVIDIA GPUs Help Accelerate OpenAI’s GPT-6 Astra Ultrafast",
+      "summary": "GPT-6 Astra Ultrafast, running on NVIDIA Blackwell GPUs, is available now in the OpenAI API and to eligible ChatGPT Work and Codex users. Accelerated by infere…",
+      "url": "https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-02T07:44:13+08:00"
+    },
     {
       "id": "7e67b43cf9d0",
       "title": "The eternal complement",
@@ -78,51 +168,6 @@
       "published_at": "2026-10-01T21:00:49+08:00"
     },
     {
-      "id": "8008f7ae2f61",
-      "title": "Improving OCR Faithfulness via Gated and Attenuated On-Policy Distillation",
-      "summary": "arXiv:2609.38282v1 Announce Type: new Abstract: Vision-language models may rewrite anomalous text in images into linguistically plausible expressions, compromi…",
-      "url": "https://arxiv.org/abs/2609.38282",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-01T12:00:00+08:00"
-    },
-    {
-      "id": "9ec943da0996",
-      "title": "AREX-2: Advancing Self-Improving Agents through Long-Horizon Reflective Tasks",
-      "summary": "arXiv:2609.38288v1 Announce Type: new Abstract: We present AREX-2, an effort to advance the self-improving capability of LLM agents, which we define as the abi…",
-      "url": "https://arxiv.org/abs/2609.38288",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-01T12:00:00+08:00"
-    },
-    {
-      "id": "29122f347cc1",
-      "title": "MoFlow: Multi-Objective Agentic Workflow Generation",
-      "summary": "arXiv:2609.38294v1 Announce Type: new Abstract: We study the generation of agentic workflows that jointly optimize multiple objectives, such as accuracy, cost,…",
-      "url": "https://arxiv.org/abs/2609.38294",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-01T12:00:00+08:00"
-    },
-    {
-      "id": "3b05dc119485",
-      "title": "AI Agents are Vulnerable to Radicalization",
-      "summary": "arXiv:2609.38296v1 Announce Type: new Abstract: Large language models (LLMs) can influence people's beliefs, yet little is known about whether and how they can…",
-      "url": "https://arxiv.org/abs/2609.38296",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-01T12:00:00+08:00"
-    },
-    {
-      "id": "b32028680035",
-      "title": "CARAT: Do Materials LLMs Reason or Recite?",
-      "summary": "arXiv:2609.38340v1 Announce Type: new Abstract: When a materials LLM answers a question about crystal structure, does it reason from the structure or copy an a…",
-      "url": "https://arxiv.org/abs/2609.38340",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-01T12:00:00+08:00"
-    },
-    {
       "id": "3bba52758573",
       "title": "The Den frees up 10-15 hours a week to grow with ChatGPT Work",
       "summary": "As it opens a new location, the social club prepares grant applications in 2 hours instead of 3 days and liquor-license materials in 3 hours instead of 4 days.",
@@ -177,24 +222,6 @@
       "published_at": "2026-09-30T23:00:00+08:00"
     },
     {
-      "id": "cf9e97faaf0c",
-      "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
-      "summary": "千禧年难题的突破，10000个Agent最多占了10%的功劳。",
-      "url": "https://www.qbitai.com/2026/09/499654.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-30T22:03:43+08:00"
-    },
-    {
-      "id": "7856ca1ca90a",
-      "title": "直播回顾：工业AI的下一个机会在哪？",
-      "summary": "什么样的AI才适合工业现场？企业真正开始做工业AI时，又该从哪里下手？",
-      "url": "https://www.qbitai.com/2026/09/499605.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-30T20:11:24+08:00"
-    },
-    {
       "id": "6a91381a4292",
       "title": "Disrupting a coordinated model-distillation campaign",
       "summary": "Learn how OpenAI disrupted a campaign to extract protected model reasoning and is strengthening defenses against adversarial distillation.",
@@ -202,15 +229,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-09-30T18:30:00+08:00"
-    },
-    {
-      "id": "62c246d753ed",
-      "title": "Anthropic，你是来给智谱打广告的吧！",
-      "summary": "实测说GLM-5.3很强",
-      "url": "https://www.qbitai.com/2026/09/499597.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-30T18:04:12+08:00"
     },
     {
       "id": "b5e5e43443d2",
@@ -276,15 +294,6 @@
       "published_at": "2026-09-29T03:00:00+08:00"
     },
     {
-      "id": "9552195c964d",
-      "title": "Holo4: powering generalist computer-use agents",
-      "summary": "Holo4: powering generalist computer-use agents",
-      "url": "https://huggingface.co/blog/Hcompany/holo4",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-28T17:44:05+08:00"
-    },
-    {
       "id": "d9f992667662",
       "title": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
       "summary": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
@@ -305,13 +314,13 @@
       "window_hours": 720
     },
     {
-      "id": "38b21b5ae987",
-      "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
-      "summary": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
-      "url": "https://www.qbitai.com/2026/09/497075.html",
+      "id": "fe1b7625279c",
+      "title": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
+      "summary": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
+      "url": "https://www.qbitai.com/2026/09/498478.html",
       "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-25T00:00:00+08:00",
+      "category": "新工具上线",
+      "published_at": "2026-09-26T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -339,16 +348,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "38b21b5ae987",
-        "title": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
-        "summary": "别人忙着卷Code，Kimi抽身反打浏览器插件：网页操作一秒变Skill",
-        "url": "https://www.qbitai.com/2026/09/497075.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-25T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "2552fd5419ea",
         "title": "亮出“中国最强AI芯片”还不够，平头哥又甩出一手开源",
@@ -386,6 +385,16 @@
         "url": "https://www.qbitai.com/2026/09/497613.html",
         "source": "量子位",
         "category": "中文资讯",
+        "published_at": "2026-09-26T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "fe1b7625279c",
+        "title": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
+        "summary": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
+        "url": "https://www.qbitai.com/2026/09/498478.html",
+        "source": "量子位",
+        "category": "新工具上线",
         "published_at": "2026-09-26T00:00:00+08:00",
         "window_hours": 720
       }
