@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-03T17:27:49.452259+08:00",
-  "date": "2026-10-03",
+  "updated_at": "2026-10-04T03:36:16.774572+08:00",
+  "date": "2026-10-04",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -258,6 +258,16 @@
       "published_at": "2026-09-29T03:00:00+08:00"
     },
     {
+      "id": "0e6785544a5e",
+      "title": "HC归来，华为正重新定义AIDC基础设施",
+      "summary": "HC归来，华为正重新定义AIDC基础设施",
+      "url": "https://www.qbitai.com/2026/09/498787.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-28T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "2d2db1b6fdea",
       "title": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
       "summary": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
@@ -296,32 +306,12 @@
       "category": "新模型发布",
       "published_at": "2026-09-27T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "fe1b7625279c",
-      "title": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
-      "summary": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
-      "url": "https://www.qbitai.com/2026/09/498478.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-09-26T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "fe1b7625279c",
-        "title": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
-        "summary": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
-        "url": "https://www.qbitai.com/2026/09/498478.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-09-26T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "2d2db1b6fdea",
         "title": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
@@ -360,6 +350,16 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-09-27T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "0e6785544a5e",
+        "title": "HC归来，华为正重新定义AIDC基础设施",
+        "summary": "HC归来，华为正重新定义AIDC基础设施",
+        "url": "https://www.qbitai.com/2026/09/498787.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-28T00:00:00+08:00",
         "window_hours": 720
       }
     ]
