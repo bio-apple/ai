@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-03T05:05:45.505683+08:00",
+  "updated_at": "2026-10-03T17:27:49.452259+08:00",
   "date": "2026-10-03",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "4451b333657f",
+      "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
+      "summary": "岗位JD甩了篇技术报告",
+      "url": "https://www.qbitai.com/2026/10/501381.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-03T15:54:43+08:00"
+    },
+    {
+      "id": "2e1cc7abff8b",
+      "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
+      "summary": "又咋啦。。。",
+      "url": "https://www.qbitai.com/2026/10/501368.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-03T12:41:24+08:00"
+    },
+    {
+      "id": "23d0d9ad437e",
+      "title": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
+      "summary": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
+      "url": "https://www.qbitai.com/2026/10/500148.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-03T10:38:19+08:00"
+    },
     {
       "id": "8e206c4d9ed6",
       "title": "A model guide for the GPT-6 family",
@@ -69,15 +96,6 @@
       "published_at": "2026-10-02T15:27:03+08:00"
     },
     {
-      "id": "dbef6f28ec9b",
-      "title": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
-      "summary": "换区也没用",
-      "url": "https://www.qbitai.com/2026/10/499958.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-02T14:46:32+08:00"
-    },
-    {
       "id": "a885ed61f54a",
       "title": "AutoSynthData: Generating Training Data for Enterprise Agents",
       "summary": "AutoSynthData: Generating Training Data for Enterprise Agents",
@@ -85,51 +103,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-10-02T12:01:31+08:00"
-    },
-    {
-      "id": "1d9ebfbb76c9",
-      "title": "Heavy-Tailed Memory Traces in Long-Horizon Language Agents",
-      "summary": "arXiv:2610.00010v1 Announce Type: new Abstract: Long-horizon language agents increasingly rely on external memory as a frozen world model, yet current memory s…",
-      "url": "https://arxiv.org/abs/2610.00010",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-02T12:00:00+08:00"
-    },
-    {
-      "id": "3e14a998894f",
-      "title": "When Do Causal World Models Help Modular LLM Agents",
-      "summary": "arXiv:2610.00012v1 Announce Type: new Abstract: LLM agents increasingly act through modular systems, such as order, payment, inventory, and shipment services, …",
-      "url": "https://arxiv.org/abs/2610.00012",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-02T12:00:00+08:00"
-    },
-    {
-      "id": "b044d2469ff2",
-      "title": "From Proposal to Verified Effect: Praxa, an Evidence-Bound Harness for Governed AI Agent Execution",
-      "summary": "arXiv:2610.00015v1 Announce Type: new Abstract: Large-language-model agents can propose and execute actions, but proposal, authority, dispatch, verified extern…",
-      "url": "https://arxiv.org/abs/2610.00015",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-02T12:00:00+08:00"
-    },
-    {
-      "id": "d51c048af50d",
-      "title": "What Do Rationales Communicate? A Message-Intervention Study in Role-Specialized QA",
-      "summary": "arXiv:2610.00018v1 Announce Type: new Abstract: Role-specialized QA pipelines increasingly pass rationales from a reasoner to a verifier, but it is unclear wha…",
-      "url": "https://arxiv.org/abs/2610.00018",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-02T12:00:00+08:00"
-    },
-    {
-      "id": "a21d05cf6500",
-      "title": "Measuring the Microtask Eligibility Gap: When Is an Off-the-Shelf SLM Enough for an Agent Harness?",
-      "summary": "arXiv:2610.00025v1 Announce Type: new Abstract: Agent harnesses increasingly want to run small language models (SLMs) on the microtasks around a frontier large…",
-      "url": "https://arxiv.org/abs/2610.00025",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-02T12:00:00+08:00"
     },
     {
       "id": "a97398f76ee5",
@@ -166,24 +139,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-02T00:00:00+08:00"
-    },
-    {
-      "id": "25240ff1dd96",
-      "title": "何恺明团队新作：看猫片就能学会ARC挑战",
-      "summary": "用ImageNet训练encoder",
-      "url": "https://www.qbitai.com/2026/10/499812.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-01T23:06:30+08:00"
-    },
-    {
-      "id": "42f99d3e4d0a",
-      "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
-      "summary": "价格只有Astra一半",
-      "url": "https://www.qbitai.com/2026/10/499663.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-01T23:02:14+08:00"
     },
     {
       "id": "77852fb24237",
@@ -303,23 +258,43 @@
       "published_at": "2026-09-29T03:00:00+08:00"
     },
     {
-      "id": "1c35edeb0a77",
-      "title": "在云栖大会，我终于看懂了米哈游千亿AI野心",
-      "summary": "在云栖大会，我终于看懂了米哈游千亿AI野心",
-      "url": "https://www.qbitai.com/2026/09/497613.html",
+      "id": "2d2db1b6fdea",
+      "title": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
+      "summary": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
+      "url": "https://www.qbitai.com/2026/09/498584.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-26T00:00:00+08:00",
+      "published_at": "2026-09-27T00:00:00+08:00",
       "window_hours": 720
     },
     {
-      "id": "d9f992667662",
-      "title": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
-      "summary": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
-      "url": "https://www.qbitai.com/2026/09/497624.html",
+      "id": "ab24d9e3ca4d",
+      "title": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
+      "summary": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
+      "url": "https://www.qbitai.com/2026/09/498605.html",
       "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-26T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-09-27T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "aa62e8ba5e3d",
+      "title": "啥题啊能干崩OpenAI最强模型训练…",
+      "summary": "啥题啊能干崩OpenAI最强模型训练…",
+      "url": "https://www.qbitai.com/2026/09/498546.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-27T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "4ba932820d70",
+      "title": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
+      "summary": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
+      "url": "https://www.qbitai.com/2026/09/498633.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-27T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -331,52 +306,12 @@
       "category": "新工具上线",
       "published_at": "2026-09-26T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "6a725f1d75b2",
-      "title": "OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光",
-      "summary": "OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光",
-      "url": "https://www.qbitai.com/2026/09/497382.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-26T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "b4f66fc58a71",
-      "title": "AI开始研究Physical AI：FSD级团队亮出首版模型Simate-beta，空降RoboDojo",
-      "summary": "AI开始研究Physical AI：FSD级团队亮出首版模型Simate-beta，空降RoboDojo",
-      "url": "https://www.qbitai.com/2026/09/498271.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-26T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "1c35edeb0a77",
-        "title": "在云栖大会，我终于看懂了米哈游千亿AI野心",
-        "summary": "在云栖大会，我终于看懂了米哈游千亿AI野心",
-        "url": "https://www.qbitai.com/2026/09/497613.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-26T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "d9f992667662",
-        "title": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
-        "summary": "笔记本跑7000亿参数GLM！无GPU也行? SSD当显存用火爆GitHub",
-        "url": "https://www.qbitai.com/2026/09/497624.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-09-26T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "fe1b7625279c",
         "title": "索辰科技加码世界模型，与战略投资企业美梦空间联合发布具身模型与物理测评标准",
@@ -388,23 +323,43 @@
         "window_hours": 720
       },
       {
-        "id": "6a725f1d75b2",
-        "title": "OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光",
-        "summary": "OpenAI失控Agent还找DeepSeek、Kimi当外援！近百万条作案短链曝光",
-        "url": "https://www.qbitai.com/2026/09/497382.html",
+        "id": "2d2db1b6fdea",
+        "title": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
+        "summary": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
+        "url": "https://www.qbitai.com/2026/09/498584.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-09-26T00:00:00+08:00",
+        "published_at": "2026-09-27T00:00:00+08:00",
         "window_hours": 720
       },
       {
-        "id": "b4f66fc58a71",
-        "title": "AI开始研究Physical AI：FSD级团队亮出首版模型Simate-beta，空降RoboDojo",
-        "summary": "AI开始研究Physical AI：FSD级团队亮出首版模型Simate-beta，空降RoboDojo",
-        "url": "https://www.qbitai.com/2026/09/498271.html",
+        "id": "ab24d9e3ca4d",
+        "title": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
+        "summary": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
+        "url": "https://www.qbitai.com/2026/09/498605.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-09-26T00:00:00+08:00",
+        "published_at": "2026-09-27T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "aa62e8ba5e3d",
+        "title": "啥题啊能干崩OpenAI最强模型训练…",
+        "summary": "啥题啊能干崩OpenAI最强模型训练…",
+        "url": "https://www.qbitai.com/2026/09/498546.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-27T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "4ba932820d70",
+        "title": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
+        "summary": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
+        "url": "https://www.qbitai.com/2026/09/498633.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-27T00:00:00+08:00",
         "window_hours": 720
       }
     ]
