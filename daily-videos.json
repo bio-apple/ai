@@ -186,6 +186,139 @@
   ],
   "batches": [
     {
+      "date": "2026-10-05",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:ifz8NGHuHtY",
+              "platform": "youtube",
+              "title": "28 Insane Things Astra Can Do (2 Hour Course)",
+              "summary": "Codex + GPT-6 Astra: The Complete Guide (28 Things You Need to Know) Here is the Codex Complete Guide in Written format: 00:00 In…",
+              "url": "https://www.youtube.com/watch?v=ifz8NGHuHtY",
+              "thumbnail": "https://i.ytimg.com/vi/ifz8NGHuHtY/maxresdefault.jpg",
+              "channel": "Riley Brown",
+              "subscribers": 0,
+              "views": 263260,
+              "duration": "1:54:47",
+              "max_height": 1080,
+              "published_at": "2026-09-14T21:00:30+08:00"
+            },
+            {
+              "id": "youtube:o3CX_Y59_74",
+              "platform": "youtube",
+              "title": "OpenAI Codex Crash Course – Build & Deploy Apps with Autonomous AI",
+              "summary": "Learn the core fundamentals of OpenAI Codex, from setting up scheduled automations and custom skills to mastering Plan and Go mod…",
+              "url": "https://www.youtube.com/watch?v=o3CX_Y59_74",
+              "thumbnail": "https://i.ytimg.com/vi/o3CX_Y59_74/maxresdefault.jpg",
+              "channel": "freeCodeCamp.org",
+              "subscribers": 0,
+              "views": 153334,
+              "duration": "41:19",
+              "max_height": 1080,
+              "published_at": "2026-09-10T23:04:22+08:00"
+            },
+            {
+              "id": "youtube:X-pbJWKmwi0",
+              "platform": "youtube",
+              "title": "Build & Sell with Codex (5+ Hour Course)",
+              "summary": "My FREE Resources: FREE First Client SOP: My playbook for growing a $1M AI agency: Karpathy LLM Wiki: Second YouTube channel: My …",
+              "url": "https://www.youtube.com/watch?v=X-pbJWKmwi0",
+              "thumbnail": "https://i.ytimg.com/vi/X-pbJWKmwi0/maxresdefault.jpg",
+              "channel": "Nate Herk | AI Automation",
+              "subscribers": 0,
+              "views": 93758,
+              "duration": "5:10:40",
+              "max_height": 1080,
+              "published_at": "2026-09-21T20:31:48+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1CMtR6YEj4",
+              "platform": "bilibili",
+              "title": "当我用豆包工作agent做个背单词游戏",
+              "summary": "【小白debug】讲解 AI 工具实战应用，围绕「当我用豆包工作agent做个背单词游戏」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1CMtR6YEj4",
+              "thumbnail": "video-thumbs/bilibili/BV1CMtR6YEj4.jpg",
+              "channel": "小白debug",
+              "subscribers": 0,
+              "views": 1008097,
+              "duration": "6:41",
+              "max_height": 720,
+              "published_at": "2026-09-05T12:05:00+08:00"
+            },
+            {
+              "id": "bilibili:BV1nPY46cEWA",
+              "platform": "bilibili",
+              "title": "这19年iPhone变化这么大？？当我用豆包工作做了一个在线博物馆【附AI教程】",
+              "summary": "苹果发布会马上就要开始拉，出发前这两天把从2007年初代iPhone到现在的19年产品历史，做成了一座能逛、能投票、还能直接拉两代机型对比的网页博物馆。 整个项目基本都是用豆包工作做的，从网页、历代产品图，到后面的折叠屏概念广告，一路做一路返工。中间也没少翻…",
+              "url": "https://www.bilibili.com/video/BV1nPY46cEWA",
+              "thumbnail": "video-thumbs/bilibili/BV1nPY46cEWA.jpg",
+              "channel": "在下小苏",
+              "subscribers": 0,
+              "views": 352991,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-09-09T17:21:43+08:00"
+            },
+            {
+              "id": "bilibili:BV1Zeew64Eq5",
+              "platform": "bilibili",
+              "title": "就这样，我开始用豆包工作赚钱了！全流程攻略！",
+              "summary": "最近用了一个月的豆包工作，选题，拍摄，复盘的活它都能帮我做，不到下班时间我就干完一天的活？！如果你也想学一下怎么用豆包工作早点下班，这期视频跟着我，手把手教你玩透豆包工作，打通工作全流程。轻松实现早下班！",
+              "url": "https://www.bilibili.com/video/BV1Zeew64Eq5",
+              "thumbnail": "video-thumbs/bilibili/BV1Zeew64Eq5.jpg",
+              "channel": "科技宅小明",
+              "subscribers": 0,
+              "views": 253662,
+              "duration": "12:59",
+              "max_height": 720,
+              "published_at": "2026-09-16T17:20:29+08:00"
+            }
+          ]
+        }
+      }
+    },
+    {
       "date": "2026-10-04",
       "timezone": "Asia/Shanghai",
       "criteria": {
@@ -9115,5 +9248,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-04T06:48:44.143571+08:00"
+  "updated_at": "2026-10-05T06:57:47.568715+08:00"
 }
