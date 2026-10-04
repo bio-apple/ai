@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-04T18:14:38.519122+08:00",
-  "date": "2026-10-04",
+  "updated_at": "2026-10-05T03:50:55.257617+08:00",
+  "date": "2026-10-05",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -222,6 +222,16 @@
       "published_at": "2026-09-30T08:00:00+08:00"
     },
     {
+      "id": "cf9e97faaf0c",
+      "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
+      "summary": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
+      "url": "https://www.qbitai.com/2026/09/499654.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-30T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "493cf3fce1b8",
       "title": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
       "summary": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
@@ -268,6 +278,16 @@
       "window_hours": 720
     },
     {
+      "id": "ace6c405f776",
+      "title": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
+      "summary": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
+      "url": "https://www.qbitai.com/2026/09/499188.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-29T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "0e6785544a5e",
       "title": "HC归来，华为正重新定义AIDC基础设施",
       "summary": "HC归来，华为正重新定义AIDC基础设施",
@@ -278,33 +298,13 @@
       "window_hours": 720
     },
     {
-      "id": "2d2db1b6fdea",
-      "title": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
-      "summary": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
-      "url": "https://www.qbitai.com/2026/09/498584.html",
+      "id": "17a8f9896374",
+      "title": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
+      "summary": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
+      "url": "https://www.qbitai.com/2026/09/498877.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-09-27T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "ab24d9e3ca4d",
-      "title": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
-      "summary": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
-      "url": "https://www.qbitai.com/2026/09/498605.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-27T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "4ba932820d70",
-      "title": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
-      "summary": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
-      "url": "https://www.qbitai.com/2026/09/498633.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-27T00:00:00+08:00",
+      "published_at": "2026-09-28T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -312,36 +312,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "2d2db1b6fdea",
-        "title": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
-        "summary": "又快又能打！匿名模型玉兔模型杀上双榜第一，Coding实测全记录",
-        "url": "https://www.qbitai.com/2026/09/498584.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-27T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "ab24d9e3ca4d",
-        "title": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
-        "summary": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
-        "url": "https://www.qbitai.com/2026/09/498605.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-27T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "4ba932820d70",
-        "title": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
-        "summary": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
-        "url": "https://www.qbitai.com/2026/09/498633.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-27T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "0e6785544a5e",
         "title": "HC归来，华为正重新定义AIDC基础设施",
@@ -360,6 +330,36 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-29T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "17a8f9896374",
+        "title": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
+        "summary": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
+        "url": "https://www.qbitai.com/2026/09/498877.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-28T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ace6c405f776",
+        "title": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
+        "summary": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
+        "url": "https://www.qbitai.com/2026/09/499188.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-29T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "cf9e97faaf0c",
+        "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
+        "summary": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
+        "url": "https://www.qbitai.com/2026/09/499654.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-30T00:00:00+08:00",
         "window_hours": 720
       }
     ]
