@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-04T03:36:16.774572+08:00",
+  "updated_at": "2026-10-04T18:14:38.519122+08:00",
   "date": "2026-10-04",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,42 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "54bb6bf5eee2",
+      "title": "AI算力硬合作，马斯克还是更相信中国制造",
+      "summary": "一种混搭的可能：英特尔继续供先进工艺，即前端用14A；后端再接台积电，来补工厂运营、良率、封装这些能力。",
+      "url": "https://www.qbitai.com/2026/10/501605.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-10-04T14:12:22+08:00"
+    },
+    {
+      "id": "15a458018c11",
+      "title": "最火AI岗位FDE：月薪5万，都干这些…",
+      "summary": "什么是FDE？它会一直存在吗？",
+      "url": "https://www.qbitai.com/2026/10/501506.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-04T14:05:35+08:00"
+    },
+    {
+      "id": "a730dc743d2c",
+      "title": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
+      "summary": "专业3D模型反而更稀缺了",
+      "url": "https://www.qbitai.com/2026/10/501451.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-04T08:53:29+08:00"
+    },
+    {
+      "id": "89764eae0099",
+      "title": "The Agent Said It Was Done. The Database Disagreed.",
+      "summary": "The Agent Said It Was Done. The Database Disagreed.",
+      "url": "https://huggingface.co/blog/microsoft/thinkingbox",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-04T06:56:48+08:00"
+    },
     {
       "id": "4451b333657f",
       "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
@@ -31,15 +67,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-03T12:41:24+08:00"
-    },
-    {
-      "id": "23d0d9ad437e",
-      "title": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
-      "summary": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
-      "url": "https://www.qbitai.com/2026/10/500148.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-03T10:38:19+08:00"
     },
     {
       "id": "8e206c4d9ed6",
@@ -76,24 +103,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-10-02T21:00:39+08:00"
-    },
-    {
-      "id": "a04332b7488f",
-      "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
-      "summary": "让每一次请求选对模型，让每一次反馈都成为下一次更优、更省的选择",
-      "url": "https://www.qbitai.com/2026/10/500098.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-02T15:34:15+08:00"
-    },
-    {
-      "id": "456a591e773f",
-      "title": "丘成桐新论文致谢了GPT和Claude",
-      "summary": "44年前被亲自列入问题清单",
-      "url": "https://www.qbitai.com/2026/10/499991.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-02T15:27:03+08:00"
     },
     {
       "id": "a885ed61f54a",
@@ -231,15 +240,6 @@
       "published_at": "2026-09-29T22:00:02+08:00"
     },
     {
-      "id": "984223f109f3",
-      "title": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
-      "summary": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
-      "url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-29T21:07:00+08:00"
-    },
-    {
       "id": "3c2fdddd3946",
       "title": "One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact",
       "summary": "Since launching a year ago, the Microsoft Research Asia — Singapore lab has established a strong foundation, deepened collaboration across government, academia…",
@@ -256,6 +256,16 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-09-29T03:00:00+08:00"
+    },
+    {
+      "id": "c1b44c306dd8",
+      "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+      "summary": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+      "url": "https://www.qbitai.com/2026/09/499098.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-29T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "0e6785544a5e",
@@ -282,16 +292,6 @@
       "title": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
       "summary": "量子计算走上桌面！“小盒子”跑通端到端，数据全程不出门",
       "url": "https://www.qbitai.com/2026/09/498605.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-27T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "aa62e8ba5e3d",
-      "title": "啥题啊能干崩OpenAI最强模型训练…",
-      "summary": "啥题啊能干崩OpenAI最强模型训练…",
-      "url": "https://www.qbitai.com/2026/09/498546.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-27T00:00:00+08:00",
@@ -333,16 +333,6 @@
         "window_hours": 720
       },
       {
-        "id": "aa62e8ba5e3d",
-        "title": "啥题啊能干崩OpenAI最强模型训练…",
-        "summary": "啥题啊能干崩OpenAI最强模型训练…",
-        "url": "https://www.qbitai.com/2026/09/498546.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-27T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "4ba932820d70",
         "title": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
         "summary": "量子AI创业来了一支“清华梦之队”：10亿估值，用量子改造大模型底层",
@@ -360,6 +350,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-28T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "c1b44c306dd8",
+        "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+        "summary": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
+        "url": "https://www.qbitai.com/2026/09/499098.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-29T00:00:00+08:00",
         "window_hours": 720
       }
     ]
