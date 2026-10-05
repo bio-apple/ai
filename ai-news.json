@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-05T18:53:48.337457+08:00",
-  "date": "2026-10-05",
+  "updated_at": "2026-10-06T07:00:47.048929+08:00",
+  "date": "2026-10-06",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "78ad53815846",
+      "title": "Our approach to EU text provenance rules",
+      "summary": "How OpenAI is approaching text watermarking under EU rules. Learn where watermarks apply, how detection works, and why access starts with researchers.",
+      "url": "https://openai.com/index/eu-text-provenance",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-05T23:00:00+08:00"
+    },
+    {
+      "id": "c2f51f56b801",
+      "title": "From Scan to Treatment Plan, AI Helps Close Breast Cancer’s Deadliest Gaps",
+      "summary": "Breast cancer is the most commonly diagnosed cancer among American women — yet the gaps in care are wide. A majority of women over age 40 skip the recommended …",
+      "url": "https://blogs.nvidia.com/blog/ai-breast-cancer-startups/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-05T21:00:57+08:00"
+    },
+    {
+      "id": "167a28b31d7e",
+      "title": "刚刚，诺贝尔奖颁给光遗传学！",
+      "summary": "从绿藻里的光开关，到控制神经元",
+      "url": "https://www.qbitai.com/2026/10/501720.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-05T18:37:01+08:00"
+    },
     {
       "id": "3cbec84de8bf",
       "title": "Building advertising for the way people use AI",
@@ -105,15 +132,6 @@
       "published_at": "2026-10-04T14:05:35+08:00"
     },
     {
-      "id": "a730dc743d2c",
-      "title": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
-      "summary": "专业3D模型反而更稀缺了",
-      "url": "https://www.qbitai.com/2026/10/501451.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-04T08:53:29+08:00"
-    },
-    {
       "id": "89764eae0099",
       "title": "The Agent Said It Was Done. The Database Disagreed.",
       "summary": "The Agent Said It Was Done. The Database Disagreed.",
@@ -195,15 +213,6 @@
       "published_at": "2026-10-02T01:00:00+08:00"
     },
     {
-      "id": "a80484c2d584",
-      "title": "How Albertsons Companies is reimagining retail from the inside out",
-      "summary": "Albertsons Cos. is using ChatGPT Enterprise and the OpenAI API to help teams work faster and make grocery shopping easier for millions of customers.",
-      "url": "https://openai.com/index/albertsons-reimagining-retail",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-02T00:00:00+08:00"
-    },
-    {
       "id": "77852fb24237",
       "title": "Fall Into 25 New Games on GeForce NOW This October",
       "summary": "Spooky season is streaming in. Alongside falling leaves, pumpkin spice and everything nice, 25 new games are joining GeForce NOW throughout October, including …",
@@ -229,15 +238,6 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-10-01T04:01:45+08:00"
-    },
-    {
-      "id": "f9faccd416c4",
-      "title": "NVIDIA Opens Applications for 2027–2028 Graduate Fellowships With Awards Up to $60,000",
-      "summary": "Bringing together the world’s brightest minds and the latest accelerated computing technology leads to powerful breakthroughs that help tackle some of the bigg…",
-      "url": "https://blogs.nvidia.com/blog/applications-open-graduate-fellowship-awards-2026/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-01T01:00:21+08:00"
     },
     {
       "id": "b3162152f353",
@@ -277,6 +277,26 @@
       "window_hours": 720
     },
     {
+      "id": "d3df5418cadb",
+      "title": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
+      "summary": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
+      "url": "https://www.qbitai.com/2026/09/499263.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-09-30T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "00dec4f5eef0",
+      "title": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
+      "summary": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
+      "url": "https://www.qbitai.com/2026/09/499246.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-09-30T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "493cf3fce1b8",
       "title": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
       "summary": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
@@ -293,24 +313,6 @@
       "source": "Microsoft AI",
       "category": "新工具上线",
       "published_at": "2026-09-29T22:00:02+08:00"
-    },
-    {
-      "id": "3c2fdddd3946",
-      "title": "One year in: How Microsoft Research Asia – Singapore is advancing research, partnership and talent for real-world impact",
-      "summary": "Since launching a year ago, the Microsoft Research Asia — Singapore lab has established a strong foundation, deepened collaboration across government, academia…",
-      "url": "https://www.microsoft.com/en-us/research/blog/one-year-in-how-microsoft-research-asia-singapore-is-advancing-research-partnership-and-talent-for-real-world-impact/",
-      "source": "Microsoft AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-29T05:00:00+08:00"
-    },
-    {
-      "id": "1eadd5627184",
-      "title": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
-      "summary": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-09-29T03:00:00+08:00"
     },
     {
       "id": "c1b44c306dd8",
@@ -331,42 +333,12 @@
       "category": "中文资讯",
       "published_at": "2026-09-29T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "0e6785544a5e",
-      "title": "HC归来，华为正重新定义AIDC基础设施",
-      "summary": "HC归来，华为正重新定义AIDC基础设施",
-      "url": "https://www.qbitai.com/2026/09/498787.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-28T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "17a8f9896374",
-      "title": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
-      "summary": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
-      "url": "https://www.qbitai.com/2026/09/498877.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-28T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "0e6785544a5e",
-        "title": "HC归来，华为正重新定义AIDC基础设施",
-        "summary": "HC归来，华为正重新定义AIDC基础设施",
-        "url": "https://www.qbitai.com/2026/09/498787.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-28T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "c1b44c306dd8",
         "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
@@ -378,20 +350,30 @@
         "window_hours": 720
       },
       {
-        "id": "17a8f9896374",
-        "title": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
-        "summary": "工业创新进入“组队局”，拆解西门子Xcelerator开放生态的赋能链路",
-        "url": "https://www.qbitai.com/2026/09/498877.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-28T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "cf9e97faaf0c",
         "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
         "summary": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
         "url": "https://www.qbitai.com/2026/09/499654.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-09-30T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "d3df5418cadb",
+        "title": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
+        "summary": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
+        "url": "https://www.qbitai.com/2026/09/499263.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-09-30T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "00dec4f5eef0",
+        "title": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
+        "summary": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
+        "url": "https://www.qbitai.com/2026/09/499246.html",
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-09-30T00:00:00+08:00",
