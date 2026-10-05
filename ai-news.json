@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-05T03:50:55.257617+08:00",
+  "updated_at": "2026-10-05T18:53:48.337457+08:00",
   "date": "2026-10-05",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,78 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "3cbec84de8bf",
+      "title": "Building advertising for the way people use AI",
+      "summary": "OpenAI introduces a new visual ad format in ChatGPT and expands measurement tools, attribution partnerships, and brand suitability for advertisers.",
+      "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-05T18:00:00+08:00"
+    },
+    {
+      "id": "d76be398914d",
+      "title": "刚刚，Hinton发了首篇RSI论文",
+      "summary": "AI已经开始真正进入「造下一代AI」的流水线",
+      "url": "https://www.qbitai.com/2026/10/501705.html",
+      "source": "量子位",
+      "category": "学术论文",
+      "published_at": "2026-10-05T12:42:52+08:00"
+    },
+    {
+      "id": "3fb0589f112d",
+      "title": "MintFlow: Minimal Trajectory Intervention for Constrained Flow Matching",
+      "summary": "arXiv:2610.02260v1 Announce Type: new Abstract: Flow matching models excel at generative modeling, and many downstream applications require their samples to sa…",
+      "url": "https://arxiv.org/abs/2610.02260",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-05T12:00:00+08:00"
+    },
+    {
+      "id": "4db1850702f9",
+      "title": "Fast Models, Slow Evidence: A Paired and Self-Audited Evaluation of System-1 Decision Models for LLM Agent Harnesses",
+      "summary": "arXiv:2610.02267v1 Announce Type: new Abstract: Agent harnesses make many small, typed decisions per task: which model to call, which tool to use, whether retr…",
+      "url": "https://arxiv.org/abs/2610.02267",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-05T12:00:00+08:00"
+    },
+    {
+      "id": "05ae2fbd2810",
+      "title": "The AI Risk Observatory: What Can We Learn from AI Disclosures in Annual Reports About Societal Resilience?",
+      "summary": "arXiv:2610.02281v1 Announce Type: new Abstract: Societal resilience research relies on access to useful and actionable data, which motivates our main research …",
+      "url": "https://arxiv.org/abs/2610.02281",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-05T12:00:00+08:00"
+    },
+    {
+      "id": "5810b7c8fc49",
+      "title": "Keep It CALM: Analyzing the Limits of Global Unsafety in Text-to-Image Generation",
+      "summary": "arXiv:2610.02300v1 Announce Type: new Abstract: Training-free safeguards for text-to-image generation often rely on a reusable safety signal, such as an unsafe…",
+      "url": "https://arxiv.org/abs/2610.02300",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-05T12:00:00+08:00"
+    },
+    {
+      "id": "798258dfe2f6",
+      "title": "Choosing Before Acting: Comparative Value Estimation for Long-Horizon Tool-Use Agents",
+      "summary": "arXiv:2610.02330v1 Announce Type: new Abstract: Large language models (LLMs) rely on long-horizon tool invocation sequences for complex tasks, where each invoc…",
+      "url": "https://arxiv.org/abs/2610.02330",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-05T12:00:00+08:00"
+    },
+    {
+      "id": "4006495e9e42",
+      "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
+      "summary": "有改进就体验，没改进就重置，横竖不亏。",
+      "url": "https://www.qbitai.com/2026/10/501700.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-05T10:50:46+08:00"
+    },
     {
       "id": "54bb6bf5eee2",
       "title": "AI算力硬合作，马斯克还是更相信中国制造",
@@ -49,24 +121,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-10-04T06:56:48+08:00"
-    },
-    {
-      "id": "4451b333657f",
-      "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
-      "summary": "岗位JD甩了篇技术报告",
-      "url": "https://www.qbitai.com/2026/10/501381.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-03T15:54:43+08:00"
-    },
-    {
-      "id": "2e1cc7abff8b",
-      "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
-      "summary": "又咋啦。。。",
-      "url": "https://www.qbitai.com/2026/10/501368.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-03T12:41:24+08:00"
     },
     {
       "id": "8e206c4d9ed6",
@@ -166,15 +220,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-01T21:00:49+08:00"
-    },
-    {
-      "id": "3bba52758573",
-      "title": "The Den frees up 10-15 hours a week to grow with ChatGPT Work",
-      "summary": "As it opens a new location, the social club prepares grant applications in 2 hours instead of 3 days and liquor-license materials in 3 hours instead of 4 days.",
-      "url": "https://openai.com/index/the-den-family-social",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-01T08:00:00+08:00"
     },
     {
       "id": "15e70ee5e4a7",
@@ -343,16 +388,6 @@
         "window_hours": 720
       },
       {
-        "id": "ace6c405f776",
-        "title": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
-        "summary": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
-        "url": "https://www.qbitai.com/2026/09/499188.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-29T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "cf9e97faaf0c",
         "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
         "summary": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
@@ -360,6 +395,16 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-09-30T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ace6c405f776",
+        "title": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
+        "summary": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
+        "url": "https://www.qbitai.com/2026/09/499188.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-09-29T00:00:00+08:00",
         "window_hours": 720
       }
     ]
