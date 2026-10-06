@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-06T07:00:47.048929+08:00",
+  "updated_at": "2026-10-06T18:49:44.690472+08:00",
   "date": "2026-10-06",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "1da032c63dfe",
+      "title": "不er，咋陶哲轩也成AI减速派了？？",
+      "summary": "不er，咋陶哲轩也成AI减速派了？？",
+      "url": "https://www.qbitai.com/2026/10/501736.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-06T15:59:17+08:00"
+    },
+    {
+      "id": "b245880876ad",
+      "title": "OpenAI「疯狂28天」首日，这都发了些啥啊…",
+      "summary": "OpenAI「疯狂28天」首日，这都发了些啥啊…",
+      "url": "https://www.qbitai.com/2026/10/501726.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-06T14:45:40+08:00"
+    },
+    {
+      "id": "085f7195b66f",
+      "title": "Falcon-Emirati: When an LLM Learns the Dialect, the Culture, and the Nuance",
+      "summary": "Falcon-Emirati: When an LLM Learns the Dialect, the Culture, and the Nuance",
+      "url": "https://huggingface.co/blog/tiiuae/falcon-emirati",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-06T14:44:39+08:00"
+    },
     {
       "id": "78ad53815846",
       "title": "Our approach to EU text provenance rules",
@@ -60,51 +87,6 @@
       "published_at": "2026-10-05T12:42:52+08:00"
     },
     {
-      "id": "3fb0589f112d",
-      "title": "MintFlow: Minimal Trajectory Intervention for Constrained Flow Matching",
-      "summary": "arXiv:2610.02260v1 Announce Type: new Abstract: Flow matching models excel at generative modeling, and many downstream applications require their samples to sa…",
-      "url": "https://arxiv.org/abs/2610.02260",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-05T12:00:00+08:00"
-    },
-    {
-      "id": "4db1850702f9",
-      "title": "Fast Models, Slow Evidence: A Paired and Self-Audited Evaluation of System-1 Decision Models for LLM Agent Harnesses",
-      "summary": "arXiv:2610.02267v1 Announce Type: new Abstract: Agent harnesses make many small, typed decisions per task: which model to call, which tool to use, whether retr…",
-      "url": "https://arxiv.org/abs/2610.02267",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-05T12:00:00+08:00"
-    },
-    {
-      "id": "05ae2fbd2810",
-      "title": "The AI Risk Observatory: What Can We Learn from AI Disclosures in Annual Reports About Societal Resilience?",
-      "summary": "arXiv:2610.02281v1 Announce Type: new Abstract: Societal resilience research relies on access to useful and actionable data, which motivates our main research …",
-      "url": "https://arxiv.org/abs/2610.02281",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-05T12:00:00+08:00"
-    },
-    {
-      "id": "5810b7c8fc49",
-      "title": "Keep It CALM: Analyzing the Limits of Global Unsafety in Text-to-Image Generation",
-      "summary": "arXiv:2610.02300v1 Announce Type: new Abstract: Training-free safeguards for text-to-image generation often rely on a reusable safety signal, such as an unsafe…",
-      "url": "https://arxiv.org/abs/2610.02300",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-05T12:00:00+08:00"
-    },
-    {
-      "id": "798258dfe2f6",
-      "title": "Choosing Before Acting: Comparative Value Estimation for Long-Horizon Tool-Use Agents",
-      "summary": "arXiv:2610.02330v1 Announce Type: new Abstract: Large language models (LLMs) rely on long-horizon tool invocation sequences for complex tasks, where each invoc…",
-      "url": "https://arxiv.org/abs/2610.02330",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-05T12:00:00+08:00"
-    },
-    {
       "id": "4006495e9e42",
       "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
       "summary": "有改进就体验，没改进就重置，横竖不亏。",
@@ -112,24 +94,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-05T10:50:46+08:00"
-    },
-    {
-      "id": "54bb6bf5eee2",
-      "title": "AI算力硬合作，马斯克还是更相信中国制造",
-      "summary": "一种混搭的可能：英特尔继续供先进工艺，即前端用14A；后端再接台积电，来补工厂运营、良率、封装这些能力。",
-      "url": "https://www.qbitai.com/2026/10/501605.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-10-04T14:12:22+08:00"
-    },
-    {
-      "id": "15a458018c11",
-      "title": "最火AI岗位FDE：月薪5万，都干这些…",
-      "summary": "什么是FDE？它会一直存在吗？",
-      "url": "https://www.qbitai.com/2026/10/501506.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-04T14:05:35+08:00"
     },
     {
       "id": "89764eae0099",
@@ -277,6 +241,16 @@
       "window_hours": 720
     },
     {
+      "id": "6fbc44660a91",
+      "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
+      "summary": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
+      "url": "https://www.qbitai.com/2026/09/499308.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-30T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "d3df5418cadb",
       "title": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
       "summary": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
@@ -297,13 +271,14 @@
       "window_hours": 720
     },
     {
-      "id": "493cf3fce1b8",
-      "title": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
-      "summary": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
-      "url": "https://huggingface.co/blog/nvidia/kumo-tabular",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-29T23:30:38+08:00"
+      "id": "d0ff96814d42",
+      "title": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
+      "summary": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
+      "url": "https://www.qbitai.com/2026/09/499592.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-09-30T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "53ae606fecda",
@@ -313,26 +288,6 @@
       "source": "Microsoft AI",
       "category": "新工具上线",
       "published_at": "2026-09-29T22:00:02+08:00"
-    },
-    {
-      "id": "c1b44c306dd8",
-      "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
-      "summary": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
-      "url": "https://www.qbitai.com/2026/09/499098.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-29T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "ace6c405f776",
-      "title": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
-      "summary": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
-      "url": "https://www.qbitai.com/2026/09/499188.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-29T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -340,22 +295,22 @@
     "window_days": 30,
     "items": [
       {
-        "id": "c1b44c306dd8",
-        "title": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
-        "summary": "李飞飞创业公司被苏姿丰550亿收购！世界模型最大交易落地",
-        "url": "https://www.qbitai.com/2026/09/499098.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-29T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "cf9e97faaf0c",
         "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
         "summary": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
         "url": "https://www.qbitai.com/2026/09/499654.html",
         "source": "量子位",
         "category": "新模型发布",
+        "published_at": "2026-09-30T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "6fbc44660a91",
+        "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
+        "summary": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
+        "url": "https://www.qbitai.com/2026/09/499308.html",
+        "source": "量子位",
+        "category": "中文资讯",
         "published_at": "2026-09-30T00:00:00+08:00",
         "window_hours": 720
       },
@@ -380,13 +335,13 @@
         "window_hours": 720
       },
       {
-        "id": "ace6c405f776",
-        "title": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
-        "summary": "精准揪出RL训练数据Bug，Prompt直出小游戏，IQuest-Q1夯爆了！",
-        "url": "https://www.qbitai.com/2026/09/499188.html",
+        "id": "d0ff96814d42",
+        "title": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
+        "summary": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
+        "url": "https://www.qbitai.com/2026/09/499592.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-09-29T00:00:00+08:00",
+        "published_at": "2026-09-30T00:00:00+08:00",
         "window_hours": 720
       }
     ]
