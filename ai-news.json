@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-06T18:49:44.690472+08:00",
-  "date": "2026-10-06",
+  "updated_at": "2026-10-07T05:23:37.762828+08:00",
+  "date": "2026-10-07",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "4dd290070848",
+      "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+      "summary": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+      "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-07T03:57:04+08:00"
+    },
+    {
+      "id": "242f2e4b6328",
+      "title": "What AI gets wrong and what failure teaches us",
+      "summary": "Jennifer Neville did not want to go into computer science—but that’s exactly where she landed. Neville discusses the starts and stops that led to her professio…",
+      "url": "https://www.microsoft.com/en-us/research/podcast/what-ai-gets-wrong-and-what-failure-teaches-us/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-07T00:19:06+08:00"
+    },
+    {
+      "id": "60ef2af305e7",
+      "title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
+      "summary": "Atlassian and OpenAI are expanding their partnership to connect frontier models with enterprise knowledge and help teams plan, build, and deliver work.",
+      "url": "https://openai.com/index/atlassian-partnership",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-07T00:00:00+08:00"
+    },
+    {
+      "id": "c84805ae92ec",
+      "title": "Why Telecom Operators Are Building Their AI Strategy on Open Models",
+      "summary": "Telecom operators are increasingly building their AI strategies on open models — and the reasons go beyond mere cost. Open models give telcos the ability to tr…",
+      "url": "https://blogs.nvidia.com/blog/telecom-operators-open-models/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-06T21:00:19+08:00"
+    },
+    {
+      "id": "9d95aeff2904",
+      "title": "刚刚，诺贝尔物理奖一人独揽！",
+      "summary": "南极洲甚至有一座高地以他名字命名",
+      "url": "https://www.qbitai.com/2026/10/501746.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-06T18:44:58+08:00"
+    },
+    {
+      "id": "9964af802e9c",
+      "title": "Advancing computer use with Ironclad",
+      "summary": "Learn how OpenAI and Ironclad are training and evaluating AI agents on complex contracting workflows to advance computer use for professional work.",
+      "url": "https://openai.com/index/advancing-computer-use-with-ironclad",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-06T18:00:00+08:00"
+    },
     {
       "id": "1da032c63dfe",
       "title": "不er，咋陶哲轩也成AI减速派了？？",
@@ -87,15 +141,6 @@
       "published_at": "2026-10-05T12:42:52+08:00"
     },
     {
-      "id": "4006495e9e42",
-      "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
-      "summary": "有改进就体验，没改进就重置，横竖不亏。",
-      "url": "https://www.qbitai.com/2026/10/501700.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-05T10:50:46+08:00"
-    },
-    {
       "id": "89764eae0099",
       "title": "The Agent Said It Was Done. The Database Disagreed.",
       "summary": "The Agent Said It Was Done. The Database Disagreed.",
@@ -150,15 +195,6 @@
       "published_at": "2026-10-02T12:01:31+08:00"
     },
     {
-      "id": "a97398f76ee5",
-      "title": "Chatham scales its capital markets expertise with",
-      "summary": "Chatham Financial uses Codex and GPT-5.6 to build technology and redesign workflows, cutting trade validation from 30 minutes to under 4.",
-      "url": "https://openai.com/index/chatham-financial",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-02T08:00:00+08:00"
-    },
-    {
       "id": "c68e4b407e02",
       "title": "How NVIDIA GPUs Help Accelerate OpenAI’s GPT-6 Astra Ultrafast",
       "summary": "GPT-6 Astra Ultrafast, running on NVIDIA Blackwell GPUs, is available now in the OpenAI API and to eligible ChatGPT Work and Codex users. Accelerated by infere…",
@@ -168,15 +204,6 @@
       "published_at": "2026-10-02T07:44:13+08:00"
     },
     {
-      "id": "7e67b43cf9d0",
-      "title": "The eternal complement",
-      "summary": "Advanced AI may matter most for the routine work behind breakthrough ideas. Explore why execution could shape the next economy and the pace of progress.",
-      "url": "https://openai.com/index/the-eternal-complement",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-02T01:00:00+08:00"
-    },
-    {
       "id": "77852fb24237",
       "title": "Fall Into 25 New Games on GeForce NOW This October",
       "summary": "Spooky season is streaming in. Alongside falling leaves, pumpkin spice and everything nice, 25 new games are joining GeForce NOW throughout October, including …",
@@ -184,15 +211,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-01T21:00:54+08:00"
-    },
-    {
-      "id": "2d4cb7a285af",
-      "title": "Productive, Durable, Fungible: How NVIDIA AI Factories Maximize Return on Investment",
-      "summary": "AI factories are built by the megawatt, even by the gigawatt. Each megawatt factory costs roughly $60 million, and AI factory operators will only commit capita…",
-      "url": "https://blogs.nvidia.com/blog/productive-durable-fungible-ai-factories/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-01T21:00:49+08:00"
     },
     {
       "id": "15e70ee5e4a7",
@@ -241,12 +259,12 @@
       "window_hours": 720
     },
     {
-      "id": "6fbc44660a91",
-      "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
-      "summary": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
-      "url": "https://www.qbitai.com/2026/09/499308.html",
+      "id": "00dec4f5eef0",
+      "title": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
+      "summary": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
+      "url": "https://www.qbitai.com/2026/09/499246.html",
       "source": "量子位",
-      "category": "中文资讯",
+      "category": "新模型发布",
       "published_at": "2026-09-30T00:00:00+08:00",
       "window_hours": 720
     },
@@ -261,12 +279,12 @@
       "window_hours": 720
     },
     {
-      "id": "00dec4f5eef0",
-      "title": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
-      "summary": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
-      "url": "https://www.qbitai.com/2026/09/499246.html",
+      "id": "6fbc44660a91",
+      "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
+      "summary": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
+      "url": "https://www.qbitai.com/2026/09/499308.html",
       "source": "量子位",
-      "category": "新模型发布",
+      "category": "中文资讯",
       "published_at": "2026-09-30T00:00:00+08:00",
       "window_hours": 720
     },
@@ -279,15 +297,6 @@
       "category": "中文资讯",
       "published_at": "2026-09-30T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "53ae606fecda",
-      "title": "Introducing Quine: An AI research system designed for the complexity of biology",
-      "summary": "Biology doesn't operate in silos, and neither should the AI representation of it. Quine is an early-stage research effort to create a multimodal world model of…",
-      "url": "https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/",
-      "source": "Microsoft AI",
-      "category": "新工具上线",
-      "published_at": "2026-09-29T22:00:02+08:00"
     }
   ],
   "qbitai_hot": {
@@ -305,12 +314,12 @@
         "window_hours": 720
       },
       {
-        "id": "6fbc44660a91",
-        "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
-        "summary": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
-        "url": "https://www.qbitai.com/2026/09/499308.html",
+        "id": "00dec4f5eef0",
+        "title": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
+        "summary": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
+        "url": "https://www.qbitai.com/2026/09/499246.html",
         "source": "量子位",
-        "category": "中文资讯",
+        "category": "新模型发布",
         "published_at": "2026-09-30T00:00:00+08:00",
         "window_hours": 720
       },
@@ -325,12 +334,12 @@
         "window_hours": 720
       },
       {
-        "id": "00dec4f5eef0",
-        "title": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
-        "summary": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
-        "url": "https://www.qbitai.com/2026/09/499246.html",
+        "id": "6fbc44660a91",
+        "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
+        "summary": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
+        "url": "https://www.qbitai.com/2026/09/499308.html",
         "source": "量子位",
-        "category": "新模型发布",
+        "category": "中文资讯",
         "published_at": "2026-09-30T00:00:00+08:00",
         "window_hours": 720
       },
