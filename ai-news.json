@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-07T18:36:57.075545+08:00",
-  "date": "2026-10-07",
+  "updated_at": "2026-10-08T05:42:01.018258+08:00",
+  "date": "2026-10-08",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,6 +15,78 @@
   },
   "items": [
     {
+      "id": "327e963986a0",
+      "title": "NVIDIA, Microsoft Kick Off a New Beginning for Windows PCs With RTX Spark and AI Agents",
+      "summary": "At a Microsoft event in San Francisco on Wednesday, Jensen Huang and Satya Nadella outlined how NVIDIA and Microsoft are co-engineering hardware and software f…",
+      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-08T02:45:28+08:00"
+    },
+    {
+      "id": "0825a4897dea",
+      "title": "Multimodal open d1 decision models for the edge",
+      "summary": "Multimodal open d1 decision models for the edge",
+      "url": "https://huggingface.co/blog/LiquidAI/open-d1",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-08T00:54:33+08:00"
+    },
+    {
+      "id": "565e240356c9",
+      "title": "Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses",
+      "summary": "Training AI agents with reinforcement learning can be challenging because their tools, context, and decision-making are managed by complex frameworks. Agent Li…",
+      "url": "https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-08T00:00:00+08:00"
+    },
+    {
+      "id": "72ebe33991d5",
+      "title": "迟到25年！诺贝尔化学奖揭晓，95岁法国教授圆梦",
+      "summary": "迟到25年！诺贝尔化学奖揭晓，95岁法国教授圆梦",
+      "url": "https://www.qbitai.com/2026/10/501825.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-07T22:10:33+08:00"
+    },
+    {
+      "id": "5bdd694c6290",
+      "title": "One Model Family, Two Gold-Level Results: Fine-Tuning Nemotron for IOI and IMO",
+      "summary": "One Model Family, Two Gold-Level Results: Fine-Tuning Nemotron for IOI and IMO",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-07T20:45:31+08:00"
+    },
+    {
+      "id": "22643d6fcb19",
+      "title": "Introducing Playground: Create and play custom games",
+      "summary": "Playground is a new experimental gaming platform that lets you create, play, and share custom games.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/",
+      "source": "Google AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-07T20:00:00+08:00"
+    },
+    {
+      "id": "ad4e14640e35",
+      "title": "Helping teens learn, plan, and shape the future of AI",
+      "summary": "College Planner is coming to ChatGPT for Teens to help students manage college applications, alongside new flashcards, quizzes, and a teen AI council.",
+      "url": "https://openai.com/index/teens-learn-and-plan",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-07T20:00:00+08:00"
+    },
+    {
+      "id": "cf8b8def1fd8",
+      "title": "《怪物史莱克》编剧也来了！这家AI影视公司，视频模型全球第二！",
+      "summary": "《怪物史莱克》编剧也来了！这家AI影视公司，视频模型全球第二！",
+      "url": "https://www.qbitai.com/2026/10/501803.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-07T19:34:47+08:00"
+    },
+    {
       "id": "2f80d4d18f1f",
       "title": "晕…这年头还有说人话的AI不",
       "summary": "晕…这年头还有说人话的AI不",
@@ -22,6 +94,15 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-07T16:41:13+08:00"
+    },
+    {
+      "id": "04e9dc3828b5",
+      "title": "Radisson Hotel Group brings hotel discovery into ChatGPT",
+      "summary": "Radisson partnered with Accenture to build a ChatGPT plugin using OpenAI technology, helping travelers find, compare, and book hotels while planning their trip…",
+      "url": "https://openai.com/index/radisson",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-07T15:00:00+08:00"
     },
     {
       "id": "4dc96a0f443c",
@@ -87,6 +168,15 @@
       "published_at": "2026-10-07T09:05:13+08:00"
     },
     {
+      "id": "0ca1450969b5",
+      "title": "GPT-6 and Intelligent UI for everyone",
+      "summary": "GPT‑6 is rolling out globally in ChatGPT with Intelligent UI, delivering faster responses with visuals and interactive experiences you can explore and use dire…",
+      "url": "https://openai.com/index/gpt-6-for-everyone",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-07T08:00:00+08:00"
+    },
+    {
       "id": "4dd290070848",
       "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
       "summary": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
@@ -103,15 +193,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-07T00:19:06+08:00"
-    },
-    {
-      "id": "60ef2af305e7",
-      "title": "Atlassian and OpenAI expand partnership to turn enterprise knowledge into action",
-      "summary": "Atlassian and OpenAI are expanding their partnership to connect frontier models with enterprise knowledge and help teams plan, build, and deliver work.",
-      "url": "https://openai.com/index/atlassian-partnership",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-07T00:00:00+08:00"
     },
     {
       "id": "c84805ae92ec",
@@ -139,51 +220,6 @@
       "source": "OpenAI",
       "category": "开源项目",
       "published_at": "2026-10-06T20:00:00+08:00"
-    },
-    {
-      "id": "9d95aeff2904",
-      "title": "刚刚，诺贝尔物理奖一人独揽！",
-      "summary": "南极洲甚至有一座高地以他名字命名",
-      "url": "https://www.qbitai.com/2026/10/501746.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-06T18:44:58+08:00"
-    },
-    {
-      "id": "9964af802e9c",
-      "title": "Advancing computer use with Ironclad",
-      "summary": "Learn how OpenAI and Ironclad are training and evaluating AI agents on complex contracting workflows to advance computer use for professional work.",
-      "url": "https://openai.com/index/advancing-computer-use-with-ironclad",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-06T18:00:00+08:00"
-    },
-    {
-      "id": "1da032c63dfe",
-      "title": "不er，咋陶哲轩也成AI减速派了？？",
-      "summary": "不er，咋陶哲轩也成AI减速派了？？",
-      "url": "https://www.qbitai.com/2026/10/501736.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-06T15:59:17+08:00"
-    },
-    {
-      "id": "085f7195b66f",
-      "title": "Falcon-Emirati: When an LLM Learns the Dialect, the Culture, and the Nuance",
-      "summary": "Falcon-Emirati: When an LLM Learns the Dialect, the Culture, and the Nuance",
-      "url": "https://huggingface.co/blog/tiiuae/falcon-emirati",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-06T14:44:39+08:00"
-    },
-    {
-      "id": "78ad53815846",
-      "title": "Our approach to EU text provenance rules",
-      "summary": "How OpenAI is approaching text watermarking under EU rules. Learn where watermarks apply, how detection works, and why access starts with researchers.",
-      "url": "https://openai.com/index/eu-text-provenance",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-05T23:00:00+08:00"
     },
     {
       "id": "c2f51f56b801",
@@ -259,31 +295,24 @@
       "window_hours": 720
     },
     {
-      "id": "77852fb24237",
-      "title": "Fall Into 25 New Games on GeForce NOW This October",
-      "summary": "Spooky season is streaming in. Alongside falling leaves, pumpkin spice and everything nice, 25 new games are joining GeForce NOW throughout October, including …",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-october-2026-games-list/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-01T21:00:54+08:00"
-    },
-    {
-      "id": "15e70ee5e4a7",
-      "title": "Gemini 4 Argon: our next era of frontier intelligence",
-      "summary": "Gemini 4 Argon: our next era of frontier intelligence",
-      "url": "https://deepmind.google/blog/gemini-4-argon-our-next-era-of-frontier-intelligence/",
-      "source": "Google DeepMind",
+      "id": "456a591e773f",
+      "title": "丘成桐新论文致谢了GPT和Claude",
+      "summary": "丘成桐新论文致谢了GPT和Claude",
+      "url": "https://www.qbitai.com/2026/10/499991.html",
+      "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-10-01T04:01:45+08:00"
+      "published_at": "2026-10-02T00:00:00+08:00",
+      "window_hours": 720
     },
     {
-      "id": "b3162152f353",
-      "title": "Forecasting space weather risks on power grids",
-      "summary": "Extreme space-weather events can damage power systems on Earth and degrade GPS accuracy and satellite operations. A new machine learning system can predict whe…",
-      "url": "https://www.microsoft.com/en-us/research/blog/forecasting-space-weather-risks-on-power-grids/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-01T00:00:00+08:00"
+      "id": "dbef6f28ec9b",
+      "title": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
+      "summary": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
+      "url": "https://www.qbitai.com/2026/10/499958.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-02T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "25240ff1dd96",
@@ -304,61 +333,12 @@
       "category": "新工具上线",
       "published_at": "2026-10-01T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "0a622a33b8e3",
-      "title": "Introducing SynthID Bio",
-      "summary": "Proof of concept for watermarking AI-generated proteins while preserving biological function.",
-      "url": "https://deepmind.google/blog/introducing-synthid-bio/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-09-30T23:03:07+08:00"
-    },
-    {
-      "id": "cf9e97faaf0c",
-      "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
-      "summary": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
-      "url": "https://www.qbitai.com/2026/09/499654.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-30T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "7856ca1ca90a",
-      "title": "直播回顾：工业AI的下一个机会在哪？",
-      "summary": "直播回顾：工业AI的下一个机会在哪？",
-      "url": "https://www.qbitai.com/2026/09/499605.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-30T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "cf9e97faaf0c",
-        "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
-        "summary": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
-        "url": "https://www.qbitai.com/2026/09/499654.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-30T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "7856ca1ca90a",
-        "title": "直播回顾：工业AI的下一个机会在哪？",
-        "summary": "直播回顾：工业AI的下一个机会在哪？",
-        "url": "https://www.qbitai.com/2026/09/499605.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-09-30T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "25240ff1dd96",
         "title": "何恺明团队新作：看猫片就能学会ARC挑战",
@@ -386,6 +366,26 @@
         "url": "https://www.qbitai.com/2026/10/500098.html",
         "source": "量子位",
         "category": "中文资讯",
+        "published_at": "2026-10-02T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "456a591e773f",
+        "title": "丘成桐新论文致谢了GPT和Claude",
+        "summary": "丘成桐新论文致谢了GPT和Claude",
+        "url": "https://www.qbitai.com/2026/10/499991.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-10-02T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "dbef6f28ec9b",
+        "title": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
+        "summary": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
+        "url": "https://www.qbitai.com/2026/10/499958.html",
+        "source": "量子位",
+        "category": "开源项目",
         "published_at": "2026-10-02T00:00:00+08:00",
         "window_hours": 720
       }
