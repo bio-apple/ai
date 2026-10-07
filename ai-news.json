@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-07T05:23:37.762828+08:00",
+  "updated_at": "2026-10-07T18:36:57.075545+08:00",
   "date": "2026-10-07",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,78 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "2f80d4d18f1f",
+      "title": "晕…这年头还有说人话的AI不",
+      "summary": "晕…这年头还有说人话的AI不",
+      "url": "https://www.qbitai.com/2026/10/501796.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-07T16:41:13+08:00"
+    },
+    {
+      "id": "4dc96a0f443c",
+      "title": "Meshy 跻身 a16z 消费级 AI 应用月收入 Top 50，为榜单唯一 AI 3D 公司",
+      "summary": "在 a16z 首份消费级 AI 应用月收入榜单中，Meshy 位列第 31 名，与 OpenAI、Anthropic、Canva、Superhuman、Higgsfield 等共同上榜",
+      "url": "https://www.qbitai.com/2026/10/501791.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-07T14:39:36+08:00"
+    },
+    {
+      "id": "dc0104d61caf",
+      "title": "GAMEGO: Training Game-Dev Agents with Synthetic Trajectories Anchored in Real-World Assets",
+      "summary": "arXiv:2610.06910v1 Announce Type: new Abstract: Recent advances in Large Language Models (LLMs) have demonstrated remarkable capabilities in web front-end exec…",
+      "url": "https://arxiv.org/abs/2610.06910",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-07T12:00:00+08:00"
+    },
+    {
+      "id": "8b6a131a0fd9",
+      "title": "Text2Dashboard: A Governed Agent Architecture for Natural-Language Dashboard Generation over Enterprise DataBrain",
+      "summary": "arXiv:2610.06914v1 Announce Type: new Abstract: Text2Dashboard is a DataBrain-specific prototype that turns natural-language analytic requests into inspectable…",
+      "url": "https://arxiv.org/abs/2610.06914",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-07T12:00:00+08:00"
+    },
+    {
+      "id": "bdc134cd22fd",
+      "title": "FluidPD: In-Place Elasticity for SLO-Aware Prefill-Decode Disaggregated LLM Serving",
+      "summary": "arXiv:2610.06917v1 Announce Type: new Abstract: Prefill-decode disaggregation is becoming a common architecture for LLM serving because it separates two phases…",
+      "url": "https://arxiv.org/abs/2610.06917",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-07T12:00:00+08:00"
+    },
+    {
+      "id": "359546810a8e",
+      "title": "Anchor Divergence for Semantic Geometry in Contrastive Learning",
+      "summary": "arXiv:2610.06919v1 Announce Type: new Abstract: This paper concerns how semantic context determines geometry in learned vector representations. Similarity is t…",
+      "url": "https://arxiv.org/abs/2610.06919",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-07T12:00:00+08:00"
+    },
+    {
+      "id": "0bc1242b35b0",
+      "title": "RadOnc-Agent: An LLM-Orchestrated Framework for AI Workflows Across the Radiotherapy Care Pathway",
+      "summary": "arXiv:2610.06923v1 Announce Type: new Abstract: Artificial intelligence has advanced individual radiotherapy tasks, yet these capabilities remain separated acr…",
+      "url": "https://arxiv.org/abs/2610.06923",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-07T12:00:00+08:00"
+    },
+    {
+      "id": "1cd9e00c8199",
+      "title": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
+      "summary": "三位菲尔兹奖得主：不代表认可",
+      "url": "https://www.qbitai.com/2026/10/501749.html",
+      "source": "量子位",
+      "category": "学术论文",
+      "published_at": "2026-10-07T09:05:13+08:00"
+    },
     {
       "id": "4dd290070848",
       "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
@@ -51,6 +123,24 @@
       "published_at": "2026-10-06T21:00:19+08:00"
     },
     {
+      "id": "342677ae7ead",
+      "title": "How Jump Trading is scaling quant research with ChatGPT",
+      "summary": "Jump Trading uses OpenAI to expand quantitative research. See how longer-running AI workflows combine multiple data sources with human review.",
+      "url": "https://openai.com/index/jump-trading",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-06T20:00:00+08:00"
+    },
+    {
+      "id": "47b9255d8fa0",
+      "title": "Sharing AI progress in mathematics",
+      "summary": "OpenAI publishes new results on open problems in mathematics from an internal frontier model and shares Lean proof formalizations and research details on GitHu…",
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics",
+      "source": "OpenAI",
+      "category": "开源项目",
+      "published_at": "2026-10-06T20:00:00+08:00"
+    },
+    {
       "id": "9d95aeff2904",
       "title": "刚刚，诺贝尔物理奖一人独揽！",
       "summary": "南极洲甚至有一座高地以他名字命名",
@@ -76,15 +166,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-06T15:59:17+08:00"
-    },
-    {
-      "id": "b245880876ad",
-      "title": "OpenAI「疯狂28天」首日，这都发了些啥啊…",
-      "summary": "OpenAI「疯狂28天」首日，这都发了些啥啊…",
-      "url": "https://www.qbitai.com/2026/10/501726.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-06T14:45:40+08:00"
     },
     {
       "id": "085f7195b66f",
@@ -114,33 +195,6 @@
       "published_at": "2026-10-05T21:00:57+08:00"
     },
     {
-      "id": "167a28b31d7e",
-      "title": "刚刚，诺贝尔奖颁给光遗传学！",
-      "summary": "从绿藻里的光开关，到控制神经元",
-      "url": "https://www.qbitai.com/2026/10/501720.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-05T18:37:01+08:00"
-    },
-    {
-      "id": "3cbec84de8bf",
-      "title": "Building advertising for the way people use AI",
-      "summary": "OpenAI introduces a new visual ad format in ChatGPT and expands measurement tools, attribution partnerships, and brand suitability for advertisers.",
-      "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-05T18:00:00+08:00"
-    },
-    {
-      "id": "d76be398914d",
-      "title": "刚刚，Hinton发了首篇RSI论文",
-      "summary": "AI已经开始真正进入「造下一代AI」的流水线",
-      "url": "https://www.qbitai.com/2026/10/501705.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-10-05T12:42:52+08:00"
-    },
-    {
       "id": "89764eae0099",
       "title": "The Agent Said It Was Done. The Database Disagreed.",
       "summary": "The Agent Said It Was Done. The Database Disagreed.",
@@ -148,15 +202,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-10-04T06:56:48+08:00"
-    },
-    {
-      "id": "8e206c4d9ed6",
-      "title": "A model guide for the GPT-6 family",
-      "summary": "Learn how startups can choose GPT-6 models, tune reasoning effort, improve prompts and skills, coordinate tools, and prepare workflows for production.",
-      "url": "https://openai.com/index/practical-guide-building-gpt-6",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-03T00:15:00+08:00"
     },
     {
       "id": "d599f0a282be",
@@ -204,6 +249,16 @@
       "published_at": "2026-10-02T07:44:13+08:00"
     },
     {
+      "id": "a04332b7488f",
+      "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
+      "summary": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
+      "url": "https://www.qbitai.com/2026/10/500098.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-02T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "77852fb24237",
       "title": "Fall Into 25 New Games on GeForce NOW This October",
       "summary": "Spooky season is streaming in. Alongside falling leaves, pumpkin spice and everything nice, 25 new games are joining GeForce NOW throughout October, including …",
@@ -231,6 +286,26 @@
       "published_at": "2026-10-01T00:00:00+08:00"
     },
     {
+      "id": "25240ff1dd96",
+      "title": "何恺明团队新作：看猫片就能学会ARC挑战",
+      "summary": "何恺明团队新作：看猫片就能学会ARC挑战",
+      "url": "https://www.qbitai.com/2026/10/499812.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-01T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "42f99d3e4d0a",
+      "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
+      "summary": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
+      "url": "https://www.qbitai.com/2026/10/499663.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-01T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "0a622a33b8e3",
       "title": "Introducing SynthID Bio",
       "summary": "Proof of concept for watermarking AI-generated proteins while preserving biological function.",
@@ -238,15 +313,6 @@
       "source": "Google DeepMind",
       "category": "新工具上线",
       "published_at": "2026-09-30T23:03:07+08:00"
-    },
-    {
-      "id": "581ab3112c30",
-      "title": "Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning",
-      "summary": "Open TTS Leaderboard: Scalable Evaluation for Multilingual Text-to-Speech and Voice Cloning",
-      "url": "https://huggingface.co/blog/open-tts-leaderboard",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-09-30T08:00:00+08:00"
     },
     {
       "id": "cf9e97faaf0c",
@@ -259,40 +325,10 @@
       "window_hours": 720
     },
     {
-      "id": "00dec4f5eef0",
-      "title": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
-      "summary": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
-      "url": "https://www.qbitai.com/2026/09/499246.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-09-30T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "d3df5418cadb",
-      "title": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
-      "summary": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
-      "url": "https://www.qbitai.com/2026/09/499263.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-09-30T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "6fbc44660a91",
-      "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
-      "summary": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
-      "url": "https://www.qbitai.com/2026/09/499308.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-09-30T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "d0ff96814d42",
-      "title": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
-      "summary": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
-      "url": "https://www.qbitai.com/2026/09/499592.html",
+      "id": "7856ca1ca90a",
+      "title": "直播回顾：工业AI的下一个机会在哪？",
+      "summary": "直播回顾：工业AI的下一个机会在哪？",
+      "url": "https://www.qbitai.com/2026/09/499605.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-09-30T00:00:00+08:00",
@@ -314,43 +350,43 @@
         "window_hours": 720
       },
       {
-        "id": "00dec4f5eef0",
-        "title": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
-        "summary": "OpenAI光速上新GPT-6.1 Sol！一晚上25项更新，都在这里了",
-        "url": "https://www.qbitai.com/2026/09/499246.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-09-30T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "d3df5418cadb",
-        "title": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
-        "summary": "DeepSeek官方开源昇腾基础组件，与昇腾共建高效易用的AI芯片软件生态",
-        "url": "https://www.qbitai.com/2026/09/499263.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-09-30T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "6fbc44660a91",
-        "title": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
-        "summary": "DeepSeek知乎独家发文，首次公开V4.1 Agent训练“大本营”DSec",
-        "url": "https://www.qbitai.com/2026/09/499308.html",
+        "id": "7856ca1ca90a",
+        "title": "直播回顾：工业AI的下一个机会在哪？",
+        "summary": "直播回顾：工业AI的下一个机会在哪？",
+        "url": "https://www.qbitai.com/2026/09/499605.html",
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-09-30T00:00:00+08:00",
         "window_hours": 720
       },
       {
-        "id": "d0ff96814d42",
-        "title": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
-        "summary": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
-        "url": "https://www.qbitai.com/2026/09/499592.html",
+        "id": "25240ff1dd96",
+        "title": "何恺明团队新作：看猫片就能学会ARC挑战",
+        "summary": "何恺明团队新作：看猫片就能学会ARC挑战",
+        "url": "https://www.qbitai.com/2026/10/499812.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-09-30T00:00:00+08:00",
+        "published_at": "2026-10-01T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "42f99d3e4d0a",
+        "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
+        "summary": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
+        "url": "https://www.qbitai.com/2026/10/499663.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-01T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "a04332b7488f",
+        "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
+        "summary": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
+        "url": "https://www.qbitai.com/2026/10/500098.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-02T00:00:00+08:00",
         "window_hours": 720
       }
     ]
