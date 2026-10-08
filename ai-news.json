@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-08T05:42:01.018258+08:00",
+  "updated_at": "2026-10-08T18:59:20.384384+08:00",
   "date": "2026-10-08",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,9 +15,99 @@
   },
   "items": [
     {
+      "id": "459b98c4a47c",
+      "title": "浪子回头！Manus重启北京办公室大举招聘",
+      "summary": "开始和国产Agent抢人，还拿到5亿美元新融资",
+      "url": "https://www.qbitai.com/2026/10/502009.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-10-08T17:30:17+08:00"
+    },
+    {
+      "id": "f2d85267cf54",
+      "title": "ChatGPT踢到铁板了！能破解千禧数学难题，但论文复现率低至13.98%？",
+      "summary": "PaperBenchX为代表的基准或许能更好地衡量AI的科研实力",
+      "url": "https://www.qbitai.com/2026/10/501995.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-08T17:28:44+08:00"
+    },
+    {
+      "id": "cb6fa4054bfa",
+      "title": "吉利智充技术正式发布，重塑全球补能新标杆",
+      "summary": "2027年底实现“县县通”",
+      "url": "https://www.qbitai.com/2026/10/501956.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-08T17:10:55+08:00"
+    },
+    {
+      "id": "b8abeff3e580",
+      "title": "打不过就投降，保时捷裁员9000人，回归燃油车主线",
+      "summary": "管理岗砍掉四成，顶级车型涨价20%卖",
+      "url": "https://www.qbitai.com/2026/10/501930.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-08T15:10:24+08:00"
+    },
+    {
+      "id": "dc0104d61caf",
+      "title": "GAMEGO: Training Game-Dev Agents with Synthetic Trajectories Anchored in Real-World Assets",
+      "summary": "arXiv:2610.06910v1 Announce Type: new Abstract: Recent advances in Large Language Models (LLMs) have demonstrated remarkable capabilities in web front-end exec…",
+      "url": "https://arxiv.org/abs/2610.06910",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-08T12:00:00+08:00"
+    },
+    {
+      "id": "8b6a131a0fd9",
+      "title": "Text2Dashboard: A Governed Agent Architecture for Natural-Language Dashboard Generation over Enterprise DataBrain",
+      "summary": "arXiv:2610.06914v1 Announce Type: new Abstract: Text2Dashboard is a DataBrain-specific prototype that turns natural-language analytic requests into inspectable…",
+      "url": "https://arxiv.org/abs/2610.06914",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-08T12:00:00+08:00"
+    },
+    {
+      "id": "bdc134cd22fd",
+      "title": "FluidPD: In-Place Elasticity for SLO-Aware Prefill-Decode Disaggregated LLM Serving",
+      "summary": "arXiv:2610.06917v1 Announce Type: new Abstract: Prefill-decode disaggregation is becoming a common architecture for LLM serving because it separates two phases…",
+      "url": "https://arxiv.org/abs/2610.06917",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-08T12:00:00+08:00"
+    },
+    {
+      "id": "359546810a8e",
+      "title": "Anchor Divergence for Semantic Geometry in Contrastive Learning",
+      "summary": "arXiv:2610.06919v1 Announce Type: new Abstract: This paper concerns how semantic context determines geometry in learned vector representations. Similarity is t…",
+      "url": "https://arxiv.org/abs/2610.06919",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-08T12:00:00+08:00"
+    },
+    {
+      "id": "0bc1242b35b0",
+      "title": "RadOnc-Agent: An LLM-Orchestrated Framework for AI Workflows Across the Radiotherapy Care Pathway",
+      "summary": "arXiv:2610.06923v1 Announce Type: new Abstract: Artificial intelligence has advanced individual radiotherapy tasks, yet these capabilities remain separated acr…",
+      "url": "https://arxiv.org/abs/2610.06923",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-08T12:00:00+08:00"
+    },
+    {
+      "id": "318d5ff26387",
+      "title": "大模型原生智能体手机STEPX Neo将于10月13日正式发布",
+      "summary": "大模型原生智能体手机STEPX Neo将于10月13日正式发布",
+      "url": "https://www.qbitai.com/2026/10/501915.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-08T10:15:37+08:00"
+    },
+    {
       "id": "327e963986a0",
       "title": "NVIDIA, Microsoft Kick Off a New Beginning for Windows PCs With RTX Spark and AI Agents",
-      "summary": "At a Microsoft event in San Francisco on Wednesday, Jensen Huang and Satya Nadella outlined how NVIDIA and Microsoft are co-engineering hardware and software f…",
+      "summary": "At a Microsoft event in San Francisco on Wednesday, NVIDIA founder and CEO Jensen Huang and Microsoft CEO Satya Nadella outlined how NVIDIA and Microsoft are c…",
       "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
       "source": "NVIDIA AI",
       "category": "行业新闻",
@@ -40,15 +130,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-08T00:00:00+08:00"
-    },
-    {
-      "id": "72ebe33991d5",
-      "title": "迟到25年！诺贝尔化学奖揭晓，95岁法国教授圆梦",
-      "summary": "迟到25年！诺贝尔化学奖揭晓，95岁法国教授圆梦",
-      "url": "https://www.qbitai.com/2026/10/501825.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-07T22:10:33+08:00"
     },
     {
       "id": "5bdd694c6290",
@@ -78,24 +159,6 @@
       "published_at": "2026-10-07T20:00:00+08:00"
     },
     {
-      "id": "cf8b8def1fd8",
-      "title": "《怪物史莱克》编剧也来了！这家AI影视公司，视频模型全球第二！",
-      "summary": "《怪物史莱克》编剧也来了！这家AI影视公司，视频模型全球第二！",
-      "url": "https://www.qbitai.com/2026/10/501803.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-07T19:34:47+08:00"
-    },
-    {
-      "id": "2f80d4d18f1f",
-      "title": "晕…这年头还有说人话的AI不",
-      "summary": "晕…这年头还有说人话的AI不",
-      "url": "https://www.qbitai.com/2026/10/501796.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-07T16:41:13+08:00"
-    },
-    {
       "id": "04e9dc3828b5",
       "title": "Radisson Hotel Group brings hotel discovery into ChatGPT",
       "summary": "Radisson partnered with Accenture to build a ChatGPT plugin using OpenAI technology, helping travelers find, compare, and book hotels while planning their trip…",
@@ -103,69 +166,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-07T15:00:00+08:00"
-    },
-    {
-      "id": "4dc96a0f443c",
-      "title": "Meshy 跻身 a16z 消费级 AI 应用月收入 Top 50，为榜单唯一 AI 3D 公司",
-      "summary": "在 a16z 首份消费级 AI 应用月收入榜单中，Meshy 位列第 31 名，与 OpenAI、Anthropic、Canva、Superhuman、Higgsfield 等共同上榜",
-      "url": "https://www.qbitai.com/2026/10/501791.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-07T14:39:36+08:00"
-    },
-    {
-      "id": "dc0104d61caf",
-      "title": "GAMEGO: Training Game-Dev Agents with Synthetic Trajectories Anchored in Real-World Assets",
-      "summary": "arXiv:2610.06910v1 Announce Type: new Abstract: Recent advances in Large Language Models (LLMs) have demonstrated remarkable capabilities in web front-end exec…",
-      "url": "https://arxiv.org/abs/2610.06910",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-07T12:00:00+08:00"
-    },
-    {
-      "id": "8b6a131a0fd9",
-      "title": "Text2Dashboard: A Governed Agent Architecture for Natural-Language Dashboard Generation over Enterprise DataBrain",
-      "summary": "arXiv:2610.06914v1 Announce Type: new Abstract: Text2Dashboard is a DataBrain-specific prototype that turns natural-language analytic requests into inspectable…",
-      "url": "https://arxiv.org/abs/2610.06914",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-07T12:00:00+08:00"
-    },
-    {
-      "id": "bdc134cd22fd",
-      "title": "FluidPD: In-Place Elasticity for SLO-Aware Prefill-Decode Disaggregated LLM Serving",
-      "summary": "arXiv:2610.06917v1 Announce Type: new Abstract: Prefill-decode disaggregation is becoming a common architecture for LLM serving because it separates two phases…",
-      "url": "https://arxiv.org/abs/2610.06917",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-07T12:00:00+08:00"
-    },
-    {
-      "id": "359546810a8e",
-      "title": "Anchor Divergence for Semantic Geometry in Contrastive Learning",
-      "summary": "arXiv:2610.06919v1 Announce Type: new Abstract: This paper concerns how semantic context determines geometry in learned vector representations. Similarity is t…",
-      "url": "https://arxiv.org/abs/2610.06919",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-07T12:00:00+08:00"
-    },
-    {
-      "id": "0bc1242b35b0",
-      "title": "RadOnc-Agent: An LLM-Orchestrated Framework for AI Workflows Across the Radiotherapy Care Pathway",
-      "summary": "arXiv:2610.06923v1 Announce Type: new Abstract: Artificial intelligence has advanced individual radiotherapy tasks, yet these capabilities remain separated acr…",
-      "url": "https://arxiv.org/abs/2610.06923",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-07T12:00:00+08:00"
-    },
-    {
-      "id": "1cd9e00c8199",
-      "title": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
-      "summary": "三位菲尔兹奖得主：不代表认可",
-      "url": "https://www.qbitai.com/2026/10/501749.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-10-07T09:05:13+08:00"
     },
     {
       "id": "0ca1450969b5",
@@ -350,16 +350,6 @@
         "window_hours": 720
       },
       {
-        "id": "42f99d3e4d0a",
-        "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
-        "summary": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
-        "url": "https://www.qbitai.com/2026/10/499663.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-01T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "a04332b7488f",
         "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
         "summary": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
@@ -367,6 +357,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-02T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "42f99d3e4d0a",
+        "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
+        "summary": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
+        "url": "https://www.qbitai.com/2026/10/499663.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-01T00:00:00+08:00",
         "window_hours": 720
       },
       {
