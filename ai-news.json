@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-08T18:59:20.384384+08:00",
-  "date": "2026-10-08",
+  "updated_at": "2026-10-09T05:39:09.032400+08:00",
+  "date": "2026-10-09",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "baf7193e75c1",
+      "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
+      "summary": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended…",
+      "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-09T05:06:35+08:00"
+    },
+    {
+      "id": "112b5f00879d",
+      "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
+      "summary": "Across recruiting, engineering, and operations, Oracle turns specialist knowledge into fast, repeatable workflows with ChatGPT Work and Codex.",
+      "url": "https://openai.com/index/oracle",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-09T00:00:00+08:00"
+    },
+    {
+      "id": "eaa588eea50d",
+      "title": "真香！做这个邪恶老奶版「GTA 6」，我只花了5元！",
+      "summary": "Vidu Q4预览版，了解一下~",
+      "url": "https://www.qbitai.com/2026/10/502049.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-08T21:28:23+08:00"
+    },
+    {
+      "id": "22621a26ca48",
+      "title": "Rally Up: ‘Gears of War: E-Day’ Launches on GeForce NOW",
+      "summary": "Gears of War: E-Day leads the charge on GeForce NOW this week, bringing Marcus Fenix and Dom Santiago’s first fight against the Locust Horde to the cloud with …",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gears-of-war-e-day/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-08T21:00:46+08:00"
+    },
+    {
+      "id": "871572487cfb",
+      "title": "正行创新亮相APRCE 2026，发布全球首个零售物理智能24/7服务解决方案",
+      "summary": "打造便利店“人机协作”运营新模式",
+      "url": "https://www.qbitai.com/2026/10/502035.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-08T20:43:31+08:00"
+    },
+    {
+      "id": "ca1ec6c6a1a1",
+      "title": "Pollo AI turns creative ideas into campaigns with",
+      "summary": "With GPT-5.6, GPT-6 Astra, and GPT‑Image‑2.5, Pollo AI helps creators turn bold ideas into detailed images and cinematic video ads.",
+      "url": "https://openai.com/index/pollo-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-08T20:00:00+08:00"
+    },
+    {
+      "id": "38304e4713fe",
+      "title": "搭载NVIDIA RTX Spark™ N1X超级芯片：联想YOGA Pro 15开启盲约，重塑个人生产力边界",
+      "summary": "联想YOGA Pro 15 RTX Spark笔记本电脑，于10月8日9:00正式开启全网盲约。",
+      "url": "https://www.qbitai.com/2026/10/502020.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-08T18:23:53+08:00"
+    },
     {
       "id": "459b98c4a47c",
       "title": "浪子回头！Manus重启北京办公室大举招聘",
@@ -31,24 +94,6 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-10-08T17:28:44+08:00"
-    },
-    {
-      "id": "cb6fa4054bfa",
-      "title": "吉利智充技术正式发布，重塑全球补能新标杆",
-      "summary": "2027年底实现“县县通”",
-      "url": "https://www.qbitai.com/2026/10/501956.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-08T17:10:55+08:00"
-    },
-    {
-      "id": "b8abeff3e580",
-      "title": "打不过就投降，保时捷裁员9000人，回归燃油车主线",
-      "summary": "管理岗砍掉四成，顶级车型涨价20%卖",
-      "url": "https://www.qbitai.com/2026/10/501930.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-08T15:10:24+08:00"
     },
     {
       "id": "dc0104d61caf",
@@ -96,13 +141,13 @@
       "published_at": "2026-10-08T12:00:00+08:00"
     },
     {
-      "id": "318d5ff26387",
-      "title": "大模型原生智能体手机STEPX Neo将于10月13日正式发布",
-      "summary": "大模型原生智能体手机STEPX Neo将于10月13日正式发布",
-      "url": "https://www.qbitai.com/2026/10/501915.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-08T10:15:37+08:00"
+      "id": "077dea1e8a7a",
+      "title": "Disrupting AI-enabled “false front” operations",
+      "summary": "OpenAI disrupted two AI-enabled influence operations that used false-front journalists and a think tank to spread geopolitical messaging.",
+      "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-08T08:00:00+08:00"
     },
     {
       "id": "327e963986a0",
@@ -130,6 +175,15 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-08T00:00:00+08:00"
+    },
+    {
+      "id": "91ed3eb235f3",
+      "title": "Introducing Falcon ASR",
+      "summary": "Introducing Falcon ASR",
+      "url": "https://huggingface.co/blog/tiiuae/falcon-asr",
+      "source": "Hugging Face",
+      "category": "新工具上线",
+      "published_at": "2026-10-07T21:21:03+08:00"
     },
     {
       "id": "5bdd694c6290",
@@ -168,24 +222,6 @@
       "published_at": "2026-10-07T15:00:00+08:00"
     },
     {
-      "id": "0ca1450969b5",
-      "title": "GPT-6 and Intelligent UI for everyone",
-      "summary": "GPT‑6 is rolling out globally in ChatGPT with Intelligent UI, delivering faster responses with visuals and interactive experiences you can explore and use dire…",
-      "url": "https://openai.com/index/gpt-6-for-everyone",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-07T08:00:00+08:00"
-    },
-    {
-      "id": "4dd290070848",
-      "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
-      "summary": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
-      "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-07T03:57:04+08:00"
-    },
-    {
       "id": "242f2e4b6328",
       "title": "What AI gets wrong and what failure teaches us",
       "summary": "Jennifer Neville did not want to go into computer science—but that’s exactly where she landed. Neville discusses the starts and stops that led to her professio…",
@@ -202,24 +238,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-10-06T21:00:19+08:00"
-    },
-    {
-      "id": "342677ae7ead",
-      "title": "How Jump Trading is scaling quant research with ChatGPT",
-      "summary": "Jump Trading uses OpenAI to expand quantitative research. See how longer-running AI workflows combine multiple data sources with human review.",
-      "url": "https://openai.com/index/jump-trading",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-06T20:00:00+08:00"
-    },
-    {
-      "id": "47b9255d8fa0",
-      "title": "Sharing AI progress in mathematics",
-      "summary": "OpenAI publishes new results on open problems in mathematics from an internal frontier model and shares Lean proof formalizations and research details on GitHu…",
-      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics",
-      "source": "OpenAI",
-      "category": "开源项目",
-      "published_at": "2026-10-06T20:00:00+08:00"
     },
     {
       "id": "c2f51f56b801",
@@ -240,6 +258,26 @@
       "published_at": "2026-10-04T06:56:48+08:00"
     },
     {
+      "id": "4451b333657f",
+      "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
+      "summary": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
+      "url": "https://www.qbitai.com/2026/10/501381.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-03T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "2e1cc7abff8b",
+      "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
+      "summary": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
+      "url": "https://www.qbitai.com/2026/10/501368.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-03T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "d599f0a282be",
       "title": "Open-sourcing AstaBrief, the fast report-generation model in Asta",
       "summary": "Open-sourcing AstaBrief, the fast report-generation model in Asta",
@@ -256,33 +294,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-10-02T23:00:00+08:00"
-    },
-    {
-      "id": "1f284fec3a90",
-      "title": "NVIDIA DGX Spark 64GB Gives Developers More Ways to Build and Scale Local",
-      "summary": "Local AI is becoming more useful by the token. As AI agents move from experiments into everyday development, increasingly capable open models are shrinking to …",
-      "url": "https://blogs.nvidia.com/blog/local-ai-dgx-spark-64gb-sync/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-02T21:00:39+08:00"
-    },
-    {
-      "id": "a885ed61f54a",
-      "title": "AutoSynthData: Generating Training Data for Enterprise Agents",
-      "summary": "AutoSynthData: Generating Training Data for Enterprise Agents",
-      "url": "https://huggingface.co/blog/ServiceNow-AI/autosynthdata",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-02T12:01:31+08:00"
-    },
-    {
-      "id": "c68e4b407e02",
-      "title": "How NVIDIA GPUs Help Accelerate OpenAI’s GPT-6 Astra Ultrafast",
-      "summary": "GPT-6 Astra Ultrafast, running on NVIDIA Blackwell GPUs, is available now in the OpenAI API and to eligible ChatGPT Work and Codex users. Accelerated by infere…",
-      "url": "https://blogs.nvidia.com/blog/gpus-openai-gpt-6-astra-ultrafast/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-02T07:44:13+08:00"
     },
     {
       "id": "a04332b7488f",
@@ -313,42 +324,12 @@
       "category": "开源项目",
       "published_at": "2026-10-02T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "25240ff1dd96",
-      "title": "何恺明团队新作：看猫片就能学会ARC挑战",
-      "summary": "何恺明团队新作：看猫片就能学会ARC挑战",
-      "url": "https://www.qbitai.com/2026/10/499812.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-01T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "42f99d3e4d0a",
-      "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
-      "summary": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
-      "url": "https://www.qbitai.com/2026/10/499663.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-01T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "25240ff1dd96",
-        "title": "何恺明团队新作：看猫片就能学会ARC挑战",
-        "summary": "何恺明团队新作：看猫片就能学会ARC挑战",
-        "url": "https://www.qbitai.com/2026/10/499812.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-01T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "a04332b7488f",
         "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
@@ -357,16 +338,6 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-02T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "42f99d3e4d0a",
-        "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
-        "summary": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
-        "url": "https://www.qbitai.com/2026/10/499663.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-01T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -387,6 +358,26 @@
         "source": "量子位",
         "category": "开源项目",
         "published_at": "2026-10-02T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "4451b333657f",
+        "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
+        "summary": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
+        "url": "https://www.qbitai.com/2026/10/501381.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-03T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "2e1cc7abff8b",
+        "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
+        "summary": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
+        "url": "https://www.qbitai.com/2026/10/501368.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-03T00:00:00+08:00",
         "window_hours": 720
       }
     ]
