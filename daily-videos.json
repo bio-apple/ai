@@ -185,9 +185,144 @@
     "youtube:7Bv68f5szSU",
     "bilibili:BV1GPbW6fE56",
     "youtube:bGALxRWI10A",
-    "youtube:PUBc2G0Tj5E"
+    "youtube:PUBc2G0Tj5E",
+    "youtube:hTAsWGTK6wY",
+    "bilibili:BV11SYy6pENX"
   ],
   "batches": [
+    {
+      "date": "2026-10-10",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:PUBc2G0Tj5E",
+              "platform": "youtube",
+              "title": "Meet the New Codex CLI",
+              "summary": "Take a look at the latest Codex CLI updates and the refreshed terminal experience",
+              "url": "https://www.youtube.com/watch?v=PUBc2G0Tj5E",
+              "thumbnail": "https://i.ytimg.com/vi/PUBc2G0Tj5E/maxresdefault.jpg",
+              "channel": "OpenAI",
+              "subscribers": 0,
+              "views": 221772,
+              "duration": "3:15",
+              "max_height": 1080,
+              "published_at": "2026-10-06T02:29:08+08:00"
+            },
+            {
+              "id": "youtube:X-pbJWKmwi0",
+              "platform": "youtube",
+              "title": "Build & Sell with Codex (5+ Hour Course)",
+              "summary": "My FREE Resources: FREE First Client SOP: My playbook for growing a $1M AI agency: Karpathy LLM Wiki: Second YouTube channel: My …",
+              "url": "https://www.youtube.com/watch?v=X-pbJWKmwi0",
+              "thumbnail": "https://i.ytimg.com/vi/X-pbJWKmwi0/maxresdefault.jpg",
+              "channel": "Nate Herk | AI Automation",
+              "subscribers": 0,
+              "views": 99331,
+              "duration": "5:10:40",
+              "max_height": 1080,
+              "published_at": "2026-09-21T20:31:48+08:00"
+            },
+            {
+              "id": "youtube:hTAsWGTK6wY",
+              "platform": "youtube",
+              "title": "FULL ChatGPT Tutorial For Beginners in 2026! (FULL COURSE)",
+              "summary": "🚀 Join Ai Foundations - ✨ Get Iterated - This is the only ChatGPT tutorial you'll ever need",
+              "url": "https://www.youtube.com/watch?v=hTAsWGTK6wY",
+              "thumbnail": "https://i.ytimg.com/vi/hTAsWGTK6wY/maxresdefault.jpg",
+              "channel": "Productive Dude",
+              "subscribers": 0,
+              "views": 75298,
+              "duration": "1:50:41",
+              "max_height": 1080,
+              "published_at": "2026-09-17T22:00:01+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1Zeew64Eq5",
+              "platform": "bilibili",
+              "title": "就这样，我开始用豆包工作赚钱了！全流程攻略！",
+              "summary": "最近用了一个月的豆包工作，选题，拍摄，复盘的活它都能帮我做，不到下班时间我就干完一天的活？！如果你也想学一下怎么用豆包工作早点下班，这期视频跟着我，手把手教你玩透豆包工作，打通工作全流程。轻松实现早下班！",
+              "url": "https://www.bilibili.com/video/BV1Zeew64Eq5",
+              "thumbnail": "video-thumbs/bilibili/BV1Zeew64Eq5.jpg",
+              "channel": "科技宅小明",
+              "subscribers": 0,
+              "views": 254077,
+              "duration": "12:59",
+              "max_height": 720,
+              "published_at": "2026-09-16T17:20:29+08:00"
+            },
+            {
+              "id": "bilibili:BV1WWYE6LEzx",
+              "platform": "bilibili",
+              "title": "黑马程序员2026全网最夯VibeCoding零基础入门到实战项目开发全套视频教程，AI辅助编程从入门到实战，涵盖Claude Code、DeepSeek等内容",
+              "summary": "本套视频教程所有配套资料领取方式如下： 关注黑马程序员公 粽 号，回复关键词：260914 2026黑马程序员AI智能应用开发学习路线图 如何下载资料 学习+球球群625260577，告别孤单，共同进步！ 【AI智能应用开发学习路线图】（依次向下顺序学习即可…",
+              "url": "https://www.bilibili.com/video/BV1WWYE6LEzx",
+              "thumbnail": "video-thumbs/bilibili/BV1WWYE6LEzx.jpg",
+              "channel": "黑马程序员",
+              "subscribers": 0,
+              "views": 230306,
+              "duration": "370:36",
+              "max_height": 720,
+              "published_at": "2026-09-14T09:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV11SYy6pENX",
+              "platform": "bilibili",
+              "title": "我用豆包工作做了一个通用的“备考APP”！超简单的AI教程！",
+              "summary": "*今天的视频从创建文件夹开始，从0分享我使用豆包工作制作个性化的备考app，大家可以模仿视频的app来搭建，过程中我一行代码也没写，超级好上手～视频里主要是页面的演示，如果想要变成app，只用在豆包工作，让它用PWA方案生成app就可以啦～",
+              "url": "https://www.bilibili.com/video/BV11SYy6pENX",
+              "thumbnail": "video-thumbs/bilibili/BV11SYy6pENX.jpg",
+              "channel": "Junn杰俊",
+              "subscribers": 0,
+              "views": 190945,
+              "duration": "9:25",
+              "max_height": 720,
+              "published_at": "2026-09-14T19:15:13+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-10-09",
       "timezone": "Asia/Shanghai",
@@ -9583,205 +9718,7 @@
           "videos": []
         }
       }
-    },
-    {
-      "date": "2026-07-10",
-      "timezone": "Asia/Shanghai",
-      "criteria": {
-        "search_sources": [
-          "youtube",
-          "bilibili"
-        ],
-        "video_categories": {
-          "youtube_top_views": {
-            "label": "YouTube：100 天内上新 Top 10",
-            "window": {
-              "days": 100
-            },
-            "top_count": 10,
-            "min_views": 100000
-          },
-          "youtube_recent_30d": {
-            "label": "YouTube：30 天内上新 Top 5",
-            "window": {
-              "days": 30
-            },
-            "top_count": 5,
-            "min_views": 10000
-          },
-          "bilibili_top_views": {
-            "label": "B站：100 天内上新 Top 10",
-            "window": {
-              "days": 100
-            },
-            "top_count": 10,
-            "min_views": 100000
-          },
-          "bilibili_recent_30d": {
-            "label": "B站：30 天内上新 Top 5",
-            "window": {
-              "days": 30
-            },
-            "top_count": 5,
-            "min_views": 10000
-          },
-          "youtube_recent_3d": {
-            "label": "YouTube：3 天内上新 Top 3",
-            "window": {
-              "days": 3
-            },
-            "top_count": 3,
-            "min_views": 1000
-          },
-          "bilibili_recent_3d": {
-            "label": "B站：3 天内上新 Top 3",
-            "window": {
-              "days": 3
-            },
-            "top_count": 3,
-            "min_views": 1000
-          }
-        }
-      },
-      "categories": {
-        "youtube_top_views": {
-          "label": "YouTube：100 天内上新 Top 10",
-          "window": {
-            "days": 100
-          },
-          "top_count": 10,
-          "videos": [
-            {
-              "id": "youtube:wZeOwqmSw84",
-              "platform": "youtube",
-              "title": "Learn 97% of Claude in Under 16 Minutes",
-              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
-              "url": "https://www.youtube.com/watch?v=wZeOwqmSw84",
-              "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
-              "channel": "Dan Martell",
-              "subscribers": 2900000,
-              "views": 1821826,
-              "duration": "15:12",
-              "max_height": 2160,
-              "published_at": "2026-05-21T21:01:30+08:00"
-            }
-          ]
-        },
-        "youtube_recent_30d": {
-          "label": "YouTube：30 天内上新 Top 5",
-          "window": {
-            "days": 30
-          },
-          "top_count": 5,
-          "videos": []
-        },
-        "bilibili_top_views": {
-          "label": "B站：100 天内上新 Top 10",
-          "window": {
-            "days": 100
-          },
-          "top_count": 10,
-          "videos": [
-            {
-              "id": "bilibili:BV1cwVG6qEEW",
-              "platform": "bilibili",
-              "title": "【硬核教程】如何让一个J人红温？只需要给他做这份“发疯版NBTI”...",
-              "summary": "NBTI测试链接： 还在因为MBTI不是J人被面试官拒绝？别再掉进这个当代职场大坑了！ 本期视频，我用 Claude Code手搓了一个专属打工人的“NBTI”发疯测试！同时找来三位不同岗位的小伙伴，记录他们一周的工作实况，来验证测验的准确性。 还有满满干货…",
-              "url": "https://www.bilibili.com/video/BV1cwVG6qEEW",
-              "thumbnail": "video-thumbs/bilibili/BV1cwVG6qEEW.webp",
-              "channel": "GenJi是真想教会你",
-              "subscribers": 0,
-              "views": 1895986,
-              "duration": "",
-              "max_height": 720,
-              "published_at": "2026-05-30T18:00:00+08:00"
-            },
-            {
-              "id": "bilibili:BV1NvRyBzEhq",
-              "platform": "bilibili",
-              "title": "全网最全！60分钟全面掌握Claude Code～【附完整文档】",
-              "summary": "Claude Code保姆级教学【收藏起来不会错！】 从上手安装，到高级用法，这期一次讲全～ 花了三周做教程，希望能帮到你嘻嘻，感谢朋友们的三连+关注啦～",
-              "url": "https://www.bilibili.com/video/BV1NvRyBzEhq",
-              "thumbnail": "video-thumbs/bilibili/BV1NvRyBzEhq.webp",
-              "channel": "秋芝2046",
-              "subscribers": 0,
-              "views": 1368296,
-              "duration": "",
-              "max_height": 720,
-              "published_at": "2026-05-05T22:08:25+08:00"
-            },
-            {
-              "id": "bilibili:BV1Kk9kBAEJv",
-              "platform": "bilibili",
-              "title": "Codex (APP) 保姆级全攻略，海量实战教程， 一期精通Codex",
-              "summary": "最近Codex APP的能力越来越全面，变成了Codex四大形态里最强一个。 Codex APP 比起 Claude Code，额度更高，功能更全，免费账户也能用。而且不会出现限速、封号、降智等问题，用过的小伙伴直呼真香。本期视频带来一个Codex APP的…",
-              "url": "https://www.bilibili.com/video/BV1Kk9kBAEJv",
-              "thumbnail": "video-thumbs/bilibili/BV1Kk9kBAEJv.webp",
-              "channel": "技术爬爬虾",
-              "subscribers": 0,
-              "views": 1257956,
-              "duration": "38:13",
-              "max_height": 720,
-              "published_at": "2026-04-28T19:04:05+08:00"
-            },
-            {
-              "id": "bilibili:BV16YRLB7Exd",
-              "platform": "bilibili",
-              "title": "5分钟安装ClaudeCode并接入DeepSeek",
-              "summary": "5分钟教你安装ClaudeCode并接入DeepSeekV4 用到的命令： node版本检查：node -v npm版本检查：npm -v npm国内镜像：npm config set registry git版本检查：git -v ClaudeCode安装…",
-              "url": "https://www.bilibili.com/video/BV16YRLB7Exd",
-              "thumbnail": "video-thumbs/bilibili/BV16YRLB7Exd.webp",
-              "channel": "Yin_Code",
-              "subscribers": 0,
-              "views": 1184968,
-              "duration": "5:27",
-              "max_height": 720,
-              "published_at": "2026-05-02T16:14:12+08:00"
-            }
-          ]
-        },
-        "bilibili_recent_30d": {
-          "label": "B站：30 天内上新 Top 5",
-          "window": {
-            "days": 30
-          },
-          "top_count": 5,
-          "videos": []
-        },
-        "youtube_recent_3d": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_3d": {
-          "label": "B站：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_24h": {
-          "label": "B站：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        }
-      }
     }
   ],
-  "updated_at": "2026-10-09T08:14:51.655559+08:00"
+  "updated_at": "2026-10-10T07:56:55.796232+08:00"
 }
