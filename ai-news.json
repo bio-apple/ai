@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-09T18:56:47.900291+08:00",
-  "date": "2026-10-09",
+  "updated_at": "2026-10-10T05:24:11.198636+08:00",
+  "date": "2026-10-10",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,15 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "43ef54e74d27",
+      "title": "Impactful scheduling for GPU clusters",
+      "summary": "Impactful scheduling for GPU clusters",
+      "url": "https://huggingface.co/blog/allenai/impactful-scheduling",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-09T23:20:29+08:00"
+    },
     {
       "id": "9f61a8925f73",
       "title": "TRAE终于把Code和Work合并了",
@@ -55,6 +64,15 @@
       "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
       "summary": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.",
       "url": "https://openai.com/index/sophos",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-09T15:00:00+08:00"
+    },
+    {
+      "id": "90995f7dbc9c",
+      "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
+      "summary": "Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models.",
+      "url": "https://openai.com/index/asana-browser-agent",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-09T15:00:00+08:00"
@@ -168,15 +186,6 @@
       "published_at": "2026-10-08T08:00:00+08:00"
     },
     {
-      "id": "077dea1e8a7a",
-      "title": "Disrupting AI-enabled “false front” operations",
-      "summary": "OpenAI disrupted two AI-enabled influence operations that used false-front journalists and a think tank to spread geopolitical messaging.",
-      "url": "https://openai.com/index/disrupting-ai-enabled-false-front-operations",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-08T08:00:00+08:00"
-    },
-    {
       "id": "327e963986a0",
       "title": "NVIDIA, Microsoft Kick Off a New Beginning for Windows PCs With RTX Spark and AI Agents",
       "summary": "At a Microsoft event in San Francisco on Wednesday, NVIDIA founder and CEO Jensen Huang and Microsoft CEO Satya Nadella outlined how NVIDIA and Microsoft are c…",
@@ -267,13 +276,14 @@
       "published_at": "2026-10-05T21:00:57+08:00"
     },
     {
-      "id": "89764eae0099",
-      "title": "The Agent Said It Was Done. The Database Disagreed.",
-      "summary": "The Agent Said It Was Done. The Database Disagreed.",
-      "url": "https://huggingface.co/blog/microsoft/thinkingbox",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-04T06:56:48+08:00"
+      "id": "54bb6bf5eee2",
+      "title": "AI算力硬合作，马斯克还是更相信中国制造",
+      "summary": "AI算力硬合作，马斯克还是更相信中国制造",
+      "url": "https://www.qbitai.com/2026/10/501605.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-10-04T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "a730dc743d2c",
@@ -282,16 +292,6 @@
       "url": "https://www.qbitai.com/2026/10/501451.html",
       "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-10-04T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "54bb6bf5eee2",
-      "title": "AI算力硬合作，马斯克还是更相信中国制造",
-      "summary": "AI算力硬合作，马斯克还是更相信中国制造",
-      "url": "https://www.qbitai.com/2026/10/501605.html",
-      "source": "量子位",
-      "category": "行业新闻",
       "published_at": "2026-10-04T00:00:00+08:00",
       "window_hours": 720
     },
@@ -324,15 +324,6 @@
       "category": "中文资讯",
       "published_at": "2026-10-03T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "1122627a66df",
-      "title": "The latest AI news we announced in September 2026",
-      "summary": "Here are Google’s latest AI updates from September 2026",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-02T23:00:00+08:00"
     }
   ],
   "qbitai_hot": {
@@ -370,22 +361,22 @@
         "window_hours": 720
       },
       {
-        "id": "a730dc743d2c",
-        "title": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
-        "summary": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
-        "url": "https://www.qbitai.com/2026/10/501451.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-10-04T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "54bb6bf5eee2",
         "title": "AI算力硬合作，马斯克还是更相信中国制造",
         "summary": "AI算力硬合作，马斯克还是更相信中国制造",
         "url": "https://www.qbitai.com/2026/10/501605.html",
         "source": "量子位",
         "category": "行业新闻",
+        "published_at": "2026-10-04T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "a730dc743d2c",
+        "title": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
+        "summary": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
+        "url": "https://www.qbitai.com/2026/10/501451.html",
+        "source": "量子位",
+        "category": "新模型发布",
         "published_at": "2026-10-04T00:00:00+08:00",
         "window_hours": 720
       }
