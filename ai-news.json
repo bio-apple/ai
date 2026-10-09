@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-09T05:39:09.032400+08:00",
+  "updated_at": "2026-10-09T18:56:47.900291+08:00",
   "date": "2026-10-09",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,105 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "9f61a8925f73",
+      "title": "TRAE终于把Code和Work合并了",
+      "summary": "大写的方便",
+      "url": "https://www.qbitai.com/2026/10/502426.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-09T17:19:57+08:00"
+    },
+    {
+      "id": "739dc58db509",
+      "title": "联想天禧自研代码智能体TianxiCode斩获SWE-bench-Live全球第一",
+      "summary": "联想天禧AI自主研发的专业代码智能体框架TianxiCode 以71%的问题解决率登顶全球第一名",
+      "url": "https://www.qbitai.com/2026/10/502422.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-09T16:53:08+08:00"
+    },
+    {
+      "id": "48af24a51653",
+      "title": "0.2秒急停、秒级重规划！因果智能走进真实世界",
+      "summary": "这是一台机器人正在关闭微波炉门时，因人手突然插进来而紧急悬停的时间",
+      "url": "https://www.qbitai.com/2026/10/502411.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-09T16:47:34+08:00"
+    },
+    {
+      "id": "62144571729d",
+      "title": "字节找到了DeepSeek时强时弱的原因",
+      "summary": "答不答得对，得看Token站位",
+      "url": "https://www.qbitai.com/2026/10/502364.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-09T15:11:55+08:00"
+    },
+    {
+      "id": "edd58468d564",
+      "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
+      "summary": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.",
+      "url": "https://openai.com/index/sophos",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-09T15:00:00+08:00"
+    },
+    {
+      "id": "f8423a6bdbd8",
+      "title": "《柳叶刀》研究表明：AI 有望改善医患关系",
+      "summary": "Google 研究成果首次登上《柳叶刀》主刊",
+      "url": "https://www.qbitai.com/2026/10/502359.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-09T14:28:55+08:00"
+    },
+    {
+      "id": "1a2a886b4baf",
+      "title": "An Explainable Header-Centric Framework for Large-Scale Semantic Table Interpretation and Data Quality Assessment",
+      "summary": "arXiv:2610.10541v1 Announce Type: new Abstract: Knowledge Graph (KG) quality depends not only on downstream graph validation, but also on the quality of tabula…",
+      "url": "https://arxiv.org/abs/2610.10541",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-09T12:00:00+08:00"
+    },
+    {
+      "id": "7555d57bfd57",
+      "title": "Synthesis Through Simulation: Generating Coherent Enterprise Data via Scalable Agent-System Interaction",
+      "summary": "arXiv:2610.10549v1 Announce Type: new Abstract: Tool-calling agents have become central to enterprise AI, yet training and evaluating them at scale remains sev…",
+      "url": "https://arxiv.org/abs/2610.10549",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-09T12:00:00+08:00"
+    },
+    {
+      "id": "8e3cf582f4f5",
+      "title": "Agent-Controlled Forgetting for Tool-Using Agents: Reversible Context Curation in Practice",
+      "summary": "arXiv:2610.10590v1 Announce Type: new Abstract: Tool-using agents repeatedly carry observations whose useful content can be much smaller than their original pa…",
+      "url": "https://arxiv.org/abs/2610.10590",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-09T12:00:00+08:00"
+    },
+    {
+      "id": "405bef6dbfdc",
+      "title": "Verification and Self-Improvement in Agentic AI: Foundations and Limits",
+      "summary": "arXiv:2610.10611v1 Announce Type: new Abstract: Agentic AI systems can improve by searching longer, receiving additional support, or modifying how they propose…",
+      "url": "https://arxiv.org/abs/2610.10611",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-09T12:00:00+08:00"
+    },
+    {
+      "id": "219b26b4e58c",
+      "title": "The Harness as the Only Mutable Surface: Compliance-Bounded Self-Evolution of LLM Agents in Credit Pipelines, with a Measured Admission Gate",
+      "summary": "arXiv:2610.10629v1 Announce Type: new Abstract: Self-improving LLM agents can adapt a credit pipeline to a changed rule, but an agent that rewrites itself dest…",
+      "url": "https://arxiv.org/abs/2610.10629",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-09T12:00:00+08:00"
+    },
     {
       "id": "baf7193e75c1",
       "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
@@ -33,15 +132,6 @@
       "published_at": "2026-10-09T00:00:00+08:00"
     },
     {
-      "id": "eaa588eea50d",
-      "title": "真香！做这个邪恶老奶版「GTA 6」，我只花了5元！",
-      "summary": "Vidu Q4预览版，了解一下~",
-      "url": "https://www.qbitai.com/2026/10/502049.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-08T21:28:23+08:00"
-    },
-    {
       "id": "22621a26ca48",
       "title": "Rally Up: ‘Gears of War: E-Day’ Launches on GeForce NOW",
       "summary": "Gears of War: E-Day leads the charge on GeForce NOW this week, bringing Marcus Fenix and Dom Santiago’s first fight against the Locust Horde to the cloud with …",
@@ -49,15 +139,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-10-08T21:00:46+08:00"
-    },
-    {
-      "id": "871572487cfb",
-      "title": "正行创新亮相APRCE 2026，发布全球首个零售物理智能24/7服务解决方案",
-      "summary": "打造便利店“人机协作”运营新模式",
-      "url": "https://www.qbitai.com/2026/10/502035.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-08T20:43:31+08:00"
     },
     {
       "id": "ca1ec6c6a1a1",
@@ -69,76 +150,22 @@
       "published_at": "2026-10-08T20:00:00+08:00"
     },
     {
-      "id": "38304e4713fe",
-      "title": "搭载NVIDIA RTX Spark™ N1X超级芯片：联想YOGA Pro 15开启盲约，重塑个人生产力边界",
-      "summary": "联想YOGA Pro 15 RTX Spark笔记本电脑，于10月8日9:00正式开启全网盲约。",
-      "url": "https://www.qbitai.com/2026/10/502020.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-08T18:23:53+08:00"
-    },
-    {
-      "id": "459b98c4a47c",
-      "title": "浪子回头！Manus重启北京办公室大举招聘",
-      "summary": "开始和国产Agent抢人，还拿到5亿美元新融资",
-      "url": "https://www.qbitai.com/2026/10/502009.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-10-08T17:30:17+08:00"
-    },
-    {
-      "id": "f2d85267cf54",
-      "title": "ChatGPT踢到铁板了！能破解千禧数学难题，但论文复现率低至13.98%？",
-      "summary": "PaperBenchX为代表的基准或许能更好地衡量AI的科研实力",
-      "url": "https://www.qbitai.com/2026/10/501995.html",
-      "source": "量子位",
+      "id": "f6d3626eb7c8",
+      "title": "LegalOn halves Codex costs while maintaining development speed",
+      "summary": "LegalOn cut estimated daily Codex costs by 65% while maintaining development speed. It matched Astra, Sol, and Luna to tasks and managed budgets strategically.",
+      "url": "https://openai.com/index/legalon-halves-codex-costs",
+      "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-10-08T17:28:44+08:00"
+      "published_at": "2026-10-08T20:00:00+08:00"
     },
     {
-      "id": "dc0104d61caf",
-      "title": "GAMEGO: Training Game-Dev Agents with Synthetic Trajectories Anchored in Real-World Assets",
-      "summary": "arXiv:2610.06910v1 Announce Type: new Abstract: Recent advances in Large Language Models (LLMs) have demonstrated remarkable capabilities in web front-end exec…",
-      "url": "https://arxiv.org/abs/2610.06910",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-08T12:00:00+08:00"
-    },
-    {
-      "id": "8b6a131a0fd9",
-      "title": "Text2Dashboard: A Governed Agent Architecture for Natural-Language Dashboard Generation over Enterprise DataBrain",
-      "summary": "arXiv:2610.06914v1 Announce Type: new Abstract: Text2Dashboard is a DataBrain-specific prototype that turns natural-language analytic requests into inspectable…",
-      "url": "https://arxiv.org/abs/2610.06914",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-08T12:00:00+08:00"
-    },
-    {
-      "id": "bdc134cd22fd",
-      "title": "FluidPD: In-Place Elasticity for SLO-Aware Prefill-Decode Disaggregated LLM Serving",
-      "summary": "arXiv:2610.06917v1 Announce Type: new Abstract: Prefill-decode disaggregation is becoming a common architecture for LLM serving because it separates two phases…",
-      "url": "https://arxiv.org/abs/2610.06917",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-08T12:00:00+08:00"
-    },
-    {
-      "id": "359546810a8e",
-      "title": "Anchor Divergence for Semantic Geometry in Contrastive Learning",
-      "summary": "arXiv:2610.06919v1 Announce Type: new Abstract: This paper concerns how semantic context determines geometry in learned vector representations. Similarity is t…",
-      "url": "https://arxiv.org/abs/2610.06919",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-08T12:00:00+08:00"
-    },
-    {
-      "id": "0bc1242b35b0",
-      "title": "RadOnc-Agent: An LLM-Orchestrated Framework for AI Workflows Across the Radiotherapy Care Pathway",
-      "summary": "arXiv:2610.06923v1 Announce Type: new Abstract: Artificial intelligence has advanced individual radiotherapy tasks, yet these capabilities remain separated acr…",
-      "url": "https://arxiv.org/abs/2610.06923",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-08T12:00:00+08:00"
+      "id": "0f05fd4155a4",
+      "title": "The model that didn't exist, so you made it yourself",
+      "summary": "The model that didn't exist, so you made it yourself",
+      "url": "https://huggingface.co/blog/building-with-ml-intern",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-08T08:00:00+08:00"
     },
     {
       "id": "077dea1e8a7a",
@@ -204,22 +231,13 @@
       "published_at": "2026-10-07T20:00:00+08:00"
     },
     {
-      "id": "ad4e14640e35",
-      "title": "Helping teens learn, plan, and shape the future of AI",
-      "summary": "College Planner is coming to ChatGPT for Teens to help students manage college applications, alongside new flashcards, quizzes, and a teen AI council.",
-      "url": "https://openai.com/index/teens-learn-and-plan",
-      "source": "OpenAI",
+      "id": "4dd290070848",
+      "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+      "summary": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+      "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
+      "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-10-07T20:00:00+08:00"
-    },
-    {
-      "id": "04e9dc3828b5",
-      "title": "Radisson Hotel Group brings hotel discovery into ChatGPT",
-      "summary": "Radisson partnered with Accenture to build a ChatGPT plugin using OpenAI technology, helping travelers find, compare, and book hotels while planning their trip…",
-      "url": "https://openai.com/index/radisson",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-07T15:00:00+08:00"
+      "published_at": "2026-10-07T03:57:04+08:00"
     },
     {
       "id": "242f2e4b6328",
@@ -258,13 +276,23 @@
       "published_at": "2026-10-04T06:56:48+08:00"
     },
     {
-      "id": "4451b333657f",
-      "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
-      "summary": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
-      "url": "https://www.qbitai.com/2026/10/501381.html",
+      "id": "a730dc743d2c",
+      "title": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
+      "summary": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
+      "url": "https://www.qbitai.com/2026/10/501451.html",
       "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-03T00:00:00+08:00",
+      "category": "新模型发布",
+      "published_at": "2026-10-04T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "54bb6bf5eee2",
+      "title": "AI算力硬合作，马斯克还是更相信中国制造",
+      "summary": "AI算力硬合作，马斯克还是更相信中国制造",
+      "url": "https://www.qbitai.com/2026/10/501605.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-10-04T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -278,13 +306,24 @@
       "window_hours": 720
     },
     {
-      "id": "d599f0a282be",
-      "title": "Open-sourcing AstaBrief, the fast report-generation model in Asta",
-      "summary": "Open-sourcing AstaBrief, the fast report-generation model in Asta",
-      "url": "https://huggingface.co/blog/allenai/astabrief",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-02T23:19:50+08:00"
+      "id": "4451b333657f",
+      "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
+      "summary": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
+      "url": "https://www.qbitai.com/2026/10/501381.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-03T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "23d0d9ad437e",
+      "title": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
+      "summary": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
+      "url": "https://www.qbitai.com/2026/10/500148.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-03T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "1122627a66df",
@@ -294,36 +333,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-10-02T23:00:00+08:00"
-    },
-    {
-      "id": "a04332b7488f",
-      "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
-      "summary": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
-      "url": "https://www.qbitai.com/2026/10/500098.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-02T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "456a591e773f",
-      "title": "丘成桐新论文致谢了GPT和Claude",
-      "summary": "丘成桐新论文致谢了GPT和Claude",
-      "url": "https://www.qbitai.com/2026/10/499991.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-02T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "dbef6f28ec9b",
-      "title": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
-      "summary": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
-      "url": "https://www.qbitai.com/2026/10/499958.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-02T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -331,33 +340,13 @@
     "window_days": 30,
     "items": [
       {
-        "id": "a04332b7488f",
-        "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
-        "summary": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
-        "url": "https://www.qbitai.com/2026/10/500098.html",
+        "id": "2e1cc7abff8b",
+        "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
+        "summary": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
+        "url": "https://www.qbitai.com/2026/10/501368.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-10-02T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "456a591e773f",
-        "title": "丘成桐新论文致谢了GPT和Claude",
-        "summary": "丘成桐新论文致谢了GPT和Claude",
-        "url": "https://www.qbitai.com/2026/10/499991.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-10-02T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "dbef6f28ec9b",
-        "title": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
-        "summary": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
-        "url": "https://www.qbitai.com/2026/10/499958.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-02T00:00:00+08:00",
+        "published_at": "2026-10-03T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -371,13 +360,33 @@
         "window_hours": 720
       },
       {
-        "id": "2e1cc7abff8b",
-        "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
-        "summary": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
-        "url": "https://www.qbitai.com/2026/10/501368.html",
+        "id": "23d0d9ad437e",
+        "title": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
+        "summary": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
+        "url": "https://www.qbitai.com/2026/10/500148.html",
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-03T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "a730dc743d2c",
+        "title": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
+        "summary": "GPT-6要“吃掉”3D公司？这家公司不到2年ARR翻百倍，破1亿美元",
+        "url": "https://www.qbitai.com/2026/10/501451.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-10-04T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "54bb6bf5eee2",
+        "title": "AI算力硬合作，马斯克还是更相信中国制造",
+        "summary": "AI算力硬合作，马斯克还是更相信中国制造",
+        "url": "https://www.qbitai.com/2026/10/501605.html",
+        "source": "量子位",
+        "category": "行业新闻",
+        "published_at": "2026-10-04T00:00:00+08:00",
         "window_hours": 720
       }
     ]
