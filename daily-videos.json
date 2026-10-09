@@ -184,9 +184,143 @@
     "bilibili:BV1Zeew64Eq5",
     "youtube:7Bv68f5szSU",
     "bilibili:BV1GPbW6fE56",
-    "youtube:bGALxRWI10A"
+    "youtube:bGALxRWI10A",
+    "youtube:PUBc2G0Tj5E"
   ],
   "batches": [
+    {
+      "date": "2026-10-09",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:PUBc2G0Tj5E",
+              "platform": "youtube",
+              "title": "Meet the New Codex CLI",
+              "summary": "Take a look at the latest Codex CLI updates and the refreshed terminal experience",
+              "url": "https://www.youtube.com/watch?v=PUBc2G0Tj5E",
+              "thumbnail": "https://i.ytimg.com/vi/PUBc2G0Tj5E/maxresdefault.jpg",
+              "channel": "OpenAI",
+              "subscribers": 0,
+              "views": 212962,
+              "duration": "3:15",
+              "max_height": 1080,
+              "published_at": "2026-10-06T02:29:08+08:00"
+            },
+            {
+              "id": "youtube:X-pbJWKmwi0",
+              "platform": "youtube",
+              "title": "Build & Sell with Codex (5+ Hour Course)",
+              "summary": "My FREE Resources: FREE First Client SOP: My playbook for growing a $1M AI agency: Karpathy LLM Wiki: Second YouTube channel: My …",
+              "url": "https://www.youtube.com/watch?v=X-pbJWKmwi0",
+              "thumbnail": "https://i.ytimg.com/vi/X-pbJWKmwi0/maxresdefault.jpg",
+              "channel": "Nate Herk | AI Automation",
+              "subscribers": 0,
+              "views": 98413,
+              "duration": "5:10:40",
+              "max_height": 1080,
+              "published_at": "2026-09-21T20:31:48+08:00"
+            },
+            {
+              "id": "youtube:L-S0xG23B3g",
+              "platform": "youtube",
+              "title": "Google's New AI Agent! - Gemini Spark Full Beginner's Guide",
+              "summary": "Start here: Google quietly launched one of the most powerful and useful AI agents, Gemini Spark",
+              "url": "https://www.youtube.com/watch?v=L-S0xG23B3g",
+              "thumbnail": "https://i.ytimg.com/vi/L-S0xG23B3g/maxresdefault.jpg",
+              "channel": "Santrel Media",
+              "subscribers": 0,
+              "views": 97364,
+              "duration": "11:10",
+              "max_height": 1080,
+              "published_at": "2026-09-09T21:04:47+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1nPY46cEWA",
+              "platform": "bilibili",
+              "title": "这19年iPhone变化这么大？？当我用豆包工作做了一个在线博物馆【附AI教程】",
+              "summary": "苹果发布会马上就要开始拉，出发前这两天把从2007年初代iPhone到现在的19年产品历史，做成了一座能逛、能投票、还能直接拉两代机型对比的网页博物馆。 整个项目基本都是用豆包工作做的，从网页、历代产品图，到后面的折叠屏概念广告，一路做一路返工。中间也没少翻…",
+              "url": "https://www.bilibili.com/video/BV1nPY46cEWA",
+              "thumbnail": "video-thumbs/bilibili/BV1nPY46cEWA.jpg",
+              "channel": "在下小苏",
+              "subscribers": 0,
+              "views": 353345,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-09-09T17:21:43+08:00"
+            },
+            {
+              "id": "bilibili:BV1Zeew64Eq5",
+              "platform": "bilibili",
+              "title": "就这样，我开始用豆包工作赚钱了！全流程攻略！",
+              "summary": "最近用了一个月的豆包工作，选题，拍摄，复盘的活它都能帮我做，不到下班时间我就干完一天的活？！如果你也想学一下怎么用豆包工作早点下班，这期视频跟着我，手把手教你玩透豆包工作，打通工作全流程。轻松实现早下班！",
+              "url": "https://www.bilibili.com/video/BV1Zeew64Eq5",
+              "thumbnail": "video-thumbs/bilibili/BV1Zeew64Eq5.jpg",
+              "channel": "科技宅小明",
+              "subscribers": 0,
+              "views": 254044,
+              "duration": "12:59",
+              "max_height": 720,
+              "published_at": "2026-09-16T17:20:29+08:00"
+            },
+            {
+              "id": "bilibili:BV1WWYE6LEzx",
+              "platform": "bilibili",
+              "title": "黑马程序员2026全网最夯VibeCoding零基础入门到实战项目开发全套视频教程，AI辅助编程从入门到实战，涵盖Claude Code、DeepSeek等内容",
+              "summary": "本套视频教程所有配套资料领取方式如下： 关注黑马程序员公 粽 号，回复关键词：260914 2026黑马程序员AI智能应用开发学习路线图 如何下载资料 学习+球球群625260577，告别孤单，共同进步！ 【AI智能应用开发学习路线图】（依次向下顺序学习即可…",
+              "url": "https://www.bilibili.com/video/BV1WWYE6LEzx",
+              "thumbnail": "video-thumbs/bilibili/BV1WWYE6LEzx.jpg",
+              "channel": "黑马程序员",
+              "subscribers": 0,
+              "views": 219779,
+              "duration": "370:36",
+              "max_height": 720,
+              "published_at": "2026-09-14T09:00:00+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-10-08",
       "timezone": "Asia/Shanghai",
@@ -9649,5 +9783,5 @@
       }
     }
   ],
-  "updated_at": "2026-10-08T08:07:46.160129+08:00"
+  "updated_at": "2026-10-09T08:14:51.655559+08:00"
 }
