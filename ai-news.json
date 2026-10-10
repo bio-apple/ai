@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-10T18:09:30.037027+08:00",
-  "date": "2026-10-10",
+  "updated_at": "2026-10-11T04:22:32.838557+08:00",
+  "date": "2026-10-11",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -193,6 +193,15 @@
       "source": "Google AI",
       "category": "新工具上线",
       "published_at": "2026-10-07T20:00:00+08:00"
+    },
+    {
+      "id": "4dd290070848",
+      "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+      "summary": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+      "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-07T03:57:04+08:00"
     },
     {
       "id": "242f2e4b6328",
