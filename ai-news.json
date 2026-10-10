@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-10T05:24:11.198636+08:00",
+  "updated_at": "2026-10-10T18:09:30.037027+08:00",
   "date": "2026-10-10",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,15 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "62edff7a56bd",
+      "title": "特斯拉FSD，在欧洲被打回原形",
+      "summary": "马斯克反而发文道谢？",
+      "url": "https://www.qbitai.com/2026/10/502467.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-10T14:59:02+08:00"
+    },
     {
       "id": "43ef54e74d27",
       "title": "Impactful scheduling for GPU clusters",
@@ -76,60 +85,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-09T15:00:00+08:00"
-    },
-    {
-      "id": "f8423a6bdbd8",
-      "title": "《柳叶刀》研究表明：AI 有望改善医患关系",
-      "summary": "Google 研究成果首次登上《柳叶刀》主刊",
-      "url": "https://www.qbitai.com/2026/10/502359.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-09T14:28:55+08:00"
-    },
-    {
-      "id": "1a2a886b4baf",
-      "title": "An Explainable Header-Centric Framework for Large-Scale Semantic Table Interpretation and Data Quality Assessment",
-      "summary": "arXiv:2610.10541v1 Announce Type: new Abstract: Knowledge Graph (KG) quality depends not only on downstream graph validation, but also on the quality of tabula…",
-      "url": "https://arxiv.org/abs/2610.10541",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-09T12:00:00+08:00"
-    },
-    {
-      "id": "7555d57bfd57",
-      "title": "Synthesis Through Simulation: Generating Coherent Enterprise Data via Scalable Agent-System Interaction",
-      "summary": "arXiv:2610.10549v1 Announce Type: new Abstract: Tool-calling agents have become central to enterprise AI, yet training and evaluating them at scale remains sev…",
-      "url": "https://arxiv.org/abs/2610.10549",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-09T12:00:00+08:00"
-    },
-    {
-      "id": "8e3cf582f4f5",
-      "title": "Agent-Controlled Forgetting for Tool-Using Agents: Reversible Context Curation in Practice",
-      "summary": "arXiv:2610.10590v1 Announce Type: new Abstract: Tool-using agents repeatedly carry observations whose useful content can be much smaller than their original pa…",
-      "url": "https://arxiv.org/abs/2610.10590",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-09T12:00:00+08:00"
-    },
-    {
-      "id": "405bef6dbfdc",
-      "title": "Verification and Self-Improvement in Agentic AI: Foundations and Limits",
-      "summary": "arXiv:2610.10611v1 Announce Type: new Abstract: Agentic AI systems can improve by searching longer, receiving additional support, or modifying how they propose…",
-      "url": "https://arxiv.org/abs/2610.10611",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-09T12:00:00+08:00"
-    },
-    {
-      "id": "219b26b4e58c",
-      "title": "The Harness as the Only Mutable Surface: Compliance-Bounded Self-Evolution of LLM Agents in Credit Pipelines, with a Measured Admission Gate",
-      "summary": "arXiv:2610.10629v1 Announce Type: new Abstract: Self-improving LLM agents can adapt a credit pipeline to a changed rule, but an agent that rewrites itself dest…",
-      "url": "https://arxiv.org/abs/2610.10629",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-09T12:00:00+08:00"
     },
     {
       "id": "baf7193e75c1",
@@ -240,15 +195,6 @@
       "published_at": "2026-10-07T20:00:00+08:00"
     },
     {
-      "id": "4dd290070848",
-      "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
-      "summary": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
-      "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-07T03:57:04+08:00"
-    },
-    {
       "id": "242f2e4b6328",
       "title": "What AI gets wrong and what failure teaches us",
       "summary": "Jennifer Neville did not want to go into computer science—but that’s exactly where she landed. Neville discusses the starts and stops that led to her professio…",
@@ -276,6 +222,26 @@
       "published_at": "2026-10-05T21:00:57+08:00"
     },
     {
+      "id": "d76be398914d",
+      "title": "刚刚，Hinton发了首篇RSI论文",
+      "summary": "刚刚，Hinton发了首篇RSI论文",
+      "url": "https://www.qbitai.com/2026/10/501705.html",
+      "source": "量子位",
+      "category": "学术论文",
+      "published_at": "2026-10-05T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "4006495e9e42",
+      "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
+      "summary": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
+      "url": "https://www.qbitai.com/2026/10/501700.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-05T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "54bb6bf5eee2",
       "title": "AI算力硬合作，马斯克还是更相信中国制造",
       "summary": "AI算力硬合作，马斯克还是更相信中国制造",
@@ -296,33 +262,13 @@
       "window_hours": 720
     },
     {
-      "id": "2e1cc7abff8b",
-      "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
-      "summary": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
-      "url": "https://www.qbitai.com/2026/10/501368.html",
+      "id": "15a458018c11",
+      "title": "最火AI岗位FDE：月薪5万，都干这些…",
+      "summary": "最火AI岗位FDE：月薪5万，都干这些…",
+      "url": "https://www.qbitai.com/2026/10/501506.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-10-03T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "4451b333657f",
-      "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
-      "summary": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
-      "url": "https://www.qbitai.com/2026/10/501381.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-03T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "23d0d9ad437e",
-      "title": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
-      "summary": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
-      "url": "https://www.qbitai.com/2026/10/500148.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-03T00:00:00+08:00",
+      "published_at": "2026-10-04T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -330,36 +276,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "2e1cc7abff8b",
-        "title": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
-        "summary": "OpenAI安全团队持续地震！负责人离职，三名员工因泄密被开",
-        "url": "https://www.qbitai.com/2026/10/501368.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-03T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "4451b333657f",
-        "title": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
-        "summary": "DeepSeek扩招！弹性计算团队大量HC，尤其需要资深工程师",
-        "url": "https://www.qbitai.com/2026/10/501381.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-03T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "23d0d9ad437e",
-        "title": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
-        "summary": "Jev估值100亿美元！创始人Diogo Almeida回答一切",
-        "url": "https://www.qbitai.com/2026/10/500148.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-03T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "54bb6bf5eee2",
         "title": "AI算力硬合作，马斯克还是更相信中国制造",
@@ -378,6 +294,36 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-10-04T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "15a458018c11",
+        "title": "最火AI岗位FDE：月薪5万，都干这些…",
+        "summary": "最火AI岗位FDE：月薪5万，都干这些…",
+        "url": "https://www.qbitai.com/2026/10/501506.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-04T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "d76be398914d",
+        "title": "刚刚，Hinton发了首篇RSI论文",
+        "summary": "刚刚，Hinton发了首篇RSI论文",
+        "url": "https://www.qbitai.com/2026/10/501705.html",
+        "source": "量子位",
+        "category": "学术论文",
+        "published_at": "2026-10-05T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "4006495e9e42",
+        "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
+        "summary": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
+        "url": "https://www.qbitai.com/2026/10/501700.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-05T00:00:00+08:00",
         "window_hours": 720
       }
     ]
