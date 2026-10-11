@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-11T18:21:21.518199+08:00",
-  "date": "2026-10-11",
+  "updated_at": "2026-10-12T04:42:49.751651+08:00",
+  "date": "2026-10-12",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "9c546a6449ce",
+      "title": "用不着Ctrl+F了！全新AI论文工具，帮你在原文献里海里捞针",
+      "summary": "一套生成论文初稿的多智能体工作流",
+      "url": "https://www.qbitai.com/2026/10/502644.html",
+      "source": "量子位",
+      "category": "学术论文",
+      "published_at": "2026-10-11T17:04:31+08:00"
+    },
+    {
+      "id": "fe40919fe46e",
+      "title": "何恺明团队发布多模态Harness框架",
+      "summary": "多模态模型的视觉原生Harness，来了！",
+      "url": "https://www.qbitai.com/2026/10/502628.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-11T16:59:06+08:00"
+    },
+    {
+      "id": "3a075b6d7b81",
+      "title": "陶哲轩：数学2.0时代已至！",
+      "summary": "陶哲轩：数学2.0时代已至！",
+      "url": "https://www.qbitai.com/2026/10/502594.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-11T15:52:16+08:00"
+    },
     {
       "id": "5b087399ef81",
       "title": "王的猜想，刚刚扩展到四维",
@@ -33,31 +60,14 @@
       "published_at": "2026-10-11T13:22:38+08:00"
     },
     {
-      "id": "538c92b852b1",
-      "title": "下架8个月，GPT-4o的拯救行动居然还在继续",
-      "summary": "初代4o的API快照进入停用倒计时",
-      "url": "https://www.qbitai.com/2026/10/502550.html",
+      "id": "03c53e328a0e",
+      "title": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
+      "summary": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
+      "url": "https://www.qbitai.com/2026/10/502496.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-11T13:18:04+08:00"
-    },
-    {
-      "id": "7fa8d3726164",
-      "title": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
-      "summary": "Grok Bot我养不起，ds bot不得高低尝尝咸淡？",
-      "url": "https://www.qbitai.com/2026/10/502544.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-11T11:27:08+08:00"
-    },
-    {
-      "id": "ae811099c3a9",
-      "title": "西门子将亮相2026工博会：以软硬协同的工业全栈能力，推动物理AI加速落地",
-      "summary": "西门子将以更集中、更场景化的方式，展示其工业全栈能力",
-      "url": "https://www.qbitai.com/2026/10/502541.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-10T18:30:36+08:00"
+      "category": "新工具上线",
+      "published_at": "2026-10-10T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "62edff7a56bd",
@@ -205,15 +215,6 @@
       "published_at": "2026-10-07T20:00:00+08:00"
     },
     {
-      "id": "4dd290070848",
-      "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
-      "summary": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
-      "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-07T03:57:04+08:00"
-    },
-    {
       "id": "242f2e4b6328",
       "title": "What AI gets wrong and what failure teaches us",
       "summary": "Jennifer Neville did not want to go into computer science—but that’s exactly where she landed. Neville discusses the starts and stops that led to her professio…",
@@ -269,16 +270,6 @@
       "category": "中文资讯",
       "published_at": "2026-10-05T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "167a28b31d7e",
-      "title": "刚刚，诺贝尔奖颁给光遗传学！",
-      "summary": "刚刚，诺贝尔奖颁给光遗传学！",
-      "url": "https://www.qbitai.com/2026/10/501720.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-05T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -296,13 +287,13 @@
         "window_hours": 720
       },
       {
-        "id": "4006495e9e42",
-        "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
-        "summary": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
-        "url": "https://www.qbitai.com/2026/10/501700.html",
+        "id": "03c53e328a0e",
+        "title": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
+        "summary": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
+        "url": "https://www.qbitai.com/2026/10/502496.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-05T00:00:00+08:00",
+        "category": "新工具上线",
+        "published_at": "2026-10-10T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -316,6 +307,16 @@
         "window_hours": 720
       },
       {
+        "id": "4006495e9e42",
+        "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
+        "summary": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
+        "url": "https://www.qbitai.com/2026/10/501700.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-05T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "1cd9e00c8199",
         "title": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
         "summary": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
@@ -323,16 +324,6 @@
         "source": "量子位",
         "category": "学术论文",
         "published_at": "2026-10-07T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "167a28b31d7e",
-        "title": "刚刚，诺贝尔奖颁给光遗传学！",
-        "summary": "刚刚，诺贝尔奖颁给光遗传学！",
-        "url": "https://www.qbitai.com/2026/10/501720.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-05T00:00:00+08:00",
         "window_hours": 720
       }
     ]
