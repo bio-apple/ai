@@ -187,9 +187,115 @@
     "youtube:bGALxRWI10A",
     "youtube:PUBc2G0Tj5E",
     "youtube:hTAsWGTK6wY",
-    "bilibili:BV11SYy6pENX"
+    "bilibili:BV11SYy6pENX",
+    "youtube:hffQ4UleKUU"
   ],
   "batches": [
+    {
+      "date": "2026-10-12",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:hffQ4UleKUU",
+              "platform": "youtube",
+              "title": "Master Al Video Editing in 20 Minutes | Claude Al Editing Masterclass in Hindi",
+              "summary": "【Last moment tuitions】讲解 AI 工具实战应用，围绕「Master Al Video Editing in 20 Minutes | Claude A」展示操作步骤与使用技巧。",
+              "url": "https://www.youtube.com/watch?v=hffQ4UleKUU",
+              "thumbnail": "https://i.ytimg.com/vi/hffQ4UleKUU/maxresdefault.jpg",
+              "channel": "Last moment tuitions",
+              "subscribers": 0,
+              "views": 448503,
+              "duration": "22:01",
+              "max_height": 1080,
+              "published_at": "2026-10-01T23:46:51+08:00"
+            },
+            {
+              "id": "youtube:PUBc2G0Tj5E",
+              "platform": "youtube",
+              "title": "Meet the New Codex CLI",
+              "summary": "Take a look at the latest Codex CLI updates and the refreshed terminal experience",
+              "url": "https://www.youtube.com/watch?v=PUBc2G0Tj5E",
+              "thumbnail": "https://i.ytimg.com/vi/PUBc2G0Tj5E/maxresdefault.jpg",
+              "channel": "OpenAI",
+              "subscribers": 0,
+              "views": 227975,
+              "duration": "3:15",
+              "max_height": 1080,
+              "published_at": "2026-10-06T02:29:08+08:00"
+            },
+            {
+              "id": "youtube:X-pbJWKmwi0",
+              "platform": "youtube",
+              "title": "Build & Sell with Codex (5+ Hour Course)",
+              "summary": "My FREE Resources: FREE First Client SOP: My playbook for growing a $1M AI agency: Karpathy LLM Wiki: Second YouTube channel: My …",
+              "url": "https://www.youtube.com/watch?v=X-pbJWKmwi0",
+              "thumbnail": "https://i.ytimg.com/vi/X-pbJWKmwi0/maxresdefault.jpg",
+              "channel": "Nate Herk | AI Automation",
+              "subscribers": 0,
+              "views": 101618,
+              "duration": "5:10:40",
+              "max_height": 1080,
+              "published_at": "2026-09-21T20:31:48+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1WWYE6LEzx",
+              "platform": "bilibili",
+              "title": "黑马程序员2026全网最夯VibeCoding零基础入门到实战项目开发全套视频教程，AI辅助编程从入门到实战，涵盖Claude Code、DeepSeek等内容",
+              "summary": "本套视频教程所有配套资料领取方式如下： 关注黑马程序员公 粽 号，回复关键词：260914 2026黑马程序员AI智能应用开发学习路线图 如何下载资料 学习+球球群625260577，告别孤单，共同进步！ 【AI智能应用开发学习路线图】（依次向下顺序学习即可…",
+              "url": "https://www.bilibili.com/video/BV1WWYE6LEzx",
+              "thumbnail": "video-thumbs/bilibili/BV1WWYE6LEzx.jpg",
+              "channel": "黑马程序员",
+              "subscribers": 0,
+              "views": 249766,
+              "duration": "370:36",
+              "max_height": 720,
+              "published_at": "2026-09-14T09:00:00+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-10-11",
       "timezone": "Asia/Shanghai",
@@ -9583,106 +9689,7 @@
           "videos": []
         }
       }
-    },
-    {
-      "date": "2026-07-13",
-      "categories": {
-        "youtube_top_views": {
-          "label": "YouTube：100 天内上新 Top 10",
-          "window": {
-            "days": 100
-          },
-          "top_count": 10,
-          "videos": [
-            {
-              "id": "youtube:wZeOwqmSw84",
-              "platform": "youtube",
-              "title": "Learn 97% of Claude in Under 16 Minutes",
-              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
-              "url": "https://www.youtube.com/watch?v=wZeOwqmSw84",
-              "thumbnail": "https://i.ytimg.com/vi/wZeOwqmSw84/maxresdefault.jpg",
-              "channel": "Dan Martell",
-              "subscribers": 2900000,
-              "views": 1825118,
-              "duration": "15:12",
-              "max_height": 2160,
-              "published_at": "2026-05-21T21:01:30+08:00"
-            }
-          ]
-        },
-        "youtube_recent_30d": {
-          "label": "YouTube：30 天内上新 Top 5",
-          "window": {
-            "days": 30
-          },
-          "top_count": 5,
-          "videos": []
-        },
-        "bilibili_top_views": {
-          "label": "B站：100 天内上新 Top 10",
-          "window": {
-            "days": 100
-          },
-          "top_count": 10,
-          "videos": []
-        },
-        "bilibili_recent_30d": {
-          "label": "B站：30 天内上新 Top 5",
-          "window": {
-            "days": 30
-          },
-          "top_count": 5,
-          "videos": [
-            {
-              "id": "bilibili:BV1j9MP6wEV9",
-              "platform": "bilibili",
-              "title": "从零开始，学会让桌面Agent帮你干活！【小白教程】",
-              "summary": "用不上codex的朋友们！新的国产Agent直接上手，来跑通8大用法～ 感谢朋友们的三连+关注～",
-              "url": "https://www.bilibili.com/video/BV1j9MP6wEV9",
-              "thumbnail": "video-thumbs/bilibili/BV1j9MP6wEV9.webp",
-              "channel": "秋芝2046",
-              "subscribers": 0,
-              "views": 1219601,
-              "duration": "13:13",
-              "max_height": 720,
-              "published_at": "2026-07-05T10:00:00+08:00"
-            }
-          ]
-        },
-        "youtube_recent_3d": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_3d": {
-          "label": "B站：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_24h": {
-          "label": "B站：24 小时内上新 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        }
-      }
     }
   ],
-  "updated_at": "2026-10-11T07:23:33.394411+08:00"
+  "updated_at": "2026-10-12T07:33:23.692738+08:00"
 }
