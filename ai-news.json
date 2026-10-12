@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-12T19:22:14.390395+08:00",
-  "date": "2026-10-12",
+  "updated_at": "2026-10-13T07:22:32.262815+08:00",
+  "date": "2026-10-13",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,24 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "5d83dba89b9f",
+      "title": "Simulating student learning for better AI tutoring",
+      "summary": "StudentSim is a research system for evaluating and improving AI tutoring tools before they are tested with learners. It models how individuals may engage with …",
+      "url": "https://www.microsoft.com/en-us/research/blog/simulating-student-learning-for-better-ai-tutoring/",
+      "source": "Microsoft AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-13T00:00:00+08:00"
+    },
+    {
+      "id": "9c679f3096ea",
+      "title": "OCP Global Summit: Amid Ecosystem Adoption, NVIDIA Opens Vera Rubin Architecture to Help Scale AI Factories Worldwide",
+      "summary": "As AI factories grow from megawatts to gigawatts, building them takes more than advanced computing. Open standards are helping the industry scale AI infrastruc…",
+      "url": "https://blogs.nvidia.com/blog/ocp-global-summit-vera-rubin-scale-ai-factories/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-12T23:00:25+08:00"
+    },
     {
       "id": "8e9f902d9bc1",
       "title": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
@@ -280,6 +298,15 @@
       "published_at": "2026-10-07T20:00:00+08:00"
     },
     {
+      "id": "4dd290070848",
+      "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+      "summary": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
+      "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-07T03:57:04+08:00"
+    },
+    {
       "id": "242f2e4b6328",
       "title": "What AI gets wrong and what failure teaches us",
       "summary": "Jennifer Neville did not want to go into computer science—but that’s exactly where she landed. Neville discusses the starts and stops that led to her professio…",
@@ -289,16 +316,6 @@
       "published_at": "2026-10-07T00:19:06+08:00"
     },
     {
-      "id": "1cd9e00c8199",
-      "title": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
-      "summary": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
-      "url": "https://www.qbitai.com/2026/10/501749.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-10-07T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "c84805ae92ec",
       "title": "Why Telecom Operators Are Building Their AI Strategy on Open Models",
       "summary": "Telecom operators are increasingly building their AI strategies on open models — and the reasons go beyond mere cost. Open models give telcos the ability to tr…",
@@ -306,15 +323,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-10-06T21:00:19+08:00"
-    },
-    {
-      "id": "c2f51f56b801",
-      "title": "From Scan to Treatment Plan, AI Helps Close Breast Cancer’s Deadliest Gaps",
-      "summary": "Breast cancer is the most commonly diagnosed cancer among American women — yet the gaps in care are wide. A majority of women over age 40 skip the recommended …",
-      "url": "https://blogs.nvidia.com/blog/ai-breast-cancer-startups/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-05T21:00:57+08:00"
     }
   ],
   "qbitai_hot": {
@@ -332,16 +340,6 @@
         "window_hours": 720
       },
       {
-        "id": "62edff7a56bd",
-        "title": "特斯拉FSD，在欧洲被打回原形",
-        "summary": "特斯拉FSD，在欧洲被打回原形",
-        "url": "https://www.qbitai.com/2026/10/502467.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-10T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "7fa8d3726164",
         "title": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
         "summary": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
@@ -352,6 +350,26 @@
         "window_hours": 720
       },
       {
+        "id": "62edff7a56bd",
+        "title": "特斯拉FSD，在欧洲被打回原形",
+        "summary": "特斯拉FSD，在欧洲被打回原形",
+        "url": "https://www.qbitai.com/2026/10/502467.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-10T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "52e247ac2641",
+        "title": "智谱新模型，490 tokens/s！",
+        "summary": "智谱新模型，490 tokens/s！",
+        "url": "https://www.qbitai.com/2026/10/502649.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-12T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "9f61a8925f73",
         "title": "TRAE终于把Code和Work合并了",
         "summary": "TRAE终于把Code和Work合并了",
@@ -359,16 +377,6 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-09T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "1cd9e00c8199",
-        "title": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
-        "summary": "OpenAI一夜甩出722篇数学论文！黎曼霍奇BSD全上阵，数学家：读不过来",
-        "url": "https://www.qbitai.com/2026/10/501749.html",
-        "source": "量子位",
-        "category": "学术论文",
-        "published_at": "2026-10-07T00:00:00+08:00",
         "window_hours": 720
       }
     ]
