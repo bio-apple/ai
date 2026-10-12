@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-12T04:42:49.751651+08:00",
+  "updated_at": "2026-10-12T19:22:14.390395+08:00",
   "date": "2026-10-12",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "8e9f902d9bc1",
+      "title": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
+      "summary": "游戏打到21:0，AI甚至不用再调用大模型了",
+      "url": "https://www.qbitai.com/2026/10/502654.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-12T13:48:36+08:00"
+    },
+    {
+      "id": "cbcd28745789",
+      "title": "Faithfulness Without Anchors: A Position Paper on the Structural Misalignments of Explainable AI Faithfulness Metrics for Feature Importance",
+      "summary": "arXiv:2610.12493v1 Announce Type: new Abstract: Explainable Artificial Intelligence (XAI) tools have often been presented as methods to increase trust in machi…",
+      "url": "https://arxiv.org/abs/2610.12493",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-12T12:00:00+08:00"
+    },
+    {
+      "id": "6cf0ccffbf38",
+      "title": "EliteTable: Self-Improving Program Search for Executable Control Policies",
+      "summary": "arXiv:2610.12536v1 Announce Type: new Abstract: EliteTable is a self-improving program-search algorithm guided by large language models (LLMs) that uses a fixe…",
+      "url": "https://arxiv.org/abs/2610.12536",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-12T12:00:00+08:00"
+    },
+    {
+      "id": "3aae022998c9",
+      "title": "Equal-Budget Monte Carlo Tree Search versus Randomized-Restart List Scheduling for DAG Workflows: A Controlled Equal-Budget Computational Study",
+      "summary": "arXiv:2610.12542v1 Announce Type: new Abstract: Monte Carlo Tree Search (MCTS) is often proposed for scheduling directed-acyclic-graph (DAG) workflows, yet mos…",
+      "url": "https://arxiv.org/abs/2610.12542",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-12T12:00:00+08:00"
+    },
+    {
+      "id": "e269ec2e2621",
+      "title": "Know What You Don't Know: Agentic Data Synthesis by Evolving Generation Space for Closed-Loop Learning",
+      "summary": "arXiv:2610.12593v1 Announce Type: new Abstract: The continued improvement of large language models increasingly depends on synthetic experience, yet effective …",
+      "url": "https://arxiv.org/abs/2610.12593",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-12T12:00:00+08:00"
+    },
+    {
+      "id": "0930ea1989dd",
+      "title": "SpireBench: Evaluating Long-Horizon Strategic Play of Agentic Models with Slay the Spire",
+      "summary": "arXiv:2610.12596v1 Announce Type: new Abstract: Agentic large language models now tackle complex tasks, yet strategic reasoning over long horizons is under-stu…",
+      "url": "https://arxiv.org/abs/2610.12596",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-12T12:00:00+08:00"
+    },
+    {
+      "id": "52e247ac2641",
+      "title": "智谱新模型，490 tokens/s！",
+      "summary": "GLM「速度仙人」来了？",
+      "url": "https://www.qbitai.com/2026/10/502649.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-12T10:37:04+08:00"
+    },
     {
       "id": "9c546a6449ce",
       "title": "用不着Ctrl+F了！全新AI论文工具，帮你在原文献里海里捞针",
@@ -42,22 +105,14 @@
       "published_at": "2026-10-11T15:52:16+08:00"
     },
     {
-      "id": "5b087399ef81",
-      "title": "王的猜想，刚刚扩展到四维",
-      "summary": "王的猜想，刚刚扩展到四维",
-      "url": "https://www.qbitai.com/2026/10/502584.html",
+      "id": "7fa8d3726164",
+      "title": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
+      "summary": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
+      "url": "https://www.qbitai.com/2026/10/502544.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-10-11T13:23:47+08:00"
-    },
-    {
-      "id": "c0918d0d4e21",
-      "title": "硅谷AI现状：谁有算力谁是爹",
-      "summary": "马斯克连横A社，硅谷VC开始囤GPU",
-      "url": "https://www.qbitai.com/2026/10/502585.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-11T13:22:38+08:00"
+      "published_at": "2026-10-11T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "03c53e328a0e",
@@ -123,6 +178,16 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-09T00:00:00+08:00"
+    },
+    {
+      "id": "9f61a8925f73",
+      "title": "TRAE终于把Code和Work合并了",
+      "summary": "TRAE终于把Code和Work合并了",
+      "url": "https://www.qbitai.com/2026/10/502426.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-09T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "22621a26ca48",
@@ -250,42 +315,12 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-05T21:00:57+08:00"
-    },
-    {
-      "id": "d76be398914d",
-      "title": "刚刚，Hinton发了首篇RSI论文",
-      "summary": "刚刚，Hinton发了首篇RSI论文",
-      "url": "https://www.qbitai.com/2026/10/501705.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-10-05T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "4006495e9e42",
-      "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
-      "summary": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
-      "url": "https://www.qbitai.com/2026/10/501700.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-05T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "d76be398914d",
-        "title": "刚刚，Hinton发了首篇RSI论文",
-        "summary": "刚刚，Hinton发了首篇RSI论文",
-        "url": "https://www.qbitai.com/2026/10/501705.html",
-        "source": "量子位",
-        "category": "学术论文",
-        "published_at": "2026-10-05T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "03c53e328a0e",
         "title": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
@@ -307,13 +342,23 @@
         "window_hours": 720
       },
       {
-        "id": "4006495e9e42",
-        "title": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
-        "summary": "限时28天！OpenAI承诺没新功能就重置，网友：只想要Opus",
-        "url": "https://www.qbitai.com/2026/10/501700.html",
+        "id": "7fa8d3726164",
+        "title": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
+        "summary": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
+        "url": "https://www.qbitai.com/2026/10/502544.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-10-05T00:00:00+08:00",
+        "published_at": "2026-10-11T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "9f61a8925f73",
+        "title": "TRAE终于把Code和Work合并了",
+        "summary": "TRAE终于把Code和Work合并了",
+        "url": "https://www.qbitai.com/2026/10/502426.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-09T00:00:00+08:00",
         "window_hours": 720
       },
       {
