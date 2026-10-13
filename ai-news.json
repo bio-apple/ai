@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-13T19:13:02.338369+08:00",
-  "date": "2026-10-13",
+  "updated_at": "2026-10-14T05:38:55.239022+08:00",
+  "date": "2026-10-14",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "471508c04c30",
+      "title": "Developing Gemini 4 Argon responsibly and safely",
+      "summary": "Developing Gemini 4 Argon responsibly and safely",
+      "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T03:43:07+08:00"
+    },
+    {
+      "id": "550c4c02e9ff",
+      "title": "Run fast, private agents on-device with LFM2.5-24B-A2B",
+      "summary": "Run fast, private agents on-device with LFM2.5-24B-A2B",
+      "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-14T01:05:48+08:00"
+    },
+    {
+      "id": "884ebf3c3978",
+      "title": "Gemini 4 Argon for Robotics",
+      "summary": "Gemini 4 Argon for Robotics",
+      "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T00:01:58+08:00"
+    },
+    {
+      "id": "f174716114a9",
+      "title": "Gemini 4 Argon: Built to solve your hardest problems",
+      "summary": "Gemini 4 Argon: Built to solve your hardest problems",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-argon/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T00:01:52+08:00"
+    },
+    {
+      "id": "1001bd550953",
+      "title": "All Systems Go: Global PC App Ecosystem Ready for NVIDIA RTX Spark",
+      "summary": "NVIDIA RTX Spark is a new beginning for the PC — a reinvention combining the capabilities of a gaming PC, a creative studio and a personal AI supercomputer int…",
+      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-13T20:00:49+08:00"
+    },
+    {
+      "id": "ffc748cb8d88",
+      "title": "Higgsfield takes AI video from 1 minute to over 10",
+      "summary": "Higgsfield brings creators longer videos with GPT-6 Astra, precise visuals with GPT-Image-2.5, and a path to voice filmmaking with GPT-Live.",
+      "url": "https://openai.com/index/higgsfield-longer-videos-voice",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-13T20:00:00+08:00"
+    },
+    {
+      "id": "443369a543f1",
+      "title": "魔法原子具身Agent框架拿下MolmoSpaces全球第一",
+      "summary": "让VLA从“演示可用”逼近“产线可用”",
+      "url": "https://www.qbitai.com/2026/10/503107.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-13T19:05:39+08:00"
+    },
     {
       "id": "674ec494e489",
       "title": "梁文锋投了Swin Transformer作者！DeepSeek开始布局具身大脑",
@@ -51,17 +114,8 @@
       "published_at": "2026-10-13T14:19:10+08:00"
     },
     {
-      "id": "4e2811bb46a0",
-      "title": "“模态进化”：第八届亿邦产业互联网年会暨首届产业智能体大会双会合体定档",
-      "summary": "由亿邦动力主办的“2026第八届亿邦产业互联网年会暨首届产业智能体大会”正式定档",
-      "url": "https://www.qbitai.com/2026/10/502907.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-13T14:00:20+08:00"
-    },
-    {
       "id": "3fa2d8668eae",
-      "title": "From Earth to Orbit, France’s Ecosystem Delivers Agentic Computing at Scale With",
+      "title": "NVIDIA Announces New Investments in France’s Startups",
       "summary": "Companies in France are deploying agentic computing across industries spanning space, financial services, the public sector and scientific research, demonstrat…",
       "url": "https://blogs.nvidia.com/blog/france-ecosystem-agentic-computing/",
       "source": "NVIDIA AI",
@@ -245,15 +299,6 @@
       "published_at": "2026-10-08T20:00:00+08:00"
     },
     {
-      "id": "f6d3626eb7c8",
-      "title": "LegalOn halves Codex costs while maintaining development speed",
-      "summary": "LegalOn cut estimated daily Codex costs by 65% while maintaining development speed. It matched Astra, Sol, and Luna to tasks and managed budgets strategically.",
-      "url": "https://openai.com/index/legalon-halves-codex-costs",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-08T20:00:00+08:00"
-    },
-    {
       "id": "0f05fd4155a4",
       "title": "The model that didn't exist, so you made it yourself",
       "summary": "The model that didn't exist, so you made it yourself",
@@ -261,24 +306,6 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-10-08T08:00:00+08:00"
-    },
-    {
-      "id": "327e963986a0",
-      "title": "NVIDIA, Microsoft Kick Off a New Beginning for Windows PCs With RTX Spark and AI Agents",
-      "summary": "At a Microsoft event in San Francisco on Wednesday, NVIDIA founder and CEO Jensen Huang and Microsoft CEO Satya Nadella outlined how NVIDIA and Microsoft are c…",
-      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-microsoft-windows-event/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-08T02:45:28+08:00"
-    },
-    {
-      "id": "0825a4897dea",
-      "title": "Multimodal open d1 decision models for the edge",
-      "summary": "Multimodal open d1 decision models for the edge",
-      "url": "https://huggingface.co/blog/LiquidAI/open-d1",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-08T00:54:33+08:00"
     },
     {
       "id": "565e240356c9",
@@ -315,24 +342,6 @@
       "source": "Google AI",
       "category": "新工具上线",
       "published_at": "2026-10-07T20:00:00+08:00"
-    },
-    {
-      "id": "4dd290070848",
-      "title": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
-      "summary": "EmbeddingGemma 2: an open, lightweight multimodal embedding model",
-      "url": "https://deepmind.google/blog/embeddinggemma-2-an-open-lightweight-multimodal-embedding-model/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-07T03:57:04+08:00"
-    },
-    {
-      "id": "242f2e4b6328",
-      "title": "What AI gets wrong and what failure teaches us",
-      "summary": "Jennifer Neville did not want to go into computer science—but that’s exactly where she landed. Neville discusses the starts and stops that led to her professio…",
-      "url": "https://www.microsoft.com/en-us/research/podcast/what-ai-gets-wrong-and-what-failure-teaches-us/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-07T00:19:06+08:00"
     }
   ],
   "qbitai_hot": {
