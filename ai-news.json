@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-13T07:22:32.262815+08:00",
+  "updated_at": "2026-10-13T19:13:02.338369+08:00",
   "date": "2026-10-13",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,105 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "674ec494e489",
+      "title": "梁文锋投了Swin Transformer作者！DeepSeek开始布局具身大脑",
+      "summary": "Winverse AI",
+      "url": "https://www.qbitai.com/2026/10/503093.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-13T17:33:37+08:00"
+    },
+    {
+      "id": "d31378df7162",
+      "title": "中国车企反攻德系车心脏！巴黎车展国产品牌独占三成，大众CEO连忙呼吁抱团迎战",
+      "summary": "宝马保时捷缺席",
+      "url": "https://www.qbitai.com/2026/10/502992.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-13T15:20:23+08:00"
+    },
+    {
+      "id": "d0f1ce2e4063",
+      "title": "华为哈勃投了个98年博士！让机器人皮肤变色，团队平均23岁",
+      "summary": "让材料感知压力，造出超薄高密度电子皮肤",
+      "url": "https://www.qbitai.com/2026/10/502954.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-13T15:19:21+08:00"
+    },
+    {
+      "id": "499ab7791f65",
+      "title": "Claude团队又搞事：实测AI全自主复制进智能家电",
+      "summary": "拉马克进化的幽灵",
+      "url": "https://www.qbitai.com/2026/10/502920.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-13T14:19:10+08:00"
+    },
+    {
+      "id": "4e2811bb46a0",
+      "title": "“模态进化”：第八届亿邦产业互联网年会暨首届产业智能体大会双会合体定档",
+      "summary": "由亿邦动力主办的“2026第八届亿邦产业互联网年会暨首届产业智能体大会”正式定档",
+      "url": "https://www.qbitai.com/2026/10/502907.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-13T14:00:20+08:00"
+    },
+    {
+      "id": "3fa2d8668eae",
+      "title": "From Earth to Orbit, France’s Ecosystem Delivers Agentic Computing at Scale With",
+      "summary": "Companies in France are deploying agentic computing across industries spanning space, financial services, the public sector and scientific research, demonstrat…",
+      "url": "https://blogs.nvidia.com/blog/france-ecosystem-agentic-computing/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-13T13:00:31+08:00"
+    },
+    {
+      "id": "cbcd28745789",
+      "title": "Faithfulness Without Anchors: A Position Paper on the Structural Misalignments of Explainable AI Faithfulness Metrics for Feature Importance",
+      "summary": "arXiv:2610.12493v1 Announce Type: new Abstract: Explainable Artificial Intelligence (XAI) tools have often been presented as methods to increase trust in machi…",
+      "url": "https://arxiv.org/abs/2610.12493",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-13T12:00:00+08:00"
+    },
+    {
+      "id": "6cf0ccffbf38",
+      "title": "EliteTable: Self-Improving Program Search for Executable Control Policies",
+      "summary": "arXiv:2610.12536v1 Announce Type: new Abstract: EliteTable is a self-improving program-search algorithm guided by large language models (LLMs) that uses a fixe…",
+      "url": "https://arxiv.org/abs/2610.12536",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-13T12:00:00+08:00"
+    },
+    {
+      "id": "3aae022998c9",
+      "title": "Equal-Budget Monte Carlo Tree Search versus Randomized-Restart List Scheduling for DAG Workflows: A Controlled Equal-Budget Computational Study",
+      "summary": "arXiv:2610.12542v1 Announce Type: new Abstract: Monte Carlo Tree Search (MCTS) is often proposed for scheduling directed-acyclic-graph (DAG) workflows, yet mos…",
+      "url": "https://arxiv.org/abs/2610.12542",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-13T12:00:00+08:00"
+    },
+    {
+      "id": "e269ec2e2621",
+      "title": "Know What You Don't Know: Agentic Data Synthesis by Evolving Generation Space for Closed-Loop Learning",
+      "summary": "arXiv:2610.12593v1 Announce Type: new Abstract: The continued improvement of large language models increasingly depends on synthetic experience, yet effective …",
+      "url": "https://arxiv.org/abs/2610.12593",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-13T12:00:00+08:00"
+    },
+    {
+      "id": "0930ea1989dd",
+      "title": "SpireBench: Evaluating Long-Horizon Strategic Play of Agentic Models with Slay the Spire",
+      "summary": "arXiv:2610.12596v1 Announce Type: new Abstract: Agentic large language models now tackle complex tasks, yet strategic reasoning over long horizons is under-stu…",
+      "url": "https://arxiv.org/abs/2610.12596",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-13T12:00:00+08:00"
+    },
     {
       "id": "5d83dba89b9f",
       "title": "Simulating student learning for better AI tutoring",
@@ -33,94 +132,14 @@
       "published_at": "2026-10-12T23:00:25+08:00"
     },
     {
-      "id": "8e9f902d9bc1",
-      "title": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
-      "summary": "游戏打到21:0，AI甚至不用再调用大模型了",
-      "url": "https://www.qbitai.com/2026/10/502654.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-12T13:48:36+08:00"
-    },
-    {
-      "id": "cbcd28745789",
-      "title": "Faithfulness Without Anchors: A Position Paper on the Structural Misalignments of Explainable AI Faithfulness Metrics for Feature Importance",
-      "summary": "arXiv:2610.12493v1 Announce Type: new Abstract: Explainable Artificial Intelligence (XAI) tools have often been presented as methods to increase trust in machi…",
-      "url": "https://arxiv.org/abs/2610.12493",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-12T12:00:00+08:00"
-    },
-    {
-      "id": "6cf0ccffbf38",
-      "title": "EliteTable: Self-Improving Program Search for Executable Control Policies",
-      "summary": "arXiv:2610.12536v1 Announce Type: new Abstract: EliteTable is a self-improving program-search algorithm guided by large language models (LLMs) that uses a fixe…",
-      "url": "https://arxiv.org/abs/2610.12536",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-12T12:00:00+08:00"
-    },
-    {
-      "id": "3aae022998c9",
-      "title": "Equal-Budget Monte Carlo Tree Search versus Randomized-Restart List Scheduling for DAG Workflows: A Controlled Equal-Budget Computational Study",
-      "summary": "arXiv:2610.12542v1 Announce Type: new Abstract: Monte Carlo Tree Search (MCTS) is often proposed for scheduling directed-acyclic-graph (DAG) workflows, yet mos…",
-      "url": "https://arxiv.org/abs/2610.12542",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-12T12:00:00+08:00"
-    },
-    {
-      "id": "e269ec2e2621",
-      "title": "Know What You Don't Know: Agentic Data Synthesis by Evolving Generation Space for Closed-Loop Learning",
-      "summary": "arXiv:2610.12593v1 Announce Type: new Abstract: The continued improvement of large language models increasingly depends on synthetic experience, yet effective …",
-      "url": "https://arxiv.org/abs/2610.12593",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-12T12:00:00+08:00"
-    },
-    {
-      "id": "0930ea1989dd",
-      "title": "SpireBench: Evaluating Long-Horizon Strategic Play of Agentic Models with Slay the Spire",
-      "summary": "arXiv:2610.12596v1 Announce Type: new Abstract: Agentic large language models now tackle complex tasks, yet strategic reasoning over long horizons is under-stu…",
-      "url": "https://arxiv.org/abs/2610.12596",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-12T12:00:00+08:00"
-    },
-    {
       "id": "52e247ac2641",
       "title": "智谱新模型，490 tokens/s！",
-      "summary": "GLM「速度仙人」来了？",
+      "summary": "智谱新模型，490 tokens/s！",
       "url": "https://www.qbitai.com/2026/10/502649.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-10-12T10:37:04+08:00"
-    },
-    {
-      "id": "9c546a6449ce",
-      "title": "用不着Ctrl+F了！全新AI论文工具，帮你在原文献里海里捞针",
-      "summary": "一套生成论文初稿的多智能体工作流",
-      "url": "https://www.qbitai.com/2026/10/502644.html",
-      "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-10-11T17:04:31+08:00"
-    },
-    {
-      "id": "fe40919fe46e",
-      "title": "何恺明团队发布多模态Harness框架",
-      "summary": "多模态模型的视觉原生Harness，来了！",
-      "url": "https://www.qbitai.com/2026/10/502628.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-11T16:59:06+08:00"
-    },
-    {
-      "id": "3a075b6d7b81",
-      "title": "陶哲轩：数学2.0时代已至！",
-      "summary": "陶哲轩：数学2.0时代已至！",
-      "url": "https://www.qbitai.com/2026/10/502594.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-11T15:52:16+08:00"
+      "published_at": "2026-10-12T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "7fa8d3726164",
@@ -129,6 +148,16 @@
       "url": "https://www.qbitai.com/2026/10/502544.html",
       "source": "量子位",
       "category": "中文资讯",
+      "published_at": "2026-10-11T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "fe40919fe46e",
+      "title": "何恺明团队发布多模态Harness框架",
+      "summary": "何恺明团队发布多模态Harness框架",
+      "url": "https://www.qbitai.com/2026/10/502628.html",
+      "source": "量子位",
+      "category": "新工具上线",
       "published_at": "2026-10-11T00:00:00+08:00",
       "window_hours": 720
     },
@@ -196,16 +225,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-09T00:00:00+08:00"
-    },
-    {
-      "id": "9f61a8925f73",
-      "title": "TRAE终于把Code和Work合并了",
-      "summary": "TRAE终于把Code和Work合并了",
-      "url": "https://www.qbitai.com/2026/10/502426.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-09T00:00:00+08:00",
-      "window_hours": 720
     },
     {
       "id": "22621a26ca48",
@@ -314,15 +333,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-07T00:19:06+08:00"
-    },
-    {
-      "id": "c84805ae92ec",
-      "title": "Why Telecom Operators Are Building Their AI Strategy on Open Models",
-      "summary": "Telecom operators are increasingly building their AI strategies on open models — and the reasons go beyond mere cost. Open models give telcos the ability to tr…",
-      "url": "https://blogs.nvidia.com/blog/telecom-operators-open-models/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-06T21:00:19+08:00"
     }
   ],
   "qbitai_hot": {
@@ -330,13 +340,13 @@
     "window_days": 30,
     "items": [
       {
-        "id": "03c53e328a0e",
-        "title": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
-        "summary": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
-        "url": "https://www.qbitai.com/2026/10/502496.html",
+        "id": "52e247ac2641",
+        "title": "智谱新模型，490 tokens/s！",
+        "summary": "智谱新模型，490 tokens/s！",
+        "url": "https://www.qbitai.com/2026/10/502649.html",
         "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-10T00:00:00+08:00",
+        "category": "中文资讯",
+        "published_at": "2026-10-12T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -350,6 +360,16 @@
         "window_hours": 720
       },
       {
+        "id": "03c53e328a0e",
+        "title": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
+        "summary": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
+        "url": "https://www.qbitai.com/2026/10/502496.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-10T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "62edff7a56bd",
         "title": "特斯拉FSD，在欧洲被打回原形",
         "summary": "特斯拉FSD，在欧洲被打回原形",
@@ -360,23 +380,13 @@
         "window_hours": 720
       },
       {
-        "id": "52e247ac2641",
-        "title": "智谱新模型，490 tokens/s！",
-        "summary": "智谱新模型，490 tokens/s！",
-        "url": "https://www.qbitai.com/2026/10/502649.html",
+        "id": "fe40919fe46e",
+        "title": "何恺明团队发布多模态Harness框架",
+        "summary": "何恺明团队发布多模态Harness框架",
+        "url": "https://www.qbitai.com/2026/10/502628.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-12T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "9f61a8925f73",
-        "title": "TRAE终于把Code和Work合并了",
-        "summary": "TRAE终于把Code和Work合并了",
-        "url": "https://www.qbitai.com/2026/10/502426.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-09T00:00:00+08:00",
+        "category": "新工具上线",
+        "published_at": "2026-10-11T00:00:00+08:00",
         "window_hours": 720
       }
     ]
