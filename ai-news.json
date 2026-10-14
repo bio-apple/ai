@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-14T17:03:57.942968+08:00",
-  "date": "2026-10-14",
+  "updated_at": "2026-10-15T04:22:38.753572+08:00",
+  "date": "2026-10-15",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,42 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "672ebf75c430",
+      "title": "HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost",
+      "summary": "HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost",
+      "url": "https://huggingface.co/blog/allenai/hiro-acev2",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-15T00:12:42+08:00"
+    },
+    {
+      "id": "a0e0fec2c2b5",
+      "title": "Amp puts AI agents to work beyond code with OpenAI models",
+      "summary": "See how Amp pushes the frontier of what agents can do with GPT-6 Astra, Ultrafast, GPT-Live-1, and Sign in with ChatGPT.",
+      "url": "https://openai.com/index/amp-beyond-coding",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T20:00:00+08:00"
+    },
+    {
+      "id": "24cc989c02db",
+      "title": "SentinelOne cuts malware analysis from weeks to hours",
+      "summary": "With OpenAI Daybreak, SentinelOne cuts weeks of malware analysis to hours, creating capacity to investigate more threats.",
+      "url": "https://openai.com/index/sentinelone",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T20:00:00+08:00"
+    },
+    {
+      "id": "6b22d085628e",
+      "title": "抢先盘点2026全球开发者先锋大会暨国际具身智能技能大赛十大亮点！",
+      "summary": "“具身进实景，劳动最光荣”",
+      "url": "https://www.qbitai.com/2026/10/503294.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-14T18:41:47+08:00"
+    },
     {
       "id": "9a886f5e7d3c",
       "title": "阶跃终端首款「Agent手机」STEPX Neo正式发布，创客先行",
@@ -42,6 +78,15 @@
       "published_at": "2026-10-14T15:03:44+08:00"
     },
     {
+      "id": "e181547094b0",
+      "title": "How Third Moment Research runs 10,000 agents for 36+ hours",
+      "summary": "With GPT-6 Astra and GPT-6.1 Sol, Codex, and Daybreak for cybersecurity, this AI lab builds agents that focus for days and improve with use.",
+      "url": "https://openai.com/index/third-moment-research",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T15:00:00+08:00"
+    },
+    {
       "id": "c32369ba0c6e",
       "title": "STEPX首款大模型原生智能体手机STEPX Neo正式发布",
       "summary": "2026年10月13日，大模型原生AI终端品牌STEPX（阶跃终端）旗下首款大模型原生智能体手机STEPX Neo正式发布",
@@ -51,17 +96,8 @@
       "published_at": "2026-10-14T14:45:38+08:00"
     },
     {
-      "id": "dfd81e2e30a8",
-      "title": "MemSilicon完成国际首款高密度、大容量1T4R 1Gb RRAM芯片流片",
-      "summary": "CMOS标准工艺兼容的1TnR技术路线加速研发。",
-      "url": "https://www.qbitai.com/2026/10/503198.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-14T14:24:00+08:00"
-    },
-    {
       "id": "641fd03bcae8",
-      "title": "From Enterprise to Earthshot: UK’s Ecosystem Moves From Ambition to Application With",
+      "title": "NVIDIA Announces New Investments in the UK Startup Ecosystem",
       "summary": "Across industries, the U.K. is putting the full stack to work — and the scale of deployment is growing fast, from enterprises transforming their businesses to …",
       "url": "https://blogs.nvidia.com/blog/uk-ecosystem-deployment/",
       "source": "NVIDIA AI",
@@ -78,22 +114,13 @@
       "published_at": "2026-10-14T14:00:28+08:00"
     },
     {
-      "id": "58e4191fcfe4",
-      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
-      "summary": "Learn how Google DeepMind and GovTech Singapore uses lightweight on-device Gemma models to intercept conversational scams in private chats with zero cloud data…",
-      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
-      "source": "Google DeepMind",
+      "id": "2f3282e48314",
+      "title": "The EU’s next chapter in AI is agentic",
+      "summary": "New analysis shows how agentic AI adoption is growing across EU enterprises and small businesses—and where deeper use could unlock more value.",
+      "url": "https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic",
+      "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-10-14T10:00:14+08:00"
-    },
-    {
-      "id": "471508c04c30",
-      "title": "Developing Gemini 4 Argon responsibly and safely",
-      "summary": "Developing Gemini 4 Argon responsibly and safely",
-      "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T03:43:07+08:00"
+      "published_at": "2026-10-14T08:00:00+08:00"
     },
     {
       "id": "550c4c02e9ff",
@@ -105,22 +132,13 @@
       "published_at": "2026-10-14T01:05:48+08:00"
     },
     {
-      "id": "884ebf3c3978",
-      "title": "Gemini 4 Argon for Robotics",
-      "summary": "Gemini 4 Argon for Robotics",
-      "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T00:01:58+08:00"
-    },
-    {
-      "id": "f174716114a9",
+      "id": "c1e94fc83136",
       "title": "Gemini 4 Argon: Built to solve your hardest problems",
-      "summary": "Gemini 4 Argon: Built to solve your hardest problems",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-argon/",
-      "source": "Google DeepMind",
+      "summary": "We’re giving developers, enterprises, scientists, and consumers access to Gemini 4 Argon, our latest frontier model.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "source": "Google AI",
       "category": "新模型发布",
-      "published_at": "2026-10-14T00:01:52+08:00"
+      "published_at": "2026-10-14T00:00:00+08:00"
     },
     {
       "id": "1001bd550953",
@@ -208,42 +226,6 @@
       "window_hours": 720
     },
     {
-      "id": "43ef54e74d27",
-      "title": "Impactful scheduling for GPU clusters",
-      "summary": "Impactful scheduling for GPU clusters",
-      "url": "https://huggingface.co/blog/allenai/impactful-scheduling",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-09T23:20:29+08:00"
-    },
-    {
-      "id": "edd58468d564",
-      "title": "Sophos cuts threat investigation time by 96% with OpenAI Daybreak",
-      "summary": "Discover how Sophos uses OpenAI’s Daybreak to cut cyber-threat investigation time by 96% and automate 52% of MDR cases while preserving human oversight.",
-      "url": "https://openai.com/index/sophos",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-09T15:00:00+08:00"
-    },
-    {
-      "id": "90995f7dbc9c",
-      "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
-      "summary": "Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models.",
-      "url": "https://openai.com/index/asana-browser-agent",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-09T15:00:00+08:00"
-    },
-    {
-      "id": "112b5f00879d",
-      "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
-      "summary": "Across recruiting, engineering, and operations, Oracle turns specialist knowledge into fast, repeatable workflows with ChatGPT Work and Codex.",
-      "url": "https://openai.com/index/oracle",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-09T00:00:00+08:00"
-    },
-    {
       "id": "9f61a8925f73",
       "title": "TRAE终于把Code和Work合并了",
       "summary": "TRAE终于把Code和Work合并了",
@@ -254,15 +236,6 @@
       "window_hours": 720
     },
     {
-      "id": "ca1ec6c6a1a1",
-      "title": "Pollo AI turns creative ideas into campaigns with",
-      "summary": "With GPT-5.6, GPT-6 Astra, and GPT‑Image‑2.5, Pollo AI helps creators turn bold ideas into detailed images and cinematic video ads.",
-      "url": "https://openai.com/index/pollo-ai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-08T20:00:00+08:00"
-    },
-    {
       "id": "0f05fd4155a4",
       "title": "The model that didn't exist, so you made it yourself",
       "summary": "The model that didn't exist, so you made it yourself",
@@ -270,42 +243,6 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-10-08T08:00:00+08:00"
-    },
-    {
-      "id": "565e240356c9",
-      "title": "Agent Lightning v1.0: A 3,500-Line Lightweight Agentic RL Framework for Training Agents with Real Harnesses",
-      "summary": "Training AI agents with reinforcement learning can be challenging because their tools, context, and decision-making are managed by complex frameworks. Agent Li…",
-      "url": "https://www.microsoft.com/en-us/research/blog/agent-lightning-v1-0-a-3500-line-lightweight-agentic-rl-framework-for-training-agents-with-real-harnesses/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-08T00:00:00+08:00"
-    },
-    {
-      "id": "91ed3eb235f3",
-      "title": "Introducing Falcon ASR",
-      "summary": "Introducing Falcon ASR",
-      "url": "https://huggingface.co/blog/tiiuae/falcon-asr",
-      "source": "Hugging Face",
-      "category": "新工具上线",
-      "published_at": "2026-10-07T21:21:03+08:00"
-    },
-    {
-      "id": "5bdd694c6290",
-      "title": "One Model Family, Two Gold-Level Results: Fine-Tuning Nemotron for IOI and IMO",
-      "summary": "One Model Family, Two Gold-Level Results: Fine-Tuning Nemotron for IOI and IMO",
-      "url": "https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-07T20:45:31+08:00"
-    },
-    {
-      "id": "22643d6fcb19",
-      "title": "Introducing Playground: Create and play custom games",
-      "summary": "Playground is a new experimental gaming platform that lets you create, play, and share custom games.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/playground-experimental-gaming-platform/",
-      "source": "Google AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-07T20:00:00+08:00"
     }
   ],
   "qbitai_hot": {
