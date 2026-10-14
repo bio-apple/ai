@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-14T05:38:55.239022+08:00",
+  "updated_at": "2026-10-14T17:03:57.942968+08:00",
   "date": "2026-10-14",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,78 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "9a886f5e7d3c",
+      "title": "阶跃终端首款「Agent手机」STEPX Neo正式发布，创客先行",
+      "summary": "这妥妥是个物理版Agent啊！",
+      "url": "https://www.qbitai.com/2026/10/503244.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-14T16:01:18+08:00"
+    },
+    {
+      "id": "bd513ad4ea77",
+      "title": "智能不出彩的「领克」，刚靠一次坠崖事故出圈了",
+      "summary": "汽车竞争正在回归汽车本身",
+      "url": "https://www.qbitai.com/2026/10/503231.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-14T15:12:02+08:00"
+    },
+    {
+      "id": "d78052b237c0",
+      "title": "《变形计》综艺赛博复活，AI版MrBeast爆火，LibTV下场「造星」了",
+      "summary": "从创意到成本，AI正在重写综艺的生产逻辑",
+      "url": "https://www.qbitai.com/2026/10/503211.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-14T15:03:44+08:00"
+    },
+    {
+      "id": "c32369ba0c6e",
+      "title": "STEPX首款大模型原生智能体手机STEPX Neo正式发布",
+      "summary": "2026年10月13日，大模型原生AI终端品牌STEPX（阶跃终端）旗下首款大模型原生智能体手机STEPX Neo正式发布",
+      "url": "https://www.qbitai.com/2026/10/503201.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-14T14:45:38+08:00"
+    },
+    {
+      "id": "dfd81e2e30a8",
+      "title": "MemSilicon完成国际首款高密度、大容量1T4R 1Gb RRAM芯片流片",
+      "summary": "CMOS标准工艺兼容的1TnR技术路线加速研发。",
+      "url": "https://www.qbitai.com/2026/10/503198.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-14T14:24:00+08:00"
+    },
+    {
+      "id": "641fd03bcae8",
+      "title": "From Enterprise to Earthshot: UK’s Ecosystem Moves From Ambition to Application With",
+      "summary": "Across industries, the U.K. is putting the full stack to work — and the scale of deployment is growing fast, from enterprises transforming their businesses to …",
+      "url": "https://blogs.nvidia.com/blog/uk-ecosystem-deployment/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-14T14:04:15+08:00"
+    },
+    {
+      "id": "5f7238246fc0",
+      "title": "European Cities Deploy NVIDIA-Powered AI Agents to Run Smarter Urban Operations",
+      "summary": "Keeping a city running means making decisions that affect residents every day — from when to repair a road to how to use energy more efficiently. Across the EM…",
+      "url": "https://blogs.nvidia.com/blog/european-cities-agents-urban-operations/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-14T14:00:28+08:00"
+    },
+    {
+      "id": "58e4191fcfe4",
+      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+      "summary": "Learn how Google DeepMind and GovTech Singapore uses lightweight on-device Gemma models to intercept conversational scams in private chats with zero cloud data…",
+      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T10:00:14+08:00"
+    },
     {
       "id": "471508c04c30",
       "title": "Developing Gemini 4 Argon responsibly and safely",
@@ -69,51 +141,6 @@
       "published_at": "2026-10-13T20:00:00+08:00"
     },
     {
-      "id": "443369a543f1",
-      "title": "魔法原子具身Agent框架拿下MolmoSpaces全球第一",
-      "summary": "让VLA从“演示可用”逼近“产线可用”",
-      "url": "https://www.qbitai.com/2026/10/503107.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-13T19:05:39+08:00"
-    },
-    {
-      "id": "674ec494e489",
-      "title": "梁文锋投了Swin Transformer作者！DeepSeek开始布局具身大脑",
-      "summary": "Winverse AI",
-      "url": "https://www.qbitai.com/2026/10/503093.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-13T17:33:37+08:00"
-    },
-    {
-      "id": "d31378df7162",
-      "title": "中国车企反攻德系车心脏！巴黎车展国产品牌独占三成，大众CEO连忙呼吁抱团迎战",
-      "summary": "宝马保时捷缺席",
-      "url": "https://www.qbitai.com/2026/10/502992.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-13T15:20:23+08:00"
-    },
-    {
-      "id": "d0f1ce2e4063",
-      "title": "华为哈勃投了个98年博士！让机器人皮肤变色，团队平均23岁",
-      "summary": "让材料感知压力，造出超薄高密度电子皮肤",
-      "url": "https://www.qbitai.com/2026/10/502954.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-13T15:19:21+08:00"
-    },
-    {
-      "id": "499ab7791f65",
-      "title": "Claude团队又搞事：实测AI全自主复制进智能家电",
-      "summary": "拉马克进化的幽灵",
-      "url": "https://www.qbitai.com/2026/10/502920.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-13T14:19:10+08:00"
-    },
-    {
       "id": "3fa2d8668eae",
       "title": "NVIDIA Announces New Investments in France’s Startups",
       "summary": "Companies in France are deploying agentic computing across industries spanning space, financial services, the public sector and scientific research, demonstrat…",
@@ -121,51 +148,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-13T13:00:31+08:00"
-    },
-    {
-      "id": "cbcd28745789",
-      "title": "Faithfulness Without Anchors: A Position Paper on the Structural Misalignments of Explainable AI Faithfulness Metrics for Feature Importance",
-      "summary": "arXiv:2610.12493v1 Announce Type: new Abstract: Explainable Artificial Intelligence (XAI) tools have often been presented as methods to increase trust in machi…",
-      "url": "https://arxiv.org/abs/2610.12493",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-13T12:00:00+08:00"
-    },
-    {
-      "id": "6cf0ccffbf38",
-      "title": "EliteTable: Self-Improving Program Search for Executable Control Policies",
-      "summary": "arXiv:2610.12536v1 Announce Type: new Abstract: EliteTable is a self-improving program-search algorithm guided by large language models (LLMs) that uses a fixe…",
-      "url": "https://arxiv.org/abs/2610.12536",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-13T12:00:00+08:00"
-    },
-    {
-      "id": "3aae022998c9",
-      "title": "Equal-Budget Monte Carlo Tree Search versus Randomized-Restart List Scheduling for DAG Workflows: A Controlled Equal-Budget Computational Study",
-      "summary": "arXiv:2610.12542v1 Announce Type: new Abstract: Monte Carlo Tree Search (MCTS) is often proposed for scheduling directed-acyclic-graph (DAG) workflows, yet mos…",
-      "url": "https://arxiv.org/abs/2610.12542",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-13T12:00:00+08:00"
-    },
-    {
-      "id": "e269ec2e2621",
-      "title": "Know What You Don't Know: Agentic Data Synthesis by Evolving Generation Space for Closed-Loop Learning",
-      "summary": "arXiv:2610.12593v1 Announce Type: new Abstract: The continued improvement of large language models increasingly depends on synthetic experience, yet effective …",
-      "url": "https://arxiv.org/abs/2610.12593",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-13T12:00:00+08:00"
-    },
-    {
-      "id": "0930ea1989dd",
-      "title": "SpireBench: Evaluating Long-Horizon Strategic Play of Agentic Models with Slay the Spire",
-      "summary": "arXiv:2610.12596v1 Announce Type: new Abstract: Agentic large language models now tackle complex tasks, yet strategic reasoning over long horizons is under-stu…",
-      "url": "https://arxiv.org/abs/2610.12596",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-13T12:00:00+08:00"
     },
     {
       "id": "5d83dba89b9f",
@@ -226,16 +208,6 @@
       "window_hours": 720
     },
     {
-      "id": "62edff7a56bd",
-      "title": "特斯拉FSD，在欧洲被打回原形",
-      "summary": "特斯拉FSD，在欧洲被打回原形",
-      "url": "https://www.qbitai.com/2026/10/502467.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-10T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "43ef54e74d27",
       "title": "Impactful scheduling for GPU clusters",
       "summary": "Impactful scheduling for GPU clusters",
@@ -263,15 +235,6 @@
       "published_at": "2026-10-09T15:00:00+08:00"
     },
     {
-      "id": "baf7193e75c1",
-      "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
-      "summary": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended…",
-      "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-09T05:06:35+08:00"
-    },
-    {
       "id": "112b5f00879d",
       "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
       "summary": "Across recruiting, engineering, and operations, Oracle turns specialist knowledge into fast, repeatable workflows with ChatGPT Work and Codex.",
@@ -281,13 +244,14 @@
       "published_at": "2026-10-09T00:00:00+08:00"
     },
     {
-      "id": "22621a26ca48",
-      "title": "Rally Up: ‘Gears of War: E-Day’ Launches on GeForce NOW",
-      "summary": "Gears of War: E-Day leads the charge on GeForce NOW this week, bringing Marcus Fenix and Dom Santiago’s first fight against the Locust Horde to the cloud with …",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-gears-of-war-e-day/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-08T21:00:46+08:00"
+      "id": "9f61a8925f73",
+      "title": "TRAE终于把Code和Work合并了",
+      "summary": "TRAE终于把Code和Work合并了",
+      "url": "https://www.qbitai.com/2026/10/502426.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-09T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "ca1ec6c6a1a1",
@@ -379,13 +343,13 @@
         "window_hours": 720
       },
       {
-        "id": "62edff7a56bd",
-        "title": "特斯拉FSD，在欧洲被打回原形",
-        "summary": "特斯拉FSD，在欧洲被打回原形",
-        "url": "https://www.qbitai.com/2026/10/502467.html",
+        "id": "9f61a8925f73",
+        "title": "TRAE终于把Code和Work合并了",
+        "summary": "TRAE终于把Code和Work合并了",
+        "url": "https://www.qbitai.com/2026/10/502426.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-10-10T00:00:00+08:00",
+        "published_at": "2026-10-09T00:00:00+08:00",
         "window_hours": 720
       },
       {
