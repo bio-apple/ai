@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-15T16:37:31.238501+08:00",
-  "date": "2026-10-15",
+  "updated_at": "2026-10-16T04:07:33.629504+08:00",
+  "date": "2026-10-16",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "ef6c7beadf74",
+      "title": "Be There for the Beginning: Celebrate the Launch of NVIDIA RTX Spark",
+      "summary": "A new beginning for Windows PCs starts tomorrow with the launch of NVIDIA RTX Spark — one PC built for creators, gamers and AI agents. All are invited to celeb…",
+      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-launch-event-invite/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-16T01:00:23+08:00"
+    },
+    {
+      "id": "4069e5410c3e",
+      "title": "Proof-based general-purpose computing with Magnetar",
+      "summary": "Zero-knowledge proofs can verify computing results without rerunning workloads or exposing sensitive data. Magnetar helps bring them into the mainstream with s…",
+      "url": "https://www.microsoft.com/en-us/research/blog/proof-based-general-purpose-computing-with-magnetar/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-16T00:00:00+08:00"
+    },
+    {
+      "id": "902189e10f1e",
+      "title": "Open From Data Center to Desktop: NVIDIA Expands Nemotron Family With Highest Efficiency Super VL and Bolt Models",
+      "summary": "NVIDIA today released Nemotron 3.5 Super VL, an open 120-billion-parameter model that delivers the fastest task completion and highest accuracy for specialized…",
+      "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-15T23:00:24+08:00"
+    },
+    {
+      "id": "a9f3afff6b19",
+      "title": "Dial Up the Cloud: NVIDIA DLSS 4.5 Controls Arrive on GeForce NOW",
+      "summary": "Dial in the next gaming session this GFN Thursday. New NVIDIA DLSS 4.5 controls give GeForce NOW members more choice over how supported games look and perform …",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-enshrouded-update/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-15T21:00:59+08:00"
+    },
+    {
+      "id": "fa14b8f7db46",
+      "title": "Teaching students to think and learn through questions",
+      "summary": "Celebrate Teachers’ Day with AI for Educators in Brazilian Portuguese and see how Study Mode can help teachers support active, step-by-step learning.",
+      "url": "https://openai.com/index/teaching-students-to-think-and-learn-through-questions",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-15T21:00:00+08:00"
+    },
+    {
+      "id": "0aa71d1f1cfd",
+      "title": "NVIDIA Expands Advanced Technology Access for Europe’s Scientific Community Through Open Learning Resources, Collaborations and Compute",
+      "summary": "Much of today’s scientific progress begins with computation. But turning accelerated computing’s potential into scientific progress — modeling climate systems,…",
+      "url": "https://blogs.nvidia.com/blog/ec-scientific-computing-pledge/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-15T18:00:12+08:00"
+    },
+    {
+      "id": "e3c36d4422c6",
+      "title": "Apertus 1.5 Release Notes",
+      "summary": "Apertus 1.5 Release Notes",
+      "url": "https://huggingface.co/blog/swiss-ai/apertus-v15-release-notes",
+      "source": "Hugging Face",
+      "category": "新工具上线",
+      "published_at": "2026-10-15T17:08:45+08:00"
+    },
     {
       "id": "68f85c5a70ff",
       "title": "The Nordics and NVIDIA Show What’s Possible When a Region Commits to Advanced Computing",
@@ -76,6 +139,24 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-15T09:56:20+08:00"
+    },
+    {
+      "id": "9d251ac6836a",
+      "title": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
+      "summary": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
+      "url": "https://huggingface.co/blog/meta-muse-spark-open",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-15T08:00:00+08:00"
+    },
+    {
+      "id": "3733c75a28bf",
+      "title": "Welcome FLUX.3 Image Klein in Diffusers",
+      "summary": "Welcome FLUX.3 Image Klein in Diffusers",
+      "url": "https://huggingface.co/blog/flux-3",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-15T08:00:00+08:00"
     },
     {
       "id": "672ebf75c430",
@@ -169,51 +250,6 @@
       "published_at": "2026-10-14T15:00:00+08:00"
     },
     {
-      "id": "641fd03bcae8",
-      "title": "NVIDIA Announces New Investments in the UK Startup Ecosystem",
-      "summary": "Across industries, the U.K. is putting the full stack to work. The scale of deployment is growing fast, from enterprises transforming their businesses to start…",
-      "url": "https://blogs.nvidia.com/blog/uk-ecosystem-deployment/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-14T14:04:15+08:00"
-    },
-    {
-      "id": "5f7238246fc0",
-      "title": "European Cities Deploy NVIDIA-Powered AI Agents to Run Smarter Urban Operations",
-      "summary": "Keeping a city running means making decisions that affect residents every day — from when to repair a road to how to use energy more efficiently. Across the EM…",
-      "url": "https://blogs.nvidia.com/blog/european-cities-agents-urban-operations/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-14T14:00:28+08:00"
-    },
-    {
-      "id": "58e4191fcfe4",
-      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
-      "summary": "Learn how Google DeepMind and GovTech Singapore uses lightweight on-device Gemma models to intercept conversational scams in private chats with zero cloud data…",
-      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T10:00:14+08:00"
-    },
-    {
-      "id": "2f3282e48314",
-      "title": "The EU’s next chapter in AI is agentic",
-      "summary": "New analysis shows how agentic AI adoption is growing across EU enterprises and small businesses—and where deeper use could unlock more value.",
-      "url": "https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T08:00:00+08:00"
-    },
-    {
-      "id": "471508c04c30",
-      "title": "Developing Gemini 4 Argon responsibly and safely",
-      "summary": "Developing Gemini 4 Argon responsibly and safely",
-      "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T03:43:07+08:00"
-    },
-    {
       "id": "550c4c02e9ff",
       "title": "Run fast, private agents on-device with LFM2.5-24B-A2B",
       "summary": "Run fast, private agents on-device with LFM2.5-24B-A2B",
@@ -223,40 +259,13 @@
       "published_at": "2026-10-14T01:05:48+08:00"
     },
     {
-      "id": "884ebf3c3978",
-      "title": "Gemini 4 Argon for Robotics",
-      "summary": "Gemini 4 Argon for Robotics",
-      "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T00:01:58+08:00"
-    },
-    {
-      "id": "f174716114a9",
+      "id": "c1e94fc83136",
       "title": "Gemini 4 Argon: Built to solve your hardest problems",
-      "summary": "Gemini 4 Argon: Built to solve your hardest problems",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-argon/",
-      "source": "Google DeepMind",
+      "summary": "We’re giving developers, enterprises, scientists, and consumers access to Gemini 4 Argon, our latest frontier model.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "source": "Google AI",
       "category": "新模型发布",
-      "published_at": "2026-10-14T00:01:52+08:00"
-    },
-    {
-      "id": "1001bd550953",
-      "title": "All Systems Go: Global PC App Ecosystem Ready for NVIDIA RTX Spark",
-      "summary": "NVIDIA RTX Spark is a new beginning for the PC — a reinvention combining the capabilities of a gaming PC, a creative studio and a personal AI supercomputer int…",
-      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-laptops-software-updates/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-13T20:00:49+08:00"
-    },
-    {
-      "id": "3fa2d8668eae",
-      "title": "NVIDIA Announces New Investments in France’s Startups",
-      "summary": "Companies in France are deploying agentic computing across industries spanning space, financial services, the public sector and scientific research, demonstrat…",
-      "url": "https://blogs.nvidia.com/blog/france-ecosystem-agentic-computing/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-13T13:00:31+08:00"
+      "published_at": "2026-10-14T00:00:00+08:00"
     },
     {
       "id": "5d83dba89b9f",
