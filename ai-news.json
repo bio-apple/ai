@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-15T04:22:38.753572+08:00",
+  "updated_at": "2026-10-15T16:37:31.238501+08:00",
   "date": "2026-10-15",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,69 @@
   },
   "items": [
     {
+      "id": "68f85c5a70ff",
+      "title": "The Nordics and NVIDIA Show What’s Possible When a Region Commits to Advanced Computing",
+      "summary": "The Nordic countries have become the European leader in unicorn startup density, producing the most emerging companies valued at $1 billion or more per capita …",
+      "url": "https://blogs.nvidia.com/blog/nordics-technology-ecosystem/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-15T13:00:12+08:00"
+    },
+    {
+      "id": "a16d50c7df94",
+      "title": "Artificiality's First Exam: An LLM-Referenced C-test for Supraintelligence",
+      "summary": "arXiv:2610.14005v1 Announce Type: new Abstract: Under the accelerated pace of AI development, any benchmark whose difficulty is calibrated with humans or curre…",
+      "url": "https://arxiv.org/abs/2610.14005",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-15T12:00:00+08:00"
+    },
+    {
+      "id": "574863154eac",
+      "title": "The Silent Failures in Agentic Data Science",
+      "summary": "arXiv:2610.14115v1 Announce Type: new Abstract: Large language models have significantly lowered the barrier to writing code. Naturally, this has also led to t…",
+      "url": "https://arxiv.org/abs/2610.14115",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-15T12:00:00+08:00"
+    },
+    {
+      "id": "8ddbcf370a84",
+      "title": "ClawLoop: Self-Improving Agents via Harness-Native Training Loop",
+      "summary": "arXiv:2610.14118v1 Announce Type: new Abstract: The rapid advancement of Large Language Models (LLMs) has driven their deployment toward general-purpose harnes…",
+      "url": "https://arxiv.org/abs/2610.14118",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-15T12:00:00+08:00"
+    },
+    {
+      "id": "8974705b9389",
+      "title": "Correction Training for Diffusion Models",
+      "summary": "arXiv:2610.14136v2 Announce Type: new Abstract: Iterative sampling in diffusion models can lead to error accumulation due to exposure bias. The denoiser is tra…",
+      "url": "https://arxiv.org/abs/2610.14136",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-15T12:00:00+08:00"
+    },
+    {
+      "id": "1993f9efc3a0",
+      "title": "Long-Horizon-Terminal-Bench 2.0: Automating Diverse Task Construction and Measuring Sustained Agent Progress",
+      "summary": "arXiv:2610.14146v1 Announce Type: new Abstract: Long-horizon terminal benchmarks measure whether an agent can sustain progress through extended workflows with …",
+      "url": "https://arxiv.org/abs/2610.14146",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-15T12:00:00+08:00"
+    },
+    {
+      "id": "ca5684070dba",
+      "title": "7天几百元开一家店！用千问办公电商版，立省启动资金5万元",
+      "summary": "给企业Agent打了个样",
+      "url": "https://www.qbitai.com/2026/10/503303.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-15T09:56:20+08:00"
+    },
+    {
       "id": "672ebf75c430",
       "title": "HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost",
       "summary": "HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost",
@@ -22,6 +85,16 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-10-15T00:12:42+08:00"
+    },
+    {
+      "id": "ee8fc46d4229",
+      "title": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
+      "summary": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
+      "url": "https://www.qbitai.com/2026/10/503326.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-15T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "a0e0fec2c2b5",
@@ -87,18 +160,18 @@
       "published_at": "2026-10-14T15:00:00+08:00"
     },
     {
-      "id": "c32369ba0c6e",
-      "title": "STEPX首款大模型原生智能体手机STEPX Neo正式发布",
-      "summary": "2026年10月13日，大模型原生AI终端品牌STEPX（阶跃终端）旗下首款大模型原生智能体手机STEPX Neo正式发布",
-      "url": "https://www.qbitai.com/2026/10/503201.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-14T14:45:38+08:00"
+      "id": "7d10f0ddfecf",
+      "title": "How Block is building AI-powered security with OpenAI technology",
+      "summary": "Block is building AI-powered security with OpenAI. Its security team investigates threats faster and proposes patches in minutes.",
+      "url": "https://openai.com/index/block-ai-powered-security",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T15:00:00+08:00"
     },
     {
       "id": "641fd03bcae8",
       "title": "NVIDIA Announces New Investments in the UK Startup Ecosystem",
-      "summary": "Across industries, the U.K. is putting the full stack to work — and the scale of deployment is growing fast, from enterprises transforming their businesses to …",
+      "summary": "Across industries, the U.K. is putting the full stack to work. The scale of deployment is growing fast, from enterprises transforming their businesses to start…",
       "url": "https://blogs.nvidia.com/blog/uk-ecosystem-deployment/",
       "source": "NVIDIA AI",
       "category": "行业新闻",
@@ -114,6 +187,15 @@
       "published_at": "2026-10-14T14:00:28+08:00"
     },
     {
+      "id": "58e4191fcfe4",
+      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+      "summary": "Learn how Google DeepMind and GovTech Singapore uses lightweight on-device Gemma models to intercept conversational scams in private chats with zero cloud data…",
+      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T10:00:14+08:00"
+    },
+    {
       "id": "2f3282e48314",
       "title": "The EU’s next chapter in AI is agentic",
       "summary": "New analysis shows how agentic AI adoption is growing across EU enterprises and small businesses—and where deeper use could unlock more value.",
@@ -121,6 +203,15 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-14T08:00:00+08:00"
+    },
+    {
+      "id": "471508c04c30",
+      "title": "Developing Gemini 4 Argon responsibly and safely",
+      "summary": "Developing Gemini 4 Argon responsibly and safely",
+      "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T03:43:07+08:00"
     },
     {
       "id": "550c4c02e9ff",
@@ -132,13 +223,22 @@
       "published_at": "2026-10-14T01:05:48+08:00"
     },
     {
-      "id": "c1e94fc83136",
-      "title": "Gemini 4 Argon: Built to solve your hardest problems",
-      "summary": "We’re giving developers, enterprises, scientists, and consumers access to Gemini 4 Argon, our latest frontier model.",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
-      "source": "Google AI",
+      "id": "884ebf3c3978",
+      "title": "Gemini 4 Argon for Robotics",
+      "summary": "Gemini 4 Argon for Robotics",
+      "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
+      "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-10-14T00:00:00+08:00"
+      "published_at": "2026-10-14T00:01:58+08:00"
+    },
+    {
+      "id": "f174716114a9",
+      "title": "Gemini 4 Argon: Built to solve your hardest problems",
+      "summary": "Gemini 4 Argon: Built to solve your hardest problems",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-argon/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T00:01:52+08:00"
     },
     {
       "id": "1001bd550953",
@@ -148,15 +248,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-13T20:00:49+08:00"
-    },
-    {
-      "id": "ffc748cb8d88",
-      "title": "Higgsfield takes AI video from 1 minute to over 10",
-      "summary": "Higgsfield brings creators longer videos with GPT-6 Astra, precise visuals with GPT-Image-2.5, and a path to voice filmmaking with GPT-Live.",
-      "url": "https://openai.com/index/higgsfield-longer-videos-voice",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-13T20:00:00+08:00"
     },
     {
       "id": "3fa2d8668eae",
@@ -175,15 +266,6 @@
       "source": "Microsoft AI",
       "category": "新模型发布",
       "published_at": "2026-10-13T00:00:00+08:00"
-    },
-    {
-      "id": "9c679f3096ea",
-      "title": "OCP Global Summit: Amid Ecosystem Adoption, NVIDIA Opens Vera Rubin Architecture to Help Scale AI Factories Worldwide",
-      "summary": "As AI factories grow from megawatts to gigawatts, building them takes more than advanced computing. Open standards are helping the industry scale AI infrastruc…",
-      "url": "https://blogs.nvidia.com/blog/ocp-global-summit-vera-rubin-scale-ai-factories/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-12T23:00:25+08:00"
     },
     {
       "id": "52e247ac2641",
@@ -206,16 +288,6 @@
       "window_hours": 720
     },
     {
-      "id": "fe40919fe46e",
-      "title": "何恺明团队发布多模态Harness框架",
-      "summary": "何恺明团队发布多模态Harness框架",
-      "url": "https://www.qbitai.com/2026/10/502628.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-11T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "03c53e328a0e",
       "title": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
       "summary": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
@@ -234,15 +306,6 @@
       "category": "中文资讯",
       "published_at": "2026-10-09T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "0f05fd4155a4",
-      "title": "The model that didn't exist, so you made it yourself",
-      "summary": "The model that didn't exist, so you made it yourself",
-      "url": "https://huggingface.co/blog/building-with-ml-intern",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-08T08:00:00+08:00"
     }
   ],
   "qbitai_hot": {
@@ -257,6 +320,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-12T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ee8fc46d4229",
+        "title": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
+        "summary": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
+        "url": "https://www.qbitai.com/2026/10/503326.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-15T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -287,16 +360,6 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-09T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "fe40919fe46e",
-        "title": "何恺明团队发布多模态Harness框架",
-        "summary": "何恺明团队发布多模态Harness框架",
-        "url": "https://www.qbitai.com/2026/10/502628.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-11T00:00:00+08:00",
         "window_hours": 720
       }
     ]
