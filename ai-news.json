@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T04:07:33.629504+08:00",
+  "updated_at": "2026-10-16T16:32:22.928291+08:00",
   "date": "2026-10-16",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,78 @@
   },
   "items": [
     {
+      "id": "5a4c85ab654b",
+      "title": "The World Won't Wait: Evaluating and Teaching Agents Under a Live Clock",
+      "summary": "arXiv:2610.20665v1 Announce Type: new Abstract: Large language model (LLM) agents can solve complex interactive tasks, yet reasoning and tool calls take time. …",
+      "url": "https://arxiv.org/abs/2610.20665",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-16T12:00:00+08:00"
+    },
+    {
+      "id": "4f5a3d65e49a",
+      "title": "Evaluating Model Capabilities After Benchmark Saturation",
+      "summary": "arXiv:2610.20667v1 Announce Type: new Abstract: Rapid advances in AI capabilities are causing benchmarks to saturate. Once several models approach perfect scor…",
+      "url": "https://arxiv.org/abs/2610.20667",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-16T12:00:00+08:00"
+    },
+    {
+      "id": "f86f8cbf4aa8",
+      "title": "Value-Informed Schedule Trimming for Accelerated Sequential Monte Carlo Guidance in Discrete Diffusion",
+      "summary": "arXiv:2610.20669v1 Announce Type: new Abstract: Reward-guided discrete diffusion enables test-time alignment with downstream objectives, but applying Sequentia…",
+      "url": "https://arxiv.org/abs/2610.20669",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-16T12:00:00+08:00"
+    },
+    {
+      "id": "ec55d30545d8",
+      "title": "AlphaDiana: A Measurement System for Agents in Verifiable Reasoning Tasks",
+      "summary": "arXiv:2610.20675v1 Announce Type: new Abstract: Agents pair reasoning models with harnesses that organize model calls, execute tools, load skill instructions, …",
+      "url": "https://arxiv.org/abs/2610.20675",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-16T12:00:00+08:00"
+    },
+    {
+      "id": "3e6b3f583e3f",
+      "title": "When Correctness Feedback Erases Evidence: Phase-Separated Completeness Auditing in Verus",
+      "summary": "arXiv:2610.20676v1 Announce Type: new Abstract: Correctness feedback suppresses the very evidence that specification-completeness auditing is designed to uncov…",
+      "url": "https://arxiv.org/abs/2610.20676",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-16T12:00:00+08:00"
+    },
+    {
+      "id": "ba4e7337aba2",
+      "title": "Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline",
+      "summary": "Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline",
+      "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-16T09:44:47+08:00"
+    },
+    {
+      "id": "a01e02239da0",
+      "title": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
+      "summary": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-16T04:34:01+08:00"
+    },
+    {
+      "id": "a72d1e4da6b0",
+      "title": "Bringing GPT-Rosalind to academic research labs",
+      "summary": "Introducing the Rosalind Academic Plan, offering eligible academic labs sponsored access to GPT-Rosalind and tools to advance life sciences research.",
+      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-10-16T03:00:00+08:00"
+    },
+    {
       "id": "ef6c7beadf74",
       "title": "Be There for the Beginning: Celebrate the Launch of NVIDIA RTX Spark",
       "summary": "A new beginning for Windows PCs starts tomorrow with the launch of NVIDIA RTX Spark — one PC built for creators, gamers and AI agents. All are invited to celeb…",
@@ -22,6 +94,15 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-10-16T01:00:23+08:00"
+    },
+    {
+      "id": "996b33c09ad5",
+      "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
+      "summary": "Accelerating the search for novel antimicrobial peptides using Google Antigravity for Science.",
+      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-16T00:08:03+08:00"
     },
     {
       "id": "4069e5410c3e",
@@ -60,6 +141,15 @@
       "published_at": "2026-10-15T21:00:00+08:00"
     },
     {
+      "id": "2f04aaa98515",
+      "title": "京东11.11：首日下单用户数同比双位数增长、超百项服务首次全景亮相",
+      "summary": "京东11.11已于10月12日晚8点全面开启，首日下单用户数实现同比双位数增长。",
+      "url": "https://www.qbitai.com/2026/10/503645.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-15T18:07:08+08:00"
+    },
+    {
       "id": "0aa71d1f1cfd",
       "title": "NVIDIA Expands Advanced Technology Access for Europe’s Scientific Community Through Open Learning Resources, Collaborations and Compute",
       "summary": "Much of today’s scientific progress begins with computation. But turning accelerated computing’s potential into scientific progress — modeling climate systems,…",
@@ -69,13 +159,40 @@
       "published_at": "2026-10-15T18:00:12+08:00"
     },
     {
-      "id": "e3c36d4422c6",
-      "title": "Apertus 1.5 Release Notes",
-      "summary": "Apertus 1.5 Release Notes",
-      "url": "https://huggingface.co/blog/swiss-ai/apertus-v15-release-notes",
-      "source": "Hugging Face",
+      "id": "97543f98f58b",
+      "title": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
+      "summary": "Siri AI这次不包括在内",
+      "url": "https://www.qbitai.com/2026/10/503640.html",
+      "source": "量子位",
       "category": "新工具上线",
-      "published_at": "2026-10-15T17:08:45+08:00"
+      "published_at": "2026-10-15T17:43:29+08:00"
+    },
+    {
+      "id": "a108c40f6077",
+      "title": "量子位智库发布Agent落地报告！拆解企业智能化六大断点，附全链路破局框架",
+      "summary": "Agent究竟该如何深入业务毛细血管？",
+      "url": "https://www.qbitai.com/2026/10/503614.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-15T16:48:31+08:00"
+    },
+    {
+      "id": "0e247c8c82c8",
+      "title": "2026 TMOT首个AI智能体走进电音现场，让听众成为音乐共创者",
+      "summary": "10月17日至18日，顶尖电音节The Magic of Tomorrowland 2026将在上海举行。",
+      "url": "https://www.qbitai.com/2026/10/503611.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-15T16:16:19+08:00"
+    },
+    {
+      "id": "ac23a19675d1",
+      "title": "这个双十一，百灵新模型干起活来不烧心",
+      "summary": "大模型好不好用，百灵拿成品说话",
+      "url": "https://www.qbitai.com/2026/10/503532.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-15T15:35:24+08:00"
     },
     {
       "id": "68f85c5a70ff",
@@ -87,58 +204,13 @@
       "published_at": "2026-10-15T13:00:12+08:00"
     },
     {
-      "id": "a16d50c7df94",
-      "title": "Artificiality's First Exam: An LLM-Referenced C-test for Supraintelligence",
-      "summary": "arXiv:2610.14005v1 Announce Type: new Abstract: Under the accelerated pace of AI development, any benchmark whose difficulty is calibrated with humans or curre…",
-      "url": "https://arxiv.org/abs/2610.14005",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-15T12:00:00+08:00"
-    },
-    {
-      "id": "574863154eac",
-      "title": "The Silent Failures in Agentic Data Science",
-      "summary": "arXiv:2610.14115v1 Announce Type: new Abstract: Large language models have significantly lowered the barrier to writing code. Naturally, this has also led to t…",
-      "url": "https://arxiv.org/abs/2610.14115",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-15T12:00:00+08:00"
-    },
-    {
-      "id": "8ddbcf370a84",
-      "title": "ClawLoop: Self-Improving Agents via Harness-Native Training Loop",
-      "summary": "arXiv:2610.14118v1 Announce Type: new Abstract: The rapid advancement of Large Language Models (LLMs) has driven their deployment toward general-purpose harnes…",
-      "url": "https://arxiv.org/abs/2610.14118",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-15T12:00:00+08:00"
-    },
-    {
-      "id": "8974705b9389",
-      "title": "Correction Training for Diffusion Models",
-      "summary": "arXiv:2610.14136v2 Announce Type: new Abstract: Iterative sampling in diffusion models can lead to error accumulation due to exposure bias. The denoiser is tra…",
-      "url": "https://arxiv.org/abs/2610.14136",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-15T12:00:00+08:00"
-    },
-    {
-      "id": "1993f9efc3a0",
-      "title": "Long-Horizon-Terminal-Bench 2.0: Automating Diverse Task Construction and Measuring Sustained Agent Progress",
-      "summary": "arXiv:2610.14146v1 Announce Type: new Abstract: Long-horizon terminal benchmarks measure whether an agent can sustain progress through extended workflows with …",
-      "url": "https://arxiv.org/abs/2610.14146",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-15T12:00:00+08:00"
-    },
-    {
-      "id": "ca5684070dba",
-      "title": "7天几百元开一家店！用千问办公电商版，立省启动资金5万元",
-      "summary": "给企业Agent打了个样",
-      "url": "https://www.qbitai.com/2026/10/503303.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-15T09:56:20+08:00"
+      "id": "dd00c04c9b95",
+      "title": "Sullivan & Cromwell brings legal expertise into agreement review",
+      "summary": "In collaboration with OpenAI, Sullivan & Cromwell developed Agreement Analyzer, an AI tool for identifying issues in a draft agreement.",
+      "url": "https://openai.com/index/sullivan-cromwell",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-15T08:00:00+08:00"
     },
     {
       "id": "9d251ac6836a",
@@ -196,76 +268,40 @@
       "published_at": "2026-10-14T20:00:00+08:00"
     },
     {
-      "id": "6b22d085628e",
-      "title": "抢先盘点2026全球开发者先锋大会暨国际具身智能技能大赛十大亮点！",
-      "summary": "“具身进实景，劳动最光荣”",
-      "url": "https://www.qbitai.com/2026/10/503294.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-14T18:41:47+08:00"
-    },
-    {
-      "id": "9a886f5e7d3c",
-      "title": "阶跃终端首款「Agent手机」STEPX Neo正式发布，创客先行",
-      "summary": "这妥妥是个物理版Agent啊！",
-      "url": "https://www.qbitai.com/2026/10/503244.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-14T16:01:18+08:00"
-    },
-    {
-      "id": "bd513ad4ea77",
-      "title": "智能不出彩的「领克」，刚靠一次坠崖事故出圈了",
-      "summary": "汽车竞争正在回归汽车本身",
-      "url": "https://www.qbitai.com/2026/10/503231.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-14T15:12:02+08:00"
-    },
-    {
-      "id": "d78052b237c0",
-      "title": "《变形计》综艺赛博复活，AI版MrBeast爆火，LibTV下场「造星」了",
-      "summary": "从创意到成本，AI正在重写综艺的生产逻辑",
-      "url": "https://www.qbitai.com/2026/10/503211.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-14T15:03:44+08:00"
-    },
-    {
-      "id": "e181547094b0",
-      "title": "How Third Moment Research runs 10,000 agents for 36+ hours",
-      "summary": "With GPT-6 Astra and GPT-6.1 Sol, Codex, and Daybreak for cybersecurity, this AI lab builds agents that focus for days and improve with use.",
-      "url": "https://openai.com/index/third-moment-research",
-      "source": "OpenAI",
+      "id": "58e4191fcfe4",
+      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+      "summary": "Learn how Google DeepMind and GovTech Singapore uses lightweight on-device Gemma models to intercept conversational scams in private chats with zero cloud data…",
+      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+      "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-10-14T15:00:00+08:00"
+      "published_at": "2026-10-14T10:00:14+08:00"
     },
     {
-      "id": "7d10f0ddfecf",
-      "title": "How Block is building AI-powered security with OpenAI technology",
-      "summary": "Block is building AI-powered security with OpenAI. Its security team investigates threats faster and proposes patches in minutes.",
-      "url": "https://openai.com/index/block-ai-powered-security",
-      "source": "OpenAI",
+      "id": "471508c04c30",
+      "title": "Developing Gemini 4 Argon responsibly and safely",
+      "summary": "Developing Gemini 4 Argon responsibly and safely",
+      "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/",
+      "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-10-14T15:00:00+08:00"
+      "published_at": "2026-10-14T03:43:07+08:00"
     },
     {
-      "id": "550c4c02e9ff",
-      "title": "Run fast, private agents on-device with LFM2.5-24B-A2B",
-      "summary": "Run fast, private agents on-device with LFM2.5-24B-A2B",
-      "url": "https://huggingface.co/blog/LiquidAI/lfm25-24b-a2b",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-14T01:05:48+08:00"
+      "id": "884ebf3c3978",
+      "title": "Gemini 4 Argon for Robotics",
+      "summary": "Gemini 4 Argon for Robotics",
+      "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-14T00:01:58+08:00"
     },
     {
-      "id": "c1e94fc83136",
+      "id": "f174716114a9",
       "title": "Gemini 4 Argon: Built to solve your hardest problems",
-      "summary": "We’re giving developers, enterprises, scientists, and consumers access to Gemini 4 Argon, our latest frontier model.",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
-      "source": "Google AI",
+      "summary": "Gemini 4 Argon: Built to solve your hardest problems",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-argon/",
+      "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-10-14T00:00:00+08:00"
+      "published_at": "2026-10-14T00:01:52+08:00"
     },
     {
       "id": "5d83dba89b9f",
