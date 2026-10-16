@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-16T16:32:22.928291+08:00",
-  "date": "2026-10-16",
+  "updated_at": "2026-10-17T03:45:38.590730+08:00",
+  "date": "2026-10-17",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -67,6 +67,24 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-10-16T09:44:47+08:00"
+    },
+    {
+      "id": "9db4940a53f8",
+      "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
+      "summary": "Two engineers shipped Stack Overflow for Agents in a few weeks with Codex, and its ChatGPT plugin helped drive up to 10× growth in agent creation.",
+      "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-16T08:00:00+08:00"
+    },
+    {
+      "id": "849b423196d1",
+      "title": "Welcome Beam: a 501B open model you can own, customize, and scale",
+      "summary": "Welcome Beam: a 501B open model you can own, customize, and scale",
+      "url": "https://huggingface.co/blog/reflection-beam",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-16T08:00:00+08:00"
     },
     {
       "id": "a01e02239da0",
@@ -231,15 +249,6 @@
       "published_at": "2026-10-15T08:00:00+08:00"
     },
     {
-      "id": "672ebf75c430",
-      "title": "HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost",
-      "summary": "HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost",
-      "url": "https://huggingface.co/blog/allenai/hiro-acev2",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-15T00:12:42+08:00"
-    },
-    {
       "id": "ee8fc46d4229",
       "title": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
       "summary": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
@@ -254,15 +263,6 @@
       "title": "Amp puts AI agents to work beyond code with OpenAI models",
       "summary": "See how Amp pushes the frontier of what agents can do with GPT-6 Astra, Ultrafast, GPT-Live-1, and Sign in with ChatGPT.",
       "url": "https://openai.com/index/amp-beyond-coding",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T20:00:00+08:00"
-    },
-    {
-      "id": "24cc989c02db",
-      "title": "SentinelOne cuts malware analysis from weeks to hours",
-      "summary": "With OpenAI Daybreak, SentinelOne cuts weeks of malware analysis to hours, creating capacity to investigate more threats.",
-      "url": "https://openai.com/index/sentinelone",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-14T20:00:00+08:00"
@@ -333,6 +333,16 @@
       "window_hours": 720
     },
     {
+      "id": "fe40919fe46e",
+      "title": "何恺明团队发布多模态Harness框架",
+      "summary": "何恺明团队发布多模态Harness框架",
+      "url": "https://www.qbitai.com/2026/10/502628.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-11T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "03c53e328a0e",
       "title": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
       "summary": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
@@ -340,16 +350,6 @@
       "source": "量子位",
       "category": "新工具上线",
       "published_at": "2026-10-10T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "9f61a8925f73",
-      "title": "TRAE终于把Code和Work合并了",
-      "summary": "TRAE终于把Code和Work合并了",
-      "url": "https://www.qbitai.com/2026/10/502426.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-09T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -398,13 +398,13 @@
         "window_hours": 720
       },
       {
-        "id": "9f61a8925f73",
-        "title": "TRAE终于把Code和Work合并了",
-        "summary": "TRAE终于把Code和Work合并了",
-        "url": "https://www.qbitai.com/2026/10/502426.html",
+        "id": "fe40919fe46e",
+        "title": "何恺明团队发布多模态Harness框架",
+        "summary": "何恺明团队发布多模态Harness框架",
+        "url": "https://www.qbitai.com/2026/10/502628.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-09T00:00:00+08:00",
+        "category": "新工具上线",
+        "published_at": "2026-10-11T00:00:00+08:00",
         "window_hours": 720
       }
     ]
