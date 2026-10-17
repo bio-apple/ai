@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-17T03:45:38.590730+08:00",
+  "updated_at": "2026-10-17T16:04:48.434234+08:00",
   "date": "2026-10-17",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,49 +15,58 @@
   },
   "items": [
     {
-      "id": "5a4c85ab654b",
-      "title": "The World Won't Wait: Evaluating and Teaching Agents Under a Live Clock",
-      "summary": "arXiv:2610.20665v1 Announce Type: new Abstract: Large language model (LLM) agents can solve complex interactive tasks, yet reasoning and tool calls take time. …",
-      "url": "https://arxiv.org/abs/2610.20665",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-16T12:00:00+08:00"
+      "id": "65442e708214",
+      "title": "How Itaú is building generative AI for its entire customer base",
+      "summary": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s…",
+      "url": "https://openai.com/index/itau-generative-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-17T03:00:00+08:00"
     },
     {
-      "id": "4f5a3d65e49a",
-      "title": "Evaluating Model Capabilities After Benchmark Saturation",
-      "summary": "arXiv:2610.20667v1 Announce Type: new Abstract: Rapid advances in AI capabilities are causing benchmarks to saturate. Once several models approach perfect scor…",
-      "url": "https://arxiv.org/abs/2610.20667",
-      "source": "arXiv cs.AI",
+      "id": "5199aaef7e49",
+      "title": "清华特奖得主AI创业再+1：GeoPT一作入局物理世界模型",
+      "summary": "从搭载物理建模能力的世界模型切入",
+      "url": "https://www.qbitai.com/2026/10/503880.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-16T20:54:54+08:00"
+    },
+    {
+      "id": "304c578cf24f",
+      "title": "从“看懂世界”到“预演下一步”：世界模型与 VLA，如何让机器人拥有真正的“具身大脑”？",
+      "summary": "VLA解决“能干”，世界模型解决“想清楚再干”",
+      "url": "https://www.qbitai.com/2026/10/503865.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-16T16:12:01+08:00"
+    },
+    {
+      "id": "5262be192860",
+      "title": "说真话就能拿10万？网易叭哥说重金求“真需求”，不卡专业学历",
+      "summary": "网易首个AI原生语音Agent「网易叭哥说」上线 “用户荣誉联创计划”，投入 10 万元征集产品建议",
+      "url": "https://www.qbitai.com/2026/10/503861.html",
+      "source": "量子位",
       "category": "新工具上线",
-      "published_at": "2026-10-16T12:00:00+08:00"
+      "published_at": "2026-10-16T16:07:33+08:00"
     },
     {
-      "id": "f86f8cbf4aa8",
-      "title": "Value-Informed Schedule Trimming for Accelerated Sequential Monte Carlo Guidance in Discrete Diffusion",
-      "summary": "arXiv:2610.20669v1 Announce Type: new Abstract: Reward-guided discrete diffusion enables test-time alignment with downstream objectives, but applying Sequentia…",
-      "url": "https://arxiv.org/abs/2610.20669",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-16T12:00:00+08:00"
+      "id": "9814af4b45d5",
+      "title": "霸榜三大基准！优必选 Thinker-WM：多模态统一表征，单模型实现六大能力",
+      "summary": "优必选 Thinker-WM在三大公认具身世界模型基准评测中全部拿下第一名",
+      "url": "https://www.qbitai.com/2026/10/503843.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-16T16:00:31+08:00"
     },
     {
-      "id": "ec55d30545d8",
-      "title": "AlphaDiana: A Measurement System for Agents in Verifiable Reasoning Tasks",
-      "summary": "arXiv:2610.20675v1 Announce Type: new Abstract: Agents pair reasoning models with harnesses that organize model calls, execute tools, load skill instructions, …",
-      "url": "https://arxiv.org/abs/2610.20675",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-16T12:00:00+08:00"
-    },
-    {
-      "id": "3e6b3f583e3f",
-      "title": "When Correctness Feedback Erases Evidence: Phase-Separated Completeness Auditing in Verus",
-      "summary": "arXiv:2610.20676v1 Announce Type: new Abstract: Correctness feedback suppresses the very evidence that specification-completeness auditing is designed to uncov…",
-      "url": "https://arxiv.org/abs/2610.20676",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-16T12:00:00+08:00"
+      "id": "0a0d9103482d",
+      "title": "范式智能联合睿思智联推出开源一站式 生产级 AI 部署平台 “模域ModelSphere”",
+      "summary": "范式智能技术集团有限公司联合北京睿思智联科技有限公司宣布，一站式生产级 AI 部署平台“模域”正式上线。",
+      "url": "https://www.qbitai.com/2026/10/503829.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-16T15:16:11+08:00"
     },
     {
       "id": "ba4e7337aba2",
@@ -73,6 +82,15 @@
       "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
       "summary": "Two engineers shipped Stack Overflow for Agents in a few weeks with Codex, and its ChatGPT plugin helped drive up to 10× growth in agent creation.",
       "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-16T08:00:00+08:00"
+    },
+    {
+      "id": "4a2f3ca18eb9",
+      "title": "Benefit Street Partners answers questions faster with Codex",
+      "summary": "Anant Kumar builds tools to compare loan valuations and analyze credit agreements, using Codex for code review and faster follow-ups.",
+      "url": "https://openai.com/index/benefit-street-partners",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-16T08:00:00+08:00"
@@ -159,15 +177,6 @@
       "published_at": "2026-10-15T21:00:00+08:00"
     },
     {
-      "id": "2f04aaa98515",
-      "title": "京东11.11：首日下单用户数同比双位数增长、超百项服务首次全景亮相",
-      "summary": "京东11.11已于10月12日晚8点全面开启，首日下单用户数实现同比双位数增长。",
-      "url": "https://www.qbitai.com/2026/10/503645.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-15T18:07:08+08:00"
-    },
-    {
       "id": "0aa71d1f1cfd",
       "title": "NVIDIA Expands Advanced Technology Access for Europe’s Scientific Community Through Open Learning Resources, Collaborations and Compute",
       "summary": "Much of today’s scientific progress begins with computation. But turning accelerated computing’s potential into scientific progress — modeling climate systems,…",
@@ -177,42 +186,6 @@
       "published_at": "2026-10-15T18:00:12+08:00"
     },
     {
-      "id": "97543f98f58b",
-      "title": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
-      "summary": "Siri AI这次不包括在内",
-      "url": "https://www.qbitai.com/2026/10/503640.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-15T17:43:29+08:00"
-    },
-    {
-      "id": "a108c40f6077",
-      "title": "量子位智库发布Agent落地报告！拆解企业智能化六大断点，附全链路破局框架",
-      "summary": "Agent究竟该如何深入业务毛细血管？",
-      "url": "https://www.qbitai.com/2026/10/503614.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-15T16:48:31+08:00"
-    },
-    {
-      "id": "0e247c8c82c8",
-      "title": "2026 TMOT首个AI智能体走进电音现场，让听众成为音乐共创者",
-      "summary": "10月17日至18日，顶尖电音节The Magic of Tomorrowland 2026将在上海举行。",
-      "url": "https://www.qbitai.com/2026/10/503611.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-15T16:16:19+08:00"
-    },
-    {
-      "id": "ac23a19675d1",
-      "title": "这个双十一，百灵新模型干起活来不烧心",
-      "summary": "大模型好不好用，百灵拿成品说话",
-      "url": "https://www.qbitai.com/2026/10/503532.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-15T15:35:24+08:00"
-    },
-    {
       "id": "68f85c5a70ff",
       "title": "The Nordics and NVIDIA Show What’s Possible When a Region Commits to Advanced Computing",
       "summary": "The Nordic countries have become the European leader in unicorn startup density, producing the most emerging companies valued at $1 billion or more per capita …",
@@ -220,15 +193,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-15T13:00:12+08:00"
-    },
-    {
-      "id": "dd00c04c9b95",
-      "title": "Sullivan & Cromwell brings legal expertise into agreement review",
-      "summary": "In collaboration with OpenAI, Sullivan & Cromwell developed Agreement Analyzer, an AI tool for identifying issues in a draft agreement.",
-      "url": "https://openai.com/index/sullivan-cromwell",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-15T08:00:00+08:00"
     },
     {
       "id": "9d251ac6836a",
@@ -257,15 +221,6 @@
       "category": "中文资讯",
       "published_at": "2026-10-15T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "a0e0fec2c2b5",
-      "title": "Amp puts AI agents to work beyond code with OpenAI models",
-      "summary": "See how Amp pushes the frontier of what agents can do with GPT-6 Astra, Ultrafast, GPT-Live-1, and Sign in with ChatGPT.",
-      "url": "https://openai.com/index/amp-beyond-coding",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T20:00:00+08:00"
     },
     {
       "id": "58e4191fcfe4",
@@ -304,6 +259,16 @@
       "published_at": "2026-10-14T00:01:52+08:00"
     },
     {
+      "id": "6ff5128a4cb3",
+      "title": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
+      "summary": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
+      "url": "https://www.qbitai.com/2026/10/503109.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-14T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "5d83dba89b9f",
       "title": "Simulating student learning for better AI tutoring",
       "summary": "StudentSim is a research system for evaluating and improving AI tutoring tools before they are tested with learners. It models how individuals may engage with …",
@@ -329,16 +294,6 @@
       "url": "https://www.qbitai.com/2026/10/502544.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-10-11T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "fe40919fe46e",
-      "title": "何恺明团队发布多模态Harness框架",
-      "summary": "何恺明团队发布多模态Harness框架",
-      "url": "https://www.qbitai.com/2026/10/502628.html",
-      "source": "量子位",
-      "category": "新工具上线",
       "published_at": "2026-10-11T00:00:00+08:00",
       "window_hours": 720
     },
@@ -398,13 +353,13 @@
         "window_hours": 720
       },
       {
-        "id": "fe40919fe46e",
-        "title": "何恺明团队发布多模态Harness框架",
-        "summary": "何恺明团队发布多模态Harness框架",
-        "url": "https://www.qbitai.com/2026/10/502628.html",
+        "id": "6ff5128a4cb3",
+        "title": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
+        "summary": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
+        "url": "https://www.qbitai.com/2026/10/503109.html",
         "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-11T00:00:00+08:00",
+        "category": "开源项目",
+        "published_at": "2026-10-14T00:00:00+08:00",
         "window_hours": 720
       }
     ]
