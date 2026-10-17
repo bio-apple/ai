@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-17T16:04:48.434234+08:00",
-  "date": "2026-10-17",
+  "updated_at": "2026-10-18T02:56:46.417975+08:00",
+  "date": "2026-10-18",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -78,19 +78,19 @@
       "published_at": "2026-10-16T09:44:47+08:00"
     },
     {
-      "id": "9db4940a53f8",
-      "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
-      "summary": "Two engineers shipped Stack Overflow for Agents in a few weeks with Codex, and its ChatGPT plugin helped drive up to 10× growth in agent creation.",
-      "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
+      "id": "4a2f3ca18eb9",
+      "title": "Benefit Street Partners answers questions faster with Codex",
+      "summary": "Anant Kumar builds tools to compare loan valuations and analyze credit agreements, using Codex for code review and faster follow-ups.",
+      "url": "https://openai.com/index/benefit-street-partners",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-16T08:00:00+08:00"
     },
     {
-      "id": "4a2f3ca18eb9",
-      "title": "Benefit Street Partners answers questions faster with Codex",
-      "summary": "Anant Kumar builds tools to compare loan valuations and analyze credit agreements, using Codex for code review and faster follow-ups.",
-      "url": "https://openai.com/index/benefit-street-partners",
+      "id": "9db4940a53f8",
+      "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
+      "summary": "Two engineers shipped Stack Overflow for Agents in a few weeks with Codex, and its ChatGPT plugin helped drive up to 10× growth in agent creation.",
+      "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-16T08:00:00+08:00"
@@ -130,15 +130,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-10-16T01:00:23+08:00"
-    },
-    {
-      "id": "996b33c09ad5",
-      "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
-      "summary": "Accelerating the search for novel antimicrobial peptides using Google Antigravity for Science.",
-      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-16T00:08:03+08:00"
     },
     {
       "id": "4069e5410c3e",
@@ -223,40 +214,13 @@
       "window_hours": 720
     },
     {
-      "id": "58e4191fcfe4",
-      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
-      "summary": "Learn how Google DeepMind and GovTech Singapore uses lightweight on-device Gemma models to intercept conversational scams in private chats with zero cloud data…",
-      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T10:00:14+08:00"
-    },
-    {
-      "id": "471508c04c30",
-      "title": "Developing Gemini 4 Argon responsibly and safely",
-      "summary": "Developing Gemini 4 Argon responsibly and safely",
-      "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T03:43:07+08:00"
-    },
-    {
-      "id": "884ebf3c3978",
-      "title": "Gemini 4 Argon for Robotics",
-      "summary": "Gemini 4 Argon for Robotics",
-      "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T00:01:58+08:00"
-    },
-    {
-      "id": "f174716114a9",
+      "id": "c1e94fc83136",
       "title": "Gemini 4 Argon: Built to solve your hardest problems",
-      "summary": "Gemini 4 Argon: Built to solve your hardest problems",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-argon/",
-      "source": "Google DeepMind",
+      "summary": "We’re giving developers, enterprises, scientists, and consumers access to Gemini 4 Argon, our latest frontier model.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "source": "Google AI",
       "category": "新模型发布",
-      "published_at": "2026-10-14T00:01:52+08:00"
+      "published_at": "2026-10-14T00:00:00+08:00"
     },
     {
       "id": "6ff5128a4cb3",
@@ -298,13 +262,13 @@
       "window_hours": 720
     },
     {
-      "id": "03c53e328a0e",
-      "title": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
-      "summary": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
-      "url": "https://www.qbitai.com/2026/10/502496.html",
+      "id": "fe40919fe46e",
+      "title": "何恺明团队发布多模态Harness框架",
+      "summary": "何恺明团队发布多模态Harness框架",
+      "url": "https://www.qbitai.com/2026/10/502628.html",
       "source": "量子位",
       "category": "新工具上线",
-      "published_at": "2026-10-10T00:00:00+08:00",
+      "published_at": "2026-10-11T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -343,16 +307,6 @@
         "window_hours": 720
       },
       {
-        "id": "03c53e328a0e",
-        "title": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
-        "summary": "超清双2亿，掌中电影机，荣耀Magic9 系列正式发布，售价4499元起",
-        "url": "https://www.qbitai.com/2026/10/502496.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-10T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "6ff5128a4cb3",
         "title": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
         "summary": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
@@ -360,6 +314,16 @@
         "source": "量子位",
         "category": "开源项目",
         "published_at": "2026-10-14T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "fe40919fe46e",
+        "title": "何恺明团队发布多模态Harness框架",
+        "summary": "何恺明团队发布多模态Harness框架",
+        "url": "https://www.qbitai.com/2026/10/502628.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-11T00:00:00+08:00",
         "window_hours": 720
       }
     ]
