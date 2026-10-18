@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-18T16:21:44.004597+08:00",
-  "date": "2026-10-18",
+  "updated_at": "2026-10-19T03:05:15.353457+08:00",
+  "date": "2026-10-19",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -214,6 +214,16 @@
       "window_hours": 720
     },
     {
+      "id": "97543f98f58b",
+      "title": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
+      "summary": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
+      "url": "https://www.qbitai.com/2026/10/503640.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-15T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "c1e94fc83136",
       "title": "Gemini 4 Argon: Built to solve your hardest problems",
       "summary": "We’re giving developers, enterprises, scientists, and consumers access to Gemini 4 Argon, our latest frontier model.",
@@ -260,16 +270,6 @@
       "category": "中文资讯",
       "published_at": "2026-10-12T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "fe40919fe46e",
-      "title": "何恺明团队发布多模态Harness框架",
-      "summary": "何恺明团队发布多模态Harness框架",
-      "url": "https://www.qbitai.com/2026/10/502628.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-11T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -307,16 +307,6 @@
         "window_hours": 720
       },
       {
-        "id": "fe40919fe46e",
-        "title": "何恺明团队发布多模态Harness框架",
-        "summary": "何恺明团队发布多模态Harness框架",
-        "url": "https://www.qbitai.com/2026/10/502628.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-11T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "8e9f902d9bc1",
         "title": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
         "summary": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
@@ -324,6 +314,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-12T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "97543f98f58b",
+        "title": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
+        "summary": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
+        "url": "https://www.qbitai.com/2026/10/503640.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-15T00:00:00+08:00",
         "window_hours": 720
       }
     ]
