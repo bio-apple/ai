@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-18T02:56:46.417975+08:00",
+  "updated_at": "2026-10-18T16:21:44.004597+08:00",
   "date": "2026-10-18",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,60 @@
   },
   "items": [
     {
+      "id": "c850cbc28643",
+      "title": "RTX Spark Ignites Global Celebration as New Windows PCs Arrive",
+      "summary": "NVIDIA RTX Spark laptops are now available, bringing NVIDIA Blackwell RTX graphics, up to 128GB of unified memory and the full NVIDIA AI platform to slim, prem…",
+      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-windows-laptops-celebration/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-18T05:00:13+08:00"
+    },
+    {
+      "id": "ab1e61983c6c",
+      "title": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
+      "summary": "新版本V4.1-Flash-1017，还开放了自研搜索API",
+      "url": "https://www.qbitai.com/2026/10/504067.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-17T20:21:09+08:00"
+    },
+    {
+      "id": "8e2dfa5ad77d",
+      "title": "智谱新模型，懂法方面全球第一了",
+      "summary": "AI的风还是刮到了法律圈",
+      "url": "https://www.qbitai.com/2026/10/503965.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-17T20:13:45+08:00"
+    },
+    {
+      "id": "13e2c19dd74e",
+      "title": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
+      "summary": "整套系统原生支持MCP",
+      "url": "https://www.qbitai.com/2026/10/503935.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-17T20:10:35+08:00"
+    },
+    {
+      "id": "1a8d82834306",
+      "title": "Claude半小时解开密码学悬案，学界集体走偏20年",
+      "summary": "谜底指向时间",
+      "url": "https://www.qbitai.com/2026/10/503910.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-17T20:06:51+08:00"
+    },
+    {
+      "id": "e2aad275a912",
+      "title": "科技企业出海，为啥我推荐你去迪拜？",
+      "summary": "通往全球市场的超级跳板",
+      "url": "https://www.qbitai.com/2026/10/503893.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-17T17:05:08+08:00"
+    },
+    {
       "id": "65442e708214",
       "title": "How Itaú is building generative AI for its entire customer base",
       "summary": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s…",
@@ -22,51 +76,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-17T03:00:00+08:00"
-    },
-    {
-      "id": "5199aaef7e49",
-      "title": "清华特奖得主AI创业再+1：GeoPT一作入局物理世界模型",
-      "summary": "从搭载物理建模能力的世界模型切入",
-      "url": "https://www.qbitai.com/2026/10/503880.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-16T20:54:54+08:00"
-    },
-    {
-      "id": "304c578cf24f",
-      "title": "从“看懂世界”到“预演下一步”：世界模型与 VLA，如何让机器人拥有真正的“具身大脑”？",
-      "summary": "VLA解决“能干”，世界模型解决“想清楚再干”",
-      "url": "https://www.qbitai.com/2026/10/503865.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-16T16:12:01+08:00"
-    },
-    {
-      "id": "5262be192860",
-      "title": "说真话就能拿10万？网易叭哥说重金求“真需求”，不卡专业学历",
-      "summary": "网易首个AI原生语音Agent「网易叭哥说」上线 “用户荣誉联创计划”，投入 10 万元征集产品建议",
-      "url": "https://www.qbitai.com/2026/10/503861.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-16T16:07:33+08:00"
-    },
-    {
-      "id": "9814af4b45d5",
-      "title": "霸榜三大基准！优必选 Thinker-WM：多模态统一表征，单模型实现六大能力",
-      "summary": "优必选 Thinker-WM在三大公认具身世界模型基准评测中全部拿下第一名",
-      "url": "https://www.qbitai.com/2026/10/503843.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-16T16:00:31+08:00"
-    },
-    {
-      "id": "0a0d9103482d",
-      "title": "范式智能联合睿思智联推出开源一站式 生产级 AI 部署平台 “模域ModelSphere”",
-      "summary": "范式智能技术集团有限公司联合北京睿思智联科技有限公司宣布，一站式生产级 AI 部署平台“模域”正式上线。",
-      "url": "https://www.qbitai.com/2026/10/503829.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-16T15:16:11+08:00"
     },
     {
       "id": "ba4e7337aba2",
@@ -177,15 +186,6 @@
       "published_at": "2026-10-15T18:00:12+08:00"
     },
     {
-      "id": "68f85c5a70ff",
-      "title": "The Nordics and NVIDIA Show What’s Possible When a Region Commits to Advanced Computing",
-      "summary": "The Nordic countries have become the European leader in unicorn startup density, producing the most emerging companies valued at $1 billion or more per capita …",
-      "url": "https://blogs.nvidia.com/blog/nordics-technology-ecosystem/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-15T13:00:12+08:00"
-    },
-    {
       "id": "9d251ac6836a",
       "title": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
       "summary": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
@@ -252,13 +252,13 @@
       "window_hours": 720
     },
     {
-      "id": "7fa8d3726164",
-      "title": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
-      "summary": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
-      "url": "https://www.qbitai.com/2026/10/502544.html",
+      "id": "8e9f902d9bc1",
+      "title": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
+      "summary": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
+      "url": "https://www.qbitai.com/2026/10/502654.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-10-11T00:00:00+08:00",
+      "published_at": "2026-10-12T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -297,16 +297,6 @@
         "window_hours": 720
       },
       {
-        "id": "7fa8d3726164",
-        "title": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
-        "summary": "DeepSeek Bot来了！民间版，DSH装个插件就能用",
-        "url": "https://www.qbitai.com/2026/10/502544.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-11T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "6ff5128a4cb3",
         "title": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
         "summary": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
@@ -324,6 +314,16 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-10-11T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "8e9f902d9bc1",
+        "title": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
+        "summary": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
+        "url": "https://www.qbitai.com/2026/10/502654.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-12T00:00:00+08:00",
         "window_hours": 720
       }
     ]
