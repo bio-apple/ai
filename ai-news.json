@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-19T03:05:15.353457+08:00",
+  "updated_at": "2026-10-19T17:20:48.742263+08:00",
   "date": "2026-10-19",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "5321156d3629",
+      "title": "Structured Authority Injection: Persistent Human Control for LLM Agents via Typed MCP Overrides",
+      "summary": "arXiv:2610.22373v1 Announce Type: new Abstract: LLM-based agents are increasingly used as autonomous orchestrators in distributed and multi-agent systems, yet …",
+      "url": "https://arxiv.org/abs/2610.22373",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-19T12:00:00+08:00"
+    },
+    {
+      "id": "2bee2336398d",
+      "title": "Rethinking User Encoders: Routing Diffusion States for Scenario-Adaptive User Representation",
+      "summary": "arXiv:2610.22400v1 Announce Type: new Abstract: Existing large language model (LLM)-based user encoders serialize heterogeneous behavioral logs and compress th…",
+      "url": "https://arxiv.org/abs/2610.22400",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-19T12:00:00+08:00"
+    },
+    {
+      "id": "f9e326afccdd",
+      "title": "From Events to Reasoning: Hierarchical Rule Composition over Explicit States",
+      "summary": "arXiv:2610.22403v1 Announce Type: new Abstract: What a reasoning system emits is a conclusion; what it owes is a justification. Producing one requires every op…",
+      "url": "https://arxiv.org/abs/2610.22403",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-19T12:00:00+08:00"
+    },
+    {
+      "id": "85913628d551",
+      "title": "ECHOES: Seeing Beyond the Current Image via Recursive History Compression and Privileged On-Policy Distillation",
+      "summary": "arXiv:2610.22408v1 Announce Type: new Abstract: Long-horizon GUI agents rely on visual history to maintain task states, but retaining historical screenshots in…",
+      "url": "https://arxiv.org/abs/2610.22408",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-19T12:00:00+08:00"
+    },
+    {
+      "id": "dd8716f6fdec",
+      "title": "Sensitivity Analysis of Decision Rules in an Agent-Based Agro-Ecological Model",
+      "summary": "arXiv:2610.22420v1 Announce Type: new Abstract: Agent-based models are well-suited for modelling agro-ecological systems for decision-making, yet turning their…",
+      "url": "https://arxiv.org/abs/2610.22420",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-19T12:00:00+08:00"
+    },
+    {
+      "id": "7809cba4601e",
+      "title": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+      "summary": "让人人都能自由创造并体验可交互世界",
+      "url": "https://www.qbitai.com/2026/10/504136.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-18T19:49:49+08:00"
+    },
     {
       "id": "c850cbc28643",
       "title": "RTX Spark Ignites Global Celebration as New Windows PCs Arrive",
@@ -58,15 +112,6 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-10-17T20:06:51+08:00"
-    },
-    {
-      "id": "e2aad275a912",
-      "title": "科技企业出海，为啥我推荐你去迪拜？",
-      "summary": "通往全球市场的超级跳板",
-      "url": "https://www.qbitai.com/2026/10/503893.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-17T17:05:08+08:00"
     },
     {
       "id": "65442e708214",
@@ -186,21 +231,21 @@
       "published_at": "2026-10-15T18:00:12+08:00"
     },
     {
+      "id": "e3c36d4422c6",
+      "title": "Apertus 1.5 Release Notes",
+      "summary": "Apertus 1.5 Release Notes",
+      "url": "https://huggingface.co/blog/swiss-ai/apertus-v15-release-notes",
+      "source": "Hugging Face",
+      "category": "新工具上线",
+      "published_at": "2026-10-15T17:08:45+08:00"
+    },
+    {
       "id": "9d251ac6836a",
       "title": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
       "summary": "Welcome Muse Spark Open: open-weight frontier multimodal mixture-of-experts model from Meta",
       "url": "https://huggingface.co/blog/meta-muse-spark-open",
       "source": "Hugging Face",
       "category": "新模型发布",
-      "published_at": "2026-10-15T08:00:00+08:00"
-    },
-    {
-      "id": "3733c75a28bf",
-      "title": "Welcome FLUX.3 Image Klein in Diffusers",
-      "summary": "Welcome FLUX.3 Image Klein in Diffusers",
-      "url": "https://huggingface.co/blog/flux-3",
-      "source": "Hugging Face",
-      "category": "开源项目",
       "published_at": "2026-10-15T08:00:00+08:00"
     },
     {
@@ -250,42 +295,12 @@
       "source": "Microsoft AI",
       "category": "新模型发布",
       "published_at": "2026-10-13T00:00:00+08:00"
-    },
-    {
-      "id": "52e247ac2641",
-      "title": "智谱新模型，490 tokens/s！",
-      "summary": "智谱新模型，490 tokens/s！",
-      "url": "https://www.qbitai.com/2026/10/502649.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-12T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "8e9f902d9bc1",
-      "title": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
-      "summary": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
-      "url": "https://www.qbitai.com/2026/10/502654.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-12T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "52e247ac2641",
-        "title": "智谱新模型，490 tokens/s！",
-        "summary": "智谱新模型，490 tokens/s！",
-        "url": "https://www.qbitai.com/2026/10/502649.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-12T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "ee8fc46d4229",
         "title": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
@@ -294,6 +309,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-15T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ab1e61983c6c",
+        "title": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
+        "summary": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
+        "url": "https://www.qbitai.com/2026/10/504067.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-17T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -307,13 +332,13 @@
         "window_hours": 720
       },
       {
-        "id": "8e9f902d9bc1",
-        "title": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
-        "summary": "华为AI靠RSI通关25款游戏！操作次数比人类少56%",
-        "url": "https://www.qbitai.com/2026/10/502654.html",
+        "id": "8e2dfa5ad77d",
+        "title": "智谱新模型，懂法方面全球第一了",
+        "summary": "智谱新模型，懂法方面全球第一了",
+        "url": "https://www.qbitai.com/2026/10/503965.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-10-12T00:00:00+08:00",
+        "published_at": "2026-10-17T00:00:00+08:00",
         "window_hours": 720
       },
       {
