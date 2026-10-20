@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-20T16:54:53.623940+08:00",
-  "date": "2026-10-20",
+  "updated_at": "2026-10-21T04:13:01.680799+08:00",
+  "date": "2026-10-21",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "4eb9f7080b11",
+      "title": "NVIDIA Cosmos3-H-Dreams: Bringing Clinical Surgery to Life Through Generative Simulation",
+      "summary": "NVIDIA Cosmos3-H-Dreams: Bringing Clinical Surgery to Life Through Generative Simulation",
+      "url": "https://huggingface.co/blog/nvidia/cosmos3-h-dreams",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-21T02:17:47+08:00"
+    },
+    {
+      "id": "ca293d8533a3",
+      "title": "FairStress: A deeper evaluation of fairness in LLM decision-making",
+      "summary": "FairStress: A deeper evaluation of fairness in LLM decision-making",
+      "url": "https://huggingface.co/blog/allenai/fairstress",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-21T00:09:19+08:00"
+    },
+    {
+      "id": "c84a57a97fd6",
+      "title": "Called to serve: Tech, research, and positive impact",
+      "summary": "Lab Director Chris White has worked on research challenges with real-world implications—from new approaches to wartime data analysis to tools for combating hum…",
+      "url": "https://www.microsoft.com/en-us/research/podcast/called-to-serve-tech-research-and-positive-impact-with-chris-white/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-21T00:00:00+08:00"
+    },
+    {
+      "id": "94e7f4f5c0e5",
+      "title": "ALTK-Evolve: How learned memory tops the τ²-bench leaderboard on customer service tasks without a frontier model",
+      "summary": "ALTK-Evolve: How learned memory tops the τ²-bench leaderboard on customer service tasks without a frontier model",
+      "url": "https://huggingface.co/blog/ibm-research/altk-evolve-bc",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-20T23:19:48+08:00"
+    },
+    {
+      "id": "b3fcb2e42d32",
+      "title": "Franchisee reconciles cash in 94% less time with ChatGPT Work",
+      "summary": "An independent Schlotzsky’s and Cinnabon franchisee cut menu repricing time by 95% and built a workflow that could free up $100K in cash flow.",
+      "url": "https://openai.com/index/ted-taylor-restaurant",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-20T18:00:00+08:00"
+    },
     {
       "id": "d88fd01a7305",
       "title": "Spain-Based Startups Advance Regional Innovation With Barcelona Supercomputing Center",
@@ -31,6 +76,33 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-10-20T09:09:43+08:00"
+    },
+    {
+      "id": "dbaa90254253",
+      "title": "OpenAI acquires Orchestra Bio",
+      "summary": "OpenAI is acquiring Orchestra Bio to bring AI-powered operations to life sciences R&D, helping biopharma teams accelerate drug development and advance new trea…",
+      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-20T08:00:00+08:00"
+    },
+    {
+      "id": "84cd8d44e982",
+      "title": "Hugging Face ❤️ TorchTPU: TPUs, Natively",
+      "summary": "Hugging Face ❤️ TorchTPU: TPUs, Natively",
+      "url": "https://huggingface.co/blog/hf-torchtpu",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-20T08:00:00+08:00"
+    },
+    {
+      "id": "2596ff929aee",
+      "title": "AnyLanguageModel 1.0: One Year of Local Models on Apple Platforms",
+      "summary": "AnyLanguageModel 1.0: One Year of Local Models on Apple Platforms",
+      "url": "https://huggingface.co/blog/anylanguagemodel-1-0",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-20T08:00:00+08:00"
     },
     {
       "id": "81b55b50044b",
@@ -96,15 +168,6 @@
       "published_at": "2026-10-19T18:15:19+08:00"
     },
     {
-      "id": "9dbc0d55ff91",
-      "title": "TorchNeuron: running HF models on AWS Trainium is easier than ever",
-      "summary": "TorchNeuron: running HF models on AWS Trainium is easier than ever",
-      "url": "https://huggingface.co/blog/hf-torchneuron",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-19T08:00:00+08:00"
-    },
-    {
       "id": "c850cbc28643",
       "title": "RTX Spark Ignites Global Celebration as New Windows PCs Arrive",
       "summary": "NVIDIA RTX Spark laptops are now available, bringing NVIDIA Blackwell RTX graphics, up to 128GB of unified memory and the full NVIDIA AI platform to slim, prem…",
@@ -143,15 +206,6 @@
       "window_hours": 720
     },
     {
-      "id": "ba4e7337aba2",
-      "title": "Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline",
-      "summary": "Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline",
-      "url": "https://huggingface.co/blog/nvidia/scaling-indic-pretraining",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-16T09:44:47+08:00"
-    },
-    {
       "id": "4a2f3ca18eb9",
       "title": "Benefit Street Partners answers questions faster with Codex",
       "summary": "Anant Kumar builds tools to compare loan valuations and analyze credit agreements, using Codex for code review and faster follow-ups.",
@@ -159,42 +213,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-16T08:00:00+08:00"
-    },
-    {
-      "id": "9db4940a53f8",
-      "title": "Stack Overflow for Agents triples signups with ChatGPT plugin",
-      "summary": "Two engineers shipped Stack Overflow for Agents in a few weeks with Codex, and its ChatGPT plugin helped drive up to 10× growth in agent creation.",
-      "url": "https://openai.com/index/stack-overflow-chatgpt-plugin",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-16T08:00:00+08:00"
-    },
-    {
-      "id": "849b423196d1",
-      "title": "Welcome Beam: a 501B open model you can own, customize, and scale",
-      "summary": "Welcome Beam: a 501B open model you can own, customize, and scale",
-      "url": "https://huggingface.co/blog/reflection-beam",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-16T08:00:00+08:00"
-    },
-    {
-      "id": "a01e02239da0",
-      "title": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
-      "summary": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
-      "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-16T04:34:01+08:00"
-    },
-    {
-      "id": "a72d1e4da6b0",
-      "title": "Bringing GPT-Rosalind to academic research labs",
-      "summary": "Introducing the Rosalind Academic Plan, offering eligible academic labs sponsored access to GPT-Rosalind and tools to advance life sciences research.",
-      "url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-10-16T03:00:00+08:00"
     },
     {
       "id": "ef6c7beadf74",
@@ -206,6 +224,15 @@
       "published_at": "2026-10-16T01:00:23+08:00"
     },
     {
+      "id": "996b33c09ad5",
+      "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
+      "summary": "Accelerating the search for novel antimicrobial peptides using Google Antigravity for Science.",
+      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-16T00:08:03+08:00"
+    },
+    {
       "id": "4069e5410c3e",
       "title": "Proof-based general-purpose computing with Magnetar",
       "summary": "Zero-knowledge proofs can verify computing results without rerunning workloads or exposing sensitive data. Magnetar helps bring them into the mainstream with s…",
@@ -213,15 +240,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-16T00:00:00+08:00"
-    },
-    {
-      "id": "e3c36d4422c6",
-      "title": "Apertus 1.5 Release Notes",
-      "summary": "Apertus 1.5 Release Notes",
-      "url": "https://huggingface.co/blog/swiss-ai/apertus-v15-release-notes",
-      "source": "Hugging Face",
-      "category": "新工具上线",
-      "published_at": "2026-10-15T17:08:45+08:00"
     },
     {
       "id": "ee8fc46d4229",
@@ -244,13 +262,13 @@
       "window_hours": 720
     },
     {
-      "id": "c1e94fc83136",
-      "title": "Gemini 4 Argon: Built to solve your hardest problems",
-      "summary": "We’re giving developers, enterprises, scientists, and consumers access to Gemini 4 Argon, our latest frontier model.",
-      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
-      "source": "Google AI",
+      "id": "58e4191fcfe4",
+      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
+      "summary": "Learn how Google DeepMind and GovTech Singapore uses lightweight on-device Gemma models to intercept conversational scams in private chats with zero cloud data…",
+      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
+      "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-10-14T00:00:00+08:00"
+      "published_at": "2026-10-14T10:00:14+08:00"
     },
     {
       "id": "6ff5128a4cb3",
