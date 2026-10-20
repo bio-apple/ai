@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20T05:18:10.460810+08:00",
+  "updated_at": "2026-10-20T16:54:53.623940+08:00",
   "date": "2026-10-20",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,24 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "d88fd01a7305",
+      "title": "Spain-Based Startups Advance Regional Innovation With Barcelona Supercomputing Center",
+      "summary": "The Barcelona Supercomputing Center (BSC)’s AI Factory Accelerator Programme, now in full operation following a pilot initiative, gives startups access to sove…",
+      "url": "https://blogs.nvidia.com/blog/spain-startups-barcelona-supercomputing-center/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-20T13:00:00+08:00"
+    },
+    {
+      "id": "ec32daff9e2a",
+      "title": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
+      "summary": "OpenAI只掏出一个6.1 Terra…",
+      "url": "https://www.qbitai.com/2026/10/504314.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-20T09:09:43+08:00"
+    },
     {
       "id": "81b55b50044b",
       "title": "Germany Wants to Lead the World in Industrial AI: How NVIDIA Will Help",
@@ -33,49 +51,49 @@
       "published_at": "2026-10-19T23:00:31+08:00"
     },
     {
-      "id": "5321156d3629",
-      "title": "Structured Authority Injection: Persistent Human Control for LLM Agents via Typed MCP Overrides",
-      "summary": "arXiv:2610.22373v1 Announce Type: new Abstract: LLM-based agents are increasingly used as autonomous orchestrators in distributed and multi-agent systems, yet …",
-      "url": "https://arxiv.org/abs/2610.22373",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-19T12:00:00+08:00"
+      "id": "c861f4d741de",
+      "title": "从百比特芯片到整机交付，这家量子计算公司正将量子算力推向可调用服务",
+      "summary": "同步搭建千比特规模量子算力云平台",
+      "url": "https://www.qbitai.com/2026/10/504277.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-19T22:33:26+08:00"
     },
     {
-      "id": "2bee2336398d",
-      "title": "Rethinking User Encoders: Routing Diffusion States for Scenario-Adaptive User Representation",
-      "summary": "arXiv:2610.22400v1 Announce Type: new Abstract: Existing large language model (LLM)-based user encoders serialize heterogeneous behavioral logs and compress th…",
-      "url": "https://arxiv.org/abs/2610.22400",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-19T12:00:00+08:00"
+      "id": "d82c5a70637f",
+      "title": "通研院孵化的团队，也盯上了RSI",
+      "summary": "当AI越来越懂你，如何让智能真正属于你？",
+      "url": "https://www.qbitai.com/2026/10/504294.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-19T22:31:12+08:00"
     },
     {
-      "id": "f9e326afccdd",
-      "title": "From Events to Reasoning: Hierarchical Rule Composition over Explicit States",
-      "summary": "arXiv:2610.22403v1 Announce Type: new Abstract: What a reasoning system emits is a conclusion; what it owes is a justification. Producing one requires every op…",
-      "url": "https://arxiv.org/abs/2610.22403",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-19T12:00:00+08:00"
+      "id": "7a364f356aab",
+      "title": "Advancing coding in low‑resource programming languages",
+      "summary": "Learn how OpenAI is improving ChatGPT across low-resource programming languages, with new evaluations for software engineering, SQLite, and COBOL migration.",
+      "url": "https://openai.com/index/low-resource-programming-languages",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-19T20:00:00+08:00"
     },
     {
-      "id": "85913628d551",
-      "title": "ECHOES: Seeing Beyond the Current Image via Recursive History Compression and Privileged On-Policy Distillation",
-      "summary": "arXiv:2610.22408v1 Announce Type: new Abstract: Long-horizon GUI agents rely on visual history to maintain task states, but retaining historical screenshots in…",
-      "url": "https://arxiv.org/abs/2610.22408",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-19T12:00:00+08:00"
+      "id": "f8d92aa240cc",
+      "title": "2026物理AI与世界模型大会医疗健康世界模型分会场在南京举行",
+      "summary": "2026年10月19日下午，医疗健康世界模型分会场在南京国际博览中心钟山厅举行",
+      "url": "https://www.qbitai.com/2026/10/504266.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-19T18:27:39+08:00"
     },
     {
-      "id": "dd8716f6fdec",
-      "title": "Sensitivity Analysis of Decision Rules in an Agent-Based Agro-Ecological Model",
-      "summary": "arXiv:2610.22420v1 Announce Type: new Abstract: Agent-based models are well-suited for modelling agro-ecological systems for decision-making, yet turning their…",
-      "url": "https://arxiv.org/abs/2610.22420",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-19T12:00:00+08:00"
+      "id": "2aa3e4de7c0f",
+      "title": "全栈自研！国产高端互连芯片，稳了!",
+      "summary": "六年蛰伏出货80万颗",
+      "url": "https://www.qbitai.com/2026/10/504225.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-19T18:15:19+08:00"
     },
     {
       "id": "9dbc0d55ff91",
@@ -87,15 +105,6 @@
       "published_at": "2026-10-19T08:00:00+08:00"
     },
     {
-      "id": "7809cba4601e",
-      "title": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
-      "summary": "让人人都能自由创造并体验可交互世界",
-      "url": "https://www.qbitai.com/2026/10/504136.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-18T19:49:49+08:00"
-    },
-    {
       "id": "c850cbc28643",
       "title": "RTX Spark Ignites Global Celebration as New Windows PCs Arrive",
       "summary": "NVIDIA RTX Spark laptops are now available, bringing NVIDIA Blackwell RTX graphics, up to 128GB of unified memory and the full NVIDIA AI platform to slim, prem…",
@@ -105,42 +114,6 @@
       "published_at": "2026-10-18T05:00:13+08:00"
     },
     {
-      "id": "ab1e61983c6c",
-      "title": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
-      "summary": "新版本V4.1-Flash-1017，还开放了自研搜索API",
-      "url": "https://www.qbitai.com/2026/10/504067.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-17T20:21:09+08:00"
-    },
-    {
-      "id": "8e2dfa5ad77d",
-      "title": "智谱新模型，懂法方面全球第一了",
-      "summary": "AI的风还是刮到了法律圈",
-      "url": "https://www.qbitai.com/2026/10/503965.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-17T20:13:45+08:00"
-    },
-    {
-      "id": "13e2c19dd74e",
-      "title": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
-      "summary": "整套系统原生支持MCP",
-      "url": "https://www.qbitai.com/2026/10/503935.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-17T20:10:35+08:00"
-    },
-    {
-      "id": "1a8d82834306",
-      "title": "Claude半小时解开密码学悬案，学界集体走偏20年",
-      "summary": "谜底指向时间",
-      "url": "https://www.qbitai.com/2026/10/503910.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-17T20:06:51+08:00"
-    },
-    {
       "id": "65442e708214",
       "title": "How Itaú is building generative AI for its entire customer base",
       "summary": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s…",
@@ -148,6 +121,26 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-17T03:00:00+08:00"
+    },
+    {
+      "id": "ab1e61983c6c",
+      "title": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
+      "summary": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
+      "url": "https://www.qbitai.com/2026/10/504067.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-17T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "13e2c19dd74e",
+      "title": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
+      "summary": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
+      "url": "https://www.qbitai.com/2026/10/503935.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-17T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "ba4e7337aba2",
@@ -213,15 +206,6 @@
       "published_at": "2026-10-16T01:00:23+08:00"
     },
     {
-      "id": "996b33c09ad5",
-      "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
-      "summary": "Accelerating the search for novel antimicrobial peptides using Google Antigravity for Science.",
-      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-16T00:08:03+08:00"
-    },
-    {
       "id": "4069e5410c3e",
       "title": "Proof-based general-purpose computing with Magnetar",
       "summary": "Zero-knowledge proofs can verify computing results without rerunning workloads or exposing sensitive data. Magnetar helps bring them into the mainstream with s…",
@@ -229,24 +213,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-16T00:00:00+08:00"
-    },
-    {
-      "id": "902189e10f1e",
-      "title": "Open From Data Center to Desktop: NVIDIA Expands Nemotron Family With Highest Efficiency Super VL and Bolt Models",
-      "summary": "NVIDIA today released Nemotron 3.5 Super VL, an open 120-billion-parameter model that delivers the fastest task completion and highest accuracy for specialized…",
-      "url": "https://blogs.nvidia.com/blog/nemotron-3-5-super-vl/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-15T23:00:24+08:00"
-    },
-    {
-      "id": "fa14b8f7db46",
-      "title": "Teaching students to think and learn through questions",
-      "summary": "Celebrate Teachers’ Day with AI for Educators in Brazilian Portuguese and see how Study Mode can help teachers support active, step-by-step learning.",
-      "url": "https://openai.com/index/teaching-students-to-think-and-learn-through-questions",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-15T21:00:00+08:00"
     },
     {
       "id": "e3c36d4422c6",
@@ -268,40 +234,23 @@
       "window_hours": 720
     },
     {
-      "id": "58e4191fcfe4",
-      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
-      "summary": "Learn how Google DeepMind and GovTech Singapore uses lightweight on-device Gemma models to intercept conversational scams in private chats with zero cloud data…",
-      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T10:00:14+08:00"
+      "id": "97543f98f58b",
+      "title": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
+      "summary": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
+      "url": "https://www.qbitai.com/2026/10/503640.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-15T00:00:00+08:00",
+      "window_hours": 720
     },
     {
-      "id": "471508c04c30",
-      "title": "Developing Gemini 4 Argon responsibly and safely",
-      "summary": "Developing Gemini 4 Argon responsibly and safely",
-      "url": "https://deepmind.google/blog/developing-gemini-4-argon-responsibly-and-safely/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T03:43:07+08:00"
-    },
-    {
-      "id": "884ebf3c3978",
-      "title": "Gemini 4 Argon for Robotics",
-      "summary": "Gemini 4 Argon for Robotics",
-      "url": "https://deepmind.google/blog/gemini-4-argon-for-robotics/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T00:01:58+08:00"
-    },
-    {
-      "id": "f174716114a9",
+      "id": "c1e94fc83136",
       "title": "Gemini 4 Argon: Built to solve your hardest problems",
-      "summary": "Gemini 4 Argon: Built to solve your hardest problems",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-argon/",
-      "source": "Google DeepMind",
+      "summary": "We’re giving developers, enterprises, scientists, and consumers access to Gemini 4 Argon, our latest frontier model.",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/",
+      "source": "Google AI",
       "category": "新模型发布",
-      "published_at": "2026-10-14T00:01:52+08:00"
+      "published_at": "2026-10-14T00:00:00+08:00"
     },
     {
       "id": "6ff5128a4cb3",
@@ -339,6 +288,16 @@
         "window_hours": 720
       },
       {
+        "id": "97543f98f58b",
+        "title": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
+        "summary": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
+        "url": "https://www.qbitai.com/2026/10/503640.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-15T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "6ff5128a4cb3",
         "title": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
         "summary": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
@@ -346,16 +305,6 @@
         "source": "量子位",
         "category": "开源项目",
         "published_at": "2026-10-14T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "8e2dfa5ad77d",
-        "title": "智谱新模型，懂法方面全球第一了",
-        "summary": "智谱新模型，懂法方面全球第一了",
-        "url": "https://www.qbitai.com/2026/10/503965.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-17T00:00:00+08:00",
         "window_hours": 720
       },
       {
