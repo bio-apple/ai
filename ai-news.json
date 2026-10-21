@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-21T04:13:01.680799+08:00",
+  "updated_at": "2026-10-21T16:55:05.521893+08:00",
   "date": "2026-10-21",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,78 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "1778fb273dbb",
+      "title": "Southeast Asia’s digital economy to hit $368 billion",
+      "summary": "Widespread AI adoption is propelling Southeast Asia's digital economy to a projected $368 billion in 2026 and $1 trillion by 2035.",
+      "url": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-21T12:00:00+08:00"
+    },
+    {
+      "id": "87e93c1ec327",
+      "title": "Navalia: Advancing Cowork Agents through Verifiable Task Synthesis and Long-Horizon Post-Training",
+      "summary": "arXiv:2610.26887v1 Announce Type: new Abstract: Large language model (LLM) agents are evolving from conversational assistants into Cowork Agents capable of aut…",
+      "url": "https://arxiv.org/abs/2610.26887",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-21T12:00:00+08:00"
+    },
+    {
+      "id": "fa9ca748fe8d",
+      "title": "Large language model and reinforcement learning based autonomous construction and progress updates",
+      "summary": "arXiv:2610.26899v1 Announce Type: new Abstract: Due to the rapid growth of the global population, traditional construction methods are gradually unable to meet…",
+      "url": "https://arxiv.org/abs/2610.26899",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-21T12:00:00+08:00"
+    },
+    {
+      "id": "189ce8c3c0b8",
+      "title": "Pareto-Optimal RTL Code Generation via Multi-Objective Reinforcement Learning with Large Language Models",
+      "summary": "arXiv:2610.26904v1 Announce Type: new Abstract: Recent studies have proposed reinforcement learning with verifiable rewards (RLVR) methods that enable LLMs to …",
+      "url": "https://arxiv.org/abs/2610.26904",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-21T12:00:00+08:00"
+    },
+    {
+      "id": "d8c0f0ce1cd3",
+      "title": "MedPAO-Assist: Edge-Deployable, Modality-Aware Agentic AI for Radiology Report Structuring",
+      "summary": "arXiv:2610.26913v1 Announce Type: new Abstract: The adoption of Large Language Models for radiology report structuring has been largely dominated by either pro…",
+      "url": "https://arxiv.org/abs/2610.26913",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-21T12:00:00+08:00"
+    },
+    {
+      "id": "0e9d0f602a97",
+      "title": "DataPraxis: Scaling Analytics Tasks via Verified Workspace Evolution",
+      "summary": "arXiv:2610.26924v1 Announce Type: new Abstract: General-purpose agents are increasingly expected to perform professional analytics work, which requires sustain…",
+      "url": "https://arxiv.org/abs/2610.26924",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-21T12:00:00+08:00"
+    },
+    {
+      "id": "531d6db9b26a",
+      "title": "飞书豆包工作AI先锋未来人才大赛：企业正在争抢会用AI做成事的人",
+      "summary": "先看真实问题解决力",
+      "url": "https://www.qbitai.com/2026/10/504608.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-21T10:37:39+08:00"
+    },
+    {
+      "id": "d7c0f889ee7b",
+      "title": "理想宣布：电池自燃报废赔新车！自研6年后有底气了",
+      "summary": "电池、电驱、超充一把梭，冬天多跑30公里",
+      "url": "https://www.qbitai.com/2026/10/504551.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-21T09:04:35+08:00"
+    },
     {
       "id": "4eb9f7080b11",
       "title": "NVIDIA Cosmos3-H-Dreams: Bringing Clinical Surgery to Life Through Generative Simulation",
@@ -51,6 +123,24 @@
       "published_at": "2026-10-20T23:19:48+08:00"
     },
     {
+      "id": "e4060c1420df",
+      "title": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
+      "summary": "兔皮底下，竟然是MiniMax！",
+      "url": "https://www.qbitai.com/2026/10/504517.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-20T21:29:54+08:00"
+    },
+    {
+      "id": "8a2355503fe0",
+      "title": "RSI三块关键拼图，MemT 1.0从模型层补上「记忆」",
+      "summary": "把记忆原生焊进Transformer",
+      "url": "https://www.qbitai.com/2026/10/504456.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-20T20:50:34+08:00"
+    },
+    {
       "id": "b3fcb2e42d32",
       "title": "Franchisee reconciles cash in 94% less time with ChatGPT Work",
       "summary": "An independent Schlotzsky’s and Cinnabon franchisee cut menu repricing time by 95% and built a workflow that could free up $100K in cash flow.",
@@ -60,6 +150,24 @@
       "published_at": "2026-10-20T18:00:00+08:00"
     },
     {
+      "id": "0ef53ccb6fbf",
+      "title": "比亚迪成为2026年APEC会议官方合作伙伴",
+      "summary": "2026年10月16日，比亚迪集团正式成为亚太经合组织第三十三次领导人非正式会议官方合作伙伴",
+      "url": "https://www.qbitai.com/2026/10/504452.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-10-20T17:57:35+08:00"
+    },
+    {
+      "id": "a84b6a7bee5c",
+      "title": "Terminal X matches senior investor judgment 88.6% with GPT-6.1",
+      "summary": "Terminal X’s Eval Agent grades outputs against a 54-criterion rubric, catching 25% more deviances from a fund’s mandate with GPT-6.1 Sol.",
+      "url": "https://openai.com/index/terminal-x",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-20T15:00:00+08:00"
+    },
+    {
       "id": "d88fd01a7305",
       "title": "Spain-Based Startups Advance Regional Innovation With Barcelona Supercomputing Center",
       "summary": "The Barcelona Supercomputing Center (BSC)’s AI Factory Accelerator Programme, now in full operation following a pilot initiative, gives startups access to sove…",
@@ -67,15 +175,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-20T13:00:00+08:00"
-    },
-    {
-      "id": "ec32daff9e2a",
-      "title": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
-      "summary": "OpenAI只掏出一个6.1 Terra…",
-      "url": "https://www.qbitai.com/2026/10/504314.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-20T09:09:43+08:00"
     },
     {
       "id": "dbaa90254253",
@@ -123,24 +222,6 @@
       "published_at": "2026-10-19T23:00:31+08:00"
     },
     {
-      "id": "c861f4d741de",
-      "title": "从百比特芯片到整机交付，这家量子计算公司正将量子算力推向可调用服务",
-      "summary": "同步搭建千比特规模量子算力云平台",
-      "url": "https://www.qbitai.com/2026/10/504277.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-19T22:33:26+08:00"
-    },
-    {
-      "id": "d82c5a70637f",
-      "title": "通研院孵化的团队，也盯上了RSI",
-      "summary": "当AI越来越懂你，如何让智能真正属于你？",
-      "url": "https://www.qbitai.com/2026/10/504294.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-19T22:31:12+08:00"
-    },
-    {
       "id": "7a364f356aab",
       "title": "Advancing coding in low‑resource programming languages",
       "summary": "Learn how OpenAI is improving ChatGPT across low-resource programming languages, with new evaluations for software engineering, SQLite, and COBOL migration.",
@@ -148,24 +229,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-19T20:00:00+08:00"
-    },
-    {
-      "id": "f8d92aa240cc",
-      "title": "2026物理AI与世界模型大会医疗健康世界模型分会场在南京举行",
-      "summary": "2026年10月19日下午，医疗健康世界模型分会场在南京国际博览中心钟山厅举行",
-      "url": "https://www.qbitai.com/2026/10/504266.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-19T18:27:39+08:00"
-    },
-    {
-      "id": "2aa3e4de7c0f",
-      "title": "全栈自研！国产高端互连芯片，稳了!",
-      "summary": "六年蛰伏出货80万颗",
-      "url": "https://www.qbitai.com/2026/10/504225.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-19T18:15:19+08:00"
     },
     {
       "id": "c850cbc28643",
@@ -206,13 +269,14 @@
       "window_hours": 720
     },
     {
-      "id": "4a2f3ca18eb9",
-      "title": "Benefit Street Partners answers questions faster with Codex",
-      "summary": "Anant Kumar builds tools to compare loan valuations and analyze credit agreements, using Codex for code review and faster follow-ups.",
-      "url": "https://openai.com/index/benefit-street-partners",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-16T08:00:00+08:00"
+      "id": "8e2dfa5ad77d",
+      "title": "智谱新模型，懂法方面全球第一了",
+      "summary": "智谱新模型，懂法方面全球第一了",
+      "url": "https://www.qbitai.com/2026/10/503965.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-17T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "ef6c7beadf74",
@@ -222,15 +286,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-10-16T01:00:23+08:00"
-    },
-    {
-      "id": "996b33c09ad5",
-      "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
-      "summary": "Accelerating the search for novel antimicrobial peptides using Google Antigravity for Science.",
-      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-16T00:08:03+08:00"
     },
     {
       "id": "4069e5410c3e",
@@ -259,25 +314,6 @@
       "source": "量子位",
       "category": "新工具上线",
       "published_at": "2026-10-15T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "58e4191fcfe4",
-      "title": "Google DeepMind and Singapore Government collaborate to build fine-tuned AI model for scam detection",
-      "summary": "Learn how Google DeepMind and GovTech Singapore uses lightweight on-device Gemma models to intercept conversational scams in private chats with zero cloud data…",
-      "url": "https://deepmind.google/blog/on-device-ai-scam-detection-mddi/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-14T10:00:14+08:00"
-    },
-    {
-      "id": "6ff5128a4cb3",
-      "title": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
-      "summary": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
-      "url": "https://www.qbitai.com/2026/10/503109.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-14T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -316,22 +352,22 @@
         "window_hours": 720
       },
       {
-        "id": "6ff5128a4cb3",
-        "title": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
-        "summary": "iPhone断网跑35B多模态！国产开源新模型，只占3G内存",
-        "url": "https://www.qbitai.com/2026/10/503109.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-14T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "13e2c19dd74e",
         "title": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
         "summary": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
         "url": "https://www.qbitai.com/2026/10/503935.html",
         "source": "量子位",
         "category": "开源项目",
+        "published_at": "2026-10-17T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "8e2dfa5ad77d",
+        "title": "智谱新模型，懂法方面全球第一了",
+        "summary": "智谱新模型，懂法方面全球第一了",
+        "url": "https://www.qbitai.com/2026/10/503965.html",
+        "source": "量子位",
+        "category": "中文资讯",
         "published_at": "2026-10-17T00:00:00+08:00",
         "window_hours": 720
       }
