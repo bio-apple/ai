@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-21T16:55:05.521893+08:00",
-  "date": "2026-10-21",
+  "updated_at": "2026-10-22T04:24:50.883542+08:00",
+  "date": "2026-10-22",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,141 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "7104bc51c295",
+      "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
+      "summary": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
+      "url": "https://huggingface.co/blog/nvidia/kumo-relational",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-22T02:26:30+08:00"
+    },
+    {
+      "id": "354f89a6c7db",
+      "title": "How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications",
+      "summary": "How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications",
+      "url": "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-22T01:35:36+08:00"
+    },
+    {
+      "id": "4ab93569e260",
+      "title": "How AT&T is rethinking in-house legal work with",
+      "summary": "AT&T is working with OpenAI to make legal knowledge easier to access. Learn how its LegalEdge team is rethinking intake and scaling legal judgment.",
+      "url": "https://openai.com/index/att-legal",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T01:00:00+08:00"
+    },
+    {
+      "id": "f9b499debdda",
+      "title": "Profiling TorchNeuron (Part 1): System-level profiling on AWS Trainium.",
+      "summary": "Profiling TorchNeuron (Part 1): System-level profiling on AWS Trainium.",
+      "url": "https://huggingface.co/blog/amazon/profiling-torchneuron-part-1",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-22T00:04:43+08:00"
+    },
+    {
+      "id": "2ed826e28d23",
+      "title": "Solving a 31-year-old grand challenge in mathematics – the KLS conjecture",
+      "summary": "For decades, a fundamental question about the difficulty of computing in high-dimensional spaces has resisted proof. New research resolves this question, remov…",
+      "url": "https://www.microsoft.com/en-us/research/blog/solving-a-31-year-old-grand-challenge-in-mathematics-the-kls-conjecture/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-22T00:00:00+08:00"
+    },
+    {
+      "id": "9b35c0bfb2f0",
+      "title": "Granite Speech 5.0: Transcribe, Translate, and Attribute more Accurately and Faster",
+      "summary": "Granite Speech 5.0: Transcribe, Translate, and Attribute more Accurately and Faster",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-21T22:58:18+08:00"
+    },
+    {
+      "id": "74fcf21eca7a",
+      "title": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
+      "summary": "From local businesses to global brands, more advertisers can now reach people as they explore, compare and decide what to buy in ChatGPT.",
+      "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-21T21:00:00+08:00"
+    },
+    {
+      "id": "61f4d0141ff3",
+      "title": "OpenAI models are coming to Google Cloud",
+      "summary": "OpenAI and Google Cloud are bringing frontier models and Codex workflows to Gemini’s Model Garden, available through Google Cloud Marketplace.",
+      "url": "https://openai.com/index/openai-models-google-cloud",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-21T20:00:00+08:00"
+    },
+    {
+      "id": "0b1d731f907e",
+      "title": "Bringing the Spark to Europe: Local Intelligence Powers Next Wave of Agents",
+      "summary": "At GTC Berlin, NVIDIA is showcasing its full lineup of local AI hardware. RTX Spark, which launched last week, powers personal agents on Windows PCs; DGX Spark…",
+      "url": "https://blogs.nvidia.com/blog/local-ai-gtc-rtx-dgx-spark-station-sync/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-21T18:50:37+08:00"
+    },
+    {
+      "id": "7dbdc8f6d3c5",
+      "title": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
+      "summary": "General availability of the instances is coming next month, with planned expansion of availability to Europe — bringing an integrated platform for training, in…",
+      "url": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-21T18:45:17+08:00"
+    },
+    {
+      "id": "f47072a36f45",
+      "title": "NVIDIA Cloud Partners Scale Across Europe — Sovereign, Open and Built for Safe AI Agents",
+      "summary": "Demand from AI-natives is pulling the European AI cloud ecosystem forward faster than ever. Developers need compute closer to their data, open models they can …",
+      "url": "https://blogs.nvidia.com/blog/cloud-partners-europe-sovereign-safety-open-agents/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-21T18:30:41+08:00"
+    },
+    {
+      "id": "0c405e6fd045",
+      "title": "Europe’s Industrial Leaders Reinvent Engineering and Manufacturing With",
+      "summary": "To increase productivity, accelerate innovation and create new opportunities for economic growth, Europe’s industrial leaders are tapping NVIDIA CUDA-X and Omn…",
+      "url": "https://blogs.nvidia.com/blog/europe-industrial-leaders-engineering-manufacturing/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-21T18:30:40+08:00"
+    },
+    {
+      "id": "64ae1d1ebee7",
+      "title": "NVIDIA cuDSS Now Generally Available to Accelerate Engineering and Scientific Simulations",
+      "summary": "NVIDIA cuDSS, launched today in general availability, is an NVIDIA CUDA-X library that shifts a critical part of engineering and scientific simulations onto GP…",
+      "url": "https://blogs.nvidia.com/blog/cudss-generally-available-engineering-scientific-simulation/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-21T18:30:25+08:00"
+    },
+    {
+      "id": "d3f519557f32",
+      "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+      "summary": "Patch the Planet connects security researchers, maintainers, and incident responders to help address critical vulnerabilities across open source.",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+      "source": "OpenAI",
+      "category": "开源项目",
+      "published_at": "2026-10-21T15:00:00+08:00"
+    },
+    {
+      "id": "1de8e62ff715",
+      "title": "Using thousands of AI agents to uncover new leads in biological data",
+      "summary": "See how OpenAI, PerturbAI, and Scripps Research used distributed AI agents to uncover promising research leads in data from millions of brain cells.",
+      "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-21T12:50:00+08:00"
+    },
     {
       "id": "1778fb273dbb",
       "title": "Southeast Asia’s digital economy to hit $368 billion",
@@ -87,15 +222,6 @@
       "published_at": "2026-10-21T09:04:35+08:00"
     },
     {
-      "id": "4eb9f7080b11",
-      "title": "NVIDIA Cosmos3-H-Dreams: Bringing Clinical Surgery to Life Through Generative Simulation",
-      "summary": "NVIDIA Cosmos3-H-Dreams: Bringing Clinical Surgery to Life Through Generative Simulation",
-      "url": "https://huggingface.co/blog/nvidia/cosmos3-h-dreams",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-21T02:17:47+08:00"
-    },
-    {
       "id": "ca293d8533a3",
       "title": "FairStress: A deeper evaluation of fairness in LLM decision-making",
       "summary": "FairStress: A deeper evaluation of fairness in LLM decision-making",
@@ -112,15 +238,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-21T00:00:00+08:00"
-    },
-    {
-      "id": "94e7f4f5c0e5",
-      "title": "ALTK-Evolve: How learned memory tops the τ²-bench leaderboard on customer service tasks without a frontier model",
-      "summary": "ALTK-Evolve: How learned memory tops the τ²-bench leaderboard on customer service tasks without a frontier model",
-      "url": "https://huggingface.co/blog/ibm-research/altk-evolve-bc",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-20T23:19:48+08:00"
     },
     {
       "id": "e4060c1420df",
@@ -141,15 +258,6 @@
       "published_at": "2026-10-20T20:50:34+08:00"
     },
     {
-      "id": "b3fcb2e42d32",
-      "title": "Franchisee reconciles cash in 94% less time with ChatGPT Work",
-      "summary": "An independent Schlotzsky’s and Cinnabon franchisee cut menu repricing time by 95% and built a workflow that could free up $100K in cash flow.",
-      "url": "https://openai.com/index/ted-taylor-restaurant",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-20T18:00:00+08:00"
-    },
-    {
       "id": "0ef53ccb6fbf",
       "title": "比亚迪成为2026年APEC会议官方合作伙伴",
       "summary": "2026年10月16日，比亚迪集团正式成为亚太经合组织第三十三次领导人非正式会议官方合作伙伴",
@@ -157,96 +265,6 @@
       "source": "量子位",
       "category": "行业新闻",
       "published_at": "2026-10-20T17:57:35+08:00"
-    },
-    {
-      "id": "a84b6a7bee5c",
-      "title": "Terminal X matches senior investor judgment 88.6% with GPT-6.1",
-      "summary": "Terminal X’s Eval Agent grades outputs against a 54-criterion rubric, catching 25% more deviances from a fund’s mandate with GPT-6.1 Sol.",
-      "url": "https://openai.com/index/terminal-x",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-20T15:00:00+08:00"
-    },
-    {
-      "id": "d88fd01a7305",
-      "title": "Spain-Based Startups Advance Regional Innovation With Barcelona Supercomputing Center",
-      "summary": "The Barcelona Supercomputing Center (BSC)’s AI Factory Accelerator Programme, now in full operation following a pilot initiative, gives startups access to sove…",
-      "url": "https://blogs.nvidia.com/blog/spain-startups-barcelona-supercomputing-center/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-20T13:00:00+08:00"
-    },
-    {
-      "id": "dbaa90254253",
-      "title": "OpenAI acquires Orchestra Bio",
-      "summary": "OpenAI is acquiring Orchestra Bio to bring AI-powered operations to life sciences R&D, helping biopharma teams accelerate drug development and advance new trea…",
-      "url": "https://openai.com/index/openai-to-acquire-orchestra-bio",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-20T08:00:00+08:00"
-    },
-    {
-      "id": "84cd8d44e982",
-      "title": "Hugging Face ❤️ TorchTPU: TPUs, Natively",
-      "summary": "Hugging Face ❤️ TorchTPU: TPUs, Natively",
-      "url": "https://huggingface.co/blog/hf-torchtpu",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-20T08:00:00+08:00"
-    },
-    {
-      "id": "2596ff929aee",
-      "title": "AnyLanguageModel 1.0: One Year of Local Models on Apple Platforms",
-      "summary": "AnyLanguageModel 1.0: One Year of Local Models on Apple Platforms",
-      "url": "https://huggingface.co/blog/anylanguagemodel-1-0",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-20T08:00:00+08:00"
-    },
-    {
-      "id": "81b55b50044b",
-      "title": "Germany Wants to Lead the World in Industrial AI: How NVIDIA Will Help",
-      "summary": "In the cavernous hall of Kraftwerk, a former power station in Berlin, German Chancellor Friedrich Merz and NVIDIA founder and CEO Jensen Huang sat down to disc…",
-      "url": "https://blogs.nvidia.com/blog/germany-wants-to-lead-the-world-in-industrial-ai-how-nvidia-will-help/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-20T03:27:08+08:00"
-    },
-    {
-      "id": "405e039bdc7e",
-      "title": "NVIDIA Advances Agentic Security for Media, From European Public Service Broadcasting to Global Content Production",
-      "summary": "At a creative industry event that took place today in Berlin — hosted in collaboration with Adobe, Bertelsmann, NVIDIA and UFA — the latest advancements in int…",
-      "url": "https://blogs.nvidia.com/blog/media-agentic-security-european-public-service-broadcasting-global-content-production/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-19T23:00:31+08:00"
-    },
-    {
-      "id": "7a364f356aab",
-      "title": "Advancing coding in low‑resource programming languages",
-      "summary": "Learn how OpenAI is improving ChatGPT across low-resource programming languages, with new evaluations for software engineering, SQLite, and COBOL migration.",
-      "url": "https://openai.com/index/low-resource-programming-languages",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-19T20:00:00+08:00"
-    },
-    {
-      "id": "c850cbc28643",
-      "title": "RTX Spark Ignites Global Celebration as New Windows PCs Arrive",
-      "summary": "NVIDIA RTX Spark laptops are now available, bringing NVIDIA Blackwell RTX graphics, up to 128GB of unified memory and the full NVIDIA AI platform to slim, prem…",
-      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-windows-laptops-celebration/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-18T05:00:13+08:00"
-    },
-    {
-      "id": "65442e708214",
-      "title": "How Itaú is building generative AI for its entire customer base",
-      "summary": "With ia.i, a conversational interface, and the IARA governance platform, Itaú is applying its AI First strategy to customers and employees — in one of Brazil’s…",
-      "url": "https://openai.com/index/itau-generative-ai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-17T03:00:00+08:00"
     },
     {
       "id": "ab1e61983c6c",
@@ -279,13 +297,13 @@
       "window_hours": 720
     },
     {
-      "id": "ef6c7beadf74",
-      "title": "Be There for the Beginning: Celebrate the Launch of NVIDIA RTX Spark",
-      "summary": "A new beginning for Windows PCs starts tomorrow with the launch of NVIDIA RTX Spark — one PC built for creators, gamers and AI agents. All are invited to celeb…",
-      "url": "https://blogs.nvidia.com/blog/local-ai-rtx-spark-launch-event-invite/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-16T01:00:23+08:00"
+      "id": "996b33c09ad5",
+      "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
+      "summary": "Accelerating the search for novel antimicrobial peptides using Google Antigravity for Science.",
+      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-16T00:08:03+08:00"
     },
     {
       "id": "4069e5410c3e",
