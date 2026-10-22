@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-22T04:24:50.883542+08:00",
+  "updated_at": "2026-10-22T16:57:32.786280+08:00",
   "date": "2026-10-22",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,141 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "5d118fadbe79",
+      "title": "Ensemble forecasting with IBM Granite time-series models",
+      "summary": "Ensemble forecasting with IBM Granite time-series models",
+      "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T15:51:31+08:00"
+    },
+    {
+      "id": "19942e3e5417",
+      "title": "特斯拉利润腰斩，一夜跌没“通用汽车”！马斯克：FSD在中国也会遥遥领先",
+      "summary": "FSD一年增长70万付费用户",
+      "url": "https://www.qbitai.com/2026/10/504841.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-22T15:14:48+08:00"
+    },
+    {
+      "id": "855e956ab3ec",
+      "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
+      "summary": "中电信人工智能科技有限公司星辰通用人工智能实验室正式发布并开源意图理解专用模型 Xing4.0-29B-Intent",
+      "url": "https://www.qbitai.com/2026/10/504832.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-22T15:11:14+08:00"
+    },
+    {
+      "id": "705684bd819d",
+      "title": "谁在给OpenAI供应具身数据？",
+      "summary": "挤进全球Physical AI核心供应链",
+      "url": "https://www.qbitai.com/2026/10/504800.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-22T15:05:59+08:00"
+    },
+    {
+      "id": "8eb5c126f8cf",
+      "title": "Leading European Financial Services Organizations Embrace Open Models to Build Proprietary Intelligence",
+      "summary": "At GTC Berlin, banks, payment companies and financial data providers are showing what production-scale intelligence looks like — built on NVIDIA accelerated co…",
+      "url": "https://blogs.nvidia.com/blog/european-financial-services-organizations-open-models-proprietary-intelligence/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T13:00:56+08:00"
+    },
+    {
+      "id": "381130e24d54",
+      "title": "NVIDIA Cosmos Opens New Tools to Train, Evaluate and Deploy World Models",
+      "summary": "To help developers rapidly build world models, which help physical AI systems understand and simulate the real world, NVIDIA has expanded the Cosmos platform w…",
+      "url": "https://blogs.nvidia.com/blog/cosmos-open-train-evaluate-deploy-world-models/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T13:00:27+08:00"
+    },
+    {
+      "id": "761a1716cf64",
+      "title": "How Companies Are Using NVIDIA DSX to Break the Power Bottleneck",
+      "summary": "Companies around the world are building on the NVIDIA DSX AI Factory Platform to plan, simulate and run the grid and the AI factory as one system, from the sub…",
+      "url": "https://blogs.nvidia.com/blog/dsx-power/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-22T13:00:25+08:00"
+    },
+    {
+      "id": "231615289514",
+      "title": "NVIDIA Transforms European Retail, From Digital Discovery to Physical Operations",
+      "summary": "European retailers are using open models and physical intelligence across use cases — from a commerce platform cutting inference costs by 90% to to a fulfillme…",
+      "url": "https://blogs.nvidia.com/blog/european-retail-open-models-robotics/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T13:00:23+08:00"
+    },
+    {
+      "id": "6d8a31a2427f",
+      "title": "Pioneers Across Europe Deploy NVIDIA Earth-2 Open Models to Power Real-World Weather and Climate Prediction",
+      "summary": "Weather forecasts shape more than daily plans; timely weather information is crucial for energy producers, insurers and transport operators to plan around chan…",
+      "url": "https://blogs.nvidia.com/blog/europe-earth-2-open-models-weather-climate-prediction/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T13:00:19+08:00"
+    },
+    {
+      "id": "87e93c1ec327",
+      "title": "Navalia: Advancing Cowork Agents through Verifiable Task Synthesis and Long-Horizon Post-Training",
+      "summary": "arXiv:2610.26887v1 Announce Type: new Abstract: Large language model (LLM) agents are evolving from conversational assistants into Cowork Agents capable of aut…",
+      "url": "https://arxiv.org/abs/2610.26887",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-22T12:00:00+08:00"
+    },
+    {
+      "id": "fa9ca748fe8d",
+      "title": "Large language model and reinforcement learning based autonomous construction and progress updates",
+      "summary": "arXiv:2610.26899v1 Announce Type: new Abstract: Due to the rapid growth of the global population, traditional construction methods are gradually unable to meet…",
+      "url": "https://arxiv.org/abs/2610.26899",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-22T12:00:00+08:00"
+    },
+    {
+      "id": "189ce8c3c0b8",
+      "title": "Pareto-Optimal RTL Code Generation via Multi-Objective Reinforcement Learning with Large Language Models",
+      "summary": "arXiv:2610.26904v1 Announce Type: new Abstract: Recent studies have proposed reinforcement learning with verifiable rewards (RLVR) methods that enable LLMs to …",
+      "url": "https://arxiv.org/abs/2610.26904",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-22T12:00:00+08:00"
+    },
+    {
+      "id": "d8c0f0ce1cd3",
+      "title": "MedPAO-Assist: Edge-Deployable, Modality-Aware Agentic AI for Radiology Report Structuring",
+      "summary": "arXiv:2610.26913v1 Announce Type: new Abstract: The adoption of Large Language Models for radiology report structuring has been largely dominated by either pro…",
+      "url": "https://arxiv.org/abs/2610.26913",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-22T12:00:00+08:00"
+    },
+    {
+      "id": "0e9d0f602a97",
+      "title": "DataPraxis: Scaling Analytics Tasks via Verified Workspace Evolution",
+      "summary": "arXiv:2610.26924v1 Announce Type: new Abstract: General-purpose agents are increasingly expected to perform professional analytics work, which requires sustain…",
+      "url": "https://arxiv.org/abs/2610.26924",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-22T12:00:00+08:00"
+    },
+    {
+      "id": "2ed22a61b2f1",
+      "title": "Broad access through consistent standards",
+      "summary": "How OpenAI works with distribution partners to uphold consistent safeguards, support responsible access, and clarify expectations in our Usage Policies.",
+      "url": "https://openai.com/index/broad-access-through-consistent-standards",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T05:00:00+08:00"
+    },
     {
       "id": "7104bc51c295",
       "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
@@ -87,49 +222,22 @@
       "published_at": "2026-10-21T20:00:00+08:00"
     },
     {
-      "id": "0b1d731f907e",
-      "title": "Bringing the Spark to Europe: Local Intelligence Powers Next Wave of Agents",
-      "summary": "At GTC Berlin, NVIDIA is showcasing its full lineup of local AI hardware. RTX Spark, which launched last week, powers personal agents on Windows PCs; DGX Spark…",
-      "url": "https://blogs.nvidia.com/blog/local-ai-gtc-rtx-dgx-spark-station-sync/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-21T18:50:37+08:00"
+      "id": "df471a728c3d",
+      "title": "多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院",
+      "summary": "医疗AI质变时刻",
+      "url": "https://www.qbitai.com/2026/10/504734.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-21T19:30:59+08:00"
     },
     {
-      "id": "7dbdc8f6d3c5",
-      "title": "Google Cloud and NVIDIA Announce General Availability of NVIDIA Vera Rubin Infrastructure",
-      "summary": "General availability of the instances is coming next month, with planned expansion of availability to Europe — bringing an integrated platform for training, in…",
-      "url": "https://blogs.nvidia.com/blog/google-cloud-vera-rubin-infrastructure/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-21T18:45:17+08:00"
-    },
-    {
-      "id": "f47072a36f45",
-      "title": "NVIDIA Cloud Partners Scale Across Europe — Sovereign, Open and Built for Safe AI Agents",
-      "summary": "Demand from AI-natives is pulling the European AI cloud ecosystem forward faster than ever. Developers need compute closer to their data, open models they can …",
-      "url": "https://blogs.nvidia.com/blog/cloud-partners-europe-sovereign-safety-open-agents/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-21T18:30:41+08:00"
-    },
-    {
-      "id": "0c405e6fd045",
-      "title": "Europe’s Industrial Leaders Reinvent Engineering and Manufacturing With",
-      "summary": "To increase productivity, accelerate innovation and create new opportunities for economic growth, Europe’s industrial leaders are tapping NVIDIA CUDA-X and Omn…",
-      "url": "https://blogs.nvidia.com/blog/europe-industrial-leaders-engineering-manufacturing/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-21T18:30:40+08:00"
-    },
-    {
-      "id": "64ae1d1ebee7",
-      "title": "NVIDIA cuDSS Now Generally Available to Accelerate Engineering and Scientific Simulations",
-      "summary": "NVIDIA cuDSS, launched today in general availability, is an NVIDIA CUDA-X library that shifts a critical part of engineering and scientific simulations onto GP…",
-      "url": "https://blogs.nvidia.com/blog/cudss-generally-available-engineering-scientific-simulation/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-21T18:30:25+08:00"
+      "id": "28d2f32e754b",
+      "title": "生数科技Motubrain团队将直播Physical AI训练全流程，持续半个月",
+      "summary": "10月21日，生数科技世界模型团队正式开启Motubrain 2.0训练全流程公开直播",
+      "url": "https://www.qbitai.com/2026/10/504730.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-21T17:45:22+08:00"
     },
     {
       "id": "d3f519557f32",
@@ -141,15 +249,6 @@
       "published_at": "2026-10-21T15:00:00+08:00"
     },
     {
-      "id": "1de8e62ff715",
-      "title": "Using thousands of AI agents to uncover new leads in biological data",
-      "summary": "See how OpenAI, PerturbAI, and Scripps Research used distributed AI agents to uncover promising research leads in data from millions of brain cells.",
-      "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-21T12:50:00+08:00"
-    },
-    {
       "id": "1778fb273dbb",
       "title": "Southeast Asia’s digital economy to hit $368 billion",
       "summary": "Widespread AI adoption is propelling Southeast Asia's digital economy to a projected $368 billion in 2026 and $1 trillion by 2035.",
@@ -157,78 +256,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-10-21T12:00:00+08:00"
-    },
-    {
-      "id": "87e93c1ec327",
-      "title": "Navalia: Advancing Cowork Agents through Verifiable Task Synthesis and Long-Horizon Post-Training",
-      "summary": "arXiv:2610.26887v1 Announce Type: new Abstract: Large language model (LLM) agents are evolving from conversational assistants into Cowork Agents capable of aut…",
-      "url": "https://arxiv.org/abs/2610.26887",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-21T12:00:00+08:00"
-    },
-    {
-      "id": "fa9ca748fe8d",
-      "title": "Large language model and reinforcement learning based autonomous construction and progress updates",
-      "summary": "arXiv:2610.26899v1 Announce Type: new Abstract: Due to the rapid growth of the global population, traditional construction methods are gradually unable to meet…",
-      "url": "https://arxiv.org/abs/2610.26899",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-21T12:00:00+08:00"
-    },
-    {
-      "id": "189ce8c3c0b8",
-      "title": "Pareto-Optimal RTL Code Generation via Multi-Objective Reinforcement Learning with Large Language Models",
-      "summary": "arXiv:2610.26904v1 Announce Type: new Abstract: Recent studies have proposed reinforcement learning with verifiable rewards (RLVR) methods that enable LLMs to …",
-      "url": "https://arxiv.org/abs/2610.26904",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-21T12:00:00+08:00"
-    },
-    {
-      "id": "d8c0f0ce1cd3",
-      "title": "MedPAO-Assist: Edge-Deployable, Modality-Aware Agentic AI for Radiology Report Structuring",
-      "summary": "arXiv:2610.26913v1 Announce Type: new Abstract: The adoption of Large Language Models for radiology report structuring has been largely dominated by either pro…",
-      "url": "https://arxiv.org/abs/2610.26913",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-21T12:00:00+08:00"
-    },
-    {
-      "id": "0e9d0f602a97",
-      "title": "DataPraxis: Scaling Analytics Tasks via Verified Workspace Evolution",
-      "summary": "arXiv:2610.26924v1 Announce Type: new Abstract: General-purpose agents are increasingly expected to perform professional analytics work, which requires sustain…",
-      "url": "https://arxiv.org/abs/2610.26924",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-21T12:00:00+08:00"
-    },
-    {
-      "id": "531d6db9b26a",
-      "title": "飞书豆包工作AI先锋未来人才大赛：企业正在争抢会用AI做成事的人",
-      "summary": "先看真实问题解决力",
-      "url": "https://www.qbitai.com/2026/10/504608.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-21T10:37:39+08:00"
-    },
-    {
-      "id": "d7c0f889ee7b",
-      "title": "理想宣布：电池自燃报废赔新车！自研6年后有底气了",
-      "summary": "电池、电驱、超充一把梭，冬天多跑30公里",
-      "url": "https://www.qbitai.com/2026/10/504551.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-21T09:04:35+08:00"
-    },
-    {
-      "id": "ca293d8533a3",
-      "title": "FairStress: A deeper evaluation of fairness in LLM decision-making",
-      "summary": "FairStress: A deeper evaluation of fairness in LLM decision-making",
-      "url": "https://huggingface.co/blog/allenai/fairstress",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-21T00:09:19+08:00"
     },
     {
       "id": "c84a57a97fd6",
@@ -240,31 +267,14 @@
       "published_at": "2026-10-21T00:00:00+08:00"
     },
     {
-      "id": "e4060c1420df",
-      "title": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
-      "summary": "兔皮底下，竟然是MiniMax！",
-      "url": "https://www.qbitai.com/2026/10/504517.html",
+      "id": "ec32daff9e2a",
+      "title": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
+      "summary": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
+      "url": "https://www.qbitai.com/2026/10/504314.html",
       "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-20T21:29:54+08:00"
-    },
-    {
-      "id": "8a2355503fe0",
-      "title": "RSI三块关键拼图，MemT 1.0从模型层补上「记忆」",
-      "summary": "把记忆原生焊进Transformer",
-      "url": "https://www.qbitai.com/2026/10/504456.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-20T20:50:34+08:00"
-    },
-    {
-      "id": "0ef53ccb6fbf",
-      "title": "比亚迪成为2026年APEC会议官方合作伙伴",
-      "summary": "2026年10月16日，比亚迪集团正式成为亚太经合组织第三十三次领导人非正式会议官方合作伙伴",
-      "url": "https://www.qbitai.com/2026/10/504452.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-10-20T17:57:35+08:00"
+      "category": "新模型发布",
+      "published_at": "2026-10-20T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "ab1e61983c6c",
@@ -273,16 +283,6 @@
       "url": "https://www.qbitai.com/2026/10/504067.html",
       "source": "量子位",
       "category": "新工具上线",
-      "published_at": "2026-10-17T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "13e2c19dd74e",
-      "title": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
-      "summary": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
-      "url": "https://www.qbitai.com/2026/10/503935.html",
-      "source": "量子位",
-      "category": "开源项目",
       "published_at": "2026-10-17T00:00:00+08:00",
       "window_hours": 720
     },
@@ -297,13 +297,14 @@
       "window_hours": 720
     },
     {
-      "id": "996b33c09ad5",
-      "title": "Accelerating the search for antimicrobial peptides with Google Antigravity",
-      "summary": "Accelerating the search for novel antimicrobial peptides using Google Antigravity for Science.",
-      "url": "https://deepmind.google/blog/accelerating-antimicrobial-discovery/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-16T00:08:03+08:00"
+      "id": "13e2c19dd74e",
+      "title": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
+      "summary": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
+      "url": "https://www.qbitai.com/2026/10/503935.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-17T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "4069e5410c3e",
@@ -313,16 +314,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-16T00:00:00+08:00"
-    },
-    {
-      "id": "ee8fc46d4229",
-      "title": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
-      "summary": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
-      "url": "https://www.qbitai.com/2026/10/503326.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-15T00:00:00+08:00",
-      "window_hours": 720
     },
     {
       "id": "97543f98f58b",
@@ -339,16 +330,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "ee8fc46d4229",
-        "title": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
-        "summary": "DeepSeek服务器全球宕机！神秘Harness账号同时现身",
-        "url": "https://www.qbitai.com/2026/10/503326.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-15T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "ab1e61983c6c",
         "title": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
@@ -370,6 +351,16 @@
         "window_hours": 720
       },
       {
+        "id": "8e2dfa5ad77d",
+        "title": "智谱新模型，懂法方面全球第一了",
+        "summary": "智谱新模型，懂法方面全球第一了",
+        "url": "https://www.qbitai.com/2026/10/503965.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-17T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "13e2c19dd74e",
         "title": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
         "summary": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
@@ -380,13 +371,13 @@
         "window_hours": 720
       },
       {
-        "id": "8e2dfa5ad77d",
-        "title": "智谱新模型，懂法方面全球第一了",
-        "summary": "智谱新模型，懂法方面全球第一了",
-        "url": "https://www.qbitai.com/2026/10/503965.html",
+        "id": "ec32daff9e2a",
+        "title": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
+        "summary": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
+        "url": "https://www.qbitai.com/2026/10/504314.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-17T00:00:00+08:00",
+        "category": "新模型发布",
+        "published_at": "2026-10-20T00:00:00+08:00",
         "window_hours": 720
       }
     ]
