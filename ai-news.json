@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-22T16:57:32.786280+08:00",
-  "date": "2026-10-22",
+  "updated_at": "2026-10-23T04:21:14.222663+08:00",
+  "date": "2026-10-23",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "27825e300358",
+      "title": "Build more responsive apps with the Decisions API",
+      "summary": "Fast, focused, low-cost decisions for any application.",
+      "url": "https://openai.com/index/decisions-api",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-23T03:00:00+08:00"
+    },
+    {
+      "id": "eaa0ebff7daf",
+      "title": "OlmoEarth v1.3: State-of-the-art embeddings for the whole planet",
+      "summary": "OlmoEarth v1.3: State-of-the-art embeddings for the whole planet",
+      "url": "https://huggingface.co/blog/allenai/olmoearth-v1-3",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-23T00:11:31+08:00"
+    },
+    {
+      "id": "ef05d9c57c78",
+      "title": "Flint-interactive: A language for creating interactive data visualizations",
+      "summary": "Flint-interactive gives AI agents a language for creating interactive visualizations. Click a chart, filter data, highlight related content, and explore beyond…",
+      "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-23T00:00:00+08:00"
+    },
+    {
+      "id": "06769efcf6f4",
+      "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
+      "summary": "Launched today, NVIDIA Minerva is an AIOps platform built to help teams find problems earlier and keep AI factories productive. It brings together telemetry fr…",
+      "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-22T23:00:02+08:00"
+    },
+    {
+      "id": "e66e9796ba6b",
+      "title": "Beyond tree cover: mapping the world’s forest types",
+      "summary": "A global map categorizing every 10-meter patch of land on Earth into distinct forest types.",
+      "url": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T22:30:24+08:00"
+    },
+    {
+      "id": "0d155a8c6750",
+      "title": "Cloud Deployment Incoming: ‘Call of Duty: Modern Warfare 4’ Arrives on GeForce NOW",
+      "summary": "Lock in and load out this GFN Thursday. Call of Duty: Modern Warfare 4 arrives on GeForce NOW at launch, bringing a new campaign, multiplayer action and DMZ, h…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-call-of-duty-modern-warfare-4/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-22T21:00:20+08:00"
+    },
     {
       "id": "5d118fadbe79",
       "title": "Ensemble forecasting with IBM Granite time-series models",
@@ -51,6 +105,15 @@
       "published_at": "2026-10-22T15:05:59+08:00"
     },
     {
+      "id": "63c31ca523f9",
+      "title": "What FDE means at",
+      "summary": "What forward deployed engineering means at OpenAI",
+      "url": "https://openai.com/index/forward-deployed-engineering-means",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T14:00:00+08:00"
+    },
+    {
       "id": "8eb5c126f8cf",
       "title": "Leading European Financial Services Organizations Embrace Open Models to Build Proprietary Intelligence",
       "summary": "At GTC Berlin, banks, payment companies and financial data providers are showing what production-scale intelligence looks like — built on NVIDIA accelerated co…",
@@ -76,24 +139,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-22T13:00:25+08:00"
-    },
-    {
-      "id": "231615289514",
-      "title": "NVIDIA Transforms European Retail, From Digital Discovery to Physical Operations",
-      "summary": "European retailers are using open models and physical intelligence across use cases — from a commerce platform cutting inference costs by 90% to to a fulfillme…",
-      "url": "https://blogs.nvidia.com/blog/european-retail-open-models-robotics/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-22T13:00:23+08:00"
-    },
-    {
-      "id": "6d8a31a2427f",
-      "title": "Pioneers Across Europe Deploy NVIDIA Earth-2 Open Models to Power Real-World Weather and Climate Prediction",
-      "summary": "Weather forecasts shape more than daily plans; timely weather information is crucial for energy producers, insurers and transport operators to plan around chan…",
-      "url": "https://blogs.nvidia.com/blog/europe-earth-2-open-models-weather-climate-prediction/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-22T13:00:19+08:00"
     },
     {
       "id": "87e93c1ec327",
@@ -139,6 +184,15 @@
       "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-10-22T12:00:00+08:00"
+    },
+    {
+      "id": "ba6fa07d677a",
+      "title": "Uber brings ChatGPT Work to all employees with",
+      "summary": "Uber is rolling out ChatGPT Work to more than 30,000 employees, helping teams research, analyze data, create presentations, and complete complex workflows.",
+      "url": "https://openai.com/index/uber-chatgpt-work-rollout",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T08:00:00+08:00"
     },
     {
       "id": "2ed22a61b2f1",
@@ -195,33 +249,6 @@
       "published_at": "2026-10-22T00:00:00+08:00"
     },
     {
-      "id": "9b35c0bfb2f0",
-      "title": "Granite Speech 5.0: Transcribe, Translate, and Attribute more Accurately and Faster",
-      "summary": "Granite Speech 5.0: Transcribe, Translate, and Attribute more Accurately and Faster",
-      "url": "https://huggingface.co/blog/ibm-granite/granite-speech-5",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-21T22:58:18+08:00"
-    },
-    {
-      "id": "74fcf21eca7a",
-      "title": "ChatGPT Ads expands to 26 new countries as over 100,000 advertisers have used the platform",
-      "summary": "From local businesses to global brands, more advertisers can now reach people as they explore, compare and decide what to buy in ChatGPT.",
-      "url": "https://openai.com/index/chatgpt-ads-expands-26-new-countries",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-21T21:00:00+08:00"
-    },
-    {
-      "id": "61f4d0141ff3",
-      "title": "OpenAI models are coming to Google Cloud",
-      "summary": "OpenAI and Google Cloud are bringing frontier models and Codex workflows to Gemini’s Model Garden, available through Google Cloud Marketplace.",
-      "url": "https://openai.com/index/openai-models-google-cloud",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-21T20:00:00+08:00"
-    },
-    {
       "id": "df471a728c3d",
       "title": "多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院",
       "summary": "医疗AI质变时刻",
@@ -238,15 +265,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-21T17:45:22+08:00"
-    },
-    {
-      "id": "d3f519557f32",
-      "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
-      "summary": "Patch the Planet connects security researchers, maintainers, and incident responders to help address critical vulnerabilities across open source.",
-      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
-      "source": "OpenAI",
-      "category": "开源项目",
-      "published_at": "2026-10-21T15:00:00+08:00"
     },
     {
       "id": "1778fb273dbb",
@@ -274,6 +292,16 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-10-20T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "7809cba4601e",
+      "title": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+      "summary": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+      "url": "https://www.qbitai.com/2026/10/504136.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-18T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -305,25 +333,6 @@
       "category": "开源项目",
       "published_at": "2026-10-17T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "4069e5410c3e",
-      "title": "Proof-based general-purpose computing with Magnetar",
-      "summary": "Zero-knowledge proofs can verify computing results without rerunning workloads or exposing sensitive data. Magnetar helps bring them into the mainstream with s…",
-      "url": "https://www.microsoft.com/en-us/research/blog/proof-based-general-purpose-computing-with-magnetar/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-16T00:00:00+08:00"
-    },
-    {
-      "id": "97543f98f58b",
-      "title": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
-      "summary": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
-      "url": "https://www.qbitai.com/2026/10/503640.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-15T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -338,16 +347,6 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-10-17T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "97543f98f58b",
-        "title": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
-        "summary": "库克：苹果智能接入阿里千问大模型，10月底在中国发布测试版本",
-        "url": "https://www.qbitai.com/2026/10/503640.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-15T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -378,6 +377,16 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-10-20T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "7809cba4601e",
+        "title": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+        "summary": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+        "url": "https://www.qbitai.com/2026/10/504136.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-10-18T00:00:00+08:00",
         "window_hours": 720
       }
     ]
