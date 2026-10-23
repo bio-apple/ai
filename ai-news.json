@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-23T16:52:32.296047+08:00",
-  "date": "2026-10-23",
+  "updated_at": "2026-10-24T04:09:17.613885+08:00",
+  "date": "2026-10-24",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "298c8de07d18",
+      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
+      "summary": "Learn how OpenAI scaled Habitat with reliable multi-tenancy, global caching, and Azure Cosmos DB to deliver 12× faster reads for ChatGPT.",
+      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-24T01:00:00+08:00"
+    },
+    {
+      "id": "d5dfb55b0129",
+      "title": "LitPivot: Developing research ideas through dynamic contextualization within the literature landscape",
+      "summary": "LitPivot: Developing research ideas through dynamic contextualization within the literature landscape",
+      "url": "https://huggingface.co/blog/allenai/litpivot",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-24T00:15:50+08:00"
+    },
+    {
+      "id": "48e2274fdf2b",
+      "title": "Securing our frontier model training environment",
+      "summary": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.",
+      "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-23T18:00:00+08:00"
+    },
     {
       "id": "1151444135c6",
       "title": "百度世界2026前瞻：10+重磅分论坛，全面解码AI时代的智能组织进化路径",
@@ -87,6 +114,15 @@
       "published_at": "2026-10-23T08:00:00+08:00"
     },
     {
+      "id": "6430909168b5",
+      "title": "Does Your Model Run on AWS Trainium? Look It Up",
+      "summary": "Does Your Model Run on AWS Trainium? Look It Up",
+      "url": "https://huggingface.co/blog/torch-neuronx-model-support",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-23T08:00:00+08:00"
+    },
+    {
       "id": "95eb6975ad24",
       "title": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
       "summary": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
@@ -103,15 +139,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-23T03:00:00+08:00"
-    },
-    {
-      "id": "eaa0ebff7daf",
-      "title": "OlmoEarth v1.3: State-of-the-art embeddings for the whole planet",
-      "summary": "OlmoEarth v1.3: State-of-the-art embeddings for the whole planet",
-      "url": "https://huggingface.co/blog/allenai/olmoearth-v1-3",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-23T00:11:31+08:00"
     },
     {
       "id": "ef05d9c57c78",
@@ -222,15 +249,6 @@
       "published_at": "2026-10-22T13:00:27+08:00"
     },
     {
-      "id": "ba6fa07d677a",
-      "title": "Uber brings ChatGPT Work to all employees with",
-      "summary": "Uber is rolling out ChatGPT Work to more than 30,000 employees, helping teams research, analyze data, create presentations, and complete complex workflows.",
-      "url": "https://openai.com/index/uber-chatgpt-work-rollout",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-22T08:00:00+08:00"
-    },
-    {
       "id": "7104bc51c295",
       "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
       "summary": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
@@ -238,24 +256,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-10-22T02:26:30+08:00"
-    },
-    {
-      "id": "354f89a6c7db",
-      "title": "How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications",
-      "summary": "How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications",
-      "url": "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-22T01:35:36+08:00"
-    },
-    {
-      "id": "4ab93569e260",
-      "title": "How AT&T is rethinking in-house legal work with",
-      "summary": "AT&T is working with OpenAI to make legal knowledge easier to access. Learn how its LegalEdge team is rethinking intake and scaling legal judgment.",
-      "url": "https://openai.com/index/att-legal",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-22T01:00:00+08:00"
     },
     {
       "id": "2ed826e28d23",
