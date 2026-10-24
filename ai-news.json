@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-24T16:26:21.148111+08:00",
-  "date": "2026-10-24",
+  "updated_at": "2026-10-25T03:10:09.278309+08:00",
+  "date": "2026-10-25",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -260,33 +260,23 @@
       "window_hours": 720
     },
     {
-      "id": "ab1e61983c6c",
-      "title": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
-      "summary": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
-      "url": "https://www.qbitai.com/2026/10/504067.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-17T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "8e2dfa5ad77d",
-      "title": "智谱新模型，懂法方面全球第一了",
-      "summary": "智谱新模型，懂法方面全球第一了",
-      "url": "https://www.qbitai.com/2026/10/503965.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-17T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "13e2c19dd74e",
-      "title": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
-      "summary": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
-      "url": "https://www.qbitai.com/2026/10/503935.html",
+      "id": "5ace29ffc128",
+      "title": "谷歌开源RSI新成果！华人浓度爆表",
+      "summary": "谷歌开源RSI新成果！华人浓度爆表",
+      "url": "https://www.qbitai.com/2026/10/504184.html",
       "source": "量子位",
       "category": "开源项目",
-      "published_at": "2026-10-17T00:00:00+08:00",
+      "published_at": "2026-10-19T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "7809cba4601e",
+      "title": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+      "summary": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+      "url": "https://www.qbitai.com/2026/10/504136.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-18T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -294,36 +284,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "ab1e61983c6c",
-        "title": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
-        "summary": "突发！DeepSeek新模型发布，超级性价比斩杀一切",
-        "url": "https://www.qbitai.com/2026/10/504067.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-17T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "8e2dfa5ad77d",
-        "title": "智谱新模型，懂法方面全球第一了",
-        "summary": "智谱新模型，懂法方面全球第一了",
-        "url": "https://www.qbitai.com/2026/10/503965.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-17T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "13e2c19dd74e",
-        "title": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
-        "summary": "清华开源！智能体操作系统任务成本降83%，AI记忆可查可改",
-        "url": "https://www.qbitai.com/2026/10/503935.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-17T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "ec32daff9e2a",
         "title": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
@@ -342,6 +302,36 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-20T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "7809cba4601e",
+        "title": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+        "summary": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
+        "url": "https://www.qbitai.com/2026/10/504136.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-10-18T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "5ace29ffc128",
+        "title": "谷歌开源RSI新成果！华人浓度爆表",
+        "summary": "谷歌开源RSI新成果！华人浓度爆表",
+        "url": "https://www.qbitai.com/2026/10/504184.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-10-19T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "53ef81310569",
+        "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
+        "summary": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
+        "url": "https://www.qbitai.com/2026/10/504879.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-22T00:00:00+08:00",
         "window_hours": 720
       }
     ]
