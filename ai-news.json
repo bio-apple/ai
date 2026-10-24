@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-24T04:09:17.613885+08:00",
+  "updated_at": "2026-10-24T16:26:21.148111+08:00",
   "date": "2026-10-24",
   "cadence": "daily",
   "window_hours": 168,
@@ -49,51 +49,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-23T15:35:51+08:00"
-    },
-    {
-      "id": "74bd144fb682",
-      "title": "A Small Model Asks Better: Fine-Tuning Query Clarification for Retrieval-Augmented Generation",
-      "summary": "arXiv:2610.28686v1 Announce Type: new Abstract: Query clarification is essential for retrieval-augmented generation (RAG) systems that face ambiguous user quer…",
-      "url": "https://arxiv.org/abs/2610.28686",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-23T12:00:00+08:00"
-    },
-    {
-      "id": "4327a145e809",
-      "title": "Scaling in Games: Continued Pre-Training For Embodied Agents In Diverse Virtual Worlds",
-      "summary": "arXiv:2610.28698v1 Announce Type: new Abstract: Scaling data, diversity and model capacity has improved embodied learning in physical environments, where diver…",
-      "url": "https://arxiv.org/abs/2610.28698",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-23T12:00:00+08:00"
-    },
-    {
-      "id": "0b13060c669d",
-      "title": "SpecEvo: Speculative Evolution with Large Language Models for Cost-Efficient Scientific Discovery",
-      "summary": "arXiv:2610.28706v1 Announce Type: new Abstract: LLM-driven evolutionary search is a promising paradigm for scientific discovery, but existing methods remain co…",
-      "url": "https://arxiv.org/abs/2610.28706",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-23T12:00:00+08:00"
-    },
-    {
-      "id": "a24c3f1405f6",
-      "title": "Automating ML for Science: Can Frontier Agents Climb Scientific Hills in the Wild?",
-      "summary": "arXiv:2610.28763v1 Announce Type: new Abstract: Frontier coding agents are increasingly framed as end-to-end automated researchers, and ML for science offers a…",
-      "url": "https://arxiv.org/abs/2610.28763",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-23T12:00:00+08:00"
-    },
-    {
-      "id": "eeb1fe8457e1",
-      "title": "Forging More Tasks into Better Harnesses: Agentic Harness Evolution via Successive Scale Racing",
-      "summary": "arXiv:2610.28815v1 Announce Type: new Abstract: Agentic harness evolution optimizes an agent's instructions, tools, and control flow by using its task executio…",
-      "url": "https://arxiv.org/abs/2610.28815",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-23T12:00:00+08:00"
     },
     {
       "id": "b21a97b1b273",
