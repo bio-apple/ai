@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-25T16:45:37.048299+08:00",
-  "date": "2026-10-25",
+  "updated_at": "2026-10-26T03:23:23.978853+08:00",
+  "date": "2026-10-26",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -259,16 +259,6 @@
       "category": "开源项目",
       "published_at": "2026-10-19T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "7809cba4601e",
-      "title": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
-      "summary": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
-      "url": "https://www.qbitai.com/2026/10/504136.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-18T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -296,16 +286,6 @@
         "window_hours": 720
       },
       {
-        "id": "7809cba4601e",
-        "title": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
-        "summary": "VAST开源实时世界模型EdenLive！单消费级显卡、720P超24FPS",
-        "url": "https://www.qbitai.com/2026/10/504136.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-18T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "53ef81310569",
         "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
         "summary": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
@@ -323,6 +303,16 @@
         "source": "量子位",
         "category": "开源项目",
         "published_at": "2026-10-19T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "855e956ab3ec",
+        "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
+        "summary": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
+        "url": "https://www.qbitai.com/2026/10/504832.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-22T00:00:00+08:00",
         "window_hours": 720
       }
     ]
