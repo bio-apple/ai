@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-25T03:10:09.278309+08:00",
+  "updated_at": "2026-10-25T16:45:37.048299+08:00",
   "date": "2026-10-25",
   "cadence": "daily",
   "window_hours": 168,
@@ -112,15 +112,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-10-22T23:00:02+08:00"
-    },
-    {
-      "id": "e66e9796ba6b",
-      "title": "Beyond tree cover: mapping the world’s forest types",
-      "summary": "A global map categorizing every 10-meter patch of land on Earth into distinct forest types.",
-      "url": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-22T22:30:24+08:00"
     },
     {
       "id": "0d155a8c6750",
@@ -315,16 +306,6 @@
         "window_hours": 720
       },
       {
-        "id": "5ace29ffc128",
-        "title": "谷歌开源RSI新成果！华人浓度爆表",
-        "summary": "谷歌开源RSI新成果！华人浓度爆表",
-        "url": "https://www.qbitai.com/2026/10/504184.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-19T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "53ef81310569",
         "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
         "summary": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
@@ -332,6 +313,16 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-10-22T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "5ace29ffc128",
+        "title": "谷歌开源RSI新成果！华人浓度爆表",
+        "summary": "谷歌开源RSI新成果！华人浓度爆表",
+        "url": "https://www.qbitai.com/2026/10/504184.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-10-19T00:00:00+08:00",
         "window_hours": 720
       }
     ]
