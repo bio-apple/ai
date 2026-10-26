@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-26T03:23:23.978853+08:00",
+  "updated_at": "2026-10-26T17:24:25.781541+08:00",
   "date": "2026-10-26",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "212777ca4ce0",
+      "title": "中国近50%的新云生意，竟被这家公司包揽！",
+      "summary": "有点意外，但也不意外",
+      "url": "https://www.qbitai.com/2026/10/505454.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-26T17:02:44+08:00"
+    },
+    {
+      "id": "b8556768936d",
+      "title": "从“言传身教”到“触类旁通”：AI既需要“名师指引”，也需要“自我修行”",
+      "summary": "人工智能正在从人机“言传身教”走向自学“触类旁通”。",
+      "url": "https://www.qbitai.com/2026/10/505443.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-26T16:38:49+08:00"
+    },
+    {
+      "id": "51af70ac747b",
+      "title": "长安汽车赵非：汽车将成为端侧物理AI规模最大的应用载体 | 2026世界智能网联汽车大会",
+      "summary": "10月21日，2026世界智能网联汽车大会在北京召开",
+      "url": "https://www.qbitai.com/2026/10/505436.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-26T16:04:10+08:00"
+    },
+    {
+      "id": "261b58229402",
+      "title": "趋境科技完成 B 轮融资，半年实现超十倍速增长，加速高品质 AI Token 规模化交付",
+      "summary": "高品质 AI Token 成为行业新风向",
+      "url": "https://www.qbitai.com/2026/10/505429.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-10-26T14:50:44+08:00"
+    },
+    {
+      "id": "edf721c82023",
+      "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
+      "summary": "一张卡，512路长推理同时跑",
+      "url": "https://www.qbitai.com/2026/10/505407.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-26T14:45:25+08:00"
+    },
+    {
+      "id": "93de3524eec5",
+      "title": "Tradeoff-Aware Territory Design: A Multi-Objective Decision System for Enterprise Customer-to-Seller Allocation",
+      "summary": "arXiv:2610.31701v1 Announce Type: new Abstract: Enterprise customer journeys are shaped not only by product experiences and marketing, but also by recurring re…",
+      "url": "https://arxiv.org/abs/2610.31701",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-26T12:00:00+08:00"
+    },
+    {
+      "id": "99f3871737e9",
+      "title": "Phronix: The Capability-Centric Learning Paradigm for Agents",
+      "summary": "arXiv:2610.31789v1 Announce Type: new Abstract: Scientific computing increasingly relies on large language model-based agents for performance engineering tasks…",
+      "url": "https://arxiv.org/abs/2610.31789",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-26T12:00:00+08:00"
+    },
+    {
+      "id": "fdabadb313a8",
+      "title": "Patronizing and Condescending Language Detection in English and Mandarin",
+      "summary": "arXiv:2610.31808v1 Announce Type: new Abstract: Patronizing and condescending language (PCL) is a form of harmful language that belittles and assumes pity for …",
+      "url": "https://arxiv.org/abs/2610.31808",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-26T12:00:00+08:00"
+    },
+    {
+      "id": "589eb8bb0bb3",
+      "title": "PaperFormalizer: Author-in-the-Loop Autoformalization of Research Papers in Lean",
+      "summary": "arXiv:2610.31810v1 Announce Type: new Abstract: Even a carefully proofread paper can leave small gaps in its proofs or its stated assumptions. We introduce Pap…",
+      "url": "https://arxiv.org/abs/2610.31810",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-26T12:00:00+08:00"
+    },
+    {
+      "id": "646f70f96a17",
+      "title": "Don't Forget What You Just Learned: Self-Directed Repair Turns Agent Mistakes Into Lasting Lessons",
+      "summary": "arXiv:2610.31846v1 Announce Type: new Abstract: Intelligent agents should learn from their mistakes so that experience leads to continuous improvement. Yet tod…",
+      "url": "https://arxiv.org/abs/2610.31846",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-26T12:00:00+08:00"
+    },
     {
       "id": "298c8de07d18",
       "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
@@ -40,15 +130,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-23T18:00:00+08:00"
-    },
-    {
-      "id": "1151444135c6",
-      "title": "百度世界2026前瞻：10+重磅分论坛，全面解码AI时代的智能组织进化路径",
-      "summary": "10月21日，百度官方公众号发文披露了百度世界2026分论坛的更多议程信息。",
-      "url": "https://www.qbitai.com/2026/10/504901.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-23T15:35:51+08:00"
     },
     {
       "id": "b21a97b1b273",
@@ -114,6 +195,15 @@
       "published_at": "2026-10-22T23:00:02+08:00"
     },
     {
+      "id": "e66e9796ba6b",
+      "title": "Beyond tree cover: mapping the world’s forest types",
+      "summary": "A global map categorizing every 10-meter patch of land on Earth into distinct forest types.",
+      "url": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-22T22:30:24+08:00"
+    },
+    {
       "id": "0d155a8c6750",
       "title": "Cloud Deployment Incoming: ‘Call of Duty: Modern Warfare 4’ Arrives on GeForce NOW",
       "summary": "Lock in and load out this GFN Thursday. Call of Duty: Modern Warfare 4 arrives on GeForce NOW at launch, bringing a new campaign, multiplayer action and DMZ, h…",
@@ -123,15 +213,6 @@
       "published_at": "2026-10-22T21:00:20+08:00"
     },
     {
-      "id": "53ef81310569",
-      "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
-      "summary": "10月22日，蚂蚁数科正式发布决策模型 LingDT-Decision-1.0。",
-      "url": "https://www.qbitai.com/2026/10/504879.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-22T17:07:05+08:00"
-    },
-    {
       "id": "5d118fadbe79",
       "title": "Ensemble forecasting with IBM Granite time-series models",
       "summary": "Ensemble forecasting with IBM Granite time-series models",
@@ -139,33 +220,6 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-10-22T15:51:31+08:00"
-    },
-    {
-      "id": "19942e3e5417",
-      "title": "特斯拉利润腰斩，一夜跌没“通用汽车”！马斯克：FSD在中国也会遥遥领先",
-      "summary": "FSD一年增长70万付费用户",
-      "url": "https://www.qbitai.com/2026/10/504841.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-22T15:14:48+08:00"
-    },
-    {
-      "id": "855e956ab3ec",
-      "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
-      "summary": "中电信人工智能科技有限公司星辰通用人工智能实验室正式发布并开源意图理解专用模型 Xing4.0-29B-Intent",
-      "url": "https://www.qbitai.com/2026/10/504832.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-22T15:11:14+08:00"
-    },
-    {
-      "id": "705684bd819d",
-      "title": "谁在给OpenAI供应具身数据？",
-      "summary": "挤进全球Physical AI核心供应链",
-      "url": "https://www.qbitai.com/2026/10/504800.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-22T15:05:59+08:00"
     },
     {
       "id": "63c31ca523f9",
@@ -213,6 +267,26 @@
       "published_at": "2026-10-22T00:00:00+08:00"
     },
     {
+      "id": "53ef81310569",
+      "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
+      "summary": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
+      "url": "https://www.qbitai.com/2026/10/504879.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-22T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "855e956ab3ec",
+      "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
+      "summary": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
+      "url": "https://www.qbitai.com/2026/10/504832.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-22T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "1778fb273dbb",
       "title": "Southeast Asia’s digital economy to hit $368 billion",
       "summary": "Widespread AI adoption is propelling Southeast Asia's digital economy to a projected $368 billion in 2026 and $1 trillion by 2035.",
@@ -229,6 +303,16 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-21T00:00:00+08:00"
+    },
+    {
+      "id": "df471a728c3d",
+      "title": "多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院",
+      "summary": "多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院",
+      "url": "https://www.qbitai.com/2026/10/504734.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-21T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "ec32daff9e2a",
@@ -249,22 +333,22 @@
       "category": "中文资讯",
       "published_at": "2026-10-20T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "5ace29ffc128",
-      "title": "谷歌开源RSI新成果！华人浓度爆表",
-      "summary": "谷歌开源RSI新成果！华人浓度爆表",
-      "url": "https://www.qbitai.com/2026/10/504184.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-19T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
+      {
+        "id": "53ef81310569",
+        "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
+        "summary": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
+        "url": "https://www.qbitai.com/2026/10/504879.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-10-22T00:00:00+08:00",
+        "window_hours": 720
+      },
       {
         "id": "ec32daff9e2a",
         "title": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
@@ -286,26 +370,6 @@
         "window_hours": 720
       },
       {
-        "id": "53ef81310569",
-        "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
-        "summary": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
-        "url": "https://www.qbitai.com/2026/10/504879.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-22T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "5ace29ffc128",
-        "title": "谷歌开源RSI新成果！华人浓度爆表",
-        "summary": "谷歌开源RSI新成果！华人浓度爆表",
-        "url": "https://www.qbitai.com/2026/10/504184.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-19T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "855e956ab3ec",
         "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
         "summary": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
@@ -313,6 +377,16 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-10-22T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "df471a728c3d",
+        "title": "多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院",
+        "summary": "多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院",
+        "url": "https://www.qbitai.com/2026/10/504734.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-21T00:00:00+08:00",
         "window_hours": 720
       }
     ]
