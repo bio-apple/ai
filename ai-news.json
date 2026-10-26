@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-26T17:24:25.781541+08:00",
-  "date": "2026-10-26",
+  "updated_at": "2026-10-27T05:16:12.951588+08:00",
+  "date": "2026-10-27",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,49 +15,40 @@
   },
   "items": [
     {
-      "id": "212777ca4ce0",
-      "title": "中国近50%的新云生意，竟被这家公司包揽！",
-      "summary": "有点意外，但也不意外",
-      "url": "https://www.qbitai.com/2026/10/505454.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-26T17:02:44+08:00"
-    },
-    {
-      "id": "b8556768936d",
-      "title": "从“言传身教”到“触类旁通”：AI既需要“名师指引”，也需要“自我修行”",
-      "summary": "人工智能正在从人机“言传身教”走向自学“触类旁通”。",
-      "url": "https://www.qbitai.com/2026/10/505443.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-26T16:38:49+08:00"
-    },
-    {
-      "id": "51af70ac747b",
-      "title": "长安汽车赵非：汽车将成为端侧物理AI规模最大的应用载体 | 2026世界智能网联汽车大会",
-      "summary": "10月21日，2026世界智能网联汽车大会在北京召开",
-      "url": "https://www.qbitai.com/2026/10/505436.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-26T16:04:10+08:00"
-    },
-    {
-      "id": "261b58229402",
-      "title": "趋境科技完成 B 轮融资，半年实现超十倍速增长，加速高品质 AI Token 规模化交付",
-      "summary": "高品质 AI Token 成为行业新风向",
-      "url": "https://www.qbitai.com/2026/10/505429.html",
-      "source": "量子位",
+      "id": "be77c96c39b4",
+      "title": "Our newest AI Quest: Mapping the human brain",
+      "summary": "Learn AI literacy via Google’s latest AI Quests lesson on neuroscience, “Polar Peaks.”",
+      "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/",
+      "source": "Google AI",
       "category": "行业新闻",
-      "published_at": "2026-10-26T14:50:44+08:00"
+      "published_at": "2026-10-27T00:00:00+08:00"
     },
     {
-      "id": "edf721c82023",
-      "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
-      "summary": "一张卡，512路长推理同时跑",
-      "url": "https://www.qbitai.com/2026/10/505407.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-26T14:45:25+08:00"
+      "id": "64d59b55a8fb",
+      "title": "ChatGPT’s expanding world of work",
+      "summary": "Explore OpenAI Signals data on 165 work activities across nearly 100 countries, revealing how people use ChatGPT for work and how usage changes over time.",
+      "url": "https://openai.com/index/chatgpt-expanding-world-of-work",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-26T18:00:00+08:00"
+    },
+    {
+      "id": "eb7708c5f537",
+      "title": "How Fanatics and OpenAI streamline the fan experience",
+      "summary": "Fanatics uses OpenAI to help fans complete their game-day outfits with Shop the Look. Testing across roughly 30,000 MLB products showed 10% higher engagement.",
+      "url": "https://openai.com/index/fanatics-streamline-fan-experience",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-26T15:00:00+08:00"
+    },
+    {
+      "id": "8f2f08b6e197",
+      "title": "How Ultrafast cut incident investigation from hours to minutes at",
+      "summary": "See how OpenAI engineers use Codex Ultrafast to investigate incidents in minutes. Explore faster security analysis, code refactoring, and daily workflows.",
+      "url": "https://openai.com/index/openai-cut-incident-investigation",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-26T15:00:00+08:00"
     },
     {
       "id": "93de3524eec5",
@@ -105,6 +96,15 @@
       "published_at": "2026-10-26T12:00:00+08:00"
     },
     {
+      "id": "1758535ac6be",
+      "title": "Introducing GPT-6.1 Terra",
+      "summary": "Bringing fast and capable computer use to everyone",
+      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-10-26T08:00:00+08:00"
+    },
+    {
       "id": "298c8de07d18",
       "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
       "summary": "Learn how OpenAI scaled Habitat with reliable multi-tenancy, global caching, and Azure Cosmos DB to deliver 12× faster reads for ChatGPT.",
@@ -123,13 +123,49 @@
       "published_at": "2026-10-24T00:15:50+08:00"
     },
     {
-      "id": "48e2274fdf2b",
-      "title": "Securing our frontier model training environment",
-      "summary": "OpenAI explains how we strengthened containment for frontier model training and evaluation, including offline environments and high-compute red-teaming.",
-      "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-23T18:00:00+08:00"
+      "id": "0a636c3d051e",
+      "title": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
+      "summary": "10月22日，2026科大讯飞全球1024开发者节在北京国家会议中心开幕",
+      "url": "https://www.qbitai.com/2026/10/505083.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-23T17:21:41+08:00"
+    },
+    {
+      "id": "acead513953c",
+      "title": "企业AI需要两个世界模型",
+      "summary": "特赞想让企业Agent真正懂业务",
+      "url": "https://www.qbitai.com/2026/10/505032.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-23T17:07:25+08:00"
+    },
+    {
+      "id": "c437b6f9db0e",
+      "title": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
+      "summary": "房间秒变草原，抬手就能下雪",
+      "url": "https://www.qbitai.com/2026/10/504931.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-23T17:03:37+08:00"
+    },
+    {
+      "id": "de79449cc31a",
+      "title": "国产5B生图模型海外突然爆火，4天超百万下载",
+      "summary": "国产5B生图模型海外突然爆火，4天超百万下载",
+      "url": "https://www.qbitai.com/2026/10/504930.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-23T16:50:16+08:00"
+    },
+    {
+      "id": "ce87029614bf",
+      "title": "南京物理AI上大分！三位图灵奖得主发声，50个应用场景亮相",
+      "summary": "让AI真正走进真实世界",
+      "url": "https://www.qbitai.com/2026/10/504915.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-23T16:45:43+08:00"
     },
     {
       "id": "b21a97b1b273",
@@ -139,15 +175,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-10-23T10:00:13+08:00"
-    },
-    {
-      "id": "15c1f8ef7a58",
-      "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
-      "summary": "OpenAI and Poland’s NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem.",
-      "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-23T08:00:00+08:00"
     },
     {
       "id": "6430909168b5",
@@ -166,15 +193,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-10-23T06:24:34+08:00"
-    },
-    {
-      "id": "27825e300358",
-      "title": "Build more responsive apps with the Decisions API",
-      "summary": "Fast, focused, low-cost decisions for any application.",
-      "url": "https://openai.com/index/decisions-api",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-23T03:00:00+08:00"
     },
     {
       "id": "ef05d9c57c78",
@@ -220,15 +238,6 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-10-22T15:51:31+08:00"
-    },
-    {
-      "id": "63c31ca523f9",
-      "title": "What FDE means at",
-      "summary": "What forward deployed engineering means at OpenAI",
-      "url": "https://openai.com/index/forward-deployed-engineering-means",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-22T14:00:00+08:00"
     },
     {
       "id": "8eb5c126f8cf",
