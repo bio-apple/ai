@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-27T05:16:12.951588+08:00",
+  "updated_at": "2026-10-27T17:23:01.534957+08:00",
   "date": "2026-10-27",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,78 @@
   },
   "items": [
     {
+      "id": "8ce98afe9175",
+      "title": "Inverse Modeling for Laser Pulse Shape Design in Inertial Confinement Fusion",
+      "summary": "arXiv:2610.33096v1 Announce Type: new Abstract: The achievement of practical fusion energy remains one of the most pressing unsolved scientific challenges, wit…",
+      "url": "https://arxiv.org/abs/2610.33096",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-27T12:00:00+08:00"
+    },
+    {
+      "id": "f9b6042eeb94",
+      "title": "IRON-Meme: A Benchmark for Structured Understanding of Identities and Roles in Online Meme Narratives",
+      "summary": "arXiv:2610.33097v1 Announce Type: new Abstract: As polarization grows on social media, understanding how political memes shape online narratives has become inc…",
+      "url": "https://arxiv.org/abs/2610.33097",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-27T12:00:00+08:00"
+    },
+    {
+      "id": "c156781cefae",
+      "title": "Prospect Theory in Large Language Models: A Meta-Analysis of Loss Aversion, Diminishing Sensitivity, and Probability Weighting",
+      "summary": "arXiv:2610.33103v1 Announce Type: new Abstract: Prospect theory splits risky choice into three parts: loss aversion, measured by the relative weight of losses …",
+      "url": "https://arxiv.org/abs/2610.33103",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-27T12:00:00+08:00"
+    },
+    {
+      "id": "a4bf945e3d5b",
+      "title": "Artificial Intelligence in Mechanical Engineering: Foundations, Opportunities, Challenges, and Responsibilities",
+      "summary": "arXiv:2610.33105v1 Announce Type: new Abstract: Artificial intelligence (AI) is reshaping mechanical engineering (ME), from modeling, simulation, and optimizat…",
+      "url": "https://arxiv.org/abs/2610.33105",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-27T12:00:00+08:00"
+    },
+    {
+      "id": "7b2479673743",
+      "title": "Conformance as a Distribution: Delegation Contracts, Error Budgets, and the Allocation of Evaluation Authority in Use-Based AI Regulation",
+      "summary": "arXiv:2610.33112v1 Announce Type: new Abstract: Use-based AI regulation assigns obligations by deployment risk but lacks an evidentiary object to carry them. A…",
+      "url": "https://arxiv.org/abs/2610.33112",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-27T12:00:00+08:00"
+    },
+    {
+      "id": "a581be76a56c",
+      "title": "钛动科技发布行业首个Pro-Agent, Navos Pro定义结果导向的AI for Work | TGC 2026科技增长大会",
+      "summary": "10 月 23 日，以 “ AI is Profitable ” 为主题的 2026 TGC 科技增长大会于广州召开。",
+      "url": "https://www.qbitai.com/2026/10/505580.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-27T11:23:55+08:00"
+    },
+    {
+      "id": "250e5d8f3024",
+      "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
+      "summary": "How Greptile uses GPT-6 Astra to test user workflows, Daybreak to strengthen security, and Codex to reduce rework.",
+      "url": "https://openai.com/index/greptile-code-review-codex-astra",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-27T06:00:00+08:00"
+    },
+    {
+      "id": "444eadf940b2",
+      "title": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
+      "summary": "地球最富兄妹俩堂堂来袭！7名联创仍紧握50.1%总投票权",
+      "url": "https://www.qbitai.com/2026/10/505551.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-27T00:06:31+08:00"
+    },
+    {
       "id": "be77c96c39b4",
       "title": "Our newest AI Quest: Mapping the human brain",
       "summary": "Learn AI literacy via Google’s latest AI Quests lesson on neuroscience, “Polar Peaks.”",
@@ -22,6 +94,24 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-10-27T00:00:00+08:00"
+    },
+    {
+      "id": "f16aefe89a6e",
+      "title": "Working with academic communities to build scientific understanding",
+      "summary": "OpenAI shares model results on the Kakeya conjecture, Exponential Time Hypothesis, and quantum chromodynamics—and how researchers can verify and build on them.",
+      "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-26T22:30:00+08:00"
+    },
+    {
+      "id": "1a1d4bf2fc11",
+      "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+      "summary": "CodeRabbit uses GPT-6.1 Sol to investigate security risks across complex codebases. Its security agent helps developers review findings and proposed fixes.",
+      "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-26T21:45:00+08:00"
     },
     {
       "id": "64d59b55a8fb",
@@ -33,6 +123,33 @@
       "published_at": "2026-10-26T18:00:00+08:00"
     },
     {
+      "id": "cb2364223fa0",
+      "title": "AI时代，一个人能有多大能量？天禧AI × 观猹大会现场实测个人AI跨端协同新体验",
+      "summary": "10月23日至25日，以“见证超能发生”为主题的“天禧AI × 观猹大会”在杭州茶叶博览会会议会展中心启幕。",
+      "url": "https://www.qbitai.com/2026/10/505539.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-26T17:46:13+08:00"
+    },
+    {
+      "id": "aa4f71e55d39",
+      "title": "OpenAI开始断网训练最强模型：“安全起见”",
+      "summary": "模型开始利用GPU缓存聊天？",
+      "url": "https://www.qbitai.com/2026/10/505529.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-26T17:37:57+08:00"
+    },
+    {
+      "id": "e2eea353669f",
+      "title": "A社联创演讲：AI奇点已来",
+      "summary": "所谓奇点，或许是AI跃过人类的那个点。",
+      "url": "https://www.qbitai.com/2026/10/505521.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-26T17:35:14+08:00"
+    },
+    {
       "id": "eb7708c5f537",
       "title": "How Fanatics and OpenAI streamline the fan experience",
       "summary": "Fanatics uses OpenAI to help fans complete their game-day outfits with Shop the Look. Testing across roughly 30,000 MLB products showed 10% higher engagement.",
@@ -42,78 +159,6 @@
       "published_at": "2026-10-26T15:00:00+08:00"
     },
     {
-      "id": "8f2f08b6e197",
-      "title": "How Ultrafast cut incident investigation from hours to minutes at",
-      "summary": "See how OpenAI engineers use Codex Ultrafast to investigate incidents in minutes. Explore faster security analysis, code refactoring, and daily workflows.",
-      "url": "https://openai.com/index/openai-cut-incident-investigation",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-26T15:00:00+08:00"
-    },
-    {
-      "id": "93de3524eec5",
-      "title": "Tradeoff-Aware Territory Design: A Multi-Objective Decision System for Enterprise Customer-to-Seller Allocation",
-      "summary": "arXiv:2610.31701v1 Announce Type: new Abstract: Enterprise customer journeys are shaped not only by product experiences and marketing, but also by recurring re…",
-      "url": "https://arxiv.org/abs/2610.31701",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-26T12:00:00+08:00"
-    },
-    {
-      "id": "99f3871737e9",
-      "title": "Phronix: The Capability-Centric Learning Paradigm for Agents",
-      "summary": "arXiv:2610.31789v1 Announce Type: new Abstract: Scientific computing increasingly relies on large language model-based agents for performance engineering tasks…",
-      "url": "https://arxiv.org/abs/2610.31789",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-26T12:00:00+08:00"
-    },
-    {
-      "id": "fdabadb313a8",
-      "title": "Patronizing and Condescending Language Detection in English and Mandarin",
-      "summary": "arXiv:2610.31808v1 Announce Type: new Abstract: Patronizing and condescending language (PCL) is a form of harmful language that belittles and assumes pity for …",
-      "url": "https://arxiv.org/abs/2610.31808",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-26T12:00:00+08:00"
-    },
-    {
-      "id": "589eb8bb0bb3",
-      "title": "PaperFormalizer: Author-in-the-Loop Autoformalization of Research Papers in Lean",
-      "summary": "arXiv:2610.31810v1 Announce Type: new Abstract: Even a carefully proofread paper can leave small gaps in its proofs or its stated assumptions. We introduce Pap…",
-      "url": "https://arxiv.org/abs/2610.31810",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-26T12:00:00+08:00"
-    },
-    {
-      "id": "646f70f96a17",
-      "title": "Don't Forget What You Just Learned: Self-Directed Repair Turns Agent Mistakes Into Lasting Lessons",
-      "summary": "arXiv:2610.31846v1 Announce Type: new Abstract: Intelligent agents should learn from their mistakes so that experience leads to continuous improvement. Yet tod…",
-      "url": "https://arxiv.org/abs/2610.31846",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-26T12:00:00+08:00"
-    },
-    {
-      "id": "1758535ac6be",
-      "title": "Introducing GPT-6.1 Terra",
-      "summary": "Bringing fast and capable computer use to everyone",
-      "url": "https://openai.com/index/introducing-gpt-6-1-terra",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-10-26T08:00:00+08:00"
-    },
-    {
-      "id": "298c8de07d18",
-      "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
-      "summary": "Learn how OpenAI scaled Habitat with reliable multi-tenancy, global caching, and Azure Cosmos DB to deliver 12× faster reads for ChatGPT.",
-      "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-24T01:00:00+08:00"
-    },
-    {
       "id": "d5dfb55b0129",
       "title": "LitPivot: Developing research ideas through dynamic contextualization within the literature landscape",
       "summary": "LitPivot: Developing research ideas through dynamic contextualization within the literature landscape",
@@ -121,51 +166,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-10-24T00:15:50+08:00"
-    },
-    {
-      "id": "0a636c3d051e",
-      "title": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
-      "summary": "10月22日，2026科大讯飞全球1024开发者节在北京国家会议中心开幕",
-      "url": "https://www.qbitai.com/2026/10/505083.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-23T17:21:41+08:00"
-    },
-    {
-      "id": "acead513953c",
-      "title": "企业AI需要两个世界模型",
-      "summary": "特赞想让企业Agent真正懂业务",
-      "url": "https://www.qbitai.com/2026/10/505032.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-23T17:07:25+08:00"
-    },
-    {
-      "id": "c437b6f9db0e",
-      "title": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
-      "summary": "房间秒变草原，抬手就能下雪",
-      "url": "https://www.qbitai.com/2026/10/504931.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-23T17:03:37+08:00"
-    },
-    {
-      "id": "de79449cc31a",
-      "title": "国产5B生图模型海外突然爆火，4天超百万下载",
-      "summary": "国产5B生图模型海外突然爆火，4天超百万下载",
-      "url": "https://www.qbitai.com/2026/10/504930.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-23T16:50:16+08:00"
-    },
-    {
-      "id": "ce87029614bf",
-      "title": "南京物理AI上大分！三位图灵奖得主发声，50个应用场景亮相",
-      "summary": "让AI真正走进真实世界",
-      "url": "https://www.qbitai.com/2026/10/504915.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-23T16:45:43+08:00"
     },
     {
       "id": "b21a97b1b273",
@@ -202,6 +202,16 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-23T00:00:00+08:00"
+    },
+    {
+      "id": "de79449cc31a",
+      "title": "国产5B生图模型海外突然爆火，4天超百万下载",
+      "summary": "国产5B生图模型海外突然爆火，4天超百万下载",
+      "url": "https://www.qbitai.com/2026/10/504930.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-23T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "06769efcf6f4",
@@ -324,16 +334,6 @@
       "window_hours": 720
     },
     {
-      "id": "ec32daff9e2a",
-      "title": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
-      "summary": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
-      "url": "https://www.qbitai.com/2026/10/504314.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-20T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "e4060c1420df",
       "title": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
       "summary": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
@@ -359,16 +359,6 @@
         "window_hours": 720
       },
       {
-        "id": "ec32daff9e2a",
-        "title": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
-        "summary": "Claude新模型曝光！能跳出思维定势，修Bug治标又治本",
-        "url": "https://www.qbitai.com/2026/10/504314.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-10-20T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "e4060c1420df",
         "title": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
         "summary": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
@@ -386,6 +376,16 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-10-22T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "de79449cc31a",
+        "title": "国产5B生图模型海外突然爆火，4天超百万下载",
+        "summary": "国产5B生图模型海外突然爆火，4天超百万下载",
+        "url": "https://www.qbitai.com/2026/10/504930.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-23T00:00:00+08:00",
         "window_hours": 720
       },
       {
