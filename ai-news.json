@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-27T17:23:01.534957+08:00",
-  "date": "2026-10-27",
+  "updated_at": "2026-10-28T05:03:10.396926+08:00",
+  "date": "2026-10-28",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "db98bf59a6c7",
+      "title": "Build specialized multimodal models with LFM3",
+      "summary": "Build specialized multimodal models with LFM3",
+      "url": "https://huggingface.co/blog/LiquidAI/lfm3",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-28T01:16:52+08:00"
+    },
+    {
+      "id": "34370e88c88d",
+      "title": "Can we trust LLMs to judge whether a research idea is novel?",
+      "summary": "Can we trust LLMs to judge whether a research idea is novel?",
+      "url": "https://huggingface.co/blog/allenai/novelty-bench",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-28T00:12:42+08:00"
+    },
+    {
+      "id": "d17d13a0006a",
+      "title": "Genie 4: A new generation of world simulation",
+      "summary": "Genie 4: our new world model unlocking unprecedented realism in real-time simulation.",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-28T00:01:38+08:00"
+    },
+    {
+      "id": "df8156dd7062",
+      "title": "How AI Is Changing the Pace of Discovery for Millions Living With Dementia",
+      "summary": "There are 57 million people worldwide living with dementia today. For the researchers working to help them, the obstacle isn’t a lack of effort — it’s too much…",
+      "url": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-27T23:00:20+08:00"
+    },
+    {
+      "id": "a3a879144b29",
+      "title": "OpenAI expands partnership with Oracle to bring its apps to ChatGPT",
+      "summary": "OpenAI and Oracle are expanding their partnership to bring business applications and AI agents into ChatGPT and power new Oracle offerings.",
+      "url": "https://openai.com/index/oracle-apps-in-chatgpt",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-27T15:00:00+08:00"
+    },
     {
       "id": "8ce98afe9175",
       "title": "Inverse Modeling for Laser Pulse Shape Design in Inertial Confinement Fusion",
@@ -69,6 +114,15 @@
       "published_at": "2026-10-27T11:23:55+08:00"
     },
     {
+      "id": "8cb333260a17",
+      "title": "How Check Point accelerates vulnerability research with Daybreak",
+      "summary": "With OpenAI Daybreak, Check Point speeds up the research behind new security protections, enabling its analysts to turn vulnerability intelligence into custome…",
+      "url": "https://openai.com/index/check-point-daybreak",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-27T08:00:00+08:00"
+    },
+    {
       "id": "250e5d8f3024",
       "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
       "summary": "How Greptile uses GPT-6 Astra to test user workflows, Daybreak to strengthen security, and Codex to reduce rework.",
@@ -114,15 +168,6 @@
       "published_at": "2026-10-26T21:45:00+08:00"
     },
     {
-      "id": "64d59b55a8fb",
-      "title": "ChatGPT’s expanding world of work",
-      "summary": "Explore OpenAI Signals data on 165 work activities across nearly 100 countries, revealing how people use ChatGPT for work and how usage changes over time.",
-      "url": "https://openai.com/index/chatgpt-expanding-world-of-work",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-26T18:00:00+08:00"
-    },
-    {
       "id": "cb2364223fa0",
       "title": "AI时代，一个人能有多大能量？天禧AI × 观猹大会现场实测个人AI跨端协同新体验",
       "summary": "10月23日至25日，以“见证超能发生”为主题的“天禧AI × 观猹大会”在杭州茶叶博览会会议会展中心启幕。",
@@ -148,24 +193,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-26T17:35:14+08:00"
-    },
-    {
-      "id": "eb7708c5f537",
-      "title": "How Fanatics and OpenAI streamline the fan experience",
-      "summary": "Fanatics uses OpenAI to help fans complete their game-day outfits with Shop the Look. Testing across roughly 30,000 MLB products showed 10% higher engagement.",
-      "url": "https://openai.com/index/fanatics-streamline-fan-experience",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-26T15:00:00+08:00"
-    },
-    {
-      "id": "d5dfb55b0129",
-      "title": "LitPivot: Developing research ideas through dynamic contextualization within the literature landscape",
-      "summary": "LitPivot: Developing research ideas through dynamic contextualization within the literature landscape",
-      "url": "https://huggingface.co/blog/allenai/litpivot",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-24T00:15:50+08:00"
     },
     {
       "id": "b21a97b1b273",
@@ -208,6 +235,16 @@
       "title": "国产5B生图模型海外突然爆火，4天超百万下载",
       "summary": "国产5B生图模型海外突然爆火，4天超百万下载",
       "url": "https://www.qbitai.com/2026/10/504930.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-23T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "0a636c3d051e",
+      "title": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
+      "summary": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
+      "url": "https://www.qbitai.com/2026/10/505083.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-23T00:00:00+08:00",
@@ -259,24 +296,6 @@
       "published_at": "2026-10-22T13:00:56+08:00"
     },
     {
-      "id": "381130e24d54",
-      "title": "NVIDIA Cosmos Opens New Tools to Train, Evaluate and Deploy World Models",
-      "summary": "To help developers rapidly build world models, which help physical AI systems understand and simulate the real world, NVIDIA has expanded the Cosmos platform w…",
-      "url": "https://blogs.nvidia.com/blog/cosmos-open-train-evaluate-deploy-world-models/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-22T13:00:27+08:00"
-    },
-    {
-      "id": "7104bc51c295",
-      "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
-      "summary": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
-      "url": "https://huggingface.co/blog/nvidia/kumo-relational",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-22T02:26:30+08:00"
-    },
-    {
       "id": "2ed826e28d23",
       "title": "Solving a 31-year-old grand challenge in mathematics – the KLS conjecture",
       "summary": "For decades, a fundamental question about the difficulty of computing in high-dimensional spaces has resisted proof. New research resolves this question, remov…",
@@ -315,15 +334,6 @@
       "published_at": "2026-10-21T12:00:00+08:00"
     },
     {
-      "id": "c84a57a97fd6",
-      "title": "Called to serve: Tech, research, and positive impact",
-      "summary": "Lab Director Chris White has worked on research challenges with real-world implications—from new approaches to wartime data analysis to tools for combating hum…",
-      "url": "https://www.microsoft.com/en-us/research/podcast/called-to-serve-tech-research-and-positive-impact-with-chris-white/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-21T00:00:00+08:00"
-    },
-    {
       "id": "df471a728c3d",
       "title": "多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院",
       "summary": "多智能体协同重构医疗AI！清华AIR孵化：医生AI分身“坐诊”医院",
@@ -331,16 +341,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-21T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "e4060c1420df",
-      "title": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
-      "summary": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
-      "url": "https://www.qbitai.com/2026/10/504517.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-20T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -356,16 +356,6 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-10-22T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "e4060c1420df",
-        "title": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
-        "summary": "国模Agent第一！MiniMax爆改Flash战力，全时段大肥鱼谷价",
-        "url": "https://www.qbitai.com/2026/10/504517.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-20T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -396,6 +386,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-21T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "0a636c3d051e",
+        "title": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
+        "summary": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
+        "url": "https://www.qbitai.com/2026/10/505083.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-23T00:00:00+08:00",
         "window_hours": 720
       }
     ]
