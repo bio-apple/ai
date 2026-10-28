@@ -204,9 +204,145 @@
     "youtube:WdZjoMi6W7Y",
     "bilibili:BV1ZHnF6SEp5",
     "youtube:7Y4sbZgBdnc",
-    "youtube:J5EbL1UaqG8"
+    "youtube:J5EbL1UaqG8",
+    "youtube:3TwbE7gv6qo",
+    "youtube:TCTV0ggcQCI",
+    "bilibili:BV1ZSnU6REuC"
   ],
   "batches": [
+    {
+      "date": "2026-10-29",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:TCTV0ggcQCI",
+              "platform": "youtube",
+              "title": "DeepSeek acaba de lanzar su APP de Agente IA: Hace TODO GRATIS 🔥",
+              "summary": "Deepseek lo ha vuelto a hacer lanzando su primera app nativa de agentes de IA manteniendo su filosofía de código abierto y optimi…",
+              "url": "https://www.youtube.com/watch?v=TCTV0ggcQCI",
+              "thumbnail": "https://i.ytimg.com/vi/TCTV0ggcQCI/maxresdefault.jpg",
+              "channel": "Alejavi Rivera",
+              "subscribers": 0,
+              "views": 331214,
+              "duration": "24:09",
+              "max_height": 1080,
+              "published_at": "2026-10-09T01:00:30+08:00"
+            },
+            {
+              "id": "youtube:7XzjQa8z0uc",
+              "platform": "youtube",
+              "title": "How to Use OpenAI Codex (Step-by-Step Tutorial)",
+              "summary": "Learn how to use OpenAI Codex step by step",
+              "url": "https://www.youtube.com/watch?v=7XzjQa8z0uc",
+              "thumbnail": "https://i.ytimg.com/vi/7XzjQa8z0uc/maxresdefault.jpg",
+              "channel": "Kevin Stratvert",
+              "subscribers": 0,
+              "views": 157540,
+              "duration": "17:11",
+              "max_height": 1080,
+              "published_at": "2026-10-08T15:00:27+08:00"
+            },
+            {
+              "id": "youtube:3TwbE7gv6qo",
+              "platform": "youtube",
+              "title": "Learn 99% Of Claude Code in One Video",
+              "summary": "Get started with Claude Code: Most people install Claude Code, type a prompt, and never touch the settings that actually make it …",
+              "url": "https://www.youtube.com/watch?v=3TwbE7gv6qo",
+              "thumbnail": "https://i.ytimg.com/vi/3TwbE7gv6qo/maxresdefault.jpg",
+              "channel": "Tech With Tim",
+              "subscribers": 0,
+              "views": 145931,
+              "duration": "48:21",
+              "max_height": 1080,
+              "published_at": "2026-10-24T22:00:00+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1NXH661EpG",
+              "platform": "bilibili",
+              "title": "deepseek harness的安装和实战教程",
+              "summary": "本期视频介绍了deepseek harness官方桌面端的安装及简单的实战教程。包含了deepseek harness官方桌面端的下载安装教程，插件推荐与安装示例，skill的安装示例及简单的实战教程。",
+              "url": "https://www.bilibili.com/video/BV1NXH661EpG",
+              "thumbnail": "video-thumbs/bilibili/BV1NXH661EpG.jpg",
+              "channel": "清清小风风",
+              "subscribers": 0,
+              "views": 779429,
+              "duration": "8:59",
+              "max_height": 720,
+              "published_at": "2026-10-04T14:49:03+08:00"
+            },
+            {
+              "id": "bilibili:BV1ZSnU6REuC",
+              "platform": "bilibili",
+              "title": "想给大肥鱼完整的一生？DeepSeek接入QQ零基础教程，让她记住你",
+              "summary": "想给大肥鱼完整的一生？从零教你用 AstrBot + NapCat 把 DeepSeek 接进 QQ 小号：会发表情包、发语音，清空聊天记录也还记得你。已经装了 DeepSeek Harness 的，可以直接跳到第 10 章让它代劳。 配套图文教程（所有地址…",
+              "url": "https://www.bilibili.com/video/BV1ZSnU6REuC",
+              "thumbnail": "video-thumbs/bilibili/BV1ZSnU6REuC.jpg",
+              "channel": "泽轩604",
+              "subscribers": 0,
+              "views": 583596,
+              "duration": "20:18",
+              "max_height": 720,
+              "published_at": "2026-10-25T22:47:31+08:00"
+            },
+            {
+              "id": "bilibili:BV1goem6uEMq",
+              "platform": "bilibili",
+              "title": "什么叫豆包工作把我的活全干了？我只管爽玩！",
+              "summary": "【大狸子切切里】讲解 AI 工具实战应用，围绕「什么叫豆包工作把我的活全干了？我只管爽玩！」展示操作步骤与使用技巧。",
+              "url": "https://www.bilibili.com/video/BV1goem6uEMq",
+              "thumbnail": "video-thumbs/bilibili/BV1goem6uEMq.jpg",
+              "channel": "大狸子切切里",
+              "subscribers": 0,
+              "views": 526390,
+              "duration": "",
+              "max_height": 720,
+              "published_at": "2026-10-09T19:00:00+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-10-28",
       "timezone": "Asia/Shanghai",
@@ -8280,218 +8416,7 @@
           "videos": []
         }
       }
-    },
-    {
-      "date": "2026-07-30",
-      "timezone": "Asia/Shanghai",
-      "criteria": {
-        "search_sources": [
-          "youtube",
-          "bilibili"
-        ],
-        "platform_total_cap": 10,
-        "video_categories": {
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "youtube_recent_30d": {
-            "label": "YouTube：30 天内 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "youtube_recent_100d": {
-            "label": "YouTube：100 天内 Top 4",
-            "window": {
-              "days": 100
-            },
-            "top_count": 4,
-            "min_views": 10000
-          },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "bilibili_recent_30d": {
-            "label": "B站：30 天内 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "bilibili_recent_100d": {
-            "label": "B站：100 天内 Top 4",
-            "window": {
-              "days": 100
-            },
-            "top_count": 4,
-            "min_views": 10000
-          }
-        }
-      },
-      "categories": {
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "youtube_recent_30d": {
-          "label": "YouTube：30 天内 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:m8uUUUsMD3Y",
-              "platform": "youtube",
-              "title": "Introducing the Codex Micro",
-              "summary": "See how the Codex Micro, a customizable keyboard built with Work Louder for Codex, helps you move through a build without leaving…",
-              "url": "https://www.youtube.com/watch?v=m8uUUUsMD3Y",
-              "thumbnail": "https://i.ytimg.com/vi/m8uUUUsMD3Y/maxresdefault.jpg",
-              "channel": "OpenAI",
-              "subscribers": 0,
-              "views": 252324,
-              "duration": "2:15",
-              "max_height": 1080,
-              "published_at": "2026-07-16T03:42:38+08:00"
-            },
-            {
-              "id": "youtube:mFysqIcP7So",
-              "platform": "youtube",
-              "title": "How To Master The New ChatGPT Work (Free Course)",
-              "summary": "Download ChatGPT Work: This video is not ChatGPT Work can handle multi-step tasks with local files, plugins, scheduled workflows,…",
-              "url": "https://www.youtube.com/watch?v=mFysqIcP7So",
-              "thumbnail": "https://i.ytimg.com/vi/mFysqIcP7So/maxresdefault.jpg",
-              "channel": "Paul J Lipsky",
-              "subscribers": 0,
-              "views": 126565,
-              "duration": "19:49",
-              "max_height": 1080,
-              "published_at": "2026-07-13T21:00:06+08:00"
-            },
-            {
-              "id": "youtube:nExo3f75EAs",
-              "platform": "youtube",
-              "title": "Claude Just Killed Prompt Engineering. This Is The New Way. (+17 AI Updates)",
-              "summary": "📈 Invest in US stocks and ETFs from India, starting at Rs 100 👉 Download the INDmoney App Play Store: App Store: 🎁 Get every prom…",
-              "url": "https://www.youtube.com/watch?v=nExo3f75EAs",
-              "thumbnail": "https://i.ytimg.com/vi/nExo3f75EAs/maxresdefault.jpg",
-              "channel": "Vaibhav Sisinty",
-              "subscribers": 0,
-              "views": 109383,
-              "duration": "24:36",
-              "max_height": 1080,
-              "published_at": "2026-07-27T22:03:14+08:00"
-            }
-          ]
-        },
-        "youtube_recent_100d": {
-          "label": "YouTube：100 天内 Top 4",
-          "window": {
-            "days": 100
-          },
-          "top_count": 4,
-          "videos": [
-            {
-              "id": "youtube:28TGfTZweqw",
-              "platform": "youtube",
-              "title": "How To Use Claude Better Than 99% Of People",
-              "summary": "Subscribe to my newsletter → Generate Video Ads right in Claude using Higgsfield MCP → Give Claude to two people and you’ll see t…",
-              "url": "https://www.youtube.com/watch?v=28TGfTZweqw",
-              "thumbnail": "https://i.ytimg.com/vi/28TGfTZweqw/maxresdefault.jpg",
-              "channel": "Sandeep Swadia",
-              "subscribers": 0,
-              "views": 1458097,
-              "duration": "19:30",
-              "max_height": 1080,
-              "published_at": "2026-05-22T20:00:02+08:00"
-            },
-            {
-              "id": "youtube:sL5hPovH1vU",
-              "platform": "youtube",
-              "title": "1000+ hours of Learning Claude in 15 Minutes (Beginner to Pro)",
-              "summary": "✅ Get Your FREE AI Company Operating System here: 👥 Are you building an AI software company",
-              "url": "https://www.youtube.com/watch?v=sL5hPovH1vU",
-              "thumbnail": "https://i.ytimg.com/vi/sL5hPovH1vU/maxresdefault.jpg",
-              "channel": "Dan Martell",
-              "subscribers": 0,
-              "views": 837849,
-              "duration": "14:57",
-              "max_height": 1080,
-              "published_at": "2026-06-15T21:00:05+08:00"
-            },
-            {
-              "id": "youtube:r2vYObllqJU",
-              "platform": "youtube",
-              "title": "Claude AI Tutorial for Beginners (Step-by-Step)",
-              "summary": "Learn how to use Claude AI step-by-step to actually get real work done",
-              "url": "https://www.youtube.com/watch?v=r2vYObllqJU",
-              "thumbnail": "https://i.ytimg.com/vi/r2vYObllqJU/maxresdefault.jpg",
-              "channel": "Kevin Stratvert",
-              "subscribers": 0,
-              "views": 757707,
-              "duration": "8:37",
-              "max_height": 1080,
-              "published_at": "2026-04-30T15:00:55+08:00"
-            },
-            {
-              "id": "youtube:Wq45rvPGNHs",
-              "platform": "youtube",
-              "title": "Introducing ChatGPT Work, powered by Codex and GPT-5.6",
-              "summary": "Andrew Ambrosino, Jessica Liang, Ed Bayes, Lauren Gordon, Tejal Patwardhan, and Katy Shi with host Thibault Sottiaux introduce an…",
-              "url": "https://www.youtube.com/watch?v=Wq45rvPGNHs",
-              "thumbnail": "https://i.ytimg.com/vi/Wq45rvPGNHs/maxresdefault.jpg",
-              "channel": "OpenAI",
-              "subscribers": 0,
-              "views": 387188,
-              "duration": "35:08",
-              "max_height": 1080,
-              "published_at": "2026-07-10T02:17:42+08:00"
-            }
-          ]
-        },
-        "bilibili_recent_24h": {
-          "label": "B站：24 小时内 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_30d": {
-          "label": "B站：30 天内 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_100d": {
-          "label": "B站：100 天内 Top 4",
-          "window": {
-            "days": 100
-          },
-          "top_count": 4,
-          "videos": []
-        }
-      }
     }
   ],
-  "updated_at": "2026-10-28T07:41:06.158758+08:00"
+  "updated_at": "2026-10-29T07:59:35.971050+08:00"
 }
