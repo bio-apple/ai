@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-29T18:28:20.873008+08:00",
-  "date": "2026-10-29",
+  "updated_at": "2026-10-30T05:29:22.066496+08:00",
+  "date": "2026-10-30",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "9e5c9d9f241b",
+      "title": "Microsoft Research Focus – Edition #97",
+      "summary": "Host Sowbhagya Suresh shares some of the latest news and cutting-edge research from across Microsoft—from understanding the challenges facing coding agents to …",
+      "url": "https://www.microsoft.com/en-us/research/podcast/microsoft-research-focus-edition-97/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-30T03:19:16+08:00"
+    },
+    {
+      "id": "7bf0065ceb16",
+      "title": "An updated Model Spec for more capable and beneficial AI",
+      "summary": "OpenAI’s updated Model Spec outlines five core values to guide more capable AI toward sound judgment, human agency, and faithfulness to human intent.",
+      "url": "https://openai.com/index/updated-model-spec",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-30T01:00:00+08:00"
+    },
+    {
+      "id": "baf7193e75c1",
+      "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
+      "summary": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended…",
+      "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-10-30T00:00:35+08:00"
+    },
+    {
+      "id": "f3538b6fb36f",
+      "title": "Granite Switch 4.1.1 — Update models like you update software",
+      "summary": "Granite Switch 4.1.1 — Update models like you update software",
+      "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-10-29T21:37:07+08:00"
+    },
+    {
+      "id": "f52687297c33",
+      "title": "Slice Into GFN Thursday: ‘Phantom Blade Zero’ Launches on GeForce NOW",
+      "summary": "This Halloween week, GFN Thursday is delivering a fresh batch of gaming treats. Something wicked this blade comes. S-GAME’s Phantom Blade Zero launches on GeFo…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-phantom-blade-zero/",
+      "source": "NVIDIA AI",
+      "category": "新工具上线",
+      "published_at": "2026-10-29T21:00:16+08:00"
+    },
+    {
+      "id": "d28967fce9c6",
+      "title": "How we detect frontier model misalignment",
+      "summary": "OpenAI uses layered monitoring to detect frontier model misalignment and unauthorized agent behavior so responders can intervene before incidents escalate.",
+      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-29T17:00:00+08:00"
+    },
+    {
+      "id": "2d9928289658",
+      "title": "How Ropes & Gray is developing AI for transactional diligence",
+      "summary": "Ropes & Gray is developing AI for transactional diligence with OpenAI. Lawyers review grouped documents, summaries, and reports before advising clients.",
+      "url": "https://openai.com/index/ropes-gray-ai-diligence",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-29T15:00:00+08:00"
+    },
     {
       "id": "fabd2f882ce7",
       "title": "文远知行001号员工带队，景烁科技首轮融资数千万美元",
@@ -58,6 +121,33 @@
       "source": "量子位",
       "category": "新模型发布",
       "published_at": "2026-10-29T08:03:58+08:00"
+    },
+    {
+      "id": "e1c742c1d925",
+      "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+      "summary": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+      "url": "https://huggingface.co/blog/announcing-project-protostar",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-29T08:00:00+08:00"
+    },
+    {
+      "id": "a1765f446c5b",
+      "title": "Welcome Le Chonk: Mistral Large 4 on",
+      "summary": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
+      "url": "https://huggingface.co/blog/mistral-large4",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-29T08:00:00+08:00"
+    },
+    {
+      "id": "85d975255b4f",
+      "title": "Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms",
+      "summary": "Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms",
+      "url": "https://huggingface.co/blog/anydecisionmodel",
+      "source": "Hugging Face",
+      "category": "新工具上线",
+      "published_at": "2026-10-29T08:00:00+08:00"
     },
     {
       "id": "b0da25ea6c1a",
@@ -105,33 +195,6 @@
       "published_at": "2026-10-28T18:00:00+08:00"
     },
     {
-      "id": "41c97fe8dc29",
-      "title": "Legora is building the agentic operating system for legal work",
-      "summary": "See how Legora uses OpenAI models, ChatGPT, and Codex to accelerate legal workflows, expand contract analysis, and free lawyers to focus on higher-value work.",
-      "url": "https://openai.com/index/legora",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-28T17:30:00+08:00"
-    },
-    {
-      "id": "db98bf59a6c7",
-      "title": "Build specialized multimodal models with LFM3",
-      "summary": "Build specialized multimodal models with LFM3",
-      "url": "https://huggingface.co/blog/LiquidAI/lfm3",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-28T01:16:52+08:00"
-    },
-    {
-      "id": "34370e88c88d",
-      "title": "Can we trust LLMs to judge whether a research idea is novel?",
-      "summary": "Can we trust LLMs to judge whether a research idea is novel?",
-      "url": "https://huggingface.co/blog/allenai/novelty-bench",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-28T00:12:42+08:00"
-    },
-    {
       "id": "d17d13a0006a",
       "title": "Genie 4: A new generation of world simulation",
       "summary": "Genie 4: our new world model unlocking unprecedented realism in real-time simulation.",
@@ -148,24 +211,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-27T23:00:20+08:00"
-    },
-    {
-      "id": "d42fb1eb3362",
-      "title": "Retell uses OpenAI models to help power 100M monthly calls",
-      "summary": "GPT-6 Astra tops Retell’s voice agent benchmark, while Codex helps it reach a $1.6M annual revenue run rate per employee.",
-      "url": "https://openai.com/index/retell-ai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-27T23:00:00+08:00"
-    },
-    {
-      "id": "a3a879144b29",
-      "title": "OpenAI expands partnership with Oracle to bring its apps to ChatGPT",
-      "summary": "OpenAI and Oracle are expanding their partnership to bring business applications and AI agents into ChatGPT and power new Oracle offerings.",
-      "url": "https://openai.com/index/oracle-apps-in-chatgpt",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-27T15:00:00+08:00"
     },
     {
       "id": "be77c96c39b4",
@@ -206,33 +251,6 @@
       "published_at": "2026-10-23T10:00:13+08:00"
     },
     {
-      "id": "6430909168b5",
-      "title": "Does Your Model Run on AWS Trainium? Look It Up",
-      "summary": "Does Your Model Run on AWS Trainium? Look It Up",
-      "url": "https://huggingface.co/blog/torch-neuronx-model-support",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-10-23T08:00:00+08:00"
-    },
-    {
-      "id": "95eb6975ad24",
-      "title": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
-      "summary": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
-      "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-23T06:24:34+08:00"
-    },
-    {
-      "id": "ef05d9c57c78",
-      "title": "Flint-interactive: A language for creating interactive data visualizations",
-      "summary": "Flint-interactive gives AI agents a language for creating interactive visualizations. Click a chart, filter data, highlight related content, and explore beyond…",
-      "url": "https://www.microsoft.com/en-us/research/blog/flint-interactive-a-language-for-creating-interactive-data-visualizations/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-23T00:00:00+08:00"
-    },
-    {
       "id": "de79449cc31a",
       "title": "国产5B生图模型海外突然爆火，4天超百万下载",
       "summary": "国产5B生图模型海外突然爆火，4天超百万下载",
@@ -261,33 +279,6 @@
       "category": "中文资讯",
       "published_at": "2026-10-23T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "06769efcf6f4",
-      "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
-      "summary": "Launched today, NVIDIA Minerva is an AIOps platform built to help teams find problems earlier and keep AI factories productive. It brings together telemetry fr…",
-      "url": "https://blogs.nvidia.com/blog/minerva-platform-infrastructure/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-22T23:00:02+08:00"
-    },
-    {
-      "id": "e66e9796ba6b",
-      "title": "Beyond tree cover: mapping the world’s forest types",
-      "summary": "A global map categorizing every 10-meter patch of land on Earth into distinct forest types.",
-      "url": "https://deepmind.google/blog/beyond-tree-cover-mapping-the-worlds-forest-types/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-22T22:30:24+08:00"
-    },
-    {
-      "id": "0d155a8c6750",
-      "title": "Cloud Deployment Incoming: ‘Call of Duty: Modern Warfare 4’ Arrives on GeForce NOW",
-      "summary": "Lock in and load out this GFN Thursday. Call of Duty: Modern Warfare 4 arrives on GeForce NOW at launch, bringing a new campaign, multiplayer action and DMZ, h…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-call-of-duty-modern-warfare-4/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-10-22T21:00:20+08:00"
     }
   ],
   "qbitai_hot": {
