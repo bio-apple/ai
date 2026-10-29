@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-29T05:26:31.002776+08:00",
+  "updated_at": "2026-10-29T18:28:20.873008+08:00",
   "date": "2026-10-29",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "fabd2f882ce7",
+      "title": "文远知行001号员工带队，景烁科技首轮融资数千万美元",
+      "summary": "10月29日，文远知行披露旗下子公司景烁科技首次融资进展",
+      "url": "https://www.qbitai.com/2026/10/506281.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-10-29T11:27:50+08:00"
+    },
+    {
+      "id": "6acfe9a1a52e",
+      "title": "小雨智造与国家钢结构质检中心共建实验室，乔忠良：具身智能新质生产力已成事实",
+      "summary": "2026年10月27日，“工业具身智能焊接与检测技术联合实验室”正式揭牌成立。",
+      "url": "https://www.qbitai.com/2026/10/506273.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-29T10:51:45+08:00"
+    },
+    {
+      "id": "66607358e02b",
+      "title": "刚刚，扩散模型杀进Agent主场！350亿参数，速度比Jev快一倍",
+      "summary": "用扩散模型怎么做做Agent？",
+      "url": "https://www.qbitai.com/2026/10/505934.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-29T10:18:28+08:00"
+    },
+    {
+      "id": "af2ab0142711",
+      "title": "24万开卖！理想重造i6，李想：目标全球畅销",
+      "summary": "理想今年最后一场发布会，自研电池芯片全部上车",
+      "url": "https://www.qbitai.com/2026/10/506246.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-29T08:59:26+08:00"
+    },
+    {
+      "id": "2a3824a8bb57",
+      "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
+      "summary": "能连肝数日修Bug，免疫提示词注入",
+      "url": "https://www.qbitai.com/2026/10/506227.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-29T08:03:58+08:00"
+    },
     {
       "id": "b0da25ea6c1a",
       "title": "Gemini 4 Carbon: Our next frontier model",
@@ -69,60 +114,6 @@
       "published_at": "2026-10-28T17:30:00+08:00"
     },
     {
-      "id": "604888650665",
-      "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
-      "summary": "10月28 日，蚂蚁集团旗下百灵大模型正式开源 Ling-3.1-flash-1019。",
-      "url": "https://www.qbitai.com/2026/10/505928.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-28T12:04:48+08:00"
-    },
-    {
-      "id": "389ab8c96373",
-      "title": "Counting the Bandages: On measuring the time that AI saves",
-      "summary": "arXiv:2610.35942v1 Announce Type: new Abstract: I consider what it means for AI assistance to save time. I contrast a stopwatch view, on which time saved is wh…",
-      "url": "https://arxiv.org/abs/2610.35942",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-28T12:00:00+08:00"
-    },
-    {
-      "id": "e5ad0fc304d9",
-      "title": "Enhancing Deep Learning Model Performance through Data Generation Strategies: Classification of Olive Tree Diseases",
-      "summary": "arXiv:2610.35984v1 Announce Type: new Abstract: Deep learning models are highly effective in a wide range of domains, particu larly in plant disease diagnosis.…",
-      "url": "https://arxiv.org/abs/2610.35984",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-28T12:00:00+08:00"
-    },
-    {
-      "id": "5876e7a1f716",
-      "title": "The Trinity:Capability-Driven Recursive Self-Improvement for Multimodal Agents",
-      "summary": "arXiv:2610.36077v1 Announce Type: new Abstract: Multimodal intelligence can be viewed as human-guided co-evolution between worlds and agents through interactio…",
-      "url": "https://arxiv.org/abs/2610.36077",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-28T12:00:00+08:00"
-    },
-    {
-      "id": "3f4a7b916256",
-      "title": "CohortFlow: A Steerable Clinical Cohort Curation Agent with Localized Semantic Correction",
-      "summary": "arXiv:2610.36100v1 Announce Type: new Abstract: Language model agents for clinical cohort curation should accommodate evolving eligibility criteria without rep…",
-      "url": "https://arxiv.org/abs/2610.36100",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-28T12:00:00+08:00"
-    },
-    {
-      "id": "05ee36ab59e5",
-      "title": "Why and How to Do Science When AI Is Better at It: A Framework Grounded in Human Understanding and Direction",
-      "summary": "arXiv:2610.36116v1 Announce Type: new Abstract: As AI begins to match or exceed human researchers at core scientific tasks, two questions become pressing: \\emp…",
-      "url": "https://arxiv.org/abs/2610.36116",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-28T12:00:00+08:00"
-    },
-    {
       "id": "db98bf59a6c7",
       "title": "Build specialized multimodal models with LFM3",
       "summary": "Build specialized multimodal models with LFM3",
@@ -168,42 +159,6 @@
       "published_at": "2026-10-27T23:00:00+08:00"
     },
     {
-      "id": "fffd4b67f0fd",
-      "title": "不藏了！人形机器人全开源动真格，从机械结构一路拆到运动算法",
-      "summary": "人形机器人全套图纸开源！从关节到算法，下载就能自己造。",
-      "url": "https://www.qbitai.com/2026/10/505865.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-27T20:57:51+08:00"
-    },
-    {
-      "id": "7b1d1e160982",
-      "title": "印奇把4D雷达也端到端了",
-      "summary": "毫米波雷达，AI算力10TOPS",
-      "url": "https://www.qbitai.com/2026/10/505852.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-27T18:40:12+08:00"
-    },
-    {
-      "id": "fc39361d7b96",
-      "title": "乔布斯的皮克斯，狂赞中国物理AI数据终端",
-      "summary": "顶尖智能汽车玩家的终局，不会停在智能汽车",
-      "url": "https://www.qbitai.com/2026/10/505830.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-27T17:54:51+08:00"
-    },
-    {
-      "id": "00367048bffe",
-      "title": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
-      "summary": "无人在环进店实测啃下长尾场景",
-      "url": "https://www.qbitai.com/2026/10/505799.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-27T16:46:12+08:00"
-    },
-    {
       "id": "a3a879144b29",
       "title": "OpenAI expands partnership with Oracle to bring its apps to ChatGPT",
       "summary": "OpenAI and Oracle are expanding their partnership to bring business applications and AI agents into ChatGPT and power new Oracle offerings.",
@@ -229,6 +184,16 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-27T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "edf721c82023",
+      "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
+      "summary": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
+      "url": "https://www.qbitai.com/2026/10/505407.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-26T00:00:00+08:00",
       "window_hours": 720
     },
     {
@@ -288,6 +253,16 @@
       "window_hours": 720
     },
     {
+      "id": "c437b6f9db0e",
+      "title": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
+      "summary": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
+      "url": "https://www.qbitai.com/2026/10/504931.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-23T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "06769efcf6f4",
       "title": "NVIDIA Unveils Minerva to Bring End-to-End Observability for AI Factories",
       "summary": "Launched today, NVIDIA Minerva is an AIOps platform built to help teams find problems earlier and keep AI factories productive. It brings together telemetry fr…",
@@ -313,26 +288,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-10-22T21:00:20+08:00"
-    },
-    {
-      "id": "53ef81310569",
-      "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
-      "summary": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
-      "url": "https://www.qbitai.com/2026/10/504879.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-22T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "855e956ab3ec",
-      "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
-      "summary": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
-      "url": "https://www.qbitai.com/2026/10/504832.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-22T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -340,23 +295,13 @@
     "window_days": 30,
     "items": [
       {
-        "id": "53ef81310569",
-        "title": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
-        "summary": "又一国产决策模型发布！准确率超过微软和Jev等决策模型",
-        "url": "https://www.qbitai.com/2026/10/504879.html",
+        "id": "444eadf940b2",
+        "title": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
+        "summary": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
+        "url": "https://www.qbitai.com/2026/10/505551.html",
         "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-22T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "855e956ab3ec",
-        "title": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
-        "summary": "既能“做选择题”，也能“做填空题”——星辰意图理解模型Xing4.0-29B-Intent发布",
-        "url": "https://www.qbitai.com/2026/10/504832.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-10-22T00:00:00+08:00",
+        "category": "中文资讯",
+        "published_at": "2026-10-27T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -370,13 +315,13 @@
         "window_hours": 720
       },
       {
-        "id": "444eadf940b2",
-        "title": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
-        "summary": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
-        "url": "https://www.qbitai.com/2026/10/505551.html",
+        "id": "edf721c82023",
+        "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
+        "summary": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
+        "url": "https://www.qbitai.com/2026/10/505407.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-27T00:00:00+08:00",
+        "category": "开源项目",
+        "published_at": "2026-10-26T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -384,6 +329,16 @@
         "title": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
         "summary": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
         "url": "https://www.qbitai.com/2026/10/505083.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-23T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "c437b6f9db0e",
+        "title": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
+        "summary": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
+        "url": "https://www.qbitai.com/2026/10/504931.html",
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-23T00:00:00+08:00",
