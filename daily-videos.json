@@ -209,9 +209,143 @@
     "youtube:TCTV0ggcQCI",
     "bilibili:BV1ZSnU6REuC",
     "youtube:e-sHMT2mvcA",
-    "youtube:yMnFHFf43Qg"
+    "youtube:yMnFHFf43Qg",
+    "bilibili:BV1Ktxu6KEPf"
   ],
   "batches": [
+    {
+      "date": "2026-10-31",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:yMnFHFf43Qg",
+              "platform": "youtube",
+              "title": "Anthropic Just Shipped Claude 2.0 (Master it in 17 minutes)",
+              "summary": "【Jay E | RoboNuggets】讲解 AI 工具实战应用，围绕「Anthropic Just Shipped Claude 2.0 (Master it in 」展示操作步骤与使用技巧。",
+              "url": "https://www.youtube.com/watch?v=yMnFHFf43Qg",
+              "thumbnail": "https://i.ytimg.com/vi/yMnFHFf43Qg/maxresdefault.jpg",
+              "channel": "Jay E | RoboNuggets",
+              "subscribers": 0,
+              "views": 712769,
+              "duration": "17:07",
+              "max_height": 1080,
+              "published_at": "2026-10-28T09:48:38+08:00"
+            },
+            {
+              "id": "youtube:YJ_e-dsMruc",
+              "platform": "youtube",
+              "title": "Gemini Has A New AI Super App | Here’s How To Master It",
+              "summary": "Download the Gemini desktop app: Learn how to use the new Gemini desktop app, from Tasks and local files to connectors, skills, a…",
+              "url": "https://www.youtube.com/watch?v=YJ_e-dsMruc",
+              "thumbnail": "https://i.ytimg.com/vi/YJ_e-dsMruc/maxresdefault.jpg",
+              "channel": "Paul J Lipsky",
+              "subscribers": 0,
+              "views": 450533,
+              "duration": "14:44",
+              "max_height": 1080,
+              "published_at": "2026-10-18T21:00:20+08:00"
+            },
+            {
+              "id": "youtube:Ge1B-Ok1Pfk",
+              "platform": "youtube",
+              "title": "Claude Makes a New Kind of Video - Full Tutorial",
+              "summary": "*Free: 86 prompts to build Animated Explainer Videos with Claude* More from Futurepedia: 👉 Get your free AI plan on Futurepedia 2",
+              "url": "https://www.youtube.com/watch?v=Ge1B-Ok1Pfk",
+              "thumbnail": "https://i.ytimg.com/vi/Ge1B-Ok1Pfk/maxresdefault.jpg",
+              "channel": "Futurepedia",
+              "subscribers": 0,
+              "views": 375208,
+              "duration": "11:19",
+              "max_height": 1080,
+              "published_at": "2026-10-19T23:24:55+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1NXH661EpG",
+              "platform": "bilibili",
+              "title": "deepseek harness的安装和实战教程",
+              "summary": "本期视频介绍了deepseek harness官方桌面端的安装及简单的实战教程。包含了deepseek harness官方桌面端的下载安装教程，插件推荐与安装示例，skill的安装示例及简单的实战教程。",
+              "url": "https://www.bilibili.com/video/BV1NXH661EpG",
+              "thumbnail": "video-thumbs/bilibili/BV1NXH661EpG.jpg",
+              "channel": "清清小风风",
+              "subscribers": 0,
+              "views": 802201,
+              "duration": "8:59",
+              "max_height": 720,
+              "published_at": "2026-10-04T14:49:03+08:00"
+            },
+            {
+              "id": "bilibili:BV1ZSnU6REuC",
+              "platform": "bilibili",
+              "title": "想给大肥鱼完整的一生？DeepSeek接入QQ零基础教程，让她记住你",
+              "summary": "想给大肥鱼完整的一生？从零教你用 AstrBot + NapCat 把 DeepSeek 接进 QQ 小号：会发表情包、发语音，清空聊天记录也还记得你。已经装了 DeepSeek Harness 的，可以直接跳到第 10 章让它代劳。 配套图文教程（所有地址…",
+              "url": "https://www.bilibili.com/video/BV1ZSnU6REuC",
+              "thumbnail": "video-thumbs/bilibili/BV1ZSnU6REuC.jpg",
+              "channel": "泽轩604",
+              "subscribers": 0,
+              "views": 749701,
+              "duration": "20:18",
+              "max_height": 720,
+              "published_at": "2026-10-25T22:47:31+08:00"
+            },
+            {
+              "id": "bilibili:BV1Ktxu6KEPf",
+              "platform": "bilibili",
+              "title": "【豆包+红果】纯手搓AI漫剧，一个月收益2.1W？零基础保姆级教程！剧本+分镜+出图+配音+剪辑全流程实战，附提示词与变现技巧！",
+              "summary": "创作不易，感谢大家的三连与支持！ 本套教程从最基础的AI漫剧核心开始到AIGC相关技术的宏观运用，名校名师+央企大佬全程结合项目实战，不仅适合零基础小白学习，也适合有一定基础的同学进阶提升、巩固学习。 如果觉得视频对你有帮助，就动手多多转发一下吧",
+              "url": "https://www.bilibili.com/video/BV1Ktxu6KEPf",
+              "thumbnail": "video-thumbs/bilibili/BV1Ktxu6KEPf.png",
+              "channel": "露露地方大",
+              "subscribers": 0,
+              "views": 537357,
+              "duration": "528:37",
+              "max_height": 720,
+              "published_at": "2026-10-27T21:03:58+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-10-30",
       "timezone": "Asia/Shanghai",
@@ -8314,118 +8448,7 @@
           ]
         }
       }
-    },
-    {
-      "date": "2026-08-08",
-      "timezone": "Asia/Shanghai",
-      "criteria": {
-        "search_sources": [
-          "youtube",
-          "bilibili"
-        ],
-        "platform_total_cap": 10,
-        "video_categories": {
-          "youtube_recent_24h": {
-            "label": "YouTube：24 小时内 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "youtube_recent_30d": {
-            "label": "YouTube：30 天内 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "youtube_recent_100d": {
-            "label": "YouTube：100 天内 Top 4",
-            "window": {
-              "days": 100
-            },
-            "top_count": 4,
-            "min_views": 10000
-          },
-          "bilibili_recent_24h": {
-            "label": "B站：24 小时内 Top 3",
-            "window": {
-              "hours": 24
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "bilibili_recent_30d": {
-            "label": "B站：30 天内 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "bilibili_recent_100d": {
-            "label": "B站：100 天内 Top 4",
-            "window": {
-              "days": 100
-            },
-            "top_count": 4,
-            "min_views": 10000
-          }
-        }
-      },
-      "categories": {
-        "youtube_recent_24h": {
-          "label": "YouTube：24 小时内 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "youtube_recent_30d": {
-          "label": "YouTube：30 天内 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "youtube_recent_100d": {
-          "label": "YouTube：100 天内 Top 4",
-          "window": {
-            "days": 100
-          },
-          "top_count": 4,
-          "videos": []
-        },
-        "bilibili_recent_24h": {
-          "label": "B站：24 小时内 Top 3",
-          "window": {
-            "hours": 24
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_30d": {
-          "label": "B站：30 天内 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": []
-        },
-        "bilibili_recent_100d": {
-          "label": "B站：100 天内 Top 4",
-          "window": {
-            "days": 100
-          },
-          "top_count": 4,
-          "videos": []
-        }
-      }
     }
   ],
-  "updated_at": "2026-10-30T07:53:44.773150+08:00"
+  "updated_at": "2026-10-31T07:34:37.620573+08:00"
 }
