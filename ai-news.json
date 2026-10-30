@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-30T05:29:22.066496+08:00",
+  "updated_at": "2026-10-30T18:29:49.600237+08:00",
   "date": "2026-10-30",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "b10f4376d756",
+      "title": "英伟达团队基于 MiniMax H3 开源视频增强方案，最高支持 4K 重生成",
+      "summary": "英伟达与麻省理工学院团队，在 Hugging Face 发布了视频增强项目 Open-H3-Regenerate-2K 的模型权重",
+      "url": "https://www.qbitai.com/2026/10/506743.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-10-30T15:31:11+08:00"
+    },
+    {
+      "id": "3fafcda97b47",
+      "title": "RSI立大功！国产开源登顶全球第一，1.3B OXR重塑OCR",
+      "summary": "解析一切",
+      "url": "https://www.qbitai.com/2026/10/506686.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-30T13:52:47+08:00"
+    },
+    {
+      "id": "6e7ff814d8d3",
+      "title": "Claude新模型曝光：新Fable，新Opus…",
+      "summary": "Claude新模型曝光：新Fable，新Opus…",
+      "url": "https://www.qbitai.com/2026/10/506674.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-30T13:50:44+08:00"
+    },
+    {
+      "id": "616adec25212",
+      "title": "从学习人类到学习机器人同伴，清华大学联合无问芯穹、智元提出具身智能规模化落地新路径",
+      "summary": "让机器人成为彼此的“老师”",
+      "url": "https://www.qbitai.com/2026/10/506662.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-30T11:48:04+08:00"
+    },
+    {
+      "id": "aaf185483ae1",
+      "title": "前排围观！MEET2027报名通道正式开启，首批重磅嘉宾已就位",
+      "summary": "前排围观！MEET2027报名通道正式开启，首批重磅嘉宾已就位",
+      "url": "https://www.qbitai.com/2026/10/506609.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-30T11:40:21+08:00"
+    },
     {
       "id": "9e5c9d9f241b",
       "title": "Microsoft Research Focus – Edition #97",
@@ -78,51 +123,6 @@
       "published_at": "2026-10-29T15:00:00+08:00"
     },
     {
-      "id": "fabd2f882ce7",
-      "title": "文远知行001号员工带队，景烁科技首轮融资数千万美元",
-      "summary": "10月29日，文远知行披露旗下子公司景烁科技首次融资进展",
-      "url": "https://www.qbitai.com/2026/10/506281.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-10-29T11:27:50+08:00"
-    },
-    {
-      "id": "6acfe9a1a52e",
-      "title": "小雨智造与国家钢结构质检中心共建实验室，乔忠良：具身智能新质生产力已成事实",
-      "summary": "2026年10月27日，“工业具身智能焊接与检测技术联合实验室”正式揭牌成立。",
-      "url": "https://www.qbitai.com/2026/10/506273.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-29T10:51:45+08:00"
-    },
-    {
-      "id": "66607358e02b",
-      "title": "刚刚，扩散模型杀进Agent主场！350亿参数，速度比Jev快一倍",
-      "summary": "用扩散模型怎么做做Agent？",
-      "url": "https://www.qbitai.com/2026/10/505934.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-29T10:18:28+08:00"
-    },
-    {
-      "id": "af2ab0142711",
-      "title": "24万开卖！理想重造i6，李想：目标全球畅销",
-      "summary": "理想今年最后一场发布会，自研电池芯片全部上车",
-      "url": "https://www.qbitai.com/2026/10/506246.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-29T08:59:26+08:00"
-    },
-    {
-      "id": "2a3824a8bb57",
-      "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
-      "summary": "能连肝数日修Bug，免疫提示词注入",
-      "url": "https://www.qbitai.com/2026/10/506227.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-29T08:03:58+08:00"
-    },
-    {
       "id": "e1c742c1d925",
       "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
       "summary": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
@@ -150,13 +150,14 @@
       "published_at": "2026-10-29T08:00:00+08:00"
     },
     {
-      "id": "b0da25ea6c1a",
-      "title": "Gemini 4 Carbon: Our next frontier model",
-      "summary": "Gemini 4 Carbon: Our next frontier model",
-      "url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
-      "source": "Google DeepMind",
+      "id": "2a3824a8bb57",
+      "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
+      "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
+      "url": "https://www.qbitai.com/2026/10/506227.html",
+      "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-10-29T01:00:58+08:00"
+      "published_at": "2026-10-29T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "2952348be6c4",
@@ -193,15 +194,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-10-28T18:00:00+08:00"
-    },
-    {
-      "id": "d17d13a0006a",
-      "title": "Genie 4: A new generation of world simulation",
-      "summary": "Genie 4: our new world model unlocking unprecedented realism in real-time simulation.",
-      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-28T00:01:38+08:00"
     },
     {
       "id": "df8156dd7062",
@@ -242,25 +234,6 @@
       "window_hours": 720
     },
     {
-      "id": "b21a97b1b273",
-      "title": "Kazakhstan Expands Compute for Its AI Future",
-      "summary": "Kazakhstan’s AI ecosystem is moving from infrastructure plans to deployment. The shift is visible across the full AI stack — from infrastructure to models to a…",
-      "url": "https://blogs.nvidia.com/blog/kazakhstan-ai-compute-ecosystem/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-10-23T10:00:13+08:00"
-    },
-    {
-      "id": "de79449cc31a",
-      "title": "国产5B生图模型海外突然爆火，4天超百万下载",
-      "summary": "国产5B生图模型海外突然爆火，4天超百万下载",
-      "url": "https://www.qbitai.com/2026/10/504930.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-23T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "0a636c3d051e",
       "title": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
       "summary": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
@@ -296,16 +269,6 @@
         "window_hours": 720
       },
       {
-        "id": "de79449cc31a",
-        "title": "国产5B生图模型海外突然爆火，4天超百万下载",
-        "summary": "国产5B生图模型海外突然爆火，4天超百万下载",
-        "url": "https://www.qbitai.com/2026/10/504930.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-23T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "edf721c82023",
         "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
         "summary": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
@@ -333,6 +296,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-23T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "2a3824a8bb57",
+        "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
+        "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
+        "url": "https://www.qbitai.com/2026/10/506227.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-10-29T00:00:00+08:00",
         "window_hours": 720
       }
     ]
