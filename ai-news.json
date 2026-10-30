@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-10-30T18:29:49.600237+08:00",
-  "date": "2026-10-30",
+  "updated_at": "2026-10-31T05:14:42.360466+08:00",
+  "date": "2026-10-31",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "b2263e9f8412",
+      "title": "nemotron-halloween",
+      "summary": "nemotron-halloween",
+      "url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-10-31T01:57:24+08:00"
+    },
+    {
+      "id": "4a4bcbde667c",
+      "title": "Things That Go Beep in the Night: Agentic AI Joins the Search for Extraterrestrial Signals",
+      "summary": "While science fiction lore tells us that humans will meet extraterrestrial life in the form of little green men, the detail that should raise hairs this Hallow…",
+      "url": "https://blogs.nvidia.com/blog/ai-joins-the-search-for-extraterrestrial-signals/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-30T23:00:10+08:00"
+    },
+    {
+      "id": "fd4521a18599",
+      "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+      "summary": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains …",
+      "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-10-30T21:05:28+08:00"
+    },
+    {
+      "id": "25cc4c9bb2e3",
+      "title": "Making it easier for websites to express AI training preferences",
+      "summary": "OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.",
+      "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-30T17:30:00+08:00"
+    },
+    {
+      "id": "c7606af40dbb",
+      "title": "Community safety report and new protections for teens",
+      "summary": "OpenAI is strengthening violence prevention in ChatGPT with expanded safeguards, earlier interventions, and a new commitment to public safety reporting.",
+      "url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-10-30T17:00:00+08:00"
+    },
     {
       "id": "b10f4376d756",
       "title": "英伟达团队基于 MiniMax H3 开源视频增强方案，最高支持 4K 重生成",
@@ -150,6 +195,15 @@
       "published_at": "2026-10-29T08:00:00+08:00"
     },
     {
+      "id": "b0da25ea6c1a",
+      "title": "Gemini 4 Carbon: Our next frontier model",
+      "summary": "Gemini 4 Carbon: Our next frontier model",
+      "url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-29T01:00:58+08:00"
+    },
+    {
       "id": "2a3824a8bb57",
       "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
       "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
@@ -169,31 +223,23 @@
       "published_at": "2026-10-28T23:00:46+08:00"
     },
     {
-      "id": "7ae8eb20550e",
-      "title": "NVIDIA Nemotron 3.5 Transcribe and Granary v2: Intelligent Multilingual Transcription You Can Prompt and Adapt",
-      "summary": "NVIDIA Nemotron 3.5 Transcribe and Granary v2: Intelligent Multilingual Transcription You Can Prompt and Adapt",
-      "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
-      "source": "Hugging Face",
+      "id": "d17d13a0006a",
+      "title": "Genie 4: A new generation of world simulation",
+      "summary": "Genie 4: our new world model unlocking unprecedented realism in real-time simulation.",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-28T00:01:38+08:00"
+    },
+    {
+      "id": "604888650665",
+      "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
+      "summary": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
+      "url": "https://www.qbitai.com/2026/10/505928.html",
+      "source": "量子位",
       "category": "开源项目",
-      "published_at": "2026-10-28T22:58:17+08:00"
-    },
-    {
-      "id": "75e2017ed4c5",
-      "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",
-      "summary": "OpenAI and ServiceNow expand their partnership to bring OpenAI models and agents into ServiceNow and ServiceNow workflows into ChatGPT and Codex.",
-      "url": "https://openai.com/index/openai-servicenow-partnership-expansion",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-28T21:15:00+08:00"
-    },
-    {
-      "id": "0dc3cf0b7c98",
-      "title": "The future of the firm",
-      "summary": "How AI might enter the org chart—beneath, beside, and between us.",
-      "url": "https://openai.com/index/the-future-of-the-firm",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-28T18:00:00+08:00"
+      "published_at": "2026-10-28T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "df8156dd7062",
@@ -224,6 +270,16 @@
       "window_hours": 720
     },
     {
+      "id": "00367048bffe",
+      "title": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
+      "summary": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
+      "url": "https://www.qbitai.com/2026/10/505799.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-27T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "edf721c82023",
       "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
       "summary": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
@@ -231,26 +287,6 @@
       "source": "量子位",
       "category": "开源项目",
       "published_at": "2026-10-26T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "0a636c3d051e",
-      "title": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
-      "summary": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
-      "url": "https://www.qbitai.com/2026/10/505083.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-23T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "c437b6f9db0e",
-      "title": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
-      "summary": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
-      "url": "https://www.qbitai.com/2026/10/504931.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-23T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -279,26 +315,6 @@
         "window_hours": 720
       },
       {
-        "id": "0a636c3d051e",
-        "title": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
-        "summary": "科大讯飞首发星辰TaaS平台，让Token真正成为千行百业的生产力",
-        "url": "https://www.qbitai.com/2026/10/505083.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-23T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "c437b6f9db0e",
-        "title": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
-        "summary": "一张5090跑起34B实时世界模型，国产玩家拿下英伟达大奖！",
-        "url": "https://www.qbitai.com/2026/10/504931.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-23T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "2a3824a8bb57",
         "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
         "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
@@ -306,6 +322,26 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-10-29T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "00367048bffe",
+        "title": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
+        "summary": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
+        "url": "https://www.qbitai.com/2026/10/505799.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-27T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "604888650665",
+        "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
+        "summary": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
+        "url": "https://www.qbitai.com/2026/10/505928.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-10-28T00:00:00+08:00",
         "window_hours": 720
       }
     ]
