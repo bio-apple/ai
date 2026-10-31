@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-31T05:14:42.360466+08:00",
+  "updated_at": "2026-10-31T17:59:12.795193+08:00",
   "date": "2026-10-31",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,78 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "9ea5bae6dcaa",
+      "title": "你的8G iPad里有12G内存！库克走了但他的刀法追着我砍",
+      "summary": "苹果“牛奶倒河里”式操作翻红",
+      "url": "https://www.qbitai.com/2026/10/506884.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-31T13:17:50+08:00"
+    },
+    {
+      "id": "b2a08cbfc96d",
+      "title": "世界模型首次指导设计芯片！超大核NPU700TOPS，99%算力可用",
+      "summary": "AI算力利用“九九成”",
+      "url": "https://www.qbitai.com/2026/10/506866.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-31T13:11:19+08:00"
+    },
+    {
+      "id": "97b9c1d2e1ca",
+      "title": "刚刚，Claude宣布取消5小时限制！首批Ultra用户已「解封」",
+      "summary": "200美元Ultra用户先用",
+      "url": "https://www.qbitai.com/2026/10/506855.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-10-31T13:05:29+08:00"
+    },
+    {
+      "id": "ea36b5ffc5dc",
+      "title": "LRMoE: Demand-Side Load Re-Calibration for Efficient MoE Training on Memory-Constrained Nodes",
+      "summary": "arXiv:2610.37720v1 Announce Type: new Abstract: Sparse Mixture-of-Experts (MoE) models offer scalable capacity for Web applications, but uneven routing creates…",
+      "url": "https://arxiv.org/abs/2610.37720",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-31T12:00:00+08:00"
+    },
+    {
+      "id": "2007d3c141e1",
+      "title": "Amortized Localized Posterior Inference for Model Calibration with Application to an Ocean Turbulence Closure",
+      "summary": "arXiv:2610.37731v1 Announce Type: new Abstract: Model discrepancy may prevent a single calibration parameter from reproducing a physical response across the co…",
+      "url": "https://arxiv.org/abs/2610.37731",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-31T12:00:00+08:00"
+    },
+    {
+      "id": "1955aa478edf",
+      "title": "ThinkJev: One Thought, Every Budget for Calibrated Typed Decisions",
+      "summary": "arXiv:2610.37732v1 Announce Type: new Abstract: Many uses of language models end in a typed decision: a choice among a closed set of options, whose probabiliti…",
+      "url": "https://arxiv.org/abs/2610.37732",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-31T12:00:00+08:00"
+    },
+    {
+      "id": "e16c4853d0f5",
+      "title": "OpenFrontiers: A Collection of Open Research Problems and a Benchmark for Scientific Rediscovery",
+      "summary": "arXiv:2610.37739v1 Announce Type: new Abstract: Large language models (LLMs) have shown increasing promise in research-level problem solving, yet a comprehensi…",
+      "url": "https://arxiv.org/abs/2610.37739",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-31T12:00:00+08:00"
+    },
+    {
+      "id": "f6f0617d0591",
+      "title": "WebAnything: From the Wild Web to Scalable Agent Environments",
+      "summary": "arXiv:2610.37786v1 Announce Type: new Abstract: Web agents require diverse, executable, and resettable website environments for reproducible training and evalu…",
+      "url": "https://arxiv.org/abs/2610.37786",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-10-31T12:00:00+08:00"
+    },
     {
       "id": "b2263e9f8412",
       "title": "nemotron-halloween",
@@ -42,6 +114,24 @@
       "published_at": "2026-10-30T21:05:28+08:00"
     },
     {
+      "id": "99a71e93bee6",
+      "title": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
+      "summary": "xs，还要给机器人打绩效",
+      "url": "https://www.qbitai.com/2026/10/506819.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-30T20:58:31+08:00"
+    },
+    {
+      "id": "5a7b69bb0c03",
+      "title": "AI零帧起手写算子，反超DeepSeek人类手写巅峰：快了9.8%！",
+      "summary": "之前还连登昇腾三榜第一",
+      "url": "https://www.qbitai.com/2026/10/506785.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-30T19:05:06+08:00"
+    },
+    {
       "id": "25cc4c9bb2e3",
       "title": "Making it easier for websites to express AI training preferences",
       "summary": "OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.",
@@ -60,49 +150,13 @@
       "published_at": "2026-10-30T17:00:00+08:00"
     },
     {
-      "id": "b10f4376d756",
-      "title": "英伟达团队基于 MiniMax H3 开源视频增强方案，最高支持 4K 重生成",
-      "summary": "英伟达与麻省理工学院团队，在 Hugging Face 发布了视频增强项目 Open-H3-Regenerate-2K 的模型权重",
-      "url": "https://www.qbitai.com/2026/10/506743.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-10-30T15:31:11+08:00"
-    },
-    {
-      "id": "3fafcda97b47",
-      "title": "RSI立大功！国产开源登顶全球第一，1.3B OXR重塑OCR",
-      "summary": "解析一切",
-      "url": "https://www.qbitai.com/2026/10/506686.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-30T13:52:47+08:00"
-    },
-    {
-      "id": "6e7ff814d8d3",
-      "title": "Claude新模型曝光：新Fable，新Opus…",
-      "summary": "Claude新模型曝光：新Fable，新Opus…",
-      "url": "https://www.qbitai.com/2026/10/506674.html",
-      "source": "量子位",
+      "id": "d2282bcce162",
+      "title": "Fair use benefits everyone",
+      "summary": "OpenAI shares excerpts from court briefs by creators, academics, accessibility advocates, and legal experts, among others, on how fair use supports AI training…",
+      "url": "https://openai.com/index/fair-use-benefits-everyone",
+      "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-10-30T13:50:44+08:00"
-    },
-    {
-      "id": "616adec25212",
-      "title": "从学习人类到学习机器人同伴，清华大学联合无问芯穹、智元提出具身智能规模化落地新路径",
-      "summary": "让机器人成为彼此的“老师”",
-      "url": "https://www.qbitai.com/2026/10/506662.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-30T11:48:04+08:00"
-    },
-    {
-      "id": "aaf185483ae1",
-      "title": "前排围观！MEET2027报名通道正式开启，首批重磅嘉宾已就位",
-      "summary": "前排围观！MEET2027报名通道正式开启，首批重磅嘉宾已就位",
-      "url": "https://www.qbitai.com/2026/10/506609.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-30T11:40:21+08:00"
+      "published_at": "2026-10-30T08:00:00+08:00"
     },
     {
       "id": "9e5c9d9f241b",
@@ -159,15 +213,6 @@
       "published_at": "2026-10-29T17:00:00+08:00"
     },
     {
-      "id": "2d9928289658",
-      "title": "How Ropes & Gray is developing AI for transactional diligence",
-      "summary": "Ropes & Gray is developing AI for transactional diligence with OpenAI. Lawyers review grouped documents, summaries, and reports before advising clients.",
-      "url": "https://openai.com/index/ropes-gray-ai-diligence",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-29T15:00:00+08:00"
-    },
-    {
       "id": "e1c742c1d925",
       "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
       "summary": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
@@ -195,15 +240,6 @@
       "published_at": "2026-10-29T08:00:00+08:00"
     },
     {
-      "id": "b0da25ea6c1a",
-      "title": "Gemini 4 Carbon: Our next frontier model",
-      "summary": "Gemini 4 Carbon: Our next frontier model",
-      "url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-29T01:00:58+08:00"
-    },
-    {
       "id": "2a3824a8bb57",
       "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
       "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
@@ -221,15 +257,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-10-28T23:00:46+08:00"
-    },
-    {
-      "id": "d17d13a0006a",
-      "title": "Genie 4: A new generation of world simulation",
-      "summary": "Genie 4: our new world model unlocking unprecedented realism in real-time simulation.",
-      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-28T00:01:38+08:00"
     },
     {
       "id": "604888650665",
@@ -305,16 +332,6 @@
         "window_hours": 720
       },
       {
-        "id": "edf721c82023",
-        "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
-        "summary": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
-        "url": "https://www.qbitai.com/2026/10/505407.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-26T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "2a3824a8bb57",
         "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
         "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
@@ -322,6 +339,16 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-10-29T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "edf721c82023",
+        "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
+        "summary": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
+        "url": "https://www.qbitai.com/2026/10/505407.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-10-26T00:00:00+08:00",
         "window_hours": 720
       },
       {
