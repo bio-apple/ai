@@ -282,6 +282,20 @@
             "开发者",
             "企业版"
           ]
+        },
+        {
+          "id": "agent-qa",
+          "icon": "qa",
+          "badge": "vostride",
+          "name": "agent-qa",
+          "tagline": "AI 自动化测试",
+          "summary": "测试 Web、Android 和 iOS，支持 CLI/MCP/Skills、持久记忆与经验证的自我改进。",
+          "tags": [
+            "自动化测试",
+            "MCP",
+            "持久记忆"
+          ],
+          "recommend": []
         }
       ]
     }
