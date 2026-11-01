@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-01T04:21:29.680352+08:00",
+  "updated_at": "2026-11-01T18:50:06.972919+08:00",
   "date": "2026-11-01",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,42 @@
   },
   "items": [
     {
+      "id": "96603222f1ad",
+      "title": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
+      "summary": "让AI像牛顿一样思考",
+      "url": "https://www.qbitai.com/2026/11/507031.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-01T16:02:37+08:00"
+    },
+    {
+      "id": "7049b5553d5b",
+      "title": "老牌便利店机器人售货折戟：实验室锤炼上万次，货架前还是摔瓶子",
+      "summary": "这事还是想得太简单了",
+      "url": "https://www.qbitai.com/2026/11/506990.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-01T15:50:57+08:00"
+    },
+    {
+      "id": "190df005b930",
+      "title": "Jev新成果，再次引爆开源",
+      "summary": "再次“性价比屠夫”",
+      "url": "https://www.qbitai.com/2026/11/506922.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-01T12:18:37+08:00"
+    },
+    {
+      "id": "246d4261b40f",
+      "title": "刚刚，DeepSeek重磅开源：Agent底座架构！",
+      "summary": "AI已经自己找到Bug并提交PR",
+      "url": "https://www.qbitai.com/2026/10/506904.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-31T21:49:44+08:00"
+    },
+    {
       "id": "9ea5bae6dcaa",
       "title": "你的8G iPad里有12G内存！库克走了但他的刀法追着我砍",
       "summary": "苹果“牛奶倒河里”式操作翻红",
@@ -22,69 +58,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-10-31T13:17:50+08:00"
-    },
-    {
-      "id": "b2a08cbfc96d",
-      "title": "世界模型首次指导设计芯片！超大核NPU700TOPS，99%算力可用",
-      "summary": "AI算力利用“九九成”",
-      "url": "https://www.qbitai.com/2026/10/506866.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-31T13:11:19+08:00"
-    },
-    {
-      "id": "97b9c1d2e1ca",
-      "title": "刚刚，Claude宣布取消5小时限制！首批Ultra用户已「解封」",
-      "summary": "200美元Ultra用户先用",
-      "url": "https://www.qbitai.com/2026/10/506855.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-31T13:05:29+08:00"
-    },
-    {
-      "id": "ea36b5ffc5dc",
-      "title": "LRMoE: Demand-Side Load Re-Calibration for Efficient MoE Training on Memory-Constrained Nodes",
-      "summary": "arXiv:2610.37720v1 Announce Type: new Abstract: Sparse Mixture-of-Experts (MoE) models offer scalable capacity for Web applications, but uneven routing creates…",
-      "url": "https://arxiv.org/abs/2610.37720",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-31T12:00:00+08:00"
-    },
-    {
-      "id": "2007d3c141e1",
-      "title": "Amortized Localized Posterior Inference for Model Calibration with Application to an Ocean Turbulence Closure",
-      "summary": "arXiv:2610.37731v1 Announce Type: new Abstract: Model discrepancy may prevent a single calibration parameter from reproducing a physical response across the co…",
-      "url": "https://arxiv.org/abs/2610.37731",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-31T12:00:00+08:00"
-    },
-    {
-      "id": "1955aa478edf",
-      "title": "ThinkJev: One Thought, Every Budget for Calibrated Typed Decisions",
-      "summary": "arXiv:2610.37732v1 Announce Type: new Abstract: Many uses of language models end in a typed decision: a choice among a closed set of options, whose probabiliti…",
-      "url": "https://arxiv.org/abs/2610.37732",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-31T12:00:00+08:00"
-    },
-    {
-      "id": "e16c4853d0f5",
-      "title": "OpenFrontiers: A Collection of Open Research Problems and a Benchmark for Scientific Rediscovery",
-      "summary": "arXiv:2610.37739v1 Announce Type: new Abstract: Large language models (LLMs) have shown increasing promise in research-level problem solving, yet a comprehensi…",
-      "url": "https://arxiv.org/abs/2610.37739",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-31T12:00:00+08:00"
-    },
-    {
-      "id": "f6f0617d0591",
-      "title": "WebAnything: From the Wild Web to Scalable Agent Environments",
-      "summary": "arXiv:2610.37786v1 Announce Type: new Abstract: Web agents require diverse, executable, and resettable website environments for reproducible training and evalu…",
-      "url": "https://arxiv.org/abs/2610.37786",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-10-31T12:00:00+08:00"
     },
     {
       "id": "b2263e9f8412",
@@ -112,24 +85,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-30T21:05:28+08:00"
-    },
-    {
-      "id": "99a71e93bee6",
-      "title": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
-      "summary": "xs，还要给机器人打绩效",
-      "url": "https://www.qbitai.com/2026/10/506819.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-30T20:58:31+08:00"
-    },
-    {
-      "id": "5a7b69bb0c03",
-      "title": "AI零帧起手写算子，反超DeepSeek人类手写巅峰：快了9.8%！",
-      "summary": "之前还连登昇腾三榜第一",
-      "url": "https://www.qbitai.com/2026/10/506785.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-30T19:05:06+08:00"
     },
     {
       "id": "25cc4c9bb2e3",
