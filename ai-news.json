@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-01T18:50:06.972919+08:00",
-  "date": "2026-11-01",
+  "updated_at": "2026-11-02T04:54:06.214593+08:00",
+  "date": "2026-11-02",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,24 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "77cf6f6f7d48",
+      "title": "三年前布局，今年爆火丨西湖大学成立新中心",
+      "summary": "西湖世界模型研究中心成立",
+      "url": "https://www.qbitai.com/2026/11/507076.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-01T21:28:10+08:00"
+    },
+    {
+      "id": "3ba6d6c68387",
+      "title": "Claude紧急叫停！暗改Harness禁止逆向游戏",
+      "summary": "Claude紧急叫停！暗改Harness禁止逆向游戏",
+      "url": "https://www.qbitai.com/2026/11/507038.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-11-01T21:09:55+08:00"
+    },
     {
       "id": "96603222f1ad",
       "title": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
@@ -42,24 +60,6 @@
       "published_at": "2026-11-01T12:18:37+08:00"
     },
     {
-      "id": "246d4261b40f",
-      "title": "刚刚，DeepSeek重磅开源：Agent底座架构！",
-      "summary": "AI已经自己找到Bug并提交PR",
-      "url": "https://www.qbitai.com/2026/10/506904.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-31T21:49:44+08:00"
-    },
-    {
-      "id": "9ea5bae6dcaa",
-      "title": "你的8G iPad里有12G内存！库克走了但他的刀法追着我砍",
-      "summary": "苹果“牛奶倒河里”式操作翻红",
-      "url": "https://www.qbitai.com/2026/10/506884.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-31T13:17:50+08:00"
-    },
-    {
       "id": "b2263e9f8412",
       "title": "nemotron-halloween",
       "summary": "nemotron-halloween",
@@ -67,6 +67,16 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-10-31T01:57:24+08:00"
+    },
+    {
+      "id": "246d4261b40f",
+      "title": "刚刚，DeepSeek重磅开源：Agent底座架构！",
+      "summary": "刚刚，DeepSeek重磅开源：Agent底座架构！",
+      "url": "https://www.qbitai.com/2026/10/506904.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-31T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "4a4bcbde667c",
@@ -195,6 +205,15 @@
       "published_at": "2026-10-29T08:00:00+08:00"
     },
     {
+      "id": "b0da25ea6c1a",
+      "title": "Gemini 4 Carbon: Our next frontier model",
+      "summary": "Gemini 4 Carbon: Our next frontier model",
+      "url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-29T01:00:58+08:00"
+    },
+    {
       "id": "2a3824a8bb57",
       "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
       "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
@@ -214,14 +233,13 @@
       "published_at": "2026-10-28T23:00:46+08:00"
     },
     {
-      "id": "604888650665",
-      "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
-      "summary": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
-      "url": "https://www.qbitai.com/2026/10/505928.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-28T00:00:00+08:00",
-      "window_hours": 720
+      "id": "d17d13a0006a",
+      "title": "Genie 4: A new generation of world simulation",
+      "summary": "Genie 4: our new world model unlocking unprecedented realism in real-time simulation.",
+      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-28T00:01:38+08:00"
     },
     {
       "id": "df8156dd7062",
@@ -297,6 +315,16 @@
         "window_hours": 720
       },
       {
+        "id": "246d4261b40f",
+        "title": "刚刚，DeepSeek重磅开源：Agent底座架构！",
+        "summary": "刚刚，DeepSeek重磅开源：Agent底座架构！",
+        "url": "https://www.qbitai.com/2026/10/506904.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-10-31T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "edf721c82023",
         "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
         "summary": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
@@ -314,16 +342,6 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-27T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "604888650665",
-        "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
-        "summary": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
-        "url": "https://www.qbitai.com/2026/10/505928.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-28T00:00:00+08:00",
         "window_hours": 720
       }
     ]
