@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-02T04:54:06.214593+08:00",
+  "updated_at": "2026-11-02T19:43:49.364945+08:00",
   "date": "2026-11-02",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,49 +15,49 @@
   },
   "items": [
     {
-      "id": "77cf6f6f7d48",
-      "title": "三年前布局，今年爆火丨西湖大学成立新中心",
-      "summary": "西湖世界模型研究中心成立",
-      "url": "https://www.qbitai.com/2026/11/507076.html",
+      "id": "fc2e1324755e",
+      "title": "从“能调用”到“敢托付”：仪电智算云 Token 工厂的三重可信",
+      "summary": "上海仪电与上海创智学院联合发布“飞轮转・万象生”仪电智算数链生态。",
+      "url": "https://www.qbitai.com/2026/11/507260.html",
       "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-01T21:28:10+08:00"
+      "category": "新工具上线",
+      "published_at": "2026-11-02T15:47:38+08:00"
     },
     {
-      "id": "3ba6d6c68387",
-      "title": "Claude紧急叫停！暗改Harness禁止逆向游戏",
-      "summary": "Claude紧急叫停！暗改Harness禁止逆向游戏",
-      "url": "https://www.qbitai.com/2026/11/507038.html",
+      "id": "b1a953809a72",
+      "title": "OpenAI重写大模型法则，第一条：忠于人类！！",
+      "summary": "新版“机器人三定律”。",
+      "url": "https://www.qbitai.com/2026/11/507225.html",
       "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-11-01T21:09:55+08:00"
+      "published_at": "2026-11-02T15:27:54+08:00"
     },
     {
-      "id": "96603222f1ad",
-      "title": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
-      "summary": "让AI像牛顿一样思考",
-      "url": "https://www.qbitai.com/2026/11/507031.html",
+      "id": "c443a3544a0c",
+      "title": "央视严选「中国AI创业十骏」：唯一AI制药公司是清华系",
+      "summary": "模型管线双驱动",
+      "url": "https://www.qbitai.com/2026/11/507150.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-11-01T16:02:37+08:00"
+      "published_at": "2026-11-02T14:28:07+08:00"
     },
     {
-      "id": "7049b5553d5b",
-      "title": "老牌便利店机器人售货折戟：实验室锤炼上万次，货架前还是摔瓶子",
-      "summary": "这事还是想得太简单了",
-      "url": "https://www.qbitai.com/2026/11/506990.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-01T15:50:57+08:00"
-    },
-    {
-      "id": "190df005b930",
-      "title": "Jev新成果，再次引爆开源",
-      "summary": "再次“性价比屠夫”",
-      "url": "https://www.qbitai.com/2026/11/506922.html",
+      "id": "4f1cd76f576e",
+      "title": "小米开源了个150元的AI小玩意，火到配件都涨价了",
+      "summary": "能指挥Agent干活，还能控制智能家居",
+      "url": "https://www.qbitai.com/2026/11/507107.html",
       "source": "量子位",
       "category": "开源项目",
-      "published_at": "2026-11-01T12:18:37+08:00"
+      "published_at": "2026-11-02T14:08:04+08:00"
+    },
+    {
+      "id": "34a3fd5177bc",
+      "title": "GPT-6.2 Astra开启灰测！Claude Mythos 5.5同日曝光",
+      "summary": "HuggingFace疑似泄露权重已被下5000次",
+      "url": "https://www.qbitai.com/2026/11/507082.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-02T12:28:53+08:00"
     },
     {
       "id": "b2263e9f8412",
@@ -86,6 +86,15 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-30T23:00:10+08:00"
+    },
+    {
+      "id": "094c331a98fa",
+      "title": "Speeding up planning decisions with AI",
+      "summary": "Google DeepMind and UK government work together to reduce planning assessment times",
+      "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-30T22:18:30+08:00"
     },
     {
       "id": "fd4521a18599",
@@ -242,6 +251,16 @@
       "published_at": "2026-10-28T00:01:38+08:00"
     },
     {
+      "id": "604888650665",
+      "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
+      "summary": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
+      "url": "https://www.qbitai.com/2026/10/505928.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-10-28T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "df8156dd7062",
       "title": "How AI Is Changing the Pace of Discovery for Millions Living With Dementia",
       "summary": "There are 57 million people worldwide living with dementia today. For the researchers working to help them, the obstacle isn’t a lack of effort — it’s too much…",
@@ -278,22 +297,22 @@
       "category": "中文资讯",
       "published_at": "2026-10-27T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "edf721c82023",
-      "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
-      "summary": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
-      "url": "https://www.qbitai.com/2026/10/505407.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-26T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
+      {
+        "id": "246d4261b40f",
+        "title": "刚刚，DeepSeek重磅开源：Agent底座架构！",
+        "summary": "刚刚，DeepSeek重磅开源：Agent底座架构！",
+        "url": "https://www.qbitai.com/2026/10/506904.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-10-31T00:00:00+08:00",
+        "window_hours": 720
+      },
       {
         "id": "444eadf940b2",
         "title": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
@@ -315,26 +334,6 @@
         "window_hours": 720
       },
       {
-        "id": "246d4261b40f",
-        "title": "刚刚，DeepSeek重磅开源：Agent底座架构！",
-        "summary": "刚刚，DeepSeek重磅开源：Agent底座架构！",
-        "url": "https://www.qbitai.com/2026/10/506904.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-31T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "edf721c82023",
-        "title": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
-        "summary": "KV Cache砍掉99%，单卡吞吐飙6倍，港科CMU联手岩山科技开源新模型",
-        "url": "https://www.qbitai.com/2026/10/505407.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-26T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "00367048bffe",
         "title": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
         "summary": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
@@ -342,6 +341,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-27T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "604888650665",
+        "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
+        "summary": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
+        "url": "https://www.qbitai.com/2026/10/505928.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-10-28T00:00:00+08:00",
         "window_hours": 720
       }
     ]
