@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-02T19:43:49.364945+08:00",
-  "date": "2026-11-02",
+  "updated_at": "2026-11-03T07:45:12.521917+08:00",
+  "date": "2026-11-03",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,42 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "b810030289ed",
+      "title": "The latest AI news we announced in October 2026",
+      "summary": "Here are Google’s latest AI updates from October 2026",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-03T01:45:00+08:00"
+    },
+    {
+      "id": "19244c7aa206",
+      "title": "Introducing the Grid Protectors Program",
+      "summary": "OpenAI’s Grid Protectors Program will work with utilities to help future compute campuses support grid reliability and protect consumer electricity costs.",
+      "url": "https://openai.com/index/grid-protectors-program",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-11-02T23:00:00+08:00"
+    },
+    {
+      "id": "19ee9b951077",
+      "title": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
+      "summary": "商汤SenseNova 6.8 Flash",
+      "url": "https://www.qbitai.com/2026/11/507277.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-02T21:36:41+08:00"
+    },
+    {
+      "id": "ed4b58253682",
+      "title": "LifeVal",
+      "summary": "Introducing LifeVal, a benchmark measuring how well AI helps people complete everyday tasks, from finding childcare to managing finances and government paperwo…",
+      "url": "https://openai.com/index/lifeval",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-11-02T17:00:00+08:00"
+    },
     {
       "id": "fc2e1324755e",
       "title": "从“能调用”到“敢托付”：仪电智算云 Token 工厂的三重可信",
@@ -51,13 +87,13 @@
       "published_at": "2026-11-02T14:08:04+08:00"
     },
     {
-      "id": "34a3fd5177bc",
-      "title": "GPT-6.2 Astra开启灰测！Claude Mythos 5.5同日曝光",
-      "summary": "HuggingFace疑似泄露权重已被下5000次",
-      "url": "https://www.qbitai.com/2026/11/507082.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-02T12:28:53+08:00"
+      "id": "598c6194c0d3",
+      "title": "Qodo builds context into AI code review with Codex",
+      "summary": "Qodo brings company knowledge and coding standards into Codex, helping developers catch P0 issues across repositories before opening a pull request.",
+      "url": "https://openai.com/index/qodo-codex-plugin",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-02T08:00:00+08:00"
     },
     {
       "id": "b2263e9f8412",
@@ -124,15 +160,6 @@
       "published_at": "2026-10-30T17:00:00+08:00"
     },
     {
-      "id": "d2282bcce162",
-      "title": "Fair use benefits everyone",
-      "summary": "OpenAI shares excerpts from court briefs by creators, academics, accessibility advocates, and legal experts, among others, on how fair use supports AI training…",
-      "url": "https://openai.com/index/fair-use-benefits-everyone",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-30T08:00:00+08:00"
-    },
-    {
       "id": "9e5c9d9f241b",
       "title": "Microsoft Research Focus – Edition #97",
       "summary": "Host Sowbhagya Suresh shares some of the latest news and cutting-edge research from across Microsoft—from understanding the challenges facing coding agents to …",
@@ -142,15 +169,6 @@
       "published_at": "2026-10-30T03:19:16+08:00"
     },
     {
-      "id": "7bf0065ceb16",
-      "title": "An updated Model Spec for more capable and beneficial AI",
-      "summary": "OpenAI’s updated Model Spec outlines five core values to guide more capable AI toward sound judgment, human agency, and faithfulness to human intent.",
-      "url": "https://openai.com/index/updated-model-spec",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-30T01:00:00+08:00"
-    },
-    {
       "id": "baf7193e75c1",
       "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
       "summary": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended…",
@@ -158,6 +176,16 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-10-30T00:00:35+08:00"
+    },
+    {
+      "id": "99a71e93bee6",
+      "title": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
+      "summary": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
+      "url": "https://www.qbitai.com/2026/10/506819.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-10-30T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "f3538b6fb36f",
@@ -176,15 +204,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-10-29T21:00:16+08:00"
-    },
-    {
-      "id": "d28967fce9c6",
-      "title": "How we detect frontier model misalignment",
-      "summary": "OpenAI uses layered monitoring to detect frontier model misalignment and unauthorized agent behavior so responders can intervene before incidents escalate.",
-      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-29T17:00:00+08:00"
     },
     {
       "id": "e1c742c1d925",
@@ -270,25 +289,6 @@
       "published_at": "2026-10-27T23:00:20+08:00"
     },
     {
-      "id": "be77c96c39b4",
-      "title": "Our newest AI Quest: Mapping the human brain",
-      "summary": "Learn AI literacy via Google’s latest AI Quests lesson on neuroscience, “Polar Peaks.”",
-      "url": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-27T00:00:00+08:00"
-    },
-    {
-      "id": "444eadf940b2",
-      "title": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
-      "summary": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
-      "url": "https://www.qbitai.com/2026/10/505551.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-27T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "00367048bffe",
       "title": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
       "summary": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
@@ -314,16 +314,6 @@
         "window_hours": 720
       },
       {
-        "id": "444eadf940b2",
-        "title": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
-        "summary": "刚刚，Anthropic公开335页招股书：史上最大IPO，史上最亏AI公司",
-        "url": "https://www.qbitai.com/2026/10/505551.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-27T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "2a3824a8bb57",
         "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
         "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
@@ -341,6 +331,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-27T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "99a71e93bee6",
+        "title": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
+        "summary": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
+        "url": "https://www.qbitai.com/2026/10/506819.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-10-30T00:00:00+08:00",
         "window_hours": 720
       },
       {
