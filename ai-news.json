@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-03T07:45:12.521917+08:00",
+  "updated_at": "2026-11-03T19:25:36.709169+08:00",
   "date": "2026-11-03",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,96 @@
   },
   "items": [
     {
+      "id": "08b710f1e780",
+      "title": "Heimstaden is changing residential real estate management with AI",
+      "summary": "Discover how Heimstaden uses OpenAI’s ChatGPT Enterprise and Codex to transform property management, cut costs, and empower employees across Europe.",
+      "url": "https://openai.com/index/heimstaden",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-03T16:00:00+08:00"
+    },
+    {
+      "id": "928e7584e6cd",
+      "title": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic",
+      "summary": "Cities generate enormous amounts of data from cameras, sensors and operational systems, but turning it into useful action — for planning, maintenance and publi…",
+      "url": "https://blogs.nvidia.com/blog/cities-physical-agentic-ai-applications/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-03T15:00:12+08:00"
+    },
+    {
+      "id": "af08402c230e",
+      "title": "纯语音Personal Agent来了！或许，这就是乔布斯心中的Siri",
+      "summary": "终于，有了一个可以触摸的起点",
+      "url": "https://www.qbitai.com/2026/11/507419.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-03T14:55:30+08:00"
+    },
+    {
+      "id": "1299883b1f29",
+      "title": "苹果被曝的新产品，中国央企8个月前已装进公共卫生间",
+      "summary": "TeleAI智慧看护助手",
+      "url": "https://www.qbitai.com/2026/11/507410.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-03T14:29:11+08:00"
+    },
+    {
+      "id": "e6d94559dd4e",
+      "title": "AI数据平台OceanBase获世界互联网大会杰出贡献奖",
+      "summary": "11月3日上午，2026世界互联网大会在浙江乌镇开幕。",
+      "url": "https://www.qbitai.com/2026/11/507405.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-03T13:59:05+08:00"
+    },
+    {
+      "id": "efaf904f2a2d",
+      "title": "小米斩获乌镇峰会双料大奖：小米集团获“杰出贡献奖”，小米具身基座模型获“领先科技奖”",
+      "summary": "11月3日，小米方面披露，小米集团获得2026世界互联网大会“杰出贡献奖”创新突破类奖项",
+      "url": "https://www.qbitai.com/2026/11/507396.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-03T13:16:35+08:00"
+    },
+    {
+      "id": "b601bde8c399",
+      "title": "A社紧急修改招股书！RSI我们快要控制不住了",
+      "summary": "单季狂揽1130亿人民币，但...",
+      "url": "https://www.qbitai.com/2026/11/507382.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-03T11:41:06+08:00"
+    },
+    {
+      "id": "fec0e46ceba4",
+      "title": "Transformers Model Integration Contracts",
+      "summary": "Transformers Model Integration Contracts",
+      "url": "https://huggingface.co/blog/transformers-mic",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-11-03T08:00:00+08:00"
+    },
+    {
+      "id": "6fd6ad7938fa",
+      "title": "Rewarding defenders with bigger bug bounties",
+      "summary": "OpenAI is raising Security Bug Bounty rewards and introducing report quality, loyalty, and priority campaign bonuses for independent security researchers.",
+      "url": "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-11-03T02:00:00+08:00"
+    },
+    {
+      "id": "262cfa35f430",
+      "title": "Preparing our next security sprint to harden",
+      "summary": "OpenAI is preparing its next internal security sprint with Cathedral Systems to test and strengthen its defenses using AI.",
+      "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-03T02:00:00+08:00"
+    },
+    {
       "id": "b810030289ed",
       "title": "The latest AI news we announced in October 2026",
       "summary": "Here are Google’s latest AI updates from October 2026",
@@ -22,6 +112,15 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-11-03T01:45:00+08:00"
+    },
+    {
+      "id": "de4cf53f9db9",
+      "title": "Scaling Git at",
+      "summary": "How OpenAI built Pando, a Git-compatible backend designed for the scale of development that Codex makes possible.",
+      "url": "https://openai.com/index/scaling-git-at-openai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-02T23:30:00+08:00"
     },
     {
       "id": "19244c7aa206",
@@ -33,67 +132,69 @@
       "published_at": "2026-11-02T23:00:00+08:00"
     },
     {
-      "id": "19ee9b951077",
-      "title": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
-      "summary": "商汤SenseNova 6.8 Flash",
-      "url": "https://www.qbitai.com/2026/11/507277.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-02T21:36:41+08:00"
-    },
-    {
-      "id": "ed4b58253682",
-      "title": "LifeVal",
-      "summary": "Introducing LifeVal, a benchmark measuring how well AI helps people complete everyday tasks, from finding childcare to managing finances and government paperwo…",
-      "url": "https://openai.com/index/lifeval",
-      "source": "OpenAI",
+      "id": "5edce6250153",
+      "title": "More Rules, Longer Lists? Benchmarking Self-Evolving Agents on a Hidden-Rule Curriculum",
+      "summary": "arXiv:2610.40758v1 Announce Type: new Abstract: Self-evolving agents rewrite a persistent state from feedback, but it is largely untested whether this lets the…",
+      "url": "https://arxiv.org/abs/2610.40758",
+      "source": "arXiv cs.AI",
       "category": "新工具上线",
-      "published_at": "2026-11-02T17:00:00+08:00"
+      "published_at": "2026-11-02T13:00:00+08:00"
     },
     {
-      "id": "fc2e1324755e",
-      "title": "从“能调用”到“敢托付”：仪电智算云 Token 工厂的三重可信",
-      "summary": "上海仪电与上海创智学院联合发布“飞轮转・万象生”仪电智算数链生态。",
-      "url": "https://www.qbitai.com/2026/11/507260.html",
-      "source": "量子位",
+      "id": "f3d86479cf13",
+      "title": "Beyond Plausible Prediction: Safety Sufficiency in Web World Models",
+      "summary": "arXiv:2610.40798v1 Announce Type: new Abstract: Web world models increasingly predict the consequences of candidate actions before agents act, yet a plausible …",
+      "url": "https://arxiv.org/abs/2610.40798",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-02T13:00:00+08:00"
+    },
+    {
+      "id": "3996af2289fc",
+      "title": "Circumventing the Computational Hardness of Computational Arbitrage",
+      "summary": "arXiv:2610.40831v1 Announce Type: new Abstract: AI model marketplaces host providers with heterogeneous costs and capabilities. These differences create an opp…",
+      "url": "https://arxiv.org/abs/2610.40831",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-02T13:00:00+08:00"
+    },
+    {
+      "id": "55c3b89d4760",
+      "title": "Incongruence-Aware Evaluation of Multimodal Speech Emotion Recognition in Audio Large Language Models",
+      "summary": "arXiv:2610.40883v1 Announce Type: new Abstract: Voice-interactive large language models process both what a speaker says and how they say it, yet the two chann…",
+      "url": "https://arxiv.org/abs/2610.40883",
+      "source": "arXiv cs.AI",
       "category": "新工具上线",
-      "published_at": "2026-11-02T15:47:38+08:00"
+      "published_at": "2026-11-02T13:00:00+08:00"
     },
     {
-      "id": "b1a953809a72",
-      "title": "OpenAI重写大模型法则，第一条：忠于人类！！",
-      "summary": "新版“机器人三定律”。",
-      "url": "https://www.qbitai.com/2026/11/507225.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-11-02T15:27:54+08:00"
-    },
-    {
-      "id": "c443a3544a0c",
-      "title": "央视严选「中国AI创业十骏」：唯一AI制药公司是清华系",
-      "summary": "模型管线双驱动",
-      "url": "https://www.qbitai.com/2026/11/507150.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-02T14:28:07+08:00"
+      "id": "b4909df6d7e7",
+      "title": "ChatGPT as a Surveillance Assistant? An Exploratory Case Study of AI-Assisted Surveillance Risks",
+      "summary": "arXiv:2610.40890v1 Announce Type: new Abstract: Large language models (LLMs) can generate detailed guidance, functional code, and persuasive text at scale. As …",
+      "url": "https://arxiv.org/abs/2610.40890",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-02T13:00:00+08:00"
     },
     {
       "id": "4f1cd76f576e",
       "title": "小米开源了个150元的AI小玩意，火到配件都涨价了",
-      "summary": "能指挥Agent干活，还能控制智能家居",
+      "summary": "小米开源了个150元的AI小玩意，火到配件都涨价了",
       "url": "https://www.qbitai.com/2026/11/507107.html",
       "source": "量子位",
       "category": "开源项目",
-      "published_at": "2026-11-02T14:08:04+08:00"
+      "published_at": "2026-11-02T00:00:00+08:00",
+      "window_hours": 720
     },
     {
-      "id": "598c6194c0d3",
-      "title": "Qodo builds context into AI code review with Codex",
-      "summary": "Qodo brings company knowledge and coding standards into Codex, helping developers catch P0 issues across repositories before opening a pull request.",
-      "url": "https://openai.com/index/qodo-codex-plugin",
-      "source": "OpenAI",
+      "id": "3ba6d6c68387",
+      "title": "Claude紧急叫停！暗改Harness禁止逆向游戏",
+      "summary": "Claude紧急叫停！暗改Harness禁止逆向游戏",
+      "url": "https://www.qbitai.com/2026/11/507038.html",
+      "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-11-02T08:00:00+08:00"
+      "published_at": "2026-11-01T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "b2263e9f8412",
@@ -124,15 +225,6 @@
       "published_at": "2026-10-30T23:00:10+08:00"
     },
     {
-      "id": "094c331a98fa",
-      "title": "Speeding up planning decisions with AI",
-      "summary": "Google DeepMind and UK government work together to reduce planning assessment times",
-      "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-30T22:18:30+08:00"
-    },
-    {
       "id": "fd4521a18599",
       "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
       "summary": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains …",
@@ -140,24 +232,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-10-30T21:05:28+08:00"
-    },
-    {
-      "id": "25cc4c9bb2e3",
-      "title": "Making it easier for websites to express AI training preferences",
-      "summary": "OpenAI will honor a shared robots.txt signal to help website operators communicate their AI training preferences to participating providers.",
-      "url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-30T17:30:00+08:00"
-    },
-    {
-      "id": "c7606af40dbb",
-      "title": "Community safety report and new protections for teens",
-      "summary": "OpenAI is strengthening violence prevention in ChatGPT with expanded safeguards, earlier interventions, and a new commitment to public safety reporting.",
-      "url": "https://openai.com/index/community-safety-report-and-new-protections-for-teens",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-10-30T17:00:00+08:00"
     },
     {
       "id": "9e5c9d9f241b",
@@ -224,24 +298,6 @@
       "published_at": "2026-10-29T08:00:00+08:00"
     },
     {
-      "id": "85d975255b4f",
-      "title": "Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms",
-      "summary": "Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms",
-      "url": "https://huggingface.co/blog/anydecisionmodel",
-      "source": "Hugging Face",
-      "category": "新工具上线",
-      "published_at": "2026-10-29T08:00:00+08:00"
-    },
-    {
-      "id": "b0da25ea6c1a",
-      "title": "Gemini 4 Carbon: Our next frontier model",
-      "summary": "Gemini 4 Carbon: Our next frontier model",
-      "url": "https://deepmind.google/blog/gemini-4-carbon-our-next-frontier-model/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-29T01:00:58+08:00"
-    },
-    {
       "id": "2a3824a8bb57",
       "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
       "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
@@ -259,44 +315,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-10-28T23:00:46+08:00"
-    },
-    {
-      "id": "d17d13a0006a",
-      "title": "Genie 4: A new generation of world simulation",
-      "summary": "Genie 4: our new world model unlocking unprecedented realism in real-time simulation.",
-      "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-28T00:01:38+08:00"
-    },
-    {
-      "id": "604888650665",
-      "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
-      "summary": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
-      "url": "https://www.qbitai.com/2026/10/505928.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-28T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "df8156dd7062",
-      "title": "How AI Is Changing the Pace of Discovery for Millions Living With Dementia",
-      "summary": "There are 57 million people worldwide living with dementia today. For the researchers working to help them, the obstacle isn’t a lack of effort — it’s too much…",
-      "url": "https://blogs.nvidia.com/blog/open-source-ai-tools-cbrain-dementia/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-10-27T23:00:20+08:00"
-    },
-    {
-      "id": "00367048bffe",
-      "title": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
-      "summary": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
-      "url": "https://www.qbitai.com/2026/10/505799.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-10-27T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -324,13 +342,13 @@
         "window_hours": 720
       },
       {
-        "id": "00367048bffe",
-        "title": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
-        "summary": "Physical RSI第一站！便利店打工“人”自己进化，物理AI飞轮启动了",
-        "url": "https://www.qbitai.com/2026/10/505799.html",
+        "id": "4f1cd76f576e",
+        "title": "小米开源了个150元的AI小玩意，火到配件都涨价了",
+        "summary": "小米开源了个150元的AI小玩意，火到配件都涨价了",
+        "url": "https://www.qbitai.com/2026/11/507107.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-10-27T00:00:00+08:00",
+        "category": "开源项目",
+        "published_at": "2026-11-02T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -344,13 +362,13 @@
         "window_hours": 720
       },
       {
-        "id": "604888650665",
-        "title": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
-        "summary": "Personal Agent走向真实任务，蚂蚁百灵开源 Ling-3.1-flash-1019",
-        "url": "https://www.qbitai.com/2026/10/505928.html",
+        "id": "3ba6d6c68387",
+        "title": "Claude紧急叫停！暗改Harness禁止逆向游戏",
+        "summary": "Claude紧急叫停！暗改Harness禁止逆向游戏",
+        "url": "https://www.qbitai.com/2026/11/507038.html",
         "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-28T00:00:00+08:00",
+        "category": "新模型发布",
+        "published_at": "2026-11-01T00:00:00+08:00",
         "window_hours": 720
       }
     ]
