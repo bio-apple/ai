@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-04T06:08:40.528039+08:00",
+  "updated_at": "2026-11-04T19:38:26.390383+08:00",
   "date": "2026-11-04",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,42 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "68d6e2cfb53f",
+      "title": "不靠堆砌数据，让机器人看懂真实物理世界 | 招商局狮子山实验室发布「驭物™ Lion-ER-35B-A3B」具身推理模型",
+      "summary": "仅激活3B参数，十项基准全线提升！",
+      "url": "https://www.qbitai.com/2026/11/507586.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-04T18:08:38+08:00"
+    },
+    {
+      "id": "a7cbab617b2d",
+      "title": "超维动力全栈矩阵亮相2026香港金融科技周，具身智能硬科技引爆全场",
+      "summary": "一场别开生面的具身智能科技盛宴",
+      "url": "https://www.qbitai.com/2026/11/507574.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-04T16:59:57+08:00"
+    },
+    {
+      "id": "8d4a48eb32f6",
+      "title": "虎鲸文娱“鲸锐AI”平台正式上线，AI视频单分钟成本节省30%以上",
+      "summary": "11月4日，虎鲸文娱集团打造的行业首个AI影视制作与管理平台“鲸锐AI”正式上线。",
+      "url": "https://www.qbitai.com/2026/11/507567.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-04T16:49:12+08:00"
+    },
+    {
+      "id": "c7fb864905d9",
+      "title": "让Agent首次拥有“视听双流记忆”：openJiuwen Agent-Memory看懂长视频，关键事件一个不落",
+      "summary": "长视频记忆精度飙升，问答时延最高降97%",
+      "url": "https://www.qbitai.com/2026/11/507533.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-04T10:49:02+08:00"
+    },
     {
       "id": "a55665cf4895",
       "title": "StateBench: Testing how language models track state changes over long documents",
@@ -60,15 +96,6 @@
       "published_at": "2026-11-03T21:57:11+08:00"
     },
     {
-      "id": "c76f0152b09c",
-      "title": "智己LS8纯电版背后：8年研发底盘，两大厂联合开发电池",
-      "summary": "两位CTO，关起门来吵架",
-      "url": "https://www.qbitai.com/2026/11/507473.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-03T20:57:35+08:00"
-    },
-    {
       "id": "26c6032e1d26",
       "title": "Accelerating engineering for the physical world",
       "summary": "Discover how ChatGPT and Codex are helping engineers accelerate CAD, PCB design, simulation, and other workflows across the physical world.",
@@ -76,15 +103,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-03T20:00:00+08:00"
-    },
-    {
-      "id": "9b0308d1b53a",
-      "title": "模型谁都买得到，拉开差距的是AI生产力系统",
-      "summary": "AI的下一程是生产力系统之争",
-      "url": "https://www.qbitai.com/2026/11/507448.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-03T19:13:49+08:00"
     },
     {
       "id": "a2357e701f02",
@@ -112,24 +130,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-03T15:00:12+08:00"
-    },
-    {
-      "id": "af08402c230e",
-      "title": "纯语音Personal Agent来了！或许，这就是乔布斯心中的Siri",
-      "summary": "终于，有了一个可以触摸的起点",
-      "url": "https://www.qbitai.com/2026/11/507419.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-03T14:55:30+08:00"
-    },
-    {
-      "id": "1299883b1f29",
-      "title": "苹果被曝的新产品，中国央企8个月前已装进公共卫生间",
-      "summary": "TeleAI智慧看护助手",
-      "url": "https://www.qbitai.com/2026/11/507410.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-03T14:29:11+08:00"
     },
     {
       "id": "3d509e27bae2",
@@ -175,51 +175,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-02T23:30:00+08:00"
-    },
-    {
-      "id": "5edce6250153",
-      "title": "More Rules, Longer Lists? Benchmarking Self-Evolving Agents on a Hidden-Rule Curriculum",
-      "summary": "arXiv:2610.40758v1 Announce Type: new Abstract: Self-evolving agents rewrite a persistent state from feedback, but it is largely untested whether this lets the…",
-      "url": "https://arxiv.org/abs/2610.40758",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-11-02T13:00:00+08:00"
-    },
-    {
-      "id": "f3d86479cf13",
-      "title": "Beyond Plausible Prediction: Safety Sufficiency in Web World Models",
-      "summary": "arXiv:2610.40798v1 Announce Type: new Abstract: Web world models increasingly predict the consequences of candidate actions before agents act, yet a plausible …",
-      "url": "https://arxiv.org/abs/2610.40798",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-02T13:00:00+08:00"
-    },
-    {
-      "id": "3996af2289fc",
-      "title": "Circumventing the Computational Hardness of Computational Arbitrage",
-      "summary": "arXiv:2610.40831v1 Announce Type: new Abstract: AI model marketplaces host providers with heterogeneous costs and capabilities. These differences create an opp…",
-      "url": "https://arxiv.org/abs/2610.40831",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-02T13:00:00+08:00"
-    },
-    {
-      "id": "55c3b89d4760",
-      "title": "Incongruence-Aware Evaluation of Multimodal Speech Emotion Recognition in Audio Large Language Models",
-      "summary": "arXiv:2610.40883v1 Announce Type: new Abstract: Voice-interactive large language models process both what a speaker says and how they say it, yet the two chann…",
-      "url": "https://arxiv.org/abs/2610.40883",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-11-02T13:00:00+08:00"
-    },
-    {
-      "id": "b4909df6d7e7",
-      "title": "ChatGPT as a Surveillance Assistant? An Exploratory Case Study of AI-Assisted Surveillance Risks",
-      "summary": "arXiv:2610.40890v1 Announce Type: new Abstract: Large language models (LLMs) can generate detailed guidance, functional code, and persuasive text at scale. As …",
-      "url": "https://arxiv.org/abs/2610.40890",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-02T13:00:00+08:00"
     },
     {
       "id": "4f1cd76f576e",
@@ -341,16 +296,6 @@
         "window_hours": 720
       },
       {
-        "id": "2a3824a8bb57",
-        "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
-        "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
-        "url": "https://www.qbitai.com/2026/10/506227.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-10-29T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "4f1cd76f576e",
         "title": "小米开源了个150元的AI小玩意，火到配件都涨价了",
         "summary": "小米开源了个150元的AI小玩意，火到配件都涨价了",
@@ -358,6 +303,16 @@
         "source": "量子位",
         "category": "开源项目",
         "published_at": "2026-11-02T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "2a3824a8bb57",
+        "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
+        "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
+        "url": "https://www.qbitai.com/2026/10/506227.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-10-29T00:00:00+08:00",
         "window_hours": 720
       },
       {
