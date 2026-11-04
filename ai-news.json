@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-04T19:38:26.390383+08:00",
-  "date": "2026-11-04",
+  "updated_at": "2026-11-05T06:17:12.498697+08:00",
+  "date": "2026-11-05",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "5afc49da7bd4",
+      "title": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
+      "summary": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
+      "url": "https://huggingface.co/blog/Dharma-AI/dharma-field-extractor",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-05T01:50:10+08:00"
+    },
+    {
+      "id": "f46bd8b9888c",
+      "title": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
+      "summary": "连路人都有自己的想法",
+      "url": "https://www.qbitai.com/2026/11/507647.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-05T00:13:23+08:00"
+    },
+    {
+      "id": "3a06f84c0f51",
+      "title": "OpenAI to acquire Pierre Computer Company, Inc.",
+      "summary": "OpenAI will acquire Pierre Computer Company, expanding Codex’s tools for building, understanding, and reviewing code.",
+      "url": "https://openai.com/index/openai-to-acquire-pierre",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-04T22:30:00+08:00"
+    },
     {
       "id": "68d6e2cfb53f",
       "title": "不靠堆砌数据，让机器人看懂真实物理世界 | 招商局狮子山实验室发布「驭物™ Lion-ER-35B-A3B」具身推理模型",
@@ -42,6 +69,15 @@
       "published_at": "2026-11-04T16:49:12+08:00"
     },
     {
+      "id": "75679f5aa60b",
+      "title": "Daybreak Red is now available in AWS GovCloud (US-East)",
+      "summary": "Daybreak Red brings GPT-5.6 Cyber to approved customers in AWS GovCloud (US-East) through Amazon Bedrock for authorized cybersecurity work.",
+      "url": "https://openai.com/index/daybreak-red-aws-govcloud",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-04T15:00:00+08:00"
+    },
+    {
       "id": "c7fb864905d9",
       "title": "让Agent首次拥有“视听双流记忆”：openJiuwen Agent-Memory看懂长视频，关键事件一个不落",
       "summary": "长视频记忆精度飙升，问答时延最高降97%",
@@ -49,6 +85,15 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-11-04T10:49:02+08:00"
+    },
+    {
+      "id": "bf25be8f8779",
+      "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
+      "summary": "DevRev uses GPT-6.1 Sol to power Computer and Operator, balancing reasoning, speed, and cost for enterprise service.",
+      "url": "https://openai.com/index/devrev-enterprise-self-service",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-04T08:00:00+08:00"
     },
     {
       "id": "a55665cf4895",
@@ -69,6 +114,15 @@
       "published_at": "2026-11-04T01:14:38+08:00"
     },
     {
+      "id": "7b04a568c5ad",
+      "title": "Agentic cheminformatics with Google Antigravity",
+      "summary": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
+      "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-11-04T01:01:49+08:00"
+    },
+    {
       "id": "bc4177032a04",
       "title": "Palette: teaching a small model to build decks in your design language",
       "summary": "Palette: teaching a small model to build decks in your design language",
@@ -85,15 +139,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-04T00:00:45+08:00"
-    },
-    {
-      "id": "80faffdc5202",
-      "title": "机器人干活，AI当厂长！这家巨头要造下一代自主智能仓",
-      "summary": "AI接管调度运营，仓库越干越聪明",
-      "url": "https://www.qbitai.com/2026/11/507507.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-03T21:57:11+08:00"
     },
     {
       "id": "26c6032e1d26",
@@ -114,15 +159,6 @@
       "published_at": "2026-11-03T16:00:00+08:00"
     },
     {
-      "id": "08b710f1e780",
-      "title": "Heimstaden is changing residential real estate management with AI",
-      "summary": "Discover how Heimstaden uses OpenAI’s ChatGPT Enterprise and Codex to transform property management, cut costs, and empower employees across Europe.",
-      "url": "https://openai.com/index/heimstaden",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-03T16:00:00+08:00"
-    },
-    {
       "id": "928e7584e6cd",
       "title": "Cities Worldwide Build and Scale AI Services With NVIDIA Physical and Agentic",
       "summary": "Cities generate enormous amounts of data from cameras, sensors and operational systems, but turning it into useful action — for planning, maintenance and publi…",
@@ -130,15 +166,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-03T15:00:12+08:00"
-    },
-    {
-      "id": "3d509e27bae2",
-      "title": "OpenAI appoints Jill Hazelbaker as Chief Corporate Affairs Officer",
-      "summary": "Jill Hazelbaker will join OpenAI as Chief Corporate Affairs Officer, leading the company’s global communications and corporate positioning.",
-      "url": "https://openai.com/index/jill-hazelbaker-chief-corporate-affairs-officer",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-03T08:00:00+08:00"
     },
     {
       "id": "20954e3ac0ff",
@@ -168,15 +195,6 @@
       "published_at": "2026-11-03T01:45:00+08:00"
     },
     {
-      "id": "de4cf53f9db9",
-      "title": "Scaling Git at",
-      "summary": "How OpenAI built Pando, a Git-compatible backend designed for the scale of development that Codex makes possible.",
-      "url": "https://openai.com/index/scaling-git-at-openai",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-02T23:30:00+08:00"
-    },
-    {
       "id": "4f1cd76f576e",
       "title": "小米开源了个150元的AI小玩意，火到配件都涨价了",
       "summary": "小米开源了个150元的AI小玩意，火到配件都涨价了",
@@ -197,15 +215,6 @@
       "window_hours": 720
     },
     {
-      "id": "b2263e9f8412",
-      "title": "nemotron-halloween",
-      "summary": "nemotron-halloween",
-      "url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-10-31T01:57:24+08:00"
-    },
-    {
       "id": "246d4261b40f",
       "title": "刚刚，DeepSeek重磅开源：Agent底座架构！",
       "summary": "刚刚，DeepSeek重磅开源：Agent底座架构！",
@@ -223,6 +232,15 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-30T23:00:10+08:00"
+    },
+    {
+      "id": "094c331a98fa",
+      "title": "Speeding up planning decisions with AI",
+      "summary": "Google DeepMind and UK government work together to reduce planning assessment times",
+      "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-10-30T22:18:30+08:00"
     },
     {
       "id": "fd4521a18599",
