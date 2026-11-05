@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-05T06:17:12.498697+08:00",
+  "updated_at": "2026-11-05T19:39:56.516881+08:00",
   "date": "2026-11-05",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,114 @@
   },
   "items": [
     {
+      "id": "a29b2895a2f3",
+      "title": "百度开源文心5.5 Flash Base，多基准测试刷新同尺寸模型 SOTA",
+      "summary": "11月5日，百度正式开源最新基座模型文心5.5 Flash Base",
+      "url": "https://www.qbitai.com/2026/11/507787.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-05T15:15:13+08:00"
+    },
+    {
+      "id": "3d1036e6adff",
+      "title": "MIT神作被锤：Astra爆改Qwen权重？就吹吧！",
+      "summary": "spaCy作者长文炮轰",
+      "url": "https://www.qbitai.com/2026/11/507782.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-05T15:10:56+08:00"
+    },
+    {
+      "id": "2c80f4f2730d",
+      "title": "以“真实工作”检验机器人价值，XROGO在CeMAT ASIA发布机器人到岗计划",
+      "summary": "像雇人一样雇机器人",
+      "url": "https://www.qbitai.com/2026/11/507767.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-05T13:25:37+08:00"
+    },
+    {
+      "id": "f07a268d849a",
+      "title": "Who May Overrule the Agent? Evidence-Gated Authority in LLM Review Institutions",
+      "summary": "arXiv:2611.05390v1 Announce Type: new Abstract: Multi-agent language-model systems often add a reviewer to improve an upstream agent's decision. Yet a reviewer…",
+      "url": "https://arxiv.org/abs/2611.05390",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-05T13:00:00+08:00"
+    },
+    {
+      "id": "4aed649a245d",
+      "title": "Agent Harness Awareness: Turning Verified Telemetry into Operational Control for Tool-Using Agents",
+      "summary": "arXiv:2611.05391v1 Announce Type: new Abstract: Tool descriptions tell an agent what an action can do, but they do not necessarily reveal whether that action i…",
+      "url": "https://arxiv.org/abs/2611.05391",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-05T13:00:00+08:00"
+    },
+    {
+      "id": "473a023bdb2d",
+      "title": "Uncertainty-Aware Resource Orchestration for Agentic AI Systems",
+      "summary": "arXiv:2611.05392v1 Announce Type: new Abstract: Agentic artificial intelligence (AI) systems powered by large language models (LLMs) execute as autonomous mult…",
+      "url": "https://arxiv.org/abs/2611.05392",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-05T13:00:00+08:00"
+    },
+    {
+      "id": "f25d819b9d43",
+      "title": "Challenge-Aware Knowledge Recruitment with Meta-Agent Supervision for Medical Multi-Agent Reasoning",
+      "summary": "arXiv:2611.05393v1 Announce Type: new Abstract: Large language models perform strongly on standard medical QA but degrade on harder reasoning tasks, where mult…",
+      "url": "https://arxiv.org/abs/2611.05393",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-05T13:00:00+08:00"
+    },
+    {
+      "id": "eb4d7e0e310e",
+      "title": "A Feasibility Condition for Confidence-Gated Tiered LLM Inference",
+      "summary": "arXiv:2611.05394v1 Announce Type: new Abstract: Tiered inference distributes large language model computation across a hierarchy of devices, from on-device and…",
+      "url": "https://arxiv.org/abs/2611.05394",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-05T13:00:00+08:00"
+    },
+    {
+      "id": "fe9a94277a7d",
+      "title": "基于本体+知识+Harness+Datat Agent的智能体完整落地链路！",
+      "summary": "Data + AI 技术实践巡展 · 上海站",
+      "url": "https://www.qbitai.com/2026/11/507696.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-05T10:01:51+08:00"
+    },
+    {
+      "id": "f93567576105",
+      "title": "Setting a new standard for responsible AI infrastructure",
+      "summary": "OpenAI introduces its National Community Compact and Compute Campus Policy Blueprint to protect local resources, create jobs, and guide responsible AI infrastr…",
+      "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+      "source": "OpenAI",
+      "category": "行业新闻",
+      "published_at": "2026-11-05T10:00:00+08:00"
+    },
+    {
+      "id": "5279acc13e09",
+      "title": "GPT-Image-2.6全量上线！直出GIF和SVG，6.2 Astra也现身了",
+      "summary": "最快6秒出图",
+      "url": "https://www.qbitai.com/2026/11/507707.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-05T09:59:37+08:00"
+    },
+    {
+      "id": "89209ab642b1",
+      "title": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+      "summary": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+      "url": "https://huggingface.co/blog/phonon-tts",
+      "source": "Hugging Face",
+      "category": "新工具上线",
+      "published_at": "2026-11-05T08:00:00+08:00"
+    },
+    {
       "id": "5afc49da7bd4",
       "title": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
       "summary": "Dharma Field Extractor: Any Document In, Structured Fields in JSON Out",
@@ -22,15 +130,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-11-05T01:50:10+08:00"
-    },
-    {
-      "id": "f46bd8b9888c",
-      "title": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
-      "summary": "连路人都有自己的想法",
-      "url": "https://www.qbitai.com/2026/11/507647.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-05T00:13:23+08:00"
     },
     {
       "id": "3a06f84c0f51",
@@ -42,31 +141,13 @@
       "published_at": "2026-11-04T22:30:00+08:00"
     },
     {
-      "id": "68d6e2cfb53f",
-      "title": "不靠堆砌数据，让机器人看懂真实物理世界 | 招商局狮子山实验室发布「驭物™ Lion-ER-35B-A3B」具身推理模型",
-      "summary": "仅激活3B参数，十项基准全线提升！",
-      "url": "https://www.qbitai.com/2026/11/507586.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-11-04T18:08:38+08:00"
-    },
-    {
-      "id": "a7cbab617b2d",
-      "title": "超维动力全栈矩阵亮相2026香港金融科技周，具身智能硬科技引爆全场",
-      "summary": "一场别开生面的具身智能科技盛宴",
-      "url": "https://www.qbitai.com/2026/11/507574.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-04T16:59:57+08:00"
-    },
-    {
-      "id": "8d4a48eb32f6",
-      "title": "虎鲸文娱“鲸锐AI”平台正式上线，AI视频单分钟成本节省30%以上",
-      "summary": "11月4日，虎鲸文娱集团打造的行业首个AI影视制作与管理平台“鲸锐AI”正式上线。",
-      "url": "https://www.qbitai.com/2026/11/507567.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-11-04T16:49:12+08:00"
+      "id": "a4f4c423c542",
+      "title": "A thousand fewer paths to root",
+      "summary": "OpenAI built an autonomous pipeline that found, validated, and generated patches for 948 local privilege-escalation vulnerabilities in the Linux kernel.",
+      "url": "https://openai.com/index/a-thousand-fewer-paths-to-root",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-04T16:00:00+08:00"
     },
     {
       "id": "75679f5aa60b",
@@ -78,21 +159,12 @@
       "published_at": "2026-11-04T15:00:00+08:00"
     },
     {
-      "id": "c7fb864905d9",
-      "title": "让Agent首次拥有“视听双流记忆”：openJiuwen Agent-Memory看懂长视频，关键事件一个不落",
-      "summary": "长视频记忆精度飙升，问答时延最高降97%",
-      "url": "https://www.qbitai.com/2026/11/507533.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-04T10:49:02+08:00"
-    },
-    {
-      "id": "bf25be8f8779",
-      "title": "DevRev delivers autonomous self-service with GPT-6.1 Sol",
-      "summary": "DevRev uses GPT-6.1 Sol to power Computer and Operator, balancing reasoning, speed, and cost for enterprise service.",
-      "url": "https://openai.com/index/devrev-enterprise-self-service",
+      "id": "0a437d67f2ef",
+      "title": "Introducing Images 2.6",
+      "summary": "Images 2.6 brings faster image generation, GIF creation, more precise editing, and new API controls across ChatGPT, Codex, and the API.",
+      "url": "https://openai.com/index/introducing-images-2-6",
       "source": "OpenAI",
-      "category": "新模型发布",
+      "category": "新工具上线",
       "published_at": "2026-11-04T08:00:00+08:00"
     },
     {
@@ -114,15 +186,6 @@
       "published_at": "2026-11-04T01:14:38+08:00"
     },
     {
-      "id": "7b04a568c5ad",
-      "title": "Agentic cheminformatics with Google Antigravity",
-      "summary": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
-      "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-04T01:01:49+08:00"
-    },
-    {
       "id": "bc4177032a04",
       "title": "Palette: teaching a small model to build decks in your design language",
       "summary": "Palette: teaching a small model to build decks in your design language",
@@ -139,24 +202,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-04T00:00:45+08:00"
-    },
-    {
-      "id": "26c6032e1d26",
-      "title": "Accelerating engineering for the physical world",
-      "summary": "Discover how ChatGPT and Codex are helping engineers accelerate CAD, PCB design, simulation, and other workflows across the physical world.",
-      "url": "https://openai.com/index/accelerating-engineering-for-the-physical-world",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-03T20:00:00+08:00"
-    },
-    {
-      "id": "a2357e701f02",
-      "title": "How Cisco defends at machine speed with",
-      "summary": "Cisco combines network intelligence with OpenAI models to strengthen enterprise security. Learn how it is building more adaptive defenses.",
-      "url": "https://openai.com/index/cisco-cyber",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-03T16:00:00+08:00"
     },
     {
       "id": "928e7584e6cd",
@@ -177,15 +222,6 @@
       "published_at": "2026-11-03T08:00:00+08:00"
     },
     {
-      "id": "fec0e46ceba4",
-      "title": "Transformers Model Integration Contracts",
-      "summary": "Transformers Model Integration Contracts",
-      "url": "https://huggingface.co/blog/transformers-mic",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-11-03T08:00:00+08:00"
-    },
-    {
       "id": "b810030289ed",
       "title": "The latest AI news we announced in October 2026",
       "summary": "Here are Google’s latest AI updates from October 2026",
@@ -193,6 +229,16 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-11-03T01:45:00+08:00"
+    },
+    {
+      "id": "7e1fe124c816",
+      "title": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
+      "summary": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
+      "url": "https://www.qbitai.com/2026/11/507322.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-11-03T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "4f1cd76f576e",
@@ -232,15 +278,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-10-30T23:00:10+08:00"
-    },
-    {
-      "id": "094c331a98fa",
-      "title": "Speeding up planning decisions with AI",
-      "summary": "Google DeepMind and UK government work together to reduce planning assessment times",
-      "url": "https://deepmind.google/blog/speeding-up-planning-decisions-with-ai/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-10-30T22:18:30+08:00"
     },
     {
       "id": "fd4521a18599",
@@ -287,16 +324,6 @@
       "source": "NVIDIA AI",
       "category": "新工具上线",
       "published_at": "2026-10-29T21:00:16+08:00"
-    },
-    {
-      "id": "2a3824a8bb57",
-      "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
-      "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
-      "url": "https://www.qbitai.com/2026/10/506227.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-10-29T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -324,16 +351,6 @@
         "window_hours": 720
       },
       {
-        "id": "2a3824a8bb57",
-        "title": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
-        "summary": "刚刚，Gemini 4 Carbon全面超越Opus 5.5！首发Token半价",
-        "url": "https://www.qbitai.com/2026/10/506227.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-10-29T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "99a71e93bee6",
         "title": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
         "summary": "榜一，拿来吧你！智元这波双模型杀穿多榜榜单",
@@ -341,6 +358,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-10-30T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "7e1fe124c816",
+        "title": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
+        "summary": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
+        "url": "https://www.qbitai.com/2026/11/507322.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-11-03T00:00:00+08:00",
         "window_hours": 720
       },
       {
