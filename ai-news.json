@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-07T18:43:37.010166+08:00",
-  "date": "2026-11-07",
+  "updated_at": "2026-11-08T04:36:56.758266+08:00",
+  "date": "2026-11-08",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -132,6 +132,15 @@
       "published_at": "2026-11-06T03:35:16+08:00"
     },
     {
+      "id": "825a50d1c0ad",
+      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "summary": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-11-06T01:05:16+08:00"
+    },
+    {
       "id": "baf7193e75c1",
       "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
       "summary": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended…",
@@ -139,15 +148,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-11-06T01:00:35+08:00"
-    },
-    {
-      "id": "63c3d56bc72b",
-      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "summary": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-      "source": "Google AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-06T01:00:00+08:00"
     },
     {
       "id": "b58fee4edbbb",
@@ -222,6 +222,15 @@
       "published_at": "2026-11-04T01:14:38+08:00"
     },
     {
+      "id": "7b04a568c5ad",
+      "title": "Agentic cheminformatics with Google Antigravity",
+      "summary": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
+      "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-11-04T01:01:49+08:00"
+    },
+    {
       "id": "b810030289ed",
       "title": "The latest AI news we announced in October 2026",
       "summary": "Here are Google’s latest AI updates from October 2026",
@@ -271,13 +280,13 @@
       "window_hours": 720
     },
     {
-      "id": "246d4261b40f",
-      "title": "刚刚，DeepSeek重磅开源：Agent底座架构！",
-      "summary": "刚刚，DeepSeek重磅开源：Agent底座架构！",
-      "url": "https://www.qbitai.com/2026/10/506904.html",
+      "id": "96603222f1ad",
+      "title": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
+      "summary": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
+      "url": "https://www.qbitai.com/2026/11/507031.html",
       "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-10-31T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-11-01T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -285,16 +294,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "246d4261b40f",
-        "title": "刚刚，DeepSeek重磅开源：Agent底座架构！",
-        "summary": "刚刚，DeepSeek重磅开源：Agent底座架构！",
-        "url": "https://www.qbitai.com/2026/10/506904.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-10-31T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "4f1cd76f576e",
         "title": "小米开源了个150元的AI小玩意，火到配件都涨价了",
@@ -333,6 +332,16 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-11-02T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "96603222f1ad",
+        "title": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
+        "summary": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
+        "url": "https://www.qbitai.com/2026/11/507031.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-01T00:00:00+08:00",
         "window_hours": 720
       }
     ]
