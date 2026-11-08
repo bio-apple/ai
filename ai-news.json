@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-08T18:48:27.973494+08:00",
-  "date": "2026-11-08",
+  "updated_at": "2026-11-09T04:53:12.172080+08:00",
+  "date": "2026-11-09",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -132,15 +132,6 @@
       "published_at": "2026-11-06T03:35:16+08:00"
     },
     {
-      "id": "825a50d1c0ad",
-      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "summary": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-06T01:05:16+08:00"
-    },
-    {
       "id": "baf7193e75c1",
       "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
       "summary": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended…",
@@ -148,6 +139,15 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-11-06T01:00:35+08:00"
+    },
+    {
+      "id": "63c3d56bc72b",
+      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "summary": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-06T01:00:00+08:00"
     },
     {
       "id": "b58fee4edbbb",
@@ -232,15 +232,6 @@
       "published_at": "2026-11-04T01:14:38+08:00"
     },
     {
-      "id": "7b04a568c5ad",
-      "title": "Agentic cheminformatics with Google Antigravity",
-      "summary": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
-      "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-04T01:01:49+08:00"
-    },
-    {
       "id": "b810030289ed",
       "title": "The latest AI news we announced in October 2026",
       "summary": "Here are Google’s latest AI updates from October 2026",
@@ -280,13 +271,13 @@
       "window_hours": 720
     },
     {
-      "id": "3ba6d6c68387",
-      "title": "Claude紧急叫停！暗改Harness禁止逆向游戏",
-      "summary": "Claude紧急叫停！暗改Harness禁止逆向游戏",
-      "url": "https://www.qbitai.com/2026/11/507038.html",
+      "id": "19ee9b951077",
+      "title": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
+      "summary": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
+      "url": "https://www.qbitai.com/2026/11/507277.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-11-01T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-11-02T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -315,13 +306,13 @@
         "window_hours": 720
       },
       {
-        "id": "3ba6d6c68387",
-        "title": "Claude紧急叫停！暗改Harness禁止逆向游戏",
-        "summary": "Claude紧急叫停！暗改Harness禁止逆向游戏",
-        "url": "https://www.qbitai.com/2026/11/507038.html",
+        "id": "f46bd8b9888c",
+        "title": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
+        "summary": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
+        "url": "https://www.qbitai.com/2026/11/507647.html",
         "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-11-01T00:00:00+08:00",
+        "category": "中文资讯",
+        "published_at": "2026-11-05T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -335,13 +326,13 @@
         "window_hours": 720
       },
       {
-        "id": "f46bd8b9888c",
-        "title": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
-        "summary": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
-        "url": "https://www.qbitai.com/2026/11/507647.html",
+        "id": "19ee9b951077",
+        "title": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
+        "summary": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
+        "url": "https://www.qbitai.com/2026/11/507277.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-11-05T00:00:00+08:00",
+        "published_at": "2026-11-02T00:00:00+08:00",
         "window_hours": 720
       }
     ]
