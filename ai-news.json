@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-08T04:36:56.758266+08:00",
+  "updated_at": "2026-11-08T18:48:27.973494+08:00",
   "date": "2026-11-08",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,42 @@
   },
   "items": [
     {
+      "id": "e4a9449a7dd7",
+      "title": "资本正在撤离“世界模型”",
+      "summary": "没有永远的夏天",
+      "url": "https://www.qbitai.com/2026/11/508466.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-08T12:09:55+08:00"
+    },
+    {
+      "id": "32a685d893ca",
+      "title": "GitHub不堪重负！OpenAI收购替代品，A社原地自研，马斯克也要搞",
+      "summary": "AI写代码太快，基础设施跟不上了",
+      "url": "https://www.qbitai.com/2026/11/508449.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-07T17:38:56+08:00"
+    },
+    {
+      "id": "8d9ec9ed0332",
+      "title": "OpenAI新融资到账110亿美元，不及原计划一半",
+      "summary": "融资缩水，硅谷投资人也谨慎了",
+      "url": "https://www.qbitai.com/2026/11/508344.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-11-07T16:11:25+08:00"
+    },
+    {
+      "id": "a55ea9960a47",
+      "title": "为了去AI味，人类开始主动写烂文章了……",
+      "summary": "需要说明的是，这并不意味着不会说人话就一定是人，也不意味着说人话的就一定不是AI.......",
+      "url": "https://www.qbitai.com/2026/11/508330.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-07T15:59:28+08:00"
+    },
+    {
       "id": "61b3b7c2c572",
       "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
       "summary": "苦单Session久矣，两大Agent玩家不谋而合。",
@@ -22,24 +58,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-11-07T13:01:17+08:00"
-    },
-    {
-      "id": "c8831f2d681a",
-      "title": "AGENTS.MD，危险危险危险！！！",
-      "summary": "全新的电脑病毒",
-      "url": "https://www.qbitai.com/2026/11/508244.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-07T11:43:55+08:00"
-    },
-    {
-      "id": "9a05312ed9a5",
-      "title": "Jeff Dean李飞飞最新对谈：全是RSI非共识",
-      "summary": "RSI不可能无限快",
-      "url": "https://www.qbitai.com/2026/11/508196.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-07T11:23:29+08:00"
     },
     {
       "id": "215687ca939d",
@@ -51,15 +69,6 @@
       "published_at": "2026-11-07T00:00:35+08:00"
     },
     {
-      "id": "91ea69619084",
-      "title": "A\\三大内部模型曝光！领先Opus5.5三个月，RSI缩短80%实验时间",
-      "summary": "Dario刚喊减速…",
-      "url": "https://www.qbitai.com/2026/11/508184.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-06T23:21:56+08:00"
-    },
-    {
       "id": "be1ba71e55b7",
       "title": "ToyBlocks: A controlled world for robot learning and evaluation",
       "summary": "ToyBlocks: A controlled world for robot learning and evaluation",
@@ -67,15 +76,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-11-06T22:00:48+08:00"
-    },
-    {
-      "id": "d99d79c28428",
-      "title": "为什么每个 Personal Agent 背后，都必须配备一台“云电脑”？",
-      "summary": "PPIO 沙箱，把“云电脑”做成开箱即用的 API",
-      "url": "https://www.qbitai.com/2026/11/508174.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-06T17:25:59+08:00"
     },
     {
       "id": "bc8f9eac1966",
@@ -213,6 +213,16 @@
       "published_at": "2026-11-05T01:50:10+08:00"
     },
     {
+      "id": "f46bd8b9888c",
+      "title": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
+      "summary": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
+      "url": "https://www.qbitai.com/2026/11/507647.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-05T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "7edcdb24a88e",
       "title": "Learn the rules: The hacker mindset",
       "summary": "Research Manager Mike Walker reflects on a career spanning hacker culture, cybersecurity, and AI, sharing lessons about trust, teamwork, leadership, and why so…",
@@ -278,16 +288,6 @@
       "category": "新模型发布",
       "published_at": "2026-11-01T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "96603222f1ad",
-      "title": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
-      "summary": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
-      "url": "https://www.qbitai.com/2026/11/507031.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-01T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -335,13 +335,13 @@
         "window_hours": 720
       },
       {
-        "id": "96603222f1ad",
-        "title": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
-        "summary": "清华姚期智团队新作：代数世界模型，让AI像牛顿一样思考",
-        "url": "https://www.qbitai.com/2026/11/507031.html",
+        "id": "f46bd8b9888c",
+        "title": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
+        "summary": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
+        "url": "https://www.qbitai.com/2026/11/507647.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-11-01T00:00:00+08:00",
+        "published_at": "2026-11-05T00:00:00+08:00",
         "window_hours": 720
       }
     ]
