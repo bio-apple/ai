@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-09T04:53:12.172080+08:00",
+  "updated_at": "2026-11-09T20:12:55.049558+08:00",
   "date": "2026-11-09",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,58 +15,104 @@
   },
   "items": [
     {
-      "id": "e4a9449a7dd7",
-      "title": "资本正在撤离“世界模型”",
-      "summary": "没有永远的夏天",
-      "url": "https://www.qbitai.com/2026/11/508466.html",
+      "id": "ed83e268f6e8",
+      "title": "“AI毁了我的计算机学位”",
+      "summary": "教授也用Claude糊弄…",
+      "url": "https://www.qbitai.com/2026/11/508706.html",
       "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-08T12:09:55+08:00"
+      "category": "新模型发布",
+      "published_at": "2026-11-09T16:57:20+08:00"
     },
     {
-      "id": "32a685d893ca",
-      "title": "GitHub不堪重负！OpenAI收购替代品，A社原地自研，马斯克也要搞",
-      "summary": "AI写代码太快，基础设施跟不上了",
-      "url": "https://www.qbitai.com/2026/11/508449.html",
+      "id": "d51ea73e96c2",
+      "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
+      "summary": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
+      "url": "https://www.qbitai.com/2026/11/507843.html",
       "source": "量子位",
       "category": "开源项目",
-      "published_at": "2026-11-07T17:38:56+08:00"
+      "published_at": "2026-11-09T16:44:00+08:00"
     },
     {
-      "id": "8d9ec9ed0332",
-      "title": "OpenAI新融资到账110亿美元，不及原计划一半",
-      "summary": "融资缩水，硅谷投资人也谨慎了",
-      "url": "https://www.qbitai.com/2026/11/508344.html",
+      "id": "9f03cf341cd9",
+      "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
+      "summary": "11月9日，千问办公发布2.0版本",
+      "url": "https://www.qbitai.com/2026/11/508694.html",
       "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-11-07T16:11:25+08:00"
+      "category": "新工具上线",
+      "published_at": "2026-11-09T16:34:03+08:00"
     },
     {
-      "id": "a55ea9960a47",
-      "title": "为了去AI味，人类开始主动写烂文章了……",
-      "summary": "需要说明的是，这并不意味着不会说人话就一定是人，也不意味着说人话的就一定不是AI.......",
-      "url": "https://www.qbitai.com/2026/11/508330.html",
+      "id": "b74906a62bee",
+      "title": "叙事奔涌，何以为锚?丨第 20 届中国投资年会·有限合伙人峰会即将启幕",
+      "summary": "厘清故事与现实的边界，回归投资与产业的底层逻辑。",
+      "url": "https://www.qbitai.com/2026/11/508690.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-11-07T15:59:28+08:00"
+      "published_at": "2026-11-09T16:26:45+08:00"
+    },
+    {
+      "id": "57a8ba0d5522",
+      "title": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA AI Startup Partnership Forum",
+      "summary": "Korea’s Ministry of Science and ICT and NVIDIA hosted the MSIT-NVIDIA AI Startup Partnership Forum at COEX. Ryu Je-myung, vice minister of science and ICT, joi…",
+      "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-09T16:00:53+08:00"
+    },
+    {
+      "id": "c03a28271fc2",
+      "title": "L3大撤退！奔驰宝马官宣不玩了：还没L2好用",
+      "summary": "最早量产的亲自泼冷水",
+      "url": "https://www.qbitai.com/2026/11/508629.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-09T15:02:36+08:00"
+    },
+    {
+      "id": "dc742b2cbd8f",
+      "title": "Korea Advances Physical AI Across Industries With",
+      "summary": "Tapping into the country’s strengths in manufacturing and engineering, NVIDIA is helping advance Korea’s physical AI ecosystem. The country’s industry leaders …",
+      "url": "https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-09T13:00:40+08:00"
+    },
+    {
+      "id": "741e635ddb78",
+      "title": "Korea’s AI Ecosystem Advances and Secures Agentic AI With",
+      "summary": "As AI agents take on more work, they need capable open models and security that advances alongside them. Hyundai Motor Group is exploring NVIDIA NemoClaw bluep…",
+      "url": "https://blogs.nvidia.com/blog/korea-secure-agentic-ai/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-09T13:00:39+08:00"
+    },
+    {
+      "id": "22dc4f77b8e2",
+      "title": "From Chips to Skills, NVIDIA and Korea Expand Sovereign AI Collaboration",
+      "summary": "NVIDIA and Korea’s Ministry of Science and ICT (MSIT) are expanding their collaboration across the country’s sovereign AI ecosystem, from AI semiconductors and…",
+      "url": "https://blogs.nvidia.com/blog/korea-sovereign-ai-collaboration/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-09T13:00:04+08:00"
+    },
+    {
+      "id": "e18a5f64b586",
+      "title": "NVIDIA Dynamo Recipes Bring Korea’s Leading Open Models to Production",
+      "summary": "NVIDIA is releasing Dynamo-optimized deployment recipes for Korea’s leading open models: A.X K2 from SK Telecom, K-EXAONE 2.0 from LG AI Research, Solar Open 2…",
+      "url": "https://blogs.nvidia.com/blog/nvidia-dynamo-korea-open-models/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-09T13:00:00+08:00"
     },
     {
       "id": "61b3b7c2c572",
       "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
-      "summary": "苦单Session久矣，两大Agent玩家不谋而合。",
+      "summary": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
       "url": "https://www.qbitai.com/2026/11/508264.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-11-07T13:01:17+08:00"
-    },
-    {
-      "id": "215687ca939d",
-      "title": "How NVIDIA Open Source Tools Are Helping Researchers Build Next-Generation 6G Networks",
-      "summary": "A year ago, NVIDIA open sourced its Aerial wireless software, joining Sionna and a broader suite of open source tools for accelerating next-generation 6G netwo…",
-      "url": "https://blogs.nvidia.com/blog/telco-open-source-tools-research-6g-networks/",
-      "source": "NVIDIA AI",
-      "category": "开源项目",
-      "published_at": "2026-11-07T00:00:35+08:00"
+      "published_at": "2026-11-07T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "be1ba71e55b7",
@@ -105,15 +151,6 @@
       "published_at": "2026-11-06T08:00:00+08:00"
     },
     {
-      "id": "e8438a23dbcf",
-      "title": "Vera Delivers the Best of Both Worlds: Highest Throughput and Fastest Agents",
-      "summary": "AI agents do more than generate answers. They search for information, query databases, write and test code and take action. Each of those steps relies on a CPU…",
-      "url": "https://blogs.nvidia.com/blog/vera-cpu-highest-throughput-fastest-agents/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-06T04:00:41+08:00"
-    },
-    {
       "id": "c88b52d0b210",
       "title": "Cult.fit builds operational muscle with Codex",
       "summary": "Cult.fit is using Codex to help teams across functions build tools, move faster, and change how work gets done.",
@@ -132,22 +169,13 @@
       "published_at": "2026-11-06T03:35:16+08:00"
     },
     {
-      "id": "baf7193e75c1",
-      "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
-      "summary": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended…",
-      "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-06T01:00:35+08:00"
-    },
-    {
-      "id": "63c3d56bc72b",
+      "id": "825a50d1c0ad",
       "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "summary": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-      "source": "Google AI",
+      "summary": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/",
+      "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-11-06T01:00:00+08:00"
+      "published_at": "2026-11-06T01:05:16+08:00"
     },
     {
       "id": "b58fee4edbbb",
@@ -159,30 +187,12 @@
       "published_at": "2026-11-06T01:00:00+08:00"
     },
     {
-      "id": "9b11b10a55dd",
-      "title": "The Wizard of Open Weights: Chris Alexiuk Makes AI Easy With Open Models",
-      "summary": "Chris Alexiuk has a simple rule about open source AI: If you believe in it, be loud about it. “We should be shouting about this technology from the rooftops,” …",
-      "url": "https://blogs.nvidia.com/blog/nvidia-life-chris-alexiuk/",
-      "source": "NVIDIA AI",
-      "category": "开源项目",
-      "published_at": "2026-11-06T00:00:05+08:00"
-    },
-    {
       "id": "7ab25c6dd263",
       "title": "Formally verifying agent-written full-stack web apps with PDD Kit",
       "summary": "AI agents can generate code at a scale that’s hard for humans to review line-by-line. PDD Kit helps ensure the code is doing what the developer intended by cre…",
       "url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
       "source": "Microsoft AI",
       "category": "行业新闻",
-      "published_at": "2026-11-06T00:00:00+08:00"
-    },
-    {
-      "id": "abce147212c4",
-      "title": "More Performance From Every Byte: How Full-Stack Codesign Solves AI’s Memory Challenge",
-      "summary": "Larger models, longer contexts and agentic applications are increasing GPU memory pressure while supply tightens and prices rise — a trend expected to continue…",
-      "url": "https://blogs.nvidia.com/blog/memory-full-stack-codesign/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
       "published_at": "2026-11-06T00:00:00+08:00"
     },
     {
@@ -223,6 +233,16 @@
       "window_hours": 720
     },
     {
+      "id": "0cb5ff0e4866",
+      "title": "Linux内核被挖出948个漏洞！OpenAI花120万美元找到的",
+      "summary": "Linux内核被挖出948个漏洞！OpenAI花120万美元找到的",
+      "url": "https://www.qbitai.com/2026/11/507697.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-05T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "7edcdb24a88e",
       "title": "Learn the rules: The hacker mindset",
       "summary": "Research Manager Mike Walker reflects on a career spanning hacker culture, cybersecurity, and AI, sharing lessons about trust, teamwork, leadership, and why so…",
@@ -230,6 +250,15 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-11-04T01:14:38+08:00"
+    },
+    {
+      "id": "7b04a568c5ad",
+      "title": "Agentic cheminformatics with Google Antigravity",
+      "summary": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
+      "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-11-04T01:01:49+08:00"
     },
     {
       "id": "b810030289ed",
@@ -251,26 +280,6 @@
       "window_hours": 720
     },
     {
-      "id": "4f1cd76f576e",
-      "title": "小米开源了个150元的AI小玩意，火到配件都涨价了",
-      "summary": "小米开源了个150元的AI小玩意，火到配件都涨价了",
-      "url": "https://www.qbitai.com/2026/11/507107.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-02T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "34a3fd5177bc",
-      "title": "GPT-6.2 Astra开启灰测！Claude Mythos 5.5同日曝光",
-      "summary": "GPT-6.2 Astra开启灰测！Claude Mythos 5.5同日曝光",
-      "url": "https://www.qbitai.com/2026/11/507082.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-11-02T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "19ee9b951077",
       "title": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
       "summary": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
@@ -285,16 +294,6 @@
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "4f1cd76f576e",
-        "title": "小米开源了个150元的AI小玩意，火到配件都涨价了",
-        "summary": "小米开源了个150元的AI小玩意，火到配件都涨价了",
-        "url": "https://www.qbitai.com/2026/11/507107.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-11-02T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "7e1fe124c816",
         "title": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
@@ -316,16 +315,6 @@
         "window_hours": 720
       },
       {
-        "id": "34a3fd5177bc",
-        "title": "GPT-6.2 Astra开启灰测！Claude Mythos 5.5同日曝光",
-        "summary": "GPT-6.2 Astra开启灰测！Claude Mythos 5.5同日曝光",
-        "url": "https://www.qbitai.com/2026/11/507082.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-11-02T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "19ee9b951077",
         "title": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
         "summary": "顶级AI翻车的活儿，被这个新出的免费国产AI接住了！",
@@ -333,6 +322,26 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-11-02T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "0cb5ff0e4866",
+        "title": "Linux内核被挖出948个漏洞！OpenAI花120万美元找到的",
+        "summary": "Linux内核被挖出948个漏洞！OpenAI花120万美元找到的",
+        "url": "https://www.qbitai.com/2026/11/507697.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-05T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "61b3b7c2c572",
+        "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
+        "summary": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
+        "url": "https://www.qbitai.com/2026/11/508264.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-07T00:00:00+08:00",
         "window_hours": 720
       }
     ]
