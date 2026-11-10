@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-10T19:52:59.765319+08:00",
-  "date": "2026-11-10",
+  "updated_at": "2026-11-11T06:03:32.652299+08:00",
+  "date": "2026-11-11",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,9 +15,63 @@
   },
   "items": [
     {
+      "id": "ac5a661efbfd",
+      "title": "Gemini Intelligence: New features, on more devices",
+      "summary": "Gemini Intelligence is rolling out to more devices. See how expanded capabilities across these devices help you do more.",
+      "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-11T03:00:00+08:00"
+    },
+    {
+      "id": "b4eac762a15a",
+      "title": "NVIDIA Expands Open Source Commitment With OpenShell Donation and New AI Infrastructure",
+      "summary": "Kubernetes, the open source system that manages how applications run across thousands of AI factories, has become the foundation for AI, and the demands on it …",
+      "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
+      "source": "NVIDIA AI",
+      "category": "开源项目",
+      "published_at": "2026-11-11T00:00:03+08:00"
+    },
+    {
+      "id": "c5fffc8a0cbd",
+      "title": "We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps.",
+      "summary": "Google and Adobe are integrating creative and productivity tools. Edit PDFs in Drive and use Adobe AI in Gemini. See what’s new in this partnership.",
+      "url": "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-10T22:00:00+08:00"
+    },
+    {
+      "id": "155d33cae726",
+      "title": "Google Cloud launches Gemini for healthcare.",
+      "summary": "Google Cloud launches Gemini for healthcare to unify clinical data and automate workflows. Reduce administrative burnout. See how it works.",
+      "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
+      "source": "Google AI",
+      "category": "新工具上线",
+      "published_at": "2026-11-10T21:00:00+08:00"
+    },
+    {
+      "id": "46ecb159c153",
+      "title": "Helping caregivers use AI in everyday life",
+      "summary": "OpenAI Academy is bringing free, hands-on ChatGPT workshops to caregivers in five U.S. cities, helping them build practical AI skills for everyday life.",
+      "url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-10T20:00:00+08:00"
+    },
+    {
+      "id": "5ca4dc7b6d88",
+      "title": "Introducing Businesses in ChatGPT",
+      "summary": "Manage your business information, get insights about how your business shows up, and turn interest into action in ChatGPT.",
+      "url": "https://openai.com/index/introducing-businesses-chatgpt",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-11-10T18:00:00+08:00"
+    },
+    {
       "id": "01a8528fa117",
       "title": "Closing the AI guidance gap in education",
-      "summary": "Lessons from OpenAI’s EMEA education partnerships and new ThinkYoung research. Supporting teachers, AI literacy and independent learning.",
+      "summary": "New ThinkYoung research and lessons from OpenAI’s EMEA education partnerships on supporting teachers, AI literacy, and independent learning.",
       "url": "https://openai.com/index/closing-ai-guidance-gap-education",
       "source": "OpenAI",
       "category": "行业新闻",
@@ -69,6 +123,33 @@
       "published_at": "2026-11-10T15:33:19+08:00"
     },
     {
+      "id": "3588ceed4155",
+      "title": "Work at the Frontier: AI’s effect on freelance work",
+      "summary": "New research from OpenAI and Upwork finds shifting demand for freelance work, new skill combinations, and larger budgets and more hours for AI-related projects.",
+      "url": "https://openai.com/index/ai-effect-on-freelance-work",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-10T15:00:00+08:00"
+    },
+    {
+      "id": "724fae925148",
+      "title": "Pay for Hugging Face Hub with your Google Cloud Account",
+      "summary": "Pay for Hugging Face Hub with your Google Cloud Account",
+      "url": "https://huggingface.co/blog/hub-gcp-marketplace",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-10T08:00:00+08:00"
+    },
+    {
+      "id": "3229de0d9192",
+      "title": "Decision Models in",
+      "summary": "Decision Models in Hugging Face",
+      "url": "https://huggingface.co/blog/decision",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-10T08:00:00+08:00"
+    },
+    {
       "id": "9c331579e229",
       "title": "ChatGPT Enterprise now available in AWS Marketplace",
       "summary": "ChatGPT Enterprise is now available through AWS Marketplace, helping organizations simplify procurement through existing AWS purchasing and billing relationshi…",
@@ -96,15 +177,6 @@
       "published_at": "2026-11-09T22:00:01+08:00"
     },
     {
-      "id": "f37b680abcf7",
-      "title": "Control Room: A central system to track and stop model workloads across our research infrastructure",
-      "summary": "Learn how OpenAI’s Control Room tracks model workloads across our research infrastructure and can rapidly stop them when safety or security concerns arise.",
-      "url": "https://openai.com/index/control-room",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-09T21:00:00+08:00"
-    },
-    {
       "id": "7b1451fc786c",
       "title": "Your Experts Have Partners. There's HOPE for Keeping Them Together",
       "summary": "Your Experts Have Partners. There's HOPE for Keeping Them Together",
@@ -123,24 +195,6 @@
       "published_at": "2026-11-09T16:00:53+08:00"
     },
     {
-      "id": "23b94c697622",
-      "title": "CodeRabbit scales agentic software development and ships 20x more",
-      "summary": "CodeRabbit uses OpenAI models to govern and trust AI-generated code and Codex to ship 20 times more software with the same engineering team.",
-      "url": "https://openai.com/index/coderabbit-codex-daybreak",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-09T16:00:00+08:00"
-    },
-    {
-      "id": "932fe34bad72",
-      "title": "Kuken Industries searches 70 years of drawings in minutes",
-      "summary": "Kuken Industries uses the OpenAI API to search 70 years of cooling tower drawings. Engineers can find the drawing for a repair in 4.5 minutes, down from nearly…",
-      "url": "https://openai.com/index/kuken",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-09T16:00:00+08:00"
-    },
-    {
       "id": "dc742b2cbd8f",
       "title": "Korea Advances Physical AI Across Industries With",
       "summary": "Tapping into the country’s strengths in manufacturing and engineering, NVIDIA is helping advance Korea’s physical AI ecosystem. The country’s industry leaders …",
@@ -157,15 +211,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-11-09T13:00:39+08:00"
-    },
-    {
-      "id": "22dc4f77b8e2",
-      "title": "From Chips to Skills, NVIDIA and Korea Expand Sovereign AI Collaboration",
-      "summary": "NVIDIA and Korea’s Ministry of Science and ICT (MSIT) are expanding their collaboration across the country’s sovereign AI ecosystem, from AI semiconductors and…",
-      "url": "https://blogs.nvidia.com/blog/korea-sovereign-ai-collaboration/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-09T13:00:04+08:00"
     },
     {
       "id": "e4a9449a7dd7",
@@ -197,22 +242,13 @@
       "published_at": "2026-11-06T22:00:48+08:00"
     },
     {
-      "id": "82196d4ece0a",
-      "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
-      "summary": "Egyptian and Nigerian English join the Open ASR Leaderboard",
-      "url": "https://huggingface.co/blog/open-asr-leaderboard-liva",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-11-06T08:00:00+08:00"
-    },
-    {
-      "id": "825a50d1c0ad",
+      "id": "63c3d56bc72b",
       "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "summary": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/",
-      "source": "Google DeepMind",
+      "summary": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "source": "Google AI",
       "category": "新模型发布",
-      "published_at": "2026-11-06T01:05:16+08:00"
+      "published_at": "2026-11-06T01:00:00+08:00"
     },
     {
       "id": "7ab25c6dd263",
@@ -234,15 +270,6 @@
       "window_hours": 720
     },
     {
-      "id": "89209ab642b1",
-      "title": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
-      "summary": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
-      "url": "https://huggingface.co/blog/phonon-tts",
-      "source": "Hugging Face",
-      "category": "新工具上线",
-      "published_at": "2026-11-05T08:00:00+08:00"
-    },
-    {
       "id": "f46bd8b9888c",
       "title": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
       "summary": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
@@ -261,24 +288,6 @@
       "category": "中文资讯",
       "published_at": "2026-11-05T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "7edcdb24a88e",
-      "title": "Learn the rules: The hacker mindset",
-      "summary": "Research Manager Mike Walker reflects on a career spanning hacker culture, cybersecurity, and AI, sharing lessons about trust, teamwork, leadership, and why so…",
-      "url": "https://www.microsoft.com/en-us/research/podcast/learn-the-rules-the-hacker-mindset/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-04T01:14:38+08:00"
-    },
-    {
-      "id": "7b04a568c5ad",
-      "title": "Agentic cheminformatics with Google Antigravity",
-      "summary": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
-      "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-04T01:01:49+08:00"
     }
   ],
   "qbitai_hot": {
