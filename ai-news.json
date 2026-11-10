@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-10T08:30:00.418911+08:00",
+  "updated_at": "2026-11-10T19:52:59.765319+08:00",
   "date": "2026-11-10",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "01a8528fa117",
+      "title": "Closing the AI guidance gap in education",
+      "summary": "Lessons from OpenAI’s EMEA education partnerships and new ThinkYoung research. Supporting teachers, AI literacy and independent learning.",
+      "url": "https://openai.com/index/closing-ai-guidance-gap-education",
+      "source": "OpenAI",
+      "category": "行业新闻",
+      "published_at": "2026-11-10T17:00:00+08:00"
+    },
+    {
+      "id": "602ee03727fa",
+      "title": "从芯片到千比特整机，超导量子计算还有一场硬仗",
+      "summary": "近亿元融资刚刚落袋",
+      "url": "https://www.qbitai.com/2026/11/509017.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-11-10T16:33:25+08:00"
+    },
+    {
+      "id": "3872694bbd4e",
+      "title": "从“一脑多机”到“一脑多手”，蚂蚁灵波开源LingBot-Touch触觉基础模型",
+      "summary": "11月10日，蚂蚁灵波科技开源触觉基础模型LingBot-Touch",
+      "url": "https://www.qbitai.com/2026/11/508996.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-10T15:57:45+08:00"
+    },
+    {
+      "id": "3fca7414657a",
+      "title": "Agent自演进驶入“双轨时代”！openJiuwen首发TTSE经验学习框架",
+      "summary": "让每一次任务，都成为下一次进步的起点",
+      "url": "https://www.qbitai.com/2026/11/508998.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-10T15:56:29+08:00"
+    },
+    {
+      "id": "ecb9cbad4ada",
+      "title": "成立四个月，融资过亿美金：TensorWorld物原科技要跑通“物理真实”路线",
+      "summary": "TensorWorld物原科技在一个月内已拿到过亿美元融资",
+      "url": "https://www.qbitai.com/2026/11/508991.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-11-10T15:50:26+08:00"
+    },
+    {
+      "id": "518bcaaf9989",
+      "title": "达卯科技与浦东环保能源战略合作，黎明智算中心算电协同平台启动",
+      "summary": "加速东部城市型智算中心向E-AIDC演进",
+      "url": "https://www.qbitai.com/2026/11/508985.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-11-10T15:33:19+08:00"
+    },
     {
       "id": "9c331579e229",
       "title": "ChatGPT Enterprise now available in AWS Marketplace",
@@ -60,42 +114,6 @@
       "published_at": "2026-11-09T20:34:29+08:00"
     },
     {
-      "id": "ed83e268f6e8",
-      "title": "“AI毁了我的计算机学位”",
-      "summary": "教授也用Claude糊弄…",
-      "url": "https://www.qbitai.com/2026/11/508706.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-11-09T16:57:20+08:00"
-    },
-    {
-      "id": "d51ea73e96c2",
-      "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-      "summary": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-      "url": "https://www.qbitai.com/2026/11/507843.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-09T16:44:00+08:00"
-    },
-    {
-      "id": "9f03cf341cd9",
-      "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
-      "summary": "11月9日，千问办公发布2.0版本",
-      "url": "https://www.qbitai.com/2026/11/508694.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-11-09T16:34:03+08:00"
-    },
-    {
-      "id": "b74906a62bee",
-      "title": "叙事奔涌，何以为锚?丨第 20 届中国投资年会·有限合伙人峰会即将启幕",
-      "summary": "厘清故事与现实的边界，回归投资与产业的底层逻辑。",
-      "url": "https://www.qbitai.com/2026/11/508690.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-09T16:26:45+08:00"
-    },
-    {
       "id": "57a8ba0d5522",
       "title": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA AI Startup Partnership Forum",
       "summary": "Korea’s Ministry of Science and ICT and NVIDIA hosted the MSIT-NVIDIA AI Startup Partnership Forum at COEX. Representatives from the Ministry of Science and IC…",
@@ -121,15 +139,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-09T16:00:00+08:00"
-    },
-    {
-      "id": "c03a28271fc2",
-      "title": "L3大撤退！奔驰宝马官宣不玩了：还没L2好用",
-      "summary": "最早量产的亲自泼冷水",
-      "url": "https://www.qbitai.com/2026/11/508629.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-09T15:02:36+08:00"
     },
     {
       "id": "dc742b2cbd8f",
@@ -159,6 +168,16 @@
       "published_at": "2026-11-09T13:00:04+08:00"
     },
     {
+      "id": "e4a9449a7dd7",
+      "title": "资本正在撤离“世界模型”",
+      "summary": "资本正在撤离“世界模型”",
+      "url": "https://www.qbitai.com/2026/11/508466.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-08T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "61b3b7c2c572",
       "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
       "summary": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
@@ -178,15 +197,6 @@
       "published_at": "2026-11-06T22:00:48+08:00"
     },
     {
-      "id": "bc8f9eac1966",
-      "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
-      "summary": "OpenAI is partnering with Hacktron to find vulnerabilities, test connections with third-party services, and strengthen defenses with frontier AI.",
-      "url": "https://openai.com/index/partnering-with-hacktron",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-06T16:00:00+08:00"
-    },
-    {
       "id": "82196d4ece0a",
       "title": "Egyptian and Nigerian English join the Open ASR Leaderboard",
       "summary": "Egyptian and Nigerian English join the Open ASR Leaderboard",
@@ -196,13 +206,13 @@
       "published_at": "2026-11-06T08:00:00+08:00"
     },
     {
-      "id": "63c3d56bc72b",
+      "id": "825a50d1c0ad",
       "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "summary": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-      "source": "Google AI",
+      "summary": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/",
+      "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-11-06T01:00:00+08:00"
+      "published_at": "2026-11-06T01:05:16+08:00"
     },
     {
       "id": "7ab25c6dd263",
@@ -212,6 +222,16 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-11-06T00:00:00+08:00"
+    },
+    {
+      "id": "9916aee4f641",
+      "title": "99.4%登顶全球第一！这个中国AI师承世界冠军",
+      "summary": "99.4%登顶全球第一！这个中国AI师承世界冠军",
+      "url": "https://www.qbitai.com/2026/11/508107.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-06T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "89209ab642b1",
@@ -243,16 +263,6 @@
       "window_hours": 720
     },
     {
-      "id": "a29b2895a2f3",
-      "title": "百度开源文心5.5 Flash Base，多基准测试刷新同尺寸模型 SOTA",
-      "summary": "百度开源文心5.5 Flash Base，多基准测试刷新同尺寸模型 SOTA",
-      "url": "https://www.qbitai.com/2026/11/507787.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-05T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "7edcdb24a88e",
       "title": "Learn the rules: The hacker mindset",
       "summary": "Research Manager Mike Walker reflects on a career spanning hacker culture, cybersecurity, and AI, sharing lessons about trust, teamwork, leadership, and why so…",
@@ -262,30 +272,19 @@
       "published_at": "2026-11-04T01:14:38+08:00"
     },
     {
-      "id": "7e1fe124c816",
-      "title": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
-      "summary": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
-      "url": "https://www.qbitai.com/2026/11/507322.html",
-      "source": "量子位",
+      "id": "7b04a568c5ad",
+      "title": "Agentic cheminformatics with Google Antigravity",
+      "summary": "Learn how Google Antigravity and our Cheminformatics Skills accelerate drug discovery workflows, search compounds, and propose novel rigidified macrocycles.",
+      "url": "https://deepmind.google/blog/agentic-cheminformatics-with-google-antigravity/",
+      "source": "Google DeepMind",
       "category": "新模型发布",
-      "published_at": "2026-11-03T00:00:00+08:00",
-      "window_hours": 720
+      "published_at": "2026-11-04T01:01:49+08:00"
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "7e1fe124c816",
-        "title": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
-        "summary": "MIT：GPT-6 Astra能直接修改Qwen权重，数学能力暴涨6倍",
-        "url": "https://www.qbitai.com/2026/11/507322.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-11-03T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "f46bd8b9888c",
         "title": "百度无人车搞出“黑客帝国”！世界模型实时推演全局，跑一天抵三年",
@@ -307,22 +306,32 @@
         "window_hours": 720
       },
       {
+        "id": "9916aee4f641",
+        "title": "99.4%登顶全球第一！这个中国AI师承世界冠军",
+        "summary": "99.4%登顶全球第一！这个中国AI师承世界冠军",
+        "url": "https://www.qbitai.com/2026/11/508107.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-06T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "e4a9449a7dd7",
+        "title": "资本正在撤离“世界模型”",
+        "summary": "资本正在撤离“世界模型”",
+        "url": "https://www.qbitai.com/2026/11/508466.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-08T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "0cb5ff0e4866",
         "title": "Linux内核被挖出948个漏洞！OpenAI花120万美元找到的",
         "summary": "Linux内核被挖出948个漏洞！OpenAI花120万美元找到的",
         "url": "https://www.qbitai.com/2026/11/507697.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-11-05T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "a29b2895a2f3",
-        "title": "百度开源文心5.5 Flash Base，多基准测试刷新同尺寸模型 SOTA",
-        "summary": "百度开源文心5.5 Flash Base，多基准测试刷新同尺寸模型 SOTA",
-        "url": "https://www.qbitai.com/2026/11/507787.html",
-        "source": "量子位",
-        "category": "开源项目",
         "published_at": "2026-11-05T00:00:00+08:00",
         "window_hours": 720
       }
