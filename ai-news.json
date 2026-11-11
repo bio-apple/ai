@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-11T06:03:32.652299+08:00",
+  "updated_at": "2026-11-11T19:29:21.937366+08:00",
   "date": "2026-11-11",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,141 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "f28f90d2895a",
+      "title": "Gilbert + Tobin rethinks the business of law with AI",
+      "summary": "A conversation with Sam Nickless, Partner and Chief Executive Officer at Gilbert + Tobin.",
+      "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-12T08:00:00+08:00"
+    },
+    {
+      "id": "7e65614cc89a",
+      "title": "Experience the art and legacy of Dr. Esther Mahlangu",
+      "summary": "A new online archive of Esther Mahlangu’s life and art is now on Google Arts & Culture.",
+      "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-11T17:00:00+08:00"
+    },
+    {
+      "id": "80b38ea7da37",
+      "title": "ChatGPT Plus for veterans and servicemembers",
+      "summary": "More than 20,000 veterans and transitioning service members have claimed a free year of ChatGPT Plus. See how they use it to prepare for civilian careers.",
+      "url": "https://openai.com/index/chatgpt-plus-for-veterans",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-11T16:00:00+08:00"
+    },
+    {
+      "id": "2d013ee6fa63",
+      "title": "双11直播间爆改AI秀场，罗永浩上手TRAE，秒变AI Coding的大众嘴替",
+      "summary": "价格、门槛全打穿",
+      "url": "https://www.qbitai.com/2026/11/509146.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-11T14:41:26+08:00"
+    },
+    {
+      "id": "3b853809595d",
+      "title": "从“卖Token”到“卖结果” | 科技有「联想」沙龙激辩Token经济三大议题",
+      "summary": "10月30日，“科技有「联想」·Token畅想曲”线下沙龙在京举行。",
+      "url": "https://www.qbitai.com/2026/11/509088.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-11T14:27:03+08:00"
+    },
+    {
+      "id": "bc334f28ad5c",
+      "title": "卷起来了！11月11日，大模型厂商在天猫打5折",
+      "summary": "大模型厂商智谱、MiniMax、千问办公、阿里云、Qoder都在天猫打5折。",
+      "url": "https://www.qbitai.com/2026/11/509085.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-11-11T14:18:09+08:00"
+    },
+    {
+      "id": "b22522d14a17",
+      "title": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
+      "summary": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
+      "url": "https://huggingface.co/blog/qvac/botpsy",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-11-11T13:01:16+08:00"
+    },
+    {
+      "id": "fd7c3339799c",
+      "title": "Auditable Human-Agent Teams for Autonomous X-ray Experimentation",
+      "summary": "arXiv:2611.12933v1 Announce Type: new Abstract: Closed-loop autonomous experimentation can accelerate scientific discovery, but implementation effort limits ac…",
+      "url": "https://arxiv.org/abs/2611.12933",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-11T13:00:00+08:00"
+    },
+    {
+      "id": "6d6fb689fbfe",
+      "title": "EarthRecord: From Pixels to Land Change with Multimodal Agents over Four Decades of Satellite Imagery",
+      "summary": "arXiv:2611.12934v1 Announce Type: new Abstract: While multimodal agents now carry out complex data analysis with tools, their ability to turn decades of satell…",
+      "url": "https://arxiv.org/abs/2611.12934",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-11T13:00:00+08:00"
+    },
+    {
+      "id": "541a6d047468",
+      "title": "Train on prefill, monitor at decode: Using sparse autoencoders for topic monitoring",
+      "summary": "arXiv:2611.12935v1 Announce Type: new Abstract: Topic monitoring is the task of labelling the topic of each token in a model's response during generation. Acti…",
+      "url": "https://arxiv.org/abs/2611.12935",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-11T13:00:00+08:00"
+    },
+    {
+      "id": "43dfb67f4b9a",
+      "title": "LandslideFM: A Foundation Model Towards Unified Landslide Perception and Understanding",
+      "summary": "arXiv:2611.12936v1 Announce Type: new Abstract: Intelligent landslide detection is essential for disaster prevention. However, existing models primarily focus …",
+      "url": "https://arxiv.org/abs/2611.12936",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-11-11T13:00:00+08:00"
+    },
+    {
+      "id": "62aa1d105581",
+      "title": "Tracing Psychometric Inference in Large Language Models",
+      "summary": "arXiv:2611.12937v1 Announce Type: new Abstract: Do large language models represent psychological constructs internally, or do they only generate outputs that r…",
+      "url": "https://arxiv.org/abs/2611.12937",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-11T13:00:00+08:00"
+    },
+    {
+      "id": "5b9f69191577",
+      "title": "无人拖拉机真正下地了！新疆大田深翻30+厘米，丘沃智能开物™系统首次完整曝光",
+      "summary": "L4无人化作业走向规模交付",
+      "url": "https://www.qbitai.com/2026/11/509052.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-11T11:43:31+08:00"
+    },
+    {
+      "id": "34dcc0e759ee",
+      "title": "How AI Helps Recyclers Turn Mixed Waste Into Reusable Material",
+      "summary": "Vision AI and robotics pick what’s worth recovering out of conveyor belts of used clothing, bottles and mixed recyclables, diverting thousands of tons of mater…",
+      "url": "https://blogs.nvidia.com/blog/ai-recycling-startups/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-11T11:00:20+08:00"
+    },
+    {
+      "id": "1d554c42ba6f",
+      "title": "Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
+      "summary": "Microsoft researchers have discovered &#8220;Lazarus,&#8221; a backdoor technique that can reprogram dormant neurons in an AI model, causing an otherwise norma…",
+      "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+      "source": "Microsoft AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-11T04:52:56+08:00"
+    },
     {
       "id": "ac5a661efbfd",
       "title": "Gemini Intelligence: New features, on more devices",
@@ -60,6 +195,15 @@
       "published_at": "2026-11-10T20:00:00+08:00"
     },
     {
+      "id": "f574bb1b184a",
+      "title": "英伟达机器人开源撞上Fable 5.2发布！Jim Fan：不是寒冬是夏天",
+      "summary": "英伟达机器人开源撞上Fable 5.2发布！Jim Fan：不是寒冬是夏天",
+      "url": "https://www.qbitai.com/2026/11/509032.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-10T18:35:38+08:00"
+    },
+    {
       "id": "5ca4dc7b6d88",
       "title": "Introducing Businesses in ChatGPT",
       "summary": "Manage your business information, get insights about how your business shows up, and turn interest into action in ChatGPT.",
@@ -78,60 +222,6 @@
       "published_at": "2026-11-10T17:00:00+08:00"
     },
     {
-      "id": "602ee03727fa",
-      "title": "从芯片到千比特整机，超导量子计算还有一场硬仗",
-      "summary": "近亿元融资刚刚落袋",
-      "url": "https://www.qbitai.com/2026/11/509017.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-11-10T16:33:25+08:00"
-    },
-    {
-      "id": "3872694bbd4e",
-      "title": "从“一脑多机”到“一脑多手”，蚂蚁灵波开源LingBot-Touch触觉基础模型",
-      "summary": "11月10日，蚂蚁灵波科技开源触觉基础模型LingBot-Touch",
-      "url": "https://www.qbitai.com/2026/11/508996.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-10T15:57:45+08:00"
-    },
-    {
-      "id": "3fca7414657a",
-      "title": "Agent自演进驶入“双轨时代”！openJiuwen首发TTSE经验学习框架",
-      "summary": "让每一次任务，都成为下一次进步的起点",
-      "url": "https://www.qbitai.com/2026/11/508998.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-10T15:56:29+08:00"
-    },
-    {
-      "id": "ecb9cbad4ada",
-      "title": "成立四个月，融资过亿美金：TensorWorld物原科技要跑通“物理真实”路线",
-      "summary": "TensorWorld物原科技在一个月内已拿到过亿美元融资",
-      "url": "https://www.qbitai.com/2026/11/508991.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-11-10T15:50:26+08:00"
-    },
-    {
-      "id": "518bcaaf9989",
-      "title": "达卯科技与浦东环保能源战略合作，黎明智算中心算电协同平台启动",
-      "summary": "加速东部城市型智算中心向E-AIDC演进",
-      "url": "https://www.qbitai.com/2026/11/508985.html",
-      "source": "量子位",
-      "category": "行业新闻",
-      "published_at": "2026-11-10T15:33:19+08:00"
-    },
-    {
-      "id": "3588ceed4155",
-      "title": "Work at the Frontier: AI’s effect on freelance work",
-      "summary": "New research from OpenAI and Upwork finds shifting demand for freelance work, new skill combinations, and larger budgets and more hours for AI-related projects.",
-      "url": "https://openai.com/index/ai-effect-on-freelance-work",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-10T15:00:00+08:00"
-    },
-    {
       "id": "724fae925148",
       "title": "Pay for Hugging Face Hub with your Google Cloud Account",
       "summary": "Pay for Hugging Face Hub with your Google Cloud Account",
@@ -148,15 +238,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-11-10T08:00:00+08:00"
-    },
-    {
-      "id": "9c331579e229",
-      "title": "ChatGPT Enterprise now available in AWS Marketplace",
-      "summary": "ChatGPT Enterprise is now available through AWS Marketplace, helping organizations simplify procurement through existing AWS purchasing and billing relationshi…",
-      "url": "https://openai.com/index/chatgpt-enterprise-aws-marketplace",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-10T03:00:00+08:00"
     },
     {
       "id": "057e22ab69c0",
@@ -204,15 +285,6 @@
       "published_at": "2026-11-09T13:00:40+08:00"
     },
     {
-      "id": "741e635ddb78",
-      "title": "Korea’s AI Ecosystem Advances and Secures Agentic AI With",
-      "summary": "As AI agents take on more work, they need capable open models and security that advances alongside them. Hyundai Motor Group is exploring NVIDIA NemoClaw bluep…",
-      "url": "https://blogs.nvidia.com/blog/korea-secure-agentic-ai/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-09T13:00:39+08:00"
-    },
-    {
       "id": "e4a9449a7dd7",
       "title": "资本正在撤离“世界模型”",
       "summary": "资本正在撤离“世界模型”",
@@ -231,15 +303,6 @@
       "category": "中文资讯",
       "published_at": "2026-11-07T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "be1ba71e55b7",
-      "title": "ToyBlocks: A controlled world for robot learning and evaluation",
-      "summary": "ToyBlocks: A controlled world for robot learning and evaluation",
-      "url": "https://huggingface.co/blog/allenai/toyblocks",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-11-06T22:00:48+08:00"
     },
     {
       "id": "63c3d56bc72b",
@@ -305,16 +368,6 @@
         "window_hours": 720
       },
       {
-        "id": "61b3b7c2c572",
-        "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
-        "summary": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
-        "url": "https://www.qbitai.com/2026/11/508264.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-11-07T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "9916aee4f641",
         "title": "99.4%登顶全球第一！这个中国AI师承世界冠军",
         "summary": "99.4%登顶全球第一！这个中国AI师承世界冠军",
@@ -322,6 +375,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-11-06T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "61b3b7c2c572",
+        "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
+        "summary": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
+        "url": "https://www.qbitai.com/2026/11/508264.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-07T00:00:00+08:00",
         "window_hours": 720
       },
       {
