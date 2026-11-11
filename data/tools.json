@@ -959,5 +959,64 @@
       }
     ],
     "shortcuts": null
+  },
+  {
+    "id": "agent-qa",
+    "section_id": "section-agent-qa",
+    "icon": "qa",
+    "name": "agent-qa",
+    "description": "面向 Web、Android 和 iOS 应用的 AI 测试 Agent。通过 CLI、MCP 和 Skills 接入开发流程，结合持久记忆与经验证的自我改进复用有效测试经验。",
+    "getting_started_steps": [
+      "访问 <a href=\"https://vostride.com\" rel=\"noopener noreferrer\" target=\"_blank\">vostride 官网</a>，准备 Node.js 24+ 和模型访问权限。",
+      "参考官方 MCP 文档，通过 <code>npx agent-qa mcp</code> 接入支持 MCP 的客户端，或使用 CLI 与 Skills。",
+      "准备待测网页；移动端测试需配置相应的设备或模拟器。",
+      "本地包免费，模型服务费用另计；许可证为 FSL-1.1-ALv2。"
+    ],
+    "features": [
+      {
+        "title": "多端测试",
+        "description": "支持 Web、Android 与 iOS 的 AI 自动化测试。"
+      },
+      {
+        "title": "持久记忆",
+        "description": "保存可复用的测试知识，帮助后续任务利用已有经验。"
+      },
+      {
+        "title": "经验证的自我改进",
+        "description": "验证测试经验后再保留，供后续执行复用。"
+      }
+    ],
+    "video_resources": [],
+    "text_resources": [
+      {
+        "type": "官方网站",
+        "type_class": "official",
+        "href": "https://vostride.com",
+        "title": "agent-qa 官网",
+        "meta": "功能介绍与使用入口"
+      },
+      {
+        "type": "官方文档",
+        "type_class": "official",
+        "href": "https://vostride.com/docs/agent-qa/mcp",
+        "title": "MCP 接入文档",
+        "meta": "通过 MCP 运行测试与检查结果"
+      },
+      {
+        "type": "中文文档",
+        "type_class": "official",
+        "href": "https://github.com/vostride/agent-qa/blob/v0.2.3/README.zh-CN.md",
+        "title": "agent-qa 中文 README",
+        "meta": "v0.2.3 公开发布说明"
+      },
+      {
+        "type": "项目基准",
+        "type_class": "official",
+        "href": "https://vostride.com/benchmark/android-world",
+        "title": "AndroidWorld 基准",
+        "meta": "项目公布的 AndroidWorld 测试结果"
+      }
+    ],
+    "shortcuts": null
   }
 ]
