@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-12T19:56:03.668012+08:00",
-  "date": "2026-11-12",
+  "updated_at": "2026-11-13T06:29:42.195979+08:00",
+  "date": "2026-11-13",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,69 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "3ded89e2e5f9",
+      "title": "Microsoft Research Focus – Edition #98",
+      "summary": "What's new in research at Microsoft? Host Anson Ho explores the latest, including AI-powered universal translation, a breakthrough in a 31-year-old mathematics…",
+      "url": "https://www.microsoft.com/en-us/research/podcast/microsoft-research-focus-edition-98/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-13T05:31:57+08:00"
+    },
+    {
+      "id": "372847c94994",
+      "title": "How Amplitude ships product improvements in 1–2 days with",
+      "summary": "Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measure…",
+      "url": "https://openai.com/index/amplitude",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-13T04:00:00+08:00"
+    },
+    {
+      "id": "a88bddb17214",
+      "title": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+      "summary": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+      "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+      "source": "Hugging Face",
+      "category": "新模型发布",
+      "published_at": "2026-11-13T03:07:35+08:00"
+    },
+    {
+      "id": "4bad5afe01a1",
+      "title": "Introducing Gemini 4 Hydrogen",
+      "summary": "Introducing Gemini 4 Hydrogen",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-11-13T02:00:50+08:00"
+    },
+    {
+      "id": "459a57b4750a",
+      "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+      "summary": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.",
+      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-13T02:00:00+08:00"
+    },
+    {
+      "id": "42899cb2010a",
+      "title": "A New Dawn in the Cloud: ‘Warhammer 40,000: Dawn of War IV’ Is Coming to GeForce NOW",
+      "summary": "Rally the ranks this GFN Thursday. Warhammer 40,000: Dawn of War IV is coming to GeForce NOW, allowing players to experience the battle for Kronus through clou…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-warhammer-dawn-of-war-iv-coming/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-12T22:00:59+08:00"
+    },
+    {
+      "id": "baf44ce1f39f",
+      "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
+      "summary": "「CAD拆解」",
+      "url": "https://www.qbitai.com/2026/11/509440.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-12T19:36:20+08:00"
+    },
     {
       "id": "51f5443e5e71",
       "title": "从通用大模型到学习过程智能，AI如何真正进入课堂？",
@@ -60,15 +123,6 @@
       "published_at": "2026-11-12T17:30:00+08:00"
     },
     {
-      "id": "7bee507d3135",
-      "title": "马斯克已准备好聘请黄仁勋",
-      "summary": "老黄出轨认错、再曝婚外恋",
-      "url": "https://www.qbitai.com/2026/11/509334.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-12T16:16:11+08:00"
-    },
-    {
       "id": "b06379671ede",
       "title": "Supporting research on AI and children’s safety",
       "summary": "OpenAI commits $2 million to research on AI and children’s safety. The work supports shared tools to measure risks and opportunities for young people.",
@@ -83,6 +137,15 @@
       "summary": "A conversation with Sam Nickless, Partner and Chief Executive Officer at Gilbert + Tobin.",
       "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
       "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-12T08:00:00+08:00"
+    },
+    {
+      "id": "56dac742ff29",
+      "title": "The Definitive Fine-Tuning Guide for 3D Generation Models",
+      "summary": "The Definitive Fine-Tuning Guide for 3D Generation Models",
+      "url": "https://huggingface.co/blog/3d-lora-finetuning",
+      "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-11-12T08:00:00+08:00"
     },
@@ -150,15 +213,6 @@
       "published_at": "2026-11-11T11:00:20+08:00"
     },
     {
-      "id": "8c999d6885d2",
-      "title": "JioStar’s chief architect on AI discovery at 500M-user scale",
-      "summary": "JioStar’s Vijay Seshadri explains AI discovery at 500M-user scale. Read his lessons on evals, guardrails, and taking AI into production.",
-      "url": "https://openai.com/index/jiostar-vijay-seshadri",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T08:00:00+08:00"
-    },
-    {
       "id": "d2296a64c0dc",
       "title": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
       "summary": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
@@ -196,21 +250,12 @@
     },
     {
       "id": "b4eac762a15a",
-      "title": "NVIDIA Expands Open Source Commitment With OpenShell Donation and New AI Infrastructure",
+      "title": "NVIDIA Expands Open Source Commitment With OpenShell Contribution and New AI Infrastructure",
       "summary": "Kubernetes, the open source system that manages how applications run across thousands of AI factories, has become the foundation for AI, and the demands on it …",
       "url": "https://blogs.nvidia.com/blog/open-source-openshell-infrastructure/",
       "source": "NVIDIA AI",
       "category": "开源项目",
       "published_at": "2026-11-11T00:00:03+08:00"
-    },
-    {
-      "id": "c5fffc8a0cbd",
-      "title": "We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps.",
-      "summary": "Google and Adobe are integrating creative and productivity tools. Edit PDFs in Drive and use Adobe AI in Gemini. See what’s new in this partnership.",
-      "url": "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/",
-      "source": "Google AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-10T22:00:00+08:00"
     },
     {
       "id": "428ac4b42c0b",
@@ -231,15 +276,6 @@
       "published_at": "2026-11-10T08:00:00+08:00"
     },
     {
-      "id": "3229de0d9192",
-      "title": "Decision Models in",
-      "summary": "Decision Models in Hugging Face",
-      "url": "https://huggingface.co/blog/decision",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-11-10T08:00:00+08:00"
-    },
-    {
       "id": "a98763b80c84",
       "title": "Gemini Robotics 2.5 accelerates real-world general dexterity",
       "summary": "Our most capable vision-language-action model enhances robot dexterity, reliability, and safety",
@@ -247,15 +283,6 @@
       "source": "Google DeepMind",
       "category": "新模型发布",
       "published_at": "2026-11-10T03:51:47+08:00"
-    },
-    {
-      "id": "057e22ab69c0",
-      "title": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context",
-      "summary": "Nemotron-Personas-Finance-Japan: A Synthetic Dataset Capturing Japan's Demographics and Financial Context",
-      "url": "https://huggingface.co/blog/nvidia/nemotron-personas-finance-japan",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-11-09T23:05:57+08:00"
     },
     {
       "id": "97be7dad625b",
@@ -274,15 +301,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-11-09T16:00:53+08:00"
-    },
-    {
-      "id": "dc742b2cbd8f",
-      "title": "Korea Advances Physical AI Across Industries With",
-      "summary": "Tapping into the country’s strengths in manufacturing and engineering, NVIDIA is helping advance Korea’s physical AI ecosystem. The country’s industry leaders …",
-      "url": "https://blogs.nvidia.com/blog/korea-physical-ai-ecosystem/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-09T13:00:40+08:00"
     },
     {
       "id": "e4a9449a7dd7",
@@ -323,24 +341,6 @@
       "category": "中文资讯",
       "published_at": "2026-11-07T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "825a50d1c0ad",
-      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "summary": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "url": "https://deepmind.google/blog/gemini-omni-12-flash-fast-and-cost-effective-with-longer-clips/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-06T01:05:16+08:00"
-    },
-    {
-      "id": "7ab25c6dd263",
-      "title": "Formally verifying agent-written full-stack web apps with PDD Kit",
-      "summary": "AI agents can generate code at a scale that’s hard for humans to review line-by-line. PDD Kit helps ensure the code is doing what the developer intended by cre…",
-      "url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-06T00:00:00+08:00"
     },
     {
       "id": "9916aee4f641",
