@@ -222,6 +222,139 @@
   ],
   "batches": [
     {
+      "date": "2026-11-13",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:YJ_e-dsMruc",
+              "platform": "youtube",
+              "title": "Gemini Has A New AI Super App | Here’s How To Master It",
+              "summary": "Download the Gemini desktop app: Learn how to use the new Gemini desktop app, from Tasks and local files to connectors, skills, a…",
+              "url": "https://www.youtube.com/watch?v=YJ_e-dsMruc",
+              "thumbnail": "https://i.ytimg.com/vi/YJ_e-dsMruc/maxresdefault.jpg",
+              "channel": "Paul J Lipsky",
+              "subscribers": 0,
+              "views": 514344,
+              "duration": "14:44",
+              "max_height": 1080,
+              "published_at": "2026-10-18T21:00:20+08:00"
+            },
+            {
+              "id": "youtube:9tOu4r-FiQI",
+              "platform": "youtube",
+              "title": "This DeepSeek v4.1 is powerful and uncensored, let's run it",
+              "summary": "Try PostHog yourself: Cloudroom: Heretic: HuggingFace: Ollama: Follow me on Instagram - Follow me on Twitter - I'm hiring",
+              "url": "https://www.youtube.com/watch?v=9tOu4r-FiQI",
+              "thumbnail": "https://i.ytimg.com/vi/9tOu4r-FiQI/maxresdefault.jpg",
+              "channel": "David Ondrej",
+              "subscribers": 0,
+              "views": 304115,
+              "duration": "35:44",
+              "max_height": 1080,
+              "published_at": "2026-11-02T09:37:53+08:00"
+            },
+            {
+              "id": "youtube:3TwbE7gv6qo",
+              "platform": "youtube",
+              "title": "Learn 99% Of Claude Code in One Video",
+              "summary": "Get started with Claude Code: Most people install Claude Code, type a prompt, and never touch the settings that actually make it …",
+              "url": "https://www.youtube.com/watch?v=3TwbE7gv6qo",
+              "thumbnail": "https://i.ytimg.com/vi/3TwbE7gv6qo/maxresdefault.jpg",
+              "channel": "Tech With Tim",
+              "subscribers": 0,
+              "views": 279978,
+              "duration": "48:21",
+              "max_height": 1080,
+              "published_at": "2026-10-24T22:00:00+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1REx46NEc4",
+              "platform": "bilibili",
+              "title": "【全网最全】DeepSeek Harness超详细教程！50分钟吃透DSH，让SuperAgent给你干活！",
+              "summary": "DeepSeek Harness超详细教程！ 大家可以速速收藏啦~ 耗时60天制作！感谢大家的三联 未来还会出其他AI教程，大家可以关注一下~",
+              "url": "https://www.bilibili.com/video/BV1REx46NEc4",
+              "thumbnail": "video-thumbs/bilibili/BV1REx46NEc4.jpg",
+              "channel": "Git源宝",
+              "subscribers": 0,
+              "views": 2658018,
+              "duration": "50:41",
+              "max_height": 720,
+              "published_at": "2026-11-01T18:22:02+08:00"
+            },
+            {
+              "id": "bilibili:BV1ZSnU6REuC",
+              "platform": "bilibili",
+              "title": "想给大肥鱼完整的一生？DeepSeek接入QQ零基础教程，让她记住你",
+              "summary": "想给大肥鱼完整的一生？从零教你用 AstrBot + NapCat 把 DeepSeek 接进 QQ 小号：会发表情包、发语音，清空聊天记录也还记得你。已经装了 DeepSeek Harness 的，可以直接跳到第 10 章让它代劳。 配套图文教程（所有地址…",
+              "url": "https://www.bilibili.com/video/BV1ZSnU6REuC",
+              "thumbnail": "video-thumbs/bilibili/BV1ZSnU6REuC.jpg",
+              "channel": "泽轩604",
+              "subscribers": 0,
+              "views": 990170,
+              "duration": "20:18",
+              "max_height": 720,
+              "published_at": "2026-10-25T22:47:31+08:00"
+            },
+            {
+              "id": "bilibili:BV1DY4v6DEtz",
+              "platform": "bilibili",
+              "title": "【小白必看】DeepSeek Harness零基础教程！附大肥鱼全套案例！",
+              "summary": "本期视频为你带来DeepSeek Harness保姆级教程！全程无广，完全无门槛，大家可以放心食用",
+              "url": "https://www.bilibili.com/video/BV1DY4v6DEtz",
+              "thumbnail": "video-thumbs/bilibili/BV1DY4v6DEtz.jpg",
+              "channel": "GenJi是真想教会你",
+              "subscribers": 0,
+              "views": 936573,
+              "duration": "19:29",
+              "max_height": 720,
+              "published_at": "2026-11-06T20:59:16+08:00"
+            }
+          ]
+        }
+      }
+    },
+    {
       "date": "2026-11-12",
       "timezone": "Asia/Shanghai",
       "criteria": {
@@ -7839,140 +7972,7 @@
           ]
         }
       }
-    },
-    {
-      "date": "2026-09-14",
-      "timezone": "Asia/Shanghai",
-      "criteria": {
-        "search_sources": [
-          "youtube",
-          "bilibili"
-        ],
-        "platform_total_cap": 3,
-        "video_categories": {
-          "youtube_recent_30d": {
-            "label": "YouTube：近 1 个月 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "bilibili_recent_30d": {
-            "label": "B站：近 1 个月 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          }
-        }
-      },
-      "categories": {
-        "youtube_recent_30d": {
-          "label": "YouTube：近 1 个月 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:xBByvFrqmWU",
-              "platform": "youtube",
-              "title": "DeepSeek is back... and Silicon Valley is terrified",
-              "summary": "Take BlueDot's Future of AI course for free - OpenAI just paused its biggest training run in history just as things were getting …",
-              "url": "https://www.youtube.com/watch?v=xBByvFrqmWU",
-              "thumbnail": "https://i.ytimg.com/vi/xBByvFrqmWU/maxresdefault.jpg",
-              "channel": "Fireship",
-              "subscribers": 0,
-              "views": 1160761,
-              "duration": "5:32",
-              "max_height": 1080,
-              "published_at": "2026-08-21T01:53:37+08:00"
-            },
-            {
-              "id": "youtube:KmcTu2EigTs",
-              "platform": "youtube",
-              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
-              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
-              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
-              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
-              "channel": "Jeff Su",
-              "subscribers": 0,
-              "views": 213532,
-              "duration": "19:35",
-              "max_height": 1080,
-              "published_at": "2026-08-25T21:00:23+08:00"
-            },
-            {
-              "id": "youtube:WfSiryTVDiY",
-              "platform": "youtube",
-              "title": "12 Life-Changing Ways To Use ChatGPT in 2026",
-              "summary": "➡️ Connect Claude to 8,000+ apps with Zapier MCP: ChatGPT is insanely powerful now, but there’s a huge difference between using i…",
-              "url": "https://www.youtube.com/watch?v=WfSiryTVDiY",
-              "thumbnail": "https://i.ytimg.com/vi/WfSiryTVDiY/maxresdefault.jpg",
-              "channel": "Charlie Chang",
-              "subscribers": 0,
-              "views": 167326,
-              "duration": "24:18",
-              "max_height": 1080,
-              "published_at": "2026-08-20T01:45:03+08:00"
-            }
-          ]
-        },
-        "bilibili_recent_30d": {
-          "label": "B站：近 1 个月 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "bilibili:BV1xFYb6rEuc",
-              "platform": "bilibili",
-              "title": "5分钟网页开发上线全流程 | 豆包工作和我的爱恨纠缠",
-              "summary": "8000点赞达成以后，在这里 ________ 开放源码； 30000点赞达成以后，这里 开放完整提示词； 金九银十秋招季，求职内卷时代，打造硬核背书，把你收获的成果、经历的故事，统统留存归档，利用豆包工作生成这样一个炫酷网站，多是一件美事啊~",
-              "url": "https://www.bilibili.com/video/BV1xFYb6rEuc",
-              "thumbnail": "video-thumbs/bilibili/BV1xFYb6rEuc.jpg",
-              "channel": "英雄哪里出来",
-              "subscribers": 0,
-              "views": 1064753,
-              "duration": "5:54",
-              "max_height": 720,
-              "published_at": "2026-09-10T11:16:26+08:00"
-            },
-            {
-              "id": "bilibili:BV1CMtR6YEj4",
-              "platform": "bilibili",
-              "title": "当我用豆包工作agent做个背单词游戏",
-              "summary": "【小白debug】讲解 AI 工具实战应用，围绕「当我用豆包工作agent做个背单词游戏」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1CMtR6YEj4",
-              "thumbnail": "video-thumbs/bilibili/BV1CMtR6YEj4.jpg",
-              "channel": "小白debug",
-              "subscribers": 0,
-              "views": 1002136,
-              "duration": "6:41",
-              "max_height": 720,
-              "published_at": "2026-09-05T12:05:00+08:00"
-            },
-            {
-              "id": "bilibili:BV1N74R6eEZw",
-              "platform": "bilibili",
-              "title": "本条视频用OiiOii.tv制作@OiiOii_Ai，不用琢磨复杂提示词，简单操作就能出成片#OiiOii #OiiOii创作者计划",
-              "summary": "【黑黑大帅剧场】讲解 AI 工具实战应用，围绕「本条视频用OiiOii.tv制作@OiiOii_Ai，不用琢磨复杂提示词，简单操作就能出成片#O」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1N74R6eEZw",
-              "thumbnail": "video-thumbs/bilibili/BV1N74R6eEZw.jpg",
-              "channel": "黑黑大帅剧场",
-              "subscribers": 0,
-              "views": 798670,
-              "duration": "",
-              "max_height": 720,
-              "published_at": "2026-08-27T18:38:04+08:00"
-            }
-          ]
-        }
-      }
     }
   ],
-  "updated_at": "2026-11-12T09:52:12.364868+08:00"
+  "updated_at": "2026-11-13T08:59:37.578675+08:00"
 }
