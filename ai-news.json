@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-13T19:38:52.723916+08:00",
-  "date": "2026-11-13",
+  "updated_at": "2026-11-14T06:17:48.458566+08:00",
+  "date": "2026-11-14",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "2427bacb74a9",
+      "title": "Build a Robot Pick-and-Place Simulation with SimReady Assets",
+      "summary": "Build a Robot Pick-and-Place Simulation with SimReady Assets",
+      "url": "https://huggingface.co/blog/nvidia/simready-assets-robot-pick-and-place",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-14T02:00:39+08:00"
+    },
+    {
+      "id": "8400bdfe1e2a",
+      "title": "XYBench: Helping with the problem behind the question",
+      "summary": "XYBench: Helping with the problem behind the question",
+      "url": "https://huggingface.co/blog/allenai/xybench",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-14T01:02:35+08:00"
+    },
+    {
+      "id": "5bf4951adbe9",
+      "title": "Introducing ChatGPT Wallet",
+      "summary": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections.",
+      "url": "https://openai.com/index/introducing-chatgpt-wallet",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-11-13T23:00:00+08:00"
+    },
+    {
+      "id": "40e78db6601d",
+      "title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
+      "summary": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
+      "url": "https://huggingface.co/blog/ggml-org/llama-cpp-v1",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-13T22:05:22+08:00"
+    },
+    {
+      "id": "a326fbf0621f",
+      "title": "How AI Is Helping Care Teams Get Patients the Right Care, Sooner",
+      "summary": "From pediatric research to smart hospitals, AI is helping care teams spend less time on routine tasks and more time with patients. Health systems and startups …",
+      "url": "https://blogs.nvidia.com/blog/how-ai-is-helping-care-teams/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-13T21:00:42+08:00"
+    },
+    {
+      "id": "ac6b5041cf84",
+      "title": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+      "summary": "一个时代结束了",
+      "url": "https://www.qbitai.com/2026/11/509995.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-13T17:02:39+08:00"
+    },
+    {
+      "id": "a11b7e7f40ac",
+      "title": "MEET2027含金量再加码：AI4S/量子计算/AI Infra…第二批嘉宾强势来袭！",
+      "summary": "12.9 北京，来MEET2027现场",
+      "url": "https://www.qbitai.com/2026/11/509827.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-13T15:51:08+08:00"
+    },
+    {
+      "id": "87c11ac884eb",
+      "title": "中国AI突破复杂肺癌诊疗！中美医疗圈集体坐不住了",
+      "summary": "250名国内顶尖三甲医院医生联合评测",
+      "url": "https://www.qbitai.com/2026/11/509796.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-13T15:43:03+08:00"
+    },
+    {
+      "id": "c59fedced1bf",
+      "title": "比亚迪第1900万辆新能源汽车下线，科技新奢旗舰SUV方程豹钛9开启预订",
+      "summary": "比亚迪第1900万辆新能源汽车在西安工厂正式下线",
+      "url": "https://www.qbitai.com/2026/11/509730.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-13T15:17:54+08:00"
+    },
+    {
+      "id": "b3d9608ba330",
+      "title": "从仰望极速新纪录和鼎曜全球发布 看比亚迪的国际化与高端化之路",
+      "summary": "比亚迪正在把规模优势转化为技术与品牌价值",
+      "url": "https://www.qbitai.com/2026/11/509716.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-13T15:12:42+08:00"
+    },
     {
       "id": "3ded89e2e5f9",
       "title": "Microsoft Research Focus – Edition #98",
@@ -40,6 +130,15 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-11-13T03:07:35+08:00"
+    },
+    {
+      "id": "4bad5afe01a1",
+      "title": "Introducing Gemini 4 Hydrogen",
+      "summary": "Introducing Gemini 4 Hydrogen",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-11-13T02:00:50+08:00"
     },
     {
       "id": "459a57b4750a",
@@ -69,51 +168,6 @@
       "published_at": "2026-11-12T20:00:00+08:00"
     },
     {
-      "id": "baf44ce1f39f",
-      "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
-      "summary": "「CAD拆解」",
-      "url": "https://www.qbitai.com/2026/11/509440.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-12T19:36:20+08:00"
-    },
-    {
-      "id": "51f5443e5e71",
-      "title": "从通用大模型到学习过程智能，AI如何真正进入课堂？",
-      "summary": "银河智学首席科学家邓澍军博士发表主题演讲",
-      "url": "https://www.qbitai.com/2026/11/509404.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-11-12T18:45:33+08:00"
-    },
-    {
-      "id": "e189580829f8",
-      "title": "Anthropic启动IPO路演，估值已缩水6000亿美元",
-      "summary": "全世界都在踩刹车，达里奥一个人踩油门",
-      "url": "https://www.qbitai.com/2026/11/509381.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-12T18:11:29+08:00"
-    },
-    {
-      "id": "0d2e754820f1",
-      "title": "马斯克Grok泄露自家机密！SpaceX特斯拉工资绩效全曝光",
-      "summary": "Grok在让人破绷这件事上，从来不会让人失望。",
-      "url": "https://www.qbitai.com/2026/11/509355.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-12T18:08:24+08:00"
-    },
-    {
-      "id": "e1c841be3d37",
-      "title": "让AI真正懂业务：璇玑如何成为企业AI的语义基础设施",
-      "summary": "企业 AI 的难题，不只是模型够不够强",
-      "url": "https://www.qbitai.com/2026/11/509349.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-12T17:34:06+08:00"
-    },
-    {
       "id": "0990939c7d6e",
       "title": "Holiday Extras is rethinking what it can build with Codex",
       "summary": "With Codex, Holiday Extras is turning customer expertise into better apps, higher booking conversion and new possibilities for growth.",
@@ -127,15 +181,6 @@
       "title": "Supporting research on AI and children’s safety",
       "summary": "OpenAI commits $2 million to research on AI and children’s safety. The work supports shared tools to measure risks and opportunities for young people.",
       "url": "https://openai.com/index/children-first-declaration",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-12T08:00:00+08:00"
-    },
-    {
-      "id": "f28f90d2895a",
-      "title": "Gilbert + Tobin rethinks the business of law with AI",
-      "summary": "A conversation with Sam Nickless, Partner and Chief Executive Officer at Gilbert + Tobin.",
-      "url": "https://openai.com/index/gilbert-tobin-sam-nickless",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-12T08:00:00+08:00"
@@ -168,6 +213,15 @@
       "published_at": "2026-11-12T00:00:00+08:00"
     },
     {
+      "id": "5b916f1bea87",
+      "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
+      "summary": "Predicting how DNA sequences and their variations impact specific human cell types and disease.",
+      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-11-11T23:00:15+08:00"
+    },
+    {
       "id": "7e65614cc89a",
       "title": "Experience the art and legacy of Dr. Esther Mahlangu",
       "summary": "A new online archive of Esther Mahlangu’s life and art is now on Google Arts & Culture.",
@@ -177,15 +231,6 @@
       "published_at": "2026-11-11T17:00:00+08:00"
     },
     {
-      "id": "b22522d14a17",
-      "title": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
-      "summary": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
-      "url": "https://huggingface.co/blog/qvac/botpsy",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T13:01:16+08:00"
-    },
-    {
       "id": "34dcc0e759ee",
       "title": "How AI Helps Recyclers Turn Mixed Waste Into Reusable Material",
       "summary": "Vision AI and robotics pick what’s worth recovering out of conveyor belts of used clothing, bottles and mixed recyclables, diverting thousands of tons of mater…",
@@ -193,15 +238,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-11T11:00:20+08:00"
-    },
-    {
-      "id": "d2296a64c0dc",
-      "title": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
-      "summary": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
-      "url": "https://huggingface.co/blog/token-pooling",
-      "source": "Hugging Face",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T08:00:00+08:00"
     },
     {
       "id": "1d554c42ba6f",
@@ -222,6 +258,15 @@
       "published_at": "2026-11-11T03:00:00+08:00"
     },
     {
+      "id": "0b2e1c02de47",
+      "title": "Gemini 4 Carbon is now available",
+      "summary": "Gemini 4 Carbon is now available",
+      "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-11-11T00:03:47+08:00"
+    },
+    {
       "id": "b4eac762a15a",
       "title": "NVIDIA Expands Open Source Commitment With OpenShell Contribution and New AI Infrastructure",
       "summary": "Kubernetes, the open source system that manages how applications run across thousands of AI factories, has become the foundation for AI, and the demands on it …",
@@ -231,13 +276,22 @@
       "published_at": "2026-11-11T00:00:03+08:00"
     },
     {
-      "id": "724fae925148",
-      "title": "Pay for Hugging Face Hub with your Google Cloud Account",
-      "summary": "Pay for Hugging Face Hub with your Google Cloud Account",
-      "url": "https://huggingface.co/blog/hub-gcp-marketplace",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-11-10T08:00:00+08:00"
+      "id": "428ac4b42c0b",
+      "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
+      "summary": "AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.",
+      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-11-10T20:02:28+08:00"
+    },
+    {
+      "id": "51d2fad24045",
+      "title": "Opening the datasets behind our AI weather models",
+      "summary": "Foundational precipitation and geostationary satellite datasets to observe the planet clearly.",
+      "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-11-10T19:13:04+08:00"
     },
     {
       "id": "97be7dad625b",
@@ -247,15 +301,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-09T22:00:01+08:00"
-    },
-    {
-      "id": "57a8ba0d5522",
-      "title": "NVIDIA Announces New Planned Investments in Korean Startups at the MSIT-NVIDIA AI Startup Partnership Forum",
-      "summary": "Korea’s Ministry of Science and ICT and NVIDIA hosted the MSIT-NVIDIA AI Startup Partnership Forum at COEX. Representatives from the Ministry of Science and IC…",
-      "url": "https://blogs.nvidia.com/blog/korean-startup-investments-msit/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-09T16:00:53+08:00"
     },
     {
       "id": "9f03cf341cd9",
