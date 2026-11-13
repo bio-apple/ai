@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-13T06:29:42.195979+08:00",
+  "updated_at": "2026-11-13T19:38:52.723916+08:00",
   "date": "2026-11-13",
   "cadence": "daily",
   "window_hours": 168,
@@ -24,10 +24,10 @@
       "published_at": "2026-11-13T05:31:57+08:00"
     },
     {
-      "id": "372847c94994",
+      "id": "5b0f73df89a6",
       "title": "How Amplitude ships product improvements in 1–2 days with",
       "summary": "Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measure…",
-      "url": "https://openai.com/index/amplitude",
+      "url": "https://openai.com/business/customer-stories/amplitude",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-13T04:00:00+08:00"
@@ -40,15 +40,6 @@
       "source": "Hugging Face",
       "category": "新模型发布",
       "published_at": "2026-11-13T03:07:35+08:00"
-    },
-    {
-      "id": "4bad5afe01a1",
-      "title": "Introducing Gemini 4 Hydrogen",
-      "summary": "Introducing Gemini 4 Hydrogen",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-11-13T02:00:50+08:00"
     },
     {
       "id": "459a57b4750a",
@@ -67,6 +58,15 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-12T22:00:59+08:00"
+    },
+    {
+      "id": "90d79223706e",
+      "title": "Gondola doubles revenue as its team builds more with Codex",
+      "summary": "Gondola helps creatives get credit and get hired, with Codex raising its lead engineer’s output by 50% and ChatGPT simplifying daily work.",
+      "url": "https://openai.com/business/customer-stories/gondola",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-12T20:00:00+08:00"
     },
     {
       "id": "baf44ce1f39f",
@@ -168,15 +168,6 @@
       "published_at": "2026-11-12T00:00:00+08:00"
     },
     {
-      "id": "5b916f1bea87",
-      "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
-      "summary": "Predicting how DNA sequences and their variations impact specific human cell types and disease.",
-      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T23:00:15+08:00"
-    },
-    {
       "id": "7e65614cc89a",
       "title": "Experience the art and legacy of Dr. Esther Mahlangu",
       "summary": "A new online archive of Esther Mahlangu’s life and art is now on Google Arts & Culture.",
@@ -184,15 +175,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-11-11T17:00:00+08:00"
-    },
-    {
-      "id": "80b38ea7da37",
-      "title": "ChatGPT Plus for veterans and servicemembers",
-      "summary": "More than 20,000 veterans and transitioning service members have claimed a free year of ChatGPT Plus. See how they use it to prepare for civilian careers.",
-      "url": "https://openai.com/index/chatgpt-plus-for-veterans",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T16:00:00+08:00"
     },
     {
       "id": "b22522d14a17",
@@ -240,15 +222,6 @@
       "published_at": "2026-11-11T03:00:00+08:00"
     },
     {
-      "id": "0b2e1c02de47",
-      "title": "Gemini 4 Carbon is now available",
-      "summary": "Gemini 4 Carbon is now available",
-      "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T00:03:47+08:00"
-    },
-    {
       "id": "b4eac762a15a",
       "title": "NVIDIA Expands Open Source Commitment With OpenShell Contribution and New AI Infrastructure",
       "summary": "Kubernetes, the open source system that manages how applications run across thousands of AI factories, has become the foundation for AI, and the demands on it …",
@@ -258,15 +231,6 @@
       "published_at": "2026-11-11T00:00:03+08:00"
     },
     {
-      "id": "428ac4b42c0b",
-      "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
-      "summary": "AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.",
-      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-11-10T20:02:28+08:00"
-    },
-    {
       "id": "724fae925148",
       "title": "Pay for Hugging Face Hub with your Google Cloud Account",
       "summary": "Pay for Hugging Face Hub with your Google Cloud Account",
@@ -274,15 +238,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-11-10T08:00:00+08:00"
-    },
-    {
-      "id": "a98763b80c84",
-      "title": "Gemini Robotics 2.5 accelerates real-world general dexterity",
-      "summary": "Our most capable vision-language-action model enhances robot dexterity, reliability, and safety",
-      "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-10T03:51:47+08:00"
     },
     {
       "id": "97be7dad625b",
@@ -301,6 +256,16 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-11-09T16:00:53+08:00"
+    },
+    {
+      "id": "9f03cf341cd9",
+      "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
+      "summary": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
+      "url": "https://www.qbitai.com/2026/11/508694.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-09T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "e4a9449a7dd7",
@@ -341,32 +306,12 @@
       "category": "中文资讯",
       "published_at": "2026-11-07T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "9916aee4f641",
-      "title": "99.4%登顶全球第一！这个中国AI师承世界冠军",
-      "summary": "99.4%登顶全球第一！这个中国AI师承世界冠军",
-      "url": "https://www.qbitai.com/2026/11/508107.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-06T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "9916aee4f641",
-        "title": "99.4%登顶全球第一！这个中国AI师承世界冠军",
-        "summary": "99.4%登顶全球第一！这个中国AI师承世界冠军",
-        "url": "https://www.qbitai.com/2026/11/508107.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-11-06T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "61b3b7c2c572",
         "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
@@ -405,6 +350,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-11-07T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "9f03cf341cd9",
+        "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
+        "summary": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
+        "url": "https://www.qbitai.com/2026/11/508694.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-11-09T00:00:00+08:00",
         "window_hours": 720
       }
     ]
