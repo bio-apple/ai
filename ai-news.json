@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-14T06:17:48.458566+08:00",
+  "updated_at": "2026-11-14T19:00:07.650307+08:00",
   "date": "2026-11-14",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "473743245dad",
+      "title": "Zugwise: Domain-Aware Game Reconstruction for Digitizing Handwritten Chess Scoresheets",
+      "summary": "arXiv:2611.14544v1 Announce Type: new Abstract: Digitizing handwritten chess scoresheets has been studied as a handwriting-recognition problem: read the move i…",
+      "url": "https://arxiv.org/abs/2611.14544",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-11-14T13:00:00+08:00"
+    },
+    {
+      "id": "511f6df35fdc",
+      "title": "Cleaning an Agent's History Hurts When the World Still Holds the Error",
+      "summary": "arXiv:2611.14654v1 Announce Type: new Abstract: Tool-using language-model agents accumulate histories of their own mistakes, and a system that compacts, repair…",
+      "url": "https://arxiv.org/abs/2611.14654",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-14T13:00:00+08:00"
+    },
+    {
+      "id": "71e20d332c04",
+      "title": "Together Compiler: Continual Compilation for AI Inference",
+      "summary": "arXiv:2611.14681v1 Announce Type: new Abstract: Today's AI workloads are rapidly changing: new models are released more often, model architectures are increasi…",
+      "url": "https://arxiv.org/abs/2611.14681",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-11-14T13:00:00+08:00"
+    },
+    {
+      "id": "f34ea820506f",
+      "title": "When Should Semantic Priors Enter Partially-Identified Causal Discovery?",
+      "summary": "arXiv:2611.14736v1 Announce Type: new Abstract: Observational causal discovery often leaves causal di- rections unresolved or unstable. Large language mod- els…",
+      "url": "https://arxiv.org/abs/2611.14736",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-14T13:00:00+08:00"
+    },
+    {
+      "id": "41ea8c0656a4",
+      "title": "SynthCorp: A Platform for Creating Benchmarks for Data Agents",
+      "summary": "arXiv:2611.14765v1 Announce Type: new Abstract: Current benchmarks for LLM-driven data agents saturate quickly and cannot target specific capabilities. We pres…",
+      "url": "https://arxiv.org/abs/2611.14765",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-14T13:00:00+08:00"
+    },
     {
       "id": "2427bacb74a9",
       "title": "Build a Robot Pick-and-Place Simulation with SimReady Assets",
@@ -67,6 +112,15 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-11-13T17:02:39+08:00"
+    },
+    {
+      "id": "d1318183fe17",
+      "title": "Shield helps technicians hand off legacy portal work with",
+      "summary": "Shield uses OpenAI to help IT technicians hand off work in legacy portals. Its Forge agents navigate systems so technicians can focus on issues needing their j…",
+      "url": "https://openai.com/business/customer-stories/shield",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-13T16:00:00+08:00"
     },
     {
       "id": "a11b7e7f40ac",
@@ -132,15 +186,6 @@
       "published_at": "2026-11-13T03:07:35+08:00"
     },
     {
-      "id": "4bad5afe01a1",
-      "title": "Introducing Gemini 4 Hydrogen",
-      "summary": "Introducing Gemini 4 Hydrogen",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-11-13T02:00:50+08:00"
-    },
-    {
       "id": "459a57b4750a",
       "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
       "summary": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.",
@@ -177,15 +222,6 @@
       "published_at": "2026-11-12T17:30:00+08:00"
     },
     {
-      "id": "b06379671ede",
-      "title": "Supporting research on AI and children’s safety",
-      "summary": "OpenAI commits $2 million to research on AI and children’s safety. The work supports shared tools to measure risks and opportunities for young people.",
-      "url": "https://openai.com/index/children-first-declaration",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-12T08:00:00+08:00"
-    },
-    {
       "id": "56dac742ff29",
       "title": "The Definitive Fine-Tuning Guide for 3D Generation Models",
       "summary": "The Definitive Fine-Tuning Guide for 3D Generation Models",
@@ -211,15 +247,6 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-11-12T00:00:00+08:00"
-    },
-    {
-      "id": "5b916f1bea87",
-      "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
-      "summary": "Predicting how DNA sequences and their variations impact specific human cell types and disease.",
-      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T23:00:15+08:00"
     },
     {
       "id": "7e65614cc89a",
@@ -258,15 +285,6 @@
       "published_at": "2026-11-11T03:00:00+08:00"
     },
     {
-      "id": "0b2e1c02de47",
-      "title": "Gemini 4 Carbon is now available",
-      "summary": "Gemini 4 Carbon is now available",
-      "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T00:03:47+08:00"
-    },
-    {
       "id": "b4eac762a15a",
       "title": "NVIDIA Expands Open Source Commitment With OpenShell Contribution and New AI Infrastructure",
       "summary": "Kubernetes, the open source system that manages how applications run across thousands of AI factories, has become the foundation for AI, and the demands on it …",
@@ -276,22 +294,24 @@
       "published_at": "2026-11-11T00:00:03+08:00"
     },
     {
-      "id": "428ac4b42c0b",
-      "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
-      "summary": "AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.",
-      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-11-10T20:02:28+08:00"
+      "id": "60076ff23d6c",
+      "title": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
+      "summary": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
+      "url": "https://www.qbitai.com/2026/11/508798.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-10T00:00:00+08:00",
+      "window_hours": 720
     },
     {
-      "id": "51d2fad24045",
-      "title": "Opening the datasets behind our AI weather models",
-      "summary": "Foundational precipitation and geostationary satellite datasets to observe the planet clearly.",
-      "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-10T19:13:04+08:00"
+      "id": "98bc2c7f6803",
+      "title": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
+      "summary": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
+      "url": "https://www.qbitai.com/2026/11/508828.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-10T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "97be7dad625b",
@@ -313,6 +333,16 @@
       "window_hours": 720
     },
     {
+      "id": "d51ea73e96c2",
+      "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
+      "summary": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
+      "url": "https://www.qbitai.com/2026/11/507843.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-09T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "e4a9449a7dd7",
       "title": "资本正在撤离“世界模型”",
       "summary": "资本正在撤离“世界模型”",
@@ -321,52 +351,12 @@
       "category": "中文资讯",
       "published_at": "2026-11-08T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "61b3b7c2c572",
-      "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
-      "summary": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
-      "url": "https://www.qbitai.com/2026/11/508264.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-07T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "32a685d893ca",
-      "title": "GitHub不堪重负！OpenAI收购替代品，A社原地自研，马斯克也要搞",
-      "summary": "GitHub不堪重负！OpenAI收购替代品，A社原地自研，马斯克也要搞",
-      "url": "https://www.qbitai.com/2026/11/508449.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-07T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "c8831f2d681a",
-      "title": "AGENTS.MD，危险危险危险！！！",
-      "summary": "AGENTS.MD，危险危险危险！！！",
-      "url": "https://www.qbitai.com/2026/11/508244.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-07T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "61b3b7c2c572",
-        "title": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
-        "summary": "抢跑DeepSeek！硅谷华人把下一代Agent Harness造出来了！？",
-        "url": "https://www.qbitai.com/2026/11/508264.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-11-07T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "e4a9449a7dd7",
         "title": "资本正在撤离“世界模型”",
@@ -378,32 +368,42 @@
         "window_hours": 720
       },
       {
-        "id": "32a685d893ca",
-        "title": "GitHub不堪重负！OpenAI收购替代品，A社原地自研，马斯克也要搞",
-        "summary": "GitHub不堪重负！OpenAI收购替代品，A社原地自研，马斯克也要搞",
-        "url": "https://www.qbitai.com/2026/11/508449.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-11-07T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "c8831f2d681a",
-        "title": "AGENTS.MD，危险危险危险！！！",
-        "summary": "AGENTS.MD，危险危险危险！！！",
-        "url": "https://www.qbitai.com/2026/11/508244.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-11-07T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "9f03cf341cd9",
         "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
         "summary": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
         "url": "https://www.qbitai.com/2026/11/508694.html",
         "source": "量子位",
         "category": "新工具上线",
+        "published_at": "2026-11-09T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "60076ff23d6c",
+        "title": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
+        "summary": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
+        "url": "https://www.qbitai.com/2026/11/508798.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-10T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "98bc2c7f6803",
+        "title": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
+        "summary": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
+        "url": "https://www.qbitai.com/2026/11/508828.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-10T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "d51ea73e96c2",
+        "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
+        "summary": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
+        "url": "https://www.qbitai.com/2026/11/507843.html",
+        "source": "量子位",
+        "category": "开源项目",
         "published_at": "2026-11-09T00:00:00+08:00",
         "window_hours": 720
       }
