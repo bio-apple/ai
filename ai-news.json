@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-14T19:00:07.650307+08:00",
-  "date": "2026-11-14",
+  "updated_at": "2026-11-15T05:00:23.104552+08:00",
+  "date": "2026-11-15",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,42 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "071bc9829f35",
+      "title": "英伟达上演“奥特曼2.0”，员工集体请愿：让老黄回家！",
+      "summary": "马斯克也签名了",
+      "url": "https://www.qbitai.com/2026/11/510297.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-14T18:08:08+08:00"
+    },
+    {
+      "id": "c481d3ae1bc1",
+      "title": "「史上最严」湿实验预测基准发布！推理拉满、算力翻5倍也白搭",
+      "summary": "斯坦福、哈佛、康奈尔……十余家顶尖团队齐坐一桌了",
+      "url": "https://www.qbitai.com/2026/11/510232.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-14T17:58:22+08:00"
+    },
+    {
+      "id": "de8729406051",
+      "title": "程序员集体沉迷折纸飞机！最长滞空31.2秒",
+      "summary": "童年的纸飞机，现在终于飞回我手里～",
+      "url": "https://www.qbitai.com/2026/11/510150.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-14T17:48:34+08:00"
+    },
+    {
+      "id": "7f58f945a6e1",
+      "title": "绿电进Token出！联想重新定义词元工厂",
+      "summary": "年产2000万亿Token，成本狂降70%",
+      "url": "https://www.qbitai.com/2026/11/510094.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-14T17:41:02+08:00"
+    },
     {
       "id": "473743245dad",
       "title": "Zugwise: Domain-Aware Game Reconstruction for Digitizing Handwritten Chess Scoresheets",
@@ -58,6 +94,15 @@
       "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-11-14T13:00:00+08:00"
+    },
+    {
+      "id": "2ae562291be4",
+      "title": "中专生拍出《哈利·波特》爆款！欧美明星、好莱坞制片人集体点赞",
+      "summary": "狂揽3000万播放量",
+      "url": "https://www.qbitai.com/2026/11/510013.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-14T10:59:35+08:00"
     },
     {
       "id": "2427bacb74a9",
@@ -105,15 +150,6 @@
       "published_at": "2026-11-13T21:00:42+08:00"
     },
     {
-      "id": "ac6b5041cf84",
-      "title": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
-      "summary": "一个时代结束了",
-      "url": "https://www.qbitai.com/2026/11/509995.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-13T17:02:39+08:00"
-    },
-    {
       "id": "d1318183fe17",
       "title": "Shield helps technicians hand off legacy portal work with",
       "summary": "Shield uses OpenAI to help IT technicians hand off work in legacy portals. Its Forge agents navigate systems so technicians can focus on issues needing their j…",
@@ -121,42 +157,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-13T16:00:00+08:00"
-    },
-    {
-      "id": "a11b7e7f40ac",
-      "title": "MEET2027含金量再加码：AI4S/量子计算/AI Infra…第二批嘉宾强势来袭！",
-      "summary": "12.9 北京，来MEET2027现场",
-      "url": "https://www.qbitai.com/2026/11/509827.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-13T15:51:08+08:00"
-    },
-    {
-      "id": "87c11ac884eb",
-      "title": "中国AI突破复杂肺癌诊疗！中美医疗圈集体坐不住了",
-      "summary": "250名国内顶尖三甲医院医生联合评测",
-      "url": "https://www.qbitai.com/2026/11/509796.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-13T15:43:03+08:00"
-    },
-    {
-      "id": "c59fedced1bf",
-      "title": "比亚迪第1900万辆新能源汽车下线，科技新奢旗舰SUV方程豹钛9开启预订",
-      "summary": "比亚迪第1900万辆新能源汽车在西安工厂正式下线",
-      "url": "https://www.qbitai.com/2026/11/509730.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-13T15:17:54+08:00"
-    },
-    {
-      "id": "b3d9608ba330",
-      "title": "从仰望极速新纪录和鼎曜全球发布 看比亚迪的国际化与高端化之路",
-      "summary": "比亚迪正在把规模优势转化为技术与品牌价值",
-      "url": "https://www.qbitai.com/2026/11/509716.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-11-13T15:12:42+08:00"
     },
     {
       "id": "3ded89e2e5f9",
@@ -249,6 +249,16 @@
       "published_at": "2026-11-12T00:00:00+08:00"
     },
     {
+      "id": "baf44ce1f39f",
+      "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
+      "summary": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
+      "url": "https://www.qbitai.com/2026/11/509440.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-12T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "7e65614cc89a",
       "title": "Experience the art and legacy of Dr. Esther Mahlangu",
       "summary": "A new online archive of Esther Mahlangu’s life and art is now on Google Arts & Culture.",
@@ -333,16 +343,6 @@
       "window_hours": 720
     },
     {
-      "id": "d51ea73e96c2",
-      "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-      "summary": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-      "url": "https://www.qbitai.com/2026/11/507843.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-09T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "e4a9449a7dd7",
       "title": "资本正在撤离“世界模型”",
       "summary": "资本正在撤离“世界模型”",
@@ -398,13 +398,13 @@
         "window_hours": 720
       },
       {
-        "id": "d51ea73e96c2",
-        "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-        "summary": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-        "url": "https://www.qbitai.com/2026/11/507843.html",
+        "id": "baf44ce1f39f",
+        "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
+        "summary": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
+        "url": "https://www.qbitai.com/2026/11/509440.html",
         "source": "量子位",
         "category": "开源项目",
-        "published_at": "2026-11-09T00:00:00+08:00",
+        "published_at": "2026-11-12T00:00:00+08:00",
         "window_hours": 720
       }
     ]
