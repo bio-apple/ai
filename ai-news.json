@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-15T19:34:34.760675+08:00",
-  "date": "2026-11-15",
+  "updated_at": "2026-11-16T05:24:56.671109+08:00",
+  "date": "2026-11-16",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -304,20 +304,20 @@
       "published_at": "2026-11-10T19:13:04+08:00"
     },
     {
-      "id": "60076ff23d6c",
-      "title": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
-      "summary": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
-      "url": "https://www.qbitai.com/2026/11/508798.html",
+      "id": "98bc2c7f6803",
+      "title": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
+      "summary": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
+      "url": "https://www.qbitai.com/2026/11/508828.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-11-10T00:00:00+08:00",
       "window_hours": 720
     },
     {
-      "id": "98bc2c7f6803",
-      "title": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
-      "summary": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
-      "url": "https://www.qbitai.com/2026/11/508828.html",
+      "id": "60076ff23d6c",
+      "title": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
+      "summary": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
+      "url": "https://www.qbitai.com/2026/11/508798.html",
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-11-10T00:00:00+08:00",
@@ -368,13 +368,13 @@
         "window_hours": 720
       },
       {
-        "id": "60076ff23d6c",
-        "title": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
-        "summary": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
-        "url": "https://www.qbitai.com/2026/11/508798.html",
+        "id": "baf44ce1f39f",
+        "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
+        "summary": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
+        "url": "https://www.qbitai.com/2026/11/509440.html",
         "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-11-10T00:00:00+08:00",
+        "category": "开源项目",
+        "published_at": "2026-11-12T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -388,13 +388,13 @@
         "window_hours": 720
       },
       {
-        "id": "baf44ce1f39f",
-        "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
-        "summary": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
-        "url": "https://www.qbitai.com/2026/11/509440.html",
+        "id": "60076ff23d6c",
+        "title": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
+        "summary": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
+        "url": "https://www.qbitai.com/2026/11/508798.html",
         "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-11-12T00:00:00+08:00",
+        "category": "中文资讯",
+        "published_at": "2026-11-10T00:00:00+08:00",
         "window_hours": 720
       },
       {
