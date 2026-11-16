@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-16T05:24:56.671109+08:00",
+  "updated_at": "2026-11-16T20:07:40.355989+08:00",
   "date": "2026-11-16",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,96 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "91e58e2ea930",
+      "title": "LVMH’s Media Division announces strategic partnership with",
+      "summary": "LVMH’s Media Division and OpenAI announce a partnership to support journalism with AI and make its publications more accessible through ChatGPT.",
+      "url": "https://openai.com/index/lvmh-media-division-partnership",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-16T17:00:00+08:00"
+    },
+    {
+      "id": "1b6087c38c0a",
+      "title": "When Should LLM Agents Forget? Memory Filtering Under Query-Critical Resolver Errors",
+      "summary": "arXiv:2611.17338v1 Announce Type: new Abstract: LLM memory systems often delete facts classified as stale. We show that this hard-filtering step can reduce dow…",
+      "url": "https://arxiv.org/abs/2611.17338",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-16T13:00:00+08:00"
+    },
+    {
+      "id": "4d56c5fc6100",
+      "title": "Does the Ranking Hold? A Practitioner-Facing Audit of Hallucination Detectors on Small, Quantized, On-Device LLMs",
+      "summary": "arXiv:2611.17339v1 Announce Type: new Abstract: Hallucination detection for large language models is dominated by methods evaluated on 7B-70B research models w…",
+      "url": "https://arxiv.org/abs/2611.17339",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-11-16T13:00:00+08:00"
+    },
+    {
+      "id": "51ce44c5d0b5",
+      "title": "LoRAWeaver: Directional Adapter Routing in LoRA Representation Space",
+      "summary": "arXiv:2611.17340v1 Announce Type: new Abstract: Large language models are expensive to update through full retraining. Parameter-efficient fine-tuning reduces …",
+      "url": "https://arxiv.org/abs/2611.17340",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-16T13:00:00+08:00"
+    },
+    {
+      "id": "3eab619cb62b",
+      "title": "Tabular Population Priors as Structured Retrieval for EHR Medication Set Prediction",
+      "summary": "arXiv:2611.17341v1 Announce Type: new Abstract: Medication prediction from electronic health records is a fixed vocabulary structured prediction problem, yet r…",
+      "url": "https://arxiv.org/abs/2611.17341",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-16T13:00:00+08:00"
+    },
+    {
+      "id": "fec34cc304d7",
+      "title": "An Operationalization of Opaque Serial Depth",
+      "summary": "arXiv:2611.17495v1 Announce Type: new Abstract: Chain-of-thought (CoT) is currently a valuable tool for overseeing AI models, but some architectural shifts cou…",
+      "url": "https://arxiv.org/abs/2611.17495",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-16T13:00:00+08:00"
+    },
+    {
+      "id": "0ea5fbe79c2f",
+      "title": "AI Day Seoul Brings Together Korea’s Industry Leaders, Startups and Developer Communities",
+      "summary": "Over two days at COEX, more than 2,000 attendees converged for AI Day Seoul, bringing together Korea’s industry leaders, startups and developer communities adv…",
+      "url": "https://blogs.nvidia.com/blog/ai-day-seoul-wrapup/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-16T08:00:28+08:00"
+    },
+    {
+      "id": "e3915f7e4cf0",
+      "title": "The King’s Trust and OpenAI launch £1m partnership",
+      "summary": "The King’s Trust and OpenAI launch a £1m partnership to help up to 25,000 young people across the UK build practical AI skills for work.",
+      "url": "https://openai.com/index/the-kings-trust-and-openai",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-11-16T08:00:00+08:00"
+    },
+    {
+      "id": "87d7014c15ee",
+      "title": "A step toward defining the Standard Model on a lattice",
+      "summary": "Explore a candidate nonperturbative lattice definition of the Standard Model and how GPT-6 Astra helped turn the idea into a detailed proof.",
+      "url": "https://openai.com/index/step-toward-defining-the-standard-model",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-16T06:00:01+08:00"
+    },
+    {
+      "id": "4b0fc5b701ff",
+      "title": "Our new blog for science",
+      "summary": "The OpenAI science blog shares new findings, practical methods, and firsthand accounts from researchers using AI to advance scientific discovery.",
+      "url": "https://openai.com/index/our-new-blog-for-science",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-16T06:00:00+08:00"
+    },
     {
       "id": "071bc9829f35",
       "title": "英伟达上演“奥特曼2.0”，员工集体请愿：让老黄回家！",
@@ -78,6 +168,16 @@
       "published_at": "2026-11-14T01:02:35+08:00"
     },
     {
+      "id": "67049349b50b",
+      "title": "突发！DeepSeek开放全家桶API",
+      "summary": "突发！DeepSeek开放全家桶API",
+      "url": "https://www.qbitai.com/2026/11/510003.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-14T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "5bf4951adbe9",
       "title": "Introducing ChatGPT Wallet",
       "summary": "Introducing ChatGPT Wallet, a secure way for agents in ChatGPT Work, Codex, and dots to complete purchases with user approval and existing card protections.",
@@ -105,15 +205,6 @@
       "published_at": "2026-11-13T21:00:42+08:00"
     },
     {
-      "id": "d1318183fe17",
-      "title": "Shield helps technicians hand off legacy portal work with",
-      "summary": "Shield uses OpenAI to help IT technicians hand off work in legacy portals. Its Forge agents navigate systems so technicians can focus on issues needing their j…",
-      "url": "https://openai.com/business/customer-stories/shield",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-13T16:00:00+08:00"
-    },
-    {
       "id": "3ded89e2e5f9",
       "title": "Microsoft Research Focus – Edition #98",
       "summary": "What's new in research at Microsoft? Host Anson Ho explores the latest, including AI-powered universal translation, a breakthrough in a 31-year-old mathematics…",
@@ -121,15 +212,6 @@
       "source": "Microsoft AI",
       "category": "行业新闻",
       "published_at": "2026-11-13T05:31:57+08:00"
-    },
-    {
-      "id": "5b0f73df89a6",
-      "title": "How Amplitude ships product improvements in 1–2 days with",
-      "summary": "Built primarily on OpenAI models, Amplitude’s proactive product agent, Wave, identifies what to build, helps teams ship changes with coding agents, and measure…",
-      "url": "https://openai.com/business/customer-stories/amplitude",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-13T04:00:00+08:00"
     },
     {
       "id": "a88bddb17214",
@@ -166,24 +248,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-12T22:00:59+08:00"
-    },
-    {
-      "id": "90d79223706e",
-      "title": "Gondola doubles revenue as its team builds more with Codex",
-      "summary": "Gondola helps creatives get credit and get hired, with Codex raising its lead engineer’s output by 50% and ChatGPT simplifying daily work.",
-      "url": "https://openai.com/business/customer-stories/gondola",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-12T20:00:00+08:00"
-    },
-    {
-      "id": "0990939c7d6e",
-      "title": "Holiday Extras is rethinking what it can build with Codex",
-      "summary": "With Codex, Holiday Extras is turning customer expertise into better apps, higher booking conversion and new possibilities for growth.",
-      "url": "https://openai.com/business/customer-stories/holidays-extras-codex",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-12T17:30:00+08:00"
     },
     {
       "id": "56dac742ff29",
@@ -286,6 +350,16 @@
       "published_at": "2026-11-11T00:00:03+08:00"
     },
     {
+      "id": "7c78fca0b301",
+      "title": "纯代码造《后室》，116秒切20种画风！文心新模型玩嗨了",
+      "summary": "纯代码造《后室》，116秒切20种画风！文心新模型玩嗨了",
+      "url": "https://www.qbitai.com/2026/11/509224.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-11T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "428ac4b42c0b",
       "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
       "summary": "AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.",
@@ -322,35 +396,6 @@
       "category": "中文资讯",
       "published_at": "2026-11-10T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "97be7dad625b",
-      "title": "Practice Makes Precise: At CoRL, NVIDIA and Partners Reveal How Robots Rehearse Delicate Work in Simulation",
-      "summary": "Simulation, which has long been the proving ground for robots learning to walk, roll and hop, is now helping researchers teach robots tasks that require a fine…",
-      "url": "https://blogs.nvidia.com/blog/robotics-simulation-advancements-corl/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-09T22:00:01+08:00"
-    },
-    {
-      "id": "9f03cf341cd9",
-      "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
-      "summary": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
-      "url": "https://www.qbitai.com/2026/11/508694.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-11-09T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "d51ea73e96c2",
-      "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-      "summary": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-      "url": "https://www.qbitai.com/2026/11/507843.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-09T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -358,13 +403,13 @@
     "window_days": 30,
     "items": [
       {
-        "id": "9f03cf341cd9",
-        "title": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
-        "summary": "千问办公2.0发布，首个支持多人与Agent协作的Team Agent来了",
-        "url": "https://www.qbitai.com/2026/11/508694.html",
+        "id": "67049349b50b",
+        "title": "突发！DeepSeek开放全家桶API",
+        "summary": "突发！DeepSeek开放全家桶API",
+        "url": "https://www.qbitai.com/2026/11/510003.html",
         "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-11-09T00:00:00+08:00",
+        "category": "中文资讯",
+        "published_at": "2026-11-14T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -398,13 +443,13 @@
         "window_hours": 720
       },
       {
-        "id": "d51ea73e96c2",
-        "title": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-        "summary": "腾讯混元跻身最强开源模型！一手实测Hy4：搭配WorkBuddy，多模态Agent交付力拉满",
-        "url": "https://www.qbitai.com/2026/11/507843.html",
+        "id": "7c78fca0b301",
+        "title": "纯代码造《后室》，116秒切20种画风！文心新模型玩嗨了",
+        "summary": "纯代码造《后室》，116秒切20种画风！文心新模型玩嗨了",
+        "url": "https://www.qbitai.com/2026/11/509224.html",
         "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-11-09T00:00:00+08:00",
+        "category": "中文资讯",
+        "published_at": "2026-11-11T00:00:00+08:00",
         "window_hours": 720
       }
     ]
