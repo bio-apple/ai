@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-17T20:33:08.461467+08:00",
-  "date": "2026-11-17",
+  "updated_at": "2026-11-18T07:41:34.068489+08:00",
+  "date": "2026-11-18",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,12 +15,120 @@
   },
   "items": [
     {
+      "id": "549a77347d5e",
+      "title": "Introducing GPT-6.2 Astra and Sol",
+      "summary": "Introducing GPT‑6.2 Astra and Sol, with better professional outputs, coding, computer use, and efficiency at lower cost across ChatGPT Work, Codex, and the API.",
+      "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-11-18T01:45:00+08:00"
+    },
+    {
+      "id": "357d085ae06f",
+      "title": "Put Gemini to work for you",
+      "summary": "Tasks in Gemini is now free of charge in six countries, with new features starting in the U.S. and deeper Google Workspace integration to get things done on yo…",
+      "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+      "source": "Google AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-18T01:00:00+08:00"
+    },
+    {
+      "id": "23b0b78bf306",
+      "title": "Can AI help build a healthier future?",
+      "summary": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief S…",
+      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
+      "source": "Microsoft AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-18T00:52:17+08:00"
+    },
+    {
+      "id": "83b8de21dbff",
+      "title": "并购完成，李飞飞正式率队加入AMD！苏妈亲自欢迎",
+      "summary": "82亿美元股票，46天闪电交割",
+      "url": "https://www.qbitai.com/2026/11/510695.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-17T22:15:20+08:00"
+    },
+    {
+      "id": "b198e88d7ab7",
+      "title": "Ian Buck Kicks Off NVIDIA’s Week at SC26 as Science Enters the Age of Agents",
+      "summary": "NVIDIA’s Ian Buck kicked off the company’s week at SC26 in Chicago on Monday with new tools for AI agents, software that can plan experiments, run code and che…",
+      "url": "https://blogs.nvidia.com/blog/ian-buck-sc26/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-17T22:00:10+08:00"
+    },
+    {
+      "id": "2991c89a7760",
+      "title": "李沐加盟的Aimotion，是一家什么AI公司？",
+      "summary": "瞄准「产业级世界模型」",
+      "url": "https://www.qbitai.com/2026/11/510688.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-17T19:40:37+08:00"
+    },
+    {
+      "id": "c6c361c53bc4",
+      "title": "Introducing ChatGPT for Sales",
+      "summary": "Explore the new Sales plugin and 30+ new and expanded partner plugins in ChatGPT to research prospects, prepare pitches, update your CRM, and move deals forwar…",
+      "url": "https://openai.com/index/introducing-chatgpt-for-sales",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-11-17T16:00:00+08:00"
+    },
+    {
+      "id": "b032a95fdfda",
+      "title": "材料科学智能体MatOS正式开源！大幅提高材料研发任务成功率",
+      "summary": "筛材料、找配方、开发新模型…拿下多项科研任务",
+      "url": "https://www.qbitai.com/2026/11/510652.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-17T14:09:40+08:00"
+    },
+    {
+      "id": "565e81b83ed0",
+      "title": "真勇啊！00后团队参加具身挑战赛，仅48小时竟敢从零手搓数据，还夺冠了！",
+      "summary": "斩获80000元奖金",
+      "url": "https://www.qbitai.com/2026/11/510610.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-17T12:35:03+08:00"
+    },
+    {
+      "id": "b7c799c412c5",
+      "title": "奥特曼共情黄仁勋，“英雄也有缺陷”，但支持他重返英伟达CEO嘛…",
+      "summary": "奥特曼首谈黄仁勋离职",
+      "url": "https://www.qbitai.com/2026/11/510592.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-17T10:33:13+08:00"
+    },
+    {
       "id": "590cb0b9c5dd",
       "title": "Strengthening NATO and allied cyber defenses with AI",
       "summary": "How OpenAI is working with NATO and allied cyber agencies to help trusted defenders find vulnerabilities, test fixes and protect essential systems.",
       "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
       "source": "OpenAI",
       "category": "新模型发布",
+      "published_at": "2026-11-17T08:00:00+08:00"
+    },
+    {
+      "id": "0604bc2b50fc",
+      "title": "Astra for Law leads in legal intelligence",
+      "summary": "Astra for Law ranked first in a launch evaluation spanning 24 areas of law. Every ChatGPT Enterprise customer can now request access.",
+      "url": "https://openai.com/index/astra-law-6-2",
+      "source": "OpenAI",
+      "category": "新工具上线",
+      "published_at": "2026-11-17T08:00:00+08:00"
+    },
+    {
+      "id": "58da9c66b145",
+      "title": "Introducing OpenAI for Chile",
+      "summary": "OpenAI and the Government of Chile are partnering to support responsible AI adoption, build public-sector skills and help local startups develop AI application…",
+      "url": "https://openai.com/index/introducing-openai-for-chile",
+      "source": "OpenAI",
+      "category": "新工具上线",
       "published_at": "2026-11-17T08:00:00+08:00"
     },
     {
@@ -51,24 +159,6 @@
       "published_at": "2026-11-17T01:01:35+08:00"
     },
     {
-      "id": "f26f2a4dfd6b",
-      "title": "Broadening access to AI for scientists",
-      "summary": "We’re expanding our ChatGPT for Academic Researchers program to offer 200,000 researchers worldwide free access to our frontier models.",
-      "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-17T01:00:00+08:00"
-    },
-    {
-      "id": "b1c71d07875a",
-      "title": "Strengthening the fight against online child sexual abuse with new tools and support",
-      "summary": "New tools, practical guidance, and partnerships will help prevent, detect and respond to online child sexual exploitation and abuse.",
-      "url": "https://openai.com/index/strengthening-online-child-safety",
-      "source": "OpenAI",
-      "category": "行业新闻",
-      "published_at": "2026-11-17T01:00:00+08:00"
-    },
-    {
       "id": "f149dc1a48ff",
       "title": "Lambda Boosts AI Factory Resiliency and Efficiency With NVIDIA Photonics",
       "summary": "To train an AI model, thousands of GPUs have to work together, requiring a network that’s fast, efficient and resilient. Lambda is tackling the network piece o…",
@@ -87,15 +177,6 @@
       "published_at": "2026-11-17T00:00:47+08:00"
     },
     {
-      "id": "3197bf91500d",
-      "title": "NVIDIA Sweeps MLPerf Training and Endpoints as Vera Rubin Debuts With Leading Performance",
-      "summary": "In its MLPerf benchmarks debut, with results released today, the NVIDIA Vera Rubin platform delivers leading performance across training, post-training and age…",
-      "url": "https://blogs.nvidia.com/blog/mlperf-training-endpoints-vera-rubin/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-11-17T00:00:25+08:00"
-    },
-    {
       "id": "717626b76ea0",
       "title": "New Ask Maps features to help with holiday travel and prep",
       "summary": "Plan holiday road trips, get route tips, find local appointments, and search your saved lists with new Ask Maps features.",
@@ -105,69 +186,6 @@
       "published_at": "2026-11-16T22:00:00+08:00"
     },
     {
-      "id": "f891bd93f3d2",
-      "title": "Science at the Frontier: How scientists use ChatGPT",
-      "summary": "Explore how more than 1,800 scientists use ChatGPT in research. See findings on daily workflows, reported productivity, and expectations for discovery.",
-      "url": "https://openai.com/index/science-at-the-frontier",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-16T20:00:00+08:00"
-    },
-    {
-      "id": "6452274540d8",
-      "title": "睿尔曼智能郑随兵：质量、经济性、稳定性是机器人落地三大标准",
-      "summary": "具身智能的真正价值是“把人的经验、技能复刻出来”",
-      "url": "https://www.qbitai.com/2026/11/510542.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-16T18:57:31+08:00"
-    },
-    {
-      "id": "f054a54f8228",
-      "title": "How Revolut raises ambition without lowering the bar",
-      "summary": "Discover how Revolut uses OpenAI models and Codex to cut coding time by 30–60%, scale financial crime investigations, and innovate without compromising securit…",
-      "url": "https://openai.com/business/customer-stories/revolut",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-16T17:30:00+08:00"
-    },
-    {
-      "id": "efccb445b06c",
-      "title": "2026甲子引力年终盛典即将启幕，AI的无限游戏进入「第二序章」｜甲子引力",
-      "summary": "12月1日，细数AI的未竟之问。",
-      "url": "https://www.qbitai.com/2026/11/510526.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-16T16:45:17+08:00"
-    },
-    {
-      "id": "12744f0883fb",
-      "title": "没搞过一天研发的他，50岁以华为董事的身份退休了",
-      "summary": "在华为待了快10000天。",
-      "url": "https://www.qbitai.com/2026/11/510496.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-16T16:02:07+08:00"
-    },
-    {
-      "id": "13493b7c994f",
-      "title": "SuperLink2026开启创投行业超级链接时刻，12月北京见",
-      "summary": "2026年12月2-3日，清科控股、投资界主办的SuperLink2026将在北京启幕，汇聚创投各方，设置多场垂直专场与特色活动，探讨行业趋势、挖掘投资机会。",
-      "url": "https://www.qbitai.com/2026/11/510493.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-16T15:58:57+08:00"
-    },
-    {
-      "id": "93489cde676a",
-      "title": "阿里正式发布Qwen4，智能体及编程能力进阶，迈向真实全场景",
-      "summary": "11月16日，阿里巴巴发布全新一代基座大模型Qwen4-Max",
-      "url": "https://www.qbitai.com/2026/11/510486.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-11-16T15:51:57+08:00"
-    },
-    {
       "id": "853b24ff0d6e",
       "title": "Hugging Face and OpenRouter join forces to make open-weight models easy to run",
       "summary": "Hugging Face and OpenRouter join forces to make open-weight models easy to run",
@@ -175,6 +193,16 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-11-16T08:00:00+08:00"
+    },
+    {
+      "id": "93489cde676a",
+      "title": "阿里正式发布Qwen4，智能体及编程能力进阶，迈向真实全场景",
+      "summary": "阿里正式发布Qwen4，智能体及编程能力进阶，迈向真实全场景",
+      "url": "https://www.qbitai.com/2026/11/510486.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-16T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "2427bacb74a9",
@@ -251,16 +279,6 @@
       "published_at": "2026-11-13T02:00:00+08:00"
     },
     {
-      "id": "ac6b5041cf84",
-      "title": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
-      "summary": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
-      "url": "https://www.qbitai.com/2026/11/509995.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-13T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "8e4104a923ec",
       "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
       "summary": "Meet the Gemini Decisions API, powered by our state-of-the-art model Gemini Decision for fast, calibrated multimodal decisions.",
@@ -287,24 +305,6 @@
       "category": "开源项目",
       "published_at": "2026-11-12T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "7e65614cc89a",
-      "title": "Experience the art and legacy of Dr. Esther Mahlangu",
-      "summary": "A new online archive of Esther Mahlangu’s life and art is now on Google Arts & Culture.",
-      "url": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/esther-mahlangu/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-11T17:00:00+08:00"
-    },
-    {
-      "id": "1d554c42ba6f",
-      "title": "Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
-      "summary": "Microsoft researchers have discovered &#8220;Lazarus,&#8221; a backdoor technique that can reprogram dormant neurons in an AI model, causing an otherwise norma…",
-      "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
-      "source": "Microsoft AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T04:52:56+08:00"
     },
     {
       "id": "7c78fca0b301",
@@ -342,6 +342,16 @@
         "window_hours": 720
       },
       {
+        "id": "93489cde676a",
+        "title": "阿里正式发布Qwen4，智能体及编程能力进阶，迈向真实全场景",
+        "summary": "阿里正式发布Qwen4，智能体及编程能力进阶，迈向真实全场景",
+        "url": "https://www.qbitai.com/2026/11/510486.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-11-16T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "071bc9829f35",
         "title": "英伟达上演“奥特曼2.0”，员工集体请愿：让老黄回家！",
         "summary": "英伟达上演“奥特曼2.0”，员工集体请愿：让老黄回家！",
@@ -359,16 +369,6 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-11-11T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "ac6b5041cf84",
-        "title": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
-        "summary": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
-        "url": "https://www.qbitai.com/2026/11/509995.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-11-13T00:00:00+08:00",
         "window_hours": 720
       }
     ]
