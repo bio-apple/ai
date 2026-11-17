@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-17T08:34:16.632427+08:00",
+  "updated_at": "2026-11-17T20:33:08.461467+08:00",
   "date": "2026-11-17",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,15 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "590cb0b9c5dd",
+      "title": "Strengthening NATO and allied cyber defenses with AI",
+      "summary": "How OpenAI is working with NATO and allied cyber agencies to help trusted defenders find vulnerabilities, test fixes and protect essential systems.",
+      "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-17T08:00:00+08:00"
+    },
     {
       "id": "23e0c35a1797",
       "title": "NVIDIA DGX Spark Developer Kit Turns a Desk Into a Supercomputing Lab",
@@ -114,13 +123,13 @@
       "published_at": "2026-11-16T18:57:31+08:00"
     },
     {
-      "id": "91e58e2ea930",
-      "title": "LVMH’s Media Division announces strategic partnership with",
-      "summary": "LVMH’s Media Division and OpenAI announce a partnership to support journalism with AI and make its publications more accessible through ChatGPT.",
-      "url": "https://openai.com/index/lvmh-media-division-partnership",
+      "id": "f054a54f8228",
+      "title": "How Revolut raises ambition without lowering the bar",
+      "summary": "Discover how Revolut uses OpenAI models and Codex to cut coding time by 30–60%, scale financial crime investigations, and innovate without compromising securit…",
+      "url": "https://openai.com/business/customer-stories/revolut",
       "source": "OpenAI",
       "category": "新模型发布",
-      "published_at": "2026-11-16T17:00:00+08:00"
+      "published_at": "2026-11-16T17:30:00+08:00"
     },
     {
       "id": "efccb445b06c",
@@ -141,15 +150,6 @@
       "published_at": "2026-11-16T16:02:07+08:00"
     },
     {
-      "id": "ebd9eb949639",
-      "title": "Our first phase of embedded assessments",
-      "summary": "OpenAI begins embedded assessments with Apollo Research, METR, and Transluce, and Goodfire to independently evaluate model alignment, safeguards, and monitorin…",
-      "url": "https://openai.com/index/our-first-phase-of-embedded-assessments",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-16T16:00:00+08:00"
-    },
-    {
       "id": "13493b7c994f",
       "title": "SuperLink2026开启创投行业超级链接时刻，12月北京见",
       "summary": "2026年12月2-3日，清科控股、投资界主办的SuperLink2026将在北京启幕，汇聚创投各方，设置多场垂直专场与特色活动，探讨行业趋势、挖掘投资机会。",
@@ -166,51 +166,6 @@
       "source": "量子位",
       "category": "新工具上线",
       "published_at": "2026-11-16T15:51:57+08:00"
-    },
-    {
-      "id": "1b6087c38c0a",
-      "title": "When Should LLM Agents Forget? Memory Filtering Under Query-Critical Resolver Errors",
-      "summary": "arXiv:2611.17338v1 Announce Type: new Abstract: LLM memory systems often delete facts classified as stale. We show that this hard-filtering step can reduce dow…",
-      "url": "https://arxiv.org/abs/2611.17338",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-16T13:00:00+08:00"
-    },
-    {
-      "id": "4d56c5fc6100",
-      "title": "Does the Ranking Hold? A Practitioner-Facing Audit of Hallucination Detectors on Small, Quantized, On-Device LLMs",
-      "summary": "arXiv:2611.17339v1 Announce Type: new Abstract: Hallucination detection for large language models is dominated by methods evaluated on 7B-70B research models w…",
-      "url": "https://arxiv.org/abs/2611.17339",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-11-16T13:00:00+08:00"
-    },
-    {
-      "id": "51ce44c5d0b5",
-      "title": "LoRAWeaver: Directional Adapter Routing in LoRA Representation Space",
-      "summary": "arXiv:2611.17340v1 Announce Type: new Abstract: Large language models are expensive to update through full retraining. Parameter-efficient fine-tuning reduces …",
-      "url": "https://arxiv.org/abs/2611.17340",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-16T13:00:00+08:00"
-    },
-    {
-      "id": "3eab619cb62b",
-      "title": "Tabular Population Priors as Structured Retrieval for EHR Medication Set Prediction",
-      "summary": "arXiv:2611.17341v1 Announce Type: new Abstract: Medication prediction from electronic health records is a fixed vocabulary structured prediction problem, yet r…",
-      "url": "https://arxiv.org/abs/2611.17341",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-16T13:00:00+08:00"
-    },
-    {
-      "id": "fec34cc304d7",
-      "title": "An Operationalization of Opaque Serial Depth",
-      "summary": "arXiv:2611.17495v1 Announce Type: new Abstract: Chain-of-thought (CoT) is currently a valuable tool for overseeing AI models, but some architectural shifts cou…",
-      "url": "https://arxiv.org/abs/2611.17495",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-16T13:00:00+08:00"
     },
     {
       "id": "853b24ff0d6e",
@@ -250,6 +205,16 @@
       "window_hours": 720
     },
     {
+      "id": "071bc9829f35",
+      "title": "英伟达上演“奥特曼2.0”，员工集体请愿：让老黄回家！",
+      "summary": "英伟达上演“奥特曼2.0”，员工集体请愿：让老黄回家！",
+      "url": "https://www.qbitai.com/2026/11/510297.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-14T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "40e78db6601d",
       "title": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
       "summary": "llama.cpp v1.0.0 : A stronger foundation for the local AI ecosystem",
@@ -277,15 +242,6 @@
       "published_at": "2026-11-13T03:07:35+08:00"
     },
     {
-      "id": "4bad5afe01a1",
-      "title": "Introducing Gemini 4 Hydrogen",
-      "summary": "Introducing Gemini 4 Hydrogen",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-hydrogen/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-11-13T02:00:50+08:00"
-    },
-    {
       "id": "459a57b4750a",
       "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
       "summary": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.",
@@ -293,6 +249,16 @@
       "source": "Google AI",
       "category": "新模型发布",
       "published_at": "2026-11-13T02:00:00+08:00"
+    },
+    {
+      "id": "ac6b5041cf84",
+      "title": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+      "summary": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+      "url": "https://www.qbitai.com/2026/11/509995.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-13T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "8e4104a923ec",
@@ -323,15 +289,6 @@
       "window_hours": 720
     },
     {
-      "id": "5b916f1bea87",
-      "title": "AlphaGenome 2: Deciphering how cells read DNA to better understand disease",
-      "summary": "Predicting how DNA sequences and their variations impact specific human cell types and disease.",
-      "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T23:00:15+08:00"
-    },
-    {
       "id": "7e65614cc89a",
       "title": "Experience the art and legacy of Dr. Esther Mahlangu",
       "summary": "A new online archive of Esther Mahlangu’s life and art is now on Google Arts & Culture.",
@@ -350,15 +307,6 @@
       "published_at": "2026-11-11T04:52:56+08:00"
     },
     {
-      "id": "0b2e1c02de47",
-      "title": "Gemini 4 Carbon is now available",
-      "summary": "Gemini 4 Carbon is now available",
-      "url": "https://deepmind.google/blog/gemini-4-carbon-is-now-available/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-11T00:03:47+08:00"
-    },
-    {
       "id": "7c78fca0b301",
       "title": "纯代码造《后室》，116秒切20种画风！文心新模型玩嗨了",
       "summary": "纯代码造《后室》，116秒切20种画风！文心新模型玩嗨了",
@@ -366,44 +314,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-11-11T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "428ac4b42c0b",
-      "title": "Introducing AlphaProof Code: a breakthrough in verifying complex software at depth",
-      "summary": "AlphaProof Code agents wrote three million lines of proofs in Lean to verify Signal’s core encryption.",
-      "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-11-10T20:02:28+08:00"
-    },
-    {
-      "id": "51d2fad24045",
-      "title": "Opening the datasets behind our AI weather models",
-      "summary": "Foundational precipitation and geostationary satellite datasets to observe the planet clearly.",
-      "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-10T19:13:04+08:00"
-    },
-    {
-      "id": "98bc2c7f6803",
-      "title": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
-      "summary": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
-      "url": "https://www.qbitai.com/2026/11/508828.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-10T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "60076ff23d6c",
-      "title": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
-      "summary": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
-      "url": "https://www.qbitai.com/2026/11/508798.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-10T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -432,23 +342,13 @@
         "window_hours": 720
       },
       {
-        "id": "98bc2c7f6803",
-        "title": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
-        "summary": "100轮图像编辑这道「毙刷题」，新出的Seedream 5.5稳上来了！",
-        "url": "https://www.qbitai.com/2026/11/508828.html",
+        "id": "071bc9829f35",
+        "title": "英伟达上演“奥特曼2.0”，员工集体请愿：让老黄回家！",
+        "summary": "英伟达上演“奥特曼2.0”，员工集体请愿：让老黄回家！",
+        "url": "https://www.qbitai.com/2026/11/510297.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-11-10T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "60076ff23d6c",
-        "title": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
-        "summary": "千问办公2.0卷向Team Agent，我们用它跑了一遍编辑部日常",
-        "url": "https://www.qbitai.com/2026/11/508798.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-11-10T00:00:00+08:00",
+        "published_at": "2026-11-14T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -459,6 +359,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-11-11T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ac6b5041cf84",
+        "title": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+        "summary": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+        "url": "https://www.qbitai.com/2026/11/509995.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-13T00:00:00+08:00",
         "window_hours": 720
       }
     ]
