@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-18T07:41:34.068489+08:00",
+  "updated_at": "2026-11-18T20:21:37.112440+08:00",
   "date": "2026-11-18",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,105 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "20c4aa4e38b8",
+      "title": "Gemini新模型Neon箭在弦上，网友：遍历元素周期表？",
+      "summary": "氖人寻味！",
+      "url": "https://www.qbitai.com/2026/11/510922.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-11-18T17:41:55+08:00"
+    },
+    {
+      "id": "67067bb101e4",
+      "title": "GPT-6.2难产！OpenAI怕了",
+      "summary": "OpenAI也终于活成了2022年谷歌的样子",
+      "url": "https://www.qbitai.com/2026/11/510914.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-11-18T15:53:29+08:00"
+    },
+    {
+      "id": "d1c7ca312226",
+      "title": "全球首个医疗健康AI独立评测与分析平台InclusionMed正式上线",
+      "summary": "近日，全球首个医疗健康 AI 独立评测与分析平台InclusionMed 正式上线",
+      "url": "https://www.qbitai.com/2026/11/510916.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-18T15:24:50+08:00"
+    },
+    {
+      "id": "bcd79b1222f1",
+      "title": "NEBench R1: a Reasoning Benchmark for Evaluating Nuclear Domain Competence in Large Language Models",
+      "summary": "arXiv:2611.21682v1 Announce Type: new Abstract: Large language models (LLMs) are increasingly being explored for knowledge-intensive and safety-critical applic…",
+      "url": "https://arxiv.org/abs/2611.21682",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-18T13:00:00+08:00"
+    },
+    {
+      "id": "7a9e51a5eadb",
+      "title": "Chain-of-Thought Controllability Can Reduce Chain-of-Thought Monitorability",
+      "summary": "arXiv:2611.21799v1 Announce Type: new Abstract: Chain-of-thought (CoT) monitoring is a promising tool for detecting hidden goals, off-task behavior, and other …",
+      "url": "https://arxiv.org/abs/2611.21799",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-18T13:00:00+08:00"
+    },
+    {
+      "id": "9c46afe5a386",
+      "title": "How Much of SAR Vehicle Recognition Is the Vehicle? Background Shortcuts, Angle Gaps and Partial Libraries on MSTAR and ATRNet-STAR",
+      "summary": "arXiv:2611.21827v1 Announce Type: new Abstract: Deep networks score near 99% on the MSTAR vehicle benchmark, and the newer ATRNet-STAR benchmark was built to b…",
+      "url": "https://arxiv.org/abs/2611.21827",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-18T13:00:00+08:00"
+    },
+    {
+      "id": "b5c3132bdab3",
+      "title": "Auditors Struggle to Catch Sabotage In End-to-End Transcripts of AI Safety Research",
+      "summary": "arXiv:2611.21832v1 Announce Type: new Abstract: As AI systems are increasingly used to automate AI R&D, misaligned systems could sabotage research intended to …",
+      "url": "https://arxiv.org/abs/2611.21832",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-18T13:00:00+08:00"
+    },
+    {
+      "id": "9fe3e937f57a",
+      "title": "Language Models Can Rewrite Their Own Weights",
+      "summary": "arXiv:2611.21885v1 Announce Type: new Abstract: Language models are trained once, frozen and deployed: improving one again takes another training run, and a pr…",
+      "url": "https://arxiv.org/abs/2611.21885",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-18T13:00:00+08:00"
+    },
+    {
+      "id": "a7c45978609d",
+      "title": "思维链一作Jason Wei离职！怎么去Meta待一年都跑路",
+      "summary": "入职Meta刚满一年出头，竟然直接提桶跑路了！",
+      "url": "https://www.qbitai.com/2026/11/510811.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-18T12:49:51+08:00"
+    },
+    {
+      "id": "eaeeeaef9f22",
+      "title": "英伟达AMD首次联手押注！Genesis完成A轮融资，估值超230亿",
+      "summary": "具身全栈玩家",
+      "url": "https://www.qbitai.com/2026/11/510821.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-11-18T12:28:57+08:00"
+    },
+    {
+      "id": "6cab9c8cd383",
+      "title": "Le Groupe Figaro and OpenAI partner to bring Le Figaro journalism to ChatGPT",
+      "summary": "Le Groupe Figaro and OpenAI partner to bring Le Figaro’s journalism to ChatGPT through summaries and excerpts, with links to original stories.",
+      "url": "https://openai.com/index/le-groupe-figaro-and-openai-announce-partnership",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-18T08:00:00+08:00"
+    },
     {
       "id": "549a77347d5e",
       "title": "Introducing GPT-6.2 Astra and Sol",
@@ -42,15 +141,6 @@
       "published_at": "2026-11-18T00:52:17+08:00"
     },
     {
-      "id": "83b8de21dbff",
-      "title": "并购完成，李飞飞正式率队加入AMD！苏妈亲自欢迎",
-      "summary": "82亿美元股票，46天闪电交割",
-      "url": "https://www.qbitai.com/2026/11/510695.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-17T22:15:20+08:00"
-    },
-    {
       "id": "b198e88d7ab7",
       "title": "Ian Buck Kicks Off NVIDIA’s Week at SC26 as Science Enters the Age of Agents",
       "summary": "NVIDIA’s Ian Buck kicked off the company’s week at SC26 in Chicago on Monday with new tools for AI agents, software that can plan experiments, run code and che…",
@@ -60,15 +150,6 @@
       "published_at": "2026-11-17T22:00:10+08:00"
     },
     {
-      "id": "2991c89a7760",
-      "title": "李沐加盟的Aimotion，是一家什么AI公司？",
-      "summary": "瞄准「产业级世界模型」",
-      "url": "https://www.qbitai.com/2026/11/510688.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-17T19:40:37+08:00"
-    },
-    {
       "id": "c6c361c53bc4",
       "title": "Introducing ChatGPT for Sales",
       "summary": "Explore the new Sales plugin and 30+ new and expanded partner plugins in ChatGPT to research prospects, prepare pitches, update your CRM, and move deals forwar…",
@@ -76,33 +157,6 @@
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-11-17T16:00:00+08:00"
-    },
-    {
-      "id": "b032a95fdfda",
-      "title": "材料科学智能体MatOS正式开源！大幅提高材料研发任务成功率",
-      "summary": "筛材料、找配方、开发新模型…拿下多项科研任务",
-      "url": "https://www.qbitai.com/2026/11/510652.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-17T14:09:40+08:00"
-    },
-    {
-      "id": "565e81b83ed0",
-      "title": "真勇啊！00后团队参加具身挑战赛，仅48小时竟敢从零手搓数据，还夺冠了！",
-      "summary": "斩获80000元奖金",
-      "url": "https://www.qbitai.com/2026/11/510610.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-17T12:35:03+08:00"
-    },
-    {
-      "id": "b7c799c412c5",
-      "title": "奥特曼共情黄仁勋，“英雄也有缺陷”，但支持他重返英伟达CEO嘛…",
-      "summary": "奥特曼首谈黄仁勋离职",
-      "url": "https://www.qbitai.com/2026/11/510592.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-17T10:33:13+08:00"
     },
     {
       "id": "590cb0b9c5dd",
@@ -118,15 +172,6 @@
       "title": "Astra for Law leads in legal intelligence",
       "summary": "Astra for Law ranked first in a launch evaluation spanning 24 areas of law. Every ChatGPT Enterprise customer can now request access.",
       "url": "https://openai.com/index/astra-law-6-2",
-      "source": "OpenAI",
-      "category": "新工具上线",
-      "published_at": "2026-11-17T08:00:00+08:00"
-    },
-    {
-      "id": "58da9c66b145",
-      "title": "Introducing OpenAI for Chile",
-      "summary": "OpenAI and the Government of Chile are partnering to support responsible AI adoption, build public-sector skills and help local startups develop AI application…",
-      "url": "https://openai.com/index/introducing-openai-for-chile",
       "source": "OpenAI",
       "category": "新工具上线",
       "published_at": "2026-11-17T08:00:00+08:00"
