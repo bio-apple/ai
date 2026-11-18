@@ -576,19 +576,58 @@
   },
   "oss_frameworks": [
     {
+      "repo": "mvanhorn/last30days-skill",
+      "name": "last30days-skill",
+      "stars": 69031,
+      "category": "agent",
+      "summary": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a gr…",
+      "heat_score": 172.0,
+      "sources": [
+        "search",
+        "trending:daily"
+      ],
+      "rank": 1,
+      "created_at": "2026-01-24T04:37:37+08:00",
+      "stars_delta": 897,
+      "stars_weekly": 1621,
+      "is_new": false,
+      "is_fastest": false,
+      "trending_daily_rank": 2,
+      "trending_weekly_rank": null
+    },
+    {
+      "repo": "obra/superpowers",
+      "name": "superpowers",
+      "stars": 319308,
+      "category": "agent",
+      "summary": "An agentic skills framework & software development methodology that works.",
+      "heat_score": 141.0,
+      "sources": [
+        "trending:daily"
+      ],
+      "rank": 2,
+      "created_at": "2025-10-10T03:45:18+08:00",
+      "stars_delta": null,
+      "stars_weekly": 5530,
+      "is_new": false,
+      "is_fastest": true,
+      "trending_daily_rank": 9,
+      "trending_weekly_rank": null
+    },
+    {
       "repo": "Significant-Gravitas/AutoGPT",
       "name": "AutoGPT",
-      "stars": 188063,
+      "stars": 188078,
       "category": "agent",
       "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so th…",
-      "heat_score": 88.6,
+      "heat_score": 88.59,
       "sources": [
         "priority",
         "search"
       ],
-      "rank": 1,
+      "rank": 3,
       "created_at": "2023-03-16T17:21:07+08:00",
-      "stars_delta": 20,
+      "stars_delta": 15,
       "stars_weekly": 981,
       "is_new": false,
       "is_fastest": false,
@@ -596,66 +635,29 @@
       "trending_weekly_rank": null
     },
     {
-      "repo": "NousResearch/hermes-agent",
-      "name": "hermes-agent",
-      "stars": 263923,
-      "category": "agent",
-      "summary": "The agent that grows with you",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
-      "rank": 2,
-      "created_at": "2025-07-23T06:22:28+08:00",
-      "stars_delta": 301,
-      "stars_weekly": 3832,
-      "is_new": false,
-      "is_fastest": false,
-      "trending_daily_rank": null,
-      "trending_weekly_rank": null
-    },
-    {
-      "repo": "google-gemini/gemini-cli",
-      "name": "gemini-cli",
-      "stars": 108873,
-      "category": "agent",
-      "summary": "An open-source AI agent that brings the power of Gemini directly into your terminal.",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
-      "rank": 3,
-      "created_at": "2025-04-18T01:04:31+08:00",
-      "stars_delta": null,
-      "stars_weekly": 1318,
-      "is_new": false,
-      "is_fastest": true,
-      "trending_daily_rank": null,
-      "trending_weekly_rank": null
-    },
-    {
       "repo": "ChromeDevTools/chrome-devtools-mcp",
       "name": "chrome-devtools-mcp",
-      "stars": 57689,
+      "stars": 58029,
       "category": "mcp",
       "summary": "Chrome DevTools for coding agents",
-      "heat_score": 141.22,
+      "heat_score": 102.25,
       "sources": [
-        "trending:daily"
+        "search",
+        "trending:weekly"
       ],
       "rank": 1,
       "created_at": "2025-09-11T18:39:55+08:00",
-      "stars_delta": 832,
-      "stars_weekly": 936,
+      "stars_delta": 340,
+      "stars_weekly": 939,
       "is_new": false,
       "is_fastest": false,
-      "trending_daily_rank": 12,
-      "trending_weekly_rank": null
+      "trending_daily_rank": null,
+      "trending_weekly_rank": 10
     },
     {
       "repo": "koala73/worldmonitor",
       "name": "worldmonitor",
-      "stars": 90776,
+      "stars": 90850,
       "category": "mcp",
       "summary": "Real-time global intelligence dashboard. AI-powered news aggregation, geopolitical monitoring, and infrastructure track…",
       "heat_score": 64.0,
@@ -665,82 +667,84 @@
       "rank": 2,
       "created_at": "2026-01-09T01:26:06+08:00",
       "stars_delta": 74,
-      "stars_weekly": 2035,
+      "stars_weekly": 2030,
       "is_new": false,
       "is_fastest": false,
       "trending_daily_rank": null,
       "trending_weekly_rank": null
     },
     {
-      "repo": "t8y2/dbx",
-      "name": "dbx",
-      "stars": 30530,
+      "repo": "DeusData/codebase-memory-mcp",
+      "name": "codebase-memory-mcp",
+      "stars": 48782,
       "category": "mcp",
-      "summary": "25 MB lightweight cross-platform database client for 100+ databases, including MySQL, PostgreSQL, SQLite, Redis, MongoD…",
+      "summary": "Local code intelligence for developers and AI agents. Connect code, docs and infrastructure in a persistent graph, with…",
       "heat_score": 64.0,
       "sources": [
         "search"
       ],
       "rank": 3,
-      "created_at": "2026-04-29T11:00:36+08:00",
+      "created_at": "2026-02-25T06:01:00+08:00",
       "stars_delta": null,
-      "stars_weekly": 1058,
+      "stars_weekly": 1283,
       "is_new": false,
       "is_fastest": true,
       "trending_daily_rank": null,
       "trending_weekly_rank": null
     },
     {
-      "repo": "openai/codex-security",
-      "name": "codex-security",
-      "stars": 13771,
+      "repo": "backnotprop/plannotator",
+      "name": "plannotator",
+      "stars": 13058,
       "category": "coding_agent",
-      "summary": "OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https…",
-      "heat_score": 96.12,
+      "summary": "The workspace to stay in the loop and on top of agents - shape, decide, plan, annotate, review code, share with team, a…",
+      "heat_score": 191.75,
       "sources": [
+        "search",
+        "trending:daily",
         "trending:weekly"
       ],
       "rank": 1,
-      "created_at": "2026-07-14T06:00:13+08:00",
+      "created_at": "2025-12-28T10:09:40+08:00",
       "stars_delta": null,
-      "stars_weekly": 764,
+      "stars_weekly": 281,
       "is_new": false,
       "is_fastest": true,
-      "trending_daily_rank": null,
-      "trending_weekly_rank": 13
+      "trending_daily_rank": 11,
+      "trending_weekly_rank": 2
     },
     {
-      "repo": "QwenLM/qwen-code",
-      "name": "qwen-code",
-      "stars": 30646,
+      "repo": "openai/codex-security",
+      "name": "codex-security",
+      "stars": 13956,
       "category": "coding_agent",
-      "summary": "An open-source AI coding agent that lives in your terminal.",
-      "heat_score": 89.91,
+      "summary": "OpenAI's Codex Security CLI and TypeScript SDK for finding, validating, and fixing security vulnerabilities. npm: https…",
+      "heat_score": 96.16,
       "sources": [
         "trending:weekly"
       ],
       "rank": 2,
-      "created_at": "2025-06-26T09:37:46+08:00",
-      "stars_delta": null,
-      "stars_weekly": 421,
+      "created_at": "2026-07-14T06:00:13+08:00",
+      "stars_delta": 185,
+      "stars_weekly": 769,
       "is_new": false,
       "is_fastest": false,
       "trending_daily_rank": null,
-      "trending_weekly_rank": 14
+      "trending_weekly_rank": 13
     },
     {
       "repo": "All-Hands-AI/OpenHands",
       "name": "OpenHands",
-      "stars": 93610,
+      "stars": 93671,
       "category": "coding_agent",
       "summary": "🙌 OpenHands: AI-Driven Development",
-      "heat_score": 79.57,
+      "heat_score": 79.56,
       "sources": [
         "priority"
       ],
       "rank": 3,
       "created_at": "2024-03-13T11:33:31+08:00",
-      "stars_delta": 82,
+      "stars_delta": 61,
       "stars_weekly": 669,
       "is_new": false,
       "is_fastest": false,
@@ -750,153 +754,154 @@
     {
       "repo": "affaan-m/ECC",
       "name": "ECC",
-      "stars": 304658,
+      "stars": 305484,
       "category": "agent_harness",
       "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development …",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
-      "rank": 1,
-      "created_at": "2026-01-18T08:51:51+08:00",
-      "stars_delta": 867,
-      "stars_weekly": 7038,
-      "is_new": false,
-      "is_fastest": false,
-      "trending_daily_rank": null,
-      "trending_weekly_rank": null
-    },
-    {
-      "repo": "bytedance/deer-flow",
-      "name": "deer-flow",
-      "stars": 85408,
-      "category": "agent_harness",
-      "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memorie…",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
-      "rank": 2,
-      "created_at": "2025-05-07T10:50:19+08:00",
-      "stars_delta": null,
-      "stars_weekly": 1070,
-      "is_new": false,
-      "is_fastest": false,
-      "trending_daily_rank": null,
-      "trending_weekly_rank": null
-    },
-    {
-      "repo": "ruvnet/ruflo",
-      "name": "ruflo",
-      "stars": 81882,
-      "category": "agent_harness",
-      "summary": "🌊 The original agent harness. Deploy intelligent multi-player swarms, coordinate autonomous workflows, and build conver…",
-      "heat_score": 64.0,
-      "sources": [
-        "search"
-      ],
-      "rank": 3,
-      "created_at": "2025-06-03T05:24:20+08:00",
-      "stars_delta": null,
-      "stars_weekly": 1077,
-      "is_new": false,
-      "is_fastest": true,
-      "trending_daily_rank": null,
-      "trending_weekly_rank": null
-    },
-    {
-      "repo": "mvanhorn/last30days-skill",
-      "name": "last30days-skill",
-      "stars": 68134,
-      "category": "skills",
-      "summary": "AI agent skill that researches any topic across Reddit, X, YouTube, HN, Polymarket, and the web - then synthesizes a gr…",
-      "heat_score": 154.0,
+      "heat_score": 139.0,
       "sources": [
         "search",
         "trending:daily"
       ],
       "rank": 1,
-      "created_at": "2026-01-24T04:37:37+08:00",
-      "stars_delta": 363,
-      "stars_weekly": 1605,
+      "created_at": "2026-01-18T08:51:51+08:00",
+      "stars_delta": 826,
+      "stars_weekly": 7035,
       "is_new": false,
       "is_fastest": false,
-      "trending_daily_rank": 8,
+      "trending_daily_rank": 13,
       "trending_weekly_rank": null
+    },
+    {
+      "repo": "browser-use/browser-use",
+      "name": "browser-use",
+      "stars": 121327,
+      "category": "agent_harness",
+      "summary": "Open-source Python library for AI browser agents, plus Browser Use Cloud: stealth browsers and a hosted agent API.",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 2,
+      "created_at": "2024-11-01T00:00:56+08:00",
+      "stars_delta": null,
+      "stars_weekly": 1136,
+      "is_new": false,
+      "is_fastest": false,
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null
+    },
+    {
+      "repo": "Alishahryar1/free-claude-code",
+      "name": "free-claude-code",
+      "stars": 71072,
+      "category": "agent_harness",
+      "summary": "Use Claude Code, Codex, Antigravity, VSCode, Pi, and OpenCode (and 6 other harnesses) for free (1.3B+ free tokens) from…",
+      "heat_score": 64.0,
+      "sources": [
+        "search"
+      ],
+      "rank": 3,
+      "created_at": "2026-01-29T03:02:30+08:00",
+      "stars_delta": null,
+      "stars_weekly": 1697,
+      "is_new": false,
+      "is_fastest": true,
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null
+    },
+    {
+      "repo": "google-labs-code/stitch-skills",
+      "name": "stitch-skills",
+      "stars": 10088,
+      "category": "skills",
+      "summary": "A library of Agent Skills designed to work with the Stitch MCP server. Each skill follows the Agent Skills open standar…",
+      "heat_score": 169.22,
+      "sources": [
+        "trending:daily",
+        "trending:weekly"
+      ],
+      "rank": 1,
+      "created_at": "2026-01-17T01:17:17+08:00",
+      "stars_delta": null,
+      "stars_weekly": 231,
+      "is_new": false,
+      "is_fastest": true,
+      "trending_daily_rank": 7,
+      "trending_weekly_rank": 12
     },
     {
       "repo": "anthropics/skills",
       "name": "skills",
-      "stars": 196060,
+      "stars": 196721,
       "category": "skills",
       "summary": "Public repository for Agent Skills",
-      "heat_score": 112.0,
+      "heat_score": 109.0,
       "sources": [
         "trending:weekly"
       ],
       "rank": 2,
       "created_at": "2025-09-22T23:53:31+08:00",
-      "stars_delta": 742,
-      "stars_weekly": 3265,
+      "stars_delta": 661,
+      "stars_weekly": 3268,
       "is_new": false,
-      "is_fastest": true,
+      "is_fastest": false,
       "trending_daily_rank": null,
-      "trending_weekly_rank": 4
+      "trending_weekly_rank": 6
     },
     {
       "repo": "addyosmani/agent-skills",
       "name": "agent-skills",
-      "stars": 118343,
+      "stars": 118655,
       "category": "skills",
       "summary": "Production-grade engineering skills for AI coding agents.",
-      "heat_score": 100.0,
+      "heat_score": 97.0,
       "sources": [
         "trending:weekly"
       ],
       "rank": 3,
       "created_at": "2026-02-16T04:20:26+08:00",
-      "stars_delta": 431,
-      "stars_weekly": 3021,
+      "stars_delta": 312,
+      "stars_weekly": 3019,
       "is_new": false,
       "is_fastest": false,
       "trending_daily_rank": null,
-      "trending_weekly_rank": 12
-    },
-    {
-      "repo": "EverMind-AI/EverOS",
-      "name": "EverOS",
-      "stars": 13923,
-      "category": "memory",
-      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
-      "heat_score": 52.93,
-      "sources": [
-        "search"
-      ],
-      "rank": 1,
-      "created_at": "2025-10-28T23:09:32+08:00",
-      "stars_delta": 2,
-      "stars_weekly": 254,
-      "is_new": false,
-      "is_fastest": false,
-      "trending_daily_rank": null,
-      "trending_weekly_rank": null
+      "trending_weekly_rank": 14
     },
     {
       "repo": "mem0ai/mem0",
       "name": "mem0",
-      "stars": 69080,
+      "stars": 69133,
       "category": "memory",
       "summary": "The Memory Layer for AI Agents - Drop-in memory infrastructure for AI agents and apps. Context that persists. Built for…",
-      "heat_score": 46.27,
+      "heat_score": 56.27,
+      "sources": [
+        "search"
+      ],
+      "rank": 1,
+      "created_at": "2023-06-20T16:58:36+08:00",
+      "stars_delta": 53,
+      "stars_weekly": 388,
+      "is_new": false,
+      "is_fastest": true,
+      "trending_daily_rank": null,
+      "trending_weekly_rank": null
+    },
+    {
+      "repo": "EverMind-AI/EverOS",
+      "name": "EverOS",
+      "stars": 13931,
+      "category": "memory",
+      "summary": "One portable memory layer for every AI agent: local-first, Markdown-native, user-owned, and self-evolving across apps, …",
+      "heat_score": 52.92,
       "sources": [
         "search"
       ],
       "rank": 2,
-      "created_at": "2023-06-20T16:58:36+08:00",
-      "stars_delta": 62,
-      "stars_weekly": 388,
+      "created_at": "2025-10-28T23:09:32+08:00",
+      "stars_delta": 8,
+      "stars_weekly": 253,
       "is_new": false,
-      "is_fastest": true,
+      "is_fastest": false,
       "trending_daily_rank": null,
       "trending_weekly_rank": null
     }
