@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-19T20:16:27.888368+08:00",
-  "date": "2026-11-19",
+  "updated_at": "2026-11-20T07:20:31.703185+08:00",
+  "date": "2026-11-20",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,51 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "fe6303fbf7c4",
+      "title": "NVIDIA and Microsoft Expand Accelerated Computing From Azure to Windows PCs",
+      "summary": "NVIDIA and Microsoft are extending their full-stack collaboration to help organizations build, customize and deploy intelligent applications — from next-genera…",
+      "url": "https://blogs.nvidia.com/blog/microsoft-ignite-accelerated-computing-azure-windows-pcs/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-20T04:00:15+08:00"
+    },
+    {
+      "id": "57728669e048",
+      "title": "Introducing Tool Retrieval in the Gemini API",
+      "summary": "Give your agents access to hundreds of tools while using fewer tokens with Tool Retrieval, now in preview in the Gemini API.",
+      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+      "source": "Google AI",
+      "category": "新工具上线",
+      "published_at": "2026-11-20T02:00:00+08:00"
+    },
+    {
+      "id": "baf7193e75c1",
+      "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
+      "summary": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended…",
+      "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
+      "source": "NVIDIA AI",
+      "category": "新模型发布",
+      "published_at": "2026-11-20T01:00:35+08:00"
+    },
+    {
+      "id": "c3e7758a2373",
+      "title": "Walter Isaacson on curiosity and creativity in the AI age.",
+      "summary": "Walter Isaacson joins Google to discuss how history’s greatest innovators inspire creativity and human judgment in the AI age. Watch the episode.",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/dialogues-walter-isaacson/",
+      "source": "Google AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-20T01:00:00+08:00"
+    },
+    {
+      "id": "b6fd64654869",
+      "title": "Season’s Streamings and Savings: Black Friday Deals Come to GeForce NOW",
+      "summary": "GeForce NOW is kicking off Black Friday with more reasons to make time for gaming. Six-month memberships are back for a limited time. Save 30% on the first six…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-black-friday-2026/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-19T22:00:12+08:00"
+    },
     {
       "id": "6dc8261d7fb3",
       "title": "影视飓风、Manus、影石、OPPO……极客公园创新大会 2027 嘉宾阵容更新！",
@@ -40,6 +85,15 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-11-19T16:10:19+08:00"
+    },
+    {
+      "id": "6687f7be62c3",
+      "title": "How OpenAI’s Performance Factory keeps ChatGPT fast",
+      "summary": "Learn how OpenAI built the Performance Factory, a system of Codex-powered workflows that finds and fixes performance issues to help keep ChatGPT fast.",
+      "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast",
+      "source": "OpenAI",
+      "category": "新模型发布",
+      "published_at": "2026-11-19T16:00:00+08:00"
     },
     {
       "id": "273d336d3759",
@@ -105,6 +159,15 @@
       "published_at": "2026-11-19T12:51:31+08:00"
     },
     {
+      "id": "0c3c8b23c6ca",
+      "title": "Introducing Gemini 4 Neon",
+      "summary": "Introducing Gemini 4 Neon",
+      "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
+      "source": "Google DeepMind",
+      "category": "新工具上线",
+      "published_at": "2026-11-19T05:35:43+08:00"
+    },
+    {
       "id": "f689168723dc",
       "title": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency",
       "summary": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency",
@@ -121,6 +184,15 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-11-19T02:53:43+08:00"
+    },
+    {
+      "id": "652211f5c064",
+      "title": "Genie 4 is now available",
+      "summary": "Genie 4 is now available",
+      "url": "https://deepmind.google/blog/genie-4-is-now-available/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-11-19T02:13:42+08:00"
     },
     {
       "id": "03ca256a4adf",
@@ -159,19 +231,19 @@
       "published_at": "2026-11-18T18:00:00+08:00"
     },
     {
-      "id": "9fa731b0ef6c",
-      "title": "Research acceleration: The jagged frontier",
-      "summary": "OpenAI measures how coding agents are accelerating AI research, where their performance remains uneven, and what this signals about recursive self-improvement.",
-      "url": "https://openai.com/index/research-acceleration-jagged-frontier",
+      "id": "b527b6f0ddce",
+      "title": "How Sumitomo Life’s leaders helped teams adopt ChatGPT Enterprise",
+      "summary": "Sumitomo Life uses ChatGPT Enterprise to research insurers, prepare proposals, and draft code for investment analysis. Early use by executives helped drive ado…",
+      "url": "https://openai.com/business/customer-stories/sumitomo-life",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-18T16:00:00+08:00"
     },
     {
-      "id": "b527b6f0ddce",
-      "title": "How Sumitomo Life’s leaders helped teams adopt ChatGPT Enterprise",
-      "summary": "Sumitomo Life uses ChatGPT Enterprise to research insurers, prepare proposals, and draft code for investment analysis. Early use by executives helped drive ado…",
-      "url": "https://openai.com/business/customer-stories/sumitomo-life",
+      "id": "9fa731b0ef6c",
+      "title": "Research acceleration: The jagged frontier",
+      "summary": "OpenAI measures how coding agents are accelerating AI research, where their performance remains uneven, and what this signals about recursive self-improvement.",
+      "url": "https://openai.com/index/research-acceleration-jagged-frontier",
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-18T16:00:00+08:00"
@@ -184,15 +256,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-18T16:00:00+08:00"
-    },
-    {
-      "id": "8b6ac2940fdc",
-      "title": "Managing frontier AI risk: From training to deployment",
-      "summary": "OpenAI explains how it manages frontier AI risk from training through deployment with model alignment, sandboxing, blocking safeguards, and monitoring.",
-      "url": "https://openai.com/index/managing-frontier-ai-risk",
-      "source": "OpenAI",
-      "category": "新模型发布",
-      "published_at": "2026-11-18T14:00:00+08:00"
     },
     {
       "id": "af1852b4c46d",
@@ -240,24 +303,6 @@
       "published_at": "2026-11-17T22:00:10+08:00"
     },
     {
-      "id": "23e0c35a1797",
-      "title": "NVIDIA DGX Spark Developer Kit Turns a Desk Into a Supercomputing Lab",
-      "summary": "At SC26, an annual supercomputing conference taking place this week in Chicago, NVIDIA is introducing the DGX Spark HPC Developer Kit for researchers, academic…",
-      "url": "https://blogs.nvidia.com/blog/dgx-spark-hpc-developer-kit-sc26/",
-      "source": "NVIDIA AI",
-      "category": "新工具上线",
-      "published_at": "2026-11-17T07:00:05+08:00"
-    },
-    {
-      "id": "66395cf5113b",
-      "title": "How the World’s Most Advanced AI Infrastructure Supply Chain Invents the Future",
-      "summary": "Deb Shoquist leads operations at NVIDIA, overseeing the supply chain and manufacturing behind its AI platforms. That description sums up the job, but it doesn’…",
-      "url": "https://blogs.nvidia.com/blog/ai-infrastructure-supply-chain/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-17T04:00:37+08:00"
-    },
-    {
       "id": "8451eda18f3a",
       "title": "TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient",
       "summary": "AI coding agents can waste time and tokens relearning the same lessons. TokenEconomizer is an open-source plugin that builds on past sessions to cut costs whil…",
@@ -265,15 +310,6 @@
       "source": "Microsoft AI",
       "category": "开源项目",
       "published_at": "2026-11-17T01:01:35+08:00"
-    },
-    {
-      "id": "f149dc1a48ff",
-      "title": "Lambda Boosts AI Factory Resiliency and Efficiency With NVIDIA Photonics",
-      "summary": "To train an AI model, thousands of GPUs have to work together, requiring a network that’s fast, efficient and resilient. Lambda is tackling the network piece o…",
-      "url": "https://blogs.nvidia.com/blog/lambda-photonics/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-17T00:00:51+08:00"
     },
     {
       "id": "717626b76ea0",
@@ -325,31 +361,13 @@
       "window_hours": 720
     },
     {
-      "id": "3ded89e2e5f9",
-      "title": "Microsoft Research Focus – Edition #98",
-      "summary": "What's new in research at Microsoft? Host Anson Ho explores the latest, including AI-powered universal translation, a breakthrough in a 31-year-old mathematics…",
-      "url": "https://www.microsoft.com/en-us/research/podcast/microsoft-research-focus-edition-98/",
-      "source": "Microsoft AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-13T05:31:57+08:00"
-    },
-    {
-      "id": "459a57b4750a",
-      "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
-      "summary": "We are bringing Gemini 4 Hydrogen to Google Search globally to provide you with more helpful, visual, and intuitive responses.",
-      "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
-      "source": "Google AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-13T02:00:00+08:00"
-    },
-    {
-      "id": "baf44ce1f39f",
-      "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
-      "summary": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
-      "url": "https://www.qbitai.com/2026/11/509440.html",
+      "id": "ac6b5041cf84",
+      "title": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+      "summary": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+      "url": "https://www.qbitai.com/2026/11/509995.html",
       "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-12T00:00:00+08:00",
+      "category": "中文资讯",
+      "published_at": "2026-11-13T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -365,16 +383,6 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-11-14T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "baf44ce1f39f",
-        "title": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
-        "summary": "多模态“源神”！MiniMax开源SOTA生图模型，原生4K，一张两毛",
-        "url": "https://www.qbitai.com/2026/11/509440.html",
-        "source": "量子位",
-        "category": "开源项目",
-        "published_at": "2026-11-12T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -405,6 +413,16 @@
         "source": "量子位",
         "category": "新工具上线",
         "published_at": "2026-11-14T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "ac6b5041cf84",
+        "title": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+        "summary": "黄仁勋辞职，英伟达33年首换帅，市值蒸发超3万亿",
+        "url": "https://www.qbitai.com/2026/11/509995.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-13T00:00:00+08:00",
         "window_hours": 720
       }
     ]
