@@ -220,9 +220,146 @@
     "bilibili:BV1DY4v6DEtz",
     "youtube:ge2FmPeVsT8",
     "youtube:KDyPHt4lW60",
-    "youtube:Q0ArTNWXeAU"
+    "youtube:Q0ArTNWXeAU",
+    "bilibili:BV1L7xm64EHP",
+    "bilibili:BV15p4v6bErb",
+    "youtube:QNEjh31zRyg",
+    "bilibili:BV1h3W76wEem"
   ],
   "batches": [
+    {
+      "date": "2026-11-20",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:9tOu4r-FiQI",
+              "platform": "youtube",
+              "title": "This DeepSeek v4.1 is powerful and uncensored, let's run it",
+              "summary": "Try PostHog yourself: Cloudroom: Heretic: HuggingFace: Ollama: Follow me on Instagram - Follow me on Twitter - I'm hiring",
+              "url": "https://www.youtube.com/watch?v=9tOu4r-FiQI",
+              "thumbnail": "https://i.ytimg.com/vi/9tOu4r-FiQI/maxresdefault.jpg",
+              "channel": "David Ondrej",
+              "subscribers": 0,
+              "views": 342152,
+              "duration": "35:44",
+              "max_height": 1080,
+              "published_at": "2026-11-02T09:37:53+08:00"
+            },
+            {
+              "id": "youtube:Q0ArTNWXeAU",
+              "platform": "youtube",
+              "title": "The Only Video You'll Need to Master Claude for 2027",
+              "summary": "🎁 Get the free Claude 15 Tips Guide (every prompt, skill and mod from this video) → 🚀 [Join my AI Accelerator] Get all my courses…",
+              "url": "https://www.youtube.com/watch?v=Q0ArTNWXeAU",
+              "thumbnail": "https://i.ytimg.com/vi/Q0ArTNWXeAU/maxresdefault.jpg",
+              "channel": "Ben AI",
+              "subscribers": 0,
+              "views": 127485,
+              "duration": "25:11",
+              "max_height": 1080,
+              "published_at": "2026-11-05T14:39:00+08:00"
+            },
+            {
+              "id": "youtube:QNEjh31zRyg",
+              "platform": "youtube",
+              "title": "DeepSeek + REA Cloned Claude Code for FREE (Full Build)",
+              "summary": "Run AI agents like OpenClaw and Hermes 24/7 on a Hostinger VPS, even when your laptop is off: Use STAYINGAHEAD - 10% coupon code …",
+              "url": "https://www.youtube.com/watch?v=QNEjh31zRyg",
+              "thumbnail": "https://i.ytimg.com/vi/QNEjh31zRyg/maxresdefault.jpg",
+              "channel": "Vaibhav Sisinty",
+              "subscribers": 0,
+              "views": 122528,
+              "duration": "17:20",
+              "max_height": 1080,
+              "published_at": "2026-11-17T23:39:13+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1L7xm64EHP",
+              "platform": "bilibili",
+              "title": "DeepSeek Harness 大肥鱼终极教程：新手进阶/插件生态/界面美化/手机端互通/全能鲸鱼娘【附完整文档】",
+              "summary": "【0基础完整图文版+素材】下载链接： 具体内容大家看置顶评论图集即可，建议最简单的方式就是直接把图文包扔给鲸鱼娘即可，我做的已经非常详细了，需要的一些资源都准备齐全了。希望大家能能够轻松使用完整的DSH生态哦。 友情提示，大家记得给这些开发者点一颗STRA哦",
+              "url": "https://www.bilibili.com/video/BV1L7xm64EHP",
+              "thumbnail": "video-thumbs/bilibili/BV1L7xm64EHP.jpg",
+              "channel": "WorkFisher",
+              "subscribers": 0,
+              "views": 1104221,
+              "duration": "25:37",
+              "max_height": 720,
+              "published_at": "2026-11-04T11:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV15p4v6bErb",
+              "platform": "bilibili",
+              "title": "【热门拆解】AI动画科普视频是怎么做的？AI视频涨粉90万？如何用deepseek和claude剪视频？",
+              "summary": "vibe科普视频手把手教程 15个模板带你从零基础直接搞懂～ 如何用dsh claude 做视频",
+              "url": "https://www.bilibili.com/video/BV15p4v6bErb",
+              "thumbnail": "video-thumbs/bilibili/BV15p4v6bErb.jpg",
+              "channel": "Git源宝",
+              "subscribers": 0,
+              "views": 488664,
+              "duration": "6:21",
+              "max_height": 720,
+              "published_at": "2026-11-06T17:15:00+08:00"
+            },
+            {
+              "id": "bilibili:BV1h3W76wEem",
+              "platform": "bilibili",
+              "title": "Claude(Code)桌面APP，保姆级全攻略，一期视频精通，顶级Agent软件长什么样？",
+              "summary": "最近Claude桌面端（Claude Desktop） 有了一大波功能更新。随着一步步的迭代，它已经把 Claude Code 的编程、Claude Design 的设计，以及 Claude Cowork 的办公等核心能力，全部收入了同一个桌面客户端，特别是…",
+              "url": "https://www.bilibili.com/video/BV1h3W76wEem",
+              "thumbnail": "video-thumbs/bilibili/BV1h3W76wEem.jpg",
+              "channel": "技术爬爬虾",
+              "subscribers": 0,
+              "views": 195628,
+              "duration": "47:14",
+              "max_height": 720,
+              "published_at": "2026-11-08T17:14:07+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-11-19",
       "timezone": "Asia/Shanghai",
@@ -7626,140 +7763,7 @@
           ]
         }
       }
-    },
-    {
-      "date": "2026-09-21",
-      "timezone": "Asia/Shanghai",
-      "criteria": {
-        "search_sources": [
-          "youtube",
-          "bilibili"
-        ],
-        "platform_total_cap": 3,
-        "video_categories": {
-          "youtube_recent_30d": {
-            "label": "YouTube：近 1 个月 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "bilibili_recent_30d": {
-            "label": "B站：近 1 个月 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          }
-        }
-      },
-      "categories": {
-        "youtube_recent_30d": {
-          "label": "YouTube：近 1 个月 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:KmcTu2EigTs",
-              "platform": "youtube",
-              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
-              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
-              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
-              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
-              "channel": "Jeff Su",
-              "subscribers": 0,
-              "views": 264392,
-              "duration": "19:35",
-              "max_height": 1080,
-              "published_at": "2026-08-25T21:00:23+08:00"
-            },
-            {
-              "id": "youtube:U-rsvXds9ck",
-              "platform": "youtube",
-              "title": "Deepseek did it again...",
-              "summary": "Check out MindsHub: Join My Newsletter for Regular AI Updates 👇🏼 My Links 🔗 👉🏻 X: 👉🏻 Forward Future X: 👉🏻 Instagram: 👉🏻 Discord: …",
-              "url": "https://www.youtube.com/watch?v=U-rsvXds9ck",
-              "thumbnail": "https://i.ytimg.com/vi/U-rsvXds9ck/maxresdefault.jpg",
-              "channel": "Matthew Berman",
-              "subscribers": 0,
-              "views": 252861,
-              "duration": "16:39",
-              "max_height": 1080,
-              "published_at": "2026-09-12T03:01:56+08:00"
-            },
-            {
-              "id": "youtube:o3CX_Y59_74",
-              "platform": "youtube",
-              "title": "OpenAI Codex Crash Course – Build & Deploy Apps with Autonomous AI",
-              "summary": "Learn the core fundamentals of OpenAI Codex, from setting up scheduled automations and custom skills to mastering Plan and Go mod…",
-              "url": "https://www.youtube.com/watch?v=o3CX_Y59_74",
-              "thumbnail": "https://i.ytimg.com/vi/o3CX_Y59_74/maxresdefault.jpg",
-              "channel": "freeCodeCamp.org",
-              "subscribers": 0,
-              "views": 135336,
-              "duration": "41:19",
-              "max_height": 1080,
-              "published_at": "2026-09-10T23:04:22+08:00"
-            }
-          ]
-        },
-        "bilibili_recent_30d": {
-          "label": "B站：近 1 个月 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "bilibili:BV1CMtR6YEj4",
-              "platform": "bilibili",
-              "title": "当我用豆包工作agent做个背单词游戏",
-              "summary": "【小白debug】讲解 AI 工具实战应用，围绕「当我用豆包工作agent做个背单词游戏」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1CMtR6YEj4",
-              "thumbnail": "video-thumbs/bilibili/BV1CMtR6YEj4.jpg",
-              "channel": "小白debug",
-              "subscribers": 0,
-              "views": 1004461,
-              "duration": "6:41",
-              "max_height": 720,
-              "published_at": "2026-09-05T12:05:00+08:00"
-            },
-            {
-              "id": "bilibili:BV1RjYB6DEYZ",
-              "platform": "bilibili",
-              "title": "真AI手机！豆包手机助手来了~【全网首发】",
-              "summary": "豆包手机助手这回真来了，它是你心中的贾维斯吗？一起来看看~ 感谢朋友们的三连+关注~",
-              "url": "https://www.bilibili.com/video/BV1RjYB6DEYZ",
-              "thumbnail": "video-thumbs/bilibili/BV1RjYB6DEYZ.jpg",
-              "channel": "秋芝2046",
-              "subscribers": 0,
-              "views": 992627,
-              "duration": "7:18",
-              "max_height": 720,
-              "published_at": "2026-09-14T18:00:00+08:00"
-            },
-            {
-              "id": "bilibili:BV11AY961E2o",
-              "platform": "bilibili",
-              "title": "今天，豆包手机助手消费者版 正式发布！一条视频带你全面了解！",
-              "summary": "消费者版的手机助手，依托最新的豆包大模型，不仅体验更稳定、可靠，还在交互、个人Context及记忆、Agent及任务执行等方面进行了迭代升级，精准识别，一语即达，为用户带来全新的AI智能体验。#豆包手机助手 #努比亚NaviX Ultra",
-              "url": "https://www.bilibili.com/video/BV11AY961E2o",
-              "thumbnail": "video-thumbs/bilibili/BV11AY961E2o.jpg",
-              "channel": "豆包",
-              "subscribers": 0,
-              "views": 475637,
-              "duration": "10:26",
-              "max_height": 720,
-              "published_at": "2026-09-14T10:00:00+08:00"
-            }
-          ]
-        }
-      }
     }
   ],
-  "updated_at": "2026-11-19T09:49:36.637982+08:00"
+  "updated_at": "2026-11-20T09:44:34.147300+08:00"
 }
