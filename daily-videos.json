@@ -224,9 +224,144 @@
     "bilibili:BV1L7xm64EHP",
     "bilibili:BV15p4v6bErb",
     "youtube:QNEjh31zRyg",
-    "bilibili:BV1h3W76wEem"
+    "bilibili:BV1h3W76wEem",
+    "youtube:KscFyux4dVk",
+    "youtube:5eON_8rgKzk"
   ],
   "batches": [
+    {
+      "date": "2026-11-21",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:9tOu4r-FiQI",
+              "platform": "youtube",
+              "title": "This DeepSeek v4.1 is powerful and uncensored, let's run it",
+              "summary": "Try PostHog yourself: Cloudroom: Heretic: HuggingFace: Ollama: Follow me on Instagram - Follow me on Twitter - I'm hiring",
+              "url": "https://www.youtube.com/watch?v=9tOu4r-FiQI",
+              "thumbnail": "https://i.ytimg.com/vi/9tOu4r-FiQI/maxresdefault.jpg",
+              "channel": "David Ondrej",
+              "subscribers": 0,
+              "views": 346890,
+              "duration": "35:44",
+              "max_height": 1080,
+              "published_at": "2026-11-02T09:37:53+08:00"
+            },
+            {
+              "id": "youtube:KscFyux4dVk",
+              "platform": "youtube",
+              "title": "Forget Claude Code: DeepSeek + REA Clones Anything 100% FREE (No Paid API)",
+              "summary": "Clone any app for free, with zero coding, using DeepSeek Harness + REA + OpenRouter",
+              "url": "https://www.youtube.com/watch?v=KscFyux4dVk",
+              "thumbnail": "https://i.ytimg.com/vi/KscFyux4dVk/maxresdefault.jpg",
+              "channel": "Maitis",
+              "subscribers": 0,
+              "views": 228796,
+              "duration": "22:15",
+              "max_height": 1080,
+              "published_at": "2026-11-03T22:56:41+08:00"
+            },
+            {
+              "id": "youtube:5eON_8rgKzk",
+              "platform": "youtube",
+              "title": "Gemini 4 Neon is ridiculous...",
+              "summary": "Join My Newsletter for Regular AI Updates 👇🏼 Check out Scarlet: My Links 🔗 👉🏻 X: 👉🏻 Forward Future X: 👉🏻 Instagram: 👉🏻 Discord: 👉…",
+              "url": "https://www.youtube.com/watch?v=5eON_8rgKzk",
+              "thumbnail": "https://i.ytimg.com/vi/5eON_8rgKzk/maxresdefault.jpg",
+              "channel": "Matthew Berman",
+              "subscribers": 0,
+              "views": 207277,
+              "duration": "9:53",
+              "max_height": 1080,
+              "published_at": "2026-11-20T10:37:36+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1REx46NEc4",
+              "platform": "bilibili",
+              "title": "【全网最全】DeepSeek Harness超详细教程！50分钟吃透DSH，让SuperAgent给你干活！",
+              "summary": "DeepSeek Harness超详细教程！ 大家可以速速收藏啦~ 耗时60天制作！感谢大家的三联 未来还会出其他AI教程，大家可以关注一下~",
+              "url": "https://www.bilibili.com/video/BV1REx46NEc4",
+              "thumbnail": "video-thumbs/bilibili/BV1REx46NEc4.jpg",
+              "channel": "Git源宝",
+              "subscribers": 0,
+              "views": 3130698,
+              "duration": "50:41",
+              "max_height": 720,
+              "published_at": "2026-11-01T18:22:02+08:00"
+            },
+            {
+              "id": "bilibili:BV1L7xm64EHP",
+              "platform": "bilibili",
+              "title": "DeepSeek Harness 大肥鱼终极教程：新手进阶/插件生态/界面美化/手机端互通/全能鲸鱼娘【附完整文档】",
+              "summary": "【0基础完整图文版+素材】下载链接： 具体内容大家看置顶评论图集即可，建议最简单的方式就是直接把图文包扔给鲸鱼娘即可，我做的已经非常详细了，需要的一些资源都准备齐全了。希望大家能能够轻松使用完整的DSH生态哦。 友情提示，大家记得给这些开发者点一颗STRA哦",
+              "url": "https://www.bilibili.com/video/BV1L7xm64EHP",
+              "thumbnail": "video-thumbs/bilibili/BV1L7xm64EHP.jpg",
+              "channel": "WorkFisher",
+              "subscribers": 0,
+              "views": 1139563,
+              "duration": "25:37",
+              "max_height": 720,
+              "published_at": "2026-11-04T11:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV15p4v6bErb",
+              "platform": "bilibili",
+              "title": "【热门拆解】AI动画科普视频是怎么做的？AI视频涨粉90万？如何用deepseek和claude剪视频？",
+              "summary": "vibe科普视频手把手教程 15个模板带你从零基础直接搞懂～ 如何用dsh claude 做视频",
+              "url": "https://www.bilibili.com/video/BV15p4v6bErb",
+              "thumbnail": "video-thumbs/bilibili/BV15p4v6bErb.jpg",
+              "channel": "Git源宝",
+              "subscribers": 0,
+              "views": 596818,
+              "duration": "6:21",
+              "max_height": 720,
+              "published_at": "2026-11-06T17:15:00+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-11-20",
       "timezone": "Asia/Shanghai",
@@ -7630,140 +7765,7 @@
           ]
         }
       }
-    },
-    {
-      "date": "2026-09-22",
-      "timezone": "Asia/Shanghai",
-      "criteria": {
-        "search_sources": [
-          "youtube",
-          "bilibili"
-        ],
-        "platform_total_cap": 3,
-        "video_categories": {
-          "youtube_recent_30d": {
-            "label": "YouTube：近 1 个月 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "bilibili_recent_30d": {
-            "label": "B站：近 1 个月 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          }
-        }
-      },
-      "categories": {
-        "youtube_recent_30d": {
-          "label": "YouTube：近 1 个月 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:KmcTu2EigTs",
-              "platform": "youtube",
-              "title": "Learn 95% of ChatGPT Work in Under 20 Minutes",
-              "summary": "📚 Grab HubSpot's free Guide to #ChatGPT Work: Most people open #ChatGPT Work, type a question, and end up using it exactly like t…",
-              "url": "https://www.youtube.com/watch?v=KmcTu2EigTs",
-              "thumbnail": "https://i.ytimg.com/vi/KmcTu2EigTs/maxresdefault.jpg",
-              "channel": "Jeff Su",
-              "subscribers": 0,
-              "views": 270358,
-              "duration": "19:35",
-              "max_height": 1080,
-              "published_at": "2026-08-25T21:00:23+08:00"
-            },
-            {
-              "id": "youtube:U-rsvXds9ck",
-              "platform": "youtube",
-              "title": "Deepseek did it again...",
-              "summary": "Check out MindsHub: Join My Newsletter for Regular AI Updates 👇🏼 My Links 🔗 👉🏻 X: 👉🏻 Forward Future X: 👉🏻 Instagram: 👉🏻 Discord: …",
-              "url": "https://www.youtube.com/watch?v=U-rsvXds9ck",
-              "thumbnail": "https://i.ytimg.com/vi/U-rsvXds9ck/maxresdefault.jpg",
-              "channel": "Matthew Berman",
-              "subscribers": 0,
-              "views": 254217,
-              "duration": "16:39",
-              "max_height": 1080,
-              "published_at": "2026-09-12T03:01:56+08:00"
-            },
-            {
-              "id": "youtube:ifz8NGHuHtY",
-              "platform": "youtube",
-              "title": "28 Insane Things Astra Can Do (2 Hour Course)",
-              "summary": "Codex + GPT-6 Astra: The Complete Guide (28 Things You Need to Know) Here is the Codex Complete Guide in Written format: 00:00 In…",
-              "url": "https://www.youtube.com/watch?v=ifz8NGHuHtY",
-              "thumbnail": "https://i.ytimg.com/vi/ifz8NGHuHtY/maxresdefault.jpg",
-              "channel": "Riley Brown",
-              "subscribers": 0,
-              "views": 191255,
-              "duration": "1:54:47",
-              "max_height": 1080,
-              "published_at": "2026-09-14T21:00:30+08:00"
-            }
-          ]
-        },
-        "bilibili_recent_30d": {
-          "label": "B站：近 1 个月 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "bilibili:BV1CMtR6YEj4",
-              "platform": "bilibili",
-              "title": "当我用豆包工作agent做个背单词游戏",
-              "summary": "【小白debug】讲解 AI 工具实战应用，围绕「当我用豆包工作agent做个背单词游戏」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1CMtR6YEj4",
-              "thumbnail": "video-thumbs/bilibili/BV1CMtR6YEj4.jpg",
-              "channel": "小白debug",
-              "subscribers": 0,
-              "views": 1004635,
-              "duration": "6:41",
-              "max_height": 720,
-              "published_at": "2026-09-05T12:05:00+08:00"
-            },
-            {
-              "id": "bilibili:BV1Teec6BEti",
-              "platform": "bilibili",
-              "title": "保姆级教程！教你在本地搭建DeepSeek Harness多Agent工作流！",
-              "summary": "这期视频，我会用ET900A X9从零搭建一套本地多Agent工作流，把LM Studio、DeepSeek Harness和本地模型串起来。 开头先聊聊RTX 5080台式机、128GB统一内存的GX10和专业工作站分别适合谁，再用Qwen3",
-              "url": "https://www.bilibili.com/video/BV1Teec6BEti",
-              "thumbnail": "video-thumbs/bilibili/BV1Teec6BEti.jpg",
-              "channel": "我是阿众",
-              "subscribers": 0,
-              "views": 288385,
-              "duration": "13:59",
-              "max_height": 720,
-              "published_at": "2026-09-16T19:41:14+08:00"
-            },
-            {
-              "id": "bilibili:BV1nPY46cEWA",
-              "platform": "bilibili",
-              "title": "这19年iPhone变化这么大？？当我用豆包工作做了一个在线博物馆【附AI教程】",
-              "summary": "苹果发布会马上就要开始拉，出发前这两天把从2007年初代iPhone到现在的19年产品历史，做成了一座能逛、能投票、还能直接拉两代机型对比的网页博物馆。 整个项目基本都是用豆包工作做的，从网页、历代产品图，到后面的折叠屏概念广告，一路做一路返工。中间也没少翻…",
-              "url": "https://www.bilibili.com/video/BV1nPY46cEWA",
-              "thumbnail": "video-thumbs/bilibili/BV1nPY46cEWA.jpg",
-              "channel": "在下小苏",
-              "subscribers": 0,
-              "views": 284809,
-              "duration": "",
-              "max_height": 720,
-              "published_at": "2026-09-09T17:21:43+08:00"
-            }
-          ]
-        }
-      }
     }
   ],
-  "updated_at": "2026-11-20T09:44:34.147300+08:00"
+  "updated_at": "2026-11-21T09:17:11.787009+08:00"
 }
