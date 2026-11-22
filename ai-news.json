@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22T05:57:25.148729+08:00",
+  "updated_at": "2026-11-22T20:02:02.143404+08:00",
   "date": "2026-11-22",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,40 +15,49 @@
   },
   "items": [
     {
-      "id": "12eb3c771bfe",
-      "title": "GPT-6.2 Astra再次暴击具身模型：16项任务成功率较GPT-6 Astra翻倍",
-      "summary": "还实现可变形物体操控全球首通",
-      "url": "https://www.qbitai.com/2026/11/511779.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-11-21T14:35:59+08:00"
-    },
-    {
-      "id": "4cb075a5562c",
-      "title": "刚刚，DeepSeek V1作者创业项目曝光：开源Agent",
-      "summary": "专为本地部署而生",
-      "url": "https://www.qbitai.com/2026/11/511570.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-21T14:32:31+08:00"
-    },
-    {
-      "id": "d989f1069121",
-      "title": "姚顺雨和混元团队上Reddit答网友，Hy小模型已进路线图",
-      "summary": "还透露了不少训练背后的秘诀",
-      "url": "https://www.qbitai.com/2026/11/511757.html",
+      "id": "5a5efc229d82",
+      "title": "Nature：糖尿病大鼠成功恢复正常血糖！用电刺激迷走神经控糖",
+      "summary": "用葡萄糖发电控制血糖。",
+      "url": "https://www.qbitai.com/2026/11/511904.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-11-21T14:30:55+08:00"
+      "published_at": "2026-11-22T14:21:47+08:00"
     },
     {
-      "id": "9e7df998d665",
-      "title": "米哈游发了个VLA论文",
-      "summary": "8B参数，50小时自主运行",
-      "url": "https://www.qbitai.com/2026/11/511740.html",
+      "id": "d1f67c5edc50",
+      "title": "A社数学家用Claude又证明另一千禧难题，逼出一份写了12年的940页纯人类手稿",
+      "summary": "A社数学家用Claude又证明另一千禧难题，逼出一份写了12年的940页纯人类手稿",
+      "url": "https://www.qbitai.com/2026/11/511870.html",
       "source": "量子位",
-      "category": "学术论文",
-      "published_at": "2026-11-21T00:25:26+08:00"
+      "category": "新模型发布",
+      "published_at": "2026-11-22T14:03:54+08:00"
+    },
+    {
+      "id": "0256f71b4552",
+      "title": "AI给乐队现场搓MV，这是黑客松还是音乐节啊",
+      "summary": "AI给乐队现场搓MV，这是黑客松还是音乐节啊",
+      "url": "https://www.qbitai.com/2026/11/511855.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-21T22:14:09+08:00"
+    },
+    {
+      "id": "e01ed0ee19c3",
+      "title": "中国计算，走出新的登峰之路",
+      "summary": "中国计算，走出新的登峰之路",
+      "url": "https://www.qbitai.com/2026/11/511849.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-21T22:09:59+08:00"
+    },
+    {
+      "id": "7f1a3b20b925",
+      "title": "8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准",
+      "summary": "8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准",
+      "url": "https://www.qbitai.com/2026/11/511841.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-21T19:40:11+08:00"
     },
     {
       "id": "287eabec793d",
@@ -57,7 +66,8 @@
       "url": "https://www.qbitai.com/2026/11/511727.html",
       "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-11-21T00:07:39+08:00"
+      "published_at": "2026-11-21T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "3ea993db7e3c",
@@ -331,6 +341,16 @@
         "window_hours": 720
       },
       {
+        "id": "287eabec793d",
+        "title": "黎曼猜想被证明？！Claude加持，34岁数学家放出Lean证明",
+        "summary": "黎曼猜想被证明？！Claude加持，34岁数学家放出Lean证明",
+        "url": "https://www.qbitai.com/2026/11/511727.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-11-21T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "fc6e4b817a04",
         "title": "GPT-6.2 Astra和Sol王炸双发！3D又危了",
         "summary": "GPT-6.2 Astra和Sol王炸双发！3D又危了",
@@ -358,16 +378,6 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-11-17T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "287eabec793d",
-        "title": "黎曼猜想被证明？！Claude加持，34岁数学家放出Lean证明",
-        "summary": "黎曼猜想被证明？！Claude加持，34岁数学家放出Lean证明",
-        "url": "https://www.qbitai.com/2026/11/511727.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-11-21T00:00:00+08:00",
         "window_hours": 720
       }
     ]
