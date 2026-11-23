@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-23T06:14:06.946454+08:00",
+  "updated_at": "2026-11-23T21:44:46.440123+08:00",
   "date": "2026-11-23",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,22 +15,94 @@
   },
   "items": [
     {
-      "id": "5a5efc229d82",
-      "title": "Nature：糖尿病大鼠成功恢复正常血糖！用电刺激迷走神经控糖",
-      "summary": "用葡萄糖发电控制血糖。",
-      "url": "https://www.qbitai.com/2026/11/511904.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-22T14:21:47+08:00"
-    },
-    {
-      "id": "d1f67c5edc50",
-      "title": "A社数学家用Claude又证明另一千禧难题，逼出一份写了12年的940页纯人类手稿",
-      "summary": "A社数学家用Claude又证明另一千禧难题，逼出一份写了12年的940页纯人类手稿",
-      "url": "https://www.qbitai.com/2026/11/511870.html",
+      "id": "213cd23b5b4e",
+      "title": "实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了",
+      "summary": "零Token成本，断网也能自由Vibe Coding",
+      "url": "https://www.qbitai.com/2026/11/512195.html",
       "source": "量子位",
       "category": "新模型发布",
-      "published_at": "2026-11-22T14:03:54+08:00"
+      "published_at": "2026-11-23T19:01:15+08:00"
+    },
+    {
+      "id": "b350edef2d5d",
+      "title": "XROGO郑随兵：机器人不能只在视频里，终究要进入工厂“真干活”",
+      "summary": "企业核心需求不是交付设备，而是能持续上岗的劳动力",
+      "url": "https://www.qbitai.com/2026/11/512179.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-23T17:10:08+08:00"
+    },
+    {
+      "id": "5987e7793700",
+      "title": "蚂蚁医疗健康AI五连发！开源、本地部署、望闻问切全安排上了",
+      "summary": "阿福大升级：让模型像医生一样思考",
+      "url": "https://www.qbitai.com/2026/11/512017.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-23T15:42:01+08:00"
+    },
+    {
+      "id": "ab2f6e9843a1",
+      "title": "“Agent版arXiv”来了！936个智能体12个星期狂发近千篇论文，连同行评议都整上了",
+      "summary": "一个完全由AI组成的科学家社会，是什么样？",
+      "url": "https://www.qbitai.com/2026/11/512004.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-23T14:59:38+08:00"
+    },
+    {
+      "id": "036e80097ea4",
+      "title": "Adding One More Agent: How AI Team Size and Formation Shape Productivity and Diversity in Human-AI Brainstorming Teams",
+      "summary": "arXiv:2611.26663v1 Announce Type: new Abstract: Generative AI has improved individual productivity, but whether adding a plurality of AI partners helps or hurt…",
+      "url": "https://arxiv.org/abs/2611.26663",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-23T13:00:00+08:00"
+    },
+    {
+      "id": "d55ff3b0f9c3",
+      "title": "Coherence by Construction: Synthesizing CTI Knowledge Graphs and the Formal Limits of Coherence Validation",
+      "summary": "arXiv:2611.26717v1 Announce Type: new Abstract: Synthesizing relational training data such as knowledge graphs with a large language model typically emits stru…",
+      "url": "https://arxiv.org/abs/2611.26717",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-23T13:00:00+08:00"
+    },
+    {
+      "id": "7ccc51f7d59b",
+      "title": "TOUMAII: A 4.5M-Pair Tool-Calling Preference Dataset and Its Source-Agnostic Generator",
+      "summary": "arXiv:2611.26722v1 Announce Type: new Abstract: To autonomously execute multi-step tasks, enterprise agents must reliably interact with tools, call APIs, or qu…",
+      "url": "https://arxiv.org/abs/2611.26722",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-11-23T13:00:00+08:00"
+    },
+    {
+      "id": "d63805c1edc2",
+      "title": "ChatAtom: A Multi-Agent LLM System for Molecular Dynamics Simulation and Visualization",
+      "summary": "arXiv:2611.26782v1 Announce Type: new Abstract: Molecular dynamics (MD) simulation resolves atomic-scale motion and predicts the structural, mechanical, and dy…",
+      "url": "https://arxiv.org/abs/2611.26782",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-23T13:00:00+08:00"
+    },
+    {
+      "id": "e212b1020568",
+      "title": "Beyond Final Answers: Interpretable Tumor Immune Microenvironment Reasoning from H&E and mIF",
+      "summary": "arXiv:2611.26794v1 Announce Type: new Abstract: Readouts of the tumor immune microenvironment (TIME), such as CD8+ T-cell density, intra-epithelial infiltratio…",
+      "url": "https://arxiv.org/abs/2611.26794",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-23T13:00:00+08:00"
+    },
+    {
+      "id": "5006bfd12aa6",
+      "title": "蚂蚁阿福同款大模型宣布开源，全球医生一台电脑就能解锁专业医疗 AI 能力",
+      "summary": "阿福App宣布新一轮升级，解锁越来越多健康服务新本领",
+      "url": "https://www.qbitai.com/2026/11/511998.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-23T11:56:34+08:00"
     },
     {
       "id": "de5cd1a6d51d",
@@ -42,39 +114,22 @@
       "published_at": "2026-11-22T08:00:00+08:00"
     },
     {
-      "id": "0256f71b4552",
-      "title": "AI给乐队现场搓MV，这是黑客松还是音乐节啊",
-      "summary": "AI给乐队现场搓MV，这是黑客松还是音乐节啊",
-      "url": "https://www.qbitai.com/2026/11/511855.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-21T22:14:09+08:00"
-    },
-    {
-      "id": "e01ed0ee19c3",
-      "title": "中国计算，走出新的登峰之路",
-      "summary": "中国计算，走出新的登峰之路",
-      "url": "https://www.qbitai.com/2026/11/511849.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-21T22:09:59+08:00"
-    },
-    {
-      "id": "7f1a3b20b925",
-      "title": "8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准",
-      "summary": "8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准",
-      "url": "https://www.qbitai.com/2026/11/511841.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-11-21T19:40:11+08:00"
-    },
-    {
       "id": "287eabec793d",
       "title": "黎曼猜想被证明？！Claude加持，34岁数学家放出Lean证明",
       "summary": "黎曼猜想被证明？！Claude加持，34岁数学家放出Lean证明",
       "url": "https://www.qbitai.com/2026/11/511727.html",
       "source": "量子位",
       "category": "新模型发布",
+      "published_at": "2026-11-21T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
+      "id": "4cb075a5562c",
+      "title": "刚刚，DeepSeek V1作者创业项目曝光：开源Agent",
+      "summary": "刚刚，DeepSeek V1作者创业项目曝光：开源Agent",
+      "url": "https://www.qbitai.com/2026/11/511570.html",
+      "source": "量子位",
+      "category": "开源项目",
       "published_at": "2026-11-21T00:00:00+08:00",
       "window_hours": 720
     },
@@ -158,6 +213,16 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-11-20T01:00:00+08:00"
+    },
+    {
+      "id": "3e97e19d49f6",
+      "title": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
+      "summary": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
+      "url": "https://www.qbitai.com/2026/11/511582.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-20T00:00:00+08:00",
+      "window_hours": 720
     },
     {
       "id": "b6fd64654869",
@@ -279,16 +344,6 @@
       "published_at": "2026-11-17T01:01:35+08:00"
     },
     {
-      "id": "83b8de21dbff",
-      "title": "并购完成，李飞飞正式率队加入AMD！苏妈亲自欢迎",
-      "summary": "并购完成，李飞飞正式率队加入AMD！苏妈亲自欢迎",
-      "url": "https://www.qbitai.com/2026/11/510695.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-17T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
       "id": "717626b76ea0",
       "title": "New Ask Maps features to help with holiday travel and prep",
       "summary": "Plan holiday road trips, get route tips, find local appointments, and search your saved lists with new Ask Maps features.",
@@ -296,32 +351,12 @@
       "source": "Google AI",
       "category": "行业新闻",
       "published_at": "2026-11-16T22:00:00+08:00"
-    },
-    {
-      "id": "93489cde676a",
-      "title": "阿里正式发布Qwen4，智能体及编程能力进阶，迈向真实全场景",
-      "summary": "阿里正式发布Qwen4，智能体及编程能力进阶，迈向真实全场景",
-      "url": "https://www.qbitai.com/2026/11/510486.html",
-      "source": "量子位",
-      "category": "新工具上线",
-      "published_at": "2026-11-16T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
     "url": "https://www.qbitai.com/",
     "window_days": 30,
     "items": [
-      {
-        "id": "93489cde676a",
-        "title": "阿里正式发布Qwen4，智能体及编程能力进阶，迈向真实全场景",
-        "summary": "阿里正式发布Qwen4，智能体及编程能力进阶，迈向真实全场景",
-        "url": "https://www.qbitai.com/2026/11/510486.html",
-        "source": "量子位",
-        "category": "新工具上线",
-        "published_at": "2026-11-16T00:00:00+08:00",
-        "window_hours": 720
-      },
       {
         "id": "287eabec793d",
         "title": "黎曼猜想被证明？！Claude加持，34岁数学家放出Lean证明",
@@ -343,6 +378,26 @@
         "window_hours": 720
       },
       {
+        "id": "3e97e19d49f6",
+        "title": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
+        "summary": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
+        "url": "https://www.qbitai.com/2026/11/511582.html",
+        "source": "量子位",
+        "category": "中文资讯",
+        "published_at": "2026-11-20T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "4cb075a5562c",
+        "title": "刚刚，DeepSeek V1作者创业项目曝光：开源Agent",
+        "summary": "刚刚，DeepSeek V1作者创业项目曝光：开源Agent",
+        "url": "https://www.qbitai.com/2026/11/511570.html",
+        "source": "量子位",
+        "category": "开源项目",
+        "published_at": "2026-11-21T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
         "id": "7dc6954b4a03",
         "title": "黄仁勋不再沉默：我愿重掌英伟达！董事会：不考虑",
         "summary": "黄仁勋不再沉默：我愿重掌英伟达！董事会：不考虑",
@@ -350,16 +405,6 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-11-18T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "83b8de21dbff",
-        "title": "并购完成，李飞飞正式率队加入AMD！苏妈亲自欢迎",
-        "summary": "并购完成，李飞飞正式率队加入AMD！苏妈亲自欢迎",
-        "url": "https://www.qbitai.com/2026/11/510695.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-11-17T00:00:00+08:00",
         "window_hours": 720
       }
     ]
