@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24T11:06:18.891922+08:00",
+  "updated_at": "2026-11-24T22:20:34.412554+08:00",
   "date": "2026-11-24",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,22 +15,49 @@
   },
   "items": [
     {
-      "id": "bfcbbc5c4484",
-      "title": "具身行业，终于等来了自己的通用智能时刻",
-      "summary": "行业苦等多年的预训练通用智能，终于有了答案",
-      "url": "https://www.qbitai.com/2026/11/512264.html",
+      "id": "5d4293c836cf",
+      "title": "Google Cloud 出海峰会报名开启",
+      "summary": "2027 Google Cloud 出海峰会将于 1 月 14 日在北京中关村国际创新中心举行",
+      "url": "https://www.qbitai.com/2026/11/512370.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-11-24T09:51:56+08:00"
+      "published_at": "2026-11-24T14:52:29+08:00"
     },
     {
-      "id": "9f26bd4b265c",
-      "title": "老黄回归现场盛况空前！员工人山人海夹道欢迎，“哪里领入职电脑”",
-      "summary": "离职员工：我可能走早了",
-      "url": "https://www.qbitai.com/2026/11/512252.html",
+      "id": "b02e5d7aa184",
+      "title": "业界首提“端侧超节点”，让端侧AI组队计算：AI效率暴涨270%，不用换芯片或模型",
+      "summary": "端侧老炮辛米尔，打通物理AI规模化落地之路",
+      "url": "https://www.qbitai.com/2026/11/512362.html",
       "source": "量子位",
       "category": "中文资讯",
-      "published_at": "2026-11-24T09:32:37+08:00"
+      "published_at": "2026-11-24T14:35:06+08:00"
+    },
+    {
+      "id": "e5443a251948",
+      "title": "文心 5.5 Flash Preview正式开源，采用 Apache 2.0 协议",
+      "summary": "文心 5.5 Flash Preview正式开源，采用 Apache 2.0 协议",
+      "url": "https://www.qbitai.com/2026/11/512354.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-24T14:22:28+08:00"
+    },
+    {
+      "id": "c8797e845f1c",
+      "title": "八年研发，首搭方程豹钛9，全球首个折叠方向盘量产上车",
+      "summary": "11月19日，方程豹钛9上市，售价27.99万元起",
+      "url": "https://www.qbitai.com/2026/11/512348.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-24T14:15:38+08:00"
+    },
+    {
+      "id": "e757621f3f4a",
+      "title": "巴新总理见证，仰望U8交付巴布亚新几内亚市场",
+      "summary": "2026年11月18日，中国深圳——APEC会议期间，比亚迪仰望U8正式交付巴布亚新几内亚市场",
+      "url": "https://www.qbitai.com/2026/11/512343.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-24T14:12:16+08:00"
     },
     {
       "id": "1d0c151fefed",
@@ -69,33 +96,6 @@
       "published_at": "2026-11-24T01:00:00+08:00"
     },
     {
-      "id": "9dddeb89e408",
-      "title": "Finding faster quantum algorithms with agents and formal verification",
-      "summary": "Using agent teams and formal verification to improve quantum algorithms for fusion and chemistry.",
-      "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-24T00:59:40+08:00"
-    },
-    {
-      "id": "213cd23b5b4e",
-      "title": "实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了",
-      "summary": "零Token成本，断网也能自由Vibe Coding",
-      "url": "https://www.qbitai.com/2026/11/512195.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-11-23T19:01:15+08:00"
-    },
-    {
-      "id": "b350edef2d5d",
-      "title": "XROGO郑随兵：机器人不能只在视频里，终究要进入工厂“真干活”",
-      "summary": "企业核心需求不是交付设备，而是能持续上岗的劳动力",
-      "url": "https://www.qbitai.com/2026/11/512179.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-23T17:10:08+08:00"
-    },
-    {
       "id": "f8a4e02f4212",
       "title": "Connected intelligence for in-house legal",
       "summary": "Watch OpenAI’s Stacey Wang and Craig Bruney, Mary O’Carroll of LECG, and Cooley’s Richard Segal explore how AI can help in-house legal teams connect business c…",
@@ -112,60 +112,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-23T16:00:00+08:00"
-    },
-    {
-      "id": "5987e7793700",
-      "title": "蚂蚁医疗健康AI五连发！开源、本地部署、望闻问切全安排上了",
-      "summary": "阿福大升级：让模型像医生一样思考",
-      "url": "https://www.qbitai.com/2026/11/512017.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-23T15:42:01+08:00"
-    },
-    {
-      "id": "036e80097ea4",
-      "title": "Adding One More Agent: How AI Team Size and Formation Shape Productivity and Diversity in Human-AI Brainstorming Teams",
-      "summary": "arXiv:2611.26663v1 Announce Type: new Abstract: Generative AI has improved individual productivity, but whether adding a plurality of AI partners helps or hurt…",
-      "url": "https://arxiv.org/abs/2611.26663",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-23T13:00:00+08:00"
-    },
-    {
-      "id": "d55ff3b0f9c3",
-      "title": "Coherence by Construction: Synthesizing CTI Knowledge Graphs and the Formal Limits of Coherence Validation",
-      "summary": "arXiv:2611.26717v1 Announce Type: new Abstract: Synthesizing relational training data such as knowledge graphs with a large language model typically emits stru…",
-      "url": "https://arxiv.org/abs/2611.26717",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-23T13:00:00+08:00"
-    },
-    {
-      "id": "7ccc51f7d59b",
-      "title": "TOUMAII: A 4.5M-Pair Tool-Calling Preference Dataset and Its Source-Agnostic Generator",
-      "summary": "arXiv:2611.26722v1 Announce Type: new Abstract: To autonomously execute multi-step tasks, enterprise agents must reliably interact with tools, call APIs, or qu…",
-      "url": "https://arxiv.org/abs/2611.26722",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-11-23T13:00:00+08:00"
-    },
-    {
-      "id": "d63805c1edc2",
-      "title": "ChatAtom: A Multi-Agent LLM System for Molecular Dynamics Simulation and Visualization",
-      "summary": "arXiv:2611.26782v1 Announce Type: new Abstract: Molecular dynamics (MD) simulation resolves atomic-scale motion and predicts the structural, mechanical, and dy…",
-      "url": "https://arxiv.org/abs/2611.26782",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-23T13:00:00+08:00"
-    },
-    {
-      "id": "e212b1020568",
-      "title": "Beyond Final Answers: Interpretable Tumor Immune Microenvironment Reasoning from H&E and mIF",
-      "summary": "arXiv:2611.26794v1 Announce Type: new Abstract: Readouts of the tumor immune microenvironment (TIME), such as CD8+ T-cell density, intra-epithelial infiltratio…",
-      "url": "https://arxiv.org/abs/2611.26794",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-23T13:00:00+08:00"
     },
     {
       "id": "6fd4c32fe34a",
@@ -288,15 +234,6 @@
       "published_at": "2026-11-19T22:00:12+08:00"
     },
     {
-      "id": "0c3c8b23c6ca",
-      "title": "Introducing Gemini 4 Neon",
-      "summary": "Introducing Gemini 4 Neon",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-11-19T05:35:43+08:00"
-    },
-    {
       "id": "f689168723dc",
       "title": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency",
       "summary": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency",
@@ -304,15 +241,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-11-19T03:54:56+08:00"
-    },
-    {
-      "id": "652211f5c064",
-      "title": "Genie 4 is now available",
-      "summary": "Genie 4 is now available",
-      "url": "https://deepmind.google/blog/genie-4-is-now-available/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-19T02:13:42+08:00"
     },
     {
       "id": "03ca256a4adf",
