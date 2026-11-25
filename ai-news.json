@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25T09:11:45.945878+08:00",
+  "updated_at": "2026-11-25T21:39:54.319683+08:00",
   "date": "2026-11-25",
   "cadence": "daily",
   "window_hours": 168,
@@ -14,6 +14,60 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "b4817ec40d9d",
+      "title": "9400万参数硬刚50亿，权重显存直降98%！Loop架构被这家中国团队玩明白了",
+      "summary": "揭秘General Looped Model",
+      "url": "https://www.qbitai.com/2026/11/512565.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-11-25T19:07:14+08:00"
+    },
+    {
+      "id": "d0a3a7f662b5",
+      "title": "An Indic Voice Agent with CUGA",
+      "summary": "An Indic Voice Agent with CUGA",
+      "url": "https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-25T18:22:09+08:00"
+    },
+    {
+      "id": "bc7248d5d33a",
+      "title": "Anthropic还藏着2个最强模型…",
+      "summary": "Fable5.2已经很旧了。",
+      "url": "https://www.qbitai.com/2026/11/512538.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-25T16:23:24+08:00"
+    },
+    {
+      "id": "dc2be766855c",
+      "title": "完整议程！第二十一届中国IDC产业年度大典（IDCC2026）",
+      "summary": "第二十一届中国IDC产业年度大典（IDCC2026）暨2026全球数字基础设施科技展即将举办",
+      "url": "https://www.qbitai.com/2026/11/512532.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-25T16:18:54+08:00"
+    },
+    {
+      "id": "c220f10f59dc",
+      "title": "A社Tibo被曝加盟OpenAI！上市前离职三人组异地团圆",
+      "summary": "OpenAI这下要有俩Tibo了",
+      "url": "https://www.qbitai.com/2026/11/512515.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-25T15:46:52+08:00"
+    },
+    {
+      "id": "44100d5ba39a",
+      "title": "华人计算机视觉泰斗二次创业！离开苹果下场，专注下一代空间与物理AI",
+      "summary": "复杂场景三维建模成本降至10美元以内",
+      "url": "https://www.qbitai.com/2026/11/512498.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-25T14:49:27+08:00"
+    },
     {
       "id": "16565a3f5dc0",
       "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
@@ -49,51 +103,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-24T19:00:00+08:00"
-    },
-    {
-      "id": "5d4293c836cf",
-      "title": "Google Cloud 出海峰会报名开启",
-      "summary": "2027 Google Cloud 出海峰会将于 1 月 14 日在北京中关村国际创新中心举行",
-      "url": "https://www.qbitai.com/2026/11/512370.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-24T14:52:29+08:00"
-    },
-    {
-      "id": "b02e5d7aa184",
-      "title": "业界首提“端侧超节点”，让端侧AI组队计算：AI效率暴涨270%，不用换芯片或模型",
-      "summary": "端侧老炮辛米尔，打通物理AI规模化落地之路",
-      "url": "https://www.qbitai.com/2026/11/512362.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-24T14:35:06+08:00"
-    },
-    {
-      "id": "e5443a251948",
-      "title": "文心 5.5 Flash Preview正式开源，采用 Apache 2.0 协议",
-      "summary": "文心 5.5 Flash Preview正式开源，采用 Apache 2.0 协议",
-      "url": "https://www.qbitai.com/2026/11/512354.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-24T14:22:28+08:00"
-    },
-    {
-      "id": "c8797e845f1c",
-      "title": "八年研发，首搭方程豹钛9，全球首个折叠方向盘量产上车",
-      "summary": "11月19日，方程豹钛9上市，售价27.99万元起",
-      "url": "https://www.qbitai.com/2026/11/512348.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-24T14:15:38+08:00"
-    },
-    {
-      "id": "e757621f3f4a",
-      "title": "巴新总理见证，仰望U8交付巴布亚新几内亚市场",
-      "summary": "2026年11月18日，中国深圳——APEC会议期间，比亚迪仰望U8正式交付巴布亚新几内亚市场",
-      "url": "https://www.qbitai.com/2026/11/512343.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-24T14:12:16+08:00"
     },
     {
       "id": "ec442b764e04",
@@ -168,6 +177,16 @@
       "published_at": "2026-11-23T08:00:00+08:00"
     },
     {
+      "id": "213cd23b5b4e",
+      "title": "实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了",
+      "summary": "实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了",
+      "url": "https://www.qbitai.com/2026/11/512195.html",
+      "source": "量子位",
+      "category": "新模型发布",
+      "published_at": "2026-11-23T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "287eabec793d",
       "title": "黎曼猜想被证明？！Claude加持，34岁数学家放出Lean证明",
       "summary": "黎曼猜想被证明？！Claude加持，34岁数学家放出Lean证明",
@@ -194,15 +213,6 @@
       "url": "https://huggingface.co/blog/inkling2mini",
       "source": "Hugging Face",
       "category": "开源项目",
-      "published_at": "2026-11-20T08:00:00+08:00"
-    },
-    {
-      "id": "211fbe8009a4",
-      "title": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
-      "summary": "Introducing harness adapters: adapt your favorite model to your harness to improve performance and cost",
-      "url": "https://huggingface.co/blog/harness-adapters-at-scale",
-      "source": "Hugging Face",
-      "category": "新工具上线",
       "published_at": "2026-11-20T08:00:00+08:00"
     },
     {
@@ -252,6 +262,16 @@
       "window_hours": 720
     },
     {
+      "id": "b268c324f6e6",
+      "title": "昇腾算力训出了双榜SOTA的具身世界模型，华为云这次想把整套底座开放出来",
+      "summary": "昇腾算力训出了双榜SOTA的具身世界模型，华为云这次想把整套底座开放出来",
+      "url": "https://www.qbitai.com/2026/11/511610.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-20T00:00:00+08:00",
+      "window_hours": 720
+    },
+    {
       "id": "b6fd64654869",
       "title": "Season’s Streamings and Savings: Black Friday Deals Come to GeForce NOW",
       "summary": "GeForce NOW is kicking off Black Friday with more reasons to make time for gaming. Six-month memberships are back for a limited time. Save 30% on the first six…",
@@ -295,26 +315,6 @@
       "source": "NVIDIA AI",
       "category": "新模型发布",
       "published_at": "2026-11-18T22:00:31+08:00"
-    },
-    {
-      "id": "fc6e4b817a04",
-      "title": "GPT-6.2 Astra和Sol王炸双发！3D又危了",
-      "summary": "GPT-6.2 Astra和Sol王炸双发！3D又危了",
-      "url": "https://www.qbitai.com/2026/11/510707.html",
-      "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-11-18T00:00:00+08:00",
-      "window_hours": 720
-    },
-    {
-      "id": "7dc6954b4a03",
-      "title": "黄仁勋不再沉默：我愿重掌英伟达！董事会：不考虑",
-      "summary": "黄仁勋不再沉默：我愿重掌英伟达！董事会：不考虑",
-      "url": "https://www.qbitai.com/2026/11/510726.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-18T00:00:00+08:00",
-      "window_hours": 720
     }
   ],
   "qbitai_hot": {
@@ -329,16 +329,6 @@
         "source": "量子位",
         "category": "新模型发布",
         "published_at": "2026-11-21T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
-        "id": "fc6e4b817a04",
-        "title": "GPT-6.2 Astra和Sol王炸双发！3D又危了",
-        "summary": "GPT-6.2 Astra和Sol王炸双发！3D又危了",
-        "url": "https://www.qbitai.com/2026/11/510707.html",
-        "source": "量子位",
-        "category": "新模型发布",
-        "published_at": "2026-11-18T00:00:00+08:00",
         "window_hours": 720
       },
       {
@@ -362,13 +352,23 @@
         "window_hours": 720
       },
       {
-        "id": "7dc6954b4a03",
-        "title": "黄仁勋不再沉默：我愿重掌英伟达！董事会：不考虑",
-        "summary": "黄仁勋不再沉默：我愿重掌英伟达！董事会：不考虑",
-        "url": "https://www.qbitai.com/2026/11/510726.html",
+        "id": "213cd23b5b4e",
+        "title": "实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了",
+        "summary": "实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了",
+        "url": "https://www.qbitai.com/2026/11/512195.html",
+        "source": "量子位",
+        "category": "新模型发布",
+        "published_at": "2026-11-23T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "b268c324f6e6",
+        "title": "昇腾算力训出了双榜SOTA的具身世界模型，华为云这次想把整套底座开放出来",
+        "summary": "昇腾算力训出了双榜SOTA的具身世界模型，华为云这次想把整套底座开放出来",
+        "url": "https://www.qbitai.com/2026/11/511610.html",
         "source": "量子位",
         "category": "中文资讯",
-        "published_at": "2026-11-18T00:00:00+08:00",
+        "published_at": "2026-11-20T00:00:00+08:00",
         "window_hours": 720
       }
     ]
