@@ -229,9 +229,144 @@
     "youtube:5eON_8rgKzk",
     "youtube:ntVTAaHL5KM",
     "youtube:OrcsMi2-IcM",
-    "youtube:Lodg0K3_zqk"
+    "youtube:Lodg0K3_zqk",
+    "youtube:U5zQzSqywEY",
+    "youtube:81Jg17dQz1A"
   ],
   "batches": [
+    {
+      "date": "2026-11-25",
+      "timezone": "Asia/Shanghai",
+      "criteria": {
+        "search_sources": [
+          "youtube",
+          "bilibili"
+        ],
+        "platform_total_cap": 3,
+        "video_categories": {
+          "youtube_recent_30d": {
+            "label": "YouTube：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          },
+          "bilibili_recent_30d": {
+            "label": "B站：近 1 个月 Top 3",
+            "window": {
+              "days": 30
+            },
+            "top_count": 3,
+            "min_views": 10000
+          }
+        }
+      },
+      "categories": {
+        "youtube_recent_30d": {
+          "label": "YouTube：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "youtube:U5zQzSqywEY",
+              "platform": "youtube",
+              "title": "Artificial Intelligence Full Course for Beginners (FREE) | 12 Hours | Complete AI Course",
+              "summary": "In this 12+ hour FREE Artificial Intelligence Full Course, you’ll learn the fundamentals of AI in a simple, beginner-friendly way…",
+              "url": "https://www.youtube.com/watch?v=U5zQzSqywEY",
+              "thumbnail": "https://i.ytimg.com/vi/U5zQzSqywEY/maxresdefault.jpg",
+              "channel": "The iScale",
+              "subscribers": 0,
+              "views": 1056177,
+              "duration": "11:44:21",
+              "max_height": 1080,
+              "published_at": "2026-10-26T22:38:05+08:00"
+            },
+            {
+              "id": "youtube:KscFyux4dVk",
+              "platform": "youtube",
+              "title": "Forget Claude Code: DeepSeek + REA Clones Anything 100% FREE (No Paid API)",
+              "summary": "Clone any app for free, with zero coding, using DeepSeek Harness + REA + OpenRouter",
+              "url": "https://www.youtube.com/watch?v=KscFyux4dVk",
+              "thumbnail": "https://i.ytimg.com/vi/KscFyux4dVk/maxresdefault.jpg",
+              "channel": "Maitis",
+              "subscribers": 0,
+              "views": 233376,
+              "duration": "22:15",
+              "max_height": 1080,
+              "published_at": "2026-11-03T22:56:41+08:00"
+            },
+            {
+              "id": "youtube:81Jg17dQz1A",
+              "platform": "youtube",
+              "title": "Anthropic’s Study Just Revealed How The Top 1% Uses AI differently",
+              "summary": "🎁 Get the free Anthropic Staff Habits Toolkit (prompting framework, skills and output style) → 🚀 [Join my AI Accelerator] Get all…",
+              "url": "https://www.youtube.com/watch?v=81Jg17dQz1A",
+              "thumbnail": "https://i.ytimg.com/vi/81Jg17dQz1A/maxresdefault.jpg",
+              "channel": "Ben AI",
+              "subscribers": 0,
+              "views": 216985,
+              "duration": "19:07",
+              "max_height": 1080,
+              "published_at": "2026-11-21T23:23:12+08:00"
+            }
+          ]
+        },
+        "bilibili_recent_30d": {
+          "label": "B站：近 1 个月 Top 3",
+          "window": {
+            "days": 30
+          },
+          "top_count": 3,
+          "videos": [
+            {
+              "id": "bilibili:BV1L7xm64EHP",
+              "platform": "bilibili",
+              "title": "DeepSeek Harness 大肥鱼终极教程：新手进阶/插件生态/界面美化/手机端互通/全能鲸鱼娘【附完整文档】",
+              "summary": "【0基础完整图文版+素材】下载链接： 具体内容大家看置顶评论图集即可，建议最简单的方式就是直接把图文包扔给鲸鱼娘即可，我做的已经非常详细了，需要的一些资源都准备齐全了。希望大家能能够轻松使用完整的DSH生态哦。 友情提示，大家记得给这些开发者点一颗STRA哦",
+              "url": "https://www.bilibili.com/video/BV1L7xm64EHP",
+              "thumbnail": "video-thumbs/bilibili/BV1L7xm64EHP.jpg",
+              "channel": "WorkFisher",
+              "subscribers": 0,
+              "views": 1283299,
+              "duration": "25:37",
+              "max_height": 720,
+              "published_at": "2026-11-04T11:00:00+08:00"
+            },
+            {
+              "id": "bilibili:BV15p4v6bErb",
+              "platform": "bilibili",
+              "title": "【热门拆解】AI动画科普视频是怎么做的？AI视频涨粉90万？如何用deepseek和claude剪视频？",
+              "summary": "vibe科普视频手把手教程 15个模板带你从零基础直接搞懂～ 如何用dsh claude 做视频",
+              "url": "https://www.bilibili.com/video/BV15p4v6bErb",
+              "thumbnail": "video-thumbs/bilibili/BV15p4v6bErb.jpg",
+              "channel": "Git源宝",
+              "subscribers": 0,
+              "views": 704211,
+              "duration": "6:21",
+              "max_height": 720,
+              "published_at": "2026-11-06T17:15:00+08:00"
+            },
+            {
+              "id": "bilibili:BV1h3W76wEem",
+              "platform": "bilibili",
+              "title": "Claude(Code)桌面APP，保姆级全攻略，一期视频精通，顶级Agent软件长什么样？",
+              "summary": "最近Claude桌面端（Claude Desktop） 有了一大波功能更新。随着一步步的迭代，它已经把 Claude Code 的编程、Claude Design 的设计，以及 Claude Cowork 的办公等核心能力，全部收入了同一个桌面客户端，特别是…",
+              "url": "https://www.bilibili.com/video/BV1h3W76wEem",
+              "thumbnail": "video-thumbs/bilibili/BV1h3W76wEem.jpg",
+              "channel": "技术爬爬虾",
+              "subscribers": 0,
+              "views": 448097,
+              "duration": "47:14",
+              "max_height": 720,
+              "published_at": "2026-11-08T17:14:07+08:00"
+            }
+          ]
+        }
+      }
+    },
     {
       "date": "2026-11-24",
       "timezone": "Asia/Shanghai",
@@ -7592,140 +7727,7 @@
           ]
         }
       }
-    },
-    {
-      "date": "2026-09-26",
-      "timezone": "Asia/Shanghai",
-      "criteria": {
-        "search_sources": [
-          "youtube",
-          "bilibili"
-        ],
-        "platform_total_cap": 3,
-        "video_categories": {
-          "youtube_recent_30d": {
-            "label": "YouTube：近 1 个月 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          },
-          "bilibili_recent_30d": {
-            "label": "B站：近 1 个月 Top 3",
-            "window": {
-              "days": 30
-            },
-            "top_count": 3,
-            "min_views": 10000
-          }
-        }
-      },
-      "categories": {
-        "youtube_recent_30d": {
-          "label": "YouTube：近 1 个月 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "youtube:EDxVn1q8udE",
-              "platform": "youtube",
-              "title": "DeepSeek Harness Setup: A Free Claude Code You Own In 10 Minutes",
-              "summary": "You can subscribe to my newsletter so you never miss a drop: DeepSeek Harness Link: DeepSeek Harness is an open-source coding age…",
-              "url": "https://www.youtube.com/watch?v=EDxVn1q8udE",
-              "thumbnail": "https://i.ytimg.com/vi/EDxVn1q8udE/maxresdefault.jpg",
-              "channel": "Sharbel A.",
-              "subscribers": 0,
-              "views": 244284,
-              "duration": "13:10",
-              "max_height": 1080,
-              "published_at": "2026-08-28T22:00:23+08:00"
-            },
-            {
-              "id": "youtube:o3CX_Y59_74",
-              "platform": "youtube",
-              "title": "OpenAI Codex Crash Course – Build & Deploy Apps with Autonomous AI",
-              "summary": "Learn the core fundamentals of OpenAI Codex, from setting up scheduled automations and custom skills to mastering Plan and Go mod…",
-              "url": "https://www.youtube.com/watch?v=o3CX_Y59_74",
-              "thumbnail": "https://i.ytimg.com/vi/o3CX_Y59_74/maxresdefault.jpg",
-              "channel": "freeCodeCamp.org",
-              "subscribers": 0,
-              "views": 144664,
-              "duration": "41:19",
-              "max_height": 1080,
-              "published_at": "2026-09-10T23:04:22+08:00"
-            },
-            {
-              "id": "youtube:1PRcdCu8n6M",
-              "platform": "youtube",
-              "title": "How to Use Claude Artifacts (Beginner Tutorial)",
-              "summary": "Learn how to use Claude Artifacts to build apps, websites, dashboards, games, and interactive AI tools, all without writing code",
-              "url": "https://www.youtube.com/watch?v=1PRcdCu8n6M",
-              "thumbnail": "https://i.ytimg.com/vi/1PRcdCu8n6M/maxresdefault.jpg",
-              "channel": "Kevin Stratvert",
-              "subscribers": 0,
-              "views": 106518,
-              "duration": "12:42",
-              "max_height": 1080,
-              "published_at": "2026-09-03T15:00:28+08:00"
-            }
-          ]
-        },
-        "bilibili_recent_30d": {
-          "label": "B站：近 1 个月 Top 3",
-          "window": {
-            "days": 30
-          },
-          "top_count": 3,
-          "videos": [
-            {
-              "id": "bilibili:BV1CMtR6YEj4",
-              "platform": "bilibili",
-              "title": "当我用豆包工作agent做个背单词游戏",
-              "summary": "【小白debug】讲解 AI 工具实战应用，围绕「当我用豆包工作agent做个背单词游戏」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV1CMtR6YEj4",
-              "thumbnail": "video-thumbs/bilibili/BV1CMtR6YEj4.jpg",
-              "channel": "小白debug",
-              "subscribers": 0,
-              "views": 1005778,
-              "duration": "6:41",
-              "max_height": 720,
-              "published_at": "2026-09-05T12:05:00+08:00"
-            },
-            {
-              "id": "bilibili:BV1nPY46cEWA",
-              "platform": "bilibili",
-              "title": "这19年iPhone变化这么大？？当我用豆包工作做了一个在线博物馆【附AI教程】",
-              "summary": "苹果发布会马上就要开始拉，出发前这两天把从2007年初代iPhone到现在的19年产品历史，做成了一座能逛、能投票、还能直接拉两代机型对比的网页博物馆。 整个项目基本都是用豆包工作做的，从网页、历代产品图，到后面的折叠屏概念广告，一路做一路返工。中间也没少翻…",
-              "url": "https://www.bilibili.com/video/BV1nPY46cEWA",
-              "thumbnail": "video-thumbs/bilibili/BV1nPY46cEWA.jpg",
-              "channel": "在下小苏",
-              "subscribers": 0,
-              "views": 333193,
-              "duration": "",
-              "max_height": 720,
-              "published_at": "2026-09-09T17:21:43+08:00"
-            },
-            {
-              "id": "bilibili:BV154426xEha",
-              "platform": "bilibili",
-              "title": "我的 AI 编程全流程：如何使用 AI 稳定交付一个高质量的产品",
-              "summary": "【马克的技术工作坊】讲解 AI 工具实战应用，围绕「我的 AI 编程全流程：如何使用 AI 稳定交付一个高质量的产品」展示操作步骤与使用技巧。",
-              "url": "https://www.bilibili.com/video/BV154426xEha",
-              "thumbnail": "video-thumbs/bilibili/BV154426xEha.jpg",
-              "channel": "马克的技术工作坊",
-              "subscribers": 0,
-              "views": 231084,
-              "duration": "24:55",
-              "max_height": 720,
-              "published_at": "2026-08-29T19:38:24+08:00"
-            }
-          ]
-        }
-      }
     }
   ],
-  "updated_at": "2026-11-24T12:41:35.969423+08:00"
+  "updated_at": "2026-11-25T11:28:20.661369+08:00"
 }
