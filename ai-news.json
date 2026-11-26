@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-25T21:39:54.319683+08:00",
-  "date": "2026-11-25",
+  "updated_at": "2026-11-26T08:46:31.859936+08:00",
+  "date": "2026-11-26",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -15,13 +15,58 @@
   },
   "items": [
     {
-      "id": "b4817ec40d9d",
-      "title": "9400万参数硬刚50亿，权重显存直降98%！Loop架构被这家中国团队玩明白了",
-      "summary": "揭秘General Looped Model",
-      "url": "https://www.qbitai.com/2026/11/512565.html",
+      "id": "37b5c9ba9326",
+      "title": "Where scientists draw the line on AI agents",
+      "summary": "Where scientists draw the line on AI agents",
+      "url": "https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-26T02:52:55+08:00"
+    },
+    {
+      "id": "3043f56e6b39",
+      "title": "我以为这是摄影作品，你告诉我这是最新的国产AI？！",
+      "summary": "商汤SenseNova U1.6",
+      "url": "https://www.qbitai.com/2026/11/512748.html",
       "source": "量子位",
-      "category": "新模型发布",
-      "published_at": "2026-11-25T19:07:14+08:00"
+      "category": "中文资讯",
+      "published_at": "2026-11-26T00:34:09+08:00"
+    },
+    {
+      "id": "3cb2871a2da4",
+      "title": "丢个故事就行！直出15分钟AI短片，家里二舅也能上手",
+      "summary": "丢个故事就行！直出15分钟AI短片，家里二舅也能上手",
+      "url": "https://www.qbitai.com/2026/11/512727.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-25T22:51:06+08:00"
+    },
+    {
+      "id": "45e2e7f383aa",
+      "title": "零基础也能做开发，智元灵心平台一年孵化超3万个机器人智能体",
+      "summary": "智元推出行业首个开放且完整的具身智能生态技术体系AIMA",
+      "url": "https://www.qbitai.com/2026/11/512715.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-25T22:32:57+08:00"
+    },
+    {
+      "id": "2203f5966aa2",
+      "title": "算力唤醒真实世界：九章云极发布物理AI工厂与生态开放计划",
+      "summary": "11月25日，以“算力唤醒真实世界”为主题的2026物理AI行业峰会暨九章云极智算生态大会在深圳举行。",
+      "url": "https://www.qbitai.com/2026/11/512582.html",
+      "source": "量子位",
+      "category": "新工具上线",
+      "published_at": "2026-11-25T22:21:20+08:00"
+    },
+    {
+      "id": "b59a8f2fd288",
+      "title": "逐际动⼒与商汤⼤装置达成合作，以高质量算力全⾯⽀撑机器⼈仿真训练与测试",
+      "summary": "贯通具⾝智能研发流程",
+      "url": "https://www.qbitai.com/2026/11/512683.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-11-25T22:20:24+08:00"
     },
     {
       "id": "d0a3a7f662b5",
@@ -33,40 +78,13 @@
       "published_at": "2026-11-25T18:22:09+08:00"
     },
     {
-      "id": "bc7248d5d33a",
-      "title": "Anthropic还藏着2个最强模型…",
-      "summary": "Fable5.2已经很旧了。",
-      "url": "https://www.qbitai.com/2026/11/512538.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-25T16:23:24+08:00"
-    },
-    {
-      "id": "dc2be766855c",
-      "title": "完整议程！第二十一届中国IDC产业年度大典（IDCC2026）",
-      "summary": "第二十一届中国IDC产业年度大典（IDCC2026）暨2026全球数字基础设施科技展即将举办",
-      "url": "https://www.qbitai.com/2026/11/512532.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-25T16:18:54+08:00"
-    },
-    {
-      "id": "c220f10f59dc",
-      "title": "A社Tibo被曝加盟OpenAI！上市前离职三人组异地团圆",
-      "summary": "OpenAI这下要有俩Tibo了",
-      "url": "https://www.qbitai.com/2026/11/512515.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-25T15:46:52+08:00"
-    },
-    {
-      "id": "44100d5ba39a",
-      "title": "华人计算机视觉泰斗二次创业！离开苹果下场，专注下一代空间与物理AI",
-      "summary": "复杂场景三维建模成本降至10美元以内",
-      "url": "https://www.qbitai.com/2026/11/512498.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-25T14:49:27+08:00"
+      "id": "d8d6777ecf09",
+      "title": "Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
+      "summary": "Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
+      "url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-25T08:00:00+08:00"
     },
     {
       "id": "16565a3f5dc0",
@@ -85,6 +103,15 @@
       "source": "Google AI",
       "category": "新模型发布",
       "published_at": "2026-11-25T00:00:00+08:00"
+    },
+    {
+      "id": "dd94f7af62fb",
+      "title": "From spectrum to structure: Identifying molecules with Mass Spec Skills for Google Antigravity",
+      "summary": "Mass Spec Skills empowers scientists using Google Antigravity to interpret tandem mass spectra.",
+      "url": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/",
+      "source": "Google DeepMind",
+      "category": "新模型发布",
+      "published_at": "2026-11-24T21:07:53+08:00"
     },
     {
       "id": "3c6728c1bfd1",
@@ -130,15 +157,6 @@
       "source": "OpenAI",
       "category": "新模型发布",
       "published_at": "2026-11-24T08:00:00+08:00"
-    },
-    {
-      "id": "ca38829e7312",
-      "title": "RoboTrack: Point tracking for real-world robotic manipulation",
-      "summary": "RoboTrack: Point tracking for real-world robotic manipulation",
-      "url": "https://huggingface.co/blog/allenai/robotrack",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-11-24T01:20:37+08:00"
     },
     {
       "id": "5080a13c0be9",
@@ -207,15 +225,6 @@
       "window_hours": 720
     },
     {
-      "id": "80d31a6dee29",
-      "title": "Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup",
-      "summary": "Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup",
-      "url": "https://huggingface.co/blog/inkling2mini",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-11-20T08:00:00+08:00"
-    },
-    {
       "id": "fe6303fbf7c4",
       "title": "NVIDIA and Microsoft Expand Accelerated Computing From Azure to Windows PCs",
       "summary": "NVIDIA and Microsoft are extending their full-stack collaboration to help organizations build, customize and deploy intelligent applications — from next-genera…",
@@ -279,42 +288,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-19T22:00:12+08:00"
-    },
-    {
-      "id": "0c3c8b23c6ca",
-      "title": "Introducing Gemini 4 Neon",
-      "summary": "Introducing Gemini 4 Neon",
-      "url": "https://deepmind.google/blog/introducing-gemini-4-neon/",
-      "source": "Google DeepMind",
-      "category": "新工具上线",
-      "published_at": "2026-11-19T05:35:43+08:00"
-    },
-    {
-      "id": "652211f5c064",
-      "title": "Genie 4 is now available",
-      "summary": "Genie 4 is now available",
-      "url": "https://deepmind.google/blog/genie-4-is-now-available/",
-      "source": "Google DeepMind",
-      "category": "新模型发布",
-      "published_at": "2026-11-19T02:13:42+08:00"
-    },
-    {
-      "id": "03ca256a4adf",
-      "title": "The Gemini app is now available on lower-memory Android devices.",
-      "summary": "The Google Gemini app now supports lower-memory Android devices. Access Gemini Live and custom image creation on your phone. Download the app today.",
-      "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/",
-      "source": "Google AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-19T01:00:00+08:00"
-    },
-    {
-      "id": "2f5d6d63b059",
-      "title": "NVIDIA RTX Spark Compact Desktops Out Now",
-      "summary": "New NVIDIA RTX Spark compact desktops from ASUS, Dell and MSI are available today, bringing local AI agents, image and video generation, and model fine-tuning …",
-      "url": "https://blogs.nvidia.com/blog/rtx-spark-desktop-local-ai-available-now/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-18T22:00:31+08:00"
     }
   ],
   "qbitai_hot": {
