@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-27T08:53:03.394013+08:00",
+  "updated_at": "2026-11-27T21:13:36.420718+08:00",
   "date": "2026-11-27",
   "cadence": "daily",
   "window_hours": 168,
@@ -15,6 +15,105 @@
   },
   "items": [
     {
+      "id": "005b7c4e65ee",
+      "title": "全国首批首家！商汤大装置获Token工厂智算能力最高评级",
+      "summary": "商汤大装置Token工厂获得中国信通院Token工厂智算能力评估“全栈服务型·领先级”评级认证",
+      "url": "https://www.qbitai.com/2026/11/513346.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-27T19:18:24+08:00"
+    },
+    {
+      "id": "cc54ca76b885",
+      "title": "韦东奕再获大奖！攻克近140年数学难题，获两位院士共同提名",
+      "summary": "淡泊名利，实至名归🎉",
+      "url": "https://www.qbitai.com/2026/11/513320.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-27T15:39:18+08:00"
+    },
+    {
+      "id": "4d9d55e7b393",
+      "title": "DeepSeek APP突然更新账单，网友：要收费了？",
+      "summary": "网页App双端亮出聊天账单",
+      "url": "https://www.qbitai.com/2026/11/513305.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-27T15:29:10+08:00"
+    },
+    {
+      "id": "44a871db658d",
+      "title": "刚刚，首个带跨任务空间记忆的原生基模开源！机器人端侧就能跑",
+      "summary": "地图能随时修，记忆能跨任务用",
+      "url": "https://www.qbitai.com/2026/11/513227.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-27T15:01:20+08:00"
+    },
+    {
+      "id": "5aa9e3310d13",
+      "title": "Context Scaling: A New Frontier of AI Scaling",
+      "summary": "arXiv:2611.33160v1 Announce Type: new Abstract: Many failures of deployed AI arise not from weak inference but from a mismatch between the state a task depends…",
+      "url": "https://arxiv.org/abs/2611.33160",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-27T13:00:00+08:00"
+    },
+    {
+      "id": "3965806fbc78",
+      "title": "Constraint-Aware Test-Time Scoring for LLM and VLM Candidate Selection",
+      "summary": "arXiv:2611.33161v1 Announce Type: new Abstract: When an LLM or VLM produces several candidate answers, picking the best one usually relies on the model's own c…",
+      "url": "https://arxiv.org/abs/2611.33161",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-27T13:00:00+08:00"
+    },
+    {
+      "id": "be1cc5587b8c",
+      "title": "AutoformBench: A Lean Formalization Benchmark for Advanced Mathematics",
+      "summary": "arXiv:2611.33165v1 Announce Type: new Abstract: AI systems are increasingly capable of producing machine-checked Lean proofs of advanced mathematical results. …",
+      "url": "https://arxiv.org/abs/2611.33165",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-27T13:00:00+08:00"
+    },
+    {
+      "id": "c8682f048617",
+      "title": "General-Purpose Decision Models for AI Configuration Tuning",
+      "summary": "arXiv:2611.33190v1 Announce Type: new Abstract: AI configuration tuning searches for settings that improve the performance of AI systems under a limited budget…",
+      "url": "https://arxiv.org/abs/2611.33190",
+      "source": "arXiv cs.AI",
+      "category": "开源项目",
+      "published_at": "2026-11-27T13:00:00+08:00"
+    },
+    {
+      "id": "ef0eeffeb9e1",
+      "title": "What, Who, and When: Structured Harm Assessment for Mental Health Safety via Short Reasoning",
+      "summary": "arXiv:2611.33263v1 Announce Type: new Abstract: The growing use of large language models (LLMs) for mental health support raises important safety concerns. Exi…",
+      "url": "https://arxiv.org/abs/2611.33263",
+      "source": "arXiv cs.AI",
+      "category": "新工具上线",
+      "published_at": "2026-11-27T13:00:00+08:00"
+    },
+    {
+      "id": "22df109b65d8",
+      "title": "钛动科技 × 腾讯云达成战略合作，用AI打开企业全球增长新空间",
+      "summary": "企业需要有用的 AI",
+      "url": "https://www.qbitai.com/2026/11/513194.html",
+      "source": "量子位",
+      "category": "行业新闻",
+      "published_at": "2026-11-27T12:05:56+08:00"
+    },
+    {
+      "id": "2d7f8b4f8454",
+      "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+      "summary": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+      "url": "https://huggingface.co/blog/video-trainium3",
+      "source": "Hugging Face",
+      "category": "开源项目",
+      "published_at": "2026-11-27T08:00:00+08:00"
+    },
+    {
       "id": "99043acd3b6a",
       "title": "Come for the Games, Stay for the Community With GeForce NOW",
       "summary": "Good games bring people together. This GFN Thursday, GeForce NOW is celebrating the members, creators and community moderators who turn every session into some…",
@@ -22,24 +121,6 @@
       "source": "NVIDIA AI",
       "category": "行业新闻",
       "published_at": "2026-11-26T22:00:22+08:00"
-    },
-    {
-      "id": "bde07cc51df5",
-      "title": "381个AI直播冲刺证明P=NP！把GitHub干崩了",
-      "summary": "已跑了超过一万次会话，在Lean4里验证通过了2400多条引理",
-      "url": "https://www.qbitai.com/2026/11/513021.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-26T21:56:01+08:00"
-    },
-    {
-      "id": "9d4216d97ef5",
-      "title": "AI 3D界的“X光”来了！一图直出巴洛克雕塑，3D打印开箱即用",
-      "summary": "还得是科班尖子生",
-      "url": "https://www.qbitai.com/2026/11/512981.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-26T20:39:08+08:00"
     },
     {
       "id": "02a088434703",
@@ -51,33 +132,6 @@
       "published_at": "2026-11-26T19:37:17+08:00"
     },
     {
-      "id": "2a9ecf843209",
-      "title": "90 秒自动换装补能，具微科技“潘多拉”支撑机器人无人化值守",
-      "summary": "全栈方案破解工业机器人连续作业难题",
-      "url": "https://www.qbitai.com/2026/11/512972.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-26T18:07:55+08:00"
-    },
-    {
-      "id": "2c605e196bd0",
-      "title": "极客公园创新大会 2027 全议程公布！",
-      "summary": "今天，IF 2027 全议程揭晓。",
-      "url": "https://www.qbitai.com/2026/11/512952.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-26T16:19:20+08:00"
-    },
-    {
-      "id": "be49b5911a18",
-      "title": "报名最后2天｜AI浪潮之中，来认识创造未来的人",
-      "summary": "12月6日，WAIC将携手第六届“海聚英才”全球创新创业峰会，把这场关于“人”的讨论带回现场。",
-      "url": "https://www.qbitai.com/2026/11/512942.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-26T15:36:04+08:00"
-    },
-    {
       "id": "d3aa48daa62d",
       "title": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference",
       "summary": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference",
@@ -85,51 +139,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-11-26T13:05:36+08:00"
-    },
-    {
-      "id": "dce071d6582a",
-      "title": "Irreducible Governance Structure for Autonomous Agent Systems: Fair Allocation, Strategy-Proofness, and Multi-Scale Composition",
-      "summary": "arXiv:2611.31284v1 Announce Type: new Abstract: Autonomous agent governance is commonly framed as a problem of enforcing correct execution. However, in multi-a…",
-      "url": "https://arxiv.org/abs/2611.31284",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-26T13:00:00+08:00"
-    },
-    {
-      "id": "b02e0bf3eddf",
-      "title": "MOZAIC: An Audio-Video Deepfake Benchmark for Telling What Is Fake",
-      "summary": "arXiv:2611.31301v2 Announce Type: new Abstract: Audio-video (AV) deepfakes can fake the face, the voice, or both. Most benchmarks only ask whether a clip is re…",
-      "url": "https://arxiv.org/abs/2611.31301",
-      "source": "arXiv cs.AI",
-      "category": "新工具上线",
-      "published_at": "2026-11-26T13:00:00+08:00"
-    },
-    {
-      "id": "9b5199cc4b2a",
-      "title": "Conservative Overlap Fuzzy Rough Sets for Incomplete Data",
-      "summary": "arXiv:2611.31329v1 Announce Type: new Abstract: Attribute reduction in incomplete information systems is difficult because missing values break the equivalence…",
-      "url": "https://arxiv.org/abs/2611.31329",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-26T13:00:00+08:00"
-    },
-    {
-      "id": "bc1d896f2583",
-      "title": "Beyond Static Charts: Benchmarking Interactive Chart-to-Code Generation for MLLMs",
-      "summary": "arXiv:2611.31345v1 Announce Type: new Abstract: In recent years, multimodal large language models (MLLMs) have achieved significant progress in chart-to-code g…",
-      "url": "https://arxiv.org/abs/2611.31345",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-26T13:00:00+08:00"
-    },
-    {
-      "id": "9a43d7dd6fad",
-      "title": "What People Choose Not to Say: A Multimodal Benchmark for Fine-Grained Information Manipulation in Conversations",
-      "summary": "arXiv:2611.31346v1 Announce Type: new Abstract: Recent advances in MLLMs have improved social understanding, enabling models to recognize emotions and distingu…",
-      "url": "https://arxiv.org/abs/2611.31346",
-      "source": "arXiv cs.AI",
-      "category": "开源项目",
-      "published_at": "2026-11-26T13:00:00+08:00"
     },
     {
       "id": "c01600d41603",
@@ -148,15 +157,6 @@
       "source": "Hugging Face",
       "category": "开源项目",
       "published_at": "2026-11-26T02:52:55+08:00"
-    },
-    {
-      "id": "d0a3a7f662b5",
-      "title": "An Indic Voice Agent with CUGA",
-      "summary": "An Indic Voice Agent with CUGA",
-      "url": "https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga",
-      "source": "Hugging Face",
-      "category": "开源项目",
-      "published_at": "2026-11-25T18:22:09+08:00"
     },
     {
       "id": "8d6c7c64bc85",
@@ -289,13 +289,13 @@
       "window_hours": 720
     },
     {
-      "id": "3e97e19d49f6",
-      "title": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
-      "summary": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
-      "url": "https://www.qbitai.com/2026/11/511582.html",
+      "id": "7f1a3b20b925",
+      "title": "8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准",
+      "summary": "8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准",
+      "url": "https://www.qbitai.com/2026/11/511841.html",
       "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-20T00:00:00+08:00",
+      "category": "新工具上线",
+      "published_at": "2026-11-21T00:00:00+08:00",
       "window_hours": 720
     }
   ],
@@ -324,16 +324,6 @@
         "window_hours": 720
       },
       {
-        "id": "3e97e19d49f6",
-        "title": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
-        "summary": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
-        "url": "https://www.qbitai.com/2026/11/511582.html",
-        "source": "量子位",
-        "category": "中文资讯",
-        "published_at": "2026-11-20T00:00:00+08:00",
-        "window_hours": 720
-      },
-      {
         "id": "213cd23b5b4e",
         "title": "实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了",
         "summary": "实测：1450亿参数塞进笔记本，每秒狂飙80+Token！国产端侧大模型杀疯了",
@@ -351,6 +341,16 @@
         "source": "量子位",
         "category": "中文资讯",
         "published_at": "2026-11-24T00:00:00+08:00",
+        "window_hours": 720
+      },
+      {
+        "id": "7f1a3b20b925",
+        "title": "8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准",
+        "summary": "8万条群聊消息做成考卷：腾讯元宝×KCL发布首个基于群聊构建的Agent记忆基准",
+        "url": "https://www.qbitai.com/2026/11/511841.html",
+        "source": "量子位",
+        "category": "新工具上线",
+        "published_at": "2026-11-21T00:00:00+08:00",
         "window_hours": 720
       }
     ]
