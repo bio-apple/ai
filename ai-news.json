@@ -1,6 +1,6 @@
 {
-  "updated_at": "2026-11-26T21:15:50.227784+08:00",
-  "date": "2026-11-26",
+  "updated_at": "2026-11-27T08:53:03.394013+08:00",
+  "date": "2026-11-27",
   "cadence": "daily",
   "window_hours": 168,
   "window_days": 7,
@@ -14,6 +14,33 @@
     "keep": "latest_published_at"
   },
   "items": [
+    {
+      "id": "99043acd3b6a",
+      "title": "Come for the Games, Stay for the Community With GeForce NOW",
+      "summary": "Good games bring people together. This GFN Thursday, GeForce NOW is celebrating the members, creators and community moderators who turn every session into some…",
+      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-community-war-thunder-reward/",
+      "source": "NVIDIA AI",
+      "category": "行业新闻",
+      "published_at": "2026-11-26T22:00:22+08:00"
+    },
+    {
+      "id": "bde07cc51df5",
+      "title": "381个AI直播冲刺证明P=NP！把GitHub干崩了",
+      "summary": "已跑了超过一万次会话，在Lean4里验证通过了2400多条引理",
+      "url": "https://www.qbitai.com/2026/11/513021.html",
+      "source": "量子位",
+      "category": "开源项目",
+      "published_at": "2026-11-26T21:56:01+08:00"
+    },
+    {
+      "id": "9d4216d97ef5",
+      "title": "AI 3D界的“X光”来了！一图直出巴洛克雕塑，3D打印开箱即用",
+      "summary": "还得是科班尖子生",
+      "url": "https://www.qbitai.com/2026/11/512981.html",
+      "source": "量子位",
+      "category": "中文资讯",
+      "published_at": "2026-11-26T20:39:08+08:00"
+    },
     {
       "id": "02a088434703",
       "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
@@ -49,15 +76,6 @@
       "source": "量子位",
       "category": "中文资讯",
       "published_at": "2026-11-26T15:36:04+08:00"
-    },
-    {
-      "id": "e55362f3820b",
-      "title": "顶尖商用级AI视频每秒只要5毛！中国开源新势力拿下全球第一",
-      "summary": "30秒一镜到底，可自动编排镜头",
-      "url": "https://www.qbitai.com/2026/11/512916.html",
-      "source": "量子位",
-      "category": "开源项目",
-      "published_at": "2026-11-26T14:41:23+08:00"
     },
     {
       "id": "d3aa48daa62d",
@@ -112,15 +130,6 @@
       "source": "arXiv cs.AI",
       "category": "开源项目",
       "published_at": "2026-11-26T13:00:00+08:00"
-    },
-    {
-      "id": "097626610623",
-      "title": "任少卿带着世界模型3.0来了！蔚来智驾训练提效5倍，座舱也用上强化学习",
-      "summary": "李斌坦言：不做AI变革可能活不下去",
-      "url": "https://www.qbitai.com/2026/11/512897.html",
-      "source": "量子位",
-      "category": "中文资讯",
-      "published_at": "2026-11-26T11:23:35+08:00"
     },
     {
       "id": "c01600d41603",
@@ -280,42 +289,6 @@
       "window_hours": 720
     },
     {
-      "id": "fe6303fbf7c4",
-      "title": "NVIDIA and Microsoft Expand Accelerated Computing From Azure to Windows PCs",
-      "summary": "NVIDIA and Microsoft are extending their full-stack collaboration to help organizations build, customize and deploy intelligent applications — from next-genera…",
-      "url": "https://blogs.nvidia.com/blog/microsoft-ignite-accelerated-computing-azure-windows-pcs/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-20T04:00:15+08:00"
-    },
-    {
-      "id": "57728669e048",
-      "title": "Introducing Tool Retrieval in the Gemini API",
-      "summary": "Give your agents access to hundreds of tools while using fewer tokens with Tool Retrieval, now in preview in the Gemini API.",
-      "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
-      "source": "Google AI",
-      "category": "新工具上线",
-      "published_at": "2026-11-20T02:00:00+08:00"
-    },
-    {
-      "id": "baf7193e75c1",
-      "title": "Into the Omniverse: How Developers Turn Ideas Into Simulations With Frontier AI Agents",
-      "summary": "Turning a simulation idea into a working application means assembling assets, connecting physics and rendering, and checking that the scene behaves as intended…",
-      "url": "https://blogs.nvidia.com/blog/developers-simulation-frontier-ai-agents/",
-      "source": "NVIDIA AI",
-      "category": "新模型发布",
-      "published_at": "2026-11-20T01:00:35+08:00"
-    },
-    {
-      "id": "c3e7758a2373",
-      "title": "Walter Isaacson on curiosity and creativity in the AI age.",
-      "summary": "Walter Isaacson joins Google to discuss how history’s greatest innovators inspire creativity and human judgment in the AI age. Watch the episode.",
-      "url": "https://blog.google/innovation-and-ai/technology/ai/dialogues-walter-isaacson/",
-      "source": "Google AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-20T01:00:00+08:00"
-    },
-    {
       "id": "3e97e19d49f6",
       "title": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
       "summary": "双系统决策+双层自进化，Agnes让Agent效率最高提速14倍，成本骤降至1/27！",
@@ -324,15 +297,6 @@
       "category": "中文资讯",
       "published_at": "2026-11-20T00:00:00+08:00",
       "window_hours": 720
-    },
-    {
-      "id": "b6fd64654869",
-      "title": "Season’s Streamings and Savings: Black Friday Deals Come to GeForce NOW",
-      "summary": "GeForce NOW is kicking off Black Friday with more reasons to make time for gaming. Six-month memberships are back for a limited time. Save 30% on the first six…",
-      "url": "https://blogs.nvidia.com/blog/geforce-now-thursday-black-friday-2026/",
-      "source": "NVIDIA AI",
-      "category": "行业新闻",
-      "published_at": "2026-11-19T22:00:12+08:00"
     }
   ],
   "qbitai_hot": {
